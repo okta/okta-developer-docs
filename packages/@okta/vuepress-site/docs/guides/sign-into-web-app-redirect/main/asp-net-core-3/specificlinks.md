@@ -1,3 +1,5 @@
+* If you're working with an existing application and need lower-level access to validate access tokens see the [JWT validation guide](/code/dotnet/jwt-validation/).
+
 Okta Developer Blog:
 
 * [Add user authentication and Okta Resource Management to your ASP.NET Core app](/code/dotnet/aspnetcore/)

@@ -1,68 +1,83 @@
-1. Add the following code to return the user's info upon a successful sign-in flow (again, see [`server/controller.go`](https://github.com/okta-samples/okta-go-gin-sample/blob/main/server/controller.go)):
+After a user has signed in, the application receives ID and access tokens from Okta and keeps them in session storage. In this section, you create a simple profile page that uses an access token to query for and display a user's basic information.
+
+1. Add a route handler for `/profile` to `main()` in `main.go`:
 
    ```go
-   func getProfileData(r *http.Request) (map[string]string, error) {
+   http.HandleFunc("/profile", ProfileHandler)
+   ```
+
+1. Define the handler function:
+
+   ```go
+   func ProfileHandler(w http.ResponseWriter, r *http.Request) {
+      type customData struct {
+         Profile         map[string]string
+         IsAuthenticated bool
+      }
+
+      data := customData{
+         Profile:         getProfileData(r),
+         IsAuthenticated: isAuthenticated(r),
+      }
+      tpl.ExecuteTemplate(w, "profile.gohtml", data)
+   }
+   ```
+
+1. Add the following function to request the user's info upon a successful sign-in flow:
+
+   ```go
+   func getProfileData(r *http.Request) map[string]string {
       m := make(map[string]string)
 
-      session, err := sessionStore.Get(r, "okta-hosted-login-session-store")
+      session, err := sessionStore.Get(r, "okta-hosted-signin-session-store")
 
       if err != nil || session.Values["access_token"] == nil || session.Values["access_token"] == "" {
-         return m, nil
+         return m
       }
 
-      reqUrl := os.Getenv("OKTA_OAUTH2_ISSUER") + "/v1/userinfo"
+      reqUrl := os.Getenv("ISSUER") + "/v1/userinfo"
 
-      req, err := http.NewRequest("GET", reqUrl, nil)
-      if err != nil {
-         return m, err
-      }
-
+      req, _ := http.NewRequest("GET", reqUrl, bytes.NewReader([]byte("")))
       h := req.Header
       h.Add("Authorization", "Bearer "+session.Values["access_token"].(string))
       h.Add("Accept", "application/json")
 
       client := &http.Client{}
-      resp, err := client.Do(req)
-      if err != nil {
-         return m, err
-      }
+      resp, _ := client.Do(req)
+      body, _ := io.ReadAll(resp.Body)
       defer resp.Body.Close()
-
-      body, err := ioutil.ReadAll(resp.Body)
-      if err != nil {
-         return m, err
-      }
-
       json.Unmarshal(body, &m)
 
-      return m, nil
+      return m
    }
    ```
 
-2. You can use this code from a route handler. For example:
+1. Finally, create `templates\profile.gohtml` to display the user's information:
 
-   ```go
-   func IndexHandler(c *gin.Context) {
-      log.Println("Loading main page")
+   ```html
+   {{template "header" .}}
+   <div>
+      <h2>My Profile</h2>
+      <p>Hello, <span>{{ .Profile.name }}</span>.
+      </p>
+   </div>
 
-      errorMsg := ""
-
-      profile, err := getProfileData(c.Request)
-
-      if err != nil {
-         errorMsg = err.Error()
-      }
-
-      c.HTML(
-         // Set the HTTP status to 200 (OK)
-         http.StatusOK,
-         // Use the index.gohtml template
-         "index.gohtml",
-         // Pass the data that the page uses
-         gin.H{
-            "Profile":         profile,
-            "Error":           errorMsg,
-         },
-      )
-   }
+   <table>
+      <thead>
+      <tr>
+         <th>Claim</th>
+         <th>Value</th>
+      </tr>
+      </thead>
+      <tbody>
+         {{ range $key, $value := .Profile }}
+         <tr>
+            <td>{{ $key }}</td>
+            <td id="claim-{{$key}}">{{ $value }}</td>
+         </tr>
+         {{ end }}
+      </tbody>
+   </table>
+   </div>
+   {{template "footer"}}
    ```

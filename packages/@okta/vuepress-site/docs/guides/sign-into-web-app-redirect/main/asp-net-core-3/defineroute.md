@@ -1,30 +1,27 @@
-To sign users in, your application redirects the browser to an Okta-hosted sign-in page. Okta then redirects back to your application with information about the user. You can learn more about how this works on [Okta-hosted flows](https://developer.okta.com/docs/concepts/okta-hosted-flows/).
+The Okta ASP.NET Core SDK configures and hosts both sign-in and sign-out callback routes for you in your web application. By default, the sign-in route is hosted at `/authorization-code/callback` and the sign-out route is hosted at `/signout/callback`.
 
-Your web application must host a route that Okta sends information to when a user signs in. This route is called a callback route or redirect URI. The callback route isn't seen by the user, and it's not the user's final destination. It's just one step in the authentication redirect flow.
+Check that the redirect URIs of your Okta app integration match the development URLs that Visual Studio assigned to your app.
 
-Similarly, when your web application contacts Okta to sign a user out, Okta redirects the browser to a sign-out redirect URI that the application must also host.
-
-The Okta ASP.NET Core SDK configures and hosts these routes for you in your web app. By default, the sign-in route is hosted at `/authorization-code/callback` and the sign-out route is hosted at `/signout/callback`. You need to update the redirect URIs of your Okta app integration to reflect the development URLs that Visual Studio assigned to your app.
-
-1. In Visual Studio, open **Properties** > **launchSettings.json**.
-2. Make a note of the **sslPort** settings under **iisExpress**. In the example below, that's `44300`.
+1. Open the **Properties** > **launchSettings.json** file.
+1. Make note of the **sslPort** settings under **iisExpress**. In the following code, that's `44314`.
 
    ```json
    "iisSettings": {
      "windowsAuthentication": false,
      "anonymousAuthentication": true,
      "iisExpress": {
-       "applicationUrl": "http://localhost:1544",
-       "sslPort": 44300
+       "applicationUrl": "http://localhost:8080",
+       "sslPort": 44314
      }
    }
    ```
 
-3. Open the Okta Admin Console.
-4. Select **Applications** > **Applications** from the left navigation.
-5. Click the entry for your application integration.
-6. Click **Edit** on the **General** tab.
-7. Scroll down to the **LOGIN** section.
-8. Edit the **Sign-in redirect URIs** to use the **sslPort** that you made note of earlier, for example `https://localhost:44300/authorization-code/callback`.
-9. Edit the **Sign-out redirect URIs** to use the **sslPort** that you made note of earlier, for example `https://localhost:44300/signout/callback`
-10. Click **Save**.
+If this differs from the SSL port used as part of the callback URLs you set earlier when [creating an app integration in the Admin Console](#create-an-app-integration-in-the-admin-console), update the URLs to match the SSL port:
+
+1. Open the Admin Console for your org.
+1. Go to **Applications** > **Applications** to view the current app integrations.
+1. Select the entry for your application integration.
+1. Go to the **General Settings** section on the **General** tab and click **Edit**.
+1. Update the **Sign-in redirect URIs** to use the **sslPort** that you made note of earlier. For example, `https://localhost:44314/authorization-code/callback`.
+1. Update the **Sign-out redirect URIs** to use the **sslPort** that you made note of earlier. For example, `https://localhost:44314/signout/callback`
+1. Click **Save**.
