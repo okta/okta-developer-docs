@@ -55,7 +55,7 @@ This section assumes that you've built the SSO integration in your app.
 
 After you've built your SSO integration, you can use the Application Integration Wizard (AIW) in the Admin Console to create your app integration instance. This instance provides you with client credentials or metadata for you to test your SSO flows.
 
-> **Note:** Creating your app integration instance doesn't automatically make it available in the [OIN](https://www.okta.com/integrations/). After you've tested your integration, you need to [submit it](/docs/guides/submit-app/) to the OIN team for verification and publication.
+> **Note:** Creating your app integration instance doesn't automatically make it available in the [OIN](https://www.okta.com/integrations/). After you've tested your integration, you need to [submit it](/docs/guides/submit-app-overview/) to the OIN team for verification and publication.
 
 1. Sign in to your [developer-edition Okta org](/login/) as a user with administrative privileges.
 1. Go to **Applications** > **Applications** in the Admin Console.
@@ -100,7 +100,8 @@ First, you must assign your integration to one or more test users in your org:
 
 After you complete testing your app integration, you can start the submission process to have your app integration included in the [Okta Integration Network](https://www.okta.com/okta-integration-network/) catalog:
 * Review the [OIN submission requirements](/docs/guides/submit-app-prereq/) before starting the submission process.
-* Follow the [Publish an OIN integration](/docs/guides/submit-app) guide to submit your SSO integration through the OIN Manager.
+* Review the [Publish an OIN integration](/docs/guides/submit-app-overview/) overview to understand the submission process for publishing an integration.
+* Follow the [Submit an SSO integration](/docs/guides/submit-sso-app/) guide to submit your SSO integration.
 
 ## See also
 

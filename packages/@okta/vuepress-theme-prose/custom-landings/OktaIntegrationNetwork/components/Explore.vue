@@ -63,7 +63,7 @@
                     caption: 'Get Okta verified',
                     text: 'Prepare submission requirements and use the OIN Manager portal to submit your integration for verification. The OIN team runs diagnostics and works with you to validate your integration for publication.',
                     link: 'Publish your app',
-                    path: '/docs/guides/submit-app'
+                    path: '/docs/guides/submit-app-overview/'
                 },
                 {
                     id: 4,

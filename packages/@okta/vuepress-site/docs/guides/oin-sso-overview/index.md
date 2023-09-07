@@ -10,7 +10,7 @@ The Okta Integration Network (OIN) is a collection of over 7000 pre-built app in
 To get your app integration into the OIN:
 
 1. [Build an app integration](/docs/guides/build-sso-integration/) using a free [Okta Developer Edition org](https://developer.okta.com/signup/) and any of the wide array of [languages and libraries](/code/) supported by Okta.
-1. [Submit your app](/docs/guides/submit-app/) integration for verification and approval by the Okta OIN team.
+1. [Submit your app](/docs/guides/submit-app-overview/) integration for verification and approval by the Okta OIN team.
 
 Your app is available in the OIN for the Okta community to use after Okta verifies and publishes your app integration.
 
@@ -53,7 +53,7 @@ As an example, `alice.doe@example.com` is a registered Okta user in both Company
 
 Okta orgs host their interfaces through individual subdomains and each org is assigned a separate URL. The typical org URL is the tenant name (the subdomain) followed by the domain name. However, you can customize the domain name for your own domain and add individual aliases for each of your tenants.
 
-> **Note:** The process for specifying the variable app instance names in an OIDC app is explained in the [Publish an OIN integration: OIDC settings](/docs/guides/submit-app/openidconnect/main/#configure-protocol-or-tool-specific-settings).
+> **Note:** The process for specifying the variable app instance names in an OIDC app is explained in the [Submit an SSO integration: OIDC settings](/docs/guides/submit-sso-app/openidconnect/main/#oidc-settings).
 
 ## Use case examples
 
@@ -104,6 +104,6 @@ Ready to get started? Choose how you want to implement your SSO app integration:
 </Cards>
 <br>
 
-After your app integration is built and tested, [review the submission requirements](/docs/guides/submit-app-prereq/main/) and [submit the integration](/docs/guides/submit-app/) to the Okta OIN team for verification and publication.
+After your app integration is built and tested, [review the submission requirements](/docs/guides/submit-app-prereq/main/) and [submit the integration](/docs/guides/submit-app-overview/) to the Okta OIN team for verification and publication.
 
 Want to automate even more for your customers and increase adoption of your product? Learn more about [lifecycle management integration](/docs/guides/oin-lifecycle-mgmt-overview/) in the OIN.

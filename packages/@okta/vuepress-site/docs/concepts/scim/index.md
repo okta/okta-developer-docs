@@ -116,7 +116,7 @@ Provisioning actions can be combined to solve for end-to-end use cases. Okta sup
 
 For your customers to use your SCIM provisioning integration with Okta, you need to publish it through the [Okta Integration Network](https://www.okta.com/integrations/).
 
-After you have built and tested your SCIM application, read through our [Submit an app integration](/docs/guides/submit-app/) guide.
+After you have built and tested your SCIM application, read through our [Publish an OIN integration](/docs/guides/submit-app-overview/) guide.
 
 ## Additional background
 
