@@ -29,7 +29,7 @@ Before you submit your integration, review the [OIN submission requirements](/do
 
 Submit your integration to Okta and work with the Okta OIN team as they test and review your submission. If the Okta OIN team identifies any issues in the review and QA testing phases, you’re sent an email with the specific details. At any point in the process, you can check the status of your submission in the OIN Manager.
 
-The Okta OIN team reviews all submissions on a best-case basis.
+The Okta OIN team reviews and prioritizes all submissions.
 
 ### Understand the submission review process
 
