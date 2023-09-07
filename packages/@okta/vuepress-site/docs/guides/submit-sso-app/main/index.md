@@ -6,26 +6,26 @@ meta:
 layout: Guides
 ---
 
-This guide walks you through the process of submitting a Single Sign-On (SSO) OIDC or SAML 2.0 integration to the Okta Integration Network (OIN) using the OIN Manager. It also shows you how to update a previously published integration or delete a draft submission.
+Use this guide to understand the process of submitting a Single Sign-On (SSO) OIDC or SAML 2.0 integration to the Okta Integration Network (OIN) using the OIN Manager. It also shows you how to update a previously published integration or delete a draft submission.
 
 ---
 
 **Learning outcomes**
 
-* Understand how to submit a new SSO integration to the OIN.
-* Understand how to update or delete a previously published OIN SSO integration.
+* Understand how to submit a new SSO integration to the OIN
+* Understand how to update or delete a previously published OIN SSO integration
 
 **What you need**
 
-* A functional SSO integration created and tested in accordance to the [Build a Single Sign-On integration](/docs/guides/build-sso-integration/) guide
+* A functional SSO integration created and tested in accordance with the [Build a Single Sign-On integration](/docs/guides/build-sso-integration/) guide
 
-* The various items necessary for submission in accordance to the [OIN submission requirements](/docs/guides/submit-app-prereq/)
+* The various items necessary for submission in accordance with the [OIN submission requirements](/docs/guides/submit-app-prereq/)
 
 ---
 
 ## Overview
 
-The [Okta Integration Network (OIN) Manager](https://oinmanager.okta.com) is a submission tool that is connected to your developer org where you test and develop your Okta integration. Use this tool to submit your SSO app integration for verification and publication on the OIN catalog.
+The [Okta Integration Network (OIN) Manager](https://oinmanager.okta.com) is a submission tool that's connected to your developer org where you test and develop your Okta integration. Use this tool to submit your SSO app integration for verification and publication in the OIN catalog.
 
 ### Protocols supported
 
@@ -34,7 +34,7 @@ This guide covers submissions that use the following protocols:
 * [OpenID Connect (OIDC)](https://openid.net/connect/)
 
     > **Note:** <br>
-    > * To support the potentially large numbers of Okta orgs accessing an authorization server through the OIN, an OIDC integration can't use a custom authorization server, including the `default` server.
+    > * To support the potentially large number of Okta orgs that access an authorization server through the OIN, an OIDC integration can't use a custom authorization server, including the `default` server.
     > * ISVs shouldn't rely on the `email_verified` scope-dependent claim returned by an OIDC integration to evaluate whether a user has verified ownership of the email address associated with their profile.
 
 * [Security Assertion Markup Language (SAML)](http://docs.oasis-open.org/security/saml/Post2.0/sstc-saml-tech-overview-2.0.html)
@@ -45,7 +45,7 @@ This guide covers submissions that use the following protocols:
 
 ### Submission support
 
-If you need help during the submission process, use the Get Support section on the My App Integrations page after you sign in to the [OIN Manager](https://oinmanager.okta.com). This section provides the following resources from the [Okta developer portal](https://developer.okta.com/):
+If you need help during the submission process, use the **Get Support** section on the My App Integrations page after you sign in to the [OIN Manager](https://oinmanager.okta.com). This section provides the following resources from the [Okta developer portal](https://developer.okta.com/):
 
 * OIN integration guides
 * Okta, OIDC, SAML, and SCIM concepts
@@ -85,7 +85,7 @@ On the **General Settings** tab, fill in the basic information about your integr
 
 * **App name**: Provide a name for your integration. This is the main title used for your integration in the OIN.
 
-* **App website**:  Provide a link to your product or service homepage or a specific location on your website where users can learn more about your integration.
+* **App website**: Provide a link to your product or service homepage or a specific location on your website where users can learn more about your integration.
 
 * **Use case(s)**: Specify one or more use cases for Okta to categorize your integration in the OIN catalog. Click **+ Add Another** to choose up to five use cases. See [Use case guidelines](/docs/guides/submit-app-prereq/main/#use-case-guidelines).
 
@@ -125,7 +125,7 @@ You can submit protocol support details all together or asynchronously. For exam
 
 <br>
 
-As you add configuration information about your integration to the submission page, the indicators in the top right show your progress towards 100% completion.
+As you add configuration information about your integration to the submission page, the indicators in the upper-right corner of the page show your progress towards 100% completion.
 
 Include all required information before you click **Submit for Review** to move your integration into the submission phase.
 
@@ -133,7 +133,7 @@ Include all required information before you click **Submit for Review** to move 
 
 If you need to make protocol changes to your published integration, use the [OIN Manager](https://oinmanager.okta.com/) to create an updated version of the integration.
 
-Similarly, when you enable a new capability in your application, you don't need to create an entirely new submission. For example, you can add SCIM provisioning onto an existing published SAML application. You can update your existing submission to enable and specify the settings for that protocol, then submit the updated integration.
+Similarly, when you enable a new capability in your application, you don't need to create an entirely new submission. For example, you can add SCIM provisioning to an existing published SAML application. You can update your existing submission to enable and specify the settings for that protocol, then submit the updated integration.
 
 1. Sign in to the OIN Manager using the credentials for your original dev org.
 
@@ -147,7 +147,7 @@ Similarly, when you enable a new capability in your application, you don't need 
 
 1. Update any of the parameters for your existing protocols or add a protocol depending on your needs.
 
-    If you need to leave your in-progress submission at any point, you can return to it through the OIN Manager. When you sign on again, the published version and your in-progress version appear. Click **Edit** on the in-progress version to pick up where you left off.
+    If you need to leave your in-progress submission at any point, you can return to it through the OIN Manager. When you sign in again, the published version and your in-progress version appear. Click **Edit** on the in-progress version to continue.
 
 1. Click **Submit for Review** when you complete the updates or fill in the new protocol information. Ensure that the indicator shows 100% complete before you submit.
 
@@ -170,16 +170,16 @@ You can only delete unpublished submissions that are in **DRAFT** state.
 
 To delete your submission:
 
-1. Click the delete icon ![trash can; delete icon](/img/icons/delete_can.png) next to **Edit**. If the delete icon is unavailable, that submission can't be deleted.
-1. Confirm the deletion in the dialog box.
+1. Click the delete icon ![trash can; delete icon](/img/icons/delete_can.png) next to **Edit**. If the delete icon is unavailable, you can't delete that submission.
+1. Confirm the deletion in the dialog.
 
-No email confirmation is sent when deleting a submission. Deleted submissions can't be recovered.
+No email confirmation is sent when deleting a submission. You can't recover deleted submissions.
 
 If you need assistance with deleting a draft submission, contact the Okta OIN team at <oin@okta.com>.
 
 ## Delete published submissions
 
-If you want to remove an app integration that is already published in the OIN catalog, contact the Okta OIN team. Only the Okta OIN team can remove published integrations in the catalog. Send an email to <oin@okta.com> with the URL of your dev org, the name of the app integration, and a link to its location in the OIN catalog.
+If you want to remove an app integration that's already published in the OIN catalog, contact the Okta OIN team. Only the Okta OIN team can remove published integrations in the catalog. Send an email to <oin@okta.com> with the URL of your dev org, the name of the app integration, and a link to its location in the OIN catalog.
 
 Removing an app integration from the OIN doesn't prohibit existing users from accessing it. The app integration isn't removed from end-user dashboards until an admin for the customer's org removes the app integration from their org.
 

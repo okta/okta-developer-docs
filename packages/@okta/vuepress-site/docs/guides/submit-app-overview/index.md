@@ -5,9 +5,9 @@ meta:
     content: Use this guide to understand the Okta Integration Network (OIN) submission process. The overview is common to all types of integration submissions.
 ---
 
-The Okta Integration Network (OIN) is the identity industry’s broadest and deepest set of pre-built cloud integrations to manage access management, authentication, and provisioning. Gain exposure to thousands of Okta customers who can discover your integration by adding it to the OIN. OIN integrations speed adoption by simplifying admin configuration steps and reducing friction for your customers. They can integrate your application to Okta with minimal effort on your part.
+The Okta Integration Network (OIN) is the identity industry’s broadest and deepest set of pre-built cloud integrations to manage access management, authentication, and provisioning. Gain exposure to thousands of Okta customers who can discover your integration by adding it to the OIN. OIN integrations speed adoption by simplifying admin configuration steps and reducing friction for your customers. They can integrate your application to Okta with minimal effort.
 
-If you're an integrator, from an independent software vendor (ISV) or an existing Okta customer, who wants to add your integration to the OIN, use this guide to learn about the submission process. Adding your integration to the OIN and listing it publicly in the [OIN catalog](https://www.okta.com/integrations/) is free.
+If you're an integrator, from an independent software vendor (ISV) or an existing Okta customer, who wants to add your integration to the OIN, use this guide to learn about the submission process. It's free to add your integration to the OIN and list it publicly in the [OIN catalog](https://www.okta.com/integrations/).
 
 This guide assumes that you've created an app integration and want to make it public in the OIN catalog.
 
@@ -59,7 +59,7 @@ Okta accepts integrations that use the following protocols or tools into the OIN
 * [OpenID Connect (OIDC)](https://openid.net/connect/)
 
     >**Notes:** <br>
-    > * To support the potentially large numbers of Okta orgs accessing an authorization server through the OIN, an OIDC integration can't use a custom authorization server, including the `default` server.
+    > * To support the potentially large number of Okta orgs that access an authorization server through the OIN, an OIDC integration can't use a custom authorization server, including the `default` server.
     > * ISVs shouldn't rely on the `email_verified` scope-dependent claim returned by an OIDC integration to evaluate whether a user has verified ownership of the email address associated with their profile.
 
 * [Security Assertion Markup Language (SAML)](http://docs.oasis-open.org/security/saml/Post2.0/sstc-saml-tech-overview-2.0.html)
