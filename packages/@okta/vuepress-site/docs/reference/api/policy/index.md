@@ -887,9 +887,11 @@ Each Policy may contain one or more Rules. Rules, like Policies, contain conditi
 
 ### Default Rules
 
- - Only the default Policy contains a default Rule. In Okta Classic Engine, you can't delete or edit default rules. In Okta Identity Engine, you can't delete default rules, but can edit them except in the case of the default rule on the Authenticator Enrollment policy and the Identity Provider Routing.
- - The default Rule is required and always is the last Rule in the priority order. If you add Rules to the default Policy, they have a higher priority than the default Rule.
- - The `system` attribute determines whether a Rule is created by a system or by a user. The default Rule is the only Rule that has this attribute.
+* Only the default Policy contains a default Rule. In Okta Classic Engine, you can't delete or edit default rules. In Okta Identity Engine, you can't delete default rules, but can edit them except for:
+  * The properties `maxSessionLifetimeMinutes` and `usePersistentCookie` of the default Global session policy's default rule, which are read-only.
+  * The default rules on the Authenticator Enrollment policy and the Identity Provider Routing, which are also read-only.
+* The default Rule is required and always is the last Rule in the priority order. If you add Rules to the default Policy, they have a higher priority than the default Rule.
+* The `system` attribute determines whether a Rule is created by a system or by a user. The default Rule is the only Rule that has this attribute.
 
 ### Rule priority
 
@@ -1395,8 +1397,8 @@ The following conditions may be applied to the global session policy.
 | Property                  | Description                                                                                                                                                                                                                                                               | Data Type | Required | Default |
 | ---                       | ---                                                                                                                                                                                                                                                                       | ---       | ---      | ---     |
 | maxSessionIdleMinutes     | Maximum number of minutes that a User session can be idle before the session is ended.                                                                                                                                                                                    | Integer   | No       | 120     |
-| maxSessionLifetimeMinutes | Maximum number of minutes from User sign in that a user's session is active. Set this to force Users to sign in again after the number of specified minutes. Disable by setting to `0`.                                                                                  | Integer   | No       | 0       |
-| usePersistentCookie       | If set to `false`, User session cookies only last the length of a browser session. If set to `true`, User session cookies last across browser sessions. This setting doesn't impact Okta Administrator users who can *never* have persistant session cookies. | Boolean   | No       | false   |
+| maxSessionLifetimeMinutes | Maximum number of minutes from User sign in that a user's session is active. Set this to force Users to sign in again after the number of specified minutes. Disable by setting to `0`. This property is read-only for the default rule of the default Global session policy.                                                                                 | Integer   | No       | 0       |
+| usePersistentCookie       | If set to `false`, User session cookies only last the length of a browser session. If set to `true`, User session cookies last across browser sessions. This setting doesn't impact Okta Administrator users who can *never* have persistent session cookies. This property is read-only for the default rule of the default Global session policy. | Boolean   | No       | false   |
 
 ### Rules conditions
 
