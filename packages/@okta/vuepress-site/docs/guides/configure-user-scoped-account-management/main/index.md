@@ -8,8 +8,6 @@ sections:
 - main
 ---
 
-<ApiLifecycle access="ie" /><br>
-
 This guide explains how to set up end-user driven account management in your org using the MyAccount API.
 
 > **Note:** This guide is for the enhanced MyAccount API, accessible at `/idp/myaccount`. The `/api/v1/myaccount` endpoint is deprecated. See [MyAccount API (deprecated)](/docs/reference/api/archive-myaccount/) for the docs of the older API version.
@@ -92,8 +90,6 @@ In this use case, the end user adds a `SECONDARY` email address to their account
 ### Required scope and role
 
 An Okta scope of `okta.myAccount.email.manage` is required to use this endpoint.
-
-> **Note:** Admin users aren't allowed to make a POST request to the `/idp/myaccount/emails` endpoint.
 
 ### Request path parameters
 
@@ -180,8 +176,6 @@ Creates an UNVERIFIED status phone for either the `SMS` or `CALL` method to the 
 ### Required scope and role
 
 An Okta scope of `okta.myAccount.phone.manage` is required to use this endpoint.
-
-> **Note:** Admin users aren't allowed to make a POST request to the `/idp/myaccount/phones` endpoint.
 
 #### Request path parameters
 
