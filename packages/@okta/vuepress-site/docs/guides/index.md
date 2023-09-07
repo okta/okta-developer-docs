@@ -230,4 +230,4 @@ If you're creating an Okta integration for the first time, we recommend the foll
 1. [Overview of lifecycle management in the OIN](/docs/guides/oin-lifecycle-mgmt-overview/)
 1. [Overview of API service apps in the OIN](/docs/guides/oin-api-service-overview/)
 1. [OIN submission requirements](/docs/guides/submit-app-prereq/)
-1. [Submit an app integration](/docs/guides/submit-app/)
+1. [Submit an app integration](/docs/guides/submit-app-overview/)
