@@ -5,19 +5,22 @@ In your app's `build.gradle`, add the redirect scheme inside the `defaultConfig`
 For example, if your redirect URI is `com.first.sample:/callback`, then the appAuth redirect scheme is `com.first.sample`.
 
 Example
+
 ```groovy
     manifestPlaceholders = [
         "appAuthRedirectScheme": "com.first.sample"
     ]
 ```
-### Native sign in
+
+### Mobile sign-in flow
+
 To compile your project, you need to set up the `AuthenticationClient` with an `Org URL`.
 
-You can find the `Org URL` in the Admin Console's global header in the upper-right corner of the page. Click the section that displays your email and company name.  A drop-down box appears and displays general org information including the `Org URL` (for example, subdomain.okta.com).
- 
-After you find your `Org URL`, add the following to your `local.properties` file:
+1. Locate your org URL by clicking your username in the upper-right corner of the Admin Console. The URL appears in the dropdown menu (for example, subdomain.okta.com).
+1. Add the following to your `local.properties` file:
 
 Example
+
 ```groovy
     authn.orgUrl="https://${yourOktaDomain}"
 ```

@@ -93,7 +93,7 @@ There are three pieces of information that you may need, depending on the platfo
 
 * **Audience**: `api://default` by default
 * **Authorization Server Name**: `default`
-* **Okta Domain**: Found in the global header located in the upper-right corner of the dashboard.
+* **Okta Domain**: Locate by clicking your username in the upper-right corner of the Admin Console. The domain appears in the dropdown menu.
 
    > **Note:** Your Okta domain is different from your admin domain. Your Okta domain doesn't include `-admin`, for example, `https://dev-133337.okta.com` rather than `https://dev-133337-admin.okta.com`.
 
