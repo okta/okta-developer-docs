@@ -397,33 +397,121 @@ Your registration inline hook is configured for progressive profile enrollment. 
 
 ## Set up for profile enrollment (SSR) and progressive profile enrollment scenario
 
-### External service code response for profile and progressive enrollment
+This scenario involves both profile enrollment (self-service registration) and progressive profile enrollment use cases. Existing users are prompted for new information (a four digit employee number) to add to their profile when they sign in. New users self-registering from the **Sign up** link are required to include the default three sign-up fields (Email, First name, and Last name) as well as the employee number field. With this use case, the external code updates the profiles of existing users if the employee number is four digits. The external code adds new users if their email domain contains `okta.com` and their employee number is four digits, otherwise their registration is denied. To implement this scenario:
 
-### Activate and enable your registration hook for profile and progressive enrollment
+* Set up your Glitch project and review your external service code
+* Add your registration inline hook
+* Create an enrollment policy to use the registration inline hook
 
-
-## Set up, activate, and enable
-
-You must set up, activate, and enable the registration inline hook within your Okta Admin Console.
-
-### Set up your Glitch project
+### Set up your external service code response for profile and progressive profile enrollment
 
 You need to remix your own version of the Okta sample Glitch project and confirm that it is live.
 
-1. Go to the [Okta Registration Inline Hook Example](https://glitch.com/~okta-inlinehook-registrationhook-v2).
+1. Go to the [Okta Registration Inline Hook Example](https://glitch.com/edit/#!/okta-inlinehook-registrationhook-oie).
 1. Click **Remix your own**.
 1. Click **Share**.
 1. In the **Live site** field, click the copy icon. This is your external service URL. Make a note of it as you need it later.
-1. Update the project with your own code. For example, you can use the [Send response](#send-response) sample in the `server.js` file.
+1. Click **Logs**. If you see a "Your app is listening on port {XXXX}" message, the app is live and ready to receive Okta requests.
 
-### Set up and activate the registration inline hook
+Review the following project code with endpoint `/registrationHookSSRandPP`. The external service responds to Okta indicating whether to update the end user's profile with a valid employee number or allow a self-registration of a new user. The response returns a `commands` object in the body of the HTTPS response. This object contains specific syntax that indicates whether the user is allowed or denied to self-register or to update their profile with Okta.
+
+See the [response properties](/docs/reference/registration-hook/#response-objects-that-you-send) of a registration inline hook for full details
+
+```javascript
+app.post('/registrationHookSSRandPP', async (request, response) => {
+  console.log();
+  var returnValue = {};
+
+  if (request.body.requestType === 'progressive.profile') {
+    console.log('Employee number added to profile ' + request.body.data.context.user.profile['login'] + ': ' + request.body.data.userProfileUpdate['employeeNumber']);
+    var employeeNumber = request.body.data.userProfileUpdate['employeeNumber'];
+    if (employeeNumber && employeeNumber.length === 4) {
+      returnValue = {
+        'commands':[
+          {
+            type: 'com.okta.user.progressive.profile.update',
+            value: {
+              'employeeNumber': employeeNumber,
+            }
+          }
+        ]
+      };
+    } else {
+      returnValue = {
+        'commands':[
+          {
+            type: 'com.okta.action.update',
+            value: {
+              'registration': 'DENY',
+            },
+          }
+        ],
+        'error': {
+          'errorSummary':'Incorrect employee number. Enter an employee number with 4 digits.',
+          'errorCauses':[{
+            'errorSummary':'Only employee numbers with 4 digits can register.',
+            'reason':'INVALID_EMPLOYEE_NUMBER',
+            'locationType':'body',
+            'location':'data.userProfile.employeeNumber',
+            'domain':'end-user'
+          }]
+        }
+      };
+    }
+  } else {
+    var emailRegistration = (request.body.data.userProfile['email']).split('@');
+    var employeeNumberSSR = (request.body.data.userProfile['employeeNumber']);
+    if (emailRegistration[1].includes('okta.com') && (employeeNumberSSR && employeeNumberSSR.length === 4)){
+      console.log(request.body.data.userProfile['firstName'] + " " + request.body.data.userProfile['lastName'] + " " + request.body.data.userProfile['email'] + " has registered!");
+      returnValue = {
+        'commands':[
+          {
+            type: 'com.okta.action.update',
+            value: {
+              'registration': 'ALLOW',
+            }
+          }
+        ]
+      };
+    } else {
+      console.log(request.body.data.userProfile['firstName'] + " " + request.body.data.userProfile['lastName'] + " " + request.body.data.userProfile['email'] + " denied registration!");
+      returnValue = {
+        'commands':[
+          {
+            type: 'com.okta.action.update',
+            value: {
+              'registration': 'DENY',
+            },
+          }
+        ],
+        'error': {
+          'errorSummary':'Incorrect email address or employee number. Please contact your admin.',
+          'errorCauses':[{
+            'errorSummary':'To register, you must have an "okta" email and a 4-digit employee number.',
+            'reason':'INVALID_EMAIL_DOMAIN',
+            'locationType':'body',
+            'location':'data.userProfile.email',
+            'domain':'end-user'
+          }]
+        }
+      };
+    }
+  }
+
+  response.send(JSON.stringify(returnValue));
+})
+```
+
+### Add your registration hook for profile and progressive profile enrollment
+
+Configure your registration inline hook for your Okta org to use the glitch project for both profile enrollment (self-service registration) and progressive profile enrollment.
 
 1. In the Admin Console, go to **Workflow** > **Inline Hooks**.
 1. Click **Add Inline Hook** and select **Registration** from the dropdown menu.
-1. Add a name for the hook (in this example, use "Guide Registration Hook Code").
-1. Add your external service URL (see [Set up your Glitch project](#set-up-your-glitch-project)), and append it with the endpoint. For example, use your Glitch project name with the endpoint (`registrationHook`):
+1. Add a name for the hook (in this example, use "Profile and Progressive Profile Enrollment").
+1. Add your external service URL (see [Set up your Glitch project](#set-up-your-glitch-project)), and append it with the endpoint. For example, use your Glitch project name with the endpoint (`registrationHookSSRandPP`):
 
-   `https://your-glitch-projectname.glitch.me/registrationHook`
+   `https://your-glitch-projectname.glitch.me/registrationHookSSRandPP`
 
 1. Include the authentication field and secret. In this example:
 
@@ -433,15 +521,16 @@ You need to remix your own version of the Okta sample Glitch project and confirm
    > **Note**: If you want to use OAuth 2.0 to secure your inline hooks, see [Add Authentication method](/docs/guides/common-hook-set-up-steps/nodejs/main/#add-authentication-method).
 
 1. Click **Save**.
-1. In your Glitch project, click **Logs**. If your set up is successful, a "Your app is listening on port {XXXX}" message appears.
-
-The registration inline hook is now set up with an active status.
 
 > **Note:** You can also set up an inline hook using the API. See [Inline Hooks Management API](/docs/reference/api/inline-hooks/#create-inline-hook).
 
-### Set up the employee number attribute
+### Create an enrollment policy for profile and progressive profile enrollment
 
-In the Progressive Enrollment example, end users are asked to submit a valid employee number. The `employeeNumber` attribute is read-only by default. You need to change `employeeNumber` to read-write.
+To enable the registration inline hook, you must associate it with a profile enrollment policy. In this example, you create an enrollment policy specifically for your hook. See [enable and configure a profile enrollment policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-profile-enrollment).
+
+> **Note:** Profile Enrollment and registration inline hooks are only supported by the [Okta Sign-In Widget](/docs/guides/embedded-siw/) version 4.5 or later.
+
+Before creating the enrollment policy, ensure the user profile attribute `employeeNumber` is set to a status of read-write. The `employeeNumber` attribute is read-only by default.
 
 1. In the Admin Console, go to **Directory** > **Profile Editor**.
 1. Select **User (default)**.
@@ -449,15 +538,7 @@ In the Progressive Enrollment example, end users are asked to submit a valid emp
 1. In the **Employee Number** dialog, under **User permission**, select **Read-Write**.
 1. Click **Save Attribute**.
 
-End users can now update the employee number in their profile.
-
-### Enable the registration inline hook
-
-To enable the registration inline hook, you must associate it with a Profile Enrollment policy. In this example, you create an enrollment policy specifically for your hook. See [enable and configure a Profile Enrollment policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-profile-enrollment).
-
-> **Note:** Profile Enrollment and registration inline hooks are only supported by the [Okta Sign-In Widget](/docs/guides/embedded-siw/) version 4.5 or later.
-
-To associate the registration inline hook with a Profile Enrollment policy:
+To associate the registration inline hook with a profile enrollment policy and add the employee number field:
 
 1. In the Admin Console, go to **Security > Profile Enrollment**.
 1. Click **Add Profile Enrollment Policy**.
@@ -468,18 +549,17 @@ To associate the registration inline hook with a Profile Enrollment policy:
 1. Click **Back to Profile Enrollment Policy**.
 1. In **Profile enrollment**, click **Edit**.
 1. For **Self-service registration**, select **Allowed**.
-1. From the **Inline hook** dropdown menu, select the hook that you set up and activated earlier. See [Set up and activate the registration inline hook](#set-up-and-activate-the-registration-inline-hook).
+1. From the **Inline hook** dropdown menu, select the hook that you set up and activated earlier. See [Add your registration hook for progressive profile enrollment](#add-your-registration-hook-for-progressive-profile).
 
-   > **Note:** You can associate only one inline hook at a time with your Profile Enrollment policy.
+   > **Note:** You can associate only one inline hook at a time with your profile enrollment policy.
 
-1. In **Run this hook**, select **Both**. For our examples, this trigger allows both an SSR request and a Progressive Enrollment data update request.
-1. Click **Save**.
+1. In **Run this hook**, select **Both**.
 1. Under **Profile Enrollment Form**, click **Add form input**.
 1. From the dropdown menu, select **Employee number**.
-1. In the **Add form input** dialog, under **Customize form input**, set **Input requirement** as **Optional**.
-1. Click **Save**.
+1. In the **Add form input** dialog, under **Customize form input**, set **Input requirement** as **Required**.
+1. Click **Save**
 
-Your registration inline hook is configured for Profile Enrollment. You are now ready to preview and test the example.
+Your registration inline hook is configured for both profile and progressive profile enrollment. Go to [Preview the registration inline hook](#preview-the-registration-inline-hook) or [Test your registration inline hook](#test-your-registration-inline-hook) to preview and run the sample.
 
 ## Preview the registration inline hook
 
