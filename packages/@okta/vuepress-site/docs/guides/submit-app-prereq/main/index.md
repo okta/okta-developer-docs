@@ -33,6 +33,18 @@ Before using the [OIN Manager](https://oinmanager.okta.com)&nbsp;to submit your 
 
 Before you submit your integration, ensure that your integration doesn't use Okta features that aren't supported in the OIN. See [OIN limitations](#oin-limitations).
 
+## OIN multi-tenancy
+
+Your app must support multi-tenancy to be listed in the public OIN catalog.
+
+What does this mean?
+
+Multi-tenancy in the OIN refers to the concept that as an ISV, you support several instances of your app, each with a unique credential system, for your customers. An instance of an app that contains the infrastructure to support a group of users is considered a tenant. See [Tenants in Okta](/docs/guides/oin-sso-overview/#tenants-in-okta).
+
+Each of your customer app instances must be able to provide unique credentials to connect to their Okta org. This allows your customers to find your app integration from the OIN catalog in their Okta org and instantiate it with their unique tenant credentials.
+
+For example, if your app integration supports SAML SSO with Okta, you need to provide unique SAML metadata for each of your customer tenants.
+
 ## Logo guidelines
 
 A clear and well-designed logo helps customers find your app integration in the OIN and ensures that your brand is well represented. When you create your app submission in the OIN manager, make sure you upload a customer-recognizable graphic.

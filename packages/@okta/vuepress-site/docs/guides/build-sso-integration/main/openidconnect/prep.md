@@ -26,7 +26,7 @@ After you've built your integration, test your SSO integration with an Okta app 
 
 ### OIDC customer org credentials
 
-Okta uses a [multi-tenant](/docs/concepts/multi-tenancy) local credential system for OIDC integrations. When your customer adds your integration in their Okta org, they obtain a unique set of OIDC credentials. Each instance of your app integration inside a customer org has a separate set of OIDC client credentials that are used to access your application.
+Okta uses a [multi-tenant](/docs/guides/oin-sso-overview/#okta-organization-and-multi-tenancy) local credential system for OIDC integrations. When your customer adds your integration in their Okta org, they obtain a unique set of OIDC credentials. Each instance of your app integration inside a customer org has a separate set of OIDC client credentials that are used to access your application.
 
 For example, consider a scenario where your app integration is added to 10 separate customer orgs. Seven of those customers create a single instance of your app integration. However, the other three customers each create two separate instances of your app integration so they can use different configuration options. This scenario creates a total of 13 sets of client credentials for your application that you need to track.
 
