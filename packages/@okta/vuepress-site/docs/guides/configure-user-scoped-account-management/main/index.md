@@ -8,7 +8,7 @@ sections:
 - main
 ---
 
-This guide explains how to set up end-user driven account management in your org using the MyAccount API.
+This guide explains how to set up end user driven account management in your org using the MyAccount API.
 
 > **Note:** This guide is for the enhanced MyAccount API, accessible at `/idp/myaccount`. The `/api/v1/myaccount` endpoint is deprecated. See [MyAccount API (deprecated)](/docs/reference/api/archive-myaccount/) for the docs of the older API version.
 
@@ -28,11 +28,11 @@ This guide explains how to set up end-user driven account management in your org
 * Access to the latest version of the MyAccount API: `/idp/myaccount`
 * An existing OpenID Connect client app in Okta for testing in Okta
 * [Postman client](https://www.getpostman.com/downloads/) to test requests. See [Get Started with the Okta APIs](https://developer.okta.com/code/rest/) for information on setting up Postman.
-* The MyAccount API Postman collection that allows you to test the API calls that are described in this guide. Click **Run in Postman** to add the collection to your Postman workspace.
+* The MyAccount API Postman Collection that allows you to test the API calls that are described in this guide. Click **Run in Postman** to add the collection to your Postman workspace.
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/9cb68745dbf85ae3a871)
 
-> **Note:** To run the Postman collection, you need an end-user access token. Use an [SDK](/docs/guides/auth-js/main/#handle-responses) to get the token.
+> **Note:** To run the Postman Collection, you need an end user access token. Use an [SDK](/docs/guides/auth-js/main/#handle-responses) to get the token.
 
 ---
 
@@ -40,11 +40,11 @@ This guide explains how to set up end-user driven account management in your org
 
 The MyAccount API now provides user-scoped endpoints that don’t require admin tokens. End users only need a bearer token to update their profile, or email and phone authenticators. In addition, app developers can call the MyAccount API for active users outside of the authentication context. For example, after a user enrolls in the mandatory email factor and completes authentication, app developers can call the API to enroll the active user with the optional phone authenticator.
 
-## About the Postman collection
+## About the Postman Collection
 
-It is up to you how you set up users to call the MyAccount API to manage their account. In this guide, we provide sample API calls using a Postman collection to demonstrate them in a language/platform neutral way.
+It’s up to you how you set up users to call the MyAccount API to manage their account. In this guide, Okta provides sample API calls using a Postman Collection to demonstrate them in a language/platform neutral way.
 
-> **Note:** To run the Postman collection, you need an end-user access token. Use an [SDK](/docs/guides/auth-js/-/main/) to get the token.
+> **Note:** To run the Postman Collection, you need an end user access token. Use an [SDK](/docs/guides/auth-js/-/main/) to get the token.
 
 ## API versioning
 
@@ -56,7 +56,7 @@ Accept: application/json; okta-version=1.0.0
 
 ## Access Token assurance
 
-MyAccount operations that create, update, or delete resources require access tokens that are 15 minutes old or younger. API calls with access tokens older than 15 minutes require re-authentication. If you don't re-authenticate the token, the API returns a 403 error with the following content in the header:
+MyAccount operations that create, update, or delete resources require access tokens that are 15 minutes old or younger. API calls with access tokens older than 15 minutes require re-authentication. If you don't reauthenticate the token, the API returns a 403 error with the following content in the header:
 
 ```bash
 www-authenticate: Bearer realm="IdpMyAccountAPI", error="insufficient_authentication_context", error_description="The access token requires additional assurance to access the resource", max_age=900
@@ -66,7 +66,7 @@ www-authenticate: Bearer realm="IdpMyAccountAPI", error="insufficient_authentica
 
 > **Note:** If you have a custom authorization server, the MyAccount API-related scopes are granted by default. See [Create an authorization server](/docs/guides/customize-authz-server/-/main/).
 
-When you are ready to grant the required scopes, follow these steps:
+When you’re ready to grant the required scopes, follow these steps:
 
 1. Sign in to your Okta organization with your administrator account and go to **Applications** > **Applications**.
 1. Open your OpenID Connect client app.
@@ -123,7 +123,7 @@ If an invalid email is passed to `profile` in the request body, the response ret
 
 If the email operation isn't enabled for the request `role` in the org, the response returns a 403 FORBIDDEN with error code E0000038.
 
-If the email already exists for the current user, the response returns a 409 CONFLICT with error code E0000157.
+If the email exists for the current user, the response returns a 409 CONFLICT with error code E0000157.
 
 #### Request
 
@@ -209,9 +209,9 @@ If the phone authenticator isn't enabled for `method` in the org, the response r
 
 If the number of phone factors for the current user already reaches the maximum allowed per user or the phone factor is failed to create, the response returns a 400 BAD REQUEST ERROR with error code E0000001.
 
-If the phone number already exists for the current user, the response returns a 409 CONFLICT with error code E0000157.
+If the phone number exists for the current user, the response returns a 409 CONFLICT with error code E0000157.
 
-If the call providers fail to send a challenge when `sendCode` is `true`,  the response returns a 500 with error code E0000138.
+If the call providers fail to send a challenge when `sendCode` is `true`, the response returns a 500 with error code E0000138.
 
 ### Request
 
