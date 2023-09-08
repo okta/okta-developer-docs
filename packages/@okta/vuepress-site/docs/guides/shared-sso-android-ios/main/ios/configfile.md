@@ -16,10 +16,10 @@ Make the following modifications in the `OktaBrowserSignIn/Okta.plist` file of y
 
 * `redirectUri`: Enter `com.first.sample:/callback` as the value, which is what you defined as one of the **Sign-in redirect URIs** in the Native app that you created in the [previous step](#configure-two-openid-connect-native-apps).
 * `clientId`: Enter the Client ID that you copied during the [previous step](#configure-two-openid-connect-native-apps).
-* `issuer`: This is the URL for the authorization server that performs authentication. It's a combination of your `Org URL` and `/oauth2/default`.
+* `issuer`: This is the URL for the authorization server that performs authentication. It's a combination of your Okta domain and `/oauth2/default`.
 
     For example: `https//${yourOktaDomain}/oauth2/default`
 
-> **Note:** Locate your org URL by clicking your username in the upper-right corner of the Admin Console. The URL appears in the dropdown menu (for example, subdomain.okta.com).
+> **Note:** Locate your Okta domain by clicking your username in the upper-right corner of the Admin Console. The domain appears in the dropdown menu (for example, subdomain.okta.com).
 
 `logoutRedirectUri`: Enter `com.first.sample:/logout` as the value, which is what you defined as one of the **Sign-out redirect URIs** in the Native app that you created in the [previous step](#configure-two-openid-connect-native-apps).

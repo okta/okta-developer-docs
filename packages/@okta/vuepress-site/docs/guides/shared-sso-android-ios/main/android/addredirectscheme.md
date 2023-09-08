@@ -14,9 +14,9 @@ Example
 
 ### Mobile sign-in flow
 
-To compile your project, you need to set up the `AuthenticationClient` with an `Org URL`.
+To compile your project, you need to set up the `AuthenticationClient` with an org URL.
 
-1. Locate your org URL by clicking your username in the upper-right corner of the Admin Console. The URL appears in the dropdown menu (for example, subdomain.okta.com).
+1. Locate your org URL by clicking your username in the upper-right corner of the Admin Console. The Okta domain appears in the dropdown menu (for example, subdomain.okta.com).
 1. Add the following to your `local.properties` file:
 
 Example

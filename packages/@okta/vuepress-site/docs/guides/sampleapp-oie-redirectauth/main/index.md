@@ -84,7 +84,7 @@ This section walks you through enrolling a user and authenticating that user.
 
 This section walks you through enabling self-service enrollment for the Sign-In Widget and then trying self-service enrollment with a user.
 
-> **Note:** This section assumes that you followed the previous "Initial set up" and "Simple enrollment and authentication" sections. The steps may be different if you didn't.
+> **Note:** This section assumes that you followed the previous [Initial setup](#initial-setup) and [Simple enrollment and authentication](#simple-enrollment-and-authentication) sections. The steps may be different if you didn't.
 
 1. In the Admin Console, select **Security** > **Profile Enrollment**, and then select **Add Profile Enrollment Policy**.
 2. Give your Policy a **Name** and then click **Save**.
@@ -222,7 +222,7 @@ In addition to recovering your password with an email, you can add Okta Verify a
 
 > **Note:** To use Progressive Profiling, you must disable the Self-Service Registration feature. Contact [Support](https://support.okta.com/help/s/opencase) for help.
 
-Okta gives you the ability to check for what data is required from a user before they can access an app. For example, you can change the required user profile information for the same app, or handle SSO between two apps with different profile requirements. In this example, add a required profile attribute, and the user you have already enrolled is asked for this information when they next authenticate.
+Okta gives you the ability to check for what data is required from a user before they can access an app. For example, you can change the required user profile information for the same app, or handle SSO between two apps with different profile requirements. In this example, add a required profile attribute, and the user you've already enrolled is asked for this information when they next authenticate.
 
 When you enrolled your test user, the user was only prompted for first and family name, as well as their email and a password. Now add an additional required property to the profile enrollment policy.
 
@@ -266,7 +266,7 @@ Instead of signing in to Okta, it’s possible to route users to an external Ide
 
 4. After you create the app, on the Add Products to Your App page, click **Set Up** on the **Facebook Login** tile.
 5. On the first page of the Quickstart, select **Web**.
-6. In the **Site URL** box, enter your org URL. This URL can also be any URL that makes sense for your app. To locate your org URL, click your username in the upper-right corner of the Admin Console. Your org URL appears in the dropdown menu.
+6. In the **Site URL** box, enter your Okta domain. The site URL can also be any URL that makes sense for your app. To locate your Okta domain, click your username in the upper-right corner of the Admin Console. Your Okta domain appears in the dropdown menu.
 7. Click **Save**, click **Continue**, and then click **Next** until you exit the Quickstart wizard.
 
     > **Note:** Normally, under the **Facebook Login** > **Settings** section, you would enter the **Valid OAuth Redirect URIs**, but Facebook automatically adds `localhost` redirects so this isn't required for this example.
