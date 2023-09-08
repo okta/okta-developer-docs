@@ -8,7 +8,7 @@ sections:
 - main
 ---
 
-This guide explains how to set up end user driven account management in your org using the MyAccount API.
+This guide explains how to set up end user-driven account management in your org using the MyAccount API.
 
 > **Note:** This guide is for the enhanced MyAccount API, accessible at `/idp/myaccount`. The `/api/v1/myaccount` endpoint is deprecated. See [MyAccount API (deprecated)](/docs/reference/api/archive-myaccount/) for the docs of the older API version.
 
@@ -89,7 +89,7 @@ In this use case, the end user adds a `SECONDARY` email address to their account
 
 ### Required scope and role
 
-An Okta scope of `okta.myAccount.email.manage` is required to use this endpoint.
+Requires an Okta scope of `okta.myAccount.email.manage`
 
 ### Request path parameters
 
@@ -101,7 +101,7 @@ N/A
 
 ### Request body
 
-This API requires a [My Email Request object](#my-email-request-object) as its request body.
+Requires a [My Email Request object](#my-email-request-object) as its request body
 
 ```bash
 {
@@ -171,11 +171,11 @@ curl -v -X POST \
 
 <ApiOperation method="post" url="/idp/myaccount/phones" />
 
-Creates an UNVERIFIED status phone for either the `SMS` or `CALL` method to the user's MyAccount setting.
+Creates an UNVERIFIED status phone for either the `SMS` or `CALL` method to the user's MyAccount setting
 
 ### Required scope and role
 
-An Okta scope of `okta.myAccount.phone.manage` is required to use this endpoint.
+Requires an Okta scope of `okta.myAccount.phone.manage`
 
 #### Request path parameters
 
@@ -183,7 +183,7 @@ N/A
 
 #### Request body
 
-This API requires a [My Phone Request object](#my-phone-request-object) as its request body.
+Requires a [My Phone Request object](#my-phone-request-object) as its request body
 
 ```bash
 {
@@ -224,7 +224,7 @@ curl -v -X POST \
 
 ### Response
 
-Returns an HTTP 201 status code response, with a location URL referring to the newly created phone in the response header.
+Returns an HTTP 201 status code response, with a location URL referring to the newly created phone in the response header
 
 ```json
 {
