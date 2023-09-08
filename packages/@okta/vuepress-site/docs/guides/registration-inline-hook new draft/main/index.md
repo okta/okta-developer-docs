@@ -567,27 +567,41 @@ Your Okta org is set up to call the sample external service using a registration
 
 In your Okta org, you can preview the request and response JSON in the Admin Console.
 
+To preview a profile enrollment (self-service registration) request and response:
+
 1. In the Admin Console, go to **Workflow** > **Inline Hooks**.
-1. Select the registration inline hook name (in this example, select **Guide Registration Hook Code**).
+1. Select the registration inline hook name you created.
 1. Click **Preview**.
 1. In the **Configure Inline Hook request** block, select an end user from your org in the **data.userProfile** field. That is, select a value from your `data.user.profile` object.
-1. To test an SSR request, under **requestType**, select **Self-Service Registration**.
+1. Under **requestType**, select **Self-Service Registration**.
 1. From the **Preview example Inline Hook request** block, select **Generate Request**.
    The end user's request information in JSON format, that is sent to the external service, appears.
-1. Click **Edit** to update your request before previewing the response. For this example, change the email domain to `@example.com`.
+1. Optional: Click **Edit** to update your request before previewing the response. For this example, you can change the email domain to view a response that accepts or denies the registration. That is, a user registering with an `okta.com` email or not. Click **Save**.
 1. From the **View service's response** block, click **View Response**.
-   The response from your external service in JSON format appears, which indicates that self-registration was either allowed or denied.
-1. To test a profile update, select an end user from your org in the **data.userProfile** field, and then under **requestType** select **Progressive Profile**.
+
+The response from your external service in JSON format appears, which indicates that self-registration was either allowed or denied.
+
+To preview a progressive profile enrollment request and response:
+
+1. In the Admin Console, go to **Workflow** > **Inline Hooks**.
+1. Select the registration inline hook name you created.
+1. Click **Preview**.
+1. In the **Configure Inline Hook request** block, select an end user from your org in the **data.userProfile** field. That is, select a value from your `data.user.profile` object.
+1. Under **requestType**, select **Progressive Profile**.
 1. From the **Preview example Inline Hook request** block, select **Generate Request**.
-1. Click **Edit** to update `userProfileUpdate`:
+1. Click **Edit** to update `userProfileUpdate` and add a value for the `employeeNumber` attribute (either 4 digits or larger based on the use case you want to preview):
+
    ```javascript
    "userProfileUpdate": {
       "employeeNumber": "1234"
       }
    ```
-   > **Note:** Make sure that you delete the comma after the value you enter for an employee number. It isn't valid JSON otherwise.
+
+   > **Note:** Make sure that your edits are valid JSON.
+
 1. From the **View service's response** block, click **View Response**.
-   The response from your external service in JSON format appears, which indicates that the profile update was either allowed or denied.
+
+The response from your external service in JSON format appears, which indicates that the profile update was either allowed or denied.
 
 ## Test your registration inline hook
 
@@ -595,29 +609,24 @@ You can also test the code directly with self-registering or profile-updating en
 
 ### Test the SSR inline hook
 
-To run a test of your SSR inline hook, go to the Okta sign-in page for your Okta org, click the **Sign Up** link, and attempt to self-register.
-> **Note:** The **Employee number** field appears as optional. To test SSR, you can leave **Employee number** blank.
+To run a test of your profile enrollment (self-service registration) registration inline hook, go to the Okta sign-in page for your Okta org, click the **Sign Up** link, and attempt to self-register.
 
-* If you use an allowable email domain, such as `rosario.jones@example.com`, the end user registration goes through.
-* If you use an incorrect email domain, the end user registration is denied. Review the error message that displays the error summary from the external service code and is passed back to Okta. See [error](/docs/reference/registration-hook/#error).
+* If you use an allowable email domain, such as `rosario.jones@okta.com`, the end user registration goes through for the profile enrollment scenario.
+* If you use an allowable email domain and employee number, the end user registration goes through for the profile and progressive profile enrollment scenario.
+* If you use an incorrect email domain or employee number (depending on the scenario), the end user registration is denied.
+
+Review the error message that displays the error summary from the external service code and is passed back to the Okta sign-in page. See [error](/docs/reference/registration-hook/#error).
 
 ### Test the progressive enrollment inline hook
 
-To test the progressive enrollment inline hook, you need to make **Employee number** required and manually add a user with a password.
+To run a test of your progressive profile enrollment registration inline hook, [create](https://help.okta.com/okta_help.htm?type=oie&id=ext-usgp-add-users) or use an existing user in your org.
 
-1. Sign in to the Okta Admin Console as an admin.
-1. Go to **Security** > **Profile Enrollment**.
-1. Under **Profile enrollment form**, find **Employee number**, and then click **Edit**.
-1. Set the **Input requirement** to **Required**.
-1. Click **Save**.
-1. Go to **Directory** > **People**, and then click **Add person**.
-1. Enter the credentials for your test user and select **I will set password**.
-1. Enter a password, and then click **Save**.
-1. Sign out from the Admin Console and sign in with your new `@example.com` credentials.
+* If you use valid sign-in credentials with an **Employee number** value of four digits, the user's profile is updated.
+* If you enter an employee number in an invalid format, the profile update is denied.
 
-* If you use valid sign-in credentials, the **Employee number** field appears on the next page.
-* If you enter an employee number in a valid format (4 digits), the update goes through.
-* If you enter an employee number in an invalid format, the update is denied. Review the error message that displays the error summary from the external service code and is passed back to Okta. See [error](/docs/reference/registration-hook/#error).
+Sign back in as your org admin to review the profile of the user and confirm that the user's profile was updated and the employee number value exists.
+
+For invalid, employee numbers review the error message that displays the error summary from the external service code and is passed back to Okta sign-in page. See [error](/docs/reference/registration-hook/#error).
 
 > **Note:** Review [Troubleshooting hook implementations](/docs/guides/common-hook-set-up-steps/nodejs/main/#troubleshoot-hook-implementations) for help with any difficulties during setup or configuration.
 
@@ -628,6 +637,7 @@ Review the following guides to implement other inline or event hook examples:
 * [Event hook](/docs/guides/event-hook-implementation/)
 * [Password import inline hook](/docs/guides/password-import-inline-hook/)
 * [Token inline hook](/docs/guides/token-inline-hook/)
+* [SAML inline hook](/docs/guides/saml-hook/)
 * [Telephony inline hook](/docs/reference/telephony-hook/)
 
 ## See also
