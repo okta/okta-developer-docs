@@ -8,7 +8,7 @@ meta:
 <ApiLifecycle access="ie" />
 
 # How Okta Identity Engine works
-Okta Identity Engine lets users customize the style and content of emails dynamically, based on the app that triggers the email notification. This page explains the key concepts and features of [Okta Identity Engine](https://help.okta.com/oie/en-us/content/topics/identity-engine/oie-index.htm) and the areas in which it differs from [Okta Classic Engine](/docs/guides/archive-overview/main/).
+This page explains the key concepts and features of [Okta Identity Engine](https://help.okta.com/oie/en-us/content/topics/identity-engine/oie-index.htm) and the areas in which it differs from [Okta Classic Engine](/docs/guides/archive-overview/main/).
 
 > **Notes:**
 > * From March 1, 2022, all new [Okta organizations](/docs/concepts/okta-organizations/) use Identity Engine.
@@ -17,7 +17,7 @@ Okta Identity Engine lets users customize the style and content of emails dynami
 >     
 >   * Current Classic Engine users can continue to use the Classic Engine organization, and the v1 APIs and SDKs. For information about upgrading your Classic Engine instance to Identity Engine, see [Identity Engine upgrade overview](/docs/guides/oie-upgrade-overview/main/) on the Okta Developer Portal.
 >     
-> * Documentation that covers features exclusive to Identity Engine begins with a blue **Identity Engine** badge.
+> * Documentation that covers features exclusive to Identity Engine begins with a blue <span class="api-label api-label-ie">Identity Engine</span> badge.
 
 
 <a id="authentication-deployment-models"></a>
@@ -59,7 +59,7 @@ Identity Engine also lets you create flexible apps that can change their authent
 
 <a id="app-context"></a>
 ## App context
-When a user begins to authenticate to a system, Identity Engine provides an _app context_, which comprises the variables from email templates that allow the customization of email messages. For more information, see the following resources on the Okta Developer Portal:
+When a user begins to authenticate to a system, Identity Engine provides an _app context_, functionality which uses the variables from email templates to enable the customization of the style and content of email messages based on the app that triggers the email notification. For more information, see the following resources on the Okta Developer Portal:
 
 * [Use customizable email templates](/docs/guides/custom-email/main/#use-customizable-email-templates)
   
