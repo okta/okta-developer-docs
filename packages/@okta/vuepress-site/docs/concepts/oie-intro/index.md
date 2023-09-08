@@ -2,13 +2,13 @@
 title: Generating Dynamic Email by Using the Okta Identity Engine
 meta:
   - name: description
-    content: This section explains how you can use the Okta Identity Engine to customize the style and content of email messages dynamically based on the app that triggers the email notification.
+    content: This page explains the main features of Okta Identity Engine, including the authentication deployment models, the Interaction Code grant type, authentication policies, app context, and app intent links. It also provides SDKs and sample apps that can help you explore these features.
 ---
 
 <ApiLifecycle access="ie" />
 
 # How Okta Identity Engine works
-This page explains the key concepts and features of [Okta Identity Engine](https://help.okta.com/oie/en-us/content/topics/identity-engine/oie-index.htm) and the areas in which it differs from [Okta Classic Engine](/docs/guides/archive-overview/main/).
+This page explains the main features of [Okta Identity Engine](https://help.okta.com/oie/en-us/content/topics/identity-engine/oie-index.htm), including the authentication deployment models, the Interaction Code grant type, authentication policies, app context, and app intent links. It also explains some of the areas in which Okta Identity Engine differs from [Okta Classic Engine](/docs/guides/archive-overview/main/) and provides links to SDKs and sample apps that can help you explore these features.
 
 > **Notes:**
 > * From March 1, 2022, all new [Okta organizations](/docs/concepts/okta-organizations/) use Identity Engine.
