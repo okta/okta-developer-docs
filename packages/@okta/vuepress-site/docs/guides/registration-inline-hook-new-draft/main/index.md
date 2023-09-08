@@ -163,7 +163,11 @@ The simple scenario of profile enrollment (self-service registration) involves n
 
 You need to remix your own version of the Okta sample Glitch project and confirm that it is live.
 
-<StackSnippet snippet="glitch"/>
+1. Go to the [Okta Registration Inline Hook Example](https://glitch.com/edit/#!/okta-inlinehook-registrationhook-oie).
+1. Click **Remix your own**.
+1. Click **Share**.
+1. In the **Live site** field, click the copy icon. This is your external service URL. Make a note of it as you need it later.
+1. Click **Logs**. If you see a "Your app is listening on port {XXXX}" message, the app is live and ready to receive Okta requests.
 
 Review the following project code with endpoint `/registrationHookSSR`.The external service responds to Okta indicating whether to accept the end user's self-registration. The response returns a `commands` object in the body of the HTTPS response. This object contains specific syntax that indicates whether the user is allowed or denied to self-register or to update their profile with Okta.
 
@@ -228,7 +232,14 @@ Configure your registration inline hook for your Okta org to use the glitch proj
 
    `https://your-glitch-projectname.glitch.me/registrationHookSSR`
 
-<StackSnippet snippet="auth"/>
+1. Include the authentication field and secret. In this example:
+
+   * **Authentication Field** = `authorization`
+   * **Authorization Secret** = `Basic YWRtaW46c3VwZXJzZWNyZXQ=`
+
+   > **Note**: If you want to use OAuth 2.0 to secure your inline hooks, see [Add Authentication method](/docs/guides/common-hook-set-up-steps/nodejs/main/#add-authentication-method).
+
+1. Click **Save**.
 
 > **Note:** You can also set up an inline hook using the API. See [Inline Hooks Management API](/docs/reference/api/inline-hooks/#create-inline-hook).
 
@@ -268,7 +279,11 @@ The scenario of progressive profile enrollment involves existing users prompted 
 
 You need to remix your own version of the Okta sample Glitch project and confirm that it is live.
 
-<StackSnippet snippet="glitch"/>
+1. Go to the [Okta Registration Inline Hook Example](https://glitch.com/edit/#!/okta-inlinehook-registrationhook-oie).
+1. Click **Remix your own**.
+1. Click **Share**.
+1. In the **Live site** field, click the copy icon. This is your external service URL. Make a note of it as you need it later.
+1. Click **Logs**. If you see a "Your app is listening on port {XXXX}" message, the app is live and ready to receive Okta requests.
 
 Review the following project code with endpoint `/registrationHookPP`. The external service responds to Okta indicating whether to update the end user's profile with a valid employee number. The response returns a `commands` object in the body of the HTTPS response. This object contains specific syntax that indicates whether the user is allowed or denied to self-register or to update their profile with Okta.
 
@@ -386,7 +401,11 @@ This scenario involves both profile enrollment (self-service registration) and p
 
 You need to remix your own version of the Okta sample Glitch project and confirm that it is live.
 
-<StackSnippet snippet="glitch"/>
+1. Go to the [Okta Registration Inline Hook Example](https://glitch.com/edit/#!/okta-inlinehook-registrationhook-oie).
+1. Click **Remix your own**.
+1. Click **Share**.
+1. In the **Live site** field, click the copy icon. This is your external service URL. Make a note of it as you need it later.
+1. Click **Logs**. If you see a "Your app is listening on port {XXXX}" message, the app is live and ready to receive Okta requests.
 
 Review the following project code with endpoint `/registrationHookSSRandPP`. The external service responds to Okta indicating whether to update the end user's profile with a valid employee number or allow a self-registration of a new user. The response returns a `commands` object in the body of the HTTPS response. This object contains specific syntax that indicates whether the user is allowed or denied to self-register or to update their profile with Okta.
 
