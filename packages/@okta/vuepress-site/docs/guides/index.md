@@ -147,6 +147,7 @@ guides:
  - build-api-integration
  - add-logingov-idp
  - policy-simulation
+ - registration-inline-hook-new-draft
 ---
 
 Learn how to accomplish a task with step-by-step instructions.

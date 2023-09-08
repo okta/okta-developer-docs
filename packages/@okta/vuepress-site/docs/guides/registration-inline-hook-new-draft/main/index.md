@@ -607,7 +607,7 @@ The response from your external service in JSON format appears, which indicates 
 
 You can also test the code directly with self-registering or profile-updating end users.
 
-### Test the SSR inline hook
+### Test the profile enrollment (self-service registration) inline hook
 
 To run a test of your profile enrollment (self-service registration) registration inline hook, go to the Okta sign-in page for your Okta org, click the **Sign Up** link, and attempt to self-register.
 
@@ -637,7 +637,7 @@ Review the following guides to implement other inline or event hook examples:
 * [Event hook](/docs/guides/event-hook-implementation/)
 * [Password import inline hook](/docs/guides/password-import-inline-hook/)
 * [Token inline hook](/docs/guides/token-inline-hook/)
-* [SAML inline hook](/docs/guides/saml-hook/)
+* [SAML inline hook](/docs/guides/saml-inline-hook/)
 * [Telephony inline hook](/docs/reference/telephony-hook/)
 
 ## See also
