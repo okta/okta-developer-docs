@@ -169,7 +169,7 @@ You need to remix your own version of the Okta sample Glitch project and confirm
 1. In the **Live site** field, click the copy icon. This is your external service URL. Make a note of it as you need it later.
 1. Click **Logs**. If you see a "Your app is listening on port {XXXX}" message, the app is live and ready to receive Okta requests.
 
-Review the following project code with endpoint `/registrationHookSSR`.The external service responds to Okta indicating whether to accept the end user's self-registration. The response returns a `commands` object in the body of the HTTPS response. This object contains specific syntax that indicates whether the user is allowed or denied to self-register or to update their profile with Okta.
+In the following code, The external service responds to Okta indicating whether to accept the end user's self-registration. The response returns a `commands` object in the body of the HTTPS response. This object contains specific syntax that indicates whether the user is allowed or denied to self-register or to update their profile with Okta.
 
 <StackSnippet snippet="response-properties"/>
 
@@ -241,7 +241,7 @@ Configure your registration inline hook for your Okta org to use the glitch proj
 
 1. Click **Save**.
 
-> **Note:** You can also set up an inline hook using the API. See [Inline Hooks Management API](/docs/reference/api/inline-hooks/#create-inline-hook).
+<StackSnippet snippet="apisetup"/>
 
 ### Create an enrollment policy for profile enrollment (SSR)
 
@@ -353,7 +353,7 @@ Configure your registration inline hook for your Okta org to use the glitch proj
 
 1. Click **Save**.
 
-> **Note:** You can also set up an inline hook using the API. See [Inline Hooks Management API](/docs/reference/api/inline-hooks/#create-inline-hook).
+<StackSnippet snippet="apisetup"/>
 
 ### Create an enrollment policy for progressive profile enrollment
 
@@ -516,13 +516,11 @@ Configure your registration inline hook for your Okta org to use the glitch proj
 
 1. Click **Save**.
 
-> **Note:** You can also set up an inline hook using the API. See [Inline Hooks Management API](/docs/reference/api/inline-hooks/#create-inline-hook).
+<StackSnippet snippet="apisetup"/>
 
 ### Create an enrollment policy for profile and progressive profile enrollment
 
-To enable the registration inline hook, you must associate it with a profile enrollment policy. In this example, you create an enrollment policy specifically for your hook. See [enable and configure a profile enrollment policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-profile-enrollment).
-
-> **Note:** Profile Enrollment and registration inline hooks are only supported by the [Okta Sign-In Widget](/docs/guides/embedded-siw/) version 4.5 or later.
+<StackSnippet snippet="enrollment-policy"/>
 
 Before creating the enrollment policy, ensure the user profile attribute `employeeNumber` is set to a status of read-write. The `employeeNumber` attribute is read-only by default.
 
