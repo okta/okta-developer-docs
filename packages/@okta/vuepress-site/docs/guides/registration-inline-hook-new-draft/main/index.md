@@ -245,9 +245,7 @@ Configure your registration inline hook for your Okta org to use the glitch proj
 
 ### Create an enrollment policy for profile enrollment (SSR)
 
-To enable the registration inline hook, you must associate it with a Profile Enrollment policy. In this example, you create an enrollment policy specifically for your hook. See [enable and configure a Profile Enrollment policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-profile-enrollment).
-
-> **Note:** Profile Enrollment and registration inline hooks are only supported by the [Okta Sign-In Widget](/docs/guides/embedded-siw/) version 4.5 or later.
+<StackSnippet snippet="enrollment-policy"/>
 
 To associate the registration inline hook with a profile enrollment policy:
 
@@ -357,9 +355,7 @@ Configure your registration inline hook for your Okta org to use the glitch proj
 
 ### Create an enrollment policy for progressive profile enrollment
 
-To enable the registration inline hook, you must associate it with a profile enrollment policy. In this example, you create an enrollment policy specifically for your hook. See [enable and configure a profile enrollment policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-profile-enrollment).
-
-> **Note:** Profile Enrollment and registration inline hooks are only supported by the [Okta Sign-In Widget](/docs/guides/embedded-siw/) version 4.5 or later.
+<StackSnippet snippet="enrollment-policy"/>
 
 Before creating the enrollment policy, ensure the user profile attribute `employeeNumber` is set to a status of read-write. The `employeeNumber` attribute is read-only by default.
 
