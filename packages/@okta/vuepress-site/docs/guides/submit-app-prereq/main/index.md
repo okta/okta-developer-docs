@@ -35,13 +35,13 @@ Before you submit your integration, ensure that your integration doesn't use Okt
 
 ## OIN multi-tenancy
 
-Your app must support multi-tenancy to be listed in the public OIN catalog.
+Your app integration must support multi-tenancy to be listed in the public OIN catalog.
 
 What does this mean?
 
-Multi-tenancy in the OIN refers to the concept that as an ISV, you support several instances of your app, each with a unique credential system, for your customers. An instance of an app that contains the infrastructure to support a group of users is considered a tenant. See [Tenants in Okta](/docs/guides/oin-sso-overview/#tenants-in-okta).
+Multi-tenancy in the OIN refers to the concept that as an ISV, you support several instances of your app, each with a unique credential system for your customers. An instance of an app that contains the infrastructure to support a group of users is considered a tenant. See [Tenants in Okta](/docs/guides/oin-sso-overview/#tenants-in-okta).
 
-Each of your customer app instances must be able to provide unique credentials to connect to their Okta org. This allows your customers to find your app integration from the OIN catalog in their Okta org and instantiate it with their unique tenant credentials.
+You must provide unique credentials for each of your customer tenants to connect to their Okta org. This allows your customers to find your app integration from the OIN catalog in their own Okta org and instantiate it with their unique tenant credentials.
 
 For example, if your app integration supports SAML SSO with Okta, you need to provide unique SAML metadata for each of your customer tenants.
 
@@ -388,7 +388,9 @@ You can't publish integrations with the following Okta features in the OIN catal
   * Custom scopes, such as the `groups` scope, aren't supported for integrations published in the OIN.
   * ISVs shouldn't rely on the `email_verified` scope-dependent claim returned by an OIDC integration to evaluate whether a user has verified ownership of the email address associated with their profile.
 
-* **SAML encryption:** SAML integrations must use SHA256 encryption for security. If you're using SHA-1 for encryption, see our guide on how to [Upgrade SAML Apps to SHA256](/docs/guides/updating-saml-cert/).
+* **SHA-1 SAML encryption:** SAML integrations must use SHA256 encryption for security. If you're using SHA-1 for encryption, see our guide on how to [Upgrade SAML Apps to SHA256](/docs/guides/updating-saml-cert/).
+
+* **Unsupported multi-tenancy**: Your app integration must support multi-tenancy to be listed in the public OIN catalog. See [OIN multi-tenancy](#oin-multi-tenancy).
 
 <ApiAmProdWarning />
 
