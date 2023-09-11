@@ -31,7 +31,7 @@ Before using the [OIN Manager](https://oinmanager.okta.com)&nbsp;to submit your 
 * [Test account](#test-account-guidelines)
 * [Customer configuration document](#customer-configuration-document-guidelines)
 
-Before you submit your integration, ensure that your integration doesn't use Okta features that aren't supported in the OIN. See [OIN limitations](#oin-limitations).
+Before you submit your integration, ensure that your integration uses Okta features that are supported in the OIN. See [OIN multi-tenancy](#oin-multi-tenancy) and [OIN limitations](#oin-limitations).
 
 ## OIN multi-tenancy
 
@@ -45,9 +45,9 @@ You must provide a unique method for each of your customer tenants to connect to
 
 For example, if your app integration supports SAML SSO with Okta and you have two customers, customer A and customer B:
 
-* When customer A integrates Okta SSO with your app, they inform your support staff that they want to enable SAML 2.0 on their account. They provide you with the metadata required from their Okta org integration.
-* Similarly, customer B also informs your support staff of their intent to integrate with Okta SSO and provides their unique metadata.
-* Your app platform must configure SAML 2.0 for each account with unique metadata and allow for separate customer credential systems.
+* When customer A integrates Okta SSO with your app, they inform you that they want to enable SAML 2.0 on their account. They provide you with the metadata required from their Okta org integration.
+* Similarly, customer B also informs you of their intent to integrate with Okta SSO and provides their unique metadata.
+* You configure unique SAML 2.0 metadata for each customer account in your app platform that allows for a separate credential system connection with Okta.
 
 ## Logo guidelines
 
