@@ -51,7 +51,7 @@ To submit an OIDC integration, click the **OIDC** tab and select **On** from the
 
   * **Enter your Post Logout Redirect URI**: Provide the complete sign-out redirect URI for your app integration, including the variable names if you're using a per tenant design.
 
-* **Okta requires that all OIDC integrations support multi-tenancy. Do you support this in your implementation?**: Select **Yes** if your customers can set up an OIDC connection between their tenant in your application and multiple external IdPs or even multiple instances inside a single IdP.
+* **Okta requires that all OIDC integrations support multi-tenancy. Do you support this in your implementation?**: Select **Yes** if your customers can set up an OIDC connection between their tenant in your application and multiple external IdPs or even multiple instances inside a single IdP. See [OIN multi-tenancy](/docs/guides/submit-app-prereq/main/#oin-multi-tenancy).
 
 * **To configure OIDC, can your customers do it by themselves from your app's UI, or do they need to contact your support team?**: If a customer needs support to configure your app integration, you need to include support contact information in your configuration guide. We recommend that you build a UI that enables self-service configuration to reduce the setup time for your customers.
 

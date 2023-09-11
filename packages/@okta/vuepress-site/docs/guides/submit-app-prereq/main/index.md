@@ -41,9 +41,13 @@ What does this mean?
 
 Multi-tenancy in the OIN refers to the concept that as an ISV, you support several instances of your app, each with a unique credential system for your customers. An instance of an app that contains the infrastructure to support a group of users is considered a tenant. See [Tenants in Okta](/docs/guides/oin-sso-overview/#tenants-in-okta).
 
-You must provide unique credentials for each of your customer tenants to connect to their Okta org. This allows your customers to find your app integration from the OIN catalog in their own Okta org and instantiate it with their unique tenant credentials.
+You must provide a unique method for each of your customer tenants to connect to their Okta org. This allows your customers to find your app integration from the OIN catalog in their own Okta org. Then, they can instantiate the app integration with their unique tenant credentials, either with your support or on their own.
 
-For example, if your app integration supports SAML SSO with Okta, you need to provide unique SAML metadata for each of your customer tenants.
+For example, if your app integration supports SAML SSO with Okta and you have two customers, customer A and customer B:
+
+* When customer A integrates Okta SSO with your app, they inform your support staff that they want to enable SAML 2.0 on their account. They provide you with the metadata required from their Okta org integration.
+* Similarly, customer B also informs your support staff of their intent to integrate with Okta SSO and provides their unique metadata.
+* Your app platform must configure SAML 2.0 for each account with unique metadata and allow for separate customer credential systems.
 
 ## Logo guidelines
 
