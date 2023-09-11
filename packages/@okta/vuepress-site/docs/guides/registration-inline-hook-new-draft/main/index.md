@@ -254,7 +254,7 @@ To associate the registration inline hook with a profile enrollment policy:
 1. Give your policy a name (in this example, use "Inline Hook"), and then click **Save**.
 1. From the list of Enrollment Policies, find **Inline Hook** and click the pencil icon.
 1. Click **Manage Apps**, and then click **Add Apps to this Policy**.
-1. Locate the **Okta Admin Console**, click **Apply**, and then click **Close**.
+1. Locate the **Okta Dashboard**, click **Apply**, and then click **Close**.
 1. Click **Back to Profile Enrollment Policy**.
 1. In **Profile enrollment**, click **Edit**.
 1. For **Self-service registration**, select **Allowed**.
@@ -372,7 +372,7 @@ To associate the registration inline hook with a profile enrollment policy and a
 1. Give your policy a name (in this example, use "Inline Hook"), and then click **Save**.
 1. From the list of Enrollment Policies, find **Inline Hook** and click the pencil icon.
 1. Click **Manage Apps**, and then click **Add Apps to this Policy**.
-1. Locate the **Okta Admin Console**, click **Apply**, and then click **Close**.
+1. Locate the **Okta Dashboard**, click **Apply**, and then click **Close**.
 1. Click **Back to Profile Enrollment Policy**.
 1. In **Profile enrollment**, click **Edit**.
 1. For **Self-service registration**, select **Denied**.
@@ -533,7 +533,7 @@ To associate the registration inline hook with a profile enrollment policy and a
 1. Give your policy a name (in this example, use "Inline Hook"), and then click **Save**.
 1. From the list of Enrollment Policies, find **Inline Hook** and click the pencil icon.
 1. Click **Manage Apps**, and then click **Add Apps to this Policy**.
-1. Locate the **Okta Admin Console**, click **Apply**, and then click **Close**.
+1. Locate the **Okta Dashboard**, click **Apply**, and then click **Close**.
 1. Click **Back to Profile Enrollment Policy**.
 1. In **Profile enrollment**, click **Edit**.
 1. For **Self-service registration**, select **Allowed**.
@@ -567,7 +567,7 @@ To preview a profile enrollment (self-service registration) request and response
 1. Optional: Click **Edit** to update your request before previewing the response. For this example, you can change the email domain to view a response that accepts or denies the registration. That is, a user registering with an `okta.com` email or not. Click **Save**.
 1. From the **View service's response** block, click **View Response**.
 
-The response from your external service in JSON format appears, which indicates that self-registration was either allowed or denied.
+The response from your external service in JSON format appears, which indicates that self-registration was either allowed or denied. You can also review the console output from your Glitch application's **Logs**.
 
 To preview a progressive profile enrollment request and response:
 
@@ -603,7 +603,7 @@ To run a test of your profile enrollment (self-service registration) registratio
 * If you use an allowable email domain and employee number, the end user registration goes through for the profile and progressive profile enrollment scenario.
 * If you use an incorrect email domain or employee number (depending on the scenario), the end user registration is denied.
 
-Review the error message that displays the error summary from the external service code and is passed back to the Okta sign-in page. See [error](/docs/reference/registration-hook/#error).
+Review the error message that displays the error summary from the external service code and is passed back to the Okta sign-in page. See [error](/docs/reference/registration-hook/#error). You can also review the console output from your Glitch application's **Logs**.
 
 ### Test the progressive enrollment inline hook
 
@@ -614,7 +614,7 @@ To run a test of your progressive profile enrollment registration inline hook, [
 
 Sign back in as your org admin to review the profile of the user and confirm that the user's profile was updated and the employee number value exists.
 
-For invalid, employee numbers review the error message that displays the error summary from the external service code and is passed back to the Okta sign-in page. See [error](/docs/reference/registration-hook/#error).
+For invalid, employee numbers review the error message that displays the error summary from the external service code and is passed back to the Okta sign-in page. See [error](/docs/reference/registration-hook/#error). You can also review the console output from your Glitch application's **Logs**.
 
 > **Note:** Review [Troubleshooting hook implementations](/docs/guides/common-hook-set-up-steps/nodejs/main/#troubleshoot-hook-implementations) for help with any difficulties during setup or configuration.
 
