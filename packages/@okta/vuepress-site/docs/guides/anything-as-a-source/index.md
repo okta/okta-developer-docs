@@ -5,8 +5,6 @@ meta:
     content: This is an Anything-as-a-Source custom client developer guide to synchronize any HR source with Okta user profiles.
 ---
 
-<ApiLifecycle access="ea" /><!--EA for both Classic Engine and Identity Engine. Okta needs to turn on IDENTITY_SOURCE_APPS feature flag (not Self-Service)-->
-
 This guide outlines how to develop a custom client to manage an identity source with Okta for the Anything-as-a-Source (XaaS) integration. The custom client can be a standalone app or a component of an existing app that drives the synchronization between the HR source (the identity source) and the Okta Universal Directory.
 
 ---
@@ -19,7 +17,7 @@ This guide outlines how to develop a custom client to manage an identity source 
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup/)
    * A Custom Identity Source integration configured in your Okta org (see [Anything-as-a-Source](https://help.okta.com/okta_help.htm?type=oie&id=ext-anything-as-a-source))
-      >  **Note:** Your org needs to have the Identity Source Apps feature enabled. Contact your Okta account team to enable this feature. <!-- IDENTITY_SOURCE_APPS feature flag needs to be enabled-->
+      >  **Note:** Your org needs to have the Identity Source Apps feature enabled. Contact your Okta account team to enable this feature. <!-- IDENTITY_SOURCE_APPS feature flag needs to be enabled (Checked with Karthik Reddy on Sept 11, 2023 - this text should remain in place until Eng has enabled all SKUs)-->
    * [An Okta API token](/docs/guides/create-an-api-token/) to make secure API calls
 
 * An HR source from which you want to synchronize user data with Okta
@@ -50,8 +48,8 @@ The Identity Sources API synchronizing data flow uses an [Identity Source Sessio
 ### Identity Source Session status
 
 * **CREATED**: The Identity Source Session object has been created for a specific Custom Identity Source integration, and you can load data to the session at this stage. Data import processing hasn't been invoked, and you can cancel the session at this stage.
-* **TRIGGERED**: Okta is processing the uploaded data in the Identity Source Session. You can’t load new data to the Identity Source Session object at this stage, and you can't cancel the session. You can view sessions with this status in the [Import Monitoring](https://help.okta.com/okta_help.htm?id=ext-view-import-monitoring-dashboard) page from the Admin Console.
-* **COMPLETED**: The data in the Identity Source Session object has been processed by Okta. You can’t upload new data to the Identity Source Session object if it has the `COMPLETED` status. The synchronization data job is considered complete.
+* **TRIGGERED**: Okta is processing the uploaded data in the Identity Source Session. You can't load new data to the Identity Source Session object at this stage, and you can't cancel the session. You can view sessions with this status in the [Import Monitoring](https://help.okta.com/okta_help.htm?id=ext-view-import-monitoring-dashboard) page from the Admin Console.
+* **COMPLETED**: The data in the Identity Source Session object has been processed by Okta. You can't upload new data to the Identity Source Session object if it has the `COMPLETED` status. The synchronization data job is considered complete.
 * **CLOSED**: The session is cancelled and isn't available for further activity. You can only cancel Identity Source Sessions with the `CREATED` status. You can't cancel a session that has been triggered or completed. Previously loaded data is deleted from a cancelled Identity Source Session.
 * **EXPIRED**: This status indicates that the Identity Source Session has timed out during the data loading stage. An Identity Source Session with the `CREATED` status expires after 24 hours of inactivity.
 
@@ -59,7 +57,7 @@ The Identity Sources API synchronizing data flow uses an [Identity Source Sessio
 
 You can only process one Identity Source Session at a time (for a specific Custom Identity Source integration) to avoid conflicts. The following are additional Identity Source Session behaviors:
 
-* You can only load data to an Identity Source Session when it’s in the `CREATED` status.
+* You can only load data to an Identity Source Session when it's in the `CREATED` status.
 * There can only be one Identity Source Session in the `CREATED` status for an identity source.
 * An Identity Source Session with the `CREATED` or `TRIGGERED` status is considered active.
 * If there are no API requests in 24 hours for an Identity Source Session that has the `CREATED` status, then the status is set to `EXPIRED` and the session can no longer be used.
@@ -87,7 +85,7 @@ The bulk-load request contains an array of external [Identity Source User Profil
 
 * `profile`: The set of attributes from the HR source to synchronize with the Okta user profile. User profiles are mapped according to the attribute mappings that you specified in your Custom Identity Source configuration. See Declare an identity source schema in [Use Anything-as-a-Source](https://help.okta.com/okta_help.htm?type=oie&id=ext-use-xaas).
 
-> **Note:** You can only load user profile data to an Identity Source Session object with the `"entityType": "USERS"` property. Group data load isn’t currently supported.
+> **Note:** You can only load user profile data to an Identity Source Session object with the `"entityType": "USERS"` property. Group data load isn't currently supported.
 
 ## Identity Sources API flow
 
