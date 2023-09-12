@@ -14,7 +14,7 @@ title: Okta Identity Engine API Products release notes 2023
 | [Automatically assign super admin role to an app](#automatically-assign-super-admin-role-to-an-app) | September 13, 2023 |
 | [Authentication challenge for redirects](#authentication-challenge-for-redirects) | September 13, 2023 |
 | [Number challenge support for OOB and MFA OOB grant flows is EA in Production](#number-challenge-support-for-oob-and-mfa-oob-grant-flows-is-ea-in-production) | September 13, 2023 |
-| [Policy Simulation API is GA in Preview](#policy-simulation-api-is-ga--in-preview) | September 13, 2023 |
+| [Policy Simulation API is GA in Preview](#policy-simulation-api-is-ga-in-preview) | September 13, 2023 |
 | [Developer documentation update in 2023.09.0](#developer-documentation-update-in-2023-09-0) | September 13, 2023 |
 | [Bugs fixed in 2023.09.0](#bugs-fixed-in-2023-09-0) | September 13, 2023 |
 
@@ -22,13 +22,13 @@ title: Okta Identity Engine API Products release notes 2023
 This feature delivers parity for upgraded orgs who used the Self Service Registration (SSR) feature in Classic Engine. Previously in Identity Engine, SSR was combined with profile enrollment. Users were unable to sign in after the upgrade if their org used read-only or hidden attributes for SSR in Classic Engine. Identity Engine now separates SSR and profile enrollment, and turns off progressive profiling by default. This ensures that no admins are locked out and users can sign in to their orgs even if they have special attributes. See <Topics/identity-engine/policies/create-profile-enrollment-policy-pe.htm>.
 
 #### Automatically assign super admin role to an app
-Admins can now automatically assign the super admin role to all of their newly created public client apps. See [Work with the admin component]](https://help.okta.com/okta_help.htm?type=oie&id=ext-work-with-admin).
+Admins can now automatically assign the super admin role to all of their newly created public client apps. See [Work with the admin component](https://help.okta.com/okta_help.htm?type=oie&id=ext-work-with-admin).
 
 #### Authentication challenge for redirects
 Users now receive an authentication challenge for each redirect sent to an Identity Provider with **Factor only** configured, even if the IdP session is active. <!-- OKTA-628504 ENG_FORCE_AUTHN_FOR_FACTORS_IDPS -->
 
 #### Number challenge support for OOB and MFA OOB grant flows is EA in Production
-Direct authentication out-of-band (OOB) and multifactor out-of-band (MFA OOB) grant flows now support number challenge for Okta Verify Push. See the [MFA OOB grant](/docs/guides/implement-grant-type/mfaoob/mai) and [OOB grant](/docs/guides/implement-grant-type/oob/main/") flows.
+Direct authentication out-of-band (OOB) and multifactor out-of-band (MFA OOB) grant flows now support number challenge for Okta Verify Push. See the [MFA OOB grant](/docs/guides/implement-grant-type/mfaoob/mai) and [OOB grant](/docs/guides/implement-grant-type/oob/main/) flows.
 
 #### Policy Simulation API is GA in Preview
 With the Policy API `/simulate` endpoint, you can quickly and easily test policies and validate whether your desired security outcomes are achieved. This endpoint allows you to simulate user access attributes, such as IP address, device, risk, and so on, to test whether the user is granted access to the specified application. This endpoint is implemented in the Admin Console as the [Access Testing Tool](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/policies/access-testing-tool.htm). The `/simulate` endpoint helps you identify potential security risks and compliance issues before you implement a policy. See the [Policy API](/docs/reference/api/policy/#policy-simulation-operations) and [Test your policies with access simulations](/docs/guides/policy-simulation). <!-- OKTA-593826 POLICY_SIMULATION -->
