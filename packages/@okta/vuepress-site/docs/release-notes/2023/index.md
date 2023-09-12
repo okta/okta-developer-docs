@@ -8,13 +8,13 @@ title: Okta API Products release notes 2023
 
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
-| [Automatically assign the super admin role to an app]() | September 13, 2023 |
+| [Automatically assign super admin role to an app](#automatically-assign-super-admin-role-to-an-app) | September 13, 2023 |
 | [Authentication challenge for redirects](#authentication-challenge-for-redirects) | September 13, 2023 |
 | [Developer documentation update in 2023.09.0](#developer-documentation-update-in-2023-09-0) | September 13, 2023 |
 | [Bugs fixed in 2023.09.0](#bugs-fixed-in-2023-09-0) | September 13, 2023 |
 
-#### Automatically assign the super admin role to an app
-Orgs can now automatically assign the super admin role to newly created public client apps. See []]().
+#### Automatically assign super admin role to an app
+Admins can now automatically assign the super admin role to all of their newly created public client apps. See [Work with the admin component]](https://help.okta.com/okta_help.htm?type=oie&id=ext-work-with-admin).
 
 #### Authentication challenge for redirects
 Users now receive an authentication challenge for each redirect sent to an Identity Provider with **Factor only** configured, even if the IdP session is active. <!-- OKTA-628504 ENG_FORCE_AUTHN_FOR_FACTORS_IDPS -->
@@ -23,9 +23,9 @@ Users now receive an authentication challenge for each redirect sent to an Ident
 
 #### Bugs fixed in 2023.09.0
 
-* A token inline hook secured by an OAuth2.0 private key returned a 403 error response for all users except the Super Admin. (OKTA-605996)
+* A token inline hook secured by an OAuth2.0 private key returned a 403 error response for all users except the super admin. (OKTA-605996)
 * Access policy evaluation for custom authorization servers was inconsistent when default scopes were used. (OKTA-627559)
-* Some orgs received a HTTP 500 Internal Server error when using the Users API (PUT `/api/v1/users/{userId}?strict=true`) to update newly created user profiles. (OKTA-619044)
+* Some orgs received an HTTP 500 Internal Server error when using the Users API (PUT `/api/v1/users/{userId}?strict=true`) to update new user profiles. (OKTA-619044)
 
 ## August
 
