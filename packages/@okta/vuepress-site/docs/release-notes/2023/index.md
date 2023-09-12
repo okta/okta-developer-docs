@@ -8,7 +8,18 @@ title: Okta API Products release notes 2023
 
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
+| [Automatically assign the super admin role to an app]() | September 13, 2023 |
+| [Authentication challenge for redirects](#authentication-challenge-for-redirects) | September 13, 2023 |
+| [Developer documentation update in 2023.09.0](#developer-documentation-update-in-2023-09-0) | September 13, 2023 |
 | [Bugs fixed in 2023.09.0](#bugs-fixed-in-2023-09-0) | September 13, 2023 |
+
+#### Automatically assign the super admin role to an app
+Orgs can now automatically assign the super admin role to newly created public client apps. See []]().
+
+#### Authentication challenge for redirects
+Users now receive an authentication challenge for each redirect sent to an Identity Provider with **Factor only** configured, even if the IdP session is active. <!-- OKTA-628504 ENG_FORCE_AUTHN_FOR_FACTORS_IDPS -->
+
+#### Developer documentation update in 2023.09.0
 
 #### Bugs fixed in 2023.09.0
 
