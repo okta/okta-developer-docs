@@ -22,24 +22,26 @@ The tutorials in this lab are designed to run sequentially, with each tutorial s
 
 ## Prerequisites
 
-You'll need to set up the following to complete the tutorials in this lab.
+You need to set up the following to complete the tutorials in this lab.
 
 ## Two Okta accounts
 
 This lab requires two Okta accounts, one to represent a development environment, and one to act as a production environment. Both accounts must use **Okta Identity Engine**. The production environment must have [Okta Workflows](https://www.okta.com/platform/workflows/) enabled.
 
 1. Go to <https://developer.okta.com/signup/> and click **Sign up free for Developer Edition**.
-1. Fill in the form and click **Sign up** to create an Okta developer account. This will represent your development environment.
+1. Fill in the form and click **Sign up** to create an Okta developer account. This represents your development environment.
 1. Go to <https://www.okta.com/free-trial/workforce-identity/> .
-1. Fill in the form and click **Get Started** to create a 30-day free trial account. This will represent your production environment.
+1. Fill in the form and click **Get Started** to create a 30-day free trial account. This represents your production environment.
 
-> **Note:** Okta developer accounts do not have Okta Workflows enabled so you need to use the free trial account for the produciton environment.
+> **Note:** Okta developer accounts don’t have Okta Workflows enabled so you need to use the free trial account for the production environment.
 
-### Using existing accounts
+> **Tip**: You need your Okta org domain to follow this tutorial. It looks like `dev-123456.okta.com`. See [Find your Okta domain](/docs/guides/find-your-domain/). Where you see `${yourOktaDomain}` in this guide, replace it with your Okta domain.
 
-If you're using existing Okta accounts, check that:
+### Can you use existing accounts?
 
-* Both orgs are running Okta Identity Engine rather than Okta Classic Engine
+If you want to use existing Okta accounts instead of new ones, check that:
+
+* Both orgs are running Okta Identity Engine rather than Classic Engine.
 * The _production_ org has Okta Workflows enabled.
 
 To check for Okta Identity Engine, check the footer on any page of the Admin Console for that org. The version number is appended with **E** for Identity Engine orgs and **C** for Classic Engine orgs.
