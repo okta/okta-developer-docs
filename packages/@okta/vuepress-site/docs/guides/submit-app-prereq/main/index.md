@@ -41,13 +41,25 @@ What does this mean?
 
 Multi-tenancy in the OIN refers to the concept that as an ISV, you support several instances of your app, each with a unique credential system for your customers. An instance of an app that contains the infrastructure to support a group of users is considered a tenant. See [Tenants in Okta](/docs/guides/oin-sso-overview/#tenants-in-okta).
 
-You must provide a unique method for each of your customer tenants to connect to their Okta org. This allows your customers to find your app integration from the OIN catalog in their own Okta org. Then, they can instantiate the app integration with their unique tenant credentials, either with your support or on their own.
+You must provide a method for each of your customer tenants to uniquely connect to their Okta org. This allows your customers to find your app integration from the OIN catalog in their own Okta org. Then, they can instantiate the app integration with their unique tenant credentials, either with your support or on their own.
 
-For example, if your app integration supports SAML SSO with Okta and you have two customers, customer A and customer B:
+#### SAML SSO multi-tenant example
 
-* When customer A integrates Okta SSO with your app, they inform you that they want to enable SAML 2.0 on their account. They provide you with the metadata required from their Okta org integration.
-* Similarly, customer B also informs you of their intent to integrate with Okta SSO and provides their unique metadata.
-* You configure unique SAML 2.0 metadata for each customer account in your app platform that allows for a separate credential system connection with Okta.
+The following multi-tenant example demonstrates the scenario where your Okta app integration supports SAML SSO and you configure SSO for your customers:
+
+* Customer A and customer B have separate instances of your app. Each customer has their own set of users. Both customers use Okta as an IdP.
+* Customer A adds your integration to their Okta org and obtains the SAML metadata from this integration. They forward the metadata to you, allowing you to enable SSO for their users on your app platform.
+* Similarly, customer B adds your integration to their Okta org. They inform you that they want to enable SSO and provide you with their unique SAML metadata, which is obtained from their app integration in Okta.
+* You're responsible for configuring and enabling SSO for both customers A and B, using the unique SAML 2.0 metadata they've provided. Your app platform must allow for a separate credential system connection with Okta for each customer.
+
+#### OIDC SSO multi-tenant example
+
+The following is a multi-tenant example, assuming that your Okta app integration supports OIDC SSO and you provide a self-service portal for your app platform:
+
+* Customer A and customer B have separate instances of your app. Both customers have their own set of users, and each uses Okta as an IdP.
+* Customer A instantiates an OIDC integration for your app in their Okta org. They obtain the Okta app integration client ID and secret. They then sign in to your app platform portal and set up SSO configuration with their client ID, client secret, and Okta domain. Customer A enables SSO to your app for their users, and doesn't require any external assistance.
+* Similarly, customer B instantiates your OIDC app integration in their Okta org. They obtain their unique client ID and secret from their Okta org. They then sign in to their account on your app platform. They use their client ID, client secret, and Okta domain to enable SSO without any assistance from you.
+* Because you've created a self-service account portal that allows your customers to set up their individual SSO, you save resources and provide autonomy to your customers.
 
 ## Logo guidelines
 
