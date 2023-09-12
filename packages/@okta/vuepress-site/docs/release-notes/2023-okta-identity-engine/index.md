@@ -4,6 +4,20 @@ title: Okta Identity Engine API Products release notes 2023
 
 <ApiLifecycle access="ie" />
 
+## September
+
+### Weekly release 2023.09.0
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Bugs fixed in 2023.09.0](#bugs-fixed-in-2023-09-0) | September 13, 2023 |
+
+#### Bugs fixed in 2023.09.0
+
+* A token inline hook secured by an OAuth2.0 private key returned a 403 error response for all users except the Super Admin. (OKTA-605996)
+* Access policy evaluation for custom authorization servers was inconsistent when default scopes were used. (OKTA-627559)
+* Admins couldn’t make requests to MyAccount API (`/idp/myaccount/`) endpoints. (OKTA-632620)
+
 ## August
 
 ### Weekly release 2023.08.3

@@ -2,6 +2,20 @@
 title: Okta API Products release notes 2023
 ---
 
+## September
+
+### Weekly release 2023.09.0
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Bugs fixed in 2023.09.0](#bugs-fixed-in-2023-09-0) | September 13, 2023 |
+
+#### Bugs fixed in 2023.09.0
+
+* A token inline hook secured by an OAuth2.0 private key returned a 403 error response for all users except the Super Admin. (OKTA-605996)
+* Access policy evaluation for custom authorization servers was inconsistent when default scopes were used. (OKTA-627559)
+* Some orgs received a HTTP 500 Internal Server error when using the Users API (PUT `/api/v1/users/{userId}?strict=true`) to update newly created user profiles. (OKTA-619044)
+
 ## August
 
 ### Weekly release 2023.08.2
