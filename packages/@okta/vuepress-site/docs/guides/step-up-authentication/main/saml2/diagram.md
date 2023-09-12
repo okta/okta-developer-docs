@@ -6,15 +6,15 @@
 
 At a high level, this flow has the following steps:
 
-1. Per your use case, include the `acr_values` predefined parameter in the authentication request.
-2. The SP determines that higher authentication is needed, generates the SAML request, and sends it to the browser.
-3. The browser relays the SAML request to Okta.
-4. Okta performs the authentication scenarios required in accordance with the predefined `acr_values` parameter value used in the SAML authentication request.
-5. Okta generates and sends the SAML assertion response to the browser. The assertion contains the `acr` value from the request passed as `AuthnContextClassRef`. The factors (Authentication Method Reference (AMR) claims) used to authenticate the user are passed as a list of `AuthnContextDecl` in the `AuthnContext`.
-6. The browser relays the SAML assertion to the SP.
-7. The SP sends the `securitycontext` to the browser.
-8. The browser requests access to the resource from the SP.
-9. The SP responds with the requested resource.
+1. A user (not shown) attempts to access a resource within the SP through their browser.
+1. The SP determines that higher authentication is needed, generates the SAML request and includes the `acr_values` predefined parameter, and then sends the SAML request to the browser for relay.
+1. The browser relays the SAML request to Okta.
+1. Okta performs the authentication scenarios required in accordance with the predefined `acr_values` parameter value used in the SAML authentication request.
+1. Okta generates and sends the SAML assertion response to the browser. The assertion contains the `acr` value from the request passed as `AuthnContextClassRef`. The factors (Authentication Method Reference (AMR) claims) used to authenticate the user are passed as a list of `AuthnContextDecl` in the `AuthnContext`.
+1. The browser relays the SAML assertion to the SP.
+1. The SP sends the `securitycontext` to the browser.
+1. The browser requests access to the resource from the SP.
+1. The SP responds with the requested resource.
 
 <!-- @startuml Source for image. Generated using http://www.plantuml.com/plantuml/uml/
 
@@ -25,8 +25,8 @@ participant "Service Provider" as sp
 participant "Okta (Identity Provider)" as okta
 
 autonumber "<b>#."
-browser -> sp: Attempts to access a resource within SP, includes `acr_values` predefined parameter
-sp -> browser: Determines higher auth needed, generates SAML request, sends to browser for relay
+browser -> sp: Attempts to access a resource within the SP
+sp -> browser: Determines higher auth needed, generates SAML request with `acr_values` parameter, sends to browser
 browser -> okta: Relays SAML request to Okta
 okta <-> browser: Performs required authn per `acr_values` parameter value
 okta -> browser: Generates, sends SAML assertion with `acr` value and factors
