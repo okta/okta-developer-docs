@@ -24,55 +24,27 @@ The tutorials in this lab are designed to run sequentially, with each tutorial s
 
 You'll need to set up the following to complete the tutorials in this lab.
 
-## Applications
+## Two Okta accounts
 
-This lab uses [Okta CLI](https://cli.okta.com/) to create Okta developer accounts quickly.
+This lab requires two Okta accounts, one to represent a development environment, and one to act as a production environment. Both accounts must use **Okta Identity Engine**. The production environment must have [Okta Workflows](https://www.okta.com/platform/workflows/) enabled.
 
-> **Tip:** Before running Okta CLI, consider adding the directory path to its executable to your `PATH` environment variable.
+1. Go to <https://developer.okta.com/signup/> and click **Sign up free for Developer Edition**.
+1. Fill in the form and click **Sign up** to create an Okta developer account. This will represent your development environment.
+1. Go to <https://www.okta.com/free-trial/workforce-identity/> .
+1. Fill in the form and click **Get Started** to create a 30-day free trial account. This will represent your production environment.
 
-## Two Okta developer accounts
+> **Note:** Okta developer accounts do not have Okta Workflows enabled so you need to use the free trial account for the produciton environment.
 
-This lab requires two Okta developer accounts, one to represent a development environment, and one to act as a production environment. Both accounts must use **Okta Identity Engine**.
+### Using existing accounts
 
-> **Tip:** If you're using existing accounts and want to check the org is running Okta Identity Engine rather than Okta Classic Engine, check the footer on any page of the Admin Console for that org. The version number is appended with **E** for Identity Engine orgs and **C** for Classic Engine orgs.
+If you're using existing Okta accounts, check that:
 
-Okta CLI is the quickest way to create an Okta org, so we recommend using it to create both new orgs. Alternatively, you can manually sign up instead.
+* Both orgs are running Okta Identity Engine rather than Okta Classic Engine
+* The _production_ org has Okta Workflows enabled.
 
-1. Open your terminal.
-2. Run `okta register`, and enter your First name, Last name, Email address, and Country.
-3. Click or tap **Activate** in the account activation email that is sent to the email address that you provided.
+To check for Okta Identity Engine, check the footer on any page of the Admin Console for that org. The version number is appended with **E** for Identity Engine orgs and **C** for Classic Engine orgs.
 
-   > **Tip:** If you don't receive the confirmation email sent as part of the creation process, check your spam filters for an email from `noreply@okta.com`.
-
-4. After your domain is registered, look for output similar to this:
-
-   ```txt
-   Your Okta Domain: https://dev-xxxxxxx.okta.com
-   To set your password open this link:
-   https://dev-xxxxxxx.okta.com/welcome/xrqyNKPCZcvxL1ouKUoh
-   ```
-
-5. Set the password for your Okta developer org by opening the link and following the instructions.
-6. After you enter your password, your Okta domain is returned, similar to the following. Make note of it. This is your development domain.
-
-   ```txt
-   New Okta Account created!
-   Your Okta Domain: https://dev-xxxxxxx.okta.com
-   ```
-
-7. Repeat steps 1–6 to create a second Okta domain. This is your production domain.
-
-> **Note:** If you're using an existing org and want to use Okta CLI in this lab, check API Access Management is enabled: Open your Admin Console, go to **Security** > **API**, and verify you have an **Authorization Servers** tab. If not, you can:
->
-> * Create a new developer account and org with Okta CLI.
-> * Contact your support team to enable the feature in your org.
-> * Use the Admin Console to create your app integrations manually instead of the CLI.
->
-> All accounts created with Okta CLI are developer accounts.
-
-## Okta Workflows
-
-Tutorial 6 requires your production org to have [Okta Workflows](https://www.okta.com/platform/workflows/) enabled. To determine if it's enabled:
+To check if Okta Workflows is enabled for your production org:
 
 1. Open the Admin Console for your production org.
 2. Choose **Workflow** from the menu.
