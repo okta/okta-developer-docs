@@ -19,7 +19,7 @@ title: Okta Identity Engine API Products release notes 2023
 | [Bugs fixed in 2023.09.0](#bugs-fixed-in-2023-09-0) | September 13, 2023 |
 
 #### Updates to profile enrollment policy
-This feature delivers parity for upgraded orgs who used the Self Service Registration (SSR) feature in Classic Engine. Previously in Identity Engine, SSR was combined with profile enrollment. Users were unable to sign in after the upgrade if their org used read-only or hidden attributes for SSR in Classic Engine. Identity Engine now separates SSR and profile enrollment, and turns off progressive profiling by default. This ensures that no admins are locked out and users can sign in to their orgs even if they have special attributes.
+This feature delivers parity for upgraded orgs that used the Self-Service Registration (SSR) feature in Classic Engine. Previously in Identity Engine, SSR was combined with profile enrollment. Users were unable to sign in after the upgrade if their org used read-only or hidden attributes for SSR in Classic Engine. Identity Engine now separates SSR and profile enrollment, and turns off progressive profiling by default. This ensures that no admins are locked out and users can sign in to their orgs even if they have special attributes.
 
 #### Automatically assign super admin role to an app
 Admins can now automatically assign the super admin role to all of their newly created public client apps. See [Work with the admin component](https://help.okta.com/okta_help.htm?type=oie&id=ext-work-with-admin).
@@ -40,7 +40,7 @@ With the Policy API `/simulate` endpoint, you can quickly and easily test polici
 
 #### Bugs fixed in 2023.09.0
 
-* A token inline hook secured by an OAuth2.0 private key returned a 403 error response for all users except the super admin. (OKTA-605996)
+* A token inline hook secured by an OAuth 2.0 private key returned a 403 error response for all users except the super admin. (OKTA-605996)
 * Access policy evaluation for custom authorization servers was inconsistent when default scopes were used. (OKTA-627559)
 * Admins couldn’t make requests to MyAccount API (`/idp/myaccount/`) endpoints. (OKTA-632620)
 

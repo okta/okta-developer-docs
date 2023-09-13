@@ -26,7 +26,7 @@ Users now receive an authentication challenge for each redirect sent to an Ident
 
 #### Bugs fixed in 2023.09.0
 
-* A token inline hook secured by an OAuth2.0 private key returned a 403 error response for all users except the super admin. (OKTA-605996)
+* A token inline hook secured by an OAuth 2.0 private key returned a 403 error response for all users except the super admin. (OKTA-605996)
 * Access policy evaluation for custom authorization servers was inconsistent when default scopes were used. (OKTA-627559)
 * Some orgs received an HTTP 500 Internal Server error when using the Users API (PUT `/api/v1/users/{userId}?strict=true`) to update new user profiles. (OKTA-619044)
 
