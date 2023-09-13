@@ -35,6 +35,9 @@ With the Policy API `/simulate` endpoint, you can quickly and easily test polici
 
 #### Developer documentation update in 2023.09.0
 
+* The [Sign users in to your web app using the redirect model](/docs/guides/sign-into-web-app-redirect/) guide is now easier to read and quicker to complete. This change also removes references to Okta CLI, removes Gin-specific example code from Go content, and adds new example code to ASP.NET content.
+* The Style the sign-in page guide now describes how to hide or suppress the transient Sign-In Widget for redirect authentication. See [Hide or suppress the transient Sign-In Widget ](/docs/guides/custom-widget/main/#hide-or-suppress-the-transient-sign-in-widget).
+
 #### Bugs fixed in 2023.09.0
 
 * A token inline hook secured by an OAuth2.0 private key returned a 403 error response for all users except the super admin. (OKTA-605996)
