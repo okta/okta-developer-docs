@@ -11,9 +11,9 @@ The Okta System Log API provides near real-time, read-only access to your organi
 
 The terms "event" and "log event" are often used interchangeably. In the context of this API, an "event" is an occurrence of interest within the system, and a "log" or "log event" is the recorded fact.
 
-The System Log API, which contains much more [structured data](#logevent-object) than the [Events API](/docs/reference/api/events/#event-object), supports:
+The System Log API, which contains much more [structured data](#logevent-object) than the former Events API, supports:
 
-* Additional [SCIM filters](#request-parameters) and the `q` query parameter because of the presence of more structured data than the [Events API](/docs/reference/api/events/#request-parameters)
+* Additional [SCIM filters](#request-parameters) and the `q` query parameter
 * These primary use cases:
   * Event data export into a security information and event management system (SIEM)
   * System monitoring
@@ -211,7 +211,7 @@ LogEvent objects are read-only. The following properties are available:
 | eventType             | Type of event that is published                                                       | String                                                          | FALSE    | FALSE  | TRUE     | 1         | 255       |
 | version               | Versioning indicator                                                                   | String                                                          | FALSE    | FALSE  | TRUE     | 1         | 255       |
 | severity              | Indicates how severe the event is: `DEBUG`, `INFO`, `WARN`, `ERROR`                    | String                                                          | FALSE    | FALSE  | TRUE     | 1         | 255       |
-| legacyEventType       | Associated Events API [Action `objectType`](/docs/reference/api/events/#action-objecttypes) attribute value | String                                     | TRUE     | FALSE  | TRUE     | 1         | 255       |
+| legacyEventType       | Associated Events API Action `objectType` attribute value | String                                     | TRUE     | FALSE  | TRUE     | 1         | 255       |
 | displayMessage        | The display message for an event                                                       | String                                                          | TRUE     | FALSE  | TRUE     | 1         | 255       |
 | actor                 | Describes the entity that performs an action                                          | [Actor object](#actor-object)                                   | TRUE     | FALSE  | TRUE     |           |           |
 | client                | The client that requests an action                                                    | [Client object](#client-object)                                 | TRUE     | FALSE  | TRUE     |           |           |
