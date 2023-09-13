@@ -1,1 +1,1 @@
-<!-- The embedded Sign-In Widget is not applicable for Android. -->
+<!-- The embedded Sign-In Widget is not supported for iOS. -->

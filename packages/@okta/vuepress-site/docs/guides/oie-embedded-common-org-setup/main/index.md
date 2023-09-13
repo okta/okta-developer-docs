@@ -4,7 +4,7 @@ title: Set up your Okta org
 
 <ApiLifecycle access="ie" />
 
-This guide covers how to create and set up your Okta org before you can [run the Identity Engine sample apps](/docs/guides/oie-embedded-common-run-samples/) or [integrate the SDK or Widget](/docs/guides/oie-embedded-common-download-setup-app/) into your own app.
+This guide covers how to create and set up your Okta org before you can [run the Identity Engine sample apps](/docs/guides/oie-embedded-common-run-samples/) or <StackSnippet snippet="abstractintegratelink" inline /> into your own app.
 
 ---
 
@@ -22,9 +22,10 @@ Get a new org set up and ready for various use cases.
 
 Okta provides two embedded identity solutions:
 
-* **Embedded SDK only**: A highly customizable solution that provides native language support for a variety of identity
-   use cases.
+* **Embedded SDK only**: A highly customizable solution that enables you to write code for a variety of identity use cases.
 * **Embedded Widget + SDK**: A quick and easy to set up solution that moves most of the the heavy lifting to Okta. Although the amount of code that you need to write is small, many of the most advanced identity use cases (for example, social sign-in, multifactor authentication) are supported out of the box.
+
+> Note: The Embedded Widget isn't supported on mobile devices.
 
 <div class="three-quarter">
 
@@ -32,7 +33,7 @@ Okta provides two embedded identity solutions:
 
 </div>
 
-This guide shows you how to set up your Okta org to support the embedded SDK or the embedded widget with SDK solutions. Ensure that you [get set up](#get-set-up) with Okta and [set up your Okta org for your use case](#set-up-your-okta-org-for-your-use-case) before you <StackSnippet snippet="downloadguideuri" inline />.
+This guide shows you how to set up your Okta org to support the embedded SDK<StackSnippet snippet="overviewsetupwidget" inline />. Ensure that you [get set up](#get-set-up) with Okta and [set up your Okta org for your use case](#set-up-your-okta-org-for-your-use-case) before you <StackSnippet snippet="downloadguideuri" inline />.
 
 <ApiLifecycle access="ea" />
 
@@ -40,7 +41,7 @@ This guide shows you how to set up your Okta org to support the embedded SDK or 
 
 ## Get set up
 
-Sample apps are provided for each solution to show you exactly how to integrate the SDK and the Widget into your own app. Before you can run the sample apps or integrate embedded authentication into your own app, you need to do the following:
+Sample apps are provided for each solution to show you exactly how to integrate the SDK <StackSnippet snippet="getsetupincludewidget" inline /> into your own app. Before you can run the sample apps or integrate embedded authentication into your own app, you need to do the following:
 
 1. [Create your Okta account](#create-your-okta-account).
 1. [Verify that the Interaction Code grant type is enabled](/docs/guides/implement-grant-type/interactioncode/main/#verify-that-the-interaction-code-grant-type-is-enabled).

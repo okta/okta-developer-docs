@@ -1,2 +1,1 @@
-
-> **Note:** There is no Widget sample application for Android.
+> Note: The embedded Sign-In Widget isn't supported on Android.

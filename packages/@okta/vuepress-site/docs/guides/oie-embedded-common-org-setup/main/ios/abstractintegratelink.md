@@ -1,0 +1,1 @@
+[integrate the SDK](/docs/guides/oie-embedded-common-download-setup-app/)
