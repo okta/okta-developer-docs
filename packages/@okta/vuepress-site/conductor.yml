@@ -5591,6 +5591,14 @@ redirects:
     to: /docs/reference/api/brands/
   - from: /docs/guides/customize-themes
     to: /docs/reference/api/brands/
+  - from: /docs/concepts/events-api-migration/index.html
+    to: /docs/api//docs/reference/api/system-log/
+  - from: /docs/concepts/events-api-migration
+    to: /docs/api//docs/reference/api/system-log/
+  - from: /docs/reference/api/events/index.html
+    to: /docs/api//docs/reference/api/system-log/
+  - from:  /docs/reference/api/events
+    to: /docs/api//docs/reference/api/system-log/
   - from: /docs/reference/beta-only/index.html
     to: /docs/reference/#apis-documented-only-on-the-new-beta-reference
   - from: /docs/reference/beta-only
