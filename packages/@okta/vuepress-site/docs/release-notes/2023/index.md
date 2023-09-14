@@ -14,7 +14,7 @@ title: Okta API Products release notes 2023
 | [Bugs fixed in 2023.09.0](#bugs-fixed-in-2023-09-0) | September 13, 2023 |
 
 #### Automatically assign super admin role to an app
-Admins can now automatically assign the super admin role to all of their newly created public client apps. See [Work with the admin component]](https://help.okta.com/okta_help.htm?type=oie&id=ext-work-with-admin).
+Admins can now automatically assign the super admin role to all of their newly created public client apps. See [Work with the admin component](https://help.okta.com/okta_help.htm?type=oie&id=ext-work-with-admin).
 
 #### Authentication challenge for redirects
 Users now receive an authentication challenge for each redirect sent to an Identity Provider with **Factor only** configured, even if the IdP session is active. <!-- OKTA-628504 ENG_FORCE_AUTHN_FOR_FACTORS_IDPS -->
@@ -22,7 +22,7 @@ Users now receive an authentication challenge for each redirect sent to an Ident
 #### Developer documentation update in 2023.09.0
 
 * The [Sign users in to your web app using the redirect model](/docs/guides/sign-into-web-app-redirect/) guide is now easier to read and quicker to complete. This change also removes references to Okta CLI, removes Gin-specific example code from Go content, and adds new example code to ASP.NET content.
-* The Style the sign-in page guide now describes how to hide or suppress the transient Sign-In Widget for redirect authentication. See [Hide or suppress the transient Sign-In Widget ](/docs/guides/custom-widget/main/#hide-or-suppress-the-transient-sign-in-widget).
+* The Style the sign-in page guide now describes how to hide or suppress the transient Sign-In Widget for redirect authentication. See [Hide or suppress the transient Sign-In Widget](/docs/guides/custom-widget/main/#hide-or-suppress-the-transient-sign-in-widget).
 
 #### Bugs fixed in 2023.09.0
 
