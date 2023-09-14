@@ -22,8 +22,6 @@ The System Log API, which contains much more [structured data](#logevent-object)
 
 The System Log API isn't intended for use as a Database as a Service (DBaaS) or to serve data directly to downstream consumers without an intermediate data store.
 
-See [Events API Migration](/docs/concepts/events-api-migration/) for information on migrating from the Events API to the System Log API.
-
 <ApiAuthMethodWarning />
 
 ## Get started
