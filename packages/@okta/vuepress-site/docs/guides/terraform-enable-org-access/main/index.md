@@ -55,6 +55,17 @@ Specify the Okta objects that Terraform can access by adding the appropriate sco
 
 > **Note:** The example Terraform configuration used in this guide requires only the `okta.groups.manage` scope. If required, you can also grant additional scopes.
 
+## Assign admin roles to your service app
+
+> **Note**: Service apps with assigned admin roles are constrained to the permissions and resources that are included in the role. This improves security for an org since it ensures that service apps only have access to the resources that are needed to perform their tasks. You can assign the [standard admin roles](https://help.okta.com/okta_help.htm?type=oie&id=ext-administrators-admin-comparison) or a [custom admin role](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-creating-custom-admin-roles) with permissions to specific resource sets.
+
+1. In the Admin Console, open the service app and select **Admin roles**.
+2. Click **Edit assignments**.
+3. In the **Complete the assignment** section, for **Role** select **Group Administrator**.
+4. Click **Save Changes**.
+
+> **Note:** The example Terraform configuration used in this guide requires only the `Group Administrator` role. You should [create a custom role](https://help.okta.com/en-us/content/topics/security/custom-admin-role/create-role.htm) that contains only the specific permissions Terraform needs.
+
 ## Create access credentials
 
 The credentials used are a public/private key pair. Store the public key in the service app, and use the private key later when you create a Terraform configuration.
