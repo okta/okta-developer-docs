@@ -176,7 +176,7 @@ curl -X POST \
 
 > **Note:** Use these instructions for
 > * Preview orgs <br>
->   If you want to automatically assign the super admin role to all newly created custom API service apps, you can enable the **Public client app admins** org setting. See [Assign admin roles to apps](https://help.okta.com/okta_help.htm?type=oie&id=csh-work-with-admin-assign-admin-role-to-apps).
+>   To automatically assign the super admin role to all custom API service apps that you create, enable the **Public client app admins** org setting. See [Assign admin roles to apps](https://help.okta.com/okta_help.htm?type=oie&id=csh-work-with-admin-assign-admin-role-to-apps).
 > * Production orgs with the **Assign admin roles to public client apps** early access feature enabled
 
 <!--
