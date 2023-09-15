@@ -272,7 +272,7 @@ The `/introspect` endpoint returns the `sid` that the device secret is tied to. 
 
 ## Revoke the device secret to end a desktop session
 
-Sometimes you have to end a user's desktop session. When you do that, you’re signing the user out of one app and all the other registered apps. To end a desktop session, you must revoke the device secret. The revoke request signs the user out from all of the apps that are a part of the Native SSO flow.
+Sometimes you have to end a user's desktop session. When you do that, you’re signing the user out of every registered app. To end a desktop session, you must revoke the device secret. The revoke request signs the user out from all of the apps that are a part of the Native SSO flow.
 
 **Example request**
 
