@@ -59,7 +59,7 @@ Create an OAuth 2.0 service app integration using the Admin Console.
 
 ### Assign admin roles to the OAuth 2.0 service app
 
-> **Note:** Use these instructions for
+> **Note:** Use these instructions for:
 > * Preview orgs <br>
 >   To automatically assign the super admin role to all custom API service apps that you create, enable the **Public client app admins** org setting. See [Assign admin roles to apps](https://help.okta.com/okta_help.htm?type=oie&id=csh-work-with-admin-assign-admin-role-to-apps).
 > * Production orgs with the **Assign admin roles to public client apps** early access feature enabled
