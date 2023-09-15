@@ -27,7 +27,7 @@ This guide provides a high-level overview of the Native SSO feature in Okta. It 
 
 ## About the Native SSO feature
 
-Native SSO allows you to protect native OpenID Connect applications, such as desktop apps and mobile apps, and achieve Single Sign-On (SSO) and Single Logout (SLO) between these applications. SSO between browser-based web applications is achieved by leveraging shared cookies. Unlike web applications, native applications can't use web cookies. Okta offers a token-based approach to achieve SSO between native applications. See [OpenID Connect & OAuth 2.0 API](/docs/reference/api/oidc/) for more information on the OAuth 2.0 and OpenID Connect endpoints.
+Native SSO allows you to protect native OpenID Connect applications, such as desktop apps and mobile apps, and achieve Single Sign-On (SSO) and Single Logout (SLO) between these applications. SSO between browser-based web applications is achieved by sharing cookies. Unlike web applications, native applications can't use web cookies. Okta offers a token-based approach to achieve SSO between native applications. See [OpenID Connect & OAuth 2.0 API](/docs/reference/api/oidc/) for more information on the OAuth 2.0 and OpenID Connect endpoints.
 
 ## Before you begin
 
@@ -37,7 +37,11 @@ This guide assumes that you have an Okta Developer Edition organization. Don't h
 
 <div class="three-quarter">
 
-![Native SSO flow diagram](/img/sso/native_SSO_flow.png)
+![A flow diagram showing the interactions in a single sign-in flow between two native applications, a user on a browser, and Okta](/img/sso/native_SSO_flow.png)
+
+<!--
+  Image source: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?type=design&node-id=4349%3A10337&mode=design&t=Zl0pQHW1kqZli8ZO-1  native_SSO_flow
+-->
 
 </div>
 
@@ -268,7 +272,7 @@ The `/introspect` endpoint returns the `sid` that the device secret is tied to. 
 
 ## Revoke the device secret to end a desktop session
 
-Sometimes you have to end a user's desktop session. When you do that, you are signing the user out of one app as well as all of the other registered apps. To end a desktop session, you must revoke the device secret. The revoke request signs the user out from all of the apps that are a part of the Native SSO flow.
+Sometimes you have to end a user's desktop session. When you do that, you’re signing the user out of one app and all the other registered apps. To end a desktop session, you must revoke the device secret. The revoke request signs the user out from all of the apps that are a part of the Native SSO flow.
 
 **Example request**
 
