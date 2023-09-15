@@ -64,7 +64,7 @@ The sign-in process starts at the `/authorize` endpoint, and then goes out to th
 
 <div class="three-quarter">
 
-![A flow diagram showing the interactions in a sign-in flow between a user, Okta and a third party social identity provider](/img/auth/social_login_flow.png)
+![A flow diagram showing the interactions in a sign-in flow between a user, Okta, and a third party social identity provider](/img/auth/social_login_flow.png)
 
 <!-- Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?type=design&node-id=4336%3A21837&mode=design&t=Zl0pQHW1kqZli8ZO-1  social_login_flow -->
 
