@@ -6,16 +6,16 @@ sections:
   - main
 ---
 
-This guide explains how to manage Orgs added to your company’s Aerial account.
+This guide explains how to add orgs to your Okta Aerial account, and manage Aerial org settings.
 
-> **Note:** API access to this feature requires an additional product to be present. Ensure that your Okta account team has enabled your access to the Okta Aerial API.
+> **Note:** Access to Okta Aerial requires an additional product to be present. Ensure that your Okta account team gives you access to the Okta Aerial API.
 
 ---
 
 **Learning outcomes**
 
 - Authenticate an Aerial API client with Okta Aerial.
-- Link an org to your Aerial account.
+- Add an org to your Aerial account.
 - Enable products in the Aerial linked org.
 - Configure the Aerial admin org.
 
@@ -34,12 +34,12 @@ Use the [Okta Aerial API](link to redocly)
 
 ## About Okta Aerial
 
-An Okta Aerial account is the layer of organization and management around multiple orgs. The Aerial account simplifies org management, allowing Aerial Admins to:
+AOkta Aerial is an administration service that enables a suite of multi-org management capabilities. Use the Aerial API to:
 
-- Link orgs to the Aerial account.
-- List configured products in the org.
-- Enable products in the org.
-- Enable or disable production or preview orgs linked to the Aerial account.
+- Add orgs to the Aerial account.
+- Activate and deactivate orgs.
+- View subscribed products.
+- Enable products in specific orgs.
 
 ### Key terms
 
