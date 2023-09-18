@@ -44,12 +44,12 @@
         v-html="$options.filters.title(eventType.id)"
       />
 
-      <div
+      <!-- <div
         v-if="eventType.mappings.length > 0"
         class="event-type-mappings"
       >
         <b>Legacy event types: </b> {{ eventType.mappings.join(', ') }}
-      </div>
+      </div> -->
 
       <p
         v-if="eventType.description"
