@@ -6,7 +6,19 @@ title: Okta Identity Engine API Products release notes 2023
 
 ## September
 
-### Weekly release 2023.09.0
+### Weekly release 2023.09.1
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Bugs fixed in 2023.09.1](#bugs-fixed-in-2023-09-1) | September 20, 2023 |
+
+
+#### Bugs fixed in 2023.08.1
+
+* 
+* 
+
+### Monthly release 2023.09.0
 
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
