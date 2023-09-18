@@ -22,6 +22,7 @@ guides:
  - configure-signon-policy
  - configure-user-scoped-account-management
  - create-an-api-token
+ - create-manage-okta-aerial
  - custom-email
  - custom-error-pages
  - custom-url-domain
