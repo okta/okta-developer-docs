@@ -53,6 +53,17 @@ Okta recommends the redirect authentication deployment model if your situation m
 
 This section assumes that you've built the SSO integration in your app.
 
+Instructions for adding your integration into Okta depends on what type of integration you want to provide: a private or public integration.
+
+* **Private app integration**: this integration is only available to users within their org. This is particularly useful for customer developers interested in building a customer-specific integration. We should redirect them to a separate documentation page with instructions, which would be steps 1 - 8 today.
+Step 1: Sign into your customer-specific Okta org as a user with administrative privileges
+Step 3: replace “Create App Integration” with “Create Private App”
+Step 8: Click Finish
+The other steps (Select App type & Contact app vendor will automatically populate in AIW and the ISV does not need to specify that they are an Okta customer adding an internal app).
+* **Public OIN app integration**: integration that is publicly available to all Okta customers in the Okta Integration Network. We should explicitly specify that the instructions on this page are for the public OIN app integrations.
+
+---
+
 After you've built your SSO integration, you can use the Application Integration Wizard (AIW) in the Admin Console to create your app integration instance. This instance provides you with client credentials or metadata for you to test your SSO flows.
 
 > **Note:** Creating your app integration instance doesn't automatically make it available in the [OIN](https://www.okta.com/integrations/). After you've tested your integration, you need to [submit it](/docs/guides/submit-app-overview/) to the OIN team for verification and publication.

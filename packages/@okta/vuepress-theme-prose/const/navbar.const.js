@@ -596,6 +596,10 @@ export const guides = [
                 title: "Build an SSO integration",
                 guideName: "build-sso-integration",
               },
+              {
+                title: "Add a private SSO integration",
+                guideName: "submit-sso-app-private",
+              },
             ],
           },
           {

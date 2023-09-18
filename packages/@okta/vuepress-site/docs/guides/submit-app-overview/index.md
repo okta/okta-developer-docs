@@ -9,8 +9,6 @@ The Okta Integration Network (OIN) is the identity industry’s broadest and dee
 
 If you're an integrator, from an independent software vendor (ISV) or an existing Okta customer, who wants to add your integration to the OIN, use this guide to learn about the submission process. It's free to add your integration to the OIN and list it publicly in the [OIN catalog](https://www.okta.com/integrations/).
 
-This guide assumes that you've created an app integration and want to make it public in the OIN catalog.
-
 ## Submission process
 
 The following flowchart outlines the OIN submission and review process after you decide to make your integration public:
