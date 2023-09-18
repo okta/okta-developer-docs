@@ -107,7 +107,7 @@ Used for deleting objects
 
 ### Client request context
 
-Okta derives the client request context directly from the HTTP request headers and client TCP socket. The request context is used to evaluate policies such as global session policy and provide client information for [troubleshooting and auditing](/docs/reference/api/events/#client-objecttype) purposes.
+Okta derives the client request context directly from the HTTP request headers and client TCP socket. The request context is used to evaluate policies such as global session policy and provide client information for [troubleshooting and auditing](/docs/reference/api/system-log/#client-object) purposes.
 
 ### User Agent
 
@@ -220,7 +220,7 @@ The API token isn't interchangeable with an Okta [session token](/docs/reference
 
 Requests that return a list of objects may support pagination. Pagination is based on a cursor and not on page number. The cursor is opaque to the client and specified in either the `before` or `after` query parameter. For some objects, you can also set a custom page size with the `limit` parameter.
 
-> **Note:** For technical reasons, not all APIs respect pagination or the `before` and `limit` parameters. See the [Events API](/docs/reference/api/events/) for an example.
+> **Note:** For technical reasons, not all APIs respect pagination or the `before` and `limit` parameters.
 
 | Param    | Description                                                                             |
 | -------- | ------------                                                                            |
@@ -348,7 +348,7 @@ Search and list operations are intended to find matching resources and their ide
 
 ### Request debugging
 
-The request ID is always present in every API response and can be used for debugging. You can use this value to correlate events from the [System Log](/docs/reference/api/system-log/) events as well as the [Events API](/docs/reference/api/events/).
+The request ID is always present in every API response and can be used for debugging. You can use this value to correlate events from the [System Log](/docs/reference/api/system-log/) events.
 
 The following header is set in each response:
 
