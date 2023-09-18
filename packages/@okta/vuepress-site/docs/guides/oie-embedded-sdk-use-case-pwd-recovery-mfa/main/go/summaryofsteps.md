@@ -1,6 +1,6 @@
 The sequence of steps for the password recovery use case is shown below.
 
-<div class="three-quarter">
+<div class="go">
 
 ![A flow diagram showing the interactions in a password recovery flow between user, client application, and Okta using the embedded SDK deployment model](/img/oie-embedded-sdk/oie-embedded-go-pwd-recovery-flow-diagram.png)
 
