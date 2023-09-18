@@ -11,14 +11,12 @@ The Okta System Log API provides near real-time, read-only access to your organi
 
 The terms "event" and "log event" are often used interchangeably. In the context of this API, an "event" is an occurrence of interest within the system, and a "log" or "log event" is the recorded fact.
 
-The System Log API, which contains much more [structured data](#logevent-object) than the former Events API, supports:
+Several common use cases for the System Log API include:
 
-* Additional [SCIM filters](#request-parameters) and the `q` query parameter
-* These primary use cases:
-  * Event data export into a security information and event management system (SIEM)
-  * System monitoring
-  * Development debugging
-  * Event introspection and audit
+* Ingesting events into a Security Information and Event Management (SIEM) platform for security analysis and correlation with other relevant security events
+* Ingesting events into a data warehouse or data lake for user activity analysis or complex security detections
+* Ingesting events into an observability system for application monitoring and debugging
+* As a source for customer business logic to react to events asynchronously, such as a periodic collection of new user IDs when self-service registration is enabled.
 
 The System Log API isn't intended for use as a Database as a Service (DBaaS) or to serve data directly to downstream consumers without an intermediate data store.
 
