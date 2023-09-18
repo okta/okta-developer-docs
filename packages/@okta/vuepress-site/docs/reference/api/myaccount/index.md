@@ -250,8 +250,6 @@ Add a `PRIMARY` or `SECONDARY` email address to the user's account. The new emai
 
 An Okta scope of `okta.myAccount.email.manage` is required to use this endpoint.
 
-> **Note:** Admin users aren't allowed to make a POST request to the `/idp/myaccount/emails` endpoint.
-
 #### Request path parameters
 
 N/A
@@ -332,8 +330,6 @@ In addition, the user also receives a "Notice of pending email address change" e
 #### Required scope and role
 
 An Okta scope of `okta.myAccount.email.manage` is required to use this endpoint.
-
-> **Note:** Admin users aren't allowed to make a POST request to the `/idp/myaccount/emails` endpoint.
 
 #### Request path parameters
 
@@ -416,8 +412,6 @@ Verify the email challenge with the verification code that the user receives fro
 #### Required scope and role
 
 An Okta scope of `okta.myAccount.email.manage` is required to use this endpoint.
-
-> **Note:** Admin users aren't allowed to make a POST request to the `/idp/myaccount/emails/{id}/challenge/{challengeId}/verify` endpoint.
 
 #### Request path parameters
 
@@ -526,8 +520,6 @@ Deletes the current user's email information by ID. You can only delete UNVERIFI
 #### Required scope and role
 
 An Okta scope of `okta.myAccount.email.manage` is required to use this endpoint.
-
-> **Note:** Admin users aren't allowed to make a DELETE request to the `/idp/myaccount/emails/{id}/` endpoint.
 
 #### Request path parameters
 
@@ -741,8 +733,6 @@ Creates an UNVERIFIED status phone for either the `SMS` or `CALL` method to the 
 #### Required scope and role
 
 An Okta scope of `okta.myAccount.phone.manage` is required to use this endpoint.
-
-> **Note:**  Admin users aren't allowed to make a POST request to the`/idp/myaccount/phones` endpoint.
 
 #### Request path parameters
 
@@ -986,8 +976,6 @@ Delete the current user's phone information by ID.
 #### Required scope and role
 
 An Okta scope of `okta.myAccount.phone.manage` is required to use this endpoint.
-
-> **Note:** Admin users aren't allowed to make a DELETE request to the `/idp/myaccount/phones/{id}/` endpoint.
 
 #### Request path parameters
 

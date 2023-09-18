@@ -26,7 +26,7 @@ The following section discusses different use cases and what the changes are aft
 
     > **Note:** Operations on the two sessions aren't synchronous in all cases. Okta creates an `idx` session if there's a `sid` session (Classic Engine session) present. However, creating a `sid` session when there's an `idx` session (Identity Engine session) present isn't supported.
 
-3. **Are you using the [My Session Management endpoints](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Session/) (`api/v1/sessions/me`)?** Everything works as configured. Operations are reflected on both Session ID (`sid`) and Identity Engine (`idx`) cookies.
+3. **Are you using the [My Session Management endpoints](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Session/#tag/Session/operation/getCurrentSession) (`api/v1/sessions/me`)?** Everything works as configured. Operations are reflected on both Session ID (`sid`) and Identity Engine (`idx`) cookies.
 
 4. **Are you calling any of these four `v1/sessions/${sessionId}/*` endpoints?** These operations work only on the Session ID (`sid`) session and not on the Identity Engine `idx` sessions.
 
@@ -36,4 +36,4 @@ The following section discusses different use cases and what the changes are aft
     * POST `/api/v1/users/me/lifecycle/delete_sessions`
     * POST `/api/v1/sessions?additionalFields=cookieToken`
 
-If you're using any of these endpoints, Okta highly recommends that you move away from using the Session ID entirely and use the [My Session Management endpoints](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Session/#tag/Session/operation/getSession) instead. This puts you in charge of managing your own session.
+If you're using any of these endpoints, Okta highly recommends that you move away from using the Session ID entirely and use the [My Session Management endpoints](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Session/#tag/Session/operation/getCurrentSession) instead. This puts you in charge of managing your own session.

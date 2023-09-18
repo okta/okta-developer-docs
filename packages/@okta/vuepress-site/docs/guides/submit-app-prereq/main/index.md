@@ -31,7 +31,35 @@ Before using the [OIN Manager](https://oinmanager.okta.com)&nbsp;to submit your 
 * [Test account](#test-account-guidelines)
 * [Customer configuration document](#customer-configuration-document-guidelines)
 
-Before you submit your integration, ensure that your integration doesn't use Okta features that aren't supported in the OIN. See [OIN limitations](#oin-limitations).
+Before you submit your integration, ensure that your integration uses features that are supported in the OIN. See [OIN multi-tenancy](#oin-multi-tenancy) and [OIN limitations](#oin-limitations).
+
+## OIN multi-tenancy
+
+Your app integration must support multi-tenancy to be listed in the public OIN catalog.
+
+What does this mean?
+
+Multi-tenancy in the OIN refers to the concept that as an ISV, you support several instances of your app, each with a unique credential system for your customers. An instance of an app that contains the infrastructure to support a group of users is considered a tenant. See [Tenants in Okta](/docs/guides/oin-sso-overview/#tenants-in-okta).
+
+You must provide a method for each of your customer tenants to uniquely connect to their Okta org. This allows your customers to find your app integration from the OIN catalog in their own Okta org. Then, they can instantiate the app integration with their unique tenant credentials, either with your support or on their own.
+
+#### SAML SSO multi-tenant example
+
+The following multi-tenant example demonstrates the scenario where your Okta app integration supports SAML SSO and you configure SSO for your customers:
+
+* Customer A and customer B have separate instances of your app within their own Okta orgs. Each customer has their own set of users. Both customers use Okta as an IdP.
+* Customer A adds your integration to their Okta org and obtains the SAML metadata from the integration. They contact you to enable SSO for their users on your app and forward you the SAML metadata.
+* Similarly, customer B adds your integration to their Okta org and informs you that they want to enable SSO on your app. They provide you with their unique SAML metadata for the SSO configuration, which is obtained from their app integration in Okta.
+* You're responsible for configuring and enabling SSO for both customers A and B with the SAML 2.0 metadata that they've provided. Your app platform must allow for a separate credential system connection with Okta for each customer.
+
+#### OIDC SSO multi-tenant example
+
+The following multi-tenant example assumes that your Okta app integration supports OIDC SSO and that you offer a self-service portal for your customers:
+
+* Customer A and customer B have separate instances of your app within their own Okta orgs. Both customers have their own set of users, and each uses Okta as an IdP.
+* Customer A instantiates an OIDC integration for your app in their Okta org and obtains the integration client ID and secret. They then sign in to your app platform portal and set up SSO configuration with their client ID, client secret, and Okta domain. Customer A enables SSO to your app for their users, and doesn't require any external assistance.
+* Similarly, customer B instantiates your OIDC app integration in their Okta org and obtains their unique client ID and secret. They then sign in to their account on your app platform. They use their client ID, client secret, and Okta domain (for the issuer URL) to enable SSO without any assistance from you.
+* Each customer enables SSO to your app for their users in a separate credential system with their Okta org. Because you've created a self-service portal that allows your customers to enable SSO by themselves, you save resources and provide autonomy to your customers.
 
 ## Logo guidelines
 
@@ -376,7 +404,9 @@ You can't publish integrations with the following Okta features in the OIN catal
   * Custom scopes, such as the `groups` scope, aren't supported for integrations published in the OIN.
   * ISVs shouldn't rely on the `email_verified` scope-dependent claim returned by an OIDC integration to evaluate whether a user has verified ownership of the email address associated with their profile.
 
-* **SAML encryption:** SAML integrations must use SHA256 encryption for security. If you're using SHA-1 for encryption, see our guide on how to [Upgrade SAML Apps to SHA256](/docs/guides/updating-saml-cert/).
+* **SHA-1 SAML encryption:** SAML integrations must use SHA256 encryption for security. If you're using SHA-1 for encryption, see our guide on how to [Upgrade SAML Apps to SHA256](/docs/guides/updating-saml-cert/).
+
+* **Unsupported multi-tenancy**: Your app integration must support multi-tenancy to be listed in the public OIN catalog. See [OIN multi-tenancy](#oin-multi-tenancy).
 
 <ApiAmProdWarning />
 

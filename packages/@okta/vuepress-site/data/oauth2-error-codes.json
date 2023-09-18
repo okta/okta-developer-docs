@@ -1,6 +1,6 @@
 {
-  "release" : "2023.08.1",
-  "build" : "2023.08.1-begin-173-gf5c499091c49",
+  "release" : "2023.09.1",
+  "build" : "2023.09.1-begin-156-g6f228a28ab7f",
   "errors" : [ {
     "title" : "Access denied",
     "statusCode" : 403,
@@ -322,7 +322,7 @@
     "statusReasonPhrase" : "Forbidden",
     "internalErrorCode" : "direct_auth_not_challenged_for_required_factor_type",
     "errorCode" : "access_denied",
-    "errorDescription" : "Unable to prompt for the requested authenticators. Review the Authentication Policyâs requirements or request another authenticator and try again."
+    "errorDescription" : "Unable to prompt for the requested authenticators. Review the Authentication Policy’s requirements or request another authenticator and try again."
   }, {
     "title" : "Direct auth factor enrollment required",
     "statusCode" : 403,
@@ -1108,6 +1108,13 @@
     "errorCode" : "invalid_grant",
     "errorDescription" : "User rejected out-of-band authentication prompt."
   }, {
+    "title" : "Direct auth invalid login hint",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "direct_auth_invalid_login_hint",
+    "errorCode" : "invalid_grant",
+    "errorDescription" : "The 'login_hint' does not uniquely identify a user."
+  }, {
     "title" : "Invalid initiate login URI",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
@@ -1681,6 +1688,13 @@
     "internalErrorCode" : "direct_auth_invalid_intent",
     "errorCode" : "invalid_request",
     "errorDescription" : "'{0}' is an invalid intent."
+  }, {
+    "title" : "Direct auth missing login hint",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "direct_auth_missing_login_hint",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "A 'login_hint' is required for the request."
   }, {
     "title" : "Invalid request object",
     "statusCode" : 400,

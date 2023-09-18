@@ -51,10 +51,10 @@ You can customize your app's [domain](/docs/guides/custom-url-domain/) and the [
 
 Consider, for example, when an organization uses Okta as its Identity Provider:
 
-* User tries to access the organization's on-site or cloud-based app (for example, email).
-* User is redirected to the corporate Identity Provider (Okta) to sign in and authenticate.
-* User is authenticated and Okta provides a token or assertion to the original app to grant the user access. Okta also creates an Okta session for the user.
-* User accesses the app.
+* The user tries to access the organization's on-site or cloud-based app (for example, email).
+* The user is redirected to the corporate Identity Provider (Okta) to sign in and authenticate.
+* The user is authenticated and Okta provides a token or assertion to the original app to grant the user access. Okta also creates an Okta session for the user.
+* The user accesses the app.
 
 Using SSO with the existing Okta session, the user is automatically signed in to any other of the org's Service Provider apps (CRM, IT, HR, and so on).
 
@@ -84,7 +84,9 @@ is -> cl: Return assertion to client
 
 <div class="three-quarter">
 
-![Redirect authentication flow](/img/auth/redirect-auth-seq-flow.png)
+![A flow diagram showing the interactions in a sign-in flow between user, client application, and Okta using the redirect authentication model](/img/auth/redirect-auth-seq-flow.png)
+
+<!-- source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?type=design&node-id=4345%3A10234&mode=design&t=Zl0pQHW1kqZli8ZO-1 redirect-auth-seq-flow -->
 
 </div>
 
@@ -156,7 +158,10 @@ as -> cl: Tokens
 
 <div class="three-quarter">
 
-![Embedded authentication sequence flow](/img/auth/embedded-auth-seq-flow.png)
+![A flow diagram showing the interactions in a sign-in flow between user, client application, and Okta using the embedded authentication model](/img/auth/embedded-auth-seq-flow.png)
+
+<!-- Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?type=design&node-id=4345%3A10249&mode=design&t=Zl0pQHW1kqZli8ZO-1 embedded-auth-seq-flow
+-->
 
 </div>
 
