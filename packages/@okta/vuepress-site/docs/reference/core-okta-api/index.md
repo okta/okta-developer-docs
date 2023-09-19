@@ -107,7 +107,7 @@ Used for deleting objects
 
 ### Client request context
 
-Okta derives the client request context directly from the HTTP request headers and client TCP socket. The request context is used to evaluate policies such as global session policy and provide client information for [troubleshooting and auditing](/docs/reference/api/system-log/#client-object) purposes.
+Okta derives the client request context directly from the HTTP request headers and client TCP socket. The request context is used to evaluate policies such as global session policy and to provide client information for [troubleshooting and auditing](/docs/reference/api/system-log/#client-object) purposes.
 
 ### User Agent
 
