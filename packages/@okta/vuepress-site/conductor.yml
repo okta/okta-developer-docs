@@ -92,7 +92,7 @@ redirects:
   - from: /docs/reference/api/index.html
     to: /docs/reference/
   - from: /docs/api/rest/events.html
-    to: /docs/reference/api/events/index.html
+    to: /docs/reference/api/system-log/index.html
   - from: /docs/api/resources/factor_admin.html
     to: /docs/reference/api/factor-admin/index.html
   - from: /docs/api/resources/factor_admin/index.html
@@ -306,7 +306,7 @@ redirects:
   - from: /docs/examples/session_cookie.html
     to: /docs/guides/session-cookie/index.html
   - from: /use_cases/events-api-deprecation/index.html
-    to: /docs/concepts/events-api-migration/index.html
+    to: /docs/reference/api/system-log/index.html
   - from: /use_cases/inline_hooks/api_am_hook/api_am_hook
     to: /docs/reference/token-hook/
   - from: /use_cases/integrate_with_okta/index.html
@@ -418,7 +418,7 @@ redirects:
   - from: /use_cases/event_hooks/index.html
     to: /docs/concepts/event-hooks/
   - from: /use_cases/events-api-migration/index.html
-    to: /docs/concepts/events-api-migration/
+    to: /docs/reference/api/system-log/
   - from: /use_cases/inline_hooks/index.html
     to: /docs/concepts/inline-hooks/
   - from: /use_cases/inline_hooks/registration_hook/registration_hook/index.html
@@ -462,7 +462,7 @@ redirects:
   - from: /docs/api/resources/oauth-clients/index.html
     to: /docs/reference/api/oauth-clients/
   - from: /docs/api/resources/events/index.html
-    to: /docs/reference/api/events/
+    to: /docs/reference/api/system-log/
   - from: /docs/api/resources/event-hooks/index.html
     to: /docs/reference/api/event-hooks/
   - from: /docs/api/resources/event-types/index.html
@@ -736,7 +736,7 @@ redirects:
   - from: /use_cases/event_hooks
     to: /docs/concepts/event-hooks/
   - from: /use_cases/events-api-migration
-    to: /docs/concepts/events-api-migration/
+    to: /docs/reference/api/system-log/
   - from: /use_cases/inline_hooks
     to: /docs/concepts/inline-hooks/
   - from: /use_cases/inline_hooks/registration_hook/registration_hook
@@ -776,7 +776,7 @@ redirects:
   - from: /docs/api/resources/oauth-clients
     to: /docs/reference/api/oauth-clients/
   - from: /docs/api/resources/events
-    to: /docs/reference/api/events/
+    to: /docs/reference/api/system-log/
   - from: /docs/api/resources/event-hooks
     to: /docs/reference/api/event-hooks/
   - from: /docs/api/resources/factors
@@ -878,7 +878,7 @@ redirects:
   - from: /docs/api/resources/oauth-clients.html
     to: /docs/reference/api/oauth-clients/
   - from: /docs/api/resources/events.html
-    to: /docs/reference/api/events/
+    to: /docs/reference/api/system-log/
   - from: /docs/api/resources/event-hooks.html
     to: /docs/reference/api/event-hooks/
   - from: /docs/api/resources/factors.html
@@ -5591,6 +5591,14 @@ redirects:
     to: /docs/reference/api/brands/
   - from: /docs/guides/customize-themes
     to: /docs/reference/api/brands/
+  - from: /docs/concepts/events-api-migration/index.html
+    to: /docs/reference/api/system-log/
+  - from: /docs/concepts/events-api-migration
+    to: /docs/reference/api/system-log/
+  - from: /docs/reference/api/events/index.html
+    to: /docs/reference/api/system-log/
+  - from:  /docs/reference/api/events
+    to: /docs/reference/api/system-log/
   - from: /docs/reference/beta-only/index.html
     to: /docs/reference/#apis-documented-only-on-the-new-beta-reference
   - from: /docs/reference/beta-only

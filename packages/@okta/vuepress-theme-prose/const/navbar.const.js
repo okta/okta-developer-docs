@@ -19,11 +19,7 @@ export const concepts = [
             title: "Event hooks",
             path: "/docs/concepts/event-hooks/",
          },
-         {
-            title: "Events API migration",
-            path: "/docs/concepts/events-api-migration/",
-         },
-         {
+        {
             title: "External Identity Providers",
             path: "/docs/concepts/identity-providers/",
          },
