@@ -45,7 +45,7 @@ Okta recommends the redirect authentication deployment model if your situation m
 * [Redirect authentication guides](/docs/guides/redirect-authentication/)
 * [Embedded authentication guides](/docs/guides/embedded-authentication/)
 
-## Prepare your integration
+## Build your integration
 
 <StackSnippet snippet="prep" />
 
@@ -53,71 +53,20 @@ Okta recommends the redirect authentication deployment model if your situation m
 
 This section assumes that you've built the SSO integration in your app.
 
-Instructions for adding your integration into Okta depends on what type of integration you want to provide: a private or public integration.
+Instructions for adding your integration into Okta depend on if you want to provide a public or private integration:
 
-* **Private app integration**: this integration is only available to users within their org. This is particularly useful for customer developers interested in building a customer-specific integration. We should redirect them to a separate documentation page with instructions, which would be steps 1 - 8 today.
-Step 1: Sign into your customer-specific Okta org as a user with administrative privileges
-Step 3: replace “Create App Integration” with “Create Private App”
-Step 8: Click Finish
-The other steps (Select App type & Contact app vendor will automatically populate in AIW and the ISV does not need to specify that they are an Okta customer adding an internal app).
-* **Public OIN app integration**: integration that is publicly available to all Okta customers in the Okta Integration Network. We should explicitly specify that the instructions on this page are for the public OIN app integrations.
+* **Public OIN app integration**: If you want to publish your integration in the Okta Integration Network (OIN), follow the instructions in [Submit an SSO integration](/docs/guides/submit-sso-app/). This guide shows you how to submit all the artifacts required for a public integration and how to add an integration instance for testing in your org.
 
----
+  Integrations published in the OIN are publicly available to all Okta customers. See [Publish an OIN integration](/docs/guides/submit-app-overview/) to understand the submission process for publishing an integration.
 
-After you've built your SSO integration, you can use the Application Integration Wizard (AIW) in the Admin Console to create your app integration instance. This instance provides you with client credentials or metadata for you to test your SSO flows.
+  > **Note:** Creating your app integration instance doesn't automatically make it available in the [OIN](https://www.okta.com/integrations/). After you've tested your integration, you need to submit it to the OIN team for verification and publication.
 
-> **Note:** Creating your app integration instance doesn't automatically make it available in the [OIN](https://www.okta.com/integrations/). After you've tested your integration, you need to [submit it](/docs/guides/submit-app-overview/) to the OIN team for verification and publication.
+* **Private app integration**: If you want your integration to exist only in your Okta org, then follow the instructions in [Add a private SSO integration](/docs/guides/submit-sso-app-private). This guide shows you how to use the Application Integration Wizard (AIW) in the Admin Console to create your app integration instance and start testing SSO. Your org users can access your app once SSO is configured.
 
-1. Sign in to your [developer-edition Okta org](/login/) as a user with administrative privileges.
-1. Go to **Applications** > **Applications** in the Admin Console.
-1. Click **Create App Integration**.
+  Single Sign-On to your app is only available to users within the org that contains the integration instance. This use case is particularly useful if you're interested in building a customer-specific integration.
 
-<StackSnippet snippet="create" />
-
-## Specify your integration settings
-
-This portion of the guide takes you through the steps for configuring your specific SSO integration using the Okta Admin Console.
-
-After you create your integration instance in the [Create your integration in Okta](#create-your-integration-in-okta) section, the main settings page appears for your new integration in the Admin Console. Specify **General Settings** and **Sign On** options, and assign the integration to users in your org. Click **Edit** if you need to change any of the options, and **Save** when you've made your changes.
-
-<StackSnippet snippet="settings" />
-
-## Test your integration
-
-This portion of the guide takes you through the steps required to test your integration.
-
-### Assign users
-
-First, you must assign your integration to one or more test users in your org:
-
-1. Click the **Assignments** tab.
-1. Click **Assign** and then select either **Assign to People** or **Assign to Groups**.
-1. Enter the appropriate people or groups that you want to have Single Sign-On into your application, and then click **Assign** for each.
-1. Verify the user-specific attributes for any people that you add, and then select **Save and Go Back**.
-1. Click **Done**.
-
-### Test Single Sign-On
-
-1. Sign out of your Okta org. Click **Sign out** in the upper-right corner of the Admin Console.
-1. Sign in to the Okta End-User Dashboard as the regular user that was assigned the integration.
-
-   > **Note:** If you sign in as a non-admin user to your Okta org from a browser, the End-User Dashboard appears. To access the End-User Dashboard from a mobile device, see [Okta End-User-Dashboard](https://help.okta.com/okta_help.htm?type=eu&id=ext_user_dashboard_overview).
-
-1. Click the Okta tile for the integration and confirm that the user is signed in to your app.
-
-<StackSnippet snippet="test" />
-
-## Next steps
-
-After you complete testing your app integration, you can start the submission process to have your app integration included in the [Okta Integration Network](https://www.okta.com/okta-integration-network/) catalog:
-* Review the [OIN submission requirements](/docs/guides/submit-app-prereq/) before starting the submission process.
-* Review the [Publish an OIN integration](/docs/guides/submit-app-overview/) overview to understand the submission process for publishing an integration.
-* Follow the [Submit an SSO integration](/docs/guides/submit-sso-app/) guide to submit your SSO integration.
+  > **Note:** After you've created a private integration in your Okta org and want to share it with the community through the Okta Integration Network (OIN), follow the instructions in [Submit an SSO integration](/docs/guides/submit-sso-app/) to add the integration for OIN submission.
 
 ## See also
 
-* [Okta SAML FAQs](/docs/concepts/saml/faqs/)
-* [Okta Developer Forum: OIDC](https://devforum.okta.com/search?q=oidc)
-* [Stack Overflow: Okta OIDC](https://stackoverflow.com/search?q=oidc+okta)
-* [Okta Developer Forum: SAML](https://devforum.okta.com/search?q=saml)
-* [Stack Overflow: Okta SAML](https://stackoverflow.com/search?q=saml+okta)
+<StackSnippet snippet="see-also" />
