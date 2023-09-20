@@ -8,12 +8,11 @@ title: Okta API Products release notes 2023
 
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
-| [Bugs fixed in 2023.09.1](#bugs-fixed-in-2023-09-1) | September 20, 2023 |
+| [Bug fixed in 2023.09.1](#bug-fixed-in-2023-09-1) | September 20, 2023 |
 
-#### Bugs fixed in 2023.09.1
+#### Bug fixed in 2023.09.1
 
-* 
-* 
+IdP users were redirected to an unbranded sign-in page after SSO failure. (OKTA-595549)
 
 ### Monthly release 2023.09.0
 
