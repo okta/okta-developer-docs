@@ -19,7 +19,7 @@ Create an Okta application and credentials that Terraform uses to manage the obj
 * Familiarity with Terraform terms: configuration, resources, state, and commands. See [Terraform overview](/docs/guides/terraform-overview).
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
 * [Super admin permissions](https://help.okta.com/en-us/Content/Topics/Security/administrators-super-admin.htm?cshid=ext_superadmin)
-* [OpenSSL command line program](https://github.com/openssl/openssl#download)
+* [OpenSSL command line program](https://github.com/openssl/openssl#download). Some operating systems already include `openssl` or `openssl-rsa`.
 * [A Terraform installation](https://www.terraform.io/)
 
 ---
@@ -74,13 +74,17 @@ This guide uses Okta to generate the public/private key pair:
    > **Note:** The private key only appears in this dialog once. Losing the private key requires generating a new pair of keys.
 1. Click **Done**, **Save**, and then **Save** again.
 
-> **Note:** Use only one active public key at a time in the service app. Set the status of the public key used by Terraform to **Active**, and set the status of the other public keys to **Inactive**.
+> **Note:** Set the status of any public key currently used by Terraform to **Active**, and set the status of the other public keys to **Inactive**.
 
-Check that the generated private key is in PKCS#1 format, which is the format required by the Okta Terraform Provider. In that format, the file that contains the private key begins with `-----BEGIN RSA PRIVATE KEY-----`. You can convert the key to the correct format using the OpenSSL command line program:
+Check that the generated private key is in PKCS#1 format, which is the format required by the Okta Terraform Provider. In that format, the file that contains the private key begins with `-----BEGIN RSA PRIVATE KEY-----`.
+
+If the key isn't in the right format, convert it to the correct format using the OpenSSL command line program:
 
 1. In a terminal, go to the file path where you saved the original private key.
-1. Run the following command:
+1. Run OpenSSL to convert the key. One of the following command lines should work depending on your operating system and version of OpenSSL:
+`openssl rsa -in {ORIGINAL_PRIVATE_KEY} -out {CONVERTED_PRIVATE_KEY} -traditional`
 `openssl rsa -in {ORIGINAL_PRIVATE_KEY} -out {CONVERTED_PRIVATE_KEY}`
+`openssl-rsa -in {ORIGINAL_PRIVATE_KEY} -out {CONVERTED_PRIVATE_KEY}`
 
    * `ORIGINAL_PRIVATE_KEY`: The file that contains the key generated earlier.
    * `CONVERTED_PRIVATE_KEY`: The file that contains the converted key.
