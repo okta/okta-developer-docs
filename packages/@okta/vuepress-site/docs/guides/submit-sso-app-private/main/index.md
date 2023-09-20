@@ -12,7 +12,7 @@ Use this guide to add a private, custom Single Sign-On (SSO) OIDC or SAML 2.0 in
 
 **Learning outcomes**
 
-* Learn how to add a custom SSO integration to your Okta org
+* Learn how to add a private SSO integration to your Okta org
 * Learn how to test your SSO integration in your Okta org
 
 **What you need**
@@ -24,38 +24,32 @@ Use this guide to add a private, custom Single Sign-On (SSO) OIDC or SAML 2.0 in
 
 ## Overview
 
-To integrate your custom app for SSO with Okta, you need to first develop your app SSO integration. Then, you need to register your app with an Okta org before you can test it. The registration process is creating an app integration instance in an Okta org that provides you with the SSO metadata for your app authentication requests. Authentication requests can only be made to the Okta org where the custom app integration was registered.
+To integrate your custom app for SSO with Okta, you need to first develop your app SSO integration. Then, you need to register your app with an Okta org before you can test it. The registration process is creating an app integration instance in an Okta org that provides you with the SSO credentials or metadata for your app authentication requests. This integration is considered private because it is only available in the org from where the app integration instance was created.
 
-This guide assumes that you've developed your SSO integration and are ready to add it to your Okta org for testing. The instructions in this guide are generic for two SSO standards:
+> **Note:** An app integration is considered public if it's available in the Okta Integration Network (OIN) catalog for all Okta customers.
+
+This guide assumes that you've developed your SSO integration and want to add it to your Okta org for testing. The instructions in this guide are generic for two SSO standards:
 
 * **OpenID Connect (OIDC)** (preferred)
 * **Security Assertion Markup Language (SAML)**
 
-For language and platform-specific instructions as well as deployment-specific instructions, see [Redirect authentication](/docs/guides/redirect-authentication/) and [Embedded authentication](/docs/guides/embedded-authentication/) guides.
-
-> **Note:** Creating your app integration instance doesn't automatically make it available in the [OIN](https://www.okta.com/integrations/). After you've tested your integration, you need to [submit it](/docs/guides/submit-app-overview/) to the OIN team for verification and publication.
+For language, platform-specific, as well as deployment-specific instructions, see [Redirect authentication](/docs/guides/redirect-authentication/) and [Embedded authentication](/docs/guides/embedded-authentication/) guides.
 
 > **Note:** Private integrations aren't restricted to the [OIN limitations](/docs/guides/submit-app-prereq/main/#oin-limitations). You can implement the Okta features that are available on your specific Okta org.
 
-> **Note:** Creating your app integration instance doesn't automatically make it available in the [OIN](https://www.okta.com/integrations/). After you've tested your integration, you need to [submit it](/docs/guides/submit-app-overview/) to the OIN team for verification and publication.
-
-## Add your private app in Okta
-
-This section assumes that you've built the SSO integration in your app.
-
-The other steps (Select App type & Contact app vendor will automatically populate in AIW and the ISV does not need to specify that they are an Okta customer adding an internal app).
-
----
+## Create your private integration in Okta
 
 After you've built your SSO integration, you can use the Application Integration Wizard (AIW) in the Admin Console to create your app integration instance. This instance provides you with client credentials or metadata for you to test your SSO flows.
 
-
+The other steps (Select App type & Contact app vendor will automatically populate in AIW and the ISV does not need to specify that they are an Okta customer adding an internal app).
 
 1. Sign in to your [developer-edition Okta org](/login/) as a user with administrative privileges.
 1. Go to **Applications** > **Applications** in the Admin Console.
 1. Click **Create App Integration**.
 
 <StackSnippet snippet="create" />
+
+> **Note:** Creating your app integration instance doesn't automatically make it available in the [OIN](https://www.okta.com/integrations/). After you've tested your integration, you need to [submit it](/docs/guides/submit-app-overview/) to the OIN team for verification and publication.
 
 ## Specify your integration settings
 

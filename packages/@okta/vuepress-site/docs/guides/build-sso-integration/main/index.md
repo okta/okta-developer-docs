@@ -65,7 +65,7 @@ Instructions for adding your integration into Okta depend on if you want to prov
 
   Single Sign-On to your app is only available to users within the org that contains the integration instance. This use case is particularly useful if you're interested in building a customer-specific integration.
 
-  > **Note:** After you've created a private integration in your Okta org and want to share it with the community through the Okta Integration Network (OIN), follow the instructions in [Submit an SSO integration](/docs/guides/submit-sso-app/) to add the integration for OIN submission.
+  > **Note:** After you've created a private integration in your Okta org, you can later decide to share it with the community through the Okta Integration Network (OIN). If you want to make your integration public, follow the instructions in [Submit an SSO integration](/docs/guides/submit-sso-app/) to add the integration for OIN submission.
 
 ## See also
 
