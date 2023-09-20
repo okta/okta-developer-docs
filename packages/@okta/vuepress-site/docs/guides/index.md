@@ -22,7 +22,6 @@ guides:
  - configure-signon-policy
  - configure-user-scoped-account-management
  - create-an-api-token
- - create-manage-okta-aerial
  - custom-email
  - custom-error-pages
  - custom-url-domain
@@ -45,6 +44,7 @@ guides:
  - implement-oauth-for-okta
  - implement-oauth-for-okta-serviceapp
  - implement-grant-type
+ - manage-orgs-okta-aerial
  - mfa
  - migrate-to-okta-prerequisites
  - migrate-to-okta-bulk

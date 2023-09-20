@@ -19,11 +19,7 @@ export const concepts = [
             title: "Event hooks",
             path: "/docs/concepts/event-hooks/",
          },
-         {
-            title: "Events API migration",
-            path: "/docs/concepts/events-api-migration/",
-         },
-         {
+        {
             title: "External Identity Providers",
             path: "/docs/concepts/identity-providers/",
          },
@@ -396,6 +392,10 @@ export const guides = [
               },
             ],
           },
+          {
+            title: "Configure AMR claims mapping",
+            guideName: "configure-amr-claims-mapping"
+          },
           { title: "Sign users out", guideName: "oie-embedded-sdk-use-case-basic-sign-out" },
           { title: "Single Logout", guideName: "single-logout" },
           {
@@ -629,12 +629,22 @@ export const guides = [
             ],
           },
           {
-            title: "OIN submission requirements",
-            guideName: "submit-app-prereq",
-          },
-          {
             title: "Publish an OIN integration",
-            guideName: "submit-app",
+            path: "/docs/guides/submit-app-overview/",
+            subLinks: [
+              {
+                title: "OIN submission requirements",
+                guideName: "submit-app-prereq",
+              },
+              {
+                title: "Submit an SSO integration",
+                guideName: "submit-sso-app",
+              },
+              {
+                title: "Submit an LCM integration",
+                guideName: "submit-app",
+              },
+            ]
           },
         ],
       },
@@ -677,6 +687,16 @@ export const guides = [
           {
             title: "Anything-as-a-Source integration",
             path: "/docs/guides/anything-as-a-source/",
+          }
+        ],
+      },
+      {
+        title: "Manage orgs",
+        subLinks: [
+          {
+            title: "Manage orgs with Okta Aerial",
+            guideName: "manage-orgs-okta-aerial",
+            hidden: true
           }
         ],
       },
