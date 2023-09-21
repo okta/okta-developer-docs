@@ -19,12 +19,4 @@
         * **Value** &mdash; `.*`
     * You can preview the generated SAML assertion by clicking **Preview the SAML Assertion** in Section B.
     * Click **Next**.
-1. In the final creation step, the **Feedback** tab helps Okta to understand how you want to position this application.
-    * If you're only creating an internal SAML integration:
-        1. Select **I'm an Okta customer adding an internal app**. More check boxes and fields appear.
-           * Select the **App type** if you don't want the integration released publicly. If you select this box, you don't need to enter any further information.
-           * Select the **Contact app vendor** checkbox if Okta needs to contact you to enable SAML for the integration. If you select this checkbox, you need to provide further general information about your integration to the Okta OIN team.
-        1. Click **Finish**.
-    * For ISVs that are creating a SAML integration for the OIN:
-        1. Select **I'm a software vendor. I'd like to integrate my app with Okta**.
-        1. Click **Finish**.
+1. Click **Finish**.

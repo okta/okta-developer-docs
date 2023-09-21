@@ -41,7 +41,7 @@ For language, platform-specific, as well as deployment-specific instructions, se
 
 After you've built your SSO integration, you can use the Application Integration Wizard (AIW) in the Admin Console to create your app integration instance. This instance provides you with client credentials or metadata for you to test your SSO flows.
 
-The other steps (Select App type & Contact app vendor will automatically populate in AIW and the ISV does not need to specify that they are an Okta customer adding an internal app).
+> **Note:** For best practices, create two or three additional administrative users in Okta to manage the integration. This ensures that your team can access the application for updates over time.
 
 1. Sign in to your [developer-edition Okta org](/login/) as a user with administrative privileges.
 1. Go to **Applications** > **Applications** in the Admin Console.
@@ -49,7 +49,9 @@ The other steps (Select App type & Contact app vendor will automatically populat
 
 <StackSnippet snippet="create" />
 
-> **Note:** Creating your app integration instance doesn't automatically make it available in the [OIN](https://www.okta.com/integrations/). After you've tested your integration, you need to [submit it](/docs/guides/submit-app-overview/) to the OIN team for verification and publication.
+<br>
+
+> **Note:** Creating your app integration instance doesn't automatically make it available in the [OIN](https://www.okta.com/integrations/). See [Publish an OIN integration](/docs/guides/submit-app-overview/) for an overview of the submission process.
 
 ## Specify your integration settings
 
