@@ -27,6 +27,9 @@ Use this guide to understand the process of submitting a Single Sign-On (SSO) OI
 
 The [Okta Integration Network (OIN) Manager](https://oinmanager.okta.com) is a submission tool that's connected to your developer org where you test and develop your Okta integration. Use this tool to submit your SSO app integration for verification and publication in the OIN catalog.
 
+> Note from Create an SSO in Okta: in step 5: <br>
+>  The OIN only publishes cloud-based SaaS apps, either traditional Web applications with a back-end or a modern browser-based SPA.
+
 ### Protocols supported
 
 This guide covers submissions that use the following protocols:
