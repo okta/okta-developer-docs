@@ -76,6 +76,10 @@
   border-color: var(--c-green-300);
 }
 
+.signup__form__input option {
+  color: var(--c-lightgray-450);
+}
+
 .signup__form__recaptcha {
   color: var(--c-lightgray-450);
 }
