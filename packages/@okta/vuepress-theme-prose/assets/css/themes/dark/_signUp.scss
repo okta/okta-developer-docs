@@ -66,7 +66,7 @@
 .signup__form__input {
   border: 1px solid var(--c-gray-450);
   background-color: var(--c-gray-950);
-  
+
   color: var(--c-lightgray-450);
 }
 
@@ -74,6 +74,10 @@
 .signup__form__input:focus {
   box-shadow: 0 0 0 4px var(--c-green-200);
   border-color: var(--c-green-300);
+}
+
+.signup__form__input option {
+  color: var(--c-lightgray-450);
 }
 
 .signup__form__recaptcha {
