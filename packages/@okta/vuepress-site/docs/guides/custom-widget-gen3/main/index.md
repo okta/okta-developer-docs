@@ -42,6 +42,8 @@ See [Style the sign-in page](/docs/guides/custom-widget/main/) for details about
 
 ## Use the code editor
 
+<!-- repeating this content from the other guide... want to have a fresh start on the 3rd gen page. i'll probably tweak it to focus on the JS API -->
+
 Use the code editor to modify any HTML, CSS, or JavaScript on the sign-in page.
 
 > **Note:** You can only enable the code editor if you configure a [custom domain](/docs/guides/custom-url-domain/).
@@ -62,16 +64,21 @@ See [Customization examples](#customization-examples) for ways to use design tok
 
 ## Use design tokens
 
-
+<!-- cribbing conceptual content from the odyssey docs about design tokens -->
 
 
 ## Customization examples
 
-
+<!-- 3-4 basic uses cases with screen shots -->
 
 ## Test your customizations
 
+<!-- Lester: do you think we can add any quick tips here? or is it a visual, trial and error thing in the console? -->
 
+
+## List of design tokens
+
+<!-- The table of available tokens goes here -->
 
 ## 
 
