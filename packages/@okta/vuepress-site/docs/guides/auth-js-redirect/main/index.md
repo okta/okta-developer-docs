@@ -218,7 +218,7 @@ Progressive profile enrollment builds out a user's profile incrementally during 
 1. Go to **Security** > **Profile Enrollment** and click **Add Profile Enrollment Policy**.
 1. Create a name for the policy and **Save**.
 1. Click edit from the **Actions** column for your new policy.
-1. Click **Edit** in the policy and for **Progressive Profiling**, select the **Enabled** option.
+1. Click **Edit** in the policy and then for **Progressive Profiling**, select the **Enabled** option.
 
    > **Note:** You can also enable profile enrollment (self-service registration) and progressive profile enrollment with the same policy. Select **Allowed** for the **Self-service registration** option of your profile enrollment policy. New users can then enroll with the enhanced profile enrollment form. Existing users use progressive profile enrollment for any new required fields.
 
