@@ -10,6 +10,7 @@ To submit an OIDC integration, click the **OIDC** tab and select **On** from the
    1. In your browser, click in the address bar showing the current URL and copy it to your clipboard. This is the Okta instance URL for your integration.
    1. Back in the OIN Manager, paste that URL in the **Provide the instance URL for your app where Okta will retrieve configuration details** field of your submission protocol tab.
 
+
 <!--
 1. Click the **General** tab.
 1. Go to the **App Embed Link** section and copy the text in the Embed Link field:

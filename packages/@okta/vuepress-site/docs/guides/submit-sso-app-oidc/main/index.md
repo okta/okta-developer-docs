@@ -1,23 +1,23 @@
 ---
-title: Submit an SSO integration
+title: Submit an OIDC SSO integration
 meta:
   - name: description
-    content: Use this guide to learn how to submit your SAML 2.0 SSO integration to the Okta Integration Network (OIN) team for publication.
+    content: Use this guide to learn how to submit an OIDC Single Sign-On (SSO) integration for publication with the Okta Integration Network (OIN) Manager.
 layout: Guides
 ---
 
-Use this guide to learn how to submit a SAML 2.0 Single Sign-On (SSO) integration to the Okta Integration Network (OIN) team for publication. This guide also shows you how to create an SSO integration instance for testing in your org.
+Use this guide to submit an OpenID Connect (OIDC) Single Sign-On (SSO) integration to the Okta Integration Network (OIN) team using the OIN Manager. It also shows you how to update a previously published integration or delete a draft submission.
 
 ---
 
 **Learning outcomes**
 
-* Understand how to submit a SAML 2.0 SSO integration to the OIN
-* Understand how to create an integration instance for testing
+* Understand how to submit an OIDC SSO integration to the OIN
+* Understand how to update or delete a previously published OIN SSO integration
 
 **What you need**
 
-* A functional SAML 2.0 SSO integration created and tested in accordance with the [Build a Single Sign-On integration](/docs/guides/build-sso-integration/) guide
+* A functional OIDC SSO integration created and tested in accordance with the [Build a Single Sign-On integration](/docs/guides/build-sso-integration/) guide
 
 * The various items necessary for submission in accordance with the [OIN submission requirements](/docs/guides/submit-app-prereq/)
 
@@ -38,10 +38,6 @@ This guide covers submissions that use the following protocols:
     > **Note:** <br>
     > * To support the potentially large number of Okta orgs that access an authorization server through the OIN, an OIDC integration can't use a custom authorization server, including the `default` server.
     > * ISVs shouldn't rely on the `email_verified` scope-dependent claim returned by an OIDC integration to evaluate whether a user has verified ownership of the email address associated with their profile.
-
-* [Security Assertion Markup Language (SAML)](http://docs.oasis-open.org/security/saml/Post2.0/sstc-saml-tech-overview-2.0.html)
-
-    > **Note:** SAML integrations must use SHA256 encryption for security. If you're using SHA-1 for encryption, see our guide on how to [Upgrade SAML Apps to SHA256](/docs/guides/updating-saml-cert/).
 
 > **Note:** SWA app integrations are no longer accepted for publication in the OIN catalog. However, the OIN team still maintains existing SWA apps.
 
@@ -117,9 +113,7 @@ The Okta OIN team requires a dedicated account on your application to run their 
 
 ### Configure protocol-specific settings
 
-You can submit protocol support details all together or asynchronously. For example, if your application currently only supports SAML, you can create the submission with the SAML protocol details. Later, when you add Workflows Connector capabilities to your application, you can return to your integration submission to include Workflows Connector support.
-
->**Note:** If you don't see the protocol-specific settings that you want in this section, select the **Instructions for** dropdown menu on this page.
+You can submit protocol support details all together or asynchronously. For example, if your application currently only supports OIDC, you can create the submission with the OIDC protocol details. Later, when you add Workflows Connector capabilities to your application, you can return to your integration submission to include Workflows Connector support.
 
 <StackSnippet snippet="protocol-name" />
 
@@ -135,7 +129,7 @@ Include all required information before you click **Submit for Review** to move 
 
 If you need to make protocol changes to your published integration, use the [OIN Manager](https://oinmanager.okta.com/) to create an updated version of the integration.
 
-Similarly, when you enable a new capability in your application, you don't need to create an entirely new submission. For example, you can add SCIM provisioning to an existing published SAML application. You can update your existing submission to enable and specify the settings for that protocol, then submit the updated integration.
+Similarly, when you enable a new capability in your application, you don't need to create an entirely new submission. For example, you can add SCIM provisioning to an existing published OIDC application. You can update your existing submission to enable and specify the settings for that protocol, then submit the updated integration.
 
 1. Sign in to the OIN Manager using the credentials for your original dev org.
 

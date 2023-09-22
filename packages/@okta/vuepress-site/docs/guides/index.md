@@ -61,6 +61,7 @@ guides:
  - custom-sms-messaging
  - submit-app
  - submit-sso-app
+ - submit-sso-app-oidc
  - submit-sso-app-private
  - submit-app-prereq
  - deployment-checklist
