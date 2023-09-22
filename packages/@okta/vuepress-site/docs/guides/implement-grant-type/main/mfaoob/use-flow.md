@@ -57,7 +57,7 @@ Note the parameters that are passed:
 
 - `client_id`: Matches the client ID of the application that you created in the [Set up your app](#set-up-your-app) section. You can find it at the top of your app's **General** tab.
 - `mfa_token`: A unique token used for identifying multifactor authentication flows to link the request to the original authentication flow.
-- `channel_hint`: The out-of-band channel that the client wants to use.
+- `channel_hint`: The out-of-band channel that the client wants to use. Only required if challenging an out-of-band authenticator.
 - `challenge_types_supported`: `http://auth0.com/oauth/grant-type/mfa-oob`, which communicates to the authorization server the factors that the client app supports. If the access policy requires factors that aren't included, an error is returned. Supported values: `http://auth0.com/oauth/grant-type/mfa-otp` and `http://auth0.com/oauth/grant-type/mfa-oob`
 
 > **Note:** This field may seem redundant since the `/token` request should validate `grant_types_supported`. However, this field is included because some clients can't send  `grant_types_supported` in the request or the server can't validate `grant_types_supported` on the `/token` endpoint.
