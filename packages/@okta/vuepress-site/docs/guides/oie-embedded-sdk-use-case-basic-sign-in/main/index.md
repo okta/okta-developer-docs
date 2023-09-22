@@ -4,21 +4,14 @@ title: Basic sign-in flow using the password factor
 
 <ApiLifecycle access="ie" />
 
-> **Note:** In proxy model architectures, where a server-side application using the Embedded SDK is used as a proxy between client applications and Okta servers, a request context for the client applications is required. Security enforcement is expected to be based on the client request context’s IP address and user agent. However, since these values are currently being derived from the server application rather than the client, this enforcement is not available. As a result, network zones or behaviors that drive their conditions based on these request context values (geolocation, IP Address, or user agent) will not work until we can find a solution to the issue.
-
-This guide covers a basic user sign-in request, which is the simplest of all use cases and is the first use case that you should try after you install the SDK. The flow diagram and steps describe how to build a simple sign-in form and how to authenticate the credentials.
+This guide shows you how to implement a basic user sign-in flow using the password factor in Okta Identity Engine. The flow diagram and integration steps below describe how to build a simple sign-in form and how to authenticate credentials.
 
 <StackSnippet snippet="pwdoptionalusecase" inline />
 
 ---
 
-**Learning outcomes**
-
-Understand how to implement basic sign-in using Okta Identity Engine.
-
 **What you need**
 
-* An app that uses the embedded Okta Identity Engine SDK
 * [Okta org already configured for a password-only use case](/docs/guides/oie-embedded-common-org-setup/-/main/#set-up-your-okta-org-for-a-password-factor-only-use-case)
 * [Identity Engine SDK set up for your own app](/docs/guides/oie-embedded-common-download-setup-app/)
 
@@ -28,7 +21,7 @@ Understand how to implement basic sign-in using Okta Identity Engine.
 
 ---
 
-## Configuration updates
+## Configuration overview
 
 The basic user sign-in use case requires the password factor.
 
@@ -36,13 +29,16 @@ The basic user sign-in use case requires the password factor.
 
 ![Password factor only indicator](/img/oie-embedded-sdk/factor-password-only.png)
 
+Figure: Password factor only indicator
+
 </div>
 
-Before you build a basic sign-in flow, ensure that your org is configured for the password factor by completing the steps in [Set up your Okta org for a password factor only use case](/docs/guides/oie-embedded-common-org-setup/-/main/#set-up-your-okta-org-for-a-password-factor-only-use-case).
+Before you build a basic sign-in flow, [set up your Okta org for a password factor only use case](/docs/guides/oie-embedded-common-org-setup/-/main/#set-up-your-okta-org-for-a-password-factor-only-use-case).
 
 ## Summary of steps
-
 <StackSnippet snippet="summaryofsteps" />
+
+Figure: Basic sign-in sequence flow diagram for Okta Auth JS SDK
 
 ## Integration steps
 
