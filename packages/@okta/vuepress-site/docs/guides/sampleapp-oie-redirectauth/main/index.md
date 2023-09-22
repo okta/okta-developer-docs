@@ -248,7 +248,7 @@ When you enrolled your test user, the user was only prompted for first and last 
 
 1. Select the **Required** checkbox, and then click **Save**.
 
-1. Now try to authenticate using one of the same users as in the previous steps. You're prompted with a **Region** field and a **Sign Up** button. After you add a value, you can confirm that it's saved by accessing **Directory** > **People** in the Admin Console. Then, locating the correct user and selecting their **Profile** tab. If you try to register a new user, you see the **Region** field added to the sign in page.
+1. Try to authenticate using one of the same users from the previous steps. You're prompted with a **Region** field and a **Sign Up** button. After you add a value, you can confirm that it's saved by accessing **Directory** > **People** in the Admin Console. Then, locate the correct user and select their **Profile** tab. If you try to register a new user, you see the **Region** field added to the sign in page.
 
 ## Identity Provider routing to Facebook
 
