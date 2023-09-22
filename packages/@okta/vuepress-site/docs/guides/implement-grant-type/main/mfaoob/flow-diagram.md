@@ -40,7 +40,7 @@ At a high level, this flow has the following steps:
     Register your app so that Okta can accept the authorization request. See [Set up your app](#set-up-your-app) to register and configure your app with Okta. After registration, your app can make an authorization request to Okta. See [Request for tokens](#request-for-tokens).
 
 1. Okta sends an HTTP 403 error that MFA is required and includes the `mfa_token` in the response.
-1. Your app sends a `/challenge` request with the `mfa_token` value, `channel_hint=push` and the `challenge_types_supported` (`http://auth0.com/oauth/grant-type/mfa-oob`) to the Okta authorization server.
+1. Your app sends a `/challenge` request with the `mfa_token` value, `channel_hint=push`, and the `challenge_types_supported` (`http://auth0.com/oauth/grant-type/mfa-oob`) to the Okta authorization server.
 1. Okta responds with a `challenge_type`, `oob_code`, `interval` in seconds to poll (default is `5`), and any other parameters required by the configured authenticator.
 
    >**Note:** For Okta Verify prompts with [number challenge](https://help.okta.com/okta_help.htm?type=oie&id=ext-config-okta-verify-options), `binding_method=transfer` and `binding_code` are also returned. See the [challenge response example](#challenge-response).
