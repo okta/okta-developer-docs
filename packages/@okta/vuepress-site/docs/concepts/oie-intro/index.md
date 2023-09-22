@@ -71,14 +71,14 @@ We have a whole host of SDKs available for integrating new Identity Engine featu
 * [Browse our SDKs and samples](/code/)
 * [Set up and explore our Identity Engine sample apps](/docs/guides/oie-embedded-common-download-setup-app/)
 
-## Identity Engine versus Classic Engine documentation approach
+## Identity Engine versus Classic Engine documentation
 
-In our documentation, we are moving towards supporting Identity Engine by default, while still providing information for Classic Engine users.
+In our documentation, we identify content for Identity Engine and Classic Engine in the following ways:
 
-* Pages and page sections covering features that only work in Identity Engine have a blue Identity Engine banner at the top.
-* Pages containing content that works in both Identity Engine and Classic Engine have no banner. Any slight differences are covered in the page text.
-* Pages containing content written for Classic Engine that won't work in Identity Engine have an explanatory note at the top, and, if appropriate, where Identity Engine users can go to find support.
-* For Classic Engine guides that were extensively updated to support Identity Engine, we keep the previous versions in the Okta Classic Engine [archive](/docs/guides/archive-overview/), so they are still accessible if needed. 
+* Pages and page sections covering features that only work in Identity Engine have a blue Identity Engine banner at the top.  
+* Pages containing content that works in both Identity Engine and Classic Engine have no banner. Any slight differences are covered in the page text.  
+* Pages containing content written for Classic Engine that won't work in Identity Engine have an explanatory note at the top, and, if appropriate, where Identity Engine users can go to find support.  
+* For Classic Engine guides that were extensively updated to support Identity Engine, we keep the previous versions in the Okta Classic Engine [archive](/docs/guides/archive-overview/), so they are still accessible if needed.  
 
 > **Note**: See [Get Started](https://help.okta.com/okta_help.htm?type=oie) to determine your Okta version.
 
