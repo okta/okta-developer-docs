@@ -262,7 +262,7 @@ Instead of signing in to Okta, it's possible to route users to an external Ident
 2. Access the [Facebook App Dashboard](https://developers.facebook.com/apps).
 3. Create a Facebook app using these [instructions](https://developers.facebook.com/docs/development/create-an-app).
 
-    > **Note:** When you're creating the app, select **Consumer** as the app type.
+    > **Note:** When you create the app, select **Consumer** as the app type.
 
 4. After you create the app, on the Add Products to Your App page, click **Set Up** on the **Facebook Login** tile.
 5. On the first page of the Quickstart, select **Web**.
