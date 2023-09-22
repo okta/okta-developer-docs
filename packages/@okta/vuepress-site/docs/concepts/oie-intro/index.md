@@ -75,8 +75,7 @@ We have a whole host of SDKs available for integrating new Identity Engine featu
 
 In our documentation, we are moving towards supporting Identity Engine by default, while still providing information for Classic Engine users.
 
-* Pages and page sections covering features that only work in Identity Engine have this blue Identity Engine banner at the top (<ApiLifecycle access="ie" />
-).
+* Pages and page sections covering features that only work in Identity Engine have a blue Identity Engine banner at the top.
 * Pages containing content that works in both Identity Engine and Classic Engine have no banner. Any slight differences are covered in the page text.
 * Pages containing content written for Classic Engine that won't work in Identity Engine have an explanatory note at the top, and, if appropriate, where Identity Engine users can go to find support.
 * For Classic Engine guides that were extensively updated to support Identity Engine, we keep the previous versions in the Okta Classic Engine [archive](/docs/guides/archive-overview/), so they are still accessible if needed. 
