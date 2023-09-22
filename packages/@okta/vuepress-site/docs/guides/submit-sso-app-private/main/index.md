@@ -41,7 +41,7 @@ For language, platform-specific, and deployment-specific instructions, see the [
 
 After you've built your SSO integration, you can use the Application Integration Wizard (AIW) in the Admin Console to create your app integration instance. This instance provides you with client credentials or metadata for your SSO flows.
 
-> **Note:** For best practices, create two or three additional administrative users in Okta to manage the integration. This ensures that your team can access the application for updates in the future.
+> **Note:** For best practices, create two or three additional administrative users in Okta to manage the integration. This ensures that your team can access the integration for updates in the future.
 
 1. Sign in to your [developer-edition Okta org](/login/) as a user with administrative privileges.
 1. Go to **Applications** > **Applications** in the Admin Console.

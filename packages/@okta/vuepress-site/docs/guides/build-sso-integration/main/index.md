@@ -51,7 +51,7 @@ Okta recommends the redirect authentication deployment model if your situation m
 
 ## Create your integration in Okta
 
-This section assumes that you've built the SSO integration in your app.
+> **Note:** This section assumes that you've built the SSO integration in your app.
 
 Instructions for adding your integration into Okta depend on if you want to provide a public or private integration:
 

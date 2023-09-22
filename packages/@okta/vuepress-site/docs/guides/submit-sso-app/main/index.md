@@ -1,21 +1,23 @@
 ---
-title: Submit an SSO integration
+title: Submit a SAML SSO integration
 meta:
   - name: description
-    content: Use this guide to learn how to submit your SAML 2.0 SSO integration to the Okta Integration Network (OIN) team for publication.
+    content: Use this guide to learn how to submit your SAML SSO integration to the Okta Integration Network (OIN) team for publication. The submission task is performed in the Okta Admin Console.
 layout: Guides
 ---
 
-Use this guide to learn how to submit a SAML 2.0 Single Sign-On (SSO) integration to the Okta Integration Network (OIN) team for publication. This guide also shows you how to create an SSO integration instance for testing in your org.
+Use this guide to learn how to submit a SAML Single Sign-On (SSO) integration to the Okta Integration Network (OIN) team for publication. This guide also shows you how to create an SSO integration instance for testing in your org.
 
 ---
 
 **Learning outcomes**
 
-* Understand how to submit a SAML 2.0 SSO integration to the OIN
-* Understand how to create an integration instance for testing
+* Understand how to submit a SAML SSO integration to the OIN
+* Understand how to create an integration instance for testing in your org
 
 **What you need**
+
+* An [Okta Developer Edition org](https://developer.okta.com/signup/)
 
 * A functional SAML 2.0 SSO integration created and tested in accordance with the [Build a Single Sign-On integration](/docs/guides/build-sso-integration/) guide
 
@@ -25,105 +27,128 @@ Use this guide to learn how to submit a SAML 2.0 Single Sign-On (SSO) integratio
 
 ## Overview
 
-The [Okta Integration Network (OIN) Manager](https://oinmanager.okta.com) is a submission tool that's connected to your developer org where you test and develop your Okta integration. Use this tool to submit your SSO app integration for verification and publication in the OIN catalog.
+Okta provides you with a seamless experience in the Okta Admin Console to integrate and submit your app for publication in the [Okta Integration Network (OIN)](https://www.okta.com/okta-integration-network/). When you obtain an [Okta Developer-Edition org](https://developer.okta.com/signup/), you can use it as a sandbox playground to explore Okta features. You can create your app integration and add it to your developer-edition org for testing. Once you're satisfied with your tests, you can submit your integration to the OIN team directly from your developer-edition org Admin Console. The OIN team verifies your integration before they publish it in the [OIN catalog](https://www.okta.com/integrations/).
 
-> **Note:** The OIN only publishes cloud-based SaaS apps, either traditional Web applications with a back-end or a modern browser-based SPA.
+> **Note:** Only cloud-based SaaS apps (either traditional Web applications with a back-end or a modern browser-based SPA) are published in the OIN catalog.
 
-### Protocols supported
+### Protocol supported
 
-This guide covers submissions that use the following protocols:
+This guide covers submissions that use the [Security Assertion Markup Language (SAML)](http://docs.oasis-open.org/security/saml/Post2.0/sstc-saml-tech-overview-2.0.html) protocol for Single Sign-On (SSO).
 
-* [OpenID Connect (OIDC)](https://openid.net/connect/)
-
-    > **Note:** <br>
-    > * To support the potentially large number of Okta orgs that access an authorization server through the OIN, an OIDC integration can't use a custom authorization server, including the `default` server.
-    > * ISVs shouldn't rely on the `email_verified` scope-dependent claim returned by an OIDC integration to evaluate whether a user has verified ownership of the email address associated with their profile.
-
-* [Security Assertion Markup Language (SAML)](http://docs.oasis-open.org/security/saml/Post2.0/sstc-saml-tech-overview-2.0.html)
-
-    > **Note:** SAML integrations must use SHA256 encryption for security. If you're using SHA-1 for encryption, see our guide on how to [Upgrade SAML Apps to SHA256](/docs/guides/updating-saml-cert/).
-
-> **Note:** SWA app integrations are no longer accepted for publication in the OIN catalog. However, the OIN team still maintains existing SWA apps.
-
-### Submission support
-
-If you need help during the submission process, use the **Get Support** section on the My App Integrations page after you sign in to the [OIN Manager](https://oinmanager.okta.com). This section provides the following resources from the [Okta developer portal](https://developer.okta.com/):
-
-* OIN integration guides
-* Okta, OIDC, SAML, and SCIM concepts
-* A search tool to find articles in the Okta developer portal
-
-If you have questions or need more support to publish your app integration, you can reach out to the Okta OIN team directly at <oin@okta.com>.
+> **Note:** SAML integrations must use SHA256 encryption for security. If you're using SHA-1 for encryption, see our guide on how to [Upgrade SAML Apps to SHA256](/docs/guides/updating-saml-cert/).
 
 ## Submit an integration
 
-> **Note:** Review the [OIN submission requirements](/docs/guides/submit-app-prereq) before you start your submission.
+You need to review the [OIN submission requirements](/docs/guides/submit-app-prereq) before you start your submission. There are artifacts and technical details that you need to provide during the submission process.
 
-Start your integration submission:
+> **Note:** For best practices, create two or three additional administrative users in your Okta org to manage the integration. This ensures that your team can access the integration for updates in the future.
 
-1. Open the [OIN Manager](https://oinmanager.okta.com) and click **Start Submission Form**.
+To submit an integration for OIN publication:
 
-1. Sign in to the OIN Manager with your Okta development org credentials. Ensure that this org contains your developed app integration for submission.
+1. Sign in to your [developer-edition Okta org](/login/) as a user with administrative privileges.
+1. Go to **Applications** > **My OIN Integrations** in the Admin Console.
+1. Click **Build a new OIN integration**. The Okta Integration Network Wizard appears.
+1. From the **Select your protocol** > **Enable Single Sign-On (SSO)** section of the page, select **<StackSnippet snippet="protocol-name" inline/>**.
+1. Click **Next: Configure your integration**.
+1. Click the **<StackSnippet snippet="protocol-name" inline/> properties** dropdown arrow.
+1. Specify the following properties:
 
-1. Click **Add New Submission**.
+   <StackSnippet snippet="protocol-properties" />
 
-1. Click **View** beside the name of your integration if you want to review an in-progress submission.
+1. If you need to specify additional properties for your integration, click **Show Advanced Settings** and specify the advanced properties.
+1. Click **Save changes**.
+1. Click the **OIN catalog display** dropdown arrow and specify the following OIN catalog properties:
 
-    > **Note:** If you need to update an integration, see [Update your published integration](#update-your-published-integration).
+    **General settings**
 
-1. Begin defining your submission by specifying details in the [General Settings](#configure-general-settings) and [protocol-specific](#configure-protocol-specific-settings) tabs.
+    | Property/Question | Description  |
+    | -------- | ------------ |
+    | **Does your app exist in the OIN?** | Indicate if your integration exists in the OIN. |
+    | **Existing OIN app name**  | If your integration exists in the OIN, provide the **Existing OIN app name** so that the Okta OIN team can locate it. |
+    | **What changes are you making to the existing OIN integration?**  | If your integration exists in the OIN, summarize the changes that you're requesting in your update. This summary helps the Okta OIN team address your changes. |
+    | **App name**  | Provide a name for your integration. This is the main title used for your integration in the OIN. |
+    | **App website**  | Provide a link to your product or service homepage or a specific location on your website where users can learn more about your integration. |
+    | **Use case(s)** | Specify one or more use cases for Okta to categorize your integration in the OIN catalog. Click **+ Add Another** to choose up to five use cases. See [Use case guidelines](/docs/guides/submit-app-prereq/main/#use-case-guidelines). |
+    | **App description** | Give a general description of your application and what the Okta integration does. See [App description guidelines](/docs/guides/submit-app-prereq/main/#app-description-guidelines). |
+    | **App icon** | Upload a PNG, JPG, or GIF file of a logo to accompany your integration in the catalog. The logo file must be less than one MB. See [Logo guidelines](/docs/guides/submit-app-prereq/main/#logo-guidelines). |
 
-### Configure general settings
+    **Customer support**
 
-On the **General Settings** tab, fill in the basic information about your integration:
+    | Property/Question | Description  |
+    | -------- | ------------ |
+    | **Support contacts** | Include one or more public contact points for users who need assistance with your integration. You can also add a link to an FAQ or a troubleshooting guide. Use the dropdown menu to specify if you're adding an email, a URL, or a phone number. Click **+ Add Another** to add another contact. Okta shares this information with customers in the OIN catalog description for your app integration. |
+    | xx | xx |
+    | xx | xx |
+    | xx | xx |
+    | xx | xx |
+    | xx | xx |
 
-#### App information
 
-* **Does your app exist in the OIN?**: Indicate if your integration exists in the OIN.
 
-   * If your integration exists in the OIN, provide the **Existing OIN app name** so that the Okta OIN team can locate it.
+    * **Escalation support contact**: This is an email distribution list for Okta to use when contacting your company about your integration. Okta can use this escalation contact in an emergency, so make sure that the contact provided here isn't a generic contact, such as `support@example.com` or a 1-800 number. This contact information isn't shared with customers.
 
-   * **What changes are you making to the existing OIN integration?**: If your integration exists in the OIN, summarize the changes that you're requesting in your update. This summary helps the Okta OIN team address your changes.
+    See [Customer support contact guidelines](/docs/guides/submit-app-prereq/main/#customer-support-contact-guidelines).
 
-* **App name**: Provide a name for your integration. This is the main title used for your integration in the OIN.
+    **Test account**
 
-* **App website**: Provide a link to your product or service homepage or a specific location on your website where users can learn more about your integration.
+     Property/Question | Description  |
+    | -------- | ------------ |
+    | xx | xx |
+    | xx | xx |
+    | xx | xx |
 
-* **Use case(s)**: Specify one or more use cases for Okta to categorize your integration in the OIN catalog. Click **+ Add Another** to choose up to five use cases. See [Use case guidelines](/docs/guides/submit-app-prereq/main/#use-case-guidelines).
 
-* **App description**: Give a general description of your application and what the Okta integration does. See [App description guidelines](/docs/guides/submit-app-prereq/main/#app-description-guidelines).
+    The Okta OIN team requires a dedicated account on your application to run their tests. Ensure that this test account is active beyond the submission period in case Okta needs to update or troubleshoot your app integration. See [Test account guidelines](/docs/guides/submit-app-prereq/main/#test-account-guidelines).
 
-* **App icon**: Upload a PNG, JPG, or GIF file of a logo to accompany your integration in the catalog. The logo file must be less than one MB. See [Logo guidelines](/docs/guides/submit-app-prereq/main/#logo-guidelines).
+    * **Test account URL**: This is a static URL to sign in to your application. An Okta OIN team member goes to this URL and uses the account credentials you provide in the subsequent fields to sign in to your application.
 
-#### Customer support
+    * **Test account username or email**: The username for your application test account. The Okta OIN team signs in with this username to run tests. The preferred account username is `isvtest@okta.com`.
 
-* **Support contacts**: Include one or more public contact points for users who need assistance with your integration. You can also add a link to an FAQ or a troubleshooting guide. Use the dropdown menu to specify if you're adding an email, a URL, or a phone number. Click **+ Add Another** to add another contact. Okta shares this information with customers in the OIN catalog description for your app integration.
+    * **Test account password**: The password for your application test account.
 
-* **Escalation support contact**: This is an email distribution list for Okta to use when contacting your company about your integration. Okta can use this escalation contact in an emergency, so make sure that the contact provided here isn't a generic contact, such as `support@example.com` or a 1-800 number. This contact information isn't shared with customers.
+    * **Additional instructions**: Include any other information that you think the Okta OIN team needs to know about your integration, the test account, or the testing configuration.
 
-See [Customer support contact guidelines](/docs/guides/submit-app-prereq/main/#customer-support-contact-guidelines).
+1. Click **Save changes**.
 
-#### Test account
+## Test your integration
 
-The Okta OIN team requires a dedicated account on your application to run their tests. Ensure that this test account is active beyond the submission period in case Okta needs to update or troubleshoot your app integration. See [Test account guidelines](/docs/guides/submit-app-prereq/main/#test-account-guidelines).
+From the Okta Integration Network Wizard, click **Next: Test your integration** after you've saved your integration configuration. This action begins testing your integration. You need to test the following flows:
 
-* **Test account URL**: This is a static URL to sign in to your application. An Okta OIN team member goes to this URL and uses the account credentials you provide in the subsequent fields to sign in to your application.
+* IdP flow: If your integration supports IdP-initiated SSO
+* SP flow: If your integration supports SP-initiated SSO
+* Just in time (JIT) flow: If your application supports JIT
 
-* **Test account username or email**: The username for your application test account. The Okta OIN team signs in with this username to run tests. The preferred account username is `isvtest@okta.com`.
+### IdP flow test
 
-* **Test account password**: The password for your application test account.
+#### Prepare your instance for an IdP flow
 
-* **Additional instructions**: Include any other information that you think the Okta OIN team needs to know about your integration, the test account, or the testing configuration.
+#### Test the IdP flow
 
-### Configure protocol-specific settings
+### SP flow test
 
-You can submit protocol support details all together or asynchronously. For example, if your application currently only supports SAML, you can create the submission with the SAML protocol details. Later, when you add Workflows Connector capabilities to your application, you can return to your integration submission to include Workflows Connector support.
+#### Prepare your instance for an SP flow
 
->**Note:** If you don't see the protocol-specific settings that you want in this section, select the **Instructions for** dropdown menu on this page.
+#### Test the SP flow
 
-<StackSnippet snippet="protocol-name" />
+Option 1: Direct URL
 
-<StackSnippet snippet="submit" />
+Option 2: Login page
+
+### JIT flow test
+
+#### Prepare your instance for JIT
+
+#### Test the JIT flow
+
+Option 1
+
+Option 2
+
+## Submit your integration
+
+1. Close the incognito browser window and return to the Test your Okta customer experience page in the App Template Wizard
+2. Select the checkbox for “I certify that I have successfully completed the testing phase” and click Submit your integration
+3. On the Thank you for your submission confirmation page, select Close wizard
 
 <br>
 
@@ -187,6 +212,4 @@ Removing an app integration from the OIN doesn't prohibit existing users from ac
 
 Finally, if you intend to remove your back-end application support for your Okta integration, alert your customer admins about the change. Inform your customers if you're deploying a replacement solution.
 
-## See also
-
-<StackSnippet snippet="see-also" />
+> **Note:** If you have questions or need more support to publish your app integration, you can reach out to the Okta OIN team directly at <oin@okta.com>.

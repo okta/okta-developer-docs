@@ -645,7 +645,7 @@ export const guides = [
                 guideName: "submit-app-prereq",
               },
               {
-                title: "Submit a SAML 2.0 SSO integration",
+                title: "Submit a SAML SSO integration",
                 guideName: "submit-sso-app",
               },
               {

@@ -17,6 +17,8 @@ Use this guide to submit an OpenID Connect (OIDC) Single Sign-On (SSO) integrati
 
 **What you need**
 
+* An [Okta Developer Edition org](https://developer.okta.com/signup/)
+
 * A functional OIDC SSO integration created and tested in accordance with the [Build a Single Sign-On integration](/docs/guides/build-sso-integration/) guide
 
 * The various items necessary for submission in accordance with the [OIN submission requirements](/docs/guides/submit-app-prereq/)
