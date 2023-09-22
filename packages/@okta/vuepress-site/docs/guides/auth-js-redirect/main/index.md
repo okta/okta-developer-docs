@@ -196,9 +196,10 @@ By default, self-service registration isn't enabled for all apps. Use the follow
     1. If the Everyone group isn't assigned, add it by clicking **Assign** > **Assign to Groups**, and assigning to the Everyone group.
 1. Go to **Security** > **Profile Enrollment** and edit the **Default Policy**.
 1. Notice in the **Profile Enrollment** section, **Denied** is selected for **Self-service registration** by default. This setting removes the self-registration option for all apps assigned to the default policy.
-1. [Test your app](#test-your-app) and note that the **Sign-up** link doesn't appear under the Sign-In Widget.
+1. [Test your app](#test-your-app) and note that the **Sign-up** link doesn't appear under the Sign-in page.
 1. Return to the Admin Console, and select **Back to all Profile Enrollment Policies** to return to the **Security** > **Profile Enrollment** page. Click **Add Profile Enrollment Policy**, and then create a name for the policy (for example, "App self-service registration").
-1. Edit the new policy and note that self-service registration is **Allowed** by default. For ease of testing and to allow your new user to sign in to the app immediately, clear the **Email verification** checkbox. Click **Save**.
+1. Edit the new policy and note that self-service registration is **Allowed** by default.
+1. For ease of testing and to allow your new user to sign in to the app immediately, clear the **Email verification** checkbox. Click **Save**.
 1. Click **Manage Apps** and then **Add an App to This Policy**. Add or apply your sample app to this new policy.
 1. [Test your app](#test-your-app) again and note that the text **Don't have an account? Sign up** link now appears for your app under the Sign-In Widget. Click the link to add a user.
     1. Enter a first name, last name, and email address and click **Sign up**.
@@ -217,7 +218,10 @@ Progressive profile enrollment builds out a user's profile incrementally during 
 1. Go to **Security** > **Profile Enrollment** and click **Add Profile Enrollment Policy**.
 1. Create a name for the policy and **Save**.
 1. Click edit from the **Actions** column for your new policy.
-1. Click **Edit** in the policy and for **Self-service registration**, select the **Denied** option.
+1. Click **Edit** in the policy and then for **Progressive Profiling**, select the **Enabled** option.
+
+   > **Note:** You can also enable profile enrollment (self-service registration) and progressive profile enrollment with the same policy. Select **Allowed** for the **Self-service registration** option of your profile enrollment policy. New users can then enroll with the enhanced profile enrollment form. Existing users use progressive profile enrollment for any new required fields.
+
 1. Clear the **Email verification** checkbox, for ease of testing.
 1. Add the additional user profile fields you want existing users to provide, in the **Profile enrollment form**. In this example, add the city field:
     1. Click **Add form input** and select the **City (city)** field. If the field is read only, you must change the attribute permission. See [Create a custom profile enrollment form](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-prof-enroll-form).
@@ -229,8 +233,6 @@ Progressive profile enrollment builds out a user's profile incrementally during 
     {style="list-style-type:lower-alpha"}
     1. Sign out of the sample app by clicking **Close Okta Session**.
     1. Sign in again with the same user. With the data already added to the user's profile, the user is signed in directly.
-
-> **Note:** You can also enable profile enrollment (self-service registration) and progressive profile enrollment with the same policy. Select **Allowed** for the **Self-service registration** option of your profile enrollment policy at the beginning of the previous procedure. New users can then enroll with the enhanced profile enrollment form. Existing users use progressive profile enrollment for any new required fields.
 
 ## Add MFA with a mandatory second factor
 

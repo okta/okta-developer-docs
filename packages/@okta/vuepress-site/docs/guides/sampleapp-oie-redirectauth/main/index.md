@@ -111,7 +111,7 @@ This section walks you through the self-service enrollment steps for a new user.
 
     > **Note:** Be sure to copy the code from the email and paste it into the Sign-In Widget. This allows you to manually verify the email address rather than using the **Verify Email Address** button.
 
-6. After you complete the setup, click **Finish**. You’re redirected to the app's welcome page.
+6. After you complete the setup, click **Finish**. You're redirected to the app's welcome page.
 7. Click <StackSnippet snippet="tryenrollout" inline /> to sign out of the <StackSnippet snippet="applang" inline /> app.
 
 ## Enable self-service password-optional enrollment
@@ -155,7 +155,7 @@ You can modify the application's authentication policy to require the user to ha
 3. Enter the credentials of the user that you enrolled with earlier. The Set up security methods page appears, prompting you to set up either the Okta Verify app or the Phone authenticator.
 4. Under **Phone**, click **Set up**.
 5. Fill out the requested phone authentication information and verify your phone with a code.
-6. Under **Set up optional**, click **Set up later**. You’re redirected to the <StackSnippet snippet="applang" inline /> welcome page.
+6. Under **Set up optional**, click **Set up later**. You're redirected to the <StackSnippet snippet="applang" inline /> welcome page.
 7. Click <StackSnippet snippet="tryenrollout" inline /> to sign out of the <StackSnippet snippet="applang" inline /> app.
 
 ## Self-service Password Recovery
@@ -183,7 +183,7 @@ Try the email magic link recovery flow:
 1. Select **Forgot password?** in the Sign-In Widget.
 1. Enter your email or username when prompted and click **Next**.
 1. Click **Send me an email**. A magic link is sent to your email address.
-1. Click **Sign In**. A new window opens and you’re automatically signed in.
+1. Click **Sign In**. A new window opens and you're automatically signed in.
 
 ### Password recovery with email OTP
 
@@ -196,7 +196,7 @@ Try out the email password recovery flow:
 1. Click **Select** for the Email authenticator. An OTP code is sent to your email address. Manually copy the code from the email.
 1. In the widget, click **Enter a code from the email instead**, paste the code, and click **Verify**.
 1. Enter a new password.
-1. After you enter the new password successfully, you’re prompted for the additional phone authentication that you set up in [Enable multifactor authentication](#enable-multifactor-authentication). Then, you’re redirected to the <StackSnippet snippet="applang" inline /> welcome page.
+1. After you enter the new password successfully, you're prompted for the additional phone authentication that you set up in [Enable multifactor authentication](#enable-multifactor-authentication). Then, you're redirected to the <StackSnippet snippet="applang" inline /> welcome page.
 1. Click <StackSnippet snippet="tryenrollout" inline /> to sign out of the <StackSnippet snippet="applang" inline /> app.
 
 ### Okta Verify recovery flow
@@ -211,48 +211,48 @@ In addition to recovering your password with an email, you can add Okta Verify a
 6. [Enroll a new user](#try-enrollment), ensuring that this time you also enroll Okta Verify.
 7. Sign in with your new user to confirm that you added the user correctly, and then click <StackSnippet snippet="tryenrollout" inline />.
 8. Back on the welcome page of the <StackSnippet snippet="applang" inline /> app, click <StackSnippet snippet="appsignin" inline />.
-9. After you’re redirected to the Sign-In Widget, click **Forgot password?**.
+9. After you're redirected to the Sign-In Widget, click **Forgot password?**.
 10. Enter the email address of the user that you created with Okta Verify as a factor, and then click **Next**.
 11. On the next page, click **Select** beside **Get a push notification**. You should receive a push notification in Okta Verify. Respond appropriately.
-12. Enter the answer to your Security Question, and then you’re asked to reset your password.
+12. Enter the answer to your Security Question, and then you're asked to reset your password.
 13. When you finish, the <StackSnippet snippet="applang" inline /> welcome page appears.
 14. Click <StackSnippet snippet="tryenrollout" inline /> to sign out of the <StackSnippet snippet="applang" inline /> app.
 
 ## Progressive Profiling
 
-> **Note:** To use Progressive Profiling, you must disable the Self-Service Registration feature. Contact [Support](https://support.okta.com/help/s/opencase) for help.
+<!-- >> **Note:** To use Progressive Profiling, you must disable the Self-Service Registration feature. Contact [Support](https://support.okta.com/help/s/opencase) for help. -->
 
 Okta gives you the ability to check for what data is required from a user before they can access an app. For example, you can change the required user profile information for the same app, or handle SSO between two apps with different profile requirements. In this example, add a required profile attribute, and the user you've already enrolled is asked for this information when they next authenticate.
 
-When you enrolled your test user, the user was only prompted for first and family name, as well as their email and a password. Now add an additional required property to the profile enrollment policy.
+When you enrolled your test user, the user was only prompted for first and last name, as well as their email and a password. Now add an additional required property to the profile enrollment policy.
 
 1. In the Admin Console side navigation, select **Security** > **Profile Enrollment**.
-2. Find the profile that you created for self-service enrollment and click the pencil icon in the **Actions** column.
-3. In the **Enrollment Settings** section, click the **Actions** menu icon (&#8942;) beside the **ENABLED** flag and select **Edit**.
-4. In the Edit Rule dialog, click **Add Another** and enter the following:
-
-    * **Fields**: `region`
-    * **Form label**: `Region`
-
-5. Select the **Required** checkbox, and then click **Save**.
-6. From the side navigation, select **Directory** > **Profile Editor**.
-7. Under **Filters**, select **Okta**, and then click the pencil icon for the **User (default)** profile.
-8. Under **Attributes**, click **Add Attribute**, and then fill out the dialog box that appears with the following values. The other fields are optional and can be left blank. Click **Save** when you finish.
+1. Find the profile enrollment policy that you created for self-service enrollment and click the pencil icon in the **Actions** column.
+1. In the **Enrollment Settings** section, click the **Actions** menu icon (&#8942;) and select **Edit**.
+1. For **Progressive Profiling** select **Enabled**.
+1. From the side navigation, select **Directory** > **Profile Editor**.
+1. Under **Filters**, select **Okta**, and then click the **User (default)** profile.
+1. Under **Attributes**, click **Add Attribute**, and then fill out the dialog box that appears with the following values. The other fields are optional and can be left blank. Click **Save** when you finish.
 
     * **Data type**: `string`
     * **Display name**: `Region`
     * **Variable name**: `region`
 
-9. Find the **Region** attribute that you created and click the pencil icon beside it.
-10. In the **Region** dialog box that appears, set **User permission** to **Read-Write**, and then click **Save Attribute**.
+1. Find the **Region** attribute that you created and click the pencil icon beside it.
+1. In the **Region** dialog box that appears, set **User permission** to **Read-Write**, and then click **Save Attribute**.
 
     > **Note:** You can check which user attributes are required for your directory by clicking the information icon beside each attribute. By default, **First name** and **Last name** are marked as required, in addition to what you specify in your enrollment policy.
 
-11. Now try to authenticate using one of the same users as in the previous steps. You’re prompted with a **Region** field and a **Sign Up** button. After you add a value, you can confirm that it's saved by accessing **Directory** > **People** in the Admin Console. Then, locating the correct user and selecting their **Profile** tab. If you try to register a new user, you see the **Region** field added to the **Create Account** page.
+1. Return to your profile enrolment policy (**Security** > **Profile Enrollment** ). Find the profile enrollment policy that you created for self-service enrollment and click the pencil icon in the **Actions** column.
+1. In the Profile enrollment form section, click **Add form input** and search for `Region (region)`
+
+1. Select the **Required** checkbox, and then click **Save**.
+
+1. Try to authenticate using one of the same users from the previous steps. You're prompted with a **Region** field and a **Sign Up** button. After you add a value, you can confirm that it's saved by accessing **Directory** > **People** in the Admin Console. Then, locate the correct user and select their **Profile** tab. If you try to register a new user, you see the **Region** field added to the sign in page.
 
 ## Identity Provider routing to Facebook
 
-Instead of signing in to Okta, it’s possible to route users to an external Identity Provider (IdP) using the Okta IdP Routing Rules.
+Instead of signing in to Okta, it's possible to route users to an external Identity Provider (IdP) using the Okta IdP Routing Rules.
 
 > **Note:** For B2B scenarios, you may want to add a SAML 2.0 Identity Provider rather than a social Identity Provider. See [Add an external Identity Provider](/docs/guides/add-an-external-idp/saml2/before-you-begin/).
 
@@ -262,7 +262,7 @@ Instead of signing in to Okta, it’s possible to route users to an external Ide
 2. Access the [Facebook App Dashboard](https://developers.facebook.com/apps).
 3. Create a Facebook app using these [instructions](https://developers.facebook.com/docs/development/create-an-app).
 
-    > **Note:** When you’re creating the app, select **Consumer** as the app type.
+    > **Note:** When you create the app, select **Consumer** as the app type.
 
 4. After you create the app, on the Add Products to Your App page, click **Set Up** on the **Facebook Login** tile.
 5. On the first page of the Quickstart, select **Web**.
@@ -314,4 +314,4 @@ Create a Routing Rule that automatically routes all authentication requests to F
     * For **THEN Use this identity provider**, select the Facebook IdP that you added earlier, and then click **Create Rule**.
 4. Click **Activate** in the dialog box that appears.
 5. Start the <StackSnippet snippet="applang" inline /> app in an incognito/private browser window and click ç. You are redirected to the Facebook site, where you can sign in.
-6. After successful authentication, you’re returned to the <StackSnippet snippet="applang" inline /> app's welcome page.
+6. After successful authentication, you're returned to the <StackSnippet snippet="applang" inline /> app's welcome page.
