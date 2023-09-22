@@ -38,7 +38,7 @@ Okta API Tokens are, by default, configured to have 50% of an API endpoint's rat
 
 ## Rate Limit Monitoring widget
 
-The Admin Console tracks any rate-limit warnings or violations directly in a Rate Limit Monitoring widget. By default, only the last hour of warnings or violations appear, but you can also check for events within the last 24 hours or the last 7 days from the dropdown menu. Selecting **View** at the top of the widget takes you to the [Rate Limits dashboard](/docs/reference/rl-dashboard/) for further investigation. If individual rate-limit violations appear in the widget, you can access affected API usage in the Rate Limits Dashboard by clicking the API link in the widget.
+The Admin Console tracks any rate-limit warnings or violations directly in a Rate Limit Monitoring widget. By default, only the last hour of warnings or violations appear, but you can also check for events within the last 24 hours or the last seven days from the dropdown menu. Selecting **View** at the top of the widget takes you to the [Rate Limits dashboard](/docs/reference/rl-dashboard/) for further investigation. If individual rate-limit violations appear in the widget, you can access affected API usage in the Rate Limits Dashboard by clicking the API link in the widget.
 
 <div class="half">
 
