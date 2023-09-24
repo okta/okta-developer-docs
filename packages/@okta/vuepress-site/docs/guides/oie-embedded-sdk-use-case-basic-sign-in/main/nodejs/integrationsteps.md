@@ -4,7 +4,7 @@ When the user initiates the sign-in process, your app needs to:
 
 * Create a new `OktaAuth` object, which is `authClient` in the SDK sample app's `login.js` file
 * Set the `username` and `password` properties to the values entered by the user
-* Send this object to [`idx.authenticate()`](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#idxauthenticate) to authenticate the user.
+* Send `OktaAuth` object to [`idx.authenticate()`](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#idxauthenticate) to authenticate the user.
 
 ```JavaScript
 router.post('/login', async (req, res, next) => {
