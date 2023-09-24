@@ -5,11 +5,9 @@ meta:
     content: Learn about app intent links and how you can use them to signal intent for a sign-in experience.
 ---
 
-# App intent links
+# How App intent links work
 
 <ApiLifecycle access="ie" />
-
-## How app intent links work
 
 App intent links are used to signal intent to access an application. These links are protocol-specific endpoints that you can use to initiate a sign-in flow to an application. Both Identity Provider and Service Provider initiated flows are supported.
 

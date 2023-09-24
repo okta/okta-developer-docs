@@ -2,13 +2,13 @@
 title: Okta Identity Engine overview
 meta:
   - name: description
-    content: Learn about Okta Identity Engine features, the authentication deployment models, and the tools available to.
+    content: Learn about Okta Identity Engine features, the authentication deployment models, and the tools available to help you add authentication to your app.
 ---
 
 
 <ApiLifecycle access="ie" />
 
-# How Identity Engine works
+# How Okta Identity Engine works
 
 Okta Identity Engine is a set of features that provide a flexible way to add and deploy authentication to your app. You can use the SDKs to integrate Identity Engine capabilities into your app, or you can try Identity Engine features using sample apps.
 
