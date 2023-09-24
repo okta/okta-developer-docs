@@ -94,7 +94,7 @@ switch (status) {
 
 ```
 
-### 3 (Optional): List the user profile information
+### 3 (Optional): Get the user profile information
 
 You can get the user information after the user is authenticated by making a request to the Okta OpenID Connect authorization server.
 
