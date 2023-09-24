@@ -1,19 +1,4 @@
-### 1: Build a sign-in page on the client
-
-Build a sign-in page that captures both the username and password, similar to the following wireframe.
-
-<div class="half wireframe-border">
-
-![A sign-in form with fields for username and password and a next button](/img/wireframes/sign-in-form-username-password.png)
-
-<!--
-
-Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3398%3A36678&t=wzNwSZkdctajVush-1 sign-in-form-username-password
- -->
-
-</div>
-
-### 2: Authenticate the user credentials
+### 1: Authenticate the user credentials
 
 When the user initiates the sign-in process, your app needs to:
 
@@ -33,7 +18,7 @@ router.post('/login', async (req, res, next) => {
 });
 ```
 
-### 3: Handle the response from the user sign-in flow
+### 2: Handle the response from the user sign-in flow
 
 The application handles the response from the authentication call through the `handleTransaction()` function, as shown in the SDK sample application's `handleTransaction.js` file. The `transaction` parameter is the `IdxStatus` value that is passed in through the response from Okta.
 
@@ -73,7 +58,7 @@ case IdxStatus.SUCCESS:
 
 #### Other authentication statuses
 
-If the user didn't sign in successfully, then you need to handle the returned `IdxStatus` cases. For example, in the SDK application's `handleTransactions.js` file:
+If the user sign in didn't result in a success stats, then you need to handle the returned `IdxStatus` cases. For example, in the SDK application's `handleTransactions.js` file:
 
 ```JavaScript
 switch (status) {
@@ -109,9 +94,9 @@ switch (status) {
 
 ```
 
-### 4 (Optional): Get the user profile information
+### 3 (Optional): List the user profile information
 
-Optionally, you can retrieve user information after the user is authenticated by making a request to the Okta OpenID Connect authorization server.
+You can get the user information after the user is authenticated by making a request to the Okta OpenID Connect authorization server.
 
 Make a request to the `/v1/userinfo` endpoint by calling the following function in the `userContext.js` file:
 
