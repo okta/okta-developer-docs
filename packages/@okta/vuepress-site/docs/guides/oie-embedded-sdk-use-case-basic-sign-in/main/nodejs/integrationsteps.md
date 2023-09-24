@@ -18,8 +18,8 @@ Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 When the user initiates the sign-in process, your app needs to:
 
 * Create a new `OktaAuth` object, which is `authClient` in the SDK sample app's `login.js` file
-* Set its `username` and `password` properties to the values entered by the user
-* Send this object to [`idx.authenticate()`](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#idxauthenticate) to authenticate the user
+* Set the `username` and `password` properties to the values entered by the user
+* Send this object to [`idx.authenticate()`](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#idxauthenticate) to authenticate the user.
 
 ```JavaScript
 router.post('/login', async (req, res, next) => {
@@ -57,16 +57,15 @@ module.exports = function handleTransaction({
 
 #### Success status
 
-For a successful sign-in response, the `IdxStatus` field indicates a success `IdxStatus.SUCCESS`, retrieves the token from the response, and processes the authenticated user in the app. The SDK sample application
-saves the tokens to storage in the `handleTransaction.js` file and redirects the user back to the home page.
+The `IdxStatus` field indicates a success `IdxStatus.SUCCESS`, retrieves the token from the response, and processes the authenticated user in the app. The SDK sample application saves the tokens to storage in the `handleTransaction.js` file and redirects the user back to the home page.
 
 ```JavaScript
 case IdxStatus.SUCCESS:
-      // Save tokens to storage (req.session)
-      authClient.tokenManager.setTokens(tokens);
-      // Redirect back to home page
-      res.redirect('/');
-      return;
+  // Save tokens to storage (req.session)
+  authClient.tokenManager.setTokens(tokens);
+  // Redirect back to home page
+  res.redirect('/');
+  return;
 
 ...
 
@@ -74,42 +73,66 @@ case IdxStatus.SUCCESS:
 
 #### Other authentication statuses
 
-You need to handle other returned `IdxStatus` cases if the user didn't sign in successfully. For example, in the SDK application's `handleTransactions.js` file:
+If the user didn't sign in successfully, then you need to handle the returned `IdxStatus` cases. For example, in the SDK application's `handleTransactions.js` file:
 
 ```JavaScript
- switch (status) {
-    case IdxStatus.PENDING:
-      // Proceed to next step
-      try {
-        if (!proceed({ req, res, nextStep })) {
-          next(new Error(`
-            The current flow cannot support the policy configuration in your org.
-          `));
-        }
-      } catch (err) {
-        next(err);
+switch (status) {
+  case IdxStatus.PENDING:
+    // Proceed to next step
+    try {
+      if (!proceed({ req, res, nextStep })) {
+        next(new Error(`
+          The current flow cannot support the policy configuration in your org.
+        `));
       }
-      return;
-    case IdxStatus.SUCCESS:
-      // Save tokens to storage (req.session)
-      authClient.tokenManager.setTokens(tokens);
-      // Redirect back to home page
-      res.redirect('/');
-      return;
-    case IdxStatus.FAILURE:
-      authClient.transactionManager.clear();
-      next(error);
-      return;
-    case IdxStatus.TERMINAL:
-      redirect({ req, res, path: '/terminal' });
-      return;
-    case IdxStatus.CANCELED:
-      res.redirect('/');
-      return;
-  }
+    } catch (err) {
+      next(err);
+    }
+    return;
+  case IdxStatus.SUCCESS:
+    // Save tokens to storage (req.session)
+    authClient.tokenManager.setTokens(tokens);
+    // Redirect back to home page
+    res.redirect('/');
+    return;
+  case IdxStatus.FAILURE:
+    authClient.transactionManager.clear();
+    next(error);
+    return;
+  case IdxStatus.TERMINAL:
+    redirect({ req, res, path: '/terminal' });
+    return;
+  case IdxStatus.CANCELED:
+    res.redirect('/');
+    return;
+}
 
 ```
 
 ### 4 (Optional): Get the user profile information
 
-Optionally, you can obtain basic user information after the user is authenticated by making a request to the Okta OpenID Connect authorization server (see the next section).
+Optionally, you can retrieve user information after the user is authenticated by making a request to the Okta OpenID Connect authorization server.
+
+Make a request to the `/v1/userinfo` endpoint by calling the following function in the `userContext.js` file:
+
+```javascript
+const { getAuthClient } = require('../utils');
+
+module.exports = async function userContext(req, res, next) {
+  const authClient = getAuthClient(req);
+  const { idToken, accessToken, refreshToken } = authClient.tokenManager.getTokensSync();
+  if (idToken && accessToken) {
+    const userinfo = await authClient.token.getUserInfo(accessToken, idToken);
+    req.userContext = {
+      userinfo,
+      tokens: {
+        idToken, accessToken, refreshToken
+      }
+    };
+  }
+
+  next();
+};
+```
+
+ For more detail about the response, refer to [`/v1/userinfo` endpoint](/docs/reference/api/oidc/#userinfo)

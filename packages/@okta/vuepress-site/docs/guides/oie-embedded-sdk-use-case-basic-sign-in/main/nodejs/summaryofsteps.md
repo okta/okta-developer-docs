@@ -1,4 +1,4 @@
-This use case explains how to build a simple UI to capture the username and password and authenticate the credentials with Okta by using the SDK.
+This use case explains how to build a sign-in page, authenticate the credentials and handle responses using the SDK.
 
 <div class="three-quarter">
 

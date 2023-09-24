@@ -40,6 +40,10 @@ export const concepts = [
             path: "/docs/concepts/inline-hooks/",
          },
          {
+            title: "App intent links",
+            path: "/docs/concepts/app-intent-links/",
+         },
+         {
             title: "Interaction Code grant type",
             path: "/docs/concepts/interaction-code/",
          },
