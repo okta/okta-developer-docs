@@ -176,6 +176,7 @@ In the following code, the external service responds to Okta indicating whether 
 ```javascript
 app.post('/registrationHookSSR', async (request, response) => {
   console.log();
+  console.log("Type of Okta registration hook request: " + request.body.requestType); // confirms the type of Okta request
   var returnValue = {};
 
   if (request.body.requestType === 'self.service.registration') {
@@ -256,7 +257,7 @@ To associate the registration inline hook with a profile enrollment policy:
 1. Click **Manage Apps**, and then click **Add Apps to this Policy**.
 1. Locate the **Okta Dashboard**, click **Apply**, and then click **Close**.
 1. Click **Back to Profile Enrollment Policy**.
-1. In **Profile enrollment**, click **Edit**.
+1. In **Profile Enrollment**, click **Edit**.
 1. For **Self-service registration**, select **Allowed**.
 1. From the **Inline hook** dropdown menu, select the hook that you set up and activated earlier. See [Add your registration hook for profile enrollment](#add-your-registration-hook-for-profile-enrollment).
 
@@ -290,6 +291,7 @@ Review the following project code with endpoint `/registrationHookPP`. The exter
 ```javascript
 app.post('/registrationHookPP', async (request, response) => {
   console.log();
+  console.log("Type of Okta registration hook request: " + request.body.requestType); // confirms the type of Okta request
   var returnValue = {};
 
   if (request.body.requestType === 'progressive.profile') {
@@ -376,6 +378,7 @@ To associate the registration inline hook with a profile enrollment policy and a
 1. Click **Back to Profile Enrollment Policy**.
 1. In **Profile enrollment**, click **Edit**.
 1. For **Self-service registration**, select **Denied**.
+1. For **Progressive Profiling**, select **Enabled**.
 1. From the **Inline hook** dropdown menu, select the hook that you set up and activated earlier. See [Add your registration hook for progressive profile enrollment](#add-your-registration-hook-for-progressive-profile).
 
    > **Note:** You can associate only one inline hook at a time with your profile enrollment policy.
@@ -410,6 +413,7 @@ Review the following project code with endpoint `/registrationHookSSRandPP`. The
 ```javascript
 app.post('/registrationHookSSRandPP', async (request, response) => {
   console.log();
+  console.log("Type of Okta registration hook request: " + request.body.requestType); // confirms the type of Okta request
   var returnValue = {};
 
   if (request.body.requestType === 'progressive.profile') {
@@ -537,6 +541,7 @@ To associate the registration inline hook with a profile enrollment policy and a
 1. Click **Back to Profile Enrollment Policy**.
 1. In **Profile enrollment**, click **Edit**.
 1. For **Self-service registration**, select **Allowed**.
+1. For **Progressive Profiling**, select **Enabled**.
 1. From the **Inline hook** dropdown menu, select the hook that you set up and activated earlier. See [Add your registration hook for progressive profile enrollment](#add-your-registration-hook-for-progressive-profile).
 
    > **Note:** You can associate only one inline hook at a time with your profile enrollment policy.
