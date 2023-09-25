@@ -111,9 +111,9 @@ The OIN Manager provides you with a mechanism to submit and test your API servic
 1. Click **Add New Submission**.
 1. On the **General Settings** tab, specify values in the **App Information**, **Customer Support**, and **Test Account** sections.
    For field descriptions in each section, see:
-   * [App information](/docs/guides/submit-sso-app-oidc/openidconnect/main/#app-information)
-   * [Customer support](/docs/guides/submit-sso-app-oidc/openidconnect/main/#customer-support)
-   * [Test account](/docs/guides/submit-sso-app-oidc/openidconnect/main/#test-account)
+   * [App information](/docs/guides/submit-app/scim/main/#app-information)
+   * [Customer support](/docs/guides/submit-app/scim/main/#customer-support)
+   * [Test account](/docs/guides/submit-app/scim/main/#test-account)
 
 1. On the **API Service** tab, select **On** from the **API Service support** dropdown menu.
 

@@ -20,5 +20,5 @@
 | **Encryption Algorithm** | Select which standard algorithm is used in your encryption assertion. |
 | **Key Transport Algorithm** | Select the key transport algorithm used in your encryption. |
 | **Are you going to use the same encryption certificate for all tenants?**  | If you support the same encryption certificate for all tenants, copy your certificate and paste it in the field provided. |
-| vv | xxx |
+| **Do you support SP-initiated Single-Logout?** | If you select **No**, there is nothing to configure in this section. If you select **Yes**, then more questions appear to help you set up your SP-initiated single-logout (SLO) configuration. |
 | xx | xxx |
