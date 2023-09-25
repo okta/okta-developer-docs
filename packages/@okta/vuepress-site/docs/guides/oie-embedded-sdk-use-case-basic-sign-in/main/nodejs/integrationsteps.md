@@ -4,7 +4,7 @@ When the user initiates the sign-in process, your app needs to:
 
 * Create a new `OktaAuth` object, which is `authClient` in the SDK sample app's `login.js` file
 * Set the `username` and `password` properties to the values entered by the user
-* Send `OktaAuth` object to [`idx.authenticate()`](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#idxauthenticate) to authenticate the user.
+* Send `OktaAuth` object to [`idx.authenticate()`](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#idxauthenticate) to authenticate the user
 
 ```JavaScript
 router.post('/login', async (req, res, next) => {
@@ -42,7 +42,7 @@ module.exports = function handleTransaction({
 
 #### Success status
 
-The `IdxStatus` field indicates a success `IdxStatus.SUCCESS`, retrieves the token from the response, and processes the authenticated user in the app. The SDK sample application saves the tokens to storage in the `handleTransaction.js` file and redirects the user back to the home page.
+The `IdxStatus` field indicates `IdxStatus.SUCCESS`, retrieves the token from the response, and processes the authenticated user in the app. The SDK sample application saves the tokens to storage in the `handleTransaction.js` file and redirects the user back to the home page.
 
 ```JavaScript
 case IdxStatus.SUCCESS:
@@ -58,7 +58,7 @@ case IdxStatus.SUCCESS:
 
 #### Other authentication statuses
 
-If the user sign in didn't result in a success stats, then you need to handle the returned `IdxStatus` cases. For example, in the SDK application's `handleTransactions.js` file:
+If the user sign-in didn't result in a success status, then you need to handle the returned `IdxStatus` cases. For example, in the SDK application's `handleTransactions.js` file:
 
 ```JavaScript
 switch (status) {
@@ -96,7 +96,7 @@ switch (status) {
 
 ### 3 (Optional): Get the user profile information
 
-You can get the user information after the user is authenticated by making a request to the Okta OpenID Connect authorization server.
+After the user is authenticated, you can get the user profile information by making a request to the Okta OpenID Connect authorization server.
 
 Make a request to the `/v1/userinfo` endpoint by calling the following function in the `userContext.js` file:
 
