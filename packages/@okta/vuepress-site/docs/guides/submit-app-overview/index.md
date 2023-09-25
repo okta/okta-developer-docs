@@ -105,7 +105,7 @@ Ready to make your integration public? Submit an integration with the following 
 
 <Cards>
 
-<Card href="/docs/guides/submit-sso-app/openidconnect/main/" headerImage="/img/idp-logos/oidc.png" cardTitle="OpenID Connect (OIDC)" :showFooter=false>Submit an OIDC SSO integration</Card>
+<Card href="/docs/guides/submit-sso-app-oidc/openidconnect/main/" headerImage="/img/idp-logos/oidc.png" cardTitle="OpenID Connect (OIDC)" :showFooter=false>Submit an OIDC SSO integration</Card>
 
 <Card href="/docs/guides/submit-sso-app/saml2/main/" headerImage="/img/idp-logos/saml.png" cardTitle="SAML" :showFooter=false>Submit a SAML SSO integration</Card>
 
