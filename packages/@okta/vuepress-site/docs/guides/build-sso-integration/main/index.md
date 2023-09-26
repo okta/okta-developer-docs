@@ -55,6 +55,24 @@ Okta recommends the redirect authentication deployment model if your situation m
 
 Instructions for adding your integration into Okta depend on if you want to provide a public or private integration:
 
+<div class=half>
+
+![Integration public or private decision](/img/oin/appIntegrationDecision2.png)
+
+</div>
+<!--
+@startuml
+:Build an integration;
+if (Public or private?) then (public)
+  :Submit an OIN integration;
+  kill
+else (private)
+  :Add a private integration;
+  kill
+endif
+@enduml
+-->
+
 * **Public OIN app integration**: If you want to publish your integration in the Okta Integration Network (OIN), follow the instructions in [Submit an SSO integration](/docs/guides/submit-sso-app/). This guide shows you how to submit all the artifacts required for a public integration and how to add an integration instance for testing in your org.
 
   Integrations published in the OIN are publicly available to all Okta customers. See [Publish an OIN integration](/docs/guides/submit-app-overview/) to understand the submission process for publishing an integration.
@@ -66,6 +84,27 @@ Instructions for adding your integration into Okta depend on if you want to prov
   Single Sign-On to your app is only available to users within the org that contains the integration instance. This use case is particularly useful if you're interested in building a customer-specific integration.
 
   > **Note:** After you've created a private integration in your Okta org, you can later decide to share it with the community through the Okta Integration Network (OIN). If you want to make your integration public, follow the instructions in [Submit an SSO integration](/docs/guides/submit-sso-app/) to add the integration for OIN submission.
+
+<div>
+
+![Integration public or private decision](/img/oin/appIntegrationDecision.png)
+
+<!-- #Note: need to put the arrow > after the double-dash in the script below
+
+@startuml
+skinparam actorStyle awesome
+:ISV: -- (develop)
+(develop) -- [publicOrPrivate]
+[publicOrPrivate] -- (Builds an OIN integration)
+[publicOrPrivate] -- (Creates a private integration)
+"ISV developer" as ISV
+"Builds the integration" as (develop)
+"Private or public app?" as [publicOrPrivate]
+@enduml
+
+-->
+
+</div>
 
 ## See also
 
