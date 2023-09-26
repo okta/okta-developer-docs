@@ -100,7 +100,7 @@ The [org authorization server](/docs/concepts/auth-servers/#org-authorization-se
 
 ## Test and submit your API service integration
 
-The OIN Manager provides you with a mechanism to submit and test your API service integration in your Okta org. When you test your integration, the OIN Manager installs an integration instance on your org and prompts you for authorization (similar to how your customer admins would install your integration). Your org then provides you with the instance credentials so that you can test the Client Credentials flow. Your test integration is available only on your Okta org during the test.
+The OIN Manager provides you with a mechanism to test and submit your API service integration in your Okta org. When you test your integration, the OIN Manager installs an integration instance on your org and prompts you for authorization (similar to how your customer admins would install your integration). Your org then provides you with the instance credentials so that you can test the Client Credentials flow. Your test integration is available only on your Okta org during the test.
 
 > **Note:** The test install and authorize pages, from the OIN Manager test option, are the same pages your customers experience when your service integration is in the OIN. After you publish your integration in the OIN catalog, it appears in the **Applications** > **API Service Integrations** page of your customer's Admin Console.
 
