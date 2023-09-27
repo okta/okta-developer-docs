@@ -1153,7 +1153,7 @@ The first three parameters in the table below correspond to different ways to li
 
 | Parameter   | Description                                                                                                                                    | Param Type   | DataType   | Required |
 | :---------- | :--------------------------------------------------------------------------------------------------------------------------------------------- | :----------- | :--------- | :------- |
-| search      | Searches for users with a supported [filtering](/docs/reference/core-okta-api/#filter) expression for most properties. Okta recommends this option for optimal performance.          | Query        | String     | FALSE    |
+| search      | Searches for users with a supported [filtering](/docs/reference/core-okta-api/#filter) expression for most properties. Expressions can use the `sw` (starts with), `eq` (equals), and `co` (contains) operators. The `co` operator can only be used with the `profile.firstName`, `profile.lastName`, `profile.email`, and `profile.login` attributes. Use this option for optimal performance.          | Query        | String     | FALSE    |
 | filter      | [Filters](/docs/reference/core-okta-api/#filter) users with a supported expression for a subset of properties. However, Okta recommends using the search parameter.                  | Query        | String     | FALSE    |
 | q           | Finds a user that matches `firstName`, `lastName`, and `email` properties. However, Okta recommends the search parameter.                       | Query        | String     | FALSE    |
 | limit       | Specifies the number of results returned (maximum 200).                           | Query        | Number     | FALSE    |
@@ -1181,7 +1181,7 @@ Searches for users based on the properties specified in the search parameter. Th
 
 > **Note:** Results from the Search API are computed from asynchronously indexed and eventually consistent data. The indexing delay is typically less than one second.
 
-Property names in the search parameter are case sensitive, whereas operators (`eq`, `sw`, and so on) and string values are case insensitive. Unlike with [user logins](#okta-login), diacritical marks are significant in search string values: a search for `isaac.brock` finds `Isaac.Brock`, but doesn't find a property whose value is `isáàc.bröck`.
+Property names in the search parameter are case sensitive, whereas [operators](/docs/reference/core-okta-api/#operators) (`eq`, `sw`, and so on) and string values are case insensitive. Unlike with [user logins](#okta-login), diacritical marks are significant in search string values: a search for `isaac.brock` finds `Isaac.Brock`, but doesn't find a property whose value is `isáàc.bröck`. The `co` operator can only be used with the `profile.firstName`, `profile.lastName`, `profile.email`, and `profile.login` attributes.
 
 This operation:
 
@@ -1210,6 +1210,7 @@ This operation:
 | `profile.department eq "Engineering"`           | Users that have a `department` of `Engineering` |
 | `profile.occupation eq "Leader"`                | Users that have an `occupation` of `Leader`     |
 | `profile.lastName sw "Smi" `                    | Users whose `lastName` starts with `Smi`        |
+| `profile.email co "support" `                   | Users whose `email` contains `support`          |
 
 ##### Search examples
 
