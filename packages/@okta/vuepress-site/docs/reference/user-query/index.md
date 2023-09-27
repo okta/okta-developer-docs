@@ -31,6 +31,8 @@ This query parameter provides the largest range of search options and optimal pe
 
 The search query parameter uses standard Okta API filtering semantics to create search criteria that includes mathematical operators such as equal to (`eq`), greater than or equal to (`ge`), and so on. You can combine multiple expressions using logical operators and parentheses. See [Filtering](/docs/reference/core-okta-api/#filter).
 
+This query parameter supports the `co` operator with the `profile.firstName`, `profile.lastNameExpressions`, `profile.email`, and `profile.login` attributes.
+
 ### URL encoding
 
 The search parameter requires URL encoding for expressions that include characters such as spaces and double quotes used for strings. See [URL encoding](http://en.wikipedia.org/wiki/Percent-encoding). For example:

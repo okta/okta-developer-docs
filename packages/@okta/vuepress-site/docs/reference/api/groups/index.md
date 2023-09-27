@@ -729,9 +729,11 @@ curl -v -X GET \
 
 Searches for groups based on the properties specified in the search parameter
 
-Property names in the search parameter are case sensitive, whereas operators (`eq`, `sw`, and so on) and string values are case insensitive.
+Property names in the search parameter are case sensitive, whereas [operators](/docs/reference/core-okta-api/#operators) (`eq`, `sw`, and so on) and string values are case insensitive.
 
 This operation:
+
+- Supports the `co` operator with the `profile.name` and `profile.description` attributes.
 
 - Supports [pagination](/docs/reference/core-okta-api/#pagination).
 
@@ -754,6 +756,7 @@ This operation:
 | `lastMembershipUpdated gt "yyyy-MM-dd'T'HH:mm:ss.SSSZ"`   | Groups whose memberships were last updated after a specific timestamp     |
 | `id eq "00gak46y5hydV6NdM0g4"`                            | Groups with a specified `id`                                              |
 | `profile.name eq "West Coast Users"`                      | Groups that have a `name` of `West Coast Users`                           |
+| `profile.name co "EMEA"`                                  | Groups that have a `name` that contains `EMEA`                            |
 | `profile.samAccountName sw "West Coast" `                 | Groups whose `samAccountName` starts with `West Coast`                    |
 | `source.id eq "0oa2v0el0gP90aqjJ0g7"`                     | Groups that have the source application with a specified `source.id`      |
 
