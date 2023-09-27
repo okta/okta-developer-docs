@@ -64,6 +64,8 @@ guides:
  - submit-app
  - submit-sso-app
  - submit-app-prereq
+ - submit-oin-app
+ - submit-private-app
  - deployment-checklist
  - deploy-your-app
  - dpop
