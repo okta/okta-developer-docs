@@ -8,6 +8,18 @@ title: Okta Identity Engine API Products release notes 2023
 
 ## September
 
+### Weekly release 2023.09.2
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Bugs fixed in 2023.09.2](#bugs-fixed-in-2023-09-2) | September 27, 2023 |
+
+#### Bugs fixed in 2023.09.2
+
+* SP-initiated SAML flows without a session didn't correctly populate the `context.session` object for SAML inline hooks. (OKTA-648750)
+
+* The Okta Verify MFA prompt didn't appear when users tried to access the AWS Okta CLI after their Okta session expired. (OKTA-639397)
+
 ### Weekly release 2023.09.1
 
 | Change | Expected in Preview Orgs |
