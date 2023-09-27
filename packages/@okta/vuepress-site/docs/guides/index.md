@@ -60,8 +60,8 @@ guides:
  - build-sso-integration
  - custom-sms-messaging
  - submit-app
- - submit-sso-app
- - submit-sso-app-private
+ - submit-oin-app
+ - submit-private-app
  - submit-app-prereq
  - deployment-checklist
  - deploy-your-app

@@ -49,3 +49,12 @@
 * **What type of sign-in flows do you support?**: Choose either **IdP initiated** or **SP initiated**, or both.
 
 * **Select the OIDC mode supported by your application**: Choose either **SPA** (for Single-Page Application) or **Web**.
+
+---
+
+<!--
+1. Click the **General** tab.
+1. Go to the **App Embed Link** section and copy the text in the Embed Link field:
+   ![App Embed Link](/img/oin/isv-portal_app-embed-link.png "App Embed Link GUI in the Application settings")
+1. Paste that value into your submission.
+-->

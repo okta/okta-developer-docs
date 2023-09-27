@@ -73,17 +73,17 @@ endif
 @enduml
 -->
 
-* **Public OIN app integration**: If you want to publish your integration in the Okta Integration Network (OIN), follow the instructions in [Submit an SSO integration](/docs/guides/submit-sso-app/). This guide shows you how to submit all the artifacts required for a public integration and how to add an integration instance for testing in your org.
+* **Public OIN app integration**: If you want to publish your integration in the Okta Integration Network (OIN), follow the instructions in [Submit an SSO integration](/docs/guides/submit-oin-app/). This guide shows you how to submit all the artifacts required for a public integration and how to add an integration instance for testing in your org.
 
   Integrations published in the OIN are publicly available to all Okta customers. See [Publish an OIN integration](/docs/guides/submit-app-overview/) to understand the submission process for publishing an integration.
 
   > **Note:** Creating your app integration instance doesn't automatically make it available in the [OIN](https://www.okta.com/integrations/). After you've tested your integration, you need to submit it to the OIN team for verification and publication.
 
-* **Private app integration**: If you want your integration to exist only in your Okta org, then follow the instructions in [Add a private SSO integration](/docs/guides/submit-sso-app-private). This guide shows you how to use the Application Integration Wizard (AIW) in the Admin Console to create your app integration instance and start testing SSO. Your org users can access your app once SSO is configured.
+* **Private app integration**: If you want your integration to exist only in your Okta org, then follow the instructions in [Add a private SSO integration](/docs/guides/submit-private-app). This guide shows you how to use the Application Integration Wizard (AIW) in the Admin Console to create your app integration instance and start testing SSO. Your org users can access your app once SSO is configured.
 
   Single Sign-On to your app is only available to users within the org that contains the integration instance. This use case is particularly useful if you're interested in building a customer-specific integration.
 
-  > **Note:** After you've created a private integration in your Okta org, you can later decide to share it with the community through the Okta Integration Network (OIN). If you want to make your integration public, follow the instructions in [Submit an SSO integration](/docs/guides/submit-sso-app/) to add the integration for OIN submission.
+  > **Note:** After you've created a private integration in your Okta org, you can later decide to share it with the community through the Okta Integration Network (OIN). If you want to make your integration public, follow the instructions in [Submit an SSO integration](/docs/guides/submit-oin-app/) to add the integration for OIN submission.
 
 <div>
 

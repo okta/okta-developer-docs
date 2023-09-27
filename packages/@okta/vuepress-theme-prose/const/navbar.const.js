@@ -598,7 +598,7 @@ export const guides = [
               },
               {
                 title: "Add a private SSO integration",
-                guideName: "submit-sso-app-private",
+                guideName: "submit-app-private",
               },
             ],
           },
@@ -646,7 +646,7 @@ export const guides = [
               },
               {
                 title: "Submit an SSO integration",
-                guideName: "submit-sso-app",
+                guideName: "submit-oin-app"
               },
               {
                 title: "Submit an LCM integration",
