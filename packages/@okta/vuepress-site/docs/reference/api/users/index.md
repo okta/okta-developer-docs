@@ -1153,7 +1153,7 @@ The first three parameters in the table below correspond to different ways to li
 
 | Parameter   | Description                                                                                                                                    | Param Type   | DataType   | Required |
 | :---------- | :--------------------------------------------------------------------------------------------------------------------------------------------- | :----------- | :--------- | :------- |
-| search      | Searches for users with a supported [filtering](/docs/reference/core-okta-api/#filter) expression for most properties. Expressions can use the `sw` (starts with), `eq` (equals), and `co` (contains) operators. The `co` operator can only be used with the `profile.firstName`, `profile.lastName`, `profile.email`, and `profile.login` attributes. Use this option for optimal performance.          | Query        | String     | FALSE    |
+| search      | Searches for users with a supported [filtering](/docs/reference/core-okta-api/#filter) expression for most properties. Use this option for optimal performance.          | Query        | String     | FALSE    |
 | filter      | [Filters](/docs/reference/core-okta-api/#filter) users with a supported expression for a subset of properties. However, Okta recommends using the search parameter.                  | Query        | String     | FALSE    |
 | q           | Finds a user that matches `firstName`, `lastName`, and `email` properties. However, Okta recommends the search parameter.                       | Query        | String     | FALSE    |
 | limit       | Specifies the number of results returned (maximum 200).                           | Query        | Number     | FALSE    |
@@ -1185,6 +1185,7 @@ Property names in the search parameter are case sensitive, whereas [operators](/
 
 This operation:
 
+- Supports the `co` operator with the `profile.firstName`, `profile.lastNameExpressions`, `profile.email`, and `profile.login` attributes.
 - Supports [pagination](/docs/reference/core-okta-api/#pagination).
 - Requires [URL encoding](http://en.wikipedia.org/wiki/Percent-encoding).
   For example, `search=profile.department eq "Engineering"` is encoded as `search=profile.department%20eq%20%22Engineering%22`.

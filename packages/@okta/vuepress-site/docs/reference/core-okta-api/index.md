@@ -277,23 +277,15 @@ Most of the operators listed in the [SCIM Protocol Specification](https://www.rf
 | `ne`       | not equal             | Matches if the attribute value doesn't match the operand value |
 | `pr`       | present (has value)   | Matches if the attribute has a non-empty value or if it contains a non-empty node for complex attributes.  |
 | `sw`       | starts with           | The entire operand value must be a substring of the attribute value that starts at the beginning of the attribute value. This criterion is satisfied if the two strings are identical.                                                                                         |
-| `co`       | contains              | If the operand value exists as a substring in the attribute, there is a match. This includes the case where the attribute and operand values are identical. |
+| `co`       | contains              | If the operand value exists as a substring in the attribute value, there's a match. This includes the case where the attribute and operand values are identical.                       |
 | `ew`       | ends with             | The entire operand value must be a substring of the attribute value that starts at the end of the attribute value. This criterion is satisfied if the two strings are identical. This operator is only usable with the System Log API.                          |
 
 > **Notes:**
 > * Some objects don't support all the listed operators.
 > * The `ne` (not equal) operator isn't supported for some objects, but you can obtain the same result by using `lt ... or ... gt`. For example, to see all user agents except for "iOS", use `(client.userAgent.os lt "iOS" or client.userAgent.os gt "iOS")`.
 > * All `Date` values use the ISO 8601 format `YYYY-MM-DDTHH:mm:ss.SSSZ`.
+> * The [Users API](/docs/reference/api/users/#list-users-with-search) and [Groups API](/docs/reference/api/groups/#list-groups-with-search) support the contains (`co`) operator.
 > * The [System Log API](/docs/reference/api/system-log/#filtering-results) supports the contains (`co`) and ends with (`ew`) operators.
-> * The `co` operator can be used with the following attributes:
->   * Users
->     * profile.firstName 
->     * profile.lastName
->     * profile.email
->     * profile.login
->   * Groups
->     * profile.name
->     * profile.description
 
 #### Attribute operators
 
