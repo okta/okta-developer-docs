@@ -337,6 +337,8 @@ Enables a product with ID P000139 in the org (IT Products - Lifecycle Management
 
 Removes a product with ID P000139 from the org (IT Products - Lifecycle Management with 1 OIN App)
 
+Any products not found in the array of product IDs are disabled from the org.
+
 > **Note:** The `name` property is ignored, and can be included to simplify the client implementation.
 
 <div class="three-quarter">
