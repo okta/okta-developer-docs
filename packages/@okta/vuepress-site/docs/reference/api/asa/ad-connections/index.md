@@ -3,7 +3,7 @@ title: ASA AD Connections
 category: asa
 ---
 
-# ASA Connections API
+# ASA AD Connections API
 
 The ASA AD Connections API reference is available at the [Okta API reference portal](https://developer.okta.com/docs/api/openapi/asa/asa/tag/ad-connections/).
 
