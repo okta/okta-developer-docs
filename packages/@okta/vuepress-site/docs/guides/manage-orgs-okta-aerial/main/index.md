@@ -81,7 +81,7 @@ You can also manage an org's status, and enable or disable products in an org:
 
 <div class="half">
 
-![Okta Aerial - summary of steps](/img/aerial-steps-summary.png)
+![Okta Aerial - summary of steps](/img/aerial-full-flow.png)
 
 </div>
 
@@ -257,7 +257,7 @@ Deactivate an org by calling the `/status` endpoint. Deactivated orgs don’t co
 
 <div class="three-quarter">
 
-![Deactivate an Org](/img/org-status.png)
+![Deactivate an Org](/img/aerial-change-status.png)
 
 </div>
 
@@ -308,7 +308,7 @@ Enables a product with ID P000139 in the org (IT Products - Lifecycle Management
 
 <div class="three-quarter">
 
-![Enable a Product in an Org](/img/enable-product.png)
+![Enable a Product in an Org](/img/aerial-enable-product.png)
 
 </div>
 
@@ -331,17 +331,17 @@ Enables a product with ID P000139 in the org (IT Products - Lifecycle Management
 ]
 ```
 
-## Disable a Product from an Org
+## Removes a Product from an Org
 
 <ApiOperation method="put" url="https://aerial-{region}/{accountId}/api/v1/orgs/{orgId}/products" />
 
-Enables a product with ID P000139 in the org (IT Products - Lifecycle Management with 1 OIN App)
+Removes a product with ID P000139 from the org (IT Products - Lifecycle Management with 1 OIN App)
 
 > **Note:** The `name` property is ignored, and can be included to simplify the client implementation.
 
 <div class="three-quarter">
 
-![Disable a Product in an Org](/img/disable-product.png)
+![Disable a Product in an Org](/img/aerial-remove-product.png)
 
 </div>
 
