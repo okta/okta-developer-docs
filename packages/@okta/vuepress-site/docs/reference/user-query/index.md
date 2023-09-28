@@ -31,7 +31,7 @@ This query parameter provides the largest range of search options and optimal pe
 
 The search query parameter uses standard Okta API filtering semantics to create search criteria that includes mathematical operators such as equal to (`eq`), greater than or equal to (`ge`), and so on. You can combine multiple expressions using logical operators and parentheses. The `ne` (not equal) operator isn't supported, but you can obtain the same result by using `lt ... or ... gt`. For example, to see all users except those that have a status of "STAGED", use `https://${yourOktaDomain}/api/v1/users?search=status+lt+%22STAGED%22+or+status+gt+%22STAGED%22`. See [Filtering](/docs/reference/core-okta-api/#filter).
 
-This query parameter supports the `co` operator with the `profile.firstName`, `profile.lastNameExpressions`, `profile.email`, and `profile.login` attributes.
+This query parameter supports using the `co` operator with the `profile.firstName`, `profile.lastNameExpressions`, `profile.email`, and `profile.login` attributes.
 
 ### URL encoding
 
