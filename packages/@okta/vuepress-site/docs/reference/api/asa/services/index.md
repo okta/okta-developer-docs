@@ -3,7 +3,7 @@ title: ASA Services
 category: asa
 ---
 
-# ASA Service Users API
+# ASA Services API
 
 The ASA Services API reference is available at the [Okta API reference portal](https://developer.okta.com/docs/api/openapi/asa/asa/tag/services/).
 

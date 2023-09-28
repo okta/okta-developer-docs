@@ -3,7 +3,7 @@ title: Device Assurance Policies APIs
 category: management
 ---
 
-# Device Assurance Policies
+# Device Assurance Policies API
 
 The Device Assurance Policies API reference is available at the new [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/DeviceAssurance/).
 

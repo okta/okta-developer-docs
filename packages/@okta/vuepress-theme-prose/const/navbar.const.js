@@ -971,7 +971,6 @@ export const reference = [
                { title: "Domains", path: "/docs/reference/api/domains/" },
                { title: "Dynamic Client Registration", path: "/docs/reference/api/oauth-clients/" },
                { title: "Email Domains", path: "/docs/reference/api/email-domains/" },
-               { title: "Email Servers", path: "/docs/reference/api/email-servers/" },
                { title: "Event Types", path: "/docs/reference/api/event-types/" },
                { title: "Factors", path: "/docs/reference/api/factors/" },
                { title: "Features", path: "/docs/reference/api/features/" },
@@ -1011,13 +1010,13 @@ export const reference = [
                   path: "/docs/reference/api/asa/introduction/",
                },
                {
+                title: "ASA AD Connections API",
+                path: "/docs/reference/api/asa/ad-connections/",
+               },
+               {
                   title: "ASA Attributes API",
                   path: "/docs/reference/api/asa/attributes/",
                },
-               {
-                title: "ASA AD Connections API",
-                path: "/docs/reference/api/asa/ad-connections/",
-             },
                { title: "ASA Audits API", path: "/docs/reference/api/asa/audits/" },
                {
                   title: "ASA Clients API",

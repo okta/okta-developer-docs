@@ -3,7 +3,7 @@ title: Principal Rate Limits APIs
 category: management
 ---
 
-# Principal Rate Limits
+# Principal Rate Limits API
 
 The Principal Rate Limits API reference is available at the new [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/PrincipalRateLimit/).
 

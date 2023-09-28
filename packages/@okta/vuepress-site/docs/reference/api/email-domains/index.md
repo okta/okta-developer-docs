@@ -3,7 +3,7 @@ title: Email Domain APIs
 category: management
 ---
 
-# Email Domains
+# Email Domains API
 
 The Email Domains API reference is available at the new [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/EmailDomain/).
 

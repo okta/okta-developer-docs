@@ -3,7 +3,7 @@ title: Agent Pool APIs
 category: management
 ---
 
-# Agent Pools
+# Agent Pools API
 
 The Agent Pools API reference is available at the new [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AgentPools/).
 
