@@ -3,7 +3,7 @@ title: SMS Templates APIs
 category: management
 ---
 
-# SMS Templates
+# SMS Templates API
 
 The SMS Templates API reference is available at the new [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Template/).
 
