@@ -34,7 +34,7 @@ Use the [Okta Aerial API](link to redocly)
 
 ## About Okta Aerial
 
-Okta Aerial is an administration service that enables a suite of multi-org management capabilities. Use the Aerial API to:
+Okta Aerial is an administration service that enables multi-org management. Use the Aerial API to:
 
 - Add orgs to the Aerial account.
 - Activate and deactivate orgs.
