@@ -103,6 +103,23 @@ After you complete testing your app integration, you can start the submission pr
 * Review the [Publish an OIN integration](/docs/guides/submit-app-overview/) overview to understand the submission process for publishing an integration.
 * Follow the [Submit an SSO integration](/docs/guides/submit-sso-app/) guide to submit your SSO integration.
 
+<div class=half>
+
+![Public or private integration decision](/img/oin/publicOrPrivateIntegration.png)
+
+</div>
+
+<!--
+@startuml
+if (Built an integration) then (Public)
+   :Submit an OIN integration;
+   kill
+else (Private)
+   :Add a private integration;
+   kill
+endif
+@enduml
+-->
 ## See also
 
 * [Okta SAML FAQs](/docs/concepts/saml/faqs/)
