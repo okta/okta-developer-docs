@@ -31,8 +31,7 @@ The Sign-In Widget enables registration, enrollment, verification, and recovery 
 
 The third generation of the Sign-In Widget offers the same user experience as the second generation, and adds accessibility improvements in color contrast, focus management, and screen reader behavior.
 
-See [Style the sign-in page](/docs/guides/custom-widget/main/) for details about customizing the second generation widget.
-
+See [Sign-In Widget, third generation](https://help.okta.com/okta_help.htm?type=oie&id=ext-compare-siw) to verify if the third generation is right for your org.
 
 ## Upgrade to the third generation
 
