@@ -567,6 +567,10 @@ export const guides = [
             guideName: "custom-widget",
           },
           {
+            title: "Sign-In Widget (third generation)",
+            guideName: "custom-widget-gen3",
+          },
+          {
             title: "Error pages",
             guideName: "custom-error-pages",
           },

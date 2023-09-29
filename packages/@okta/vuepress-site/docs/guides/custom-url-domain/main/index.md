@@ -68,9 +68,7 @@ You can replace the base path with a custom domain and Okta uses the brand assoc
 
 #### Branding and the Sign-In Widget third generation
 
-<ApiLifecycle access="ea" />
-
-The third generation of the Okta Sign-In Widget doesn’t guarantee the stability of CSS selectors. Instead, customization in the third generation gets better support through branding. See [Customizations](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Customization/).
+The third generation of the Okta Sign-In Widget doesn’t guarantee the stability of CSS selectors. Instead, customization in the third generation gets better support through design tokens. See [Style the Sign-In Widget (third generation)](/docs/guides/custom-widget-gen3/).
 
 ### Caveats
 

@@ -70,7 +70,7 @@ To update the widget:
 
 5. Verify the CSS and localization changes that you made are reflected in the new version.
 
-  > **Note:** The third generation of the Okta Sign-In Widget doesn’t guarantee the stability of CSS selectors. Instead, customization in the third generation gets better support through branding. See [Customizations](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Customization/).
+  > **Note:** The third generation of the Okta Sign-In Widget doesn’t guarantee the stability of CSS selectors. Instead, customization in the third generation gets better support through design tokens. See [Style the Sign-In Widget (third generation)](/docs/guides/custom-widget-gen3/).
 
 ## Upgrade process for an embedded widget
 
