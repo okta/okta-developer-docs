@@ -4,13 +4,13 @@ excerpt: Learn how to customize the Sign-In Widget (third generation).
 layout: Guides
 ---
 
-This guide explains how to customize the Sign-In Widget (third generation) for the redirect authentication model.
+This guide explains how to customize the Sign-In Widget (third generation) for redirect authentication.
 
 ---
 
 **Learning outcomes**
 
-* Enable the third generation widget.
+* Enable the third-generation widget.
 * Learn about design tokens.
 * Call the JS API using design tokens.
 
@@ -27,9 +27,20 @@ This guide explains how to customize the Sign-In Widget (third generation) for t
 
 ## About the Sign-In Widget (third generation)
 
-The Sign-In Widget enables registration, enrollment, verification, and recovery experiences for your users. It's where everyone in your org starts their Okta session.
+The Sign-In Widget enables the following:
 
-The third generation of the Sign-In Widget offers the same user experience as the second generation, and adds accessibility improvements in color contrast, focus management, and screen reader behavior.
+* Registration
+* Enrollment
+* Verification
+* Recovery experiences for your users
+
+It's where everyone in your org starts their Okta session.
+
+The third generation of the Sign-In Widget offers the same user experience as the second generation. It adds accessibility improvements in the following:
+
+* Color contrast
+* Focus management
+* Screen reader behavior
 
 See [Sign-In Widget, third generation](https://help.okta.com/okta_help.htm?type=oie&id=ext-compare-siw) to verify if the third generation is right for your org.
 
@@ -42,7 +53,7 @@ To upgrade to the third generation:
 1. Go to the **Pages** tab, and then click **Edit** or **Configure** for the **Sign-in page**.
 1. Click the **Settings** tab.
 1. In the **Sign-In Widget version** section, click **Edit**.
-1. To use the third-generation, click the **Use the third generation** toggle so that it's active. Leave the toggle inactive to remain on the second generation.
+1. To use the third generation, click the **Use the third generation** toggle so that it's active. Leave the toggle inactive to remain on the second generation.
 1. Click **Save to draft**.
 
 See [Style the sign-in page](/docs/guides/custom-widget/main/) for details about customizing the second generation.
@@ -294,7 +305,5 @@ Typography
 
 ## See also
 
-- custom domains
-- OIE upgrade?
-- gen diff doc
-
+- [Customize domain and email address](/docs/guides/custom-url-domain/main/)
+- [Sign-In Widget, third generation](https://help.okta.com/okta_help.htm?type=oie&id=ext-compare-siw)
