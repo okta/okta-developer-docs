@@ -36,9 +36,17 @@ See [Style the sign-in page](/docs/guides/custom-widget/main/) for details about
 
 ## Upgrade to the third generation
 
-<!-- togglin' -->
+To upgrade to the third generation:
 
+1. In the **Admin Console**, go to **Customizations** > **Brands**.
+1. Select a brand.
+1. Go to the **Pages** tab, and then click **Edit** or **Configure** for the **Sign-in page**.
+1. Click the **Settings** tab.
+1. In the **Sign-In Widget version** section, click **Edit**.
+1. To use the third-generation, click the **Use the third generation** toggle so that it's active. Leave the toggle inactive to remain on the second generation.
+1. Click **Save to draft**.
 
+See [Style the sign-in page](/docs/guides/custom-widget/main/) for details about customizing the second generation.
 
 ## Use the code editor
 
