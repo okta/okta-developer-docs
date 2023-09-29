@@ -46,6 +46,8 @@ See [Sign-In Widget, third generation](https://help.okta.com/okta_help.htm?type=
 
 ## Upgrade to the third generation
 
+> **Note:** If you have a new Okta Identity Engine org, the third-generation Sign-In Widget isn't enabled by default.
+
 To upgrade to the third generation:
 
 1. In the **Admin Console**, go to **Customizations** > **Brands**.
@@ -60,7 +62,7 @@ See [Style the sign-in page](/docs/guides/custom-widget/main/) for details about
 
 ## Use the code editor
 
-Use the code editor to add design tokens to your code. Design tokens call the JS API.
+Use the code editor to add design tokens to your code. Design tokens call a JavaScript API.
 
 > **Note:** You can only enable the code editor if you configure a [custom domain](/docs/guides/custom-url-domain/).
 
@@ -241,7 +243,7 @@ Typography
 
   "TransitionDurationMain": "100ms",
   "TransitionTimingMain": "linear",
-  
+
   "TypographyColorBody": "#272727",
   "TypographyColorHeading": "#272727",
   "TypographyColorInverse": "#ffffff",
