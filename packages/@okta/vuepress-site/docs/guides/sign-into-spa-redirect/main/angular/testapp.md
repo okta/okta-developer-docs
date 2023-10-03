@@ -4,4 +4,4 @@ Start the Angular app by serving locally.
 ng serve
 ```
 
-You should be able to sign-in, view your name, and sign-out.
+You should be able to sign in, view your name, and sign out.
