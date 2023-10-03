@@ -1,6 +1,6 @@
 The `OktaAuthStateService` and `OktaAuth` services are used together to support sign-in and sign-out actions. The `OktaAuthStateService` contains `authState$`, an [RxJS Observable](https://rxjs.dev/guide/observable) that you can use to get the current authenticated state.
 
-The `OktaAuth` service has methods for sign-in and sign-outactions.
+The `OktaAuth` service has methods for sign-in and sign-out actions.
 
 1. Add buttons, to support sign-in and sign-out actions, to the component template (`app.component.html`), just inside the top of `<div class="toolbar" role="banner"></div>` so that they are visible. Display either the sign-in or sign-out button based on the current authenticated state.
 

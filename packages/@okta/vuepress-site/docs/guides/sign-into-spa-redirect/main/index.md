@@ -39,14 +39,6 @@ Set up your [Okta org](/docs/concepts/okta-organizations/). The Okta command-lin
 
       > **Tip**: If you don't receive the confirmation email sent as part of the creation process, check your spam filters for an email from `noreply@okta.com`
 
-   1. Find your new domain and a link to set your password in the email:
-
-      ```txt
-      Your Okta Domain: https://dev-xxxxxxx.okta.com
-      To set your password open this link:
-      https://dev-xxxxxxx.okta.com/welcome/xrqyNKPCZcvxL1ouKUoh
-      ```
-
    1. Set the password for your org by opening the link and following the instructions. Your Okta domain is returned, similar to the following:
 
       ```txt
@@ -162,7 +154,7 @@ After Okta authenticates a user, they're redirected back to your application thr
 
 After the user signs in, Okta returns some of their profile information to your app (see [/userinfo response example](/docs/reference/api/oidc/#response-example-success-6)). You can use this information to update your UI, for example to show the customer's name.
 
-The default profile items (called `claims`) returned by Okta include the user's email address, name, and preferred username. The claims that you see may differ depending on what scopes your app has requested. See [Configure packages](#configure-packages).
+The default profile items (called `claims`) returned by Okta include the user's email address, name, and preferred username. The claims that you see may differ depending on what scopes your app has requested.
 
 <StackSnippet snippet="getuserinfo" />
 
