@@ -6,6 +6,33 @@ title: Okta Identity Engine API Products release notes 2023
 
 > Help us improve our release notes by filling out this short [survey](https://surveys.okta.com/jfe/form/SV_4VEZcIGOX0TBgkC).
 
+## October
+
+### Monthly release 2023.10.0
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+|  | October 12, 2023 |
+|  | October 12, 2023 |
+| [Developer documentation update in 2023.10.0](#developer-documentation-update-in-2023-10-0) | October 12, 2023 |
+| [Bugs fixed in 2023.10.0](#bugs-fixed-in-2023-10-0) | September 13, 2023 |
+
+#### 
+
+
+#### 
+
+
+#### Developer documentation update in 2023.10.0
+
+* 
+* 
+
+#### Bugs fixed in 2023.10.0
+
+* 
+
+
 ## September
 
 ### Weekly release 2023.09.2
