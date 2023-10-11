@@ -88,20 +88,90 @@ Design tokens make the Sign-In Widget's visual style consistent and easier to up
 * tracking
 * weight
 
-### Customization examples
+## Customization examples
 
 The following examples illustrate the impact of basic changes:
 
-Hue
+### Color change
 
+* Button `#4C64E1` to `#D11DCA`
+* Text `E272727` to `#00297A`
 
-Line
+**Before color changes**
 
+<div class="full">
 
-Typography
+![Your Alt Text](/img/siw-gen3/siw3-color-before.png)
 
+</div>
 
-### List of available design tokens
+**After color changes**
+
+<div class="full">
+
+![Your Alt Text](/img/siw-gen3/siw3-color-after.png)
+
+</div>
+
+### Text change
+
+* Heading Inter: `semibold 22` to `Helvetica, bold, 25`
+* Text Inter: `semibold, 14` to `Helvetica, regular, 16`
+
+**Before text changes**
+
+<div class="full">
+
+![Your Alt Text](/img/siw-gen3/siw3-text-before.png)
+
+</div>
+
+**After text changes**
+
+<div class="full">
+
+![Your Alt Text](/img/siw-gen3/siw3-text-after.png)
+
+</div>
+
+**After color and text changes**
+
+<div class="full">
+
+![Your Alt Text](/img/siw-gen3/siw3-color-text-after.png)
+
+</div>
+
+### Border radius and spacing change
+
+* Input/button border radius: `4px` to `24px`
+* Vertical spacing between elements in main content area: `24px` to `40px`
+
+**Before border radius and spacing changes**
+
+<div class="full">
+
+![Your Alt Text](/img/siw-gen3/siw3-border-space-before.png)
+
+</div>
+
+**After border radius and spacing changes**
+
+<div class="full">
+
+![Your Alt Text](/img/siw-gen3/siw3-border-space-after.png)
+
+</div>
+
+**After border, spacing, text, and color changes**
+
+<div class="full">
+
+![Your Alt Text](/img/siw-gen3/siw3-color-text-border-after.png)
+
+</div>
+
+## List of available design tokens
 
 ```json
 {
