@@ -92,7 +92,7 @@ Design tokens make the Sign-In Widget's visual style consistent and easier to up
 The following is a list of available design tokens with default values. See [Customization examples](#customization-examples):
 
 ```json
-    {
+{
   "BorderRadiusMain": "6px",
   "BorderStyleMain": "solid",
   "BorderWidthMain": "1px",
