@@ -89,6 +89,23 @@ Design tokens make the Sign-In Widget's visual style consistent and easier to up
 * Line height
 * Spacing
 
+You need to pass the design token values into the `OktaSignIn` constructor. For example:
+
+```javascript
+new OktaSignIn({
+  theme: {
+    tokens: {
+      BorderRadiusMain: '24px',
+      PalettePrimaryMain: '#D11DCA',
+      Spacing5: '3rem',
+      TypographyColorBody: '#00297A',
+      TypographySizeBase: '100%'
+      TypographyLineHeightBody: 1.75
+    }
+  }
+});
+```
+
 The following is a list of available design tokens with default values. See [Customization examples](#customization-examples):
 
 ```json
