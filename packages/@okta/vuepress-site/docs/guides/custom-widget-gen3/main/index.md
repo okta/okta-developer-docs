@@ -171,7 +171,7 @@ The following examples illustrate the impact of basic changes:
 
 <div class="half">
 
-![Your Alt Text](/img/siw-gen3/siw3-color-before.png)
+![Before color changes](/img/siw-gen3/siw3-color-before.png)
 
 </div>
 
@@ -179,7 +179,7 @@ The following examples illustrate the impact of basic changes:
 
 <div class="half">
 
-![Your Alt Text](/img/siw-gen3/siw3-color-after.png)
+![After color changes](/img/siw-gen3/siw3-color-after.png)
 
 </div>
 
@@ -192,7 +192,7 @@ The following examples illustrate the impact of basic changes:
 
 <div class="half">
 
-![Your Alt Text](/img/siw-gen3/siw3-text-before.png)
+![Before text changes](/img/siw-gen3/siw3-text-before.png)
 
 </div>
 
@@ -200,7 +200,7 @@ The following examples illustrate the impact of basic changes:
 
 <div class="half">
 
-![Your Alt Text](/img/siw-gen3/siw3-text-after.png)
+![After text changes](/img/siw-gen3/siw3-text-after.png)
 
 </div>
 
@@ -208,7 +208,7 @@ The following examples illustrate the impact of basic changes:
 
 <div class="half">
 
-![Your Alt Text](/img/siw-gen3/siw3-color-text-after.png)
+![After color and text changes](/img/siw-gen3/siw3-color-text-after.png)
 
 </div>
 
@@ -221,7 +221,7 @@ The following examples illustrate the impact of basic changes:
 
 <div class="half">
 
-![Your Alt Text](/img/siw-gen3/siw3-border-space-before.png)
+![Before border radius and spacing changes](/img/siw-gen3/siw3-border-space-before.png)
 
 </div>
 
@@ -229,7 +229,7 @@ The following examples illustrate the impact of basic changes:
 
 <div class="half">
 
-![Your Alt Text](/img/siw-gen3/siw3-border-space-after.png)
+![After border radius and spacing changes](/img/siw-gen3/siw3-border-space-after.png)
 
 </div>
 
@@ -237,7 +237,7 @@ The following examples illustrate the impact of basic changes:
 
 <div class="half">
 
-![Your Alt Text](/img/siw-gen3/siw3-color-text-border-after.png)
+![After border, spacing, text, and color changes](/img/siw-gen3/siw3-color-text-border-after.png)
 
 </div>
 
