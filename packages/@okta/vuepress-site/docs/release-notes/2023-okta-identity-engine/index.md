@@ -37,7 +37,7 @@ This feature delivers parity for upgraded orgs that used the Self-Service Regist
 
 * The Apps API displayed an error when admins tried to remove the Refresh Token grant type. (OKTA-630471)
 
-* An Authentication Policy rule configured with `methods`/`types` `constraints` parameters incorrectly prompted users for a security question. (OKTA-642454)
+* An Authentication Policy rule configured with `methods` and `types` parameters for a `possession constraints` object, incorrectly prompted users for a security question. (OKTA-642454)
 
 * The Custom API Action card in Okta Workflows couldn’t authenticate requests to `/api/v1/org/factors/yubikey_token/tokens` endpoints. (OKTA-639624)
 
