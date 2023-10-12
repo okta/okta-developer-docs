@@ -69,7 +69,7 @@ Use the code editor to add design tokens to your code. Design tokens call a Java
 See [Customization examples](#customization-examples) for snippets that you can update and use.
 
 1. In the Admin Console, go to **Customizations** > **Brands**, and then select the brand you want.
-2. In the **Pages** tab, click **Configure** in the **Sign-in page** panel.
+2. On the **Pages** tab, click **Configure** in the **Sign-in page** panel.
 3. To open the code editor, turn on the toggle next to **Code editor**.
 4. Make changes directly in the editor. See [Use design tokens](#use-design-tokens).
    * Click **Save to draft**, then **Preview**, **Revert**, or **Publish**.
