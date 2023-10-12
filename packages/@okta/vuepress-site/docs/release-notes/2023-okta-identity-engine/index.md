@@ -13,13 +13,13 @@ title: Okta Identity Engine API Products release notes 2023
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
 | [Permission conditions for profile attributes is GA in Preview](#permission-conditions-for-profile-attributes-is-ga-in-preview) | October 12, 2023 |
-| [Direct authentication endpoints now require channel_hint parameter](#direct-authentication-endpoints-now-require-channel_hint-parameter) | October 12, 2023 |
+| [Direct authentication endpoints now require channel_hint parameter](#direct-authentication-endpoints-now-require-channel-hint-parameter) | October 12, 2023 |
 | [Updates to profile enrollment policy are GA in Production](#updates-to-profile-enrollment-policy-are-ga-in-production)  | September 13, 2023  |
 | [Bugs fixed in 2023.10.0](#bugs-fixed-in-2023-10-0) | October 12, 2023 |
 
 #### Permission conditions for profile attributes is GA in Preview
 
-You can now apply conditions to the View users and their details and Edit users' profile attributes custom admin role permissions. Permission conditions help you limit the scope of a role by including or excluding admins' access to individual profile attributes. This gives you more granular control over your custom admin roles and helps meet your org’s unique security needs. See [Permission conditions](https://help.okta.com/okta_help.htm?type=oie&id=ext-permission-conditions). <!-- OKTA-586185 FF: CUSTOM_ADMIN_ROLES_CONDITIONS -->
+You can now apply conditions to the **View users and their details** and **Edit users' profile attributes** custom admin role permissions. Permission conditions help you limit the scope of a role by including or excluding admins' access to individual profile attributes. This gives you more granular control over your custom admin roles and helps meet your org’s unique security needs. See [Permission conditions](https://help.okta.com/okta_help.htm?type=oie&id=ext-permission-conditions). <!-- OKTA-586185 FF: CUSTOM_ADMIN_ROLES_CONDITIONS -->
 
 #### Direct authentication endpoints now require channel_hint parameter
 
