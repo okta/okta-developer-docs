@@ -91,58 +91,70 @@ Design tokens make the Sign-In Widget's visual style consistent and easier to up
 The following is a list of available design
 
 ```json
-{
-    BorderRadiusMain: "20px", // theme.mixins.borderRadius
-    // BorderStyleMain: "solid", // theme.mixins.borderStyle
-    BorderWidthMain: "4px", // theme.mixins.borderWidth
-    // PalettePrimaryLighter: "#f2f3fd", // theme.palette.primary.lighter
-    // PalettePrimaryLight: "#9daaf1", // theme.palette.primary.light
-    PalettePrimaryMain: '#1098AD', // theme.palette.primary.main
-    // PalettePrimaryDark: "#2e40a5", // theme.palette.primary.dark
-    // PaletteDangerLighter: "#fff0ee", // theme.palette.error.lighter
-    // PaletteDangerLight: "#fe8f7a", // theme.palette.error.light
-    PaletteDangerMain: "#D6336C", // theme.palette.error.main
-    // PaletteDangerDark: "#951800", // theme.palette.error.dark
-    // PaletteWarningLighter: "#fcf6ac", // theme.palette.warning.lighter
-    // PaletteWarningLight: "#eb9e05", // theme.palette.warning.light
-    PaletteWarningMain: "#F59F00", // theme.palette.warning.main
-    // PaletteWarningDark: "#664402", // theme.palette.warning.dark
-    // PaletteSuccessLighter: "#defae7", // theme.palette.success.lighter
-    // PaletteSuccessLight: "#59c282", // theme.palette.success.light
-    PaletteSuccessMain: "#0CA678", // theme.palette.success.main
-    // PaletteSuccessDark: "#0e562f", // theme.palette.success.dark
-    // ShadowScale0: "0px 1px 4px rgba(29, 29, 33, 0.08), 0px 4px 6px rgba(29, 29, 33, 0.01), 0px 5px 15px rgba(29, 29, 33, 0.05)", // theme.shadows[1]
-    // ShadowScale1: "0px 1px 4px rgba(29, 29, 33, 0.08), 0px 4px 10px rgba(29, 29, 33, 0.08), 0px 8px 30px rgba(29, 29, 33, 0.1)", // theme.shadows[2]
-    // TypographyColorBody: "#272727", // theme.palette.text.primary
-    // TypographyColorHeading: "#272727", // theme.typography.h1.color
-    // TypographyColorSubordinate: "#6e6e6e", // theme.typography.caption.color
-    // TypographyColorDisabled: "#aeaeae", // theme.palette.text.disabled
-    // TypographyFamilyBody: "'Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen-Sans', 'Ubuntu', 'Cantarell', 'Helvetica Neue', sans-serif", // theme.typography.fontFamily
-    // TypographyFamilyHeading: "'Aeonik', 'Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen-Sans', 'Ubuntu', 'Cantarell', 'Helvetica Neue', sans-serif", // theme.typography.h1.fontFamily
-    // TypographyFamilyButton: "'Aeonik', 'Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen-Sans', 'Ubuntu', 'Cantarell', 'Helvetica Neue', sans-serif", // theme.typography.button.fontFamily
-    // TypographyFamilyMono: "'Roboto Mono', 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace", // theme.typography.kbd.fontFamily
-    // TypographySizeBase: "87.5%", // theme.typography.body1.fontSize
-    // TypographySizeSubordinate: "0.857rem", // theme.typography.caption.fontSize
-    // TypographySizeBody: "1rem", // theme.typography.body1.fontSize
-    // TypographySizeHeading6: "1.143rem", // theme.typography.h6.fontSize
-    // TypographySizeHeading5: "1.286rem", // theme.typography.h5.fontSize
-    // TypographySizeHeading4: "1.571rem", // theme.typography.h4.fontSize
-    // TypographySizeHeading3: "2.000rem", // theme.typography.h3.fontSize
-    // TypographySizeHeading2: "2.286rem", // theme.typography.h2.fontSize
-    // TypographySizeHeading1: "2.571rem", // theme.typography.h1.fontSize
-    // TypographyStyleNormal: "normal", // theme.typography.body1.fontStyle
-    // TypographyWeightBody: "400", // theme.typography.fontWeightMedium
-    // TypographyWeightBodyBold: "600", // theme.typography.fontWeightBold
-    // TypographyWeightHeading: "500", // theme.typography.h1.fontWeight
-    // TypographyLineHeightBody: 1.5, // theme.typography.body1.lineHeight
-    // TypographyLineHeightOverline: 1.3, // theme.typography.overline.lineHeight
-    // TypographyLineHeightHeading6: 1.3, // theme.typography.h6.lineHeight
-    // TypographyLineHeightHeading5: 1.3, // theme.typography.h5.lineHeight
-    // TypographyLineHeightHeading4: 1.25, // theme.typography.h4.lineHeight
-    // TypographyLineHeightHeading3: 1.25, // theme.typography.h3.lineHeight
-    // TypographyLineHeightHeading2: 1.2, // theme.typography.h2.lineHeight
-    // TypographyLineHeightHeading1: 1.2, // theme.typography.h1.lineHeight
-  }
+    {
+  "BorderRadiusMain": "6px",
+  "BorderStyleMain": "solid",
+  "BorderWidthMain": "1px",
+  "PalettePrimaryLighter": "#f2f3fd",
+  "PalettePrimaryLight": "#9daaf1",
+  "PalettePrimaryMain": "#546be7",
+  "PalettePrimaryDark": "#2e40a5",
+  "PaletteDangerLighter": "#fff0ee",
+  "PaletteDangerLight": "#fe8f7a",
+  "PaletteDangerMain": "#e72500",
+  "PaletteDangerDark": "#951800",
+  "PaletteWarningLighter": "#fcf6ac",
+  "PaletteWarningLight": "#eb9e05",
+  "PaletteWarningMain": "#a16c03",
+  "PaletteWarningDark": "#664402",
+  "PaletteSuccessLighter": "#defae7",
+  "PaletteSuccessLight": "#59c282",
+  "PaletteSuccessMain": "#16884a",
+  "PaletteSuccessDark": "#0e562f",
+  "PaletteNeutralMain": "#6e6e6e",
+  "PaletteNeutralDark": "#272727",
+  "ShadowScale0": "0px 1px 4px rgba(29, 29, 33, 0.08), 0px 4px 6px rgba(29, 29, 33, 0.01), 0px 5px 15px rgba(29, 29, 33, 0.05)",
+  "ShadowScale1": "0px 1px 4px rgba(29, 29, 33, 0.08), 0px 4px 10px rgba(29, 29, 33, 0.08), 0px 8px 30px rgba(29, 29, 33, 0.1)",
+  "Spacing0": "0",
+  "Spacing1": "0.28571429rem",
+  "Spacing2": "0.57142857rem",
+  "Spacing3": "0.85714286rem",
+  "Spacing4": "1.14285714rem",
+  "Spacing5": "1.71428571rem",
+  "Spacing6": "2.28571429rem",
+  "Spacing7": "2.85714286rem",
+  "Spacing8": "3.42857143rem",
+  "Spacing9": "4rem",
+  "TypographyColorBody": "#272727",
+  "TypographyColorHeading": "#272727",
+  "TypographyColorSubordinate": "#6e6e6e",
+  "TypographyColorDisabled": "#aeaeae",
+  "TypographyFamilyBody": "'Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen-Sans', 'Ubuntu', 'Cantarell', 'Helvetica Neue', sans-serif",
+  "TypographyFamilyHeading": "'Aeonik', 'Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen-Sans', 'Ubuntu', 'Cantarell', 'Helvetica Neue', sans-serif",
+  "TypographyFamilyButton": "'Aeonik', 'Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen-Sans', 'Ubuntu', 'Cantarell', 'Helvetica Neue', sans-serif",
+  "TypographyFamilyMono": "'Roboto Mono', 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace",
+  "TypographySizeBase": "87.5%",
+  "TypographySizeSubordinate": "0.857rem",
+  "TypographySizeBody": "1rem",
+  "TypographySizeHeading6": "1.143rem",
+  "TypographySizeHeading5": "1.286rem",
+  "TypographySizeHeading4": "1.571rem",
+  "TypographySizeHeading3": "2.000rem",
+  "TypographySizeHeading2": "2.286rem",
+  "TypographySizeHeading1": "2.571rem",
+  "TypographyStyleNormal": "normal",
+  "TypographyWeightBody": "400",
+  "TypographyWeightBodyBold": "600",
+  "TypographyWeightHeading": "500",
+  "TypographyLineHeightBody": 1.5,
+  "TypographyLineHeightOverline": 1.3,
+  "TypographyLineHeightHeading6": 1.3,
+  "TypographyLineHeightHeading5": 1.3,
+  "TypographyLineHeightHeading4": 1.25,
+  "TypographyLineHeightHeading3": 1.25,
+  "TypographyLineHeightHeading2": 1.2,
+  "TypographyLineHeightHeading1": 1.2
+}
 ```
 
 ## Customization examples
