@@ -81,13 +81,13 @@ See [Customization examples](#customization-examples) for snippets that you can 
 
 Design tokens make the Sign-In Widget's visual style consistent and easier to update. Tokens replace static values to customize the following:
 
-* color
-* border
-* font family
-* font size
-* font weight
-* line height
-* spacing
+* Color
+* Border
+* Font family
+* Font size
+* Font weight
+* Line height
+* Spacing
 
 The following is a list of available design tokens with default values. See [Customization examples](#customization-examples):
 
