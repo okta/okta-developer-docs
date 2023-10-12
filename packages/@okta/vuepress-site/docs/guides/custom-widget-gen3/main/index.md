@@ -70,7 +70,7 @@ See [Customization examples](#customization-examples) for snippets that you can 
 
 1. In the Admin Console, go to **Customizations** > **Brands**, and then select the brand you want.
 2. On the **Pages** tab, click **Configure** in the **Sign-in page** panel.
-3. To open the code editor, turn on the toggle next to **Code editor**.
+3. To open the code editor, click the **Code editor** toggle.
 4. Make changes directly in the editor. See [Use design tokens](#use-design-tokens).
    * Click **Save to draft**, then **Preview**, **Revert**, or **Publish**.
    * Select **Compare with published version** to see the difference between your edited version and the published version. You can choose between a split view and a unified view.
