@@ -11,7 +11,7 @@ title: Okta API Products release notes 2023
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
 | [Permission conditions for profile attributes is GA in Preview](#permission-conditions-for-profile-attributes-is-ga-in-preview) | October 12, 2023 |
-| [Bugs fixed in 2023.10.0](#bugs-fixed-in-2023-10-0) | September 13, 2023 |
+| [Bugs fixed in 2023.10.0](#bugs-fixed-in-2023-10-0) | October 12, 2023 |
 
 #### Permission conditions for profile attributes is GA in Preview
 

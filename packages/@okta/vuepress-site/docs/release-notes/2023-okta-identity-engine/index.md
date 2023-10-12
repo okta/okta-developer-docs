@@ -14,8 +14,8 @@ title: Okta Identity Engine API Products release notes 2023
 | ------ | ------------------------ |
 | [Permission conditions for profile attributes is GA in Preview](#permission-conditions-for-profile-attributes-is-ga-in-preview) | October 12, 2023 |
 | [Direct authentication endpoints now require channel_hint parameter](#direct-authentication-endpoints-now-require-channel_hint-parameter) | October 12, 2023 |
-| [Updates to profile enrollment policy are GA in Production](#updates-to-profile-enrollment-policy-are-ga-in-production)  |   |
-| [Bugs fixed in 2023.10.0](#bugs-fixed-in-2023-10-0) | September 13, 2023 |
+| [Updates to profile enrollment policy are GA in Production](#updates-to-profile-enrollment-policy-are-ga-in-production)  | September 13, 2023  |
+| [Bugs fixed in 2023.10.0](#bugs-fixed-in-2023-10-0) | October 12, 2023 |
 
 #### Permission conditions for profile attributes is GA in Preview
 
