@@ -164,7 +164,7 @@ The following examples illustrate the impact of basic changes:
 
 ### Color change
 
-* Button `#4C64E1` to `#D11DCA`
+* `PalettePrimaryMain` from `#4C64E1` (blue) to `#D11DCA` (magenta)
 * Text `E272727` to `#00297A`
 
 **Before color changes**
