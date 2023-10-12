@@ -88,7 +88,7 @@ Design tokens make the Sign-In Widget's visual style consistent and easier to up
 * tracking
 * weight
 
-The following is a list of available design
+The following is a list of available design tokens with default values:
 
 ```json
     {
@@ -168,7 +168,7 @@ The following examples illustrate the impact of basic changes:
 
 **Before color changes**
 
-<div class="full">
+<div class="half">
 
 ![Your Alt Text](/img/siw-gen3/siw3-color-before.png)
 
@@ -176,7 +176,7 @@ The following examples illustrate the impact of basic changes:
 
 **After color changes**
 
-<div class="full">
+<div class="half">
 
 ![Your Alt Text](/img/siw-gen3/siw3-color-after.png)
 
@@ -189,7 +189,7 @@ The following examples illustrate the impact of basic changes:
 
 **Before text changes**
 
-<div class="full">
+<div class="half">
 
 ![Your Alt Text](/img/siw-gen3/siw3-text-before.png)
 
@@ -197,7 +197,7 @@ The following examples illustrate the impact of basic changes:
 
 **After text changes**
 
-<div class="full">
+<div class="half">
 
 ![Your Alt Text](/img/siw-gen3/siw3-text-after.png)
 
@@ -205,7 +205,7 @@ The following examples illustrate the impact of basic changes:
 
 **After color and text changes**
 
-<div class="full">
+<div class="half">
 
 ![Your Alt Text](/img/siw-gen3/siw3-color-text-after.png)
 
@@ -218,7 +218,7 @@ The following examples illustrate the impact of basic changes:
 
 **Before border radius and spacing changes**
 
-<div class="full">
+<div class="half">
 
 ![Your Alt Text](/img/siw-gen3/siw3-border-space-before.png)
 
@@ -226,7 +226,7 @@ The following examples illustrate the impact of basic changes:
 
 **After border radius and spacing changes**
 
-<div class="full">
+<div class="half">
 
 ![Your Alt Text](/img/siw-gen3/siw3-border-space-after.png)
 
@@ -234,7 +234,7 @@ The following examples illustrate the impact of basic changes:
 
 **After border, spacing, text, and color changes**
 
-<div class="full">
+<div class="half">
 
 ![Your Alt Text](/img/siw-gen3/siw3-color-text-border-after.png)
 
