@@ -165,7 +165,7 @@ The following examples illustrate the impact of basic changes:
 ### Color change
 
 * `PalettePrimaryMain` from `#4C64E1` (blue) to `#D11DCA` (magenta)
-* Text `E272727` to `#00297A`
+* `TypographyColorBody` from `#272727` (dark grey) to `#00297A` (navy blue)
 
 **Before color changes**
 
