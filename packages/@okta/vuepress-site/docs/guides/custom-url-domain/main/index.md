@@ -66,7 +66,7 @@ URIs that you use in the following settings revert to the Okta subdomain:
 
 You can replace the base path with a custom domain and Okta uses the brand associated with the domain.
 
-#### Branding and the Sign-In Widget third generation
+#### Branding and the Sign-In Widget (third generation)
 
 The third generation of the Okta Sign-In Widget doesn’t guarantee the stability of CSS selectors. Instead, customization in the third generation gets better support through branding. See [Style the Sign-In Widget (third generation)](/docs/guides/custom-widget-gen3/).
 
