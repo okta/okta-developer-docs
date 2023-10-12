@@ -185,8 +185,10 @@ The following examples illustrate the impact of basic changes:
 
 ### Text change
 
-* Heading Inter: `semibold 22` to `Helvetica, bold, 25`
-* Text Inter: `semibold, 14` to `Helvetica, regular, 16`
+* `TypographyFamilyHeading` from `"'Aeonik', 'Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen-Sans', 'Ubuntu', 'Cantarell', 'Helvetica Neue', sans-serif"` (default) to `"Helvetica"`
+* `TypographyWeightHeading` from `500` (semibold, default) to `600` (bold)
+* `TypographyFamilyBody` from `"'Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen-Sans', 'Ubuntu', 'Cantarell', 'Helvetica Neue', sans-serif"` (default) to  `"Helvetica"`
+* `TypographySizeBase` from `"87.5%"` (14px, default) to `"100%"` (16px)
 
 **Before text changes**
 
