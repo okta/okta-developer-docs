@@ -75,7 +75,7 @@ See [Customization examples](#customization-examples) for snippets that you can 
    * Click **Save to draft**, then **Preview**, **Revert**, or **Publish**.
    * Select **Compare with published version** to see the difference between your edited version and the published version. You can choose between a split view and a unified view.
 
-   > **Note:** To discard your changes without publishing them, click **Revert changes** or turn off the toggle next to **Code editor**. Turning off the code editor restores the default JavaScript code.
+   > **Note:** To discard your changes without publishing them, click **Revert changes** or click the **Code editor** toggle again. Turning off the code editor restores the default JavaScript code.
 
 ## Use design tokens
 
