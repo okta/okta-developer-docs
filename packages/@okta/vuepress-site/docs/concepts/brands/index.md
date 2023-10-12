@@ -15,7 +15,7 @@ Each org starts with Okta default branding. You can upload your own assets (colo
 
 ### Branding and the Sign-In Widget (third generation)
 
-The third generation of the Okta Sign-In Widget doesn’t guarantee the stability of CSS selectors. Instead, customization in the third generation gets better support through design tokens. See [Style the Sign-In Widget (third generation)](/docs/guides/custom-widget-gen3/).
+The third generation of the Okta Sign-In Widget doesn’t guarantee the stability of CSS selectors. Instead, customization in the third generation gets better support through branding. See [Style the Sign-In Widget (third generation)](/docs/guides/custom-widget-gen3/).
 
 ## What is multibrand customization?
 
