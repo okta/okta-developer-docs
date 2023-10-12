@@ -27,6 +27,7 @@ guides:
  - custom-error-pages
  - custom-url-domain
  - custom-widget
+ - custom-widget-gen3
  - customize-authz-server
  - customize-tokens-returned-from-okta
  - customize-tokens-dynamic
