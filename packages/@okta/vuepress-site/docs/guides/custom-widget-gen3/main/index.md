@@ -46,7 +46,7 @@ See [Sign-In Widget, third generation](https://help.okta.com/okta_help.htm?type=
 
 ## Upgrade to the third generation
 
-> **Note:** If you have a new Okta Identity Engine org, the third-generation Sign-In Widget isn't enabled by default.
+> **Note:** If you have a new Okta Identity Engine org, the third generation Sign-In Widget isn't enabled by default.
 
 To upgrade to the third generation:
 
