@@ -36,12 +36,7 @@ jobs:
     - name: Checkout repository!
       uses: actions/checkout@v3
       with:
-        ref: ${{ github.event.pull_request.head.sha }} # OKTA-568681
-
-    - name: Checkout Pull Request
-      run: hub pr checkout ${{ github.event.issue.number }}
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        ref: ${{ github.event.issue.pull_request.head.sha }} # OKTA-568681
 
     - name: Setup node - ${{ matrix.node-version }}
       uses: actions/setup-node@v3
