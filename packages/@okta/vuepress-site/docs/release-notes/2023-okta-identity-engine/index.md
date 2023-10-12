@@ -13,8 +13,8 @@ title: Okta Identity Engine API Products release notes 2023
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
 | [Permission conditions for profile attributes is GA in Preview](#permission-conditions-for-profile-attributes-is-ga-in-preview) | October 12, 2023 |
-| [Direct authentication endpoints now require `channel_hint` parameter](#direct-authentication-endpoints-now-require-channel_hint-parameter) | October 12, 2023 |
-| [Developer documentation update in 2023.10.0](#developer-documentation-update-in-2023-10-0) | October 12, 2023 |
+| [Direct authentication endpoints now require channel_hint parameter](#direct-authentication-endpoints-now-require-channel_hint-parameter) | October 12, 2023 |
+| [Updates to profile enrollment policy are GA in Production](#updates-to-profile-enrollment-policy-are-ga-in-production)  |   |
 | [Bugs fixed in 2023.10.0](#bugs-fixed-in-2023-10-0) | September 13, 2023 |
 
 #### Permission conditions for profile attributes is GA in Preview
@@ -25,7 +25,7 @@ You can now apply conditions to the View users and their details and Edit users'
 
 The `channel_hint` parameter is now required for direct authentication `/oob-authenticate` and `/challenge` endpoints.
 
-#### Updates to profile enrollment policy
+#### Updates to profile enrollment policy are GA in Production
 
 This feature delivers parity for upgraded orgs that used the Self-Service Registration (SSR) feature in Classic Engine. Previously in Identity Engine, SSR was combined with profile enrollment. Users were unable to sign in after the upgrade if their org used read-only or hidden attributes for SSR in Classic Engine. Identity Engine now separates SSR and profile enrollment, and turns off progressive profiling by default. This ensures that no admins are locked out and users can sign in to their orgs even if they have special attributes. <!-- OKTA-654425 FF: MAKE_ENROLLMENT_GREAT_AGAIN -->
 
