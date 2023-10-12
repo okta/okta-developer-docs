@@ -21,7 +21,7 @@ title: Okta Identity Engine API Products release notes 2023
 
 You can now apply conditions to the View users and their details and Edit users' profile attributes custom admin role permissions. Permission conditions help you limit the scope of a role by including or excluding admins' access to individual profile attributes. This gives you more granular control over your custom admin roles and helps meet your org’s unique security needs. See [Permission conditions](https://help.okta.com/okta_help.htm?type=oie&id=ext-permission-conditions). <!-- OKTA-586185 FF: CUSTOM_ADMIN_ROLES_CONDITIONS -->
 
-#### Direct authentication endpoints now require `channel_hint` parameter
+#### Direct authentication endpoints now require channel_hint parameter
 
 The `channel_hint` parameter is now required for direct authentication `/oob-authenticate` and `/challenge` endpoints.
 
