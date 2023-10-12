@@ -216,8 +216,8 @@ The following examples illustrate the impact of basic changes:
 
 ### Border radius and spacing change
 
-* Input/button border radius: `4px` to `24px`
-* Vertical spacing between elements in the main content area: `24px` to `40px`
+* `BorderRadiusMain` from `4px` to `24px`
+* `Spacing5` from `1.71428571rem` (24px, default) to `2.85714286rem` (40px)
 
 **Before border radius and spacing changes**
 
