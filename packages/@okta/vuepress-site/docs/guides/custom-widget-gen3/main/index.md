@@ -36,7 +36,7 @@ The Sign-In Widget enables the following:
 
 It's where everyone in your org starts their Okta session.
 
-The third generation of the Sign-In Widget offers the same user experience as the second generation. It adds accessibility improvements in the following:
+The third generation of the Sign-In Widget offers the same user experience as the second generation. It adds accessibility improvements to the following:
 
 * Color contrast
 * Focus management
