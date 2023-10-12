@@ -88,7 +88,7 @@ Design tokens make the Sign-In Widget's visual style consistent and easier to up
 * tracking
 * weight
 
-The following is a list of available design tokens with default values:
+The following is a list of available design tokens with default values. See [Customization examples](#customization-examples):
 
 ```json
     {
