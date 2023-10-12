@@ -1,6 +1,6 @@
 {
-  "release" : "2023.09.1",
-  "build" : "2023.09.1-begin-156-g6f228a28ab7f",
+  "release" : "2023.10.1",
+  "build" : "2023.10.1-begin-163-g27f12da6be17",
   "errors" : [ {
     "title" : "API validation exception",
     "includesExceptionMessage" : true,
@@ -1728,6 +1728,14 @@
     "statusReasonPhrase" : "Bad Request",
     "errorCode" : "E0000232",
     "errorSummary" : "Another authenticator enrollment already exists with the same nickname.",
+    "errorDescription" : null
+  }, {
+    "title" : "SMS free org okta verify setup link bloc exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "errorCode" : "E0000233",
+    "errorSummary" : "Okta Verify SMS setup link is a feature only available on paid Okta accounts. To enable this feature please upgrade your free tier org.",
     "errorDescription" : null
   } ]
 }

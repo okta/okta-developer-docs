@@ -1,6 +1,6 @@
 {
-  "release" : "2023.09.1",
-  "build" : "2023.09.1-begin-156-g6f228a28ab7f",
+  "release" : "2023.10.1",
+  "build" : "2023.10.1-begin-163-g27f12da6be17",
   "errors" : [ {
     "title" : "Access denied",
     "statusCode" : 403,
