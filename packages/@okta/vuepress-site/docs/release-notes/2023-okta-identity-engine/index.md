@@ -15,6 +15,7 @@ title: Okta Identity Engine API Products release notes 2023
 | [Permission conditions for profile attributes is GA in Preview](#permission-conditions-for-profile-attributes-is-ga-in-preview) | October 12, 2023 |
 | [Direct authentication endpoints now require channel_hint parameter](#direct-authentication-endpoints-now-require-channel-hint-parameter) | October 12, 2023 |
 | [Updates to profile enrollment policy are GA in Production](#updates-to-profile-enrollment-policy-are-ga-in-production)  | September 13, 2023  |
+| [Demonstrating Proof-of-Possession is GA](#demonstrating-proof-of-possession-is-ga) | March 15, 2023 |
 | [Bugs fixed in 2023.10.0](#bugs-fixed-in-2023-10-0) | October 12, 2023 |
 
 #### Permission conditions for profile attributes is GA in Preview
@@ -28,6 +29,10 @@ The `channel_hint` parameter is now required for direct authentication `/oob-aut
 #### Updates to profile enrollment policy are GA in Production
 
 This feature delivers parity for upgraded orgs that used the Self-Service Registration (SSR) feature in Classic Engine. Previously in Identity Engine, SSR was combined with profile enrollment. Users were unable to sign in after the upgrade if their org used read-only or hidden attributes for SSR in Classic Engine. Identity Engine now separates SSR and profile enrollment, and turns off progressive profiling by default. This ensures that no admins are locked out and users can sign in to their orgs even if they have special attributes. <!-- OKTA-654425 FF: MAKE_ENROLLMENT_GREAT_AGAIN -->
+
+#### Demonstrating Proof-of-Possession is GA
+
+OAuth 2.0 Demonstrating Proof-of-Possession (DPoP) is a security feature that adds an extra layer of protection to OAuth 2.0 access tokens. It enables the client to demonstrate that it possesses a particular key or secret associated with the access token. OAuth 2.0 DPoP can help prevent certain attacks, such as token theft or token replay attacks, where an attacker intercepts a legitimate access token and uses it to gain unauthorized access to a protected resource. See [Configure OAuth 2.0 Demonstrating Proof-of-Possession](/docs/guides/dpop/main/). <!-- OKTA-585491 FF: OAUTH2_DROP -->
 
 #### Bugs fixed in 2023.10.0
 

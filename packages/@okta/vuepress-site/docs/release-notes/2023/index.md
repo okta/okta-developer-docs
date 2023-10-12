@@ -11,11 +11,16 @@ title: Okta API Products release notes 2023
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
 | [Permission conditions for profile attributes is GA in Preview](#permission-conditions-for-profile-attributes-is-ga-in-preview) | October 12, 2023 |
+| [Demonstrating Proof-of-Possession is GA](#demonstrating-proof-of-possession-is-ga) | March 15, 2023 |
 | [Bugs fixed in 2023.10.0](#bugs-fixed-in-2023-10-0) | October 12, 2023 |
 
 #### Permission conditions for profile attributes is GA in Preview
 
 You can now apply conditions to the **View users and their details** and **Edit users' profile attributes** custom admin role permissions. Permission conditions help you limit the scope of a role by including or excluding admins' access to individual profile attributes. This gives you more granular control over your custom admin roles and helps meet your org’s unique security needs. See [Permission conditions](https://help.okta.com/okta_help.htm?type=oie&id=ext-permission-conditions). <!-- OKTA-586185 FF: CUSTOM_ADMIN_ROLES_CONDITIONS -->
+
+#### Demonstrating Proof-of-Possession is GA
+
+OAuth 2.0 Demonstrating Proof-of-Possession (DPoP) is a security feature that adds an extra layer of protection to OAuth 2.0 access tokens. It enables the client to demonstrate that it possesses a particular key or secret associated with the access token. OAuth 2.0 DPoP can help prevent certain attacks, such as token theft or token replay attacks, where an attacker intercepts a legitimate access token and uses it to gain unauthorized access to a protected resource. See [Configure OAuth 2.0 Demonstrating Proof-of-Possession](/docs/guides/dpop/main/). <!-- OKTA-585491 FF: OAUTH2_DROP -->
 
 #### Bugs fixed in 2023.10.0
 
