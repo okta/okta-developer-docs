@@ -1024,7 +1024,7 @@ A Trusted Origin defines several attributes:
 | :------------- | :----------------------------------------------------------- | :---------------------------------------- | :-------------- | :-------------- |
 | id             | Unique identifier for the Trusted Origin                    | String                                    | No (assigned)   | N/A             |
 | name           | Unique name for the Trusted Origin                          | String                                    | Yes             | 255 (chars)     |
-| origin         | Unique origin URL for the Trusted Origin                    | String                                    | Yes             | 255 (chars)     |
+| origin         | Unique origin URL for the Trusted Origin. The supported schemes for this attribute are HTTP, HTTPS, FTP, Ionic 2, and Capacitor.                    | String                                    | Yes             | 255 (chars)     |
 | scopes         | Array of Scope types that this Trusted Origin is used for  | Array of [Scope objects](#scope-object)   | Yes             | 3 (Scope types) |
 
 #### Scope object
