@@ -1,4 +1,4 @@
-The `@okta/oidc-middleware` package autogenerates a `/logout` route for you.  Send a `POST` request to `/logout`:
+The `@okta/oidc-middleware` package autogenerates a `/logout` route for you. Send a `POST` request to `/logout`:
 
 ```html
 <form method="post" action="/logout">
@@ -6,7 +6,7 @@ The `@okta/oidc-middleware` package autogenerates a `/logout` route for you.  Se
 </form>
 ```
 
-If you prefer to handle this yourself, you can define a route which invokes the `oidc.forceLogoutAndRevoke()` method:
+If you prefer to handle this yourself, you can define a route that invokes the `oidc.forceLogoutAndRevoke()` method:
 
 ```js
 app.post('/forces-logout', oidc.forceLogoutAndRevoke(), (req, res) => {
