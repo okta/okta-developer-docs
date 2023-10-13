@@ -1,83 +1,109 @@
-1. To set up the callback route you need to define a handler (this is defined in [`server/init.go`](https://github.com/okta-samples/okta-go-gin-sample/blob/main/server/init.go) in our sample):
+When you [created an app integration in the Admin Console](#create-an-app-integration-in-the-admin-console), you set the sign-in redirect URL to <StackSnippet snippet="signinredirecturi" inline /> and the sign-out redirect URL to <StackSnippet snippet="signoutredirecturi" inline />. In this sample, only the sign-in callback requires additional code:
+
+1. Add a route handler for `/authorization-code/callback` to `main()` in `main.go`:
 
    ```go
-   router.GET("/authorization-code/callback", AuthCodeCallbackHandler)
+   http.HandleFunc("/authorization-code/callback", AuthCodeCallbackHandler)
    ```
 
-2. Define the handler function and helper methods (see [`server/controller.go`](https://github.com/okta-samples/okta-go-gin-sample/blob/main/server/controller.go)):
+1. Define the handler function:
 
-    ```go
-    func AuthCodeCallbackHandler(c *gin.Context) {
-      session, err := sessionStore.Get(c.Request, "okta-hosted-login-session-store")
-      if err != nil {
-        c.AbortWithError(http.StatusForbidden, err)
-        return
-      }
-
+   ```go
+   func AuthCodeCallbackHandler(w http.ResponseWriter, r *http.Request) {
       // Check the state that was returned in the query string is the same as the above state
-      if c.Query("state") == "" || c.Query("state") != session.Values["oauth_state"] {
-        c.AbortWithError(http.StatusForbidden, fmt.Errorf("The state was not as expected"))
-        return
+      if r.URL.Query().Get("state") != state {
+         fmt.Fprintln(w, "The state wasn't as expected")
+         return
       }
-
       // Make sure the code was provided
-      if c.Query("error") != "" {
-        c.AbortWithError(http.StatusForbidden, fmt.Errorf("Authorization server returned an error: %s", c.Query("error")))
-        return
+      if r.URL.Query().Get("code") == "" {
+         fmt.Fprintln(w, "The code wasn't returned or isn't accessible")
+         return
       }
 
-      // Make sure the code was provided
-      if c.Query("code") == "" {
-        c.AbortWithError(http.StatusForbidden, fmt.Errorf("The code was not returned or is not accessible"))
-        return
+      exchange := exchangeCode(r.URL.Query().Get("code"), r)
+      if exchange.Error != "" {
+         fmt.Println(exchange.Error)
+         fmt.Println(exchange.ErrorDescription)
+         return
       }
 
-      token, err := oktaOauthConfig.Exchange(
-        context.Background(),
-        c.Query("code"),
-        oauth2.SetAuthURLParam("code_verifier", session.Values["oauth_code_verifier"].(string)),
-      )
+      session, err := sessionStore.Get(r, "okta-hosted-signin-session-store")
       if err != nil {
-        c.AbortWithError(http.StatusUnauthorized, err)
-        return
+         http.Error(w, err.Error(), http.StatusInternalServerError)
       }
 
-      // Extract the ID Token from OAuth2 token.
-      rawIDToken, ok := token.Extra("id_token").(string)
-      if !ok {
-        c.AbortWithError(http.StatusUnauthorized, fmt.Errorf("Id token missing from OAuth2 token"))
-        return
-      }
-      _, err = verifyToken(rawIDToken)
+      _, verificationError := verifyToken(exchange.IdToken)
 
-      if err != nil {
-        c.AbortWithError(http.StatusForbidden, err)
-        return
-      } else {
-        session.Values["access_token"] = token.AccessToken
-        session.Save(c.Request, c.Writer)
+      if verificationError != nil {
+         fmt.Println(verificationError)
       }
 
-      c.Redirect(http.StatusFound, "/")
-    }
+      if verificationError == nil {
+         session.Values["id_token"] = exchange.IdToken
+         session.Values["access_token"] = exchange.AccessToken
 
-    func verifyToken(t string) (*verifier.Jwt, error) {
+         session.Save(r, w)
+      }
+
+      http.Redirect(w, r, "/", http.StatusFound)
+   }
+   ```
+
+1. The handler has two helper functions. The first, `exchangeCode()`, swaps the authorization code returned after the user signs in for ID and access tokens.
+
+   ```go
+   func exchangeCode(code string, r *http.Request) Exchange {
+      authHeader := base64.StdEncoding.EncodeToString(
+         []byte(os.Getenv("CLIENT_ID") + ":" + os.Getenv("CLIENT_SECRET")))
+
+      q := r.URL.Query()
+      q.Add("grant_type", "authorization_code")
+      q.Set("code", code)
+      q.Add("redirect_uri", "http://localhost:8080/authorization-code/callback")
+
+      url := os.Getenv("ISSUER") + "/v1/token?" + q.Encode()
+
+      req, _ := http.NewRequest("POST", url, bytes.NewReader([]byte("")))
+      h := req.Header
+      h.Add("Authorization", "Basic "+authHeader)
+      h.Add("Accept", "application/json")
+      h.Add("Content-Type", "application/x-www-form-urlencoded")
+      h.Add("Connection", "close")
+      h.Add("Content-Length", "0")
+
+      client := &http.Client{}
+      resp, _ := client.Do(req)
+      body, _ := io.ReadAll(resp.Body)
+      defer resp.Body.Close()
+      var exchange Exchange
+      json.Unmarshal(body, &exchange)
+
+      return exchange
+   }
+   ```
+
+1. The second helper function, `verifyToken()`, verifies that the tokens received aren't fraudulent.
+
+   ```go
+   func verifyToken(t string) (*verifier.Jwt, error) {
       tv := map[string]string{}
-      tv["aud"] = os.Getenv("OKTA_OAUTH2_CLIENT_ID")
+      tv["nonce"] = nonce
+      tv["aud"] = os.Getenv("CLIENT_ID")
       jv := verifier.JwtVerifier{
-        Issuer:           os.Getenv("OKTA_OAUTH2_ISSUER"),
-        ClaimsToValidate: tv,
+         Issuer:           os.Getenv("ISSUER"),
+         ClaimsToValidate: tv,
       }
 
       result, err := jv.New().VerifyIdToken(t)
       if err != nil {
-        return nil, fmt.Errorf("%s", err)
+         return nil, fmt.Errorf("%s", err)
       }
 
       if result != nil {
-        return result, nil
+         return result, nil
       }
 
-      return nil, fmt.Errorf("token could not be verified")
-    }
-    ```
+      return nil, fmt.Errorf("token could not be verified: %s", "")
+   }
+   ```

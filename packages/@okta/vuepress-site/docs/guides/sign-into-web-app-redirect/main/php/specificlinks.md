@@ -1,3 +1,5 @@
+* [PHP Sample Applications for Okta](https://github.com/okta/samples-php)
+
 Okta Developer Blog:
 
 * [Build a Simple Laravel App with Authentication](https://developer.okta.com/blog/2019/09/05/laravel-authentication)

@@ -5233,7 +5233,7 @@ Determines the [IdP Key Credential](#identity-provider-key-credential-object) us
 ##### SAML 2.0 Settings object
 
 | Property   | Description                       | DataType    | Nullable | Readonly | Default     |
-| ---------- | ---------------------             | ----------- | -------- | -------- | -------------------------------------------------------------------- | ----------------------------------------------        |
+| ---------- | ---------------------             | ----------- | -------- | -------- | -------------------------------------------------------------------- |
 | nameFormat | The name identifier format to use. See [SAML 2.0 Name Identifier Formats](#saml-2-0-name-identifier-formats). | String      | TRUE     | FALSE    | urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified |
 | honorPersistentNameId | Determines if the IdP should persist account linking when the incoming assertion NameID format is `urn:oasis:names:tc:SAML:2.0:nameid-format:persistent`| Boolean | TRUE | FALSE | FALSE|
 
@@ -5411,7 +5411,7 @@ Signature Algorithm settings for signing authorization requests sent to the IdP:
 
 | Property    | Description                                                                        | DataType             | Nullable | Readonly |
 | ----------- | ---------------------------------------------------------------------------------- | -------------------- | -------- | -------- |
-| algorithm   | The Signature Algorithm used when signing an authorization request  | `HS256`, `HS384`, or `HS512`. The following algorithms are <ApiLifecycle access="ea" /> (Self-Service): `RS256`, `RS384`, or `RS512`. To use these algorithms, enable **Private Key JWT Client Authentication for OIDC IdP** for your org from the **Settings** > **Features** page in the Admin Console. | FALSE    | FALSE    |
+| algorithm   | The Signature Algorithm used when signing an authorization request  | `HS256`, `HS384`, `HS512`, `RS256`, `RS384`, or `RS512` | FALSE    | FALSE    |
 | scope       | Specifies whether to digitally sign an authorization request to the IdP | `REQUEST` or `NONE`  | FALSE    | FALSE    |
 
 > **Note:** The `algorithm` property is ignored when you disable request signatures (`scope` set as `NONE`).

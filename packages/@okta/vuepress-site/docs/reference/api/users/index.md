@@ -774,6 +774,7 @@ Fetch a user by `id`, `login`, or `login shortname` if the short name is unambig
 | Parameter | Description                                                        | Param Type | DataType | Required |
 | --------- | ------------------------------------------------------------------ | ---------- | -------- | -------- |
 | id        | `id`, `login`, or `login shortname` (as long as it is unambiguous) | URL        | String   | TRUE     |
+| expand    | Valid value: `block`. If this parameter is specified, then account block details are included in the `_embedded` attribute. The [embedded object](/docs/reference/api/users/#user-block-object) lists information about how the account is blocked from access. | Query        | String   | FALSE     |
 
 > When fetching a user by `login` or `login shortname`, you should [URL encode](http://en.wikipedia.org/wiki/Percent-encoding) the request parameter to ensure special characters are escaped properly.  Logins with a `/` or `?`  character can only be fetched by `id` due to URL issues with escaping the `/` and `?` characters.
 
@@ -2141,7 +2142,6 @@ curl -v -X GET \
 ]
 ```
 
-### Get User's Groups
 
 
 <ApiOperation method="get" url="/api/v1/users/${userId}/groups" /> <SupportsCors />
@@ -2197,7 +2197,6 @@ curl -v -X GET \
 
 Lifecycle operations are non-idempotent operations that initiate a state transition for a user's status.
 Some operations are asynchronous while others are synchronous. The user's current status limits what operations are allowed.
-For example, you can't unlock a user that is `ACTIVE`.
 
 ### Activate User
 
@@ -2577,7 +2576,7 @@ HTTP/1.1 204 No Content
 
 <ApiOperation method="post" url="/api/v1/users/${userId}/lifecycle/unlock" />
 
-Unlocks a user with a `LOCKED_OUT` status and returns them to `ACTIVE` status.  Users will be able to login with their current password.
+Unlocks a user with a `LOCKED_OUT` status or unlocks a user with an `ACTIVE` status that is blocked from unknown devices. Unlocked users have an `ACTIVE` status and can sign in with their current password.
 
 > **Note:** This operation works with Okta-sourced users. It doesn't support directory-sourced accounts such as Active Directory.
 
@@ -4341,6 +4340,15 @@ Here are some links that may be available on a User, as determined by your polic
     }
 }
 ```
+
+#### User Block object
+
+The User Block object describes how the account is blocked from access. If `appliesTo` is `ANY_DEVICES`, then the account is blocked for all devices. If `appliesTo` is `UNKNOWN_DEVICES`, then the account is only blocked for unknown devices.
+
+| Property  | Description | Datatype |
+| :---------| :---------- | :------- |
+| type      | Type of the block. Valid value: `DEVICE_BASED` | String |
+| appliesTo | Target of the block. Valid values: `ANY_DEVICES`, `UNKNOWN_DEVICES` | String |
 
 #### User-Consent Grant properties
 

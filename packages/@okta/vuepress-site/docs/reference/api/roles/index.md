@@ -340,7 +340,7 @@ Creates a Permission on an existing Role
 | :----------------| :------------------------------------| :----------- | :------------------------------------| :------- |
 | `roleIdOrLabel`  | `id` or `label` of the Role          | URL          | String                               | TRUE     |
 | `permissionType` | Permission to add to the Role        | URL          | [Permission](#permission-types) name | TRUE     |
-| `conditions` <ApiLifecycle access="beta" />      | Conditions for further restricting a permission     | Body         | [Condition](#condition-object) object | FALSE    |
+| `conditions` <ApiLifecycle access="ea" />      | Conditions for further restricting a permission     | Body         | [Condition](#condition-object) object | FALSE    |
 
 #### Response parameters
 
@@ -364,7 +364,7 @@ curl -v -X POST \
 HTTP/1.1 204 No Content
 ```
 
-<ApiLifecycle access="beta" />
+<ApiLifecycle access="ea" />
 Returns an error if the permission exists
 
 ```http
@@ -372,7 +372,7 @@ HTTP/1.1 400 Bad Request
 ```
 
 ### Update permission
-<ApiLifecycle access="beta" />
+<ApiLifecycle access="ea" />
 
 <ApiOperation method="put" url="/api/v1/iam/roles/${roleIdOrLabel}/permissions/${permissionType}" />
 
@@ -456,7 +456,7 @@ Retrieves a permission from an existing Role
 #### Response parameters
 
 The requested Permission<br>
-<ApiLifecycle access="beta" />Includes the conditions on the permission (if applicable)
+<ApiLifecycle access="ea" />Includes the conditions on the permission (if applicable)
 
 #### Request example
 
@@ -487,7 +487,7 @@ curl -v -X GET \
 ```
 
 #### Response example with Conditions
-<ApiLifecycle access="beta" />
+<ApiLifecycle access="ea" />
 
 ```json
 {
@@ -4072,7 +4072,7 @@ User permissions are only effective regarding the Groups to which the admin is g
 | `okta.groups.appAssignment.manage`      | Allows the admin to manage a Group's app assignment (also need `okta.apps.assignment.manage` to assign to a specific App)                            | All Groups, a specific Group                 |
 | `okta.apps.read`                        | Allows the admin to only read information about Apps and their members in your Okta organization                                                     | All Apps, All apps of specific type, a specific App |
 | `okta.apps.manage`                      | Allows the admin to fully manage Apps and their members in your Okta organization                                                                    | All Apps, All apps of specific type, a specific App |
-| `okta.apps.assignment.manage`           | Allows the admin to only manage assignment operations of an App in your Okta org                                                                     | All Apps, All apps of specific type, a specific App |
+| `okta.apps.assignment.manage`           | Allows the admin to manage assignment operations of an App in your Okta org and view the following provisioning errors: Application assignment, Group push mapping, and Error Profile push updates.                                                                   | All Apps, All apps of specific type, a specific App |
 | `okta.profilesources.import.run`         | Allows the admin to run imports for apps with a profile source, such as HRaaS and AD/LDAP apps. Admins with this permission can create users through the import. | All Apps, All apps of specific type, a specific App |
 | `okta.authzServers.read`                | Allows the admin to read authorization servers                                                                                                      | All authorization servers, a specific authorization server |
 | `okta.authzServers.manage`              | Allows the admin to manage authorization servers                                                                                                    | All authorization servers, a specific authorization server |
@@ -4080,14 +4080,27 @@ User permissions are only effective regarding the Groups to which the admin is g
 | `okta.customizations.manage`            | Allows the admin to manage customizations                                                                                                           | All customizations |
 | `okta.identityProviders.read` <ApiLifecycle access="ea" />  | Allows the admin to read Identity Providers                                                                                                           | All Identity Providers |
 | `okta.identityProviders.manage`  <ApiLifecycle access="ea" />  | Allows the admin to manage Identity Providers                                                                                                           | All Identity Providers |
+| `okta.workflows.read`                    | Allows the admin to view delegated flows                                                                                                    | All Delegated Flows, a specific Delegated Flow |
 | `okta.workflows.invoke`                 | Allows the admin to view and run delegated flows                                                                                                    | All Delegated Flows, a specific Delegated Flow |
 | `okta.governance.accessCertifications.manage`   | Allows the admin to view and manage access certification campaigns                                                                  | All Access Certifications |
 | `okta.governance.accessRequests.manage`    | Allows the admin to view and manage Access Requests                                                                                       | All Access Requests |
 | `okta.apps.manageFirstPartyApps`    | Allows the admin to manage first-party apps                                                                                       | All Access Requests |
 | `okta.directories.manage` <ApiLifecycle access="ea" /> | Allows the admin to manage all directory integration settings of an app instance                                                                                                            | All directory integrations, a specific type of directory integration, a specific directory integration |
 | `okta.directories.read` <ApiLifecycle access="ea" />   | Allows the admin to view the directory integration settings of an app instance                                                                                      | All directory integrations, a specific type of directory integration, a specific directory integration |
+| `okta.devices.manage`  <br><ApiLifecycle access="ea" />  | Allows the admin to manage devices and perform all device lifecycle operations                                                                                       | All Devices |
+| `okta.devices.lifecycle.manage`  <br><ApiLifecycle access="ea" />  | Allows the admin to perform any device lifecycle operations                                                                                    | All Devices |
+| `okta.devices.lifecycle.activate` <br><ApiLifecycle access="ea" />                            | Allows the admin to activate devices                                                                                                           | All Devices
+| `okta.devices.lifecycle.deactivate` <br><ApiLifecycle access="ea" />                          | Allows the admin to deactivate devices. When you deactivate a device, it loses all device user links.                                                                                                          | All Devices
+| `okta.devices.lifecycle.suspend` <br><ApiLifecycle access="ea" />                             | Allows the admin to suspend device access to Okta                                      | All Devices
+| `okta.devices.lifecycle.unsuspend` <br><ApiLifecycle access="ea" />                           | Allows the admin to unsuspend and restore device access to Okta                                                                                                      | All Devices
+| `okta.devices.lifecycle.delete` <br><ApiLifecycle access="ea" />                              | Allows the admin to permanently delete devices                                                                                                 | All Devices
+| `okta.devices.read` <br><ApiLifecycle access="ea" />                              | Allows the admin to read device details                                                                                                | All Devices
+
 > **Note:** Governance permissions are currently only supported as part of the [Standard IAM-based Roles](/docs/concepts/role-assignment/#iam-based-standard-role-types). You can't use these to create or update other roles.
+
 > **Note:** `okta.apps.manageFirstPartyApps` permission is only supported as part of some [Standard IAM-based Roles](/docs/concepts/role-assignment/#iam-based-standard-role-types). You can't use it to create or update other roles.
+
+> **Note:** `okta.devices.*` permissions are self-service Early Access. Turn on the **Enable custom admin roles for device permissions** feature from the **Settings** > **Feature** page in the Admin Console to access these permissions. See [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features).
 
 #### Example
 
@@ -4138,6 +4151,7 @@ The following are the supported resources.
 |                         | All Groups                                                          | `orn:${partition}:directory:${yourOrgId}:groups`                                      | [`https://${yourOktaDomain}/api/v1/groups`](/docs/reference/api/groups/#list-groups)                                                                    |
 |                         | A specific Group                                                    | `orn:${partition}:directory:${yourOrgId}:groups:${groupId}`                           | [`https://${yourOktaDomain}/api/v1/groups/${groupId}`](/docs/reference/api/groups/#get-group)                                                           |
 |                         | All Users within a specific Group                                   | `orn:${partition}:directory:${yourOrgId}:groups:${groupId}:contained_resources`       | [`https://${yourOktaDomain}/api/v1/groups/${groupId}/users`](/docs/reference/api/groups/#list-group-members)                                            |
+|                         | All Devices     <br><ApiLifecycle access="ea" />                                                     | `orn:${partition}:directory:${yourOrgId}:devices`                                     | [`https://${yourOktaDomain}/api/v1/devices`](/docs/reference/api/devices)            
 | Identity Provider       | All Apps                                                            | `orn:${partition}:idp:${yourOrgId}:apps`                                              | [`https://${yourOktaDomain}/api/v1/apps`](/docs/reference/api/apps/#list-applications)                                                                  |
 |                         | All Identity Providers    <ApiLifecycle access="ea" />    | `orn:${partition}:idp:${yourOrgId}:identity_provider`  | [`https://${yourOktaDomain}/api/v1/idps`](/docs/reference/api/idps/#list-identity-providers)                                                                  |
 |                         | All Apps of a specific type                                         | `orn:${partition}:idp:${yourOrgId}:apps:${appType}`                                   | [`https://${yourOktaDomain}/api/v1/apps/?filter=name+eq+%22${targetAppType}%22`](/docs/reference/api/apps/#list-apps-by-name)                             |
@@ -4336,7 +4350,7 @@ The ID of a Member is unique to the Binding, whereas the link that points to the
 ```
 
 ## Condition object
-<ApiLifecycle access="beta" />
+<ApiLifecycle access="ea" />
 
 Use a Condition object to further restrict a permission in a Custom Admin Role. For example, you can restrict access to specific profile attributes.
 

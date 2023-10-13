@@ -2,6 +2,10 @@ The following diagram is a sequence of steps for the social sign-in flow with th
 
 <div class="full">
 
-![Displays the social sign-in message flow that uses the Sign-In Widget](/img/oie-embedded-sdk/oie-embedded-widget-go-use-case-social-sign-in.png)
+![A flow diagram showing the interactions in a basic social sign-in flow between user, client application, server-side SDK, Okta, and Facebook using the embedded widget model](/img/oie-embedded-sdk/oie-widget-go-social-sign-in-flow-diagram.png)
+
+<!--
+  Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?type=design&node-id=4371%3A14956&mode=design&t=CD7DklCP7inXOkXn-1  oie-widget-go-social-sign-in-flow-diagram
+-->
 
 </div>

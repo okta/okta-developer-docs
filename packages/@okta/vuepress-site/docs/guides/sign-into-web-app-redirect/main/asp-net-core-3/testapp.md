@@ -1,5 +1,6 @@
 1. Run the project from Visual Studio. The browser loads the welcome page for your new app.
-2. Click **Sign In** and you are redirected to Okta to complete the sign-in flow with OIDC.
-3. After you have successfully signed in, click **Profile** and you should see a list of user information that came along with the ID token from Okta.
+1. Click **Sign In**. The browser redirects you to Okta to sign in using the Sign-In Widget.
+1. Click **Profile**. The profile page displays the user information returned by Okta in the ID token.
+1. Click **Sign Out**. The browser returns you to the home page.
 
-> **Note**: If you are sign in as an administrator in the same browser already, it displays your name. You can open an incognito window and create a test user in the Admin Console to use if you want.
+> **Note**: If you're signed in as an administrator in the same browser already, it displays your name. You can open an incognito window and create a test user in the Admin Console to use.

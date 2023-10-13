@@ -1,14 +1,45 @@
+1. Create a project folder named `okta-flask-quickstart` and a subfolder called `venv`.
+1. Activate the corresponding environment using the following commands:
 
-1. Make sure that you have a recent version of [Python](https://www.python.org/) and [pip](https://pypi.org/project/pip/) installed.
-2. Create a project folder named `okta-flask-quickstart` with a subfolder called `venv`.
-3. Activate the corresponding environment using the following commands:
-
-   ```shell
+   ```bash
    cd okta-flask-quickstart
-   python3 -m venv venv
-   . venv/bin/activate
+   python -m venv venv
+   . venv/scripts/activate  #linux or mac
+   venv/scripts/activate.bat  #windows
    ```
 
-> **Note**: This guide uses requests v2.27.1, Flask v2.0.2, pyOpenSSL v.22.0.0, flask-cors v3.0.10, and Flask-Login v0.5.0.
+   Use the appropriate `activate` command for your OS.
 
-> **Note**: If you're using the Okta CLI, you can also run `okta start flask` to create an app. This command creates an OIDC app in Okta, downloads the [okta-flask-sample](https://github.com/okta-samples/okta-flask-sample), and configures it to work with the OIDC app. This quickstart uses the basic Flask starter app instead, as it's easier to understand the Okta-specific additions if you work through them yourself.
+1. Create **app.py** in your project's root folder.
+1. Add the following code to configure the app.
+
+   ```python
+   import base64
+   import hashlib
+   import requests
+   import secrets
+
+   from flask import Flask, render_template, redirect, request, session, url_for
+   from flask_cors import CORS
+   from flask_login import (
+       LoginManager,
+       current_user,
+       login_required,
+       login_user,
+       logout_user,
+   )
+
+   app = Flask(__name__)
+   app.config.update({'SECRET_KEY': secrets.token_hex(64)})
+   CORS(app)
+
+   login_manager = LoginManager()
+   login_manager.init_app(app)
+
+   @app.route("/")
+   def home():
+       return render_template("signin.html")
+
+   if __name__ == '__main__':
+       app.run(host="localhost", port=5000, debug=True)
+   ```

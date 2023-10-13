@@ -1,6 +1,6 @@
 {
-  "release" : "2023.07.1",
-  "build" : "2023.07.1-begin-153-ga889336f45b7",
+  "release" : "2023.10.1",
+  "build" : "2023.10.1-begin-163-g27f12da6be17",
   "errors" : [ {
     "title" : "API validation exception",
     "includesExceptionMessage" : true,
@@ -1311,7 +1311,7 @@
     "statusCode" : 403,
     "statusReasonPhrase" : "Forbidden",
     "errorCode" : "E0000174",
-    "errorSummary" : "You canât disable Okta FastPass because it is being used by one or more application sign-on policies. First, go to each policy and remove any device conditions. Then, come back and try again.",
+    "errorSummary" : "You can’t disable Okta FastPass because it is being used by one or more application sign-on policies. First, go to each policy and remove any device conditions. Then, come back and try again.",
     "errorDescription" : null
   }, {
     "title" : "Log streaming create failed",
@@ -1712,6 +1712,30 @@
     "statusReasonPhrase" : "Conflict",
     "errorCode" : "E0000230",
     "errorSummary" : "Another authenticator is already associated with idpId: {0}.",
+    "errorDescription" : null
+  }, {
+    "title" : "Etag not matched exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 412,
+    "statusReasonPhrase" : "Precondition Failed",
+    "errorCode" : "E0000231",
+    "errorSummary" : "ETag value doesn't match.",
+    "errorDescription" : null
+  }, {
+    "title" : "Duplicate authenticator nickname exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "errorCode" : "E0000232",
+    "errorSummary" : "Another authenticator enrollment already exists with the same nickname.",
+    "errorDescription" : null
+  }, {
+    "title" : "SMS free org okta verify setup link bloc exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "errorCode" : "E0000233",
+    "errorSummary" : "Okta Verify SMS setup link is a feature only available on paid Okta accounts. To enable this feature please upgrade your free tier org.",
     "errorDescription" : null
   } ]
 }

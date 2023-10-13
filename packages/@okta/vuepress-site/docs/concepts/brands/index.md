@@ -15,9 +15,7 @@ Each org starts with Okta default branding. You can upload your own assets (colo
 
 ### Branding and the Sign-In Widget (third generation)
 
-<ApiLifecycle access="ea" />
-
-The third generation of the Okta Sign-In Widget doesn’t guarantee the stability of CSS selectors. Instead, customization in the third generation gets better support through branding. See [Customizations](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Customization/).
+The third generation of the Okta Sign-In Widget doesn’t guarantee the stability of CSS selectors. Instead, customization in the third generation gets better support through branding. See [Style the Sign-In Widget (third generation)](/docs/guides/custom-widget-gen3/).
 
 ## What is multibrand customization?
 
@@ -52,21 +50,6 @@ You can only visit a branded touchpoint (such as a logo or color) after you map 
 
 Multibrand orgs have a non-deletable default brand called the subdomain brand. However, you can create several custom brands. The subdomain brand always appears at the Okta subdomain URL and can’t have a custom domain. You can swap out the logo and other assets, but you can’t edit custom code for the sign-in page or error pages. You can only use a custom domain and custom code for sign-in pages and error pages on custom brands.
 
-### Multibrand and resource sets
-
-Make a custom admin role specific to a brand by using a customization resource type. See:
-
-- [Create a resource set - Okta Identity Engine](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-resource-set)
-- [Create a resource set - Okta Classic Engine](https://help.okta.com/okta_help.htm?id=ext-create-resource-set)
-
-### Multibrand and emails
-
-When an end user triggers an email, Okta bases its branding on the custom domain from which the end user initiated the flow.
-
-For example, you have a custom domain with branding for the "Widgets, Inc." app. An end user attempts to reset a password from the sign-in page. The sign-in triggers a Forgot Password email. The email has the branding associated with the custom domain for "Widgets, Inc.".
-
-See [Customize email notifications](/docs/guides/custom-email/main/).
-
 ### Use the Admin Console
 
 To use multibrand customization in the Admin Console, see [Branding](https://help.okta.com/okta_help.htm?type=oie&id=csh-branding).
@@ -86,9 +69,36 @@ There are public APIs and updates to existing APIs for multibrand customization:
 - [Sign-out page](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Customization/#tag/Customization/operation/getSignOutPageSettings)
 - [Brand locale](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Customization/#tag/Customization/operation/listBrands)
 
-### Multibrand and authorization servers
+### Multibrand and resource sets
+
+Make a custom admin role specific to a brand by using a customization resource type. See:
+
+- [Create a resource set - Okta Identity Engine](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-resource-set)
+- [Create a resource set - Okta Classic Engine](https://help.okta.com/okta_help.htm?id=ext-create-resource-set)
+
+### Multibrand and emails
+
+If you want to use the Admin Console to send a branded email, consider the following:
+
+- If your org has two or more custom brands, domains, and email addresses:
+	- You can't send branded emails from the Admin Console. Okta uses the request host in the URL to determine which brand and email address to use, and the console only works with the Okta subdomain.
+	- Use an Okta API to trigger the email. To send a User Activation email, send a request to the [Activate a User](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/activateUser) endpoint. Remember to change the domain of your request to the custom domain that's associated with the brand. For example, change `subdomain.okta.com` to `custom.domain.one`.
+- If your org has one custom brand, domain, and email address:
+	- Okta doesn't use your custom email address. The Okta subdomain appears in the *From* line.
+	- Your theming appears in the content of the email (logo, palette, images). With a single custom brand or domain, the Admin Console assumes that you want to send themed content.
+- If your org doesn't have a custom brand, domain, and email address, you can only trigger Okta-branded emails from the Admin Console.
+
+### Multibrand and redirect URIs
 
 Multibrand orgs use dynamic issuer mode for IdP. As a result, Okta uses the domain from the authorize request as the domain for the redirect URI when returning the authentication response. The Admin Console UI displays the org's Okta subdomain when the org has multiple custom domains configured.
+
+URIs that you use in the following settings revert to the Okta subdomain:
+
+- [SAML apps](https://help.okta.com/okta_help.htm?id=ext-apps-about-saml)
+- [OIDC app integration settings&#8212;redirect URI](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-oidc)
+- [Authorization server settings](/docs/guides/customize-authz-server/main/)
+
+You can replace the base path with a custom domain and Okta uses the brand associated with the domain.
 
 ## FAQs
 

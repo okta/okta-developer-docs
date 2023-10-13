@@ -6258,6 +6258,9 @@ If the delete request is received for an active JSON Web Key, you receive an err
 }
 ```
 
+## Application OAuth 2.0 role assignment operations
+
+See [Role assignment operations](/docs/reference/api/roles/#role-assignment-operations).
 
 ## Application OAuth 2.0 scope consent grant operations
 
@@ -8788,10 +8791,10 @@ The application provisioning connection profile is used to configure the method 
 
 #### Token-based Provisioning Connection Profile properties
 
-| Property         | Description                                                  | DataType                                                                    | Nullable | Unique | Readonly |
-| ---------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------- | -------- | ------ | -------- | --------- | --------- | ---------- |
-| authScheme              | Defines the method of authentication     | `TOKEN` | FALSE    | FALSE  | FALSE    |
-| token            | Token used to authenticate with application      | String | FALSE    | FALSE   | FALSE    |
+| Property | Description | DataType | Nullable | Unique | Readonly |
+| -------- | ----------- | -------- | -------- | ------ | -------- |
+| authScheme | Defines the method of authentication | `TOKEN` | FALSE    | FALSE  | FALSE    |
+| token | Token used to authenticate with application | String | FALSE    | FALSE   | FALSE    |
 
 #### OAuth 2.0-based Provisioning Connection Profile example
 ```json
@@ -8805,10 +8808,10 @@ The application provisioning connection profile is used to configure the method 
 
 #### OAuth 2.0-based Provisioning Connection Profile properties
 
-| Property     | Description                                                   | DataType            | Nullable | Unique | Readonly |
-| -------------| ------------------------------------------------------------- | ---------------     | -------- | ------ | -------- | --------- | --------- | ---------- |
-| authScheme   | Defines the method of authentication                          | `OAUTH2`            | FALSE    | FALSE  | FALSE    |
-| clientId     | Unique client identifier for the OAuth 2.0 service app from the target org  | String    | FALSE    | FALSE  | FALSE    |
+| Property | Description | DataType  | Nullable | Unique | Readonly |
+| ---------| ----------- | --------  | -------- | ------ | -------- |
+| authScheme   | Defines the method of authentication  | `OAUTH2` | FALSE    | FALSE  | FALSE    |
+| clientId     | Unique client identifier for the OAuth 2.0 service app from the target org  | String  | FALSE    | FALSE  | FALSE    |
 
 ### Application Feature object
 
@@ -8869,18 +8872,18 @@ The Feature object is used to configure settings of the application. For example
 
 The Capabilities object is used to configure settings specific to an app feature.
 
-| Property         | Description                                                  | DataType                                                                    | Nullable | Unique | Readonly |
-| ---------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------- | -------- | ------ | -------- | --------- | --------- | ---------- |
-| create            | Determines whether Okta assigns a new application account to each user managed by Okta | [Create Object](#create-object)  | TRUE    | FALSE   | FALSE    |
-| update            | Determines whether updates to a user's profile are pushed to the application | [Update Object](#update-object)  | TRUE    | FALSE   | FALSE    |
+| Property  | Description | DataType | Nullable | Unique | Readonly |
+| --------- | ----------- | -------- | -------- | ------ | -------- |
+| create | Determines whether Okta assigns a new application account to each user managed by Okta | [Create Object](#create-object)  | TRUE    | FALSE   | FALSE    |
+| update | Determines whether updates to a user's profile are pushed to the application | [Update Object](#update-object)  | TRUE    | FALSE   | FALSE    |
 
 ###### Create object
 
 The Create object is a single setting to specify whether Okta assigns a new application account to each user managed by Okta. Okta doesn't create a new account if it detects that the username specified in Okta already exists in the application. The user's Okta username is assigned by default.
 
-| Property         | Description                                                  | DataType                                                                    | Nullable | Unique | Readonly |
-| ---------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------- | -------- | ------ | -------- |
-| lifecycleCreate  | Setting that determines whether the updates to a user in Okta will be update a user in the application   | [Lifecycle Create Setting Object](##lifecycle-create-setting-object)      | TRUE    | FALSE   | FALSE    |           |
+| Property | Description  | DataType  | Nullable | Unique | Readonly |
+| -------- | ------------ | --------- | -------- | ------ | -------- |
+| lifecycleCreate  | Setting that determines whether the updates to a user in Okta will be update a user in the application   | [Lifecycle Create Setting Object](##lifecycle-create-setting-object)      | TRUE    | FALSE   | FALSE    |
 
 ```json
 {
@@ -8894,11 +8897,11 @@ The Create object is a single setting to specify whether Okta assigns a new appl
 
 There are multiple settings in the Create object that determine if an Okta user profile change, user deactivation, or a password change will update a user in the application.
 
-| Property         | Description                                                  | DataType                                                                    | Nullable | Unique | Readonly |
-| ---------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------- | -------- | ------ | -------- |
-| lifecycleDeactivate           | Setting that determines whether deprovisioning will occur when app is unassigned  | [Lifecycle Deactivate Setting Object](#lifecycle-deactivate-setting-object)   | TRUE    | FALSE   | FALSE    |
-| password           | Setting that determines whether Okta creates and pushes a password in the application for each assigned user | [Password Setting Object](#password-setting-object)    | TRUE    | FALSE   | FALSE    |
-| profile           | Setting that determines whether the updates to a user in Okta will be update a user in the application.     | [Profile Setting Object](#profile-setting-object)     | TRUE    | FALSE   | FALSE    |
+| Property | Description | DataType | Nullable | Unique | Readonly |
+| -------- | ----------- | -------- | -------- | ------ | -------- |
+| lifecycleDeactivate | Setting that determines whether deprovisioning will occur when app is unassigned  | [Lifecycle Deactivate Setting Object](#lifecycle-deactivate-setting-object) | TRUE    | FALSE   | FALSE    |
+| password | Setting that determines whether Okta creates and pushes a password in the application for each assigned user | [Password Setting Object](#password-setting-object)    | TRUE    | FALSE   | FALSE    |
+| profile | Setting that determines whether the updates to a user in Okta will be update a user in the application | [Profile Setting Object](#profile-setting-object)     | TRUE    | FALSE   | FALSE    |
 
 ```json
 {
@@ -8920,24 +8923,24 @@ There are multiple settings in the Create object that determine if an Okta user 
 
 Assigns a new application account to each user managed by Okta. Okta doesn't create a new account if it detects that the username specified in Okta already exists in the application. The user's Okta username is assigned by default.
 
-| Property         | Description                                                  | DataType                                                                    | Nullable | Unique | Readonly | Default |
-| ---------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------- | -------- | ------ | -------- | --------- |
-| status   | Status of the setting     | `ENABLED`, `DISABLED` | FALSE    | FALSE   | FALSE    | `DISABLED` |
+| Property | Description | DataType | Nullable | Unique | Readonly | Default |
+| -------- | ----------- | -------- | -------- | ------ | -------- | --------- |
+| status   | Status of the setting | `ENABLED`, `DISABLED` | FALSE    | FALSE   | FALSE    | `DISABLED` |
 
 ###### Lifecycle Deactivate Setting object
 
 Deactivates a user's application account when it is unassigned in Okta or if their Okta account is deactivated. Accounts can be reactivated if the app is reassigned to a user in Okta.
 
-| Property         | Description                                                  | DataType                                                                    | Nullable | Unique | Readonly | Default |
-| ---------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------- | -------- | ------ | -------- | --------- |
+| Property | Description | DataType | Nullable | Unique | Readonly | Default |
+| -------- | ----------- | -------- | -------- | ------ | -------- | ------- |
 | status   | Status of the setting     | `ENABLED`, `DISABLED` | FALSE    | FALSE   | FALSE    | `DISABLED` |
 
 ###### Password Setting object
 
 Ensures users' app passwords are always the same as their Okta passwords or allows Okta to generate a unique password for the user.
 
-| Property         | Description                                                  | DataType                                                                    | Nullable | Unique | Readonly | Default |
-| ---------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------- | -------- | ------ | -------- | --------- | --------- | ---------- |
+| Property | Description | DataType | Nullable | Unique | Readonly | Default |
+| -------- | ----------- | -------- | -------- | ------ | -------- | ------- |
 | change | Determines whether a change in a users password will also update the password in the application.   | `KEEP_EXISTING`, `CHANGE` | TRUE  | FALSE   | FALSE    | `KEEP_EXISTING` |
 | seed | Determines whether the generated password is the users Okta password or a randomly generated password.   | `OKTA`, `RANDOM`  | TRUE  | FALSE | FALSE  |  `RANDOM`  |
 | status | Status of the setting     | `ENABLED`, `DISABLED` | FALSE    | FALSE  | FALSE  |  `DISABLED` |
@@ -8956,9 +8959,9 @@ Ensures users' app passwords are always the same as their Okta passwords or allo
 
 Okta updates a user's attributes in the application when the application is assigned. Future changes made to the Okta user's profile automatically overwrite the corresponding attribute value in the application.
 
-| Property         | Description                                                  | DataType                                                                    | Nullable | Unique | Readonly | Default |
-| ---------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------- | -------- | ------ | -------- | --------- |
-| status   | Status of the setting     | `ENABLED`, `DISABLED` | FALSE    | FALSE   | FALSE    | `DISABLED`  |
+| Property | Description | DataType | Nullable | Unique | Readonly | Default |
+| -------- | ----------- | -------- | -------- | ------ | -------- | ------- |
+| status   | Status of the setting | `ENABLED`, `DISABLED` | FALSE    | FALSE   | FALSE    | `DISABLED`  |
 
 ### Client Secret Request object
 

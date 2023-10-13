@@ -1,6 +1,6 @@
 {
-  "release" : "2023.07.1",
-  "build" : "2023.07.1-begin-153-ga889336f45b7",
+  "release" : "2023.10.1",
+  "build" : "2023.10.1-begin-163-g27f12da6be17",
   "errors" : [ {
     "title" : "Access denied",
     "statusCode" : 403,
@@ -322,14 +322,14 @@
     "statusReasonPhrase" : "Forbidden",
     "internalErrorCode" : "direct_auth_not_challenged_for_required_factor_type",
     "errorCode" : "access_denied",
-    "errorDescription" : "Unable to prompt for the requested authenticators. Review the Authentication Policyâs requirements or request another authenticator and try again."
+    "errorDescription" : "Unable to prompt for the requested authenticators. Review the Authentication Policy’s requirements or request another authenticator and try again."
   }, {
     "title" : "Direct auth factor enrollment required",
     "statusCode" : 403,
     "statusReasonPhrase" : "Forbidden",
     "internalErrorCode" : "direct_auth_factor_enrollment_required",
     "errorCode" : "access_denied",
-    "errorDescription" : "The required authenticator cannot be used to sign-in. Check if it is included in the authentication policy and the user is enrolled in the authenticator and try again."
+    "errorDescription" : "The required authenticator cannot be used. Check if it is required by policy and the user is enrolled in the authenticator and try again."
   }, {
     "title" : "Direct auth expired token",
     "statusCode" : 403,
@@ -351,6 +351,27 @@
     "internalErrorCode" : "direct_auth_prompted_grant_type_disabled_for_client",
     "errorCode" : "access_denied",
     "errorDescription" : "The grant types required to satisfy sign on policy are disabled for the client."
+  }, {
+    "title" : "Direct auth recovery authenticator disabled",
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "internalErrorCode" : "direct_auth_recovery_authenticator_disabled",
+    "errorCode" : "access_denied",
+    "errorDescription" : "Authenticators required by recovery policy are not enabled authenticators."
+  }, {
+    "title" : "Direct auth recovery not enabled for user",
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "internalErrorCode" : "direct_auth_recovery_not_enabled_for_user",
+    "errorCode" : "access_denied",
+    "errorDescription" : "Password recovery is not enabled for the user."
+  }, {
+    "title" : "Direct auth recovery no empty auth chain",
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "internalErrorCode" : "direct_auth_recovery_empty_auth_chain",
+    "errorCode" : "access_denied",
+    "errorDescription" : "Recovery policy does not specify any authenticators that can be used for recovery."
   }, {
     "title" : "Authorization pending",
     "statusCode" : 400,
@@ -1087,6 +1108,13 @@
     "errorCode" : "invalid_grant",
     "errorDescription" : "User rejected out-of-band authentication prompt."
   }, {
+    "title" : "Direct auth invalid login hint",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "direct_auth_invalid_login_hint",
+    "errorCode" : "invalid_grant",
+    "errorDescription" : "The 'login_hint' does not uniquely identify a user."
+  }, {
     "title" : "Invalid initiate login URI",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
@@ -1660,6 +1688,13 @@
     "internalErrorCode" : "direct_auth_invalid_intent",
     "errorCode" : "invalid_request",
     "errorDescription" : "'{0}' is an invalid intent."
+  }, {
+    "title" : "Direct auth missing login hint",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "direct_auth_missing_login_hint",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "A 'login_hint' is required for the request."
   }, {
     "title" : "Invalid request object",
     "statusCode" : 400,

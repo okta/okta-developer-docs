@@ -1,5 +1,9 @@
 <template>
-  <section class="hero">
+  <!-- Remove style attribute from .hero section when removing promo banner -->
+  <section
+    class="hero"
+    style="padding-top: 28px; padding-bottom: 28px;"
+  >
     <div class="hero__wrapper wrapper">
       <h1 class="hero__title dont-break-out">
         Okta developer
@@ -7,6 +11,15 @@
       <p class="hero__paragraph dont-break-out">
         Our developer portal enables you to deploy auth that protects your users, apps, APIs, and infrastructure.
       </p>
+      <!-- Start workshops promo banner -->
+      <p style="color: white; font-size: 18px; line-height: 1.4; max-width: 500px;">
+        Get your app <a
+          style="color: white; text-decoration: underline;"
+          href="https://regionalevents.okta.com/enterprisereadyworkshops"
+          target="_blank"
+        >enterprise-ready with free virtual workshops</a>!
+      </p>
+      <!-- End workshops promo banner -->
     </div>
   </section>
 </template>

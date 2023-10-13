@@ -28,7 +28,7 @@ Before you begin, be sure to:
     ```
 
 7. In the response, locate the rule that you want to modify, copy its `id` value, and copy the `actions` property section of the JSON payload.
-    > **Note:** The rule named `Default Rule` cannot be modified. Therefore, copy the `id` value of a custom rule instead. If you only see a `Default Rule` in the response, then you should first [create a custom rule](/docs/guides/customize-authz-server/create-rules-for-policy/).
+    > **Note:** You can't modify the `Default Rule` properties `usePersistentCookie` or `maxSessionLifetimeMinutes`. Copy the `id` value of a custom rule instead. If you only see a `Default Rule` in the response, then you should first [create a custom rule](/docs/guides/customize-authz-server/create-rules-for-policy/).
 
     > **Tip:** You can also highlight the rule ID, right-click, and set it as the value for the `ruleId` variable in your environment.
 8. Click the **Update Global Session Policy rule** request to open it.

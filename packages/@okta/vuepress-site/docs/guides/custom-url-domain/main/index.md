@@ -46,17 +46,29 @@ Okta serves pages on your custom domain over HTTPS. To set up this feature, you 
 
 You can also [configure a custom email address](#about-custom-email-addresses) to present a branded experience to your end users.
 
+> **Note:** When you create a custom domain, the Okta domain (for example, `company.okta.com`) still works.
+
 ### Multibrand and custom domains
 
 You can create up to three custom domains with multibrand customizations and up to 200 custom domains by contacting support to increase your limit.
 
 You can only preview or visit a branded page (such as viewing brand assets applied to the Okta-hosted sign-in page) after you map to a custom domain. After you create a brand, map it to a custom domain. Then you can make further customizations, preview them, and publish them.
 
-#### Branding and the Sign-In Widget third generation
+#### Redirect URIs
 
-<ApiLifecycle access="ea" />
+Multibrand orgs use dynamic issuer mode for IdP. As a result, Okta uses the domain from the authorize request as the domain for the redirect URI when returning the authentication response. The Admin Console UI displays the org's Okta subdomain when the org has multiple custom domains configured.
 
-The third generation of the Okta Sign-In Widget doesn’t guarantee the stability of CSS selectors. Instead, customization in the third generation gets better support through branding. See [Customizations](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Customization/).
+URIs that you use in the following settings revert to the Okta subdomain:
+
+- [SAML apps](https://help.okta.com/okta_help.htm?id=ext-apps-about-saml)
+- [OIDC app integration settings&#8212;redirect URI](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-oidc)
+- [Authorization server settings](/docs/guides/customize-authz-server/main/)
+
+You can replace the base path with a custom domain and Okta uses the brand associated with the domain.
+
+#### Branding and the Sign-In Widget (third generation)
+
+The third generation of the Okta Sign-In Widget doesn’t guarantee the stability of CSS selectors. Instead, customization in the third generation gets better support through branding. See [Style the Sign-In Widget (third generation)](/docs/guides/custom-widget-gen3/).
 
 ### Caveats
 
@@ -102,16 +114,6 @@ The third generation of the Okta Sign-In Widget doesn’t guarantee the stabilit
 * When an admin signs in to the custom domain and then accesses the Admin Console from their user dashboard, the org domain changes from the custom domain to the Okta domain.
 
 * If you disable a custom domain, the `issuerMode` for Identity Providers, authorization servers, and OpenID Connect apps is set back to `ORG_URL`.
-
-### Common questions
-
-**Q: Can I add more than one domain?**
-
-No. You can only set up one custom domain per Okta org.
-
-**Q: Does the existing Okta domain work?**
-
-Yes. When you turn the custom domain on, the Okta domain (for example, `example.okta.com`) still works.
 
 ## Use an Okta-managed certificate
 

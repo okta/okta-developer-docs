@@ -10,7 +10,7 @@ The Okta Integration Network (OIN) is a collection of over 7000 pre-built app in
 To get your app integration into the OIN:
 
 1. [Build an app integration](/docs/guides/build-sso-integration/) using a free [Okta Developer Edition org](https://developer.okta.com/signup/) and any of the wide array of [languages and libraries](/code/) supported by Okta.
-1. [Submit your app](/docs/guides/submit-app/) integration for verification and approval by the Okta OIN team.
+1. [Submit your app](/docs/guides/submit-app-overview/) integration for verification and approval by the Okta OIN team.
 
 Your app is available in the OIN for the Okta community to use after Okta verifies and publishes your app integration.
 
@@ -34,7 +34,7 @@ Okta supports two protocols for handling federated SSO: OpenID Connect (OIDC) an
 | **Description** | [OpenID Connect](/docs/concepts/oauth-openid/#openid-connect) extends OAuth 2.0 to provide an ID token that can be used to verify a user’s identity and sign them into a cloud-based app. It's quickly becoming the new standard for SSO. | [Security Assertion Markup Language (SAML)](/docs/concepts/saml) is a traditional enterprise protocol for SSO in web applications. Okta supports SAML 2.0. |
 | **Benefits** | <ul><li>Newer protocol with widespread and growing use.</li> <li>Best Okta customer configuration experience</li> <li>Ideal for mobile and cloud apps</li> </ul> | <ul><li>Many people are familiar with SAML because it's an older protocol</li> <li>Widely used federation protocol for SSO in web apps</li> <li>Many SaaS providers support SAML integration to grant SSO access to end users</li></ul>|
 | **Technology** | <ul><li>An identity layer on top of the [OAuth 2.0](https://oauth.net/2/) protocol</li> <li>Verifies end-user identity and obtains profile information</li> <li>Lightweight and REST-based</li></ul> |   <ul><li>XML-based messages</li> <li>Specification doesn’t have user consent, although it can be built into the flow</li> </ul> |
-| **Resources** | <ul><li>[OpenID Connect Foundation](https://openid.net/connect/)</li><li>[OIDC: multi-tenancy in the OIN](#oidc-multi-tenancy-in-the-oin)</li></ul>| <ul><li>[SAML 2.0 Technical Overview](http://docs.oasis-open.org/security/saml/Post2.0/sstc-saml-tech-overview-2.0.html) </li></ul> |
+| **Resources** | <ul><li>[OpenID Connect Foundation](https://openid.net/connect/)</li></ul>| <ul><li>[SAML 2.0 Technical Overview](http://docs.oasis-open.org/security/saml/Post2.0/sstc-saml-tech-overview-2.0.html) </li></ul> |
 | **Get started** | <ul><li>[Build an Okta SSO integration with OIDC](/docs/guides/build-sso-integration/openidconnect/main/)  </li></ul>| <ul><li>[Build an Okta SSO integration with SAML](/docs/guides/build-sso-integration/saml2/main/) </li></ul> |
 
 > **Note:** For specific OIDC and SAML protocol features not supported in the OIN, see [OIN submission limitations](/docs/guides/submit-app-prereq/main/#oin-limitations).
@@ -53,7 +53,7 @@ As an example, `alice.doe@example.com` is a registered Okta user in both Company
 
 Okta orgs host their interfaces through individual subdomains and each org is assigned a separate URL. The typical org URL is the tenant name (the subdomain) followed by the domain name. However, you can customize the domain name for your own domain and add individual aliases for each of your tenants.
 
-> **Note:** The process for specifying the variable app instance names in an OIDC app is explained in the [Publish an OIN integration: OIDC settings](/docs/guides/submit-app/openidconnect/main/#configure-protocol-or-tool-specific-settings).
+> **Note:** The process for specifying the variable app instance names in an OIDC app is explained in the [Submit an SSO integration: OIDC settings](/docs/guides/submit-sso-app/openidconnect/main/#oidc-settings).
 
 ## Use case examples
 
@@ -104,6 +104,6 @@ Ready to get started? Choose how you want to implement your SSO app integration:
 </Cards>
 <br>
 
-After your app integration is built and tested, [review the submission requirements](/docs/guides/submit-app-prereq/main/) and [submit the integration](/docs/guides/submit-app/) to the Okta OIN team for verification and publication.
+After your app integration is built and tested, [review the submission requirements](/docs/guides/submit-app-prereq/main/) and [submit the integration](/docs/guides/submit-app-overview/) to the Okta OIN team for verification and publication.
 
 Want to automate even more for your customers and increase adoption of your product? Learn more about [lifecycle management integration](/docs/guides/oin-lifecycle-mgmt-overview/) in the OIN.

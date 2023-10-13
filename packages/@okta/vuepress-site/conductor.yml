@@ -92,7 +92,7 @@ redirects:
   - from: /docs/reference/api/index.html
     to: /docs/reference/
   - from: /docs/api/rest/events.html
-    to: /docs/reference/api/events/index.html
+    to: /docs/reference/api/system-log/index.html
   - from: /docs/api/resources/factor_admin.html
     to: /docs/reference/api/factor-admin/index.html
   - from: /docs/api/resources/factor_admin/index.html
@@ -306,7 +306,7 @@ redirects:
   - from: /docs/examples/session_cookie.html
     to: /docs/guides/session-cookie/index.html
   - from: /use_cases/events-api-deprecation/index.html
-    to: /docs/concepts/events-api-migration/index.html
+    to: /docs/reference/api/system-log/index.html
   - from: /use_cases/inline_hooks/api_am_hook/api_am_hook
     to: /docs/reference/token-hook/
   - from: /use_cases/integrate_with_okta/index.html
@@ -418,7 +418,7 @@ redirects:
   - from: /use_cases/event_hooks/index.html
     to: /docs/concepts/event-hooks/
   - from: /use_cases/events-api-migration/index.html
-    to: /docs/concepts/events-api-migration/
+    to: /docs/reference/api/system-log/
   - from: /use_cases/inline_hooks/index.html
     to: /docs/concepts/inline-hooks/
   - from: /use_cases/inline_hooks/registration_hook/registration_hook/index.html
@@ -462,7 +462,7 @@ redirects:
   - from: /docs/api/resources/oauth-clients/index.html
     to: /docs/reference/api/oauth-clients/
   - from: /docs/api/resources/events/index.html
-    to: /docs/reference/api/events/
+    to: /docs/reference/api/system-log/
   - from: /docs/api/resources/event-hooks/index.html
     to: /docs/reference/api/event-hooks/
   - from: /docs/api/resources/event-types/index.html
@@ -736,7 +736,7 @@ redirects:
   - from: /use_cases/event_hooks
     to: /docs/concepts/event-hooks/
   - from: /use_cases/events-api-migration
-    to: /docs/concepts/events-api-migration/
+    to: /docs/reference/api/system-log/
   - from: /use_cases/inline_hooks
     to: /docs/concepts/inline-hooks/
   - from: /use_cases/inline_hooks/registration_hook/registration_hook
@@ -776,7 +776,7 @@ redirects:
   - from: /docs/api/resources/oauth-clients
     to: /docs/reference/api/oauth-clients/
   - from: /docs/api/resources/events
-    to: /docs/reference/api/events/
+    to: /docs/reference/api/system-log/
   - from: /docs/api/resources/event-hooks
     to: /docs/reference/api/event-hooks/
   - from: /docs/api/resources/factors
@@ -878,7 +878,7 @@ redirects:
   - from: /docs/api/resources/oauth-clients.html
     to: /docs/reference/api/oauth-clients/
   - from: /docs/api/resources/events.html
-    to: /docs/reference/api/events/
+    to: /docs/reference/api/system-log/
   - from: /docs/api/resources/event-hooks.html
     to: /docs/reference/api/event-hooks/
   - from: /docs/api/resources/factors.html
@@ -1892,7 +1892,7 @@ redirects:
   - from: /docs/guides/build-provisioning-integration/review-scim-docs/index.html
     to: /docs/guides/scim-provisioning-integration-prepare/main/#preparation
   - from: /docs/guides/build-provisioning-integration/submit-for-review/index.html
-    to: /docs/guides/submit-app/openidconnect/main/#understand-the-submission-review-process
+    to: /docs/guides/submit-app-overview/#understand-the-submission-review-process
   - from: /docs/guides/build-provisioning-integration/test-scim-server/index.html
     to: /docs/guides/scim-provisioning-integration-prepare/main/#test-your-scim-api
   - from: /docs/guides/build-provisioning-integration/-/overview/index.html
@@ -1922,9 +1922,9 @@ redirects:
   - from: /docs/guides/build-sso-integration/saml/test-your-app/index.html
     to: /docs/guides/build-sso-integration/saml2/main/#test-your-integration
   - from: /docs/guides/submit-app/prepare-for-submission/index.html
-    to: /docs/guides/submit-app/
+    to: /docs/guides/submit-app-prereq/
   - from: /docs/guides/submit-app/submit/index.html
-    to: /docs/guides/submit-app/-/main/#configure-general-settings
+    to: /docs/guides/submit-app-overview/
   - from: /docs/api/getting_started/api_test_client
     to: /code/rest/
   - from: /docs/guides/build-sso-integration/submit-your-app/index.html
@@ -4326,7 +4326,7 @@ redirects:
   - from: /docs/guides/validate-id-tokens/overview/index.html
     to: /docs/guides/validate-id-tokens/
   - from: /docs/guides/submit-app/-/overview
-    to: /docs/guides/submit-app/
+    to: /docs/guides/submit-app-overview/
   - from: /docs/guides/submit-app/-/create-guide
     to: /docs/guides/submit-app-prereq/main/#customer-configuration-document-guidelines
   - from: /docs/guides/submit-app/-/submission1-general
@@ -4334,7 +4334,7 @@ redirects:
   - from: /docs/guides/submit-app/-/submission2-specific
     to: /docs/guides/submit-app/-/main/#configure-protocol-specific-settings
   - from: /docs/guides/submit-app/-/submission3-process
-    to: /docs/guides/submit-app/openidconnect/main/#understand-the-submission-review-process
+    to: /docs/guides/submit-app-overview/#understand-the-submission-review-process
   - from: /docs/guides/submit-app/-/update-submission
     to: /docs/guides/submit-app/-/main/#update-your-published-integration
   - from: /docs/guides/submit-app/-/overview/index.html
@@ -4344,63 +4344,63 @@ redirects:
   - from: /docs/guides/submit-app/-/submission1-general/index.html
     to: /docs/guides/submit-app/-/main/#configure-general-settings
   - from: /docs/guides/submit-app/-/submission2-specific/index.html
-    to: /docs/guides/submit-app/-/main/#configure-protocol-specific-settings
+    to: /docs/guides/submit-app/-/main/#configure-protocol-or-tool-specific-settings
   - from: /docs/guides/submit-app/-/submission3-process/index.html
-    to: /docs/guides/submit-app/openidconnect/main/#understand-the-submission-review-process
+    to: /docs/guides/submit-app-overview/#understand-the-submission-review-process
   - from: /docs/guides/submit-app/-/update-submission/index.html
     to: /docs/guides/submit-app/-/main/#update-your-published-integration
   - from: /docs/guides/submit-app/openidconnect/overview
-    to: /docs/guides/submit-app/openidconnect/main
+    to: /docs/guides/submit-app-overview/
   - from: /docs/guides/submit-app/openidconnect/create-guide
     to: /docs/guides/submit-app-prereq/main/#customer-configuration-document-guidelines
   - from: /docs/guides/submit-app/openidconnect/submission1-general
-    to: /docs/guides/submit-app/openidconnect/main/#configure-general-settings
+    to: /docs/guides/submit-sso-app/openidconnect/main/#configure-general-settings
   - from: /docs/guides/submit-app/openidconnect/submission2-specific
-    to: /docs/guides/submit-app/openidconnect/main/#configure-protocol-specific-settings
+    to: /docs/guides/submit-sso-app/openidconnect/main/#configure-protocol-specific-settings
   - from: /docs/guides/submit-app/openidconnect/submission3-process
-    to: /docs/guides/submit-app/openidconnect/main/#understand-the-submission-review-process
+    to: /docs/guides/submit-app-overview/#understand-the-submission-review-process
   - from: /docs/guides/submit-app/openidconnect/update-submission
-    to: /docs/guides/submit-app/openidconnect/main/#update-your-published-integration
+    to: /docs/guides/submit-sso-app/openidconnect/main/#update-your-published-integration
   - from: /docs/guides/submit-app/faqs
-    to: /docs/guides/submit-app/openidconnect/main/#see-also
+    to: /docs/guides/submit-app-overview/
   - from: /docs/guides/submit-app/openidconnect/overview/index.html
-    to: /docs/guides/submit-app/openidconnect/main
+    to: /docs/guides/submit-app-overview/
   - from: /docs/guides/submit-app/openidconnect/create-guide/index.html
     to: /docs/guides/submit-app-prereq/main/#customer-configuration-document-guidelines
   - from: /docs/guides/submit-app/openidconnect/submission1-general/index.html
-    to: /docs/guides/submit-app/openidconnect/main/#configure-general-settings
+    to: /docs/guides/submit-sso-app/openidconnect/main/#configure-general-settings
   - from: /docs/guides/submit-app/openidconnect/submission2-specific/index.html
-    to: /docs/guides/submit-app/openidconnect/main/#configure-protocol-specific-settings
+    to: /docs/guides/submit-sso-app/openidconnect/main/#configure-protocol-specific-settings
   - from: /docs/guides/submit-app/openidconnect/submission3-process/index.html
-    to: /docs/guides/submit-app/openidconnect/main/#understand-the-submission-review-process
+    to: /docs/guides/submit-app-overview/#understand-the-submission-review-process
   - from: /docs/guides/submit-app/openidconnect/update-submission/index.html
-    to: /docs/guides/submit-app/openidconnect/main/#update-your-published-integration
+    to: /docs/guides/submit-sso-app/openidconnect/main/#update-your-published-integration
   - from: /docs/guides/submit-app/faqs/index.html
-    to: /docs/guides/submit-app/openidconnect/main/#see-also
+    to: /docs/guides/submit-sso-app/openidconnect/main/#see-also
   - from: /docs/guides/submit-app/saml2/overview
-    to: /docs/guides/submit-app/saml2/main
+    to: /docs/guides/submit-sso-app/saml2/main
   - from: /docs/guides/submit-app/saml2/create-guide
     to: /docs/guides/submit-app-prereq/main/#customer-configuration-document-guidelines
   - from: /docs/guides/submit-app/saml2/submission1-general
-    to: /docs/guides/submit-app/saml2/main/#configure-general-settings
+    to: /docs/guides/submit-sso-app/saml2/main/#configure-general-settings
   - from: /docs/guides/submit-app/saml2/submission2-specific
-    to: /docs/guides/submit-app/saml2/main/#configure-protocol-specific-settings
+    to: /docs/guides/submit-sso-app/saml2/main/#configure-protocol-specific-settings
   - from: /docs/guides/submit-app/saml2/submission3-process
-    to: /docs/guides/submit-app/saml2/main/#understand-the-submission-review-process
+    to: /docs/guides/submit-app-overview/#understand-the-submission-review-process
   - from: /docs/guides/submit-app/saml2/update-submission
-    to: /docs/guides/submit-app/saml2/main/#update-your-published-integration
+    to: /docs/guides/submit-sso-app/saml2/main/#update-your-published-integration
   - from: /docs/guides/submit-app/saml2/overview/index.html
-    to: /docs/guides/submit-app/saml2/main
+    to: /docs/guides/submit-sso-app/saml2/main
   - from: /docs/guides/submit-app/saml2/create-guide/index.html
     to: /docs/guides/submit-app-prereq/main/#customer-configuration-document-guidelines
   - from: /docs/guides/submit-app/saml2/submission1-general/index.html
-    to: /docs/guides/submit-app/saml2/main/#configure-general-settings
+    to: /docs/guides/submit-sso-app/saml2/main/#configure-general-settings
   - from: /docs/guides/submit-app/saml2/submission2-specific/index.html
-    to: /docs/guides/submit-app/saml2/main/#configure-protocol-specific-settings
+    to: /docs/guides/submit-sso-app/saml2/main/#configure-protocol-specific-settings
   - from: /docs/guides/submit-app/saml2/submission3-process/index.html
-    to: /docs/guides/submit-app/saml2/main/#understand-the-submission-review-process
+    to: /docs/guides/submit-app-overview/#understand-the-submission-review-process
   - from: /docs/guides/submit-app/saml2/update-submission/index.html
-    to: /docs/guides/submit-app/saml2/main/#update-your-published-integration
+    to: /docs/guides/submit-sso-app/saml2/main/#update-your-published-integration
   - from: /docs/guides/submit-app/scim/overview
     to: /docs/guides/submit-app/scim/main
   - from: /docs/guides/submit-app/scim/create-guide
@@ -4408,9 +4408,9 @@ redirects:
   - from: /docs/guides/submit-app/scim/submission1-general
     to: /docs/guides/submit-app/scim/main/#configure-general-settings
   - from: /docs/guides/submit-app/scim/submission2-specific
-    to: /docs/guides/submit-app/scim/main/#configure-protocol-specific-settings
+    to: /docs/guides/submit-app/scim/main/#configure-protocol-or-tool-specific-settings
   - from: /docs/guides/submit-app/scim/submission3-process
-    to: /docs/guides/submit-app/scim/main/#understand-the-submission-review-process
+    to: /docs/guides/submit-app-overview/#understand-the-submission-review-process
   - from: /docs/guides/submit-app/scim/update-submission
     to: /docs/guides/submit-app/scim/main/#update-your-published-integration
   - from: /docs/guides/submit-app/scim/overview/index.html
@@ -4422,9 +4422,17 @@ redirects:
   - from: /docs/guides/submit-app/scim/submission2-specific/index.html
     to: /docs/guides/submit-app/scim/main/#configure-protocol-specific-settings
   - from: /docs/guides/submit-app/scim/submission3-process/index.html
-    to: /docs/guides/submit-app/scim/main/#understand-the-submission-review-process
+    to: /docs/guides/submit-app-overview/#understand-the-submission-review-process
   - from: /docs/guides/submit-app/scim/update-submission/index.html
     to: /docs/guides/submit-app/scim/main/#update-your-published-integration
+  - from: /docs/guides/submit-app/openidconnect/main
+    to: /docs/guides/submit-sso-app/openidconnect/main/
+  - from: /docs/guides/submit-app/openidconnect/main/index.html
+    to: /docs/guides/submit-sso-app/openidconnect/main/
+  - from: /docs/guides/submit-app/saml2/main
+    to: /docs/guides/submit-sso-app/saml2/main/
+  - from: /docs/guides/submit-app/saml2/main/index.html
+    to: /docs/guides/submit-sso-app/saml2/main/
   - from: /docs/guides/deploy-your-app/overview
     to: /docs/guides/deploy-your-app/java/main/
   - from: /docs/guides/deploy-your-app/java
@@ -5583,6 +5591,14 @@ redirects:
     to: /docs/reference/api/brands/
   - from: /docs/guides/customize-themes
     to: /docs/reference/api/brands/
+  - from: /docs/concepts/events-api-migration/index.html
+    to: /docs/reference/api/system-log/
+  - from: /docs/concepts/events-api-migration
+    to: /docs/reference/api/system-log/
+  - from: /docs/reference/api/events/index.html
+    to: /docs/reference/api/system-log/
+  - from:  /docs/reference/api/events
+    to: /docs/reference/api/system-log/
   - from: /docs/reference/beta-only/index.html
     to: /docs/reference/#apis-documented-only-on-the-new-beta-reference
   - from: /docs/reference/beta-only

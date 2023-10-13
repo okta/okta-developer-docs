@@ -327,7 +327,7 @@ Learn about these and other improvements at [the Git site](https://github.com/ok
 Two Session API endpoints, `GET /api/v1/sessions/me` and `POST /sessions/me/lifecycle/refresh`, return `/me` instead of `/${userId}` in response links.
 These links are CORS-enabled, consistent with the original API calls which are also CORS-enabled.
 
-For more information, see [Get Session](/docs/reference/api/sessions/#get-session) or [Refresh Session](/docs/reference/api/sessions/#refresh-session).<!-- OKTA-98961 -->
+For more information, see [Get Session](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Session/#tag/Session/operation/getSession) or [Refresh Session](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Session/#tag/Session/operation/refreshSession).<!-- OKTA-98961 -->
 
 ### Bugs Fixed
 

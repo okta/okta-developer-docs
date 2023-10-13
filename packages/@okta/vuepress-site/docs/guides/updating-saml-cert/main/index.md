@@ -4,206 +4,172 @@ excerpt: Upgrade SAML Apps to SHA256
 layout: Guides
 ---
 
-This guide explains how to upgrade older Okta SAML apps from SHA1 certificates to the newer and more secure SHA256 certificate format.
+Upgrade Okta SAML apps from using SHA1 certificates to more secure SHA256 certificates.
 
 ---
 
 **Learning outcomes**
 
-* Find out which certificate your SAML app uses and learn to download your certificate.
-* Use the [Apps API](/docs/reference/api/apps/#list-applications) to return data on the apps that need updating and generate new credentials for each app.
-* Update the apps to use the new certificate.
-* Learn how to revert to SHA1 if necessary.
+* Upgrade a SAML 2.0 app integration with a new SHA256 certificate
+* Roll a SAML 2.0 app integration back to its original SHA1 certificate
 
 **What you need**
 
-* A SAML app to upgrade. See [Building a SAML SSO integration](/docs/guides/build-sso-integration/saml2/main/#prepare-a-saml-integration).
+A SAML app to upgrade. See [Building a SAML SSO integration](/docs/guides/build-sso-integration/saml2/main/#prepare-your-integration).
 
 ---
 
-## About SAML apps and SHA256 certificates
+Okta recommends that you upgrade SAML 2.0 app integrations that use SHA1 certificates to use SHA256 certificates instead. SHA256 is a more secure cryptographic hash function that superseded SHA1 in 2002. If your ISV doesn't accept certificates with an SHA256 signature, you can continue to use the previous SHA1 certificate. This guide also covers how to revert your app integration back to its original SHA1 certificate if there’s an issue.
 
-Certificates with a SHA256 signature are supported for SAML 2.0 applications with Okta. You can create new integrations that use SHA256 certificates and update existing integrations from SHA1 certificates to SHA256 certificates. Existing integrations are not changed automatically. The SHA256 certificates and the SHA1 certificates are self-signed.
+You can upgrade and revert certificates in the Admin Console, and also programmatically using the [Applications API](/docs/reference/api/apps/). This guide covers both options.
 
-### Why should I do this?
+> **Note:**  New SAML 2.0 app integrations automatically use SHA256 certificates. Those created with this guide are self-signed.
 
-To take advantage of the additional security features of SHA256 certificates.
+## Upgrade and revert apps with the Admin Console
 
-### New SAML 2.0 app integrations
+After you've created your SAML 2.0 app integration, you can use the Admin Console to check the type of certificate it currently uses.
 
-New SAML 2.0 app integrations automatically use SHA256 certificates.
+1. Open the Admin Console for your org.
+1. Go to **Applications** > **Applications** to view the current app integrations.
+1. Select your app integration.
+1. Go to the **SAML Signing Certificates** section of the **Sign On** tab.
 
-As instructed below, upload the SHA256 certificate to the ISV.
+   <div class="three-quarter border">
 
-### Existing SAML 2.0 app integrations
+      ![The SAML Signing Certificates section of the Applications UI](/img/updating-saml-certs/signing-certificates-ui.png)
 
-To update existing app integrations, you first need to list your apps and get the app id, name, and label for each app to update. Then for each app to update, perform the following steps:
+   </div>
 
-1. Generate a new application key credential.
-1. Update the key credential for the app to specify the new signing key id.
-1. Upload the new certificate to the ISV (this step cannot be automated.)
+1. If a certificate of **Type** SHA-2 is active, you don’t need to upgrade the certificate.
+1. If a certificate of **Type** SHA-1 is active, you need to create a SHA2 certificate and make it active.
+   1. Click **Generate new certificate**.
+   1. Go to the entry for the new certificate and select **Actions** > **Activate**.
 
-These steps are covered in detail below.
+After you activate the new certificate, your users can't access the application until you upload the new certificate to your ISV.
 
-> **Important:** For each app, after you complete the first two steps, your users cannot access the application until Step three is completed.
+1. Click **View SAML Setup Instructions**.
+1. Download the new certificate and optionally the IdP metadata to provide to your ISV.
 
-### Determine the signature algorithm of a certificate
+> **Note:** To revert your app integration back to an SHA1 certificate, use these steps to mark the SHA1 certificate active and upload it to your ISV.
 
-You can find the signature algorithm of a certificate either by using the command line or by uploading your certificate to a free, online certificate decoder service.
+## Upgrade apps programmatically with the Applications API
 
-If you have OpenSSL installed, from the command line run:
+Existing SAML 2.0 app integrations must be updated with an SHA256 certificate manually.
 
-`openssl x509 -text -noout -in <your certificate>`
+First, check if the app's certificate is SHA1 or SHA256:
 
-Where:
+1. [Get the app's ID, name, label, and current certificate](#get-the-apps-id-name-label-and-current-certificate)
+1. [Save your certificate as a PEM file](#save-your-certificate-as-a-pem-file)
+1. [Check if the certificate is SHA1 or SHA256](#check-if-the-certificate-is-sha1-or-sha256)
 
-`<your certificate>` is the certificate filename relative to the current directory. The certificate must be in PEM format. Use a plain text editor
-like Notepad or Textedit to save the certificate text from the `x5c` element returned from an API call, and add the **Begin Certificate** and **End Certificate** lines with the hyphens to the top and bottom of the file, as shown below. Trailing white spaces, such as a space or carriage return, at the end of the file make the certificate invalid. (The certificate shown below has been altered and is not valid.)
+Then, if the certificate is SHA1, update the app:
 
+1. [Generate a new application key credential](#generate-a-new-application-key-credential).
+1. [Update the key credential for the app with the new signing key id](#update-the-key-credential-for-the-app-with-the-new-signing-key-id).
+1. [Upload the new certificate to the ISV](#upload-the-new-certificate-to-the-isv) (this step can't be automated.)
+
+### Get the app's ID, name, label, and current certificate
+
+Return a [list of all the applications](/docs/reference/api/apps/#list-applications) in your org. Find your app in the list, and note its `id`, `name`, and `label` elements. You see them referred to as `${appId}`, `${appName}`, and `${appLabel}` later on.
+
+```bash
+curl -v -X GET \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://${yourOktaDomain}/api/v1/apps"
 ```
-MIIDojCCAoqgAwIBAgIGAVd8z8kEMA0GCSqGSIb3DQEBBQUAMIGRMQswCQYDVQQGEwJVUz
-ETMBEGA1UECAwKQ2FsaWZvcm5pYTEWMBQGA1UEBwwNU2FuIEZyYW5jaXNjbzENMAsGA1UE
-CgwET2t0YTEUMBIGA1UECwwLU1NPUHJvdmlkZXIxEjAQBgNVBAMMCW15c3RpY29ycDEcMB
-oGCSqGSIb3DQEJARYNaW5mb0Bva3RhLmNvbTAeFw0xNjA5MzAyMDM1MTRaFw0xODA5MzAy
-MDM2MTRaMIGRMQswCQYDVQQGEwJVUzETMBEGA1UECAwKQ2FsaWZvcm5pYTEWEKQGA1UEBw
-wNU2FuIEZyYW5jaXNjbzENMAsGA1UECgwET2t0YTEUMBIGA1UECwwLU1NPUHJvdmlkZXIx
-EjAQBgNVBAMMCW15c3RpY29ycDEcMBoGCSqGSIb3DQEJARYNaW5mb0Bva3RhLmNvbTCCAS
-IwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAIJsMX3q/IMqFTPfhGJHILgRGHrrvYnZ
-zL2snGvC4CssqBC1Az6PIAE+RtO1vT+6v1sRevHMICbi/ut4xB29C3fo33Y3syerVHEJD9
-sZ4Ht0/NjTSHrznjTjE2Ij2/1JuZY/XF+Kp8/bR+rP3Fa3mlcKJZqnwcdII3F6bbW8HPyz
-s8D8ytJJU1yc9xcm0rp+xqswWvRS9TMTRiV61OhE8ilMj+vjScIDQwOqD1LX0uiiQnjRIL
-rkK2NSUbFc9PC3oVELrWqZdloDCQd+xTI0TlxV6/i50K56o0YGWIne1IYdfazuK0tXTE8k
-wsvXEZ0tDRq/jVhBpoAtfQ8hKLxVEFKCAwEAATANBgkqhkiG9w0BAQUFAAOCAQEAfcgMeP
-D2nCGUImDmK7GcKIAH6fJCVfcpyHNZLYChB38yJgJ3F30mFZ0W/PM9pIW8ktLKh1lBp59p
-RwC4ITbpMMoWwK2EU/edocmi8qeVpG3ldXs5IeEMIoKt2c7Ndh8dTsj+fPdXDpF0iKPXtA
-3wgPvWxgioW6xCvePo98isevN7WGEEdEVzjdNdR7e4nPvJfKeGncvifV2rw0WOUIZQa524
-AQdfoY2fEKn9eFwPxFsKx1WV5nc6+WU5gcSkhmbzF+HohLCjVFMWwsUQNY
-```
 
-Use a free CSR and Certificate Decoder service and enter the contents of your certificate. These tools are readily found through a web search. Be
-sure to note the certificate format that the decoder service requires.
-
-The Signature Algorithm is either *sha256WithRSAEncryption* or *sha1WithRSAEncryption*.
-
-### Obtaining the certificate for an app from a URL
-
-You can obtain the current certificate for an app from the following URL:
-
-`https://<your org subdomain>-admin.okta.com/admin/org/security/<application id>/cert`
-
-Where:
-
-`<your org subdomain>` is your organization's Okta subdomain.
-
-`<application id>` is the application ID you used in Step 1.
-
-> **Note:** Certificates downloaded with this method contain the **Begin Certificate** and **End Certificate** lines.
-
-## Get the app info
-
-Use the [List Apps API](/docs/reference/api/apps/#list-applications) to return a list of all apps.
-
-For each app to update, collect the `id`, `name`, and `label` elements.
-
-Request: `GET /api/v1/apps`
-
-Truncated Response:
+Truncated response:
 
 ```json
-
 {
-    "id": "0000000000aaaaaBBBBBo",
-    "name": "appname",
-    "label": "Application Name",
-    "status": "ACTIVE",
-    "lastUpdated": "2015-01-24T00:09:01.000Z",
-    "created": "2014-01-06T23:42:40.000Z",
-    "accessibility": {
-      "selfService": false,
-      "errorRedirectUrl": null,
-      "loginRedirectUrl": null
-    },
-    "visibility": {
-      "autoSubmitToolbar": true,
-      "hide": {
-        "iOS": false,
-        "web": false
-      },
-      "appLinks": {
-        "login": true
-      }
-    },
-    "features": [],
+   "id": "0000000000aaaaaBBBBBo",
+   "name": "appname",
+   "label": "Application Name",
+   "status": "ACTIVE",
+    ... ,
     "signOnMode": "SAML_2_0",
-    "credentials": {
-      "scheme": "EDIT_USERNAME_AND_PASSWORD",
-      "userNameTemplate": {
-        "template": "${source.login}",
-        "type": "BUILT_IN"
-      },
-      "revealPassword": true,
-      "signing": {
-        "kid": "ZcLGUsl4Xn3996YYel6KPvOxZOhNWfly5-q36CByH4o"
-      }
-    },
+    ... ,
     "settings": {
-      "app": {
-        "instanceType": null
-      },
-      "notifications": {
-        "vpn": {
-          "network": {
-            "connection": "DISABLED"
-          },
-          "message": null,
-          "helpUrl": null
-        }
-      }
-    }
-  }
-
+      ...
+   }
+}
 ```
 
-## Generate a new application key credential
+### Check if the certificate is SHA1 or SHA256
 
-Use the [Apps API](/docs/reference/api/apps/#generate-new-application-key-credential)
-to generate new credentials. Pass each app ID (`id`) that was collected in the above step as the app ID (`aid`) to this API. If you have no company policy for credential expiration, 10 years is suggested.
+To check if your app's certificate was hashed with the SHA1 or SHA256 algorithm, you need to:
 
-Request: `POST /api/v1/apps/0000000000aaaaaBBBBBo/credentials/keys/generate?validityYears=10`
+1. Save it as a PEM file.
+1. Use `openssl` or an online certificate decoder service to determine its **signature algorithm**.
+
+#### Save your certificate as a PEM file
+
+A PEM file contains a Base64-encoded version of the certificate text and a plain-text header and footer marking the beginning and end of the certificate. You can obtain the PEM file for a current certificate for an app from the following URL:
+
+```bash
+https://${yourOktaSubdomain}-admin.okta.com/admin/org/security/${appId}/cert
+```
+
+Where:
+
+* `${yourOktaSubdomain}` is your org's subdomain.
+* `${appId}` is your application's ID.
+
+Alternatively, you can create the file manually:
+
+1. Open a new file in a plain text editor like Notepad or TextEdit.
+1. Add the `-----BEGIN CERTIFICATE-----` header.
+1. Copy the certificate text to the next line.
+1. Add the `-----END CERTIFICATE-----` footer to the next line.
+1. Save as a `.pem` or `.cer` file
+
+> **Note:** Leaving trailing whitespace characters, such as spaces or carriage returns, at the end of the file make the certificate invalid.
+
+#### Determine the certificate's signature algorithm
+
+After you have a PEM file for your certificate, you can determine if the certificate was hashed with SHA1 or SHA256 in one of two ways:
+
+* If you have `openssl` installed, run `openssl x509 -text -noout -in <pemfile>` from a terminal.
+* Upload the contents of the PEM file to an online Certificate (CSR) Decoder service. These tools are readily found through a web search. Be sure to note the certificate format that the decoder service requires.
+
+If the "Signature Algorithm" is *sha256WithRSAEncryption*, your app's certificate is up to date. If it’s *sha1WithRSAEncryption*, you should upgrade it to a new SHA256 certificate.
+
+### Generate a new application key credential
+
+[Generate a new X.509 certificate for an application key credential](/docs/reference/api/apps/#generate-new-application-key-credential), and make a note of the key ID `kid` value that is returned.
+
+```bash
+curl -v -X POST \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+-d '{
+}' "https://${yourOktaDomain}/api/v1/apps/${appId}/credentials/keys/generate?validityYears=${years}"
+```
+
+Where:
+
+* `${yourOktaDomain}` is your org's domain.
+* `${appId}` is your application's ID.
+* `${years}` is the number of years before the credential expires. If you have no company policy for credential expiration, use `10` years.
 
 Response:
 
 ```json
-
 {
   "created": "2016-09-30T20:36:15.000Z",
   "lastUpdated": "2016-09-30T20:36:15.000Z",
   "expiresAt": "2018-09-30T20:36:14.000Z",
   "x5c": [
     "MIIDojCCAoqgAwIBAgIGAVd8z8kEMA0GCSqGSIb3DQEBBQUAMIGRMQswCQYDVQQGEwJVUz
-     ETMBEGA1UECAwKQ2FsaWZvcm5pYTEWMBQGA1UEBwwNU2FuIEZyYW5jaXNjbzENMAsGA1UE
-     CgwET2t0YTEUMBIGA1UECwwLU1NPUHJvdmlkZXIxEjAQBgNVBAMMCW15c3RpY29ycDEcMB
-     oGCSqGSIb3DQEJARYNaW5mb0Bva3RhLmNvbTAeFw0xNjA5MzAyMDM1MTRaFw0xODA5MzAy
-     MDM2MTRaMIGRMQswCQYDVQQGEwJVUzETMBEGA1UECAwKQ2FsaWZvcm5pYTEWMBQGA1UEBw
-     wNU2FuIEZyYW5jaXNjbzENMAsGA1UECgwET2t0YTEUMBIGA1UECwwLU1NPUHJvdmlkZXIx
-     EjAQBgNVBAMMCW15c3RpY29ycDEcMBoGCSqGSIb3DQEJARYNaW5mb0Bva3RhLmNvbTCCAS
-     IwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAIJsMX3q/IMqFTPfhGJHILgRGHrrvYnZ
-     zL2snGvC4CssqBC1Az6PIAE+RtO1vT+6v1sRevHMICbi/ut4xB29C3fo33Y3syerVHEJD9
-     sZ4Ht0/NjTSHrznjTjE2Ij2/1JuZY/XF+Kp8/bR+rP3Fa3mlcKJZqnwcdII3F6bbW8HPyz
-     s8D8ytJJU1yc9xcm0rp+xqswWvRS9TMTRiV61OhE8ilMj+vjScIDQwOqD1LX0uiiQnjRIL
-     rkK2NSUbFc9PC3oVELrWqZdloDCQd+xTI0TlxV6/i50K56o0YGWIne1IYdfazuK0tXTE8k
-     wsvXEZ0tDRq/jVhBpoAtfQ8hKLxVEFKCAwEAATANBgkqhkiG9w0BAQUFAAOCAQEAfcgMeP
-     D2nCGUImDmK7GcKIAH6fJCVfcpyHNZLYChB38yJgJ3F30mFZ0W/PM9pIW8ktLKh1lBp59p
-     RwC4ITbpMMoWwK2EU/edocmi8qeVpG3ldXs5IeEMIoKt2c7Ndh8dTsj+fPdXDpF0iKPXtA
-     3wgPvWxgioW6xCvePo98isevN7WGEEdEVzjdNdR7e4nPvJfKeGncvifV2rw0WOUIZQa524
-     AQdfoY2fEKn9eFwPxFsKx1WV5nc6+WU5gcSkhmbzF+HohLCjVFMWwsUQNYpPBtzY9gM45G
+     ...
      /bIs7EizkKT1ew0SRDI+Ws9roUKsquCWJWiAGxVEqheQvf4dauAOtqGQ=="
   ],
   "e": "AQAB",
   "n": "gmwxfer8gyoVM9-EYkcguBEYeuu9idnMvayca8LgKyyoELUDPo8gAT5G07W9P7q_WxF6
-        8cwgJuL-63jEHb0Ld-jfdjezJ6tUcQkP2xnge3T82NNIevOeNOMTYiPb_Um5lj9cX4qn
-        z9tH6s_cVreaVwolmqfBx0gjcXpttbwc_LOzwPzK0klTXJz3FybSun7GqzBa9FL1MxNG
-        JXrU6ETyKUyP6-NJwgNDA6oPUtfS6KJCeNEguuQrY1JRsVz08LehUQutapl2WgMJB37F
+        ...
         MjROXFXr-LnQrnqjRgZYid7Uhh19rO4rS1dMTyTCy9cRnS0NGr-NWEGmgC19DyEovFUFhQ",
   "kid": "w__Yr9AElCftDtLP5CmjzZFMKXndqHtx7B3QPkg9jrI",
   "kty": "RSA",
@@ -212,14 +178,9 @@ Response:
 }
 ```
 
-> After you update the key credential, your users can't access the SAML app until you upload the new certificate to the ISV.
+### Update the key credential for the app with the new signing key id
 
-## Update the key credential for the app to specify the new signing key id
-
-Call the [Apps API](/docs/reference/api/apps/#update-key-credential-for-application) with the app ID you obtained above. In the body, include
-the app name and the app label obtained earlier, the key ID that you generated, and the value *SAML_2_0* for the sign on mode.
-
-Request:
+After you create a new key credential for the app, you must update the app to use it. Call the [update key credential for application](/docs/reference/api/apps/#update-key-credential-for-application).
 
 ```bash
 curl -v -X PUT \
@@ -227,47 +188,67 @@ curl -v -X PUT \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
-  "name": "appname",
-  "label": "Application Name",
+  "name": "${appName}",
+  "label": "${appLabel}",
   "signOnMode": "SAML_2_0",
   "credentials": {
     "signing": {
-      "kid": "w__Yr9AElCftDtLP5CmjzZFMKXndqHtx7B3QPkg9jrI"
+      "kid": "${keyId}"
     }
   }
-}' "https://${yourOktaDomain}/api/v1/apps/${aid}"
+}' "https://${yourOktaDomain}/api/v1/apps/${appId}"
 
 ```
 
-## Upload the new certificate to the ISV
+Where:
 
-1. In the Admin Console, go to **Applications** > **Applications**.
+* `${yourOktaDomain}` is your org's domain.
+* `${appId}` is your application's ID.
+* `${appName}` is your application' name.
+* `${appLabel]` is your application's label.
+* `${keyId]` is the key ID that you generated in the previous step.
+
+### Upload the new certificate to the ISV
+
+After you update the key credential, your users can't access the application until you upload the new certificate to your ISV.
+
+1. Open the Admin Console for your org.
+1. Go to **Applications** > **Applications** to view the current app integrations.
 1. Select your app integration.
-1. Select **Sign-On Options**.
-1. Click **View Setup Instructions**.
-1. Perform the setup for your app integration again by using the instructions provided. During this setup, you can upload the certificate in a specified format, the metadata, or the certificate fingerprint.
+1. Click **View SAML Setup Instructions**.
+1. Download the new certificate and optionally the IdP metadata to provide to your ISV.
 
-## Revert to a SHA1 certificate
+## Revert to an SHA1 certificate programmatically
 
-If your ISV does not accept certificates with a SHA256 signature, you can revert the settings to use the previous SHA1 certificate by rolling
-over the app key to specify the SHA1 certificate you previously associated with your integration.
+If your ISV doesn't accept certificates with an SHA256 signature, you can revert the settings to use the previous SHA1 certificate. The certificate will still be in the list of key credentials associated with the app:
 
-### Step 1: List your apps and get the ID, name, and label for the app to revert
+1. [Get the app's ID, name, label, and current certificate](#get-the-apps-id-name-label-and-current-certificate).
+1. [Locate the SHA1 certificate associated with the application](#locate-the-sha1-certificate-associated-with-the-application).
+1. [Update the key credential for the app with the new signing key id](#update-the-key-credential-for-the-app-with-the-new-signing-key-id).
+1. [Upload the old certificate to the ISV](#upload-the-new-certificate-to-the-isv) (this step can't be automated.)
 
-This step is the same as [shown earlier](#get-the-app-info).
+Steps 1, 2, and 4 are the same as for upgrading a certificate to SHA256.
 
-### Step 2: Retrieve all certificates associated with the app and locate the SHA1 certificate
+### Locate the SHA1 certificate associated with the application
 
-Use the [List Key Credentials for an Application API](/docs/reference/api/apps/#list-key-credentials-for-application) to list all the credentials.
-Pass the app ID (`id`) that was collected in the previous step as the app ID (`aid`) in this API. Then, determine which certificate is the SHA1 certificate by copying the certificate text for each of the returned certificates, and [determine the signature algorithm](#determine-the-signature-algorithm-of-a-certificate)
-using the method described below. After determining which certificate is the SHA1 certificate, note the signing key id, `kid`.
+1. [List all the credentials for the application](/docs/reference/api/apps/#list-key-credentials-for-application).
+1. For each certificate returned in an `x5c` element, [check if the certificate is SHA1 or SHA256](#check-if-the-certificate-is-sha1-or-sha256) until you find the SHA1 certificate.
+1. Note the signing key id, `kid`, for the SHA1 certificate.
 
-The certificate is contained in the element, `x5c` and is not in PEM format; that is, it does not
-contain **Begin Certificate** and **End Certificate** lines.  (The certificates shown in this how-to have been altered and are not valid.)
+In the following example, there are two certificates to check to find the SHA1 certificate.
 
-In the sample response shown below, there are two certificates to check to find the SHA1 certificate.
+```bash
+curl -v -X GET \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://${yourOktaDomain}/api/v1/apps/${appId}/credentials/keys"
+```
 
-Request: `GET /api/v1/apps/0000000000aaaaaBBBBBo/credentials/keys`
+Where:
+
+* `${yourOktaDomain}` is your org's domain.
+* `${appId}` is your application's ID.
 
 Response:
 
@@ -277,10 +258,14 @@ Response:
     "lastUpdated": "2016-09-27T21:49:49.000Z",
     "expiresAt": "2026-09-27T21:49:48.000Z",
     "x5c": [
-      "MxxDnDCCAoSgAwIBAgIGAVdtoBFfMA0GCSqGSIb3DQEBCwUAMIGOMQswCQYDVQQGEwJVUzETMBEGA1UECAwKQ2FsaWZvcm5pYTEWMBQGA1UEBwwNU2FuIEZyYW5jaXNjbzENMAsGA1UECgwET2t0YTEUMBIGA1UECwwLU1NPUHJvdmlkZXIxDzANBgNVBAMMBmVrbGVpbjEcMBoGCSqGSIb3DQEJARYNaW5mb0Bva3RhLmNvbTAeFw0xNjA5MjcyMTQ4NDlaFw0yNjA5MjcyMTQ5NDhaMIGOMQswCQYDVQQGEwJVUzETMBEGA1UECAwKQ2FsaWZvcm5pYTEWMBQGA1UEBwwNU2FuIEZyYW5jaXNjbzENMAsGA1UECgwET2t0YTEUMBIGA1UECwwLU1NPUHJvdmlkZXIxDzANBgNVBAMMBmVrbGVpbjEcMBoGCSqGSIb3DQEJARYNaW5mb0Bva3RhLmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAJrkg2M7P6rH0yJZIYUjcX0RdTi36ItF893dLZoNXigg2mwb1kIs0XpHmN8bS6EHWM/F3MoiiMDh0DpxOIsdY3+XZEII7KWV3D6S73xR6Efps1Q27mNMb8cvpTnTKQlYWv0QPw26JwkB+JoG1hEL5WTeS7CxwLbeHcyf3+ZXO0HEWQG5x9DFKtYVTMlCtQb4go+m9zDBZI4GYvwU3L4ElsZg7GZAeNAg+0Jez5gFObvAz/YsQ6UoZC7/N/TjyDjcW/Df+xdomneJ7/otpiBUNvWhKqoJIunrsmw2TfgDysudYlp0swskiHJfNp3uAZStFqFwjVkxL/1/COUc+DILkf0CAwEAATANBgkqhkiG9w0BAQsFAAOCAQEAfo0arD0r9x+s58wA2WjaZFOXY5sGU+gEih4ny9t3rnCqGcB/JJWiv0RBEbRrr/oRyCgpmdOuCT8P6/kesMs9Bhq3IcrZWKkzzE6oLzcq3cODNwUjPwZK0T2M4yCDDNt2X/s52qeFA91KCaojGG8+2AGi8r8vXzRBIDIq1AZuKGNnHWL6woF3lXT2vo2ZOegZ0NUdYz/SPqYy4B7YIRzIgcsYqWk4kcwZmIAK1cTOYTsucvtkhYWXK6rJ70WTUyT7KojW8MJua0Gd5cxHvw+dbNwb6VukvUqOTWz+sBIxg0lBmKudROol57mhB73v0iFaPf5X/w4aS7GmqIohtkHcEA=="
+      "MxxDnDCCAoSgAwIBAgIGAVdtoBFfMA0GCSqGSIb3DQEBCwUAMIGOMQswCQYDVQQGEwJVUz
+      ...
+      0WTUyT7KojW8MJua0Gd5cxHvw+dbNwb6VukvUqOTWz+sBIxg0lBmKudROol57mhB73v0iFaPf5X/w4aS7GmqIohtkHcEA=="
     ],
     "e": "AQAB",
-    "n": "muSDYzs_qsfTIlkhhSNxfRF1OLfoi0Xz3d0tmg1eKCDabBvWQizRekeY3xtLoQdYz8XcyiKIwOHQOnE4ix1jf5dkQgjspZXcPpLvfFHoR-mzVDbuY0xvxy-lOdMpCVha_RA_DbonCQH4mgbWEQvlZN5LsLHAtt4dzJ_f5lc7QcRZAbnH0MUq1hVMyUK1BviCj6b3MMFkjgZi_BTcvgSWxmDsZkB40CD7Ql7PmAU5u8DP9ixDpShkLv839OPIONxb8N_7F2iad4nv-i2mIFQ29aEqqgki6euybDZN-APKy51iWnSzCySIcl82ne4BlK0WoXCNWTEv_X8I5Rz4MguR_Q",
+    "n": "muSDYzs_qsfTIlkhhSNxfRF1OLfoi0Xz3d0tmg1eKCDabBvWQizRekeY3xtLoQdYz8XcyiKIwOHQO
+    ...
+    N-APKy51iWnSzCySIcl82ne4BlK0WoXCNWTEv_X8I5Rz4MguR_Q",
     "kid": "X_dQOF8ON5WTRxWrNygEHi18sJe8CKhMOKur6j4pvYg",
     "kty": "RSA",
     "use": "sig",
@@ -291,10 +276,14 @@ Response:
     "lastUpdated": "2016-09-27T21:49:19.000Z",
     "expiresAt": "2043-08-23T20:29:25.000Z",
     "x5c": [
-      "MIIClzCCAEFKAwIBAgIGAUCs3gRDMA0GCSqGSIb3DQEBBQUAMIGOMQswCQYDVQQGEwJVUzETMBEGA1UECAwKQ2FsaWZvcm5pYTEWMBQGA1UEBwwNU2FuIEZyYW5jaXNjbzENMAsGA1UECgwET2t0YTEUMBIGA1UECwwLU1NPUHJvdmlkZXIxDzANBgNVBAMMBmVrbGVpbjEcMBoGCSqGSIb3DQEJARYNaW5mb0Bva3RhLmNvbTAeFw0xMzA4MjMyMDI4MjVaFw00MzA4MjMyMDI5MjVaMIGOMQswCQYDVQQGEwJVUzETMBEGA1UECAwKQ2FsaWZvcm5pYTEWMBQGA1UEBwwNU2FuIEZyYW5jaXNjbzENMAsGA1UECgwET2t0YTEUMBIGA1UECwwLU1NPUHJvdmlkZXIxDzANBgNVBAMMBmVrbGVpbjEcMBoGCSqGSIb3DQEJARYNaW5mb0Bva3RhLmNvbTCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEA3XZGz0vu2tcT/oLax/9HF8bZJ0h1hd/B4GjYbzCSCCI0YuGN9SVic76PlOOtoByehzf7eD2bmsOTeIhiDAumVDdkyg7dIwp4JnJBro0RkWaIX/gTidncA5x6/3MlwjSfzb+kT5fcxr75ZQVjAytP9i3x6cnEybBETivyvlBkElMCAwEAATANBgkqhkiG9w0BAQUFAAOBgQBb4dSU+OcAi53FQw/NJtBeD/h5w75paCoWi3rqCtIgVcx48A2szd+ScmGuDks9sNatUsxJjvj2TnXWYOs9VlD3AX5UIYPqHxCG5kPwpoYvfDnPFBf/zw08CPIgA+bI0JOFB6ul+w5u1EvaksDeIfLxJkCSurYrK2nOPGplF/vVew=="
+      "MIIClzCCAEFKAwIBAgIGAUCs3gRDMA0GCSqGSIb3DQEBBQUAMIGOMQswCQYDVQQGEwJVUz
+      ...
+      oYvfDnPFBf/zw08CPIgA+bI0JOFB6ul+w5u1EvaksDeIfLxJkCSurYrK2nOPGplF/vVew=="
     ],
     "e": "AQAB",
-    "n": "3XZGz0vu2tcT_oLax_9HF8bZJ0h1hd_B4GjYbzCSCCI0YuGN9SVic76PlOOtoByehzf7eD2bmsOTeIhiDAumVDdkyg7dIwp4JnJBro0RkWaIX_gTidncA5x6_3MlwjSfzb-kT5fcxr75ZQVjAytP9i3x6cnEybBETivyvlBkElM",
+    "n": "3XZGz0vu2tcT_oLax_9HF8bZJ0h1hd_B4GjYbzCSCCI0YuGN9SVic76PlOOtoByehzf7eD2bmsOTeIhiD
+    ...
+    AumVDdkyg7dIwp4JnJBro0RkWaIX_gTidncA5x6_3MlwjSfzb-kT5fcxr75ZQVjAytP9i3x6cnEybBETivyvlBkElM",
     "kid": "ZcLGUslsdTn3996YYel6KPvOxZOhNWfly5-q36CByH4o",
     "kty": "RSA",
     "use": "sig",
@@ -302,24 +291,6 @@ Response:
   }
 
 ```
-
-> After you complete step 3, your users can't access the SAML app until you complete step 4.
-
-### Step 3: Update the key credential for the application with the SHA1 certificate
-
-Use the [Apps API](/docs/reference/api/apps/#update-key-credential-for-application)
-to update the key credential for the application to specify the kid of the SHA1 certificate that you retrieved in Step 2.
-
-This step is the same as
-[shown earlier](#update-the-key-credential-for-the-app-to-specify-the-new-signing-key-id).
-
-### Step 4: Upload the SHA1 certificate to the ISV
-
-1. In the Admin Console, go to **Applications** > **Applications**.
-1. Select your app integration.
-1. Select **Sign-On Options**.
-1. Click **View Setup Instructions**.
-1. Perform the setup for your app integration again by using the instructions provided. During this setup, you can upload the certificate in a specified format, the metadata, or the certificate fingerprint.
 
 ## See also
 

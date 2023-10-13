@@ -17,7 +17,7 @@ In this tutorial, you migrate all the users in a simple Azure Active Directory i
 
 At the end of the tutorial, when a user attempts to sign in to the application, their authorization request is redirected to Okta and then delegated to Azure AD to match the user and authenticate them.
 
-<div class="full">
+<div class="three-quarter">
 
   ![An architecture diagram showing the authorization flow from user to Okta to Azure Active Directory and back again.](/img/architecture/directory-coexistence/ad-to-okta-flow-diagram.png)
 
@@ -151,7 +151,7 @@ To run the sample application and connect directly to the Okta sign-in dialog:
 
 1. Sign in with your Okta org account credentials. You should see the following:
 
-   <div class="three-quarters border">
+   <div class="border">
 
    ![Sign-in response with welcome home successful authentication response](/img/architecture/directory-coexistence/ad-to-okta-signin-response.png)
 

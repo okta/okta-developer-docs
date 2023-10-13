@@ -19,11 +19,7 @@ export const concepts = [
             title: "Event hooks",
             path: "/docs/concepts/event-hooks/",
          },
-         {
-            title: "Events API migration",
-            path: "/docs/concepts/events-api-migration/",
-         },
-         {
+        {
             title: "External Identity Providers",
             path: "/docs/concepts/identity-providers/",
          },
@@ -396,6 +392,10 @@ export const guides = [
               },
             ],
           },
+          {
+            title: "Configure AMR claims mapping",
+            guideName: "configure-amr-claims-mapping"
+          },
           { title: "Sign users out", guideName: "oie-embedded-sdk-use-case-basic-sign-out" },
           { title: "Single Logout", guideName: "single-logout" },
           {
@@ -567,6 +567,10 @@ export const guides = [
             guideName: "custom-widget",
           },
           {
+            title: "Sign-In Widget (third generation)",
+            guideName: "custom-widget-gen3",
+          },
+          {
             title: "Error pages",
             guideName: "custom-error-pages",
           },
@@ -629,12 +633,22 @@ export const guides = [
             ],
           },
           {
-            title: "OIN submission requirements",
-            guideName: "submit-app-prereq",
-          },
-          {
             title: "Publish an OIN integration",
-            guideName: "submit-app",
+            path: "/docs/guides/submit-app-overview/",
+            subLinks: [
+              {
+                title: "OIN submission requirements",
+                guideName: "submit-app-prereq",
+              },
+              {
+                title: "Submit an SSO integration",
+                guideName: "submit-sso-app",
+              },
+              {
+                title: "Submit an LCM integration",
+                guideName: "submit-app",
+              },
+            ]
           },
         ],
       },
@@ -704,6 +718,44 @@ export const guides = [
                 path: "/docs/guides/migrate-to-okta-password-hooks/main/",
               },
             ],
+          },
+        ],
+      },
+      {
+        title: "Automate org management with Terraform",
+        guideName: "terraform-landing-page",
+        subLinks: [
+          {
+            title: "Terraform overview",
+            guideName: "terraform-overview",
+          },
+          {
+            title: "Enable Terraform access",
+            guideName: "terraform-enable-org-access",
+          },
+          {
+            title: "Manage user access",
+            guideName: "terraform-manage-user-access",
+          },
+          {
+            title: "Manage groups",
+            guideName: "terraform-manage-groups",
+          },
+          {
+            title: "Manage authentication services",
+            guideName: "terraform-manage-external-authenticators",
+          },
+          {
+            title: "Customize end-user experience",
+            guideName: "terraform-manage-end-user-experience",
+          },
+          {
+            title: "Control Terraform access",
+            guideName: "terraform-design-access-security",
+          },
+          {
+            title: "Optimize Terraform access",
+          guideName: "terraform-design-rate-limits"
           },
         ],
       },
@@ -918,14 +970,21 @@ export const reference = [
                { title: "WebFinger", path: "/docs/reference/api/webfinger/" },
                { title: "Manage Okta Objects", path: "empty" },
                { title: "Administrator Roles", path: "/docs/reference/api/roles/" },
+               { title: "Agent Pools", path: "/docs/reference/api/agent-pools/" },
+               { title: "API Service Integrations", path: "/docs/reference/api/api-service-integrations/" },
+               { title: "API Tokens", path: "/docs/reference/api/api-tokens/" },
                { title: "Apps", path: "/docs/reference/api/apps/" },
+               { title: "Attack Protection", path: "/docs/reference/api/attack-protection/" },
                { title: "Authenticators Admin", path: "/docs/reference/api/authenticators-admin/" },
                { title: "Authorization Servers", path: "/docs/reference/api/authorization-servers/" },
+               { title: "Behavior Rules", path: "/docs/reference/api/behavior-rules/" },
                { title: "Brands", path: "/docs/reference/api/brands/" },
                { title: "CAPTCHAs", path: "/docs/reference/api/captchas/" },
+               { title: "Device Assurance Policies", path: "/docs/reference/api/device-assurance-policies/" },
                { title: "Devices", path: "/docs/reference/api/devices/" },
                { title: "Domains", path: "/docs/reference/api/domains/" },
                { title: "Dynamic Client Registration", path: "/docs/reference/api/oauth-clients/" },
+               { title: "Email Domains", path: "/docs/reference/api/email-domains/" },
                { title: "Event Types", path: "/docs/reference/api/event-types/" },
                { title: "Factors", path: "/docs/reference/api/factors/" },
                { title: "Features", path: "/docs/reference/api/features/" },
@@ -938,11 +997,14 @@ export const reference = [
                { title: "MyAccount", path: "/docs/reference/api/myaccount/" },
                { title: "Org", path: "/docs/reference/api/org/" },
                { title: "Policy", path: "/docs/reference/api/policy/" },
+               { title: "Principal Rate Limits", path: "/docs/reference/api/principal-rate-limits/" },
                { title: "Push Providers", path: "/docs/reference/api/push-providers/" },
+               { title: "Rate Limit Settings", path: "/docs/reference/api/rate-limit-settings/" },
                { title: "Risk Events", path: "/docs/reference/api/risk-events/" },
                { title: "Risk Providers", path: "/docs/reference/api/risk-providers/" },
                { title: "Schemas", path: "/docs/reference/api/schemas/" },
                { title: "Sessions", path: "/docs/reference/api/sessions/" },
+               { title: "SMS Templates", path: "/docs/reference/api/sms-templates/" },
                { title: "Subscriptions", path: "/docs/reference/api/admin-notifications/" },
                { title: "System Log", path: "/docs/reference/api/system-log/" },
                { title: "Templates", path: "/docs/reference/api/templates/" },
@@ -960,6 +1022,10 @@ export const reference = [
                {
                   title: "Introduction",
                   path: "/docs/reference/api/asa/introduction/",
+               },
+               {
+                title: "ASA AD Connections API",
+                path: "/docs/reference/api/asa/ad-connections/",
                },
                {
                   title: "ASA Attributes API",
@@ -980,9 +1046,13 @@ export const reference = [
                   path: "/docs/reference/api/asa/projects/",
                },
                {
-                  title: "ASA Service Users API",
-                  path: "/docs/reference/api/asa/service-users/",
+                  title: "ASA Services API",
+                  path: "/docs/reference/api/asa/services/",
                },
+               {
+                title: "ASA Service Users API",
+                path: "/docs/reference/api/asa/service-users/",
+             },
                { title: "ASA Teams API", path: "/docs/reference/api/asa/teams/" },
                { title: "ASA Users API", path: "/docs/reference/api/asa/users/" },
             ],

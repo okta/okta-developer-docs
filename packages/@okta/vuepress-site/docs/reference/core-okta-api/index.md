@@ -22,7 +22,7 @@ REST endpoints to configure objects whenever you need. For example:
 
 - The [Apps API](/docs/reference/api/apps/) is used to manage Apps and their association with Users and Groups.
 - The [Users API](/docs/reference/api/users) is used for CRUD operations on Users.
-- The [Sessions API](/docs/reference/api/sessions/) creates and manages user's authentication sessions.
+- The [Sessions API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Session/) creates and manages user's authentication sessions.
 - The [Policy API](/docs/reference/api/policy/) creates and manages settings such as a user's session lifetime.
 - The [Factors API](/docs/reference/api/factors/) is used to enroll, manage, and verify factors for multi-factor authentication (MFA).
 - The [Devices API](/docs/reference/api/devices) is used to manage Device identity and lifecycle.
@@ -107,7 +107,7 @@ Used for deleting objects
 
 ### Client request context
 
-Okta derives the client request context directly from the HTTP request headers and client TCP socket. The request context is used to evaluate policies such as global session policy and provide client information for [troubleshooting and auditing](/docs/reference/api/events/#client-objecttype) purposes.
+Okta derives the client request context directly from the HTTP request headers and client TCP socket. The request context is used to evaluate policies such as global session policy and to provide client information for [troubleshooting and auditing](/docs/reference/api/system-log/#client-object) purposes.
 
 ### User Agent
 
@@ -220,7 +220,7 @@ The API token isn't interchangeable with an Okta [session token](/docs/reference
 
 Requests that return a list of objects may support pagination. Pagination is based on a cursor and not on page number. The cursor is opaque to the client and specified in either the `before` or `after` query parameter. For some objects, you can also set a custom page size with the `limit` parameter.
 
-> **Note:** For technical reasons, not all APIs respect pagination or the `before` and `limit` parameters. See the [Events API](/docs/reference/api/events/) for an example.
+> **Note:** For technical reasons, not all APIs respect pagination or the `before` and `limit` parameters.
 
 | Param    | Description                                                                             |
 | -------- | ------------                                                                            |
@@ -278,11 +278,11 @@ Most of the operators listed in the [SCIM Protocol Specification](https://www.rf
 | `pr`       | present (has value)   | If the attribute has a non-empty value or if it contains a non-empty node for complex attributes, there is a match.                                                                                                                                                           |
 | `sw`       | starts with           | The entire operand value must be a substring of the attribute value that starts at the beginning of the attribute value. This criterion is satisfied if the two strings are identical.                                                                                         |
 
-> **Note:** Some objects don't support all the listed operators.
-
-> **Note:** The `ne` (not equal) operator isn't supported for some objects, but you can obtain the same result by using `lt ... or ... gt`. For example, to see all user agents except for "iOS", use `(client.userAgent.os lt "iOS" or client.userAgent.os gt "iOS")`.
-
-> **Note:** All `Date` values use the ISO 8601 format `YYYY-MM-DDTHH:mm:ss.SSSZ`.
+> **Notes:**
+> * Some objects don't support all the listed operators.
+> * The `ne` (not equal) operator isn't supported for some objects, but you can obtain the same result by using `lt ... or ... gt`. For example, to see all user agents except for "iOS", use `(client.userAgent.os lt "iOS" or client.userAgent.os gt "iOS")`.
+> * All `Date` values use the ISO 8601 format `YYYY-MM-DDTHH:mm:ss.SSSZ`.
+> * The [System Log API](/docs/reference/api/system-log/#filtering-results) supports the operators contains (`co`) and ends with (`ew`).
 
 #### Attribute operators
 
@@ -348,7 +348,7 @@ Search and list operations are intended to find matching resources and their ide
 
 ### Request debugging
 
-The request ID is always present in every API response and can be used for debugging. You can use this value to correlate events from the [System Log](/docs/reference/api/system-log/) events as well as the [Events API](/docs/reference/api/events/).
+The request ID is always present in every API response and can be used for debugging. You can use this value to correlate events from the [System Log](/docs/reference/api/system-log/) events.
 
 The following header is set in each response:
 

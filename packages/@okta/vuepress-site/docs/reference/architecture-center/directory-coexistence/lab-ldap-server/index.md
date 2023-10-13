@@ -18,7 +18,7 @@ In this tutorial, you create a sample web application that authenticates directl
 
 At the end of step 4, when a user attempts to sign in to the application, their authorization request is redirected to Okta and then delegated to the LDAP directory. At the end of step 5, their authorization request is handled entirely by Okta.
 
-<div class="full">
+<div class="three-quarter">
 
   ![An architecture diagram showing the authorization flow from user to Okta to an OpenLDAP Directory server and back again.](/img/architecture/directory-coexistence/ldap-to-okta-flow-diagram.png)
 
@@ -74,7 +74,7 @@ Create the initial environment for the tutorial where an application authenticat
 
    The OpenLDAP directory contains three users defined in the `ldifs\users.ldif` file. At the prompt, sign in with username **user01** and password **password1**. The following dialog appears after successful authentication:
 
-   <div class="three-quarters border">
+   <div class="border">
 
    ![Sign-in response with welcome home successful authentication response](/img/architecture/directory-coexistence/ldap-to-okta-signin-response.png)
 

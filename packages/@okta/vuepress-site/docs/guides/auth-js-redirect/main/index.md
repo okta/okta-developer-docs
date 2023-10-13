@@ -2,7 +2,7 @@
 title: Sign users in to your SPA using the redirect model and Auth JS
 ---
 
-The [Okta JavaScript Auth SDK](https://github.com/okta/okta-auth-js) (Auth JS) helps implement a wide variety of web authentication solutions for both the [redirect and embedded model](/docs/concepts/redirect-vs-embedded/). This guide creates a simple redirect authentication solution using Auth JS, which you can drop into just about any front-end or server-side web application.
+The [Okta JavaScript Auth SDK](https://github.com/okta/okta-auth-js) (Auth JS) helps implement a wide variety of Web Authentication solutions for both the [redirect and embedded model](/docs/concepts/redirect-vs-embedded/). This guide creates a simple redirect authentication solution using Auth JS, which you can drop into just about any front-end or server-side web application.
 
 ---
 
@@ -13,7 +13,7 @@ The [Okta JavaScript Auth SDK](https://github.com/okta/okta-auth-js) (Auth JS) h
 
 **What you need**
 
-* [Okta Developer Edition organization](https://developer.okta.com/signup/)
+[Okta Developer Edition organization](https://developer.okta.com/signup/)
 
 ---
 
@@ -21,9 +21,9 @@ The [Okta JavaScript Auth SDK](https://github.com/okta/okta-auth-js) (Auth JS) h
 
 The Okta Auth JS SDK builds on top of the [Authentication API](/docs/reference/api/authn/), the [OpenID Connect API](/docs/reference/api/oidc/), and the Identity Engine [interaction code](/docs/concepts/interaction-code/) flow. This SDK enables you to create various sign-in experiences.
 
-These experiences include fully branded embedded authentication, as with [Auth JS fundamentals](/docs/guides/auth-js/) and redirect authentication. Auth JS is used by the Okta [Sign-In Widget](https://github.com/okta/okta-signin-widget), which powers the default Okta sign-in page. It also powers our other redirect SDKs that provide simple authentication for server-side web apps and single-page JavaScript apps (SPA). See the [Quickstart guides](/docs/guides/quickstart/).
+These experiences include fully branded embedded authentication, as with [Auth JS fundamentals](/docs/guides/auth-js/) and redirect authentication. Auth JS is used by the Okta [Sign-In Widget](https://github.com/okta/okta-signin-widget), which powers the default Okta sign-in page. Your application initializes the SDK, which automatically redirects you to this authentication page hosted by Okta and enforces the policies you configured for your sign-in experience. Auth JS also powers our other redirect SDKs that provide simple authentication for server-side web apps and single-page JavaScript apps (SPA). See the [Quickstart guides](/docs/guides/quickstart/).
 
-In this guide, you don’t need to use a specific server-side or front-end framework that Okta officially supports to get access to redirect authentication. It's possible to use Auth JS to create a drop-in solution that works with most web apps, whether you're adding a centralized sign-in flow to a new app or retrofitting it to an existing app. To see examples of Auth JS with other front-end frameworks, go to [Sign in to SPA](/docs/guides/sign-into-spa-redirect/angular/main/).
+In this guide, you don't need to use an Okta-supported server-side or front-end framework to get access to redirect authentication. It's possible to use Auth JS to create a drop-in solution that works with most web apps, whether you're adding a centralized sign-in flow to a new app or retrofitting it to an existing app. To see examples of Auth JS with other front-end frameworks, go to [Sign in to SPA](/docs/guides/sign-into-spa-redirect/angular/main/).
 
 If you'd like to explore the entire Auth JS SDK, see [Okta Auth JS JavaScript SDK](https://github.com/okta/okta-auth-js/#readme).
 
@@ -44,7 +44,7 @@ An Okta app integration represents your app in your Okta org. The integration co
 1. Enter the **Sign-out redirect URIs** for local development. For this sample, use `http://localhost:9000`.
 1. Enter the **Base URIs** for the trusted origin. For this sample, use `http://localhost:9000`. See [Trusted Origins](#about-trusted-origins).
 1. In the **Assignments** section, define the type of **Controlled access** for your app. Select **Allow everyone in your organization to access**. See [Assign app integrations](https://help.okta.com/okta_help.htm?type=oie&id=ext-lcm-user-app-assign).
-1. Clear the **Enable immediate access with Federation Broker Mode** checkbox .
+1. Clear the **Enable immediate access with Federation Broker Mode** checkbox.
 1. Click **Save** to create the app integration. The configuration pane for the integration opens after it's saved. Keep this pane open as you need to copy the **Client ID** and your org domain name when configuring your app.
 
 ### About Trusted Origins
@@ -173,7 +173,7 @@ Open a private or incognito browser window and go to `http://localhost:9000` or 
 
 ### Troubleshoot your app
 
-If your app isn't working, ensure that:
+If your app isn't functional, ensure that:
 
 * Your org URL is accurate and formatted correctly, including the secure protocol, `https://`.
 * Your client ID is accurate from your Okta app integration.
@@ -181,11 +181,11 @@ If your app isn't working, ensure that:
 * You've enabled a Trusted Origin for `http://localhost:9000`. See [About Trusted Origins](#about-trusted-origins).
 * If your app is bypassing the Okta Sign-In Widget, your user is already signed in. Use a new private or incognito browser window or optionally set the Authentication Policy for your app to always sign in. That is, **Re-authentication frequency is** set to **Every sign-in attempt**.
 
-## Enable self-service registration
+## Enable profile enrollment (self-service registration)
 
-The self-service registration feature provides a **Sign-up** link on the Sign-In Widget for end users to register and sign in to your app.
+The profile enrollment or self-service registration feature provides a **Sign-up** link on the Sign-In Widget. Your end users use this link to register their user profile and sign in to your app.
 
-By default, self-service registration isn’t enabled for all apps. Use the following steps to understand the policy configurations and to make this feature only available to your application. See [Self-Service Registration](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-ssr).
+By default, self-service registration isn't enabled for all apps. Use the following steps to understand the policy configurations and to make this feature only available to your application. See [Self-Service Registration](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-ssr).
 
 1. Ensure that your app is assigned to the Everyone group:
 
@@ -193,14 +193,15 @@ By default, self-service registration isn’t enabled for all apps. Use the foll
     {style="list-style-type:lower-alpha"}
     1. Click the **Assignments** tab.
     1. Click the **Groups** filter.
-    1. If the Everyone group isn’t assigned, add it by clicking **Assign** > **Assign to Groups**, and assigning to the Everyone group.
+    1. If the Everyone group isn't assigned, add it by clicking **Assign** > **Assign to Groups**, and assigning to the Everyone group.
 1. Go to **Security** > **Profile Enrollment** and edit the **Default Policy**.
-1. In the **Profile Enrollment** section, **Denied** is selected for **Self-service registration**. This setting removes the self-registration option for all apps assigned to the default policy.
-1. [Test your app](#test-your-app) and note that the **Sign-up** link doesn’t appear under the Sign-In Widget.
-1. In the Admin Console, select **Back to all Profile Enrollment Policies** to return to the **Security** > **Profile Enrollment** page. Click **Add Profile Enrollment Policy**, and then create a name for the policy (for example, "App self-service registration").
-1. Edit the new policy and note that self-service registration is **Allowed** by default. For ease of testing and to allow your new user to sign in to the app immediately, clear the **Email verification** checkbox. Click **Save**.
+1. Notice in the **Profile Enrollment** section, **Denied** is selected for **Self-service registration** by default. This setting removes the self-registration option for all apps assigned to the default policy.
+1. [Test your app](#test-your-app) and note that the **Sign-up** link doesn't appear under the Sign-in page.
+1. Return to the Admin Console, and select **Back to all Profile Enrollment Policies** to return to the **Security** > **Profile Enrollment** page. Click **Add Profile Enrollment Policy**, and then create a name for the policy (for example, "App self-service registration").
+1. Edit the new policy and note that self-service registration is **Allowed** by default.
+1. For ease of testing and to allow your new user to sign in to the app immediately, clear the **Email verification** checkbox. Click **Save**.
 1. Click **Manage Apps** and then **Add an App to This Policy**. Add or apply your sample app to this new policy.
-1. [Test your app](#test-your-app) again and note that the text **Don't have an account?** with a **Sign up** link now appears for your app under the Sign-In Widget. Click the link to add a user.
+1. [Test your app](#test-your-app) again and note that the text **Don't have an account? Sign up** link now appears for your app under the Sign-In Widget. Click the link to add a user.
     1. Enter a first name, last name, and email address and click **Sign up**.
     {style="list-style-type:lower-alpha"}
     1. Click **Set up** to add a new password. (Click **Set up later** for any other authenticators.)
@@ -208,11 +209,34 @@ By default, self-service registration isn’t enabled for all apps. Use the foll
 
 Based on other policy configurations, the self-service registration flow may be different or include other authenticators. See [Sign-in flows](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-sign-in-flows).
 
-> **Note:** All new users through the self-registration process receive a welcome email. This email activates user access to apps on your dev org and demonstrates ownership of the email authenticator. If you complete this process, ensure you're in the same browser window as the application sign-in tab.
+> **Note:** All new users through the self-registration process receive a welcome email. This email activates user access to the apps on your dev org and demonstrates ownership of the email authenticator. If you complete this process, ensure you're in the same browser window as the application sign-in tab.
+
+## Enable progressive profile enrollment
+
+Progressive profile enrollment builds out a user's profile incrementally during sign-in. The profile enrollment policy is evaluated every time a user signs in. Based on the profile fields you want to add, this data is requested from users before signing in. At least one field must be set as required to enable the progressive profile enrollment feature. If a user's profile already has the requested data, the user signs in directly.
+
+1. Go to **Security** > **Profile Enrollment** and click **Add Profile Enrollment Policy**.
+1. Create a name for the policy and **Save**.
+1. Click edit from the **Actions** column for your new policy.
+1. Click **Edit** in the policy and then for **Progressive Profiling**, select the **Enabled** option.
+
+   > **Note:** You can also enable profile enrollment (self-service registration) and progressive profile enrollment with the same policy. Select **Allowed** for the **Self-service registration** option of your profile enrollment policy. New users can then enroll with the enhanced profile enrollment form. Existing users use progressive profile enrollment for any new required fields.
+
+1. Clear the **Email verification** checkbox, for ease of testing.
+1. Add the additional user profile fields you want existing users to provide, in the **Profile enrollment form**. In this example, add the city field:
+    1. Click **Add form input** and select the **City (city)** field. If the field is read only, you must change the attribute permission. See [Create a custom profile enrollment form](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-prof-enroll-form).
+    {style="list-style-type:lower-alpha"}
+    1. Repeat this step for the number of fields that you want to add. At least one of these fields must be set as **Required**.
+1. Click **Manage Apps** and then **Add an App to This Policy**. Add or apply your sample app to this new policy.
+1. [Test your app](#test-your-app). Sign in with a user that doesn't have a city added to their profile.
+    1. After entering the user's credentials, a new dialog requests the required user profile data. In this scenario, the **City** field. Add a city to this user's profile and fill out any other required or optional fields that you configured. After adding the data, the user is signed in as normal.
+    {style="list-style-type:lower-alpha"}
+    1. Sign out of the sample app by clicking **Close Okta Session**.
+    1. Sign in again with the same user. With the data already added to the user's profile, the user is signed in directly.
 
 ## Add MFA with a mandatory second factor
 
-By default, your dev org isn’t configured for multifactor authentication. Use the following steps to understand the policy configurations and set up this use case. This setup requires an end user to authenticate with a password and a phone authenticator.
+By default, your dev org isn't configured for multifactor authentication. Use the following steps to understand the policy configurations and set up this use case. This setup requires an end user to authenticate with a password and a phone authenticator.
 
 1. Go to **Security** > **Authenticators** and ensure that the phone authenticator is available in the **Authenticators** list on the **Setup** tab.
 
@@ -223,7 +247,7 @@ By default, your dev org isn’t configured for multifactor authentication. Use 
 
 1. Go to **Security** > **Authentication policies**, click **Add a policy**.
 
-1. Add a name for the policy. For example, **Mandatory MFA**
+1. Add a name for the policy. For example, **Mandatory MFA**.
 
 1. In the **Catch-all Rule**, click **Edit** under the **Actions** dropdown menu.
 
@@ -237,9 +261,9 @@ By default, your dev org isn’t configured for multifactor authentication. Use 
 
 1. From the **Authentication policy** dropdown menu, select your new authentication policy, **Mandatory MFA**. Click **Save**.
 
-1. Test the new configurations by signing into your app. If your test user doesn’t have a phone number enrolled, the user is prompted for the enrollment during the sign in. Enroll the test user, add the SMS code, and the user is signed-in to your sample app.
+1. Test the new configurations by signing into your app. If your test user doesn't have a phone number enrolled, the user is prompted for the enrollment during the sign in. Enroll the test user, add the SMS code, and the user is signed-in to your sample app.
 
-After your users have enrolled in the phone authenticator, future user sign-in flows require both a password and SMS code to access your app.
+After your users have enrolled in the phone authenticator, future sign-in flows require both a password and SMS code to access your app.
 
 ## Enable password recovery with email magic link
 
@@ -275,11 +299,40 @@ Test the new configurations by recovering a password for a user of your sample a
 
    >**Note:** Stay in the same browser window as the application sign-in tab.
 
-1. In the body of the email, click the **Reset Password** link.
+1. Click the **Reset Password** link in the body of the email.
 
 1. Create and verify a new password. Click **Reset Password**. Your test user is now signed in to your sample app with a new password.
 
 See [Self-service account recovery](https://help.okta.com/okta_help.htm?type=oie&id=ext-config-sspr).
+
+## Enable passwordless authentication
+
+Enable passwordless authentication for your existing users by configuring your Okta org's authenticator enrollment policy, authentication policy, and global session policy. This example uses the email authenticator to authenticate your users instead of a password. For full details and other passwordless implementation options, see [Set up passwordless sign-in experience](https://help.okta.com/okta_help.htm?type=oie&id=ext-passwordless).
+
+1. Go to **Directory** > **Groups** and click **Add group**. Give the group a name, for example, Passwordless Users, and click **Save**.
+1. Select your new group, and click **Assign people** from the **People** tab. Add one or more users to your new group.
+1. Go to **Security** > **Authenticators** and edit or ensure the **Email** authenticator is set to **Authentication and recovery**.
+1. Click the **Enrollment** tab and then click **Add a policy** to add a new enrollment policy targeted at your new group. Configure the following fields and then click **Create Policy**:
+    * **Policy name**: Any name for this policy, for example, Passwordless Enrollment
+    * **Assign to Groups**: Your new group, Passwordles Users
+    * **Email** authenticator: Set to required
+    * **Password** authenticator: Set to disabled
+1. Add a rule name, for example, Passwordless Enrollment Rule, and click **Create rule** to complete the enrollment policy setup.
+1. Click **Authentication Policies** and assign your sample application to a one-factor authentication policy, if it's not already. In the policy, click **Add rule**, and make the following configurations and then click **Save**:
+    * **Rule name**: Any name for this rule, for example, Passwordless Authentication rule
+    * **User's group membership includes**: Your new group, Passwordless Users
+    * **User must authenticate with**: Any 1 factor type / IdP
+1. Click **Global Session Policy** and click **Add policy**. Give the policy a name, for example, Global Passwordless Policy, and assign the policy to your new group, Passwordless Users. Click **Create policy and add rule**.
+1. Configure the following fields in the **Add rule** dialog and then click **Create rule**:
+    * **Rule name**: Any name for this rule, for example, Global Passwordless rule
+    * **Establish the session with**: Any factor used to meet the Authentication Policy requirements
+
+Test the new configurations by signing in to your sample app with a user added to your Passwordless Users group:
+
+1. Start your app. On the Okta sign-in page, add the email address of your test user. Notice there is no password field available in the page.
+1. Add the email address for your test user and click **Next**.
+1. Click the **Send me an email** link to receive a verification email.
+1. Open the email and use either the verification code or email link to verify the user. The user is signed in to your sample application without a password.
 
 <!-- ## Use Cases - Review these headings for future content
 
@@ -289,14 +342,14 @@ See [Self-service account recovery](https://help.okta.com/okta_help.htm?type=oie
 
 ## Next steps
 
-Explain what Okta doesn't cover, for example, handling routes, authentication per route, and so on. Okta didn’t want to build our own SPA framework to show you how to do all this. Just basic sign-in. But point them to the other guides for plenty of examples of handling this.
+Explain what Okta doesn't cover, for example, handling routes, authentication per route, and so on. Okta didn't want to build our own SPA framework to show you how to do all this. Just basic sign-in. But point them to the other guides for plenty of examples of handling this.
 
 Sign-out - App vs Okta global session
 Sign-in policy
 Recovery
 Sign-up
 
-Talk about session management, and what happens when the page is refreshed. (To decide: app manages the session or uses the “built-in token manager”.-->
+Talk about session management, and what happens when the page is refreshed. (To decide: app manages the session or uses the "built-in token manager".-->
 
 ## See also
 

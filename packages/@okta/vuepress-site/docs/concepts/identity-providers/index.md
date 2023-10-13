@@ -9,7 +9,7 @@ As a developer building a custom application, you want to give users the freedom
 What is an Identity Provider? It's a service that creates and maintains identity information and then provides authentication services to your applications. Identity Providers can significantly reduce sign-in and registration friction. This allows your users to easily access applications without needing to create passwords or remember usernames.
 
 <a href='/docs/guides/identity-providers/' class='Button--blueDarkOutline card' data-proofer-ignore>
-	<span>Add an Identity Provider integration</span>
+   <span>Add an Identity Provider integration</span>
 </a>
 
 ## The big picture
@@ -20,7 +20,7 @@ Okta manages connections to other Identity Providers for your application and si
 
 * You can add connections to social Identity Providers like Apple or Facebook. This is called social login or social authentication. It allows your users to sign in to your app using credentials from their existing social Identity Providers. After users authenticate, you sync their existing Identity Provider credentials into your Okta Universal Directory while continuing to use that Identity Provider for user authentication. This eliminates the need to store an additional username and password for that user.
 
-* You can add connections to Identity Providers that you build in-house that support OpenID Connect or SAML protocols. This is also referred to as Inbound Federation or inbound SAML. The SAML flow is initiated with the Service Provider (in this case, Okta) that redirects the user to the Identity Provider for authentication. After authentication, a user is created inside Okta, and the user is redirected back to your application along with an ID token. This allows you to use Okta to proxy between SAML-only Identity Providers and OpenID Connect-only applications that normally are incompatible.
+* You can add connections to Identity Providers that you build in-house that support OpenID Connect or SAML protocols. This is also referred to as Inbound Federation or inbound SAML. The SAML flow is initiated with the Service Provider (in this case, Okta) that redirects the user to the Identity Provider for authentication. After authentication, a user is created inside Okta, and the user is redirected back to your application along with an ID token. This allows you to use Okta to proxy between SAML-only Identity Providers and OpenID Connect-only applications that are normally incompatible.
 
   > **Note:** Social and OpenID Connect Identity Providers store access tokens that allow subsequent calls to Identity Providers after the user is authorized. For example, the token may contain the permission to add events to a user's Google calendar. After authentication, your app can use the token on more calls to add events to the user's Google calendar on the user's behalf.
 
@@ -64,7 +64,9 @@ The sign-in process starts at the `/authorize` endpoint, and then goes out to th
 
 <div class="three-quarter">
 
-![Social Login flow](/img/auth/social_login_flow.png)
+![A flow diagram showing the interactions in a sign-in flow between a user, Okta, and a third party social identity provider](/img/auth/social_login_flow.png)
+
+<!-- Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?type=design&node-id=4336%3A21837&mode=design&t=Zl0pQHW1kqZli8ZO-1  social_login_flow -->
 
 </div>
 
@@ -101,7 +103,7 @@ Account linking is configured at the Identity Provider level. When you create an
 * **Match Against**: Okta Username
 * **IdP Username**: idpuser.email
 
-To enable account linking, select `Automatic` from the **Acount Link Policy** dropdown list, and then leave the other two defaults. With these settings, when any validated OpenID Connect JWT is provided, Okta searches the Universal Directory for a user's profile where the `email` attribute value passed by the Identity Provider (the **IdP Username** value) matches the `username` attribute value (the **Match Against** value). If there's a match, then the user is linked by mapping the required, static `sub` claim provided in the JWT to that user.
+To enable account linking, select `Automatic` from the **Account Link Policy** dropdown list, and then leave the other two defaults. With these settings, when any validated OpenID Connect JWT is provided, Okta searches the Universal Directory for a user's profile where the `email` attribute value passed by the Identity Provider (the **IdP Username** value) matches the `username` attribute value (the **Match Against** value). If there's a match, then the user is linked by mapping the required, static `sub` claim provided in the JWT to that user.
 
 > **Important:** After an account is linked, any validated JWT token with the same `sub` claim (which is mapped to the `idp.externalId` in the Identity Provider profile) is automatically mapped to the same user regardless of the content of the claims in the JWT or if the values for **IdP Username** and **Match Against** no longer result in a match.
 
@@ -113,7 +115,7 @@ If the **Account Link Policy** is disabled, no account linking occurs. You can m
 
 ### JIT provisioning
 
-If a user signs in to your application for the first time using another Identity Provider, you can implement [JIT provisioning](https://help.okta.com/okta_help.htm?id=ext_Identity_Providers) to automatically create an Okta account for them. JIT account creation and activation only works for end users who aren't already Okta users.
+If a user signs in to your application for the first time using another Identity Provider, you can implement [JIT provisioning](https://help.okta.com/okta_help.htm?id=ext_Identity_Providers) to create an Okta account automatically for them. JIT account creation and activation only work for end users who aren't already Okta users.
 
 Also, you can apply granular control over account linking and JIT by defining a policy and then rules for the policy. You can base a policy on various factors, such as location, group definitions, and authentication type. A specific policy rule can then be created for groups that have been assigned to your application. You can create multiple policies with more or less restrictive rules and apply them to different groups.
 

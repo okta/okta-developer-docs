@@ -1,76 +1,36 @@
-You can add a Gin middleware to handle this.
+You can use a middleware function to protect any endpoint so only authenticated users can access it.
 
-1. For example, add the following in [`server/middleware.go`](https://github.com/okta-samples/okta-go-gin-sample/blob/main/server/middleware.go):
+1. Add a function `IsAuthenticated()` in `main.go` to check the user's status:
 
    ```go
    func isAuthenticated(r *http.Request) bool {
-      session, err := sessionStore.Get(r, "okta-hosted-login-session-store")
+      session, err := sessionStore.Get(r, "okta-hosted-signin-session-store")
 
-      if err != nil || session.Values["access_token"] == nil || session.Values["access_token"] == "" {
-         log.Printf("Access token not found")
+      if err != nil || session.Values["id_token"] == nil || session.Values["id_token"] == "" {
          return false
       }
 
-      bearerToken := session.Values["access_token"].(string)
-      toValidate := map[string]string{}
-      toValidate["aud"] = "api://default"
-      toValidate["cid"] = os.Getenv("OKTA_OAUTH2_CLIENT_ID")
-
-      verifier := jwtverifier.JwtVerifier{
-         Issuer:           os.Getenv("OKTA_OAUTH2_ISSUER"),
-         ClaimsToValidate: toValidate,
-      }
-      _, err = verifier.New().VerifyAccessToken(bearerToken)
-
-      if err != nil {
-         log.Printf("Validation failed: %s", err.Error())
-         return false
-      }
       return true
    }
+   ```
 
-   func AuthMiddleware() gin.HandlerFunc {
-      return func(c *gin.Context) {
+1. Add a middleware function that wraps `IsAuthenticated()`:
+
+   ```go
+   func middleware(next http.Handler) http.Handler {
+      return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
          if !isAuthenticated(c.Request) {
             log.Printf("Unauthorized route: %s", c.Request.URL.Path)
             c.Redirect(http.StatusFound, "/login")
             return
          }
-
-         c.Next()
-      }
+         next.ServeHTTP(w, r)
+      })
    }
    ```
 
-2. Define a router group and add all the routes that need to be authenticated to this group:
+1. Change your route handler to wrap the handler function in the middleware:
 
    ```go
-   // setup public routes
-   router.GET("/login", LoginHandler)
-   router.GET("/authorization-code/callback", AuthCodeCallbackHandler)
-   router.GET("/", IndexHandler)
-
-   // setup private routes
-   authorized := router.Group("/", AuthMiddleware())
-
-   authorized.POST("/logout", LogoutHandler)
-   authorized.GET("/profile", ProfileHandler)
-   authorized.GET("/another-route", RouteHandler)
-   ```
-
-   You can also use the `isAuthenticated()` method to check if a user is authenticated and show additional data:
-
-   ```go
-   func IndexHandler(c *gin.Context) {
-     ...
-
-     c.HTML(
-        ...
-       gin.H{
-         "Profile":         profile,
-         "IsAuthenticated": isAuthenticated(c.Request),
-         "Error":           errorMsg,
-       },
-     )
-   }
+   http.Handle("/profile", middleware(http.HandlerFund(ProfileHandler)))
    ```

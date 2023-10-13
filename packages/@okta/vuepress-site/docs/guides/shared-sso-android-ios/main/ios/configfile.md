@@ -1,6 +1,7 @@
-Use the sample iOS app that you cloned from GitHub (see the Samples linked at the top of the guide) to test how multiple apps can share a browser session with iOS.
+Use the sample iOS app that you cloned from GitHub to test how multiple apps can share a browser session with iOS. See the samples that are linked at the top of the guide.
 
 ### Install the dependencies
+
 To install the Okta Browser Sign-in sample app dependencies into your project, this guide uses [CocoaPods](https://cocoapods.org/).
 
 Enter the following at the command line inside the sample app:
@@ -15,10 +16,10 @@ Make the following modifications in the `OktaBrowserSignIn/Okta.plist` file of y
 
 * `redirectUri`: Enter `com.first.sample:/callback` as the value, which is what you defined as one of the **Sign-in redirect URIs** in the Native app that you created in the [previous step](#configure-two-openid-connect-native-apps).
 * `clientId`: Enter the Client ID that you copied during the [previous step](#configure-two-openid-connect-native-apps).
-* `issuer`: This is the URL for the authorization server that performs authentication. It's a combination of your `Org URL` and `/oauth2/default`.
+* `issuer`: This is the URL for the authorization server that performs authentication. It's a combination of your Okta domain and `/oauth2/default`.
 
     For example: `https//${yourOktaDomain}/oauth2/default`
 
-> **Note:** You can find the `Org URL`ion the Admin Console's global header in the upper-right corner of the page. Click the section that displays your email and company name.  A drop-down box appears and displays general org information including the full `Org URL` (for example, subdomain.okta.com).
+> **Note:** Locate your Okta domain by clicking your username in the upper-right corner of the Admin Console. The domain appears in the dropdown menu (for example, subdomain.okta.com).
 
-* `logoutRedirectUri`: Enter `com.first.sample:/logout` as the value, which is what you defined as one of the **Sign-out redirect URIs** in the Native app that you created in the [previous step](#configure-two-openid-connect-native-apps).
+`logoutRedirectUri`: Enter `com.first.sample:/logout` as the value, which is what you defined as one of the **Sign-out redirect URIs** in the Native app that you created in the [previous step](#configure-two-openid-connect-native-apps).

@@ -37,9 +37,15 @@ Okta bases email notifications on templates that Okta generates automatically. T
 
 ### Multibrand customizations and emails
 
-When an end user triggers an email, Okta bases its branding on the custom domain from which the end user initiated the flow.
+If you want to use the Admin Console to send a branded email, consider the following:
 
-For example, you have a custom domain with branding for the "Widgets, Inc." app. An end user attempts to reset a password from the sign-in page. The sign-in triggers a Forgot Password email. The email has the branding associated with the custom domain for "Widgets, Inc.".
+- If your org has two or more custom brands, domains, and email addresses:
+	- You can't send branded emails from the Admin Console. Okta uses the request host in the URL to determine which brand and email address to use, and the console only works with the Okta subdomain.
+	- Use an Okta API to trigger the email. To send a User Activation email, send a request to the [Activate a User](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/activateUser) endpoint. Remember to change the domain of your request to the custom domain that's associated with the brand. For example, change `subdomain.okta.com` to `custom.domain.one`.
+- If your org has one custom brand, domain, and email address:
+	- Okta doesn't use your custom email address. The Okta subdomain appears in the *From* line.
+	- Your theming appears in the content of the email (logo, palette, images). With a single custom brand or domain, the Admin Console assumes that you want to send themed content.
+- If your org doesn't have a custom brand, domain, and email address, you can only trigger Okta-branded emails from the Admin Console.
 
 See [Brands](/docs/concepts/brands/).
 

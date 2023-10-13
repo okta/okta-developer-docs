@@ -228,7 +228,7 @@ Editing the [link](/docs/reference/api/users/#links-object) between users now re
 #### Bugs Fixed in 2018.41
 
 * Queries to the `/logs` [endpoint](/docs/reference/api/system-log/#list-events) with values for `since` and `until` that did not specify the time to milliseconds would sometimes return events outside of the specified time range. (OKTA-191533)
-* Responses from the `/events` [endpoint](/docs/reference/api/events/#list-events) would sometimes omit milliseconds from the `published` field. (OKTA-192568)
+* Responses from the `/events` endpoint would sometimes omit milliseconds from the `published` field. (OKTA-192568)
 
 #### Previously Released Early Access Features 2018.41 Update
 
@@ -1094,8 +1094,8 @@ Often the terms "event" and "log event" are used interchangeably. In the context
 
 Notes:
 
-* The System Log API contains much more [structured data](/docs/reference/api/system-log/#logevent-object) than [the Events API](/docs/reference/api/events/#event-model).
-* The System Log API supports [additional SCIM filters](/docs/reference/api/system-log/#request-parameters) and the `q` query parameter, because of the presence of more structured data than [the Events API](/docs/reference/api/events/#event-model). <!-- OKTA-160902 OKTA-160880 -->
+* The System Log API contains much more [structured data](/docs/reference/api/system-log/#logevent-object) than the Events API.
+* The System Log API supports [additional SCIM filters](/docs/reference/api/system-log/#request-parameters) and the `q` query parameter, because of the presence of more structured data than the Events API. <!-- OKTA-160902 OKTA-160880 -->
 
 #### Password Imports with Salted SHA-256 Algorithm is in Early Access (EA)
 
@@ -1155,7 +1155,7 @@ To configure an authorization or authentication flow to include a user consent p
 
 #### Sessions API Supports HTTP Header Prefer
 
-Okta now supports [the HTTP Header `Prefer`](https://tools.ietf.org/html/rfc7240#section-4.2) in [the Sessions API for refreshing sessions](/docs/reference/api/sessions/#refresh-current-session). You can extend the session lifetime, but skip any processing work related to building the response body.
+Okta now supports [the HTTP Header `Prefer`](https://tools.ietf.org/html/rfc7240#section-4.2) in [the Sessions API for refreshing sessions](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Session/#tag/Session/operation/refreshSession). You can extend the session lifetime, but skip any processing work related to building the response body.
 
 #### Example Request
 
