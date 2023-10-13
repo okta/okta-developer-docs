@@ -22,7 +22,7 @@ using Microsoft.AspNetCore.Mvc;
 using Okta.AspNetCore;
 ```
 
-Finally, give the user a **Sign Out** button or link. Open your `_Layout.cshtml` file and add the following code:
+Finally, open `_Layout.cshtml` and add a link or button for the user to sign out:
 
 ```cshtml
 <div>
