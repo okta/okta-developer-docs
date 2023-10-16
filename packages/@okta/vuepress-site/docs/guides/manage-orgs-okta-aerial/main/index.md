@@ -54,7 +54,7 @@ Okta Aerial introduces a few terms to the Okta ecosystem:
 <dd>Holds the authorization server for all Aerial API actions in any org in the Aerial account. Choose one org to permanently serve as the Aerial Org. <br/>Super admins can create API clients in the Aerial Org to access the Aerial account. The Aerial Org also contains all System Log events associated with Okta Aerial actions.</dd>
 </br>
 <dt><strong>Products</strong></dt>
-<dd>Okta-determined sets of features. Example products include: `P000052`: IT Products - SSO, `P000131`: IT Products - MFA, `P000139`: IT Products - Lifecycle Management with 1 OIN App. With the Okta Aerial API, you can view subscribed products for an Aerial account and enable a subset of products to orgs.</dd>
+<dd>Okta-determined sets of features. With the Okta Aerial API, you can view subscribed products for an Aerial account and enable a subset of products to orgs.</dd>
 </br>
 <dt><strong>Features</strong></dt>
 <dd>Distinct pieces of functionality. Features are bundled within products but may also be offered separately, for example, Early Access features.</dd>
@@ -64,11 +64,11 @@ Okta Aerial introduces a few terms to the Okta ecosystem:
 
 Okta provides the following environments to use with your Aerial account:
 
-- Sandbox: Only connected to OP3 cells. Use for scale testing and repetitive testing.
+- **Sandbox**: Only connected to OP3 cells. Use for scale testing and repetitive testing.
 
   `https://aerial-sandbox.okta.com`
 
-- Production:  Connected to `okta.com` and `okta.preview.com`. Use to explore the Aerial API, or test net-new development. Link a preview org to your production instance.
+- **Production**:  Connected to `okta.com` and `okta.preview.com`. Use to explore the Aerial API, or test net-new development. Link a preview org to your production instance.
 
   `https://aerial-apac.okta.com`
 
@@ -91,7 +91,7 @@ You can also manage an org's status, and enable or disable products in an org:
 - [Enable a product in an Org](#enable-a-product-in-an-org)
 - [Remove a product from an Org](#remove-a-product-from-an-org)
 
-<div class="half">
+<div class="full">
 
 ![Okta Aerial - summary of steps](/img/aerial-full-flow.png)
 
@@ -375,4 +375,3 @@ Any products not found in the array of product IDs are disabled from the org.
 - [Okta Aerial API documentation]()
 - [Org creation API documentation]()
 - [Create an API token](/docs/guides/create-an-api-token/main/)
-- 
