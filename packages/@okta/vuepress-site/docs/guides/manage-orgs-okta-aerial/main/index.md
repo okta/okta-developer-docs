@@ -320,7 +320,7 @@ Enables a product with ID P000139 in the org (IT Products - Lifecycle Management
 
 <div class="three-quarter">
 
-![Enable a Product in an Org](/img/aerial-enable-product.png)
+![Enable a product in an org](/img/aerial-enable-product.png)
 
 </div>
 
