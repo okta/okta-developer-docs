@@ -196,7 +196,7 @@ Authorization: Bearer ${access_token}
 
 Note: This API is still in development. We update the documentation with more accurate examples as we progress in development. -->
 
-The id of this record is the `orgId` to use in the URL for enabling Products:
+The ID of this record is the `orgId`. Use it in the URL for enabling Products:
 
 ```json
 {
