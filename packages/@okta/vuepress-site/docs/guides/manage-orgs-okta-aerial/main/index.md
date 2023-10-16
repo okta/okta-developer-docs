@@ -316,7 +316,7 @@ Deactivate an org by calling the `/status` endpoint. Deactivated orgs don’t co
 
 Enables a product with ID P000139 in the org (IT Products - Lifecycle Management with 1 OIN App)
 
-> **Note:** The `name` property is ignored, and can be included to simplify the client implementation.
+> **Note:** Since Okta ignores the `name` property, you can include it to simplify the client implementation.
 
 <div class="three-quarter">
 
