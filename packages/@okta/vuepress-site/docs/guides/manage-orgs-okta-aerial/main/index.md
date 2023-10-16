@@ -147,7 +147,7 @@ Authorization: Bearer ${access_token}
 ```
 <!-- our OAuth docs for service apps rely on Postman for this step. need something in the interim until Postman is ready -->
 
-## Create a child Org
+## Create a child org
 
 Create a child org using the Org creator API credentials in the parent org. This creates a child org with features synced from the parent org. In the API response, you receive an API token tied to the super admin. Use the token to provision more resources on the child org, like policies, apps, or groups.
 
