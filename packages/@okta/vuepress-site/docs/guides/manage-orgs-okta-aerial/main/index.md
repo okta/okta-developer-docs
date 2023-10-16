@@ -66,11 +66,11 @@ Okta provides the following environments to use with your Aerial account:
 
 - Sandbox: Only connected to OP3 cells. Use for scale testing and repetitive testing.
 
-  `https://aerial-sandbox/{accountId}`
+  `https://aerial-sandbox.okta.com`
 
-- Production: Connected to OP1, OP2, and OP3. Use to explore the Aerial API, or test net-new development. Link a preview org to your production instance.
+- Production:  Connected to `okta.com` and `okta.preview.com`. Use to explore the Aerial API, or test net-new development. Link a preview org to your production instance.
 
-  `https://aerial-apac/{accountId}`
+  `https://aerial-apac.okta.com`
 
 See [Link the new org to the Aerial account](#link-the-org-to-the-aerial-account).
 
