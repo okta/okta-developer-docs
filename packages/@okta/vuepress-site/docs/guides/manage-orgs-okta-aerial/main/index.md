@@ -128,7 +128,7 @@ Grant scopes to the client:
 
 To authenticate with Okta Aerial, a client obtains an access token from the Aerial org. See [Implement OAuth for Okta with a service app](/docs/guides/implement-oauth-for-okta-serviceapp/main/#get-an-access-token).
 
-Create a [JWT assertion](/docs/guides/implement-oauth-for-okta-serviceapp/main/#create-and-sign-the-jwt) and use it to make a [token request](/docs/guides/implement-oauth-for-okta-serviceapp/main/#create-and-sign-the-jwt) to the Aerial org. The Aerial org returns the access token:
+Create a [JWT assertion](/docs/guides/implement-oauth-for-okta-serviceapp/main/#create-and-sign-the-jwt) and use it to make a [token request](/docs/guides/implement-oauth-for-okta-serviceapp/main/#create-and-sign-the-jwt) to the Aerial org.
 
 ```bash
 curl --location --request POST 'https://${aerialOrgDomain}/oauth2/v1/token' \
@@ -139,6 +139,8 @@ curl --location --request POST 'https://${aerialOrgDomain}/oauth2/v1/token' \
     --data-urlencode 'client_assertion_type=urn:ietf:params:oauth:client-assertion-type:jwt-bearer' \
     --data-urlencode 'client_assertion=${jwt_assertion}'
 ```
+
+The Aerial org returns the access token.
 
 Add the access token to the Authorization header of Okta Aerial API requests:
 
