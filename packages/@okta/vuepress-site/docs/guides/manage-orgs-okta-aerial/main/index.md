@@ -261,7 +261,7 @@ curl --location --request POST 'https://${newOrgDomain}/api/v1/apps \
 }'
 ```
 
-## Manage an Org's status
+## Manage an org's status
 
 <ApiOperation method="put" url="https://aerial-{region}/{accountId}/api/v1/orgs/{orgId}/status" />
 
