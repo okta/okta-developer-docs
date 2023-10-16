@@ -291,7 +291,7 @@ Deactivate an org by calling the `/status` endpoint. Deactivated orgs don’t co
 }
 ```
 
-## List the configured Products
+## List the configured products
 
 <ApiOperation method="get" url="https://aerial-{region}/{accountId}/api/v1/orgs/{orgId}/products" />
 
