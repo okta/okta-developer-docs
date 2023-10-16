@@ -355,7 +355,7 @@ Any products not found in the array of product IDs are disabled from the org.
 
 <div class="three-quarter">
 
-![Disable a Product in an Org](/img/aerial-remove-product.png)
+![Disable a product in an org](/img/aerial-remove-product.png)
 
 </div>
 
