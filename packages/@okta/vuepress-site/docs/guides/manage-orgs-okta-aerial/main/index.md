@@ -343,7 +343,7 @@ Enables a product with ID P000139 in the org (IT Products - Lifecycle Management
 ]
 ```
 
-## Remove a Product from an Org
+## Remove a product from an org
 
 <ApiOperation method="put" url="https://aerial-{region}/{accountId}/api/v1/orgs/{orgId}/products" />
 
