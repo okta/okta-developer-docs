@@ -212,7 +212,7 @@ The ID of this record is the `orgId`. Use it in the URL for enabling Products:
 }
 ```
 
-## Enable products in the Org
+## Enable products in the org
 
 <!-- should add a bit of concept content here -->
 
