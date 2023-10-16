@@ -310,7 +310,7 @@ Deactivate an org by calling the `/status` endpoint. Deactivated orgs don’t co
 ]
 ```
 
-## Enable a Product in an Org
+## Enable a product in an org
 
 <ApiOperation method="put" url="https://aerial-{region}/{accountId}/api/v1/orgs/{orgId}/products" />
 
