@@ -155,7 +155,7 @@ This isn't the token that's used for Okta Aerial. See the [Org creator API](http
 
 However, the Org creator API token doesn’t appear in the Admin Console. You can’t use the console to revoke the token. If you deactivate the super admin (the first admin created during org creation), the token is deactivated.
 
-If you lose this token or it auto-expires, you must log in to the Admin Console as a Super Admin and [create a token](/docs/guides/create-an-api-token/main/#create-the-token).
+If you lose this token or it auto-expires, you must sign in to the Admin Console as a super admin and [create a token](/docs/guides/create-an-api-token/main/#create-the-token).
 
 
 ## Link the Org to the Aerial account
