@@ -89,7 +89,7 @@ You can also manage an org's status, and enable or disable products in an org:
 - [Manage an org's status](#manage-an-orgs-status)
 - [List the configured products in the org](#list-the-configured-products)
 - [Enable a product in an org](#enable-a-product-in-an-org)
-- [Remove a product from an Org](#remove-a-product-from-an-org)
+- [Remove a product from an org](#remove-a-product-from-an-org)
 
 <div class="full">
 
