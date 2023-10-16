@@ -6,7 +6,7 @@ sections:
   - main
 ---
 
-This guide explains how to add orgs to your Okta Aerial account, and manage Aerial org settings.
+This guide explains how to add orgs to your Okta Aerial account and manage Aerial org settings.
 
 > **Note:** Access to Okta Aerial requires an additional product to be present. Ensure that your Okta account team gives you access to the Okta Aerial API.
 
