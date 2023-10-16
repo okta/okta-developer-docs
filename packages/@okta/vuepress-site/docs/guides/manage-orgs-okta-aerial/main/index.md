@@ -194,7 +194,7 @@ Authorization: Bearer ${access_token}
 
 <!-- We have this note in the Google doc. What to do?
 
-Note: this API is still in development. We will update the documentation with more accurate examples as we progress in development. -->
+Note: This API is still in development. We update the documentation with more accurate examples as we progress in development. -->
 
 The id of this record is the `orgId` to use in the URL for enabling Products:
 
