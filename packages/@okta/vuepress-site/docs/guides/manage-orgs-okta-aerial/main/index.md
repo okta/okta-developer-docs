@@ -115,7 +115,7 @@ Configure the signing keys for the client:
 1. Select **Public key/Private key** as the client authentication method.
 1. Choose either **Save keys in Okta** or **Use a URL to fetch keys dynamically**:
    - If you want to save keys in Okta, click **Add key**.
-   - If you want to use a URL to fetch keys dynamically, you need to provide a URL that returns the [JWKS documents](https://www.rfc-editor.org/rfc/rfc7517#section-5).
+   - If you want to use a URL to fetch keys dynamically, you need to provide a URL that returns the JWKS documents. See [Client secret rotation and key management](/docs/guides/client-secret-rotation-key/main/).
 
 Grant scopes to the client:
 
