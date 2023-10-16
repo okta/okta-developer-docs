@@ -28,7 +28,7 @@ This guide explains how to add orgs to your Okta Aerial account, and manage Aeri
 
 **Sample code**
 
-Use the [Okta Aerial API](link to redocly)
+Use the [Okta Aerial API](https://developer.okta.com/docs/api/openapi/aerial/guides/overview/)
 
 ---
 
