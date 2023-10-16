@@ -265,7 +265,7 @@ curl --location --request POST 'https://${newOrgDomain}/api/v1/apps \
 
 <ApiOperation method="put" url="https://aerial-{region}/{accountId}/api/v1/orgs/{orgId}/status" />
 
-Deactivate an org by calling the `/status` endpoint. Deactivated orgs don’t count toward billing. Users in the org can’t use Okta’s services or sign-in to Okta.
+Deactivate an org by calling the `/status` endpoint. Deactivated orgs don’t count toward billing. Users in the org can’t use Okta services or sign in to Okta.
 
 <div class="three-quarter">
 
