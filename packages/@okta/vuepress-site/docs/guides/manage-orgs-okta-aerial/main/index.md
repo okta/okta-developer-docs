@@ -269,7 +269,7 @@ Deactivate an org by calling the `/status` endpoint. Deactivated orgs don’t co
 
 <div class="three-quarter">
 
-![Deactivate an Org](/img/aerial-change-status.png)
+![Deactivate an org](/img/aerial-change-status.png)
 
 </div>
 
