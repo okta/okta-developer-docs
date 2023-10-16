@@ -351,7 +351,7 @@ Removes a product with ID P000139 from the org (IT Products - Lifecycle Manageme
 
 Any products not found in the array of product IDs are disabled from the org.
 
-> **Note:** The `name` property is ignored, and can be included to simplify the client implementation.
+> **Note:** Since Okta ignores the `name` property, you can include it to simplify the client implementation.
 
 <div class="three-quarter">
 
