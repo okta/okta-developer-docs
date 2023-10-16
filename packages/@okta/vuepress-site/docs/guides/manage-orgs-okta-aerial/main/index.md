@@ -131,7 +131,7 @@ To authenticate with Okta Aerial, a client obtains an access token from the Aeri
 Create a [JWT assertion](/docs/guides/implement-oauth-for-okta-serviceapp/main/#create-and-sign-the-jwt) and use it to make a [token request](/docs/guides/implement-oauth-for-okta-serviceapp/main/#create-and-sign-the-jwt) to the Aerial org. The Aerial org returns the access token:
 
 ```bash
-curl --location --request POST 'https://${adminOrgDomain}/oauth2/v1/token' \
+curl --location --request POST 'https://${aerialOrgDomain}/oauth2/v1/token' \
     -H 'Accept: application/json' \
     -H 'Content-Type: application/x-www-form-urlencoded' \
     --data-urlencode 'grant_type=client_credentials' \
@@ -151,7 +151,7 @@ Authorization: Bearer ${access_token}
 
 Create a child org using the Org creator API credentials in the parent org. This creates a child org with features synced from the parent org. In the API response, you receive an API token tied to the super admin. Use the token to provision more resources on the child org, like policies, apps, or groups.
 
-This isn't the token that is used for Okta Aerial. See the [Org creator API](). The API token that the Org creator API creates has the same automatic expiration and deactivation as API tokens created using the [Admin Console](/docs/guides/create-an-api-token/main/#token-expiration-and-deactivation).
+This isn't the token that is used for Okta Aerial. See the [Org creator API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgCreation/). The API token that the Org creator API creates has the same automatic expiration and deactivation as API tokens created using the [Admin Console](/docs/guides/create-an-api-token/main/#token-expiration-and-deactivation).
 
 However, the Org creator API token doesn’t appear in the Admin Console. You can’t use the console to revoke the token. If you deactivate the super admin (the first admin created during org creation), the token is deactivated.
 
@@ -265,7 +265,7 @@ curl --location --request POST 'https://${newOrgDomain}/api/v1/apps \
 
 <ApiOperation method="put" url="https://aerial-{region}/{accountId}/api/v1/orgs/{orgId}/status" />
 
-Deactivate an org by calling the `/status` endpoint. Deactivated orgs don’t count toward billing. Users in that org can’t use Okta’s services or sign-in to Okta.
+Deactivate an org by calling the `/status` endpoint. Deactivated orgs don’t count toward billing. Users in the org can’t use Okta’s services or sign-in to Okta.
 
 <div class="three-quarter">
 
