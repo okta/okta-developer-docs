@@ -74,4 +74,6 @@ node_modules
 
 tests/cypress/videos
 tests/cypress/screenshots
-$null
+
+# yarn lockfile
+yarn.lock
