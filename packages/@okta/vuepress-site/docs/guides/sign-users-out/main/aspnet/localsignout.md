@@ -24,7 +24,7 @@ Update your `using` statements to import the `Microsoft.Owin.Security.Cookies` n
 using Microsoft.Owin.Security.Cookies;
 ```
 
-Finally, give the user a **Sign Out** button or link. Open your `_Layout.cshtml` file and add the following code:
+Finally, open `_Layout.cshtml` and add a link or button for the user to sign out:
 
 ```cshtml
 <div>

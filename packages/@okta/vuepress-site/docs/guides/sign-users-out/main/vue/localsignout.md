@@ -1,8 +1,8 @@
-Components that appear through the `router-view` can access properties of that parent component, including the 'authenticated' prop that we added.
+Components that appear through the `router-view` can access properties of that parent component, including the 'authenticated' prop added earlier.
 
-Here is a `Home` component that checks this property and offers a link to logout if the user is currently authenticated.
+Here’s a `Home` component that checks this property and offers a link to sign out if the user is authenticated.
 
-```
+```javascript
 <template>
   <div id="home">
     <div v-if="this.$parent.authenticated">

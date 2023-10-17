@@ -10,24 +10,24 @@ clearTokens()
 
 #### Revoke tokens (optional)
 
-Calling `clearTokens()` discards tokens from the local device storage, but they are technically still active until they expire. An optional step is to revoke the tokens so they can't be used, even by accident. You can revoke tokens using the following requests:
+Calling `clearTokens()` discards tokens from the local device storage, but they’re technically still active until they expire. An optional step is to revoke the tokens so they can't be used, even by accident. You can revoke tokens using the following requests:
 
 ```javascript
 await revokeAccessToken();
 ```
 
-This revokes the access token to make it inactive. Resolves `true` if access token has been successfully revoked.
+This revokes the access token to make it inactive. Resolves `true` if the access token has been successfully revoked.
 
 ```javascript
 await revokeIdToken();
 ```
 
-This revoke the ID token to make it inactive. Resolves `true` if ID token has been successfully revoked.
+This revokes the ID token to make it inactive. Resolves `true` if the ID token has been successfully revoked.
 
 ```javascript
 await revokeRefreshToken();
 ```
 
-This revokes the refresh token to make it inactive. Resolves `true` if refresh token has been successfully revoked.
+This revokes the refresh token to make it inactive. Resolves `true` if the refresh token has been successfully revoked.
 
-Tokens need to be revoked in separate requests.
+Access, ID, and refresh tokens must be revoked in separate requests.
