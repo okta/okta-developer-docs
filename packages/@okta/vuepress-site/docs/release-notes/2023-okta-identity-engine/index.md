@@ -8,6 +8,16 @@ title: Okta Identity Engine API Products release notes 2023
 
 ## October
 
+### Weekly release 2023.10.1
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Granular permissions to manage directories is self-service EA in Preview](#granular-permissions-to-manage-directories-is-self-service-ea-in-preview) | October 18, 2023 |
+
+#### Granular permissions to manage directories is self-service EA in Preview
+
+This feature enables you to assign permissions to view and manage directories as part of a customized admin role. <!--OKTA-657510 FF: ENFORCE_NEW_DIRECTORY_PERM >
+
 ### Monthly release 2023.10.0
 
 | Change | Expected in Preview Orgs |
@@ -20,7 +30,7 @@ title: Okta Identity Engine API Products release notes 2023
 
 #### Permission conditions for profile attributes is GA in Preview
 
-You can now apply conditions to the **View users and their details** and **Edit users' profile attributes** custom admin role permissions. Permission conditions help you limit the scope of a role by including or excluding admins' access to individual profile attributes. This gives you more granular control over your custom admin roles and helps meet your org’s unique security needs. See [Permission conditions](https://help.okta.com/okta_help.htm?type=oie&id=ext-permission-conditions). <!-- OKTA-586185 FF: CUSTOM_ADMIN_ROLES_CONDITIONS -->
+You can now apply conditions to the **View users and their details** and **Edit users' profile attributes** custom admin role permissions. Permission conditions help you limit the scope of a role by including or excluding admins' access to individual profile attributes. This gives you more granular control over your custom admin roles and helps meet your org's unique security needs. See [Permission conditions](https://help.okta.com/okta_help.htm?type=oie&id=ext-permission-conditions). <!-- OKTA-586185 FF: CUSTOM_ADMIN_ROLES_CONDITIONS -->
 
 #### Direct authentication endpoints now require channel_hint parameter
 
@@ -44,7 +54,7 @@ OAuth 2.0 Demonstrating Proof-of-Possession (DPoP) is a security feature that ad
 
 * An Authentication Policy rule configured with `methods` and `types` parameters of a possession `constraint` object, incorrectly prompted users for a security question. (OKTA-642454)
 
-* The Custom API Action card in Okta Workflows couldn’t authenticate requests to `/api/v1/org/factors/yubikey_token/tokens` endpoints. (OKTA-639624)
+* The Custom API Action card in Okta Workflows couldn't authenticate requests to `/api/v1/org/factors/yubikey_token/tokens` endpoints. (OKTA-639624)
 
 ## September
 
@@ -107,7 +117,7 @@ With the Policy API `/simulate` endpoint, you can quickly and easily test polici
 
 * A token inline hook secured by an OAuth 2.0 private key returned a 403 error response for all users except the super admin. (OKTA-605996)
 * Access policy evaluation for custom authorization servers was inconsistent when default scopes were used. (OKTA-627559)
-* Admins couldn’t make requests to MyAccount API (`/idp/myaccount/`) endpoints. (OKTA-632620)
+* Admins couldn't make requests to MyAccount API (`/idp/myaccount/`) endpoints. (OKTA-632620)
 
 ## August
 
