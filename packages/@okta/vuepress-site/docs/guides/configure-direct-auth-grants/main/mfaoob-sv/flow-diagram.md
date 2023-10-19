@@ -1,4 +1,4 @@
-### Direct Authentication MFA OOB flow
+### Direct Authentication MFA OOB SMS or Voice flow
 
 <div class="three-quarter">
 
@@ -14,19 +14,16 @@ participant "Client App (Your app)" as client
 participant "Authorization Server (Okta) " as okta
 
 autonumber "<b>#."
-client -> user: Prompts user for username and password
+client -> user: Prompts user for username, password
 user -> client: Enters credentials
 client -> okta: Sends credentials and `grant_type` in `/token` request
 okta -> client: Sends HTTP 403 error and `mfa_token` in response
-client -> okta: Sends `/challenge` request with `mfa_token` and `challenge_types_supported`
+client -> okta: Sends `/challenge` request with `mfa_token`, `channel_hint`, and `challenge_types_supported`
 okta -> client: Sends `challenge_type`, `oob_code`, other parameters required by authenticator
-okta -> user: Sends push notification
-user <-> client: Per configured authenticator options, more interaction may occur
-client -> okta: Polls `/token` at set interval with `mfa_token`, `oob_code`, `grant_type`
-okta -> client: Responds with HTTP 400 `authorization_pending`
-user -> okta: Opens the Okta Verify app and taps **Yes it's me**
-user <-> okta: Per configured authenticator options, more interaction may occur
-client -> okta: Polls `/token` endpoint
+okta -> user: Sends out-of-band challenge (sms or voice call, based on the `channel_hint`)
+client -> user: Prompts user to enter OTP
+user -> client: Enters OTP
+client -> okta: Sends `binding_code` and `oob_code` in `/token` request
 okta -> client: Responds with access token (optionally refresh token)
 @enduml
 -->

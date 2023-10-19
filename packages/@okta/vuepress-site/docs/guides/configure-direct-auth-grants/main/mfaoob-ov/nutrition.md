@@ -15,7 +15,7 @@ This guide explains how to implement a direct authentication multifactor out-of-
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
 * An app that you want to implement OAuth 2.0 direct authentication MFA OOB with Okta
-* A test user in your org that's enrolled in Okta Verify <!-- Need to update this after the entire feature is rolled out and not limited to Okta Verify -->
+* A test user in your org that's enrolled in the Okta Verify and Phone authenticators???
 * The Direct Authentication feature enabled for your org. Contact [Okta Support](mailto:support@okta.com) to enable this EA feature.
 
 <ApiAmProdWarning />
