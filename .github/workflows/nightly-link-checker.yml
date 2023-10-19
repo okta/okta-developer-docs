@@ -39,12 +39,12 @@ jobs:
         id: read-urls
         run: echo "::set-output name=urls::$(cat urls.txt)"
 
-      - name: Slack notification with URLs
-        if: success()
-        uses: rtCamp/action-slack-notify@v2
-        env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }} #developer-docs-404s
-        with:
-          args: '{"text": "${{ steps.read-urls.outputs.urls }}"}'
-        run: |
-          curl -X POST -H 'Content-type: application/json' --data '{"text":"The GitHub Action workflow is complete!"}' $SLACK_WEBHOOK_URL
+      #- name: Slack notification with URLs
+      #  if: success()
+      #  uses: rtCamp/action-slack-notify@v2
+      #  env:
+      #    SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }} #developer-docs-404s
+      #  with:
+      #    args: '{"text": "${{ steps.read-urls.outputs.urls }}"}'
+      #  run: |
+      #    curl -X POST -H 'Content-type: application/json' --data '{"text":"The GitHub Action workflow is complete!"}' $SLACK_WEBHOOK_URL
