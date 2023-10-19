@@ -1,8 +1,10 @@
 name: Nightly Job
 
-on:
-  schedule:
-    - cron: "1 5 * * *" # This schedule runs every night at 12:01 AM Eastern time (adjust according to your timezone)
+# on:
+#  schedule:
+#    - cron: "1 5 * * *" # This schedule runs every night at 12:01 AM Eastern time (adjust according to your timezone)
+
+on: pull_request
 
 jobs:
   build:
