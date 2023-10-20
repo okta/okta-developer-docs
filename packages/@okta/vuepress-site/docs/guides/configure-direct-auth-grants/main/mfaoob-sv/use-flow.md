@@ -57,7 +57,7 @@ Note the parameters that are passed:
 
 - `client_id`: Matches the client ID of the application that you created in the [Set up your app](#set-up-your-app) section. You can find it at the top of your app's **General** tab.
 - `mfa_token`: A unique token used for identifying multifactor authentication flows to link the request to the original authentication flow.
-- `channel_hint`: The out-of-band channel that the client wants to use (`push`). This parameter is only required if challenging an out-of-band authenticator.
+- `channel_hint`: The out-of-band channel that the client wants to use (`sms` or `voice`). This parameter is only required if challenging an out-of-band authenticator.
 - `challenge_types_supported`: `http://auth0.com/oauth/grant-type/mfa-oob`, which communicates to the authorization server the factors that the client app supports. If the access policy requires factors that aren't included, an error is returned. Supported values: `http://auth0.com/oauth/grant-type/mfa-otp` and `http://auth0.com/oauth/grant-type/mfa-oob`
 
 > **Note:** This field may seem redundant since the `/token` request should validate `grant_types_supported`. However, this field is included because some clients can't send  `grant_types_supported` in the request or the server can't validate `grant_types_supported` on the `/token` endpoint.
@@ -68,31 +68,16 @@ For more information on these parameters, see the `/challenge` [endpoint](https:
 
 In an HTTP 200 response, Okta returns the following parameters:
 
-> **Note:** Okta also sends a push notification to the user.
+> **Note:** Okta also sends an out-of-band challenge to the user.
 
 ```json
-  {
+{
     "challenge_type": "http://auth0.com/oauth/grant-type/mfa-oob",
-    "oob_code": "ftyP7pAi17dEc-zQFsBFjXVKw4HzH0yIMn",
+    "oob_code": "ftXV6pXUNEKgBF8MyPy5EPANPVxfiajMDx",
     "expires_in": 300,
-    "interval": 5,
-    "channel": "push",
-    "binding_method": "none"
-  }
-```
-
-#### Number challenge for Okta Verify Push example
-
-```json
-  {
-    "challenge_type": "http://auth0.com/oauth/grant-type/mfa-oob",
-    "oob_code": "ftyP7pAi17dEc-zQFsBFjXVKw4HzH0yIMn",
-    "expires_in": 300,
-    "interval": 5,
-    "channel": "push",
-    "binding_method": "transfer",
-    "binding_code": "95"
-  }
+    "channel": "sms",
+    "binding_method": "prompt"
+}
 ```
 
 Note the parameters included:
@@ -100,47 +85,28 @@ Note the parameters included:
 - `challenge_type`: The challenge type used for authentication. This must be one of the `challenge_types_supported` from the request body. The MFA OOB flow supports only `http://auth0.com/oauth/grant-type/mfa-oob`.
 - `oob_code`: An identifier of an out-of-band factor transaction. To respond to or check on the status of an out-of-band factor, use this code to identify the factor transaction.
 - `expires_in`: The time, in seconds, until the `oob_code` expires
-- `interval`: The frequency, in seconds, that the client needs to poll to check if the out-of-band factor is complete. This is only relevant to polling factors such as Okta Verify Push.
 - `channel`: The type of out-of-band channel used. Okta currently only supports Okta Verify Push.<!-- need to update this when phase 2 is complete -->
-- `binding_method`: The method used to bind the out-of-band channel with the primary channel. Supported values: `none`, `transfer`.
-- `binding_code`: The end user verification code used to bind the authorization operation on the secondary channel with the primary channel. This parameter appears only if `binding_method=transfer`.
+- `binding_method`: The method used to bind the out-of-band channel with the primary channel. Supported values: `none`, `transfer`, `prompt`
 
-### Poll the Okta authorization server
+### Second request for tokens
 
-Your app polls the authorization server `/token` endpoint at the set `interval`.
+After the user responds to the out-of-band challenge, the app makes a `/token` request again.
 
 ```bash
 curl --request POST \
   --url https://${yourOktaDomain}/oauth2/v1/token \
   --header 'accept: application/json' \
   --header 'content-type: application/x-www-form-urlencoded' \
-  --data 'client_id=${client_id}&scope=openid profile&grant_type=http://auth0.com/oauth/grant-type/mfa-oob&oob_code=ftqmhFRXHxOVo-4t4JoQhtbsqww3XTMCp2&mfa_token=fCRU9lDO0rMHQ_FIADFL'
+  --data 'client_id=${client_id}&scope=openid%20profile&grant_type=http://auth0.com/oauth/grant-type/mfa-oob&oob_code=ftXV6pXUNEKgBF8MyPy5EPANPVxfiajMDx&binding_code=436575'
 ```
 
 Note the parameters that are passed:
 
 - `client_id`: Matches the client ID of the application that you created in the [Set up your app](#set-up-your-app) section. You can find it at the top of your app's **General** tab.
 - `scope`: Must be at least `openid`. If you're using a custom authorization server, see the **Create Scopes** section of the [Create an authorization server guide](/docs/guides/customize-authz-server/main/#create-scopes).
-- `grant_type`: `http://auth0.com/oauth/grant-type/mfa-oob`, which indicates that you're using the direct authentication MFA OOB grant type. Use this grant type for MFA OOB factors that you want to use as a secondary factor.
+- `grant_type`: `http://auth0.com/oauth/grant-type/mfa-oob`, which indicates that you're using the MFA OOB grant type
 - `oob_code`: An identifier of an out-of-band factor transaction. To respond to or check on the status of an out-of-band factor, use this code to identify the factor transaction.
-- `mfa_token`: A unique token used for identifying multifactor authentication flows to link the request to the original authentication flow.
-
-For more information on these parameters, see the `/token` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/OrgAS/#tag/OrgAS/operation/token).
-
-### Okta poll response
-
-Okta responds to the poll request with an HTTP 400 `authorization_pending` error.
-
-```json
-  {
-    "error": "authorization_pending",
-    "error_description": "No user response received on the out-of-band authenticator yet. Continue polling to wait for a response."
-  }
-```
-
-### Second request for tokens
-
-After the user responds to the push notification, the app polls the `/token` endpoint again. See the request in [Request for tokens](#request-for-tokens) for a request example.
+- `binding_code`: The end-user verification code used to bind the authorization operation on the secondary channel with the primary channel.
 
 ### Okta second token response
 

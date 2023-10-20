@@ -15,7 +15,7 @@ This guide explains how to implement a direct authentication out-of-band (OOB) f
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
 * An app that you want to implement OAuth 2.0 direct authentication OOB with Okta
-* A test user in your org enrolled in the Phone authenticator
+* A test user in your org enrolled in the Phone authenticator with both **SMS** and **Voice call** enabled
 * The Direct Authentication feature enabled for your org. Contact [Okta Support](mailto:support@okta.com) to enable this EA feature.
 
 <ApiAmProdWarning />

@@ -83,13 +83,9 @@ In direct authentication flows, the client tells the server which authenticator 
 
 <StackSnippet snippet="setup-app" />
 
-<StackSnippet snippet="install-sdk" />
-
 ## Flow specifics
 
 <StackSnippet snippet="use-flow" />
-
-<StackSnippet snippet="examples" />
 
 ## Next steps
 
