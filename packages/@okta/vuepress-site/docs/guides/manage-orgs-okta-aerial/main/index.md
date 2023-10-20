@@ -159,7 +159,7 @@ If you lose this token or it expires, you must sign in to the Admin Console as a
 
 To enable products in an org, add the org to your Aerial account. You can only add orgs to your Aerial account that are associated with your Okta contracts.
 
-To link the org to Okta Aerial, send a `POST` request to the `/api/va/orgs` endpoint of the Aerial API. The response contains the Org object including the `orgId`. Use the `orgId` to enable products.
+Link the org to Okta Aerial by sending a `POST` request to the `/api/va/orgs` endpoint of the Aerial API. The response contains the Org object including the `orgId`. Use the `orgId` to enable products.
 
 ### Use `orgId`
 
