@@ -246,7 +246,7 @@ The request and response are the same:
 ]
 ```
 
-## Configure the Org
+## Configure the org
 
 To pre-configure groups, apps, and policies in each org, the Aerial API client needs the following:
 
