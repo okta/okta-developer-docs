@@ -4,7 +4,7 @@ excerpt: Configure your Okta org and your single-page app to use Okta's redirect
 layout: Guides
 ---
 
-Add authentication with Okta's [redirect model](https://developer.okta.com/docs/concepts/redirect-vs-embedded/#redirect-authentication) to your single-page app. This example uses Okta as the user store.
+Add authentication with the Okta [redirect model](https://developer.okta.com/docs/concepts/redirect-vs-embedded/#redirect-authentication) to your single-page app. This example uses Okta as the user store.
 
 ---
 
@@ -39,14 +39,6 @@ Set up your [Okta org](/docs/concepts/okta-organizations/). The Okta command-lin
 
       > **Tip**: If you don't receive the confirmation email sent as part of the creation process, check your spam filters for an email from `noreply@okta.com`
 
-   1. Find your new domain and a link to set your password in the email:
-
-      ```txt
-      Your Okta Domain: https://dev-xxxxxxx.okta.com
-      To set your password open this link:
-      https://dev-xxxxxxx.okta.com/welcome/xrqyNKPCZcvxL1ouKUoh
-      ```
-
    1. Set the password for your org by opening the link and following the instructions. Your Okta domain is returned, similar to the following:
 
       ```txt
@@ -64,7 +56,7 @@ Set up your [Okta org](/docs/concepts/okta-organizations/). The Okta command-lin
 > * Contact your support team to enable the feature in your org.
 > * Use the Admin Console to create your app integrations instead of the CLI.
 >
-> All accounts created with Okta CLI are developer accounts.
+> All accounts created with the Okta CLI are developer accounts.
 
 ## Create an Okta integration for your app
 
@@ -78,14 +70,14 @@ To create your app integration in Okta using the CLI:
    okta apps create spa
    ```
 
-   > **Tip**: If Okta CLI returns the error "Your Okta Org is missing a feature required to use the Okta CLI: API Access Management," you're not using an Okta developer account. To resolve this, see [Set up Okta](#set-up-okta).
+   > **Tip**: If the CLI returns the error "Your Okta Org is missing a feature required to use the Okta CLI: API Access Management," you're not using an Okta developer account. To resolve this, see [Set up Okta](#set-up-okta).
 
 2. Enter **Quickstart** when prompted for the app name.
 3. Specify the required redirect URI values:
 <StackSnippet snippet="redirectvalues" />
 4. Make note of the application configuration printed to the terminal as you use the Client ID and Issuer to configure your SPA.
 
-At this point, you can move to the next step: [Creating your app](#create-app). If you want to set up the integration manually, or find out what the CLI just did for you, read on.
+At this point, you can move to the next step: [Creating your app](#create-an-app). If you want to set up the integration manually, or find out what the CLI just did for you, read on.
 
 1. [Sign in to your Okta organization](https://developer.okta.com/login) with your administrator account.
 1. Click **Admin** in the upper-right corner of the page.
@@ -95,13 +87,13 @@ At this point, you can move to the next step: [Creating your app](#create-app). 
 1. Select an **Application type** of **Single-Page Application**, then click **Next**.
    > **Note:** If you choose an inappropriate application type, it can break the sign-in or sign-out flows by requiring the verification of a client secret, which is something that public clients don't have.
 1. Enter an **App integration name**.
-1. Select **Authorization Code** and **Refresh Token** as the **Grant type**. This enables the Authorization Code flow with PKCE for your application and the ability to refresh the access token when it expires without prompting the user to re-authenticate.
+1. Select **Authorization Code** and **Refresh Token** as the **Grant type**. This enables the Authorization Code flow with PKCE for your application and the ability to refresh the access token when it expires without prompting the user to reauthenticate.
 1. Enter the **Sign-in redirect URIs** for both local development, such as `http://localhost:xxxx/login/callback`, and for production, such as `https://app.example.com/login/callback`.
 1. Select the type of **Controlled access** for your app in the **Assignments** section. You can allow all users to have access or limit access to individuals and groups. See the [Assign app integrations](https://help.okta.com/okta_help.htm?type=oie&id=ext-lcm-user-app-assign) topic in the Okta product documentation.
 1. Click **Save** to create the app integration and open its configuration page. Keep this page open as you need to copy some values in later steps when configuring your app.
 1. On the **General** tab, scroll to **General Settings** and click **Edit**.
-1. Verify that **Refresh Token** is selected as a **Grant type**. In the **Refresh Token** section, [refresh token rotation](/docs/guides/refresh-tokens/main/#refresh-token-rotation) is automatically set as the default refresh token behavior.
-   > **Note:** The default number of seconds for the **Grace period for token rotation** is set to 30 seconds. You can [change the value](/docs/guides/refresh-tokens/main/#enable-refresh-token-rotation) to any number between 0 and 60 seconds. After the refresh token is rotated, the previous token remains valid for this amount of time to allow clients to get the new token. Using a value of 0 indicates that there is no grace period. However, a grace period of 0 doesn't necessarily mean that the previous refresh token is immediately invalidated. That token is invalidated after the new one is generated and returned in the response.
+1. Verify that the **Refresh Token** is selected as a **Grant type**. In the **Refresh Token** section, [refresh token rotation](/docs/guides/refresh-tokens/main/#refresh-token-rotation) is automatically set as the default refresh token behavior.
+   > **Note:** By default, the **Grace period for token rotation** is set to 30 seconds. You can [change the rotation period](/docs/guides/refresh-tokens/main/#enable-refresh-token-rotation) to between 0 and 60 seconds. After the refresh token is rotated, the previous token remains valid for this amount of time to allow clients to get the new token. Using a value of 0 indicates that there's no grace period. However, a grace period of 0 doesn't necessarily mean that the previous refresh token is immediately invalidated. That token is invalidated after the new one is generated and returned in the response.
 1. In the **Login** section, specify an **Initiate login URI** to have Okta initiate the sign-in flow. When Okta redirects to this URI (for example, `https://example.com:xxxx/login`), the client is triggered to send an authorize request. This URI is also used when users reset their passwords while signing in to the app. Okta redirects the user back to this URI after the password is reset so that the user can continue to sign in.
 1. Click **Save**.
 
@@ -111,9 +103,9 @@ Reduce possible attack vectors by defining Trusted Origins, which are the websit
 
 >**Note:** To reduce risk, only grant access to the Okta API to specific websites (origins) that you both control and trust.
 
-To set trusted origins manually, add the **Base URIs** for local development, such as `http://localhost:xxxx`, and for production, such as `https://app.example.com`. These URIs are added as trusted origins in your Okta org and you can manage them by navigating to **Security** > **API** and selecting the **Trusted Origins** tab. See [Enable Trusted Origins](/docs/guides/enable-cors/).
+To set trusted origins manually, add the **Base URIs** for local development, such as `http://localhost:xxxx`, and for production, such as `https://app.example.com`. These URIs are added as trusted origins in your Okta org and you can manage them by going to **Security** > **API** and selecting the **Trusted Origins** tab. See [Enable Trusted Origins](/docs/guides/enable-cors/).
 
-## Create app
+## Create an app
 
 In this section you create a sample SPA and add redirect authentication using your new Okta app integration.
 
@@ -129,7 +121,7 @@ Add the required dependencies for using the Okta SDK to your SPA.
 
 ### Configure your app
 
-Our app uses information from the app integration that we created earlier to configure communication with the API: Client ID and Issuer.
+Our app uses information from the app integration that was created earlier to configure communication with the API: Client ID and Issuer.
 
 <StackSnippet snippet="configmid" />
 
@@ -162,7 +154,7 @@ After Okta authenticates a user, they're redirected back to your application thr
 
 After the user signs in, Okta returns some of their profile information to your app (see [/userinfo response example](/docs/reference/api/oidc/#response-example-success-6)). You can use this information to update your UI, for example to show the customer's name.
 
-The default profile items (called `claims`) returned by Okta include the user's email address, name, and preferred username. The claims that you see may differ depending on what scopes your app has requested. See [Configure packages](#configure-packages).
+The default profile items (called `claims`) returned by Okta include the user's email address, name, and preferred username. The claims that you see may differ depending on what scopes your app has requested.
 
 <StackSnippet snippet="getuserinfo" />
 
@@ -180,7 +172,7 @@ Your app can require authentication for everything or just for specific routes. 
 
 ### Require authentication for everything
 
-Some apps requires that the user be authenticated for all routes, for example a company intranet.
+Some apps require that the user be authenticated for all routes, for example a company intranet.
 
 <StackSnippet snippet="reqautheverything" />
 
@@ -196,7 +188,7 @@ SPAs need to send requests to one or more APIs to perform actions and retrieve i
 
 After a user signs in, your application stores an access token issued by Okta. By attaching this token to outgoing requests, your APIs can authenticate them (ensure that the user is signed in to perform an action) and authorize them (ensure that the user is allowed to do an action).
 
-On your front-end (this SPA), make sure that you place the access token in the HTTP `Authorization` header of outgoing requests using this format:
+On your front end (this SPA), make sure that you place the access token in the HTTP `Authorization` header of outgoing requests using this format:
 
 ```http
 Authorization: Bearer ${token}
