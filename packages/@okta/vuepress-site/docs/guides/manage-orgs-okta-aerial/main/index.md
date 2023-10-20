@@ -84,12 +84,7 @@ Follow these steps to create and configure new orgs in your Aerial account:
 1. [Enable products in the org](#enable-products-in-the-org): Enable products in the Org using the Aerial API.
 1. [Configure the org](#configure-the-org): Configure the org using Okta objects in the Aerial API.
 
-You can also manage an org's status, and enable or disable products in an org:
-
-- [Manage an org's status](#manage-an-orgs-status)
-- [List the configured products in the org](#list-the-configured-products)
-- [Enable a product in an org](#enable-a-product-in-an-org)
-- [Remove a product from an org](#remove-a-product-from-an-org)
+You can also [Manage an org's status](#manage-an-orgs-status).
 
 <div class="full">
 
@@ -232,6 +227,8 @@ Any already-enabled products not found in the array of product IDs are disabled 
 
 ### Request and response example
 
+The request and response are the same:
+
 ```json
 [
   {
@@ -255,6 +252,8 @@ To pre-configure groups, apps, and policies in each org, the Aerial API client n
 
 - The domain of the org
 - The API token returned by the Org creator API
+
+See [Create an Application](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication).
 
 #### Request example
 
@@ -306,10 +305,8 @@ Deactivate an org by calling the `/status` endpoint. Deactivated orgs don’t co
 }
 ```
 
-
-
 ## See also
 
-- [Okta Aerial API documentation]()
-- [Org creation API documentation]()
+- [Okta Aerial API documentation](https://developer.okta.com/docs/api/openapi/aerial/guides/overview/)
+<!-- - [Org creation API documentation]() -->
 - [Create an API token](/docs/guides/create-an-api-token/main/)
