@@ -225,7 +225,7 @@ Any already-enabled products not found in the array of product IDs are disabled 
 
 </div>
 
-### Request and response example
+### Request and response examples
 
 The request and response are the same:
 
