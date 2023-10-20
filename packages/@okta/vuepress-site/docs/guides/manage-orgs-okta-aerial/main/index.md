@@ -215,7 +215,7 @@ The ID of this record is the `orgId`. Use it in the URL for enabling products:
 
 Include the products that you want to enable in an array in the request body.
 
-Any already-enabled products not found in the array of product IDs are disabled from the org.. See [List all enabled Products for an Org](https://developer.okta.com/docs/api/openapi/aerial/aerial/tag/Orgs/#tag/Orgs/operation/getEnabledProducts).
+Any already-enabled products not found in the array of product IDs are disabled from the org. See [List all enabled Products for an Org](https://developer.okta.com/docs/api/openapi/aerial/aerial/tag/Orgs/#tag/Orgs/operation/getEnabledProducts).
 
 > **Note:** Since Okta ignores the `name` property, you can include it to simplify the client implementation.
 
