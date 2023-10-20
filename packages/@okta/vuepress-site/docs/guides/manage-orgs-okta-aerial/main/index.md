@@ -216,24 +216,37 @@ The ID of this record is the `orgId`. Use it in the URL for enabling Products:
 
 ## Enable products in the org
 
-<!-- should add a bit of concept content here -->
-
 <ApiOperation method="put" url="https://aerial-{region}/{accountId}/api/v1/orgs/{orgId}/products" />
+
+Include the products you want to enable in an array in the request body.
+
+Any already-enabled products not found in the array of product IDs are disabled from the org.. See [List all enabled Products for an Org](https://developer.okta.com/docs/api/openapi/aerial/aerial/tag/Orgs/#tag/Orgs/operation/getEnabledProducts).
+
+> **Note:** Since Okta ignores the `name` property, you can include it to simplify the client implementation.
+
+<div class="three-quarter">
+
+![Enable a product in an org](/img/aerial-enable-product.png)
+
+</div>
 
 ### Request and response example
 
 ```json
-{
-  "accountId": "string",
-  "name": "string",
-  "region": "string",
-  "cell": "string",
-  "domain": "string",
-  "status": "string",
-  "createdDate": "string",
-  "createdBy": "string",
-  "id": "string"
-}
+[
+  {
+    "id": "P000052",
+    "name": "IT Products - SSO"
+  },
+  {
+    "id": "P000139",
+    "name": "IT Products - MFA"
+  },
+  {
+    "id": "P000131",
+    "name": "IT Products - Lifecycle Management with 1 OIN App"
+  }
+]
 ```
 
 ## Configure the Org
@@ -263,7 +276,7 @@ curl --location --request POST 'https://${newOrgDomain}/api/v1/apps \
 }'
 ```
 
-## Manage an org's status
+## Deactivate an org
 
 <ApiOperation method="put" url="https://aerial-{region}/{accountId}/api/v1/orgs/{orgId}/status" />
 
@@ -293,84 +306,7 @@ Deactivate an org by calling the `/status` endpoint. Deactivated orgs don’t co
 }
 ```
 
-## List the configured products
 
-<ApiOperation method="get" url="https://aerial-{region}/{accountId}/api/v1/orgs/{orgId}/products" />
-
-### Response example
-
-```bash
-[
-  {
-    "id": "P000052",
-    "name": "IT Products - SSO"
-  },
-  {
-    "id": "P000131",
-    "name": "IT Products - MFA"
-  }
-]
-```
-
-## Enable a product in an org
-
-<ApiOperation method="put" url="https://aerial-{region}/{accountId}/api/v1/orgs/{orgId}/products" />
-
-Enables a product with ID P000139 in the org (IT Products - Lifecycle Management with 1 OIN App)
-
-> **Note:** Since Okta ignores the `name` property, you can include it to simplify the client implementation.
-
-<div class="three-quarter">
-
-![Enable a product in an org](/img/aerial-enable-product.png)
-
-</div>
-
-### Request and response example
-
-```json
-[
-  {
-    "id": "P000052",
-    "name": "IT Products - SSO"
-  },
-  {
-    "id": "P000139",
-    "name": "IT Products - MFA"
-  },
-  {
-    "id": "P000131",
-    "name": "IT Products - Lifecycle Management with 1 OIN App"
-  }
-]
-```
-
-## Remove a product from an org
-
-<ApiOperation method="put" url="https://aerial-{region}/{accountId}/api/v1/orgs/{orgId}/products" />
-
-Removes a product with ID P000139 from the org (IT Products - Lifecycle Management with 1 OIN App)
-
-Any products not found in the array of product IDs are disabled from the org.
-
-> **Note:** Since Okta ignores the `name` property, you can include it to simplify the client implementation.
-
-<div class="three-quarter">
-
-![Disable a product in an org](/img/aerial-remove-product.png)
-
-</div>
-
-### Request and response example
-
-```json
-[
-  {
-    "id": "P000052",
-    "name": "IT Products - SSO"
-  }
-]
-```
 
 ## See also
 
