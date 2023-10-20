@@ -213,7 +213,7 @@ The ID of this record is the `orgId`. Use it in the URL for enabling products:
 
 <ApiOperation method="put" url="https://aerial-{region}/{accountId}/api/v1/orgs/{orgId}/products" />
 
-Include the products you want to enable in an array in the request body.
+Include the products that you want to enable in an array in the request body.
 
 Any already-enabled products not found in the array of product IDs are disabled from the org.. See [List all enabled Products for an Org](https://developer.okta.com/docs/api/openapi/aerial/aerial/tag/Orgs/#tag/Orgs/operation/getEnabledProducts).
 
