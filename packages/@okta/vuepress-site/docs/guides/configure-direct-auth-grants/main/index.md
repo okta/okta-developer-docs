@@ -6,8 +6,6 @@ layout: Guides
 
 <StackSnippet snippet="nutrition" />
 
-<StackSnippet snippet="nut-facts-samplecode" />
-
 ---
 
 ## About the direct authentication <StackSnippet snippet="granttype" inline /> grant

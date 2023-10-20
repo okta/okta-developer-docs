@@ -1,7 +1,7 @@
 <ApiLifecycle access="ea" />
 <ApiLifecycle access="ie" />
 
-This guide explains how to implement a direct authentication out-of-band (OOB) flow for your app in Okta.
+This guide explains how to implement a direct authentication out-of-band (OOB) flow for your app in Okta. The guide focuses on using Okta Verify Push with the Okta Verify authenticator.
 
 ---
 
@@ -15,7 +15,7 @@ This guide explains how to implement a direct authentication out-of-band (OOB) f
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
 * An app that you want to implement OAuth 2.0 direct authentication OOB with Okta
-* A test user in your org enrolled in Okta Verify <!-- Need to update this after the entire feature is rolled out and not limited to Okta Verify -->
+* A test user in your org enrolled in Okta Verify
 * The Direct Authentication feature enabled for your org. Contact [Okta Support](mailto:support@okta.com) to enable this EA feature.
 
 <ApiAmProdWarning />
