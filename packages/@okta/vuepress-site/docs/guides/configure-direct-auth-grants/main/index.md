@@ -34,33 +34,52 @@ Direct authentication grant type flows use passwordless authentication, such as 
 1. Click **Edit** for the Default Policy if the authenticator is set to **Disabled**.
 1. Select **Optional** from the dropdown box for the authenticator, and then click **Update Policy**.
 
-START WORKING HERE FOR SHARING CONTENT
-
 ## Set up your authorization server
 
-To use the <StackSnippet snippet="granttype" inline /> flow, both your client app and the [Okta authorization server](/docs/concepts/auth-servers/) that you're using with the app must have the MFA OOB grant type enabled.
+To use the <StackSnippet snippet="granttype" inline /> flow, both your client app and the [Okta authorization server](/docs/concepts/auth-servers/) that you're using with the app must have the <StackSnippet snippet="granttype" inline /> grant type enabled.
 
-If your Okta org uses Identity Engine, then the MFA OOB grant type is automatically configured in your org authorization server. For custom authorization servers that you're using with your app, you must enable the MFA OOB grant:
+If your Okta org uses Identity Engine, then the <StackSnippet snippet="granttype" inline /> grant type is automatically configured in your org authorization server. For custom authorization servers that you're using with your app, you must enable <StackSnippet snippet="granttype" inline />:
 
 1. In the Admin Console, go to **Security** > **API**.
 2. On the **Authorization Servers** tab, select the pencil icon next to the authorization server that you want to use.
 3. Select the **Access Policies** tab.
 4. Select the pencil icon from the **Actions** column for the **Default Policy Rule**.
 
-    If you aren’t using the Default Policy for your client app that requires the MFA OOB grant, select the policy that applies to your app.
+    If you aren’t using the Default Policy for your client app that requires the <StackSnippet snippet="granttype" inline /> grant, select the policy that applies to your app.
 
-5. In the **Edit Rule** dialog, select the **MFA OOB** checkbox (in addition to any other grant type that is already supported).
+5. In the **Edit Rule** dialog, select the **<StackSnippet snippet="granttype" inline />** checkbox (in addition to any other grant type that is already supported).
 6. Click **Update Rule**.
-
 
 ## Set up your app
 
 Before you can implement authorization, you need to register your app in Okta by creating an app integration from the Admin Console.
 
 1. Open the **Admin Console** for your org.
-1. Choose **Applications** > **Applications** to view the current app integrations.
+1. Select **Applications** > **Applications** to view the current app integrations.
 1. Click **Create App Integration**.
 1. Select **<StackSnippet snippet="sign-in-method" inline />** as the **Sign-in method**.
+1. Select **Native Application** as the **Application type**, then click **Next**.
+1. Specify the **App integration name**.
+1. Enable the <StackSnippet snippet="setupappgt" inline /> in addition to the defaults.
+1. Select **Allow everyone in your organization to access**, then click **Save**.
+1. From the **General** tab of your app integration, copy and save the generated **Client ID** value to implement your authorization flow.
+
+## Set up the authentication policy
+
+In direct authentication flows, the client tells the server which authenticator it wants to authenticate with through the grant type. However, the server can't grant a token until the client’s authentication policy is satisfied.
+
+> **Note:** This example creates a new app authentication policy with a <StackSnippet snippet="noterule" inline /> for testing purposes.
+
+1. Go to your app’s **Sign On** tab, scroll to the bottom, and click **View policy details**.
+1. Click **Actions** on the right of the Default Policy title and select **Clone policy**.
+1. Click **Actions** again and select **Edit name and description**.
+1. Name the policy (for example, **<StackSnippet snippet="policyname" inline />**) and click **Save**.
+1. Click **Add a rule**, name it (for example, **<StackSnippet snippet="rulename" inline />**).
+1. Specify your test user for **AND User is**.
+1. Skip down to **AND User must authenticate with** and select **<StackSnippet snippet="authwith" inline />**, and then click **Save**.
+1. Open the application that you just created and select the **Sign On** tab.
+1. Scroll to the **User authentication** section at the bottom and click **Edit**.
+1. Select the authentication policy that you just created and click **Save**.
 
 <StackSnippet snippet="setup-app" />
 
