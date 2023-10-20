@@ -155,7 +155,7 @@ However, the Org creator API token doesn’t appear in the Admin Console. You ca
 If you lose this token or it expires, you must sign in to the Admin Console as a super admin and [create a token](/docs/guides/create-an-api-token/main/#create-the-token).
 
 
-## Link the Org to the Aerial account
+## Link the org to the Aerial account
 
 To enable products in an org, add the org to your Aerial account. You can only add orgs to your Aerial account that are associated with your Okta contracts.
 
