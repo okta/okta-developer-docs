@@ -33,9 +33,14 @@ jobs:
       - name: Run link checker #broken link checker script
         run: yarn broken-link-checker:external > output.txt 2>&1 || true
 
+     # - name: Extract URLs from log
+        # run: |
+       #   cat output.txt | grep -Eo 'https?://[^ ]+' > urls.txt
+       # continue-on-error: true
+
       - name: Extract URLs from log
         run: |
-          cat output.txt | grep -Eo 'https?://[^ ]+' > urls.txt
+          cat output.txt | grep -oP 'Link: \Khttp[^\s]+' > urls.txt
         continue-on-error: true
 
       - name: Read URLs from file
