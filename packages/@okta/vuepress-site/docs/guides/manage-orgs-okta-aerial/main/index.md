@@ -90,6 +90,10 @@ You can also [Manage an org's status](#manage-an-orgs-status).
 
 ![Okta Aerial - summary of steps](/img/aerial-full-flow.png)
 
+<!--
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?type=design&node-id=4402-33036&mode=design&t=mlPc1k2amETXHteN-4  aerial-full-flow
+-->
+
 </div>
 
 ## Register an Okta Aerial API client
@@ -223,6 +227,15 @@ Any already-enabled products not found in the array of product IDs are disabled 
 
 ![Enable a product in an org](/img/aerial-enable-product.png)
 
+<!--
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?type=design&node-id=4410-2869&mode=design&t=mlPc1k2amETXHteN-11  aerial-enable-product
+-->
+
+<!--
+Though not used in this doc, we have an image for disabling products in the org
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?type=design&node-id=4410-2937&mode=design&t=mlPc1k2amETXHteN-11  aerial-remove-product
+-->
+
 </div>
 
 ### Request and response examples
@@ -286,6 +299,10 @@ Deactivate an org by calling the `/status` endpoint. Deactivated orgs don’t co
 <div class="three-quarter">
 
 ![Deactivate an org](/img/aerial-change-status.png)
+
+<!--
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?type=design&node-id=4410-2193&mode=design&t=mlPc1k2amETXHteN-11  aerial-change-status
+-->
 
 </div>
 
