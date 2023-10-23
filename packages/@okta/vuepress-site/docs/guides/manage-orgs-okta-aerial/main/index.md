@@ -248,7 +248,7 @@ The request and response are the same:
 
 ## Configure the org
 
-To pre-configure groups, apps, and policies in each org, the Aerial API client needs the following:
+To pre-configure groups, apps, and policies in each org, the API client needs the following:
 
 - The domain of the org
 - The API token returned by the Org creator API
