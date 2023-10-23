@@ -53,9 +53,7 @@
     "remove": "^0.1.5",
     "stylelint": "^14.16.1",
     "stylelint-order": "^5.0.0",
-    "stylelint-scss": "^4.3.0"
-  },
-  "dependencies": {
+    "stylelint-scss": "^4.3.0",
     "broken-link-checker": "^0.7.8",
     "serve-handler": "^6.1.5",
     "vuepress": "1.9.8",
