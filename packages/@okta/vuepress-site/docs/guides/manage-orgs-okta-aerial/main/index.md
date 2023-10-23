@@ -253,9 +253,11 @@ To pre-configure groups, apps, and policies in each org, the API client needs th
 - The domain of the org
 - The API token returned by the Org creator API
 
-See [Create an Application](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication).
+You can also use OAuth 2.0 to interact with Okta APIs. See [Implement OAuth for Okta](https://developer.okta.com/docs/guides/implement-oauth-for-okta/main/).
 
 #### Request example
+
+The following example calls the [Apps API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication). See [Okta Admin Management](https://developer.okta.com/docs/api/openapi/okta-management/guides/overview/) for more Okta APIs.
 
 ```bash
 curl --location --request POST 'https://${newOrgDomain}/api/v1/apps \
