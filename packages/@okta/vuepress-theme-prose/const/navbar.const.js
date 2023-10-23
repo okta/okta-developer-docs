@@ -489,7 +489,7 @@ export const guides = [
         subLinks: [
           {
             title: "Implement by grant type",
-            path: "implement-grant-type",
+            guideName: "implement-grant-type",
           },
           {
             title: "Configure Device Authz grant flow",

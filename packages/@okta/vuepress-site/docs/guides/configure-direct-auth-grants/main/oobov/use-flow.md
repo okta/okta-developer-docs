@@ -1,4 +1,4 @@
-The following sections outline the requests required to implement the out-of-band (OOB) flow using direct calls to the Okta OpenID Connect & OAuth 2.0 API.
+The following sections outline the requests required to implement the out-of-band (OOB) flow (with Okta Verify Push) using direct calls to the Okta OpenID Connect & OAuth 2.0 API.
 
 ### Request for out-of-band authentication
 
@@ -18,9 +18,7 @@ Note the parameters that are passed:
 
 - `client_id`: Matches the client ID of the application that you created in the [Set up your app](#set-up-your-app) section. You can find it at the top of your app's **General** tab.
 - `login_hint`: The username (email) of a user registered with Okta
-- `channel_hint`: The out-of-band channel that the client wants to use. For example, Okta Verify or SMS.
-
-  > **Note:** Okta currently supports only Okta Verify Push.<!-- need to update this when phase 2 is complete -->
+- `channel_hint`: The out-of-band channel that the client wants to use. For example, Okta Verify push.
 
 For more information on these parameters, see the `/oob-authenticate` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/OrgAS/#tag/OrgAS/operation/oob-authenticate).
 
@@ -71,7 +69,7 @@ curl --request POST \
   --url https://${yourOktaDomain}/oauth2/v1/token \
   --header 'accept: application/json' \
   --header 'content-type: application/x-www-form-urlencoded' \
-  --data 'client_id=${client_id}&scope=openid%20profile&grant_type=urn:okta:params:oauth:grant-type:oob&oob_code=&{oob_code}'
+  --data 'client_id=${client_id}&scope=openid%20profile&grant_type=urn:okta:params:oauth:grant-type:oob&oob_code=${oob_code}'
 ```
 
 Note the parameters that are passed:
