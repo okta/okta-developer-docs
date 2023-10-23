@@ -12,14 +12,15 @@ Use this guide to learn how to submit a Single Sign-On (SSO) integration to the 
 
 **Learning outcomes**
 
-* Learn how to submit an SSO integration using the OIN Wizard
-* Learn how to create an integration instance for testing from the OIN Wizard
+* Learn how to submit an SSO integration using the OIN Wizard.
+* Learn how to create an integration instance for testing from the OIN Wizard.
+* Understand the basic test cases required for your SSO features.
 
 **What you need**
 
 * An [Okta Developer Edition org](https://developer.okta.com/signup/)
 
-* A functional SSO integration created and tested in accordance with the [Build a Single Sign-On integration](/docs/guides/build-sso-integration/) guide
+* A functional SSO integration based on the [Build a Single Sign-On integration](/docs/guides/build-sso-integration/) guide
 
 * The various items necessary for submission in accordance with the [OIN submission requirements](/docs/guides/submit-app-prereq/)
 
@@ -27,9 +28,17 @@ Use this guide to learn how to submit a Single Sign-On (SSO) integration to the 
 
 ## Overview
 
-Okta provides you with a seamless experience in the Okta Admin Console to integrate and submit your app for publication in the [Okta Integration Network (OIN)](https://www.okta.com/okta-integration-network/). When you obtain an [Okta Developer-Edition org](https://developer.okta.com/signup/), you can use it as a sandbox to integrate your app with Okta, as well as explore additional Okta features. When you decide to publish your integration to the OIN, you can use the same developer org to  and integrate your . You can create your app integration and add it to your developer-edition org for testing. Once you're satisfied with your tests, you can submit your integration to the OIN team directly from your developer-edition org Admin Console. The OIN team verifies your integration before they publish it in the [OIN catalog](https://www.okta.com/integrations/).
+Okta provides you with a seamless experience in the Okta Admin Console to integrate and submit your app for publication in the [Okta Integration Network (OIN)](https://www.okta.com/okta-integration-network/). When you obtain an [Okta Developer-Edition org](https://developer.okta.com/signup/), you can use it as a sandbox to integrate your app with Okta and explore more Okta features. When you decide to publish your integration to the OIN, you can use the same developer-edition org to submit your integration using the OIN Wizard.
 
-> **Note:** Only cloud-based SaaS apps (either traditional Web applications with a back-end or a modern browser-based SPA) are published in the OIN catalog.
+The OIN Wizard is a full-service tool in the Admin Console for you to:
+
+* Provide all your integration submission details.
+* Generate an app instance in your org for testing.
+* Submit your integration directly to the OIN team when you're satisfied with your test results.
+
+The OIN team verifies your submitted integration before they publish it in the [OIN catalog](https://www.okta.com/integrations/).
+
+> **Note:** Only cloud-based SaaS apps (either traditional web applications with a back-end or a modern browser-based SPA) are published in the OIN catalog.
 
 ### Protocols supported
 
@@ -51,55 +60,62 @@ This guide covers submissions that use the following protocols:
 
 You need to review the [OIN submission requirements](/docs/guides/submit-app-prereq) before you start your submission. There are artifacts and technical details that you need to provide during the submission process.
 
-> **Note:** For best practices, create two or three additional administrative users in your Okta org to manage the integration. This ensures that your team can access the integration for updates in the future.
+> **Note:** For best practices, create two or three extra administrative users in your Okta org to manage the integration. This ensures that your team can access the integration for updates in the future.
 
 To submit an integration for OIN publication:
 
 1. Sign in to your [developer-edition Okta org](/login/) as a user with administrative privileges.
-1. Go to **Applications** > **My OIN Integrations** in the Admin Console.
-1. Click **Build new OIN integration**. The Okta Integration Network Wizard appears.
+1. Go to **Applications** > **Your OIN Integrations** in the Admin Console.
+1. Click **Build new OIN integration**. The Okta Integration Network (OIN) Wizard appears.
 1. From the **Select your protocol** section of the page, select **<StackSnippet snippet="protocol-name" inline/>**.
-    > **Note:** If you want to change the protocol instructions in this guide, select the protocol you want from the **Instructions for** dropdown list on the right of this page.
+    > **Note:** If you want to change the protocol instructions on this page, select the protocol you want from the **Instructions for** dropdown list on the right.
 1. Click **Next: Configure your integration**.
+
+> **Note:** Currently, you can only configure one protocol per OIN integration submission.
 
 ### Configure your integration
 
 Continue with the OIN wizard and configure your integration:
 
-1. Click the **OIN catalog display** dropdown arrow and specify the following OIN catalog information:
+#### OIN catalog properties
 
-    | Property | Description  |
+1. Click the **OIN catalog properties** dropdown arrow and specify the following OIN catalog information:
+
+    | <div style="width:150px">Property</div>| Description  |
     | ----------------- | ------------ |
-    | **Display name**  | Provide a name for your integration. This is the main title used for your integration in the OIN. |
-    | **Description** | Give a general description of your application and what the Okta integration does. See [App description guidelines](/docs/guides/submit-app-prereq/main/#app-description-guidelines). |
-    | **Logo** | Upload a PNG, JPG, or GIF file of a logo to accompany your integration in the catalog. The logo file must be less than one MB. See [Logo guidelines](/docs/guides/submit-app-prereq/main/#logo-guidelines). |
+    | **Display name** `*` | Provide a name for your integration. This is the main title used for your integration in the OIN.<br>The maximum field length is 64 characters. |
+    | **Description** `*` | Give a general description of your application and what the Okta integration does. See [App description guidelines](/docs/guides/submit-app-prereq/main/#app-description-guidelines). |
+    | **Logo** `*` | Upload a PNG, JPG, or GIF file of a logo to accompany your integration in the catalog. The logo file must be less than one MB. See [Logo guidelines](/docs/guides/submit-app-prereq/main/#logo-guidelines). |
 
-### Integration variables
+    `*` Required properties
 
-If your SSO URL, ACS URL, or Audience URI vary per tenant, you need to specify the variables required for your integration to be configured for each tenant. Your customer administrators would add their specific values for these variables when they install your integration.
+#### Integration variables
 
-For example, if you have SAML configuration variable called `subdomain`, then you can set your ACS URL string to be `https://${org.subdomain}.example.org/strawberry/login`. When your customer admin sets their `subdomain` variable to `berryfarm`, their ACS URL would be `https://berryfarm.example.org/strawberry/login`
+Continue with the OIN wizard and configure your integration variables if your URLs are dynamic for each tenant. Specify the variables required for your integration to be configured for each tenant. The variables are for your customer admins to add their specific tenant values during installation.
 
-Continue with the OIN wizard and configure your integration variables:
+<StackSnippet snippet="variable-desc" />
+<br>
 
 1. Click the **Integration variables** dropdown arrow and specify the name and label for each variable:
 
-    | Property | Description  |
-    | -------- | ------------ |
-    | **Label**  | A descriptive name for the dynamic variable that administrators see when they install your app integration. |
-     | **Name**  | An automatically generated variable used when constructing the dynamic address. This is hidden from admins and is only passed to your external application. |
+    | <div style="width:100px">Property</div> | Description  |
+    | --------------- | ------------ |
+    | **Label** `*`  | A descriptive name for the dynamic variable that administrators see when they install your app integration. |
+     | **Name** `*`  | Specify the variable name. This variable name is used to construct the dynamic URL. It's hidden from admins and is only passed to your external application.<br>String is the only variable type supported.<br>The maximum field length is 1024 characters. |
 
-    > **Note:** The only property type supported for an integration variable is `String`.
+     `*` This section is optional, but if you specify a variable, both `Label` and `Name` properties are required.
 
 1. Click the **+** icon to add another variable. You can add up to 3 variables.
 
 1. If you need to delete a variable, click the ![trash can; delete icon](/img/icons/delete_can.png) icon next to it.
 
-### Protocol properties <StackSnippet snippet="protocol-name" inline/>
+ > **Note**: A variable can include a complete URL (for example, https://example.com). This enables you to use more globally useful variables such as `${org.baseURL}`.
+
+#### <StackSnippet snippet="protocol-name" inline/> properties
 
 Continue with the OIN wizard and configure your protocol settings:
 
-1. Click the **<StackSnippet snippet="protocol-name" inline/>** dropdown arrow and specify the following protocol properties:
+1. Click the **<StackSnippet snippet="protocol-name" inline/> properties** dropdown arrow and specify the following protocol properties:
 
     <StackSnippet snippet="protocol-properties" />
 

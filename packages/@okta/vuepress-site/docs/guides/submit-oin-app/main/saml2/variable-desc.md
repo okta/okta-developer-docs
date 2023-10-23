@@ -1,0 +1,2 @@
+For example, if you have a SAML configuration variable called `subdomain`, then you can set your ACS URL string to be `https://${org.subdomain}.example.org/strawberry/login`. When your customer admin sets their `subdomain` variable value to `berryfarm`, then `https://berryfarm.example.org/strawberry/login` is their ACS URL.
+<br>

@@ -1,0 +1,2 @@
+For example, if you have an OIDC configuration variable called `subdomain`, then you can set your redirect URL string to be `https://${org.subdomain}.example.org/strawberry/login`. When your customer admin sets their `subdomain` variable value to `berryfarm`, then `https://berryfarm.example.org/strawberry/login` is their redirect URL.
+<br>
