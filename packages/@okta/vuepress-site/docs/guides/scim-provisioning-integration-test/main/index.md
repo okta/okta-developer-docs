@@ -47,7 +47,7 @@ To configure and run the SCIM CRUD tests:
     * If you are using SCIM 2.0: [Okta SCIM 2.0 CRUD test file](/standards/SCIM/SCIMFiles/Okta-SCIM-20-CRUD-Test.json)
     * If you are using SCIM 1.1: [Okta SCIM 1.1 CRUD test file](/standards/SCIM/SCIMFiles/Okta-SCIM-11-CRUD-Test.json)
 1. In Runscope, click **Import Test**.
-1. Select **Runscope API Tests** as the import format.
+1. Select **API Monitoring Tests** as the import format.
 1. Click **Choose File** and select the Okta SCIM 2.0 CRUD JSON test file.
 1. Click **Import API Test**.
 1. In this new test bucket, click **Editor** from the left hand navigation menu.

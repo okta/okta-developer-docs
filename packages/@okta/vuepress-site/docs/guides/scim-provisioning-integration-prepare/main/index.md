@@ -159,7 +159,7 @@ To get started using Runscope to test your SCIM API:
 1. You should now see a screen titled **API Tests**.
 1. In the lower left of your screen, click **Import Test**.
 1. A new screen appears, titled **Import Tests into &#x2026;**
-1. Select **Runscope API Tests** as the import format.
+1. Select **API Monitoring Tests** as the import format.
 1. Click **Choose File** and select the JSON file that you saved in Step 1.
 1. Click **Import API Test**.
 1. After the import is finished, click **All Tests** on the left hand side of your screen.
