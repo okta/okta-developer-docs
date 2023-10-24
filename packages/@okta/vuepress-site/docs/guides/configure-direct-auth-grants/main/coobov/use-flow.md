@@ -18,7 +18,7 @@ Note the parameters that are passed:
 
 - `client_id`: Matches the client ID of the application that you created in the [Set up your app](#set-up-your-app) section. You can find it at the top of your app's **General** tab.
 - `login_hint`: The username (email) of a user registered with Okta
-- `channel_hint`: The out-of-band channel that the client wants to use. For example, Okta Verify push.
+- `channel_hint`: The out-of-band channel that the client wants to use. For example, Okta Verify Push.
 
 For more information on these parameters, see the `/oob-authenticate` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/OrgAS/#tag/OrgAS/operation/oob-authenticate).
 
@@ -56,7 +56,7 @@ Note the parameters included:
 - `oob_code`: An identifier of a single out-of-band factor transaction. To respond to or check on the status of an out-of-band factor, use this code to identify the factor transaction.
 - `expires_in`: The time, in seconds, until the `oob_code` expires
 - `interval`: The frequency, in seconds, at which the client needs to poll Okta to check if the out-of-band factor is completed. This is only relevant to polling factors such as Okta Verify Push.
-- `channel`: The type of out-of-band channel used. Okta currently only supports Okta Verify Push.<!-- need to update this when phase 2 is complete -->
+- `channel`: The type of out-of-band channel used.
 - `binding_method`: The method used to bind the out-of-band channel with the primary channel. Supported values: `none`, `transfer`.
 - `binding_code`: The end user verification code used to bind the authorization operation on the secondary channel with the primary channel. This parameter appears only if `binding_method=transfer`.
 

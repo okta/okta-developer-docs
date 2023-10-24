@@ -85,7 +85,7 @@ Note the parameters included:
 - `challenge_type`: The challenge type used for authentication. This must be one of the `challenge_types_supported` from the request body. The MFA OOB flow supports only `http://auth0.com/oauth/grant-type/mfa-oob`.
 - `oob_code`: An identifier of an out-of-band factor transaction. To respond to or check on the status of an out-of-band factor, use this code to identify the factor transaction.
 - `expires_in`: The time, in seconds, until the `oob_code` expires
-- `channel`: The type of out-of-band channel used. Okta currently only supports Okta Verify Push.<!-- need to update this when phase 2 is complete -->
+- `channel`: The type of out-of-band channel used.
 - `binding_method`: The method used to bind the out-of-band channel with the primary channel. Supported values: `none`, `transfer`, `prompt`
 
 ### Second request for tokens
