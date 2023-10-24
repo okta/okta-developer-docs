@@ -13,7 +13,7 @@ title: Okta Identity Engine API Products release notes 2023
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
 | [Granular permissions to manage directories is self-service EA in Preview](#granular-permissions-to-manage-directories-is-self-service-ea-in-preview) | October 18, 2023 |
-| [Bug fixed in 2023.10.1](#bug-fixed-in-2023101) | October 24, 2023 |
+| [Bug fixed in 2023.10.1](#bug-fixed-in-2023-10-1) | October 24, 2023 |
 
 #### Granular permissions to manage directories is self-service EA in Preview
 
