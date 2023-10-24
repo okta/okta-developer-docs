@@ -91,7 +91,7 @@ Continue with the OIN wizard and configure your integration:
 
 #### Integration variables
 
-Continue with the OIN wizard and configure your integration variables if your URLs are dynamic for each tenant. Specify the variables required for your integration to be configured for each tenant. The variables are for your customer admins to add their specific tenant values during installation.
+Continue with the OIN wizard and configure integration variables if your URLs are dynamic for each tenant. The variables are for your customer admins to add their specific tenant values during installation.
 
 <StackSnippet snippet="variable-desc" />
 <br>

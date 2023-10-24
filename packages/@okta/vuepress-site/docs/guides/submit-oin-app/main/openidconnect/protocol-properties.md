@@ -1,21 +1,17 @@
-To submit an OIDC integration, click the **OIDC** tab and select **On** from the **OIDC support** dropdown menu.
+| <div style="width:150px">Property</div> | &nbsp; | Description  |
+| ----------------- | --: | ------------ |
+|**Redirect URIs** `*` | | Specify redirect URIs for your app. If your URI varies per tenant, include the variable names that you created in your URI. For example: `https://${org.subdomain}.example.org/strawberry/login`<br>The maximum field length is 1024 characters. |
+|**Provide any additional ACS URL** | | If your integration supports multiple ACS URLs where the SAML response can be sent, click the **+** icon to add another URL.<br>Adding an ACS URL is optional, but if you add one, both `ACS URL` and `Index` properties are required.|
+| | **ACS URL** `*` | Specify another ACS URL.<br>The maximum field length is 1024 characters. |
+| | **Index** `*` | Specify the index for the corresponding additional ACS URL. The index must be an integer between 0 and 65535. |
+|**Provide your entity ID or audience restriction** `*` | | Specify your SAML entity ID or the audience restriction.  |
+|**Provide the attribute names and values of your claims** | | Specify the attribute name and values of your claim. Click the **+ Add another** to add another claim. <br>Adding a claim is optional, but if you add one, both `Name` and `Value` properties are required.|
+| | **Name** `*` | Specify the claim name. |
+| | **Value** `*` | Specify a comma-separated list of values for the claim. |
+|**Provide your group attributes** | | Specify your group attribute statements if your app supports receiving SAML group attribute statements. For more details on configuring attribute statements in SAML integrations, see [Create a SAML integration using AIW](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-saml). |
+|**Link to configuration guide** `*` | | Specify the URL link to your customer-facing instructions on how to configure SSO between Okta and your app. See [Customer configuration document guidelines](/docs/guides/submit-app-prereq/main/#customer-configuration-document-guidelines).|
 
-* **Provide the instance URL for your app where Okta will retrieve configuration details:** Specify the Okta instance URL for your integration.
-
-   To retrieve your Okta instance URL from your development org:
-
-   1. From the Okta Admin Console, navigate to **Applications** > **Applications** to see all the integrations in your org.
-   1. Click the name of the app integration that you're going to submit.
-   1. Confirm that the app settings match what you want as the global defaults for all customers.
-   1. In your browser, click in the address bar showing the current URL and copy it to your clipboard. This is the Okta instance URL for your integration.
-   1. Back in the OIN Manager, paste that URL in the **Provide the instance URL for your app where Okta will retrieve configuration details** field of your submission protocol tab.
-
-<!--
-1. Click the **General** tab.
-1. Go to the **App Embed Link** section and copy the text in the Embed Link field:
-   ![App Embed Link](/img/oin/isv-portal_app-embed-link.png "App Embed Link GUI in the Application settings")
-1. Paste that value into your submission.
--->
+`*` Required properties
 
 #### OIDC settings
 
