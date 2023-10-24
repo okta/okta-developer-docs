@@ -22,7 +22,7 @@ Note the parameters that are passed:
 
 For more information on these parameters, see the `/oob-authenticate` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/OrgAS/#tag/OrgAS/operation/oob-authenticate).
 
-### OOB response example
+### OOB response example for Okta Verify Push
 
 In an HTTP 200 response, Okta returns the following parameters:
 
