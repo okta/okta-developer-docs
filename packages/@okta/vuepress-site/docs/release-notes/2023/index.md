@@ -11,10 +11,15 @@ title: Okta API Products release notes 2023
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
 | [Granular permissions to manage directories is self-service EA in Preview](#granular-permissions-to-manage-directories-is-self-service-ea-in-preview) | October 18, 2023 |
+| [Bug fixed in 2023.10.1](#bug-fixed-in-2023101) | October 24, 2023 |
 
 #### Granular permissions to manage directories is self-service EA in Preview
 
 This feature enables you to assign permissions to view and manage directories as part of a customized admin role. <!--OKTA-657510 FF: ENFORCE_NEW_DIRECTORY_PERM -->
+
+#### Bug fixed in 2023.10.1
+
+The Trusted Origins API didn't validate the `origin` parameter correctly. (OKTA-638649)
 
 ### Monthly release 2023.10.0
 
