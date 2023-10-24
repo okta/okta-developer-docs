@@ -707,6 +707,22 @@ redirects:
     to: /docs/guides/implement-grant-type/implicit/main/
   - from: /authentication-guide/implementing-authentication/password/index.html
     to: /docs/guides/implement-grant-type/ropassword/main/
+  - from: /docs/guides/implement-grant-type/oob/main/index.html
+    to: /docs/guides/implement-grant-type/coobov/main/index.html
+  - from: /docs/guides/implement-grant-type/oob/main
+    to: /docs/guides/implement-grant-type/coobov/main
+  - from: /docs/guides/implement-grant-type/otp/main/index.htm
+    to: /docs/guides/implement-grant-type/aotp/main/index.html
+  - from: /docs/guides/implement-grant-type/otp/main
+    to: /docs/guides/implement-grant-type/aotp/main
+  - from: /docs/guides/implement-grant-type/mfaoob/main/index.html
+    to: /docs/guides/implement-grant-type/dmfaoobov/main/index.html
+  - from: /docs/guides/implement-grant-type/mfaoob/main
+    to: /docs/guides/implement-grant-type/dmfaoobov/main
+  - from: /docs/guides/implement-grant-type/mfaotp/main/index.html
+    to: /docs/guides/implement-grant-type/bmfaotp/main/index.html
+  - from: /docs/guides/implement-grant-type/mfaotp/main
+    to: /docs/guides/implement-grant-type/bmfaotp/main
   - from: /docs/api/resources/users.html
     to: /docs/reference/api/users/
   - from: /docs/api/resources/sessions.html
