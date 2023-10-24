@@ -1,6 +1,6 @@
 ---
-title: Configure direct authentication grant types
-excerpt: How to configure authorization flows using direct authentication grant types with Okta
+title: Configure Direct Authentication grant types
+excerpt: How to configure direct authentication authorization flows using primary factors and MFA
 layout: Guides
 ---
 
@@ -15,6 +15,8 @@ Use direct authentication when you want your application to directly authenticat
 Also, you can use direct authentication where usability constraints hinder the use of browser-based flows, such as mobile applications.
 
 <StackSnippet snippet="overview" />
+
+> **Note:** See [About MFA authenticators](https://help.okta.com/okta_help.htm?type=oie&id=csh-configure-authenticators) for more information on authenticators, and primary and secondary factors. See [Configure a global session policy and authentication policies](https://developer.okta.com/docs/guides/configure-signon-policy/main/) for more information on configuring primary and secondary factor conditions.
 
 ## Grant-type flow
 
