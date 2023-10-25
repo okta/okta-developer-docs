@@ -71,9 +71,17 @@ The inline hook guides use [HTTP Basic Authentication](/books/api-security/authn
 
 For example, the credential pair used in the inline hook examples is `admin:supersecret`, which encoded in Base64 is `YWRtaW46c3VwZXJzZWNyZXQ=`. Adding the scheme to this value creates the inline hook **Authentication secret** value: `Basic YWRtaW46c3VwZXJzZWNyZXQ=`.
 
-After including the `npm` packages, add the following code snippet in your project.
+To add HTTP Basic Authentication:
+
+1. Include the `npm` package `express-basic-auth` to the `package.json` file in the left-hand project menu.
+1. Add the following two environment variables to the `.env` file in the left-hand project menu:
+    * **Variable Name**: `USER` with **Value**: `admin`
+    * **Variable Name**: `PASSWORD` with **Value**: `supersecret`
+1. Add the following code snippet in your project.
 
 <StackSelector snippet="auth" noSelector/>
+
+>**Note:** Ensure you securely store your credentials for your external service.
 
 ### OAuth 2.0: Client Secret
 
@@ -107,7 +115,7 @@ When creating your inline hook, in the Authentication section, select **OAuth 2.
 
 1. In the **Client Authentication** field, select **Use client secret** from the dropdown menu.
 1. Add the **Client ID** and **Client Secret** values from your app integration.
-1. Add the authorization server’s token URL, such as `https://${yourOktaDomain}/oauth2/default/v1/token`, and the custom scope that you created previously.
+1. Add the authorization server's token URL, such as `https://${yourOktaDomain}/oauth2/default/v1/token`, and the custom scope that you created previously.
 1. Click **Save**.
 
 #### Add code to verify the JWT
@@ -197,7 +205,7 @@ Before you can implement authorization, you need to register your app in Okta by
 1. In the **Client Authentication** field, select **Use private key** from the dropdown menu.
 1. Add the Client ID value from your app integration.
 1. Select the **Key** that you created previously from the dropdown menu.
-1. Add the authorization server’s token URL, such as `https://${yourOktaDomain}/oauth2/default/v1/token`, and the custom scope that you created previously.
+1. Add the authorization server's token URL, such as `https://${yourOktaDomain}/oauth2/default/v1/token`, and the custom scope that you created previously.
 1. Click **Save**.
 
 #### Add code to verify the request
