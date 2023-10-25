@@ -36,7 +36,7 @@ Setting up an event hook in your Okta org requires the following generic steps:
 1. Verify to Okta that you control the endpoint.
 1. Begin receiving ongoing delivery of event notifications.
 
-The following event hook example uses the Okta event for a user deactivation. When this event occurs, the example external service code receives an Okta request. The external service responds with an acknowledgment to Okta that the request has been received, and displays the deactivated user’s name to the console.
+The following event hook example uses the Okta event for a user deactivation. When this event occurs, the example external service code receives an Okta request. The external service responds with an acknowledgment to Okta that the request has been received, and displays the deactivated user's name to the console.
 
 > **Tip:** For another look at an event hook implementation, see the following developer experience blog example by Heather Wallander, [Build Easy User Sync Webhooks with Okta](https://developer.okta.com/blog/2020/07/20/easy-user-sync-hooks).
 
@@ -92,7 +92,7 @@ Set up and verify the event hook within your Admin Console.
 
 5. In the **URL** field, add your external service URL, including endpoint. For example, use your Glitch project name with the endpoint: `https://your-glitch-projectname.glitch.me/userDeactivated`.
 
-6. Include authentication field and secret. In this example:
+6. Include authentication field and secret. In this example, use HTTP Basic Authentication. For more information on this authentication method, refer to [HTTP header: Basic Authentication](https://developer.okta.com/docs/guides/common-hook-set-up-steps/nodejs/main/#http-header-basic-authentication).
 
     * **Authentication field** = `authorization`
 
@@ -102,7 +102,7 @@ Set up and verify the event hook within your Admin Console.
 
 8. Click **Save & Continue**.
 
-9. You can complete the one-time verification Okta call now or verify the event hook later. If you’re using the Glitch example, proceed to verification.
+9. You can complete the one-time verification Okta call now or verify the event hook later. If you're using the Glitch example, proceed to verification.
 
 > **Note:** You can also set up an event hook using an API. See [Event Hooks Management](/docs/reference/api/event-hooks/#create-event-hook).
 
@@ -129,13 +129,27 @@ The external service example is now ready with code to receive and respond to an
 To run a preview call of your event hook, sign in to your Okta org as the super admin.
 
 1. In the Admin Console, go to **Workflow** > **Event Hooks**.
-2. Locate the event hook that you created during the set-up step. In this example, select `Deactivated User Event Hook` or the name you gave the event hook.
-3. Click the **Actions** menu for this hook, and select **Preview**.
-4. In the **Configure Event Hook request** section, select an event from the **Event Type** dropdown menu. In this example, there’s only one: `User deactivated (user.lifecycle.deactivate)`.
-5. Select a previous recent event (in this case, a user deactivation) from the **System Log Event** drop-down menu. The **Preview & Deliver Event Hook** section populates the JSON body of the event hook. If no event is available, the JSON body populates with sample data.
-6. Optionally, click **Edit** to modify the JSON body call. For example, you can change the `target` object's property, `alternateId`, to `john.doe@example.com`.
-7. Go to your Glitch application, opening the log console (**Tools** > **Logs**). Ensure your application is listening for requests.
-8. Click **Deliver Request**. The event hook preview displays the status request as either successful or a failure. Check your Glitch application console. The following message should display if successful:
+1. Locate the event hook that you created during the set-up step. In this example, select `Deactivated User Event Hook` or the name you gave the event hook.
+1. Click the **Actions** menu for this hook, and select **Preview**.
+1. In the **Configure Event Hook request** section, select an event from the **Event Type** dropdown menu. In this example, there's only one: `User deactivated (user.lifecycle.deactivate)`.
+1. Select a previous recent event (in this case, a user deactivation) from the **System Log Event** dropdown menu. The **Preview & Deliver Event Hook** section populates the JSON body of the event hook. If no event is available, the JSON body populates with sample data.
+1. If no event data is available, you need to populate the JSON body of the preview with the `target` object. Click **Edit** and add data similar to:
+
+    ```JSON
+    "target": [
+            {
+                "id": "00u3m90rsKgGQ0G6L1d76",
+                "type": "User",
+                "alternateId": "john.doe@example.com",
+                "displayName": "John Doe",
+                "detailEntry": null
+            }
+        ]
+    ```
+
+1. Optionally, click **Edit** to modify the JSON body call for other testing scenarios.
+1. Go to your Glitch application, opening the log console (**Tools** > **Logs**). Ensure your application is listening for requests.
+1. Click **Deliver Request**. The event hook preview displays the status request as either successful or a failure. Check your Glitch application console. The following message should display if successful:
 
      `The user john.doe@example.com has been deactivated on the Okta org!`
 
