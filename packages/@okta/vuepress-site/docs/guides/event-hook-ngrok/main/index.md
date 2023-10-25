@@ -103,7 +103,7 @@ Create the Okta event hook to work with your local application, which can now be
 
 5. In the **URL** field, add your external service URL. For this example, add the code endpoint, `/userCreated` from `server.js` to the end of the `https://` URL from the [ngrok session](#run-ngrok). For example: your URL should appear similar to: `https://2d20-142-126-163-77.ngrok.io/userCreated`.
 
-6. Include the **Authentication field** and **Authentication secret** values. In this example, our `server.js` code uses Basic Authentication:
+6. Include the **Authentication field** and **Authentication secret** values. In this example, use HTTP Basic Authentication. For more information on this authentication method, refer to [HTTP header: Basic Authentication](/docs/guides/common-hook-set-up-steps/nodejs/main/#http-header-basic-authentication).
 
     * **Authentication field** = `authorization`
 
@@ -159,7 +159,7 @@ To run a preview call of your event hook:
     > **Note:**
     >
     > * The preview event hook JSON body can be modified for testing or development purposes. Click **Edit** to update the `"target"` field, for example.
-    > * If you’re using the preview sample data, you must edit the preview to add a `target` value. Include an email address for the `alternateId` property. For example: `"target": [{ "alternateId": "john.doe@example.com"}]`
+    > * If you're using the preview sample data, you must edit the preview to add a `target` value. Include an email address for the `alternateId` property. For example: `"target": [{ "alternateId": "john.doe@example.com"}]`
 
 1. Ensure that both your ngrok session and local sample application are running.
 

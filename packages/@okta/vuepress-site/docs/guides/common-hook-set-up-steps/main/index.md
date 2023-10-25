@@ -71,7 +71,7 @@ The inline hook guides use [HTTP Basic Authentication](/books/api-security/authn
 
 For example, the credential pair used in the inline hook examples is `admin:supersecret`, which encoded in Base64 is `YWRtaW46c3VwZXJzZWNyZXQ=`. Adding the scheme to this value creates the inline hook **Authentication secret** value: `Basic YWRtaW46c3VwZXJzZWNyZXQ=`.
 
-To add HTTP Basic Authentication:
+To add HTTP Basic Authentication to your external service:
 
 1. Include the `npm` package `express-basic-auth` to the `package.json` file in the left-hand project menu.
 1. Add the following two environment variables to the `.env` file in the left-hand project menu:

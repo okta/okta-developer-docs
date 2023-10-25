@@ -507,7 +507,7 @@ Configure your registration inline hook for your Okta org to use the glitch proj
 
    `https://your-glitch-projectname.glitch.me/registrationHookSSRandPP`
 
-1. Include the authentication field and secret. In this example:
+1. Include the authentication field and secret. In this example, use HTTP Basic Authentication. For more information on this authentication method, refer to [HTTP header: Basic Authentication](/docs/guides/common-hook-set-up-steps/nodejs/main/#http-header-basic-authentication).
 
    * **Authentication Field** = `authorization`
    * **Authorization Secret** = `Basic YWRtaW46c3VwZXJzZWNyZXQ=`

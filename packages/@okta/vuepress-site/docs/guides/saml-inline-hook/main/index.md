@@ -255,7 +255,7 @@ Activating the SAML assertion inline hook registers the hook with the Okta org a
 
 1. Add your external service URL, including the endpoint. For example, use your Glitch project name with the endpoint: `https://your-glitch-projectname.glitch.me/SAMLHook`.
 
-1. Include values for the following fields:
+1. Include values for the authentication field and secret. In this example, use HTTP Basic Authentication. For more information on this authentication method, refer to [HTTP header: Basic Authentication](/docs/guides/common-hook-set-up-steps/nodejs/main/#http-header-basic-authentication).
 
    * **Authentication field** = `authorization`
    * **Authentication secret** = `Basic YWRtaW46c3VwZXJzZWNyZXQ=`
