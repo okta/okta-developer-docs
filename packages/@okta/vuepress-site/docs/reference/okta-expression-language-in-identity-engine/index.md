@@ -11,7 +11,7 @@ meta:
 
 ## Overview
 
-This document details the features and syntax of Okta Expression Language used for the [authentication policies](/docs/guides/configure-signon-policy/main/) of the Identity Engine, and for [Access Certification Campaigns](https://help.okta.com/okta_help.htm?id=ext-el-eg) and Entitlement Management Policies for Okta Identity Governance.
+This document details the features and syntax of Okta Expression Language used for the [authentication policies](/docs/guides/configure-signon-policy/main/) of the Identity Engine, and for [Access Certification campaigns](https://help.okta.com/okta_help.htm?id=ext-el-eg) and Entitlement Management policies for Okta Identity Governance.
 
 Expressions used outside of these areas should continue using the features and syntax of [the legacy Okta Expression Language](/docs/reference/okta-expression-language/). This document is updated as new capabilities are added to the language. Okta Expression Language is based on a subset of [SpEL functionality](http://docs.spring.io/spring/docs/3.0.x/reference/expressions.html).
 
