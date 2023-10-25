@@ -40,7 +40,7 @@ Okta bases email notifications on templates that Okta generates automatically. T
 If you want to use the Admin Console to send a branded email, consider the following:
 
 - If your org has two or more custom brands, domains, and email addresses:
-	- You can't send branded emails from the Admin Console. Okta uses the request host in the URL to determine which brand and email address to use, and the console only works with the Okta subdomain.
+	- You can't send branded emails from the Admin Console. Okta uses the request host in the URL to determine which brand and email address to use. The Admin Console only works with the Okta subdomain.
 	- Use an Okta API to trigger the email. To send a User Activation email, send a request to the [Activate a User](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/activateUser) endpoint. Remember to change the domain of your request to the custom domain that's associated with the brand. For example, change `subdomain.okta.com` to `custom.domain.one`.
 - If your org has one custom brand, domain, and email address:
 	- Okta doesn't use your custom email address. The Okta subdomain appears in the *From* line.
@@ -129,7 +129,7 @@ The following table provides a list of all available email templates in an Okta 
 | Active Directory Password Unlock | Unlock Account | `ADSelfServiceUnlock` | Either `${unlockAccountLink}` or `${recoveryToken}` (Identity Engine)</br></br>`${unlockAccountLink}` (Classic Engine) |  Sent to Active Directory users who must follow the provided link to unlock their password |
 | Self-Service Unlock Account | Unlock Account | `SelfServiceUnlock` | Either `${unlockAccountLink}` or `${recoveryToken}` (Identity Engine)</br></br>`${unlockAccountLink}` (Classic Engine) |  Sent to users who must follow the provided link to complete the self-service unlock account process |
 | LDAP Self-Service Unlock Account | Unlock Account | `LDAPSelfServiceUnlock` | Either `${unlockAccountLink}` or `${recoveryToken}` (Identity Engine)</br></br>`${unlockAccountLink}` (Classic Engine) |  Sent to LDAP users who must follow the provided link to complete the self-service unlock account process |
-| Change Email confirmation | Confirm email address change | `ChangeEmailConfirmation` | `${verificationToken}` |  Sent to users who must follow the provided link to confirm their email address change request |
+| Change Email confirmation | Confirm email address change | `ChangeEmailConfirmation` | `${verificationToken}` |  Sent to users who must follow the provided link to confirm their email change request |
 | Email Change Notification | Notice of pending email address change | `PendingEmailChange` | |  Sent to a user's old email address when they request to change their email address |
 | Email Change Confirmed Notification | Notice of email address change | `EmailChangeConfirmation` | |  Sent when the request to change a user's email address is confirmed |
 | Email Challenge | One-time Email Authentication Link | `EmailChallenge` | Either `${emailAuthenticationLink}` or `${verificationToken}` |  Sent to users with email as an authentication factor and must follow the provided link to complete their authentication into Okta |
@@ -141,7 +141,7 @@ The following table provides a list of all available email templates in an Okta 
 | Campaign Ended | Access certification campaign: (`campaignName`) | `IGAReviewerEndNotification` | | Sent to reviewers if they have pending reviews after a campaign ends. |
 | Campaign Reminder | Access certification campaign: (`campaignName`) | `IGAReviewerPendingNotification` | | Sent to reviewers to remind them of pending reviews. |
 | Reassigned Review | Access certification campaign: (`campaignName`) | `IGAReviewerReassigned` | | Sent to reviewers when an admin or a different reviewer assigns new reviews. |
-| Idp MyAccount Email Change Confirmation | Confirm email address change | `MyAccountChangeConfirmation` |  | Sent to users who try to verify an email address using MyAccount APIs. The users must enter the provided code to confirm the change. |
+| IdP MyAccount Email Change Confirmation | Confirm email address change | `MyAccountChangeConfirmation` |  | Sent to users who try to verify an email address using MyAccount APIs. The user must enter the provided code to confirm the change. |
 
 ### Use Branding variables
 
@@ -222,7 +222,7 @@ In your email templates, you can use any conditional logic that VTL supports, su
 
 ### Customization example
 
-The following example uses the `${app.name}` variable, which is only available in Okta Identity Engine.
+The following example uses the `${app.name}` variable, which is only available in Identity Engine.
 
 ```html
 #if(${app.name} == "Toys R' Fun")
@@ -240,7 +240,7 @@ The following example uses the `${app.name}` variable, which is only available i
 
 You can reference any Okta User Profile attribute in your email templates.
 
-> **Note:** Some attributes are only available in Okta Identity Engine (see Identity Engine notes in the following table). You can use any other variable in both the Identity Engine and the Classic Engine.
+> **Note:** Some attributes are only available in Identity Engine (see Identity Engine notes in the following table). You can use any other variable in both the Identity Engine and the Classic Engine.
 
 | Variable       | Template availability         |
 |---------------------------------------------------------------|------------------------------------------------------------------------|
@@ -330,7 +330,7 @@ Variables used for function parameters must match the function data type. For ex
 | escapeHtml(String html)                                       | Escapes the characters in the provided string using HTML entities                                                             |
 | escapeHtmlAttr(String html)                                   | Encodes data for use in HTML attributes                                                                           |
 
-## Test custom email templates
+## Test your custom email templates
 
 You can send yourself a test email to see how a custom email template looks and functions. A test email can help you validate attribute-based variables and translations in the customized template. You can see how the template renders in different email environments and avoid creating end-to-end workflows to test customizations. The primary email address of the admin that initiates the test receives the email.
 
@@ -339,12 +339,12 @@ You can send yourself a test email to see how a custom email template looks and 
 
 ## Known Issues
 
-- Users with free.fr email addresses may not receive emails delivered by Okta. This is due to free.fr enforcing non-industry standard email processing. The Okta Org API allows you to [retry blocked](/docs/reference/api/org/#email-address-bounces-operations) emails, but the free.fr inbox provider continues to block retries. There’s no known workaround beyond asking the user to retrigger the email with a different email address.
+- Users with free.fr email addresses may not receive emails delivered by Okta. This is due to free.fr enforcing non-standard email processing. The Okta Org API allows you to [retry blocked](/docs/reference/api/org/#email-address-bounces-operations) emails, but the free.fr inbox provider continues to block retries. There’s no known workaround beyond asking the user to retrigger the email with a different email address.
 
 ## See also
 
 Read more on customizing and styling various Okta assets to match your company's visual identity and branding:
 
-- [Customize domain and email address](/docs/guides/custom-url-domain/main/)
+- [Customize a domain and email address](/docs/guides/custom-url-domain/main/)
 - [Customize SMS messages](/docs/guides/custom-sms-messaging/main/)
 - [Style the Okta sign-in page](/docs/guides/custom-widget/main/)
