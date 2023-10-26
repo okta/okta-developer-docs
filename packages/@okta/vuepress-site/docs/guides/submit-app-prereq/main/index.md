@@ -408,6 +408,8 @@ You can't publish integrations with the following Okta features in the OIN catal
 
 * **Unsupported multi-tenancy**: Your app integration must support multi-tenancy to be listed in the public OIN catalog. See [OIN multi-tenancy](#oin-multi-tenancy).
 
+* **Dynamic consumer key and secret**: OIN SCIM integrations with OAuth 2.0 authentication don't support dynamic consumer key and secret. The consumer key and secret values are common for all customer tenants.
+
 <ApiAmProdWarning />
 
 ## Next step
