@@ -267,7 +267,7 @@ The following functions are supported in conditions:
 | -----------                                                                | -------                                |
 | `user.profile.country == "United States"`                                  | True                                   |
 | `user.profile.intArray.contains(0)`                                        | False                                  |
-| `user.profile.isContractor &#124;&#124; user.created.withinSeconds(0)`     | False                                  |
+| `user.profile.isContractor \|\| user.created.withinSeconds(0)`     | False                                  |
 
 You can use the ternary operator for performing IF, THEN, ELSE conditional logic inside the expression.
 
