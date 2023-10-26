@@ -53,7 +53,7 @@ The Glitch event hook example uses the Okta event triggered when a user is added
 
 1. In the **Event Hook Name**, add a unique name for the hook (in this example, "User added to Sales group event hook").
 
-1. In the **Customize request** section, <HookBasicAuthStep/> <HookOAuthNote/>
+1. <HookBasicAuthStep/> <HookOAuthNote/>
 
 1. In the **Select Events** section, subscribe to the event type you want to monitor. In this example, a user added to a group. Click in the field to search for `User added to group`.
 
