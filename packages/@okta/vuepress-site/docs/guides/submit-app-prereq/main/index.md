@@ -396,7 +396,7 @@ You can't publish integrations with the following Okta features in the OIN catal
 
 * **Okta SDKs and validating access tokens:** You can't use the Okta SDKs to validate access tokens with the [org authorization server](/docs/concepts/auth-servers/#org-authorization-server).
 
-* **Refresh token:**  Refresh tokens aren't supported for integrations published in the OIN.
+* **Refresh token:**  Refresh tokens aren't supported for SSO OIDC integrations published in the OIN.
 
 * **Unsupported scopes:**
 
