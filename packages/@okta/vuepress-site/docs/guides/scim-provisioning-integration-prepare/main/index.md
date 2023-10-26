@@ -50,6 +50,8 @@ Okta supports authentication against SCIM APIs using any one of the following me
 
 If you are using OAuth 2.0, then after successfully authorizing Okta to use your SCIM API, your application's authorization server redirects the user back to Okta, with either an authorization code or an access token.
 
+> **Note:**  It's up to your SCIM API authorization server (AS) to support and send a refresh token along with the access token. Okta supports refresh tokens for SCIM connections, provided that the SCIM API AS also supports refresh tokens.
+
 If you are going to publish your integration to the OIN catalog, Okta requires that all SCIM applications support all of the following [redirect URIs](https://tools.ietf.org/html/rfc6749#section-3.1.2):
 
 - `https://system-admin.okta.com/admin/app/cpc/${appName}/oauth/callback`
