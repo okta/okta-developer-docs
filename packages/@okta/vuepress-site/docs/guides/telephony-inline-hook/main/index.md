@@ -108,10 +108,7 @@ You must activate the telephony inline hook in your Okta org. Activating the tel
 1. Click **Add Inline Hook** and select **Telephony** from the dropdown list.
 1. Add a name for the hook (in this example, **Twilio Telephony Hook**).
 1. Add the external service URL, including the endpoint. For example, use your Glitch project name with the endpoint: `https://your-glitch-projectname.glitch.me/telephonyHook`.
-1. Include values for the authentication and secret fields. In this example, use HTTP Basic Authentication. For more information on this authentication method, refer to [HTTP header: Basic Authentication](/docs/guides/common-hook-set-up-steps/nodejs/main/#http-header-basic-authentication).
-
-    * **Authentication field**: `authorization`
-    * **Authentication secret**: `Basic YWRtaW46c3VwZXJzZWNyZXQ=`
+1. <HookBasicAuthStep/> <HookOAuthNote/>
 1. Click **Save**. The telephony inline hook is now set up with an active status.
 
 > **Note:** You can also set up an inline hook using the API. See [Inline Hooks Management API](/docs/reference/api/inline-hooks/#create-inline-hook).

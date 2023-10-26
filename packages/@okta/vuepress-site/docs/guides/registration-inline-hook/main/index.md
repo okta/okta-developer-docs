@@ -264,12 +264,7 @@ You need to remix your own version of the Okta sample Glitch project and confirm
 
    `https://your-glitch-projectname.glitch.me/registrationHook`
 
-1. Include the authentication field and secret. In this example, use HTTP Basic Authentication. For more information on this authentication method, refer to [HTTP header: Basic Authentication](/docs/guides/common-hook-set-up-steps/nodejs/main/#http-header-basic-authentication).
-
-   * **Authentication Field** = `authorization`
-   * **Authorization Secret** = `Basic YWRtaW46c3VwZXJzZWNyZXQ=`
-
-   > **Note**: If you want to use OAuth 2.0 to secure your inline hooks, see [Add Authentication method](/docs/guides/common-hook-set-up-steps/nodejs/main/#add-authentication-method).
+1. <HookBasicAuthStep/> <HookOAuthNote/>
 
 1. Click **Save**.
 1. In your Glitch project, click **Logs**. If your set up is successful, a "Your app is listening on port {XXXX}" message appears.
