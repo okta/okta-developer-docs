@@ -46,7 +46,7 @@ The first request to exceed the concurrent limit returns an HTTP 429 error, and 
 
 > **Note:** For information on possible interaction between inline hooks and concurrent rate limits, see [Inline hooks and concurrent rate limits](/docs/concepts/inline-hooks/#inline-hooks-and-concurrent-rate-limits).
 
-### End-user rate limits
+## End-user rate limits
 
 Okta limits the number of requests:
 * From the Admin Console and the End-User Dashboard, to 40 requests per user per 10 seconds per endpoint. This rate limit protects users from each other and from other API requests in the system.
@@ -55,7 +55,7 @@ Okta limits the number of requests:
 
 If a user exceeds this limit, they receive an HTTP 429 error response without affecting other users in your org. A message is written to the System Log that indicates that the end-user rate limit was encountered.
 
-### Home page endpoints and per-minute limits
+## Home page endpoints and per-minute limits
 
 The following endpoints are used by the Okta home page for authentication and user sign in and have org-wide rate limits:
 
@@ -75,11 +75,11 @@ These rate limits apply to all new Okta organizations. For orgs created before 2
 
 The limits for these endpoints can be increased by purchasing the [High-capacity add-on](/docs/reference/rl-previous/#high-capacity-rate-limits).
 
-### Okta-generated email message rate limits
+## Okta-generated email message rate limits
 
 Limits are applied on a per-recipient basis and vary by email type. The limit for some email types is no more than 30 emails per-recipient, per-minute, while other email types are configured with higher limits. These limits protect your org against denial-of-service attacks and help ensure that adequate resources are available for all customers.
 
-### Per-user limits
+## Per-user limits
 
 API endpoints that take username and password credentials, including the [Authentication API](/docs/reference/api/authn/) and the [OAuth 2.0 resource owner password flow](/docs/guides/implement-grant-type/ropassword/main/), have a per-username rate limit to prevent brute force attacks with the user's password:
 
@@ -88,7 +88,7 @@ API endpoints that take username and password credentials, including the [Authen
 | **Authenticate the same user:**<br>`/api/v1/authn`                | 4 per second               |
 | **Generate or refresh an OAuth 2.0 token:**<br>`/oauth2/v1/token` | 4 per second               |
 
-### SMS and Call rate limits
+## SMS and Call rate limits
 
 * **Per user/per phone number rate limit:** The 30 second verification rate limit applies to a user's attempt to send an SMS or Call enrollment or verification message to the same phone number. The rate limit is one SMS or Call challenge per phone number every 30 seconds.
 
@@ -96,7 +96,7 @@ API endpoints that take username and password credentials, including the [Authen
 
 * **Enrollment and verification rate limits:** This rate limit applies to a user's attempt to enroll or verify an [SMS or a Call factor](/docs/reference/api/factors/) using any phone number. This rate limit applies to only the enrollment or verification operation. See [System Log events for rate limits](/docs/reference/rl-system-log-events/#debugcontext-object-examples-for-operation-rate-limits) for examples of System Log rate limit events where too many enrollment or verification attempts for the SMS or Call factors were made.
 
-### Workforce license rate limit multiplier
+## Workforce license rate limit multiplier
 
 Workforce orgs that are created after January 7, 2021 have increased default rate limits. This increase is for [specific endpoints](#list-of-endpoints) and depends on a Workforce org's license count (Universal Directory or Single-Sign On).
 
@@ -106,7 +106,7 @@ Workforce orgs that are created after January 7, 2021 have increased default rat
 | 10K - 100K         | 5x the default rate limit  |
 | > 100K             | 10x the default rate limit |
 
-#### List of endpoints
+### List of endpoints
 
 [Authentication](/docs/reference/rl-global-enduser/)
 
