@@ -92,11 +92,7 @@ Set up and verify the event hook within your Admin Console.
 
 5. In the **URL** field, add your external service URL, including endpoint. For example, use your Glitch project name with the endpoint: `https://your-glitch-projectname.glitch.me/userDeactivated`.
 
-6. Include authentication field and secret. In this example, use HTTP Basic Authentication. For more information on this authentication method, refer to [HTTP header: Basic Authentication](/docs/guides/common-hook-set-up-steps/nodejs/main/#http-header-basic-authentication).
-
-    * **Authentication field** = `authorization`
-
-    * **Authentication secret** = `Basic YWRtaW46c3VwZXJzZWNyZXQ=`
+6. <HookBasicAuthStep/>
 
 7. In the **REQUESTS** section of the dialog box, subscribe to the event type you want to monitor. In this example, a user deactivated in the Okta org: `User deactivated`.
 
