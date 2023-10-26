@@ -40,17 +40,27 @@ At a high level, this flow has the following steps:
     Register your app so that Okta can accept the authorization request. See [Set up your app](#set-up-your-app) to register and configure your app with Okta. After registration, your app can make an authorization request to Okta. See [Request for tokens](#request-for-tokens).
 
 1. Okta sends an HTTP 403 error that MFA is required and includes the `mfa_token` in the response.
-1. Your app sends a `/challenge` request with the `mfa_token` value, and the `channel_hint=push` and `challenge_types_supported` (`http://auth0.com/oauth/grant-type/mfa-oob`) parameters to the Okta authorization server.
-1. Okta responds with a `challenge_type`, `oob_code`, `interval` in seconds to poll (default is `5`), and any other parameters required by the configured authenticator.
+1. Your app sends a `/challenge` request to the Okta authorization server with the following parameters:
+   * `mfa_token`
+   * `channel_hint=push`
+   * `challenge_types_supported=http://auth0.com/oauth/grant-type/mfa-oob`
+1. Okta responds with the following parameters:
+   * `challenge_type`
+   * `oob_code`
+   * `interval` in seconds to poll (default is `5`)
 
-   >**Note:** For Okta Verify prompts with [number challenge](https://help.okta.com/okta_help.htm?type=oie&id=ext-config-okta-verify-options), `binding_method=transfer` and `binding_code` are also returned. See the [challenge response example](#challenge-response).
+   >**Note:** For Okta Verify prompts with [number challenge](https://help.okta.com/okta_help.htm?type=oie&id=ext-config-okta-verify-options), `binding_method=transfer` and `binding_code` are also returned. See the [Number challenge for Okta Verify Push example](#number-challenge-for-okta-verify-push-example).
 
 1. Okta sends a push notification to the user.
 1. Per configured authenticator options, more interaction may occur.
 
    >**Note:** For Okta Verify prompts with number challenge, the client displays the `binding_code` to the user.
 
-1. Your app polls the Okta `/token` endpoint at the set `interval`. The `oob_code`, `mfa_token`, and [MFA OOB grant type](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/OrgAS/#tag/OrgAS/operation/token) (`grant_type=http://auth0.com/oauth/grant-type/mfa-oob`) are included in the requests.
+1. Your app polls the Okta `/token` endpoint at the set `interval` and includes the following parameters in the requests:
+   * `oob_code`
+   * `mfa_token`
+   *  `grant_type=http://auth0.com/oauth/grant-type/mfa-oob`
+   >**Note:** See [MFA OOB grant type](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/OrgAS/#tag/OrgAS/operation/token).
 1. Okta responds with an HTTP 400 `authorization_pending` error.
 1. The user opens the Okta Verify app and taps **Yes it's me**.
 1. Per configured authenticator options, more interaction may occur.

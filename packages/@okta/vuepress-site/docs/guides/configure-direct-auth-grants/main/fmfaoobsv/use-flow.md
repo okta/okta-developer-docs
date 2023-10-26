@@ -86,7 +86,7 @@ Note the parameters included:
 - `oob_code`: An identifier of an out-of-band factor transaction. To respond to or check on the status of an out-of-band factor, use this code to identify the factor transaction.
 - `expires_in`: The time, in seconds, until the `oob_code` expires
 - `channel`: The type of out-of-band channel used.
-- `binding_method`: The method used to bind the out-of-band channel with the primary channel. Supported values: `none`, `transfer`, `prompt`
+- `binding_method`: The method used to bind the out-of-band channel with the primary channel. Supported value for `sms` or `voice` is `prompt`.
 
 ### Second request for tokens
 

@@ -20,7 +20,7 @@ Note the parameters that are passed:
 
 - `client_id`: Matches the client ID of the application that you created in the [Set up your app](#set-up-your-app) section. You can find it at the top of your app's **General** tab.
 - `login_hint`: The username (email) of a user registered with Okta
-- `channel_hint`: The out-of-band channel that the client wants to use. For example, `sms` or `voice`.
+- `channel_hint`: The out-of-band channel that the client wants to use. For Phone, use `sms` or `voice`.
 
 For more information on these parameters, see the `/oob-authenticate` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/OrgAS/#tag/OrgAS/operation/oob-authenticate).
 
@@ -56,8 +56,8 @@ Note the parameters included:
 
 - `oob_code`: An identifier of a single out-of-band factor transaction. To respond to or check on the status of an out-of-band factor, use this code to identify the factor transaction.
 - `expires_in`: The time, in seconds, until the `oob_code` expires
-- `channel`: The type of out-of-band channel used.
-- `binding_method`: The method used to bind the out-of-band channel with the primary channel. Supported value for `sms` or `voice` is `prompt`.
+- `channel`: The type of out-of-band channel used. For Phone, it's either `sms` or `voice`.
+- `binding_method`: The method used to bind the out-of-band channel with the primary channel. Supported value when `channel` is set to `sms` or `voice` is `prompt`.
 
 ### Request for tokens
 

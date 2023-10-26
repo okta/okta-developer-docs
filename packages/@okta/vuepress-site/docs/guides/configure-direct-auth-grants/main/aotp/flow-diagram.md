@@ -25,7 +25,12 @@ At a high level, this flow has the following steps:
 
 1. Your client app prompts the user for their username and then an OTP.
 1. The user enters their username, opens the authenticator app on their device to get the OTP, and then enters the OTP in the app interface.
-1. Your app sends the `otp`, username as a `login_hint`, and [OTP grant type](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/OrgAS/#tag/OrgAS/operation/token) (`grant_type=urn:okta:params:oauth:grant-type:otp`) in a `/token` request to the Okta authorization server.
+1. Your app sends the following parameters in a `/token` request to the Okta authorization server:
+    * `otp`
+    * `login_hint=${username}`
+    * `grant_type=urn:okta:params:oauth:grant-type:otp`
+
+    >**Note:** See [OTP grant type](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/OrgAS/#tag/OrgAS/operation/token).
 
     Register your app so that Okta can accept the authorization request. See [Set up your app](#set-up-your-app) to register and configure your app with Okta. After registration, your app can make an authorization request to Okta. See [Request for tokens](#request-for-tokens).
 

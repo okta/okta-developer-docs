@@ -36,5 +36,10 @@ At a high level, this flow has the following steps:
 1. Okta sends an HTTP 403 error that MFA is required and includes the `mfa_token` value in the response.
 1. Your app prompts the user for an OTP in the app interface.
 1. The user obtains the OTP from their device authenticator and enters it into the app interface.
-1. Your app sends the `otp`, `mfa_token`, and [MFA OTP grant type](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/OrgAS/#tag/OrgAS/operation/token) (`grant_type=http://auth0.com/oauth/grant-type/mfa-otp`) in a `/token` request to the Okta authorization server.
+1. Your app sends the following parameters in a `/token` request to the Okta authorization server:
+    * `otp`
+    * `mfa_token`
+    * `grant_type=http://auth0.com/oauth/grant-type/mfa-otp`
+
+    >**Note:** See [MFA OTP grant type](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/OrgAS/#tag/OrgAS/operation/token).
 1. If the OTP and `mfa_token` are accurate, Okta responds with the requested tokens.

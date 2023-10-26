@@ -18,7 +18,7 @@ Note the parameters that are passed:
 
 - `client_id`: Matches the client ID of the application that you created in the [Set up your app](#set-up-your-app) section. You can find it at the top of your app's **General** tab.
 - `login_hint`: The username (email) of a user registered with Okta
-- `channel_hint`: The out-of-band channel that the client wants to use. For example, Okta Verify Push.
+- `channel_hint`: The out-of-band channel that the client wants to use. For Okta Verify, use `push`.
 
 For more information on these parameters, see the `/oob-authenticate` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/OrgAS/#tag/OrgAS/operation/oob-authenticate).
 
