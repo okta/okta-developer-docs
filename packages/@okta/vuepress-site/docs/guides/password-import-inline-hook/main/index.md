@@ -75,10 +75,7 @@ To set up and activate the password import inline hook:
 2. Click **Add Inline Hook** and select **Password Import** from the dropdown menu.
 3. Add a name for the hook (in this example, "Password Import Hook").
 4. Add your external service URL, including the endpoint. For example, use your Glitch project name with the endpoint: `https://your-glitch-projectname.glitch.me/passwordImport`.
-5. Include authentication field and secret. In this example, use HTTP Basic Authentication. For more information on this authentication method, refer to [HTTP header: Basic Authentication](/docs/guides/common-hook-set-up-steps/nodejs/main/#http-header-basic-authentication).
-
-    * **Authentication field** = `authorization`
-    * **Authentication secret** = `Basic YWRtaW46c3VwZXJzZWNyZXQ=`
+5. <HookBasicAuthStep/>
 6. Click **Save**.
 
 The password import inline hook is now set up with a status of "Active".
