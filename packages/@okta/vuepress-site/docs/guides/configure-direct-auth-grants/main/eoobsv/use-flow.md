@@ -73,7 +73,7 @@ curl --request POST \
 
 Note the parameters that are passed:
 
-- `client_id`: Matches the client ID of the native application that you created in the [Set up your app](#set-up-your-app) section. You can find it at the top of your app's **General** tab.
+- `client_id`: Matches the client ID of the app that you created in the [Set up your app](#set-up-your-app) section. You can find it at the top of your app's **General** tab.
 - `scope`: Must be at least `openid`. See the **Create Scopes** section of the [Create an authorization server guide](/docs/guides/customize-authz-server/main/#create-scopes).
 - `grant_type`: `urn:okta:params:oauth:grant-type:oob`, which indicates that you're using the direct authentication OOB grant type. Use this grant type for OOB factors that you want to use as a primary factor.
 - `oob_code`: An identifier of a single out-of-band factor transaction. To respond to or check on the status of an out-of-band factor, use this code to identify the factor transaction.

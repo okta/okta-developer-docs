@@ -30,14 +30,14 @@ At a high level, this flow has the following steps:
 1. Your client app prompts the user for their username in the app interface.
 1. The user enters their username.
 1. Your app sends the following parameters to the Okta authorization server `/oob-authenticate` endpoint:
-    * `login_hint=${username}`
+    * `login_hint`
     * `channel_hint` with a value of `sms` or `voice`
 
     Register your app so that Okta can accept the authorization request. See [Set up your app](#set-up-your-app) to register and configure your app with Okta. After registration, your app can make an authorization request to Okta. See [Request for tokens](#request-for-tokens).
 
 1. Okta responds with the following parameters:
     * `oob_code`
-    * `channel`
+    * `channel` with a value of `sms` or `voice`
     * `binding_method=prompt`
 1. Okta sends an out-of-band challenge (OTP sent by SMS or Voice Call, based on the `channel_hint`) to the user.
 1. The app prompts the user to enter the OTP. The user enters the OTP.

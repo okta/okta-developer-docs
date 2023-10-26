@@ -39,7 +39,7 @@ At a high level, this flow has the following steps:
 
 1. Okta responds with the following parameters:
    * `oob_code`
-   * `channel`
+   * `channel=push`
    * `interval` in seconds to poll (default is `5`)
 
    >**Note:** For Okta Verify prompts with [number challenge](https://help.okta.com/okta_help.htm?type=oie&id=ext-config-okta-verify-options), `binding_method=transfer` and `binding_code` are also returned. See the [Number challenge for Okta Verify Push example](#number-challenge-for-okta-verify-push-example).
@@ -51,8 +51,10 @@ At a high level, this flow has the following steps:
 
 1. Your app polls the Okta `/token` endpoint at the set `interval` and includes the following parameters in the requests:
    * `oob_code`
-   *  `grant_type=urn:okta:params:oauth:grant-type:oob`
-   >**Note:** See [OOB grant type](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/OrgAS/#tag/OrgAS/operation/token).
+   * `grant_type=urn:okta:params:oauth:grant-type:oob`
+
+   >**Note:** See the [OOB grant type](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/OrgAS/#tag/OrgAS/operation/token) on the `/token` page. To view specific OOB grant information, select `urn:okta:params:oauth:grant-type:oob` from the `grant_type` dropdown list.
+
 1. Okta responds with an HTTP 400 `authorization_pending` error.
 1. The user opens the Okta Verify app and taps **Yes it's me**.
 1. Per configured authenticator options, more interaction may occur.

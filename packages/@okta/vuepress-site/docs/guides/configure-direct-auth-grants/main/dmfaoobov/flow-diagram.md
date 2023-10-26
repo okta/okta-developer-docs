@@ -45,7 +45,7 @@ At a high level, this flow has the following steps:
    * `channel_hint=push`
    * `challenge_types_supported=http://auth0.com/oauth/grant-type/mfa-oob`
 1. Okta responds with the following parameters:
-   * `challenge_type`
+   * `challenge_type=http://auth0.com/oauth/grant-type/mfa-oob`
    * `oob_code`
    * `interval` in seconds to poll (default is `5`)
 
@@ -59,8 +59,10 @@ At a high level, this flow has the following steps:
 1. Your app polls the Okta `/token` endpoint at the set `interval` and includes the following parameters in the requests:
    * `oob_code`
    * `mfa_token`
-   *  `grant_type=http://auth0.com/oauth/grant-type/mfa-oob`
-   >**Note:** See [MFA OOB grant type](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/OrgAS/#tag/OrgAS/operation/token).
+   * `grant_type=http://auth0.com/oauth/grant-type/mfa-oob`
+
+   >**Note:** See the [MFA OOB grant type](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/OrgAS/#tag/OrgAS/operation/token) on the `/token` page. To view specific MFA OOB grant information, select `http://auth0.com/oauth/grant-type/mfa-oob` from the `grant_type` dropdown list.
+
 1. Okta responds with an HTTP 400 `authorization_pending` error.
 1. The user opens the Okta Verify app and taps **Yes it's me**.
 1. Per configured authenticator options, more interaction may occur.

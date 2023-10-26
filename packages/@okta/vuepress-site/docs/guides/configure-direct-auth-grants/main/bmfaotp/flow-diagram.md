@@ -41,5 +41,6 @@ At a high level, this flow has the following steps:
     * `mfa_token`
     * `grant_type=http://auth0.com/oauth/grant-type/mfa-otp`
 
-    >**Note:** See [MFA OTP grant type](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/OrgAS/#tag/OrgAS/operation/token).
+    >**Note:** See the [MFA OTP grant type](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/OrgAS/#tag/OrgAS/operation/token) on the `/token` page. To view specific MFA OTP grant information, select `http://auth0.com/oauth/grant-type/mfa-otp` from the `grant_type` dropdown list.
+
 1. If the OTP and `mfa_token` are accurate, Okta responds with the requested tokens.
