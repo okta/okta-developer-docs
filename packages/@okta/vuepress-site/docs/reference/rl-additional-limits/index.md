@@ -14,6 +14,7 @@ This page provides Okta's additional limits on:
 * [Okta-generated email messages](#okta-generated-email-message-rate-limits)
 * [Per-user limits](#per-user-limits)
 * [SMS and Call rate limits](#sms-and-call-rate-limits)
+* [Org creation rate limits](#org-creation-rate-limits)
 * [Workforce license rate limit multiplier](#workforce-license-rate-limit-multiplier)
 
 These limits are part of the Okta [Rate limit](/docs/reference/rate-limits) policy.
@@ -95,6 +96,12 @@ API endpoints that take username and password credentials, including the [Authen
 > **Note:** Okta round-robins between SMS providers with every resend request to help ensure delivery of SMS OTP across different carriers.
 
 * **Enrollment and verification rate limits:** This rate limit applies to a user's attempt to enroll or verify an [SMS or a Call factor](/docs/reference/api/factors/) using any phone number. This rate limit applies to only the enrollment or verification operation. See [System Log events for rate limits](/docs/reference/rl-system-log-events/#debugcontext-object-examples-for-operation-rate-limits) for examples of System Log rate limit events where too many enrollment or verification attempts for the SMS or Call factors were made.
+
+## Org creation rate limits
+
+API calls to the Org creator endpoint (POST `/api/v1/orgs`) have a limit of 10 orgs per minute.
+
+> **Note:** Existing Org creator API users may have a different existing rate limit.
 
 ## Workforce license rate limit multiplier
 
