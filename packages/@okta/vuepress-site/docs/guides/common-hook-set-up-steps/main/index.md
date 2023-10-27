@@ -81,7 +81,7 @@ To add HTTP Basic Authentication to your external service:
 
 <StackSelector snippet="auth" noSelector/>
 
->**Note:** Ensure you securely store your credentials for your external service.
+>**Note:** Ensure that you securely store your credentials for your external service.
 
 ### OAuth 2.0: Client Secret
 
