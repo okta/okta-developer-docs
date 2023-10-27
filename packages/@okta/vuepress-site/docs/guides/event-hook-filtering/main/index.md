@@ -53,11 +53,7 @@ The Glitch event hook example uses the Okta event triggered when a user is added
 
 1. In the **Event Hook Name**, add a unique name for the hook (in this example, "User added to Sales group event hook").
 
-1. In the **Customize request** section, include authentication field and secret. In this example, use [Basic Authentication](/docs/guides/common-hook-set-up-steps/nodejs/main/#http-header-basic-authentication):
-
-    * **Authentication field** = `authorization`
-
-    * **Authentication secret** = `Basic YWRtaW46c3VwZXJzZWNyZXQ=`
+1. <HookBasicAuthStep/>
 
 1. In the **Select Events** section, subscribe to the event type you want to monitor. In this example, a user added to a group. Click in the field to search for `User added to group`.
 
@@ -83,7 +79,7 @@ The Glitch event hook example uses the Okta event triggered when a user is added
 
 1. Click the **User Okta Expression Language (advanced)** link to review the Okta Expression Language statement: `event.target.?[type eq 'UserGroup'].size()>0 && event.target.?[displayName eq 'Sales'].size()>0`.
 
-    This statement triggers an event hook request to your external service when a user is added to the Sales group (the statement is TRUE). Other additions to different groups don’t trigger an event hook.
+    This statement triggers an event hook request to your external service when a user is added to the Sales group (the statement is TRUE). Other additions to different groups don't trigger an event hook.
 
     > **Note:** Review the Okta System Log (from the Admin Console, **Reports > System Log**) to create expressions that target your real-world event data.
 
@@ -91,11 +87,11 @@ The Glitch event hook example uses the Okta event triggered when a user is added
 
 1. In the **Preview** section, click **Skip this step**.
 
-    >**Note:** The event hook preview bypasses the event hook filter. Don’t test your filter with the **Preview** feature.
+    >**Note:** The event hook preview bypasses the event hook filter. Don't test your filter with the **Preview** feature.
 
 1. Ensure that your Glitch application is listening for your requests, and then click **Verify** to complete the one-time verification step. See [One-time verification request](/docs/concepts/event-hooks/#one-time-verification-request).
 
-> **Note:** It may take a few minutes before events are sent to the event hook after it’s created or updated.
+> **Note:** It may take a few minutes before events are sent to the event hook after it's created or updated.
 
 ## Create test data
 

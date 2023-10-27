@@ -108,9 +108,7 @@ You must activate the telephony inline hook in your Okta org. Activating the tel
 1. Click **Add Inline Hook** and select **Telephony** from the dropdown list.
 1. Add a name for the hook (in this example, **Twilio Telephony Hook**).
 1. Add the external service URL, including the endpoint. For example, use your Glitch project name with the endpoint: `https://your-glitch-projectname.glitch.me/telephonyHook`.
-1. Include values for the following fields. For this use case example:<br>
-    **Authentication field**: `authorization`<br>
-    **Authentication secret**: `Basic YWRtaW46c3VwZXJzZWNyZXQ=`<br>
+1. <HookBasicAuthStep/> <HookOAuthNote/>
 1. Click **Save**. The telephony inline hook is now set up with an active status.
 
 > **Note:** You can also set up an inline hook using the API. See [Inline Hooks Management API](/docs/reference/api/inline-hooks/#create-inline-hook).
@@ -133,7 +131,7 @@ Copy the account SID and auth token from your Twilio account and add them as var
 
 The external service in this scenario requires code to handle the telephony inline hook request from Okta. Use the [Okta Telephony Inline Hook](https://glitch.com/~okta-inlinehook-telephonyhook) Glitch example to either build or copy the code (remix on Glitch) that parses the telephony inline hook call.
 
-From the telephony inline hook request, the following code retrieves the value of the user’s phone number from the `data.messageProfile` object. The code parses the Okta request body for the value of `phoneNumber` and stores it in the variable `userPhoneNumber`.
+From the telephony inline hook request, the following code retrieves the value of the user's phone number from the `data.messageProfile` object. The code parses the Okta request body for the value of `phoneNumber` and stores it in the variable `userPhoneNumber`.
 
 <StackSelector snippet="userphonenumber" noSelector/>
 
@@ -170,14 +168,14 @@ To preview the telephony inline hook:
     > **Note**: If your user doesn't have a phone number in their profile, change the phone number to one that you want to test in the **Preview example inline hook request** section. Click **Edit** and then add a value for the `phoneNumber` in the `messageProfile` section of the request (for example, `"+15555551212"`).
 
 1. From the **Preview example inline hook request** section, click **Generate Request**. You should see the user's request information in JSON format that is sent to the external service.
-1. From the **View Service's Response** section, click **View Response**. You should see the response from your external service in JSON format. Upon a successful response, an SMS code or Voice (Call) message with the code is sent to the specified user. If there’s an error, the error message appears in the response.
+1. From the **View Service's Response** section, click **View Response**. You should see the response from your external service in JSON format. Upon a successful response, an SMS code or Voice (Call) message with the code is sent to the specified user. If there's an error, the error message appears in the response.
 
     > **Note**: If the external service fails, an OTP is still delivered to the user through the default Okta telephony provider. If the failure happens when previewing the hook, Okta doesn't generate an OTP.
 
 ### Test
 
-To run a test of your telephony inline hook, go to your Okta org’s sign-in page and sign in as a user in your org.
-When you click **Sign in**, you’re prompted for an additional factor to either receive a code through SMS or receive a voice call instead. Click whichever option that you want to test. The SMS or Voice Call is sent to your phone.
+To run a test of your telephony inline hook, go to your Okta org's sign-in page and sign in as a user in your org.
+When you click **Sign in**, you're prompted for an additional factor to either receive a code through SMS or receive a voice call instead. Click whichever option that you want to test. The SMS or Voice Call is sent to your phone.
 
 ## Next steps
 

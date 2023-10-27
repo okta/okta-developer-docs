@@ -8,7 +8,7 @@ layout: Guides
 
 This guide provides working examples of an Okta registration inline hook for self-service registration (SSR) and Progressive Enrollment support. It uses the web site [Glitch.com](https://glitch.com) to act as an external service to receive and respond to registration inline hook calls.
 
-> **Note:** This document is only for Okta Identity Engine. If you’re using Okta Classic Engine, see [Registration inline hook for Classic Engine](/docs/guides/archive-registration-inline-hook/nodejs/main/). See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.
+> **Note:** This document is only for Okta Identity Engine. If you're using Okta Classic Engine, see [Registration inline hook for Classic Engine](/docs/guides/archive-registration-inline-hook/nodejs/main/). See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.
 
 ---
 
@@ -264,15 +264,10 @@ You need to remix your own version of the Okta sample Glitch project and confirm
 
    `https://your-glitch-projectname.glitch.me/registrationHook`
 
-1. Include the authentication field and secret. In this example:
-
-   * **Authentication Field** = `authorization`
-   * **Authorization Secret** = `Basic YWRtaW46c3VwZXJzZWNyZXQ=`
-
-   > **Note**: If you want to use OAuth 2.0 to secure your inline hooks, see [Add Authentication method](/docs/guides/common-hook-set-up-steps/nodejs/main/#add-authentication-method).
+1. <HookBasicAuthStep/> <HookOAuthNote/>
 
 1. Click **Save**.
-1. In your Glitch project, click **Logs**. If your set up is successful, a "Your app is listening on port {XXXX}" message appears.
+1. In your Glitch project, click **Logs**. If your setup is successful, a "Your app is listening on port {XXXX}" message appears.
 
 The registration inline hook is now set up with an active status.
 
