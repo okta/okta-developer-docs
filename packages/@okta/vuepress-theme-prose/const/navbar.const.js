@@ -695,6 +695,17 @@ export const guides = [
         ],
       },
       {
+        title: "Manage orgs",
+        hidden: true,
+        subLinks: [
+          {
+            title: "Manage orgs with Okta Aerial",
+            guideName: "manage-orgs-okta-aerial",
+            hidden: true
+          }
+        ],
+      },
+      {
         title: "Deploy to Production",
         subLinks: [
           {
