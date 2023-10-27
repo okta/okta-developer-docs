@@ -5173,7 +5173,7 @@ XML digital Signature Algorithm settings for verifying `<SAMLResponse>` messages
 | Property   | Description                                                                                                            | DataType                       | Nullable | Readonly |
 | ---------- | ----------------------------------------------------------------------------------                                     | --------------------           | -------- | -------- |
 | algorithm  | The minimum XML digital Signature Algorithm allowed when verifying a `<SAMLResponse>` message or `<Assertion>` element | `SHA-1` or `SHA-256`           | FALSE    | FALSE    |
-| scope      | Specifies whether to verify a `<SAMLResponse>` message or `<Assertion>` element XML digital signature                  | `RESPONSE`, `ASSERTION`, `ANY` | FALSE    | FALSE    |
+| scope      | Specifies whether to verify a `<SAMLResponse>` message or `<Assertion>` element XML digital signature                  | `RESPONSE`, `TOKEN`, `ANY` | FALSE    | FALSE    |
 
 ###### SAML 2.0 Credentials object
 
