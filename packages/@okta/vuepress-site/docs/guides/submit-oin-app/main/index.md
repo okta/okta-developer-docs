@@ -6,6 +6,8 @@ meta:
 layout: Guides
 ---
 
+<ApiLifecycle access="ea" />
+
 Use this guide to learn how to submit a Single Sign-On (SSO) integration to the Okta Integration Network (OIN) team using the OIN Wizard. This guide also shows you how to create an SSO integration instance for testing in your org.
 
 ---
@@ -67,7 +69,7 @@ To submit an integration for OIN publication:
 1. Sign in to your [developer-edition Okta org](/login/) as a user with administrative privileges.
 1. Go to **Applications** > **Your OIN Integrations** in the Admin Console.
 1. Click **Build new OIN integration**. The Okta Integration Network (OIN) Wizard appears.
-1. From the **Select your protocol** section of the page, select **<StackSnippet snippet="protocol-name" inline/>**.
+1. From the **Select your protocol** section, select **<StackSnippet snippet="protocol-name" inline/>**.
     > **Note:** If you want to change the protocol instructions on this page, select the protocol you want from the **Instructions for** dropdown list on the right.
 1. Click **Next: Configure your integration**.
 
