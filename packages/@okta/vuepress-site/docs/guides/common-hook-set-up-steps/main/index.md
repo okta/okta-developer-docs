@@ -73,7 +73,7 @@ For example, the credential pair used in the inline hook examples is `admin:supe
 
 To add HTTP Basic Authentication to your external service:
 
-1. Include the `npm` package `express-basic-auth` to the `package.json` file in the left-hand project menu.
+1. Include the `npm` package `express-basic-auth` in the `package.json` file in the left-hand project menu.
 1. Add the following two environment variables to the `.env` file in the left-hand project menu:
     * **Variable Name**: `USER` with **Value**: `admin`
     * **Variable Name**: `PASSWORD` with **Value**: `supersecret`
