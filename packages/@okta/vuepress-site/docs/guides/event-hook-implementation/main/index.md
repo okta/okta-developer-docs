@@ -144,7 +144,7 @@ To run a preview call of your event hook, sign in to your Okta org as the super 
     ```
 
 1. Optionally, click **Edit** to modify the JSON body call for other testing scenarios.
-1. Go to your Glitch application, opening the log console (**Tools** > **Logs**). Ensure your application is listening for requests.
+1. Go to your Glitch application and open the log console (**Tools** > **Logs**). Ensure that your application is listening for requests.
 1. Click **Deliver Request**. The event hook preview displays the status request as either successful or a failure. Check your Glitch application console. The following message should display if successful:
 
      `The user john.doe@example.com has been deactivated on the Okta org!`
