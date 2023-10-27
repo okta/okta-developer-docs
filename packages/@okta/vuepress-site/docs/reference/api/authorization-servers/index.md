@@ -210,7 +210,7 @@ Lists all Custom Authorization Servers in this Okta organization
 Parameter | Description                                                                                 | Param Type | DataType | Required | Default
 --------- | ------------------------------------------------------------------------------------------  | ---------- | -------- | -------- | -------
 q         | Searches the `name` and `audiences` of Authorization Servers for matching values            | Query      | String   | FALSE    |
-limit     | Specifies the number of Authorization Server results on a page                               | Query      | Number   | FALSE    | 200
+limit     | Specifies the number of Authorization Server results on a page                              | Query      | Number   | FALSE    | 200
 after     | Specifies the pagination cursor for the next page of Authorization Servers                  | Query      | String   | FALSE    |
 
 **Parameter details**
@@ -1066,7 +1066,16 @@ Get the Scopes defined for a specified Custom Authorization Server
 
 | Parameter               | Description                         | Type     | Required |
 | :---------------------- | :------------------------------     | :------- | :------- |
-| authorizationServerId            | ID of a Custom Authorization Server | String   | True     |
+| authorizationServerId   | ID of a Custom Authorization Server | String   | True     |
+
+##### Request query parameters
+
+| Parameter | Description                                                                       | Param Type | DataType | Required | Default |
+| :--------- | :------------------------------------------------------------------------------  | :--------- | :------- | :------- | :------ |
+| q          | Searches for scopes by `name`                                                    | Query      | String   | FALSE    |         |
+| filter     | Filters scopes for a custom authorization server                                 | Query      | String   | FALSE    |         |
+| after      | Specifies the pagination cursor for the next page of scopes                      | Query      | String   | FALSE    |         |
+| limit      | Specifies the number of scope results on a page                                  | Query      | Number   | FALSE    | 200     |
 
 ##### Request example
 
