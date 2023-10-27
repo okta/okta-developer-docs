@@ -103,7 +103,7 @@ Create the Okta event hook to work with your local application, which can now be
 
 5. In the **URL** field, add your external service URL. For this example, add the code endpoint, `/userCreated` from `server.js` to the end of the `https://` URL from the [ngrok session](#run-ngrok). For example: your URL should appear similar to: `https://2d20-142-126-163-77.ngrok.io/userCreated`.
 
-6. <HookBasicAuthStep/> <HookOAuthNote/>
+6. <HookBasicAuthStep/>
 
 7. In the **REQUESTS** section of the dialog box, subscribe to the Event Type you want to monitor. In this example, a user created in the Okta org: `User created`.
 
