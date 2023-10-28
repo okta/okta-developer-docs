@@ -58,13 +58,13 @@ This guide covers submissions that use the following protocols:
 
 > **Note:** SWA app integrations are no longer accepted for publication in the OIN catalog. However, the OIN team still maintains existing SWA apps.
 
-## Submit an integration
+## Start a submission
 
 You need to review the [OIN submission requirements](/docs/guides/submit-app-prereq) before you start your submission. There are artifacts and technical details that you need to provide during the submission process.
 
 > **Note:** For best practices, create two or three extra administrative users in your Okta org to manage the integration. This ensures that your team can access the integration for updates in the future.
 
-To submit an integration for OIN publication:
+Start your integration submission for OIN publication:
 
 1. Sign in to your [developer-edition Okta org](/login/) as a user with administrative privileges.
 1. Go to **Applications** > **Your OIN Integrations** in the Admin Console.
@@ -121,15 +121,11 @@ Continue with the OIN Wizard and configure your protocol settings:
 
     <StackSnippet snippet="protocol-properties" />
 
-1. Click **Get started with testing** to save your changes and move to the testing phase.
-
-## Test integration experience
-
-You need to test your integration to verify that the integration performs as you expect before you submit it. The **Test your integration experience** section of the OIN Wizard helps you prepare and test your integration. An Okta OIN analyst also uses the same information to verify your integration after submission.
+1. Click **Get started with testing** to save your edits and move to the testing experience where you need to enter your integration test details.
 
 ### Enter test information
 
-From the OIN Wizard **Test your integration experience** section, specify information required for testing your integration.
+From the OIN Wizard **Test your integration experience** section, specify information required for testing your integration. An Okta OIN analyst uses this information to verify your integration after submission.
 
 #### Testing information
 
@@ -146,50 +142,58 @@ See [Test account guidelines](/docs/guides/submit-app-prereq/main/#test-account-
 
     | <div style="width:100px">Property</div> | Description  |
     | --------------- | ------------ |
-    | **Test account URL** `*`  | This is a static URL to sign in to your application. An Okta OIN team member goes to this URL and uses the account credentials you provide in the subsequent fields to sign in to your application. |
-    | **Username** `*`  | Specify the variable name. This variable name is used to construct the dynamic URL. It's hidden from admins and is only passed to your external application.<br>String is the only variable type supported.<br>The maximum field length is 1024 characters. |
-    | **Password** `*`  | Specify the variable name. This variable name is used to construct the dynamic URL. It's hidden from admins and is only passed to your external application.<br>String is the only variable type supported.<br>The maximum field length is 1024 characters. |
-    | **Support contact** `*`  | Provide an email for Okta to contact your company about your integration. This email isn't expose in the OIN catalogs or to your customers. It's for Okta to contact your company for issues during the QA testing phase or for ongoing maintenance of your integration in the OIN catalog. |
-    | **Testing instructions** `*`  | Provide additional instructions for testing your app or include instructions on how to add test accounts. |
+    | **Test account URL** `*`  | This is a static URL to sign in to your app. An Okta OIN analyst goes to this URL and uses the account credentials you provide in the subsequent fields to sign in to your app. |
+    | **Username** `*`  | The username for your app test admin account. The Okta OIN analyst signs in with this username to run tests. The preferred account username is `isvtest@okta.com`. |
+    | **Password** `*`  | The password for your app test admin account |
+    | **Support contact** `*`  | Provide an email for Okta to contact your company about your integration. This email isn't expose in the OIN catalogs or to your customers. It's for Okta to contact your company for issues during the QA testing phase or for ongoing maintenance of your integration in the OIN catalog. See [Escalation support contact](/docs/guides/submit-app-prereq/main/#customer-support-contact-guidelines) in the customer support contact guidelines. |
+    | **Testing instructions** `*`  | Include any other information that you think the Okta OIN analyst needs to know about your integration, the test admin account, or the testing configuration. You can also provide instructions on how to add test user accounts. |
 
     `*` Required properties
 
-    | Property/Question | Description  |
-| -------- | ------------ |
-|  **Test account URL** | This is a static URL to sign in to your application. An Okta OIN team member goes to this URL and uses the account credentials you provide in the subsequent fields to sign in to your application. |
-| **Test account username or email** | The username for your application test account. The Okta OIN team signs in with this username to run tests. The preferred account username is `isvtest@okta.com`. |
-| **Test account password** | The password for your application test account. |
-| **Additional instructions** | Include any other information that you think the Okta OIN team needs to know about your integration, the test account, or the testing configuration. |
-
 #### <StackSnippet snippet="protocol-name" inline/> tests
 
-- Sign-in flows supported for the SSO protocol
+Continue with the OIN Wizard and specify your supported SSO flows:
 
-when you are done, submit to oIn
-they will need testing information before they can verify your integration
-- need testing info
-- need features supported to test the sso use case
+1. Click the **<StackSnippet snippet="protocol-name" inline/> tests** dropdown arrow and specify the following sign-in flow details:
 
+    <StackSnippet snippet="protocol-test-flow" />
 
+1. Click **Test your integration** to save your test information and begin the testing phase.
 
-From the Okta Integration Network Wizard, click **Next: Test your integration** after you've saved your integration configuration. This action begins testing your integration. You need to test the following flows:
+## Test your integration
+
+You need to test your integration to verify that the integration performs as you expect before you submit it. The **Test your integration experience** section of the OIN Wizard helps you prepare and test your integration within the same org.
+
+You can generate an integration test instance from the information you provided in the OIN Wizard. The generated instance allows you to test your customer admin experience as well as your end user sign-in experience.
+
+You must test all the SSO functions that your integration supports
 
 * IdP flow: If your integration supports IdP-initiated SSO
 * SP flow: If your integration supports SP-initiated SSO
 * Just in time (JIT) flow: If your application supports JIT
 
-### IdP flow test
+### How to test an IdP flow
 
-#### Prepare your instance for an IdP flow
+#### Prepare the instance for the test case
 
-**Test account**
+Open a new tab in your internet browser and navigate to your developer-edition Okta org. Make sure you are logged in as a user with administrative privileges
+Click Applications > Applications > Browse App Catalog
+Find the ISV Application, and open the Application Detail Page
+Click Add Integration in the top right hand corner
+Fill out necessary Application Integration Properties (AIPs) on the General settings tab, and click Next
+Fill out necessary AIPs on the Sign-On Options settings tab, and click Done
+On the Assignments tab (this is where they’ll land after step 14), click Assign > Assign to People
+Find your name and click the Assign button next to your name
+A dialog box will open with the title “Assign [app name] to People”. Click Save and Go Back
+On the People page, click Done
+Return to the Sign On tab.
+To configure OIDC settings in your application, use the default authorization server available at https://${yourOktaDomain}/oauth2/default as your issuer URI, as well as Client ID and Client Secret pair accessible on the Sign On tab. This will enable the ISV application and Okta can communicate with each other.
 
 
+#### IdP flow test case
 
 
-#### Test the IdP flow
-
-### SP flow test
+### How to test an SP flow
 
 #### Prepare your instance for an SP flow
 
@@ -199,7 +203,7 @@ Option 1: Direct URL
 
 Option 2: Login page
 
-### JIT flow test
+### How to test the JIT feature
 
 #### Prepare your instance for JIT
 
