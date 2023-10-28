@@ -162,23 +162,22 @@ Continue with the OIN Wizard and specify your supported SSO flows:
 
 ## Test your integration
 
-You need to test your integration to verify that the integration performs as you expect before you submit it. The **Test your integration experience** section of the OIN Wizard helps you prepare and test your integration within the same org.
+You need to test your integration to verify that the integration performs as you expect before you submit it. You must test all the SSO functions that your SSO integration supports:
 
-You can generate an integration test instance from the information you provided in the OIN Wizard. The generated instance allows you to test your customer admin experience as well as your end user sign-in experience.
+* [IdP flow](#how-to-test-an-idp-flow)
+* SP flow
+* Just in time (JIT) flow
 
-You must test all the SSO functions that your integration supports
-
-* IdP flow: If your integration supports IdP-initiated SSO
-* SP flow: If your integration supports SP-initiated SSO
-* Just in time (JIT) flow: If your application supports JIT
+The **Test your integration experience** section of the OIN Wizard helps you prepare and test your integration within the same org. You can generate an integration test instance from the information you provided in the wizard. The generated instance allows you to test your customer admin experience as well as your end user sign-in experience.
 
 ### How to test an IdP flow
 
+Follow the steps to prepare and execute the IdP sign-in flow.
+
 #### Prepare the instance for the test case
 
-Open a new tab in your internet browser and navigate to your developer-edition Okta org. Make sure you are logged in as a user with administrative privileges
-Click Applications > Applications > Browse App Catalog
-Find the ISV Application, and open the Application Detail Page
+1. The **Test your integration experience** section of the OIN Wizard, click **Generate Instance**. The 
+
 Click Add Integration in the top right hand corner
 Fill out necessary Application Integration Properties (AIPs) on the General settings tab, and click Next
 Fill out necessary AIPs on the Sign-On Options settings tab, and click Done
