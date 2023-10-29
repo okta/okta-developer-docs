@@ -168,28 +168,35 @@ You need to test your integration to verify that the integration performs as you
 * SP flow
 * Just in time (JIT) flow
 
-The **Test your integration experience** section of the OIN Wizard helps you prepare and test your integration within the same org. You can generate an integration test instance from the information you provided in the wizard. The generated instance allows you to test your customer admin experience as well as your end user sign-in experience.
+The **Test your integration experience** section of the OIN Wizard helps you prepare and test your integration within the same org. You can generate an integration instance from the information you provided in the wizard. The generated instance allows you to test your customer admin experience as well as your end user sign-in experience.
+
+The test cases presented in this section are the minimum tests that you need to execute to ensure that your sign-in flow works as expected. Ideally, you want to execute several variations of these test cases with edge cases in mind.
 
 ### How to test an IdP flow
 
+To test an IdP flow, you need to:
+1. As the customer admin persona, [generate the integration instance](#generate-the-instance-for-the-idp-flow).
+2. As the customer end-user persona, sign in to the app from the Okta End User Dashboard.
+
 Follow the steps to prepare and execute the IdP sign-in flow.
 
-#### Prepare the instance for the test case
+#### Generate the instance for the IdP flow
 
-1. The **Test your integration experience** section of the OIN Wizard, click **Generate Instance**. The 
+These steps test the customer admin experience. The customer admin uses the App Integration Wizard (AIW) to add your integration to their org for their users.
 
-Click Add Integration in the top right hand corner
-Fill out necessary Application Integration Properties (AIPs) on the General settings tab, and click Next
-Fill out necessary AIPs on the Sign-On Options settings tab, and click Done
-On the Assignments tab (this is where they’ll land after step 14), click Assign > Assign to People
-Find your name and click the Assign button next to your name
-A dialog box will open with the title “Assign [app name] to People”. Click Save and Go Back
-On the People page, click Done
-Return to the Sign On tab.
-To configure OIDC settings in your application, use the default authorization server available at https://${yourOktaDomain}/oauth2/default as your issuer URI, as well as Client ID and Client Secret pair accessible on the Sign On tab. This will enable the ISV application and Okta can communicate with each other.
+1. In the **Test your integration experience** section of the OIN Wizard, click **Generate Instance**. The **General settings** tab from the App Integration Wizard (AIW) appears.
+<StackSnippet snippet="test-instance" />
 
+#### Sign in with the IdP flow
 
-#### IdP flow test case
+Open a new Incognito window in your internet browser
+12. Sign into your developer-edition Okta org as a user that has been assigned to the application
+instance
+13. Click on the icon with four boxes next to your name > My end user dashboard
+14. Confirm your application tile appears on your end user dashboard
+15. Click your application tile and confirm you can log into your application successfully
+16. Log out from the ISV application
+17. Verify that the user is able to logout and is redirected to the login screen.
 
 
 ### How to test an SP flow
