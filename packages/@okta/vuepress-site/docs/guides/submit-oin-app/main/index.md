@@ -164,46 +164,66 @@ Continue with the OIN Wizard and specify your supported SSO flows:
 
 You need to test your integration to verify that the integration performs as you expect before you submit it. You must test all the SSO functions that your SSO integration supports:
 
+* [Admin configuration flow](#how-to-prepare-your-integration-instance-for-testing)
 * [IdP flow](#how-to-test-an-idp-flow)
-* SP flow
-* Just in time (JIT) flow
+* [SP flow](#how-to-test-an-sp-flow)
+* [Just in time (JIT) flow](#how-to-test-the-jit-feature)
 
 The **Test your integration experience** section of the OIN Wizard helps you prepare and test your integration within the same org. You can generate an integration instance from the information you provided in the wizard. The generated instance allows you to test your customer admin experience as well as your end user sign-in experience.
 
-The test cases presented in this section are the minimum tests that you need to execute to ensure that your sign-in flow works as expected. Ideally, you want to execute several variations of these test cases with edge cases in mind.
+The test cases presented in this section are the minimum tests that you need to execute to ensure that your sign-in flow works as expected. Ideally, you want to execute several variations of these test cases with negative and edge cases in mind.
 
-### How to test an IdP flow
+### How to prepare your integration instance for testing
 
-To test an IdP flow, you need to:
+To prepare you app integration instance for testing, you need to execute the following test cases:
+
 1. As the customer admin persona, [generate the integration instance](#generate-the-instance-for-the-idp-flow).
 2. As the customer admin persona, [assign test users to the integration instance](#assign-test-users-to-your-integration-instance).
-3. As the customer end-user persona, [sign in to the app from the Okta End User Dashboard](#sign-in-with-the-idp-flow).
-
-Follow the steps to prepare and execute the IdP sign-in flow.
 
 #### Generate the instance for the IdP flow
 
-These steps test the customer admin experience. The customer admin uses the App Integration Wizard (AIW) to add your integration to their org for their users.
+This flow tests the customer admin experience. The test steps start from the OIN Wizard to generate the instance, then they shift to [add an existing app integration](https://help.okta.com/en-us/content/topics/apps/apps-add-applications.htm), where you assume the customer admin persona. When your integration is published in the OIN catalog, the customer admin uses the Admin Console **Browse App Catalog** > [add an existing app integration](https://help.okta.com/en-us/content/topics/apps/apps-add-applications.htm) page to add your integration to their org. So the following steps (after step 1) are exactly what your customer admins experience.
 
-1. In the **Test your integration experience** section of the OIN Wizard, click **Generate Instance**. The **General settings** tab from the AIW appears.
+Prerequisites:
+
+* Completed the integration [configuration](#configure-your-integration) and [test information](#enter-test-information) sections in the OIN Wizard
+
+To generate an integration instance:
+
+1. In the **Test your integration experience** section of the OIN Wizard, click **Generate Instance**. The app **General settings** tab appears.
 
 <StackSnippet snippet="test-instance" />
 
 #### Assign test users to your integration instance
 
-Assign users to your app integration instance to test your SSO IdP flow. Your test users need to be created in Okta before you start to assign them to your integration. See [Add users manually](https://help.okta.com/en-us/content/topics/users-groups-profiles/usgp-add-users.htm).
+As a customer admin persona, assign users to your app integration instance to test your SSO flow. Create your test users in Okta before you assign them to your integration. See [Add users manually](https://help.okta.com/en-us/content/topics/users-groups-profiles/usgp-add-users.htm).
 
-To assign one or more test users to your integration:
+Prerequisites:
 
-1. From the App Integration Wizard (AIW), click the **Assignments** tab.
+* [Generated the app integration instance in the OIN Wizard](#generate-the-instance-for-the-idp-flow)
+* Sign-on options are configured for the instance
+
+To assign test users to your integration:
+
+1. From your app page in the Admin Console, click the **Assignments** tab.
 1. Click **Assign** and then select either **Assign to People** or **Assign to Groups**.
 1. Enter the appropriate people or groups that you want to have Single Sign-On into your application, and then click **Assign** for each.
 1. Verify the user-specific attributes for any people that you add, and then select **Save and Go Back**.
 1. Click **Done**.
 
+### How to test an IdP flow
+
+Test the IdP sign-in flow as a customer end-user persona. Use an end user that you [assigned to your integration](#assign-test-users-to-your-integration-instance). This sign-in flow initiates from the Okta End-User Dashboard.
+
 #### Sign in with the IdP flow
 
-To test the SSO IdP flow, sign in as one of your test end users:
+Prerequisites:
+
+* app integration supports IdP SSO
+* [app integration instance was generated in the OIN Wizard](#generate-the-instance-for-the-idp-flow)
+* the test end user used to sign in to the app was [assigned to the integration](#assign-test-users-to-your-integration-instance)
+
+To test the SSO IdP flow:
 
 1. Open a new Incognito window in your browser.
 1. Navigate to your developer-edition Okta org. For example: `https://dev-12345678.okta.com`
@@ -212,17 +232,54 @@ To test the SSO IdP flow, sign in as one of your test end users:
 1. Confirm your app tile appears on the Okta End-User Dashboard.
 1. Click your app tile and confirm that you can sign in successfully.
 1. Sign out of your app.
-1. Verify that you're able to sign out and are redirected to the sign-in page.
+1. Verify that you're able to sign out and are redirected to the sign-on page.
 
 ### How to test an SP flow
 
-#### Prepare your instance for an SP flow
+To test the SP flow (the app-initiated flow), you need to execute the test cases as a customer end-user persona. Use one of the test end users you previously [assigned to your integration](#assign-test-users-to-your-integration-instance).
 
-#### Test the SP flow
+There are two options to sign-on with the SP-initiated flow:
 
-Option 1: Direct URL
+1. Direct URL: [Sign in with a direct URL for the SP flow](#sign-in-with-a-direct-url-for-the-sp-flow)
+2. Sign-on page: [Sign in with the app sign-on page for the SP flow](#sign-in-with-the-app-sign-on-page-for-the-sp-flow)
 
-Option 2: Login page
+#### Sign in with a direct URL for the SP flow
+
+Prerequisites:
+
+* app integration supports SP-initiated SSO
+* [app integration instance was generated in the OIN Wizard](#generate-the-instance-for-the-idp-flow)
+* the test end user was [assigned to the integration](#assign-test-users-to-your-integration-instance)
+
+To test the SP-initiated flow with a direct URL:
+
+1. Open a new Incognito window in your browser.
+1. Navigate to the app sign-on page directly from the browser URL address field. For example: `https://berryfarm.example.org/strawberry/signin`
+    The browser redirects you to Okta for authentication.
+1. Sign in with Okta credentials for the test end user.
+1. Confirm that you've successfully signed in to the app.
+    > **Note**: If you have multiple apps in the OIN catalog, verify that you've signed in to the correct app.
+1. Sign out of your app.
+1. Verify that you're able to sign out and are redirected to the sign-on page.
+
+#### Sign in with the app sign-on page for the SP flow
+
+Prerequisites:
+
+* app integration supports SP-initiated SSO
+* [app integration instance was generated in the OIN Wizard](#generate-the-instance-for-the-idp-flow)
+* the test end user was [assigned to the integration](#assign-test-users-to-your-integration-instance)
+
+To test the SP-initiated flow with a sign-on page:
+
+1. Open a new Incognito window in your browser.
+1. Navigate to the app sign-on page.
+1. Take any action required on the sign-on page to initiate the sign-on process.
+1. Sign in with Okta credentials for the test end user.
+1. Confirm that you've successfully signed in to the app.
+    > **Note**: If you have multiple apps in the OIN catalog, verify that you've signed in to the correct app.
+1. Sign out of your app.
+1. Verify that you're able to sign out and are redirected to the sign-on page.
 
 ### How to test the JIT feature
 
