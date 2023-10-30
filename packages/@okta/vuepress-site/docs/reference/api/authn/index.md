@@ -92,7 +92,7 @@ The context object allows [trusted web applications](#trusted-application) such 
 
 | Property    | Description                                                                   | DataType | Nullable | Unique | Readonly | MaxLength |
 | ----------- | ----------------------------------------------------------------------------- | -------- | -------- | ------ | -------- | --------- |
-| deviceToken | A globally unique ID identifying the user's client device or user agent | String   | TRUE     | FALSE  | FALSE    | 32          |
+| deviceToken | A globally unique ID (without hyphens) identifying the user's client device or user agent | String   | TRUE     | FALSE  | FALSE    | 32          |
 
 > **Caution:** The `deviceToken` parameter isn't shared between the Authentication API and the Okta Identity Engine-specific APIs. See [Upgrade to Okta Identity Engine](https://developer.okta.com/docs/guides/oie-upgrade-overview/main/).> **Caution:** The `deviceToken` parameter isn't shared between the Authentication API and the Okta Identity Engine-specific APIs. See [Upgrade to Okta Identity Engine](https://developer.okta.com/docs/guides/oie-upgrade-overview/main/).
 
