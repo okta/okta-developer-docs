@@ -1064,18 +1064,14 @@ Get the Scopes defined for a specified Custom Authorization Server
 
 ##### Request parameters
 
-| Parameter               | Description                         | Type     | Required |
-| :---------------------- | :------------------------------     | :------- | :------- |
-| authorizationServerId   | ID of a Custom Authorization Server | String   | True     |
+| Parameter               | Description                                                                      | Param Type | DataType | Required | Default |
+| :---------------------- | :------------------------------------------------------------------------------  | :--------- | :------- | :------- | :------ |
+| authorizationServerId   | ID of a custom authorization server                                              | URL        | String   | TRUE     |         |
+| q          | Searches for scopes by `name`                                                                 | Query      | String   | FALSE    |         |
+| filter     | Filters scopes for a custom authorization server                                              | Query      | String   | FALSE    |         |
+| after      | Specifies the pagination cursor for the next page of scopes. **Note:** Treat the `after` cursor as an opaque value and obtain it through the next link relationship. See [Pagination](/docs/reference/core-okta-api/#pagination).                              | Query      | String   | FALSE    |         |
+| limit      | Specifies the number of scope results on a page (max 200)                                     | Query      | Number   | FALSE    | 200     |
 
-##### Request query parameters
-
-| Parameter | Description                                                                       | Param Type | DataType | Required | Default |
-| :--------- | :------------------------------------------------------------------------------  | :--------- | :------- | :------- | :------ |
-| q          | Searches for scopes by `name`                                                    | Query      | String   | FALSE    |         |
-| filter     | Filters scopes for a custom authorization server                                 | Query      | String   | FALSE    |         |
-| after      | Specifies the pagination cursor for the next page of scopes                      | Query      | String   | FALSE    |         |
-| limit      | Specifies the number of scope results on a page                                  | Query      | Number   | FALSE    | 200     |
 
 ##### Request example
 
