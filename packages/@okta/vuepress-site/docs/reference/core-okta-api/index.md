@@ -283,7 +283,7 @@ Most of the operators listed in the [SCIM Protocol Specification](https://www.rf
 > * Some objects don't support all the listed operators.
 > * The `ne` (not equal) operator isn't supported for some objects, but you can obtain the same result by using `lt ... or ... gt`. For example, to see all user agents except for "iOS", use `(client.userAgent.os lt "iOS" or client.userAgent.os gt "iOS")`.
 > * All `Date` values use the ISO 8601 format `YYYY-MM-DDTHH:mm:ss.SSSZ`.
-> * The [System Log API](/docs/reference/api/system-log/#filtering-results) supports the ends with (`ew`) operator.
+> * The [System Log API](/docs/reference/api/system-log/#filtering-results) supports the contains (`co`) and ends with (`ew`) operators.
 
 #### Attribute operators
 
