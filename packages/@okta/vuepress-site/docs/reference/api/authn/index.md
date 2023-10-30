@@ -94,15 +94,15 @@ The context object allows [trusted web applications](#trusted-application) such 
 | ----------- | ----------------------------------------------------------------------------- | -------- | -------- | ------ | -------- | --------- |
 | deviceToken | A globally unique ID (without hyphens) identifying the user's client device or user agent | String   | TRUE     | FALSE  | FALSE    | 32          |
 
-> **Caution:** The `deviceToken` parameter isn't shared between the Authentication API and the Okta Identity Engine-specific APIs. See [Upgrade to Okta Identity Engine](https://developer.okta.com/docs/guides/oie-upgrade-overview/main/).> **Caution:** The `deviceToken` parameter isn't shared between the Authentication API and the Okta Identity Engine-specific APIs. See [Upgrade to Okta Identity Engine](https://developer.okta.com/docs/guides/oie-upgrade-overview/main/).
+> **Caution:** The `deviceToken` parameter isn't shared between the Authentication API and the Okta Identity Engine-specific APIs. See [Upgrade to Okta Identity Engine](https://developer.okta.com/docs/guides/oie-upgrade-overview/main/)>.
 
 > **Note:**
 >
-> * Overriding context, such as `deviceToken`, is a highly privileged operation limited to trusted web applications. This requires the application to make authentication or recovery requests with a valid administrator API token. If an API token isn't provided, the `deviceToken` is ignored.
+> * Overriding context, such as `deviceToken`, is a highly privileged operation limited to trusted web applications. This requires the application to use a valid administrator API token when making authentication or recovery requests. If an API token isn't provided, the `deviceToken` is ignored.
 >
 > * Authentication requests that include a Factor challenge with a per-device or per-session sign-on policy must always include the same `deviceToken` for the user. If the `deviceToken` is absent or doesn’t match the previous `deviceToken`, Okta issues a challenge with every authentication attempt.
 >
-> * Authentication requests to Orgs with the **New Device Behavior Detection** sign-on policymust always include the same `deviceToken` for a user. If the `deviceToken` is absent or doesn't match a recent `deviceToken` for the user, the request is considered to be from a new device. See [New Device Behavior Detection](https://help.okta.com/okta_help.htm?id=ext_proc_security_behavior_detection).
+> * Authentication requests to Orgs with the **New Device Behavior Detection** sign-on policy must always include the same `deviceToken` for a user. If the `deviceToken` is absent or doesn't match a recent `deviceToken` for the user, the request is considered to be from a new device. See [New Device Behavior Detection](https://help.okta.com/okta_help.htm?id=ext_proc_security_behavior_detection).
 
 ##### Device Token best practices
 
