@@ -176,7 +176,8 @@ The test cases presented in this section are the minimum tests that you need to 
 
 To test an IdP flow, you need to:
 1. As the customer admin persona, [generate the integration instance](#generate-the-instance-for-the-idp-flow).
-2. As the customer end-user persona, sign in to the app from the Okta End User Dashboard.
+2. As the customer admin persona, [assign test users to the integration instance](#assign-test-users-to-your-integration-instance).
+3. As the customer end-user persona, [sign in to the app from the Okta End User Dashboard](#sign-in-with-the-idp-flow).
 
 Follow the steps to prepare and execute the IdP sign-in flow.
 
@@ -184,20 +185,34 @@ Follow the steps to prepare and execute the IdP sign-in flow.
 
 These steps test the customer admin experience. The customer admin uses the App Integration Wizard (AIW) to add your integration to their org for their users.
 
-1. In the **Test your integration experience** section of the OIN Wizard, click **Generate Instance**. The **General settings** tab from the App Integration Wizard (AIW) appears.
+1. In the **Test your integration experience** section of the OIN Wizard, click **Generate Instance**. The **General settings** tab from the AIW appears.
+
 <StackSnippet snippet="test-instance" />
+
+#### Assign test users to your integration instance
+
+Assign users to your app integration instance to test your SSO IdP flow. Your test users need to be created in Okta before you start to assign them to your integration. See [Add users manually](https://help.okta.com/en-us/content/topics/users-groups-profiles/usgp-add-users.htm).
+
+To assign one or more test users to your integration:
+
+1. From the App Integration Wizard (AIW), click the **Assignments** tab.
+1. Click **Assign** and then select either **Assign to People** or **Assign to Groups**.
+1. Enter the appropriate people or groups that you want to have Single Sign-On into your application, and then click **Assign** for each.
+1. Verify the user-specific attributes for any people that you add, and then select **Save and Go Back**.
+1. Click **Done**.
 
 #### Sign in with the IdP flow
 
-Open a new Incognito window in your internet browser
-12. Sign into your developer-edition Okta org as a user that has been assigned to the application
-instance
-13. Click on the icon with four boxes next to your name > My end user dashboard
-14. Confirm your application tile appears on your end user dashboard
-15. Click your application tile and confirm you can log into your application successfully
-16. Log out from the ISV application
-17. Verify that the user is able to logout and is redirected to the login screen.
+To test the SSO IdP flow, sign in as one of your test end users:
 
+1. Open a new Incognito window in your browser.
+1. Navigate to your developer-edition Okta org. For example: `https://dev-12345678.okta.com`
+1. Sign in to the Okta End-User Dashboard as an end user that was assigned the integration.
+    > **Note**: If you sign in as a non-admin user to your Okta org from a browser, the End-User Dashboard appears.
+1. Confirm your app tile appears on the Okta End-User Dashboard.
+1. Click your app tile and confirm that you can sign in successfully.
+1. Sign out of your app.
+1. Verify that you're able to sign out and are redirected to the sign-in page.
 
 ### How to test an SP flow
 
