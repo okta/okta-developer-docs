@@ -45,11 +45,11 @@ jobs:
 
       - name: Remove False Positives
         run: |
-          comm -23 <(sort extracted_urls.txt) <(sort falsepos.txt) > filtered_urls.txt
+          comm -23 <(sort urls.txt) < (sort falsepos.txt) > filtered_urls.txt
 
       - name: Read URLs from file
         id: read-urls
-        run: echo "::set-output name=urls::$(cat filtered_urls.txt)"
+        run: cat filtered_urls.txt
 
       #- name: Slack notification with URLs
       #  if: success()
