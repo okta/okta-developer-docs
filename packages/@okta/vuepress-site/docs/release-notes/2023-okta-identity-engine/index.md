@@ -12,7 +12,7 @@ title: Okta Identity Engine API Products release notes 2023
 
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
-| [Bugs fixed in 2023.10.1](#bugs-fixed-in-2023-10-1) | November 1, 2023 |
+| [Bugs fixed in 2023.10.2](#bugs-fixed-in-2023-10-2) | November 1, 2023 |
 
 #### Bugs fixed in 2023.10.2
 
