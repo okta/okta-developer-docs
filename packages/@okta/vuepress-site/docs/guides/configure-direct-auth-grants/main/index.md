@@ -16,7 +16,11 @@ Also, you can use direct authentication where usability constraints hinder the u
 
 <StackSnippet snippet="overview" />
 
-> **Note:** See [About MFA authenticators](https://help.okta.com/okta_help.htm?type=oie&id=csh-configure-authenticators) for more information on authenticators, and primary and secondary factors. See [Configure a global session policy and authentication policies](https://developer.okta.com/docs/guides/configure-signon-policy/main/) for more information on configuring primary and secondary factor conditions.
+> **Note:**
+>
+> * See [About MFA authenticators](https://help.okta.com/okta_help.htm?type=oie&id=csh-configure-authenticators) for more information on authenticators, and primary and secondary factors.
+>
+> * See [Configure a global session policy and authentication policies](https://developer.okta.com/docs/guides/configure-signon-policy/main/) for more information on configuring primary and secondary factor conditions.
 
 ## Grant-type flow
 
@@ -24,30 +28,33 @@ Also, you can use direct authentication where usability constraints hinder the u
 
 ## Enable authenticators for your org
 
-Direct authentication grant type flows use passwordless authentication, such as using Okta Verify, SMS, or signing in with email. You need a non-password authenticator enabled like <StackSnippet snippet="authenticator" inline /> in your org to use the direct authentication <StackSnippet snippet="granttype" inline /> flow.
+Direct authentication grant type flows use passwordless authentication, such as using Okta Verify, SMS, or signing in with email. To use the direct authentication <StackSnippet snippet="granttype" inline /> flow, you must enable a non-password authenticator like <StackSnippet snippet="authenticator" inline />.
 
 1. Open the Admin Console for your org.
-1. Select **Security** > **Authenticators** to view the available authenticators.
+1. Go to **Security** > **Authenticators** to view the available authenticators.
 1. Do the following if <StackSnippet snippet="authenticator" inline /> isn't in the list:
     * Click **Add authenticator**.
     * Click **Add** on the authenticator tile, and then click **Add** in the next dialog.
-    * Select the **Enrollment** tab.
-    * Verify that the authenticator is set to either **Optional** or **Required** in the **Eligible authenticators** section of the Default Policy.
-1. Click **Edit** for the Default Policy if the authenticator is set to **Disabled**.
-1. Select **Optional** from the dropdown box for the authenticator, and then click **Update Policy**.
+    * Verify the status of the authenticator.
+        * Select the **Enrollment** tab.
+        * Identify the authenticator and verify that the authenticator is set to either **Optional** or **Required** in the **Eligible authenticators** section of the Default Policy.
+    * If the authenticator is set to **Disabled**, enable the authenticator.
+        * Click **Edit** for the Default Policy.
+        * Select **Optional** from the dropdown box for the authenticator.
+        * Click **Update Policy**.
 
 ## Set up your authorization server
 
-To use the <StackSnippet snippet="granttype" inline /> flow, both your client app and the [Okta authorization server](/docs/concepts/auth-servers/) that you're using with the app must have the <StackSnippet snippet="granttype" inline /> grant type enabled.
+To use the <StackSnippet snippet="granttype" inline /> flow, both your client app and the [Okta authorization server](/docs/concepts/auth-servers/) used with the app must have the <StackSnippet snippet="granttype" inline /> grant type enabled.
 
-If your Okta org uses Identity Engine, then the <StackSnippet snippet="granttype" inline /> grant type is automatically configured in your org authorization server. For custom authorization servers that you're using with your app, you must enable <StackSnippet snippet="granttype" inline />:
+If your Okta org uses Identity Engine, then the <StackSnippet snippet="granttype" inline /> grant type is automatically configured in your org authorization server. For custom authorization servers used with your app, you must enable <StackSnippet snippet="granttype" inline />:
 
 1. In the Admin Console, go to **Security** > **API**.
-2. On the **Authorization Servers** tab, select the pencil icon next to the authorization server that you want to use.
+2. On the **Authorization Servers** tab, click the pencil icon next to the authorization server that you want to use.
 3. Select the **Access Policies** tab.
-4. Select the pencil icon from the **Actions** column for the **Default Policy Rule**.
+4. Click the pencil icon from the **Actions** column for the **Default Policy Rule**.
 
-    If you aren’t using the Default Policy for your client app that requires the <StackSnippet snippet="granttype" inline /> grant, select the policy that applies to your app.
+    > **Note:** If you're using a different policy for your app, edit that policy instead.
 
 5. In the **Edit Rule** dialog, select the **<StackSnippet snippet="granttype" inline />** checkbox (in addition to any other grant type that is already supported).
 6. Click **Update Rule**.
@@ -68,7 +75,7 @@ Before you can implement authorization, you need to register your app in Okta by
 
 ## Set up the authentication policy
 
-In direct authentication flows, the client tells the server which authenticator it wants to authenticate with through the grant type. However, the server can't grant a token until the client’s authentication policy is satisfied.
+In direct authentication flows, the client specifies a grant type that indicates the type of authenticator being used. However, the server can't grant a token until the client’s authentication policy is satisfied.
 
 > **Note:** This example creates a new app authentication policy with a <StackSnippet snippet="noterule" inline /> for testing purposes.
 

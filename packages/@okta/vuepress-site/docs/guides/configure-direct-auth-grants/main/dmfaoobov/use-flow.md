@@ -22,7 +22,7 @@ Note the parameters that are passed:
 
 Not used in this example:
 
-`grant_types_supported` (Optional) is a list of grant types that the client supports. Some clients aren't able to support all grant types. Use this parameter to specify to Okta that the included grant types are all that the client supports. This allows Okta to return an error if the provided grant types don't satisfy the access policy.
+`grant_types_supported`: (Optional) A list of grant types that the client supports. Some clients aren't able to support all grant types. Use this parameter to specify to Okta that the included grant types are all that the client supports. This allows Okta to return an error if the provided grant types don't satisfy the access policy.
 
 For more information on these parameters, see the `/token` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/OrgAS/#tag/OrgAS/operation/token).
 
@@ -60,7 +60,7 @@ Note the parameters that are passed:
 - `channel_hint`: The out-of-band channel that the client wants to use (`push`). This parameter is only required if challenging an out-of-band authenticator.
 - `challenge_types_supported`: `http://auth0.com/oauth/grant-type/mfa-oob`, which communicates to the authorization server the factors that the client app supports. If the access policy requires factors that aren't included, an error is returned. Supported values: `http://auth0.com/oauth/grant-type/mfa-otp` and `http://auth0.com/oauth/grant-type/mfa-oob`
 
-> **Note:** This field may seem redundant since the `/token` request should validate `grant_types_supported`. However, this field is included because some clients can't send `grant_types_supported` in the request or the server can't validate `grant_types_supported` on the `/token` endpoint.
+> **Note:** This field may seem redundant because the `/token` request should validate `grant_types_supported`. However, this field is included because some clients can't send `grant_types_supported` in the request and some servers can't validate `grant_types_supported` on the `/token` endpoint.
 
 For more information on these parameters, see the `/challenge` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/OrgAS/#tag/OrgAS/operation/challenge).
 

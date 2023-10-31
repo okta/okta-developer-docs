@@ -17,12 +17,12 @@ Note the parameters that are passed:
 - `client_id`: Matches the client ID of the application that you created in the [Set up your app](#set-up-your-app) section. You can find it at the top of your app's **General** tab.
 - `scope`: Must be at least `openid`. If you're using a custom authorization server, see the **Create Scopes** section of the [Create an authorization server guide](/docs/guides/customize-authz-server/main/#create-scopes).
 - `grant_type`: `password`, which indicates that you're using the Resource Owner Password grant type.
-- `username`: The identifier for the user (email).
+- `username`: The email username of a registered Okta user.
 - `password`: The password of the matching user.
 
 Not used in this example:
 
-`grant_types_supported` (Optional) is a list of grant types that the client supports. Some clients aren't able to support all grant types. Use this parameter to specify to Okta that the included grant types are all that the client supports. This allows Okta to return an error if the provided grant types don't satisfy the access policy.
+`grant_types_supported`: (Optional) A list of grant types that the client supports. Some clients aren't able to support all grant types. Use this parameter to specify to Okta that the included grant types are all that the client supports. This allows Okta to return an error if the provided grant types don't satisfy the access policy.
 
 For more information on these parameters, see the `/token` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/OrgAS/#tag/OrgAS/operation/token).
 
@@ -56,7 +56,7 @@ Note the parameters that are passed:
 - `scope`: Must be at least `openid`. See the **Create Scopes** section of the [Create an authorization server guide](/docs/guides/customize-authz-server/main/#create-scopes).
 - `grant_type`: `http://auth0.com/oauth/grant-type/mfa-otp`, which indicates that you're using the direct authentication MFA OTP grant type. Use this grant type for OTP factors (such as Google Authenticator) that you want to use as a secondary factor.
 - `otp`: The one-time passcode that your app obtained from the user.
-- `mfa_token`: A unique token used for identifying multifactor authentication flows to link the request to the original authentication flow.
+- `mfa_token`: A unique token used to identify multifactor authentication flows that link the request to the original authentication flow.
 
 For more information on these parameters, see the `/token` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/OrgAS/#tag/OrgAS/operation/token).
 

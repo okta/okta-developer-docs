@@ -18,7 +18,7 @@ Note the parameters that are passed:
 - `scope`: Must be at least `openid`. If you're using a custom authorization server, see the **Create Scopes** section of the [Create an authorization server guide](/docs/guides/customize-authz-server/main/#create-scopes).
 - `grant_type`: `urn:okta:params:oauth:grant-type:otp`, which indicates that you're using the direct authentication OTP grant type. Use this grant type for OTP factors (such as Google Authenticator) that you want to use as a primary factor.
 - `otp`: The one-time passcode that your app obtained from the user.
-- `login_hint`: The username (email) of a user registered with Okta.
+- `login_hint`: The email username of a registered Okta user.
 
 For more information on these parameters, see the `/token` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/OrgAS/#tag/OrgAS/operation/token).
 
