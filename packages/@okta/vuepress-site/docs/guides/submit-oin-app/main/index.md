@@ -175,7 +175,7 @@ The test cases presented in this section are the minimum tests that you need to 
 
 ### How to prepare your integration instance for testing
 
-To prepare you app integration instance for testing, you need to execute the following test cases:
+To prepare your app integration instance for testing, you need to execute the following test cases:
 
 1. As the customer admin persona, [generate the integration instance](#generate-the-instance-for-the-idp-flow).
 2. As the customer admin persona, [assign test users to the integration instance](#assign-test-users-to-your-integration-instance).
@@ -232,16 +232,16 @@ To test the SSO IdP flow:
 1. Confirm your app tile appears on the Okta End-User Dashboard.
 1. Click your app tile and confirm that you can sign in successfully.
 1. Sign out of your app.
-1. Verify that you're able to sign out and are redirected to the sign-on page.
+1. Verify that you're able to sign out and are redirected to the sign-in page.
 
 ### How to test an SP flow
 
 To test the SP flow (the app-initiated flow), you need to execute the test cases as a customer end-user persona. Use one of the test end users you previously [assigned to your integration](#assign-test-users-to-your-integration-instance).
 
-There are two options to sign-on with the SP-initiated flow:
+There are two options to sign in with the SP-initiated flow:
 
 1. Direct URL: [Sign in with a direct URL for the SP flow](#sign-in-with-a-direct-url-for-the-sp-flow)
-2. Sign-on page: [Sign in with the app sign-on page for the SP flow](#sign-in-with-the-app-sign-on-page-for-the-sp-flow)
+2. Sign-in page: [Sign in with the app sign-in page for the SP flow](#sign-in-with-the-app-sign-in-page-for-the-sp-flow)
 
 #### Sign in with a direct URL for the SP flow
 
@@ -254,15 +254,14 @@ Prerequisites:
 To test the SP-initiated flow with a direct URL:
 
 1. Open a new Incognito window in your browser.
-1. Navigate to the app sign-on page directly from the browser URL address field. For example: `https://berryfarm.example.org/strawberry/signin`
-    The browser redirects you to Okta for authentication.
+1. Navigate to the app sign-in page directly from the browser URL address field (for example: `https://berryfarm.example.org/strawberry/signin`). The browser redirects you to Okta for authentication.
 1. Sign in with Okta credentials for the test end user.
 1. Confirm that you've successfully signed in to the app.
     > **Note**: If you have multiple apps in the OIN catalog, verify that you've signed in to the correct app.
 1. Sign out of your app.
-1. Verify that you're able to sign out and are redirected to the sign-on page.
+1. Verify that you're able to sign out and are redirected to the sign-in page.
 
-#### Sign in with the app sign-on page for the SP flow
+#### Sign in with the app sign-in page for the SP flow
 
 Prerequisites:
 
@@ -270,16 +269,16 @@ Prerequisites:
 * [app integration instance was generated in the OIN Wizard](#generate-the-instance-for-the-idp-flow)
 * the test end user was [assigned to the integration](#assign-test-users-to-your-integration-instance)
 
-To test the SP-initiated flow with a sign-on page:
+To test the SP-initiated flow with a sign-in page:
 
 1. Open a new Incognito window in your browser.
-1. Navigate to the app sign-on page.
-1. Take any action required on the sign-on page to initiate the sign-on process.
+1. Navigate to the app sign-in page.
+1. Take any action required on the sign-in page to initiate the sign-in process (such as clicking a sign-in button)
 1. Sign in with Okta credentials for the test end user.
 1. Confirm that you've successfully signed in to the app.
     > **Note**: If you have multiple apps in the OIN catalog, verify that you've signed in to the correct app.
 1. Sign out of your app.
-1. Verify that you're able to sign out and are redirected to the sign-on page.
+1. Verify that you're able to sign out and are redirected to the sign-in page.
 
 ### How to test the JIT feature
 
