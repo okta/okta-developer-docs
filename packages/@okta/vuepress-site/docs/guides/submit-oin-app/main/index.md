@@ -355,9 +355,19 @@ To test JIT provision with the SP flow:
 1. Verify that you're able to sign out and are redirected to the sign-in page.
 1. Verify that the new user was created in your app with supported attributes passed from the Okta profile.
 
+### Failed SSO tests
+
+If you have failed tests, you need to fix your integration and update any OIN Wizard properties, if necessary. You can only submit integrations that have successfully passed all basic supported SSO tests.
+
+If you update properties in the OIN Wizard, generate a new app integration instance for testing. You can't use the previous app integration instance with the failed tests.
+
+To receive help with failed test cases or server error messages, post your questions on the [Okta Developer Forum](https://devforum.okta.com/) or submit your questions to <developers@okta.com>.
+
+If you have questions or need additional support with the OIN submission process, contact the Okta OIN team at <oin@okta.com>.
+
 ## Submit your integration
 
-After you've successfully tested your integration, you're ready to submit your OIN integration.
+After you've successfully tested your integration, you're ready to submit.
 
 1. Close the incognito browser window and return to the **Test your integration experience** page in the OIN Wizard.
 1. Select **I certify that I have successfully completed required tests**.
