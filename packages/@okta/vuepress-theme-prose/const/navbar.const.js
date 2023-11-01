@@ -641,15 +641,15 @@ export const guides = [
                 guideName: "submit-app-prereq",
               },
               {
-                title: "OIN Wizard: Submit an integration",
+                title: "OIN Wizard: Submit an SSO integration",
                 guideName: "submit-oin-app",
               },
               {
-                title: "Submit an SSO integration",
+                title: "OIN Manager: Submit an advanced SAML integration",
                 guideName: "submit-sso-app",
               },
               {
-                title: "Submit an LCM integration",
+                title: "OIN Manager: Submit an LCM integration",
                 guideName: "submit-app",
               },
             ]
