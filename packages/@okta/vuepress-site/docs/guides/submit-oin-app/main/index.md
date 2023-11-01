@@ -376,7 +376,7 @@ After you've successfully tested your integration, you're ready to submit.
 
 After you submit your integration, an OIN analyst performs an initial review of your submission details. They send an email to you with any submission issues to correct.
 
-After the initial review is complete and all the issues are corrected, the submission moves to the QA testing phase. An OIN analyst uses the test information that you provide in the OIN Wizard to test your integration. They send you an email with any test failures or issues to correct.
+After the initial review is complete and all the issues are corrected, the submission moves to the QA testing phase. An OIN analyst uses the test information that you provided in the OIN Wizard to test your integration. They send you an email with any test failures or issues to correct.
 
 ## See also
 

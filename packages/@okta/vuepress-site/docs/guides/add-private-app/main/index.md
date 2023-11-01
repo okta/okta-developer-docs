@@ -91,3 +91,45 @@ After you complete testing your app integration, you can communicate to your Okt
 
 * [Redirect authentication](/docs/guides/redirect-authentication/): for language and platform-specific redirect authentication guides
 * [Embedded authentication](/docs/guides/embedded-authentication/): for language, platform-specific, and embedded-authentication use case guides
+
+
+## Test your integration
+
+This portion of the guide takes you through the steps required to test your integration.
+
+### Assign users
+
+First, you must assign your integration to one or more test users in your org:
+
+1. Click the **Assignments** tab.
+1. Click **Assign** and then select either **Assign to People** or **Assign to Groups**.
+1. Enter the appropriate people or groups that you want to have Single Sign-On into your application, and then click **Assign** for each.
+1. Verify the user-specific attributes for any people that you add, and then select **Save and Go Back**.
+1. Click **Done**.
+
+### Test Single Sign-On
+
+1. Sign out of your Okta org. Click **Sign out** in the upper-right corner of the Admin Console.
+1. Sign in to the Okta End-User Dashboard as the regular user that was assigned the integration.
+
+   > **Note:** If you sign in as a non-admin user to your Okta org from a browser, the End-User Dashboard appears. To access the End-User Dashboard from a mobile device, see [Okta End-User-Dashboard](https://help.okta.com/okta_help.htm?type=eu&id=ext_user_dashboard_overview).
+
+1. Click the Okta tile for the integration and confirm that the user is signed in to your app.
+
+<StackSnippet snippet="test" />
+
+## Next steps
+
+After you complete testing your app integration, you can start the submission process to have your app integration included in the [Okta Integration Network](https://www.okta.com/okta-integration-network/) catalog:
+* Review the [OIN submission requirements](/docs/guides/submit-app-prereq/) before starting the submission process.
+* Review the [Publish an OIN integration](/docs/guides/submit-app-overview/) overview to understand the submission process for publishing an integration.
+* Follow the [Submit an SSO integration](/docs/guides/submit-sso-app/) guide to submit your SSO integration.
+
+
+## See also
+
+* [Okta SAML FAQs](/docs/concepts/saml/faqs/)
+* [Okta Developer Forum: OIDC](https://devforum.okta.com/search?q=oidc)
+* [Stack Overflow: Okta OIDC](https://stackoverflow.com/search?q=oidc+okta)
+* [Okta Developer Forum: SAML](https://devforum.okta.com/search?q=saml)
+* [Stack Overflow: Okta SAML](https://stackoverflow.com/search?q=saml+okta)
