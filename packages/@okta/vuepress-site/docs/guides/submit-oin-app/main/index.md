@@ -197,7 +197,7 @@ To generate an integration instance:
 
 #### Assign test users to your integration instance
 
-As a customer admin persona, assign users to your app integration instance to test your SSO flow. Create your test users in Okta before you assign them to your integration. See [Add users manually](https://help.okta.com/en-us/content/topics/users-groups-profiles/usgp-add-users.htm).
+As a customer admin persona, assign users to your app integration instance to test your SSO flow. Create your test users in Okta before you assign them to your integration. See [Add users manually](https://help.okta.com/en-us/content/topics/users-groups-profiles/usgp-add-users.htm) and [Assign app integrations](https://help.okta.com/okta_help.htm?id=ext_Apps_Apps_Page-assign) topics in the Okta product documentation.
 
 Test case preconditions:
 

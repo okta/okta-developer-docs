@@ -73,13 +73,13 @@ endif
 @enduml
 -->
 
-* **Submit an OIN integration**: If you want to publish your integration in the Okta Integration Network (OIN), follow the instructions in [OIN Wizard: Submit an SSO integration](/docs/guides/submit-oin-app/). This guide shows you how to use the OIN Wizard to add the artifacts required for a public integration, how to add an app integration instance for testing, and how to test your SSO flows.
+* **Submit an OIN integration**: If you want to publish your integration in the Okta Integration Network (OIN), follow the instructions in [OIN Wizard: Submit an SSO integration](/docs/guides/submit-oin-app/). This guide shows you how to use the OIN Wizard to add artifacts required, add an app integration instance for testing, and how to test your SSO flows.
 
    > **Note:** Creating an app integration instance doesn't automatically make it available in the [OIN](https://www.okta.com/integrations/). After you've tested your integration, you need to [submit it](/docs/guides/submit-oin-app/-/main/#submit-your-integration) to the OIN team for verification and publication.
 
-* **Private app integration**: If you want your integration to exist only in your Okta org, then follow the instructions in [Add a private SSO integration](/docs/guides/add-private-app). This guide shows you how to use the Application Integration Wizard (AIW) in the Admin Console to create your app integration instance and start testing SSO. Your org users can access your app once SSO is configured.
+* **Private app integration**: If you want your integration to exist only in your Okta org, follow the instructions in [Add a private SSO integration](/docs/guides/add-private-app). This guide shows you how to use the Application Integration Wizard (AIW) in the Admin Console to create your app integration instance and start testing SSO. Your org users can access your app once SSO is configured.
 
-   > **Note:** If you have an advanced SSO integratison that you can't submit through the OIN Wizard, follow the instructions in [Add a private SSO integration](/docs/guides/add-private-app) to test your integration. After you've successfully tested your integration, submit your advanced integration through the OIN Manager. See [OIN Manager: Submit an advanced SAML integration](/docs/guides/submit-sso-app).
+   > **Note:** If you have an advanced SSO integration that you can't submit through the OIN Wizard, follow the instructions in [Add a private SSO integration](/docs/guides/add-private-app) to test your integration. After you've successfully tested your integration, submit your advanced integration through the OIN Manager. See [OIN Manager: Submit an advanced SAML integration](/docs/guides/submit-sso-app).
 
 ## Next steps
 
@@ -88,7 +88,8 @@ Follow either pathways:
 * [OIN Wizard: Submit an SSO integration](/docs/guides/submit-oin-app/)&mdash;for the following use case:
    - I want my SSO integration to be in the OIN catalog for exposure to all Okta customers.
 
-* [Add a private SSO integration](/docs/guides/add-private-app)&mdash;for the following use case:
+* [Add a private SSO integration](/docs/guides/add-private-app)&mdash;for the following use cases:
+   - I want to test my SSO integration in my developer-edition org. I have no plans to make it pubic yet.
    - I want my SSO integration only to be available in the org I'm using.
    - I have a SAML integration with advanced instance variables and SAML features not included in the OIN Wizard.
 
