@@ -18,7 +18,7 @@ title: Okta Identity Engine API Products release notes 2023
 
 * AMR claims weren't accepted when the inbound SAML assertion was encrypted. (OKTA-658533)
 
-* An error occurred when the value for `postLogoutReidrectUris` in an OpenID Connect app was more than 65,535 characters. (OKTA-627678)
+* An error occurred when the value for `postLogoutRedirectUris` in an OpenID Connect app was more than 65,535 characters. (OKTA-627678)
 
 * Authorize requests with invalid `max_age` parameter values resulted in errors. (OKTA-654751)
 
