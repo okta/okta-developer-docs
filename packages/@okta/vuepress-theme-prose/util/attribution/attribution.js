@@ -68,7 +68,7 @@ function filterParams(params) {
 function onAttach() {
   if (isAttached === false) {
     isAttached = true;
-    setAttribution();
+    // setAttribution();
   }
 }
 
