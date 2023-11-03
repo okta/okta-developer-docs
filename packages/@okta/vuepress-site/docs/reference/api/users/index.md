@@ -2268,7 +2268,7 @@ curl -v -X POST \
 
 Reactivates a user
 
-This operation can only be performed on users with a `PROVISIONED` status.  This operation restarts the activation workflow if for some reason the user activation was not completed when using the activationToken from [Activate User](#activate-user).
+This operation can only be performed on users with a `PROVISIONED` or `RECOVERY` [status](#user-status). This operation restarts the activation workflow if for some reason the user activation wasn't completed when using the activationToken from [Activate User](#activate-user).
 
 Users that don't have a password must complete the flow by completing [Reset Password](#reset-password) and MFA enrollment steps to transition the user to `ACTIVE` status.
 
