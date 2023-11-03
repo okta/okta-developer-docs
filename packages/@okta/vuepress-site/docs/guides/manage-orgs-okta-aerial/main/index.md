@@ -41,20 +41,12 @@ Okta Aerial is an administration service that enables multi-org management. Use 
 
 Okta Aerial introduces a few terms to the Okta ecosystem:
 
-<dl>
-<dt><strong>Aerial account</strong></dt>
-<dd>The management layer around multiple orgs within Okta. The Aerial account lives outside of your orgs and can manage any production or preview org linked to the Aerial account.
-</dd>
-</br>
-<dt><strong>Aerial org</strong></dt>
-<dd>Holds the authorization server for all Aerial API actions in any org in the Aerial account. Choose one org to permanently serve as the Aerial Org. <br/>Super admins can create API clients in the Aerial Org to access the Aerial account. The Aerial Org also contains all System Log events associated with Okta Aerial actions.</dd>
-</br>
-<dt><strong>Products</strong></dt>
-<dd>Okta-determined sets of features. With the Okta Aerial API, you can view subscribed products for an Aerial account and enable a subset of products to orgs.</dd>
-</br>
-<dt><strong>Features</strong></dt>
-<dd>Distinct pieces of functionality. Features are bundled within products but may also be offered separately, for example, Early Access features.</dd>
-</dl>
+| Term                                                           | Definition                                                                    |
+|----------------------------------------------------------------|--------------------------------------------------------------------------------|
+| Aerial account              | The management layer around multiple orgs within Okta. The Aerial account lives outside of your orgs and can manage any production or preview org linked to the Aerial account. |
+| Aerial org        | Holds the authorization server for all Aerial API actions in any org in the Aerial account. Choose one org to permanently serve as the Aerial Org. <br/>Super admins can create API clients in the Aerial Org to access the Aerial account. The Aerial Org also contains all System Log events associated with Okta Aerial actions. |
+| Products       | Okta-determined sets of features. With the Okta Aerial API, you can view subscribed products for an Aerial account and enable a subset of products to orgs. |
+| Features | Distinct pieces of functionality. Features are bundled within products but may also be offered separately, for example, Early Access features. |
 
 ### Aerial sandbox and production environments
 
