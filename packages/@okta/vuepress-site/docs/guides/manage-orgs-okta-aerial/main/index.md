@@ -68,7 +68,7 @@ Okta provides the following environments to use with your Aerial account:
 
   `https://aerial-apac.okta.com`
 
-See [Link the new org to the Aerial account](#link-the-org-to-the-aerial-account).
+See [Link the org to the Aerial account](#link-the-org-to-the-aerial-account).
 
 ### Summary of steps
 
@@ -80,7 +80,7 @@ Follow these steps to create and configure new orgs in your Aerial account:
 1. [Enable products in the org](#enable-products-in-the-org): Enable products in the Org using the Aerial API.
 1. [Configure the org](#configure-the-org): Configure the org using Okta objects in the Aerial API.
 
-You can also [Manage an org's status](#manage-an-orgs-status).
+You can also [Deactivate an org](#deactivate-an-org).
 
 <div class="full">
 
