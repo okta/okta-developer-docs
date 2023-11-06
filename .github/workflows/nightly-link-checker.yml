@@ -31,7 +31,7 @@ jobs:
         run: yarn build
 
       - name: Run link checker #broken link checker script
-        run: yarn broken-link-checker:external > output2.txt 2>&1 || true
+        run: yarn broken-link-checker:external > output.txt 2>&1 || true
 
      # - name: Extract URLs from log
         # run: |
@@ -40,7 +40,7 @@ jobs:
 
       - name: Extract URLs from log
         run: |
-          grep -o 'Link: https\?://[^[:space:]]*' output2.txt > urls99.txt
+          grep -o 'Link: https\?://[^[:space:]]*' output.txt > urls.txt
         continue-on-error: true
 
       - name: Remove False Positives
