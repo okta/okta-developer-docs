@@ -52,7 +52,7 @@ Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 </div>
 
 10. In the **Manage Environments** dialog box, do the following:
-    * Click on the environment name, delete the placeholder text, and name your environment, for example: `John's Okta Org`.
+    * Click on the environment name, delete the placeholder text, and name your environment, for example: `Test Okta Org`.
     * For the `url` variable, in the **Initial Value** and **Current Value** columns, replace the placeholder text with your org's full URL, for example: `https://dev-1234567.okta.com`. Remember to remove the `-admin` part of your subdomain.
     * For the `apikey` variable, in the **Initial Value** and **Current Value** columns, enter your API token that you created earlier, for example: `00LzMWxMq_0sdErHy9Jf1sijEGexYZlsdGr9a4QjkS`.
 
@@ -125,7 +125,7 @@ To retain the headers:
 
 1. Click the gear icon from the toolbar in the upper-right corner of the page.
 1. Select **Settings**.
-1. Scroll down to the **Headers** section and enable **Retain headers when clicking on links**.
+1. In the **Headers** section, enable **Retain headers when clicking on links**.
 
 ## Next steps
 
