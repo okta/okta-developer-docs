@@ -52,7 +52,7 @@ Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 </div>
 
 10. In the **Manage Environments** dialog box, do the following:
-    * In the **Environment Name** box, delete the placeholder text and name your environment, for example: `John's Okta Org`.
+    * Click on the environment name, delete the placeholder text, and name your environment, for example: `Test Okta Org`.
     * For the `url` variable, in the **Initial Value** and **Current Value** columns, replace the placeholder text with your org's full URL, for example: `https://dev-1234567.okta.com`. Remember to remove the `-admin` part of your subdomain.
     * For the `apikey` variable, in the **Initial Value** and **Current Value** columns, enter your API token that you created earlier, for example: `00LzMWxMq_0sdErHy9Jf1sijEGexYZlsdGr9a4QjkS`.
 
@@ -66,8 +66,8 @@ Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 
 </div>
 
-11. Scroll to the bottom of the dialog box and click **Update**.
-12. To close the dialog box, click the **X** in the upper-right corner.
+11. Click **Save** near the top of the tab.
+12. To close the environment tab, hover over the tab and click the **x**.
 
 ## Import a collection
 
@@ -123,9 +123,9 @@ You can retain headers when when you click HAL links in the responses.
 
 To retain the headers:
 
-1. Click the wrench icon from the toolbar in the upper-right corner of the page.
+1. Click the gear icon from the toolbar in the upper-right corner of the page.
 1. Select **Settings**.
-1. In the **HEADERS** column, enable **Retain headers when clicking on links**.
+1. In the **Headers** section, enable **Retain headers when clicking on links**.
 
 ## Next steps
 
