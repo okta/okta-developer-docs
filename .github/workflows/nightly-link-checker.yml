@@ -40,12 +40,12 @@ jobs:
 
       - name: Extract URLs from log
         run: |
-          grep -o 'Link: https\?://[^[:space:]]*' output.txt > urls.txt
+          grep -o 'Link: https\?://[^[:space:]]*' output.txt | sed 's/Link: //' > urls.txt
         continue-on-error: true
 
       - name: Remove False Positives
         run: |
-          comm -23 <(sort urls.txt) < (sort falsepos.txt) > filtered_urls.txt
+          comm -23 <(sort urls.txt | uniq) <(sort falsepos.txt | uniq) > broken_external_urls.txt
 
       - name: Read URLs from file
         id: read-urls
