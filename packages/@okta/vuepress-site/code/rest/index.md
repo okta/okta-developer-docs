@@ -67,7 +67,7 @@ Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 </div>
 
 11. Click **Save** near the top of the tab.
-12. To close the environment tab, hover and click the **x** in the tab.
+12. To close the environment tab, hover over the tab and click the **x**.
 
 ## Import a collection
 
@@ -125,7 +125,7 @@ To retain the headers:
 
 1. Click the gear icon from the toolbar in the upper-right corner of the page.
 1. Select **Settings**.
-1. Scroll down the **Headers** section and enable **Retain headers when clicking on links**.
+1. Scroll down to the **Headers** section and enable **Retain headers when clicking on links**.
 
 ## Next steps
 
