@@ -70,7 +70,7 @@ Follow these steps to create and configure new orgs in your Aerial account:
 1. [Create and configure a child org](#create-a-child-org): Create a child org based on the parent org using the Org creator API.
 1. [Link the org to the Aerial account](#link-the-org-to-the-aerial-account): Link the org to the Aerial account using the Aerial API.
 1. [Enable products in the org](#enable-products-in-the-org): Enable products in the Org using the Aerial API.
-1. [Configure the org](#configure-the-org): Configure the org using Okta objects in the Aerial API.
+1. [Configure the org](#configure-the-org): Configure the org using Okta objects.
 
 You can also [Deactivate an org](#deactivate-an-org).
 
