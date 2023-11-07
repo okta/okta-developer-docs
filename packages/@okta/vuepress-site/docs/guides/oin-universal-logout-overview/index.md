@@ -7,7 +7,7 @@ meta:
 
 ## Universal Logout
 
-When an Identity Provider (IdP) like Okta detects identity threats or responds to employee termination events, it can prevent the user from signing in to apps in the future by suspending, deactivating, or deleting the user. However, this doesn't affect a user's existing sessions or tokens within an app.
+When an Identity Provider (IdP) like Okta detects identity threats or responds to employee termination events, it can prevent the user from signing in to apps in the future by suspending, deactivating, or deleting the user at the IdP. However, this doesn't affect a user's existing sessions or tokens within an app.
 
 Universal Logout enables an IdP, or a security incident management tool, to indicate to an app that it should revoke the user's existing sessions and log the user out.
 
