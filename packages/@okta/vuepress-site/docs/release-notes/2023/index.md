@@ -4,6 +4,22 @@ title: Okta API Products release notes 2023
 
 > Help us improve our release notes by filling out this short [survey](https://surveys.okta.com/jfe/form/SV_4VEZcIGOX0TBgkC).
 
+## November
+
+### Monthly release 2023.11.0
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Bugs fixed in 2023.11.0](#bugs-fixed-in-2023-11-0) | October 12, 2023 |
+
+#### Bugs fixed in 2023.11.0
+
+* When attempts were made to update the profiles of app users whose profiles were controlled by external apps, an incorrect error was returned. (OKTA-640752)
+
+* The Get Factor endpoints (`GET /api/v1/users/${userId}/factors/${userFactorId}` and `GET /api/v1/users/me/factors/${userFactorId}`) weren't accessible when using tokens created by Read-Only Admins. (OKTA-648751)
+
+* Cross-origin resource sharing restrictions have been removed for the OAuth 2.0 `/revoke` endpoints (`/oauth2/v1/revoke` and `/oauth2/{authorizationServerId}/v1/revoke`). (OKTA-653124)
+
 ## October
 
 ### Weekly release 2023.10.2
