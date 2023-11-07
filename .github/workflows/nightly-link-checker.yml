@@ -49,7 +49,7 @@ jobs:
 
       - name: Read URLs from file
         id: read-urls
-        run: cat filtered_urls.txt
+        run: cat broken_external_urls.txt
 
       #- name: Slack notification with URLs
       #  if: success()
