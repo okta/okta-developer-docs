@@ -68,7 +68,7 @@ Follow these steps to create and configure new orgs in your Aerial account:
 
 1. [Authenticate with Okta Aerial](#authenticate-with-okta-aerial): Configure an API client in the Aerial org to call the Okta Aerial API.
 1. [Create and configure a child org](#create-a-child-org): Create a child org based on the parent org using the Org creator API.
-1. [Link the org to the Aerial account](#link-the-org-to-the-aerial-account): Link the org to the Aerial account using the Aerial API.
+1. [Add the org to the Aerial account](#add-the-org-to-the-aerial-account): Link the org to the Aerial account using the Aerial API.
 1. [Enable products in the org](#enable-products-in-the-org): Enable products in the Org using the Aerial API.
 1. [Configure the org](#configure-the-org): Configure the org using Okta objects.
 
@@ -147,7 +147,7 @@ However, the Org creator API token doesn’t appear in the Admin Console. You ca
 If you lose this token or it expires, you must sign in to the Admin Console as a super admin and [create a token](/docs/guides/create-an-api-token/main/#create-the-token).
 
 
-## Link the org to the Aerial account
+## Add the org to the Aerial account
 
 To enable products in an org, add the org to your Aerial account. You can only add orgs to your Aerial account that are associated with your Okta contracts.
 
