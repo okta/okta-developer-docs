@@ -1,5 +1,5 @@
 ---
-title: Build Universal Logout for your app
+title: Universal Logout API overview
 meta:
   - name: description
     content: Provides an overview of Universal Logout and how to build a Universal Logout endpoint
@@ -7,7 +7,7 @@ meta:
 
 ## Universal Logout
 
-When an Identity Provider (IdP) like Okta detects identity threats or responds to employee termination events, it can prevent the user from signing in to apps in the future. However, this doesn't affect a user's existing sessions or tokens within an app.
+When an Identity Provider (IdP) like Okta detects identity threats or responds to employee termination events, it can prevent the user from signing in to apps in the future by suspending, deactivating, or deleting the user. However, this doesn't affect a user's existing sessions or tokens within an app.
 
 Universal Logout enables an IdP, or a security incident management tool, to indicate to an app that it should revoke the user's existing sessions and log the user out.
 
@@ -36,14 +36,14 @@ The actual endpoint URL is up to the discretion of the app developer building th
 
 ### Endpoint authentication
 
-The request to the Universal Logout endpoint requires authentication so that your app knows the request is coming from Okta. When the app launches, Okta should be able to support your existing API authentication scheme, especially if it's one of the following:
+The request to the Universal Logout endpoint requires authentication so that your app knows the request is coming from Okta. Okta should be able to support your existing API authentication scheme, especially if it's one of the following:
 
 * OAuth 2.0 Bearer token, for example: `Authorization: Bearer X1234`
 * API key sent in a custom HTTP header
 
 ### Logout request
 
-When a user should be logged out of the app, Okta makes a POST request to the Universal Logout endpoint. The request includes a JSON object that describes the user to be logged out.
+When a user should be logged out of the app, Okta makes a POST request to the Universal Logout endpoint. The request includes a JSON object in the request body that describes the user to be logged out.
 
 By default, the user's email address identifies them. If an app supports provisioning with Okta, then the user identifier within the app identifies them. The user identifier is sent in the format defined by [Subject Identifiers for Security Event Tokens](https://datatracker.ietf.org/doc/html/draft-ietf-secevent-subject-identifiers-18) as either an `EmailSubject` or `Opaque` identifier.
 
