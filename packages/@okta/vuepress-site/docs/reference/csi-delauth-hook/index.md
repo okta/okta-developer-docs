@@ -1,3 +1,6 @@
+<!--
+
+Directories team said that this Beta was over a year ago and isn't used anymore - per discussion with Edwin Yu and Mohit Khare on 11/7/23
 ---
 title: Custom source delegated authentication inline hook reference
 excerpt: Allow delegated authentication to custom identity sources.
@@ -532,3 +535,4 @@ Returning an error object causes Okta to record a failure event in the Okta Syst
   ]
 }
 ```
+-->
