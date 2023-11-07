@@ -633,6 +633,10 @@ export const guides = [
             ],
           },
           {
+            title: "Support Universal Logout in your app",
+            path: "/docs/guides/oin-universal-logout-overview/",
+          },
+          {
             title: "Publish an OIN integration",
             path: "/docs/guides/submit-app-overview/",
             subLinks: [
