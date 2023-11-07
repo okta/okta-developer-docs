@@ -1,5 +1,5 @@
 ---
-title: Universal Logout API overview
+title: Build Universal Logout for your app
 meta:
   - name: description
     content: Provides an overview of Universal Logout and how to build a Universal Logout endpoint
