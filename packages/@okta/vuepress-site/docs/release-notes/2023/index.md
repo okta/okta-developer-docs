@@ -11,14 +11,14 @@ title: Okta API Products release notes 2023
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
 | [CORS restrictions removed for revoke endpoints](#cors-restrictions-removed-for-revoke-endpoints) | November 8, 2023 |
-| [Developer documentation update in 2023.011.0](#developer-documentation-update-in-2023.011.0) | November 8, 2023 |
+| [Developer documentation update in 2023.11.0](#developer-documentation-update-in-2023-11-0) | November 8, 2023 |
 | [Bugs fixed in 2023.11.0](#bugs-fixed-in-2023-11-0) | November 8, 2023 |
 
 #### CORS restrictions removed for revoke endpoints
 
 Cross-origin resource sharing restrictions have been removed for the OAuth 2.0 `/revoke` endpoints (`/oauth2/v1/revoke` and `/oauth2/{authorizationServerId}/v1/revoke`). <!-- OKTA-653124 -->
 
-#### Developer documentation update in 2023.011.0
+#### Developer documentation update in 2023.11.0
 
 The direct authentication grant types are now in a new [Configure Direct Authentication grant types](/docs/guides/configure-direct-auth-grants/coobov/main/) guide rather than the [Implement authorization by grant type](/docs/guides/implement-grant-type/authcode/main/) guide. The new guide presents the grant type flows by authenticator rather than grant type, and then further differentiates the flows by either primary factor or secondary (MFA) factor. The grant types are found on the following pages:
   * **OTP grant type** -> **OTP (primary factor)**: When you want to use an OTP factor, such as Google TOTP or Okta Verify, as a primary factor

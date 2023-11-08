@@ -15,7 +15,7 @@ title: Okta Identity Engine API Products release notes 2023
 | [SMS and voice support for OOB and MFA OOB grant flows is EA in Preview](#sms-and-voice-support-for-oob-and-mfa-oob-grant-flows-is-ea-in-preview) | November 8, 2023 |
 | [Org detail retrieval and user app listing for My Account API is GA in Preview](#org-detail-retrieval-and-user-app-listing-for-my-account-api-is-ga-in-preview) | November 8, 2023 |
 | [CORS restrictions removed for revoke endpoints](#cors-restrictions-removed-for-revoke-endpoints) | November 8, 2023 |
-| [Developer documentation update in 2023.011.0](#developer-documentation-update-in-2023.011.0) | November 8, 2023
+| [Developer documentation update in 2023.11.0](#developer-documentation-update-in-2023-11-0) | November 8, 2023
 | [Bugs fixed in 2023.11.0](#bugs-fixed-in-2023-11-0) | November 8, 2023 |
 
 #### SMS and Voice support for OOB and MFA OOB grant flows is EA in Preview
@@ -24,13 +24,13 @@ Direct authentication out-of-band (OOB) and multifactor out-of-band (MFA OOB) gr
 
 #### Org detail retrieval and user app listing for My Account API is GA in Preview
 
-Two new endpoints for the My Account API (`/idp/myaccount/okta-applications` and `/idp/myaccount/organization`) allow customers to retrieve org details and get a full list of the current user's Okta apps for a particular end user. See [My Account API](/docs/api/openapi/okta-myaccount/guides/overview/). <!-- OKTA-651405, OKTA-663355 -->
+Two new endpoints for the My Account API (`/idp/myaccount/organization` and `/idp/myaccount/okta-applications`) allow customers to retrieve org details and get a full list of the current user's Okta apps for a particular end user. See [My Account API](https://developer.okta.com/docs/api/openapi/okta-myaccount/guides/overview/). <!-- OKTA-651405, OKTA-663355 -->
 
 #### CORS restrictions removed for revoke endpoints
 
 Cross-origin resource sharing restrictions have been removed for the OAuth 2.0 `/revoke` endpoints (`/oauth2/v1/revoke` and `/oauth2/{authorizationServerId}/v1/revoke`). <!-- OKTA-653124 -->
 
-#### Developer documentation update in 2023.011.0
+#### Developer documentation update in 2023.11.0
 
 The direct authentication grant types are now in a new [Configure Direct Authentication grant types](/docs/guides/configure-direct-auth-grants/coobov/main/) guide rather than the [Implement authorization by grant type](/docs/guides/implement-grant-type/authcode/main/) guide. The new guide presents the grant type flows by authenticator rather than grant type, and then further differentiates the flows by either primary factor or secondary (MFA) factor. The grant types are found on the following pages:
   * **OTP grant type** -> **OTP (primary factor)**: When you want to use an OTP factor, such as Google TOTP or Okta Verify, as a primary factor
