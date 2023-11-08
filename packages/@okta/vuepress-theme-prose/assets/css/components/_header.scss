@@ -35,7 +35,6 @@ header.page-header .search--slideout {
   flex: 1 1 auto;
   margin-left: 50px;
   max-width: 131px;
-  overflow: hidden;
 
   @include media(">desktop") {
     flex: 1 1 280px;
@@ -264,7 +263,7 @@ header.page-header .link:focus {
     margin: 0;
     padding: 0 0 20px;
     max-width: none;
-    overflow-y: auto;
+    // overflow-y: auto;
 
     background-color: cv("body", "white");
   }
