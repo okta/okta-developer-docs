@@ -39,3 +39,7 @@ jobs:
       - name: Remove False Positives
         run: |
           comm -23 <(sort urls.txt | uniq) <(sort falsepos.txt | uniq) > broken_external_urls.txt
+
+      - name: Print urls to log
+        run: |
+            cat broken_external_urls.txt
