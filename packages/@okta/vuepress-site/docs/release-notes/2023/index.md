@@ -10,8 +10,13 @@ title: Okta API Products release notes 2023
 
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
-| [Developer documentation update in 2023.011.0](#developer-documentation-update-in-2023.011.0) | November 8, 2023
+| [CORS restrictions removed for revoke endpoints](#cors-restrictions-removed-for-revoke-endpoints) | November 8, 2023 |
+| [Developer documentation update in 2023.011.0](#developer-documentation-update-in-2023.011.0) | November 8, 2023 |
 | [Bugs fixed in 2023.11.0](#bugs-fixed-in-2023-11-0) | November 8, 2023 |
+
+#### CORS restrictions removed for revoke endpoints
+
+Cross-origin resource sharing restrictions have been removed for the OAuth 2.0 `/revoke` endpoints (`/oauth2/v1/revoke` and `/oauth2/{authorizationServerId}/v1/revoke`). <!-- OKTA-653124 -->
 
 #### Developer documentation update in 2023.011.0
 
@@ -25,11 +30,9 @@ The direct authentication grant types are now in a new [Configure Direct Authent
 
 * When attempts were made to update the profiles of app users whose profiles were controlled by external apps, an incorrect error was returned. (OKTA-640752)
 
-* Some operations for the Factors API (`GET /api/v1/users/${userId}/factors/{factorId}` and `GET /api/v1/users/me/factors/${factorId}`) weren't accessible when using tokens created by read-only admins.
+* Some operations for the Factors API (`GET /api/v1/users/${userId}/factors/{factorId}` and `GET /api/v1/users/me/factors/${factorId}`) weren't accessible when using tokens created by read-only admins. (OKTA-648751)
 
-* Cross-origin resource sharing restrictions have been removed for the OAuth 2.0 `/revoke` endpoints (`/oauth2/v1/revoke` and `/oauth2/{authorizationServerId}/v1/revoke`). (OKTA-653124)
-
-* When many apps were added to routing rules through the API, system performance was degraded. (OKTA-653124)
+* When many apps were added to routing rules through the API, system performance was degraded. (OKTA-653756)
 
 ## October
 

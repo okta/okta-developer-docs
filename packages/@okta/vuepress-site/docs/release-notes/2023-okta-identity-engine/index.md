@@ -14,16 +14,21 @@ title: Okta Identity Engine API Products release notes 2023
 | ------ | ------------------------ |
 | [SMS and voice support for OOB and MFA OOB grant flows is EA in Preview](#sms-and-voice-support-for-oob-and-mfa-oob-grant-flows-is-ea-in-preview) | November 8, 2023 |
 | [Org detail retrieval and user app listing for My Account API is GA in Preview](#org-detail-retrieval-and-user-app-listing-for-my-account-api-is-ga-in-preview) | November 8, 2023 |
+| [CORS restrictions removed for revoke endpoints](#cors-restrictions-removed-for-revoke-endpoints) | November 8, 2023 |
 | [Developer documentation update in 2023.011.0](#developer-documentation-update-in-2023.011.0) | November 8, 2023
 | [Bugs fixed in 2023.11.0](#bugs-fixed-in-2023-11-0) | November 8, 2023 |
 
 #### SMS and Voice support for OOB and MFA OOB grant flows is EA in Preview
 
-Direct authentication out-of-band (OOB) and multifactor out-of-band (MFA OOB) grant flows now support the phone authenticator with SMS and voice factors. See [Phone (MFA)](/docs/guides/configure-direct-auth-grants/fmfaoobsv/main/) and [Phone (primary factor)](/docs/guides/configure-direct-auth-grants/eoobsv/main/).
+Direct authentication out-of-band (OOB) and multifactor out-of-band (MFA OOB) grant flows now support the phone authenticator with SMS and voice factors. See [Phone (MFA)](/docs/guides/configure-direct-auth-grants/fmfaoobsv/main/) and [Phone (primary factor)](/docs/guides/configure-direct-auth-grants/eoobsv/main/). <!-- OKTA-659932 -->
 
 #### Org detail retrieval and user app listing for My Account API is GA in Preview
 
-Two new endpoints for the My Account API (`/idp/myaccount/okta-applications` and `/idp/myaccount/organization`) allow customers to retrieve org details and get a full list of the current user's Okta apps for a particular end user. See [My Account API](/docs/api/openapi/okta-myaccount/guides/overview/). 
+Two new endpoints for the My Account API (`/idp/myaccount/okta-applications` and `/idp/myaccount/organization`) allow customers to retrieve org details and get a full list of the current user's Okta apps for a particular end user. See [My Account API](/docs/api/openapi/okta-myaccount/guides/overview/). <!-- OKTA-651405, OKTA-663355 -->
+
+#### CORS restrictions removed for revoke endpoints
+
+Cross-origin resource sharing restrictions have been removed for the OAuth 2.0 `/revoke` endpoints (`/oauth2/v1/revoke` and `/oauth2/{authorizationServerId}/v1/revoke`). <!-- OKTA-653124 -->
 
 #### Developer documentation update in 2023.011.0
 
@@ -37,15 +42,11 @@ The direct authentication grant types are now in a new [Configure Direct Authent
 
 * When attempts were made to update the profiles of app users whose profiles were controlled by external apps, an incorrect error was returned. (OKTA-640752)
 
-* Some operations for the Factors API (`GET /api/v1/users/${userId}/factors/{factorId}` and `GET /api/v1/users/me/factors/${factorId}`) weren't accessible when using tokens created by read-only admins.
+* Some operations for the Factors API (`GET /api/v1/users/${userId}/factors/{factorId}` and `GET /api/v1/users/me/factors/${factorId}`) weren't accessible when using tokens created by read-only admins. (OKTA-648751)
 
-* Cross-origin resource sharing restrictions have been removed for the OAuth 2.0 `/revoke` endpoints (`/oauth2/v1/revoke` and `/oauth2/{authorizationServerId}/v1/revoke`). (OKTA-653124)
-
-* When many apps were added to routing rules through the API, system performance was degraded. (OKTA-653124)
+* When many apps were added to routing rules through the API, system performance was degraded. (OKTA-653756)
 
 * When a partial set of AMRs was passed in an IdP-initiated flow, Okta redirected the user to the IdP instead of challenging for remaining factors. (OKTA-657359)
-
-* Direct authentication out-of-band (OOB) and multifactor out-of-band (MFA OOB) grant flows now support the Phone authenticator with SMS and Voice factors. See the [Phone (MFA)](/docs/guides/configure-direct-auth-grants/fmfaoobsv/main/) and [Phone (primary factor)](/docs/guides/configure-direct-auth-grants/eoobsv/main/) flows.
 
 ## October
 
