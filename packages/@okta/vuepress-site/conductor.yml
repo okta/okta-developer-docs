@@ -901,6 +901,10 @@ redirects:
     to: /docs/reference/api/trusted-origins/
   - from: /docs/api/resources/zones.html
     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/NetworkZone/
+  - from: /docs/reference/csi-delauth-hook
+    to: /docs/reference/hooks/
+  - from: /docs/reference/csi-delauth-hook/index.html
+    to: /docs/reference/hooks/
   - from: /guides/add-saml-idp/-/configure-oidc-client/index.html
     to: /docs/guides/add-saml-idp/-/configure-oidc-client/
   - from: /guides/add-saml-idp/-/configure-saml-idp/index.html
