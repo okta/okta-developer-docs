@@ -492,30 +492,34 @@ export const guides = [
             guideName: "implement-grant-type",
           },
           {
-            title: "Create an authorization server",
-            guideName: "customize-authz-server",
+            title: "Configure Device Authz grant flow",
+            guideName: "device-authorization-grant",
           },
           {
-            title: "Transactional verification using CIBA",
-            guideName: "configure-ciba",
+            title: "Configure Direct Auth grant types",
+            guideName: "configure-direct-auth-grants",
           },
           {
             title: "Configure SSO for native apps",
             guideName: "configure-native-sso",
           },
           {
-            title: "Set up On-Behalf-Of Token Exchange",
-            guideName: "set-up-token-exchange",
+            title: "Create an authorization server",
+            guideName: "customize-authz-server",
           },
           { title: "Request user consent",
-            guideName: "request-user-consent" },
-          {
-            title: "Configure Device Authz grant flow",
-            guideName: "device-authorization-grant",
-          },
+          guideName: "request-user-consent" },
           {
             title: "Rotate secrets and manage keys",
             guideName: "client-secret-rotation-key",
+          },
+          {
+            title: "Set up On-Behalf-Of Token Exchange",
+            guideName: "set-up-token-exchange",
+          },
+          {
+            title: "Transactional verification using CIBA",
+            guideName: "configure-ciba",
           },
           {
             title: "Tokens",
