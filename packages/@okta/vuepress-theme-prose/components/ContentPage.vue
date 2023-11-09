@@ -25,10 +25,10 @@ export default {
     }
   },
   mounted() {
-    this.anchors = this.getAnchors(``);
     document.onreadystatechange = () => {
       if (document.readyState === "complete") {
         this.$nextTick(function() {
+          this.anchors = this.getAnchors();
           this.onPageChange();
         });
       }
