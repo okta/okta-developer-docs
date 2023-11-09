@@ -62,7 +62,7 @@ module.exports = ctx => ({
     ['script', {}, `
       window.dataLayer = window.dataLayer || [];
 
-      var isProduction = window.location.hostname === 'developer.okta.com';
+      var isProduction = window.location.hostname === 'vuepress-site.trexcloud';
       if (isProduction) {
 
         // START Google Tag Manager - main container
