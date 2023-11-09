@@ -704,12 +704,12 @@ export const guides = [
       },
       {
         title: "Manage orgs",
-        hidden: false,
+        hidden: true,
         subLinks: [
           {
             title: "Manage orgs with Okta Aerial",
             guideName: "manage-orgs-okta-aerial",
-            hidden: false
+            hidden: true
           }
         ],
       },
