@@ -1,6 +1,6 @@
 {
-  "release" : "2023.10.1",
-  "build" : "2023.10.1-begin-163-g27f12da6be17",
+  "release" : "2023.11.1",
+  "build" : "2023.11.1-begin-148-g6ab15ef55aa3",
   "errors" : [ {
     "title" : "API validation exception",
     "includesExceptionMessage" : true,
@@ -1736,6 +1736,22 @@
     "statusReasonPhrase" : "Forbidden",
     "errorCode" : "E0000233",
     "errorSummary" : "Okta Verify SMS setup link is a feature only available on paid Okta accounts. To enable this feature please upgrade your free tier org.",
+    "errorDescription" : null
+  }, {
+    "title" : "Authenticator policy mapping already exists exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 409,
+    "statusReasonPhrase" : "Conflict",
+    "errorCode" : "E0000234",
+    "errorSummary" : "Authenticator is already mapped to an authentication policy.",
+    "errorDescription" : null
+  }, {
+    "title" : "Resource selectors exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "errorCode" : "E0000235",
+    "errorSummary" : "Resource Selector: {0}",
     "errorDescription" : null
   } ]
 }

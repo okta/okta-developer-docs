@@ -4,6 +4,36 @@ title: Okta API Products release notes 2023
 
 > Help us improve our release notes by filling out this short [survey](https://surveys.okta.com/jfe/form/SV_4VEZcIGOX0TBgkC).
 
+## November
+
+### Monthly release 2023.11.0
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [CORS restrictions removed for revoke endpoints](#cors-restrictions-removed-for-revoke-endpoints) | November 8, 2023 |
+| [Developer documentation update in 2023.11.0](#developer-documentation-update-in-2023-11-0) | November 8, 2023 |
+| [Bugs fixed in 2023.11.0](#bugs-fixed-in-2023-11-0) | November 8, 2023 |
+
+#### CORS restrictions removed for revoke endpoints
+
+Cross-origin resource sharing restrictions have been removed for the OAuth 2.0 `/revoke` endpoints (`/oauth2/v1/revoke` and `/oauth2/{authorizationServerId}/v1/revoke`). <!-- OKTA-653124 -->
+
+#### Developer documentation update in 2023.11.0
+
+The direct authentication grant types are now in a new [Configure Direct Authentication grant types](/docs/guides/configure-direct-auth-grants/coobov/main/) guide rather than the [Implement authorization by grant type](/docs/guides/implement-grant-type/authcode/main/) guide. The new guide presents the grant type flows by authenticator rather than grant type, and then further differentiates the flows by either primary factor or secondary (MFA) factor. The grant types are found on the following pages:
+  * **OTP grant type** -> **OTP (primary factor)**: When you want to use an OTP factor, such as Google TOTP or Okta Verify, as a primary factor
+  * **MFA OTP grant type** -> **OTP (MFA)**: When you want to use an OTP factor as a secondary factor (MFA)
+  * **OOB grant type** -> **Okta Verify Push (primary factor)** and **Phone (primary factor)**: When you want to use an out-of-band factor as a primary factor
+  * **MFA OOB grant type** -> **Okta Verify Push (MFA)** and **Phone (MFA)**: When you want to use an out-of-band factor as a secondary factor (MFA)
+
+#### Bugs fixed in 2023.11.0
+
+* When attempts were made to update the profiles of app users whose profiles were controlled by external apps, an incorrect error was returned. (OKTA-640752)
+
+* Some operations for the Factors API (`GET /api/v1/users/${userId}/factors/{factorId}` and `GET /api/v1/users/me/factors/${factorId}`) weren't accessible when using tokens created by read-only admins. (OKTA-648751)
+
+* When many apps were added to routing rules through the API, system performance was degraded. (OKTA-653756)
+
 ## October
 
 ### Weekly release 2023.10.2
@@ -85,7 +115,7 @@ Users now receive an authentication challenge for each redirect sent to an Ident
 #### Developer documentation update in 2023.09.0
 
 * The [Sign users in to your web app using the redirect model](/docs/guides/sign-into-web-app-redirect/) guide is now easier to read and quicker to complete. This change also removes references to Okta CLI, removes Gin-specific example code from Go content, and adds new example code to ASP.NET content.
-* The Style the sign-in page guide now describes how to hide or suppress the transient Sign-In Widget for redirect authentication. See [Hide or suppress the transient Sign-In Widget](/docs/guides/custom-widget/main/#hide-or-suppress-the-transient-sign-in-widget).
+* The Style sign-in page guide now describes how to hide or suppress the transient Sign-In Widget for redirect authentication. See [Hide or suppress the transient Sign-In Widget](/docs/guides/custom-widget/main/#hide-or-suppress-the-transient-sign-in-widget).
 
 #### Bugs fixed in 2023.09.0
 

@@ -19,6 +19,7 @@ guides:
  - configure-access-policy
  - configure-amr-claims-mapping
  - configure-ciba
+ - configure-direct-auth-grants
  - configure-native-sso
  - configure-signon-policy
  - configure-user-scoped-account-management

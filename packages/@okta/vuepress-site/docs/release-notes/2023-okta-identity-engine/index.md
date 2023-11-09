@@ -6,6 +6,48 @@ title: Okta Identity Engine API Products release notes 2023
 
 > Help us improve our release notes by filling out this short [survey](https://surveys.okta.com/jfe/form/SV_4VEZcIGOX0TBgkC).
 
+## November
+
+### Monthly release 2023.11.0
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [SMS and voice support for OOB and MFA OOB grant flows is EA in Preview](#sms-and-voice-support-for-oob-and-mfa-oob-grant-flows-is-ea-in-preview) | November 8, 2023 |
+| [Org detail retrieval and user app listing for My Account API is GA in Preview](#org-detail-retrieval-and-user-app-listing-for-my-account-api-is-ga-in-preview) | November 8, 2023 |
+| [CORS restrictions removed for revoke endpoints](#cors-restrictions-removed-for-revoke-endpoints) | November 8, 2023 |
+| [Developer documentation update in 2023.11.0](#developer-documentation-update-in-2023-11-0) | November 8, 2023
+| [Bugs fixed in 2023.11.0](#bugs-fixed-in-2023-11-0) | November 8, 2023 |
+
+#### SMS and Voice support for OOB and MFA OOB grant flows is EA in Preview
+
+Direct authentication out-of-band (OOB) and multifactor out-of-band (MFA OOB) grant flows now support the phone authenticator with SMS and voice factors. See [Phone (MFA)](/docs/guides/configure-direct-auth-grants/fmfaoobsv/main/) and [Phone (primary factor)](/docs/guides/configure-direct-auth-grants/eoobsv/main/). <!-- OKTA-659932 -->
+
+#### Org detail retrieval and user app listing for My Account API is GA in Preview
+
+Two new endpoints for the My Account API (`/idp/myaccount/organization` and `/idp/myaccount/okta-applications`) allow customers to retrieve org details and get a full list of the current user's Okta apps for a particular end user. See [My Account API](https://developer.okta.com/docs/api/openapi/okta-myaccount/guides/overview/). <!-- OKTA-651405, OKTA-663355 -->
+
+#### CORS restrictions removed for revoke endpoints
+
+Cross-origin resource sharing restrictions have been removed for the OAuth 2.0 `/revoke` endpoints (`/oauth2/v1/revoke` and `/oauth2/{authorizationServerId}/v1/revoke`). <!-- OKTA-653124 -->
+
+#### Developer documentation update in 2023.11.0
+
+The direct authentication grant types are now in a new [Configure Direct Authentication grant types](/docs/guides/configure-direct-auth-grants/coobov/main/) guide rather than the [Implement authorization by grant type](/docs/guides/implement-grant-type/authcode/main/) guide. The new guide presents the grant type flows by authenticator rather than grant type, and then further differentiates the flows by either primary factor or secondary (MFA) factor. The grant types are found on the following pages:
+  * **OTP grant type** -> **OTP (primary factor)**: When you want to use an OTP factor, such as Google TOTP or Okta Verify, as a primary factor
+  * **MFA OTP grant type** -> **OTP (MFA)**: When you want to use an OTP factor as a secondary factor (MFA)
+  * **OOB grant type** -> **Okta Verify Push (primary factor)** and **Phone (primary factor)**: When you want to use an out-of-band factor as a primary factor
+  * **MFA OOB grant type** -> **Okta Verify Push (MFA)** and **Phone (MFA)**: When you want to use an out-of-band factor as a secondary factor (MFA)
+
+#### Bugs fixed in 2023.11.0
+
+* When attempts were made to update the profiles of app users whose profiles were controlled by external apps, an incorrect error was returned. (OKTA-640752)
+
+* Some operations for the Factors API (`GET /api/v1/users/${userId}/factors/{factorId}` and `GET /api/v1/users/me/factors/${factorId}`) weren't accessible when using tokens created by read-only admins. (OKTA-648751)
+
+* When many apps were added to routing rules through the API, system performance was degraded. (OKTA-653756)
+
+* When a partial set of AMRs was passed in an IdP-initiated flow, Okta redirected the user to the IdP instead of challenging for remaining factors. (OKTA-657359)
+
 ## October
 
 ### Weekly release 2023.10.2
@@ -122,7 +164,7 @@ Admins can now automatically assign the super admin role to all of their newly c
 Users now receive an authentication challenge for each redirect sent to an Identity Provider with **Factor only** configured, even if the IdP session is active. <!-- OKTA-628504 ENG_FORCE_AUTHN_FOR_FACTORS_IDPS -->
 
 #### Number challenge support for OOB and MFA OOB grant flows is EA in Production
-Direct authentication out-of-band (OOB) and multifactor out-of-band (MFA OOB) grant flows now support number challenge for Okta Verify Push. See the [MFA OOB grant](/docs/guides/implement-grant-type/mfaoob/main/) and [OOB grant](/docs/guides/implement-grant-type/oob/main/) flows.
+Direct authentication out-of-band (OOB) and multifactor out-of-band (MFA OOB) grant flows now support number challenge for Okta Verify Push. See the [MFA OOB grant](/docs/guides/configure-direct-auth-grants/dmfaoobov/main/) and [OOB grant](/docs/guides/configure-direct-auth-grants/coobov/main/) flows.
 
 #### Policy Simulation API is GA in Preview
 With the Policy API `/simulate` endpoint, you can quickly and easily test policies and validate whether your desired security outcomes are achieved. This endpoint allows you to simulate user access attributes, such as IP address, device, risk, and so on, to test whether the user is granted access to the specified application. This endpoint is implemented in the Admin Console as the [Access Testing Tool](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/policies/access-testing-tool.htm). The `/simulate` endpoint helps you identify potential security risks and compliance issues before you implement a policy. See the [Policy API](/docs/reference/api/policy/#policy-simulation-operations) and [Test your policies with access simulations](/docs/guides/policy-simulation). <!-- OKTA-593826 POLICY_SIMULATION -->
@@ -460,7 +502,7 @@ Using event hook filters significantly reduces the amount of event hook requests
 
 #### The new Direct Authentication API is EA in Preview
 
-The [Direct Authentication API](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/OrgAS/#tag/OrgAS/operation/token) offers a new set of OAuth grants that give app developers greater control over the authentication process. When redirect authentication isn't an option, you can use this API to allow client apps to authenticate users directly, without relying on HTTP redirection through a web browser. This is beneficial in scenarios where there's a high degree of trust between the user and the app. It's also beneficial where browser-based flows aren't feasible, like with mobile apps. By using the Direct Authentication API, app developers can tailor the authentication experience to their specific use case, resulting in a smoother and more efficient authentication process. See [Implement by authorization by grant type](/docs/guides/implement-grant-type/otp/main/). <!--OKTA-585748--> <!--FF: DIRECT_AUTH-->
+The [Direct Authentication API](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/OrgAS/#tag/OrgAS/operation/token) offers a new set of OAuth grants that give app developers greater control over the authentication process. When redirect authentication isn't an option, you can use this API to allow client apps to authenticate users directly, without relying on HTTP redirection through a web browser. This is beneficial in scenarios where there's a high degree of trust between the user and the app. It's also beneficial where browser-based flows aren't feasible, like with mobile apps. By using the Direct Authentication API, app developers can tailor the authentication experience to their specific use case, resulting in a smoother and more efficient authentication process. See [Configure Direct Authentication grant types](/docs/guides/configure-direct-auth-grants/aotp/main/). <!--OKTA-585748--> <!--FF: DIRECT_AUTH-->
 
 #### Identity store property for the Applications API
 
