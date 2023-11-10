@@ -56,7 +56,7 @@ You can use either hCAPTCHA or reCAPTCHA with the redirect or embedded authentic
 
 Okta only supports the hCAPTCHA and reCAPTCHA services. Any other CAPTCHA type could lead to lockout.
 
-If you use the [Sign-in Widget SDK](https://github.com/okta/okta-signin-widget), CAPTCHA works out of the box. If you use any other Okta SDK, you need to implement CAPTCHA. See [CAPTCHAs](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/CAPTCHA/).
+If you use the [Sign-in Widget SDK](https://github.com/okta/okta-signin-widget), CAPTCHA works out of the box. If you use any other [Okta SDK](https://developer.okta.com/code/), you need to implement CAPTCHA. See [CAPTCHAs](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/CAPTCHA/).
 
 ### Interaction code grant type for embedded authentication
 
