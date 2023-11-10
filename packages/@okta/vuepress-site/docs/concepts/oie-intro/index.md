@@ -54,9 +54,9 @@ CAPTCHA is a well-known strategy for mitigating attacks by bots. Identity Engine
 
 You can use either hCAPTCHA or reCAPTCHA with the redirect or embedded authentication deployment models. See [Okta deployment models](/docs/concepts/redirect-vs-embedded/).
 
->**Note:** Okta only supports the hCAPTCHA and reCAPTCHA services. Any other CAPTCHA type could lead to lockout.
+Okta only supports the hCAPTCHA and reCAPTCHA services. Any other CAPTCHA type could lead to lockout.
 
-but not SDKs.
+If you use the [Sign-in Widget SDK](https://github.com/okta/okta-signin-widget), CAPTCHA works out of the box. If you use any other Okta SDK, you need to implement CAPTCHA. See [CAPTCHAs](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/CAPTCHA/).
 
 ### Interaction code grant type for embedded authentication
 
