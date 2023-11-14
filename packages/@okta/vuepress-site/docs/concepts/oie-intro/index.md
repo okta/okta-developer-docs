@@ -91,7 +91,7 @@ Okta has a host of SDKs available for integrating new Identity Engine features i
 
 ## Identity Engine versus Classic Engine documentation approach
 
-In our documentation, Okta are moving towards supporting Identity Engine by default, while still providing information for Classic Engine users.
+In our documentation, Okta is moving towards supporting Identity Engine by default, while still providing information for Classic Engine users.
 
 * Pages and page sections covering features that only work in Identity Engine have a blue Identity Engine banner at the top.
 * Content that works in both Identity Engine and Classic Engine have no banner. Any slight differences are covered in the page text.
