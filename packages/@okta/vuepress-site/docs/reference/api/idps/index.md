@@ -4879,7 +4879,7 @@ Okta supports the following enterprise and social Identity Provider types:
 | `PAYPAL_SANDBOX`     | [Paypal Sandbox](https://developer.paypal.com/tools/sandbox/)&nbsp;as the Identity Provider| [OpenID Connect](#openid-connect-protocol) | `openid`, `email`, `profile` |
 | `SALESFORCE`     | [SalesForce](https://login.salesforce.com/)&nbsp;as the Identity Provider| [OAuth 2.0](#oauth-2-0-protocol) | `id`, `email`, `profile` |
 | `SAML2`      | Enterprise IdP provider that supports the [SAML 2.0 Web Browser SSO Profile](https://docs.oasis-open.org/security/saml/v2.0/saml-profiles-2.0-os.pdf) | [SAML 2.0](#saml-2-0-protocol)  | |
-| `SPOTIFY`      | [Spotify](https://developer.spotify.com/dashboard/)&nbsp;as the Identity Provider | [OpenID Connect](#openid-connect-protocol) | `user-read-email`, `user-read-private` |
+| `SPOTIFY`      | [Spotify](https://developer.spotify.com/)&nbsp;as the Identity Provider | [OpenID Connect](#openid-connect-protocol) | `user-read-email`, `user-read-private` |
 | `X509`       | [Smart Card IdP](https://tools.ietf.org/html/rfc5280) | [Mutual TLS](#mtls-protocol) | |
 | `XERO`      | [Xero](https://www.xero.com/us/signup/api/)&nbsp;as the Identity Provider | [OpenID Connect](#openid-connect-protocol) | `openid`, `profile`, `email` |
 | `YAHOO`      | [Yahoo](https://login.yahoo.com/)&nbsp;as the Identity Provider | [OpenID Connect](#openid-connect-protocol) | `openid`, `profile`, `email` |
