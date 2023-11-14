@@ -59,8 +59,8 @@ CAPTCHA is a well-known strategy for mitigating attacks by bots. Identity Engine
 
 Okta only supports the following CAPTCHA services. Using any other type could lead to lockout:
 
-- [hCAPTCHA](https://www.hcaptcha.com/)
-- [reCAPTCHA](https://www.google.com/recaptcha/about/)
+- [hCAPTCHA (invisible)](https://docs.hcaptcha.com/invisible)
+- [reCAPTCHA v2 (invisible)](https://developers.google.com/recaptcha/docs/invisible)
 
 You can use either hCAPTCHA or reCAPTCHA with the redirect or embedded authentication deployment models. See [Okta deployment models](/docs/concepts/redirect-vs-embedded/).
 
