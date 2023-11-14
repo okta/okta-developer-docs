@@ -57,14 +57,16 @@ Authentication policies are [security policy frameworks](https://csrc.nist.gov/p
 
 CAPTCHA is a well-known strategy for mitigating attacks by bots. Identity Engine offers integrations with market-leading CAPTCHA services for registration, sign-in, and account recovery.
 
-Okta only supports the following CAPTCHA services. Using any other type could lead to lockout:
+Okta only supports the following CAPTCHA services:
 
 - [hCAPTCHA (invisible)](https://docs.hcaptcha.com/invisible)
 - [reCAPTCHA v2 (invisible)](https://developers.google.com/recaptcha/docs/invisible)
 
+>**Note:** Using any other CAPTCHA type could lead to lockout. Contact [Okta support](mailto:support@okta.com) if lockout occurs.
+
 You can use either hCAPTCHA or reCAPTCHA with the redirect or embedded authentication deployment models. See [Okta deployment models](/docs/concepts/redirect-vs-embedded/).
 
->**Note:** If you use the [Sign-In Widget SDK](https://github.com/okta/okta-signin-widget), CAPTCHA works out of the box. If you use any other [Okta SDK](https://developer.okta.com/code/), you need to implement CAPTCHA. See [CAPTCHAs](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/CAPTCHA/).
+If you use the [Sign-In Widget SDK](https://github.com/okta/okta-signin-widget), CAPTCHA works out of the box. If you use any other [Okta SDK](https://developer.okta.com/code/), you need to implement CAPTCHA. See [CAPTCHAs](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/CAPTCHA/).
 
 ### Interaction code grant type for embedded authentication
 
