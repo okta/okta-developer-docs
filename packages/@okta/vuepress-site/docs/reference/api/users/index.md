@@ -1163,7 +1163,7 @@ The first three parameters in the table below correspond to different ways to li
 
 - If you don't specify a value for `limit`, the maximum (200) is used as a default.  If you are using a `q` parameter, the default limit is 10.
 - An HTTP 500 status code usually indicates that you have exceeded the request timeout. Retry your request with a smaller limit and [paginate](/docs/reference/core-okta-api/#pagination) the results.
-- The `search` parameter delivers optimal performance. Using the `q` or `filter` parameters may yield no results. They may also affect search performance, in which case you should try reformatting the request to use `search`.
+- The `search` parameter delivers optimal performance. Using the `q` or `filter` parameters affect search performance. They may also yield no results, in which case you should try reformatting the request to use `search`.
 - Treat the `after` cursor as an opaque value and obtain it through the next link relation. See [Pagination](/docs/reference/core-okta-api/#pagination).
 
 ##### Response parameters
