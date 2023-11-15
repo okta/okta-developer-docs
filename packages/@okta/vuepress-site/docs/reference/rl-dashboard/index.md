@@ -170,7 +170,7 @@ A customer can additionally purchase the rate limit multiplier, which is an add-
 
 </div>
 
-The key benefit of purchasing the rate limit multiplier, therefore getting an increased rate limit, isn't to stop end users from using an application. The rate limit multiplier is based on the customer's org and what the expected use would be. If a customer has dynamic scale, the info icon beside **Rate Limit** in the overview pane indicates which tier was purchased, and the graphs in the [Rate limit usage over time pane] reflect the applied rate limit multiplier. To purchase the rate limit multiplier, either create a support ticket or contact your customer support representative.
+The key benefit of purchasing the rate limit multiplier, therefore getting an increased rate limit, isn't to stop end users from using an application. The rate limit multiplier is based on the customer's org and what the expected use would be. If a customer has dynamic scale, the info icon beside **Rate Limit** in the overview pane indicates which tier was purchased, and the graphs in the [Rate limit usage over time pane](#rate-limit-usage-over-time-pane) reflect the applied rate limit multiplier. To purchase the rate limit multiplier, either create a support ticket or contact your customer support representative.
 
 #### Rate limit usage over time pane
 
@@ -208,7 +208,7 @@ Click an IP address, API token, or Application bar to view the associated traffi
 
 ### Investigate the rate limit violation
 
-Each graph, either by itself or combined, provides you with multiple views that display the information about the rate limit violation. You can also refer to the help information on the dashboard when yo're trying to figure out the rate limit violation to see if it fits into one of the common scenarios most likely to happen.
+Each graph, either by itself or combined, provides you with multiple views that display the information about the rate limit violation. You can also refer to the help information on the dashboard when you're trying to figure out the rate limit violation to see if it fits into one of the common scenarios most likely to happen.
 
 #### Combination of the line graph and bar graph view
 
