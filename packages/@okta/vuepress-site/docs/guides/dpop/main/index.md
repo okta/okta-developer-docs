@@ -25,7 +25,7 @@ This guide discusses how to create sender-constrained access tokens that are an 
 
 OAuth 2.0 Demonstrating Proof-of-Possession (DPoP) helps prevent unauthorized or illegitimate parties from using leaked or stolen access tokens. When you use DPoP, you create an application-level mechanism to sender-constrain both access and refresh tokens, which helps prevent token replays at different endpoints.
 
-> **Note:** The Okta DPoP feature is based on the current [DPoP draft specification](https://www.ietf.org/archive/id/draft-ietf-oauth-dpop-04.html). Okta intends to address any enhancements or modifications made to the specification before ratification.
+> **Note:** The Okta DPoP feature is based on the current [RFC](https://datatracker.ietf.org/doc/html/rfc9449).
 
 DPoP enables a client to prove possession of a public/private key pair by including a DPoP header in a `/token` endpoint request. The value of the DPoP header is a JSON Web Token (JWT) that enables the authorization server to bind issued tokens to the public part of a client's key pair. Recipients of these tokens (such as an API) can then verify that binding, which provides assurance that the client presenting the token also possesses the private key.
 
@@ -72,8 +72,6 @@ rs -> client: Validates the DPoP-bound access token and grants access to client
 ## Configure DPoP
 
 This section explains how to configure DPoP in your org and prepare the DPoP JWT.
-
-> **Note:** Okta supports DPoP for service apps. However, service apps can provide the same level of security by using `private_key_jwt` for [client authentication](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/client-auth/).
 
 ### Configure the app integration
 
