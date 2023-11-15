@@ -26,17 +26,20 @@ export default {
   },
   mounted() {
     document.onreadystatechange = () => {
-      if (document.readyState === "complete") {
-        this.$nextTick(function() {
-          this.anchors = this.getAnchors();
-          this.onPageChange();
-        });
+      if (document.readyState !== "complete") {
+        return;
       }
+
+      this.$nextTick(function() {
+        this.anchors = this.getAnchors();
+        this.onPageChange();
+
+        window.addEventListener("popstate", e => {
+          e.target.location.hash && this.scrollToAnchor(e.target.location.hash);
+        });
+        window.addEventListener("scroll", this.setHeadingAnchorToURL);
+      });
     };
-    window.addEventListener("popstate", e => {
-      e.target.location.hash && this.scrollToAnchor(e.target.location.hash);
-    });
-    window.addEventListener("scroll", this.setHeadingAnchorToURL);
   },
   beforeDestroy() {
     window.removeEventListener("scroll", this.setHeadingAnchorToURL);
