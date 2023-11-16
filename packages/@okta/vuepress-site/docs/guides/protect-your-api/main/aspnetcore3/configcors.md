@@ -13,7 +13,7 @@
    });
    ```
 
-2. Enable CORS in the the `Configure` method:
+2. Enable CORS in the `Configure` method:
 
    ```csharp
    app.UseCors();

@@ -10,7 +10,7 @@
    }
    ```
 
-1. You also need to configure your API to use Okta for authorization and authentication.
+1. You must also configure your API to use Okta for authorization and authentication.
    1. Open `Startup.cs` and add the following `using` statements at the top:
 
       ```csharp

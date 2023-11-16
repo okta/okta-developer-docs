@@ -1,4 +1,4 @@
-To require authentication for all actions, add an authorization policy to the `ConfigureServices` method in `Startup.cs`:
+Add an authorization policy to the `ConfigureServices` method in `Startup.cs` to require authentication for all actions:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
