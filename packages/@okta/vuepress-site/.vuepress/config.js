@@ -63,6 +63,7 @@ module.exports = ctx => ({
       window.dataLayer = window.dataLayer || [];
 
       var isProduction = window.location.hostname === 'developer.okta.com';
+      isProduction = true;
       if (isProduction) {
 
         // START Google Tag Manager - main container
