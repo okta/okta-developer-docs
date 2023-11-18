@@ -1,0 +1,1 @@
+This guide focuses on building a DPoP token minted by the Okta org authorization server and then building a separate DPoP proof to request access to Okta resources. To build a DPoP token for use when requesting access to other resource servers, select **Resource Server** from the dropdown menu on the right.
