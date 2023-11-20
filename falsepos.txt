@@ -17,3 +17,5 @@ https://json-schema.org/specification.html
 https://developer.spotify.com/documentation/general/guides/authorization/app-settings/
 https://developer.spotify.com/documentation/general/guides/authorization/scopes/
 https://regionalevents.okta.com/enterprisereadyworkshops/
+https://app.getpostman.com/run-collection/1a927e3b353fd0e1b158/
+https://app.getpostman.com/run-collection/ff723148292df05bb58b/
