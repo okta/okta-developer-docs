@@ -346,6 +346,37 @@ Okta supports URI claims with SAML assertion hooks. When you need to replace or 
 
 In some scenarios, your service provider may require the `SessionNotOnOrAfter` attribute for the `<saml:AuthnStatement>` in the SAML assertion, which sets the provider session time correctly. Use `add` op with the path `/authentication/sessionLifetime` and a value for session lifetime in seconds to add this attribute. See the [Sample listing of JSON payload response](/docs/reference/saml-hook/#sample-listing-of-json-payload-of-response) for an example. Okta calculates `SessionNotOnOrAfter` by adding the `/authentication/sessionLifetime` value to the `issueInstant` attribute and returns it in the SAML assertion.
 
+### error
+
+When you return an error object, it should have the following structure:
+
+| Property     | Description                          | Data type |
+|--------------|--------------------------------------|-----------|
+| errorSummary | Human-readable summary of the error  | String    |
+
+> **Note:** If the error object doesn't include the `errorSummary` property defined, the following common default message is returned to the end user: `The callback service returned an error`.
+
+For other parameter descriptions, see [error](/docs/concepts/inline-hooks/#error).
+
+#### Sample error response
+
+```json
+{
+    "error": {
+        "errorSummary": "Sorry, you can't sign in",
+        "errorCauses": [
+            {
+                "errorSummary": "Not in the patient database.",
+                "reason": "INVALID_PATIENT",
+                "locationType": "body",
+                "location": "user.profile.login",
+                "domain": "end-user"
+            }
+        ]
+    }
+}
+```
+
 ## Timeout behavior
 
 If there is a response timeout after receiving the Okta request, the Okta process flow proceeds with the original SAML assertion returned.
