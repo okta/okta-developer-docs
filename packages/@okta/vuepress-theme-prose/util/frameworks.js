@@ -86,6 +86,8 @@ const COMMON_NAME_TO_FANCY_NAME = {
   bmfaotp: 'OTP (MFA)',
   oidc: 'OIDC',
   saml: 'SAML',
+  oktaresourceserver: 'Okta Resource Server',
+  resourceserver: 'Resource Server',
 };
 
 const COMMON_NAME_TO_ICON_NAME = {

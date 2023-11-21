@@ -195,37 +195,37 @@ Use the value of the `dpop-nonce` header in the JWT payload and update the JWT:
 
 1. Add the `dpop-nonce` header value as the `nonce` claim value in the JWT payload along with a `jti` claim.
 
-Example payload:
+    Example payload:
 
-```json
-{
-   "htm": "POST",
-   "htu": "https://${yourOktaDomain}/oauth2/default/v1/token",
-   "iat": 1516239022,
-   "nonce": "dsGuZVkXzEdbNb8yxI3Fi-cnuzkH_E0k",
-   "jti": "123456788"
-}
-```
+    ```json
+      {
+      "htm": "POST",
+      "htu": "https://${yourOktaDomain}/oauth2/default/v1/token",
+       "iat": 1516239022,
+       "nonce": "dsGuZVkXzEdbNb8yxI3Fi-cnuzkH_E0k",
+       "jti": "123456788"
+      }
+    ```
 
-**Claims**
+    **Claims**
 
-* `nonce`: Used only once. A recent `nonce` value provided by the authorization server using the `dpop-nonce` HTTP header. The authorization server provides the DPoP nonce value to limit the lifetime of DPoP proof JWTs.
-* `jti`: JWT ID. A unique [JWT identifier](https://www.rfc-editor.org/rfc/rfc7519#section-4.1.7) for the request
+    * `nonce`: Used only once. A recent `nonce` value provided by the authorization server using the `dpop-nonce` HTTP header. The authorization server provides the DPoP nonce value to limit the lifetime of DPoP proof JWTs.
+    * `jti`: JWT ID. A unique [JWT identifier](https://www.rfc-editor.org/rfc/rfc7519#section-4.1.7) for the request
 
 2. Copy the new DPoP proof and add it to the DPoP header in the request.
 
 3. Send the request for an access token again. The authorization server should return the access token. In the following example, tokens are truncated for brevity.
 
-  ```json
-  {
-      "token_type": "DPoP",
-      "expires_in": 3600,
-      "access_token": "eyJraWQiOiJRVX.....wt7oSakPDUg",
-      "scope": "openid offline_access",
-      "refresh_token": "3CEz0Zvjs0eG9mu4w36n-c2g6YIqRfyRSsJzFAqEyzw",
-      "id_token": "eyJraWQiOiJRVXlG.....m5h5-NAtVFdwD1bg2JprEJQ"
-  }
-  ```
+    ```json
+    {
+        "token_type": "DPoP",
+        "expires_in": 3600,
+        "access_token": "eyJraWQiOiJRVX.....wt7oSakPDUg",
+        "scope": "openid offline_access",
+        "refresh_token": "3CEz0Zvjs0eG9mu4w36n-c2g6YIqRfyRSsJzFAqEyzw",
+        "id_token": "eyJraWQiOiJRVXlG.....m5h5-NAtVFdwD1bg2JprEJQ"
+    }
+    ```
 
 #### Decode the access token
 
@@ -261,11 +261,41 @@ You can use the [JWT tool](https://jwt.io/) to decode the access token to view t
 
 ## Make a request to a protected resource
 
+Now that you have a DPoP-bound access token, you can make requests to DPoP-protected resources. The following example request displays the DPoP-bound access token in the `Authorization` header and the DPoP proof JWT in the `DPoP` header. Values are truncated for brevity.
+
+```bash
+curl -v -X GET \
+  --header 'Accept: application/json' \
+  --header 'Content-Type: application/json' \
+  --header 'Authorization: DPoP eyJraWQiOiJRVX.....wt7oSakPDUg' \
+  --header 'DPoP: eyJ0eXAiOiJkcG9w.....H8-u9gaK2-oIj8ipg' \
+  "https://resource.example.org"
+```
+
 <StackSnippet snippet="requestresource" />
 
-## Validate the token and DPoP header
+## Validate token and DPoP header
 
-<StackSnippet snippet="validate" />
+The resource server must perform validation on the access token to complete the flow and grant access. When the client sends an access request with the access token, validation should verify that the `cnf` claim is present. Then validation should compare the `jkt` in the access token with the public key in the JWT value of the `DPoP` header.
+
+The following is a high-level overview of the validation steps that the resource server must perform.
+
+* Read the value in the `DPoP` header and decode the DPoP JWT.
+* Get the `jwk` (public key) from the header portion of the DPoP JWT.
+* Verify the signature of the DPoP JWT using the public key and algorithm in the JWT header.
+* Verify that the `htu` and `htm` claims are in the DPoP JWT payload and match with the current API request HTTP method and URL.
+* Calculate the `jkt` (SHA-256 thumbprint of the public key).
+* Extract the DPoP-bound access token from the `Authorization` header, verify it with Okta, and extract the claims. You can also use the `/introspect` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/introspectCustomAS) to extract the access token claims.
+* Validate the token binding by comparing `jkt` from the access token with the calculated `jkt` from the `DPoP` header.
+<StackSnippet snippet="validate" inline />
+
+> **Note:** The resource server must not grant access to the resource unless all checks are successful.
+
+For instructional purposes, this guide provides example validation in a Node.js Express app using the third-party site Glitch. Glitch is a browser-based development environment that can build a full-stack web application online. Use the Glitch example to review and quickly implement the validation code. It includes all dependencies required to complete validation.
+
+Copy (remix on Glitch) the [Validation DPoP Tokens](https://glitch.com/~validate-dpop-tokens) Glitch project to have a working code sample. The validation steps at the beginning of this section are included in the code for quick implementation.
+
+> **Note:** See [Libraries for Token Signing/Verification](https://jwt.io/libraries) to view other libraries/SDKs in different languages that you can use for JWT verification.
 
 ## Refresh an access token
 
