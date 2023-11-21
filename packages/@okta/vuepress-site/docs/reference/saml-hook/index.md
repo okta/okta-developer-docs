@@ -356,27 +356,6 @@ When you return an error object, it should have the following structure:
 
 > **Note:** If the error object doesn't include the `errorSummary` property defined, the following common default message is returned to the end user: `The callback service returned an error`.
 
-For other parameter descriptions, see [error](/docs/concepts/inline-hooks/#error).
-
-#### Sample error response
-
-```json
-{
-    "error": {
-        "errorSummary": "Sorry, you can't sign in",
-        "errorCauses": [
-            {
-                "errorSummary": "Not in the patient database.",
-                "reason": "INVALID_PATIENT",
-                "locationType": "body",
-                "location": "user.profile.login",
-                "domain": "end-user"
-            }
-        ]
-    }
-}
-```
-
 ## Timeout behavior
 
 If there is a response timeout after receiving the Okta request, the Okta process flow proceeds with the original SAML assertion returned.
