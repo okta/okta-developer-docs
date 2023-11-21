@@ -13,7 +13,7 @@ In this section, you learn how to check your rate limits, investigate usage, and
 
 The Okta [rate limit dashboard](/docs/reference/rl-dashboard/) is an Admin Console tool that provides detailed data on your API usage. Use this tool to monitor your endpoints or investigate issues or violations. Any rate limit violation notification provides a link to the dashboard.
 
-This dashboard provides data to understand your org's API usage and to identify any rate limit updates that may be required for your use cases. Configurations are available to increase limits temporarily or provide more permanent solutions. See [Request rate limit exceptions](#request-rate-limit-exceptions) or contact [Support](https://support.okta.com/help/open_case).
+If the API usage data suggests updates to any rate limits are required, based on your use cases, configurations are available to increase limits temporarily or provide more permanent solutions. See [Request rate limit exceptions](#request-rate-limit-exceptions) or contact [Support](https://support.okta.com/help/open_case).
 
 ## Check your rate limits with Okta's rate limit headers
 
