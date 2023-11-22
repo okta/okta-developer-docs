@@ -38,7 +38,7 @@ DPoP enables a client to prove possession of a public/private key pair by includ
 
 ## Configure DPoP
 
-This section explains how to configure DPoP in your org and create a DPoP proof (DPoP proof JWT) to obtain a DPoP-bound access token. A JWT is a compact, URL-safe way to represent claims transferred between two parties. The most common use case for JWTs is to declare the scope of the access token.
+This section explains how to configure DPoP in your org and create a DPoP proof (JWT) to obtain a DPoP-bound access token. A JWT is a compact, URL-safe way to represent claims transferred between two parties. The most common use case for JWTs is to declare the scope of the access token.
 
 ### Configure the app integration
 
@@ -259,7 +259,7 @@ You can use the [JWT tool](https://jwt.io/) to decode the access token to view t
 
 > **Note:** If your client has DPoP enabled, then you can't add or modify the `cnf` claim using token inline hooks.
 
-## Make a request to a protected resource
+## Make a request to a Non-Okta resource
 
 Now that you have a DPoP-bound access token, you can make requests to DPoP-protected resources. The following example request displays the DPoP-bound access token in the `Authorization` header and the DPoP proof JWT in the `DPoP` header. Values are truncated for brevity.
 
@@ -287,7 +287,7 @@ The following is a high-level overview of the validation steps that the resource
 * Calculate the `jkt` (SHA-256 thumbprint of the public key).
 * Extract the DPoP-bound access token from the `Authorization` header, verify it with Okta, and extract the claims. You can also use the `/introspect` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/introspectCustomAS) to extract the access token claims.
 * Validate the token binding by comparing `jkt` from the access token with the calculated `jkt` from the `DPoP` header.
-<StackSnippet snippet="validate" inline />
+* <StackSnippet snippet="validate" inline />
 
 > **Note:** The resource server must not grant access to the resource unless all checks are successful.
 

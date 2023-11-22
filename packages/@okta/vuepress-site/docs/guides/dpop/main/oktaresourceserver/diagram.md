@@ -16,10 +16,13 @@ autonumber "<b>#."
 client -> client: Generates public/private key pair for use with DPoP
 client -> client: Adds public key to JWT header and signs JWT with private key
 client -> as: Adds JWT to `DPoP` request header and sends request to token endpoint
-as -> client: Verifies `DPoP` header and sends error with `dpop-nonce` header in response
+as -> client: Observes no `nonce` in DPoP JWT, returns error with `dpop-nonce` header
 client -> as: Adds `nonce` and `jti` values to JWT payload and sends request again
 as -> client: Binds public key to access token and sends response
-client -> okta: Sends DPoP-bound access token to Okta
+client -> client: Hashes and then base64-encodes the `access_token` for the `ath` claim
+client -> client: Creates new DPoP proof JWT with new claims, values
+client -> okta: Adds original DPoP-bound access token to **Authorization** request header, new JWT to **DPoP** header
+client -> okta: Sends request to access Okta protected resource
 okta -> client: Validates the DPoP-bound access token and grants access to resource
 @enduml
 
@@ -30,8 +33,10 @@ okta -> client: Validates the DPoP-bound access token and grants access to resou
 1. Client generates a public/private key pair for use with DPoP.
 2. Client adds the public key in the header of the JWT and signs the JWT with the private key.
 3. Client adds the JWT to the `DPoP` request header and sends the request to the `/token` endpoint for an access token.
-4. The authorization server verifies the `DPoP` header and sends back an "Authorization server requires nonce in DPoP proof"  error and includes the `dpop-nonce` header in the response.
+4. The authorization server observes no `nonce` in the `DPoP` JWT, returns error with `dpop-nonce`.
 5. Client adds the `nonce` and `jti` values to the JWT payload, updates the request header with the new JWT value, and sends the access token request again.
 6. The authorization server binds the public key to the access token and sends the response.
-7. Client sends the request for access to the Okta resource and includes the DPoP-bound access token and the DPoP proof JWT in the header.
-8. Okta validates the DPoP-bound access token by verifying that the public key of the DPoP proof JWT in the `DPoP` header matches the public key that the access token is bound to. When validation is successful, Okta grants access.
+7. Client hashes and then base64-encodes the access token for use with the `ath` claim.
+8. Clent creates a DPoP proof JWT with the `ath` claim, the appropriate HTTP verb for `htm`, and the endpoint URL for the resource as the value for `htu`.
+9. Client sends an access request to the Okta resource and includes the DPoP-bound access token as the Authorization request header (**Authorization:** DPoP ${tokenvalue}) and the DPoP proof JWT as the **DPoP:** header.
+10. Okta validates the `ath` claim and the DPoP proof JWT. When validation is successful, Okta grants access.
