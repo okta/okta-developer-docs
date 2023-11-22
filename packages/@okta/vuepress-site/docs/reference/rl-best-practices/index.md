@@ -202,7 +202,7 @@ See the [Core Okta API](/docs/reference/core-okta-api/) for details on each endp
 
 ## Request rate limit exceptions
 
-The size and structure of rate limits can be adjusted. You can request a temporary rate limit increase. For example, if you are importing a large number of users and groups, you may need a temporary rate limit increase. See [How to Request a Temporary Rate Limit Increase](https://support.okta.com/help/s/article/How-can-we-request-to-have-the-rate-limit-for-our-org-temporarily-increased?language=en_US).
+You can adjust the size and structure of rate limits by requesting a temporary rate limit increase. For example, if you are importing a large number of users and groups, you may need a temporary rate limit increase. See [How to Request a Temporary Rate Limit Increase](https://support.okta.com/help/s/article/How-can-we-request-to-have-the-rate-limit-for-our-org-temporarily-increased?language=en_US).
 
 To request an exception, contact [Support](https://support.okta.com/help/open_case) a minimum of 10 days before you need the increase and provide the following details:
 
