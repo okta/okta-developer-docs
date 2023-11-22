@@ -354,7 +354,7 @@ When you return an error object, it should have the following structure:
 |--------------|--------------------------------------|-----------|
 | errorSummary | Human-readable summary of the error  | String    |
 
-> **Note:** If the error object doesn't include the `errorSummary` property defined, the following common default message is returned to the end user: `The callback service returned an error`.
+> **Note:** If the error object doesn't include the defined `errorSummary` property, the following common default message is returned to the end user: `The callback service returned an error`.
 
 ## Timeout behavior
 
