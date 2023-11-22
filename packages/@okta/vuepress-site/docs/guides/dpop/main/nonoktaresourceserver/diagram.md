@@ -16,7 +16,7 @@ autonumber "<b>#."
 client -> client: Generates public/private key pair for use with DPoP
 client -> client: Adds public key to JWT header and signs JWT with private key
 client -> as: Adds JWT to `DPoP` request header and sends request to token endpoint
-as -> client: Verifies `DPoP` header and sends error with `dpop-nonce` header in response
+as -> client: Observes no `nonce` in DPoP JWT, returns error with `dpop-nonce` header
 client -> as: Adds `nonce` and `jti` values to JWT payload and sends request again
 as -> client: Binds public key to access token and sends response
 client -> rs: Sends DPoP-bound access token to resource server
@@ -30,7 +30,7 @@ rs -> client: Validates the DPoP-bound access token and grants access to client
 1. Client generates a public/private key pair for use with DPoP.
 2. Client adds the public key in the header of the JWT and signs the JWT with the private key.
 3. Client adds the JWT to the `DPoP` request header and sends the request to the `/token` endpoint for an access token.
-4. The authorization server verifies the `DPoP` header and sends back an "Authorization server requires nonce in DPoP proof"  error and includes the `dpop-nonce` header in the response.
+4. The authorization server observes no `nonce` in the DPoP proof, returns an error with the `dpop-nonce` header.
 5. Client adds the `nonce` and `jti` values to the JWT payload, updates the request header with the new JWT value, and sends the access token request again.
 6. The authorization server binds the public key to the access token and sends the response.
 7. Client sends the request for access to the resource and includes the DPoP-bound access token and the DPoP proof JWT in the header.

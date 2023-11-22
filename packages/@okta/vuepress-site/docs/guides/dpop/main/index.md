@@ -160,9 +160,12 @@ Follow these steps if you use the [JWT tool](https://jwt.io/). See the [previous
   }
   ```
 
-4. In the **VERIFY SIGNATURE** section, paste the public key (X.509 PEM format) from the previous section in the first box.
-5. Paste the private key (X.509 PEM format) in the second box.
-6. Copy the JWT that appears in the **Encoded** section.
+4. In the **VERIFY SIGNATURE** section:
+
+    * **First box:** Paste the public key (X.509 PEM format) from the previous section.
+    * **Second box:** Paste the private key (X.509 PEM format).
+
+5. Copy the JWT that appears in the **Encoded** section.
 
 ### Build the request
 
@@ -280,14 +283,7 @@ The resource server must perform validation on the access token to complete the 
 
 The following is a high-level overview of the validation steps that the resource server must perform.
 
-* Read the value in the `DPoP` header and decode the DPoP JWT.
-* Get the `jwk` (public key) from the header portion of the DPoP JWT.
-* Verify the signature of the DPoP JWT using the public key and algorithm in the JWT header.
-* Verify that the `htu` and `htm` claims are in the DPoP JWT payload and match with the current API request HTTP method and URL.
-* Calculate the `jkt` (SHA-256 thumbprint of the public key).
-* Extract the DPoP-bound access token from the `Authorization` header, verify it with Okta, and extract the claims. You can also use the `/introspect` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/introspectCustomAS) to extract the access token claims.
-* Validate the token binding by comparing `jkt` from the access token with the calculated `jkt` from the `DPoP` header.
-* <StackSnippet snippet="validate" inline />
+<StackSnippet snippet="validate" />
 
 > **Note:** The resource server must not grant access to the resource unless all checks are successful.
 
