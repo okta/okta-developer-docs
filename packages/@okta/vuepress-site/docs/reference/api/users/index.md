@@ -1185,7 +1185,7 @@ Property names in the search parameter are case sensitive, whereas [operators](/
 
 This operation:
 
-- Supports using the `co` operator in the search parameter with the `profile.firstName`, `profile.lastNameExpressions`, `profile.email`, and `profile.login` attributes.
+- Supports using the `co` operator in the search parameter with the `profile.firstName`, `profile.lastName`, `profile.email`, and `profile.login` attributes.
 - Supports [pagination](/docs/reference/core-okta-api/#pagination).
 - Requires [URL encoding](http://en.wikipedia.org/wiki/Percent-encoding).
   For example, `search=profile.department eq "Engineering"` is encoded as `search=profile.department%20eq%20%22Engineering%22`.
