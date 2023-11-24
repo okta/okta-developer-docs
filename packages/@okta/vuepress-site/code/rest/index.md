@@ -1,5 +1,5 @@
 ---
-title: Test the Okta REST APIs using Postman
+title: Test the Okta REST APIs with Postman
 language: rest
 integration: back-end
 icon: code-rest
@@ -8,25 +8,54 @@ meta:
     content: Get started with Okta REST APIs and learn how to import a collection and send requests in Postman.
 ---
 
-A great way to learn an API is to issue requests and inspect the responses. You can easily use our Postman collections to do just that. To use these collections, you need to set up your local environment and import a collection. You can then send a test request and verify the results.
+A great way to learn an Application Programming Interface (API) is to issue requests and inspect the responses. You can use Okta Postman collections to learn how you can incorporate Okta APIs into your workflow. To use these collections, you need to set up your local environment and import a collection. You can then send a test request and verify the results.
 
 ## Sign up for Okta
 
-You need a free Okta developer edition org to get started. Don't have one? [Create an org for free](https://developer.okta.com/signup). When you create a new Okta org, the org is assigned a base URL such as `dev-1234.okta.com`. This is your unique subdomain in Okta.
+You need a free Okta Developer Edition org to get started. Don't have one? [Create an org for free](https://developer.okta.com/signup). When you create an Okta org, the org is assigned a base URL such as `dev-1234.okta.com`. This is your unique subdomain in Okta.
+
+## Get authentication for Okta APIs
+
+To access Okta APIs from Postman, you need to authenticate with the Okta API resource server. Okta APIs support two authentication options:
+
+* OAuth 2.0 and OpenID Connect
+* API token
+
+You need to either obtain an API token (API key) or an access token to configure the Authorization header of your Postman API requests to Okta. See
+
+* [OpenID Connect authentication](#openid-connect-authentication) to obtain a bearer access token for user authentication that is scoped for specific resources
+* [OAuth 2.0 service app authentication](#oauth-20-service-app-authentication) to obtain a bearer access token for service app authentication that is scoped for specific resources
+* [API token authentication](#api-token-authentication) to obtain an API key for the Okta proprietary `SSWS` authentication scheme
+
+### OpenID Connect authentication
+
+You can [create an OAuth 2.0 access token](/docs/guides/implement-oauth-for-okta/) for use with a number of Okta endpoints.
+
+This is a feature that allows you to interact with Okta APIs using scoped OAuth 2.0 access tokens. Each access token enables the bearer to perform specific actions on specific Okta endpoints, with that ability controlled by which scopes the access token contains.
+
+### OAuth 2.0 service app authentication
+
+[create an OAuth 2.0 access token for service apps](/docs/guides/implement-oauth-for-okta-serviceapp/main/)
+
+### API token authentication
+
+For the `SSWS` Okta propriety authentication scheme, go to the Admin Console to obtain an API token. See [Create an API token](/docs/guides/create-an-api-token/) for your org.
+
+Use this authentication scheme for a quick way to obtain an API token for testing. The token allows you to access a broad range of APIs since there's no scope associated with the token. However, only the Okta user that created the API token can use it, and access to the APIs depend on the privileges of the token-created user. You can't use the API token if the token-created user is deactivated, deleted, lost their access privileges, or if the token expired.
+
+> **Note:** The rate limits for API token requests are reduced by 50 percent. See [Token rate limits](/docs/guides/create-an-api-token/main/#token-rate-limits).
+
+For production usage, Okta recommends the more secure OAuth 2.0 or OIDC authentication schemes.
 
 ## Set up your environment
 
-1. [Create an API token](/docs/guides/create-an-api-token/) for your org.
-
-   > **Note:** Alternatively, you can [create an OAuth 2.0 access token](/docs/guides/implement-oauth-for-okta/) for use with a number of Okta endpoints. This is a feature that allows you to interact with Okta APIs using scoped OAuth 2.0 access tokens. Each access token enables the bearer to perform specific actions on specific Okta endpoints, with that ability controlled by which scopes the access token contains.
-
-2. [Install the Postman app](https://www.getpostman.com/apps).
-3. Start Postman if it's not open already.
-4. In the upper-left corner, click **Import**.
-5. In the **Import** dialog box, click **Link** and then paste the following link into the **Enter a URL** box: `https://developer.okta.com/docs/api/postman/example.oktapreview.com.environment`.
+1. [Install the Postman app](https://www.getpostman.com/apps).
+1. Start Postman if it's not open already.
+1. In the upper-left corner, click **Import**.
+1. In the **Import** dialog box, click **Link** and then paste the following link into the **Enter a URL** box: `https://developer.okta.com/docs/api/postman/example.oktapreview.com.environment`.
    > **Note:** You can also download this environment locally and import it as a file.
-6. Click **Continue** and then **Import** to confirm your environment import.
-7. In the upper-right corner, click the box that lists the environments and then select `${yourOktaDomain}` from the list. The initial value is `No Environment` if you just installed Postman.
+1. Click **Continue** and then **Import** to confirm your environment import.
+1. In the upper-right corner, click the box that lists the environments and then select `${yourOktaDomain}` from the list. The initial value is `No Environment` if you just installed Postman.
 
 <div class="three-quarter">
 
@@ -54,7 +83,8 @@ Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 10. In the **Manage Environments** dialog box, do the following:
     * Click on the environment name, delete the placeholder text, and name your environment, for example: `Test Okta Org`.
     * For the `url` variable, in the **Initial Value** and **Current Value** columns, replace the placeholder text with your org's full URL, for example: `https://dev-1234567.okta.com`. Remember to remove the `-admin` part of your subdomain.
-    * For the `apikey` variable, in the **Initial Value** and **Current Value** columns, enter your API token that you created earlier, for example: `00LzMWxMq_0sdErHy9Jf1sijEGexYZlsdGr9a4QjkS`.
+    * For OAuth 2.0 or OIDC authentication, in the **Initial Value** and **Current Value** columns of the `apikey` variable, enter the access token that you obtained earlier. Pay attention to the expiration of the access token.
+    * For `SSWS` API token authentication, in the **Initial Value** and **Current Value** columns of the `apikey` variable, enter your API token that you created earlier, for example: `00LzMWxMq_0sdErHy9Jf1sijEGexYZlsdGr9a4QjkS`.
 
 <div class="three-quarter">
 
