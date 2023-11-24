@@ -22,7 +22,7 @@
     "test:wait-on-local": "wait-for-localhost 8080 --use-get",
     "markdown-lint": "node scripts/markdown-check",
     "stop-all": "if-env CI=true && exit 0 || pkill -f 'yarn' || echo 'done'",
-    "update-docs": "yarn update-event-types && yarn update-error-codes && yarn update-oauth2-error-codes",
+    "update-docs": "yarn update-event-types && yarn update-error-codes && yarn update-oauth2-error-codes && yarn event-types-to-csv",
     "update-event-types": "bash scripts/update-event-types.sh",
     "update-error-codes": "bash scripts/update-error-codes.sh",
     "update-oauth2-error-codes": "bash scripts/update-oauth2-error-codes.sh",
