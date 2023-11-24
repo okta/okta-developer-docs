@@ -26,6 +26,7 @@
     "update-event-types": "bash scripts/update-event-types.sh",
     "update-error-codes": "bash scripts/update-error-codes.sh",
     "update-oauth2-error-codes": "bash scripts/update-oauth2-error-codes.sh",
+    "event-types-to-csv": "bash scripts/event-types-to-csv.sh",
     "stylelint": "yarn stylelint:scss && yarn stylelint:vue",
     "stylelint:scss": "stylelint \"packages/@okta/vuepress-theme-prose/**/*.scss\"",
     "stylelint:vue": "stylelint \"packages/@okta/vuepress-theme-prose/**/*.vue\"",
