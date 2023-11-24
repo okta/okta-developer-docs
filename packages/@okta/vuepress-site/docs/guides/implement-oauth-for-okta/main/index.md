@@ -25,11 +25,11 @@ This guide explains how to interact with Okta APIs by using scoped OAuth 2.0 acc
 
 ## About OAuth 2.0 for Okta API endpoints
 
-Most Okta API endpoints require that you include an API token with your request. Currently, this API token takes the form of an SSWS token that you generate in the Admin Console. With OAuth for Okta, you are able to interact with Okta APIs using scoped OAuth 2.0 access tokens. Each access token enables the bearer to perform specific actions on specific Okta endpoints, with that ability controlled by which scopes the access token contains.
+Most Okta API endpoints require that you include an API token with your request. Currently, this API token takes the form of an SSWS token that you generate in the Admin Console. With OAuth for Okta, you're able to interact with Okta APIs using scoped OAuth 2.0 access tokens. Each access token enables the bearer to perform specific actions on specific Okta endpoints, with that ability controlled by which scopes the access token contains.
 
 > **Important:** You request an access token by making a call to your Okta [org authorization server](/docs/concepts/auth-servers/#org-authorization-server) `/authorize` endpoint. Only the org authorization server can mint access tokens that contain Okta API scopes. See [Which authorization server should you use](/docs/concepts/auth-servers/#which-authorization-server-should-you-use).
 
-Scoped access tokens have a number of advantages, including:
+Scoped access tokens have several advantages, including:
 
 * More access granularity
 * Shorter token lifespans
@@ -45,7 +45,7 @@ Create the client application that you want to use with the Okta APIs.
 1. Click **Create App Integration**.
 1. On the **Create a new app integration** page, select **OIDC - OpenID Connect** as the **Sign-in method**. Choose **Web Application** for the **Application type**. Creating a web app is an easy way to test scope-based access to Okta's APIs using an OAuth 2.0 bearer token. Click **Next**.
 
-    > **Note:** It is important to choose the appropriate application type for apps that are public clients. Failing to do so may result in Okta API endpoints attempting to verify an app's client secret, which public clients are not designed to have, and would break the sign-in or sign-out flow.
+    > **Note:** It's important to choose the appropriate application type for apps that are public clients. Failing to do so may result in Okta API endpoints attempting to verify an app's client secret, which public clients aren't designed to have, and would break the sign-in or sign-out flow.
 
 1. Enter a name for your app integration.
 1. For the **Grant type**, Okta recommends that you always use the Authorization Code grant flow and clear the **Implicit (hybrid)** checkbox.
@@ -55,14 +55,14 @@ Create the client application that you want to use with the Okta APIs.
 1. In the **Assignments** section, select **Limit access to selected groups** and add a group or **Skip group assignment for now**.
     > **Note:** It is good practice to create and use groups for testing purposes.
 1. Click **Save**. The settings page for the app integration appears, showing the **General** tab. Make note of the **Client ID** and **Client secret** listed in the **Client Credentials** section. You need this information for the [Get an access token and make a request](#get-an-access-token-and-make-a-request) task.
-1. Click the **Assignments** tab and ensure that the right users are assigned to the app. If you skipped assignment during the app integration creation, you must add one or more users now. For instructions on how to assign the app integration to individual users and groups, see the [Assign app integrations](https://help.okta.com/okta_help.htm?id=ext_Apps_Apps_Page-assign) topic in the Okta product documentation. For more information about which users have access to which scopes, see the [Scopes and supported endpoints](#scopes-and-supported-endpoints) section.
+1. Click the **Assignments** tab and ensure that the right users are assigned to the app. If you skipped the assignment during the app integration creation, you must add one or more users now. For instructions on how to assign the app integration to individual users and groups, see the [Assign app integrations](https://help.okta.com/okta_help.htm?id=ext_Apps_Apps_Page-assign) topic in the Okta product documentation. For more information about which users have access to which scopes, see the [Scopes and supported endpoints](#scopes-and-supported-endpoints) section.
 1. Optional. Click the **Application rate limits** tab to adjust the rate-limit capacity percentage for this application. By default, each new application sets this percentage at 50%.
 
 ## Define allowed scopes
 
 When a request is sent to the org authorization server's `/authorize` endpoint, it validates all of the requested scopes in the request against the app's grants collection. The scope is granted if it exists in the app's grants collection.
 
-> **Note:** Only the Super Admin role has permissions to grant scopes to an app.
+> **Note:** Only the Super Admin role has permission to grant scopes to an app.
 
 1. Sign in to your Okta organization with your administrator account.
 1. In the Admin Console, go to **Applications** > **Applications**.
@@ -109,8 +109,8 @@ We recommend that you always use the Authorization Code with PKCE grant flow. Se
 
 1. In Postman, select the request that you want to make, such as a `GET` request to the `/api/v1/users` endpoint to get back a list of all users.
 2. On the **Header** tab, remove the existing SSWS Authorization API Key.
-3. Click the **Authorization** tab and from the **Type** drop-down list, select **OAuth 2.0**.
-4. On the right pane, got to the  **Configure New Token** section.
+3. Click the **Authorization** tab and from the **Type** dropdown list, select **OAuth 2.0**.
+4. On the right pane, go to the  **Configure New Token** section.
 5. In the first field, enter a name for the token and select **Authorization Code (With PKCE)** as the grant type.
 6. Define the remaining fields for the token request:
 
@@ -121,14 +121,14 @@ We recommend that you always use the Authorization Code with PKCE grant flow. Se
     * **Client secret**: Use the `client_secret` of your Okta OAuth 2.0 application that you created in the [Create an OAuth 2.0 app in Okta](#create-an-oauth-2-0-app-in-okta) section.
     * **Code Challenge Method**: Leave the default of `SHA-256` selected.
     * **Code Verifier**: Leave it empty so that Postman generates its own.
-    * **Scope**: Use `okta.users.read` for this example. Include the scopes that allow you to perform the actions on the endpoint that you want to access. The scopes requested for the access token must already exist in the application's grants collection, and the user must have the permission to perform those actions. See [Scopes and supported endpoints](#scopes-and-supported-endpoints).
+    * **Scope**: Use `okta.users.read` for this example. Include the scopes that allow you to perform the actions on the endpoint that you want to access. The scopes requested for the access token must exist in the application's grants collection, and the user must have the permission to perform those actions. See [Scopes and supported endpoints](#scopes-and-supported-endpoints).
     * **State**: Use the default value or any alphanumeric value. The authorization server reflects this string when redirecting the browser back to the client, which your client can verify to help prevent cross-site request forgery attacks.
     * **Client Authentication**: Set to **Send client credentials in body**.
 
-7. Click **Get New Access Token**. You are prompted to sign in to your Okta org. After you are authenticated, the **Manage Access Tokens** window displays the access token, including the scopes requested. The token also automatically populates the **Available Token** drop-down list.
+7. Click **Get New Access Token**. You're prompted to sign in to your Okta org. After you are authenticated, the **Manage Access Tokens** window displays the access token, including the scopes requested. The token also automatically populates the **Available Token** dropdown list.
     > **Note:** The lifetime for this token is fixed at one hour.
 8. Click **Use Token** at the top of the window to use this access token in your request to the `/users` endpoint.
-9. Click **Send**. Since you requested `okta.users.read`, the response should contain an array of all the users associated with your app. This is dependent on the user's permissions.
+9. Click **Send**. Since you requested `okta.users.read`, the response should contain an array of all the users associated with your app. This depends on the user's permissions.
 
 ## Scopes and supported endpoints
 
@@ -146,4 +146,4 @@ The available scopes exist in a hierarchy, so that the `manage` scopes can do ev
 
 The Okta [org authorization server](/docs/concepts/auth-servers/) returns all scopes that you request as long as the client app is permitted to use that scope (granted to the client app). It doesn't matter whether you have permissions for all the scopes that you request. If the scopes requested exist in the app's grants collection, those scopes are sent back in the access token. However, when you make a request to perform an action that you don't have permission to perform, the token doesn't work, and you receive an error.
 
-For example, if you are a Read Only Admin and request an access token that contains the `okta.authorizationServers.manage` scope and that scope exists in the client's grants collection, the access token returned contains that scope. However, the access token doesn't work when you try to modify an authorization server on `/api/v1/authorizationServers` because you lack the permissions.
+For example, if you're a Read Only Admin and request an access token that contains the `okta.authorizationServers.manage` scope and that scope exists in the client's grants collection, the access token returned contains that scope. However, the access token doesn't work when you try to modify an authorization server on `/api/v1/authorizationServers` because you lack the permissions.
