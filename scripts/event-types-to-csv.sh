@@ -1,7 +1,7 @@
 #!/bin/bash
 
 json_file="packages/@okta/vuepress-site/data/event-types.json"
-csv_file="packages/@okta/vuepress-site/data/event-types-output.csv"
+csv_file="packages/@okta/vuepress-site/.vuepress/public/docs/okta-event-types.csv"
 
 # Check if JSON is available
 if [ ! -f "$json_file" ]; then
