@@ -1,6 +1,6 @@
 <template>
-  <section 
-    class="signup" 
+  <section
+    class="signup"
     vue-if="!isRegionLoading"
   >
     <div class="signup__wrapper">
@@ -9,23 +9,23 @@
       </div>
       <div>
         <h1 class="signup__title">
-          Choose what works best. 
+          Choose what works best.
           <span>Sign up is free.</span>
         </h1>
-        <div 
+        <div
           class="signup__items"
           :class="[formHidden ? 'active' : '']"
         >
           <div class="signup__item">
             <div class="signup__item__title">
               Customer <br> Identity Cloud
-              <img 
-                class="signup__item__title-logo" 
-                src="/img/signup-item-logo.svg" 
+              <img
+                class="signup__item__title-logo"
+                src="/img/signup-item-logo.svg"
               >
-              <img 
-                class="signup__item__title-logo signup__item__title-logo-white" 
-                src="/img/signup-item-logo-white.svg" 
+              <img
+                class="signup__item__title-logo signup__item__title-logo-white"
+                src="/img/signup-item-logo-white.svg"
               >
             </div>
             <div class="signup__description">
@@ -49,8 +49,8 @@
                 </div>
               </div>
               <div class="signup__link signup__link-dark">
-                <a 
-                  href="https://auth0.com/signup?utm_medium=referral&utm_source=okta&utm_campaign=okta-signup-referral-21-09-27&utm_content=signup&promo=sup&ocid=7014z000001cbvjAAA-aPA4z0000008OZeGAM" 
+                <a
+                  href="https://auth0.com/signup?utm_medium=referral&utm_source=okta&utm_campaign=okta-signup-referral-21-09-27&utm_content=signup&promo=sup&ocid=7014z000001cbvjAAA-aPA4z0000008OZeGAM"
                   target="_blank"
                 >
                   <span>Try Customer Identity Cloud <i>→</i></span>
@@ -83,8 +83,8 @@
                 </div>
               </div>
               <div class="signup__link">
-                <a 
-                  href="https://okta.com/free-trial/workforce-identity" 
+                <a
+                  href="https://okta.com/free-trial/workforce-identity"
                   target="_blank"
                 >
                   <span>Try Workforce Identity Cloud <i>→</i></span>
@@ -118,7 +118,7 @@
                 </div>
               </div>
               <div class="signup__link signup__trigger">
-                <button 
+                <button
                   type="button"
                   @click="hideForm()"
                 >
@@ -128,8 +128,8 @@
               </div>
             </div>
           </div>
-          <div 
-            class="signup__popup" 
+          <div
+            class="signup__popup"
             :class="formHidden ? 'active' : ''"
           >
             <div class="signup__popup__container">
@@ -145,11 +145,11 @@
                 </h2>
                 <span>Already signed up? <a href="/login">Log in here.</a></span>
               </div>
-              <div 
+              <div
                 class="signup__popup__close"
                 @click="hideForm()"
               />
-              <form 
+              <form
                 id="signupForm"
                 class="signup__form"
                 @submit="submitForm"
@@ -265,8 +265,8 @@
                       "
                     >
                       <option
-                        value="" 
-                        disabled 
+                        value=""
+                        disabled
                         selected
                       >Select...</option>
                       <option
@@ -311,8 +311,8 @@
                       @focusout="setHeight()"
                     >
                       <option
-                        value="" 
-                        disabled 
+                        value=""
+                        disabled
                         selected
                       >Select...</option>
                       <option
@@ -326,17 +326,17 @@
                       class="error-color error-msg"
                     >{{ validationService.errorDictionary.emptyField }}</span>
                     <div class="signup__form__chevron">
-                      <svg 
-                        width="16" 
-                        height="16" 
-                        viewBox="0 0 16 16" 
-                        fill="none" 
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
                         xmlns="http://www.w3.org/2000/svg"
                       >
-                        <path 
-                          fill-rule="evenodd" 
-                          clip-rule="evenodd" 
-                          d="M8.00007 9.9394L12.4697 5.46973L13.5304 6.53039L8.5304 11.5304C8.2375 11.8233 7.76263 11.8233 7.46973 11.5304L2.46974 6.53039L3.5304 5.46973L8.00007 9.9394Z" 
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M8.00007 9.9394L12.4697 5.46973L13.5304 6.53039L8.5304 11.5304C8.2375 11.8233 7.76263 11.8233 7.46973 11.5304L2.46974 6.53039L3.5304 5.46973L8.00007 9.9394Z"
                           fill="#191919"
                         />
                       </svg>
@@ -458,12 +458,12 @@
         <div class="signup__footer">
           <p>
             <span>Not sure what to choose?</span> <span>Learn more about</span>
-            <a 
-              target="_blank" 
+            <a
+              target="_blank"
               href="https://www.okta.com/workforce-identity/"
             > Workforce Identity</a> <span class="hidden">and</span>
-            <a 
-              target="_blank" 
+            <a
+              target="_blank"
               href="https://www.okta.com/customer-identity/"
             > Customer Identity
             </a>
@@ -643,6 +643,7 @@ export default {
         // make api call
         const { baseUri, registrationPolicyId } = this.$site.themeConfig.uris;
         const registrationPath = `/api/v1/registration/${registrationPolicyId}/register`;
+        const analyticsValues = getAnalyticsValues();
         const body = {
           userProfile: {
             email: this.form.email.value,
@@ -654,7 +655,7 @@ export default {
             captchaResponse: this.form.captcha.value,
             okta_oie: true,
             // Merge in analytics tracking data
-            ...this.analyticsValues,
+            ...analyticsValues,
           },
         };
 

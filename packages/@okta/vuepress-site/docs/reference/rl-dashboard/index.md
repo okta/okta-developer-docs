@@ -89,6 +89,8 @@ Each API is a link that navigates you to the [dashboard view of API rate limits 
 
 You can perform a search in your table list by making an entry in the Search box. You can also perform a "lookup" with the Search. For example, you're calling Okta with an example `requestURI` and you want to know the rate limit that is applied to calls that are made against that `requestURI`.
 
+API endpoints in the dashboard that end with an asterisk (for example, `/api/v1/users/*`) generally refer to calls that use that base schema and count towards the overall limit, unless the endpoint is specifically called out in the dashboard. It's also important to note the HTTP operation involved with each call, as the same call with different operations can count towards different limits.
+
 > **Note:** You can view rate limits for endpoints that include parameter matching of the form `?{parameter}=*`. For example, `api/v1/users?search=*` returns all rate limit data on user searches.
 
 ### Change rate limit settings
@@ -121,7 +123,7 @@ Rate limit violations generate system log events, entries in the rate limit moni
 
 The dashboard enables you to view an API, the current rate limit for each API, and usage of the API over a period of time. You can select the API of interest and get additional details such as the API's average usage and the top 10 IPs that are consuming the most traffic for the API.
 
-You can investigate high use of a rate limit, bursts, or a rate limit violation. After you know the issue, you can take the appropriate corrective action. For example, if the issue is high traffic, you may want to increase the rate limits. In cases where the issue is a rogue app or bad script, you can disable the app or block that traffic. Whatever the issue is, you can remediate the issue through self-service. In cases where a higher rate limit is required, you can create a support case for a rate limit increase to the correct team.
+You can investigate high use of a rate limit, bursts, or a rate limit violation. After you know the issue, you can take the appropriate corrective action. For example, if the issue is high traffic, you may want to increase the rate limits. In cases where the issue is a rogue app or bad script, you can disable the app or block that traffic. Whatever the issue is, you can remediate the issue through self-service. In cases where a higher rate limit is required, you can create a support case for a rate limit increase to the correct team, see [How to Request a Temporary Rate Limit Increase](https://support.okta.com/help/s/article/How-can-we-request-to-have-the-rate-limit-for-our-org-temporarily-increased?language=en_US).
 
 ### Open the dashboard to investigate warnings and violations
 
@@ -170,7 +172,7 @@ A customer can additionally purchase the rate limit multiplier, which is an add-
 
 </div>
 
-The key benefit of purchasing the rate limit multiplier, therefore getting an increased rate limit, isn't to stop end users from using an application. The rate limit multiplier is based on the customer's org and what the expected use would be. If a customer has dynamic scale, the info icon beside **Rate Limit** in the overview pane indicates which tier was purchased, and the graphs in the [Rate limit usage over time pane] reflect the applied rate limit multiplier. To purchase the rate limit multiplier, either create a support ticket or contact your customer support representative.
+The key benefit of purchasing the rate limit multiplier, therefore getting an increased rate limit, isn't to stop end users from using an application. The rate limit multiplier is based on the customer's org and what the expected use would be. If a customer has dynamic scale, the info icon beside **Rate Limit** in the overview pane indicates which tier was purchased, and the graphs in the [Rate limit usage over time pane](#rate-limit-usage-over-time-pane) reflect the applied rate limit multiplier. To purchase the rate limit multiplier, either create a support ticket or contact your customer support representative.
 
 #### Rate limit usage over time pane
 
@@ -208,7 +210,7 @@ Click an IP address, API token, or Application bar to view the associated traffi
 
 ### Investigate the rate limit violation
 
-Each graph, either by itself or combined, provides you with multiple views that display the information about the rate limit violation. You can also refer to the help information on the dashboard when yo're trying to figure out the rate limit violation to see if it fits into one of the common scenarios most likely to happen.
+Each graph, either by itself or combined, provides you with multiple views that display the information about the rate limit violation. You can also refer to the help information on the dashboard when you're trying to figure out the rate limit violation to see if it fits into one of the common scenarios most likely to happen.
 
 #### Combination of the line graph and bar graph view
 
@@ -226,6 +228,8 @@ The bar graph compares a rogue IP or App with other IPs or Apps. For example, th
 
 ### Potential next steps
 
-If you find that the rate limit usage is generally high, you may want to adjust your rate limit maximums. If your company is planning an upcoming event, such as an upcoming marketing campaign, you may want to figure out the rate limit capacity that you'd need. In both cases, Okta recommends that you contact Okta support to determine and adjust your rate limits.
+If you find that the rate limit usage is generally high, you may want to adjust your rate limit maximums. If your company is planning an upcoming event, such as an upcoming marketing campaign, you may want to figure out the rate limit capacity that you'd need. In both cases, Okta recommends that you contact Okta support to determine and adjust your rate limits, see [How to Request a Temporary Rate Limit Increase](https://support.okta.com/help/s/article/How-can-we-request-to-have-the-rate-limit-for-our-org-temporarily-increased?language=en_US).
 
 If the usage is high over a long period, you may need to lower the usage. This means that if high traffic usage points to a particular offender, you would need to inform or block the offender (such as a malfunctioning app, a bad script, or a rogue user) that is causing the traffic. For example, you can either reach out to the team that writes the script or block the user or application that is causing the traffic.
+
+See also [Rate limit best practices](/docs/reference/rl-best-practices/).
