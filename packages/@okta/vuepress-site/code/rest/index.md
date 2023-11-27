@@ -21,17 +21,93 @@ To access Okta APIs from Postman, you need to authenticate with the Okta API res
 * OAuth 2.0 and OpenID Connect
 * API token
 
-You need to either obtain an API token (API key) or an access token to configure the Authorization header of your Postman API requests to Okta. See
+You need to either obtain an API token (API key) or an OAuth 2.0 access token to configure the Authorization header of your Postman API requests to Okta. See
 
-* [OpenID Connect authentication](#openid-connect-authentication) to obtain a bearer access token for user authentication that is scoped for specific resources
-* [OAuth 2.0 service app authentication](#oauth-20-service-app-authentication) to obtain a bearer access token for service app authentication that is scoped for specific resources
-* [API token authentication](#api-token-authentication) to obtain an API key for the Okta proprietary `SSWS` authentication scheme
+* [OpenID Connect (OIDC) authentication](#openid-connect-authentication): to obtain a bearer access token for user authentication that is scoped for specific resources
+* [OAuth 2.0 service app authentication](#oauth-20-service-app-authentication): to obtain a bearer access token for service app authentication that is scoped for specific resources
+* [API token authentication](#api-token-authentication): to obtain an API token for the Okta proprietary `SSWS` authentication scheme
 
 ### OpenID Connect authentication
 
-You can [create an OAuth 2.0 access token](/docs/guides/implement-oauth-for-okta/) for use with a number of Okta endpoints.
+If your use case requires you to access a limited number Okta endpoints as a specific user, you can use an OIDC access token in the Authorization header of your API requests. The OIDC access token enables the bearer to perform specific actions on specific Okta endpoints, which is controlled by the scopes defined in the access token.
 
-This is a feature that allows you to interact with Okta APIs using scoped OAuth 2.0 access tokens. Each access token enables the bearer to perform specific actions on specific Okta endpoints, with that ability controlled by which scopes the access token contains.
+Scoped access tokens have several advantages, including:
+
+* More access granularity
+* Shorter token lifespans
+* Can be generated and retrieved using an API
+
+> **Note:** For a detailed guide on OIDC access tokens, see [Implement OAuth for Okta](/docs/guides/implement-oauth-for-okta/).
+
+#### Create an OIDC app in Okta
+
+First, you need to create an OIDC app integration that you can define your scope-based access to Okta APIs.
+
+1. [Sign in](https://developer.okta.com/login) to your Okta org Admin Console as a user with administrative privileges.
+1. In the Admin Console, go to **Applications** > **Applications**.
+1. Click **Create App Integration**.
+1. On the **Create a new app integration** page, select **OIDC - OpenID Connect** as the **Sign-in method**. Choose **Web Application** for the **Application type**. Creating a web app is an easy way to test scope-based access to Okta's APIs using an OAuth 2.0 bearer token. Click **Next**.
+1. Enter a name for your app integration.
+1. For the **Grant type**, use the **Authorization Code** grant flow that is already selected.
+1. In the **Sign-in redirect URIs** box, specify the callback location where Okta returns a browser (along with the token) after the user finishes authenticating. You can use the default values for testing purposes.
+1. In the **Assignments** section, select **Limit access to selected groups** and add a group or **Skip group assignment for now**. It's good practice to create and use groups for testing purposes.
+1. Click **Save**. The settings page for the app integration appears, showing the **General** tab. Make note of the **Client ID** and **Client secret** listed in the **Client Credentials** section. You need this information for the [Get an access token and make a request](#get-an-access-token-and-make-a-request) task.
+1. Click the **Assignments** tab and ensure that the right users are assigned to the app. If you skipped the assignment during the app integration creation, you must add one or more users now. For instructions on how to assign the app integration to individual users and groups, see the [Assign app integrations](https://help.okta.com/okta_help.htm?id=ext_Apps_Apps_Page-assign) topic in the Okta product documentation. For more information about which users have access to which scopes, see the [Scopes and supported endpoints](#scopes-and-supported-endpoints) section.
+1. Optional. Click the **Application rate limits** tab to adjust the rate-limit capacity percentage for this application. By default, each new application sets this percentage at 50%.
+
+#### Define allowed scopes for your OIDC app integration
+
+When a request is sent to the org authorization server's `/authorize` endpoint, it validates all of the requested scopes in the request against the app's grants collection. The scope is granted if it exists in the app's grants collection.
+
+> **Note:** Only the Super Admin role has permission to grant scopes to an app.
+
+1. Sign in to your Okta org with your administrator account.
+1. In the Admin Console, go to **Applications** > **Applications**.
+1. Select the OpenID Connect (OIDC) app that needs grants added.
+1. Select the **Okta API Scopes** tab and then click **Grant** for each of the scopes that you want to add to the app's grant collection.
+
+> **Note:** You can find a list of available Okta scopes and their descriptions in [OAuth 2.0 Scopes](https://developer.okta.com/docs/api/oauth2/).
+
+#### Get an OIDC access token and make a request
+
+You can get an access token and make a request to an endpoint after you have the following:
+
+* An Okta OpenID Connect app
+* One or more grants associated with that app
+* Users with appropriate permissions associated with the app
+* Users with appropriate administrator permissions in Okta
+
+Request an access token by making a request to your Okta [org authorization server](/docs/concepts/auth-servers/) `/authorize` endpoint. Only the org authorization server can mint access tokens that contain Okta API scopes.
+
+> **Note:** See [Token lifetime](/docs/reference/api/oidc/#token-lifetime) for more information on hard-coded and configurable token lifetimes.
+
+This page helps you build a request in Postman.
+
+We recommend that you always use the Authorization Code with PKCE grant flow. See [Implement the Authorization Code with PKCE flow](/docs/guides/implement-grant-type/authcodepkce/main/) for details on this grant type.
+
+1. In Postman, select the request that you want to make, such as a `GET` request to the `/api/v1/users` endpoint to get back a list of all users.
+2. On the **Header** tab, remove the existing SSWS Authorization API Key.
+3. Click the **Authorization** tab and from the **Type** dropdown list, select **OAuth 2.0**.
+4. On the right pane, go to the **Configure New Token** section.
+5. In the first field, enter a name for the token and select **Authorization Code (With PKCE)** as the grant type.
+6. Define the remaining fields for the token request:
+
+    * **Callback URL**: Define the callback location where Okta returns the token after the user finishes authenticating. This URL must match one of the redirect URIs that you configured in the [Create an OAuth 2.0 app in Okta](#create-an-oauth-2-0-app-in-okta) section.
+    * **Auth URL**: Enter the authorization endpoint for your org authorization server, for example, `https://${yourOktaDomain}/oauth2/v1/authorize`.
+    * **Access Token URL**: Enter the token endpoint for your org authorization server, for example, `https://${yourOktaDomain}/oauth2/v1/token`.
+    * **Client ID**: Use the `client_id` of your Okta OAuth 2.0 application that you created in the [Create an OAuth 2.0 app in Okta](#create-an-oauth-2-0-app-in-okta) section.
+    * **Client secret**: Use the `client_secret` of your Okta OAuth 2.0 application that you created in the [Create an OAuth 2.0 app in Okta](#create-an-oauth-2-0-app-in-okta) section.
+    * **Code Challenge Method**: Leave the default of `SHA-256` selected.
+    * **Code Verifier**: Leave it empty so that Postman generates its own.
+    * **Scope**: Use `okta.users.read` for this example. Include the scopes that allow you to perform the actions on the endpoint that you want to access. The scopes requested for the access token must exist in the application's grants collection, and the user must have the permission to perform those actions. See [Scopes and supported endpoints](#scopes-and-supported-endpoints).
+    * **State**: Use the default value or any alphanumeric value. The authorization server reflects this string when redirecting the browser back to the client, which your client can verify to help prevent cross-site request forgery attacks.
+    * **Client Authentication**: Set to **Send client credentials in body**.
+
+7. Click **Get New Access Token**. You're prompted to sign in to your Okta org. After you are authenticated, the **Manage Access Tokens** window displays the access token, including the scopes requested. The token also automatically populates the **Available Token** dropdown list.
+    > **Note:** The lifetime for this token is fixed at one hour.
+8. Click **Use Token** at the top of the window to use this access token in your request to the `/users` endpoint.
+9. Click **Send**. Since you requested `okta.users.read`, the response should contain an array of all the users associated with your app. This depends on the user's permissions.
+
 
 ### OAuth 2.0 service app authentication
 
@@ -39,15 +115,15 @@ This is a feature that allows you to interact with Okta APIs using scoped OAuth 
 
 ### API token authentication
 
-For the `SSWS` Okta propriety authentication scheme, go to the Admin Console to obtain an API token. See [Create an API token](/docs/guides/create-an-api-token/) for your org.
+For the `SSWS` Okta propriety authentication scheme, go to the Admin Console of your Okta org to obtain an API token. See [Create an API token](/docs/guides/create-an-api-token/) for your org.
 
-Use this authentication scheme for a quick way to obtain an API token for testing. The token allows you to access a broad range of APIs since there's no scope associated with the token. However, only the Okta user that created the API token can use it, and access to the APIs depend on the privileges of the token-created user. You can't use the API token if the token-created user is deactivated, deleted, lost their access privileges, or if the token expired.
+Use this authentication scheme to quickly test various Okta endpoints. The token allows you to access a broad range of APIs since there's no scope associated with the token. However, only the Okta user that created the API token can use it, and access to the APIs depend on the privileges of the token-created user. You can't use the API token if the token-created user is deactivated, deleted, lost their access privileges, or if the token expired.
 
 > **Note:** The rate limits for API token requests are reduced by 50 percent. See [Token rate limits](/docs/guides/create-an-api-token/main/#token-rate-limits).
 
 For production usage, Okta recommends the more secure OAuth 2.0 or OIDC authentication schemes.
 
-## Set up your environment
+## Set up your environment with SSWS authentication scheme
 
 1. [Install the Postman app](https://www.getpostman.com/apps).
 1. Start Postman if it's not open already.
