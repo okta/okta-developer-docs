@@ -5,7 +5,7 @@
 * Calculate the `jkt` (SHA-256 thumbprint of the public key).
 * Extract the DPoP-bound access token from the `Authorization` header, verify it with Okta, and extract the claims. You can also use the `/introspect` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/introspectCustomAS) to extract the access token claims.
 * Validate the token binding by comparing `jkt` from the access token with the calculated `jkt` from the `DPoP` header.
-* If presented to an Okta protected resource in conjunction with an access token, The Okta resource server verifies that:
+* If presented to an Okta protected resource with an access token, The Okta resource server verifies that:
 
   * The value of the `ath` claim equals the hash of the access token
   * The public key to which the access token is bound matches the public key from the DPoP proof

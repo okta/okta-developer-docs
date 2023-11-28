@@ -17,14 +17,14 @@ This guide discusses how to create sender-constrained access tokens that are an 
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
 * [Glitch](https://glitch.com/) project or account
-* The OAuth 2.0 Demonstrating Proof-of-Possession feature enabled for your org. From the left navigation pane in the Admin Console, go to **Settings** > **Features**, locate the OAuth 2.0 Demonstrating Proof-of-Possession feature and enable.
+* The OAuth 2.0 Demonstrating Proof-of-Possession feature enabled for your org. From the left navigation pane in the Admin Console, go to **Settings** > **Features**, locate the OAuth 2.0 Demonstrating Proof-of-Possession feature, and enable.
 * <StackSnippet snippet="whatyouneed" />
 
 ---
 
 ## Overview
 
-OAuth 2.0 Demonstrating Proof-of-Possession (DPoP) helps prevent unauthorized or illegitimate parties from using leaked or stolen access tokens. When you use DPoP, you create an application-level mechanism to sender-constrain both access and refresh tokens, which helps prevent token replays at different endpoints.
+OAuth 2.0 Demonstrating Proof-of-Possession (DPoP) helps prevent unauthorized parties from using leaked or stolen access tokens. When you use DPoP, you create an application-level mechanism to sender-constrain both access and refresh tokens. This helps prevent token replays at different endpoints.
 
 > **Note:** The Okta DPoP feature is based on the current [RFC](https://datatracker.ietf.org/doc/html/rfc9449).
 
@@ -38,7 +38,7 @@ DPoP enables a client to prove possession of a public/private key pair by includ
 
 ## Configure DPoP
 
-This section explains how to configure DPoP in your org and create a DPoP proof (JWT) to obtain a DPoP-bound access token. A JWT is a compact, URL-safe way to represent claims transferred between two parties. The most common use case for JWTs is to declare the scope of the access token.
+This section explains how to configure DPoP in your org, and then how to create a DPoP proof (JWT) to obtain a DPoP-bound access token. A JWT is a compact, URL-safe way to represent claims transferred between two parties. The most common use case for JWTs is to declare the scope of the access token.
 
 ### Configure the app integration
 
@@ -89,7 +89,7 @@ In the POST (create the client app) or PUT (update the client app) request, add 
 
 ### Create a JSON Web Key
 
-Create a [JSON Web Key](https://www.rfc-editor.org/rfc/rfc7517) (JWK) for use with DPoP. A JWK is a cryptographic key or key pair expressed in JSON format. You use the generated public and private key to sign the JSON Web Token (JWT) for use with DPoP in the next section.
+Create a [JSON Web Key](https://www.rfc-editor.org/rfc/rfc7517) (JWK) for use with DPoP. A JWK is a cryptographic key or key pair expressed in JSON format. You use the generated public and private keys to sign the JSON Web Token (JWT) for use with DPoP in the next section.
 
 > **Note:** The JWK that's used for DPoP authentication is separate from the JWK used for client authentication.
 
@@ -133,10 +133,10 @@ Include the following required claims in the JWT payload:
 Follow these steps if you use the [JWT tool](https://jwt.io/). See the [previous section](#parameters-and-claims) for parameter and claim descriptions.
 
 1. Select **RS256** as the **Algorithm**.
-2. In the **HEADER** section, build the JWT header by including the public key from the public/private key pair that you created in the [previous section](#create-a-json-web-key).
+2. Build the JWT header in the **HEADER** section. Include the public key from the public/private key pair generated in the [previous section](#create-a-json-web-key).
 
-```json
-  {
+  ```json
+    {
       "typ": "dpop+jwt",
       "alg": "RS256",
       "jwk": {
@@ -146,18 +146,18 @@ Follow these steps if you use the [JWT tool](https://jwt.io/). See the [previous
         "kid": "XUl71vpgPXgxSTCYHbvbEHDrtj-adpVcxXH3TKjKe7w",
         "alg": "RS256",
         "n": "4LuWNeMa7.....zLvDWaJsF0"
+      }
     }
-  }
-```
+  ```
 
 3. In the **PAYLOAD** section, build the JWT payload and include the following claims:
 
-```json
-  {
-    "htm": "POST",
-    "htu": "http://${yourOktaDomain}/oauth2/default/v1/token",
-    "iat": 1516239022
-  }
+  ```json
+    {
+      "htm": "POST",
+      "htu": "http://${yourOktaDomain}/oauth2/default/v1/token",
+      "iat": 1516239022
+    }
   ```
 
 4. In the **VERIFY SIGNATURE** section:
@@ -289,7 +289,7 @@ The following is a high-level overview of the validation steps that the resource
 
 For instructional purposes, this guide provides example validation in a Node.js Express app using the third-party site Glitch. Glitch is a browser-based development environment that can build a full-stack web application online. Use the Glitch example to review and quickly implement the validation code. It includes all dependencies required to complete validation.
 
-Copy (remix on Glitch) the [Validation DPoP Tokens](https://glitch.com/~validate-dpop-tokens) Glitch project to have a working code sample. The validation steps at the beginning of this section are included in the code for quick implementation.
+Copy (remix on Glitch) the [Validation DPoP Tokens](https://glitch.com/~validate-dpop-tokens) Glitch project to have a functional code sample. The validation steps at the beginning of this section are included in the code for quick implementation.
 
 > **Note:** See [Libraries for Token Signing/Verification](https://jwt.io/libraries) to view other libraries/SDKs in different languages that you can use for JWT verification.
 

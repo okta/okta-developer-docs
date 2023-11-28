@@ -1,13 +1,13 @@
 ## Make a request to an Okta resource
 
-Access to an Okta resource requires additional steps.
+Access to an Okta resource requires more steps.
 
 1. Hash and base64url-encode the DPoP-bound access token for use as the `ath` value.
-1. Use the [Create the JSON Web Token](#create-the-json-web-token) section to create a new DPoP proof JWT with the following claims:
+1. Use the [Create the JSON Web Token](#create-the-json-web-token) section to create a DPoP proof JWT with the following claims:
 
     Include the following required claims in the JWT payload:
 
-    * `ath`: Base64url-encoded SHA-256 hash [SHS] of the DPoP-bound access token
+    * `ath`: Base64-encoded SHA-256 hash [SHS] of the DPoP-bound access token
     * `htm`: HTTP method. The HTTP method of the request that the JWT is attached to. This value is the appropriate HTTP verb for the request. For example: `GET`.
     * `htu`: HTTP URI. The endpoint URL for the resource that you want to access. For example: `http://${yourOktaDomain}/api/v1/${api_endpoint}`.
     * `iat`: Issued at. Identifies the time at which the JWT is issued. The time appears in seconds since the Unix epoch. The Unix epoch is the number of seconds that have elapsed since January 1, 1970 at midnight UTC.
