@@ -1,9 +1,9 @@
-### Make a request to an Okta resource
+## Make a request to an Okta resource
 
 Access to an Okta resource requires additional steps.
 
 1. Hash and base64url-encode the DPoP-bound access token for use as the `ath` value.
-1. Use the [Create the JSON Web Token](#create-the-json-web-token) section to create a new DPoP proof JWT with a few claim exceptions:
+1. Use the [Create the JSON Web Token](#create-the-json-web-token) section to create a new DPoP proof JWT with the following claims:
 
     Include the following required claims in the JWT payload:
 
@@ -24,6 +24,8 @@ Access to an Okta resource requires additional steps.
         "jti": "123456788"
     }
     ```
+
+    > **Note:** The `nonce` parameter isn't currently required in this DPoP JWT.
 
 1. Build the request to the resource that you want to access. Include the following values:
 

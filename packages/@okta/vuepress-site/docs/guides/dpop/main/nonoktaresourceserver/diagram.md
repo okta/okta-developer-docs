@@ -3,6 +3,7 @@
 ![Sequence diagram that displays the back and forth between the client, authorization server, and resource server for Demonstrating Proof-of-Possession](/img/authorization/Dpopflow.png)
 
 </div>
+<!-- Figma link to image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for[…]ype=design&node-id=3812-38914&mode=design&t=0DH5bIOV514lXCA8-4 -->
 
 <!-- Source for image. Generated using http://www.plantuml.com/plantuml/uml/
 

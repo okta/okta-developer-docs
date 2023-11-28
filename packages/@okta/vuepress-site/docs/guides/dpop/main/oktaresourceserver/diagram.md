@@ -1,8 +1,10 @@
 <div class="three-quarter">
 
-![Sequence diagram that displays the back and forth between the client, authorization server, and Okta for Demonstrating Proof-of-Possession](/img/authorization/Dpopflow.png)
+![Sequence diagram that displays the back and forth between the client, authorization server, and Okta for Demonstrating Proof-of-Possession](/img/authorization/DPoPOktaResource.png)
 
 </div>
+
+<!-- https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?type=design&node-id=4459-34299&mode=design&t=QeayUk85pzPPTezF-4 -->
 
 <!-- Source for image. Generated using http://www.plantuml.com/plantuml/uml/
 

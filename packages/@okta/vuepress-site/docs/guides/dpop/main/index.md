@@ -262,7 +262,7 @@ You can use the [JWT tool](https://jwt.io/) to decode the access token to view t
 
 > **Note:** If your client has DPoP enabled, then you can't add or modify the `cnf` claim using token inline hooks.
 
-## Make a request to a Non-Okta resource
+## Make a request to a non-Okta resource
 
 Now that you have a DPoP-bound access token, you can make requests to DPoP-protected resources. The following example request displays the DPoP-bound access token in the `Authorization` header and the DPoP proof JWT in the `DPoP` header. Values are truncated for brevity.
 
