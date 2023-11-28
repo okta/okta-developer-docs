@@ -24,7 +24,7 @@ To access Okta APIs from Postman, you need to authenticate with the Okta API res
 You need to either obtain an API token (API key) or an OAuth 2.0 access token to configure the Authorization header of your Postman API requests to Okta. See
 
 * [OpenID Connect (OIDC) authentication](#openid-connect-authentication): to obtain a bearer access token for user authentication that is scoped for specific resources
-* [OAuth 2.0 service app authentication](#oauth-20-service-app-authentication): to obtain a bearer access token for service app authentication that is scoped for specific resources
+* [OAuth 2.0 service app authentication](#oauth-20-service-app-authentication): to obtain a bearer access token for service app authentication that is scoped for specific resources (access is not associated with an Okta user)
 * [API token authentication](#api-token-authentication): to obtain an API token for the Okta proprietary `SSWS` authentication scheme
 
 ### OpenID Connect authentication
