@@ -4,11 +4,11 @@ title: Plan embedded auth app upgrades
 
 <ApiLifecycle access="ie" />
 
-We understand that upgrades can be stressful. We've carefully considered how you can break up the upgrade steps to ensure that you maintain the best user experience across your applications.
+Okta understands that upgrades can be stressful. The upgrade steps are broken up to ensure that you maintain the best user experience across your applications.
 
-We don’t recommend doing this upgrade all at once, but rather in sections with breaks for testing. This process is designed to be non-disruptive and iterative over time. Make the upgrade steps part of your normal product development process.
+Okta doesn't recommend doing this upgrade all at once, but rather in sections with breaks for testing. This process is designed to be non-disruptive and iterative over time. Make the upgrade steps part of your normal product development process.
 
-After the [initial upgrade process](/docs/guides/oie-upgrade-overview/#upgrade-process) is complete for your orgs, there are more steps that you should walk through to finish the upgrade. Which steps that you take are related to your deployment model and should be carefully planned.
+After the [initial upgrade process](/docs/guides/oie-upgrade-overview/#upgrade-process) is completed for your orgs, there are more steps that you should walk through to finish the upgrade. Which steps that you take are related to your deployment model and should be carefully planned.
 
 ## Prioritize and plan your upgrade
 
@@ -16,16 +16,16 @@ Prioritize and roadmap the changes to your applications. Then, take breaks to te
 
 Also, create continuous pieces of work that your team must do to fully upgrade to Okta Identity Engine. For example, complete steps one and two, and then test and take a break from upgrade tasks for a month or two. Complete step three and take a break before completing steps four and five, and so on.
 
-## What’s your scenario?
+## What's your scenario?
 
-While it isn’t possible to fully document every upgrade scenario, the following stages cover the most common scenarios. These steps are't all-inclusive. See the associated documentation in each stage for more detailed steps that you can use to plan and prioritize your process.
+While it isn't possible to fully document every upgrade scenario, the following stages cover the most common scenarios. These steps aren't all-inclusive. See the associated documentation in each stage for more detailed steps that you can use to plan and prioritize your process.
 
 * [Redirecting to the Okta-hosted Sign-In Widget](#update-the-okta-hosted-sign-in-widget)
 * [Embedding our Sign-In Widget](#update-the-embedded-sign-in-widget)
 * [Embedding your authentication with our SDKs](#upgrade-sdks-to-the-latest-version-in-your-apps)
 * [Using the Okta APIs](#upgrade-from-using-the-okta-authentication-apis)
 
-See [Roll the upgrade out to your users](#roll-the-upgrade-out-to-your-users) for suggestions on roadmapping your upgrade rollout.
+See [Roll the upgrade out to your users](#roll-the-upgrade-out-to-your-users) for suggestions on creating a roadmap for your upgrade rollout.
 
 ## Update the Okta-hosted Sign-In Widget
 
@@ -38,7 +38,7 @@ When you're embedding the widget, consider and plan for the following steps depe
 * [Update your widget](/docs/guides/oie-upgrade-sign-in-widget) to the latest version.
 * [Add support for the Interaction Code](/docs/guides/implement-grant-type/interactioncode/main/#set-up-your-authorization-server) in your custom authorization servers and embedded auth applications.
 * [Use CORS to locate potential integrations](/docs/guides/enable-cors/main/). You can use the CORS URL to isolate where an SDK is initialized.
-* [Change your embedded Sign-In Widget’s configuration](/docs/guides/oie-embedded-common-download-setup-app/java/main/#initialize-the-sign-in-widget) to support the Interaction Code grant type in your project.
+* [Change your embedded Sign-In Widget's configuration](/docs/guides/oie-embedded-common-download-setup-app/java/main/#initialize-the-sign-in-widget) to support the Interaction Code grant type in your project.
 * [Upgrade your application to the Identity Engine SDK](/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/nodejs/main/#map-basic-sign-in-code-to-the-identity-engine-sdk) to update your app if you're using `setCookieAndRedirect` to get tokens. <!-- (/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/-/main/) -->
 * Test and verify your user experience both [visually](/docs/guides/oie-upgrade-sign-in-widget-styling/) and [functionally](/docs/guides/oie-upgrade-sign-in-widget-i18n/).
 
@@ -50,7 +50,7 @@ When you're embedding your authentication with our SDKs, consider all the steps 
 
 2. [Update the application settings](/docs/guides/implement-grant-type/interactioncode/main/#enable-the-interaction-code-grant-on-an-application) of your embedded authentication applications to include the Interaction Code grant type.
 
-   > **Note:** Performing these steps doesn’t change the way your authorization server or application behaves, but instead adds support for the new Identity Engine model. Enabling the Interaction Code grant type in your custom authorization server simply allows the server to accept a request of that type. The application behavior doesn’t change until you [enable the Interaction Code in the embedded Sign-In Widget](/docs/guides/oie-embedded-common-download-setup-app/java/main/#initialize-the-sign-in-widget) and move away from using Classic Engine authentication APIs to using the appropriate SDK.
+   > **Note:** Performing these steps doesn't change the way your authorization server or application behaves, but instead adds support for the new Identity Engine model. Enabling the Interaction Code grant type in your custom authorization server simply allows the server to accept a request of that type. The application behavior doesn't change until you [enable the Interaction Code in the embedded Sign-In Widget](/docs/guides/oie-embedded-common-download-setup-app/java/main/#initialize-the-sign-in-widget) and move away from using Classic Engine authentication APIs to using the appropriate SDK.
 
    <!-- [move away from using Classic Authentication APIs to using the appropriate SDK](/docs/guides/). -->
 
@@ -70,7 +70,7 @@ When you're embedding your authentication with our SDKs, consider all the steps 
 
     Prioritize the least risky workflows to incrementally replace existing Classic Engine workflows with Identity Engine workflows. Each upgrade path is different. You might choose to upgrade your password recovery first because it's typically used less than your authentication workflow. It's also far less risky than changing your registration workflow.
 
-    We recommend the following order, but prioritize the order of your upgrade workflows to suit your needs.
+    Okta recommends the following order, but prioritize the order of your upgrade workflows to suit your needs.
 
     * **Self-Service Password Recovery:** Replace with the remediation form of the password reset flow. This may also mean removing features like security questions and some other configurations from the Password Authenticator's settings. See [Upgrade your application to the Identity Engine SDK](/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/nodejs/main/) for detailed steps by language. <!-- (/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/-/main/) -->
 
@@ -88,7 +88,7 @@ When you're embedding your authentication with our SDKs, consider all the steps 
 
 ## Upgrade from using the Okta Authentication APIs
 
-With some solutions, there are more architectural evaluations from Architects/Engineering Leadership/Product teams that need to be made, planned, and executed to address technical debt or, in the case of API-based implementations, move away from a less supported implementation. More detailed information is coming soon on moving away from using Classic Authentication APIs to using the appropriate SDK.
+With some solutions, there are more architectural evaluations from Architects/Engineering Leadership/Product teams that need to be made, planned, and executed to address technical debt or, in the case of API-based implementations, move away from a less supported implementation. More detailed information is coming soon on moving away from using Classic Engine Authentication APIs to using the appropriate SDK.
 
 <!-- [move away from using Classic Authentication APIs to using the appropriate SDK](/docs/guides/). -->
 
@@ -112,4 +112,4 @@ This section details common issues and errors that you may encounter during your
 | Error message: "The requested feature isn't available in this environment" | This is reported when your [Okta org](/docs/concepts/okta-organizations/) hasn't been upgraded to Identity Engine and you try to turn on [interaction code](/docs/concepts/interaction-code/) in the embedded SDK/Sign-In Widget. See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version. |
 | &nbsp; | This is also reported when you've upgraded your org to Identity Engine and enabled interaction code in the embedded SDK, but it isn't enabled in your app or authorization server. |
 | Various SDK errors | If your Okta org hasn't been upgraded to Identity Engine and you start trying to replace Classic Engine API/SDK calls with Identity Engine SDK calls, you see errors in your apps. |
-| Your org and SDK are upgraded to Identity Engine, but your app still behaves like Classic Engine | [Interaction code](/docs/guides/implement-grant-type/interactioncode/main/) is turned off in the SDK. This is required for upgrading [Embedded Sign-In Widget](/docs/guides/oie-upgrade-sign-in-widget/) and [Embedded SDK](/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/)-based apps.  |
+| Your org and SDK are upgraded to Identity Engine, but your app still behaves like Classic Engine | [Interaction code](/docs/guides/implement-grant-type/interactioncode/main/) is turned off in the SDK. This is required for upgrading the[Embedded Sign-In Widget](/docs/guides/oie-upgrade-sign-in-widget/) and [Embedded SDK](/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/)-based apps.  |
