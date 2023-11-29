@@ -31,6 +31,8 @@ To be resistant to phishing attacks, a local communication channel should exist 
 
 Besides being resistant to phishing attacks, WebAuthn can drastically reduce the sign-in friction by allowing passwordless sign-ins during reauthentication use cases. For example, mobile banking apps use this type of sign-in today allowing iPhone users to sign-in using only Face ID after the first sign-in with a password.
 
+> **Note**: For detailed information on the Webauthn standard, including an up-to-date list of supported browsers, see [webauthn.me](https://a0.to/webauthnme-okta-docs).
+
 ### Example authentication flow
 
 WebAuthn uses public-key cryptopgraphy to security communicate and validate the user's device, credentials, and other information. An example WebAuthn authentication challenge flow is as follows:
