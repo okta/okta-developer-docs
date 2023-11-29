@@ -3,6 +3,22 @@ import pageComponents from '@internal/page-components'
 import 'bootstrap/dist/css/bootstrap-grid.css';
 import PortalVue from 'portal-vue';
 
+const signupNoSlash = '/signup?';
+const signupWithSlash = '/signup/?';
+
+function workaroundSignupQueryParams(router) {
+  let routerMatch = router.match;
+  router.match = function (raw, current, redirectedFrom) {
+    if (typeof raw === 'string' &&
+        raw.startsWith(signupNoSlash))
+    {
+      raw = raw.replace(signupNoSlash, signupWithSlash);
+    }
+
+    return routerMatch.apply(router, [raw, current, redirectedFrom]);
+  }
+}
+
 export default ({
   Vue,
   options,
@@ -23,4 +39,5 @@ export default ({
     }
   });
 
+  workaroundSignupQueryParams(router);
 }
