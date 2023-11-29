@@ -1920,7 +1920,7 @@ curl -v -X POST \
 
 Enrolls a user with a WebAuthn Factor. The enrollment process starts with getting the WebAuthn credential creation options that are used to help select an appropriate authenticator using the WebAuthn API. This authenticator then generates an enrollment attestation, which may be used to register the authenticator for the user.
 
-For detailed information on the Webauthn standard, including an up-to-date list of supported browsers, see [webauthn.me](https://webauthn.me/).
+For detailed information on the Webauthn standard, including an up-to-date list of supported browsers, see [webauthn.me](https://a0.to/webauthnme-okta-docs).
 
 ##### Enroll WebAuthn response parameters
 
