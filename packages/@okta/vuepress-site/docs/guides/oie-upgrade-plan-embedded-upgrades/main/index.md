@@ -14,7 +14,7 @@ After the [initial upgrade process](/docs/guides/oie-upgrade-overview/#upgrade-p
 
 Prioritize and roadmap the changes to your applications. Then, take breaks to test so that you can achieve the other business objectives that you have.
 
-Also, create continuous pieces of work that your team must do to fully upgrade to an Okta Identity Engine. For example, complete steps one and two, and then test and take a break from upgrade tasks for a month or two. Complete step three and take a break before completing steps four and five, and so on.
+Also, create continuous pieces of work that your team must do to fully upgrade to Okta Identity Engine. For example, complete steps one and two, and then test and take a break from upgrade tasks for a month or two. Complete step three and take a break before completing steps four and five, and so on.
 
 ## What's your scenario?
 
@@ -88,7 +88,7 @@ When you're embedding your authentication with our SDKs, consider all the steps 
 
 ## Upgrade from using the Okta Authentication APIs
 
-With some solutions, there are more architectural evaluations from Architects/Engineering Leadership/Product teams that need to be made, planned, and executed to address technical debt or, in the case of API-based implementations, move away from a less supported implementation. More detailed information is coming soon on moving away from using classic Authentication APIs to using the appropriate SDK.
+With some solutions, there are more architectural evaluations from Architects/Engineering Leadership/Product teams that need to be made, planned, and executed to address technical debt or, in the case of API-based implementations, move away from a less supported implementation. More detailed information is coming soon on moving away from using Classic Engine Authentication APIs to using the appropriate SDK.
 
 <!-- [move away from using Classic Authentication APIs to using the appropriate SDK](/docs/guides/). -->
 
