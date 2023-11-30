@@ -35,7 +35,7 @@ The OIN Wizard is a full-service tool in the Admin Console for you to:
 * Provide all your integration submission details.
 * Generate an app instance in your org for testing.
 * Submit your integration directly to the OIN team when you're satisfied with your test results.
-* Monitor the status of your submissions through the **Your OIN Integration** dashboard.
+* Monitor the status of your submissions through the **Your OIN Integrations** dashboard.
 
 The OIN team verifies your submitted integration before they publish it in the [OIN catalog](https://www.okta.com/integrations/).
 
