@@ -144,7 +144,7 @@ See [Test account guidelines](/docs/guides/submit-app-prereq/main/#test-account-
     | **Test account URL** `*`  | A static URL to sign in to your app. An OIN analyst goes to this URL and uses the account credentials you provide in the subsequent fields to sign in to your app. |
     | **Username** `*`  | The username for your test admin account. The OIN analyst signs in with this username to run tests. The preferred account username is `isvtest@okta.com`. |
     | **Password** `*`  | The password for your test admin account |
-    | **Support contact** `*`  | Provide an email for Okta to contact your company about your integration. This email isn't expose in the OIN catalogs or to your customers. Okta uses this email to contact your company for issues during the QA testing phase or for ongoing maintenance of your integration in the OIN. See [Escalation support contact](/docs/guides/submit-app-prereq/main/#customer-support-contact-guidelines) in the customer support-contact guidelines. |
+    | **Support contact** `*`  | Provide an email for Okta to contact your company about your integration. This email isn't exposed in the OIN catalogs or to your customers. Okta uses this email to contact your company for issues during the QA testing phase or for ongoing maintenance of your integration in the OIN. See [Escalation support contact](/docs/guides/submit-app-prereq/main/#customer-support-contact-guidelines) in the customer support-contact guidelines. |
     | **Testing instructions** `*`  | Include any other information that you think the OIN analyst needs to know about your integration (such as the test admin account or the testing configuration). You can also provide instructions on how to add test user accounts. |
 
     `*` Required properties
