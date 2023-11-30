@@ -49,8 +49,7 @@ export default {
   data() {
     return {
       anchors: [],
-      activeAnchor: null,
-      paddedHeaderHeight: 0
+      activeAnchor: null
     };
   },
   computed: {
@@ -70,28 +69,25 @@ export default {
     $page(to, from) {
       if (from.title !== to.title) {
         this.$nextTick(function() {
-          this.anchors = this.getOnThisPageAnchors();
+          this.setAnchors(this.getOnThisPageAnchors());
+
         });
       }
     }
   },
   mounted() {
-    this.paddedHeaderHeight =
-      document.querySelector(".fixed-header").clientHeight +
-      LAYOUT_CONSTANTS.HEADER_TO_CONTENT_GAP;
     window.addEventListener("load", () => {
       this.$nextTick(() => {
-        this.anchors = this.getOnThisPageAnchors();
+        this.setAnchors(this.getOnThisPageAnchors());
         this.setActiveAnchor();
-        //this.setAlwaysOnViewPosition();
+        window.addEventListener("scroll", this.setActiveAnchor);
+        window.addEventListener("resize", this.updateAnchors);
       });
     });
-    // window.addEventListener("scroll", this.setAlwaysOnViewPosition);
-    window.addEventListener("scroll", this.setActiveAnchor);
   },
   beforeDestroy() {
-    // window.removeEventListener("scroll", this.setAlwaysOnViewPosition);
     window.removeEventListener("scroll", this.setActiveAnchor);
+    window.removeEventListener("resize", this.updateAnchors);
   },
   methods: {
     setAlwaysOnViewPosition: _.debounce(function() {
@@ -112,7 +108,12 @@ export default {
       this.activeAnchor = onThisPageActiveAnchor
         ? onThisPageActiveAnchor.hash
         : "";
-    }, 50),
+    }, 200),
+
+    updateAnchors: _.debounce(function () {
+      this.getAnchorsOffset();
+      this.setActiveAnchor();
+    }, 200),
 
     getOnThisPageAnchors() {
       const onThisPageLinks = [].slice.call(
