@@ -10,13 +10,11 @@ title: Okta API Products release notes 2023
 
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
-| [Bugs fixed in 2023.11.1](#bugs-fixed-in-2023-11-1) | November 29, 2023 |
+| [Bug fixed in 2023.11.1](#bug-fixed-in-2023-11-1) | November 29, 2023 |
 
-#### Bugs fixed in 2023.11.1
+#### Bug fixed in 2023.11.1
 
-* Security Questions responses sometimes weren't translated correctly. (OKTA-603883)
-
-* Okta inline hooks didn't retry the external service after a timeout of three seconds. (OKTA-611871)
+Security Questions responses sometimes weren't translated correctly. (OKTA-603883)
 
 ### Monthly release 2023.11.0
 
