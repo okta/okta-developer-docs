@@ -20,7 +20,7 @@ Use this guide to learn how to submit a Single Sign-On (SSO) integration to the 
 
 **What you need**
 
-* An [Okta Developer Edition org](https://developer.okta.com/signup/)
+* An [Okta Developer-Edition org](https://developer.okta.com/signup/)
 * A functional SSO integration based on the [Build a Single Sign-On integration](/docs/guides/build-sso-integration/) guide
 * The various items necessary for submission in accordance with the [OIN submission requirements](/docs/guides/submit-app-prereq/)
 
