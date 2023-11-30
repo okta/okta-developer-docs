@@ -6,6 +6,16 @@ title: Okta API Products release notes 2023
 
 ## November
 
+### Weekly release 2023.11.1
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Bug fixed in 2023.11.1](#bug-fixed-in-2023-11-1) | November 29, 2023 |
+
+#### Bug fixed in 2023.11.1
+
+Security Questions responses sometimes weren't translated correctly. (OKTA-603883)
+
 ### Monthly release 2023.11.0
 
 | Change | Expected in Preview Orgs |
