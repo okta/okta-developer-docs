@@ -2621,7 +2621,8 @@ Generates a one-time token (OTT) that can be used to reset a user's password.  T
 This operation will transition the user to the status of `RECOVERY` and the user will not be able to login or initiate a forgot password flow until they complete the reset flow.
 
 This operation provides an option to delete all the user' sessions.  However, if the request is made in the context of a session owned by the specified user, that session isn't cleared.
->**Note:** You can also use this API to convert a user with the Okta Credential Provider to a use a Federated Provider. After this conversion, the user cannot directly sign in with password. The second example demonstrates this usage.
+
+>**Note:** You can also use this API to convert a user with the Okta Credential Provider to a use a Federated Provider. After this conversion, the user cannot directly sign in with password. The second example demonstrates this usage. To return a federated user back to an Okta user, use the default API call. See the final example.
 
 ##### Request parameters
 
@@ -2688,26 +2689,22 @@ curl -v -X POST \
 {}
 ```
 
-##### Request example (Convert a user to an Okta User)
+##### Request example (Convert a Federated User to an Okta User)
 
-To convert a user to an Okta user, pass an empty value as the `provider` in the [Provider object](#provider-object). The `sendEmail`
-parameter must be false or omitted for this type of conversion.
+To convert a federated user to an Okta user, call the default endpoint.
 
 ```bash
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/users/{userId}/lifecycle/reset_password?provider=&sendEmail=false"
+"https://${yourOktaDomain}/api/v1/users/{userId}/lifecycle/reset_password"
 ```
 
 ##### Response example
 
-
 ```json
-{
-    "resetPasswordUrl": "https://{yourOktaDomain}/reset_password/dspA4VAd7z6OOgXNIl9G"
-}
+{}
 ```
 
 ### Expire password
