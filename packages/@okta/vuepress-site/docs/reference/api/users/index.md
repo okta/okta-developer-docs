@@ -4281,7 +4281,7 @@ Specifies the authentication provider that validates the user's password credent
 
 ### Links object
 
-The Links object specifies link relations (see [Web Linking](http://tools.ietf.org/html/rfc8288) available for the current status of a user).  The Links object is used for dynamic discovery of related resources, lifecycle operations, and credential operations.  The Links object is read-only.
+The Links object specifies link relations (see [Web Linking](http://tools.ietf.org/html/rfc8288) available for the current status of a user). The Links object is used for dynamic discovery of related resources, lifecycle operations, and credential operations. The Links object is read-only.
 
 #### Individual Users vs. collection of Users
 
