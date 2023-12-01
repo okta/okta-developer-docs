@@ -1,20 +1,43 @@
-Add the two routes to your app (our routing is handled inside [`server/init.go`](https://github.com/okta-samples/okta-go-api-sample/blob/main/server/init.go)):
+1. Open the **server** > **init.go** file.
+1. Add the code for the endpoints to the `Init()` function after the call to `godotenv.Load()`:
 
-```go
-// Set the router as the default one shipped with Gin
-router := gin.Default()
+   ```go
+   // Set the router as the default one shipped with Gin
+   router := gin.Default()
 
-// setup public routes
-router.GET("/", IndexHandler)
+   // setup public routes
+   router.GET("/", IndexHandler)
 
-api := router.Group("/api")
-api.GET("/hello", HelloHandler)
+   api := router.Group("/api")
+   api.GET("/hello", HelloHandler)
 
-// setup private routes
-authorized := router.Group("/api")
-authorized.GET("/whoami", WhoAmIHandler)
+   // setup private routes
+   authorized := router.Group("/api")
+   authorized.GET("/whoami", WhoAmIHandler)
 
-router.Run(":8080")
-```
+   router.Run(":8080")
+   ```
 
-> **Note**: For examples of what the handlers could look like, see our [finished sample controller file](https://github.com/okta-samples/okta-go-api-sample/blob/main/server/controller.go).
+1. Add the code for the route handlers to `server/controller.go`:
+
+   ```go
+   package server
+
+   import (
+      "net/http"
+      "github.com/gin-gonic/gin"
+   )
+
+   // IndexHandler serves the index route
+   func IndexHandler(c *gin.Context) {
+      c.JSON(http.StatusOK, gin.H{"message": "You have reached the index"})
+   }
+
+   func HelloHandler(c *gin.Context) {
+      c.JSON(http.StatusOK, gin.H{"message": "Hello world!"})
+   }
+
+   func WhoAmIHandler(c *gin.Context) {
+      c.JSON(http.StatusOK, gin.H{"message": "You are a super developer"})
+   }
+   ```

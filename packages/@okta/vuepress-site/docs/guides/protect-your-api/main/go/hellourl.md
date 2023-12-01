@@ -1,1 +1,1 @@
-`https://localhost:44336/api/hello`
+`http://localhost:8080/api/hello`

@@ -1,23 +1,26 @@
-1. Add your issuer value to an environment file inside your project root, for example, `.okta.env`, remembering to replace the placeholder with your own value:
+1. Add the following properties to `.okta.env`, replacing the placeholders with your own values.
 
-   ```
-   OKTA_OAUTH2_ISSUER="https://${yourOktaDomain}/oauth2/default"
+   ```properties
+   OKTA_OAUTH2_ISSUER=https://${yourAuthServerName}/oauth2/default
+   OKTA_API_AUDIENCE=${yourAudience}
    ```
 
-2. Load this configuration (for example we handle it in [`server/init.go`](https://github.com/okta-samples/okta-go-api-sample/blob/main/server/init.go)):
+1. Add the code to load this configuration to `server\init.go`.
 
    ```go
-   godotenv.Load("./.okta.env")
-   ```
+   package server
 
-3. Create a verifier instance bound to the issuer and set the audience. We handle this inside a function called `isAuthenticated`; see the full listing in [Require authorization for everything](#require-authorization-for-everything).
+   import (
+      "log"
+      "time"
 
-   ```go
-   toValidate := map[string]string{}
-   toValidate["aud"] = "api://default"
+      "github.com/gin-gonic/gin"
+      "github.com/joho/godotenv"
+   )
 
-   verifier := jwtverifier.JwtVerifier{
-     Issuer:           os.Getenv("OKTA_OAUTH2_ISSUER"),
-     ClaimsToValidate: toValidate,
+   func Init() {
+
+      godotenv.Load("./.okta.env")
+
    }
    ```

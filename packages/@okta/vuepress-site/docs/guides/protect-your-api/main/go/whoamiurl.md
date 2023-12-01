@@ -1,1 +1,1 @@
-`https://localhost:44336/api/whoami`
+`http://localhost:8080/api/whoami`

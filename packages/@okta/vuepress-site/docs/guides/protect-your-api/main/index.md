@@ -116,7 +116,7 @@ Configure access on a per-route basis to allow a mix of protected and anonymous 
 
 ### Enable CORS for your API
 
-Enable Cross-Origin Resource Sharing (CORS) only if the API is being called from an application or API hosted on a different domain. For example, if your API is hosted on `api.example.com` while your application is accessing it from `example.com`, you must enable CORS.
+Enable [Cross-Origin Resource Sharing  (CORS)](https://fetch.spec.whatwg.org/#http-cors-protocol) only if the API is being called from an application or API hosted on a different domain. For example, if your API is hosted on `api.example.com` while your application is accessing it from `example.com`, you must enable CORS.
 
 <StackSnippet snippet="configcors" />
 
@@ -166,7 +166,7 @@ Scope is a way to limit an application's access to your API. An access token mus
 Now, start your server to get your API running.
 
 <StackSnippet snippet="startyourapi" />
-<br>
+
 Leave your API running locally (or deployed if desired) and proceed to the next step.
 
 ### Test with Postman
@@ -179,7 +179,7 @@ Make an HTTP POST request to [/token](http://localhost:8080/docs/reference/api/o
 
 1. Select **+** in the Postman workbench to open a new request tab.
 1. Select **GET** and change it to **POST**.
-1. Enter https://${yourOktaDomain}/oauth2/default/v1/token for the **URL**.
+1. Enter `https://${yourOktaDomain}/oauth2/default/v1/token` for the **URL**.
 1. In the **Params** tab, create two key-value pairs:
    1. **Key**: `grant_type`, **Value**: `client_credentials`
    {style="list-style-type:lower-alpha"}
@@ -210,7 +210,7 @@ Now you can test your secured API endpoints. First, test the `\whoami` endpoint,
 1. Enter the token you received earlier for **Token**.
 1. Click **Send**.
 1. Ensure that you received a `200 OK` response.
-1. Delete the Authorization header and send the request again.
+1. Select the **Authorization** tab, and then select No Auth for **type**.
 1. Ensure that you received a `401 Unauthorized` response.
 
 Now test the hello endpoint which doesn't require authorization:
@@ -221,7 +221,7 @@ Now test the hello endpoint which doesn't require authorization:
 1. Enter the token you received earlier for **Token**.
 1. Click **Send**.
 1. Ensure that you received a `200 OK` response.
-1. Delete the Authorization header and send the request again
+1. Select the **Authorization** tab, and then select No Auth for **type**.
 1. Ensure that you still receive a `200 OK` response.
 
 ## Next steps
