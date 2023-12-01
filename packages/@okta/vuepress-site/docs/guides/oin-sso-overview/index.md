@@ -53,7 +53,7 @@ As an example, `alice.doe@example.com` is a registered Okta user in both Company
 
 Okta orgs host their interfaces through individual subdomains and each org is assigned a separate URL. The typical org URL is the tenant name (the subdomain) followed by the domain name. However, you can customize the domain name for your own domain and add individual aliases for each of your tenants.
 
-> **Note:** The process for specifying the variable app instance names in an OIDC app is explained in the [Submit an SSO integration: OIDC settings](/docs/guides/submit-sso-app/openidconnect/main/#oidc-settings).
+> **Note:** The process for specifying the variable app instance names in an OIDC app is explained in [Submit an SSO integration with the OIN Wizard: Integration variables](/docs/guides/submit-oin-app/openidconnect/main/#integration-variables).
 
 ## Use case examples
 
@@ -104,6 +104,6 @@ Ready to get started? Choose how you want to implement your SSO app integration:
 </Cards>
 <br>
 
-After your app integration is built and tested, [review the submission requirements](/docs/guides/submit-app-prereq/main/) and [submit the integration](/docs/guides/submit-app-overview/) to the Okta OIN team for verification and publication.
+After your app integration is built, [submit the integration](/docs/guides/submit-app-overview/) to the Okta OIN team for verification and publication.
 
 Want to automate even more for your customers and increase adoption of your product? Learn more about [lifecycle management integration](/docs/guides/oin-lifecycle-mgmt-overview/) in the OIN.

@@ -63,7 +63,7 @@ Instructions for adding your SSO integration into Okta depend on if you want to 
 
 <!--
 @startuml
-if (Built an integration) then (Public)
+if (Build an integration) then (Public)
    :Submit an OIN integration;
    kill
 else (Private)

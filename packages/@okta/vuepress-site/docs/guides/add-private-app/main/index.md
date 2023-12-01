@@ -30,7 +30,7 @@ Registration involves creating an app integration instance in your Okta org to p
 
 > **Note:** An app integration is considered public if it's available in the Okta Integration Network (OIN) catalog for all Okta customers.
 
-This guide assumes that you've developed your SSO integration and want to add it to your Okta org. The instructions in this guide are generic for two SSO standards:
+This guide assumes that you've developed your app SSO integration and want to add it to your Okta org. The instructions in this guide are generic for two SSO standards:
 
 * **OpenID Connect (OIDC)** (preferred)
 * **Security Assertion Markup Language (SAML)**
@@ -39,9 +39,9 @@ This guide assumes that you've developed your SSO integration and want to add it
 
 ## Create your private integration in Okta
 
-After you've built your SSO integration, you can use the Application Integration Wizard (AIW) in the Admin Console to create your app integration instance. This instance provides you with client credentials or metadata for your SSO flows.
+After you've built your app SSO integration, you can use the Application Integration Wizard (AIW) in the Admin Console to create your app integration instance. This instance provides you with client credentials or metadata for your SSO flows.
 
-> **Note:** For best practices, create two or three additional admin users in Okta to manage the integration. This ensures that your team can access the integration for updates in the future.
+> **Note:** For best practices, create two or three additional admin users in your Okta org to manage the integration. This ensures that your team can access the integration for updates in the future.
 
 1. Sign in to your [developer-edition Okta org](/login/) as a user with administrative privileges.
 1. Go to **Applications** > **Applications** in the Admin Console.
@@ -49,9 +49,6 @@ After you've built your SSO integration, you can use the Application Integration
 
 <StackSnippet snippet="create" />
 
-<br>
-
-> **Note:** Creating your app integration instance doesn't automatically make it available in the [OIN](https://www.okta.com/integrations/). See [Publish an OIN integration](/docs/guides/submit-app-overview/) for an overview of the submission process.
 
 ## Specify your integration settings
 

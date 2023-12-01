@@ -649,12 +649,12 @@ export const guides = [
                 guideName: "submit-oin-app",
               },
               {
-                title: "OIN Manager: Submit an advanced SAML integration",
-                guideName: "submit-sso-app",
-              },
-              {
                 title: "OIN Manager: Submit an LCM integration",
                 guideName: "submit-app",
+              },
+              {
+                title: "OIN Manager: Submit an SSO integration (to remove) ",
+                guideName: "submit-sso-app",
               },
             ]
           },

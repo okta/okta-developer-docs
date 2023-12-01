@@ -6,6 +6,12 @@ meta:
 layout: Guides
 ---
 
+<ApiLifecycle access="deprecated" />
+
+> **Deprecated:** As of release Jan 6, 2024, you can't submit OIDC and SAML integrations using the OIN Manager. Use the new [OIN Wizard](/docs/guides/submit-oin-app) for a seamless ISV submission experience.
+
+---
+
 Use this guide to understand the process of submitting a Single Sign-On (SSO) OIDC or SAML 2.0 integration to the Okta Integration Network (OIN) using the OIN Manager. It also shows you how to update a previously published integration or delete a draft submission.
 
 ---
