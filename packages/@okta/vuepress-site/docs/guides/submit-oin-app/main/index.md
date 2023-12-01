@@ -6,8 +6,6 @@ meta:
 layout: Guides
 ---
 
-<ApiLifecycle access="ea" />
-
 Use this guide to learn how to submit a Single Sign-On (SSO) integration to the Okta Integration Network (OIN) team using the OIN Wizard. This guide also shows you how to create an SSO integration instance for testing in your org.
 
 ---
@@ -80,7 +78,7 @@ Continue with the OIN Wizard and configure your integration:
 
 #### OIN catalog properties
 
-1. Click the **OIN catalog properties** dropdown arrow and specify the following OIN catalog information:
+1. In the **OIN catalog properties** section, specify the following OIN catalog information:
 
     | <div style="width:150px">Property</div>| Description  |
     | ----------------- | ------------ |
@@ -92,35 +90,35 @@ Continue with the OIN Wizard and configure your integration:
 
 #### Integration variables
 
-Continue with the OIN Wizard and configure integration variables if your URLs are dynamic for each tenant. The variables are for your customer admins to add their specific tenant values during installation.
+Configure integration variables if your URLs are dynamic for each tenant. The variables are for your customer admins to add their specific tenant values during installation.
 
 <StackSnippet snippet="variable-desc" />
 <br>
 
-1. Click the **Integration variables** dropdown arrow and specify the name and label for each variable:
+1. In the **Integration variables** section, specify the name and label for each variable:
 
     | <div style="width:100px">Property</div> | Description  |
     | --------------- | ------------ |
-    | **Label** `*`  | A descriptive name for the dynamic variable that admins see when they install your app integration. |
+    | **Label** `*`  | A descriptive name for the dynamic variable that admins see when they install your app integration |
      | **Name** `*`  | Specify the variable name. This variable name is used to construct the dynamic URL. It's hidden from admins and is only passed to your external application.<br>String is the only variable type supported.<br>The maximum field length is 1024 characters. |
 
      `*` This section is optional, but if you specify a variable, both `Label` and `Name` properties are required.
 
-1. Click the **+** icon to add another variable. You can add up to three variables.
+1. Click **+ Add another** to add another variable. You can add up to three variables.
 
 1. If you need to delete a variable, click the ![trash can; delete icon](/img/icons/delete_can.png) icon next to it.
 
- > **Note**: A variable can include a complete URL (for example, `https://example.com`). This enables you to use more globally useful variables such as `${org.baseURL}`.
+ > **Note**: A variable can include a complete URL (for example, `https://example.com`). This enables you to use global variables, such as `${org.baseURL}`.
 
 #### <StackSnippet snippet="protocol-name" inline/> properties
 
 Continue with the OIN Wizard and configure your protocol settings:
 
-1. Click the **<StackSnippet snippet="protocol-name" inline/> properties** dropdown arrow and specify the following protocol properties:
+1. In the **<StackSnippet snippet="protocol-name" inline/> properties** section, specify the following protocol properties:
 
     <StackSnippet snippet="protocol-properties" />
 
-1. Click **Get started with testing** to save your edits and move to the testing experience where you need to enter your integration test details.
+1. Click **Get started with testing** to save your edits and move to the testing section, where you need to enter your integration test details.
 
 ### Enter test information
 
@@ -130,14 +128,14 @@ From the OIN Wizard **Test your integration experience** section, specify inform
 
 A dedicated test admin account in your app is required for Okta integration testing. This test account needs to be active beyond the submission period in case Okta needs to update or troubleshoot your app integration. Ensure that the test admin account has:
 
-* Privileges to SSO configuration in your test app
+* Privileges to configure SSO in your test app
 * Privileges to administer test users in your test app
 
 See [Test account guidelines](/docs/guides/submit-app-prereq/main/#test-account-guidelines).
 
 > **Note**: This admin account is in your app and not an account in Okta.
 
-1. Click the **Testing information** dropdown arrow and specify the following test account details:
+1. In the **Testing information** section, specify the following test account details:
 
     | <div style="width:100px">Property</div> | Description  |
     | --------------- | ------------ |
@@ -153,7 +151,7 @@ See [Test account guidelines](/docs/guides/submit-app-prereq/main/#test-account-
 
 Continue with the OIN Wizard and specify your supported SSO flows:
 
-1. Click the **<StackSnippet snippet="protocol-name" inline/> tests** dropdown arrow and specify the following sign-in flow details:
+1. In the **<StackSnippet snippet="protocol-name" inline/> tests** section, specify the following sign-in flow details:
 
     <StackSnippet snippet="protocol-test-flow" />
 
