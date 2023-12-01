@@ -6,7 +6,7 @@
    go mod init test-api
    ```
 
-1. Create a simple starter structure for your project.
+1. Create a simple starter structure for your project:
 
    * server > controller.go
    * server > init.go
