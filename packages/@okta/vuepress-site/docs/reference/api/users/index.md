@@ -2622,7 +2622,7 @@ This operation will transition the user to the status of `RECOVERY` and the user
 
 This operation provides an option to delete all the user' sessions.  However, if the request is made in the context of a session owned by the specified user, that session isn't cleared.
 
->**Note:** You can also use this API to convert a user with the Okta Credential Provider to a use a Federated Provider. After this conversion, the user can't directly sign in with a password. The second example demonstrates this usage. To return a federated user back to an Okta user, use the default API call. See the final example.
+>**Note:** You can also use this API to convert a user with the Okta Credential Provider to a use a Federated Provider. After this conversion, the user can't directly sign in with a password. The second example demonstrates this usage. To convert a federated user back to an Okta user, use the default API call. See the final example.
 
 ##### Request parameters
 
