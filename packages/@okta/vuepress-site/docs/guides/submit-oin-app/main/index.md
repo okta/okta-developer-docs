@@ -61,7 +61,7 @@ This guide covers submissions that use the following protocols:
 
 Review the [OIN submission requirements](/docs/guides/submit-app-prereq) before you start your submission. There are artifacts and technical details that you need to provide during the submission process.
 
-> **Note:** For best practices, create two or three extra administrative users in your Okta org to manage the integration. This ensures that your team can access the integration for updates in the future.
+> **Note:** For best practices, create two or three extra administrative users in your Okta org to manage the integration. This ensures that your team can access the integration for updates in the future. See [Add users manually](https://help.okta.com/en-us/content/topics/users-groups-profiles/usgp-add-users.htm).
 
 Start your integration submission for OIN publication:
 
@@ -85,7 +85,7 @@ Continue with the OIN Wizard and configure your integration:
     | <div style="width:150px">Property</div>| Description  |
     | ----------------- | ------------ |
     | **Display name** `*` | Provide a name for your integration. This is the main title used for your integration in the OIN.<br>The maximum field length is 64 characters. |
-    | **Description** `*` | Give a general description of your application and the benefits of the Okta integration. See [App description guidelines](/docs/guides/submit-app-prereq/main/#app-description-guidelines). |
+    | **Description** `*` | Give a general description of your application and the benefits this integration to your customers. See [App description guidelines](/docs/guides/submit-app-prereq/main/#app-description-guidelines). |
     | **Logo** `*` | Upload a PNG, JPG, or GIF file of a logo to accompany your integration in the catalog. The logo file must be less than one MB. See [Logo guidelines](/docs/guides/submit-app-prereq/main/#logo-guidelines). |
 
     `*` Required properties
