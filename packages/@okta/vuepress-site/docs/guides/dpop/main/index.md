@@ -17,7 +17,6 @@ This guide discusses how to create sender-constrained access tokens that are an 
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
 * [Glitch](https://glitch.com/) project or account
-* The OAuth 2.0 Demonstrating Proof-of-Possession feature enabled for your org. From the left navigation pane in the Admin Console, go to **Settings** > **Features**, locate the OAuth 2.0 Demonstrating Proof-of-Possession feature, and enable.
 * <StackSnippet snippet="whatyouneed" />
 
 ---
