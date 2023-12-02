@@ -1,7 +1,7 @@
 ### Test Application-initiated sign-in flow
 
 1. Sign out of your administrator account in your development org and also sign out of your application.
-1. In your browser, begin the sign-in process to your application, either through your application's sign-in button or directly by pasting one of the **Sign-in redirect URIs** into your web browser address bar. Regardless of which method you choose, your browser must end up at the Okta-hosted sign-in page.
+1. Begin the sign-in process to your app, either through your app sign-on button or directly by pasting one of the **Sign-in redirect URIs** into your web browser address bar. Regardless of which method you choose, your browser must end up at the Okta-hosted sign-in page.
 1. Sign in to your regular user account on the Okta-hosted sign-in page.
 1. Confirm that Okta successfully redirects back into your application.
 

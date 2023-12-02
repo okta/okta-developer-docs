@@ -142,7 +142,7 @@ See [Test account guidelines](/docs/guides/submit-app-prereq/main/#test-account-
     | <div style="width:100px">Property</div> | Description  |
     | --------------- | ------------ |
     | **Test account URL** `*`  | A static URL to sign in to your app. An OIN analyst goes to this URL and uses the account credentials you provide in the subsequent fields to sign in to your app. |
-    | **Username** `*`  | The username for your test admin account. The OIN analyst signs in with this username to run tests. The preferred account username is `isvtest@okta.com`. |
+    | **Username** `*`  | The username for your test admin account. The OIN analyst signs in with this username to execute test cases. The preferred account username is `isvtest@okta.com`. |
     | **Password** `*`  | The password for your test admin account |
     | **Support contact** `*`  | Provide an email for Okta to contact your company about your integration. This email isn't exposed in the OIN catalogs or to your customers. Okta uses this email to contact your company for issues during the QA testing phase or for ongoing maintenance of your integration in the OIN. See [Escalation support contact](/docs/guides/submit-app-prereq/main/#customer-support-contact-guidelines) in the customer support-contact guidelines. |
     | **Testing instructions** `*`  | Include any other information that you think the OIN analyst needs to know about your integration (such as the test admin account or the testing configuration). You can also provide instructions on how to add test user accounts. |
@@ -176,10 +176,10 @@ The test cases presented in this section are the minimum tests that you need to 
 
 To prepare your app integration instance for testing, you need to execute the following:
 
-1. As the customer admin persona, [generate the integration instance](#generate-the-instance-for-the-idp-flow).
+1. As the customer admin persona, [generate the integration instance](#generate-the-instance-for-testing).
 2. As the customer admin persona, [assign test users to the integration instance](#assign-test-users-to-your-integration-instance).
 
-#### Generate the instance for the IdP flow
+#### Generate the instance for testing
 
 This flow tests the customer admin experience. The test steps start from the OIN Wizard to generate the instance. Then the steps shift to [add an existing app integration](https://help.okta.com/en-us/content/topics/apps/apps-add-applications.htm) page, where you assume the customer admin persona. When your integration is published in the OIN catalog, the customer admin uses the Admin Console **Browse App Catalog** > [add an existing app integration](https://help.okta.com/en-us/content/topics/apps/apps-add-applications.htm) page to add your integration to their org. So the following steps (after step 1) are exactly what your customer admins experience.
 
@@ -287,7 +287,7 @@ To test the SP-initiated flow with a sign-in page:
 
 To test Just-In-Time (JIT) provisioning, you need to execute the test cases with two personas: as a customer admin user and as an end user. The customer admin user sets up the new end user in Okta. And the new end user signs in to the app. The new user profile is provisioned in the app without extra admin intervention.
 
-Test JIT provisioning with the two SSO flows:
+Test JIT provisioning with either SSO flows:
 
 - With IdP SSO flow: [Test JIT provisioning with the IdP flow](#test-jit-provisioning-with-the-idp-flow)
 - With SP-initiated SSO flow: [Test JIT provisioning with the SP flow](#test-jit-provisioning-with-the-sp-flow)
@@ -311,18 +311,17 @@ To test JIT provision with the IdP flow:
 1. Go to **Applications** > **Applications** > your app integration instance in the Admin Console.
 1. From your app integration instance page, click the **Assignments** tab.
 1. Click **Assign** > **Assign to People**.
-1. Find the name of the new test user and click **Assign** next to their name. A dialog box appears with the title **Assign ${app-name} to People**.
+1. Find the name of the new test user and click **Assign** next to their name. A dialog box appears with the title **Assign {app-name} to People**.
 1. Click **Save and Go Back**.
 1. On the **People** page, click **Done**.
 1. Open a new incognito window in your browser.
 1. Go to your Okta org URL.
-1. Sign in to the Okta org as the new user that was assigned to the app integration.
-    > **Note**: If you sign in as a non-admin user to your Okta org from a browser, the End-User Dashboard appears.
+1. Sign in to the Okta org as the new user that was assigned to the app integration. The End-User Dashboard appears.
 1. Confirm that your app tile appears on the Okta End-User Dashboard.
 1. Click your app tile and confirm that you can sign in successfully.
 1. Sign out of your app.
 1. Verify that you're able to sign out and are redirected to the sign-in page.
-1. Verify that the new user was created in your app with supported attributes passed from the Okta profile.
+1. Verify that the new user was created in your app with supported attributes passed from the Okta profile, such as the user's name and email.
 
 #### Test JIT provisioning with the SP flow
 
@@ -343,7 +342,7 @@ To test JIT provision with the SP flow:
 1. Go to **Applications** > **Applications** > your app integration instance in the Admin Console.
 1. From your app integration instance, click the **Assignments** tab.
 1. Click **Assign** > **Assign to People**.
-1. Find the name of the new test user and click **Assign** next to their name. A dialog box appears with the title **Assign ${app-name} to People**.
+1. Find the name of the new test user and click **Assign** next to their name. A dialog box appears with the title **Assign {app-name} to People**.
 1. Click **Save and Go Back**.
 1. On the **People** page, click **Done**.
 1. Open a new incognito window in your browser.
@@ -357,26 +356,32 @@ To test JIT provision with the SP flow:
 
 ### Failed SSO tests
 
-If you have failed tests, you need to fix your integration and update any OIN Wizard properties, if necessary. You can only submit integrations that have successfully passed all basic supported SSO tests.
+If any of your SSO test cases failed, you need to investigate and resolve the failure before submitting the integration. You can only submit integrations that have successfully passed all basic supported SSO tests.
 
 If you update properties in the OIN Wizard, generate a new app integration instance for testing. You can't use the previous app integration instance with the failed tests.
 
+If you have to update your integration metadata in the OIN Wizard to resolve your failed test cases, then you need to:
+
+- Update your integration submission using the OIN Wizard.
+- Deactivate your app integration instance (with the failed metadata) from the **Applications** > **Applications** page of the Admin Console. You can later delete the test app integration instance if you want to clean your app list.
+- [Generate the integration instance](#generate-the-instance-for-testing) and [assign test users to the integration instance](#assign-test-users-to-your-integration-instance) before executing the test cases again.
+
 To receive help with failed test cases or server error messages, post your questions on the [Okta Developer Forum](https://devforum.okta.com/) or submit your questions to <developers@okta.com>.
 
-If you have questions or need additional support with the OIN submission process, contact the Okta OIN team at <oin@okta.com>.
+If you have questions or need more support with the OIN submission process, contact the Okta OIN team at <oin@okta.com>.
 
 ## Submit your integration
 
 After you've successfully tested your integration, you're ready to submit.
 
 1. Close the incognito browser window and return to the **Test your integration experience** page in the OIN Wizard.
-1. Select **I certify that I have successfully completed required tests**.
+1. Select **I certify that I have successfully completed the required tests**.
 1. Click **Submit integration**.
 1. Click **Close wizard** from the **Thank you for your submission** confirmation page. This takes you back to the **Your OIN Integrations** dashboard.
 
 After you submit your integration, an OIN analyst performs an initial review of your submission details. They send an email to you with any submission issues to correct.
 
-After the initial review is complete and all the issues are corrected, the submission moves to the QA testing phase. An OIN analyst uses the test information that you provided in the OIN Wizard to test your integration. They send you an email with any test failures or issues to correct.
+After the initial review is completed and all the issues are corrected, the submission moves to the QA testing phase. An OIN analyst uses the test information that you provided in the OIN Wizard to test your integration. They send you an email with any test failures or issues to correct.
 
 ## See also
 
