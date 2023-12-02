@@ -17,7 +17,7 @@
         * **Name** &mdash; `groups`
         * **Filter** &mdash; `Matches regex`
         * **Value** &mdash; `.*`
-    * You can preview the generated SAML assertion by clicking **< > Preview the SAML Assertion** in section B.
+    * Click **< > Preview the SAML Assertion** in section B to preview the generated SAML assertion.
     * Click **Next**.
 1. In the final creation step, the **Feedback** tab helps Okta to understand how you want to position this application.
     * If you're only creating an internal (private) SAML integration:
