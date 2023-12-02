@@ -68,9 +68,9 @@ Start your integration submission for OIN publication:
 1. Sign in to your [developer-edition Okta org](/login/) as a user with administrative privileges.
 1. Go to **Applications** > **Your OIN Integrations** in the Admin Console.
 1. Click **Build new OIN integration**. The OIN Wizard appears.
-1. From the **Select your protocol** section, select **<StackSnippet snippet="protocol-name" inline/>**.
+1. From the **Select your protocol** section, select **<StackSnippet snippet="protocol-fullname" inline/>**.
     > **Note:** If you want to change the protocol instructions on this page, select the protocol you want from the **Instructions for** dropdown list on the right.
-1. Click **Next: Configure your integration**.
+1. Click **Configure your integration**.
 
 > **Note:** Currently, you can only configure one protocol per OIN integration submission.
 
@@ -124,7 +124,7 @@ Continue with the OIN Wizard and configure your protocol settings:
 
 ### Enter test information
 
-From the OIN Wizard **Test your integration experience** section, specify information required for testing your integration. An OIN analyst uses this information to verify your integration after submission.
+From the OIN Wizard **Test your integration experience** page, specify information required for testing your integration. An OIN analyst uses this information to verify your integration after submission.
 
 #### Test information
 
@@ -145,7 +145,7 @@ See [Test account guidelines](/docs/guides/submit-app-prereq/main/#test-account-
     | **Username** `*`  | The username for your test admin account. The OIN analyst signs in with this username to execute test cases. The preferred account username is `isvtest@okta.com`. |
     | **Password** `*`  | The password for your test admin account |
     | **Support contact** `*`  | Provide an email for Okta to contact your company about your integration. This email isn't exposed in the OIN catalogs or to your customers. Okta uses this email to contact your company for issues during the QA testing phase or for ongoing maintenance of your integration in the OIN. See [Escalation support contact](/docs/guides/submit-app-prereq/main/#customer-support-contact-guidelines) in the customer support-contact guidelines. |
-    | **Testing instructions** `*`  | Include any other information that you think the OIN analyst needs to know about your integration (such as the test admin account or the testing configuration). You can also provide instructions on how to add test user accounts. |
+    | **Testing instructions** | Include any other information that you think the OIN analyst needs to know about your integration (such as the test admin account or the testing configuration). You can also provide instructions on how to add test user accounts. |
 
     `*` Required properties
 
@@ -168,7 +168,7 @@ You need to test your integration to verify that the integration performs as you
 * [SP flow](#how-to-test-an-sp-flow)
 * [Just-In-Time (JIT) provisioning](#how-to-test-jit-provisioning)
 
-The **Test your integration experience** section of the OIN Wizard helps you prepare and test your integration within the same org. You can generate an integration instance from the information you provided in the wizard. The generated instance allows you to test your customer admin experience and your end-user sign-in experience.
+The **Test your integration experience** page of the OIN Wizard helps you prepare and test your integration within the same org. You can generate an integration instance from the information you provided in the wizard. The generated instance allows you to test your customer admin experience and your end-user sign-in experience.
 
 The test cases presented in this section are the minimum tests that you need to execute to ensure that your sign-in flow works as expected. Ideally, you want to execute several variations of these test cases with negative and edge cases in mind.
 
@@ -276,7 +276,7 @@ To test the SP-initiated flow with a sign-in page:
 
 1. Open a new incognito window in your browser.
 1. Go to the app sign-in page.
-1. Initiate the sign-in action from the sign-in page (such as clicking a **Sign in with Okta** or entering your email and clicking **Sign in**)
+1. Initiate the sign-in action from the sign-in page (such as clicking **Sign in with Okta**).
 1. Sign in with Okta credentials for the test end user.
 1. Confirm that you've successfully signed in to the app.
     > **Note**: If you have multiple apps in the OIN catalog, verify that you've signed in to the correct app.
@@ -346,7 +346,6 @@ To test JIT provision with the SP flow:
 1. Click **Save and Go Back**.
 1. On the **People** page, click **Done**.
 1. Open a new incognito window in your browser.
-1. Go to your developer-edition Okta org.
 1. Go to the app sign-in page directly from the browser URL address field (for example: `https://berryfarm.example.org/strawberry/signin`). The browser redirects you to Okta for authentication.
 1. Sign in with Okta credentials for the new test user that was assigned to the app integration.
 1. Confirm that you can sign in to the app successfully.
@@ -358,13 +357,11 @@ To test JIT provision with the SP flow:
 
 If any of your SSO test cases failed, you need to investigate and resolve the failure before submitting the integration. You can only submit integrations that have successfully passed all basic supported SSO tests.
 
-If you update properties in the OIN Wizard, generate a new app integration instance for testing. You can't use the previous app integration instance with the failed tests.
+If you have to update SSO flow properties in your submission to resolve your failed test cases, then you need to [generate a new app integration instance](#generate-the-instance-for-testing) for testing. [Assign test users to your new integration instance](#assign-test-users-to-your-integration-instance) before executing all your SSO test cases again.
 
-If you have to update your integration metadata in the OIN Wizard to resolve your failed test cases, then you need to:
+> **Note:** You don't have to generate a new app integration for every failed test scenario. If you have an environment issue or if you forgot to assign a user, you can fix your configuration and run the tests again. Generate a new instance only if you need to modify an SSO property, such as an integration variable, a redirect URI, or an ACS URL.
 
-- Update your integration submission using the OIN Wizard.
-- Deactivate your app integration instance (with the failed metadata) from the **Applications** > **Applications** page of the Admin Console. You can later delete the test app integration instance if you want to clean your app list.
-- [Generate the integration instance](#generate-the-instance-for-testing) and [assign test users to the integration instance](#assign-test-users-to-your-integration-instance) before executing the test cases again.
+It's good practice to deactivate your app integration instance (from the failed test cases) from the **Applications** > **Applications** page of the Admin Console. You can later delete the test app integration instance if you want to clean your app integration list.
 
 To receive help with failed test cases or server error messages, post your questions on the [Okta Developer Forum](https://devforum.okta.com/) or submit your questions to <developers@okta.com>.
 
@@ -382,6 +379,22 @@ After you've successfully tested your integration, you're ready to submit.
 After you submit your integration, an OIN analyst performs an initial review of your submission details. They send an email to you with any submission issues to correct.
 
 After the initial review is completed and all the issues are corrected, the submission moves to the QA testing phase. An OIN analyst uses the test information that you provided in the OIN Wizard to test your integration. They send you an email with any test failures or issues to correct.
+
+## Update a submitted OIN integration
+
+You can modify a submitted integration in the **Your OIN Integrations** dashboard in the `OIN TO REVIEW` status. These integrations are in read-only mode.
+
+To update a submitted integration:
+
+1. Sign in to your [developer-edition Okta org](/login/) as a user with admin privileges.
+1. Go to **Applications** > **Your OIN Integrations** in the Admin Console.
+1. Click your integration name from the dashboard. The OIN Wizard appears.
+1. Go to the OIN Wizard page that you want to update.
+1. From the **This integration is read-only** information box, select **Edit integration**.
+1. Update the desired properties in the OIN Wizard.
+1. Click **View testing information** or **Close wizard** to save the modified integration. When you save the updated properties, the integration submission is set to `DRAFT` status.
+1. Go to **Applications** > **Your OIN Integrations** in the Admin Console and confirm that your integration submission is in `DRAFT` status.
+1. Retest your integration successfully before you submit it again.
 
 ## See also
 
