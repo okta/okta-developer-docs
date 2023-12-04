@@ -195,6 +195,10 @@ To generate an integration instance:
 
 8. If you need to assign users to your integration, continue to the [Assign test users to your integration instance](#assign-test-users-to-your-integration-instance) steps from the OIN Wizard.
 
+<!--
+>> **Note:** Generate a test integration instance for each protocol that your integration supports. The test cases that you execute depend on your instance SSO protocol.
+-->
+
 #### Assign test users to your integration instance
 
 As a customer admin persona, assign users to your app integration instance to test your SSO flow. Create your test users in Okta before you assign them to your integration. See [Add users manually](https://help.okta.com/en-us/content/topics/users-groups-profiles/usgp-add-users.htm) and [Assign app integrations](https://help.okta.com/okta_help.htm?id=ext_Apps_Apps_Page-assign) topics in the Okta product documentation.
@@ -380,15 +384,17 @@ After you submit your integration, an OIN analyst performs an initial review of 
 
 After the initial review is completed and all the issues are corrected, the submission moves to the QA testing phase. An OIN analyst uses the test information that you provided in the OIN Wizard to test your integration. They send you an email with any test failures or issues to correct.
 
-## Update a submitted OIN integration
+## Update an OIN integration
 
-You can modify a submitted integration in the **Your OIN Integrations** dashboard in the `OIN TO REVIEW` status. These integrations are in read-only mode.
+You can modify a submitted or published integration in the **Your OIN Integrations** dashboard. These integrations are initially in read-only mode. If you decide to edit the integration and update any property in the previous submission, your integration reverts to `DRAFT` status. You have to retest and resubmit your integration in `DRAFT status.
+
+> **Note:** If you edit your submitted or published integration in the **Your OIN Integrations** dashboard, your previous status and status date are overwritten with the `DRAFT` status and date.
 
 To update a submitted integration:
 
 1. Sign in to your [developer-edition Okta org](/login/) as a user with admin privileges.
 1. Go to **Applications** > **Your OIN Integrations** in the Admin Console.
-1. Click your integration name from the dashboard. The OIN Wizard appears.
+1. Click your integration to update from the dashboard. The OIN Wizard appears.
 1. Go to the OIN Wizard page that you want to update.
 1. From the **This integration is read-only** information box, select **Edit integration**.
 1. Update the desired properties in the OIN Wizard.
