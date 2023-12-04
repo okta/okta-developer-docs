@@ -1,26 +1,25 @@
-This guide uses several libraries that you need to install before continuing. The easiest way to install these libraries is to use [Composer](https://getcomposer.org), so install that on your system before continuing to install the dependencies.
+This quickstart uses several packages to build the API and consume access tokens from Okta. Install each of them with [Composer](https://getcomposer.org):
 
-1. Install the `phpdotenv` library to manage the config file for this project.
+1. The PHP dotenv library loads values from the `.env` config file automatically.
 
-	```bash
-	composer require vlucas/phpdotenv ^5.4
-	```
+   ```shell
+   composer require vlucas/phpdotenv
+   ```
 
-2. Next, install the Firebase JWT library
+1. The Firebase JWT library encodes and decodes tokens for and from Okta.
 
-	```bash
-	composer require firebase/php-jwt ^6.3
-	```
+   ```shell
+   composer require firebase/php-jwt
+   ```
 
-3. To fetch Okta's JWT signing keys, this quickstart uses the Guzzle HTTP client
+1. The Guzzle HTTP client library fetches Okta's JWT signing keys.
 
-	```bash
-	composer require guzzlehttp/guzzle ^7
-	```
+   ```shell
+   composer require guzzlehttp/guzzle
+   ```
 
-4. As explained later, it's a good idea to cache the public key to speed up access token validation. You should probably use whatever caching mechanism is available in the particular framework you're using for your API, but to keep things simple, this quickstart uses a file-based cache using phpfastcache.
+1. The phpfastcache library caches the JWT signing keys to speed up access token validation.
 
-	```bash
-	composer require phpfastcache/phpfastcache ^9.1
-	composer require guzzlehttp/psr7 ^2.4
-	```
+   ```shell
+   composer require phpfastcache/phpfastcache
+   ```
