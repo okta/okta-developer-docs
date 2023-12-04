@@ -8,6 +8,16 @@ title: Okta Identity Engine API Products release notes 2023
 
 ## November
 
+### Weekly release 2023.11.1
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Bug fixed in 2023.11.1](#bug-fixed-in-2023-11-1) | November 29, 2023 |
+
+#### Bug fixed in 2023.11.1
+
+A GET call to `/api/v1/sessions/me` returned a 403 Deny response. This occurred with an active session, when the Global Session Policy included a rule allowing IdP sign-in flows, and when the default rule rejected non-IdP sign-in flows. (OKTA-626522)
+
 ### Monthly release 2023.11.0
 
 | Change | Expected in Preview Orgs |
