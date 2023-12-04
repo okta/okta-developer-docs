@@ -1,1 +1,1 @@
-A copy of Visual Studio Community, Professional or Enterprise 2019 version 16.4 or later.
+A recent version of [Node](https://nodejs.org/en/) and [npm](https://www.npmjs.com/) installed

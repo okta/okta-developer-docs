@@ -1,11 +1,9 @@
-1. Create a verifier instance bound to the issuer and set the audience by adding the following lines to your `server.js`:
+1. Add the following constants to the top of `index.js`, replacing the placeholders with your own values.
 
    ```js
    const OktaJwtVerifier = require('@okta/jwt-verifier');
    const oktaJwtVerifier = new OktaJwtVerifier({
-     issuer: 'https://${yourOktaDomain}/oauth2/default'
+     issuer: 'https://${yourOktaDomain}/oauth2/${yourAuthServerName}'
    });
-   const audience = 'api://default';
+   const audience = '${yourAudience}';
    ```
-
-2. Make sure to replace the placeholders with your own values.

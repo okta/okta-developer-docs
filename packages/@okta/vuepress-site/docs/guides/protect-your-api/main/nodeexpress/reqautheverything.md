@@ -1,4 +1,6 @@
-1. Create a middleware method inside `server.js` to verify the token in the `Authorization` header. The JWT is added to the `req` object:
+You can use a middleware function to protect any endpoint so only authenticated users can access it.
+
+1. Add a function in a constant `authenticationRequired` to the list of constants at the top of `index.js`:
 
    ```js
    const authenticationRequired = async (req, res, next) => {
@@ -21,8 +23,8 @@
    };
    ```
 
-2. Register the middleware for all routes to the app instance:
+2. Add the following code to `index.js` to register the middleware for all endpoints. Include it after the call to `app.listen()`:
 
    ```js
-   app.all('*', authenticationRequired); // Require authentication for all routes
+   app.all('*', authenticationRequired);
    ```

@@ -66,7 +66,7 @@ This tutorial uses the **default** custom authorization server to secure your AP
 
 Moving on, where you see `${yourAudience}` and `${yourAuthServerName}` in this guide, replace them with your audience and authorization server name.
 
-> **Note**: You can create a custom authorization server or use the default to protect your APIs. In either case, you need an appropriate licence to use them in production.
+> **Note**: You can either create a custom authorization server or use the default to protect your APIs. In either case, you need an appropriate licence to use them in production.
 
 ## Create and configure a new web API to use Okta
 
@@ -179,7 +179,7 @@ Make an HTTP POST request to [/token](http://localhost:8080/docs/reference/api/o
 
 1. Select **+** in the Postman workbench to open a new request tab.
 1. Select **GET** and change it to **POST**.
-1. Enter `https://${yourOktaDomain}/oauth2/default/v1/token` for the **URL**.
+1. Enter `https://${yourOktaDomain}/oauth2/${yourAuthServerName}/v1/token` for the **URL**.
 1. In the **Params** tab, create two key-value pairs:
    1. **Key**: `grant_type`, **Value**: `client_credentials`
    {style="list-style-type:lower-alpha"}
@@ -189,7 +189,7 @@ Make an HTTP POST request to [/token](http://localhost:8080/docs/reference/api/o
 1. Select the **Headers** tab and add two new headers:
    1. **Name**: Cache-Control, **Value**: no-cache
    {style="list-style-type:lower-alpha"}
-   1. **Name** Content-Type, **Value**: application/x-www-form-urlencoded
+   1. **Name**: Content-Type, **Value**: application/x-www-form-urlencoded
 1. Click **Send** to receive an access token.
 
    <div class="full border">

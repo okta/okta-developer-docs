@@ -1,7 +1,7 @@
 1. Add the following properties to `.okta.env`, replacing the placeholders with your own values.
 
    ```properties
-   OKTA_OAUTH2_ISSUER=https://${yourAuthServerName}/oauth2/default
+   OKTA_OAUTH2_ISSUER=https://${yourOktaDomain}/oauth2/${yourAuthServerName}
    OKTA_API_AUDIENCE=${yourAudience}
    ```
 
