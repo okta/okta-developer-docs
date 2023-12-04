@@ -1,4 +1,4 @@
-Create a new project using Express.
+Create a project using Express.
 
 1. Open a terminal and create a directory `test-api` for your project.
 1. Initialize your project using `npm init`. Accept the defaults.

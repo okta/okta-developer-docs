@@ -1,4 +1,4 @@
-1. Add the following constants to the top of `index.js`, replacing the placeholders with your own values.
+Add the following constants to the top of `index.js`, replacing the placeholders with your own values.
 
    ```js
    const OktaJwtVerifier = require('@okta/jwt-verifier');
