@@ -12,17 +12,17 @@ This guide provides you with a list of the requirements needed before submitting
 
 **Learning outcome**
 
-Understand the requirements necessary to submit your integration using the [OIN Manager](https://oinmanager.okta.com).
+Understand the requirements necessary to submit your integration using the [OIN Wizard](/docs/guides/submit-oin-app/) or the [OIN Manager](https://oinmanager.okta.com).
 
 **What you need**
 
-A built and tested OIN integration that's ready for Okta verification
+A built and tested app integration that's ready for Okta verification
 
 ---
 
 ## Overview
 
-Before using the [OIN Manager](https://oinmanager.okta.com)&nbsp;to submit your OIN integration, you need to prepare for the artifacts requested during the submission process. Review the following submission artifact guidelines:
+Before using the [OIN Wizard](/docs/guides/submit-oin-app/) or the [OIN Manager](https://oinmanager.okta.com)&nbsp;to submit your OIN integration, you need to prepare for the artifacts requested during the submission process. Review the following submission artifact guidelines:
 
 * [Logo](#logo-guidelines)
 * [App description](#app-description-guidelines)
@@ -63,9 +63,9 @@ The following multi-tenant example assumes that your Okta app integration suppor
 
 ## Logo guidelines
 
-A clear and well-designed logo helps customers find your app integration in the OIN and ensures that your brand is well represented. When you create your app submission in the OIN manager, make sure you upload a customer-recognizable graphic.
+A clear and well-designed logo helps customers find your app integration in the OIN and ensures that your brand is well represented. When you create your app submission, make sure you upload a customer-recognizable graphic.
 
-The app logo that you submit to the OIN Manager in the **General Settings** > **App icon** field must conform to the following:
+The submitted app logo must conform to the following:
 
 * Submit a logo file that's less than one MB.
 * Submit a logo image with one of the following dimensions:
@@ -85,7 +85,7 @@ The app logo that you submit to the OIN Manager in the **General Settings** > **
 
 * If your logo isn't in one of the acceptable formats, ask your design team to convert your existing logo to the preferred PNG format.
 
-* If your image isn't in one of the allowed dimensions, ask your design team to scale your logo appropriately. The OIN Manager doesn't allow you to submit any other dimensions.
+* If your image isn't in one of the allowed dimensions, ask your design team to scale your logo appropriately. You can't submit any other dimensions in the OIN Wizard or the OIN Manager.
 
 * A square logo is preferred. If your logo isn't square, consider using your website favicon. Alternatively, you can use the first letter of your app wordmark and convert it to a square image.
 

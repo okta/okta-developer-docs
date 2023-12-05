@@ -66,6 +66,17 @@ Source link : https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 
 </div>
 
+### Understand the submission status
+
+Integration submission status and their descriptions in the OIN Wizard and OIN Manager:
+
+| OIN Wizard status | OIN Manager status  | Description |
+| --------------- | ------------ | ------------ |
+| DRAFT | New |  An in-progress integration submission. The OIN team isn't reviewing this integration. |
+| OIN TO REVIEW | Pending reviewed by Okta | The integration was submitted. The OIN team needs to conduct an initial review, a code review, and QA testing for the integration. |
+| ISV TO REVIEW | ISV needs to review | The OIN team reviewed the submission and found some issues with the integration. An email is sent to the ISV to review their submission. |
+| ISV TO FIX | ISV needs to fix bugs | The OIN team reviewed the submission and found some issues with the SSO integration. An email is sent to the ISV with a list of issues to fix.|
+| PUBLISHED | Complete| The OIN team verified that the integration works as intended for Okta customers. The integration is listed in the OIN catalog.|
 
 ### Understand the submission review process
 

@@ -382,13 +382,13 @@ After you've successfully tested your integration, you're ready to submit.
 
 After you submit your integration, an OIN analyst performs an initial review of your submission details. They send an email to you with any submission issues to correct.
 
-After the initial review is completed and all the issues are corrected, the submission moves to the QA testing phase. An OIN analyst uses the test information that you provided in the OIN Wizard to test your integration. They send you an email with any test failures or issues to correct.
+After the initial review is completed and all the issues are corrected, the submission moves to the QA testing phase. An OIN analyst uses the test information that you provided in the OIN Wizard to test your integration. They send you an email with any test failures or issues to correct. See [Understand the submission review process](/docs/guides/submit-app-overview/#understand-the-submission-review-process).
 
 ## Update an OIN integration
 
 You can modify a submitted or published integration in the **Your OIN Integrations** dashboard. These integrations are initially in read-only mode. If you decide to edit the integration and update any property in the previous submission, your integration reverts to `DRAFT` status. You have to retest and resubmit your integration in `DRAFT status.
 
-> **Note:** If you edit your submitted or published integration in the **Your OIN Integrations** dashboard, your previous status and status date are overwritten with the `DRAFT` status and date.
+> **Note:** If you edit your submitted or published integration in the **Your OIN Integrations** dashboard, your previous status and date are overwritten with the `DRAFT` status and date.
 
 To update a submitted integration:
 
@@ -401,6 +401,30 @@ To update a submitted integration:
 1. Click **View testing information** or **Close wizard** to save the modified integration. When you save the updated properties, the integration submission is set to `DRAFT` status.
 1. Go to **Applications** > **Your OIN Integrations** in the Admin Console and confirm that your integration submission is in `DRAFT` status.
 1. Retest your integration successfully before you submit it again.
+
+### Update integration considerations
+
+* If you have an existing SAML SSO integration and you want to update advanced properties that aren't available in the OIN Wizard, contact <oin@okta.com>.
+
+* Backward compatibility from Tomasz
+
+## Submission support
+
+If you need help during your submission, Okta provides the following support stream for the various phases of your OIN submission:
+
+1. Building an integration phase
+
+    * When you're constructing your SSO app integration, you can post a question on the [Okta Developer Forum](https://devforum.okta.com/) or submit your question to <developers@okta.com>.
+
+1. Using the OIN Wizard to submit an integration phase
+
+    * If you need help with the OIN Wizard, review this document or see [Publish an OIN integration](/docs/guides/submit-app-overview/).
+    * Submit your OIN Wizard question to <developers@okta.com> if you can't find an answer in the documentation.
+    * If you have an integration status issue, contact <oin@okta.com>.
+
+1. Testing an integration phase
+
+    * If you have issues during your integration testing phase, you can post a question on the [Okta Developer Forum](https://devforum.okta.com/) or submit your question to <developers@okta.com>.
 
 ## See also
 
