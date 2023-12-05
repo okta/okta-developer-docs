@@ -14,7 +14,7 @@ title: Okta Identity Engine API Products release notes 2023
 | ------ | ------------------------ |
 | [Devices API: new expand query parameter option](#devices-api-new-expand-query-parameter-option) | December 6, 2023 |
 | [Org detail retrieval and user app listing for My Account API is GA in Production](#org-detail-retrieval-and-user-app-listing-for-my-account-api-is-ga-in-production) | November 8, 2023 |
-| [My Account Authenticators API is GA in Preview](#my-account-authenticators-api-is-ga-in-preview) | December 6, 2023 |
+| [MyAccount Authenticators API is GA in Preview](#myaccount-authenticators-api-is-ga-in-preview) | December 6, 2023 |
 | [Demonstrating Proof-of-Possession is GA in Production](#demonstrating-proof-of-possession-is-ga-in-production) | March 15, 2023 |
 | [Clarified RADIUS prompts](#clarified-radius-prompts) | December 6, 2023 |
 | [New possession constraint available for Policy API](#new-possession-constraint-available-for-policy-api) | December 6, 2023 |
@@ -29,9 +29,9 @@ The Devices API now includes a `userSummary` option for the `expand` query param
 
 Two new endpoints for the My Account API (`/idp/myaccount/organization` and `/idp/myaccount/okta-applications`) allow customers to retrieve org details and get a full list of the current user's Okta apps for a particular end user. See [My Account API](https://developer.okta.com/docs/api/openapi/okta-myaccount/guides/overview/). <!-- OKTA-651405, OKTA-663355, OKTA- -->
 
-#### My Account Authenticators API is GA in Preview
+#### MyAccount Authenticators API is GA in Preview
 
-With the new My Account Authenticators API (`/idp/myaccount/authenticators/`), you can list enrolled and un-enrolled authenticator information. You can also access details of specific authenticators and enrollments. <!-- OKTA-670703 -->
+With the new MyAccount Authenticators API (`/idp/myaccount/authenticators/`), you can list enrolled and un-enrolled authenticator information. You can also access details of specific authenticators and enrollments. <!-- OKTA-670703 -->
 
 #### Demonstrating Proof-of-Possession is GA in Production
 
