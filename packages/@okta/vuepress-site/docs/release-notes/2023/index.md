@@ -28,7 +28,7 @@ RADIUS authentication prompts are updated to be more clear. <!-- OKTA-656351 -->
 
 * Okta wasn't validating that DPoP JWTs were minted right before the DPoP proof was used. (OKTA-671124)
 
-* Password requests with an empty `salt` parameter values caused a `saltOrder` validation error. (OKTA-643212)
+* Password requests with an empty `salt` parameter value caused a `saltOrder` validation error. (OKTA-643212)
 
 ## November
 

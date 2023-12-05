@@ -22,7 +22,7 @@ title: Okta Identity Engine API Products release notes 2023
 
 #### Devices API: new expand query parameter option
 
-The Devices API now includes a `userSummary` option for the `expand` query parameter in the [List all Devices](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Device/#tag/Device/operation/listDevices!in=query&path=expand&t=request) endpoint (`GET /api/v1/devices`). This new option returns a summary list of associated users for the device in the `_embedded` property. Previously, only the `user` option was available, which returned a full-detailed list of associated users. This new option allows API users only to receive a smaller subset of key information for each user. Thus improving performance without compromising functionality.
+The Devices API now includes a `userSummary` option for the `expand` query parameter in the [List all Devices](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Device/#tag/Device/operation/listDevices!in=query&path=expand&t=request) endpoint (`GET /api/v1/devices`). This new option returns a summary list of associated users for the device in the `_embedded` property. Previously, only the `user` option was available, which returned a full-detailed list of associated users. This new option allows API users to receive a smaller subset of key information for each user, thus improving performance without compromising functionality.
 <!-- OKTA-666753 -->
 
 #### Org detail retrieval and user app listing for My Account API is GA in Production
@@ -31,7 +31,7 @@ Two new endpoints for the My Account API (`/idp/myaccount/organization` and `/id
 
 #### My Account Authenticators API is GA in Preview
 
-With the MyAccounts Authenticators API (`/idp/myaccount/authenticators/`), you can list enrolled and un-enrolled authenticator information. You can also access details of specific authenticators and enrollments. <!-- OKTA-670703 -->
+With the new My Account Authenticators API (`/idp/myaccount/authenticators/`), you can list enrolled and un-enrolled authenticator information. You can also access details of specific authenticators and enrollments. <!-- OKTA-670703 -->
 
 #### Demonstrating Proof-of-Possession is GA in Production
 
@@ -43,7 +43,7 @@ RADIUS authentication prompts are updated to be more clear. <!-- OKTA-656351 -->
 
 #### New possession constraint available for Policy API
 
-A new `userVerification` property is available for the `constraints` object of the [Policy API](/docs/reference/api/policy/#constraints). This setting can ensure the verification of a possession factor through PIN or biometrics. <!-- OKTA-669846 -->
+A new `userVerification` property is available for the `constraints` object of the [Policy API](/docs/reference/api/policy/#constraints). This setting can ensure the verification of a possession factor through a PIN or biometrics. <!-- OKTA-669846 -->
 
 #### Bugs fixed in 2023.12.0
 
@@ -57,7 +57,7 @@ A new `userVerification` property is available for the `constraints` object of t
 
 * Okta wasn't validating that DPoP JWTs were minted right before the DPoP proof was used. (OKTA-671124)
 
-* Password requests with an empty `salt` parameter values caused a `saltOrder` validation error. (OKTA-643212)
+* Password requests with an empty `salt` parameter value caused a `saltOrder` validation error. (OKTA-643212)
 
 ## November
 
