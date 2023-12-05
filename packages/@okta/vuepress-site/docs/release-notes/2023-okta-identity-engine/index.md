@@ -8,23 +8,22 @@ title: Okta Identity Engine API Products release notes 2023
 
 ## December
 
-### Monthly release 2023.11.0
+### Monthly release 2023.12.0
 
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
-| [Devices API: new expand query parameter option](#devices-api-new-expand-query-parameter-option) | December 7, 2023 |
+| [Devices API: new expand query parameter option](#devices-api-new-expand-query-parameter-option) | December 6, 2023 |
 | [Org detail retrieval and user app listing for My Account API is GA in Production](#org-detail-retrieval-and-user-app-listing-for-my-account-api-is-ga-in-production) | November 8, 2023 |
-| [My Account Authenticators API is GA in Preview](#my-account-authenticators-api-is-ga-in-preview) | December 7, 2023 |
+| [My Account Authenticators API is GA in Preview](#my-account-authenticators-api-is-ga-in-preview) | December 6, 2023 |
 | [Demonstrating Proof-of-Possession is GA in Production](#demonstrating-proof-of-possession-is-ga-in-production) | March 15, 2023 |
-| [Clarified RADIUS prompts](#clarified-radius-prompts) | December 7, 2023 |
-| [New possession constraint available for Policy API](#new-possession-constraint-available-for-policy-api) | December 7, 2023 |
-| [Bugs fixed in 2023.12.0](#bugs-fixed-in-2023120) | December 7, 2023 |
+| [Clarified RADIUS prompts](#clarified-radius-prompts) | December 6, 2023 |
+| [New possession constraint available for Policy API](#new-possession-constraint-available-for-policy-api) | December 6, 2023 |
+| [Bugs fixed in 2023.12.0](#bugs-fixed-in-2023120) | December 6, 2023 |
 
 #### Devices API: new expand query parameter option
 
-The Devices API now includes a `userSummary` option for the `expand` query parameter in the [List all Devices](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Device/#tag/Device/operation/listDevices) endpoint (`GET /api/v1/devices`). This new option returns a summary list of associated users for the device in the `_embedded` property. Previously, only the `user` option was available, which returned a full-detailed list of associated users. This new option allows API users only to receive a smaller subset of key information for each user. Thus improving performance without compromising functionality.
-
-Reference link for [List all Devices](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Device/#tag/Device/operation/listDevices!in=query&path=expand&t=request) <!-- OKTA-666753 -->
+The Devices API now includes a `userSummary` option for the `expand` query parameter in the [List all Devices](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Device/#tag/Device/operation/listDevices!in=query&path=expand&t=request) endpoint (`GET /api/v1/devices`). This new option returns a summary list of associated users for the device in the `_embedded` property. Previously, only the `user` option was available, which returned a full-detailed list of associated users. This new option allows API users only to receive a smaller subset of key information for each user. Thus improving performance without compromising functionality.
+<!-- OKTA-666753 -->
 
 #### Org detail retrieval and user app listing for My Account API is GA in Production
 
@@ -44,7 +43,7 @@ RADIUS authentication prompts are updated to be more clear. <!-- OKTA-656351 -->
 
 #### New possession constraint available for Policy API
 
-A new `userVerification` property is available for the `constraints` object of the Policy API. This setting can ensure the verification of a possession factor through PIN or biometrics. <!-- OKTA-669846 -->
+A new `userVerification` property is available for the `constraints` object of the [Policy API](/docs/reference/api/policy/#constraints). This setting can ensure the verification of a possession factor through PIN or biometrics. <!-- OKTA-669846 -->
 
 #### Bugs fixed in 2023.12.0
 
