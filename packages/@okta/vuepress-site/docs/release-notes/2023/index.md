@@ -4,6 +4,32 @@ title: Okta API Products release notes 2023
 
 > Help us improve our release notes by filling out this short [survey](https://surveys.okta.com/jfe/form/SV_4VEZcIGOX0TBgkC).
 
+## December
+
+### Monthly release 2023.11.0
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Demonstrating Proof-of-Possession is GA in Production](#demonstrating-proof-of-possession-is-ga-in-production) | March 15, 2023 |
+| [Clarified RADIUS prompts](#clarified-radius-prompts) | December 7, 2023 |
+| [Bugs fixed in 2023.12.0](#bugs-fixed-in-2023120) | December 7, 2023 |
+
+#### Demonstrating Proof-of-Possession is GA in Production
+
+OAuth 2.0 Demonstrating Proof-of-Possession (DPoP) is a security feature that adds an extra layer of protection to OAuth 2.0 access tokens. It enables the client to demonstrate that it possesses a particular key or secret associated with the access token. OAuth 2.0 DPoP can help prevent certain attacks, such as token theft or token replay attacks, where an attacker intercepts a legitimate access token and uses it to gain unauthorized access to a protected resource. See [Configure OAuth 2.0 Demonstrating Proof-of-Possession](/docs/guides/dpop/main/). <!-- OKTA-585491 -->
+
+#### Clarified RADIUS prompts
+
+RADIUS authentication prompts are updated to be more clear. <!-- OKTA-656351 -->
+
+#### Bugs fixed in 2023.12.0
+
+* DPoP proofs signed using an Elliptic Curve key couldn't be used. (OKTA-669345)
+
+* Okta wasn't validating that DPoP JWTs were minted right before the DPoP proof was used. (OKTA-671124)
+
+* Password requests with an empty `salt` parameter values caused a `saltOrder` validation error. (OKTA-643212)
+
 ## November
 
 ### Weekly release 2023.11.1
