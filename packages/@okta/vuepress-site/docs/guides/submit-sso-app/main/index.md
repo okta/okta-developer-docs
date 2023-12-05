@@ -8,7 +8,7 @@ layout: Guides
 
 <ApiLifecycle access="deprecated" />
 
-> **Deprecated:** As of release Jan 10, 2024, you can't submit OIDC and SAML integrations using the OIN Manager. Use the new [OIN Wizard](/docs/guides/submit-oin-app) for a seamless ISV submission experience.
+> **Deprecated:** As of release 2024.01.0 (Jan 10, 2024), you can't submit new OIDC and SAML integrations using the OIN Manager. Use the new [OIN Wizard](/docs/guides/submit-oin-app) for a seamless ISV submission experience. You can still use the OIN Manager to update integrations you've submitted previously through the OIN Manager, until further notice. See [Submission process](/docs/guides/submit-app-overview/#submission-process) for OIN submission guidance.
 
 ---
 

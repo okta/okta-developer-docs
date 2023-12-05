@@ -388,7 +388,9 @@ After the initial review is completed and all the issues are corrected, the subm
 
 You can modify a submitted or published integration in the **Your OIN Integrations** dashboard. These integrations are initially in read-only mode. If you decide to edit an integration and update any property from the previous submission, your integration reverts to `DRAFT` status. You have to retest and resubmit your integration in `DRAFT` status.
 
-> **Note:** If you edit your submitted or published integration in the **Your OIN Integrations** dashboard, your previous status and date are overwritten with the `DRAFT` status and date.
+> **Notes:**
+> * If you edit your submitted or published integration in the **Your OIN Integrations** dashboard, your previous status and date are overwritten with the `DRAFT` status and date.
+> * If you previously submitted an SSO integration using the OIN Manager, you need to go back to the [OIN Manager to update your integration](/docs/guides/submit-sso-app/openidconnect/main/#update-your-published-integration).
 
 To update a submitted integration:
 
@@ -406,7 +408,19 @@ To update a submitted integration:
 
 * If you have an existing SAML SSO integration and you want to update advanced properties that aren't available in the OIN Wizard, contact <oin@okta.com>.
 
-* Backward compatibility from Tomasz
+* When you update an integration that has already been published, be mindful to preserve backwards compatibility for your integration. Older instances of your integration could be in use by Okta customers.
+
+   If your update introduces a new variables and you are using dynamic URLs, ensure your test cases cover a variety of scenarios with different possible values for those variables. The newly introduced variables aren't populated for older instances of your integration. For example:
+
+   Your integration update introduced a new variable (`companyId`) and you use it in your updated ACS URL. The ACS URL changed from `https://login.myapp.io` to `https://login.myapp.io?connection={org.companyId}`. In this case, ensure the dynamic ACS URL is also valid for existing instances where `companyId` value isn't set.
+
+   To handle empty `companyId` values, you can define ACS URL as:
+
+   ```bash
+   ${empty org.companyId ? 'https://login.myapp.io' : 'https://login.myapp.io?connection=' + org.companyId}
+   ```
+
+   This expression handles both scenarios where `companyId` is populated or empty.
 
 ## Submission support
 
