@@ -18,7 +18,7 @@ title: Okta Identity Engine API Products release notes 2023
 | [Demonstrating Proof-of-Possession is GA in Production](#demonstrating-proof-of-possession-is-ga-in-production) | March 15, 2023 |
 | [Clarified RADIUS prompts](#clarified-radius-prompts) | December 6, 2023 |
 | [New possession constraint available for Policy API](#new-possession-constraint-available-for-policy-api) | December 6, 2023 |
-| [Bugs fixed in 2023.12.0](#bugs-fixed-in-2023120) | December 6, 2023 |
+| [Bugs fixed in 2023.12.0](#bugs-fixed-in-2023-12-0) | December 6, 2023 |
 
 #### Devices API: new expand query parameter option
 
