@@ -384,9 +384,9 @@ After you submit your integration, an OIN analyst performs an initial review of 
 
 After the initial review is completed and all the issues are corrected, the submission moves to the QA testing phase. An OIN analyst uses the test information that you provided in the OIN Wizard to test your integration. They send you an email with any test failures or issues to correct. See [Understand the submission review process](/docs/guides/submit-app-overview/#understand-the-submission-review-process).
 
-## Update an OIN integration
+## Update your integration
 
-You can modify a submitted or published integration in the **Your OIN Integrations** dashboard. These integrations are initially in read-only mode. If you decide to edit the integration and update any property in the previous submission, your integration reverts to `DRAFT` status. You have to retest and resubmit your integration in `DRAFT status.
+You can modify a submitted or published integration in the **Your OIN Integrations** dashboard. These integrations are initially in read-only mode. If you decide to edit an integration and update any property from the previous submission, your integration reverts to `DRAFT` status. You have to retest and resubmit your integration in `DRAFT` status.
 
 > **Note:** If you edit your submitted or published integration in the **Your OIN Integrations** dashboard, your previous status and date are overwritten with the `DRAFT` status and date.
 
