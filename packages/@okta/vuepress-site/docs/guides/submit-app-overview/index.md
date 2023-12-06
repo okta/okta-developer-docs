@@ -22,17 +22,17 @@ Before you submit your integration, in either the OIN Manager or Wizard, review 
 Consider the following questions to help you choose which pathway to use for submission:
 
 * Are you submitting a new SSO integration?
-  * [Use the OIN Wizard for SSO integrations](#submission-process-for-sso-with-oin-wizard).
+  * [Use the OIN Wizard for SSO integrations](#submission-process-for-sso-integrations).
 * Are you submitting a new or published SCIM or Workflows integration?
-  * [Use the OIN Manager for LCM integrations](#submission-process-for-lcm-with-oin-manager).
+  * [Use the OIN Manager for LCM integrations](#submission-process-for-lcm-integrations).
 * Are you submitting a new or published API service integration?
-  * [Use the OIN Manager for API service](#submission-process-for-api-service-with-oin-manager).
+  * [Use the OIN Manager for API service](#submission-process-for-api-service-integrations).
 * Are you submitting a new SSO and SCIM integration?
-  1. [Use the OIN Wizard](#submission-process-for-sso-with-oin-wizard) to submit the SSO integration component.
-  1. [Use the OIN Manager](#submission-process-for-lcm-with-oin-manager) to submit your SCIM integration component.
-  > **Note:** Submit the SSO integration in the OIN Wizard first before you submit the SCIM integration in the OIN Manager.
+  1. [Use the OIN Wizard](#submission-process-for-sso-integrations) to submit the SSO integration component.
+  1. [Use the OIN Manager](#submission-process-for-lcm-integrations) to submit your SCIM integration component.
+     > **Note:** Submit the SSO integration in the OIN Wizard first before you submit the SCIM integration in the OIN Manager.
 * Are you updating a published SSO integration, previously submitted through OIN Manager?
-  * Use the [OIN Manager to update published SSO integrations](/docs/guides/submit-sso-app/openidconnect/main/#update-your-published-integration).
+  * Use the [OIN Manager to update published SSO integrations](/docs/guides/submit-sso-app/saml2/main/#update-your-published-integration).
 
 Submit your integration to Okta and work with the Okta OIN team as they test and review your submission. If the Okta OIN team identifies any issues in the review and QA testing phases, you’re sent an email with the specific details. At any point in the process, you can check the status of your submission in the OIN Wizard or OIN Manager.
 
