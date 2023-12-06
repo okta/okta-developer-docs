@@ -390,7 +390,7 @@ You can modify a submitted or published integration in the **Your OIN Integratio
 
 > **Notes:**
 > * If you edit your submitted or published integration in the **Your OIN Integrations** dashboard, your previous status and date are overwritten with the `DRAFT` status and date.
-> * If you previously submitted an SSO integration using the OIN Manager, you need to go back to the [OIN Manager to update your integration](/docs/guides/submit-sso-app/openidconnect/main/#update-your-published-integration).
+> * If you previously submitted your SSO integration using the OIN Manager, you can only edit your published integration with the [OIN Manager to update your integration](/docs/guides/submit-sso-app/openidconnect/main/#update-your-published-integration).
 
 To update a submitted integration:
 
@@ -410,9 +410,9 @@ To update a submitted integration:
 
 * When you update an integration that has already been published, be mindful to preserve backwards compatibility for your integration. Older instances of your integration could be in use by Okta customers.
 
-   If your update introduces a new variables and you are using dynamic URLs, ensure your test cases cover a variety of scenarios with different possible values for those variables. The newly introduced variables aren't populated for older instances of your integration. For example:
+   If your update introduces a new variables and you are using dynamic URLs, ensure that your test cases cover a variety of scenarios with different possible values for those variables. The newly introduced variables aren't populated for older instances of your integration. For example:
 
-   Your integration update introduced a new variable (`companyId`) and you use it in your updated ACS URL. The ACS URL changed from `https://login.myapp.io` to `https://login.myapp.io?connection={org.companyId}`. In this case, ensure the dynamic ACS URL is also valid for existing instances where `companyId` value isn't set.
+   Your integration update introduced a new variable (`companyId`) and you use it in your updated ACS URL. The ACS URL changed from `https://login.myapp.io` to `https://login.myapp.io?connection={org.companyId}`. In this case, ensure that the dynamic ACS URL is also valid for existing instances where the `companyId` value isn't set.
 
    To handle empty `companyId` values, you can define ACS URL as:
 

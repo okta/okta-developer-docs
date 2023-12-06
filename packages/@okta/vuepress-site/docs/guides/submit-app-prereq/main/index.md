@@ -22,7 +22,9 @@ A built and tested app integration that's ready for Okta verification
 
 ## Overview
 
-Before using the [OIN Wizard](/docs/guides/submit-oin-app/) or the [OIN Manager](https://oinmanager.okta.com)&nbsp;to submit your OIN integration, you need to prepare for the artifacts requested during the submission process. Review the following submission artifact guidelines:
+Before using the [OIN Wizard](/docs/guides/submit-oin-app/) or the [OIN Manager](https://oinmanager.okta.com)&nbsp;to submit your OIN integration, prepare for the artifacts requested during the submission process.
+
+Review the following submission artifact guidelines:
 
 * [Logo](#logo-guidelines)
 * [App description](#app-description-guidelines)
@@ -41,11 +43,11 @@ What does this mean?
 
 Multi-tenancy in the OIN refers to the concept that as an ISV, you support several instances of your app, each with a unique credential system for your customers. An instance of an app that contains the infrastructure to support a group of users is considered a tenant. See [Tenants in Okta](/docs/guides/oin-sso-overview/#tenants-in-okta).
 
-You must provide a method for each of your customer tenants to uniquely connect to their Okta org. This allows your customers to find your app integration from the OIN catalog in their own Okta org. Then, they can instantiate the app integration with their unique tenant credentials, either with your support or on their own.
+Provide a method for each of your customer tenants to uniquely connect to their Okta org. This allows your customers to find your app integration from the OIN catalog in their own Okta org. Then, they can instantiate the app integration with their unique tenant credentials, either with your support or on their own.
 
 #### SAML SSO multi-tenant example
 
-The following multi-tenant example demonstrates the scenario where your Okta app integration supports SAML SSO and you configure SSO for your customers:
+The following multi-tenant example demonstrates the scenario where your Okta app integration supports Security Assertion Markup Language (SAML) SSO and you configure SSO for your customers:
 
 * Customer A and customer B have separate instances of your app within their own Okta orgs. Each customer has their own set of users. Both customers use Okta as an IdP.
 * Customer A adds your integration to their Okta org and obtains the SAML metadata from the integration. They contact you to enable SSO for their users on your app and forward you the SAML metadata.
@@ -54,7 +56,7 @@ The following multi-tenant example demonstrates the scenario where your Okta app
 
 #### OIDC SSO multi-tenant example
 
-The following multi-tenant example assumes that your Okta app integration supports OIDC SSO and that you offer a self-service portal for your customers:
+The following multi-tenant example assumes that your Okta app integration supports OpenID Connect (OIDC) SSO and that you offer a self-service portal for your customers:
 
 * Customer A and customer B have separate instances of your app within their own Okta orgs. Both customers have their own set of users, and each uses Okta as an IdP.
 * Customer A instantiates an OIDC integration for your app in their Okta org and obtains the integration client ID and secret. They then sign in to your app platform portal and set up SSO configuration with their client ID, client secret, and Okta domain. Customer A enables SSO to your app for their users, and doesn't require any external assistance.
@@ -105,9 +107,7 @@ The submitted app logo must conform to the following:
 
 ## App description guidelines
 
-From the OIN Manager, you can specify the app description in the **General Settings** > **App description** field. Descriptions must be less than 1024 characters and should describe the value that you provide to customers by partnering with Okta.
-
-You can find the app description in the OIN catalog under the **Integration detail** > **Overview** section of your published integration.
+The app descriptions must be less than 1024 characters and should describe the value that you provide to customers by partnering with Okta. The app description appears in the OIN catalog under the **Integration detail** > **Overview** section of your published integration.
 
 ##### Single Sign-On (SSO) app description example
 
@@ -119,7 +119,7 @@ Acme is a CMR platform that helps modern businesses thrive. A platform that conn
 
 ## Use case guidelines
 
-The OIN catalog organizes integrations into use cases. From the OIN Manager, you can specify the use case categories that your integration supports in the **General Settings** > **App use case** field. You can select up to five use cases. Use the following description list to determine the appropriate use case category for your integration:
+The OIN catalog organizes integrations into use cases. You can select up to five use cases. Use the following description list to determine the appropriate use case category for your integration:
 
 | Use case | Integration capability |
 | -------- | ---------------------- |
@@ -137,7 +137,7 @@ The OIN catalog organizes integrations into use cases. From the OIN Manager, you
 
 ## Customer support contact guidelines
 
-Specify support contacts for your integration in the **General Settings** > **Customer Support** fields from the OIN Manager. There are two types of contacts that you must provide:
+There are two types of support contacts that you must provide for your integration:
 
 * **Support contacts**: These are public support contacts that are visible from your integration detail page in the OIN catalog. These contacts are for customers who need assistance with your integration. You can provide more than one of the following contact options:
     * **URL**: A link to an FAQ or a troubleshooting guide (see an [OIN URL support contact example](https://www.okta.com/integrations/onfido/))
@@ -148,7 +148,7 @@ Specify support contacts for your integration in the **General Settings** > **Cu
 
 ## Test account guidelines
 
-Create a test account for your app so that the OIN team can use it to test and verify your integration. Specify test account details and credentials in the **General Settings** > **Test Account** fields in the OIN Manager.
+Create a test account for your app so that the OIN team can use it to test and verify your integration.
 
 The test account allows the OIN team to verify that your integration flow works as expected for your use case. The test account is typically an admin user in your app with extra privileges depending on your use case:
 
