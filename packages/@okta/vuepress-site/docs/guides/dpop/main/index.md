@@ -37,7 +37,7 @@ DPoP enables a client to prove possession of a public/private key pair by includ
 
 ## Configure DPoP
 
-This section explains how to configure DPoP in your org, and then how to create a DPoP proof (JWT) to obtain a DPoP-bound access token. A JWT is a compact, URL-safe way to represent claims transferred between two parties. A common example of a use case for JWTs is to declare the scope of the access token.
+This section explains how to configure DPoP in your org, and then how to create a DPoP proof (JWT) to obtain a DPoP-bound access token. A JWT is a compact, URL-safe way to represent claims transferred between two parties. A common use case example for JWTs is to declare the scope of the access token.
 
 ### Configure the app integration
 
@@ -197,61 +197,61 @@ Use the value of the `dpop-nonce` header in the JWT payload and update the JWT:
 
 1. Add the `dpop-nonce` header value as the `nonce` claim value in the JWT payload along with a `jti` claim.
 
-    Example payload:
+  Example payload:
 
-    ```json
-      {
+  ```json
+    {
       "htm": "POST",
       "htu": "https://${yourOktaDomain}/oauth2/default/v1/token",
-       "iat": 1516239022,
-       "nonce": "dsGuZVkXzEdbNb8yxI3Fi-cnuzkH_E0k",
-       "jti": "123456788"
+      "iat": 1516239022,
+      "nonce": "dsGuZVkXzEdbNb8yxI3Fi-cnuzkH_E0k",
+      "jti": "123456788"
       }
-    ```
+  ```
 
-    **Claims**
+  **Claims**
 
-    * `nonce`: Used only once. A recent `nonce` value provided by the authorization server using the `dpop-nonce` HTTP header. The authorization server provides the DPoP nonce value to limit the lifetime of DPoP proof JWTs.
-    * `jti`: JWT ID. A unique [JWT identifier](https://www.rfc-editor.org/rfc/rfc7519#section-4.1.7) for the request
+  * `nonce`: Used only once. A recent `nonce` value provided by the authorization server using the `dpop-nonce` HTTP header. The authorization server provides the DPoP nonce value to limit the lifetime of DPoP proof JWTs.
+  * `jti`: JWT ID. A unique [JWT identifier](https://www.rfc-editor.org/rfc/rfc7519#section-4.1.7) for the request
 
 2. Copy the new DPoP proof and add it to the DPoP header in the request.
 
 3. Send the request for an access token again. The authorization server should return the access token. In the following example, tokens are truncated for brevity.
 
-    ```json
-    {
-        "token_type": "DPoP",
-        "expires_in": 3600,
-        "access_token": "eyJraWQiOiJRVX.....wt7oSakPDUg",
-        "scope": "openid offline_access",
-        "refresh_token": "3CEz0Zvjs0eG9mu4w36n-c2g6YIqRfyRSsJzFAqEyzw",
-        "id_token": "eyJraWQiOiJRVXlG.....m5h5-NAtVFdwD1bg2JprEJQ"
-    }
-    ```
+  ```json
+  {
+      "token_type": "DPoP",
+      "expires_in": 3600,
+      "access_token": "eyJraWQiOiJRVX.....wt7oSakPDUg",
+      "scope": "openid offline_access",
+      "refresh_token": "3CEz0Zvjs0eG9mu4w36n-c2g6YIqRfyRSsJzFAqEyzw",
+      "id_token": "eyJraWQiOiJRVXlG.....m5h5-NAtVFdwD1bg2JprEJQ"
+  }
+  ```
 
 #### Decode the access token
 
 You can use the [JWT tool](https://jwt.io/) to decode the access token to view the included claims. The decoded access token should look something like this:
 
-  ```json
-      {
-        "ver": 1,
-        "jti": "AT.pKoLFoM7X4P4DrJBRvXaJzj9g0-naK1ChGH_oTbStYE",
-        "iss": "https://{yourOktaDomain}/oauth2/default",
-        "aud": "api://default",
-        "iat": 1677530933,
-        "exp": 1677534533,
-        "cnf": {
-          "jkt": "2HR2BW5-tan1aI6yIPHVOHwirAy4kQGWULoQHKUO0s4"
-          },
-        "cid": "0oa4dr9kzkykPrLhq0g7",
-        "uid": "00u47ijy7sRLaeSdC0g7",
-        "scp": [
-          "openid"
-        ],
-        "auth_time": 1677521913,
-        "sub": "user@example.com"
-      }
+```json
+    {
+      "ver": 1,
+      "jti": "AT.pKoLFoM7X4P4DrJBRvXaJzj9g0-naK1ChGH_oTbStYE",
+      "iss": "https://{yourOktaDomain}/oauth2/default",
+      "aud": "api://default",
+      "iat": 1677530933,
+      "exp": 1677534533,
+      "cnf": {
+        "jkt": "2HR2BW5-tan1aI6yIPHVOHwirAy4kQGWULoQHKUO0s4"
+        },
+      "cid": "0oa4dr9kzkykPrLhq0g7",
+      "uid": "00u47ijy7sRLaeSdC0g7",
+      "scp": [
+        "openid"
+      ],
+      "auth_time": 1677521913,
+      "sub": "user@example.com"
+    }
   ```
 
 **Claims**
@@ -282,15 +282,11 @@ The resource server must perform validation on the access token to complete the 
 
 The following is a high-level overview of the validation steps that the resource server must perform.
 
-<StackSnippet snippet="validate" />
-
 > **Note:** The resource server must not grant access to the resource unless all checks are successful.
 
-For instructional purposes, this guide provides example validation in a Node.js Express app using the third-party site Glitch. Glitch is a browser-based development environment that can build a full-stack web application online. Use the Glitch example to review and quickly implement the validation code. It includes all dependencies required to complete validation.
+<StackSnippet snippet="validate" />
 
-Copy (remix on Glitch) the [Validation DPoP Tokens](https://glitch.com/~validate-dpop-tokens) Glitch project to have a functional code sample. The validation steps at the beginning of this section are included in the code for quick implementation.
-
-> **Note:** See [Libraries for Token Signing/Verification](https://jwt.io/libraries) to view other libraries/SDKs in different languages that you can use for JWT verification.
+<StackSnippet snippet="glitch" />
 
 ## Refresh an access token
 
