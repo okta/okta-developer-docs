@@ -13,7 +13,7 @@ title: Okta Identity Engine API Products release notes 2023
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
 | [Devices API: new expand query parameter option](#devices-api-new-expand-query-parameter-option) | December 6, 2023 |
-| [Org detail retrieval and user app listing for My Account API is GA in Production](#org-detail-retrieval-and-user-app-listing-for-my-account-api-is-ga-in-production) | November 8, 2023 |
+| [Org detail retrieval and user app listing for MyAccount API is GA in Production](#org-detail-retrieval-and-user-app-listing-for-myaccount-api-is-ga-in-production) | November 8, 2023 |
 | [MyAccount Authenticators API is GA in Preview](#myaccount-authenticators-api-is-ga-in-preview) | December 6, 2023 |
 | [Demonstrating Proof-of-Possession is GA in Production](#demonstrating-proof-of-possession-is-ga-in-production) | March 15, 2023 |
 | [Clarified RADIUS prompts](#clarified-radius-prompts) | December 6, 2023 |
@@ -25,9 +25,9 @@ title: Okta Identity Engine API Products release notes 2023
 The Devices API now includes a `userSummary` option for the `expand` query parameter in the [List all Devices](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Device/#tag/Device/operation/listDevices!in=query&path=expand&t=request) endpoint (`GET /api/v1/devices`). This new option returns a summary list of associated users for the device in the `_embedded` property. Previously, only the `user` option was available, which returned a full-detailed list of associated users. This new option allows API users to receive a smaller subset of key information for each user, thus improving performance without compromising functionality.
 <!-- OKTA-666753 -->
 
-#### Org detail retrieval and user app listing for My Account API is GA in Production
+#### Org detail retrieval and user app listing for MyAccount API is GA in Production
 
-Two new endpoints for the My Account API (`/idp/myaccount/organization` and `/idp/myaccount/okta-applications`) allow customers to retrieve org details and get a full list of the current user's Okta apps for a particular end user. See [My Account API](https://developer.okta.com/docs/api/openapi/okta-myaccount/guides/overview/). <!-- OKTA-651405, OKTA-663355, OKTA- -->
+Two new endpoints for the MyAccount API (`/idp/myaccount/organization` and `/idp/myaccount/okta-applications`) allow customers to retrieve org details and get a full list of the current user's Okta apps for a particular end user. See [MyAccount API](https://developer.okta.com/docs/api/openapi/okta-myaccount/guides/overview/). <!-- OKTA-651405, OKTA-663355, OKTA- -->
 
 #### MyAccount Authenticators API is GA in Preview
 
@@ -39,7 +39,7 @@ OAuth 2.0 Demonstrating Proof-of-Possession (DPoP) is a security feature that ad
 
 #### Clarified RADIUS prompts
 
-RADIUS authentication prompts are updated to be more clear. <!-- OKTA-656351 -->
+RADIUS authentication prompts are clarified. <!-- OKTA-656351 -->
 
 #### New possession constraint available for Policy API
 

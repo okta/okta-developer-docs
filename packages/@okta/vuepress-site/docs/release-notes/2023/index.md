@@ -20,7 +20,7 @@ OAuth 2.0 Demonstrating Proof-of-Possession (DPoP) is a security feature that ad
 
 #### Clarified RADIUS prompts
 
-RADIUS authentication prompts are updated to be more clear. <!-- OKTA-656351 -->
+RADIUS authentication prompts are clarified. <!-- OKTA-656351 -->
 
 #### Bugs fixed in 2023.12.0
 
