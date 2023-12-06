@@ -1,6 +1,6 @@
 {
-  "release" : "2023.11.1",
-  "build" : "2023.11.1-begin-141-ge17ef2794a59",
+  "release" : "2023.12.1",
+  "build" : "2023.12.1-begin-185-g2bd2582c8e05",
   "errors" : [ {
     "title" : "Access denied",
     "statusCode" : 403,
@@ -856,6 +856,13 @@
     "errorCode" : "invalid_dpop_proof",
     "errorDescription" : "The DPoP proof JWT is issued in the future."
   }, {
+    "title" : "Invalid dpop proof JWT too old",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_dpop_proof_jwt_too_old",
+    "errorCode" : "invalid_dpop_proof",
+    "errorDescription" : "The DPoP proof JWT is issued more than five minutes in the past."
+  }, {
     "title" : "Invalid dpop proof JWT expired",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
@@ -883,6 +890,20 @@
     "internalErrorCode" : "dpop_proof_already_used",
     "errorCode" : "invalid_dpop_proof",
     "errorDescription" : "The DPoP proof JWT has already been used."
+  }, {
+    "title" : "Dpop proof invalid ath",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "dpop_proof_invalid_ath",
+    "errorCode" : "invalid_dpop_proof",
+    "errorDescription" : "'ath' claim in the DPoP proof does not match the presented access_token."
+  }, {
+    "title" : "Invalid access token dpop binding",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_access_token_dpop_binding",
+    "errorCode" : "invalid_dpop_proof",
+    "errorDescription" : "The access_token is not bound to the provided DPoP proof."
   }, {
     "title" : "Invalid grant",
     "statusCode" : 400,
@@ -1619,6 +1640,20 @@
     "errorCode" : "invalid_request",
     "errorDescription" : "The recovery token is invalid"
   }, {
+    "title" : "Dpop proof required for token",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "dpop_proof_required_for_token",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "The resource request requires a DPoP proof."
+  }, {
+    "title" : "Dpop authentication scheme required",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "dpop_authentication_scheme_required",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "The resource request must use the DPoP authentication scheme when using a DPoP bound token."
+  }, {
     "title" : "Direct auth invalid channel hint",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
@@ -2060,6 +2095,13 @@
     "errorCode" : "invalid_token",
     "errorDescription" : "The 'web_sso_token' has an invalid issuer."
   }, {
+    "title" : "Access token not dpop bound",
+    "statusCode" : 401,
+    "statusReasonPhrase" : "Unauthorized",
+    "internalErrorCode" : "access_token_not_dpop_bound",
+    "errorCode" : "invalid_token",
+    "errorDescription" : "The presented access_token is not DPoP bound."
+  }, {
     "title" : "Invalid user code",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
@@ -2290,6 +2332,13 @@
     "internalErrorCode" : "invalid_callout_response",
     "errorCode" : "server_error",
     "errorDescription" : "The callout service returned an invalid response."
+  }, {
+    "title" : "Direct auth oob failure",
+    "statusCode" : 500,
+    "statusReasonPhrase" : "Internal Server Error",
+    "internalErrorCode" : "direct_auth_oob_failure",
+    "errorCode" : "server_error",
+    "errorDescription" : "Failed to initiate out-of-band authentication."
   }, {
     "title" : "Slow down",
     "statusCode" : 400,
