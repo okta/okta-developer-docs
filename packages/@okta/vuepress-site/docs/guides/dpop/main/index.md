@@ -37,7 +37,7 @@ DPoP enables a client to prove possession of a public/private key pair by includ
 
 ## Configure DPoP
 
-This section explains how to configure DPoP in your org, and then how to create a DPoP proof (JWT) to obtain a DPoP-bound access token. A JWT is a compact, URL-safe way to represent claims transferred between two parties. The most common use case for JWTs is to declare the scope of the access token.
+This section explains how to configure DPoP in your org, and then how to create a DPoP proof (JWT) to obtain a DPoP-bound access token. A JWT is a compact, URL-safe way to represent claims transferred between two parties. A common example of a use case for JWTs is to declare the scope of the access token.
 
 ### Configure the app integration
 
@@ -117,7 +117,7 @@ Use your internal instance to sign the JWT for a production org. See this [JWT g
 
 Include the following required parameters in the JWT header:
 
-* `typ`: Type header. Declares that the encoded object is a JWT and meant for use with DPoP. This example uses `dpop+jwt`.
+* `typ`: Type header. Declares that the encoded object is a JWT and meant for use with DPoP. This must be `dpop+jwt`.
 * `alg`: Algorithm. Indicates that the asymmetric algorithm is RS256 (RSA using SHA256). This algorithm uses a private key to sign the JWT and a public key to verify the signature. Must not be `none` or an identifier for a symmetric algorithm. This example uses `RS256`.
 * `jwk`: JSON Web Key. Include the public key (in JWK string format) that you create in the [Create a JSON Web Key](#create-a-json-web-key) section. Okta uses this public key to verify the JWT signature. See the [Application JSON Web Key Response properties](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/Client/#tag/Client/operation/createClient!c=201&path=jwks&t=response) for a description of the public key properties.
 
@@ -168,7 +168,7 @@ Follow these steps if you use the [JWT tool](https://jwt.io/). See the [previous
 
 ### Build the request
 
-Your next step is to build the POST request to the `/token` endpoint for an access token. Two requests to the `/token` endpoint are necessary. The initial request obtains the `dpop-nonce` header value from the authorization server. The second request includes an updated JWT with the `dpop-nonce` header value in the JWT payload.
+Your next step is to build the POST request to the `/token` endpoint for an access token. Two requests to the `/token` endpoint are necessary. The initial request obtains the `dpop-nonce` header value from the authorization server. The second request includes an updated JWT with the `dpop-nonce` header value in the JWT payload. After you receive a `nonce` value from the `/token` endpoint, you can continue to use that value utnil you receive an error with a new `dpop-nonce` header,
 
 The additional header in the initial request is `DPoP`. The value for `DPoP` is the DPoP proof JWT from the previous section.
 
