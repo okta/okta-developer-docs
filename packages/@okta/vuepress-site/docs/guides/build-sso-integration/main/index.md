@@ -55,22 +55,14 @@ Okta recommends the redirect authentication deployment model if your situation m
 
 Instructions for adding your SSO integration into Okta depend on if you want to provide a public or private integration:
 
-<div class=half>
+<div class="three-quarters">
 
 ![Public or private integration decision](/img/oin/publicOrPrivateIntegration.png)
 
 </div>
 
 <!--
-@startuml
-if (Build an integration) then (Public)
-   :Submit an OIN integration;
-   kill
-else (Private)
-   :Add a private integration;
-   kill
-endif
-@enduml
+Source link: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?type=design&node-id=4481-74679&mode=design&t=lnUeadtDVve0T0Nh-0
 -->
 
 * **Submit an OIN integration**: If you want to publish your integration in the Okta Integration Network (OIN), follow the instructions in [OIN Wizard: Submit an SSO integration](/docs/guides/submit-oin-app/). This guide shows you how to use the OIN Wizard to:
@@ -80,7 +72,7 @@ endif
 
    > **Notes:**
    > * Creating an app integration instance doesn't automatically make it available in the [OIN](https://www.okta.com/integrations/). After you've tested your integration, you need to [submit it](/docs/guides/submit-oin-app/-/main/#submit-your-integration) to the OIN team for verification and publication.
-   > * The OIN Wizard doesn't support new advanced SSO integrations with more than three app instance variables. If you need to update your existing advanced SSO integration from the OIN Manager, contact the OIN team at <oin@okta.com>.
+   > * The OIN Wizard doesn't support new advanced SSO integrations with more than three app instance variables.
 
 * **Add a private integration**: If you want your integration to exist only in your Okta org, follow the instructions in [Add a private SSO integration](/docs/guides/add-private-app). This guide shows you how to use the Application Integration Wizard (AIW) in the Admin Console to:
   * Create your app integration instance.

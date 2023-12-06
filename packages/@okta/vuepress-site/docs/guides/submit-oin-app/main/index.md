@@ -110,8 +110,6 @@ Configure integration variables if your URLs are dynamic for each tenant. The va
 
 1. If you need to delete a variable, click the ![trash can; delete icon](/img/icons/delete_can.png) icon next to it.
 
- > **Note**: A variable can include a complete URL (for example, `https://example.com`). This enables you to use global variables, such as `${org.baseURL}`.
-
 #### <StackSnippet snippet="protocol-name" inline/> properties
 
 Continue with the OIN Wizard and configure your protocol settings:
@@ -412,15 +410,7 @@ To update a submitted integration:
 
    If your update introduces a new variables and you are using dynamic URLs, ensure that your test cases cover a variety of scenarios with different possible values for those variables. The newly introduced variables aren't populated for older instances of your integration. For example:
 
-   Your integration update introduced a new variable (`companyId`) and you use it in your updated ACS URL. The ACS URL changed from `https://login.myapp.io` to `https://login.myapp.io?connection={org.companyId}`. In this case, ensure that the dynamic ACS URL is also valid for existing instances where the `companyId` value isn't set.
-
-   To handle empty `companyId` values, you can define ACS URL as:
-
-   ```bash
-   ${empty org.companyId ? 'https://login.myapp.io' : 'https://login.myapp.io?connection=' + org.companyId}
-   ```
-
-   This expression handles both scenarios where `companyId` is populated or empty.
+   <StackSnippet snippet="backward-compatible-eg" />
 
 ## Submission support
 

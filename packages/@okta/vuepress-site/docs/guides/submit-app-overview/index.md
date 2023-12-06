@@ -28,8 +28,9 @@ Consider the following questions to help you choose which pathway to use for sub
 * Are you submitting a new or published API service integration?
   * [Use the OIN Manager for API service](#submission-process-for-api-service-with-oin-manager).
 * Are you submitting a new SSO and SCIM integration?
-  * [Use the OIN Wizard](#submission-process-for-sso-with-oin-wizard) to submit the SSO integration component.
-  * [Use the OIN Manager](#submission-process-for-lcm-with-oin-manager) to submit your SCIM integration component.
+  1. [Use the OIN Wizard](#submission-process-for-sso-with-oin-wizard) to submit the SSO integration component.
+  1. [Use the OIN Manager](#submission-process-for-lcm-with-oin-manager) to submit your SCIM integration component.
+  > **Note:** Submit the SSO integration in the OIN Wizard first before you submit the SCIM integration in the OIN Manager.
 * Are you updating a published SSO integration, previously submitted through OIN Manager?
   * Use the [OIN Manager to update published SSO integrations](/docs/guides/submit-sso-app/openidconnect/main/#update-your-published-integration).
 
@@ -38,23 +39,6 @@ Submit your integration to Okta and work with the Okta OIN team as they test and
 The Okta OIN team reviews and prioritizes all submissions.
 
 ---
-
-### Submission process for SSO with OIN Wizard
-
-(Build integration component your app) -> (Sign in to Admin Console and use the OIN Wizard) => (Add integration details) => (generate test instance) => (test integration) => (click **Submit integration**)
-
-### Submission process for API service with OIN Manager
-
-(Build integration component your app) -> (Sign in to OIN Manager) => (Add integration details) => (generate test instance) => (test integration) => (click **Submit for review**)
-
-### Submission process for LCM with OIN Manager
-
-(Build integration component your app) -> (Sign in to Admin Console) => (Create integration instance) => (test integration) -> <good?> -> (Sign in to OIN Manager) => (Add details) => (Click **Submit for review**)
-
----
-
-> **Note to Lesie/Tova:** We should change the image below to have 4 steps (to separate out the multiple tasks in previous step 1):
-STEP 1: Submit integration, STEP 2: OIN initial review, STEP 3: OIN code review, STEP 4: Published
 
 <div>
 
@@ -65,6 +49,46 @@ Source link : https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 -->
 
 </div>
+
+### Submission process for SSO integrations
+
+The following is the submission process for SSO integrations with the OIN Wizard:
+
+1. Build the integration in your app.
+1. Sign in to your developer-edition org Admin Console.
+1. Add integration details in the OIN Wizard.
+1. Generate the test app integration instance.
+1. Test the integration.
+1. Submit the integration.
+
+After submission, the OIN team reviews your integration. See [Understand the submission review process](#understand-the-submission-review-process).
+
+### Submission process for API service integrations
+
+The following is the submission process for API service integrations with the OIN Manager:
+
+1. Build the integration in your service app.
+1. Sign in to the OIN Manager with your developer-edition org credentials.
+1. Add integration details in the OIN Manager.
+1. Generate the test service app integration instance.
+1. Test the integration.
+1. Submit the integration.
+
+After submission, the OIN team reviews your integration. See [Understand the submission review process](#understand-the-submission-review-process).
+
+### Submission process for LCM integrations
+
+The following is the submission process for SCIM or Workflows integrations with the OIN Manager:
+
+1. Build the integration in your app.
+1. Sign in to your developer-edition org Admin Console.
+1. Create the test app integration instance.
+1. Test the integration.
+1. Sign in to the OIN Manager with your developer-edition org credentials.
+1. Add integration details in the OIN Manager.
+1. Submit the integration.
+
+After submission, the OIN team reviews your integration. See [Understand the submission review process](#understand-the-submission-review-process).
 
 ### Understand the submission review process
 
@@ -80,7 +104,7 @@ The status of your integration is shown in the **Your OIN Integrations** dashboa
 | ISV to fix | ISV needs to fix bugs | The OIN team reviewed the submission and found some issues with the SSO integration. An email is sent to the ISV with a list of issues to fix.|
 | Published | Complete | The OIN team verified that the integration works as intended for Okta customers. The integration is listed in the OIN catalog.|
 
-#### OIN initial review
+#### OIN to review
 
 * **Okta to review**: The Okta OIN team is notified of your submission. Okta reviews the submission and notifies you by email when the submission review is complete.
 * **ISV to review**: Okta has reviewed your submission and found issues that require your attention. Check your email for results from the initial review.
@@ -88,8 +112,6 @@ The status of your integration is shown in the **Your OIN Integrations** dashboa
   * Sign in to OIN Manager and update the requested details. Retest and resubmit your integration.
 
 After the OIN team reviews your updated submission and verifies that the issues are resolved, your submission moves to the next code review phase.
-
-#### OIN code review
 
 * **Okta to review**: The Okta OIN team conducts internal QA tests and notifies you by email when the QA review is complete. If the QA test is successful, your submission is automatically published in the OIN.
 * **ISV to fix**: Okta has found QA issues that require your correction. Check your email for results from the Okta QA review. Make the requested changes as an update to your existing submission. Retest and resubmit your integration.
