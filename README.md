@@ -19,7 +19,7 @@ To build the site on your machine and/or to contribute content to the site, [vie
 
 ## Troubleshooting
 
-If you run into issues, [view the instructions for troubleshooting](https://github.com/okta/okta-developer-docs/wiki/Troubleshooting).
+If you run into issues, [view the instructions for troubleshooting](https://github.com/okta/okta-developer-docs/wiki/Troubleshooting-this).
 
 ### Links:
 
