@@ -72,11 +72,11 @@ Source link: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upda
 
    > **Notes:**
    > * Creating an app integration instance doesn't automatically make it available in the [OIN](https://www.okta.com/integrations/). After you've tested your integration, you need to [submit it](/docs/guides/submit-oin-app/-/main/#submit-your-integration) to the OIN team for verification and publication.
-   > * The OIN Wizard doesn't support new advanced SSO integrations with more than three app instance variables.
+   > * The OIN Wizard doesn't support new SSO integrations with more than three app instance variables, or advanced SAML properties.
 
 * **Add a private integration**: If you want your integration to exist only in your Okta org, follow the instructions in [Add a private SSO integration](/docs/guides/add-private-app). This guide shows you how to use the Application Integration Wizard (AIW) in the Admin Console to:
   * Create your app integration instance.
-  * Start testing SSO flow.
+  * Test your SSO flows.
 
   Your org users can access your app once SSO is configured.
 
@@ -89,7 +89,7 @@ Follow either pathways:
 * [Add a private SSO integration](/docs/guides/add-private-app)&mdash;for the following use cases:
    - I want to test my SSO integration in my developer-edition org. I have no immediate plans to have it publicly available.
    - I want my SSO integration only to be available in the org I'm using.
-   - I have a SAML integration with advanced instance variables and SAML features that aren't included in the OIN Wizard.
+   - I have a SAML integration with more than three instance variables and advanced SAML features that aren't included in the OIN Wizard.
 
 ## See also
 

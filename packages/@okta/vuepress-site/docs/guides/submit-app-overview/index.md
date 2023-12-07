@@ -38,18 +38,6 @@ Submit your integration to Okta and work with the Okta OIN team as they test and
 
 The Okta OIN team reviews and prioritizes all submissions.
 
----
-
-<div>
-
-![ISV submission process flow](/img/oin/isv-portal_submission_flow.png)
-
-<!--
-Source link : https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3265%3A30940  isv_portal_submission_flow
--->
-
-</div>
-
 ### Submission process for SSO integrations
 
 The following is the submission process for SSO integrations with the OIN Wizard:
@@ -57,7 +45,7 @@ The following is the submission process for SSO integrations with the OIN Wizard
 1. Build the integration in your app.
 1. Sign in to your developer-edition org Admin Console.
 1. Add integration details in the OIN Wizard.
-1. Generate the test app integration instance.
+1. Generate the app integration instance.
 1. Test the integration.
 1. Submit the integration.
 
@@ -70,7 +58,7 @@ The following is the submission process for API service integrations with the OI
 1. Build the integration in your service app.
 1. Sign in to the OIN Manager with your developer-edition org credentials.
 1. Add integration details in the OIN Manager.
-1. Generate the test service app integration instance.
+1. Generate the app integration instance.
 1. Test the integration.
 1. Submit the integration.
 
@@ -90,37 +78,31 @@ The following is the submission process for SCIM or Workflows integrations with 
 
 After submission, the OIN team reviews your integration. See [Understand the submission review process](#understand-the-submission-review-process).
 
+<div>
+
+![ISV submission process flow](/img/oin/isv-portal_submission_flow.png)
+
+<!--
+Source link : https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3265%3A30940  isv_portal_submission_flow
+-->
+
+</div>
+
 ### Understand the submission review process
 
 The submission review process begins when you click **Submit for Review** in the [OIN Wizard](/docs/guides/submit-oin-app/) or **Submit integration** in the [OIN Manager](https://oinmanager.okta.com). Okta sends you an email notification that your integration is now queued for review and also includes the date when the initial review is expected to finish.
 
 The status of your integration is shown in the **Your OIN Integrations** dashboard from the Admin Console or in the **My App Integrations** page from the OIN Manager.
 
-| OIN Wizard status | OIN Manager status  | Description |
+|  <div style="width:150px">OIN Wizard status</div>|  <div style="width:160px">OIN Manager status</div>  | Description |
 | --------------- | ------------ | ------------ |
-| Draft | New |  An in-progress integration submission. The OIN team isn't reviewing this integration. |
-| OIN to review | Pending reviewed by Okta | The integration was submitted. The OIN team needs to conduct an initial review, a code review, and QA testing for the integration. |
-| ISV to review | ISV needs to review | The OIN team reviewed the submission and found some issues with the integration. An email is sent to the ISV to review their submission. |
-| ISV to fix | ISV needs to fix bugs | The OIN team reviewed the submission and found some issues with the SSO integration. An email is sent to the ISV with a list of issues to fix.|
-| Published | Complete | The OIN team verified that the integration works as intended for Okta customers. The integration is listed in the OIN catalog.|
-
-#### OIN to review
-
-* **Okta to review**: The Okta OIN team is notified of your submission. Okta reviews the submission and notifies you by email when the submission review is complete.
-* **ISV to review**: Okta has reviewed your submission and found issues that require your attention. Check your email for results from the initial review.
-  * Sign in to your org Admin Console and update the request details using the OIN Wizard. Retest and resubmit your integration.
-  * Sign in to OIN Manager and update the requested details. Retest and resubmit your integration.
-
-After the OIN team reviews your updated submission and verifies that the issues are resolved, your submission moves to the next code review phase.
-
-* **Okta to review**: The Okta OIN team conducts internal QA tests and notifies you by email when the QA review is complete. If the QA test is successful, your submission is automatically published in the OIN.
-* **ISV to fix**: Okta has found QA issues that require your correction. Check your email for results from the Okta QA review. Make the requested changes as an update to your existing submission. Retest and resubmit your integration.
-
-The Okta OIN team conducts a final internal QA test based on previously requested changes. The OIN team emails you when the final QA review is complete. If the review is successful, your submission is automatically published in the OIN.
-
-#### Published
-
-Congratulations, your integration is published in the OIN!
+| Draft | Draft&mdash;ISV new |  An in-progress integration submission. The OIN team isn't reviewing this integration. |
+| OIN to review | To be reviewed by Okta | The integration was submitted. The OIN team needs to conduct an initial review. The OIN team notifies you by email when the initial submission review is complete.|
+| ISV to review | ISV needs to review | The OIN team reviewed the submission and found some issues with the integration. An email is sent to you with a list of issues. Review the list and resolve the issues before you respond or resubmit the integration to Okta. |
+| OIN to review | To be QA tested by Okta | The integration was submitted and passed the initial review phase. The OIN team conducts internal QA tests and notifies you by email when the QA review is complete. If QA testing is successful, your submission is automatically published in the OIN. |
+| ISV to fix | ISV needs to fix bugs | The OIN team tested the submission and found some issues with the integration. An email is sent to you with a list of issues to fix. Make the requested changes as an update to your existing submission. Retest and resubmit your integration.|
+| OIN to review | Final Review | The Okta OIN team conducts a final internal QA test based on previously requested changes. The OIN team emails you when the final QA review is complete. If the review is successful, your submission is automatically published in the OIN. |
+| Published | Published | Congratulations, your integration is published in the OIN! <br>The OIN team verified that the integration works as intended for your Okta customers.|
 
 ## Protocols supported
 

@@ -28,7 +28,7 @@ To integrate your app for Single Sign-On (SSO) with Okta, you need to first deve
 
 Registration involves creating an app integration instance in your Okta org to provide you with the SSO credentials or metadata for your app authentication requests. This integration is considered private because it's only available in the org from where the app integration instance was created.
 
-> **Note:** An app integration is considered public if it's available in the Okta Integration Network (OIN) catalog for all Okta customers.
+> **Note:** An app integration is considered public if it's available in the [Okta Integration Network (OIN) catalog](https://www.okta.com/integrations/) for all Okta customers.
 
 This guide assumes that you've developed your app SSO integration and want to add it to your Okta org. The instructions in this guide are generic for two SSO standards:
 
