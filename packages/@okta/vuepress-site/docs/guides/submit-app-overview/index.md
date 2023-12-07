@@ -13,11 +13,11 @@ If you're an integrator, from an independent software vendor (ISV) or an existin
 
 ## Submission process
 
-Okta introduced a seamless experience to submit SSO integrations for OIN publication. This new experience enables you to build and test your integration metadata before submission directly from the Admin Console with the new [OIN Wizard](/docs/guides/submit-oin-app/). This reduces the tools that you need to build, test, and submit your integration. Moreover, it reduces the time needed for the OIN team to review and validate your integration, which shortens the time to publish in the OIN.
+Okta introduced a seamless experience to submit SSO integrations for OIN publication. This new experience enables you to build and test your integration before submission directly from the Admin Console with the new [OIN Wizard](/docs/guides/submit-oin-app/). This reduces the tools that you need to build, test, and submit your integration. Moreover, it reduces the time needed for the OIN team to review and validate your integration, which shortens the time to publish in the OIN.
 
 For lifecycle management (LCM) integrations (such as SCIM or Workflows) or API service integrations, you need to use the [OIN Manager](https://oinmanager.okta.com/) for submission.
 
-Before you submit your integration, in either the OIN Manager or Wizard, review the [OIN submission requirements](/docs/guides/submit-app-prereq/) and prepare the artifacts required (such as the app logo, description, and configuration document).
+Before you submit your integration, in either the OIN Wizard or Manager, review the [OIN submission requirements](/docs/guides/submit-app-prereq/) and prepare the necessary artifacts (such as the app logo, description, and configuration document).
 
 Consider the following questions to help you choose which pathway to use for submission:
 
@@ -40,7 +40,7 @@ The Okta OIN team reviews and prioritizes all submissions.
 
 ### Submission process for SSO integrations
 
-The following is the submission process for SSO integrations with the OIN Wizard:
+The following steps outline the submission process for SSO integrations with the OIN Wizard:
 
 1. Build the integration in your app.
 1. Sign in to your developer-edition org Admin Console.
@@ -53,7 +53,7 @@ After submission, the OIN team reviews your integration. See [Understand the sub
 
 ### Submission process for API service integrations
 
-The following is the submission process for API service integrations with the OIN Manager:
+The following steps outline the submission process for API service integrations with the OIN Manager:
 
 1. Build the integration in your service app.
 1. Sign in to the OIN Manager with your developer-edition org credentials.
@@ -66,11 +66,11 @@ After submission, the OIN team reviews your integration. See [Understand the sub
 
 ### Submission process for LCM integrations
 
-The following is the submission process for SCIM or Workflows integrations with the OIN Manager:
+The following steps and flowchart outline the submission process for SCIM or Workflows integrations with the OIN Manager:
 
-1. Build the integration in your app.
+1. Build the SCIM integration or Workflows capabilities in your app.
 1. Sign in to your developer-edition org Admin Console.
-1. Create the test app integration instance.
+1. Create the SCIM integration instance or build your Workflows connector.
 1. Test the integration.
 1. Sign in to the OIN Manager with your developer-edition org credentials.
 1. Add integration details in the OIN Manager.
@@ -96,12 +96,12 @@ The status of your integration is shown in the **Your OIN Integrations** dashboa
 
 |  <div style="width:150px">OIN Wizard status</div>|  <div style="width:160px">OIN Manager status</div>  | Description |
 | --------------- | ------------ | ------------ |
-| Draft | Draft&mdash;ISV new |  An in-progress integration submission. The OIN team isn't reviewing this integration. |
+| Draft | Draft&mdash;ISV new |  An in-progress integration that hasn't been submitted yet. The OIN team doesn't review draft integrations. |
 | OIN to review | To be reviewed by Okta | The integration was submitted. The OIN team needs to conduct an initial review. The OIN team notifies you by email when the initial submission review is complete.|
-| ISV to review | ISV needs to review | The OIN team reviewed the submission and found some issues with the integration. An email is sent to you with a list of issues. Review the list and resolve the issues before you respond or resubmit the integration to Okta. |
-| OIN to review | To be QA tested by Okta | The integration was submitted and passed the initial review phase. The OIN team conducts internal QA tests and notifies you by email when the QA review is complete. If QA testing is successful, your submission is automatically published in the OIN. |
-| ISV to fix | ISV needs to fix bugs | The OIN team tested the submission and found some issues with the integration. An email is sent to you with a list of issues to fix. Make the requested changes as an update to your existing submission. Retest and resubmit your integration.|
-| OIN to review | Final Review | The Okta OIN team conducts a final internal QA test based on previously requested changes. The OIN team emails you when the final QA review is complete. If the review is successful, your submission is automatically published in the OIN. |
+| ISV to review | ISV needs to review | The OIN team reviewed the submission and found some issues. An email is sent to you with a list of issues. Review the list and resolve the issues before you respond or resubmit the updated integration to Okta. |
+| OIN to review | To be QA tested by Okta | The integration was submitted and passed the initial review phase. The OIN team conducts internal QA tests and notifies you by email when the QA review is complete. If QA testing is successful, your integration is automatically published in the OIN. |
+| ISV to fix | ISV needs to fix bugs | The OIN team tested the integration and found some issues. An email is sent to you with a list of issues to fix. Make the requested changes as an update to your existing submission. Retest and resubmit your integration.|
+| OIN to review | Final Review | The Okta OIN team conducts a final internal QA test based on previously requested changes. The OIN team emails you when the final QA review is complete. If the review is successful, your integration is automatically published in the OIN. |
 | Published | Published | Congratulations, your integration is published in the OIN! <br>The OIN team verified that the integration works as intended for your Okta customers.|
 
 ## Protocols supported
@@ -119,6 +119,13 @@ Okta accepts integrations that use the following protocols or tools into the OIN
     >**Note:** SAML integrations must use SHA256 encryption for security. If you're using SHA-1 for encryption, see our guide on how to [Upgrade SAML Apps to SHA256](/docs/guides/updating-saml-cert/).
 
 * [System for Cross-domain Identity Management (SCIM)](https://scim.cloud)
+
+   > **Note:** All integrations in the OIN catalog are public. If you want to create a private integration for an app that uses SCIM, then use the [SCIM App Integration Wizard](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-scim). <br>
+   > You can also use the following template integrations from the OIN if they meet your app SCIM capabilities:
+   > * [SCIM 1.1 test apps](https://www.okta.com/integrations/?search=SCIM%201.1%20test%20app) for SCIM 1.1
+   > * [SCIM 2.0 test apps](https://www.okta.com/integrations/?search=SCIM%202.0%20Test%20App) for SCIM 2.0
+   > * [SCIM 1.1 Test App(Header Auth)](https://www.okta.com/integrations/scim-1-1-test-app-header-auth/) for SCIM 1.1 apps that use custom header expression for Header Auth
+   > * [SCIM 2.0 Test App(Header Auth)](https://www.okta.com/integrations/scim-2-0-test-app-header-auth/) for SCIM 2.0 apps that use custom header expression for Header Auth
 
 * [Workflows Connector Builder](https://help.okta.com/okta_help.htm?type=wf&id=ext-connector-builderz)
 
@@ -138,16 +145,9 @@ Getting your app integration in the OIN catalog involves two phases: creating a 
 
    * If you need help with using the OIN Wizard during the submission process, see [Submit an SSO integration using the OIN Wizard](/docs/guides/submit-oin-app/). If you can't find an answer in the documentation, post a question on the [Okta Developer Forum](https://devforum.okta.com/).
 
-   * If you need help with using the [OIN Manager](https://oinmanager.okta.com) during the submission process, use the **Get Support** section on the OIN Manager **My App Integrations** page. This section provides resources from the Okta developer portal.
+   * If you need help with using the OIN Manager during the submission process, use the **Get Support** section on the OIN Manager **My App Integrations** page. This section provides resources from the Okta developer portal.
 
 If you have questions or need more support to publish your app integration, you can reach out to the Okta OIN team directly at <oin@okta.com>.
-
-> **Note:** All integrations in the OIN catalog are public. If you want to create a private integration for an app that uses SCIM, then use the [SCIM App Integration Wizard](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-scim). <br>
-> You can also use the following template integrations from the OIN if they meet your app SCIM capabilities:
-> * [SCIM 1.1 test apps](https://www.okta.com/integrations/?search=SCIM%201.1%20test%20app) for SCIM 1.1
-> * [SCIM 2.0 test apps](https://www.okta.com/integrations/?search=SCIM%202.0%20Test%20App) for SCIM 2.0
-> * [SCIM 1.1 Test App(Header Auth)](https://www.okta.com/integrations/scim-1-1-test-app-header-auth/) for SCIM 1.1 apps that use custom header expression for Header Auth
-> * [SCIM 2.0 Test App(Header Auth)](https://www.okta.com/integrations/scim-2-0-test-app-header-auth/) for SCIM 2.0 apps that use custom header expression for Header Auth
 
 ## Next steps
 

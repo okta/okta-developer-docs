@@ -384,11 +384,11 @@ After the initial review is completed and all the issues are corrected, the subm
 
 ## Update your integration
 
-You can modify a submitted or published integration in the **Your OIN Integrations** dashboard. These integrations are initially in read-only mode. If you decide to edit an integration and update any property from the previous submission, your integration reverts to `DRAFT` status. You have to retest and resubmit your integration in `DRAFT` status.
+You can modify a submitted or published integration in the **Your OIN Integrations** dashboard. These integrations are initially in read-only mode. If you decide to edit an integration and update any property from the previous submission, your integration reverts to `Draft` status. You have to retest and resubmit your draft integration.
 
 > **Notes:**
-> * If you edit your submitted or published integration in the **Your OIN Integrations** dashboard, your previous status and date are overwritten with the `DRAFT` status and date.
-> * If you previously submitted your SSO integration using the OIN Manager, you can only edit your published integration with the [OIN Manager to update your integration](/docs/guides/submit-sso-app/openidconnect/main/#update-your-published-integration).
+> * If you edit your submitted or published integration in the **Your OIN Integrations** dashboard, your previous status and date are overwritten with the `Draft` status and date.
+> * If you previously submitted your SSO integration using the OIN Manager, you can [edit your published integration only with the OIN Manager](/docs/guides/submit-sso-app/openidconnect/main/#update-your-published-integration).
 
 To update a submitted integration:
 
@@ -398,8 +398,8 @@ To update a submitted integration:
 1. Go to the OIN Wizard page that you want to update.
 1. From the **This integration is read-only** information box, select **Edit integration**.
 1. Update the desired properties in the OIN Wizard.
-1. Click **View testing information** or **Close wizard** to save the modified integration. When you save the updated properties, the integration submission is set to `DRAFT` status.
-1. Go to **Applications** > **Your OIN Integrations** in the Admin Console and confirm that your integration submission is in `DRAFT` status.
+1. Click **View testing information** or **Close wizard** to save the modified integration. When you save the updated properties, the integration submission status is set to `Draft`.
+1. Go to **Applications** > **Your OIN Integrations** in the Admin Console and confirm that your integration submission is in `Draft` status.
 1. Retest your integration successfully before you submit it again.
 
 ### Update integration considerations

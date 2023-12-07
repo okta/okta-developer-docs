@@ -88,8 +88,7 @@ If you decide to publish your integration to the OIN later on:
 
 * Review the [Publish an OIN integration](/docs/guides/submit-app-overview/) overview to understand the submission process for publishing an integration.
 * Review the [OIN submission requirements](/docs/guides/submit-app-prereq/) before starting the submission process.
-* Use the [OIN Manager: Submit an advanced SAML integration](/docs/guides/submit-sso-app/saml2/main/) guide to submit advanced SAML integrations to the OIN.
-* For OIDC or basic SAML integrations, use the [OIN Wizard: Submit an SSO integration](/docs/guides/submit-oin-app/saml2/main/) guide, which is a more streamlined way to test and submit your integration to the OIN.
+* Use the [OIN Wizard: Submit an SSO integration](/docs/guides/submit-oin-app/saml2/main/) guide to test and submit your integration to the OIN.
 
 ## See also
 
