@@ -8,7 +8,7 @@
 | **Provide the attribute names and values of your claims** | | Specify the attribute name and values of your claim. <br>Adding a claim is optional, but if you add one, both `Name` and `Value` properties are required.<br>Click **+ Add another** to add another claim.|
 | | **Name** `*` | Specify the claim name. |
 | | **Value** `*` | Specify a comma-separated list of values for the claim. |
-| **Provide your group attributes** | | Specify your group attribute statements if your app supports receiving SAML group attribute statements. See [Create a SAML integration using AIW](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-saml) for details on configuring attribute statements.<br>Click **+ Add another** to add more statements. |
+| **Provide your group attributes** | | Specify your group attribute statements if your app supports receiving SAML group attribute statements. See [Define attribute statements](https://help.okta.com/okta_help.htm?type=oie&id=ext-define-attribute-statements) and [Define group attribute statements](https://help.okta.com/okta_help.htm?type=oie&id=ext-define-group-attribute-statements) for details on configuring attribute statements.<br>Click **+ Add another** to add more statements. |
 | **Link to configuration guide** `*` | | Specify the URL link to your customer-facing instructions on how to configure SSO between Okta and your app with SAML. See [Customer configuration document guidelines](/docs/guides/submit-app-prereq/main/#customer-configuration-document-guidelines).|
 
 `*` Required properties
