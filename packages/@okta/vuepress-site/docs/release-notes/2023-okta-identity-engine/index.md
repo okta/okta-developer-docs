@@ -27,7 +27,7 @@ The Devices API now includes a `userSummary` option for the `expand` query param
 
 #### Org detail retrieval and user app listing for MyAccount API is GA in Production
 
-Two new endpoints for the MyAccount API (`/idp/myaccount/organization` and `/idp/myaccount/okta-applications`) allow customers to retrieve org details and get a full list of the current user's Okta apps for a particular end user. See [MyAccount API](https://developer.okta.com/docs/api/openapi/okta-myaccount/guides/overview/). <!-- OKTA-651405, OKTA-663355, OKTA- -->
+Two new endpoints for the MyAccount API (`/idp/myaccount/organization` and `/idp/myaccount/okta-applications`) allow customers to retrieve org details and get a full list of the current user's Okta apps. See [MyAccount API](https://developer.okta.com/docs/api/openapi/okta-myaccount/guides/overview/). <!-- OKTA-651405, OKTA-663355, OKTA- -->
 
 #### MyAccount Authenticators API is GA in Preview
 
