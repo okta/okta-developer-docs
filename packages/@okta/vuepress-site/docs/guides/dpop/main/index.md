@@ -121,9 +121,7 @@ Include the following required parameters in the JWT header:
 
 Include the following required claims in the JWT payload:
 
-* `htm`: HTTP method. The HTTP method of the request that the JWT is attached to. This value is always `POST`.
-* `htu`: HTTP URI. The `/token` endpoint URL for the Okta authorization server that you want to use. Example: `http://${yourOktaDomain}/oauth2/{$authServerId}/v1/token`.
-* `iat`: Issued at. Identifies the time at which the JWT is issued. The time appears in seconds since the Unix epoch. The Unix epoch is the number of seconds that have elapsed since January 1, 1970 at midnight UTC.
+<StackSnippet snippet="claims" />
 
 #### Use the JWT tool
 
@@ -149,13 +147,7 @@ Follow these steps if you use the [JWT tool](https://jwt.io/). See the [previous
 
 3. In the **PAYLOAD** section, build the JWT payload and include the following claims:
 
-  ```json
-    {
-      "htm": "POST",
-      "htu": "http://${yourOktaDomain}/oauth2/default/v1/token",
-      "iat": 1516239022
-    }
-  ```
+  <StackSnippet snippet="payload" />
 
 4. In the **VERIFY SIGNATURE** section:
 
@@ -166,7 +158,7 @@ Follow these steps if you use the [JWT tool](https://jwt.io/). See the [previous
 
 ### Build the request
 
-Your next step is to build the POST request to the `/token` endpoint for an access token. Two requests to the `/token` endpoint are necessary. The initial request obtains the `dpop-nonce` header value from the authorization server. The second request includes an updated JWT with the `dpop-nonce` header value in the JWT payload. After you receive a `nonce` value from the `/token` endpoint, you can continue to use that value utnil you receive an error with a new `dpop-nonce` header,
+Your next step is to build the POST request to the `/token` endpoint for an access token. Two requests to the `/token` endpoint are necessary. The initial request obtains the `dpop-nonce` header value from the <StackSnippet snippet="buildreq" inline /> authorization server. The second request includes an updated JWT with the `dpop-nonce` header value in the JWT payload. After you receive a `nonce` value from the `/token` endpoint, you can continue to use that value utnil you receive an error with a new `dpop-nonce` header.
 
 The additional header in the initial request is `DPoP`. The value for `DPoP` is the DPoP proof JWT from the previous section.
 
@@ -174,22 +166,11 @@ Request example:
 
 > **Note:** Some values are truncated for brevity.
 
-```bash
-  curl --request POST
-  --url 'https://${yourOktaDomain}/oauth2/default/v1/token' \
-  --header 'Accept: application/json' \
-  --header 'DPoP: eyJ0eXAiOiJkcG9w.....H8-u9gaK2-oIj8ipg' \
-  --header 'Content-Type: application/x-www-form-urlencoded' \
-  --data 'grant_type=authorization_code' \
-  --data 'redirect_uri=https://${yourOktaDomain}/app/oauth2' \
-  --data 'code=XGa_U6toXP0Rvc.....SnHO6bxX0ikK1ss-nA' \
-  --data 'code_verifier=k9raCwW87d_wYC.....zwTkqPqksT6E_s' \
-  --data 'client_id=${clientId}'
-```
+<StackSnippet snippet="initialrequest" />
 
-The authorization server verifies the JWT in the request and sends back an "Authorization server requires nonce in DPoP proof" error and a `dpop-nonce` header and value.
+The <StackSnippet snippet="buildreq" inline /> authorization server verifies the JWT in the request and sends back an "Authorization server requires nonce in DPoP proof" error and a `dpop-nonce` header and value.
 
-The authorization server provides the `dpop-nonce` value to limit the lifetime of DPoP proof JWTs and renews the value every 24 hours. The old `dpop-nonce` value continues to work for three days after generation. Be sure to save the `dpop-nonce` value from the token response header and refresh it every 24 hours.
+The <StackSnippet snippet="buildreq" inline /> authorization server provides the `dpop-nonce` value to limit the lifetime of DPoP proof JWTs and renews the value every 24 hours. The old `dpop-nonce` value continues to work for three days after generation. Be sure to save the `dpop-nonce` value from the token response header and refresh it every 24 hours.
 
 Use the value of the `dpop-nonce` header in the JWT payload and update the JWT:
 
@@ -197,15 +178,7 @@ Use the value of the `dpop-nonce` header in the JWT payload and update the JWT:
 
   Example payload:
 
-  ```json
-    {
-      "htm": "POST",
-      "htu": "https://${yourOktaDomain}/oauth2/default/v1/token",
-      "iat": 1516239022,
-      "nonce": "dsGuZVkXzEdbNb8yxI3Fi-cnuzkH_E0k",
-      "jti": "123456788"
-      }
-  ```
+  <StackSnippet snippet="payload2" />
 
   **Claims**
 
@@ -214,7 +187,7 @@ Use the value of the `dpop-nonce` header in the JWT payload and update the JWT:
 
 2. Copy the new DPoP proof and add it to the DPoP header in the request.
 
-3. Send the request for an access token again. The authorization server should return the access token. In the following example, tokens are truncated for brevity.
+3. Send the request for an access token again. The <StackSnippet snippet="buildreq" inline /> authorization server should return the access token. In the following example, tokens are truncated for brevity.
 
   ```json
   {
@@ -231,26 +204,7 @@ Use the value of the `dpop-nonce` header in the JWT payload and update the JWT:
 
 You can use the [JWT tool](https://jwt.io/) to decode the access token to view the included claims. The decoded access token should look something like this:
 
-```json
-    {
-      "ver": 1,
-      "jti": "AT.pKoLFoM7X4P4DrJBRvXaJzj9g0-naK1ChGH_oTbStYE",
-      "iss": "https://{yourOktaDomain}/oauth2/default",
-      "aud": "api://default",
-      "iat": 1677530933,
-      "exp": 1677534533,
-      "cnf": {
-        "jkt": "2HR2BW5-tan1aI6yIPHVOHwirAy4kQGWULoQHKUO0s4"
-        },
-      "cid": "0oa4dr9kzkykPrLhq0g7",
-      "uid": "00u47ijy7sRLaeSdC0g7",
-      "scp": [
-        "openid"
-      ],
-      "auth_time": 1677521913,
-      "sub": "user@example.com"
-    }
-  ```
+<StackSnippet snippet="decoded" />
 
 **Claims**
 
@@ -292,18 +246,7 @@ To refresh your DPoP-bound access token, send a token request with a `grant_type
 
 **Example request**
 
-```bash
-  curl --request POST
-  --url 'https://${yourOktaDomain}/oauth2/default/v1/token' \
-  --header 'Accept: application/json' \
-  --header 'DPoP: eyJ0eXAiOiJkcG9w.....H8-u9gaK2-oIj8ipg' \
-  --header 'Content-Type: application/x-www-form-urlencoded' \
-  --data 'grant_type=refresh_token' \
-  --data 'redirect_uri=${redirectUri}' \
-  --data 'client_id=${clientId}' \
-  --data 'scope=offline_access openid' \
-  --data 'refresh_token=3CEz0Zvjs0eG9mu4w36n-c2g6YIqRfyRSsJzFAqEyzw'
-```
+<StackSnippet snippet="refresh" />
 
 **Example response**
 
