@@ -15,9 +15,7 @@ This guide discusses how to create sender-constrained access tokens that are an 
 
 **What you need**
 
-* [Okta Developer Edition organization](https://developer.okta.com/signup)
-* [Glitch](https://glitch.com/) project or account
-* <StackSnippet snippet="whatyouneed" />
+<StackSnippet snippet="whatyouneed" />
 
 ---
 
