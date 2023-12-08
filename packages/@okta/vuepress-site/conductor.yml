@@ -290,13 +290,13 @@ redirects:
   - from: /docs/guides/saml_guidance.html
     to: /standards/SAML/
   - from: /docs/guides/setting_up_a_saml_application_in_okta
-    to: /docs/guides/build-sso-integration/
+    to: /docs/guides/build-sso-integration/saml2/main/
   - from: /docs/guides/setting_up_a_saml_application_in_okta.html
-    to: /docs/guides/build-sso-integration/
+    to: /docs/guides/build-sso-integration/saml2/main/
   - from: /docs/examples/configuring_a_saml_application_in_okta
-    to: /docs/guides/build-sso-integration/
+    to: /docs/guides/build-sso-integration/saml2/main/
   - from: /docs/examples/configuring_a_saml_application_in_okta.html
-    to: /docs/guides/build-sso-integration/
+    to: /docs/guides/build-sso-integration/saml2/main/
   - from: /standards/SCIM/index.html
     to: /docs/concepts/scim/
   - from: /docs/reference/api/resource-server-beta/index.html
@@ -324,7 +324,7 @@ redirects:
   - from: /use_cases/integrate_with_okta/provisioning/index.html
     to: /docs/guides/scim-provisioning-integration-overview/
   - from: /use_cases/integrate_with_okta/sso-with-saml/index.html
-    to: /docs/guides/build-sso-integration/
+    to: /docs/guides/build-sso-integration/saml2/main/
   - from: /use_cases/isv/embedded-occ/index.html
     to: https://www.okta.com/integrate/documentation/embedded-okta-cloud-connect/
   - from: /use_cases/isv/isv-syslog-references/index.html
@@ -508,7 +508,7 @@ redirects:
   - from: /docs/how-to/updating_saml_cert/index.html
     to: /docs/guides/updating-saml-cert/
   - from: /standards/SAML/setting_up_a_saml_application_in_okta/index.html
-    to: /docs/guides/build-sso-integration/
+    to: /docs/guides/build-sso-integration/saml2/main/
   - from: /standards/SAML/saml_tracer/index.html
     to: /docs/guides/saml-tracer/
   - from: /authentication-guide/implementing-authentication/set-up-authz-server/index.html
@@ -818,7 +818,7 @@ redirects:
   - from: /docs/how-to/updating_saml_cert
     to: /docs/guides/updating-saml-cert/
   - from: /standards/SAML/setting_up_a_saml_application_in_okta
-    to: /docs/guides/build-sso-integration/
+    to: /docs/guides/build-sso-integration/saml2/main/
   - from: /standards/SAML/saml_tracer
     to: /docs/guides/saml-tracer/
   - from: /authentication-guide/implementing-authentication/set-up-authz-server.html
@@ -1088,7 +1088,7 @@ redirects:
   - from: /guides/revoke-tokens/-/overview/index.html
     to: /docs/guides/revoke-tokens/-/overview/
   - from: /guides/saml-application-setup/-/overview/index.html
-    to: /docs/guides/build-sso-integration/
+    to: /docs/guides/build-sso-integration/saml2/main/
   - from: /guides/sharing-cert/-/generate-new-credential/index.html
     to: /docs/guides/sharing-cert/main/#generate-a-new-credential-for-the-source-app
   - from: /guides/sharing-cert/-/overview/index.html
@@ -1348,7 +1348,7 @@ redirects:
   - from: /guides/revoke-tokens/index.html
     to: /docs/guides/revoke-tokens/
   - from: /guides/saml-application-setup/index.html
-    to: /docs/guides/build-sso-integration/
+    to: /docs/guides/build-sso-integration/saml2/main/
   - from: /guides/session-cookie/index.html
     to: /docs/guides/session-cookie/
   - from: /guides/sharing-cert/index.html
@@ -1900,27 +1900,27 @@ redirects:
   - from: /docs/guides/build-provisioning-integration/-/overview
     to: /docs/guides/scim-provisioning-integration-overview/
   - from: /docs/guides/build-sso-integration/integrate/index.html
-    to: /docs/guides/build-sso-integration/openidconnect/main/#create-your-integration
+    to: /docs/guides/build-sso-integration/
   - from: /docs/guides/build-sso-integration/get-help/index.html
-    to: /docs/guides/build-sso-integration/openidconnect/main/#prepare-your-integration
+    to: /docs/guides/build-sso-integration/
   - from: /docs/guides/build-sso-integration/partner/index.html
     to: /docs/guides/build-sso-integration/
   - from: /docs/guides/build-sso-integration/oidc/before-you-begin/index.html
-    to: /docs/guides/build-sso-integration/openidconnect/main/#prepare-your-integration
+    to: /docs/guides/build-sso-integration/openidconnect/main/
   - from: /docs/guides/build-sso-integration/saml/before-you-begin/index.html
-    to: /docs/guides/build-sso-integration/saml2/main/#prepare-your-integration
+    to: /docs/guides/build-sso-integration/saml2/main/
   - from: /docs/guides/build-sso-integration/oidc/create-your-app/index.html
-    to: /docs/guides/build-sso-integration/openidconnect/main/#create-your-integration
+    to: /docs/guides/build-sso-integration/openidconnect/main/
   - from: /docs/guides/build-sso-integration/saml/create-your-app/index.html
-    to: /docs/guides/build-sso-integration/saml2/main/#create-your-integration
+    to: /docs/guides/build-sso-integration/saml2/main/
   - from: /docs/guides/build-sso-integration/oidc/submit-your-app/index.html
     to: /docs/guides/build-sso-integration/openidconnect/main/#next-steps
   - from: /docs/guides/build-sso-integration/saml2/submit-your-app/index.html
     to: /docs/guides/build-sso-integration/saml2/main/#next-steps
   - from: /docs/guides/build-sso-integration/oidc/test-your-app/index.html
-    to: /docs/guides/build-sso-integration/openidconnect/main/#test-your-integration
+    to: /docs/guides/build-sso-integration/openidconnect/main/#add-a-private-integration
   - from: /docs/guides/build-sso-integration/saml/test-your-app/index.html
-    to: /docs/guides/build-sso-integration/saml2/main/#test-your-integration
+    to: /docs/guides/build-sso-integration/saml2/main/#add-a-private-integration
   - from: /docs/guides/submit-app/prepare-for-submission/index.html
     to: /docs/guides/submit-app-prereq/
   - from: /docs/guides/submit-app/submit/index.html
@@ -1928,7 +1928,7 @@ redirects:
   - from: /docs/api/getting_started/api_test_client
     to: /code/rest/
   - from: /docs/guides/build-sso-integration/submit-your-app/index.html
-    to: /docs/guides/build-sso-integration/-/main/#next-steps
+    to: /docs/guides/build-sso-integration/
   - from: /docs/guides/build-sso-integration/openidconnect/submit-your-app/index.html
     to: /docs/guides/build-sso-integration/openidconnect/main/#next-steps
   - from: /docs/guides/build-sso-integration/saml2/submit-your-app/index.html
@@ -1940,61 +1940,61 @@ redirects:
   - from: /docs/api/resources/authn.html/index.html
     to: /docs/reference/api/authn/
   - from: /docs/guides/saml-application-setup/-/overview
-    to: /docs/guides/build-sso-integration/
+    to: /docs/guides/add-private-app/saml2/main/
   - from: /docs/guides/saml-application-setup/-/overview/index.html
-    to: /docs/guides/build-sso-integration/
+    to: /docs/guides/add-private-app/saml2/main/
   - from: /docs/guides/saml-application-setup/-/add-general-info
-    to: /docs/guides/build-sso-integration/saml2/main/#prepare-your-integration
+    to: /docs/guides/add-private-app/saml2/main/
   - from: /docs/guides/saml-application-setup/-/add-general-info/index.html
-    to: /docs/guides/build-sso-integration/saml2/main/#prepare-your-integration
+    to: /docs/guides/add-private-app/saml2/main/
   - from: /docs/guides/saml-application-setup/-/configure-saml-in-okta
-    to: /docs/guides/build-sso-integration/saml2/main/#create-your-integration
+    to: /docs/guides/add-private-app/saml2/main/
   - from: /docs/guides/saml-application-setup/-/configure-saml-in-okta/index.html
-    to: /docs/guides/build-sso-integration/saml2/main/#create-your-integration
+    to: /docs/guides/add-private-app/saml2/main/
   - from: /docs/guides/saml-application-setup/-/assign-users-to-the-app
-    to: /docs/guides/build-sso-integration/saml2/main/#test-your-integration
+    to: /docs/guides/add-private-app/saml2/main/
   - from: /docs/guides/saml-application-setup/-/assign-users-to-the-app/index.html
-    to: /docs/guides/build-sso-integration/saml2/main/#test-your-integration
+    to: /docs/guides/add-private-app/saml2/main/
   - from: /docs/guides/saml-application-setup/-/config-saml-in-app
-    to: /docs/guides/build-sso-integration/saml2/main/#specify-your-integration-settings
+    to: /docs/guides/add-private-app/saml2/main/
   - from: /docs/guides/saml-application-setup/-/config-saml-in-app/index.html
-    to: /docs/guides/build-sso-integration/saml2/main/#specify-your-integration-settings
+    to: /docs/guides/add-private-app/saml2/main/
   - from: /docs/guides/saml-application-setup/-/next-steps
-    to: /docs/guides/build-sso-integration/saml2/main/#test-single-sign-on
+    to: /docs/guides/add-private-app/saml2/main/
   - from: /docs/guides/saml-application-setup/-/next-steps/index.html
-    to: /docs/guides/build-sso-integration/saml2/main/#test-single-sign-on
+    to: /docs/guides/add-private-app/saml2/main/
   - from: /docs/guides/saml-application-setup/overview
-    to: /docs/guides/build-sso-integration/
+    to: /docs/guides/add-private-app/saml2/main/
   - from: /docs/guides/saml-application-setup/overview/index.html
-    to: /docs/guides/build-sso-integration/
+    to: /docs/guides/add-private-app/saml2/main/
   - from: /docs/guides/saml-application-setup/add-general-info
-    to: /docs/guides/build-sso-integration/saml2/main/#prepare-your-integration
+    to: /docs/guides/add-private-app/saml2/main/
   - from: /docs/guides/saml-application-setup/add-general-info/index.html
-    to: /docs/guides/build-sso-integration/saml2/main/#prepare-your-integration
+    to: /docs/guides/add-private-app/saml2/main/
   - from: /docs/guides/saml-application-setup/configure-saml-in-okta
-    to: /docs/guides/build-sso-integration/saml2/main/#create-your-integration
+    to: /docs/guides/add-private-app/saml2/main/
   - from: /docs/guides/saml-application-setup/configure-saml-in-okta/index.html
-    to: /docs/guides/build-sso-integration/saml2/main/#create-your-integration
+    to: /docs/guides/add-private-app/saml2/main/
   - from: /docs/guides/saml-application-setup/assign-users-to-the-app
-    to: /docs/guides/build-sso-integration/saml2/main/#test-your-integration
+    to: /docs/guides/add-private-app/saml2/main/
   - from: /docs/guides/saml-application-setup/assign-users-to-the-app/index.html
-    to: /docs/guides/build-sso-integration/saml2/main/#test-your-integration
+    to: /docs/guides/add-private-app/saml2/main/
   - from: /docs/guides/saml-application-setup/config-saml-in-app
-    to: /docs/guides/build-sso-integration/saml2/main/#specify-your-integration-settings
+    to: /docs/guides/add-private-app/saml2/main/
   - from: /docs/guides/saml-application-setup/config-saml-in-app/index.html
-    to: /docs/guides/build-sso-integration/saml2/main/#specify-your-integration-settings
+    to: /docs/guides/add-private-app/saml2/main/
   - from: /docs/guides/saml-application-setup/next-steps
-    to: /docs/guides/build-sso-integration/saml2/main/#test-single-sign-on
+    to: /docs/guides/add-private-app/saml2/main/
   - from: /docs/guides/saml-application-setup/next-steps/index.html
-    to: /docs/guides/build-sso-integration/saml2/main/#test-single-sign-on
+    to: /docs/guides/add-private-app/saml2/main/
   - from: /docs/reference/webfinger/index.html
     to: /docs/reference/api/webfinger/
   - from: /docs/reference/webfinger
     to: /docs/reference/api/webfinger/
   - from: /docs/guides/saml-application-setup
-    to: /docs/guides/build-sso-integration/
+    to: /docs/guides/add-private-app/saml2/main/
   - from: /docs/guides/saml-application-setup/index.html
-    to: /docs/guides/build-sso-integration/
+    to: /docs/guides/add-private-app/saml2/main/
   - from: /docs/concepts/auth-overview
     to: /docs/concepts/oauth-openid/
   - from: /docs/concepts/auth-overview/index.html
@@ -4378,29 +4378,29 @@ redirects:
   - from: /docs/guides/submit-app/faqs/index.html
     to: /docs/guides/submit-oin-app/openidconnect/main/#see-also
   - from: /docs/guides/submit-app/saml2/overview
-    to: /docs/guides/submit-sso-app/saml2/main
+    to: /docs/guides/submit-oin-app/saml2/main/
   - from: /docs/guides/submit-app/saml2/create-guide
     to: /docs/guides/submit-app-prereq/main/#customer-configuration-document-guidelines
   - from: /docs/guides/submit-app/saml2/submission1-general
     to: /docs/guides/submit-oin-app/saml2/main/#configure-your-integration
   - from: /docs/guides/submit-app/saml2/submission2-specific
-    to: /docs/guides/submit-sso-app/saml2/main/#configure-protocol-specific-settings
+    to: /docs/guides/submit-oin-app/saml2/main/#properties
   - from: /docs/guides/submit-app/saml2/submission3-process
     to: /docs/guides/submit-app-overview/#understand-the-submission-review-process
   - from: /docs/guides/submit-app/saml2/update-submission
-    to: /docs/guides/submit-sso-app/saml2/main/#update-your-published-integration
+    to: /docs/guides/submit-oin-app/saml2/main/#update-your-integration
   - from: /docs/guides/submit-app/saml2/overview/index.html
-    to: /docs/guides/submit-sso-app/saml2/main
+    to: /docs/guides/submit-oin-app/saml2/main/
   - from: /docs/guides/submit-app/saml2/create-guide/index.html
     to: /docs/guides/submit-app-prereq/main/#customer-configuration-document-guidelines
   - from: /docs/guides/submit-app/saml2/submission1-general/index.html
-    to: /docs/guides/submit-sso-app/saml2/main/#configure-general-settings
+    to: /docs/guides/submit-oin-app/saml2/main/#configure-your-integration
   - from: /docs/guides/submit-app/saml2/submission2-specific/index.html
-    to: /docs/guides/submit-sso-app/saml2/main/#configure-protocol-specific-settings
+    to: /docs/guides/submit-oin-app/saml2/main/#properties
   - from: /docs/guides/submit-app/saml2/submission3-process/index.html
     to: /docs/guides/submit-app-overview/#understand-the-submission-review-process
   - from: /docs/guides/submit-app/saml2/update-submission/index.html
-    to: /docs/guides/submit-sso-app/saml2/main/#update-your-published-integration
+    to: /docs/guides/submit-oin-app/saml2/main/#update-your-integration
   - from: /docs/guides/submit-app/scim/overview
     to: /docs/guides/submit-app/scim/main
   - from: /docs/guides/submit-app/scim/create-guide
@@ -4430,9 +4430,9 @@ redirects:
   - from: /docs/guides/submit-app/openidconnect/main/index.html
     to: /docs/guides/submit-oin-app/openidconnect/main/
   - from: /docs/guides/submit-app/saml2/main
-    to: /docs/guides/submit-sso-app/saml2/main/
+    to: /docs/guides/submit-oin-app/saml2/main/
   - from: /docs/guides/submit-app/saml2/main/index.html
-    to: /docs/guides/submit-sso-app/saml2/main/
+    to: /docs/guides/submit-oin-app/saml2/main/
   - from: /docs/guides/deploy-your-app/overview
     to: /docs/guides/deploy-your-app/java/main/
   - from: /docs/guides/deploy-your-app/java
