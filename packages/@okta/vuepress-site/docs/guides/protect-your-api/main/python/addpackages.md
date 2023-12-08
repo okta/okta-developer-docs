@@ -1,3 +1,5 @@
+This quickstart uses several packages to build the API  and consume access tokens from Okta. Install each of them with [Composer](https://getcomposer.org):
+
 1. Add the required packages for your application with the following command:
 
    ```bash
@@ -23,3 +25,5 @@
 
    from flask import Flask, render_template, redirect, request, url_for
    ```
+
+> **Note**: This guide uses requests v2.27.1, Flask v2.0.2, flask-cors v3.0.10, python-dotenv v0.19.2, pyOpenSSL v22.0.0, and Flask-Login v0.5.0.
