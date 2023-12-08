@@ -7,6 +7,6 @@
 | | **Yes** | Your integration supports JIT. |
 | | **No** | Your integration doesn't support JIT. |
 | **SP Initiate URL** | | Specify the URL for SP-initiated sign-in flows. This URL is required for the SP flow.<br>The maximum URL length is 512 characters.  |
-| **SP Initiate description** | | Provide instructions on how to sign in to your app using the SP-initiated flow.<br>The maximum description length is 2048 characters. |
+| **SP Initiate description** | | Provide instructions on how to sign in to your app using the SP-initiated flow.<br>The maximum description length is 2048 characters. This field is required for the SP flow.|
 
 `*` Required properties
