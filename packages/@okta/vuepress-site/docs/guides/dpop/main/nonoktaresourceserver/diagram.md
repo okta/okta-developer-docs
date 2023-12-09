@@ -29,10 +29,10 @@ rs -> client: Validates the DPoP-bound access token and grants access to client
 > **Note:** These steps assume that you've already made a request to the `/authorize` endpoint to obtain the authorization code for the [Authorization Code with PKCE](/docs/guides/implement-grant-type/authcodepkce/main/) flow.
 
 1. Client generates a public/private key pair for use with DPoP.
-2. Client adds the public key in the header of the JWT and signs the JWT with the private key.
-3. Client adds the JWT to the `DPoP` request header and sends the request to the `/token` endpoint for an access token.
-4. The authorization server observes no `nonce` in the DPoP proof, returns an error with the `dpop-nonce` header.
-5. Client adds the `nonce` and `jti` values to the JWT payload, updates the request header with the new JWT value, and sends the access token request again.
-6. The authorization server binds the public key to the access token and sends the response.
-7. Client sends the request for access to the resource and includes the DPoP-bound access token and the DPoP proof JWT in the header.
-8. The resource validates the DPoP-bound access token by verifying that the public key of the DPoP proof JWT in the `DPoP` header matches the public key that the access token is bound to. When validation is successful, the resource grants access.
+1. Client adds the public key in the header of the JWT and signs the JWT with the private key.
+1. Client adds the JWT to the `DPoP` request header and sends the request to the `/token` endpoint for an access token.
+1. The authorization server observes no `nonce` in the DPoP proof, returns an error with the `dpop-nonce` header.
+1. Client adds the `nonce` and `jti` values to the JWT payload, updates the request header with the new JWT value, and sends the access token request again.
+1. The authorization server binds the public key to the access token and sends the response.
+1. Client sends the request for access to the resource and includes the DPoP-bound access token and the DPoP proof JWT in the header.
+1. The resource validates the DPoP-bound access token by verifying that the public key of the DPoP proof JWT in the `DPoP` header matches the public key that the access token is bound to. When validation is successful, the resource grants access.

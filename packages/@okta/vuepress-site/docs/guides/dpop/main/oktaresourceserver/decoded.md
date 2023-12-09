@@ -17,4 +17,4 @@
       "auth_time": 1677521913,
       "sub": "user@example.com"
     }
-  ```
+```

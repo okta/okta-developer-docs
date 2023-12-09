@@ -44,12 +44,12 @@ Create or update an app to include the DPoP parameter.
 #### Create an app
 
 1. Sign in to your Okta organization with your administrator account and go to **Applications** > **Applications**.
-2. Click **Create App Integration**.
-3. Select **OIDC - OpenID Connect**, and then **Native Application**.
-4. Name your application and scroll down to the bottom of the page and select **Allow everyone in your organization to access**.
-5. Click **Save** and then click **Edit** in the **General Settings** section of the page that appears.
-6. Select the **Require Demonstrating Proof of Possession (DPoP) header in token requests** checkbox for **Proof of possession**.
-7. Click **Save**.
+1. Click **Create App Integration**.
+1. Select **OIDC - OpenID Connect**, and then **Native Application**.
+1. Name your application and scroll down to the bottom of the page and select **Allow everyone in your organization to access**.
+1. Click **Save** and then click **Edit** in the **General Settings** section of the page that appears.
+1. Select the **Require Demonstrating Proof of Possession (DPoP) header in token requests** checkbox for **Proof of possession**.
+1. Click **Save**.
 
 #### Use the API
 
@@ -103,7 +103,7 @@ For testing purposes only, you can use this [simple JWK generator](https://mkjwk
     * **Key ID**: SHA-256
     * **Show X.509**: Yes
 
-2. Copy the **Public Key**, the **Private Key (X.509 PEM Format)**, and the **Public Key (X.509 PEM Format)** for use in the next steps.
+1. Copy the **Public Key**, the **Private Key (X.509 PEM Format)**, and the **Public Key (X.509 PEM Format)** for use in the next steps.
 
 ### Create the JSON Web Token
 
@@ -176,29 +176,29 @@ Use the value of the `dpop-nonce` header in the JWT payload and update the JWT:
 
 1. Add the `dpop-nonce` header value as the `nonce` claim value in the JWT payload along with a `jti` claim.
 
-  Example payload:
+    Example payload:
 
-  <StackSnippet snippet="payload2" />
+    <StackSnippet snippet="payload2" />
 
-  **Claims**
+    **Claims**
 
-  * `nonce`: Used only once. A recent `nonce` value provided by the authorization server using the `dpop-nonce` HTTP header. The authorization server provides the DPoP nonce value to limit the lifetime of DPoP proof JWTs.
-  * `jti`: JWT ID. A unique [JWT identifier](https://www.rfc-editor.org/rfc/rfc7519#section-4.1.7) for the request
+    * `nonce`: Used only once. A recent `nonce` value provided by the authorization server using the `dpop-nonce` HTTP header. The authorization server provides the DPoP nonce value to limit the lifetime of DPoP proof JWTs.
+    * `jti`: JWT ID. A unique [JWT identifier](https://www.rfc-editor.org/rfc/rfc7519#section-4.1.7) for the request
 
-2. Copy the new DPoP proof and add it to the DPoP header in the request.
+1. Copy the new DPoP proof and add it to the DPoP header in the request.
 
-3. Send the request for an access token again. The <StackSnippet snippet="buildreq" inline /> authorization server should return the access token. In the following example, tokens are truncated for brevity.
+1. Send the request for an access token again. The <StackSnippet snippet="buildreq" inline /> authorization server should return the access token. In the following example, tokens are truncated for brevity.
 
-  ```json
-  {
-      "token_type": "DPoP",
-      "expires_in": 3600,
-      "access_token": "eyJraWQiOiJRVX.....wt7oSakPDUg",
-      "scope": "openid offline_access",
-      "refresh_token": "3CEz0Zvjs0eG9mu4w36n-c2g6YIqRfyRSsJzFAqEyzw",
-      "id_token": "eyJraWQiOiJRVXlG.....m5h5-NAtVFdwD1bg2JprEJQ"
-  }
-  ```
+    ```json
+      {
+          "token_type": "DPoP",
+          "expires_in": 3600,
+          "access_token": "eyJraWQiOiJRVX.....wt7oSakPDUg",
+          "scope": "openid offline_access",
+          "refresh_token": "3CEz0Zvjs0eG9mu4w36n-c2g6YIqRfyRSsJzFAqEyzw",
+          "id_token": "eyJraWQiOiJRVXlG.....m5h5-NAtVFdwD1bg2JprEJQ"
+      }
+    ```
 
 #### Decode the access token
 
