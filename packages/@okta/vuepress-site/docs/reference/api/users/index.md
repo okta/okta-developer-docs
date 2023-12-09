@@ -1199,6 +1199,7 @@ This operation:
   - `sortOrder` is optional and defaults to ascending
   - `sortOrder` is ignored if `sortBy` is not present
   - Users with the same value for the `sortBy` property will be ordered by `id`
+  - The `ne` (not equal) operator isn't supported, but you can obtain the same result by using `lt ... or ... gt`. For example, to see all users except those that have a status of "Active", use `(status lt "STAGED" or status gt "STAGED")`.
 
 | Search Term Example                             | Description                                     |
 | :---------------------------------------------- | :---------------------------------------------- |
