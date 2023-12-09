@@ -68,7 +68,7 @@ For example, the following are the various `/authorize` request URLs for the dif
 Make sure you only use the **org authorization server** URL.
 
 > **Notes:**
-> * For org authorization servers, the issuer URL is `https://${yourOktaDomain}`.
+> * When you use the org authorization server, the issuer URL is `https://${yourOktaDomain}`.
 > * The `refresh_token` option isn't supported for apps published in the OIN.
 
 ### Scopes
