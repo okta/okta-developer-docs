@@ -18,11 +18,7 @@ For OIDC integrations that you want to publish in the OIN catalog, review the fo
 
 1. [Consider rate limits](#rate-limit-considerations) when you build your integration.
 
-Build your integration with these guidances.
-
-> **Note:** Quickstarts and example links are provided in the [Determine the OAuth 2.0 flow to use](#determine-the-oauth-2-0-flow-to-use) section. These links provide example OIDC implementations outside of the OIN.
-
-After you've built your SSO integration, test it with an Okta app integration instance. See [Create your integration in Okta](#create-your-integration-in-okta).
+After you've built the SSO integration in your app with the previous guidance list, test it with an Okta app integration instance. See [Create your integration in Okta](#create-your-integration-in-okta).
 
 ### OIDC customer org credentials
 
@@ -35,6 +31,8 @@ See the [OIN multi-tenancy](/docs/guides/submit-app-prereq/main/#oin-multi-tenan
 You must track client credentials for each app integration instance for your app. For example, consider a scenario where your app integration is added to 10 separate customer orgs. Seven of those customers create a single instance of your app integration. However, the other three customers each create two separate instances of your app integration so they can use different configuration options. This scenario creates a total of 13 sets of client credentials for your application that you need to track.
 
 ### Determine the OAuth 2.0 flow to use
+
+> **Note:** Quickstarts and example links provided in this section may use features not supported in the OIN. For example, the use of a custom authorization server isn't supported.
 
 Select the OAuth 2.0 flow to use based on your app:
 
@@ -53,11 +51,11 @@ Follow these guides to implement the OAuth 2.0 flows:
 * [Implement Authorization Code flow](/docs/guides/implement-grant-type/authcode/main/)
 * [Implement Authorization Code flow with PKCE](/docs/guides/implement-grant-type/authcodepkce/main/)
 
-> **Note:** You can also review these sample app integration quickstarts that use the Okta CLI:
+> **Note:** You can also review these sample integration quickstarts that use the Okta CLI:
 > * [Sign in to SPA](/docs/guides/sign-into-spa-redirect/)
 > * [Sign in to web application](/docs/guides/sign-into-web-app-redirect/)
 
-When you follow these guides, one caveat is the use of the authorization server. Most of the examples show you how to make an `/authorize` or `/token` request using a [custom authorization server](/docs/concepts/auth-servers/#custom-authorization-server). To support the potentially large number of Okta orgs accessing it through the OIN, an OIDC integration can't use a custom authorization server. This includes the `default` server. You can only use the [org authorization server](/docs/concepts/auth-servers/#org-authorization-server).
+When you follow these guides, be aware of the authorization server used. Most of the examples show you how to make an `/authorize` or `/token` request using a [custom authorization server](/docs/concepts/auth-servers/#custom-authorization-server). To support the potentially large number of Okta orgs accessing it through the OIN, an OIDC integration can't use a custom authorization server (this includes the `default` server). Therefore, for OIN OIDC apps, you can only use the [org authorization server](/docs/concepts/auth-servers/#org-authorization-server).
 
 For example, the following are the various `/authorize` request URLs for the different authorization servers:
 
@@ -69,7 +67,9 @@ For example, the following are the various `/authorize` request URLs for the dif
 
 Make sure you only use the **org authorization server** URL.
 
-> **Note:** The `refresh_token` option isn't supported for apps published in OIN.
+> **Notes:**
+> * For org authorization servers, the issuer URL is `https://${yourOktaDomain}`.
+> * The `refresh_token` option isn't supported for apps published in the OIN.
 
 ### Scopes
 
