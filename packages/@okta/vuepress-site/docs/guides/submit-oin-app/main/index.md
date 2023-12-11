@@ -19,6 +19,7 @@ Use this guide to learn how to submit a Single Sign-On (SSO) integration to the 
 **What you need**
 
 * An [Okta Developer-Edition org](https://developer.okta.com/signup/)
+* An admin user in the Okta Developer-Edition org with either the Super Administrator or the Application Administrator role
 * A functional SSO integration based on the [Build a Single Sign-On integration](/docs/guides/build-sso-integration/) guide
 * The various items necessary for submission in accordance with the [OIN submission requirements](/docs/guides/submit-app-prereq/)
 
@@ -61,7 +62,9 @@ This guide covers submissions that use the following protocols:
 
 Review the [OIN submission requirements](/docs/guides/submit-app-prereq) before you start your submission. There are artifacts and technical details that you need to provide during the submission process.
 
-> **Note:** For best practices, create two or three extra administrative users in your Okta org to manage the integration. This ensures that your team can access the integration for updates in the future. See [Add users manually](https://help.okta.com/en-us/content/topics/users-groups-profiles/usgp-add-users.htm).
+> **Notes:**
+> * To access the **Your OIN Integrations** dashboard and the OIN Wizard, you must have either the **Super Administrator** or the **Application Administrator** [permission role](https://help.okta.com/okta_help.htm?type=oie&id=csh-administrators-admin-comparison).
+> * For best practices, create two or three extra admin users in your Okta org to manage the integration. This ensures that your team can access the integration for updates in the future. See [Add users manually](https://help.okta.com/en-us/content/topics/users-groups-profiles/usgp-add-users.htm) and ensure that the Super Administrator or the Application Administrator role is assigned.
 
 Start your integration submission for OIN publication:
 
