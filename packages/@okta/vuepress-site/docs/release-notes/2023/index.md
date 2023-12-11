@@ -6,6 +6,16 @@ title: Okta API Products release notes 2023
 
 ## December
 
+### Weekly release 2023.12.1
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [DPoP support for Okta management APIs is EA in Preview](#dpop-support-for-okta-management-apis-is-ea-in-preview)| December 13, 2023 |
+
+#### DPoP support for Okta management APIs is EA in Preview
+
+You can now use OAuth 2.0 Demonstrating Proof-of-Possession (DPoP) access tokens to access Okta management APIs. See [Configure OAuth 2.0 Demonstrating Proof-of-Possession](/docs/guides/dpop/oktaresourceserver/main/).<!-- OKTA-673922 OKTA_RESOURCE_SERVER_DPOP_SUPPORT-->
+
 ### Monthly release 2023.12.0
 
 | Change | Expected in Preview Orgs |
