@@ -1163,7 +1163,7 @@ The first three parameters in the table below correspond to different ways to li
 
 - If you don't specify a value for `limit`, the maximum (200) is used as a default.  If you are using a `q` parameter, the default limit is 10.
 - An HTTP 500 status code usually indicates that you have exceeded the request timeout. Retry your request with a smaller limit and [paginate](/docs/reference/core-okta-api/#pagination) the results.
-- Okta strongly advises that you use the `search` parameter, which delivers optimal performance. The `q` or `filter` parameters may struggle to perform, in which case Okta recommends reformatting the request to use `search`.
+- The `search` parameter delivers optimal performance. Using the `q` or `filter` parameters affect search performance. They may also yield no results, in which case you should try reformatting the request to use `search`.
 - Treat the `after` cursor as an opaque value and obtain it through the next link relation. See [Pagination](/docs/reference/core-okta-api/#pagination).
 
 ##### Response parameters
@@ -1199,6 +1199,7 @@ This operation:
   - `sortOrder` is optional and defaults to ascending
   - `sortOrder` is ignored if `sortBy` is not present
   - Users with the same value for the `sortBy` property will be ordered by `id`
+  - The `ne` (not equal) operator isn't supported, but you can obtain the same result by using `lt ... or ... gt`. For example, to see all users except those that have a status of "STAGED", use `(status lt "STAGED" or status gt "STAGED")`.
 
 | Search Term Example                             | Description                                     |
 | :---------------------------------------------- | :---------------------------------------------- |
