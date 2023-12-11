@@ -191,8 +191,6 @@ To generate an integration instance:
 
 <StackSnippet snippet="test-instance" />
 
-8. If you need to assign users to your integration, continue to the [Assign test users to your integration instance](#assign-test-users-to-your-integration-instance) steps from the OIN Wizard.
-
 <!--
 >> **Note:** Generate a test integration instance for each protocol that your integration supports. The test cases that you execute depend on your instance SSO protocol.
 -->
