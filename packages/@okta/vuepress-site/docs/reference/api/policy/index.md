@@ -1352,8 +1352,8 @@ The Entity risk score condition object specifies a particular level of risk for 
 
 ```json
 "entityRisk": {
-                "level": "MEDIUM"
-            }
+   "level": "MEDIUM"
+}
 ```
 
 #### Entity risk detection condition object
@@ -1362,17 +1362,21 @@ The Entity risk score condition object specifies a particular level of risk for 
 
 The Entity risk score condition object specifies the detected risk events that determines any further action. The object is specified as `riskDetectionTypes`.
 
-| Parameter | Description              | Data Type | Required |
-| ---       | ---                      | ---       | ---      |
-| `include`    | The detected risk events to include in the Entity policy rule      | `SUSPICIOUS_PASSWORD_RESET`,
-    `REPORTED_SUSPICIOUS_ACTIVITY`,
-    `USER_SUSPENDED`,
-    `SESSION_HIJACK`,
-    `MFA_BRUTE_FORCE`,
-    `SESSION_HIJACK_SUSPICIOUS_COUNTRY_IMPOSSIBLE_TRAVEL`,
-    `SECURITY_PARTNER_REPORT_DEVICE_RISK`,
-    `SESSION_HIJACK_SUSPICIOUS_ASN`,
-    `SUSPECTED_SESSION_COMPROMISE`    | Array      |
+| Parameter | Description                   | Data Type | Required |
+| ---       | ---                           | --------  | -------- |
+| `include` | An array of [detected risk events](#detected-risk-events) to include in the Entity policy rule      | array  | Yes |
+
+##### Detected risk events
+
+* `SUSPICIOUS_PASSWORD_RESET`
+* `REPORTED_SUSPICIOUS_ACTIVITY`
+* `USER_SUSPENDED`
+* `SESSION_HIJACK`
+* `MFA_BRUTE_FORCE`
+* `SESSION_HIJACK_SUSPICIOUS_COUNTRY_IMPOSSIBLE_TRAVEL`
+* `SECURITY_PARTNER_REPORT_DEVICE_RISK`
+* `SESSION_HIJACK_SUSPICIOUS_ASN`
+* `SUSPECTED_SESSION_COMPROMISE`
 
 #### Entity detection condition object example
 
@@ -2712,13 +2716,13 @@ You can apply the following conditions to the rules associated with an Entity ri
 
 * [People condition](#people-condition-object)
 
-* [Risk score condition](#network-condition-object)
+* [Risk score condition](#entity-risk-score-condition-object)
 
-* [Risk detection condition](#device-condition-object)
+* [Risk detection condition](#entity-risk-detection-condition-object)
 
 ### Entity risk actions object
 
-The Entity risk actions object indicates the next steps to take in response to a risk event.
+The Entity risk actions object indicates the next steps to take in response to a risk event. The object is specified as `entityRisk`.
 
 | Property                | Description              | Data Type                                       | Required                      | Default |
 | ---                     | ---------------          | ---                                             | ---                           | ---     |
@@ -2730,7 +2734,7 @@ The `entityRisk` object's `actions` array can be empty or contain one of two `ac
 
 | Array value               | Description              | Data Type                                       | Required                     | Default |
 | ---                     | ---------------          | ---                                             | ---                           | ---     |
-| `[]`                 | This action only logs the user risk event.             | object                      |  Yes                      | No   |
+| `[]`                 | This action only logs the user risk event.             | object                      |  Yes                      | Yes  |
 | `[ { "action": "TERMINATE_ALL_SESSIONS" } ]`              | This action revokes or terminates all of the user's active sessions.             | object                      |       No   | No
 | `[ { "action": "RUN_WORKFLOW", "workflow": {"id": "123123123"} } ]`               | This action runs a workflow and must include the additional attribute `id` object for the `workflow` property.            | object                      | No                       | No   |
 
