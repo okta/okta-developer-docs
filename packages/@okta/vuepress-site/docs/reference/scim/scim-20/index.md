@@ -834,15 +834,32 @@ Brief introduction to entitlements and how they fit into SCIM/Okta.
 
 ### User schema discovery
 
-User schema discovery allows Okta to support dynamic data from SCIM-enabled apps. Okta defines the basic schemas of two resource types: roles and entitlements. You can extend these types to support 
+User schema discovery allows Okta to support dynamic data from SCIM-enabled apps. 
 
-When an app is provisioned, Okta calls the SCIM server to retrieve a list of resource types. Two default resource types are defined: roles and entitlements. A resource 
+The discovery process includes importing users from an app integration into Okta and parsing the imported objects. 
 
-User schema discovery consists of importing users from an app integration into Okta and then parsing the imported objects. Each User object consists of a core schema that's common to all users, and can optionally contain dynamic data. For example, Okta has defined such as roles and entitlements.
+Okta defines schemas for two resource types: roles and entitlements. You can also create custom schema extensions to support custom attributes for Users, roles, and entitlements.
+
+When an app is provisioned, Okta calls the SCIM server to retrieve a list of resource types. Each User object consists of a core schema that's common to all users, and can optionally contain dynamic data. Okta processes the available resource types and any custom attributes defined through schema extensions, which are added to the user profile for the app.
 
 > **Note:** [Okta Identity Governance](https://help.okta.com/en-us/content/topics/identity-governance/iga.htm) is required to use entitlements.
 
 ---
+
+### User schema discovery and Profile Editor
+
+User schema discovery is required for your app to understand entitlements and roles. When user schema discovery is enabled, admins can't add attributes to the app user profile in the Profile Editor in the Admin Console. The ability to add attributes is disabled because the contents of the app user profile is determined by the SCIM server between Okta and the downstream app. Okta gathers profile elements from the SCIM server to dynamically build the app user profile. The SCIM server should be updated as necessary to maintain parity with the downstream app. The user schema discovery mechanism allows Okta admins to leave the contents of the app user profile in the hands of the app provider.
+
+### Create an app that supports user schema discovery
+
+1. Create an app using the SCIM 2.0 with OIG app template from the OIN.
+    1. In the Admin Console, go to **Applications** > **Applications**.
+    1. Click **Browse App Catalog**.
+    1. Search the catalog for `SCIM 2.0 with OIG`. Select it and click **Add Integration**.
+1. Create a SCIM 2.0 server that has the following endpoints:
+    - `/ServiceProviderConfig`: Provides provisioning capabilities, authentication, and so on
+    - `/ResourceTypes`: Lists resource types and available schemas
+    - `/Schemas`: Provides metadata about available resource types
 
 To support user schema discovery, Okta relies upon a SCIM 2.0 server that has the following endpoints:
 - `/ServiceProviderConfig`: Provides provisioning capabilities, authentication, and so on
@@ -869,7 +886,7 @@ Thus: introducing dynamic user schema in addition to entitlement schema
 "When you use OIG + SCIM to handle third party entitlement discovery and assignment, Okta will require a new SCIM App Template: <name>.  This template implements User Schema Discovery by default in order to discover these attributes; therefore, custom profile attributes may not be added and must be implemented and discovered via custom User Schema and User operation management on the SCIM server."
 Dynamic Schema Discovery additions
 Flow: Reach out to ResourceTypes
-Compare RTs to Schema endpoints and flatten
+Compare ResourceTypes to Schema endpoints and flatten
 Use any endpoints listed in RTs to get entitlement values and external IDs
 Populate the Governance UI accordingly
 
