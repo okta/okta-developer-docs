@@ -2672,20 +2672,40 @@ You can apply the following conditions to the rules associated with an authentic
 
 * [Risk detection condition](#device-condition-object)
 
-### Entity risk object
+### Entity risk actions object
 
-The Entity risk policy rule action object indicates the next steps to take in response to a risk event.
+The Entity risk actions object indicates the next steps to take in response to a risk event.
 
 | Property                | Description              | Data Type                                       | Required                      | Default |
 | ---                     | ---------------          | ---                                             | ---                           | ---     |
-| `actions`               | The action to take based on the risk event.              | Array of [action objects](#actions-array-object-values)                         | Yes                           | []    |
+| `actions`               | The action to take based on the risk event.              | Array of [action value objects](#actions-array-object-values)                         | Yes                           | []    |
 
 #### Actions array object values
 
-The Entity risk object's `actions` array can be empty or contain one of two `action` object value pairs. This object
+The `entityRisk` object's `actions` array can be empty or contain one of two `action` object value pairs. This object determines the specific response to a risk event.
 
 | Array value               | Description              | Data Type                                       | Required                     | Default |
 | ---                     | ---------------          | ---                                             | ---                           | ---     |
 | `[]`                 | This action only logs the user risk event.             | object                      |  Yes                      | No   |
 | `[ { "action": "TERMINATE_ALL_SESSIONS" } ]`              | This action revokes or terminates all of the user's active sessions.             | object                      |                            | No   | No
 | `[ { "action": "RUN_WORKFLOW", "workflow": {"id": "123123123"} } ]`               | This action runs a workflow and must include the additional attribute `id` object for the `workflow` property.            | object                      | No                       | No   |
+
+#### Entity risk actions default example
+
+```json
+"actions": {
+  "entityRisk": {
+    "actions": []
+  }
+}
+```
+
+#### Entity risk actions workflow example
+
+```json
+"actions": {
+  "entityRisk": {
+    "actions": [ { "action": "RUN_WORKFLOW", "workflow": {"id": "123123123"} } ]
+  }
+}
+```
