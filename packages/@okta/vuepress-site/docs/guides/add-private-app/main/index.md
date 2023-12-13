@@ -49,7 +49,6 @@ After you've built your app SSO integration, use the Application Integration Wiz
 
 <StackSnippet snippet="create" />
 
-
 ## Specify your integration settings
 
 After you create your integration instance, the main settings page appears for your new integration in the Admin Console. Specify **General Settings** and **Sign On** options, and assign the integration to users in your org. Click **Edit** if you need to change any of the options, and **Save** when you've made your changes.

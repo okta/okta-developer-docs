@@ -51,6 +51,16 @@ The following steps outline the submission process for SSO integrations with the
 
 After submission, the OIN team reviews your integration. See [Understand the submission review process](#understand-the-submission-review-process).
 
+<div>
+
+![ISV SSO submission process flow](/img/oin/OIN_Wizard_submission_flow_SSO.png)
+
+<!--
+Source link : https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?type=design&node-id=2361-1870&mode=design&t=F1zglScb7dL1B8hX-0
+-->
+
+</div>
+
 ### Submission process for API service integrations
 
 The following steps outline the submission process for API service integrations with the OIN Manager:
@@ -80,10 +90,10 @@ After submission, the OIN team reviews your integration. See [Understand the sub
 
 <div>
 
-![ISV submission process flow](/img/oin/isv-portal_submission_flow.png)
+![ISV submission process flow](/img/oin/isv_portal_submission_flow_LCM.png)
 
 <!--
-Source link : https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3265%3A30940  isv_portal_submission_flow
+Source link : https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?type=design&node-id=2361-1870&mode=design&t=F1zglScb7dL1B8hX-0
 -->
 
 </div>
