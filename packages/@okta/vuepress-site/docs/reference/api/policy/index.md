@@ -762,6 +762,7 @@ Different Policy types control settings for different operations. All Policy typ
 * [OAuth Authorization Policy](/docs/reference/api/authorization-servers/#policy-object)
 * [Authentication Policy](#authentication-policy) <ApiLifecycle access="ie" /><br>
 * [Profile Enrollment Policy](#profile-enrollment-policy) <ApiLifecycle access="ie" /><br>
+* [Entity risk policy](#entity-risk-policy) <ApiLifecycle access="ie" /><br>
 
 ### Policy priority and defaults
 
@@ -847,7 +848,7 @@ The Policy object defines several attributes:
 | Parameter   | Description                                                                                                                                          | Data Type                                         | Required | Default                |
 | ---------   | -----------                                                                                                                                          | ---------                                         | -------- | -------                |
 | id          | Identifier of the Policy                                                                                                                             | String                                            | No       | Assigned               |
-| type        | Specifies the [type of Policy](#policy-types). Valid values: `OKTA_SIGN_ON`, `PASSWORD`, `MFA_ENROLL`, or `IDP_DISCOVERY`.<br><br> <ApiLifecycle access="ie" /><br>**Note:** The following policy types are available only with the Identity Engine: `ACCESS_POLICY` or `PROFILE_ENROLLMENT`.<br> [Contact support](mailto:dev-inquiries@okta.com) for more information on the Identity Engine.  | String                                            | Yes      |                        |
+| type        | Specifies the [type of Policy](#policy-types). Valid values: `OKTA_SIGN_ON`, `PASSWORD`, `MFA_ENROLL`, or `IDP_DISCOVERY`.<br><br> <ApiLifecycle access="ie" /><br>**Note:** The following policy types are available only with the Identity Engine: `ACCESS_POLICY`, `ENTITY_RISK`, or `PROFILE_ENROLLMENT`.<br> [Contact support](mailto:dev-inquiries@okta.com) for more information on the Identity Engine.  | String                                            | Yes      |                        |
 | name        | Name of the Policy                                                                                                                                   | String                                            | Yes      |                        |
 | system      | This is set to `true` on system policies, which cannot be deleted.                                                                                   | Boolean                                           | No       | `false`                |
 | description | Description of the Policy.                                                                                                                           | String                                            | No       | Null                   |
@@ -965,7 +966,7 @@ The Rules object defines several attributes:
 | Parameter     | Description                                                        | Data Type                                      | Required   | Default                |
 | :------------ | :----------------------------------------------------------------- | :--------------------------------------------- | :--------- | :--------------------- |
 | id            | Identifier of the Rule                                             | String                                         | No         | Assigned               |
-| type          | Rule type. Valid values: `SIGN_ON`, `PASSWORD`, `MFA_ENROLL`, `IDP_DISCOVERY`.<br><br> <ApiLifecycle access="ie" /><br>**Note:** The following policy types are available only with the Identity Engine: `ACCESS_POLICY` or `PROFILE_ENROLLMENT`. <br>[Contact support](mailto:dev-inquiries@okta.com) for more information on the Identity Engine.| String (Enum)                                  | Yes        |                        |
+| type          | Rule type. Valid values: `SIGN_ON`, `PASSWORD`, `MFA_ENROLL`, `IDP_DISCOVERY`.<br><br> <ApiLifecycle access="ie" /><br>**Note:** The following policy types are available only with the Identity Engine: `ACCESS_POLICY`, `ENTITY_POLICY`, or `PROFILE_ENROLLMENT`. <br>[Contact support](mailto:dev-inquiries@okta.com) for more information on the Identity Engine.| String (Enum)                                  | Yes        |                        |
 | name          | Name of the Rule                                                   | String                                         | Yes        |                        |
 | status        | Status of the Rule: `ACTIVE` or `INACTIVE`                         | String (Enum)                                  | No         | ACTIVE                 |
 | priority      | Priority of the Rule                                               | Integer                                        | No         | Last / Lowest Priority |
@@ -1337,6 +1338,49 @@ See [Okta Expression Language in Identity Engine](/docs/reference/okta-expressio
 }
 ```
 
+#### Entity risk score condition object
+
+<ApiLifecycle access="ie" />
+
+The Entity risk score condition object specifies a particular level of risk for the Entity policy rule. The object is specified as `entityRisk`.
+
+| Parameter | Description              | Data Type | Required |
+| ---       | ---                      | ---       | ---      |
+| `level`    | The risk score level of the Entity policy rule      | `ANY`, `LOW`, `MEDIUM`, or `HIGH`     | Yes      |
+
+#### Entity risk score condition object example
+
+```json
+"entityRisk": {
+                "level": "MEDIUM"
+            }
+```
+
+#### Entity risk detection condition object
+
+<ApiLifecycle access="ie" />
+
+The Entity risk score condition object specifies the detected risk events that determines any further action. The object is specified as `riskDetectionTypes`.
+
+| Parameter | Description              | Data Type | Required |
+| ---       | ---                      | ---       | ---      |
+| `include`    | The detected risk events to include in the Entity policy rule      | `SUSPICIOUS_PASSWORD_RESET`,
+    `REPORTED_SUSPICIOUS_ACTIVITY`,
+    `USER_SUSPENDED`,
+    `SESSION_HIJACK`,
+    `MFA_BRUTE_FORCE`,
+    `SESSION_HIJACK_SUSPICIOUS_COUNTRY_IMPOSSIBLE_TRAVEL`,
+    `SECURITY_PARTNER_REPORT_DEVICE_RISK`,
+    `SESSION_HIJACK_SUSPICIOUS_ASN`,
+    `SUSPECTED_SESSION_COMPROMISE`    | Array      |
+
+#### Entity detection condition object example
+
+```json
+"riskDetectionTypes": {
+  "include": ["SESSION_HIJACK", "MFA_BRUTE_FORCE"]
+}
+```
 
 ## Type-Specific Policy data structures
 
