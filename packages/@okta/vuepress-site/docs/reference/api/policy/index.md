@@ -2664,7 +2664,7 @@ Policy conditions aren't supported for this policy.
 
 ### Policy Rules conditions
 
-You can apply the following conditions to the rules associated with an authentication policy:
+You can apply the following conditions to the rules associated with an Entity risk policy:
 
 * [People condition](#people-condition-object)
 
@@ -2678,7 +2678,7 @@ The Entity risk actions object indicates the next steps to take in response to a
 
 | Property                | Description              | Data Type                                       | Required                      | Default |
 | ---                     | ---------------          | ---                                             | ---                           | ---     |
-| `actions`               | The action to take based on the risk event.              | Array of [action value objects](#actions-array-object-values)                         | Yes                           | []    |
+| `actions`               | The action to take based on the risk event.              | Array of [action value objects](#actions-array-object-values)                         | Yes                           | `[]`   |
 
 #### Actions array object values
 
@@ -2687,7 +2687,7 @@ The `entityRisk` object's `actions` array can be empty or contain one of two `ac
 | Array value               | Description              | Data Type                                       | Required                     | Default |
 | ---                     | ---------------          | ---                                             | ---                           | ---     |
 | `[]`                 | This action only logs the user risk event.             | object                      |  Yes                      | No   |
-| `[ { "action": "TERMINATE_ALL_SESSIONS" } ]`              | This action revokes or terminates all of the user's active sessions.             | object                      |                            | No   | No
+| `[ { "action": "TERMINATE_ALL_SESSIONS" } ]`              | This action revokes or terminates all of the user's active sessions.             | object                      |       No   | No
 | `[ { "action": "RUN_WORKFLOW", "workflow": {"id": "123123123"} } ]`               | This action runs a workflow and must include the additional attribute `id` object for the `workflow` property.            | object                      | No                       | No   |
 
 #### Entity risk actions default example
