@@ -2641,3 +2641,51 @@ Policy Rule conditions aren't supported for this policy.
 | `enrollAuthenticators` | Additional authenticator fields that can be used on the first page of user registration (Valid values: `password`) | Array | No | N/A |
 
 > **Note:** The Profile Enrollment Action object can't be modified to set the `access` property to `DENY` after the policy is created.
+
+## Entity risk policy
+
+<ApiLifecycle access="ie" />
+
+Entity risk policies specify what action or task to execute in reaction to a risk event. The type is specified as `ENTITY_RISK`.
+
+#### Entity risk policy example
+
+```json
+    {
+        "type": "ENTITY_RISK",
+        "name": "useful example name here",
+        "description": "useful example description here"
+    }
+```
+
+### Policy conditions
+
+Policy conditions aren't supported for this policy.
+
+### Policy Rules conditions
+
+You can apply the following conditions to the rules associated with an authentication policy:
+
+* [People condition](#people-condition-object)
+
+* [Risk score condition](#network-condition-object)
+
+* [Risk detection condition](#device-condition-object)
+
+### Entity risk object
+
+The Entity risk policy rule action object indicates the next steps to take in response to a risk event.
+
+| Property                | Description              | Data Type                                       | Required                      | Default |
+| ---                     | ---------------          | ---                                             | ---                           | ---     |
+| `actions`               | The action to take based on the risk event.              | Array of [action objects](#actions-array-object-values)                         | Yes                           | []    |
+
+#### Actions array object values
+
+The Entity risk object's `actions` array can be empty or contain one of two `action` object value pairs. This object
+
+| Array value               | Description              | Data Type                                       | Required                     | Default |
+| ---                     | ---------------          | ---                                             | ---                           | ---     |
+| `[]`                 | This action only logs the user risk event.             | object                      |  Yes                      | No   |
+| `[ { "action": "TERMINATE_ALL_SESSIONS" } ]`              | This action revokes or terminates all of the user's active sessions.             | object                      |                            | No   | No
+| `[ { "action": "RUN_WORKFLOW", "workflow": {"id": "123123123"} } ]`               | This action runs a workflow and must include the additional attribute `id` object for the `workflow` property.            | object                      | No                       | No   |
