@@ -39,9 +39,9 @@ This guide assumes that you've developed your app SSO integration and want to ad
 
 ## Create your private integration in Okta
 
-After you've built your app SSO integration, you can use the Application Integration Wizard (AIW) in the Admin Console to create your app integration instance. This instance provides you with client credentials or metadata for your SSO flows.
+After you've built your app SSO integration, use the Application Integration Wizard (AIW) in the Admin Console to create your app integration instance. This instance provides you with client credentials or metadata for your SSO flows.
 
-> **Note:** For best practices, create two or three additional admin users in your Okta org to manage the integration. This ensures that your team can access the integration for updates in the future.
+> **Note:** For best practices, create two or three extra admin users in your Okta org to manage the integration. This ensures that your team can access the integration for updates in the future.
 
 1. Sign in to your [developer-edition Okta org](/login/) as a user with administrative privileges.
 1. Go to **Applications** > **Applications** in the Admin Console.
@@ -82,7 +82,7 @@ First, you must assign your integration to one or more test users in your org:
 
 ## Next steps
 
-After you complete testing your app integration, you can communicate to your Okta org users about the custom app SSO capability.
+After you tested your SSO integration, communicate to your Okta org users about the custom app SSO capability.
 
 If you decide to publish your integration to the OIN later on:
 
