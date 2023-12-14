@@ -1360,7 +1360,7 @@ The Entity risk score condition object specifies a particular level of risk for 
 
 <ApiLifecycle access="ie" />
 
-The Entity risk score condition object specifies the detected risk events that determine any further action. The object is specified as `riskDetectionTypes`.
+The Entity risk detection condition object specifies the detected risk events that determine any further action. The object is specified as `riskDetectionTypes`.
 
 | Parameter | Description                   | Data Type | Required |
 | ---       | ---                           | --------  | -------- |
