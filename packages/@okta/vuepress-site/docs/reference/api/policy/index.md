@@ -966,7 +966,7 @@ The Rules object defines several attributes:
 | Parameter     | Description                                                        | Data Type                                      | Required   | Default                |
 | :------------ | :----------------------------------------------------------------- | :--------------------------------------------- | :--------- | :--------------------- |
 | id            | Identifier of the Rule                                             | String                                         | No         | Assigned               |
-| type          | Rule type. Valid values: `SIGN_ON`, `PASSWORD`, `MFA_ENROLL`, `IDP_DISCOVERY`.<br><br> <ApiLifecycle access="ie" /><br>**Note:** The following policy types are available only with the Identity Engine: `ACCESS_POLICY`, `ENTITY_POLICY`, or `PROFILE_ENROLLMENT`. <br>[Contact support](mailto:dev-inquiries@okta.com) for more information on the Identity Engine.| String (Enum)                                  | Yes        |                        |
+| type          | Rule type. Valid values: `SIGN_ON`, `PASSWORD`, `MFA_ENROLL`, `IDP_DISCOVERY`.<br><br> <ApiLifecycle access="ie" /><br>**Note:** The following policy types are available only with the Identity Engine: `ACCESS_POLICY`, `ENTITY_RISK`, or `PROFILE_ENROLLMENT`. <br>[Contact support](mailto:dev-inquiries@okta.com) for more information on the Identity Engine.| String (Enum)                                  | Yes        |                        |
 | name          | Name of the Rule                                                   | String                                         | Yes        |                        |
 | status        | Status of the Rule: `ACTIVE` or `INACTIVE`                         | String (Enum)                                  | No         | ACTIVE                 |
 | priority      | Priority of the Rule                                               | Integer                                        | No         | Last / Lowest Priority |
@@ -1342,11 +1342,11 @@ See [Okta Expression Language in Identity Engine](/docs/reference/okta-expressio
 
 <ApiLifecycle access="ie" />
 
-The Entity risk score condition object specifies a particular level of risk for the Entity policy rule. The object is specified as `entityRisk`.
+The Entity risk score condition object specifies a particular level of risk for the Entity risk policy rule. The object is specified as `entityRisk`.
 
 | Parameter | Description              | Data Type | Required |
 | ---       | ---                      | ---       | ---      |
-| `level`    | The risk score level of the Entity policy rule      | `ANY`, `LOW`, `MEDIUM`, or `HIGH`     | Yes      |
+| `level`    | The risk score level of the Entity risk policy rule      | `ANY`, `LOW`, `MEDIUM`, or `HIGH`     | Yes      |
 
 #### Entity risk score condition object example
 
@@ -1360,13 +1360,13 @@ The Entity risk score condition object specifies a particular level of risk for 
 
 <ApiLifecycle access="ie" />
 
-The Entity risk score condition object specifies the detected risk events that determines any further action. The object is specified as `riskDetectionTypes`.
+The Entity risk score condition object specifies the detected risk events that determine any further action. The object is specified as `riskDetectionTypes`.
 
 | Parameter | Description                   | Data Type | Required |
 | ---       | ---                           | --------  | -------- |
-| `include` | An array of [detected risk events](#detected-risk-events) to include in the Entity policy rule      | array  | Yes |
+| `include` | An array of [detected risk events](#detected-risk-event-values) to include in the Entity policy rule      | array  | Yes |
 
-##### Detected risk events
+##### Detected risk event values
 
 * `SUSPICIOUS_PASSWORD_RESET`
 * `REPORTED_SUSPICIOUS_ACTIVITY`
