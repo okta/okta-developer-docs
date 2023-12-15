@@ -2720,9 +2720,9 @@ You can apply the following conditions to the rules associated with an Entity ri
 
 * [Risk detection condition](#entity-risk-detection-condition-object)
 
-### Entity risk actions object
+### Entity risk object
 
-The Entity risk actions object indicates the next steps to take in response to a risk event. The object is specified as `entityRisk`.
+The Entity risk object indicates the next steps to take in response to a risk event. The object is specified as `entityRisk`.
 
 | Property                | Description              | Data Type                                       | Required                      | Default |
 | ---                     | ---------------          | ---                                             | ---                           | ---     |
@@ -2784,7 +2784,7 @@ You can apply the following conditions to the rules associated with an Entity ri
 
 * [People condition](#people-condition-object)
 
-### CAE failureActions object
+### CAE object
 
 The CAE policy rule actions object indicates the next steps to take in response to a failure of the reevaluated global session policy or authentication policies. The object is specified as `continuousAccess`.
 
