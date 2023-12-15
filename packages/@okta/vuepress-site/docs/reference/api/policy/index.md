@@ -2736,7 +2736,7 @@ The `entityRisk` object's `actions` array can be empty or contain one of two `ac
 | ---                     | ---------------          | ---                                             | ---                           | ---     |
 | `[]`                 | This action only logs the user risk event.             | object                      |  Yes                      | Yes  |
 | `[ { "action": "TERMINATE_ALL_SESSIONS" } ]`              | This action revokes or terminates all of the user's active sessions.             | object                      |       No   | No
-| `[ { "action": "RUN_WORKFLOW", "workflow": {"id": "123123123"} } ]`               | This action runs a workflow and must include the additional attribute `id` object for the `workflow` property.            | object                      | No                       | No   |
+| `[ { "action": "RUN_WORKFLOW", "workflow": {"id": "123123123"} } ]`               | This action runs a workflow and must include the additional workflow `id` for the `workflow` property.            | object                      | No                       | No   |
 
 #### Entity risk actions default example
 
@@ -2762,7 +2762,7 @@ The `entityRisk` object's `actions` array can be empty or contain one of two `ac
 
 <ApiLifecycle access="ie" />
 
-Continuous Access Evaluation (CAE) policies determine the action to take based on changes to an existing user session. After a session event is triggered, the global session policy and all authentication policies are reevaluated and a course of action is undertaken as defined in the CAE policy. The policy type is specified as `CONTINUOUS_ACCESS`.
+Continuous Access Evaluation (CAE) policies determine the action to take based on changes to an existing user session. After a session event is triggered, the global session policy and all authentication policies are reevaluated and a course of action is undertaken as defined by the CAE policy. The policy type is specified as `CONTINUOUS_ACCESS`.
 
 #### CAE policy example
 
@@ -2790,17 +2790,48 @@ The CAE policy rule actions object indicates the next steps to take in response 
 
 | Property                | Description              | Data Type                                       | Required                      | Default |
 | ---                     | ---------------          | ---                                             | ---                           | ---     |
-| `failureActions`               | The action to take when the CAE policy detects a failure.              | Array of [failureAction value objects](#)                         | Yes                           | `[]`   |
+| `failureActions`               | The action to take when the CAE policy detects a failure.              | Array of [failureAction value objects](#failureactions-array-object-values)                         | Yes                           | `[]`   |
 
 #### failureActions array object values
 
-The `continuousAccess` object's `failureActions` array can be empty or contain one of two `failureAction` object value pairs. This object determines the specific response to a risk event.
+The `continuousAccess` object's `failureActions` array can be empty or contain one of two `failureAction` object value pairs. This object determines the specific response to a session event.
 
 | Array value               | Description              | Data Type                                       | Required                     | Default |
 | ---                     | ---------------          | ---                                             | ---                           | ---     |
-| `[]`                 | This action only logs the user risk event.             | object                      |  Yes                      | Yes  |
-| `[ { "action": "TERMINATE_ALL_SESSIONS" } ]`              | This action revokes or terminates all of the user's active sessions.             | object                      |       No   | No
-| `[ { "action": "RUN_WORKFLOW", "workflow": {"id": "123123123"} } ]`               | This action runs a workflow and must include the additional attribute `id` object for the `workflow` property.            | object                      | No
+| `[]`                 | This action only logs the user session event.             | object                      |  Yes                      | Yes  |
+| `[ { "action": "TERMINATE_ALL_SESSION" } ]`              | This action terminates active sessions based on the [Terminate_All_Session failureActions](#terminate-all-session-failureactions-object) object            | object                      |       No   | No |
+| `[ { "action": "RUN_WORKFLOW", "workflow": {"id": "123123123"} } ]`               | This action runs a workflow and must include the additional workflow `id` for the `workflow` property.            | object                      | No |
 
-#### Terminate_ALL_Sessions object
+#### CAE actions default example
 
+```json
+"actions": {
+    "continuousAccess": {
+      "failureActions": []
+     }
+}
+```
+
+#### Terminate_All_Session failureActions object
+
+This `failureActions` object defines the options for the `TERMINATE_ALL_SESSION` action:
+
+| Property                | Description              | Data Type                                       | Required                      | Default |
+| ---                     | ---------------          | ---                                             | ---                           | ---     |
+| `action`               | The action to take when the CAE policy detects a failure.              | `"TERMINATE_SESSION"`                       | Yes                           | No   |
+| `slo.appSelectionMode`               | This property defines the session to terminate: everyone, no one, or a specific app instance              | `"SPECIFIC"`, `"NONE"`, or `"ALL"`                       | Yes                           | No   |
+| `slo.InstanceIds`               | This property defines the app instance access to terminate. Only include this property when `slo.appSelectionMode` is set to `"SPECIFIC"`.              | Array of IDs                     | No                          | No   |
+
+#### CAE actions terminate sessions example
+
+```json
+"actions": {
+    "continuousAccess": {
+      "failureActions": [
+        { "action": "TERMINATE_SESSION",
+          "slo": {
+            "appSelectionMode": "SPECIFIC",
+            "appInstanceIds": ["0oav0y4zt6hd2PSBP0h7"]} } ]
+    }
+}
+```
