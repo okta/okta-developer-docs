@@ -411,7 +411,7 @@ curl -X PUT \
 
 ### Update the current credentials for the Org2Org app
 
-From the response of the [previous generate key POST request](#generate-a-new-key-for-the-org2org-app), copy the `kid` property, and [activate the new key by updating the Org2Org app](/docs/reference/api/apps/#update-key-credential-for-application).
+From the response of the [previous generate key POST request](#generate-a-new-key-for-the-org2org-app), copy the `kid` property and [activate the new key by updating the Org2Org app](/docs/reference/api/apps/#update-key-credential-for-application).
 
 ##### Request example
 
