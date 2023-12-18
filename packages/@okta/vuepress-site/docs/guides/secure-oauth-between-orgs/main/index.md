@@ -21,7 +21,7 @@ This guide explains how to securely configure Okta hub-and-spoke orgs to synchro
 
 Multiple Okta orgs for your multi-tenant solution
 
-> **Note:** The Org2Org app integration isn't available in Okta Developer-Edition orgs.
+> **Note:** The Org2Org app integration isn't available in Okta Developer-Edition orgs. If you need to test this feature in your Developer-Edition org, contact your Okta account team.
 
 ---
 
@@ -67,7 +67,8 @@ You can use OAuth 2.0 to push user and group information from a spoke org to a c
 
 You use the spoke org to push users and groups to the central hub org. In the spoke org, add an instance of the Org2Org app integration by using the [Okta Apps API](/docs/reference/api/apps/#add-okta-org2org-application). This generates an integration instance with the key certificates required to connect to the hub org.
 
-> **Note:** You can't use an Okta Developer-Edition org as a spoke org since the Org2Org app integration isn't available in developer orgs.
+> **Note:** You can't use an Okta Developer-Edition org as a spoke org since the Org2Org app integration isn't available in developer orgs. If you need to test this feature in your Developer-Edition org, contact your Okta account team.
+
 
 As an Okta admin, make a `POST /api/v1/apps` request to the spoke org with [Okta Org2Org parameters](/docs/reference/api/apps/#add-okta-org2org-application):
 
