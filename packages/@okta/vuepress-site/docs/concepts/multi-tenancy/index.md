@@ -351,7 +351,7 @@ applications.
 Using the Org2Org app integration, spokes can add users and give access to shared
 applications and services through the hub.
 
-> **Note:** The Org2Org app integration isn't available on Okta Developer-Edition orgs, so you can't use a developer org as a spoke org.
+> **Note:** The Org2Org app integration isn't available in Okta Developer-Edition orgs, so you can't use a developer org as a spoke org.
 
 #### Diagram
 
