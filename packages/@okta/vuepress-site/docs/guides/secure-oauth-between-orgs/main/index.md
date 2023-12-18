@@ -48,7 +48,7 @@ In this configuration:
 
 * To limit access to the OAuth 2.0 clients, the hub-org service app needs to be granted with allowed [OAuth 2.0 scopes](https://developer.okta.com/docs/api/oauth2/#okta-admin-management)
 
-After the OAuth 2.0 connection is configured, start to test your connection: push user data from the spoke orgs to the hub org. You can also create a [Rotate key](#key-rotation) schedule to update your credentials regularly.
+After you configure the OAuth 2.0 connection, test your connection: push user data from the spoke orgs to the hub org. You can also create a [Rotate key](#key-rotation) schedule to update your credentials regularly.
 
 > **Note**: For provisioning in a hub-and-spoke org model that uses API tokens instead of OAuth 2.0, see [Integrate Okta Org2Org with Okta](https://help.okta.com/okta_help.htm?type=oie&id=ext-org2org-intg).
 
