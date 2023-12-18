@@ -21,4 +21,3 @@ https://app.getpostman.com/run-collection/1a927e3b353fd0e1b158/
 https://app.getpostman.com/run-collection/ff723148292df05bb58b/
 https://csrc.nist.gov/pubs/sp/800/63/b/upd2/final/
 https://accounts.google.com/signup/
-https://god.gw.postman.com/run-collection/26510466-46beb74b-4755-4cf0-9847-845ccac1ccbd?action=collection%2Ffork&collection-url=entityId%3D26510466-46beb74b-4755-4cf0-9847-845ccac1ccbd%26entityType%3Dcollection%26workspaceId%3Daf55a245-1ac6-42d1-8af4-11e21e791e4e/

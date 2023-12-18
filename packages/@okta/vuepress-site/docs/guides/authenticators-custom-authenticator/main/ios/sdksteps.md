@@ -30,7 +30,7 @@ Then add the extra permissions that the Devices SDK requires to the access token
 - `okta.myAccount.appAuthenticator.manage`
 - `okta.myAccount.appAuthenticator.read`
 
-If you’re initializing the scopes in your app's code instead of using the `Okta.plist` file, update that code using the scopes as strings.
+If you're initializing the scopes in your app's code instead of using the `Okta.plist` file, update that code using the scopes as strings.
 
 ### Add Devices SDK to your app
 
@@ -100,7 +100,7 @@ Alternatively, you can enroll the device by using the [MyAccount App Authenticat
 
 There are many different ways that your app may start the flow for enrolling a device, such as the user setting a preference or adding an authentication method. No matter how the enrollment flow starts, it follows the same steps:
 
-- Sign the user in if they’re currently signed out.
+- Sign the user in if they're currently signed out.
 - Create the configuration for the authenticator.
 - Create the enrollment details.
 - Call `enroll(authenticationToken:authenticatorConfig:enrollmentParameters:)`.
@@ -368,7 +368,7 @@ To successfully obtain the maintenance token, you must first configure your Okta
 
 ##### Apps API usage sample
 
-Explore the [Configure and Use JWT Bearer Grant](https://god.gw.postman.com/run-collection/26510466-46beb74b-4755-4cf0-9847-845ccac1ccbd?action=collection%2Ffork&collection-url=entityId%3D26510466-46beb74b-4755-4cf0-9847-845ccac1ccbd%26entityType%3Dcollection%26workspaceId%3Daf55a245-1ac6-42d1-8af4-11e21e791e4e) Postman Collection for API examples of how to do the following:
+Explore the [Configure and Use JWT Bearer Grant](https://www.postman.com/okta-eng/workspace/okta-example-collections/collection/26510466-46beb74b-4755-4cf0-9847-845ccac1ccbd) Postman Collection for API examples of how to do the following:
 * Get your OIDC app object properties.
 * Update your OIDC app to include the `urn:ietf:params:oauth:grant-type:jwt-bearer` grant type.
 * Obtain a token with your OIDC app client ID.
