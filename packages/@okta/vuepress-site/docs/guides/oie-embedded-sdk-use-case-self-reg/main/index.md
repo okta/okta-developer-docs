@@ -4,9 +4,9 @@ title: Self-service registration
 
 <ApiLifecycle access="ie" />
 
-> **Note:** In proxy model architectures, where a server-side application using the Embedded SDK is used as a proxy between client applications and Okta servers, a request context for the client applications is required. Security enforcement is expected to be based on the client request context's IP address and user agent. However, since these values are currently being derived from the server application rather than the client, this enforcement is not available. As a result, network zones or behaviors that drive their conditions based on these request context values (geolocation, IP Address, or user agent) will not work until we can find a solution to the issue.
+> **Note:** A request context for the client application is required when a server-side application uses an Embedded SDK as a proxy between itself and Okta. This context contains values (geolocation, IP address, and user agent) that inform a secure response. However, these values are currently derived from the server application rather than the client. Therefore, network zones or behaviors that drive their conditions based on these request context values won’t work until this issue is resolved.
 
-Self-service registration allows users to sign up to an application themselves. In this use case, the user must register with a password, email, and/or phone factors. You must first enable the self-service registration option for your app in the Okta org and then build the self-service registration flow in your app.
+Self-service registration allows users to sign up to an application by themselves. In this use case, the user must register with a password, email, and/or phone factors. Enable the self-service registration option for your app in the Okta org and then build the self-service registration flow in your app.
 
 <StackSnippet snippet="pwdoptionalusecase" inline />
 
@@ -20,7 +20,7 @@ Self-service registration allows users to sign up to an application themselves. 
 
 **What you need**
 
-* An app that uses the embedded Okta Identity Engine SDK
+* An app that uses the embedded Identity Engine SDK
 * [Okta org already configured for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/-/main/#set-up-your-okta-org-for-a-multifactor-use-case)
 * [Identity Engine SDK set up for your own app](/docs/guides/oie-embedded-common-download-setup-app/)
 
@@ -32,7 +32,7 @@ Self-service registration allows users to sign up to an application themselves. 
 
 ## Configuration updates
 
-Before you can build the self-registration flow in your app, you must configure the Okta org to accept self-registration with the password, email, and/or phone factors. See [Set up your Okta org for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/-/main/#set-up-your-okta-org-for-a-multifactor-use-case) to set up the password, email, and phone factors in your Okta org.
+Configure the Okta org to accept self-registration with the password, email, and/or phone factors.
 
 <div class="half">
 
@@ -40,36 +40,33 @@ Before you can build the self-registration flow in your app, you must configure 
 
 </div>
 
-In addition to setting up the authentication factors, you also need to configure the following in your Okta org:
-
-1. [Update the profile enrollment default policy](#create-a-profile-enrollment-policy)
-3. [Set the Email and Phone authenticators as optional enrollment factors](#set-the-email-and-phone-authenticators-as-optional-enrollment-factors)
+1. See [Set up your Okta org for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/-/main/#set-up-your-okta-org-for-a-multifactor-use-case) to set up the password, email, and phone factors in your Okta org.
+1. [Create a profile enrollment policy](#create-a-profile-enrollment-policy)
+1. [Set the Email and Phone authenticators as optional enrollment factors](#set-the-email-and-phone-authenticators-as-optional-enrollment-factors)
 
 ### Create a profile enrollment policy
 
 Create a policy for self-registration:
 
 1. Open the Admin Console for your org.
-1. Go to **Security** > **Profile Enrollment** to view the current Profile Enrollment policies.
-1. Click **Add Profile Enrollment Policy**.
+1. Go to **Security** > **Profile Enrollment**, and click **Add Profile Enrollment Policy**.
 1. Enter a policy **Name**, and click **Save**.
 1. Click the pencil icon next to your new policy.
-1. In the **Profile Enrollment** section, verify  **Self-service registration** is set to **Allowed**.
+1. Ensure that  **Self-service registration** is set to **Allowed**.
 1. Click **Manage apps**.
 1. Click **Add an App to This Policy**.
-1. Click **Apply** next to your app.
-1. Clcik **Close**.
+1. Click **Apply** next to your app, and then click **Close**.
 
-> **Note:** See [Managed Profile Enrollment policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-profile-enrollment) for additional profile enrollment policy options.
+> **Note:** See [managed profile enrollment policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-profile-enrollment) for more profile enrollment policy options.
 
 ### Set the Email and Phone authenticators as optional enrollment factors
 
-1. Go to **Security** > **Authenticators** to view the available authenticators.
-1. On the **Authenticators** page, click the **Enrollment** tab.
-1. In **Default Policy**, click **Edit**.
-1. Under the **Effective factors** section of the **Edit Policy** dialog box, set both email and phone authenticators to optional for enrollment:
-   * Set **Email Authentication** to **Optional**.
-   * Set **Phone Authentication** to **Optional**.
+1. In the Admin Console, go to **Security** > **Authenticators** to view the available authenticators.
+1. Select the **Enrollment** tab.
+1. Click **Edit** under **Default Policy**.
+1. Go to the **Effective factors** section of the **Edit Policy** dialog box:
+   * Set **Email** to **Optional**.
+   * Set **Phone** to **Optional**.
 1. Click **Update Policy**.
 
 ## Summary of steps
@@ -80,7 +77,7 @@ Create a policy for self-registration:
 
 <StackSnippet snippet="integrationsteps" />
 
-## Send a confirmation email during new user registration with only the password factor required
+## Send a confirmation email even if the email authenticator is disabled
 
 Even when only the password factor is required for an Okta application, you can still send a confirmation email.
 
@@ -89,12 +86,9 @@ Even when only the password factor is required for an Okta application, you can 
 In this scenario, the org is set up in the following manner:
 
 1. The org is initially configured following the steps described in [Set up your Okta org for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/-/main/#set-up-your-okta-org-for-a-multifactor-use-case).
-
-2. The application's authentication policy is updated for only the password factor. In the Admin Console, the **AND User must authenticate with** field is set to **Password**.
-
-3. The **Email verification** field in the profile enrollment's Default Policy is set to **Required before access is granted**. You can find the profile enrollment configuration by navigating to **Security** > **Profile Enrollment**.
-
-4. The **Initiate login URI** field is set to the sign-in URI in the application settings. By setting this value, the email verification link for new user enrollment redirects the user to the URL provided in the **Initiate login URI** field.
+1. The application's authentication policy is updated for only the password factor. In the Admin Console, the **AND User must authenticate with** field is set to **Password**.
+1. The **Email verification** field in the default profile enrollment policy is set to **Required before access is granted**. You can find the profile enrollment configuration by going to **Security** > **Profile Enrollment**.
+1. The **Initiate login URI** field is set to the sign-in URI in the application settings. By setting this value, the email verification link for new user enrollment redirects the user to the URL provided in the **Initiate login URI** field.
 
 ### Flow behavior
 
