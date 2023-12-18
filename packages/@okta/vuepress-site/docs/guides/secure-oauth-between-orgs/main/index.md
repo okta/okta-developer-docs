@@ -30,7 +30,7 @@ Multiple Okta orgs for your multi-tenant solution
 To secure API connections between orgs for a [multi-tenant solution](/docs/concepts/multi-tenancy/) that uses the hub-and-spoke model, use the Okta Org2Org integration as an OAuth 2.0 client.
 
 Previously, the Org2Org integration only supported token-based access to the Okta API.
-The Org2Org integration can now be configured to access Okta APIs as an OAuth 2.0 client using the OAuth 2.0 Client Credential flow. The OAuth 2.0 API access enables you to increase security by limiting the scope of resource access and providing a better mechanism to rotate credentials.
+You can now configure the Org2Org integration to access Okta APIs as an OAuth 2.0 client using the OAuth 2.0 Client Credentials flow. The OAuth 2.0 API access enables you to increase security by limiting the scope of resource access and providing a better mechanism to rotate credentials.
 
 <div class="half">
 
