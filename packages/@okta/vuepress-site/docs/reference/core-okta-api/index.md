@@ -127,9 +127,7 @@ We recommend that you use a template like the following to format the `User-Agen
 
 Okta recommends making test [authentication requests](/docs/reference/api/authn/#primary-authentication) and then checking for the related entries in the [System Log](/docs/reference/api/system-log/#useragent-object). Testing helps you ensure that Okta can parse both the `OS` and `Browser` fields from the `User-Agent` header that is passed by your application.
 
-If the `OS` and/or `Browser` fields come back as `Unknown` in the System Log, ensure that certain string values (see below) are present in the `User-Agent` string so that the OS and Browser are detected:
-
-> **Note:** For some Chrome examples, see [User-Agent strings](https://developer.chrome.com/multidevice/user-agent).
+If the `OS` and/or `Browser` fields come back as `Unknown` in the System Log, ensure that certain string values (see below) are present in the `User-Agent` string so that the OS and browser are detected.
 
 ###### Pass a hint about the browser
 
