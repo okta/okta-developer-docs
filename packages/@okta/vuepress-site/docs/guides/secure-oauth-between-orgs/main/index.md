@@ -30,7 +30,7 @@ Multiple Okta orgs for your multi-tenant solution
 To secure API connections between orgs for a [multi-tenant solution](/docs/concepts/multi-tenancy/) that uses the hub-and-spoke model, use the Okta Org2Org integration as an OAuth 2.0 client.
 
 Previously, the Org2Org integration only supported token-based access to the Okta API.
-Now, the Org2Org integration can be configured to access the Okta API as an OAuth 2.0 client using the OAuth 2.0 Client Credential flow. This increases security by limiting the scope of access and providing a better mechanism to rotate credentials.
+The Org2Org integration can now be configured to access Okta APIs as an OAuth 2.0 client using the OAuth 2.0 Client Credential flow. The OAuth 2.0 API access enables you to increase security by limiting the scope of resource access and providing a better mechanism to rotate credentials.
 
 <div class="half">
 
@@ -67,7 +67,7 @@ You can use OAuth 2.0 to push user and group information from a spoke org to a c
 
 You use the spoke org to push users and groups to the central hub org. In the spoke org, add an instance of the Org2Org app integration by using the [Okta Apps API](/docs/reference/api/apps/#add-okta-org2org-application). This generates an integration instance with the key certificates required to connect to the hub org.
 
-> **Note:** You can't use an Okta Developer-Edition org as a spoke org since the Org2Org app integration isn't available on developer orgs.
+> **Note:** You can't use an Okta Developer-Edition org as a spoke org since the Org2Org app integration isn't available in developer orgs.
 
 As an Okta admin, make a `POST /api/v1/apps` request to the spoke org with [Okta Org2Org parameters](/docs/reference/api/apps/#add-okta-org2org-application):
 
