@@ -17,11 +17,11 @@ Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 
 ### The user submits their profile data
 
-Create a page for the user to enter their basic profile information and a **Sign Up** button. For example, their email, first name, and last name. For example:
+Create a page for the user to enter their basic profile information: their email, first name, and family name. For example:
 
 <div class="half wireframe-border">
 
-![A sign-up form with fields for first name, last name, and email address, and a create account button](/img/wireframes/sign-up-form-first-last-name-email.png)
+![A sign-up form with fields for first name, family name, and email address, and a create account button](/img/wireframes/sign-up-form-first-last-name-email.png)
 
 <!--
 
@@ -43,7 +43,7 @@ userProfile.SetProperty("email", model.Email);
 var registerResponse = await idxAuthClient.RegisterAsync(userProfile);
 ```
 
-`RegisterAsync()` returns a `RegisterResponse` object. Query its `AuthenticationStatus` property for the current status of the registration process. A status of `AwaitingAuthenticatorEnrollment` indicates that the user must enrol an authentication factor to verify their identity.
+`RegisterAsync()` returns a `RegisterResponse` object. Query its `AuthenticationStatus` property for the status of the registration process. A status of `AwaitingAuthenticatorEnrollment` indicates that the user must enroll an authentication factor to verify their identity.
 
 ```csharp
 if (registerResponse.AuthenticationStatus ==
@@ -58,7 +58,7 @@ if (registerResponse.AuthenticationStatus ==
 
 ### Display a list of required authenticators to enroll
 
-Create a page that shows the user the list of **required** authentication factors they can enroll to verify their identity. They must choose a factor from the list and click **Next**. If you completed the steps properly in [Configuration updates](#configuration-updates), the only required authenticator is the password factor. This will be the sole factor that is stored in the `Authenticators` list property.
+Create a page that displays a list of **required** authentication factors the user can enroll to verify their identity. They must choose a factor from the list and click **Next**. If you completed the steps properly in [Configuration updates](#configuration-updates), the only required authenticator is the password factor. This is the sole factor stored in the `Authenticators` list property.
 
 <div class="half wireframe-border">
 
@@ -103,7 +103,7 @@ var enrollResponse = await idxAuthClient.EnrollAuthenticatorAsync(
       enrollAuthenticatorOptions, (IIdxContext)Session["IdxContext"]);
 ```
 
-`EnrollAuthenticatorAsync()` returns an `EnrollResponse` object with an `AuthenticationStatus` of `AwaitingAuthenticatorVerification`. This indicates the new user needs to verify the authenticator. In this case, this means the user needs to supply a new password.
+`EnrollAuthenticatorAsync()` returns an `EnrollResponse` object with an `AuthenticationStatus` of `AwaitingAuthenticatorVerification`. This indicates that the new user needs to verify the authenticator. In this case, this means the user needs to supply a new password.
 
 ```csharp
 switch (enrollResponse?.AuthenticationStatus)
@@ -151,9 +151,9 @@ var authnResponse = await idxAuthClient.VerifyAuthenticatorAsync(
 
 ### Display a list of optional authenticators to enroll
 
-`VerifyAuthenticatorAsync()` returns a `RegisterResponse` object with an `AuthenticationStatus` property of `AwaitingAuthenticatorEnrollment`. This indicates that the user still has authentication factors to enrol before registration is complete.
+`VerifyAuthenticatorAsync()` returns a `RegisterResponse` object with an `AuthenticationStatus` property of `AwaitingAuthenticatorEnrollment`. This indicates that the user still has authentication factors to enroll before registration is complete.
 
-In this case, because the authentication policy you assigned to the app requires a **password plus another factor**, the user must enroll at least one of either the email or phone factors. Redirect them to the list page you created earlier to choose which one.
+In this scenario, you configured the app's authentication policy to require a password and another factor. Therefore the user must enroll at least one of either the email or phone factors. Redirect them to the list page you created earlier to choose which one.
 
 <div class="half wireframe-border">
 
@@ -166,7 +166,7 @@ Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 
 </div>
 
-The code snippet below shows how the response is handled. The authenticator list page is loaded again (the first time was for password) with the two additional factors.
+The following code snippet shows how the response is handled. The authenticator list page is loaded again (the first time was for password) with the two remaining factors.
 
 ```csharp
 switch (authnResponse.AuthenticationStatus)
@@ -180,7 +180,7 @@ switch (authnResponse.AuthenticationStatus)
 ...
 ```
 
-> **Note** To learn how the `CanSkip` property is used to allow users to skip enrolling more optional factors, see [Show the remaining list of authenticators](#16-show-the-remaining-list-of-authenticators).
+> **Note** To learn how the `CanSkip` property is used to allow users to skip enrolling more optional factors, see  [Display a second list of optional authenticators to enroll](#display-a-second-list-of-optional-authenticators-to-enroll).
 
 ### The user submits the email authenticator
 
@@ -198,7 +198,7 @@ var enrollResponse = await idxAuthClient.EnrollAuthenticatorAsync(
 
 ### Display OTP input page
 
-If the call is successful, a one-time password (OTP) is sent to the user's email. The returned `EnrollResponse` object has an `AuthenticationStatus` of `AwaitingAuthenticatorVerification`. This status indicates that Identity Engine is waiting for the user to check their email and enter the OTP.
+If the call is successful, a one-time passcode (OTP) is sent to the user's email. The returned `EnrollResponse` object has an `AuthenticationStatus` of `AwaitingAuthenticatorVerification`. This status indicates that Identity Engine is waiting for the user to check their email and enter the OTP.
 
 ```csharp
 var enrollResponse = await idxAuthClient.EnrollAuthenticatorAsync(
@@ -242,7 +242,7 @@ var authnResponse = await idxAuthClient.VerifyAuthenticatorAsync(
 
 ### Display a second list of optional authenticators to enroll
 
-`VerifyAuthenticatorAsync()` returns a `RegisterResponse` object with an `AuthenticationStatus` property of `AwaitingAuthenticatorEnrollment`. This indicates that the user still has authentication factors to enrol before registration is complete.
+`VerifyAuthenticatorAsync()` returns a `RegisterResponse` object with an `AuthenticationStatus` property of `AwaitingAuthenticatorEnrollment`. This indicates that the user still has authentication factors to enroll before registration is complete.
 
 ```csharp
 switch (authnResponse.AuthenticationStatus)
@@ -256,7 +256,7 @@ switch (authnResponse.AuthenticationStatus)
    ...
 ```
 
-Redirect them to the list page you created earlier to choose which one. The code is the same. The page should show only the phone factor. However, since this factor is optional and the user has now enrolled two factors, the `CanSkip` property is now true meaning that the list page should now also show a Skip button to the user.
+Redirect them to the list page you created earlier to choose which one. The code is the same. The page should show only the phone factor. However, since this factor is optional and the user has now enrolled two factors, the `CanSkip` property is now true meaning that the list page should now also display a Skip button.
 
 <div class="half wireframe-border">
 
@@ -269,7 +269,7 @@ Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 
 </div>
 
-The user can either enroll in the phone factor or skip the phone factor. Your code should handle both scenarios that will be described in the following steps.
+The user can either enroll in or skip the phone factor. Your code should handle both scenarios as follows.
 
 ### The user enrolls the phone authenticator
 
@@ -289,7 +289,7 @@ var enrollResponse = await idxAuthClient.EnrollAuthenticatorAsync(
 
 #### Display phone number input page
 
-The returned `EnrollResponse` object has an `AuthenticationStatus` of `AwaitingAuthenticatorEnrollmentData`. This status indicates that Identity Engine is waiting for the user for additional data before the factor can be enrolled. In this case, the user needs to supply a phone number.
+The returned `EnrollResponse` object has an `AuthenticationStatus` of `AwaitingAuthenticatorEnrollmentData`. This status indicates that Identity Engine is waiting for the user for more data before the factor can be enrolled. In this case, the user needs to supply a phone number.
 
 ```csharp
 var enrollResponse = await idxAuthClient.EnrollAuthenticatorAsync(
@@ -307,7 +307,7 @@ Build a form that allows the user to enter their phone number.
 
 <div class="half wireframe-border">
 
-![A form with a field for a phone number, formatting advice and a next button](/img/wireframes/enter-phone-number-form.png)
+![A form with a field for a phone number, formatting advice, and a next button](/img/wireframes/enter-phone-number-form.png)
 
    <!--
 
@@ -316,13 +316,13 @@ Build a form that allows the user to enter their phone number.
 
 </div>
 
-> **Note:** The SDK requires that the phone number be in the following format: `+# ### ### ####`, including the beginning plus (+) sign.
+> **Note:** The SDK requires the phone number in the following format: `+# ### ### ####`, including the beginning plus (+) sign.
 
 #### The user submits their phone number
 
 When the user submits their phone number, create an `EnrollPhoneAuthenticatorOptions` object and assign its `AuthenticatorId`, `PhoneNumber`, and `MethodType` properties to the phone authenticator id, phone number, and `AuthenticatorMethodType.Sms` respectively. Pass this object as a parameter to `EnrollAuthenticatorAsync()`.
 
-> **Note:** Only SMS is currently supported for the phone authenticator type.
+> **Note:** Only SMS is supported for the phone authenticator type.
 
 ```csharp
 var enrollPhoneAuthenticatorOptions = new EnrollPhoneAuthenticatorOptions
@@ -339,7 +339,7 @@ Session["IdxContext"] = enrollResponse.IdxContext;
 
 #### Display SMS OTP input page
 
-If the call is successful, a one-time password (OTP) is sent by SMS to the user's mobile phone. The returned `EnrollResponse` object has an `AuthenticationStatus` of `AwaitingAuthenticatorVerification`. This status indicates that Identity Engine is waiting for the user to check their email and enter the OTP.
+If the call is successful, a one-time passcode (OTP) is sent by SMS to the user's mobile phone. The returned `EnrollResponse` object has an `AuthenticationStatus` of `AwaitingAuthenticatorVerification`. This status indicates that Identity Engine is waiting for the user to check their email and enter the OTP.
 
 ```csharp
 var enrollResponse = await idxAuthClient.EnrollAuthenticatorAsync(
@@ -357,7 +357,7 @@ Build a form that allows the user to enter the OTP sent to them by SMS. Dependin
 
 <div class="half wireframe-border">
 
-![A form with a field for a verification code, a note to find the code in a SMS and a submit button](/img/wireframes/enter-verification-code-form-with-sms-message.png)
+![A form with a field for a verification code, a note to find the code in an SMS and a submit button](/img/wireframes/enter-verification-code-form-with-sms-message.png)
 
    <!--
    Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3400%3A37154&t=vr9MuCR8C4rCt3hC-1 enter-verification-code-form-with-sms-message
@@ -439,11 +439,11 @@ If the returned response object has an `AuthenticationStatus` of `Success`, the 
 
 The method can also throw exceptions for unsuccessful registrations such as the following:
 
-* `TerminalStateException` &mdash; An exception inherited from `OktaException` that's raised when an unexpected message is returned from the Okta API and no further remediation is possible.
-* `OktaException` &mdash; A general base exception that's raised when any Okta client and API exceptions are thrown.
+* `TerminalStateException`&mdash;an exception inherited from `OktaException` that's raised when an unexpected message is returned from the Okta API and no further remediation is possible.
+* `OktaException`&mdash;a general base exception that's raised when any Okta client and API exceptions are thrown.
 
 After a successful registration, store the returned tokens in a session and redirect the user to the app's default signed-in page.
 
-### Troubleshooting Tips
+### Troubleshooting tips
 
-When you test this use case, ensure that you use a new email for each test. If you have a gmail account, you can reuse the same email by adding a plus (+) and additional text (for example, `myemail+1@gmail.com`, `myemail+2@gmail.com`, and so on). Ensure that the password that you use meets the minimum security requirements.
+When you test this use case, ensure that you use a new email for each test. If you have a gmail account, you can reuse the same email by adding a plus (+) and extra text (for example, `myemail+1@gmail.com`, `myemail+2@gmail.com`, and so on). Ensure that the password that you use meets the minimum security requirements.
