@@ -2376,8 +2376,8 @@ The number of Authenticator class constraints in each Constraint object must be 
 | `userPresence` | String            | Indicates if the user needs to approve an Okta Verify prompt or provide biometrics (meets NIST AAL2 requirements). This property is only set for `POSSESSION` constraints.| `REQUIRED`, `OPTIONAL`                                                                            |`REQUIRED`|
 | `userVerification` | String            | Indicates the user interaction requirement (PIN or biometrics) to ensure verification of a possession factor | `REQUIRED`, `OPTIONAL`                                                                            |`OPTIONAL`|
 | `reauthenticateIn`   | String (ISO 8601) | The duration after which the user must re-authenticate regardless of user activity. This re-authentication interval overrides the [Verification Method object](#verification-method-object)'s `reauthenticateIn` interval.     | ISO 8601 period format for recurring time intervals (for example: `PT1H`) | N/A|
-| `authenticationMethods`  <ApiLifecycle access="ea" />  | array of `key`: value pair objects | This property specifies the precise authenticator key label (`key`) and `method` for authentication. The `method` is an optional attribute.    | | `OPTIONAL`|
-| `excludedAuthenticationMethods` <ApiLifecycle access="ea" />   | array of `key`: value pair objects| This property specifies the precise authenticator key label (`key`) and `method` to exclude from authentication. The `method` is an optional attribute.      | | `OPTIONAL`|
+| `authenticationMethods`  <ApiLifecycle access="ea" />  | array of `key`: value pair objects | This property specifies the precise authenticator key label (`key`) and `method` for authentication. The `method` is an optional attribute. See [Verification Method with authenticatorMethod JSON Examples](#verification-method-with-authenticationmethods-json-examples).    | | `OPTIONAL`|
+| `excludedAuthenticationMethods` <ApiLifecycle access="ea" />   | array of `key`: value pair objects| This property specifies the precise authenticator key label (`key`) and `method` to exclude from authentication. The `method` is an optional attribute. See [Verification Method with authenticatorMethod JSON Examples](#verification-method-with-authenticationmethods-json-examples).       | | `OPTIONAL`|
 | `required` <ApiLifecycle access="ea" />   | Boolean | This property indicates whether the knowledge or possession factor is required by the assurance. This field is `false` if the knowledge or possession constraint has values for`excludedAuthenticationMethods` or `excludedTypes`.  | | `OPTIONAL`|
 
 #### Authenticator key, type, method, and characteristic relationships for constraints
@@ -2562,6 +2562,88 @@ The following table shows the possible relationships between all the authenticat
       }
     }
   ]
+}
+```
+
+#### Verification Method with authenticationMethods JSON examples
+
+<ApiLifecycle access="ea" />
+
+```json
+// allow an authenticator - key only
+{
+    "type": "ASSURANCE",
+    "factorMode": "1FA",
+    "constraints": [
+      {
+          "possession": {
+             "authenticationMethods": [ { "key": "google_otp" } ] // allow list, authenticators/methods not listed in the list are not allowed
+          }
+      }
+   ]
+}
+```
+
+```json
+// allow an authenticator method
+{
+    "type": "ASSURANCE",
+    "factorMode": "1FA",
+    "constraints": [
+      {
+          "possession": {
+             "authenticationMethods": [ { "key": "okta_verify", "method": "OTP" } ]
+          }
+      }
+   ]
+}
+```
+
+```json
+// exclude an authenticator - key only
+{
+    "type": "ASSURANCE",
+    "factorMode": "1FA",
+    "constraints": [
+      {
+          "possession": {
+             "excludedAuthenticationMethods": [ { "key": "google_otp" } ]
+          }
+      }
+   ]
+}
+```
+
+```json
+// exclude an authenticator method
+{
+    "type": "ASSURANCE",
+    "factorMode": "1FA",
+    "constraints": [
+      {
+          "possession": {
+             "excludedAuthenticationMethods": [ { "key": "google_otp", "method": "OTP" } ]
+          }
+      }
+   ]
+}
+```
+
+```json
+// 2FA exclude password, only allows webauthn
+{
+    "type": "ASSURANCE",
+    "factorMode": "2FA",
+    "constraints": [
+      {
+          "knowledge": {
+             "excludedAuthenticationMethods": [ { "key": "okta_password" } ]
+          },
+          "possession": {
+             "authenticationMethods": [ { "key": "webauthn" } ]
+          }
+      }
+   ]
 }
 ```
 
