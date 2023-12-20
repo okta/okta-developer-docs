@@ -22,7 +22,7 @@ A built and tested app integration that's ready for Okta verification
 
 ## Overview
 
-Before using the [OIN Wizard](/docs/guides/submit-oin-app/) or the [OIN Manager](https://oinmanager.okta.com)&nbsp;to submit your OIN integration, prepare for the artifacts requested during the submission process.
+Before using the [OIN Wizard](/docs/guides/submit-oin-app/) or the [OIN Manager](https://oinmanager.okta.com)&nbsp;to submit your OIN integration, prepare the artifacts requested during the submission process.
 
 Review the following submission artifact guidelines:
 
@@ -47,7 +47,7 @@ Provide a method for each of your customer tenants to uniquely connect to their 
 
 #### SAML SSO multi-tenant example
 
-The following multi-tenant example demonstrates the scenario where your Okta app integration supports Security Assertion Markup Language (SAML) SSO and you configure SSO for your customers:
+The following multi-tenant example demonstrates the scenario where your Okta app integration supports Security Assertion Markup Language (SAML) SSO, and you configure SSO for your customers:
 
 * Customer A and customer B have separate instances of your app within their own Okta orgs. Each customer has their own set of users. Both customers use Okta as an IdP.
 * Customer A adds your integration to their Okta org and obtains the SAML metadata from the integration. They contact you to enable SSO for their users on your app and forward you the SAML metadata.

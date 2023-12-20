@@ -2,11 +2,11 @@
 title: Add a private SSO integration
 meta:
   - name: description
-    content: Use this guide to learn how to add a private SSO app integration to your Okta org.
+    content: Learn how to add a private SSO app integration to your Okta org
 layout: Guides
 ---
 
-Use this guide to add a private, custom Single Sign-On (SSO) OIDC or SAML 2.0 integration to your Okta org. Private integrations are only used by the users of the org for which they're installed on. This guide also shows you how to test the private integration in your org.
+Use this guide to add a private, custom Single Sign-On (SSO) OpenID Connect (OIDC) or SAML 2.0 integration to your Okta org. Only the users of the org where you install the private integration can use it. This guide also shows you how to test the private integration in your org.
 
 ---
 
@@ -39,9 +39,9 @@ This guide assumes that you've developed your app SSO integration and want to ad
 
 ## Create your private integration in Okta
 
-After you've built your app SSO integration, use the Application Integration Wizard (AIW) in the Admin Console to create your app integration instance. This instance provides you with client credentials or metadata for your SSO flows.
+After you build your app SSO integration, use the Application Integration Wizard (AIW) in the Admin Console to create your app integration instance. This instance provides you with client credentials or metadata for your SSO flows.
 
-> **Note:** For best practices, create two or three extra admin users in your Okta org to manage the integration. This ensures that your team can access the integration for updates in the future.
+> **Note:** As a best practice, create two or three extra admin users in your Okta org to manage the integration. This ensures that your team can access the integration for updates in the future.
 
 1. Sign in to your [developer-edition Okta org](/login/) as a user with administrative privileges.
 1. Go to **Applications** > **Applications** in the Admin Console.
@@ -51,7 +51,7 @@ After you've built your app SSO integration, use the Application Integration Wiz
 
 ## Specify your integration settings
 
-After you create your integration instance, the main settings page appears for your new integration in the Admin Console. Specify **General Settings** and **Sign On** options, and assign the integration to users in your org. Click **Edit** if you need to change any of the options, and **Save** when you've made your changes.
+After you create your integration instance, the main settings page appears for your new integration in the Admin Console. Specify **General Settings** and **Sign On** options, and assign the integration to users in your org. Click **Edit** if you need to change any of the options, and **Save** when you finish.
 
 <StackSnippet snippet="settings" />
 
@@ -71,8 +71,8 @@ First, you must assign your integration to one or more test users in your org:
 
 ### Test Single Sign-On
 
-1. Sign out of your Okta org. Click **Sign out** in the upper-right corner of the Admin Console.
-1. Sign in to the Okta End-User Dashboard as the regular user that was assigned the integration.
+1. Sign out of your Okta org by clicking **Sign out** in the upper-right corner of the Admin Console.
+1. Sign in to the Okta End-User Dashboard as a regular user assigned to the integration.
 
    > **Note:** If you sign in as a non-admin user to your Okta org from a browser, the End-User Dashboard appears. To access the End-User Dashboard from a mobile device, see [Okta End-User-Dashboard](https://help.okta.com/okta_help.htm?type=eu&id=ext_user_dashboard_overview).
 1. Click the Okta tile for the integration and confirm that the user is signed in to your app.
@@ -81,7 +81,7 @@ First, you must assign your integration to one or more test users in your org:
 
 ## Next steps
 
-After you tested your SSO integration, communicate to your Okta org users about the custom app SSO capability.
+After you test your SSO integration, communicate to your Okta org users about the custom app SSO capability.
 
 If you decide to publish your integration to the OIN later on:
 

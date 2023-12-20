@@ -51,7 +51,7 @@ Okta recommends the redirect authentication deployment model if your situation m
 
 ## Create your integration in Okta
 
-> **Note**: This section assumes that you've built the SSO integration in your app.
+> **Note**: This section assumes that you already built the SSO integration in your app.
 
 Instructions for adding your SSO integration into Okta depend on if you want to provide a public or private integration:
 
@@ -77,7 +77,7 @@ If you want to publish your integration in the Okta Integration Network (OIN), f
 Having your SSO integration public in the OIN catalog provides you with exposure to all Okta customers.
 
 > **Notes:**
-> * Creating an app integration instance doesn't automatically make it available in the [OIN](https://www.okta.com/integrations/). After you've tested your integration, you need to [submit it](/docs/guides/submit-oin-app/-/main/#submit-your-integration) to the OIN team for verification and publication.
+> * Creating an app integration instance doesn't automatically make it available in the [OIN](https://www.okta.com/integrations/). After you test your integration, [submit it](/docs/guides/submit-oin-app/-/main/#submit-your-integration) to the OIN team for verification and publication.
 > * The OIN Wizard doesn't support new SSO integrations with more than three app instance variables or advanced SAML features.
 
 ### Add a private integration
@@ -87,12 +87,12 @@ If you want your integration to exist only in your Okta org, follow the instruct
 * Create your app integration instance.
 * Test your SSO flows.
 
-Your org users can access your app once SSO is configured.
+Your org users can access your app after SSO is configured.
 
 The following are common use cases for adding a private SSO integration:
 
 * I want to test my SSO integration in my developer-edition org. I have no immediate plans to have it publicly available.
-* I want my SSO integration only to be available in the org I'm using.
+* I want my SSO integration to only be available in the org I'm using.
 * I have a SAML integration with more than three instance variables and advanced SAML features that aren't included in the OIN Wizard.
 
 ## Next steps
