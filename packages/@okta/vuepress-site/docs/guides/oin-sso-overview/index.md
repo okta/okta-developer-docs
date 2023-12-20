@@ -14,7 +14,7 @@ To get your app integration into the OIN:
 
 Your integration is available in the OIN for the Okta community to use after Okta validates and publishes your app integration.
 
-After your customer adds your SSO app integration to their Okta org, their workforce can use their company-issued Okta credentials to securely access your app. In addition to email-password credentials, your customers can control their authentication experience with Okta sign-on policies and features. See [Multifactor Authentication](https://help.okta.com/okta_help.htm?id=ext_MFA) and [Okta FastPass](https://help.okta.com/okta_help.htm?type=oie&id=ext-fp-enable) features.
+After your customer adds your SSO app integration to their Okta org, their workforce can use their company-issued Okta credentials to securely access your app. In addition to email-password credentials, your customers can control their authentication experience with Okta sign-on policies and features. See the [Multifactor Authentication](https://help.okta.com/okta_help.htm?id=ext_MFA) and [Okta FastPass](https://help.okta.com/okta_help.htm?type=oie&id=ext-fp-enable) features.
 
 ## Why build an SSO integration with Okta?
 

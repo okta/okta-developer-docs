@@ -26,7 +26,7 @@ Consider the following questions to help you choose which pathway to use for sub
 * Are you submitting a new or published SCIM or Workflows integration?
   * [Use the OIN Manager for LCM integrations](#submission-process-for-lcm-integrations).
 * Are you submitting a new or published API service integration?
-  * [Use the OIN Manager for API service](#submission-process-for-api-service-integrations).
+  * [Use the OIN Manager for API services](#submission-process-for-api-service-integrations).
 * Are you submitting a new SSO and SCIM integration?
   1. [Use the OIN Wizard](#submission-process-for-sso-integrations) to submit the SSO integration component.
   1. [Use the OIN Manager](#submission-process-for-lcm-integrations) to submit your SCIM integration component.
