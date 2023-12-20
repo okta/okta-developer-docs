@@ -31,7 +31,7 @@ Consider the following questions to help you choose which pathway to use for sub
   1. [Use the OIN Wizard](#submission-process-for-sso-integrations) to submit the SSO integration component.
   1. [Use the OIN Manager](#submission-process-for-lcm-integrations) to submit your SCIM integration component.
      > **Note:** Submit the SSO integration in the OIN Wizard first before you submit the SCIM integration in the OIN Manager.
-* Are you updating a published SSO integration, previously submitted through OIN Manager?
+* Are you updating a published SSO integration, previously submitted through the OIN Manager?
   * Use the [OIN Manager to update published SSO integrations](/docs/guides/submit-sso-app/saml2/main/#update-your-published-integration).
 
 Submit your integration to Okta and work with the Okta OIN team as they test and review your submission. If the Okta OIN team identifies any issues in the review and QA testing phases, you’re sent an email with the specific details. At any point in the process, you can check the status of your submission in the OIN Wizard or OIN Manager.
@@ -102,7 +102,7 @@ Source link : https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 
 The submission review process begins when you click **Submit for Review** in the [OIN Wizard](/docs/guides/submit-oin-app/) or **Submit integration** in the [OIN Manager](https://oinmanager.okta.com). Okta sends you an email notification that your integration is now queued for review and also includes the date when the initial review is expected to finish.
 
-The status of your integration is shown in the **Your OIN Integrations** dashboard from the Admin Console or in the **My App Integrations** page from the OIN Manager.
+The status of your integration is shown in the **Your OIN Integrations** dashboard from the Admin Console or on the **My App Integrations** page from the OIN Manager.
 
 |  <div style="width:150px">OIN Wizard status</div>|  <div style="width:160px">OIN Manager status</div>  | Description |
 | --------------- | ------------ | ------------ |
@@ -112,7 +112,7 @@ The status of your integration is shown in the **Your OIN Integrations** dashboa
 | OIN to review | To be QA tested by Okta | The integration was submitted and passed the initial review phase. The OIN team conducts internal QA tests and notifies you by email when the QA review is complete. If QA testing is successful, your integration is automatically published in the OIN. |
 | ISV to review | ISV needs to fix bugs | The OIN team tested the integration and found some issues. An email is sent to you with a list of issues to fix. Make the requested changes as an update to your existing submission. Retest and resubmit your integration.|
 | OIN to review | Final Review | The Okta OIN team conducts a final internal QA test based on previously requested changes. The OIN team emails you when the final QA review is complete. If the review is successful, your integration is automatically published in the OIN. |
-| Published | Published | Congratulations, your integration is published in the OIN! <br>The OIN team verified that the integration works as intended for your Okta customers.|
+| Published | Published | Congratulations, your integration is published in the OIN. <br>The OIN team verified that the integration works as intended for your Okta customers.|
 
 ## Protocols supported
 
@@ -134,8 +134,8 @@ Okta accepts integrations that use the following protocols or tools into the OIN
    > You can also use the following template integrations from the OIN if they meet your app SCIM capabilities:
    > * [SCIM 1.1 test apps](https://www.okta.com/integrations/?search=SCIM%201.1%20test%20app) for SCIM 1.1
    > * [SCIM 2.0 test apps](https://www.okta.com/integrations/?search=SCIM%202.0%20Test%20App) for SCIM 2.0
-   > * [SCIM 1.1 Test App(Header Auth)](https://www.okta.com/integrations/scim-1-1-test-app-header-auth/) for SCIM 1.1 apps that use custom header expression for Header Auth
-   > * [SCIM 2.0 Test App(Header Auth)](https://www.okta.com/integrations/scim-2-0-test-app-header-auth/) for SCIM 2.0 apps that use custom header expression for Header Auth
+   > * [SCIM 1.1 Test App (Header Auth)](https://www.okta.com/integrations/scim-1-1-test-app-header-auth/) for SCIM 1.1 apps that use custom header expression for Header Auth
+   > * [SCIM 2.0 Test App (Header Auth)](https://www.okta.com/integrations/scim-2-0-test-app-header-auth/) for SCIM 2.0 apps that use custom header expression for Header Auth
 
 * [Workflows Connector Builder](https://help.okta.com/okta_help.htm?type=wf&id=ext-connector-builderz)
 

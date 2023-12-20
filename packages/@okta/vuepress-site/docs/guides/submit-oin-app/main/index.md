@@ -2,7 +2,7 @@
 title: Submit an SSO integration with the OIN Wizard
 meta:
   - name: description
-    content: Use this guide to learn how to submit your integration to the Okta Integration Network (OIN) team for publication. The submission task is performed in the Okta Admin Console through the OIN Wizard.
+    content: Learn how to submit your integration to the Okta Integration Network (OIN) team for publication. The submission task is performed in the Okta Admin Console through the OIN Wizard.
 layout: Guides
 ---
 
@@ -18,7 +18,7 @@ Use this guide to learn how to submit a Single Sign-On (SSO) integration to the 
 
 **What you need**
 
-* An [Okta Developer-Edition org](https://developer.okta.com/signup/) (the OIN Wizard is only available in developer-edition orgs)
+* An [Okta Developer-Edition org](https://developer.okta.com/signup/). The OIN Wizard is only available in developer-edition orgs.
 * An admin user in the developer-edition org with either the Super Administrator or the Application Administrator role
 * A functional SSO integration based on the [Build a Single Sign-On integration](/docs/guides/build-sso-integration/) guide
 * The various items necessary for submission in accordance with the [OIN submission requirements](/docs/guides/submit-app-prereq/)
@@ -27,9 +27,9 @@ Use this guide to learn how to submit a Single Sign-On (SSO) integration to the 
 
 ## Overview
 
-Okta provides you with a seamless experience in the Okta Admin Console to integrate and submit your app for publication in the [Okta Integration Network (OIN)](https://www.okta.com/okta-integration-network/). When you obtain an [Okta Developer-Edition org](https://developer.okta.com/signup/), you can use it as a sandbox to integrate your app with Okta and explore more Okta features. When you decide to publish your integration to the OIN, you can use the same developer-edition org to submit your integration using the OIN Wizard.
+Okta provides you with a seamless experience to integrate and submit your app for publication in the [Okta Integration Network (OIN)](https://www.okta.com/okta-integration-network/). When you obtain an [Okta Developer-Edition org](https://developer.okta.com/signup/), you can use it as a sandbox to integrate your app with Okta and explore more Okta features. When you decide to publish your integration to the OIN, you can use the same developer-edition org to submit your integration using the OIN Wizard.
 
-The OIN Wizard is a full-service tool in the Admin Console for you to:
+The OIN Wizard is a full-service tool in the Okta Admin Console for you to:
 
 * Provide all your integration submission details.
 * Generate an app instance in your org for testing.
@@ -64,7 +64,7 @@ Review the [OIN submission requirements](/docs/guides/submit-app-prereq) before 
 
 > **Notes:**
 > * To access the **Your OIN Integrations** dashboard and the OIN Wizard, you must have either the **Super Administrator** or the **Application Administrator** [role](https://help.okta.com/okta_help.htm?type=oie&id=csh-administrators-admin-comparison).
-> * For best practices, create two or three extra admin users in your Okta org to manage the integration. This ensures that your team can access the integration for updates in the future. See [Add users manually](https://help.okta.com/en-us/content/topics/users-groups-profiles/usgp-add-users.htm) and ensure that the Super Administrator or the Application Administrator role is assigned.
+> * As a best practice, create two or three extra admin users in your Okta org to manage the integration. This ensures that your team can access the integration for updates in the future. See [Add users manually](https://help.okta.com/en-us/content/topics/users-groups-profiles/usgp-add-users.htm) and ensure that the Super Administrator or the Application Administrator role is assigned.
 
 Start your integration submission for OIN publication:
 
@@ -88,7 +88,7 @@ Continue with the OIN Wizard and configure your integration:
     | <div style="width:150px">Property</div>| Description  |
     | ----------------- | ------------ |
     | **Display name** `*` | Provide a name for your integration. This is the main title used for your integration in the OIN.<br>The maximum field length is 64 characters. |
-    | **Description** `*` | Give a general description of your application and the benefits this integration to your customers. See [App description guidelines](/docs/guides/submit-app-prereq/main/#app-description-guidelines). |
+    | **Description** `*` | Give a general description of your application and the benefits of this integration to your customers. See [App description guidelines](/docs/guides/submit-app-prereq/main/#app-description-guidelines). |
     | **Logo** `*` | Upload a PNG, JPG, or GIF file of a logo to accompany your integration in the catalog. The logo file must be less than one MB. See [Logo guidelines](/docs/guides/submit-app-prereq/main/#logo-guidelines). |
 
     `*` Required properties
@@ -169,7 +169,7 @@ You need to test your integration to verify that the integration performs as you
 * [SP flow](#how-to-test-an-sp-flow)
 * [Just-In-Time (JIT) provisioning](#how-to-test-jit-provisioning)
 
-The **Test your integration experience** page of the OIN Wizard helps you prepare and test your integration within the same org. You can generate an integration instance from the information you provided in the wizard. The generated instance allows you to test your customer admin experience and your end-user sign-in experience.
+The **Test your integration experience** page of the OIN Wizard helps you prepare and test your integration within the same org. You can generate an integration instance from the information you provide in the wizard. The generated instance allows you to test your customer admin experience and your end-user sign-in experience.
 
 The test cases presented in this section are the minimum tests that you need to execute to ensure that your sign-in flow works as expected. Ideally, you want to execute several variations of these test cases with negative and edge cases in mind.
 
@@ -186,7 +186,7 @@ This flow tests the customer admin experience. The test steps start from the OIN
 
 Test case preconditions:
 
-* The integration [configuration](#configure-your-integration) and [test information](#enter-test-information) sections in the OIN Wizard are completed
+* The integration [configuration](#configure-your-integration) and [test information](#enter-test-information) sections in the OIN Wizard are complete
 
 To generate an integration instance:
 
@@ -215,7 +215,7 @@ To assign test users to your integration:
 1. Enter the appropriate people or groups that you want to have SSO into your application, and then click **Assign** for each.
 1. Verify the user-specific attributes for any people that you add, and then select **Save and Go Back**.
 1. Click **Done**.
-1. If you want to go back to the OIN Wizard, click **Begin testing** (upper-right corner). The **Test your integration experience** page appears. Testing guidance is provided on this page and you can submit your integration once you've successfully completed testing.
+1. If you want to go back to the OIN Wizard, click **Begin testing** (upper-right corner). The **Test your integration experience** page appears. Testing guidance is provided on this page, and you can submit your integration after you've successfully completed testing.
 
 ### How to test an IdP flow
 
@@ -236,7 +236,7 @@ To test the SSO IdP flow:
 1. Sign in to the Okta End-User Dashboard as an end user that was assigned the integration.
     > **Note**: If you sign in as a non-admin user to your Okta org from a browser, the End-User Dashboard appears.
 1. Confirm that your app tile appears on the Okta End-User Dashboard.
-1. Click your app tile and confirm that you can sign in successfully.
+1. Click your app tile and confirm that you can sign in.
 1. Sign out of your app.
 1. Verify that you're able to sign out and are redirected to the sign-in page.
 
@@ -262,7 +262,7 @@ To test the SP-initiated flow with a direct URL:
 1. Open a new incognito window in your browser.
 1. Go to the app sign-in page directly from the browser URL address field (for example: `https://berryfarm.example.org/strawberry/signin`). The browser redirects you to Okta for authentication.
 1. Sign in with Okta credentials for the test end user.
-1. Confirm that you've successfully signed in to the app.
+1. Confirm that you are signed in to the app.
     > **Note**: If you have multiple apps in the OIN catalog, verify that you've signed in to the correct app.
 1. Sign out of your app.
 1. Verify that you're able to sign out and are redirected to the sign-in page.
@@ -281,7 +281,7 @@ To test the SP-initiated flow with a sign-in page:
 1. Go to the app sign-in page.
 1. Initiate the sign-in action from the sign-in page (such as clicking **Sign in with Okta**).
 1. Sign in with Okta credentials for the test end user.
-1. Confirm that you've successfully signed in to the app.
+1. Confirm that you're signed in to the app.
     > **Note**: If you have multiple apps in the OIN catalog, verify that you've signed in to the correct app.
 1. Sign out of your app.
 1. Verify that you're able to sign out and are redirected to the sign-in page.
@@ -290,7 +290,7 @@ To test the SP-initiated flow with a sign-in page:
 
 To test Just-In-Time (JIT) provisioning, you need to execute the test cases with two personas: as a customer admin user and as an end user. The customer admin user sets up the new end user in Okta. And the new end user signs in to the app. The new user profile is provisioned in the app without extra admin intervention.
 
-Test JIT provisioning with either SSO flows:
+Test JIT provisioning with either SSO flow:
 
 - With IdP SSO flow: [Test JIT provisioning with the IdP flow](#test-jit-provisioning-with-the-idp-flow)
 - With SP-initiated SSO flow: [Test JIT provisioning with the SP flow](#test-jit-provisioning-with-the-sp-flow)
@@ -305,7 +305,7 @@ Test case preconditions:
 * The [Sign in with the IdP flow](#sign-in-with-the-idp-flow) test case was executed successfully
 * A new test user profile that isn't in Okta or in your app
 
-To test JIT provision with the IdP flow:
+To test JIT provisioning with the IdP flow:
 
 1. As an Okta admin user, verify that the test user doesn't exist in your Okta org.
 1. As an app admin user, verify that the test user doesn't exist in the app. Sign in to your app and verify that there's no user with the same unique attributes as your new test user.
@@ -321,7 +321,7 @@ To test JIT provision with the IdP flow:
 1. Go to your Okta org URL.
 1. Sign in to the Okta org as the new user that was assigned to the app integration. The End-User Dashboard appears.
 1. Confirm that your app tile appears on the Okta End-User Dashboard.
-1. Click your app tile and confirm that you can sign in successfully.
+1. Click your app tile and confirm that you can sign in.
 1. Sign out of your app.
 1. Verify that you're able to sign out and are redirected to the sign-in page.
 1. Verify that the new user was created in your app with supported attributes passed from the Okta profile, such as the user's name and email.
@@ -336,7 +336,7 @@ Test case preconditions:
 * The [Sign in with the SP flow](#sign-in-with-a-direct-url-for-the-sp-flow) test case was executed successfully
 * A new test user profile that isn't in Okta or in your app
 
-To test JIT provision with the SP flow:
+To test JIT provisioning with the SP flow:
 
 1. As an admin user, verify that the test user doesn't exist in your Okta org.
 1. As an admin user, verify that the test user doesn't exist in the app. Sign in to your app and verify that there's no user with the same unique attributes as your new test user.
@@ -351,7 +351,7 @@ To test JIT provision with the SP flow:
 1. Open a new incognito window in your browser.
 1. Go to the app sign-in page directly from the browser URL address field (for example: `https://berryfarm.example.org/strawberry/signin`). The browser redirects you to Okta for authentication.
 1. Sign in with Okta credentials for the new test user that was assigned to the app integration.
-1. Confirm that you can sign in to the app successfully.
+1. Confirm that you can sign in to the app.
 1. Sign out of your app.
 1. Verify that you're able to sign out and are redirected to the sign-in page.
 1. Verify that the new user was created in your app with supported attributes passed from the Okta profile.
@@ -372,7 +372,7 @@ If you have questions or need more support with the OIN submission process, cont
 
 ## Submit your integration
 
-After you've successfully tested your integration, you're ready to submit.
+After you successfully test your integration, you're ready to submit.
 
 1. Close the incognito browser window and return to the **Test your integration experience** page in the OIN Wizard.
 1. Select **I certify that I have successfully completed the required tests**.
@@ -381,7 +381,7 @@ After you've successfully tested your integration, you're ready to submit.
 
 After you submit your integration, an OIN analyst performs an initial review of your submission details. They send an email to you with any submission issues to correct.
 
-After the initial review is completed and all the issues are corrected, the submission moves to the QA testing phase. An OIN analyst uses the test information that you provided in the OIN Wizard to test your integration. They send you an email with any test failures or issues to correct. See [Understand the submission review process](/docs/guides/submit-app-overview/#understand-the-submission-review-process).
+After the initial review is complete and all the issues are correct, the submission moves to the QA testing phase. An OIN analyst uses the test information that you provide in the OIN Wizard to test your integration. They send you an email with any test failures or issues to correct. See [Understand the submission review process](/docs/guides/submit-app-overview/#understand-the-submission-review-process).
 
 ## Update your integration
 
@@ -401,15 +401,15 @@ To update a submitted integration:
 1. Update the desired properties in the OIN Wizard.
 1. Click **View testing information** or **Close wizard** to save the modified integration. When you save the updated properties, the integration submission status is set to `Draft`.
 1. Go to **Applications** > **Your OIN Integrations** in the Admin Console and confirm that your integration submission is in `Draft` status.
-1. Retest your integration successfully before you submit it again.
+1. Retest your integration before you submit it again.
 
 ### Update integration considerations
 
 * If you have an existing SAML SSO integration and you want to update advanced properties that aren't available in the OIN Wizard, contact <oin@okta.com>.
 
-* When you update an integration that has already been published, be mindful to preserve backwards compatibility for your integration. Older instances of your integration could be in use by Okta customers.
+* When you update an integration that is already published, be mindful to preserve backwards compatibility for your integration. Older instances of your integration could be in use by Okta customers.
 
-   If your update introduces a new variables and you are using dynamic URLs, ensure that your test cases cover a variety of scenarios with different possible values for those variables. The newly introduced variables aren't populated for older instances of your integration. For example:
+   If your update introduces new variables and you're using dynamic URLs, ensure that your test cases cover a variety of scenarios with different possible values for those variables. The newly introduced variables aren't populated for older instances of your integration. For example:
 
    <StackSnippet snippet="backward-compatible-eg" />
 
