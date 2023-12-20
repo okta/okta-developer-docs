@@ -1,7 +1,7 @@
 | <div style="width:150px">Property</div> | &nbsp; | Description  |
 | ----------------- | --: | ------------ |
 | **Provide your default ACS URL** `*` | | Specify the default Assertion Consumer Service (ACS) URL. If you're using a per tenant design, include the variable names that you created in your URL. For example: `https://${org.subdomain}.example.org/strawberry/login`<br>The maximum field length is 1024 characters. |
-| **Provide any additional ACS URLs** | | Provide an indexed ACS URL if your integration supports multiple ACS URLs where the SAML response can be sent.<br>Adding an ACS URL is optional, but if you add one, both `ACS URL` and `Index` properties are required.<br>Click **+ Add another** to add another URL.|
+| **Provide any additional ACS URLs** | | Provide an indexed ACS URL if your integration supports multiple ACS URLs where Okta can send the SAML response.<br>Adding an ACS URL is optional, but if you add one, both `ACS URL` and `Index` properties are required.<br>Click **+ Add another** to add another URL.|
 | | **ACS URL** `*` | Specify another ACS URL.<br>The maximum field length is 1024 characters. |
 | | **Index** `*` | Specify the index for the corresponding additional ACS URL. The index must be an integer between 0 and 65535. |
 |**Provide your entity ID or audience restriction** `*` | | Specify your SAML entity ID or the audience restriction.  |

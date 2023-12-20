@@ -54,7 +54,7 @@ This guide covers submissions that use the following protocols:
 
     > **Notes:**
     > * SAML integrations must use SHA256 encryption for security. If you're using SHA-1 for encryption, see our guide on how to [Upgrade SAML Apps to SHA256](/docs/guides/updating-saml-cert/).
-    > * The OIN Wizard doesn't support advanced SAML integrations, such as integrations with more than three app instance variables. Some ISVs use many app instance variables to help identify app instances for each of their customers.
+    > * The OIN Wizard places certain limits on SAMl integration submissions. See [OIN limitations](/docs/guides/submit-app-prereq/main/#oin-limitations).
 
 > **Note:** SWA app integrations are no longer accepted for publication in the OIN catalog. However, the OIN team still maintains existing SWA apps.
 

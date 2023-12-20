@@ -390,7 +390,13 @@ Include this section if there are known issues that apply to the entire configur
 
 You can't publish integrations with the following Okta features in the OIN catalog:
 
-* **Advanced SAML apps:** The OIN Wizard doesn't support new advanced SAML integrations, such as integrations with more than three app instance variables. Some ISVs use many app instance variables to help identify app instances for each of their customers. The OIN team maintains existing advanced SAML integrations. If you need to update your existing advanced SAML integration, contact the OIN team at <oin@okta.com>.
+* **SAML apps:** The OIN Wizard places certain limits on SAML integration submissions. Examples of these limitations include:
+   * Only one to three app instance variables allowed
+   * No attribute statement support
+   * No RelayState support
+   * No force authentication (`ForceAuthn`) support
+
+   The OIN team maintains existing SAML integrations with these advanced features. If you need to update your existing advanced SAML integration, contact the OIN team at <oin@okta.com>.
 
 * **SWA apps:** Okta no longer publishes new Secure Web Authentication (SWA) integrations to the OIN catalog. The OIN team maintains existing SWA integrations.
 

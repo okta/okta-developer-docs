@@ -28,5 +28,5 @@
     * If you're an independent software vendor (ISV) and plan to add the SAML integration to the OIN:
         1. Select **I'm a software vendor. I'd like to integrate my app with Okta**.
         1. Click **Finish**.
-        > **Note:** Use the [OIN Manager: Submit an advanced SAML integration](/docs/guides/submit-sso-app/saml2/main/) guide to submit advanced SAML integrations to the OIN. For basic SAML integrations, use the [OIN Wizard: Submit an SSO integration](/docs/guides/submit-oin-app/saml2/main/) guide, which is a more streamlined way to test and submit your integration to the OIN.
+        > **Note:** Selecting this option doesn't automatically make your integration available in the [OIN](https://www.okta.com/integrations/). After you test your integration, [submit it](/docs/guides/submit-oin-app/-/main/#submit-your-integration) to the OIN team for verification and publication. See the OIN [submission process](/docs/guides/submit-app-overview/#submission-process) overview.
 1. Click **Finish**.
