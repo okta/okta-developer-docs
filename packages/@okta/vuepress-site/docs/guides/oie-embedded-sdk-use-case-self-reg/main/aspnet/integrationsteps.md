@@ -316,7 +316,7 @@ Build a form that allows the user to enter their phone number.
 
 </div>
 
-> **Note:** The SDK requires the phone number in the following format: `+# ### ### ####`, including the beginning plus (+) sign.
+> **Note:** The .NET SDK requires the phone number in the following format: `+# ### ### ####`, including the beginning plus (+) sign.
 
 #### The user submits their phone number
 
