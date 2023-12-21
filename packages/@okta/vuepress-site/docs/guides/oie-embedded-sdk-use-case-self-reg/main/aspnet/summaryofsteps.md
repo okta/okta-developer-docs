@@ -1,6 +1,6 @@
 ### Start the new user registration with the password factor
 
-The following diagram illustrates the beginning of the registration process where the user initiates their sign-in and enters their password.
+The following diagram illustrates the beginning of the registration process where the user initiates their sign-in and enrolls their password.
 
 <div class="full">
 
@@ -18,9 +18,9 @@ The self-registration flow continues by enrolling the user's email address.
 
 </div>
 
-### Enroll and verify the phone (SMS) factor
+### Enroll and verify the phone factor
 
-After the password and email are verified, the user may also enroll the phone factor. However it’s now optional as the user has already enrolled two factors. The following flow describes the steps when the user enrolls in the optional phone SMS factor.
+After the password and email are verified, the user may also enroll the phone factor. However it’s now optional as the user has already enrolled two factors. The following flow describes the steps when the user does enroll the optional phone factor.
 
 <div class="full">
 
@@ -30,7 +30,7 @@ After the password and email are verified, the user may also enroll the phone fa
 
 ### Skip the optional remaining factors
 
-The user can also opt to skip enrolling more factors when those remaining unenrolled are optional. In this case, the user opts to skip the phone (SMS) factor.
+The user can also opt to skip enrolling more factors when those remaining unenrolled are optional. In this case, the user opts to skip the phone factor.
 
 <div class="full">
 
