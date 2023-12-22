@@ -10,7 +10,7 @@ Control access to the storage used by the redirect authentication session, such 
 
 The redirect authentication method in the Swift SDK opens a browser window in your app for the sign-on flow. The browser is opened using an Apple API for secure authentication.
 
-One option controls if the secure browser session saves data, such as cookies, to the user's regular browser. The default setting for the Swift SDK enables sharing that data. Apple privacy measures require user consent to share that data which results the system asking for consent before displaying the browser. This occurs for both the sign-in and sign-out flows.
+One option controls if the secure browser session saves data, such as cookies, to the user's regular browser. The default setting for the Swift SDK enables sharing that data. Apple privacy measures require user consent to share that data, which results in the system asking for consent before displaying the browser. This occurs for both the sign-in and sign-out flows.
 
 For example, this dialog asks the user to allow any information from the authorization provider `myapp.okta.com` with the app My App:
 
@@ -32,7 +32,7 @@ To avoid a confirmation dialog, set `ephemeralSession` to `true` before calling 
 | `true`             | No              | No  | Yes                    |
 | `false`            | Yes             | Yes | No                     |
 
-## Sign-out the user
+## Sign out the user
 
 There are two steps to sign out a user completely when `ephemeralSession` is set to `false`:
 
