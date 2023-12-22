@@ -6,6 +6,12 @@ The following diagram illustrates the beginning of the registration process wher
 
 ![A sequence diagram that shows the beginning of the self-service registration flow, from the user clicking Create Account to their enrolling a password](/img/oie-embedded-sdk/oie-embedded-dotnet-selfservice-pwd-flow-diagram.png)
 
+<!--
+
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?type=design&node-id=4556-22852&mode=design&t=xppJfMMfiQ95U2De-4  oie-embedded-dotnet-selfservice-pwd-flow-diagram
+
+ -->
+
 </div>
 
 ### Enroll and verify the email factor
@@ -15,6 +21,12 @@ The self-registration flow continues by enrolling the user's email address.
 <div class="full">
 
 ![A sequence diagram that shows the email factor enrollment part of the self-service registration flow](/img/oie-embedded-sdk/oie-embedded-dotnet-selfservice-email-flow-diagram.png)
+
+<!--
+
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?type=design&node-id=4556-22885&mode=design&t=xppJfMMfiQ95U2De-11 oie-embedded-dotnet-selfservice-email-flow-diagram
+
+ -->
 
 </div>
 
@@ -26,6 +38,12 @@ After the password and email are verified, the user may also enroll the phone fa
 
 ![A sequence diagram that shows the phone factor enrollment part of the self-service registration flow](/img/oie-embedded-sdk/oie-embedded-dotnet-selfservice-phone-flow-diagram.png)
 
+<!--
+
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?type=design&node-id=4556-22924&mode=design&t=xppJfMMfiQ95U2De-11  oie-embedded-dotnet-selfservice-phone-flow-diagram
+
+ -->
+
 </div>
 
 ### Skip the optional remaining factors
@@ -35,5 +53,11 @@ The user can also opt to skip enrolling more factors when those remaining unenro
 <div class="full">
 
 ![A sequence diagram that shows the phone factor being skipped as part of the self-service registration skip phone flow](/img/oie-embedded-sdk/oie-embedded-dotnet-selfservice-skip-flow-diagram.png)
+
+<!--
+
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?type=design&node-id=4556-22926&mode=design&t=xppJfMMfiQ95U2De-11  oie-embedded-dotnet-selfservice-skip-flow-diagram
+
+ -->
 
 </div>

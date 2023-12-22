@@ -8,8 +8,6 @@ title: Self-service registration
 
 Enable a self-registration flow in your application using the embedded SDK.
 
-<StackSnippet snippet="pwdoptionalusecase" inline />
-
 ---
 
 **Learning outcomes**
@@ -40,6 +38,8 @@ Self-service registration allows users to sign up to an application by themselve
 
 </div>
 
+<StackSnippet snippet="pwdoptionalusecase" inline />
+
 ## Configuration updates
 
 Configure the Okta org to accept self-registration with the password, email, and/or phone factors.
@@ -69,8 +69,9 @@ Create a policy for self-registration:
 1. Select the **Enrollment** tab.
 1. Click **Edit** under **Default Policy**.
 1. Go to the **Effective factors** section of the **Edit Policy** dialog box:
-   * Set **Email** to **Optional**.
-   * Set **Phone** to **Optional**.
+   1. Set **Email** to **Optional**.
+   {style="list-style-type:lower-alpha"}
+   1. Set **Phone** to **Optional**.
 1. Click **Update Policy**.
 
 ## Summary of steps
@@ -90,16 +91,19 @@ To replicate this scenario:
 1. Configure your org following the steps described in [Set up your Okta org for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/-/main/#set-up-your-okta-org-for-a-multifactor-use-case).
 1. Set your application's authentication policy to require only the password factor.
    1. In the Admin Console, go to **Applications** > **Applications**.
+   {style="list-style-type:lower-alpha"}
    1. Select your application, and go to the **Sign On** tab.
    1. In the **User authentication** section, click **Edit**.
    1. Set **Authentication Policy** to **Password only**, and click **Save**.
 1. Set your application's **Initiate login URI** to its sign-in URI. By setting this value, the email verification link for new user enrollment redirects the user to the URL provided in the **Initiate login URI** field.
    1. In the Admin Console, go to **Applications** > **Applications**.
+   {style="list-style-type:lower-alpha"}
    1. Select your application, and stay in the **General** tab.
    1. In the **General Settings** section, click **Edit**.
    1. Set **Initiate login URI** to your **Sign-in Redirect URI**, and click **Save**.
 1. Make email verification mandatory in your default profile enrollment policy.
    1. Go to **Security** > **Profile Enrollment**.
+   {style="list-style-type:lower-alpha"}
    1. Click the pencil icon next to the **Default policy**.
    1. Ensure that **Required before access is granted** is checked for **Email Verification**.
 

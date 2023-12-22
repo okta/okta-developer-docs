@@ -49,7 +49,7 @@ userProfile.addAttribute("email", email);
 
 ProceedContext proceedContext = newUserRegistrationResponse.getProceedContext();
 
-AuthenticationResponse authenticationResponse = 
+AuthenticationResponse authenticationResponse =
     idxAuthenticationWrapper.register(proceedContext, userProfile);
 ```
 
@@ -181,7 +181,7 @@ AuthenticationResponse authenticationResponse =
 
 `verifyAuthenticator()` returns an `AuthneticationResponse` object with an `AuthenticationStatus` property of `AWAITING_AUTHENTICATOR_ENROLLMENT_SELECTION`. This indicates that the user still has authentication factors to enroll before registration is complete.
 
-Redirect the user to the list page you created earlier to choose which one. The code is the same. The page should show only the phone factor. However, since this factor is optional and the user has now enrolled two factors, the `canSkip` property propulated by `isSkipAuthenticatorPresent()` is now `true` meaning that the list page should now also display a Skip button.
+Redirect the user to the list page you created earlier to choose which one. The code is the same. The page should show only the phone factor. However, since this factor is optional and the user has now enrolled two factors, the `canSkip` property populated by `isSkipAuthenticatorPresent()` is now `true` meaning that the list page should now also display a **Skip** button.
 
 <div class="half wireframe-border">
 
@@ -208,13 +208,13 @@ authenticationResponse = idxAuthenticationWrapper.selectAuthenticator(proceedCon
 
 #### Display phone number input page
 
-The returned `EnrollResponse` object has an `AuthenticationStatus` of `AWAITING_AUTHENTICATOR_ENROLLMENT_DATA`. This status indicates that Identity Engine is waiting for the user for more data before the factor can be enrolled. In this case, the user needs to supply a phone number, and phone verification method.
+The returned `EnrollResponse` object has an `AuthenticationStatus` of `AWAITING_AUTHENTICATOR_ENROLLMENT_DATA`. This status indicates that Identity Engine is waiting for the user for more data before the factor can be enrolled. In this case, the user needs to supply a phone number, and a phone verification method.
 
-Build a form that allows the user to enter their phone number, and a second form to select a .
+Build a form that allows the user to enter their phone number, and a second form to select a phone verification method.
 
 <div class="half wireframe-border">
 
-![A form with a field for a phone number, formatting advice and a next button](/img/wireframes/enter-phone-number-form.png)
+![A form with a field for a phone number, formatting advice, and a next button](/img/wireframes/enter-phone-number-form.png)
 
 <!--
 
@@ -227,7 +227,7 @@ Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 
 <div class="half wireframe-border">
 
-![A choose your phone verification method form with SMS and Voice options and a next button](/img/wireframes/choose-phone-verification-method-form.png)
+![A choose your phone verification method form with SMS and voice options and a next button](/img/wireframes/choose-phone-verification-method-form.png)
 
 <!--
 
@@ -250,7 +250,7 @@ AuthenticationResponse authenticationResponse =
 
 #### Display SMS OTP input page
 
-If the call is successful, a one-time passcode (OTP) is sent by SMS to the user's mobile phone. The returned `AuthenticationResponse` object has an `AuthenticationStatus` of `AWAITING_AUTHENTICATOR_VERIFICATION`. This status indicates that Identity Engine is waiting for the user to check their email and enter the OTP.
+If the call is successful, your SMS provider sends a one-time passcode (OTP) in an SMS to the user's mobile phone. The returned `AuthenticationResponse` object has an `AuthenticationStatus` of `AWAITING_AUTHENTICATOR_VERIFICATION`. This status indicates that Identity Engine is waiting for the user to check their email and enter the OTP.
 
 Build a form that allows the user to enter the OTP sent to them by SMS. Depending on your implementation, the page can be the same page that verifies the email code. The sample app reuses the same page for both email and phone verification.
 
@@ -285,7 +285,7 @@ The user is now registered with no more factors to be verified. Store the return
 
 ### The user skips the phone authenticator
 
-If the user opts to skip phone enrollment, call `IDXAuthenticationWrapper.skipAuthenticatorEnrollment()` method. This method skips the authenticator enrollment and eliminate the need to verify the factor:
+If the user opts to skip phone enrollment, call `IDXAuthenticationWrapper.skipAuthenticatorEnrollment()`. This skips the authenticator enrollment and eliminates the need to verify the factor:
 
 ```java
 if ("skip".equals(action)) {
