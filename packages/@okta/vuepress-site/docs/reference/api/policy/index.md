@@ -2380,6 +2380,19 @@ The number of Authenticator class constraints in each Constraint object must be 
 | `excludedAuthenticationMethods` <ApiLifecycle access="ea" />   | array of `key`: value pair objects| This property specifies the precise authenticator key label (`key`) and `method` to exclude from authentication. The `method` is an optional attribute. See [Verification Method with authenticatorMethod JSON Examples](#verification-method-with-authenticationmethods-json-examples).       || `OPTIONAL`|
 | `required` <ApiLifecycle access="ea" />   | Boolean | This property indicates whether the knowledge or possession factor is required by the assurance. This field is `false` if the knowledge or possession constraint has values for`excludedAuthenticationMethods` or `excludedTypes`.  || `OPTIONAL`|
 
+| `authenticationMethods`  <ApiLifecycle access="ea" />  | array of [Authentication method objects](#authentication-method-object) | This property specifies the precise authenticator and method for authentication. See [Verification Method with authenticatorMethod JSON Examples](#verification-method-with-authenticationmethods-json-examples).      || `OPTIONAL`|
+| `excludedAuthenticationMethods` <ApiLifecycle access="ea" />   | array of [Authentication method objects](#authentication-method-object) | This property specifies the precise authenticator and method to exclude from authentication. See [Verification Method with authenticatorMethod JSON Examples](#verification-method-with-authenticationmethods-json-examples).       || `OPTIONAL`|
+| `required` <ApiLifecycle access="ea" />   | Boolean | This property indicates whether the knowledge or possession factor is required by the assurance. This field is `false` if the knowledge or possession constraint has values for`excludedAuthenticationMethods` or `excludedTypes`.  || `OPTIONAL`|
+
+#### Authentication method object
+
+The authentication method object contains key value pairs that identify the specific authenticator and method to use or exclude.
+
+| Property  | Description          | Data Type                                         | Required |
+| ---       | ---                  | ---                                               | ---      |
+| key       | A label that identifies the authenticator | String | Yes      |
+| method     | Specifies the method used for the authenticator   | String | No      |
+
 #### Authenticator key, type, method, and characteristic relationships for constraints
 
 The following table shows the possible relationships between all the authenticators, their methods, and method characteristics to construct constraints for a policy.
