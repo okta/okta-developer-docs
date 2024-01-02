@@ -2376,17 +2376,13 @@ The number of Authenticator class constraints in each Constraint object must be 
 | `userPresence` | String            | Indicates if the user needs to approve an Okta Verify prompt or provide biometrics (meets NIST AAL2 requirements). This property is only set for `POSSESSION` constraints.| `REQUIRED`, `OPTIONAL`                                                                            |`REQUIRED`|
 | `userVerification` | String            | Indicates the user interaction requirement (PIN or biometrics) to ensure verification of a possession factor | `REQUIRED`, `OPTIONAL`                                                                            |`OPTIONAL`|
 | `reauthenticateIn`   | String (ISO 8601) | The duration after which the user must re-authenticate regardless of user activity. This re-authentication interval overrides the [Verification Method object](#verification-method-object)'s `reauthenticateIn` interval.     | ISO 8601 period format for recurring time intervals (for example: `PT1H`) | N/A|
-| `authenticationMethods`  <ApiLifecycle access="ea" />  | array of `key`: value pair objects | This property specifies the precise authenticator key label (`key`) and `method` for authentication. The `method` is an optional attribute. See [Verification Method with authenticatorMethod JSON Examples](#verification-method-with-authenticationmethods-json-examples).    || `OPTIONAL`|
-| `excludedAuthenticationMethods` <ApiLifecycle access="ea" />   | array of `key`: value pair objects| This property specifies the precise authenticator key label (`key`) and `method` to exclude from authentication. The `method` is an optional attribute. See [Verification Method with authenticatorMethod JSON Examples](#verification-method-with-authenticationmethods-json-examples).       || `OPTIONAL`|
-| `required` <ApiLifecycle access="ea" />   | Boolean | This property indicates whether the knowledge or possession factor is required by the assurance. This field is `false` if the knowledge or possession constraint has values for`excludedAuthenticationMethods` or `excludedTypes`.  || `OPTIONAL`|
-
-| `authenticationMethods`  <ApiLifecycle access="ea" />  | array of [Authentication method objects](#authentication-method-object) | This property specifies the precise authenticator and method for authentication. See [Verification Method with authenticatorMethod JSON Examples](#verification-method-with-authenticationmethods-json-examples).      || `OPTIONAL`|
-| `excludedAuthenticationMethods` <ApiLifecycle access="ea" />   | array of [Authentication method objects](#authentication-method-object) | This property specifies the precise authenticator and method to exclude from authentication. See [Verification Method with authenticatorMethod JSON Examples](#verification-method-with-authenticationmethods-json-examples).       || `OPTIONAL`|
+| `authenticationMethods`  <ApiLifecycle access="ea" />  | array of [Authentication method objects](#authentication-method-object) | This property specifies the precise authenticator and method for authentication.  || `OPTIONAL`|
+| `excludedAuthenticationMethods` <ApiLifecycle access="ea" />   | array of [Authentication method objects](#authentication-method-object) | This property specifies the precise authenticator and method to exclude from authentication.  || `OPTIONAL`|
 | `required` <ApiLifecycle access="ea" />   | Boolean | This property indicates whether the knowledge or possession factor is required by the assurance. This field is `false` if the knowledge or possession constraint has values for`excludedAuthenticationMethods` or `excludedTypes`.  || `OPTIONAL`|
 
 #### Authentication method object
 
-The authentication method object contains key value pairs that identify the specific authenticator and method to use or exclude.
+The authentication method object contains key-value pairs that identify the specific authenticator and method to use or exclude for the policy rule. For a list of authenticator keys and methods, see [Authenticator key, type, method, and characteristic relationships for constraints](#authenticator-key-type-method-and-characteristic-relationships-for-constraints). For examples, see [Verification Method with Authentication Method JSON Examples](#verification-method-with-authentication-method-json-examples).
 
 | Property  | Description          | Data Type                                         | Required |
 | ---       | ---                  | ---                                               | ---      |
@@ -2578,7 +2574,7 @@ The following table shows the possible relationships between all the authenticat
 }
 ```
 
-#### Verification Method with authenticationMethods JSON examples
+#### Verification Method with Authentication Method JSON examples
 
 <ApiLifecycle access="ea" />
 
