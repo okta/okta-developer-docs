@@ -186,7 +186,7 @@ Group functions take in a list of search criteria as input. Each search criteria
 
 The `group.id` and `group.type` keys can match values that are exact.
 
-The `group.profile.name` key supports the operators `EXACT` and `STARTS_WITH` to identify exact matches or matches that include the value. If no operator is specified, the expression uses `STARTS_WITH`. These operators can't be used with `groupId` or `group.type`.
+The `group.profile.name` key supports the operators `EXACT` and `STARTS_WITH` to identify exact matches or matches that include the value. If no operator is specified, the expression uses `STARTS_WITH`. These operators can't be used with `group.id` or `group.type`.
 
 | Function                 | Return Type | Example                                                                                                         | Output                                                                          |
 | ---------------          | ----------- | -------                                                                                                         | -----                                                                           |
