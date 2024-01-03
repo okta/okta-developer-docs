@@ -17,7 +17,7 @@ Create and test an SSO app integration for OIN submission.
 
 **What you need**
 
-* [Okta Developer Edition organization](https://developer.okta.com/signup/)
+* [Okta Developer-Edition org](https://developer.okta.com/signup/)
 * An app to integrate SSO with Okta
 
 ---

@@ -68,7 +68,7 @@ Review the [OIN submission requirements](/docs/guides/submit-app-prereq) before 
 
 Start your integration submission for OIN publication:
 
-1. Sign in to your [developer-edition Okta org](/login/) as a user with administrative privileges.
+1. Sign in to your [Okta Developer-Edition org](/login/) as a user with administrative privileges.
 1. Go to **Applications** > **Your OIN Integrations** in the Admin Console.
 1. Click **Build new OIN integration**. The OIN Wizard appears.
 1. From the **Select your protocol** section, select **<StackSnippet snippet="protocol-fullname" inline/>**.

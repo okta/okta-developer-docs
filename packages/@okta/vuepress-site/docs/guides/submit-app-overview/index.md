@@ -44,12 +44,14 @@ The following steps outline the submission process for SSO integrations with the
 
 1. Build the integration in your app.
 1. Sign in to your developer-edition org Admin Console.
-1. Add integration details in the OIN Wizard.
-1. Generate the app integration instance.
-1. Test the integration.
-1. Submit the integration.
-
-After submission, the OIN team reviews your integration. See [Understand the submission review process](#understand-the-submission-review-process).
+   - Add integration details in the OIN Wizard.
+   - Generate the app integration instance.
+   - Test the integration.
+   - Submit the integration.
+1. Review feedback.
+   - After submission, the OIN team reviews your integration. See [Understand the submission review process](#understand-the-submission-review-process).
+1. Publish to OIN catalog.
+   - The OIN team publishes your integration after they verified that your integration works as intended for your Okta customers.
 
 <div>
 
@@ -67,26 +69,30 @@ The following steps outline the submission process for API service integrations 
 
 1. Build the integration in your service app.
 1. Sign in to the OIN Manager with your developer-edition org credentials.
-1. Add integration details in the OIN Manager.
-1. Generate the app integration instance.
-1. Test the integration.
-1. Submit the integration.
-
-After submission, the OIN team reviews your integration. See [Understand the submission review process](#understand-the-submission-review-process).
+   - Add integration details in the OIN Manager.
+   - Generate the app integration instance.
+   - Test the integration.
+   - Submit the integration.
+1. Review feedback.
+   - After submission, the OIN team reviews your integration. See [Understand the submission review process](#understand-the-submission-review-process).
+1. Publish to OIN catalog.
+   - The OIN team publishes your integration after they verified that your integration works as intended for your Okta customers.
 
 ### Submission process for LCM integrations
 
 The following steps and flowchart outline the submission process for SCIM or Workflows integrations with the OIN Manager:
 
 1. Build the SCIM integration or Workflows capabilities in your app.
-1. Sign in to your developer-edition org Admin Console.
-1. Create the SCIM integration instance or build your Workflows connector.
-1. Test the integration.
+   - Sign in to your developer-edition org Admin Console.
+   - Create the SCIM integration instance or build your Workflows connector.
+   - Test the integration.
 1. Sign in to the OIN Manager with your developer-edition org credentials.
-1. Add integration details in the OIN Manager.
-1. Submit the integration.
-
-After submission, the OIN team reviews your integration. See [Understand the submission review process](#understand-the-submission-review-process).
+   - Add integration details in the OIN Manager.
+   - Submit the integration.
+1. Review feedback.
+   - After submission, the OIN team reviews your integration. See [Understand the submission review process](#understand-the-submission-review-process).
+1. Publish to OIN catalog.
+   - The OIN team publishes your integration after they verified that your integration works as intended for your Okta customers.
 
 <div>
 
