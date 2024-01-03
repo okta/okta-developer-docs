@@ -385,10 +385,7 @@ Use the `add` operation to add new claims to a token. If you use the `add` opera
         }
       ]
     }
-  ],
-"error": {
-    "errorSummary": "User is not a patient."
-}
+  ]
 }
 ```
 
