@@ -8,18 +8,33 @@ meta:
     content: Get started with Okta REST APIs and learn how to import a collection and send requests in Postman.
 ---
 
-A great way to learn an Application Programming Interface (API) is to issue requests and inspect the responses. You can use Okta Postman collections to learn how you can incorporate Okta APIs into your workflow. To use these collections, you need to set up your local environment and import a collection. You can then send a test request and verify the results.
+A great way to learn an Application Programming Interface (API) is to issue requests and inspect the responses. You can use Okta Postman collections to learn how to incorporate Okta APIs into your workflow. To use these collections, you need to set up your local environment, import a collection, and an Okta org. You can then send test requests to your Okta org and verify the results.
 
 ## Sign up for Okta
 
-You need a free Okta Developer Edition org to get started. Don't have one? [Create an org for free](https://developer.okta.com/signup). When you create an Okta org, the org is assigned a base URL such as `dev-1234.okta.com`. This is your unique subdomain in Okta.
+You need a free Okta developer-edition org to get started. Don't have one? [Create an org for free](https://developer.okta.com/signup). When you create an Okta org, the org is assigned a base URL such as `dev-1234.okta.com`. This is your unique subdomain in Okta.
 
 ## Get authentication for Okta APIs
 
 To access Okta APIs from Postman, you need to authenticate with the Okta API resource server. Okta APIs support two authentication options:
 
-* OAuth 2.0 and OpenID Connect
-* API token
+1. OAuth 2.0 or OpenID Connect (OIDC)
+
+    The OAuth 2.0 or OIDC authentication option uses the **Bearer Token** authorization type in Postman. This option uses an access token that enables the bearer to perform specific actions on specific Okta endpoints, which is controlled by the scopes defined in the access token.
+
+    Scoped access tokens have several advantages, including:
+
+    * More access granularity
+    * Shorter token lifespans
+    * Can be generated and retrieved using an API
+
+    > **Note:** For a detailed guide on OAuth 2.0 access tokens, see [Implement OAuth for Okta](/docs/guides/implement-oauth-for-okta/).
+
+1. API token
+
+    This option uses the **API Key** authorization type in Postman with the Okta propriety `SSWS` authentication scheme. Use this authentication scheme to quickly test various Okta endpoints with one API token. The API token allows you to access a broad range of APIs since there's no scope associated with the token. However, only the Okta user that created the API token can use it, and access to the APIs depend on the privileges of the token-created user. You can't use the API token if the token-created user is deactivated, deleted, lost their access privileges, or if the token expired.
+
+    > **Note:** The rate limits for API token requests are reduced by 50 percent. See [Token rate limits](/docs/guides/create-an-api-token/main/#token-rate-limits).
 
 You need to either obtain an API token (API key) or an OAuth 2.0 access token to configure the Authorization header of your Postman API requests to Okta. See
 
@@ -27,17 +42,11 @@ You need to either obtain an API token (API key) or an OAuth 2.0 access token to
 * [OAuth 2.0 service app authentication](#oauth-20-service-app-authentication): to obtain a bearer access token for service app authentication that is scoped for specific resources (access is not associated with an Okta user)
 * [API token authentication](#api-token-authentication): to obtain an API token for the Okta proprietary `SSWS` authentication scheme
 
+> **Note:** For production usage, Okta recommends the more secure OAuth 2.0 or OIDC authentication schemes.
+
 ### OpenID Connect authentication
 
-If your use case requires you to access a limited number Okta endpoints as a specific user, you can use an OIDC access token in the Authorization header of your API requests. The OIDC access token enables the bearer to perform specific actions on specific Okta endpoints, which is controlled by the scopes defined in the access token.
-
-Scoped access tokens have several advantages, including:
-
-* More access granularity
-* Shorter token lifespans
-* Can be generated and retrieved using an API
-
-> **Note:** For a detailed guide on OIDC access tokens, see [Implement OAuth for Okta](/docs/guides/implement-oauth-for-okta/).
+If your use case requires you to access a limited number Okta endpoints as a specific user, you can use an OIDC access token in the Authorization header of your API requests. See the following sections to set up your Okta org for API authentication using OIDC.
 
 #### Create an OIDC app in Okta
 
@@ -46,7 +55,7 @@ First, you need to create an OIDC app integration that you can define your scope
 1. [Sign in](https://developer.okta.com/login) to your Okta org Admin Console as a user with administrative privileges.
 1. In the Admin Console, go to **Applications** > **Applications**.
 1. Click **Create App Integration**.
-1. On the **Create a new app integration** page, select **OIDC - OpenID Connect** as the **Sign-in method**. Choose **Web Application** for the **Application type**. Creating a web app is an easy way to test scope-based access to Okta's APIs using an OAuth 2.0 bearer token. Click **Next**.
+1. On the **Create a new app integration** page, select **OIDC - OpenID Connect** as the **Sign-in method**. Choose **Web Application** for the **Application type**. Creating a web app is an easy way to test scope-based access to Okta's APIs. Click **Next**.
 1. Enter a name for your app integration.
 1. For the **Grant type**, use the **Authorization Code** grant flow that is already selected.
 1. In the **Sign-in redirect URIs** box, specify the callback location where Okta returns a browser (along with the token) after the user finishes authenticating. You can use the default values for testing purposes.
