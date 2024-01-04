@@ -26,9 +26,24 @@ export default {
       }
 
       this.paddedHeaderHeight = this.getPaddedHeaderHeight()
-
+      
       const anchorOffsets = this.anchors.map(
-        anchor => anchor.parentElement.offsetTop
+        anchor => {
+          while (anchor &&
+          anchor.parentElement &&
+          /* 
+            We need to calculate the offsetTop of h2/h3/h4 elements. In case of a few pages like error codes
+            (/docs/reference/error-codes/), we are using our custom template for showing header-anchor (ErrorCodes.vue)
+            where the generated HTML has different template than the default vuepress template for showing anchor tags.
+            The anchor tag is not a direct child of h2/h3/h4 in this case and hence, we need to handle this edge case
+            separately and get hold of the heading element (h2/h3/h4) here first before calculating its offsetTop.
+            Refer - https://oktainc.atlassian.net/browse/OKTA-483028
+          */
+          !['h2', 'h3', 'h4'].includes(anchor.parentElement.tagName.toLowerCase())) {
+            anchor = anchor.parentElement;
+          }
+          return anchor.parentElement.offsetTop;
+        }
       );
 
       this.anchorsOffset = anchorOffsets.map((anchorOffset, index, anchorOffsets) => ({
