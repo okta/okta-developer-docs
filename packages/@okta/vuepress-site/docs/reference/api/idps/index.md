@@ -107,7 +107,8 @@ curl -v -X POST \
     "credentials": {
       "client": {
         "client_id": "your-client-id",
-        "client_secret": "your-client-secret"
+        "client_secret": "your-client-secret",
+        "pkce_required": "true"
       }
     },
     "issuer": {
@@ -192,7 +193,8 @@ curl -v -X POST \
         "credentials": {
             "client": {
                 "client_id": "your-client-id",
-                "client_secret": "your-client-secret"
+                "client_secret": "your-client-secret",
+                "pkce_required": "true"
             }
         }
     },
@@ -5477,18 +5479,19 @@ The IdP Authorization Server (AS) endpoints are currently defined as part of the
 
 Client authentication credentials for an [OAuth 2.0 Authorization Server (AS)](https://tools.ietf.org/html/rfc6749#section-2.3)
 
-| Property      | Description                                                                                                 | DataType | Nullable | Readonly |
-| ------------- | ----------------------------------------------------------------------------------------------------------- | -------- | -------- | -------- | --------- | --------- |
-| client        | Client infomation                                                                                           | [OAuth 2.0 And OpenID Connect Client Object](#oauth-2-0-and-openid-connect-client-object)   | FALSE    | FALSE    |
-| signing       | Information used to sign the request, currently only Apple IdP supports it                                  | [Apple Client Signing Object](#apple-client-signing-object)   | TRUE    | FALSE    |
-
+| Property      | Description                                                                  | DataType | Nullable | Readonly |
+| ------------- | ---------------------------------------------------------------------------- | -------- | -------- | -------- |
+| client        | Client infomation                                                            | [OAuth 2.0 And OpenID Connect Client Object](#oauth-2-0-and-openid-connect-client-object)   | FALSE    | FALSE    |
+| signing       | Information used to sign the request, currently only Apple IdP supports it   | [Apple Client Signing Object](#apple-client-signing-object)   | TRUE    | FALSE    |
 
 ##### OAuth 2.0 and OpenID Connect Client object
+
 | Property      | Description                                                                                                 | DataType | Nullable | Readonly | MinLength | MaxLength |
 | ------------- | ----------------------------------------------------------------------------------------------------------- | -------- | -------- | -------- | --------- | --------- |
 | client_id     | [Unique identifier](https://tools.ietf.org/html/rfc6749#section-2.2) issued by the AS for the Okta IdP instance | String   | FALSE    | FALSE    | 1         | 1024      |
 | client_secret | [Client secret issued](https://tools.ietf.org/html/rfc6749#section-2.3.1) by the AS for the Okta IdP instance   | String   | TRUE (Only Nullable for Apple IdP)     | FALSE    | 1         | 1024      |
 | token_endpoint_auth_method | Client authentication methods supported by the token endpoint. Methods supported: `private_key_jwt`  | String   | TRUE     | FALSE    | 1         | 1024      |
+| pkce_required | Require Proof Key for Code Exchange (PKCE) for additional verification | Boolean  | TRUE| FALSE |
 
 > **Note:** You must complete client registration with the IdP Authorization Server for your Okta IdP instance to obtain client credentials.
 
@@ -5528,6 +5531,21 @@ Client authentication credentials for an [OAuth 2.0 Authorization Server (AS)](h
       "client": {
         "client_id": "{{clientId}}",
         "token_endpoint_auth_method": "private_key_jwt"
+      }
+    }
+  }
+}
+```
+
+```json
+{
+  "protocol": {
+    "type": "OIDC",
+    "credentials": {
+      "client": {
+        "client_id": "{{clientId}}",
+        "token_endpoint_auth_method": "private_key_jwt",
+        "pkce_required": "true"
       }
     }
   }
