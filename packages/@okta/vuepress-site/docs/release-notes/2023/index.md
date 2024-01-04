@@ -10,13 +10,13 @@ title: Okta API Products release notes 2023
 
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
-| [Bug fixed in 2023.12.2](#bug-fixed-in-2023-12-2) | December 4, 2023 |
+| [Bugs fixed in 2023.12.2](#bugs-fixed-in-2023-12-2) | December 4, 2023 |
 
 #### Bugs fixed in 2023.12.2
 
 * Some inbound SSO flows failed when a default app was set for the Sign-In Widget. (OKTA-621160)
 
-* A `next` link header was returned when a list clients (GET /oauth2/v1/clients) request was made when there were no further clients to be fetched. (OKTA-658169)
+* A `next` link header was returned when a list clients (`GET /oauth2/v1/clients`) request was made when there were no further clients to be fetched. (OKTA-658169)
 
 ### Weekly release 2023.12.1
 
