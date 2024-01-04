@@ -22,7 +22,7 @@ In the **Authentication Settings** section:
 
 In the **<StackSnippet snippet="idp" inline /> Protocol Settings** section:
 
-When you set up the IdP in Okta, sometimes the Issuer, Single Sign-On URL, and Certificate aren't available from the external IdP. This information may not be available until the metadata (the Assertion Consumer Service URL (ACS URL) and Audience URI) is uploaded to the IdP. And, the ACS URL and Audience URI values aren't available until the IdP in Okta is configured.
+When you set up an IdP in Okta, sometimes the **Issuer**, **Single Sign-On URL**, and **Certificate** values aren't available from the external IdP. This information may not be available until the metadata is uploaded to the IdP. Futhermore, the ACS URL and Audience URI values aren't available until the IdP in Okta is configured.
 
 Okta recommends that if the external IdP requires information from Okta for setup before you have that information, do the following:
 
@@ -34,6 +34,6 @@ After you upload the metadata to the external IdP in the next step, you can edit
 
 * **IdP Issuer URI**: The issuer. The Identity Provider provides this value.
 
-* **IdP Single Sign-On URL**: The sign-on URL from the Identity Provider. If you sign the authN request by selecting the **Request Signature** option, but don't specify a **Destination**, Okta automatically sends the authN request to the Identity Provider Single Sign-On URL.
+* **IdP Single Sign-On URL**: The sign-on URL from the Identity Provider. If you sign the authN request by selecting the **Request Signature** option, but don't specify a **Destination**, Okta automatically sends the authN request to the IdP SSO URL.
 
 * **IdP Signature Certificate**: Click **Browse files** to upload the certificate from the Identity Provider used to sign the assertion.
