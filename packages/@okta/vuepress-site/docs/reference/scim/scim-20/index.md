@@ -839,43 +839,49 @@ When an app is provisioned, Okta calls the SCIM server to retrieve a list of res
 > **Note:** [Okta Identity Governance](https://help.okta.com/en-us/content/topics/identity-governance/iga.htm) is required to use entitlements.
 
 ---
-### Sequence of calls [work on title]
+### Endpoint call sequence
 
 When you enable provisioning for your SCIM 2.0 app with entitlements, Okta calls the following endpoints in this order:
 1. `/ResourceTypes`: Gets available Entitlements, Roles, Users, and Extension Schema URNs
 1. `/Schemas`: Gets available schemas that match the ResourceType extension URNs from previous call
     > The schemas for Entitlements, Roles, and User (both Core and Enterprise) are known by Okta, and aren't required from `/Schemas`. 
     Only provide schema definitions for extensions unknown to Okta.
-1. `/(Entitlement/Role endpoints)`: For each ResourceType with Okta's Role or Entitlement URN, Okta retrieves all values from the designated endpoints as defined in the respective ResourceType.
+1. `/Entitlements` and `/Roles` endpoints: For each ResourceType with Okta's Role or Entitlement URN, Okta retrieves all values from the designated endpoints as defined in the respective ResourceType. For example, there might be a Profile ResourceType that has a corresponding `/Profiles` endpoint.
     > These endpoints are dynamic; whatever is defined for the endpoint in the ResourceType is the endpoint that Okta calls.
 
-[insert image here]
+**insert image here - Scott to provide**
 
 ### User schema discovery and Profile Editor
 
-User schema discovery is required for your app to understand entitlements and roles. When user schema discovery is enabled, admins can't add attributes to the app user profile in the Profile Editor in the Admin Console. The ability to add attributes is disabled because the contents of the app user profile is determined by the SCIM server between Okta and the downstream app. Okta gathers profile elements from the SCIM server to dynamically build the app user profile. The SCIM server should be updated as necessary to maintain parity with the downstream app. The user schema discovery mechanism allows Okta admins to leave the contents of the app user profile in the hands of the app provider.
+User schema discovery is required for your app to understand entitlements and roles. 
+
+When user schema discovery is enabled, admins can't add attributes to the app user profile in the Profile Editor in the Admin Console. The ability to add attributes is disabled because the contents of the app user profile is determined by the SCIM server between Okta and the downstream app. Okta gathers profile elements from the SCIM server to dynamically build the app user profile. 
+
+The SCIM server should be updated as necessary to maintain parity with the downstream app. The user schema discovery mechanism allows the app provider to determine the contents of the app user profile.
 
 ### Create an app that supports entitlements and user schema discovery
 
-(the app is really used by Okta as a gateway to call the endpoints - maybe simplify this seciton and not have so many details? Not just user schema discovery - this section might be more the integration guide than the dev guide)
+    > (the app is really used by Okta as a gateway to call the endpoints - maybe simplify this seciton and not have so many details? Not just user schema discovery - this section might be more the integration guide than the dev guide) **REMOVE THIS NOTE**
 
 1. Create an app using the SCIM 2.0 with OIG app template from the OIN.
     1. In the Admin Console, go to **Applications** > **Applications**.
     1. Click **Browse App Catalog**.
-    1. Search the catalog for `SCIM 2.0 with OIG (TBD)`. Select it and click **Add Integration**.
-    1. Provide the **General settings**, and then click **Next**.
-    1. Configure the **Sign-on Options**, and then click **Done**.                                
+    1. Search the catalog for one of the following app integrations:
+        - `SCIM 2.0 with Entitlements Management (Basic Auth)`
+        - `SCIM 2.0 with Entitlements Management (Header Auth)`
+        - `SCIM 2.0 with Entitlements Management (OAuth Header Auth)`
+    1.  Select the integration with the appropriate authentication type for your app and click **Add Integration**.
+    1. Complete the required configuration steps for the integration and then click **Next**.
 1. Ensure that your SCIM 2.0 server exposes the following endpoints:
     - `/ServiceProviderConfig`
     - `/ResourceTypes`
+1. Optional. If your app requires custom Entitlement, Role, or User schema extensions, expose the following endpoint:
     - `/Schemas`
 1. Configure the app in Okta (see Product doc (tbd))
 
 ### Endpoints for user schema discovery
 
 #### /ServiceProviderConfig
-(do we need this much information? doesn't give anything other than the capabilities of the server; it doesn't give the endpoints)
-
 Okta calls `/ServiceProviderConfig` to understand your server's configuration, including provisioning capabilities, authentication, and so on.
 
 #### /ResourceTypes
@@ -893,8 +899,6 @@ Currently, Okta doesn't offer any custom handling for Groups.
 To expose Entitlements and Roles, you must create corresponding `ResourceType`s for these entities. See [ResourceTypes](#resourcetype) section for examples.
 
 #### /Schemas
-
-
 
 - Call out the gotchas with each endpoint (what happens when you enable Governance, then Provisioning)
 - Endpoint must be associated with the endpoint for your schema
@@ -1227,36 +1231,3 @@ Flow: Reach out to ResourceTypes
 Compare ResourceTypes to Schema endpoints and flatten
 Use any endpoints listed in ResourceTypes to get entitlement values and external IDs
 Populate the Governance UI accordingly
-
-### Required endpoints
-
-Endpoints:
-ResourceTypes ** [from SI page]
-Schemas
-Entities
-Entitlement operations
-Get Metadata
-Get Objects
-Get User Entitlements
-
-
----- stuff that I cut ----
-
-You can handle third-party entitlement discovery and assignment by using [Okta Identity Governance](https://help.okta.com/en-us/content/topics/identity-governance/iga.htm) with SCIM. [Create an app integration](https://help.okta.com/en-us/content/topics/apps/apps-add-applications.htm) (replace < with alias) using the SCIM 2.0 with OIG app integration (Name TBD). 
-
-To support user schema discovery, Okta relies upon a SCIM 2.0 server that has the following endpoints:
-- `/ServiceProviderConfig`: Provides provisioning capabilities, authentication, and so on
-- `/ResourceTypes`: Lists resource types and available schemas
-- `/Schemas`: Provides metadata about available resource types
-- 
-- In particular, user schema discovery allows Okta to support dynamic data from SCIM-enabled apps. The discovery process includes importing users from an app integration into Okta and parsing the imported objects. 
-- 
-- 
-- Depending on your implementation, your server may expose the following endpoints:
-- `/Users`
-- `/Groups`
-- `/Roles`
-- `/Entitlements`
-- `./Search` (from root or from within a resource)
-- `/Me`
-- Endpoints for custom `resourceType`s (for example, `/Profile`, `/License`, and so on)
