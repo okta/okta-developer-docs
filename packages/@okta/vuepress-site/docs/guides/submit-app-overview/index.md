@@ -51,7 +51,7 @@ The following steps outline the submission process for SSO integrations with the
 1. Review feedback.
    - After submission, the OIN team reviews your integration. See [Understand the submission review process](#understand-the-submission-review-process).
 1. Publish to OIN catalog.
-   - The OIN team publishes your integration after they verified that your integration works as intended for your Okta customers.
+   - The OIN team publishes your integration after they verify that your integration works as intended for your Okta customers.
 
 <div>
 
@@ -76,7 +76,7 @@ The following steps outline the submission process for API service integrations 
 1. Review feedback.
    - After submission, the OIN team reviews your integration. See [Understand the submission review process](#understand-the-submission-review-process).
 1. Publish to OIN catalog.
-   - The OIN team publishes your integration after they verified that your integration works as intended for your Okta customers.
+   - The OIN team publishes your integration after they verify that your integration works as intended for your Okta customers.
 
 ### Submission process for LCM integrations
 
@@ -92,7 +92,7 @@ The following steps and flowchart outline the submission process for SCIM or Wor
 1. Review feedback.
    - After submission, the OIN team reviews your integration. See [Understand the submission review process](#understand-the-submission-review-process).
 1. Publish to OIN catalog.
-   - The OIN team publishes your integration after they verified that your integration works as intended for your Okta customers.
+   - The OIN team publishes your integration after they verify that your integration works as intended for your Okta customers.
 
 <div>
 
