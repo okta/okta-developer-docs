@@ -15,7 +15,7 @@ You can divide the Okta deployment models into two approaches:
 
 **Redirect authentication**: A user sign-in flow that grants authentication control to Okta by redirecting to an Okta hosted sign-in page. This flow uses open protocols like OAuth 2.0 and SAML.
 
-**Embedded authentication**: A user sign-in flow where the app retains authentication control without redirection to Okta. This flow uses a client-hosted embedded Sign-In Widget, SDKs, or direct API calls.
+**Embedded authentication**: A user sign-in flow where the app retains authentication control without redirection to Okta. This flow uses a client-hosted embedded Sign-In Widget, SDK, or direct API calls.
 
 What deployment model or authentication approach you choose depends on your implementation requirements and client app. In general, the method of delegating user sign-in interaction (redirect authentication) is preferred for many reasons that span from security to user experience.
 
@@ -47,14 +47,14 @@ The user or system is redirected to Okta for credential verification. The user o
 
 You can customize your app's [domain](/docs/guides/custom-url-domain/) and the [Okta Sign-In Widget style](/docs/guides/custom-widget/) to match your brand.
 
-> **Note**: [SSO](/docs/guides/build-sso-integration/) is supported for redirect authentication. This means that Okta may create a session (based on the Okta policies, for example), and then other integrated apps can use SSO to sign users in.
+> **Note**: [SSO](/docs/guides/build-sso-integration/) is supported for redirect authentication. This means that Okta may create a session (based on the Okta policies, for example). Other integrated apps can then use SSO to sign users in.
 
 Consider, for example, when an organization uses Okta as its Identity Provider:
 
-* User tries to access the organization's on-site or cloud-based app (for example, email).
-* User is redirected to the corporate Identity Provider (Okta) to sign in and authenticate.
-* User is authenticated and Okta provides a token or assertion to the original app to grant the user access. Okta also creates an Okta session for the user.
-* User accesses the app.
+* The user tries to access the organization's on-site or cloud-based app (for example, email).
+* The user is redirected to the corporate Identity Provider (Okta) to sign in and authenticate.
+* The user is authenticated and Okta provides a token or assertion to the original app to grant the user access. Okta also creates an Okta session for the user.
+* The user accesses the app.
 
 Using SSO with the existing Okta session, the user is automatically signed in to any other of the org's Service Provider apps (CRM, IT, HR, and so on).
 
@@ -84,7 +84,9 @@ is -> cl: Return assertion to client
 
 <div class="three-quarter">
 
-![Redirect authentication flow](/img/auth/redirect-auth-seq-flow.png)
+![A flow diagram showing the interactions in a sign-in flow between user, client application, and Okta using redirect authentication](/img/auth/redirect-auth-seq-flow.png)
+
+<!-- source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?type=design&node-id=4345%3A10234&mode=design&t=Zl0pQHW1kqZli8ZO-1 redirect-auth-seq-flow -->
 
 </div>
 
@@ -156,7 +158,10 @@ as -> cl: Tokens
 
 <div class="three-quarter">
 
-![Embedded authentication sequence flow](/img/auth/embedded-auth-seq-flow.png)
+![A flow diagram showing the interactions in a sign-in flow between user, client application, and Okta using the embedded model](/img/auth/embedded-auth-seq-flow.png)
+
+<!-- Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?type=design&node-id=4345%3A10249&mode=design&t=Zl0pQHW1kqZli8ZO-1 embedded-auth-seq-flow
+-->
 
 </div>
 
@@ -175,7 +180,7 @@ as -> cl: Tokens
 
 You can use the Direct Authentication API with your apps in Identity Engine rather than an embedded SDK. This allows you to directly authenticate users rather than delegating authentication to Okta Identity Providers and authorization servers through an HTTP redirect in a web browser. Direct authentication is beneficial in scenarios where there's a high degree of trust between the user and the app. It's also beneficial where browser-based flows aren't feasible, like with mobile apps.
 
-See the `/challenge` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/OrgAS/#tag/OrgAS/operation/challengeOrgAS), the `/oob-authenticate` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/OrgAS/#tag/OrgAS/operation/oob-authenticateOrgAS), and the new `grant_types` for the `/token` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/OrgAS/#tag/OrgAS/operation/token). Also, for information on how to set up each new grant type, see [Implement by grant type](/docs/guides/implement-grant-type/main/).
+See the `/challenge` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/OrgAS/#tag/OrgAS/operation/challengeOrgAS), the `/oob-authenticate` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/OrgAS/#tag/OrgAS/operation/oob-authenticateOrgAS), and the new `grant_types` for the `/token` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/OrgAS/#tag/OrgAS/operation/token). Also, for information on how to set up each new grant type, see [Configure Direct Auth grant types](/docs/guides/configure-direct-auth-grants/).
 
 ## Deployment models and the Authentication API
 

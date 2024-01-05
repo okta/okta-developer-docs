@@ -7,6 +7,8 @@ category: management
 
 The Okta User API provides operations to manage users in your organization.
 
+<ApiAuthMethodWarning />
+
 ## Getting started
 
 Explore the Users API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/9daeb4b935a423c39009)
@@ -772,6 +774,7 @@ Fetch a user by `id`, `login`, or `login shortname` if the short name is unambig
 | Parameter | Description                                                        | Param Type | DataType | Required |
 | --------- | ------------------------------------------------------------------ | ---------- | -------- | -------- |
 | id        | `id`, `login`, or `login shortname` (as long as it is unambiguous) | URL        | String   | TRUE     |
+| expand    | Valid value: `block`. If this parameter is specified, then account block details are included in the `_embedded` attribute. The [embedded object](/docs/reference/api/users/#user-block-object) lists information about how the account is blocked from access. | Query        | String   | FALSE     |
 
 > When fetching a user by `login` or `login shortname`, you should [URL encode](http://en.wikipedia.org/wiki/Percent-encoding) the request parameter to ensure special characters are escaped properly.  Logins with a `/` or `?`  character can only be fetched by `id` due to URL issues with escaping the `/` and `?` characters.
 
@@ -1160,7 +1163,7 @@ The first three parameters in the table below correspond to different ways to li
 
 - If you don't specify a value for `limit`, the maximum (200) is used as a default.  If you are using a `q` parameter, the default limit is 10.
 - An HTTP 500 status code usually indicates that you have exceeded the request timeout. Retry your request with a smaller limit and [paginate](/docs/reference/core-okta-api/#pagination) the results.
-- Okta strongly advises that you use the `search` parameter, which delivers optimal performance. The `q` or `filter` parameters may struggle to perform, in which case Okta recommends reformatting the request to use `search`.
+- The `search` parameter delivers optimal performance. Using the `q` or `filter` parameters affect search performance. They may also yield no results, in which case you should try reformatting the request to use `search`.
 - Treat the `after` cursor as an opaque value and obtain it through the next link relation. See [Pagination](/docs/reference/core-okta-api/#pagination).
 
 ##### Response parameters
@@ -1178,7 +1181,7 @@ Searches for users based on the properties specified in the search parameter. Th
 
 > **Note:** Results from the Search API are computed from asynchronously indexed and eventually consistent data. The indexing delay is typically less than one second.
 
-Property names in the search parameter are case sensitive, whereas operators (`eq`, `sw`, etc.) and string values are case insensitive.  Unlike in [user logins](#okta-login), diacritical marks are significant in search string values: a search for `isaac.brock` will find `Isaac.Brock` but will not find a property whose value is `isáàc.bröck`.
+Property names in the search parameter are case sensitive, whereas operators (`eq`, `sw`, and so on) and string values are case insensitive. Unlike with [user logins](#okta-login), diacritical marks are significant in search string values: a search for `isaac.brock` finds `Isaac.Brock`, but doesn't find a property whose value is `isáàc.bröck`.
 
 This operation:
 
@@ -1196,6 +1199,7 @@ This operation:
   - `sortOrder` is optional and defaults to ascending
   - `sortOrder` is ignored if `sortBy` is not present
   - Users with the same value for the `sortBy` property will be ordered by `id`
+  - The `ne` (not equal) operator isn't supported, but you can obtain the same result by using `lt ... or ... gt`. For example, to see all users except those that have a status of "STAGED", use `(status lt "STAGED" or status gt "STAGED")`.
 
 | Search Term Example                             | Description                                     |
 | :---------------------------------------------- | :---------------------------------------------- |
@@ -1352,7 +1356,7 @@ This operation:
 - Requires [URL encoding](http://en.wikipedia.org/wiki/Percent-encoding). For example, `filter=lastUpdated gt "2013-06-01T00:00:00.000Z"` is encoded as `filter=lastUpdated%20gt%20%222013-06-01T00:00:00.000Z%22`.
 - Supports the following limited number of properties: `status`, `lastUpdated`, `id`, `profile.login`, `profile.email`, `profile.firstName`, and `profile.lastName`.
 - Supports only the equal `eq` operator from the standard Okta API filtering semantics, except in the case of the `lastUpdated` property. This property can also use the inequality operators (`gt`, `ge`, `lt`, and `le`).
-- Supports only the logical operators `and` and `or`.
+- Supports only the logical operators `and` and `or`. The `not` operator isn't supported.
 - Is case-sensitive for attribute names and query values, while attribute operators are case-insensitive.
 
 | Filter                                          | Description                                      |
@@ -2139,7 +2143,6 @@ curl -v -X GET \
 ]
 ```
 
-### Get User's Groups
 
 
 <ApiOperation method="get" url="/api/v1/users/${userId}/groups" /> <SupportsCors />
@@ -2195,7 +2198,6 @@ curl -v -X GET \
 
 Lifecycle operations are non-idempotent operations that initiate a state transition for a user's status.
 Some operations are asynchronous while others are synchronous. The user's current status limits what operations are allowed.
-For example, you can't unlock a user that is `ACTIVE`.
 
 ### Activate User
 
@@ -2267,7 +2269,7 @@ curl -v -X POST \
 
 Reactivates a user
 
-This operation can only be performed on users with a `PROVISIONED` status.  This operation restarts the activation workflow if for some reason the user activation was not completed when using the activationToken from [Activate User](#activate-user).
+This operation can only be performed on users with a `PROVISIONED` or `RECOVERY` [status](#user-status). This operation restarts the activation workflow if for some reason the user activation wasn't completed when using the activationToken from [Activate User](#activate-user).
 
 Users that don't have a password must complete the flow by completing [Reset Password](#reset-password) and MFA enrollment steps to transition the user to `ACTIVE` status.
 
@@ -2575,7 +2577,7 @@ HTTP/1.1 204 No Content
 
 <ApiOperation method="post" url="/api/v1/users/${userId}/lifecycle/unlock" />
 
-Unlocks a user with a `LOCKED_OUT` status and returns them to `ACTIVE` status.  Users will be able to login with their current password.
+Unlocks a user with a `LOCKED_OUT` status or unlocks a user with an `ACTIVE` status that is blocked from unknown devices. Unlocked users have an `ACTIVE` status and can sign in with their current password.
 
 > **Note:** This operation works with Okta-sourced users. It doesn't support directory-sourced accounts such as Active Directory.
 
@@ -2620,7 +2622,8 @@ Generates a one-time token (OTT) that can be used to reset a user's password.  T
 This operation will transition the user to the status of `RECOVERY` and the user will not be able to login or initiate a forgot password flow until they complete the reset flow.
 
 This operation provides an option to delete all the user' sessions.  However, if the request is made in the context of a session owned by the specified user, that session isn't cleared.
->**Note:** You can also use this API to convert a user with the Okta Credential Provider to a use a Federated Provider. After this conversion, the user cannot directly sign in with password. The second example demonstrates this usage.
+
+>**Note:** You can also use this API to convert a user with the Okta Credential Provider to a use a Federated Provider. After this conversion, the user can't directly sign in with a password. The second example demonstrates this usage. To convert a federated user back to an Okta user, use the default API call. See the final example.
 
 ##### Request parameters
 
@@ -2668,7 +2671,7 @@ curl -v -X POST \
 }
 ```
 
-##### Request example (Convert a User to a Federated User)
+##### Request example (Convert a user to a Federated User)
 
 To convert a user to a federated user, pass `FEDERATION` as the `provider` in the [Provider object](#provider-object). The `sendEmail`
 parameter must be false or omitted for this type of conversion.
@@ -2678,11 +2681,28 @@ curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/reset_password?provider=FEDERATION&sendEmail=false"
+"https://${yourOktaDomain}/api/v1/users/{userId}/lifecycle/reset_password?provider=FEDERATION&sendEmail=false"
 ```
 
 ##### Response example
 
+```json
+{}
+```
+
+##### Request example (Convert a Federated User to an Okta User)
+
+To convert a federated user to an Okta user, call the default endpoint.
+
+```bash
+curl -v -X POST \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://${yourOktaDomain}/api/v1/users/{userId}/lifecycle/reset_password"
+```
+
+##### Response example
 
 ```json
 {}
@@ -2840,7 +2860,7 @@ Clears Okta sessions for the currently logged in user. By default, the current s
 
 | Parameter    | Description                                                  | Param Type | DataType | Required | Default |
 | ------------ | ------------------------------------------------------------ | ---------- | -------- | -------- | ------- |
-| keepCurrent  | Skip deleting user's current session when set to true	      | Body       | boolean  | FALSE    |  true   |
+| keepCurrent  | Skip deleting user's current session when set to true          | Body       | boolean  | FALSE    |  true   |
 
 
 ##### Response
@@ -4134,7 +4154,7 @@ Specifies a hashed password to import into Okta. This allows an existing passwor
 | saltOrder  | String   | Specifies whether salt was pre- or postfixed to the password before hashing. Only required for salted algorithms. |
 | iterationCount  | Number   | The number of iterations used when hashing passwords using PBKDF2. Must be >= 4096. Only required for PBKDF2 algorithm. |
 | keySize  | Number   | Size of the derived key in bytes. Only required for PBKDF2 algorithm. |
-| digestAlgorithm  | String   | Algorithm used to generate the key. Currently we support "SHA256_HMAC" and "SHA512_HMAC“. Only required for PBKDF2 algorithm. |
+| digestAlgorithm  | String   | Algorithm used to generate the key. Currently we support "SHA256_HMAC" and "SHA512_HMAC". Only required for the PBKDF2 algorithm. |
 
 ###### BCRYPT Hashed Password object example
 
@@ -4251,7 +4271,7 @@ Specifies the authentication provider that validates the user's password credent
 
 | Property   | DataType                                                              | Nullable   | Unique   | Readonly |
 | :--------- | :-------------------------------------------------------------        | :--------- | :------- | :------- |
-| type       | `OKTA`, `ACTIVE_DIRECTORY`,`LDAP`, `FEDERATION`, `SOCIAL` or `IMPORT` | FALSE      | FALSE    | TRUE     |
+| type       | `OKTA`, `ACTIVE_DIRECTORY`,`LDAP`, `FEDERATION`, `SOCIAL`, or `IMPORT` | FALSE      | FALSE    | TRUE     |
 | name       | String                                                                | TRUE       | FALSE    | TRUE     |
 
 > **Note:** `ACTIVE_DIRECTORY` or `LDAP` providers specify the directory instance name as the `name` property.
@@ -4262,7 +4282,7 @@ Specifies the authentication provider that validates the user's password credent
 
 ### Links object
 
-Specifies link relations (see [Web Linking](http://tools.ietf.org/html/rfc8288) available for the current status of a user.  The Links object is used for dynamic discovery of related resources, lifecycle operations, and credential operations.  The Links object is read-only.
+The Links object specifies link relations (see [Web Linking](http://tools.ietf.org/html/rfc8288) available for the current status of a user). The Links object is used for dynamic discovery of related resources, lifecycle operations, and credential operations. The Links object is read-only.
 
 #### Individual Users vs. collection of Users
 
@@ -4339,6 +4359,15 @@ Here are some links that may be available on a User, as determined by your polic
     }
 }
 ```
+
+#### User Block object
+
+The User Block object describes how the account is blocked from access. If `appliesTo` is `ANY_DEVICES`, then the account is blocked for all devices. If `appliesTo` is `UNKNOWN_DEVICES`, then the account is only blocked for unknown devices.
+
+| Property  | Description | Datatype |
+| :---------| :---------- | :------- |
+| type      | Type of the block. Valid value: `DEVICE_BASED` | String |
+| appliesTo | Target of the block. Valid values: `ANY_DEVICES`, `UNKNOWN_DEVICES` | String |
 
 #### User-Consent Grant properties
 

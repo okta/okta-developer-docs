@@ -7,6 +7,8 @@ category: management
 
 The Okta Org API provides operations to manage your org account settings such as contact information, granting Okta Support access, and more.
 
+<ApiAuthMethodWarning />
+
 ## Getting Started
 
 Explore the Org API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/2a73f5511943d1bd6611)
@@ -1143,6 +1145,82 @@ HTTP/1.1 400 Bad Request
     "errorCauses": ["emailAddresses: The field cannot have more than 1,000 elements"]
 }
 ```
+
+## Org Third-Party Admin setting operations
+The Third-Party Admin setting API has the following CRUD operations:
+
+* [Get the Third-Party Admin setting](#get-the-thirdparty-admin-setting)
+* [Update the Third-Party Admin Setting](#update-the-thirdparty-admin-setting)
+
+### Get the Third-Party Admin setting
+
+<ApiOperation method="get" url="/api/v1/org/orgSettings/thirdPartyAdminSetting" />
+
+Gets the Third-Party Admin setting. The default value is `false`.
+
+#### Response body
+
+| Property | Type | Description |
+| ------------------ | ------------------------------ | ----------------------------------------------------------------------------------------------------------------- |
+| `thirdPartyAdmin` | boolean | The third-party admin setting |
+
+
+#### Use example
+
+This request returns the third-party admin setting.
+
+##### Request
+
+```bash
+curl -v -X GET \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://${yourOktaDomain}/api/v1/org/orgSettings/thirdPartyAdminSetting"
+```
+
+##### Response
+```http
+{
+    "thirdPartyAdmin": false,
+}
+```
+### Update the Third-Party Admin setting
+
+<ApiOperation method="post" url="/api/v1/org/orgSettings/thirdPartyAdminSetting" />
+
+Updates the Third-Party Admin setting
+
+#### Response body
+
+| Property | Type | Description |
+| ------------------ | ------------------------------ | ----------------------------------------------------------------------------------------------------------------- |
+| `thirdPartyAdmin` | boolean | The third-party admin setting |
+
+
+#### Use example
+
+This request updates the third-party admin setting.
+
+##### Request
+
+```bash
+curl --request POST \
+  --url https://${yourOktaDomain}/api/v1/org/orgSettings/thirdPartyAdminSetting \
+  --header 'Authorization: ' \
+  --header 'Content-Type: application/json' \
+  --data '{
+    "thirdPartyAdmin": true,
+}'
+```
+
+##### Response
+```http
+{
+    "thirdPartyAdmin": true,
+}
+```
+
 
 ## Org API objects
 

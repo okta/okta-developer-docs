@@ -268,6 +268,71 @@ Example:
  <link rel="shortcut icon" href="{{faviconUrl}}" type="image/x-icon"/>
 ```
 
+### Hide or suppress the transient Sign-In Widget
+
+In Okta Identity Engine, the sign-in page uses a JavaScript redirect method (instead of HTTP 302).
+
+There are two main impacts:
+
+* **Visual:** The Okta Sign-In Widget could appear briefly to end users during the transition, interrupting the custom branded experience.
+
+* **Programmatic:** Non-user (or back-end) authentication flows receive an `HTTP 200 OK` response with a body, instead of an `HTTP 302 Found` redirect status response. As a result, back-end coding doesn’t detect the status response and the JavaScript method performs the redirect.
+
+**Resolve the visual impact**
+
+To suppress the brief appearance of the Sign-In Widget, use a [custom domain](/docs/guides/custom-url-domain/main/#about-okta-domain-customization) and update some JavaScript/CSS:
+
+- (Required) In the HTML header, add the following to remove the opacity of the `okta-login-container`:
+
+```html
+<style> #okta-login-container{ opacity:0; transition-delay:200ms; transition:opacity 500ms; -webkit-transition:opacity 500ms; /* Safari */ }</style>
+```
+
+- (Optional) In the HTML header as part of the JavaScript code block, add the following to allow for additional context that you could use for build-out:
+
+```javascript
+var myContext = {
+    isLoginHidden: true,
+}
+```
+
+- (Required) In the HTML body, add the following to access the query string in JavaScript and to toggle the display based on presence:
+
+```javascript
+// Get the login container.
+var loginContainer = document.getElementById("okta-login-container")
+
+// Utility: Get a Query String Parameters
+var urlParams = new URLSearchParams(window.location.search);
+
+// Detect the IDP param
+if (urlParams.has("idp")) {
+    console.log(urlParams.get('idp')); // just to capture... if additional logic needed
+    // Let the Default opacity remain;
+} else {
+    // Allow the login container to be seen;
+    loginContainer.style.opacity = 1;
+    myContext.isLoginHidden = false; // (OPTIONAL - if additional Logic needed (would not set opacity)
+}
+```
+
+- (Optional) In the HTML body, add the following if you need the additional context and there isn't any display of the Sign-In Widget at the bottom of the page build-out:
+
+```javascript
+if (myContext.isLoginHidden) {
+    // Make sure the login is displayed by default
+    console.log('show the login!'); // Indicate login should not be hidden just in case it renders again.
+    myContext.isLoginHidden = false; // Show the login container;
+    loginContainer.style.opacity = 1;
+}
+```
+
+**Solutions for the programmatic impact**
+
+Consider alternative integrations within your application. Since the IdP is known, you can redirect for IdP verification for all authentication flows, or leverage the [Web Finger API](/docs/reference/api/webfinger/). However, your integration may be limited based on context.
+
+> **Note:** In OIE, [authentication policy rules](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-auth-policy) include conditions about the device platform and the target application. The WebFinger API doesn't include device and application details in its responses.
+
 ## Style for embedded authentication
 
 This section discusses the customization options that you have when you're self-hosting the sign-in page.
@@ -634,4 +699,4 @@ For information about other Okta customization options:
 * [Customize domain and email address](/docs/guides/custom-url-domain/)
 * [Customize the Okta-hosted error pages](/docs/guides/custom-error-pages/)
 * [Customize SMS messages](/docs/guides/custom-sms-messaging)
-* [Customize email notifications and email domains](/docs/guides/custom-email/)
+* [Customize email notifications](/docs/guides/custom-email/)

@@ -13,6 +13,8 @@ Authorization Servers generate OAuth 2.0 and OpenID Connect tokens, including ac
 * [Claim operations](#claim-operations)
 * [Key Store operations](#key-store-operations)
 
+<ApiAuthMethodWarning />
+
 ## Get started
 
 Explore the Authorization Servers API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/3db644315e549633361a)
@@ -208,7 +210,7 @@ Lists all Custom Authorization Servers in this Okta organization
 Parameter | Description                                                                                 | Param Type | DataType | Required | Default
 --------- | ------------------------------------------------------------------------------------------  | ---------- | -------- | -------- | -------
 q         | Searches the `name` and `audiences` of Authorization Servers for matching values            | Query      | String   | FALSE    |
-limit     | Specifies the number of Authorization Server results on a page                               | Query      | Number   | FALSE    | 200
+limit     | Specifies the number of Authorization Server results on a page                              | Query      | Number   | FALSE    | 200
 after     | Specifies the pagination cursor for the next page of Authorization Servers                  | Query      | String   | FALSE    |
 
 **Parameter details**
@@ -1062,9 +1064,14 @@ Get the Scopes defined for a specified Custom Authorization Server
 
 ##### Request parameters
 
-| Parameter               | Description                         | Type     | Required |
-| :---------------------- | :------------------------------     | :------- | :------- |
-| authorizationServerId            | ID of a Custom Authorization Server | String   | True     |
+| Parameter               | Description                                                                      | Param Type | DataType | Required | Default |
+| :---------------------- | :------------------------------------------------------------------------------  | :--------- | :------- | :------- | :------ |
+| authorizationServerId   | ID of a custom authorization server                                              | URL        | String   | TRUE     |         |
+| q          | Searches for scopes by `name`                                                                 | Query      | String   | FALSE    |         |
+| filter     | Filters scopes for a custom authorization server                                              | Query      | String   | FALSE    |         |
+| after      | Specifies the pagination cursor for the next page of scopes. **Note:** Treat the `after` cursor as an opaque value and obtain it through the next link relationship. See [Pagination](/docs/reference/core-okta-api/#pagination).                              | Query      | String   | FALSE    |         |
+| limit      | Specifies the number of scope results on a page (max 200)                                     | Query      | Number   | FALSE    | 200     |
+
 
 ##### Request example
 
@@ -1446,6 +1453,8 @@ HTTP/1.1 204 No Content
 * [Get Authorization Server Keys](#get-authorization-server-keys)
 * [Get Authorization Server Key](#get-authorization-server-key)
 * [Rotate Authorization Server Keys](#rotate-authorization-server-keys)
+
+> **Note**: Looking for how to obtain the `jwks_uri` for your org or custom authorization server? See the [well-known OpenID metadata endpoint](/docs/reference/api/oidc/#well-known-openid-configuration) and the [well-known OAuth 2.0 metadata endpoint](/docs/reference/api/oidc/#well-known-oauth-authorization-server).
 
 #### Credentials object
 

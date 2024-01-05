@@ -98,10 +98,7 @@ The token inline hook must be activated and enabled within your Okta Admin Conso
 
 4. Add your external service URL, including the endpoint. For example, use your Glitch project name with the endpoint: `https://your-glitch-projectname.glitch.me/tokenHook`.
 
-5. Include **Authentication field** and **Authentication secret** values. In this example:
-
-    * **Authentication field** = `authorization`
-    * **Authentication secret** = `Basic YWRtaW46c3VwZXJzZWNyZXQ=`
+5. <HookBasicAuthStep/> <HookOAuthNote/>
 
 6. Click **Save**.
 

@@ -1,12 +1,29 @@
-You need [gin](https://github.com/gin-gonic/gin), [okta-jwt-verifier-golang](https://github.com/okta/okta-jwt-verifier-golang), [sessions](https://github.com/gorilla/sessions), [godotenv](https://github.com/joho/godotenv), [oauth2](https://pkg.go.dev/golang.org/x/oauth2), and [randstr](https://github.com/thanhpk/randstr).
+1. Install the following dependencies using `go get`:
 
-Add the required dependencies using `go get`, then include the imports in your project as required:
+   ```bash
+   go get github.com/gorilla/sessions
+   go get github.com/okta/okta-jwt-verifier-golang
+   go get github.com/okta/samples-golang/okta-hosted-login/utils
+   ```
 
-```bash
-go get github.com/gin-gonic/gin
-go get github.com/okta/okta-jwt-verifier-golang
-go get github.com/gorilla/sessions
-go get github.com/joho/godotenv
-go get github.com/thanhpk/randstr
-go get golang.org/x/oauth2
-```
+1. Add these to the `import` statement in `main.go`:
+
+   ```go
+   import (
+      "bytes"
+      "crypto/rand"
+      "encoding/base64"
+      "encoding/hex"
+      "encoding/json"
+      "fmt"
+      "html/template"
+      "io"
+      "log"
+      "net/http"
+      "os"
+
+      "github.com/gorilla/sessions"
+      verifier "github.com/okta/okta-jwt-verifier-golang"
+      oktaUtils "github.com/okta/samples-golang/okta-hosted-login/utils"
+   )
+   ```

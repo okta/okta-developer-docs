@@ -12,7 +12,7 @@ Most hacking-related breaches involve weak or stolen passwords and credential se
 
 Replace the password with a password-optional sign-in experience. Give your users the ability to authenticate with a fingerprint, YubiKey, email, phone, or another authenticator. These authenticators are all more secure &mdash; it's harder to steal a fingerprint than a password &mdash; and more convenient since users no longer have to memorize and manage their passwords.
 
-<div class="three-quarters">
+<div>
 
 ![Diagram illustrating how password-optional authentication, when compared to other password authentications, is convenient and secure.](/img/pwd-optional/pwd-optional-overview-xy-diagram.png)
 
@@ -41,7 +41,7 @@ Also, see the <StackSnippet snippet="bestpractices" inline/> guide to learn how 
 ## See also
 
 * [Okta Passwordless Authentication](https://www.okta.com/passwordless-authentication/)
-* [Let’s (finally) say goodbye to passwords](https://www.okta.com/go-passwordless/)
-<!--* [Passwordless authentication deployment guide](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/guides/pwa/pwa-main.htm) fyi, this guide will be removed from hoc; look to view on support site 2022.12.09 - BD-->
+* [Let's (finally) say goodbye to passwords](https://www.okta.com/go-passwordless/)
+* [Passwordless authentication deployment guide](https://support.okta.com/resource/Deploying_Passwordless_Authentication)
 
 </div>

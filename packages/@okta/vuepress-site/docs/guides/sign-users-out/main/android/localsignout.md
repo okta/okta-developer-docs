@@ -6,7 +6,7 @@ client.getSessionClient().clear();
 
 #### Revoke tokens (optional)
 
-Calling `clear()` discards tokens from local device storage, but they are technically still active until they expire. An optional step is to revoke the tokens so they can't be used, even by accident. You can revoke tokens using the following request:
+Calling `clear()` discards tokens from local device storage, but they’re technically still active until they expire. An optional step is to revoke the tokens so they can't be used, even by accident. You can revoke tokens using the following request:
 
 ```java
 client.getSessionClient().revokeToken(client.getTokens().getRefreshToken(),
@@ -22,4 +22,4 @@ client.getSessionClient().revokeToken(client.getTokens().getRefreshToken(),
     });
 ```
 
-Access and refresh tokens need to be revoked in separate requests.
+Access and refresh tokens must be revoked in separate requests.

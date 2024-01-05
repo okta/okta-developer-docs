@@ -1,11 +1,75 @@
-If you use the Okta CLI to create your okta app integration, it creates an `.okta.env` file in your current directory containing these values, for example:
+1. Create an `.env` file in the root of your project. Add the following, replacing the placeholders with your own values.
 
-```properties
-export OKTA_OAUTH2_ISSUER=https://${yourOktaDomain}/oauth2/${authorizationServerId}
-export OKTA_OAUTH2_CLIENT_ID=${clientId}
-export OKTA_OAUTH2_CLIENT_SECRET=${clientSecret}
-```
+   ```properties
+   CLIENT_ID=${clientId}
+   CLIENT_SECRET=${clientSecret}
+   ISSUER=https://${yourOktaDomain}/oauth2/default
+   ```
 
-Run `source .okta.env` in a terminal window to set the values above as environment variables. If you're on Windows, you can change `export` to `set` and rename the file to `okta.bat`, then execute it.
+1. Add a command to parse those values in your `main()` function in `main.go`:
 
-> **Note**: If you use `okta start go-gin` to create an app, it has an `.okta.env` file in it that looks a bit different. That's because it's configured to use [godotenv](https://github.com/joho/godotenv) to load its configuration.
+   ```go
+   oktaUtils.ParseEnvironment()
+   ```
+
+1. Create `utils\parseEnv.go` and implement this function:
+
+   ```go
+   package utils
+
+   import (
+      "bufio"
+      "log"
+      "os"
+      "strings"
+   )
+
+   func ParseEnvironment() {
+      // useGlobalEnv := true
+      if _, err := os.Stat(".env"); os.IsNotExist(err) {
+         log.Printf("Environment Variable file (.env) is not present.")
+         // useGlobalEnv = false
+      }
+
+      setEnvVariable("CLIENT_ID", os.Getenv("CLIENT_ID"))
+      setEnvVariable("CLIENT_SECRET", os.Getenv("CLIENT_SECRET"))
+      setEnvVariable("ISSUER", os.Getenv("ISSUER"))
+
+      if os.Getenv("CLIENT_ID") == "" {
+         log.Printf("Could not resolve a CLIENT_ID environment variable.")
+         os.Exit(1)
+      }
+
+      if os.Getenv("CLIENT_SECRET") == "" {
+         log.Printf("Could not resolve a CLIENT_SECRET environment variable.")
+         os.Exit(1)
+      }
+
+      if os.Getenv("ISSUER") == "" {
+         log.Printf("Could not resolve a ISSUER environment variable.")
+         os.Exit(1)
+      }
+   }
+
+   func setEnvVariable(env string, current string) {
+      if current != "" {
+         return
+      }
+
+      file, _ := os.Open(".env")
+      defer file.Close()
+
+      lookInFile := bufio.NewScanner(file)
+      lookInFile.Split(bufio.ScanLines)
+
+      for lookInFile.Scan() {
+         parts := strings.Split(lookInFile.Text(), "=")
+         key, value := parts[0], parts[1]
+         if key == env {
+            os.Setenv(key, value)
+         }
+      }
+   }
+   ```
+
+> **Note:** If the `.env` file doesn't exist, the code searches your global environment variables for alternate values.

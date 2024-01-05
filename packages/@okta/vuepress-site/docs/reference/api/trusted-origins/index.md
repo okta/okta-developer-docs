@@ -11,6 +11,8 @@ When external URLs are requested during sign-in, sign-out, or recovery operation
 
 You can also configure Trusted Origins to allow iFrame embedding of Okta resources, such as Okta sign-in pages and the Okta End-User Dashboard, within that origin. This is an Early Access feature. To enable it, contact [Okta Support](https://support.okta.com/help/s/).
 
+<ApiAuthMethodWarning />
+
 ## Trusted Origins API operations
 
 ### Create Trusted Origin
@@ -135,7 +137,7 @@ curl -X POST \
   "scopes": [
     {
       "type": "IFRAME_EMBED",
-      "allowedOktaApps": [“OKTA_ENDUSER”]
+      "allowedOktaApps": ["OKTA_ENDUSER"]
     }
   ]
 }' "https://${yourOktaDomain}/api/v1/trustedOrigins"
@@ -402,7 +404,7 @@ A subset of Trusted Origins that match a supported filter expression or query cr
 
 | Parameter    | Description                                                                                                                                       | Param Type   | DataType   | Required |
 | :----------- | :------------------------------------------------------------------------------------------------------------------------------------------------ | :----------- | :--------- | :------- |
-| filter       | [Filter](/docs/reference/core-okta-api/#filter) Trusted Origins with a supported expression for a subset of properties            | Query        | String     | No       |
+| filter       | [Filter](/docs/reference/core-okta-api/#filter) Trusted Origins with a supported expression for a subset of properties. You can filter on the following properties: `name`, `origin`, `status`, and `type` (type of scopes).   | Query        | String     | No       |
 | limit        | Specifies the number of results. The maximum number of results returned is 200.                                                                                                          | Query        | Integer    | No       |
 
 ##### Response parameters
@@ -553,9 +555,9 @@ curl -X GET \
 
 #### List Trusted Origins with a filter
 
-Lists all Trusted Origins that match the filter criteria
+Lists all Trusted Origins that match the filter criteria. You can filter on the following properties: `name`, `origin`, `status`, and `type` (that is, the `type` of `scopes`).
 
-This operation requires [URL encoding](/docs/reference/core-okta-api/#filter). For example, `filter=(id eq "tosue7JvguwJ7U6kz0g3" or id eq "tos10hzarOl8zfPM80g4")` is encoded as `filter=%28id+eq+%22tosue7JvguwJ7U6kz0g3%22+or+id+eq+%22tos10hzarOl8zfPM80g4%22%29`.
+This operation requires [URL encoding](/docs/reference/core-okta-api/#filter). For example, `filter=(name eq "Example Trusted Origin" or name eq "Another Trusted Origin")` is encoded as `filter=%28id+eq+%22Example+Trusted+Origin%22+or+id+eq+%22Another+Trusted+Origin%22%29`.
 
 See [Filtering](/docs/reference/core-okta-api/#filter) for more information on the expressions used in filtering.
 
@@ -566,7 +568,7 @@ curl -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/trustedOrigins?limit=100&filter=%28id+eq+%22tosue7JvguwJ7U6kz0g3%22+or+id+eq+%22tos10hzarOl8zfPM80g4%22%29"
+"https://${yourOktaDomain}/api/v1/trustedOrigins?filter=%28name+eq+%22Example+Trusted+Origin%22+or+id+eq+%22Another+Trusted+Origin%22%29"
 ```
 
 ##### Response example
@@ -1022,7 +1024,7 @@ A Trusted Origin defines several attributes:
 | :------------- | :----------------------------------------------------------- | :---------------------------------------- | :-------------- | :-------------- |
 | id             | Unique identifier for the Trusted Origin                    | String                                    | No (assigned)   | N/A             |
 | name           | Unique name for the Trusted Origin                          | String                                    | Yes             | 255 (chars)     |
-| origin         | Unique origin URL for the Trusted Origin                    | String                                    | Yes             | 255 (chars)     |
+| origin         | Unique origin URL for the Trusted Origin. The supported schemes for this attribute are HTTP, HTTPS, FTP, Ionic 2, and Capacitor.                    | String                                    | Yes             | 255 (chars)     |
 | scopes         | Array of Scope types that this Trusted Origin is used for  | Array of [Scope objects](#scope-object)   | Yes             | 3 (Scope types) |
 
 #### Scope object

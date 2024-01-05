@@ -17,7 +17,9 @@ guides:
  - client-secret-rotation-key
  - common-hook-set-up-steps
  - configure-access-policy
+ - configure-amr-claims-mapping
  - configure-ciba
+ - configure-direct-auth-grants
  - configure-native-sso
  - configure-signon-policy
  - configure-user-scoped-account-management
@@ -26,6 +28,7 @@ guides:
  - custom-error-pages
  - custom-url-domain
  - custom-widget
+ - custom-widget-gen3
  - customize-authz-server
  - customize-tokens-returned-from-okta
  - customize-tokens-dynamic
@@ -44,24 +47,23 @@ guides:
  - implement-oauth-for-okta
  - implement-oauth-for-okta-serviceapp
  - implement-grant-type
+ - manage-orgs-okta-aerial
  - mfa
  - migrate-to-okta-prerequisites
  - migrate-to-okta-bulk
  - migrate-to-okta-password-hooks
  - mobile-idx-sdk-overview
- - oin-oidc-overview
- - oin-oidc-best-practices
- - oin-oidc-multi-tenancy
- - oin-oidc-protocols
  - scim-provisioning-integration-overview
  - scim-provisioning-integration-prepare
  - scim-provisioning-integration-connect
  - scim-provisioning-integration-test
  - sign-in-overview
  - secure-oauth-between-orgs
+ - single-logout
  - build-sso-integration
  - custom-sms-messaging
  - submit-app
+ - submit-sso-app
  - submit-app-prereq
  - deployment-checklist
  - deploy-your-app
@@ -88,6 +90,15 @@ guides:
  - sign-your-own-saml-csr
  - social-login
  - telephony-inline-hook
+ - terraform-design-access-security
+ - terraform-design-rate-limits
+ - terraform-enable-org-access
+ - terraform-landing-page
+ - terraform-manage-end-user-experience
+ - terraform-manage-external-authenticators
+ - terraform-manage-groups
+ - terraform-manage-user-access
+ - terraform-overview
  - token-inline-hook
  - third-party-risk-integration
  - unlock-mobile-app-with-biometrics
@@ -192,12 +203,23 @@ If you're using Okta as an identity layer in your app for the first time, we rec
     * [Deploy your app](/docs/guides/deploy-your-app/)
     * [Migrate to Okta](/docs/guides/migrate-to-okta-prerequisites/)
 
-6. Customize Okta process flows with event or inline hooks
+6. Automate management of your Okta org using Terraform
+    * [Terraform overview](/docs/guides/terraform-overview/)
+    * [Enable Terraform access for your Okta org](/docs/guides/terraform-enable-org-access/)
+    * [Manage user access with Terraform](/docs/guides/terraform-manage-user-access/)
+    * [Manage groups of users with Terraform](/docs/guides/terraform-manage-groups/)
+    * [Manage external authentication services with Terraform](/docs/guides/terraform-manage-external-authenticators/)
+    * [Customize the end-user experience with Terraform](/docs/guides/terraform-manage-end-user-experience/)
+    * [Control Terraform access to Okta](/docs/guides/terraform-design-access-security/)
+    * [Minimize Terraform rate limit errors](/docs/guides/terraform-design-rate-limits/)
+
+7. Customize Okta process flows with event or inline hooks
 
     * [Event hook example](/docs/guides/event-hook-implementation/)
     * [Token inline hook example](/docs/guides/token-inline-hook/)
     * [Password import inline hook example](/docs/guides/password-import-inline-hook/)
     * [Registration inline hook example](/docs/guides/registration-inline-hook/)
+
 
 ## Publish an integration in the OIN
 
@@ -207,7 +229,9 @@ You can publish your integration in the Okta Integration Network (OIN) catalog t
 
 If you're creating an Okta integration for the first time, we recommend the following sequence of guides:
 
-1. [OIDC and the OIN: A Developer Primer](/docs/guides/oin-oidc-overview/)
+1. [OIN landing](/docs/guides/okta-integration-network/)
 1. [Overview of Single Sign-On in the OIN](/docs/guides/oin-sso-overview/)
 1. [Overview of lifecycle management in the OIN](/docs/guides/oin-lifecycle-mgmt-overview/)
-1. [Submit an app integration](/docs/guides/submit-app/)
+1. [Overview of API service apps in the OIN](/docs/guides/oin-api-service-overview/)
+1. [OIN submission requirements](/docs/guides/submit-app-prereq/)
+1. [Submit an app integration](/docs/guides/submit-app-overview/)

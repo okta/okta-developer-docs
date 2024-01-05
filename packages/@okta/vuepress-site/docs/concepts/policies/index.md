@@ -21,7 +21,7 @@ There are many possibilities for policy use:
 
 ### Default policies
 
-A default policy is automatically created for each type of policy. This ensures that there is always a policy to apply to a user in all situations. Default policies are required, and you can't delete them. They are always the last policy in the priority order and any added policies of the same type have higher priority. Default policies also always have one default rule that you can’t delete, and that rule is always the last rule in the priority order. When you add rules to the default policy, they have a higher priority than the default rule. The [`system` attribute](/docs/reference/api/policy/#policy-object) determines whether a policy or a rule is created by a system or by a user. Default policies and default rules are the only policies and rules that have this attribute. The `system` attribute set to `TRUE` on default policies or rules indicates that those policies and rules are system-created policies and you can’t delete them.
+A default policy is automatically created for each type of policy. This ensures that there is always a policy to apply to a user in all situations. Default policies are required, and you can't delete them. They are always the last policy in the priority order and any added policies of the same type have higher priority. Default policies also always have one default rule that you can't delete, and that rule is always the last rule in the priority order. When you add rules to the default policy, they have a higher priority than the default rule. The [`system` attribute](/docs/reference/api/policy/#policy-object) determines whether a policy or a rule is created by a system or by a user. Default policies and default rules are the only policies and rules that have this attribute. The `system` attribute set to `TRUE` on default policies or rules indicates that those policies and rules are system-created policies and you can't delete them.
 
 ## Policy types
 
@@ -43,7 +43,7 @@ A global session policy and an authentication policy control the authentication 
 
 * [Authentication policy](/docs/reference/api/policy/#authentication-policy): Determines the extra levels of authentication that you want performed before a user can access an application, such as enforcing factor requirements. Every app in your org has one authentication policy, and multiple apps can share a policy. Okta provides some preset policies with standard sign-on requirements, including a default policy automatically assigned to new apps. The default policy allows access with any two factors.
 
-  You can create an authentication policy specifically for the app or create a few policies and [share them](https://help.okta.com/okta_help.htm?type=oie&id=ext-share-auth-policy) across multiple apps. If you decide later to change an app’s sign-on requirements, you can modify its policy or switch to a different policy using the [Authentication Policies page](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-auth-policy). See [Configure a global session policy and an authentication policy](/docs/guides/configure-signon-policy/main/). Additionally, you can [merge duplicate authentication policies with identical rules](https://help.okta.com/okta_help.htm?type=oie&id=ext-merge-auth-policies) to simplify policy management.
+  You can create an authentication policy specifically for the app or create a few policies and [share them](https://help.okta.com/okta_help.htm?type=oie&id=ext-share-auth-policy) across multiple apps. If you decide later to change an app's sign-on requirements, you can modify its policy or switch to a different policy using the [Authentication Policies page](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-auth-policy). See [Configure a global session policy and an authentication policy](/docs/guides/configure-signon-policy/main/). Additionally, you can [merge duplicate authentication policies with identical rules](https://help.okta.com/okta_help.htm?type=oie&id=ext-merge-auth-policies) to simplify policy management.
 
 ### Password policy
 
@@ -65,7 +65,7 @@ A global session policy and an authentication policy control the authentication 
 
 * [IdP Discovery Policy](/docs/reference/api/policy/#idp-discovery-policy): Determines where to route users when they attempt to sign in to your org. You can route users to a variety of [identity providers](/docs/guides/add-an-external-idp/).
 
-  > **Note:** This policy isn't for performing authentication or authorization. It’s used only to determine where a user is routed. You can't control access with an IdP Discovery Policy.
+  > **Note:** This policy isn't for performing authentication or authorization. It's used only to determine where a user is routed. You can't control access with an IdP Discovery Policy.
 
 ## Policy use cases
 
@@ -108,7 +108,7 @@ Different policy types control settings for different operations. All policy typ
 Policy evaluation is different when you use the AuthN authentication pipeline versus when you use the Identity Engine authentication pipeline:
 
 |                               | Sign on policy | Multifactor Authentication (MFA) |
-| :--------------------------- | :------------------------------ | :--------- | :-------------------- |
+| :---------------------------- | :------------------------------ | :--------- |
 | AuthN authentication pipeline | Uses the [Okta Sign-On Policy](/docs/guides/archive-configure-signon-policy/main/) only when making calls using the SDKs or the Classic Authentication API. | Set MFA at the org level using the [Okta Sign-On Policy](/docs/guides/archive-configure-signon-policy/main/#prompt-for-an-mfa-factor-for-a-certain-group) for apps that use the Classic Authentication API. |
 | Identity Engine authentication pipeline | Evaluates both the global session policy and authentication policies when authenticating users. | [Set MFA](/docs/guides/configure-signon-policy/main/) at either the org level or at the application level. |
 

@@ -9,7 +9,7 @@ Use one of the following existing procedures to configure the SAML Identity Prov
 * [Admin Console](/docs/guides/add-an-external-idp/saml2/main/)
 * [Identity Providers API](/docs/reference/api/idps/#add-saml-2-0-identity-provider)
 
-The following steps assume that you are using the Admin Console.
+The following steps assume that you’re using the Admin Console.
 
 ### Obtain SAML metadata for the SAML Service Provider
 

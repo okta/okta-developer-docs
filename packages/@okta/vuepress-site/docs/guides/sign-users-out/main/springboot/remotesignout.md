@@ -1,7 +1,7 @@
-You can configure a Relying Party (RP)-initiated (SSO) Logout by setting the `okta.oauth2.postLogoutRedirectUri` property with an absolute URI such as:
+You can configure a Relying Party (RP)-initiated (SSO) Sign-Out by setting the `okta.oauth2.postLogoutRedirectUri` property with an absolute URI such as:
 
 ```properties
 okta.oauth2.postLogoutRedirectUri=http://localhost:8080/
 ```
 
-For more details, visit [Spring OIDC Logout](https://developer.okta.com/blog/2020/03/27/spring-oidc-logout-options).
+For more details, see [Spring OIDC Logout](https://developer.okta.com/blog/2020/03/27/spring-oidc-logout-options).

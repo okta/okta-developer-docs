@@ -175,13 +175,13 @@ ul.menu--items > li.expandable > span:after {
   width: 8px;
   height: 4px;
 
-  background-image: url("/img/icons/chevron-down-white.svg");
+  background-image: url("/img/icons/chevron-down-gray.svg");
   background-repeat: no-repeat;
 }
 
 @include media("<desktop") {
   ul.menu--items > li.expandable > a:after,
   ul.menu--items > li.expandable > span:after {
-    background-image: url("/img/icons/chevron-down-white.svg");
+    background-image: url("/img/icons/chevron-down-gray.svg");
   }
 }

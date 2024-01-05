@@ -6,6 +6,8 @@ layout: Guides
 
 Add authorization using Okta to protect your APIs. When you finish, you have a secure REST API application that validates incoming requests.
 
+> **Note:** The [org authorization server](/docs/concepts/auth-servers/#org-authorization-server) isn't supported for Web APIs because your application can't validate the access token issued by an org authorization server. This guide uses the **default** custom authorization server to secure your protected API. You can create your own custom authorization server for this guide. The [Okta Developer Edition](https://developer.okta.com/signup/) makes most key developer features available by default for testing purposes. The [Okta API Access Management product](/docs/concepts/api-access-management/) &mdash; a requirement to use [custom authorization servers](/docs/concepts/auth-servers/#custom-authorization-server) &mdash; is an optional add-on in **production** environments.
+
 ---
 
 **Learning outcomes**
@@ -91,7 +93,7 @@ There are three pieces of information that you may need, depending on the platfo
 
 * **Audience**: `api://default` by default
 * **Authorization Server Name**: `default`
-* **Okta Domain**: Found in the global header located in the upper-right corner of the dashboard.
+* **Okta Domain**: Locate by clicking your username in the upper-right corner of the Admin Console. The domain appears in the dropdown menu.
 
    > **Note:** Your Okta domain is different from your admin domain. Your Okta domain doesn't include `-admin`, for example, `https://dev-133337.okta.com` rather than `https://dev-133337-admin.okta.com`.
 

@@ -1,3 +1,5 @@
+ >**Note:** In the OIN manager, the Profile Sourcing option (formerly known as Profile Mastering) is enabled for developer orgs by Okta Developer Support. You can contact your Okta account team or post on our [forum](https://devforum.okta.com/) to request temporary activation of this capability when submitting a SCIM app integration.
+
 To submit a SCIM integration, click the **SCIM** tab and select **On** from the **SCIM support** dropdown menu.
 
 * **Provide the instance URL for your app where Okta will retrieve configuration details:** Specify the Okta instance URL for your integration.

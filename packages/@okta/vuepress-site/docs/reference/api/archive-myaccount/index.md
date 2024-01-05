@@ -5,7 +5,7 @@ category: management
 
 # MyAccount API v1 (Deprecated)
 
-> **Note:** This version of the MyAccount API is deprecated. For the latest version of the API, see the [reference documentation](/docs/reference/api/myaccount/).
+> **Note:** This version of the MyAccount API is deprecated. For the latest version of the API, see the [reference documentation](https://developer.okta.com/docs/api/openapi/okta-myaccount/guides/overview/).
 
 <ApiLifecycle access="deprecated" />
 

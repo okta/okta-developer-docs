@@ -7,7 +7,13 @@ excerpt: >-
 
 # Rate limit best practices
 
-In this section, you learn how to check your rate limits and request exceptions.
+In this section, you learn how to check your rate limits, investigate usage, and request exceptions.
+
+## Check your rate limits with Okta's rate limit dashboard
+
+The Okta [rate limit dashboard](/docs/reference/rl-dashboard/) is an Admin Console tool that provides detailed data on your API usage. Use this tool to monitor your endpoints or investigate issues or violations. Any rate limit violation notification provides a link to the dashboard.
+
+If the API usage data suggests updates to any rate limits are required, based on your use cases, configurations are available to increase limits temporarily or provide more permanent solutions. See [Request rate limit exceptions](#request-rate-limit-exceptions) or contact [Support](https://support.okta.com/help/open_case).
 
 ## Check your rate limits with Okta's rate limit headers
 
@@ -33,8 +39,11 @@ The best way to be sure about org-wide rate limits is to check the relevant head
 Instead of the accumulated counts for time-based rate limits, when a request exceeds the limit for concurrent requests, `X-Rate-Limit-Limit`, `X-Rate-Limit-Remaining`, and `X-Rate-Limit-Reset` report the concurrent values.
 
 The three headers behave a little differently for concurrent rate limits:
+
 * When the number of unfinished requests is below the concurrent rate limit, request headers only report org-wide rate limits.
+
 * When you exceed a concurrent rate limit threshold, the headers report that the limit has been exceeded.
+
 * When you drop back down below the concurrent rate limit, the headers switch back to reporting the time-based rate limits.
 
 Additionally, the `X-Rate-Limit-Reset` time for concurrent rate limits is only an estimate. There's no guarantee that enough requests will complete to stop exceeding the concurrent rate limit at the time indicated.
@@ -183,9 +192,17 @@ The error condition resolves itself as soon as there is another concurrent threa
 }
 ```
 
-### Request exceptions
+## Review your API limit parameter
 
-You can request a temporary rate limit increase. For example, if you are importing a large number of users and groups, you may need a temporary rate limit increase.
+In some cases, you can avoid hitting rate limits by implementing the maximum value of the `limit` query parameter for an individual API endpoint. Increasing this value to the maximum reduces the number of calls for a given operation, which can keep you under the endpoint's rate limit. By default, Okta uses a default `limit` if one isn't set.
+
+For example, the endpoint `/api/v1/apps/${applicationId}/users` returns, by default, 50 results. You can increase this limit to 500, reducing the number of calls.
+
+See the [Core Okta API](/docs/reference/core-okta-api/) for details on each endpoint's default and maximum values for the `limit` parameter.
+
+## Request rate limit exceptions
+
+You can adjust the size and structure of rate limits by requesting a temporary rate limit increase. For example, if you are importing a large number of users and groups, you may need a temporary rate limit increase. See [How to Request a Temporary Rate Limit Increase](https://support.okta.com/help/s/article/How-can-we-request-to-have-the-rate-limit-for-our-org-temporarily-increased?language=en_US).
 
 To request an exception, contact [Support](https://support.okta.com/help/open_case) a minimum of 10 days before you need the increase and provide the following details:
 
@@ -195,4 +212,4 @@ To request an exception, contact [Support](https://support.okta.com/help/open_ca
 * End date and time
 * Business justification: Why you need the temporary increase
 
-If you have an application that requires sustained rate limits higher than the posted limits, please evaluate and consider [dynamic scale](/docs/reference/rl-dynamic-scale/). To purchase this add-on, contact [Support](https://support.okta.com/help/).
+If you have an application that requires sustained rate limits higher than the posted limits, evaluate and consider [dynamic scale](/docs/reference/rl-dynamic-scale/). To purchase this add-on, contact [Support](https://support.okta.com/help/).

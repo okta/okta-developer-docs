@@ -59,7 +59,7 @@ With Dynamic Issuer Mode, the issuer value in minted tokens is dynamically updat
 
 #### Error response updated for malicious IP address sign-in requests
 
-If you block suspicious traffic and [ThreatInsight](/docs/reference/api/threat-insight/) detects that the sign-in request comes from a malicious IP address, Okta automatically denies the user access to the organization. The user receives an error in response to the request. From the user’s perspective, the blocked request can’t be identified due to ThreatInsight having identified the IP address as malicious. <!--OKTA-434409-->
+If you block suspicious traffic and [ThreatInsight](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ThreatInsight/) detects that the sign-in request comes from a malicious IP address, Okta automatically denies the user access to the organization. The user receives an error in response to the request. From the user’s perspective, the blocked request can’t be identified due to ThreatInsight having identified the IP address as malicious. <!--OKTA-434409-->
 
 #### IdP Discovery supported for Device Authorization Grant flow
 
@@ -99,7 +99,7 @@ The [User Types API](/docs/reference/api/user-types/) and [Profile Mappings API]
 
 #### Bug fixed in 2021.11.3
 
-When the [ThreatInsight configuration](/docs/reference/api/threat-insight/#threatinsight-configuration-api-operations) endpoint was called, the response included non-standard date and timestamp formats for the `created` and `lastUpdated` properties. (OKTA-445365)
+When the [ThreatInsight configuration](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ThreatInsight/#tag/ThreatInsight/operation/getCurrentConfiguration) endpoint was called, the response included non-standard date and timestamp formats for the `created` and `lastUpdated` properties. (OKTA-445365)
 
 ### Weekly release 2021.11.2
 

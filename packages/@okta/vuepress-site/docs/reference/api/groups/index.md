@@ -7,6 +7,8 @@ category: management
 
 The Okta Groups API provides operations to manage Okta Groups and their user members for your organization.
 
+<ApiAuthMethodWarning />
+
 ## Get started with the Groups API
 
 Explore the Groups API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/e2c0074faecec203e487)
@@ -1153,7 +1155,7 @@ Creates a Group rule to dynamically add users to the specified Group if they mat
 | ----------------------------------- | ------------------------------------------------------- | --------- | --------------------------------- | -------- |
 | name                                | name of the Group rule (min character 1; max characters 50)                                  | Body      | String                            | TRUE     |         |
 | type                                | `group_rule`                                            | Body      | String                            | TRUE     |
-| conditions.expression.value         | Okta expression that would result in a boolean value    | Body      | String                            | TRUE     |
+| conditions.expression.value         | Okta expression that would result in a Boolean value    | Body      | String                            | TRUE     |
 | conditions.expression.type          | `urn:okta:expression:1.0`                               | Body      | String                            | TRUE     |
 | conditions.people.users.exclude     | userIds that would be excluded when rules are processed | Body      | String                            | FALSE    |
 | conditions.people.groups.exclude    | currently not supported                                 | Body      | String                            | FALSE    |
@@ -1252,7 +1254,7 @@ You can't currently update the action section.
 | ----------------------------------- | ---------------------------------------------- | --------- | --------------------------------- | -------- |
 | actions.assignUserToGroups.groupIds | Array of groupIds to which users would be added| Body      | String                            | TRUE     |
 | conditions.expression.type           | `urn:okta:expression:1.0 `                     | Body      | String                            | TRUE     |
-| conditions.expression.value          | okta expression that would result in a boolean value | Body      | String                     | TRUE     |
+| conditions.expression.value          | okta expression that would result in a Boolean value | Body      | String                     | TRUE     |
 | conditions.people.groups.exclude     | currently not supported                        | Body      | String                            | FALSE    |
 | conditions.people.users.exclude      | userIds that would be excluded when rules are processed | Body      | String                   | FALSE    |         |
 | id                                  | ID of the rule to be updated                   | URL       | String                            | TRUE     |
@@ -1523,7 +1525,8 @@ Removes a specific Group rule by ID from your organization
 
 | Parameter      | Description                                                  | ParamType  | DataType                          | Required | Default |
 | -------------- | ------------------------------------------------------------ | ---------- | --------------------------------- | -------- | ------- |
-| `id`             | ID of a Group Rule                                           | URL        | String                            | TRUE     |         |
+| `id`             | ID of a Group Rule                                           | URL        | String                            | TRUE     |   N/A     |
+| `removeUsers`             | Indicates whether to keep or remove users from groups assigned by this rule                                         | Query        | Boolean                            | FALSE      |  FALSE       |
 
 ##### Response parameters
 

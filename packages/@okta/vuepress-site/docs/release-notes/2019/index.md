@@ -89,7 +89,7 @@ Multifactor (MFA) Enrollment Policy [objects](/docs/reference/api/policy/#multif
 
 #### Bug Fixed in 2019.11.1
 
-An incorrect status was returned in some cases when an admin checked another user's session information using the [Sessions API](/docs/reference/api/sessions/). (OKTA-245793)
+An incorrect status was returned in some cases when an admin checked another user's session information using the [Sessions API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Session/). (OKTA-245793)
 
 
 ### Monthly Release 2019.11.0
@@ -351,7 +351,7 @@ The Okta Mappings API provides operations to manage the mapping of properties be
 
 #### Missing type property now returns a 400 error code
 
-If you create an [IP network zone](/docs/reference/api/zones/#ip-zone-properties) without a `type` property for an IP field, PUT or POST requests made to the Zone API now return a 400 error code. <!-- OKTA-239170 -->
+If you create an [IP network zone](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/NetworkZone/) without a `type` property for an IP field, PUT or POST requests made to the Zone API now return a 400 error code. <!-- OKTA-239170 -->
 
 #### Bug Fixed in 2019.08.0
 

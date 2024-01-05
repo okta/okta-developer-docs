@@ -78,10 +78,16 @@ const COMMON_NAME_TO_FANCY_NAME = {
   saml2assert: 'SAML 2.0 Assertion',
   interactioncode: 'Interaction Code',
   wfconnector: 'Workflows connector',
-  otp: 'OTP',
-  oob: 'OOB',
-  mfaoob: 'MFA OOB',
-  mfaotp: 'MFA OTP',
+  aotp: 'OTP (primary factor)',
+  coobov: 'Okta Verify Push (primary factor)',
+  eoobsv: 'Phone (primary factor)',
+  dmfaoobov: 'Okta Verify Push (MFA)',
+  fmfaoobsv: 'Phone (MFA)',
+  bmfaotp: 'OTP (MFA)',
+  oidc: 'OIDC',
+  saml: 'SAML',
+  oktaresourceserver: 'Okta resource server',
+  nonoktaresourceserver: 'Non-Okta resource server',
 };
 
 const COMMON_NAME_TO_ICON_NAME = {

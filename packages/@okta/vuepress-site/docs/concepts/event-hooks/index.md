@@ -19,7 +19,7 @@ Before the introduction of event hooks, polling the [System Log API](/docs/refer
 
 You can have a maximum of 10 active and verified event hooks set up in your org at any time. Each event hook can be configured to deliver multiple event types.
 
-> **Note:** To deliver event information, event hooks use the data structure associated with the [System Log API](/docs/reference/api/system-log/), not the data structure associated with the older [Events API](/docs/reference/api/events/).
+> **Note:** To deliver event information, event hooks use the data structure associated with the [System Log API](/docs/reference/api/system-log/).
 
 ## Which events are eligible?
 
@@ -65,6 +65,8 @@ Okta delivers events on a best-effort basis. Events are delivered at least once.
 
 There is no guarantee of maximum delay between event occurrence and delivery.
 
+> **Note:** Contact Okta support only if you're seeing event hook call delays greater than 60 minutes. In most cases, these delays are resolved before that time.
+
 ### Timeout and retry
 
 When Okta calls your external service, it enforces a default timeout of 3 seconds. Okta attempts at most one retry. Responses with a 4xx status code aren't retried.
@@ -101,7 +103,7 @@ As a best practice, you should return the HTTP response immediately, rather than
 
 ### Rate limits
 
-Event hooks aren't triggered after reaching a limit of 400,000 applicable events, per org, per day.
+Okta limits each org to 400,000 applicable events within a 24-hour period. After reaching this threshold, further event hooks aren't triggered. The system log receives a warning prior to hitting the event limit when the number of events hits 280,000. The event limit resets 24 hours after the first event is sent. <!-- This content also available on this help.okta.com page: https://help.okta.com/okta_help.htm?type=wf&id=ext-workflows-system-limits -->
 
 ### Debugging
 
@@ -122,7 +124,7 @@ The basic steps to register and verify a new event hook are as follows:
 
 For a working example of an end-to-end event hook setup, see the [Event hook guide](/docs/guides/event-hook-implementation).
 
-> **Note:** It may take several minutes before events are sent to the event hook after it’s created or updated.
+> **Note:** It may take several minutes before events are sent to the event hook after it's created or updated.
 
 ### Implement your service
 

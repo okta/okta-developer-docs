@@ -7,6 +7,8 @@ category: management
 
 The Okta Identity Providers API provides operations to manage federations with external Identity Providers (IdP). For example, your app can support signing in with credentials from Apple, Facebook, Google, LinkedIn, Microsoft, an enterprise IdP using SAML 2.0, or an IdP using the OpenID Connect (`OIDC`) protocol.
 
+<ApiAuthMethodWarning />
+
 ## Get started
 
 Explore the Identity Providers API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/2635b07ecc5dc2435ade)
@@ -105,7 +107,8 @@ curl -v -X POST \
     "credentials": {
       "client": {
         "client_id": "your-client-id",
-        "client_secret": "your-client-secret"
+        "client_secret": "your-client-secret",
+        "pkce_required": "true"
       }
     },
     "issuer": {
@@ -190,7 +193,8 @@ curl -v -X POST \
         "credentials": {
             "client": {
                 "client_id": "your-client-id",
-                "client_secret": "your-client-secret"
+                "client_secret": "your-client-secret",
+                "pkce_required": "true"
             }
         }
     },
@@ -4877,7 +4881,7 @@ Okta supports the following enterprise and social Identity Provider types:
 | `PAYPAL_SANDBOX`     | [Paypal Sandbox](https://developer.paypal.com/tools/sandbox/)&nbsp;as the Identity Provider| [OpenID Connect](#openid-connect-protocol) | `openid`, `email`, `profile` |
 | `SALESFORCE`     | [SalesForce](https://login.salesforce.com/)&nbsp;as the Identity Provider| [OAuth 2.0](#oauth-2-0-protocol) | `id`, `email`, `profile` |
 | `SAML2`      | Enterprise IdP provider that supports the [SAML 2.0 Web Browser SSO Profile](https://docs.oasis-open.org/security/saml/v2.0/saml-profiles-2.0-os.pdf) | [SAML 2.0](#saml-2-0-protocol)  | |
-| `SPOTIFY`      | [Spotify](https://developer.spotify.com/dashboard/)&nbsp;as the Identity Provider | [OpenID Connect](#openid-connect-protocol) | `user-read-email`, `user-read-private` |
+| `SPOTIFY`      | [Spotify](https://developer.spotify.com/)&nbsp;as the Identity Provider | [OpenID Connect](#openid-connect-protocol) | `user-read-email`, `user-read-private` |
 | `X509`       | [Smart Card IdP](https://tools.ietf.org/html/rfc5280) | [Mutual TLS](#mtls-protocol) | |
 | `XERO`      | [Xero](https://www.xero.com/us/signup/api/)&nbsp;as the Identity Provider | [OpenID Connect](#openid-connect-protocol) | `openid`, `profile`, `email` |
 | `YAHOO`      | [Yahoo](https://login.yahoo.com/)&nbsp;as the Identity Provider | [OpenID Connect](#openid-connect-protocol) | `openid`, `profile`, `email` |
@@ -4889,11 +4893,9 @@ The properties in the Identity Provider Properties object vary depending on the 
 
 | Property | Description        | DataType     | Applies to IdP type |
 | -------- | ------------------ | ------------ | -------------------- |
-| additionalAmr <ApiLifecycle access="ea" /> | The additional Assurance Methods References (AMR) values for Smart Card IdPs. <br> Supported values: `sc` (smart card), `hwk` (hardware-secured key), `pin` (personal identification number), and `mfa` (multifactor authentication)  | Array of strings | `X509`    |
+| additionalAmr | The additional Assurance Methods References (AMR) values for Smart Card IdPs. <br> Supported values: `sc` (smart card), `hwk` (hardware-secured key), `pin` (personal identification number), and `mfa` (multifactor authentication)  | Array of strings | `X509`    |
 | ialValue | The [type of identity verification](https://developers.login.gov/oidc/#ial-values) (IAL) value for the Login.gov IdP. See [Add a Login.gov IdP](/docs/guides/add-logingov-idp/).  | String | `LOGINGOV`, `LOGINGOV_SANDBOX`    |
 | aalValue | The [authentication assurance level](https://developers.login.gov/oidc/#aal-values) (AAL) value for the Login.gov IdP. See [Add a Login.gov IdP](/docs/guides/add-logingov-idp/). | String | `LOGINGOV`, `LOGINGOV_SANDBOX`    |
-
-> **Note:** The `additionalAmr` property supports the [Early Access](/docs/reference/releases-at-okta/#early-access-ea) (Self-Service) Smart Card authenticator feature. Enable the feature for your org from the **Settings** > **Features** page in the Admin Console.
 
 ### Protocol object
 
@@ -5173,7 +5175,7 @@ XML digital Signature Algorithm settings for verifying `<SAMLResponse>` messages
 | Property   | Description                                                                                                            | DataType                       | Nullable | Readonly |
 | ---------- | ----------------------------------------------------------------------------------                                     | --------------------           | -------- | -------- |
 | algorithm  | The minimum XML digital Signature Algorithm allowed when verifying a `<SAMLResponse>` message or `<Assertion>` element | `SHA-1` or `SHA-256`           | FALSE    | FALSE    |
-| scope      | Specifies whether to verify a `<SAMLResponse>` message or `<Assertion>` element XML digital signature                  | `RESPONSE`, `ASSERTION`, `ANY` | FALSE    | FALSE    |
+| scope      | Specifies whether to verify a `<SAMLResponse>` message or `<Assertion>` element XML digital signature                  | `RESPONSE`, `TOKEN`, `ANY` | FALSE    | FALSE    |
 
 ###### SAML 2.0 Credentials object
 
@@ -5233,7 +5235,7 @@ Determines the [IdP Key Credential](#identity-provider-key-credential-object) us
 ##### SAML 2.0 Settings object
 
 | Property   | Description                       | DataType    | Nullable | Readonly | Default     |
-| ---------- | ---------------------             | ----------- | -------- | -------- | -------------------------------------------------------------------- | ----------------------------------------------        |
+| ---------- | ---------------------             | ----------- | -------- | -------- | -------------------------------------------------------------------- |
 | nameFormat | The name identifier format to use. See [SAML 2.0 Name Identifier Formats](#saml-2-0-name-identifier-formats). | String      | TRUE     | FALSE    | urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified |
 | honorPersistentNameId | Determines if the IdP should persist account linking when the incoming assertion NameID format is `urn:oasis:names:tc:SAML:2.0:nameid-format:persistent`| Boolean | TRUE | FALSE | FALSE|
 
@@ -5411,7 +5413,7 @@ Signature Algorithm settings for signing authorization requests sent to the IdP:
 
 | Property    | Description                                                                        | DataType             | Nullable | Readonly |
 | ----------- | ---------------------------------------------------------------------------------- | -------------------- | -------- | -------- |
-| algorithm   | The Signature Algorithm used when signing an authorization request  | `HS256`, `HS384`, or `HS512`. The following algorithms are <ApiLifecycle access="ea" /> (Self-Service): `RS256`, `RS384`, or `RS512`. To use these algorithms, enable **Private Key JWT Client Authentication for OIDC IdP** for your org from the **Settings** > **Features** page in the Admin Console. | FALSE    | FALSE    |
+| algorithm   | The Signature Algorithm used when signing an authorization request  | `HS256`, `HS384`, `HS512`, `RS256`, `RS384`, or `RS512` | FALSE    | FALSE    |
 | scope       | Specifies whether to digitally sign an authorization request to the IdP | `REQUEST` or `NONE`  | FALSE    | FALSE    |
 
 > **Note:** The `algorithm` property is ignored when you disable request signatures (`scope` set as `NONE`).
@@ -5477,18 +5479,19 @@ The IdP Authorization Server (AS) endpoints are currently defined as part of the
 
 Client authentication credentials for an [OAuth 2.0 Authorization Server (AS)](https://tools.ietf.org/html/rfc6749#section-2.3)
 
-| Property      | Description                                                                                                 | DataType | Nullable | Readonly |
-| ------------- | ----------------------------------------------------------------------------------------------------------- | -------- | -------- | -------- | --------- | --------- |
-| client        | Client infomation                                                                                           | [OAuth 2.0 And OpenID Connect Client Object](#oauth-2-0-and-openid-connect-client-object)   | FALSE    | FALSE    |
-| signing       | Information used to sign the request, currently only Apple IdP supports it                                  | [Apple Client Signing Object](#apple-client-signing-object)   | TRUE    | FALSE    |
-
+| Property      | Description                                                                  | DataType | Nullable | Readonly |
+| ------------- | ---------------------------------------------------------------------------- | -------- | -------- | -------- |
+| client        | Client infomation                                                            | [OAuth 2.0 And OpenID Connect Client Object](#oauth-2-0-and-openid-connect-client-object)   | FALSE    | FALSE    |
+| signing       | Information used to sign the request, currently only Apple IdP supports it   | [Apple Client Signing Object](#apple-client-signing-object)   | TRUE    | FALSE    |
 
 ##### OAuth 2.0 and OpenID Connect Client object
+
 | Property      | Description                                                                                                 | DataType | Nullable | Readonly | MinLength | MaxLength |
 | ------------- | ----------------------------------------------------------------------------------------------------------- | -------- | -------- | -------- | --------- | --------- |
 | client_id     | [Unique identifier](https://tools.ietf.org/html/rfc6749#section-2.2) issued by the AS for the Okta IdP instance | String   | FALSE    | FALSE    | 1         | 1024      |
 | client_secret | [Client secret issued](https://tools.ietf.org/html/rfc6749#section-2.3.1) by the AS for the Okta IdP instance   | String   | TRUE (Only Nullable for Apple IdP)     | FALSE    | 1         | 1024      |
 | token_endpoint_auth_method | Client authentication methods supported by the token endpoint. Methods supported: `private_key_jwt`  | String   | TRUE     | FALSE    | 1         | 1024      |
+| pkce_required | Require Proof Key for Code Exchange (PKCE) for additional verification | Boolean  | TRUE| FALSE |
 
 > **Note:** You must complete client registration with the IdP Authorization Server for your Okta IdP instance to obtain client credentials.
 
@@ -5528,6 +5531,21 @@ Client authentication credentials for an [OAuth 2.0 Authorization Server (AS)](h
       "client": {
         "client_id": "{{clientId}}",
         "token_endpoint_auth_method": "private_key_jwt"
+      }
+    }
+  }
+}
+```
+
+```json
+{
+  "protocol": {
+    "type": "OIDC",
+    "credentials": {
+      "client": {
+        "client_id": "{{clientId}}",
+        "token_endpoint_auth_method": "private_key_jwt",
+        "pkce_required": "true"
       }
     }
   }

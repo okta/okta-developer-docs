@@ -5,6 +5,12 @@ category: management
 
 # MyAccount API
 
+The MyAccount API reference is now available at the new [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-myaccount/guides/overview/).
+
+Explore the [Okta Public API Collections](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/overview) workspace to get started with the MyAccount API Postman collection.
+
+<!--
+
 <ApiLifecycle access="ie" />
 
 > **Note:** This document provides reference material for an enhanced MyAccount API, accessible at `/idp/myaccount`. The `/api/v1/myaccount` endpoint is deprecated. See [MyAccount API (deprecated)](/docs/reference/api/archive-myaccount/) for the docs for the older version of the API.
@@ -244,8 +250,6 @@ Add a `PRIMARY` or `SECONDARY` email address to the user's account. The new emai
 
 An Okta scope of `okta.myAccount.email.manage` is required to use this endpoint.
 
-> **Note:** Admin users aren't allowed to make a POST request to the `/idp/myaccount/emails` endpoint.
-
 #### Request path parameters
 
 N/A
@@ -326,8 +330,6 @@ In addition, the user also receives a "Notice of pending email address change" e
 #### Required scope and role
 
 An Okta scope of `okta.myAccount.email.manage` is required to use this endpoint.
-
-> **Note:** Admin users aren't allowed to make a POST request to the `/idp/myaccount/emails` endpoint.
 
 #### Request path parameters
 
@@ -410,8 +412,6 @@ Verify the email challenge with the verification code that the user receives fro
 #### Required scope and role
 
 An Okta scope of `okta.myAccount.email.manage` is required to use this endpoint.
-
-> **Note:** Admin users aren't allowed to make a POST request to the `/idp/myaccount/emails/{id}/challenge/{challengeId}/verify` endpoint.
 
 #### Request path parameters
 
@@ -520,8 +520,6 @@ Deletes the current user's email information by ID. You can only delete UNVERIFI
 #### Required scope and role
 
 An Okta scope of `okta.myAccount.email.manage` is required to use this endpoint.
-
-> **Note:** Admin users aren't allowed to make a DELETE request to the `/idp/myaccount/emails/{id}/` endpoint.
 
 #### Request path parameters
 
@@ -735,8 +733,6 @@ Creates an UNVERIFIED status phone for either the `SMS` or `CALL` method to the 
 #### Required scope and role
 
 An Okta scope of `okta.myAccount.phone.manage` is required to use this endpoint.
-
-> **Note:**  Admin users aren't allowed to make a POST request to the`/idp/myaccount/phones` endpoint.
 
 #### Request path parameters
 
@@ -980,8 +976,6 @@ Delete the current user's phone information by ID.
 #### Required scope and role
 
 An Okta scope of `okta.myAccount.phone.manage` is required to use this endpoint.
-
-> **Note:** Admin users aren't allowed to make a DELETE request to the `/idp/myaccount/phones/{id}/` endpoint.
 
 #### Request path parameters
 
@@ -1859,3 +1853,4 @@ The My Password object has several properties:
   }
 }
 ```
+-->

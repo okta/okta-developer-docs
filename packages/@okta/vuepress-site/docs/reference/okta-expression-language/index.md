@@ -9,7 +9,7 @@ meta:
 
 This document details the features and syntax of the Okta Expression Language (EL). You can use this language throughout the Okta Admin Console and API for the Okta Classic Engine and Okta Identity Engine.
 
-> **Note:** If you're using the Okta Expression Language for the [Global session policy and authentication policies](/docs/guides/configure-signon-policy/main/) of the Identity Engine, use the features and syntax of the [Okta Expression Language in Okta Identity Engine](/docs/reference/okta-expression-language-in-identity-engine/).
+> **Note:** If you're using the Okta Expression Language for the [authentication policies](/docs/guides/configure-signon-policy/main/) of the Identity Engine, or for [Access Certification campaigns](https://help.okta.com/okta_help.htm?id=ext-el-eg) or Entitlement Management policies for Okta Identity Governance, use the features and syntax of the [Okta Expression Language in Okta Identity Engine](/docs/reference/okta-expression-language-in-identity-engine/).
 
 Okta Expression Language is based on [SpEL](http://docs.spring.io/spring/docs/3.0.x/reference/expressions.html) and uses a subset of the functionalities offered by SpEL.
 
@@ -35,7 +35,7 @@ In addition to an Okta User Profile, all Users have a separate Application User 
 
 | Syntax                | Definitions                                                                                | examples                                                              |
 | --------              | ----------                                                                                 | ------------                                                          |
-| `$appuser.$attribute` | `$appuser` explicit reference to specific app<br>`$attribute` the attribute variable name  | zendesk.firstName<br>active_directory.managerUpn<br>google_apps.email |
+| `$app.$attribute`     | `$app` explicit reference to specific app instance<br>`$attribute` the attribute variable name for the app instance's user profile               | zendesk.firstName<br>active_directory.managerUpn<br>google_apps.email |
 | `appuser.$attribute`  | `appuser` implicit reference to in-context app<br>`$attribute` the attribute variable name | appuser.firstName                                                     |
 
 > **Note:** Explicit references to apps aren't supported for OAuth 2.0/OIDC custom claims. See [Expressions for OAuth 2.0/OIDC custom claims](/docs/reference/okta-expression-language/#expressions-for-oauth-2-0-oidc-custom-claims).
@@ -188,11 +188,11 @@ Group functions return either an array of groups or **True** or **False**.
 
 > **Note:** The `isMemberOfGroupName`, `isMemberOfGroup`, `isMemberOfAnyGroup`, `isMemberOfGroupNameStartsWith`, `isMemberOfGroupNameContains`, `isMemberOfGroupNameRegex` group functions are designed to retrieve only an Okta user's group memberships. Don't use them to retrieve an app user's group memberships.
 
-> **Note:** When EL group functions (such as `isMemberOfGroup` or `isMemberOfGroupName`) are used for app assignments, app user profile attributes aren’t updated or reapplied when the user’s group membership changes. Okta only updates app user profile attributes when an app is assigned to a user or when mappings are applied.
+> **Note:** When EL group functions (such as `isMemberOfGroup` or `isMemberOfGroupName`) are used for app assignments, app user profile attributes aren't updated or reapplied when the user's group membership changes. Okta only updates app user profile attributes when an app is assigned to a user or when mappings are applied.
 
 For an example of using group functions, and for more information on using group functions for dynamic and static allowlists, see [Customize tokens returned from Okta](/docs/guides/customize-tokens-returned-from-okta/).
 
-> **Important:** When you use `Groups.startWith`, `Groups.endsWith`, or `Groups.contains`, the `pattern` argument is matched and populated on the `name` attribute rather than the group's email (for example, when using Google workspace). If you're targeting groups that may have duplicate group names (such as Google groups), use the `getFilteredGroups` group function instead.
+> **Important:** When you use `Groups.startsWith`, `Groups.endsWith`, or `Groups.contains`, the `pattern` argument is matched and populated on the `name` attribute rather than the group's email (for example, when using Google workspace). If you're targeting groups that may have duplicate group names (such as Google groups), use the `getFilteredGroups` group function instead.
 >
 >Example: `getFilteredGroups({"00gml2xHE3RYRx7cM0g3"}, "group.name", 40) )`
 >
@@ -239,7 +239,7 @@ The following should be noted about these functions:
 
 * Be sure to pass the correct App name for the `managerSource`, `assistantSource`, and `attributeSource` parameters.
 * Currently, `active_directory` is the only supported value for `managerSource` and `assistantSource`.
-* Calling the `getManagerUser("active_directory")` function doesn't trigger a user profile update after the manager is changed.
+* Calling either of the `getManagerUser()` or `getManagerAppUser()` functions doesn't trigger a user profile update after the manager is changed.
 * The manager and assistant functions aren't supported for user profiles sourced from multiple Active Directory instances.
 * The manager and assistant functions aren't supported for user profile attributes from multiple app instances. That is, the expression `getManagerUser("active_directory", "google").firstName` returns null if your org has two or more instances of a `google` app.
 
@@ -250,7 +250,7 @@ The following should be noted about these functions:
 | `hasDirectoryUser()`  | Checks whether the user has an Active Directory assignment and returns a boolean                                                            |
 | `hasWorkdayUser()`    | Checks whether the user has a Workday assignment and returns a boolean                                                                      |
 | `findDirectoryUser()` | Finds the Active Directory App user object and returns that object or null if the user has more than one or no Active Directory assignments |
-| `findWorkdayUser()`   | Finds the Workday App user object and returns that object or null if the user has more than one or no Active Directory assignments          |
+| `findWorkdayUser()`   | Finds the Workday App user object and returns that object or null if the user has more than one or no Workday assignments                   |
 
 The previous functions are often used in tandem to check whether a user has an Active Directory or Workday assignment, and if so, return an Active Directory or Workday attribute. See the following 'Popular expressions' table for some examples.
 

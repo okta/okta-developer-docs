@@ -28,7 +28,7 @@ Are you an admin? See the Identity Engine [limitations](https://help.okta.com/ok
 * `user.authentication.authenticate`
 * `user.credential.enroll`
 
-The following Event Type isn’t available in Identity Engine because it's no longer being triggered:
+The following Event Type isn't available in Identity Engine because it's no longer being triggered:
 
 `user.account.unlock_token`
 
@@ -50,19 +50,11 @@ The following Event Types are available only in Identity Engine and can't be use
 
 ***
 
-### Personal Identity Verification
-
-**What Changed:** Not supported
-
-**Further Information:** [Learn more about PIV](https://help.okta.com/okta_help.htm?id=ext-idp-smart-card-workflow)
-
-***
-
 ### Reset Factor API - email enrollment
 
-**What Changed:** With Identity Engine, a user’s verified `primaryEmail` is considered an email (authenticator) enrollment for the user. Therefore, the GET `/factors` API always returns the verified `primaryEmail` as an active email factor.
+**What Changed:** With Identity Engine, a user's verified `primaryEmail` is considered an email (authenticator) enrollment for the user. Therefore, the GET `/factors` API always returns the verified `primaryEmail` as an active email factor.
 
-The use of the Classic Engine Reset Factor API for resetting a user’s email enrollment is discouraged and considered moot, because email is an auto-enrolling authenticator in Identity Engine. A user’s verified `primaryEmail` is always usable as long as the Email authenticator is set to `ACTIVE`, and the user can use it for **recovery only** or for both **authentication and recovery**, depending on the Email authenticator settings.
+The use of the Classic Engine Reset Factor API for resetting a user's email enrollment is discouraged and considered moot, because email is an auto-enrolling authenticator in Identity Engine. A user's verified `primaryEmail` is always usable as long as the Email authenticator is set to `ACTIVE`, and the user can use it for **recovery only** or for both **authentication and recovery**, depending on the Email authenticator settings.
 
 ***
 
@@ -78,7 +70,9 @@ In Classic Engine, when a user is using both the Forgot Password Question and a 
 
 ### Self-Service Registration
 
-**What Changed:** The Self-Service Registration feature isn't supported. Self-service registration is now accomplished through a profile enrollment policy. In a profile enrollment policy, admins select the attributes they want to collect when a new end user clicks **Sign up**. After the end user is authenticated into the app, their profile is complete and they're provisioned to the appropriate groups.
+**What Changed:** The Classic Engine Self-Service Registration feature isn't supported. The Identity Engine Self-Service Registration is now accomplished through a profile enrollment policy. In a profile enrollment policy, admins select the attributes they want to collect when a new end user clicks **Sign up**. After the end user is authenticated into the app, their profile is complete and they're provisioned to the appropriate groups.
+
+> **Note:** The profile enrollment policy form only supports read-write attributes. If you added read-only or hidden attributes to your Self-Service Registration form in Classic Engine, they're not migrated to your profile enrollment policy.
 
 **Further information:** [Manage Profile Enrollment policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-profile-enrollment)
 

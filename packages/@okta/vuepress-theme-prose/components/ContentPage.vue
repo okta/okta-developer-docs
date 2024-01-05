@@ -18,29 +18,34 @@ export default {
     $page(to, from) {
       if (from.title !== to.title) {
         this.$nextTick(function() {
-          this.anchors = this.getAnchors();
+          this.setAnchors(this.getAnchors());
           this.onPageChange();
         });
       }
     }
   },
   mounted() {
-    this.anchors = this.getAnchors(``);
     document.onreadystatechange = () => {
-      if (document.readyState === "complete") {
-        this.$nextTick(function() {
-          this.onPageChange();
-        });
+      if (document.readyState !== "complete") {
+        return;
       }
+
+      this.$nextTick(function() {
+        this.setAnchors(this.getAnchors());
+        this.onPageChange();
+
+        window.addEventListener("popstate", e => {
+          e.target.location.hash && this.scrollToAnchor(e.target.location.hash);
+        });
+        window.addEventListener("scroll", this.setHeadingAnchorToURL);
+        window.addEventListener('resize', this.updateAnchors);
+      });
     };
-    window.addEventListener("popstate", e => {
-      e.target.location.hash && this.scrollToAnchor(e.target.location.hash);
-    });
-    window.addEventListener("scroll", this.setHeadingAnchorToURL);
   },
   beforeDestroy() {
     window.removeEventListener("scroll", this.setHeadingAnchorToURL);
     window.removeEventListener("popstate", this.scrollToAnchor);
+    window.removeEventListener('resize', this.updateAnchors);
   },
   methods: {
     onPageChange() {
@@ -92,12 +97,19 @@ export default {
         }
       }
     },
+
+    updateAnchors: _.debounce(function () {
+      this.getAnchorsOffset();
+      this.setHeadingAnchorToURL();
+    }, 200),
+
     setHeadingAnchorToURL: _.debounce(function() {
       const activeAnchor = this.getActiveAnchor();
       activeAnchor
         ? this.historyReplaceAnchor(activeAnchor.hash)
         : this.historyReplaceAnchor("");
     }, 200),
+
     getAnchors() {
       return Array.from(document.querySelectorAll(".header-anchor"));
     }

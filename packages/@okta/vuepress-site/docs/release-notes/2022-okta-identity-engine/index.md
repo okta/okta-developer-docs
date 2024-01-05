@@ -38,7 +38,7 @@ An error occurred if a request was made to the `/authorize` endpoint of a custom
 
 #### Bugs fixed in 2022.12.1
 
-* A List Users API call made with a search parameter didn’t return deactivated users with a `login` property that started with the Okta User `id`. (OKTA-537805)
+* A List Users API call made with a search parameter didn't return deactivated users with a `login` property that started with the Okta User `id`. (OKTA-537805)
 
 * When a custom app used the `/sso/idps/{idpId}` endpoint for IdP routing with a `login_hint` parameter, the `login_hint` was ignored. (OKTA-549212)
 
@@ -67,7 +67,7 @@ You can end all Okta sessions for a user when resetting their password. All sess
 
 #### Step-up authentication using ACR values is GA in Prod
 
-Users want seamless access to certain resources, but organizations want to increase the users' level of assurance before they access anything sensitive. It’s difficult to strike a balance between implementing stronger security controls and offering a frictionless experience for your users to easily interact with an application. Okta now supports the acr_values parameter, which refers to Authentication Context Class Reference. Each value defines a specific set of assurance level requirements that the protected resource requires from the authentication event associated with the access and ID tokens. See [Step-up authentication](/docs/guides/step-up-authentication/main/) using ACR values. <!-- OKTA-552809-->
+Users want seamless access to certain resources, but organizations want to increase the users' level of assurance before they access anything sensitive. It's difficult to strike a balance between implementing stronger security controls and offering a frictionless experience for your users to easily interact with an application. Okta now supports the acr_values parameter, which refers to Authentication Context Class Reference. Each value defines a specific set of assurance level requirements that the protected resource requires from the authentication event associated with the access and ID tokens. See [Step-up authentication](/docs/guides/step-up-authentication/main/) using ACR values. <!-- OKTA-552809-->
 
 #### Redirect added to end of sign-in flow
 
@@ -87,7 +87,7 @@ When users create an account using the "Sign Up" link in the Sign-In Widget, the
 
 #### Improvements to the self-service registration experience
 
-Earlier versions of the self-service registration (SSR) flow used a complicated array of templates to send activation emails to users. The simplified SSR flow reduces this to only two email templates with customized welcome messages. If your application requires immediate verification of the user’s email address, use the **Registration - Activation** template. This template includes a magic link for a smoother sign-in experience. If email verification is not immediately required to sign in to the application, use the **Registration - Email Verification** template. This template includes a link for users to complete email verification at any time after they successfully sign in to the application. See [Customize email notifications](/docs/guides/custom-email/main/) and the [Okta email (magic link/OTP) integration guide](/docs/guides/authenticators-okta-email/aspnet/main/). <!-- OKTA-552780-->
+Earlier versions of the self-service registration (SSR) flow used a complicated array of templates to send activation emails to users. The simplified SSR flow reduces this to only two email templates with customized welcome messages. If your application requires immediate verification of the user's email address, use the **Registration - Activation** template. This template includes a magic link for a smoother sign-in experience. If email verification is not immediately required to sign in to the application, use the **Registration - Email Verification** template. This template includes a link for users to complete email verification at any time after they successfully sign in to the application. See [Customize email notifications](/docs/guides/custom-email/main/) and the [Okta email (magic link/OTP) integration guide](/docs/guides/authenticators-okta-email/aspnet/main/). <!-- OKTA-552780-->
 
 #### Manage embedded widget sign-in support is GA in Prod
 
@@ -95,7 +95,7 @@ Okta provides the Okta Sign-In Widget out of the box so that customers can authe
 
 #### Bugs fixed in 2022.12.0
 
-* An admin role couldn’t be assigned to a user or group if the role was constrained to a group with group membership rules or to a group with more than 5000 members. (OKTA-546310)
+* An admin role couldn't be assigned to a user or group if the role was constrained to a group with group membership rules or to a group with more than 5000 members. (OKTA-546310)
 
 * When a DELETE request to the `/api/v1/authorizationServers/<authServerID>/clients/<clientID>/tokens` endpoint was called for large scale operations, an HTTP 500 Internal Server Error was returned. (OKTA-536037)
 
@@ -155,7 +155,7 @@ Previously, the self-service unlock (SSU) and self-service password reset (SSPR)
 
 #### Self-service password reset improvements are GA in Production
 
-Previously, the self-service password reset (SSPR) flow created unnecessary friction in the user experience. The newly enhanced SSPR feature introduces a seamless magic link experience for password reset emails. Users no longer need to provide consent when using the same browser. After a successful password reset, where the password meets the application’s assurance policy, the user is signed directly in to the app. See [Configure the Email authenticator](https://help.okta.com/okta_help.htm?type=oie&id=csh-configure-email). This feature is currently available for new orgs only. <!--OKTA-499517-->
+Previously, the self-service password reset (SSPR) flow created unnecessary friction in the user experience. The newly enhanced SSPR feature introduces a seamless magic link experience for password reset emails. Users no longer need to provide consent when using the same browser. After a successful password reset, where the password meets the application's assurance policy, the user is signed directly in to the app. See [Configure the Email authenticator](https://help.okta.com/okta_help.htm?type=oie&id=csh-configure-email). This feature is currently available for new orgs only. <!--OKTA-499517-->
 
 #### Self-service unlock improvements are GA in Production
 
@@ -171,7 +171,7 @@ Okta provides the Okta Sign-In Widget out of the box so that customers can authe
 
 #### Step-up authentication using ACR values is GA in Preview
 
-Users want seamless access to certain resources, but organizations want to increase the users' level of assurance before they access anything sensitive. It’s difficult to strike a balance between implementing stronger security controls and offering a frictionless experience for your users to easily interact with an application. Okta now supports the `acr_values` parameter, which refers to Authentication Context Class Reference. Each value defines a specific set of assurance level requirements that the protected resource requires from the authentication event associated with the access and ID tokens. See [Step-up authentication using ACR values](/docs/guides/step-up-authentication/main/). <!--OKTA-544153-->
+Users want seamless access to certain resources, but organizations want to increase the users' level of assurance before they access anything sensitive. It's difficult to strike a balance between implementing stronger security controls and offering a frictionless experience for your users to easily interact with an application. Okta now supports the `acr_values` parameter, which refers to Authentication Context Class Reference. Each value defines a specific set of assurance level requirements that the protected resource requires from the authentication event associated with the access and ID tokens. See [Step-up authentication using ACR values](/docs/guides/step-up-authentication/main/). <!--OKTA-544153-->
 
 #### Authenticator enrollment using the /authorize endpoint is EA in Preview
 
@@ -183,7 +183,7 @@ When redirecting applications, you can use the [loading page variant property](/
 
 #### API service integrations is Self-Service EA in Preview
 
-A service-to-service app where a backend service or a daemon calls Okta management APIs for a tenant (Okta org) can be published in the Okta Integration Network (OIN) as an API service integration. This integration type allows your service app to access your customer Okta org through Okta management APIs using the OAuth 2.0 Client Credentials flow. API service integrations provide secure, reliable, and least-privilege scoped access to Okta APIs without being associated with a user, so service isn’t disrupted when the user is no longer involved with service integration activities. See [API service integrations in the OIN](/docs/guides/oin-api-service-overview/). OIN Manager has been updated to support testing and submitting API service integrations. After your service integration is published in the OIN, workforce customers can discover and configure your integration with ease. See [Build an API service integration](/docs/guides/build-api-integration/). <!--OKTA-532102-->
+A service-to-service app where a backend service or a daemon calls Okta management APIs for a tenant (Okta org) can be published in the Okta Integration Network (OIN) as an API service integration. This integration type allows your service app to access your customer Okta org through Okta management APIs using the OAuth 2.0 Client Credentials flow. API service integrations provide secure, reliable, and least-privilege scoped access to Okta APIs without being associated with a user, so service isn't disrupted when the user is no longer involved with service integration activities. See [API service integrations in the OIN](/docs/guides/oin-api-service-overview/). OIN Manager has been updated to support testing and submitting API service integrations. After your service integration is published in the OIN, workforce customers can discover and configure your integration with ease. See [Build an API service integration](/docs/guides/build-api-integration/). <!--OKTA-532102-->
 
 #### New rate limits dashboard filter
 
@@ -195,7 +195,7 @@ ThreatInsight has increased coverage for enabled orgs. More malicious requests a
 
 #### Developer documentation updates in 2022.11.0
 
-* We’ve got a [new API reference in the works](https://developer.okta.com/docs/api/). With a fresh look and feel, our new API content will be easier to navigate and features a wider variety of code examples. Content is continuously being added &mdash; please try it out and help us improve the site by providing feedback.
+* We've got a [new API reference in the works](https://developer.okta.com/docs/api/). With a fresh look and feel, our new API content will be easier to navigate and features a wider variety of code examples. Content is continuously being added &mdash; please try it out and help us improve the site by providing feedback.
 
 * A new set of guides to support the creation of a password-optional or passwordless sign-in experience for your apps is now online. [Find them all here](/docs/guides/pwd-optional-overview/aspnet/main/).
 
@@ -211,7 +211,7 @@ ThreatInsight has increased coverage for enabled orgs. More malicious requests a
 
 * A long text string was displayed outside of the General Settings page in OIN Manager. (OKTA-532898)
 
-* The **Enter your Post Logout Redirect URI** field for OIDC settings in OIN Manager didn’t accept all valid URLs.
+* The **Enter your Post Logout Redirect URI** field for OIDC settings in OIN Manager didn't accept all valid URLs.
 
 ## October
 
@@ -322,7 +322,7 @@ Okta provides a default authorization server so that customers can quickly get s
 
 #### OAuth 2.0 authentication for inline hooks is Self-Service EA in Preview
 
-Okta inline hook calls to third-party external web services previously provided only header-based authentication for security. Although sent with SSL, the header or custom header authentication didn’t meet more stringent security requirements for various clients and industries.
+Okta inline hook calls to third-party external web services previously provided only header-based authentication for security. Although sent with SSL, the header or custom header authentication didn't meet more stringent security requirements for various clients and industries.
 
 To improve the security of inline hooks, Okta now supports authentication with OAuth 2.0 access tokens. Tokens ensure secure calls to external web services.
 
@@ -352,7 +352,7 @@ Using the OAuth 2.0 framework provides better security than Basic Authentication
 
 * A user was able to verify more than 10 phone numbers with the verify my phone (`/idp/myaccount/phones/${id}/verify`) endpoint in the MyAccount API. (OKTA-531097)
 
-* An error message didn’t appear when a deleted app instance was assigned to a role. (OKTA-531308)
+* An error message didn't appear when a deleted app instance was assigned to a role. (OKTA-531308)
 
 * When a `session.amr` expression was used for SAML attribute statements, the attribute statement wasn't correctly populated. (OKTA-532316)
 
@@ -370,7 +370,7 @@ Using the OAuth 2.0 framework provides better security than Basic Authentication
 
 * Existing provisioning settings for an app were reset to `None` when an app was updated using `PUT /apps/${applicationId}`. (OKTA-520647)
 
-* Read-only admins weren’t able to see the signing keys that were used for SAML applications. (OKTA-522887)
+* Read-only admins weren't able to see the signing keys that were used for SAML applications. (OKTA-522887)
 
 * When an access token was used to create an email template customization, the POST request failed. (OKTA-526881)
 
@@ -398,9 +398,9 @@ Using the OAuth 2.0 framework provides better security than Basic Authentication
 
 #### Bugs fixed in 2022.09.1
 
-* The Subscription Role API didn’t support the API Access Management role. (OKTA-431895)
+* The Subscription Role API didn't support the API Access Management role. (OKTA-431895)
 * The origin header validation on the `/token` endpoint for cross-origin requests was case-sensitive, which returned an error for redirect URIs using uppercase. (OKTA-516740)
-* The Interaction Code flow didn’t pass the `nonce` parameter from the authorization request into the ID token. (OKTA-521597)
+* The Interaction Code flow didn't pass the `nonce` parameter from the authorization request into the ID token. (OKTA-521597)
 
 ### Monthly release 2022.09.0
 
@@ -435,7 +435,7 @@ Using signed SAML requests ensures that incoming requests are from genuine appli
 
 #### Step-up authentication using ACR values is EA in Preview
 
-Users want seamless access to certain resources, but organizations want to increase the users' level of assurance before they access anything sensitive. It’s difficult to strike a balance between implementing stronger security controls and offering a frictionless experience for your users to easily interact with an application. Okta now supports the `acr_values` parameter, which refers to Authentication Context Class Reference. Each value defines a specific set of assurance level requirements that the protected resource requires from the authentication event associated with the access and ID tokens. See [Step-up authentication using ACR values](/docs/guides/step-up-authentication/main/).<!--OKTA-525790-->
+Users want seamless access to certain resources, but organizations want to increase the users' level of assurance before they access anything sensitive. It's difficult to strike a balance between implementing stronger security controls and offering a frictionless experience for your users to easily interact with an application. Okta now supports the `acr_values` parameter, which refers to Authentication Context Class Reference. Each value defines a specific set of assurance level requirements that the protected resource requires from the authentication event associated with the access and ID tokens. See [Step-up authentication using ACR values](/docs/guides/step-up-authentication/main/).<!--OKTA-525790-->
 
 #### API for suppressing email notifications is in General Availability
 
@@ -459,7 +459,7 @@ Creating an authentication policy from scratch is a manual, error-prone task bec
 
 #### Improvements to the self-service password reset experience are GA in Preview
 
-Previously, the self-service password reset (SSPR) flow created unnecessary friction in the user experience. The newly enhanced SSPR feature introduces a seamless magic link experience for password reset emails. Users no longer need to provide consent when using the same browser. After a successful password reset where the password meets the application’s assurance policy, the user is signed directly to the app. See [Configure the Email authenticator](https://help.okta.com/okta_help.htm?type=oie&id=csh-configure-email).<!--OKTA-499514-->
+Previously, the self-service password reset (SSPR) flow created unnecessary friction in the user experience. The newly enhanced SSPR feature introduces a seamless magic link experience for password reset emails. Users no longer need to provide consent when using the same browser. After a successful password reset where the password meets the application's assurance policy, the user is signed directly to the app. See [Configure the Email authenticator](https://help.okta.com/okta_help.htm?type=oie&id=csh-configure-email).<!--OKTA-499514-->
 
 #### Password restriction for shared SWA app accounts is GA in Production
 
@@ -557,7 +557,7 @@ You can now require Proof Key for Code Exchange (PKCE) as an additional verifica
 
 #### Configurable API token rate limits is GA in Production
 
-Admins can now configure a percentage rate limit capacity for individual API tokens. Previously, when a token rate limit violation occurred, it wasn’t clear which token consumed the limit. Setting a maximum capacity for each token solves this problem and gives admins a new tool to investigate rate limit violations and plan for future deployments. See [API token management](https://help.okta.com/okta_help.htm?id=csh-api). <!-- OKTA-517890 -->
+Admins can now configure a percentage rate limit capacity for individual API tokens. Previously, when a token rate limit violation occurred, it wasn't clear which token consumed the limit. Setting a maximum capacity for each token solves this problem and gives admins a new tool to investigate rate limit violations and plan for future deployments. See [API token management](https://help.okta.com/okta_help.htm?id=csh-api). <!-- OKTA-517890 -->
 
 #### Rate Limits dashboard includes API Token data
 
@@ -581,7 +581,7 @@ You can now edit the secondary factor in the default rule of the global session 
 
 #### Improved error messages for MyAccount API
 
-The [MyAccount API](/docs/reference/api/myaccount/) includes improved error messages for end users to identify why email and phone operations couldn’t be completed or accessed. <!-- OKTA-484080 -->
+The [MyAccount API](https://developer.okta.com/docs/api/openapi/okta-myaccount/guides/overview/) includes improved error messages for end users to identify why email and phone operations couldn't be completed or accessed. <!-- OKTA-484080 -->
 
 #### Developer documentation updates in 2022.08.0
 
@@ -617,7 +617,7 @@ You can configure the dynamic issuer mode for an Identity Provider using the Ide
 #### Bugs fixed in 2022.07.1
 
 - When the `/api/v1/users/${userId}/roles` or
-`/api/v1/groups/${groupId}/roles` endpoints were called to assign a custom role and resource set to a user or group, and those assignments already existed, the calls didn’t receive an HTTP 409 Conflict error. (OKTA-507683)
+`/api/v1/groups/${groupId}/roles` endpoints were called to assign a custom role and resource set to a user or group, and those assignments already existed, the calls didn't receive an HTTP 409 Conflict error. (OKTA-507683)
 - Sometimes Identity Engine users couldn't sign in using the Classic Engine `/authn` API. (OKTA-500649)
 
 ### Monthly release 2022.07.0
@@ -639,7 +639,7 @@ You can configure the dynamic issuer mode for an Identity Provider using the Ide
 
 #### Configurable API token rate limits is GA in Preview
 
-Admins can now configure a percentage rate limit capacity for individual API tokens. Previously, when a token rate limit violation occurred, it wasn’t clear which token consumed the limit. Setting a maximum capacity for each token solves this problem and gives admins a new tool to investigate rate limit violations and plan for future deployments. See [API token management](https://help.okta.com/okta_help.htm?type=oie&id=csh-api). <!-- OKTA-506379 -->
+Admins can now configure a percentage rate limit capacity for individual API tokens. Previously, when a token rate limit violation occurred, it wasn't clear which token consumed the limit. Setting a maximum capacity for each token solves this problem and gives admins a new tool to investigate rate limit violations and plan for future deployments. See [API token management](https://help.okta.com/okta_help.htm?type=oie&id=csh-api). <!-- OKTA-506379 -->
 
 #### Improvements to the self-service password reset experience
 
@@ -647,7 +647,7 @@ Previously, the self-service password reset (SSPR) flow created unnecessary fric
 
 #### Improvements to the self-service registration experience
 
-Earlier versions of the self-service registration (SSR) flow used a complicated array of templates to send activation emails to end users. The simplified SSR flow reduces this to only two email templates with customized welcome messages. If your application requires immediate verification of the end user’s email address, Okta uses the Registration - Activation template. This template includes a magic link for a smoother sign-in experience.  If email verification isn't immediately required to sign in to the application, use the Registration - Email Verification template. This template includes a link for end users to complete email verification at any time after they successfully sign in to the application. See [Customize email notifications](/docs/guides/custom-email/main/) and the [Okta email (magic link/OTP) integration guide](/docs/guides/authenticators-okta-email/aspnet/main/#understand-the-magic-link-flow). <!-- OKTA-497102 and OKTA-488966 -->
+Earlier versions of the self-service registration (SSR) flow used a complicated array of templates to send activation emails to end users. The simplified SSR flow reduces this to only two email templates with customized welcome messages. If your application requires immediate verification of the end user's email address, Okta uses the Registration - Activation template. This template includes a magic link for a smoother sign-in experience.  If email verification isn't immediately required to sign in to the application, use the Registration - Email Verification template. This template includes a link for end users to complete email verification at any time after they successfully sign in to the application. See [Customize email notifications](/docs/guides/custom-email/main/) and the [Okta email (magic link/OTP) integration guide](/docs/guides/authenticators-okta-email/aspnet/main/#understand-the-magic-link-flow). <!-- OKTA-497102 and OKTA-488966 -->
 
 #### Loading Page Animation feature for the Brands API is EA in Preview
 
@@ -675,7 +675,7 @@ You can now choose which origins can embed Okta sign-in pages and the Okta End-U
 
 #### User-scoped MyAccount API is GA in Production
 
-The MyAccount API now provides user-scoped endpoints that don’t require admin tokens. The new endpoint is `/idp/myaccount`. End users only need a bearer token to update their email and phone authenticators. Additionally, app developers can call the MyAccount API for active users outside of the authentication context. For example, after a user enrolls in the mandatory email factor and completes authentication, app developers can call the API to enroll the active user with the optional phone authenticator. See [MyAccount API](/docs/reference/api/myaccount/). <!-- OKTA-508478 -->
+The MyAccount API now provides user-scoped endpoints that don't require admin tokens. The new endpoint is `/idp/myaccount`. End users only need a bearer token to update their email and phone authenticators. Additionally, app developers can call the MyAccount API for active users outside of the authentication context. For example, after a user enrolls in the mandatory email factor and completes authentication, app developers can call the API to enroll the active user with the optional phone authenticator. See [MyAccount API](https://developer.okta.com/docs/api/openapi/okta-myaccount/guides/overview/). <!-- OKTA-508478 -->
 
 #### Developer documentation updates in 2022.07.0
 
@@ -741,9 +741,9 @@ The mandatory `profileAttributes` parameter wasn't validated and the primary `em
 
 * The Max Okta session lifetime setting for global session policy was ignored. (OKTA-480442)
 
-* When token inline hooks were used in embedded flows, the hook request URL didn’t contain the complete path. When token inline hooks were used in redirect flows, the hook request didn't always contain the user object. (OKTA-499597)
+* When token inline hooks were used in embedded flows, the hook request URL didn't contain the complete path. When token inline hooks were used in redirect flows, the hook request didn't always contain the user object. (OKTA-499597)
 
-* End user input values weren’t properly escaped in some fields of the self-service registration form. (OKTA-398717)
+* End user input values weren't properly escaped in some fields of the self-service registration form. (OKTA-398717)
 
 * Characters in the OAuth 2.0 consent logo URI (`logo_uri`) weren't encoded to prevent interference with HTTP Content Security Policy (CSP) directives. (OKTA-505553)
 
@@ -781,7 +781,7 @@ Okta admins can now control the bounced email address list through the [Email Ad
 
 #### Generic OIDC IdP nonce validation enforced
 
-For generic OIDC IdPs, Okta fails the authentication if the returned ID token doesn’t contain the `nonce` that was sent with the initial authorize request. <!-- OKTA-486805 -->
+For generic OIDC IdPs, Okta fails the authentication if the returned ID token doesn't contain the `nonce` that was sent with the initial authorize request. <!-- OKTA-486805 -->
 
 #### Group limit removed for Authorization Code grant type flows
 
@@ -821,7 +821,7 @@ While Okta provides out-of-the-box telephony functionality, many customers need 
 
 #### User-scoped MyAccount API is GA in Preview
 
-The MyAccount API now provides user-scoped endpoints that don’t require admin tokens. The new endpoint is `/idp/myaccount`. End users only need a bearer token to update their email and phone authenticators. In addition, app developers can call the MyAccount API for active users outside of the authentication context. For example, after a user enrolls in the mandatory email factor and completes authentication, app developers can call the API to enroll the active user with the optional phone authenticator. See [MyAccount API](/docs/reference/api/myaccount/). <!-- OKTA-496877 -->
+The MyAccount API now provides user-scoped endpoints that don't require admin tokens. The new endpoint is `/idp/myaccount`. End users only need a bearer token to update their email and phone authenticators. In addition, app developers can call the MyAccount API for active users outside of the authentication context. For example, after a user enrolls in the mandatory email factor and completes authentication, app developers can call the API to enroll the active user with the optional phone authenticator. See [MyAccount API](https://developer.okta.com/docs/api/openapi/okta-myaccount/guides/overview/). <!-- OKTA-496877 -->
 
 #### Bugs fixed in 2022.06.0
 
@@ -862,7 +862,7 @@ The MyAccount API now provides user-scoped endpoints that don’t require admin 
 
 #### User-scoped MyAccount API is EA in Preview
 
-The MyAccount API now provides user-scoped endpoints that don’t require admin tokens. The new endpoint is `/idp/myaccount`. End users only need a bearer token to update their email and phone authenticators. In addition, app developers can call the MyAccount API for active users outside of the authentication context. For example, after a user enrolls in the mandatory email factor and completes authentication, app developers can call the API to enroll the active user with the optional phone authenticator. See [MyAccount API](/docs/reference/api/myaccount/).
+The MyAccount API now provides user-scoped endpoints that don't require admin tokens. The new endpoint is `/idp/myaccount`. End users only need a bearer token to update their email and phone authenticators. In addition, app developers can call the MyAccount API for active users outside of the authentication context. For example, after a user enrolls in the mandatory email factor and completes authentication, app developers can call the API to enroll the active user with the optional phone authenticator. See [MyAccount API](https://developer.okta.com/docs/api/openapi/okta-myaccount/guides/overview/).
 
 #### Progressive Enrollment is EA in Preview
 
@@ -923,7 +923,7 @@ Super admins can now assign these new permissions to their custom admin roles:
 * Manage customizations
 * View customizations
 
-The authorization server permissions can be scoped to a subset of the org’s authorization servers. With these new permissions, super admins can now create custom admin roles with more granular permissions for managing their org’s customizations and authorization servers. See [ORN Resource Sets in the Role assignment](/docs/concepts/role-assignment/#okta-resource-name-orn) concept and the [Resource Set object in the Administrator Roles API](/docs/reference/api/roles/#resource-set-object). <!--  OKTA-487349 -->
+The authorization server permissions can be scoped to a subset of the org's authorization servers. With these new permissions, super admins can now create custom admin roles with more granular permissions for managing their org's customizations and authorization servers. See [ORN Resource Sets in the Role assignment](/docs/concepts/role-assignment/#okta-resource-name-orn) concept and the [Resource Set object in the Administrator Roles API](/docs/reference/api/roles/#resource-set-object). <!--  OKTA-487349 -->
 
 #### Password as an optional authenticator is GA in Preview
 
@@ -959,9 +959,9 @@ Passwords are weak authenticators and prone to security issues. Currently all us
 
 * An HTTP 500 internal server error sometimes occurred after saving an app instance. (OKTA-483001)
 
-* Active Directory email activation templates that were translated for the Japanese, Korean, and Chinese languages didn’t render correctly. (OKTA-469764)
+* Active Directory email activation templates that were translated for the Japanese, Korean, and Chinese languages didn't render correctly. (OKTA-469764)
 
-* An OIDC app couldn’t be updated for an IdP-initiated login with Okta flow when the **Initiate login URI** field in the Admin Console was empty. (OKTA-447112)
+* An OIDC app couldn't be updated for an IdP-initiated login with Okta flow when the **Initiate login URI** field in the Admin Console was empty. (OKTA-447112)
 
 ### Monthly release 2022.04.0
 
@@ -1049,7 +1049,7 @@ The `auth_time` [claim](/docs/reference/api/oidc/#reserved-claims-in-the-header-
 
 * An error was returned when a valid [update request](/docs/reference/api/authorization-servers/#update-a-scope) was made for the `device_sso` or `online_access` system scopes. (OKTA-417477)
 
-* Sending an [error object](/docs/reference/registration-hook/#error) in the response message of an Inline Registration Hook resulted in an error message that included domain details and didn’t target attributes. (OKTA-473152)
+* Sending an [error object](/docs/reference/registration-hook/#error) in the response message of an Inline Registration Hook resulted in an error message that included domain details and didn't target attributes. (OKTA-473152)
 
 ### Weekly release 2022.03.1
 
@@ -1132,7 +1132,7 @@ To view an example of this new event detail, [create a user by API](/docs/guides
 
 #### Bug fixed in 2022.02.1
 
-The [OAuth token endpoint](/docs/reference/api/oidc/#response-example-error-2) didn’t reject requests that included a `code_verifier` parameter if the [authorization call](/docs/reference/api/oidc/#authorize) was issued without the PKCE `code_challenge` parameter. (OKTA-461970)
+The [OAuth token endpoint](/docs/reference/api/oidc/#response-example-error-2) didn't reject requests that included a `code_verifier` parameter if the [authorization call](/docs/reference/api/oidc/#authorize) was issued without the PKCE `code_challenge` parameter. (OKTA-461970)
 
 ### Monthly release 2022.02.0
 
@@ -1190,7 +1190,7 @@ The masking algorithm now reveals fewer digits in API responses for shorter prof
 
 * When the [Create a new Binding](/docs/reference/api/roles/#create-a-new-binding) or the [Add more Members to a Binding](/docs/reference/api/roles/#add-more-members-to-a-binding) operation was performed on the `/iam/resource-sets` endpoint, and included all users or all groups in the request, the request didn't fail as expected. (OKTA-459994)
 
-* When the [Get all policies](/docs/reference/api/policy/#get-all-policies-by-type) operation was performed on the `/policies` endpoint, unused Radius policies were returned. (OKTA-460965)
+* When the [Get all policies](/docs/reference/api/policy/#list-all-policies-by-type) operation was performed on the `/policies` endpoint, unused Radius policies were returned. (OKTA-460965)
 
 ### Weekly release 2022.01.1
 
@@ -1227,7 +1227,7 @@ With Dynamic Issuer Mode, the issuer value in minted tokens is dynamically updat
 
 #### Custom domains with Okta-managed certificates is GA in Production
 
-When you customize an Okta URL domain, your Okta-hosted pages are branded with your own URL. [Okta-managed certificates](/docs/guides/custom-url-domain/main/#configure-a-custom-domain-through-okta-managed-certificates) automatically renew through a Let’s Encrypt integration, a free certificate authority. Okta-managed certificate renewals lower customer developer maintenance costs and reduce the high risk of a site outage when certificates expire. <!--OKTA-437290-->
+When you customize an Okta URL domain, your Okta-hosted pages are branded with your own URL. [Okta-managed certificates](/docs/guides/custom-url-domain/main/#configure-a-custom-domain-through-okta-managed-certificates) automatically renew through a Let's Encrypt integration, a free certificate authority. Okta-managed certificate renewals lower customer developer maintenance costs and reduce the high risk of a site outage when certificates expire. <!--OKTA-437290-->
 
 #### New permissions for custom admin roles
 

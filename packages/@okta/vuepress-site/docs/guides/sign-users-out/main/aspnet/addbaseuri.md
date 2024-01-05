@@ -17,6 +17,7 @@ public class Startup
     }
 }
 ```
+
 Finally, add the desired logic for the post sign-out callback.
 Open the controller where you handle the sign-out process and add a `PostSignOut` method:
 

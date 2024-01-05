@@ -37,9 +37,15 @@ Okta bases email notifications on templates that Okta generates automatically. T
 
 ### Multibrand customizations and emails
 
-When an end user triggers an email, Okta bases its branding on the custom domain from which the end user initiated the flow.
+If you want to use the Admin Console to send a branded email, consider the following:
 
-For example, you have a custom domain with branding for the "Widgets, Inc." app. An end user attempts to reset a password from the sign-in page. The sign-in triggers a Forgot Password email. The email has the branding associated with the custom domain for "Widgets, Inc.".
+- If your org has two or more custom brands, domains, and email addresses:
+	- You can't send branded emails from the Admin Console. Okta uses the request host in the URL to determine which brand and email address to use. The Admin Console only works with the Okta subdomain.
+	- Use an Okta API to trigger the email. To send a User Activation email, send a request to the [Activate a User](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/activateUser) endpoint. Remember to change the domain of your request to the custom domain that's associated with the brand. For example, change `subdomain.okta.com` to `custom.domain.one`.
+- If your org has one custom brand, domain, and email address:
+	- Okta doesn't use your custom email address. The Okta subdomain appears in the *From* line.
+	- Your theming appears in the content of the email (logo, palette, images). With a single custom brand or domain, the Admin Console assumes that you want to send themed content.
+- If your org doesn't have a custom brand, domain, and email address, you can only trigger Okta-branded emails from the Admin Console.
 
 See [Brands](/docs/concepts/brands/).
 
@@ -123,7 +129,7 @@ The following table provides a list of all available email templates in an Okta 
 | Active Directory Password Unlock | Unlock Account | `ADSelfServiceUnlock` | Either `${unlockAccountLink}` or `${recoveryToken}` (Identity Engine)</br></br>`${unlockAccountLink}` (Classic Engine) |  Sent to Active Directory users who must follow the provided link to unlock their password |
 | Self-Service Unlock Account | Unlock Account | `SelfServiceUnlock` | Either `${unlockAccountLink}` or `${recoveryToken}` (Identity Engine)</br></br>`${unlockAccountLink}` (Classic Engine) |  Sent to users who must follow the provided link to complete the self-service unlock account process |
 | LDAP Self-Service Unlock Account | Unlock Account | `LDAPSelfServiceUnlock` | Either `${unlockAccountLink}` or `${recoveryToken}` (Identity Engine)</br></br>`${unlockAccountLink}` (Classic Engine) |  Sent to LDAP users who must follow the provided link to complete the self-service unlock account process |
-| Change Email confirmation | Confirm email address change | `ChangeEmailConfirmation` | `${verificationToken}` |  Sent to users who must follow the provided link to confirm their email address change request |
+| Change Email confirmation | Confirm email address change | `ChangeEmailConfirmation` | `${verificationToken}` |  Sent to users who must follow the provided link to confirm their email change request |
 | Email Change Notification | Notice of pending email address change | `PendingEmailChange` | |  Sent to a user's old email address when they request to change their email address |
 | Email Change Confirmed Notification | Notice of email address change | `EmailChangeConfirmation` | |  Sent when the request to change a user's email address is confirmed |
 | Email Challenge | One-time Email Authentication Link | `EmailChallenge` | Either `${emailAuthenticationLink}` or `${verificationToken}` |  Sent to users with email as an authentication factor and must follow the provided link to complete their authentication into Okta |
@@ -135,7 +141,7 @@ The following table provides a list of all available email templates in an Okta 
 | Campaign Ended | Access certification campaign: (`campaignName`) | `IGAReviewerEndNotification` | | Sent to reviewers if they have pending reviews after a campaign ends. |
 | Campaign Reminder | Access certification campaign: (`campaignName`) | `IGAReviewerPendingNotification` | | Sent to reviewers to remind them of pending reviews. |
 | Reassigned Review | Access certification campaign: (`campaignName`) | `IGAReviewerReassigned` | | Sent to reviewers when an admin or a different reviewer assigns new reviews. |
-| Idp MyAccount Email Change Confirmation | Confirm email address change | `MyAccountChangeConfirmation` |  | Sent to users who try to verify an email address using MyAccount APIs. The users must enter the provided code to confirm the change. |
+| IdP MyAccount Email Change Confirmation | Confirm email address change | `MyAccountChangeConfirmation` |  | Sent to users who try to verify an email address using MyAccount APIs. The user must enter the provided code to confirm the change. |
 
 ### Use Branding variables
 
@@ -156,7 +162,7 @@ The following table provides a list of all allowed HTML tags and elements in cus
 | HTML tags/elements | Allowed attributes |
 |-------------------|--------------------|
 | All tags | <ul><li>`id`: Can be alphanumeric and contain `:`, `-`, `_`, or `.`</li><li>`class`: Can be alphanumeric and contain `<space>`, `,`, `-`, or `_`</li><li>`lang`: Can be uppercase or lowercase, and two to 20 characters long</li><li>`title`: Can contain any letter from any language, any numeric character in any script, and `<space>`, `-`, `_`, `'`, `,`, `:`, `[`, `]`, `!`, `.`, `/`, `\`, `(`, `)`, or `&`</li></ul> |
-| `<style>` | `-moz-border-radius`, `-moz-border-radius-bottomleft`, `-moz-border-radius-bottomright`, `-moz-border-radius-topleft`, `-moz-border-radius-topright`, `-moz-box-shadow`, `-moz-outline`, `-moz-outline-color`, `-moz-outline-style`, `-moz-outline-width`, `-o-text-overflow`, `-webkit-border-bottom-left-radius`, `-webkit-border-bottom-right-radius`, `-webkit-border-radius`, `-webkit-border-radius-bottom-left`, `-webkit-border-radius-bottom-right`, `-webkit-border-radius-top-left`, `-webkit-border-radius-top-right`, `-webkit-border-top-left-radius`, `-webkit-border-top-right-radius`, `-webkit-box-shadow`, `azimuth`, `background`, `background-attachment`, `background-color`, `background-image`, `background-position`, `background-repeat`, `border`, `border-bottom`, `border-bottom-color`, `border-bottom-left-radius`, `border-bottom-right-radius`, `border-bottom-style`, `border-bottom-width`, `border-collapse`, `border-color`, `border-left`, `border-left-color`, `border-left-style`, `border-left-width`, `border-radius`, `border-right`, `border-right-color`, `border-right-style`, `border-right-width`, `border-spacing`, `border-style`, `border-top`, `border-top-color`, `border-top-left-radius`, `border-top-right-radius`, `border-top-style`, `border-top-width`, `border-width`, `box-shadow`, `caption-side`, `color`, `cue`, `cue-after`, `cue-before`, `direction`, `elevation`, `empty-cells`, `font`, `font-family`, `font-size`, `font-stretch`, `font-style`, `font-variant`, `font-weight`, `height`, `image()`, `letter-spacing`, `line-height`, `linear-gradient()`, `list-style`, `list-style-image`, `list-style-position`, `list-style-type`, `margin`, `margin-bottom`, `margin-left`, `margin-right`, `margin-top`, `max-height`, `max-width`, `min-height`, `min-width`, `outline`, `outline-color`, `outline-style`, `outline-width`, `padding`, `padding-bottom`, `padding-left`, `padding-right`, `padding-top`,`pause`, `pause-after`, `pause-before`, `pitch`, `pitch-range`, `quotes`, `radial-gradient()`, `rect()`, `repeating-linear-gradient()`, `repeating-radial-gradient()`, `rgb()`, `rgba()`, `richness`, `speak`, `speak-header`, `speak-numeral`, `speak-punctuation`, `speech-rate`, `stress`, `table-layout`, `text-align`, `text-decoration`, `text-indent`, `text-overflow`, `text-shadow`, `text-transform`, `text-wrap`, `unicode-bidi`, `vertical-align`, `voice-family`, `volume`, `white-space`, `width`, `word-spacing`, `word-wrap`,`display`, `float`, `position`, `right`, `left`,`top`, `bottom`, `clear`, `content`, `cursor`, `z-index`, `overflow`, `visibility`, `zoom`, `overflow-x`, `overflow-y`, `page-break-inside`, `page-break-before`, `page-break-after`, `opacity`, `-moz-opacity` |
+| `<style>` | `-moz-border-radius`, `-moz-border-radius-bottomleft`, `-moz-border-radius-bottomright`, `-moz-border-radius-topleft`, `-moz-border-radius-topright`, `-moz-box-shadow`, `-moz-outline`, `-moz-outline-color`, `-moz-outline-style`, `-moz-outline-width`, `-o-text-overflow`, `-webkit-border-bottom-left-radius`, `-webkit-border-bottom-right-radius`, `-webkit-border-radius`, `-webkit-border-radius-bottom-left`, `-webkit-border-radius-bottom-right`, `-webkit-border-radius-top-left`, `-webkit-border-radius-top-right`, `-webkit-border-top-left-radius`, `-webkit-border-top-right-radius`, `-webkit-box-shadow`, `azimuth`, `background`, `background-attachment`, `background-color`, `background-position`, `background-repeat`, `border`, `border-bottom`, `border-bottom-color`, `border-bottom-left-radius`, `border-bottom-right-radius`, `border-bottom-style`, `border-bottom-width`, `border-collapse`, `border-color`, `border-left`, `border-left-color`, `border-left-style`, `border-left-width`, `border-radius`, `border-right`, `border-right-color`, `border-right-style`, `border-right-width`, `border-spacing`, `border-style`, `border-top`, `border-top-color`, `border-top-left-radius`, `border-top-right-radius`, `border-top-style`, `border-top-width`, `border-width`, `box-shadow`, `caption-side`, `color`, `cue`, `cue-after`, `cue-before`, `direction`, `elevation`, `empty-cells`, `font`, `font-family`, `font-size`, `font-stretch`, `font-style`, `font-variant`, `font-weight`, `height`, `image()`, `letter-spacing`, `line-height`, `linear-gradient()`, `list-style`, `list-style-image`, `list-style-position`, `list-style-type`, `margin`, `margin-bottom`, `margin-left`, `margin-right`, `margin-top`, `max-height`, `max-width`, `min-height`, `min-width`, `outline`, `outline-color`, `outline-style`, `outline-width`, `padding`, `padding-bottom`, `padding-left`, `padding-right`, `padding-top`,`pause`, `pause-after`, `pause-before`, `pitch`, `pitch-range`, `quotes`, `radial-gradient()`, `rect()`, `repeating-linear-gradient()`, `repeating-radial-gradient()`, `rgb()`, `rgba()`, `richness`, `speak`, `speak-header`, `speak-numeral`, `speak-punctuation`, `speech-rate`, `stress`, `table-layout`, `text-align`, `text-decoration`, `text-indent`, `text-overflow`, `text-shadow`, `text-transform`, `text-wrap`, `unicode-bidi`, `vertical-align`, `voice-family`, `volume`, `white-space`, `width`, `word-spacing`, `word-wrap`,`display`, `float`, `position`, `right`, `left`,`top`, `bottom`, `clear`, `content`, `cursor`, `z-index`, `overflow`, `visibility`, `zoom`, `overflow-x`, `overflow-y`, `page-break-inside`, `page-break-before`, `page-break-after`, `opacity`, `-moz-opacity` |
 | `p` | `align`: Can be any of `middle`, `center`, `left`, `right`, `justify` or `char` |
 | `label` | `for`: Can be alphanumeric and contain `:`, `-`, `_`, or `.` |
 | `font` | <ul><li>`color`: Can be from the color list or a color code.<ul><li>Color list: `aqua`, `black`, `blue`, `fuchsia`, `gray`, `grey`, `green`, `lime`, `maroon`, `navy`, `olive`, `purple`, `red`, `silver`, `teal`, `white`, or `yellow`</li><li>Color code: Can be HTML/CSS spec three- or six-digit hex</li></ul></li><li>`face`: Can be alphanumeric and contain `;`, `,`, or `-`</li><li>`size`: Can be a number</li></ul> |
@@ -216,7 +222,7 @@ In your email templates, you can use any conditional logic that VTL supports, su
 
 ### Customization example
 
-The following example uses the `${app.name}` variable, which is only available in Okta Identity Engine.
+The following example uses the `${app.name}` variable, which is only available in Identity Engine.
 
 ```html
 #if(${app.name} == "Toys R' Fun")
@@ -234,7 +240,7 @@ The following example uses the `${app.name}` variable, which is only available i
 
 You can reference any Okta User Profile attribute in your email templates.
 
-> **Note:** Some attributes are only available in Okta Identity Engine (see Identity Engine notes in the following table). You can use any other variable in both the Identity Engine and the Classic Engine.
+> **Note:** Some attributes are only available in Identity Engine (see Identity Engine notes in the following table). You can use any other variable in both the Identity Engine and the Classic Engine.
 
 | Variable       | Template availability         |
 |---------------------------------------------------------------|------------------------------------------------------------------------|
@@ -324,7 +330,7 @@ Variables used for function parameters must match the function data type. For ex
 | escapeHtml(String html)                                       | Escapes the characters in the provided string using HTML entities                                                             |
 | escapeHtmlAttr(String html)                                   | Encodes data for use in HTML attributes                                                                           |
 
-## Test custom email templates
+## Test your custom email templates
 
 You can send yourself a test email to see how a custom email template looks and functions. A test email can help you validate attribute-based variables and translations in the customized template. You can see how the template renders in different email environments and avoid creating end-to-end workflows to test customizations. The primary email address of the admin that initiates the test receives the email.
 
@@ -333,12 +339,12 @@ You can send yourself a test email to see how a custom email template looks and 
 
 ## Known Issues
 
-- Users with free.fr email addresses may not receive emails delivered by Okta. This is due to free.fr enforcing non-industry standard email processing. The Okta Org API allows you to [retry blocked](/docs/reference/api/org/#email-address-bounces-operations) emails, but the free.fr inbox provider continues to block retries. There’s no known workaround beyond asking the user to retrigger the email with a different email address.
+- Users with free.fr email addresses may not receive emails delivered by Okta. This is due to free.fr enforcing non-standard email processing. The Okta Org API allows you to [retry blocked](/docs/reference/api/org/#email-address-bounces-operations) emails, but the free.fr inbox provider continues to block retries. There’s no known workaround beyond asking the user to retrigger the email with a different email address.
 
 ## See also
 
 Read more on customizing and styling various Okta assets to match your company's visual identity and branding:
 
-- [Customize domain and email address](/docs/guides/custom-url-domain/main/)
+- [Customize a domain and email address](/docs/guides/custom-url-domain/main/)
 - [Customize SMS messages](/docs/guides/custom-sms-messaging/main/)
 - [Style the Okta sign-in page](/docs/guides/custom-widget/main/)

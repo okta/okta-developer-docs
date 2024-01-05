@@ -23,6 +23,9 @@ class MainPage extends BasePage {
       'footer ul.link-list a[href="https://www.okta.com/pricing/#workforce-identity-pricing"]'
     );
   }
+  getFeedbackWidget() {
+    return cy.get('#feedback-tab');
+  }
   getSearchBarInput() {
     return cy.get("header .search--slideout").find("input");
   }

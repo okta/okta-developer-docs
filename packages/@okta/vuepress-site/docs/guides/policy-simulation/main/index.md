@@ -4,8 +4,6 @@ excerpt: Provides documentation on testing your policies using the Policy APIs s
 layout: Guides
 ---
 
-<ApiLifecycle access="ea" />
-
 This guide explains how to test your access policies by using the `/simulate` endpoint of the Policy API.
 
 ---
@@ -19,7 +17,6 @@ This guide explains how to test your access policies by using the `/simulate` en
 
 * [Okta Preview organization](https://developer.okta.com/login)
 * An app to test your access policies
-* The Early Access self-service Access Test Tool feature enabled on your org. See [Early Access](/docs/reference/releases-at-okta/#early-access-ea).
 
 **Sample code**
 
@@ -29,7 +26,7 @@ If you need a simple application for testing, see [Sign users in to your SPA usi
 
 ## About Policy Simulation
 
-You can use the Policy API to simulate real-world user requests to access an application. In the Admin Console, these simulations are run using the Access Testing Tool available from **Reports** > **Access testing tool**. See [Access Testing Tool](https://help.okta.com/en/programs/aps/Content/Topics/betas/closed/access-policy-simulation/test-an-access-scenario.htm). <!--Update this link to alias when ready --> The API endpoint that underpins this tool is also available for developers to simulate policy configurations and to test application access. For full details on the API endpoint, see the [Policy API reference](/docs/reference/api/policy/#access-simulation).
+You can use the Policy API to simulate real-world user requests to access an application. In the Admin Console, these simulations are run using the Access Testing Tool available from **Reports** > **Access testing tool**. See [Access Testing Tool](https://help.okta.com/okta_help.htm?type=oie&id=ext-access-test-tool). The API endpoint that underpins this tool is also available for developers to simulate policy configurations and to test application access. For full details on the API endpoint, see the [Policy API reference](/docs/reference/api/policy/#access-simulation).
 
 The policy simulations run access tests based on existing policy configurations and which rules and settings are matched to create the authentication and enrollment requirements. Results of the tests determine individual or group access to an app. You can simulate matches for the following types of policies and rules:
 
@@ -251,7 +248,7 @@ curl -v -X POST \
 
 ### Review evaluation response for Sales
 
-After the call, you receive the following error response, because the Everyone group isn’t assigned to your app:
+After the call, you receive the following error response, because the Everyone group isn't assigned to your app:
 
 ```json
 {

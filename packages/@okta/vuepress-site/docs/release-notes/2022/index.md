@@ -650,7 +650,7 @@ The `/factors` endpoint has a new optional request parameter for the [Reset Fact
 
 #### Bugs fixed in 2022.05.3
 
-* If the new `/idp` version of the [MyAccount API](/docs/reference/api/myaccount/) wasn't enabled, [Add My Phone](/docs/reference/api/myaccount/#add-my-phone) or [Challenge My Phone](/docs/reference/api/myaccount/#challenge-my-phone) operations performed on the `/idp/myaccount/` endpoint returned inconsistent exception errors. (OKTA-494004)
+* If the new `/idp` version of the [MyAccount API](https://developer.okta.com/docs/api/openapi/okta-myaccount/myaccount/tag/Profile/) wasn't enabled, [Add My Phone](https://developer.okta.com/docs/api/openapi/okta-myaccount/myaccount/tag/Phone/#tag/Phone/operation/createPhone) or [Challenge My Phone](https://developer.okta.com/docs/api/openapi/okta-myaccount/myaccount/tag/Phone/#tag/Phone/operation/sendPhoneChallenge) operations performed on the `/idp/myaccount/` endpoint returned inconsistent exception errors. (OKTA-494004)
 
 * Post calls to the Org API endpoint that creates an email bounces remove list (`/org/email/bounces/remove-list`) sometimes returned an HTTP 500 Internal Server Error. (OKTA-497859)
 
@@ -1005,7 +1005,7 @@ The masking algorithm now reveals fewer digits in API responses for shorter prof
 
 #### Error response updated for malicious IP address sign-in requests is GA in Production
 
-If you block suspicious traffic and [ThreatInsight](/docs/reference/api/threat-insight/) detects that the sign-in request comes from a malicious IP address, Okta automatically denies the user access to the organization. The user receives an error in response to the request. From the user's perspective, the blocked request can't be identified due to ThreatInsight having identified the IP address as malicious. <!--OKTA-454335-->
+If you block suspicious traffic and [ThreatInsight](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ThreatInsight/) detects that the sign-in request comes from a malicious IP address, Okta automatically denies the user access to the organization. The user receives an error in response to the request. From the user's perspective, the blocked request can't be identified due to ThreatInsight having identified the IP address as malicious. <!--OKTA-454335-->
 
 #### Dynamic Issuer Mode is GA in Production
 

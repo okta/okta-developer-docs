@@ -228,7 +228,7 @@ Editing the [link](/docs/reference/api/users/#links-object) between users now re
 #### Bugs Fixed in 2018.41
 
 * Queries to the `/logs` [endpoint](/docs/reference/api/system-log/#list-events) with values for `since` and `until` that did not specify the time to milliseconds would sometimes return events outside of the specified time range. (OKTA-191533)
-* Responses from the `/events` [endpoint](/docs/reference/api/events/#list-events) would sometimes omit milliseconds from the `published` field. (OKTA-192568)
+* Responses from the `/events` endpoint would sometimes omit milliseconds from the `published` field. (OKTA-192568)
 
 #### Previously Released Early Access Features 2018.41 Update
 
@@ -253,7 +253,7 @@ The following features have already been released as Early Access. To enable the
 
 #### Bugs Fixed in 2018.40
 
-* Responses from the `/zones` [endpoint](/docs/reference/api/zones/#zones-api) included a duplicate of the `type` field. (OKTA-188605)
+* Responses from the `/zones` [endpoint](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/NetworkZone/) included a duplicate of the `type` field. (OKTA-188605)
 * The `/idps/credentials/keys` [endpoint](/docs/reference/api/idps/#add-x509-certificate-public-key) was requiring requests to include extra parameters. (OKTA-189780)
 
 #### Previously Released Early Access Features 2018.40 Update
@@ -525,7 +525,7 @@ The following features have already been released as Early Access. To enable the
 
 #### Bugs Fixed in 2018.29
 
-* Using the [Zones API](/docs/reference/api/zones/) to modify an existing zone that is blocked, removed the zone from the blocklist and converted it to a normal IP Zone. (OKTA-176610)
+* Using the [Zones API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/NetworkZone/) to modify an existing zone that is blocked, removed the zone from the blocklist and converted it to a normal IP Zone. (OKTA-176610)
 * Using the [Applications API](/docs/reference/api/apps/) to create an OAuth client caused an error if the `credentials.oauthClient` property was not provided, even though it is not required. (OKTA-179275)
 * The System Log CSV report did not contain a value for `AuthenticationContext.issuer` for the event type `user.authentication.authenticate`. (OKTA-147165)
 
@@ -591,7 +591,7 @@ The [System Log API](/docs/reference/api/system-log/) is now Generally Available
 #### Bugs Fixed in 2018.27
 
 * Users who clicked an Activation Link for an [Okta Verify factor](/docs/reference/api/factors/#activate-push-factor) that had already been activated would get back an HTTP 500 error. (OKTA-146511)
-* Attempting to add more than the maximum number of zones via the [Zones API](/docs/reference/api/zones/) would result in an HTTP 500 error. (OKTA-175991)
+* Attempting to add more than the maximum number of zones via the [Zones API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/NetworkZone/) would result in an HTTP 500 error. (OKTA-175991)
 
 #### Previously Released Early Access Features 2018.27 Update
 
@@ -1094,8 +1094,8 @@ Often the terms "event" and "log event" are used interchangeably. In the context
 
 Notes:
 
-* The System Log API contains much more [structured data](/docs/reference/api/system-log/#logevent-object) than [the Events API](/docs/reference/api/events/#event-model).
-* The System Log API supports [additional SCIM filters](/docs/reference/api/system-log/#request-parameters) and the `q` query parameter, because of the presence of more structured data than [the Events API](/docs/reference/api/events/#event-model). <!-- OKTA-160902 OKTA-160880 -->
+* The System Log API contains much more [structured data](/docs/reference/api/system-log/#logevent-object) than the Events API.
+* The System Log API supports [additional SCIM filters](/docs/reference/api/system-log/#request-parameters) and the `q` query parameter, because of the presence of more structured data than the Events API. <!-- OKTA-160902 OKTA-160880 -->
 
 #### Password Imports with Salted SHA-256 Algorithm is in Early Access (EA)
 
@@ -1155,7 +1155,7 @@ To configure an authorization or authentication flow to include a user consent p
 
 #### Sessions API Supports HTTP Header Prefer
 
-Okta now supports [the HTTP Header `Prefer`](https://tools.ietf.org/html/rfc7240#section-4.2) in [the Sessions API for refreshing sessions](/docs/reference/api/sessions/#refresh-current-session). You can extend the session lifetime, but skip any processing work related to building the response body.
+Okta now supports [the HTTP Header `Prefer`](https://tools.ietf.org/html/rfc7240#section-4.2) in [the Sessions API for refreshing sessions](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Session/#tag/Session/operation/refreshSession). You can extend the session lifetime, but skip any processing work related to building the response body.
 
 #### Example Request
 

@@ -19,11 +19,7 @@ export const concepts = [
             title: "Event hooks",
             path: "/docs/concepts/event-hooks/",
          },
-         {
-            title: "Events API migration",
-            path: "/docs/concepts/events-api-migration/",
-         },
-         {
+        {
             title: "External Identity Providers",
             path: "/docs/concepts/identity-providers/",
          },
@@ -396,7 +392,12 @@ export const guides = [
               },
             ],
           },
+          {
+            title: "Configure AMR claims mapping",
+            guideName: "configure-amr-claims-mapping"
+          },
           { title: "Sign users out", guideName: "oie-embedded-sdk-use-case-basic-sign-out" },
+          { title: "Single Logout", guideName: "single-logout" },
           {
             title: "Basics",
             subLinks: [
@@ -491,30 +492,34 @@ export const guides = [
             guideName: "implement-grant-type",
           },
           {
-            title: "Create an authorization server",
-            guideName: "customize-authz-server",
+            title: "Configure Device Authz grant flow",
+            guideName: "device-authorization-grant",
           },
           {
-            title: "Transactional verification using CIBA",
-            guideName: "configure-ciba",
+            title: "Configure Direct Auth grant types",
+            guideName: "configure-direct-auth-grants",
           },
           {
             title: "Configure SSO for native apps",
             guideName: "configure-native-sso",
           },
           {
-            title: "Set up On-Behalf-Of Token Exchange",
-            guideName: "set-up-token-exchange",
+            title: "Create an authorization server",
+            guideName: "customize-authz-server",
           },
           { title: "Request user consent",
-            guideName: "request-user-consent" },
-          {
-            title: "Configure Device Authz grant flow",
-            guideName: "device-authorization-grant",
-          },
+          guideName: "request-user-consent" },
           {
             title: "Rotate secrets and manage keys",
             guideName: "client-secret-rotation-key",
+          },
+          {
+            title: "Set up On-Behalf-Of Token Exchange",
+            guideName: "set-up-token-exchange",
+          },
+          {
+            title: "Transactional verification using CIBA",
+            guideName: "configure-ciba",
           },
           {
             title: "Tokens",
@@ -564,6 +569,10 @@ export const guides = [
           {
             title: "Sign-in page",
             guideName: "custom-widget",
+          },
+          {
+            title: "Sign-In Widget (third generation)",
+            guideName: "custom-widget-gen3",
           },
           {
             title: "Error pages",
@@ -628,30 +637,26 @@ export const guides = [
             ],
           },
           {
-            title: "Primer for OIN OIDC",
-            path: "/docs/guides/oin-oidc-overview/main/",
-            subLinks: [
-              {
-                title: "Protocol requirements",
-                path: "/docs/guides/oin-oidc-protocols/main/",
-              },
-              {
-                title: "Multi-tenancy",
-                path: "/docs/guides/oin-oidc-multi-tenancy/main/",
-              },
-              {
-                title: "Best practices",
-                path: "/docs/guides/oin-oidc-best-practices/main/",
-              },
-            ],
-          },
-          {
-            title: "OIN submission requirements",
-            guideName: "submit-app-prereq",
+            title: "Support Universal Logout in your app",
+            path: "/docs/guides/oin-universal-logout-overview/",
           },
           {
             title: "Publish an OIN integration",
-            guideName: "submit-app",
+            path: "/docs/guides/submit-app-overview/",
+            subLinks: [
+              {
+                title: "OIN submission requirements",
+                guideName: "submit-app-prereq",
+              },
+              {
+                title: "Submit an SSO integration",
+                guideName: "submit-sso-app",
+              },
+              {
+                title: "Submit an LCM integration",
+                guideName: "submit-app",
+              },
+            ]
           },
         ],
       },
@@ -698,6 +703,17 @@ export const guides = [
         ],
       },
       {
+        title: "Manage orgs",
+        hidden: true,
+        subLinks: [
+          {
+            title: "Manage orgs with Okta Aerial",
+            guideName: "manage-orgs-okta-aerial",
+            hidden: true
+          }
+        ],
+      },
+      {
         title: "Deploy to Production",
         subLinks: [
           {
@@ -721,6 +737,44 @@ export const guides = [
                 path: "/docs/guides/migrate-to-okta-password-hooks/main/",
               },
             ],
+          },
+        ],
+      },
+      {
+        title: "Automate org management with Terraform",
+        guideName: "terraform-landing-page",
+        subLinks: [
+          {
+            title: "Terraform overview",
+            guideName: "terraform-overview",
+          },
+          {
+            title: "Enable Terraform access",
+            guideName: "terraform-enable-org-access",
+          },
+          {
+            title: "Manage user access",
+            guideName: "terraform-manage-user-access",
+          },
+          {
+            title: "Manage groups",
+            guideName: "terraform-manage-groups",
+          },
+          {
+            title: "Manage authentication services",
+            guideName: "terraform-manage-external-authenticators",
+          },
+          {
+            title: "Customize end-user experience",
+            guideName: "terraform-manage-end-user-experience",
+          },
+          {
+            title: "Control Terraform access",
+            guideName: "terraform-design-access-security",
+          },
+          {
+            title: "Optimize Terraform access",
+          guideName: "terraform-design-rate-limits"
           },
         ],
       },
@@ -935,14 +989,21 @@ export const reference = [
                { title: "WebFinger", path: "/docs/reference/api/webfinger/" },
                { title: "Manage Okta Objects", path: "empty" },
                { title: "Administrator Roles", path: "/docs/reference/api/roles/" },
+               { title: "Agent Pools", path: "/docs/reference/api/agent-pools/" },
+               { title: "API Service Integrations", path: "/docs/reference/api/api-service-integrations/" },
+               { title: "API Tokens", path: "/docs/reference/api/api-tokens/" },
                { title: "Apps", path: "/docs/reference/api/apps/" },
+               { title: "Attack Protection", path: "/docs/reference/api/attack-protection/" },
                { title: "Authenticators Admin", path: "/docs/reference/api/authenticators-admin/" },
                { title: "Authorization Servers", path: "/docs/reference/api/authorization-servers/" },
+               { title: "Behavior Rules", path: "/docs/reference/api/behavior-rules/" },
                { title: "Brands", path: "/docs/reference/api/brands/" },
                { title: "CAPTCHAs", path: "/docs/reference/api/captchas/" },
+               { title: "Device Assurance Policies", path: "/docs/reference/api/device-assurance-policies/" },
                { title: "Devices", path: "/docs/reference/api/devices/" },
                { title: "Domains", path: "/docs/reference/api/domains/" },
                { title: "Dynamic Client Registration", path: "/docs/reference/api/oauth-clients/" },
+               { title: "Email Domains", path: "/docs/reference/api/email-domains/" },
                { title: "Event Types", path: "/docs/reference/api/event-types/" },
                { title: "Factors", path: "/docs/reference/api/factors/" },
                { title: "Features", path: "/docs/reference/api/features/" },
@@ -955,11 +1016,14 @@ export const reference = [
                { title: "MyAccount", path: "/docs/reference/api/myaccount/" },
                { title: "Org", path: "/docs/reference/api/org/" },
                { title: "Policy", path: "/docs/reference/api/policy/" },
+               { title: "Principal Rate Limits", path: "/docs/reference/api/principal-rate-limits/" },
                { title: "Push Providers", path: "/docs/reference/api/push-providers/" },
+               { title: "Rate Limit Settings", path: "/docs/reference/api/rate-limit-settings/" },
                { title: "Risk Events", path: "/docs/reference/api/risk-events/" },
                { title: "Risk Providers", path: "/docs/reference/api/risk-providers/" },
                { title: "Schemas", path: "/docs/reference/api/schemas/" },
                { title: "Sessions", path: "/docs/reference/api/sessions/" },
+               { title: "SMS Templates", path: "/docs/reference/api/sms-templates/" },
                { title: "Subscriptions", path: "/docs/reference/api/admin-notifications/" },
                { title: "System Log", path: "/docs/reference/api/system-log/" },
                { title: "Templates", path: "/docs/reference/api/templates/" },
@@ -977,6 +1041,10 @@ export const reference = [
                {
                   title: "Introduction",
                   path: "/docs/reference/api/asa/introduction/",
+               },
+               {
+                title: "ASA AD Connections API",
+                path: "/docs/reference/api/asa/ad-connections/",
                },
                {
                   title: "ASA Attributes API",
@@ -997,9 +1065,13 @@ export const reference = [
                   path: "/docs/reference/api/asa/projects/",
                },
                {
-                  title: "ASA Service Users API",
-                  path: "/docs/reference/api/asa/service-users/",
+                  title: "ASA Services API",
+                  path: "/docs/reference/api/asa/services/",
                },
+               {
+                title: "ASA Service Users API",
+                path: "/docs/reference/api/asa/service-users/",
+             },
                { title: "ASA Teams API", path: "/docs/reference/api/asa/teams/" },
                { title: "ASA Users API", path: "/docs/reference/api/asa/users/" },
             ],
@@ -1077,78 +1149,6 @@ export const reference = [
          {
             title: 'Architecture Center',
             path: '/docs/reference/architecture-center/',
-            subLinks: [
-               {
-                  title: 'Case studies',
-                  subLinks: [
-                     {
-                        title: "CompanyX",
-                        path: "/docs/reference/architecture-center/companyx/",
-                     },
-                  ],
-               },
-               {
-                  title: 'Reference Architectures',
-                  subLinks: [
-                     {
-                        title: "Directory coexistence",
-                        path: "/docs/reference/architecture-center/directory-coexistence/",
-                        subLinks: [
-                           {
-                              title: "Lab overview and prerequisites",
-                              path: "/docs/reference/architecture-center/directory-coexistence/lab/",
-                           },
-                           {
-                              title: "Migrate users from Azure AD",
-                              path: "/docs/reference/architecture-center/directory-coexistence/lab-azure-ad/",
-                           },
-                           {
-                              title: "Migrate users from an LDAP server",
-                              path: "/docs/reference/architecture-center/directory-coexistence/lab-ldap-server/",
-                           },
-                           {
-                              title: "Migrate users from a generic database",
-                              path: "/docs/reference/architecture-center/directory-coexistence/lab-generic-database/",
-                           },
-                        ],
-                     },
-                     {
-                        title: "Manage multiple Okta environments",
-                        path: "/docs/reference/architecture-center/multiple-environments/",
-                        subLinks: [
-                           {
-                              title: "Lab overview and prerequisites",
-                              path: "/docs/reference/architecture-center/multiple-environments/lab/",
-                           },
-                           {
-                              title: "Configure Terraform Cloud",
-                              path: "/docs/reference/architecture-center/multiple-environments/lab-1-configure-terraform-cloud/",
-                           },
-                           {
-                              title: "Create resources",
-                              path: "/docs/reference/architecture-center/multiple-environments/lab-2-create-resources/",
-                           },
-                           {
-                              title: "Rename a group",
-                              path: "/docs/reference/architecture-center/multiple-environments/lab-3-rename-a-group/",
-                           },
-                           {
-                              title: "Deploy changes to production",
-                              path: "/docs/reference/architecture-center/multiple-environments/lab-4-deploy-changes-to-production/",
-                           },
-                           {
-                              title: "Detect drift",
-                              path: "/docs/reference/architecture-center/multiple-environments/lab-5-detect-drift/",
-                           },
-                           {
-                              title: "Synchronize environments daily",
-                              path: "/docs/reference/architecture-center/multiple-environments/lab-6-synchronize-environments-daily/",
-                           },
-                        ],
-                     },
-                  ],
-               },
-            ],
          },
       ],
    },

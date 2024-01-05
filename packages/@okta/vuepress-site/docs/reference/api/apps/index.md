@@ -7,6 +7,8 @@ category: management
 
 The Okta Application API provides operations to manage applications and/or assignments to users or groups for your organization.
 
+<ApiAuthMethodWarning />
+
 ## Get started
 
 Explore the Apps API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/febec0ced153d9cd3db1)
@@ -227,6 +229,9 @@ curl -v -X POST \
 #### Add Okta Org2Org application
 
 Adds a new Okta Org2Org application to your organization
+
+> **Note:** You can't send this request to Okta Developer-Edition orgs because the Org2Org app integration isn't available in developer orgs. If you need to test this feature in your Developer-Edition org, contact your Okta account team.
+
 
 ##### Settings
 
@@ -995,9 +1000,10 @@ Adds a SAML 2.0 application. This application is only available to the org that 
 | responseSigned        | Determines whether the SAML authentication response message is digitally signed by the IDP or not                 | Boolean                                              | FALSE    | FALSE  |                                           |
 | signatureAlgorithm    | Determines the signing algorithm used to digitally sign the SAML assertion and response                           | String                                               | FALSE    | FALSE  |                                           |
 | slo                   | Determines if the application supports Single Logout                                                              | [Single Logout](#single-logout-object)               | TRUE     | FALSE  |
+| participateSlo <ApiLifecycle access="ie" /> <ApiLifecycle access="ea" />     | Determines if the application participates in Single Logout                                                              | [Participate Single Logout](#participate-single-logout-object)               | TRUE     | FALSE  |
 | ssoAcsUrl             | Single Sign-On URL                                                                                                | String                                               | FALSE    | FALSE  | [URL](http://tools.ietf.org/html/rfc3986) |
 | ssoAcsUrlOverride     | Overrides the `ssoAcsUrl` setting                                                                                 | String                                               | TRUE     | FALSE  | [URL](http://tools.ietf.org/html/rfc3986) |
-| spCertificate         | The certificate that Okta uses to validate Single Logout (SLO) requests                                           | [SP Certificate](#service-provider-certificate)      | TRUE     | FALSE  |
+| spCertificate         | The certificate that Okta uses to validate Single Logout (SLO) requests and responses                                           | [SP Certificate](#service-provider-certificate)      | TRUE     | FALSE  |
 | subjectNameIdFormat   | Identifies the SAML processing rules                                                                             | String                                               | FALSE    | FALSE  |                                           |
 | subjectNameIdTemplate | Template for app user's username when a user is assigned to the app                                              | String                                               | FALSE    | FALSE  |                                           |
 
@@ -1011,7 +1017,8 @@ Adds a SAML 2.0 application. This application is only available to the org that 
     * In App Wizard SAML App, no override attributes are available.
 
 * If Single Logout is supported by the application and the `slo` object is provided in the request, the `spCertificate` object must be present.
-* When you update an application, if you don't specify `slo` or `spCertificate` the existing configuration persists.
+* If Participate Single Logout is supported by the application and the `participateSlo` object is provided in the request, you must include the `spCertificate` object.
+* When you update an application, if you don't specify `participateSlo`, `slo`, or `spCertificate`, the existing configuration persists.
 * When you associate the application with `inlineHooks`, you should [create SAML inline hooks](/docs/concepts/inline-hooks/#inline-hook-setup) first, and then pass the created inline hook ID.
 
 ##### Supported values for custom SAML app
@@ -1094,6 +1101,12 @@ curl -v -X POST \
         "enabled": true,
         "issuer": "https://testorgone.okta.com",
         "logoutUrl": "https://testorgone.okta.com/logout"
+      },
+      "participateSlo": {
+        "enabled": true,
+        "logoutRequestUrl": "https://testorgone.okta.com/logout/participate",
+        "sessionIndexRequired": true,
+        "bindingType": "REDIRECT"
       },
       "spCertificate": {
         "x5c": [
@@ -1198,6 +1211,12 @@ curl -v -X POST \
         "enabled": true,
         "spIssuer": "https://testorgone.okta.com",
         "logoutUrl": "https://testorgone.okta.com/logout"
+      },
+      "participateSlo": {
+        "enabled": true,
+        "logoutRequestUrl": "https://testorgone.okta.com/logout/participate",
+        "sessionIndexRequired": true,
+        "bindingType": "REDIRECT"
       },
       "spCertificate": {
         "x5c": [
@@ -1356,6 +1375,9 @@ Adds an OAuth 2.0 client application. This application is only available to the 
 | backchannel_authentication_request_signing_alg <ApiLifecycle access="ie" /> | The signing algorithm for Client-Initiated Backchannel Authentication signed requests. If this value isn't set and a signed request is sent, the request fails.                                                                     | String                                                                                        | TRUE       | FALSE    | TRUE      |
 | backchannel_custom_authenticator_id <ApiLifecycle access="ie" />             | The ID of the custom authenticator that authenticates the user.                                                                                                                                                        | String                                                                                        | TRUE       | FALSE    | TRUE      |
 | dpop_bound_access_tokens  <ApiLifecycle access="ea" />                                                    | Indicates that the client application uses Demonstrating Proof-of-Possession (DPoP) for token requests. If omitted, the default value is `false`. If `true`, the authorization server rejects token requests from this client that don't contain the DPoP header.  | Boolean  | TRUE       | FALSE    | TRUE      |
+| participate_slo <ApiLifecycle access="ie" /> <ApiLifecycle access="ea" />   | Determines if the application participates in Single Logout                      | Boolean  | TRUE       | FALSE    | TRUE      |
+| frontchannel_logout_uri <ApiLifecycle access="ie" /> <ApiLifecycle access="ea" />   | URL where Okta sends the logout request                            | URL  | TRUE       | FALSE    | TRUE      |
+| frontchannel_logout_session_required <ApiLifecycle access="ie" /> <ApiLifecycle access="ea" />   | Determines whether Okta sends `sid` and `iss` in the logout request    | Boolean  | TRUE       | FALSE    | TRUE      |
 
 ###### Details
 
@@ -1375,6 +1397,8 @@ You can change the `issuer_mode` value using the API or the Admin Console. To en
   > **Caution:** The use of wildcard subdomains is discouraged as an insecure practice, since it may allow malicious actors to have tokens or authorization codes sent to unexpected or attacker-controlled pages. Exercise great caution if you decide to include a wildcard redirect URI in your configuration.
 
 * When you create an app using the App Wizard in the UI, and you specify an app logo for the **Application logo** property, that value is stored as the `logo_uri` value and used as the logo on the application's tile for the dashboard as well as the client consent dialog box during the client consent flow. If you add or modify a `logo_uri` value later, that value is used only on the client consent dialog box during the client consent flow.
+
+* You can only enable `participate_slo` for application types `web` and `browser`.
 
 * Different application types have different valid values for the corresponding grant type:
 
@@ -1462,7 +1486,8 @@ curl -v -X POST \
           "implicit",
           "authorization_code"
         ],
-        "application_type": "native"
+        "application_type": "native",
+        "participate_slo": false
       }
     }
 }' "https://${yourOktaDomain}/api/v1/apps"
@@ -1558,6 +1583,12 @@ curl -v -X GET \
         "enabled": true,
         "spIssuer": "http://testorgone.okta.com",
         "logoutUrl": "http://testorgone.okta.com/logout"
+      },
+      "participateSlo": {
+        "enabled": true,
+        "logoutRequestUrl": "https://testorgone.okta.com/logout/participate",
+        "sessionIndexRequired": true,
+        "bindingType": "REDIRECT"
       },
       "spCertificate": {
         "x5c": [
@@ -1756,6 +1787,12 @@ curl -v -X GET \
           "enabled": true,
           "spIssuer": "https://testorgone.okta.com",
           "logoutUrl": "https://testorgone.okta.com/logout"
+        },
+        "participateSlo": {
+          "enabled": true,
+          "logoutRequestUrl": "https://testorgone.okta.com/logout/participate",
+          "sessionIndexRequired": true,
+          "bindingType": "REDIRECT"
         },
         "spCertificate": {
           "x5c": [
@@ -1963,6 +2000,12 @@ curl -v -X GET \
           "enabled": true,
           "spIssuer": "https://testorgone.okta.com",
           "logoutUrl": "https://testorgone.okta.com/logout"
+        },
+        "participateSlo": {
+          "enabled": true,
+          "logoutRequestUrl": "https://testorgone.okta.com/logout/participate",
+          "sessionIndexRequired": true,
+          "bindingType": "REDIRECT"
         },
         "spCertificate": {
           "x5c": [
@@ -2285,6 +2328,12 @@ curl -v -X GET \
           "enabled": true,
           "spIssuer": "https://testorgone.okta.com",
           "logoutUrl": "https://testorgone.com/logout"
+        },
+        "participateSlo": {
+          "enabled": true,
+          "logoutRequestUrl": "https://testorgone.okta.com/logout/participate",
+          "sessionIndexRequired": true,
+          "bindingType": "REDIRECT"
         },
         "spCertificate": {
           "x5c": [
@@ -3385,7 +3434,8 @@ curl -v -X PUT \
             ],
             "application_type": "native",
             "consent_method": "TRUSTED",
-            "issuer_mode": "CUSTOM_URL"
+            "issuer_mode": "CUSTOM_URL",
+            "participate_slo": false
         }
     }
 }' "https://${yourOktaDomain}/api/v1/apps/${appId}"
@@ -3469,7 +3519,8 @@ curl -v -X PUT \
             "issuer_mode": "CUSTOM_URL",
             "idp_initiated_login": {
               "mode": "DISABLED"
-            }
+            },
+            "participate_slo": false
         }
     },
     "_links": {
@@ -3558,7 +3609,8 @@ curl -v -X PUT \
       "issuer_mode": "ORG_URL",
       "application_type": "native",
       "tos_uri": "",
-      "policy_uri": ""
+      "policy_uri": "",
+      "participate_slo": false
     }
   }
 }' "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS"
@@ -3643,7 +3695,8 @@ curl -v -X PUT \
       "idp_initiated_login": {
         "mode": "DISABLED",
         "default_scope": []
-      }
+      },
+      "participate_slo": false
     }
   },
   "profile": {
@@ -6208,6 +6261,9 @@ If the delete request is received for an active JSON Web Key, you receive an err
 }
 ```
 
+## Application OAuth 2.0 role assignment operations
+
+See [Role assignment operations](/docs/reference/api/roles/#role-assignment-operations).
 
 ## Application OAuth 2.0 scope consent grant operations
 
@@ -7244,7 +7300,8 @@ curl -v -X POST \
         "policy_uri":"https://example.com/client/policy",
         "idp_initiated_login": {
           "mode": "DISABLED"
-        }
+        },
+        "participate_slo": false
     }
   }
 }' "https://${yourOktaDomain}/api/v1/apps"
@@ -7330,7 +7387,8 @@ curl -v -X POST \
               "mode": "DISABLED"
             },
             "consent_method": "TRUSTED",
-            "issuer_mode": "CUSTOM_URL"
+            "issuer_mode": "CUSTOM_URL",
+            "participate_slo": false
         }
     },
     "_links": {
@@ -7393,6 +7451,7 @@ curl -X POST \
                 "authorization_code"
             ],
             "application_type": "native",
+            "participate_slo": false,
             "jwks": {
                 "keys": [
                     {
@@ -7487,6 +7546,7 @@ curl -X POST \
             "application_type": "native",
             "consent_method": "TRUSTED",
             "issuer_mode": "CUSTOM_URL",
+            "participate_slo": false,
 	    "idp_initiated_login": {
               "mode": "DISABLED"
             }
@@ -7552,6 +7612,7 @@ curl -X POST \
                 "authorization_code"
             ],
             "application_type": "native",
+            "participate_slo": false,
             "jwks_uri": "https://www.example-application.com/oauth2/jwks-uri"
         }
     }
@@ -7627,6 +7688,7 @@ curl -X POST \
             "application_type": "native",
             "consent_method": "TRUSTED",
             "issuer_mode": "CUSTOM_URL",
+            "participate_slo": false,
 	    "idp_initiated_login": {
               "mode": "DISABLED"
             }
@@ -8201,6 +8263,29 @@ Specifies the Single Logout (SLO) behavior for a Custom SAML application
 }
 ```
 
+### Participate Single Logout object
+
+Specifies the Participate Single Logout behavior for a Custom SAML application
+
+| Property  | Description                                                                  | Datatype | Nullable |
+| --------- | ---------------------------------------------------------------------------- | -------- | -------- |
+| enabled             | Indicates whether the application supports `participateSlo`                    | Boolean  | FALSE    |
+| logoutRequestUrl    | URL where Okta sends the logout request                            | URL      | TRUE     |
+| bindingType         | HTTP binding used to send a `<LogoutRequest>` message to the SP   | `POST` or `REDIRECT`   | TRUE     |
+| sessionIndexRequired | Determines whether Okta sends `<SessionIndex>` elements in the logout request  | Boolean   | TRUE     |
+
+
+```json
+{
+  "participateSlo": {
+    "enabled": true,
+    "logoutRequestUrl": "https://testorgone.okta.com/logout/participate",
+    "sessionIndexRequired": true,
+    "bindingType": "REDIRECT"
+  }
+}
+```
+
 ### Service Provider certificate
 
 The certificate that the Service Provider uses to sign Single Logout requests
@@ -8709,10 +8794,10 @@ The application provisioning connection profile is used to configure the method 
 
 #### Token-based Provisioning Connection Profile properties
 
-| Property         | Description                                                  | DataType                                                                    | Nullable | Unique | Readonly |
-| ---------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------- | -------- | ------ | -------- | --------- | --------- | ---------- |
-| authScheme              | Defines the method of authentication     | `TOKEN` | FALSE    | FALSE  | FALSE    |
-| token            | Token used to authenticate with application      | String | FALSE    | FALSE   | FALSE    |
+| Property | Description | DataType | Nullable | Unique | Readonly |
+| -------- | ----------- | -------- | -------- | ------ | -------- |
+| authScheme | Defines the method of authentication | `TOKEN` | FALSE    | FALSE  | FALSE    |
+| token | Token used to authenticate with application | String | FALSE    | FALSE   | FALSE    |
 
 #### OAuth 2.0-based Provisioning Connection Profile example
 ```json
@@ -8726,10 +8811,10 @@ The application provisioning connection profile is used to configure the method 
 
 #### OAuth 2.0-based Provisioning Connection Profile properties
 
-| Property     | Description                                                   | DataType            | Nullable | Unique | Readonly |
-| -------------| ------------------------------------------------------------- | ---------------     | -------- | ------ | -------- | --------- | --------- | ---------- |
-| authScheme   | Defines the method of authentication                          | `OAUTH2`            | FALSE    | FALSE  | FALSE    |
-| clientId     | Unique client identifier for the OAuth 2.0 service app from the target org  | String    | FALSE    | FALSE  | FALSE    |
+| Property | Description | DataType  | Nullable | Unique | Readonly |
+| ---------| ----------- | --------  | -------- | ------ | -------- |
+| authScheme   | Defines the method of authentication  | `OAUTH2` | FALSE    | FALSE  | FALSE    |
+| clientId     | Unique client identifier for the OAuth 2.0 service app from the target org  | String  | FALSE    | FALSE  | FALSE    |
 
 ### Application Feature object
 
@@ -8790,18 +8875,18 @@ The Feature object is used to configure settings of the application. For example
 
 The Capabilities object is used to configure settings specific to an app feature.
 
-| Property         | Description                                                  | DataType                                                                    | Nullable | Unique | Readonly |
-| ---------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------- | -------- | ------ | -------- | --------- | --------- | ---------- |
-| create            | Determines whether Okta assigns a new application account to each user managed by Okta | [Create Object](#create-object)  | TRUE    | FALSE   | FALSE    |
-| update            | Determines whether updates to a user's profile are pushed to the application | [Update Object](#update-object)  | TRUE    | FALSE   | FALSE    |
+| Property  | Description | DataType | Nullable | Unique | Readonly |
+| --------- | ----------- | -------- | -------- | ------ | -------- |
+| create | Determines whether Okta assigns a new application account to each user managed by Okta | [Create Object](#create-object)  | TRUE    | FALSE   | FALSE    |
+| update | Determines whether updates to a user's profile are pushed to the application | [Update Object](#update-object)  | TRUE    | FALSE   | FALSE    |
 
 ###### Create object
 
 The Create object is a single setting to specify whether Okta assigns a new application account to each user managed by Okta. Okta doesn't create a new account if it detects that the username specified in Okta already exists in the application. The user's Okta username is assigned by default.
 
-| Property         | Description                                                  | DataType                                                                    | Nullable | Unique | Readonly |
-| ---------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------- | -------- | ------ | -------- |
-| lifecycleCreate  | Setting that determines whether the updates to a user in Okta will be update a user in the application   | [Lifecycle Create Setting Object](##lifecycle-create-setting-object)      | TRUE    | FALSE   | FALSE    |           |
+| Property | Description  | DataType  | Nullable | Unique | Readonly |
+| -------- | ------------ | --------- | -------- | ------ | -------- |
+| lifecycleCreate  | Setting that determines whether the updates to a user in Okta will be update a user in the application   | [Lifecycle Create Setting Object](##lifecycle-create-setting-object)      | TRUE    | FALSE   | FALSE    |
 
 ```json
 {
@@ -8815,11 +8900,11 @@ The Create object is a single setting to specify whether Okta assigns a new appl
 
 There are multiple settings in the Create object that determine if an Okta user profile change, user deactivation, or a password change will update a user in the application.
 
-| Property         | Description                                                  | DataType                                                                    | Nullable | Unique | Readonly |
-| ---------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------- | -------- | ------ | -------- |
-| lifecycleDeactivate           | Setting that determines whether deprovisioning will occur when app is unassigned  | [Lifecycle Deactivate Setting Object](#lifecycle-deactivate-setting-object)   | TRUE    | FALSE   | FALSE    |
-| password           | Setting that determines whether Okta creates and pushes a password in the application for each assigned user | [Password Setting Object](#password-setting-object)    | TRUE    | FALSE   | FALSE    |
-| profile           | Setting that determines whether the updates to a user in Okta will be update a user in the application.     | [Profile Setting Object](#profile-setting-object)     | TRUE    | FALSE   | FALSE    |
+| Property | Description | DataType | Nullable | Unique | Readonly |
+| -------- | ----------- | -------- | -------- | ------ | -------- |
+| lifecycleDeactivate | Setting that determines whether deprovisioning will occur when app is unassigned  | [Lifecycle Deactivate Setting Object](#lifecycle-deactivate-setting-object) | TRUE    | FALSE   | FALSE    |
+| password | Setting that determines whether Okta creates and pushes a password in the application for each assigned user | [Password Setting Object](#password-setting-object)    | TRUE    | FALSE   | FALSE    |
+| profile | Setting that determines whether the updates to a user in Okta will be update a user in the application | [Profile Setting Object](#profile-setting-object)     | TRUE    | FALSE   | FALSE    |
 
 ```json
 {
@@ -8841,24 +8926,24 @@ There are multiple settings in the Create object that determine if an Okta user 
 
 Assigns a new application account to each user managed by Okta. Okta doesn't create a new account if it detects that the username specified in Okta already exists in the application. The user's Okta username is assigned by default.
 
-| Property         | Description                                                  | DataType                                                                    | Nullable | Unique | Readonly | Default |
-| ---------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------- | -------- | ------ | -------- | --------- |
-| status   | Status of the setting     | `ENABLED`, `DISABLED` | FALSE    | FALSE   | FALSE    | `DISABLED` |
+| Property | Description | DataType | Nullable | Unique | Readonly | Default |
+| -------- | ----------- | -------- | -------- | ------ | -------- | --------- |
+| status   | Status of the setting | `ENABLED`, `DISABLED` | FALSE    | FALSE   | FALSE    | `DISABLED` |
 
 ###### Lifecycle Deactivate Setting object
 
 Deactivates a user's application account when it is unassigned in Okta or if their Okta account is deactivated. Accounts can be reactivated if the app is reassigned to a user in Okta.
 
-| Property         | Description                                                  | DataType                                                                    | Nullable | Unique | Readonly | Default |
-| ---------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------- | -------- | ------ | -------- | --------- |
+| Property | Description | DataType | Nullable | Unique | Readonly | Default |
+| -------- | ----------- | -------- | -------- | ------ | -------- | ------- |
 | status   | Status of the setting     | `ENABLED`, `DISABLED` | FALSE    | FALSE   | FALSE    | `DISABLED` |
 
 ###### Password Setting object
 
 Ensures users' app passwords are always the same as their Okta passwords or allows Okta to generate a unique password for the user.
 
-| Property         | Description                                                  | DataType                                                                    | Nullable | Unique | Readonly | Default |
-| ---------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------- | -------- | ------ | -------- | --------- | --------- | ---------- |
+| Property | Description | DataType | Nullable | Unique | Readonly | Default |
+| -------- | ----------- | -------- | -------- | ------ | -------- | ------- |
 | change | Determines whether a change in a users password will also update the password in the application.   | `KEEP_EXISTING`, `CHANGE` | TRUE  | FALSE   | FALSE    | `KEEP_EXISTING` |
 | seed | Determines whether the generated password is the users Okta password or a randomly generated password.   | `OKTA`, `RANDOM`  | TRUE  | FALSE | FALSE  |  `RANDOM`  |
 | status | Status of the setting     | `ENABLED`, `DISABLED` | FALSE    | FALSE  | FALSE  |  `DISABLED` |
@@ -8877,9 +8962,9 @@ Ensures users' app passwords are always the same as their Okta passwords or allo
 
 Okta updates a user's attributes in the application when the application is assigned. Future changes made to the Okta user's profile automatically overwrite the corresponding attribute value in the application.
 
-| Property         | Description                                                  | DataType                                                                    | Nullable | Unique | Readonly | Default |
-| ---------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------- | -------- | ------ | -------- | --------- |
-| status   | Status of the setting     | `ENABLED`, `DISABLED` | FALSE    | FALSE   | FALSE    | `DISABLED`  |
+| Property | Description | DataType | Nullable | Unique | Readonly | Default |
+| -------- | ----------- | -------- | -------- | ------ | -------- | ------- |
+| status   | Status of the setting | `ENABLED`, `DISABLED` | FALSE    | FALSE   | FALSE    | `DISABLED`  |
 
 ### Client Secret Request object
 

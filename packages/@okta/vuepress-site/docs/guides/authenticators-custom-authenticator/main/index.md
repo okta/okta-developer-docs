@@ -105,23 +105,6 @@ Set up a global session policy and an authentication policy to integrate with th
 
 <StackSnippet snippet="sdksteps" />
 
-## Limitations
-
-### Custom authenticator error in Admin Console
-
-#### Description
-
-Use cases that meet the following conditions receive an error message in the Admin Console:
-
-* Call the `api/v1/apps` endpoint to create an OIDC app with a custom `client_id`.
-* Use the Admin Console to create a custom authenticator.
-
-#### Workaround
-
-Create both the OIDC client app (with a custom `client_id`) and the custom authenticator in the Admin Console.
-
-Alternatively, you can call the `api/v1/apps` endpoint to create the OIDC app and `custom client_id`, and call the `api/v1/authenticators` endpoint to create a custom authenticator.
-
 ## Troubleshoot
 
 If your push notifications aren't delivering:

@@ -46,52 +46,74 @@ Okta serves pages on your custom domain over HTTPS. To set up this feature, you 
 
 You can also [configure a custom email address](#about-custom-email-addresses) to present a branded experience to your end users.
 
+> **Note:** When you create a custom domain, the Okta domain (for example, `company.okta.com`) still works.
+
 ### Multibrand and custom domains
 
 You can create up to three custom domains with multibrand customizations and up to 200 custom domains by contacting support to increase your limit.
 
 You can only preview or visit a branded page (such as viewing brand assets applied to the Okta-hosted sign-in page) after you map to a custom domain. After you create a brand, map it to a custom domain. Then you can make further customizations, preview them, and publish them.
 
-#### Branding and the Sign-In Widget third generation
+#### Redirect URIs
 
-<ApiLifecycle access="ea" />
+Multibrand orgs use dynamic issuer mode for IdP. As a result, Okta uses the domain from the authorize request as the domain for the redirect URI when returning the authentication response. The Admin Console UI displays the org's Okta subdomain when the org has multiple custom domains configured.
 
-The third generation of the Okta Sign-In Widget doesn’t guarantee the stability of CSS selectors. Instead, customization in the third generation gets better support through branding. See [Customizations](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Customization/).
+URIs that you use in the following settings revert to the Okta subdomain:
+
+- [SAML apps](https://help.okta.com/okta_help.htm?id=ext-apps-about-saml)
+- [OIDC app integration settings&#8212;redirect URI](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-oidc)
+- [Authorization server settings](/docs/guides/customize-authz-server/main/)
+
+You can replace the base path with a custom domain and Okta uses the brand associated with the domain.
+
+#### Branding and the Sign-In Widget (third generation)
+
+The third generation of the Okta Sign-In Widget doesn’t guarantee the stability of CSS selectors. Instead, customization in the third generation gets better support through branding. See [Style the Sign-In Widget (third generation)](/docs/guides/custom-widget-gen3/).
 
 ### Caveats
 
 * You must provide a subdomain for customizing the Okta org domain. Okta doesn't support the use of a root domain name.
 
-* If you use an Okta-managed TLS certificate, you don't need a [Certificate Authority Authorization (CAA)](https://datatracker.ietf.org/doc/html/rfc6844) record. However, if you do have a CAA record, keep the following in mind:
+* If you use an Okta-managed TLS certificate, you don't need a [Certificate Authority Authorization (CAA)](https://datatracker.ietf.org/doc/html/rfc6844) record. However, if you do have a CAA record, consider the following:
 
-    * If it's your first time setting up a custom domain with an Okta-managed certificate, you need to add `letsencrypt.org` to the issuers list or Okta can't get the TLS certificate. See [Let's Encrypt - Using CAA](https://letsencrypt.org/docs/caa/).
+  * If it's your first time setting up a custom domain with an Okta-managed certificate, you need to add `letsencrypt.org` to the issuers list or Okta can't get the TLS certificate. See [Let's Encrypt - Using CAA](https://letsencrypt.org/docs/caa/).
 
-    * If you have an Okta-managed certificate and you later get a CAA record, Okta can't renew your certificate. You must either add `letsencrypt.org` to the issuers list or remove the CAA record.
+  * If you have an Okta-managed certificate and you later get a CAA record, Okta can't renew your certificate. You must either add `letsencrypt.org` to the issuers list or remove the CAA record.
+
+* If you use your own TLS certificate, consider the following:
+
+  * It should be signed with the SHA-256 hash algorithm.
+
+  * It must not be expired.
+
+  * Its start date must not be in the future.
+
+  * Its expiration date can't be further than 10 years from now.
+
+  * It mustn't be self-signed.
+
+  * It must be a certificate for the actual domain.
+
+  * The public key must use the RSA algorithm.
+
+  * The public key isn't from a certificate authority (CA).
 
 
 * Any DNS text (`TXT`) and `CNAME` record names and values included in your domain configuration must be resolvable and contain the values provided by Okta. You can validate these names and values with a DNS query tool, such as [dig](https://bind9.readthedocs.io/en/latest/manpages.html?highlight=#dig-dns-lookup-utility).
 
 * Okta currently only supports 2048-bit keys for the private key that you upload. However, your certificate chain can use keys of any size.
 
-* If your org has configured any SAML or WS-Fed integrated apps, review the setup instructions for [SAML SSO](/docs/guides/build-sso-integration/saml2/main/) or [WS-Fed SSO](https://help.okta.com/okta_help.htm?id=ext_Apps_Configuring_WS_Federation). If you want your customers to see the new custom domain rather than the Okta org domain, update those SAML or WS-Fed Service Provider integrations to use the new custom URL in the metadata.
+* If you configure any SAML or WS-Fed integrated apps in your org, review the setup instructions for [SAML SSO](/docs/guides/build-sso-integration/saml2/main/) or [WS-Fed SSO](https://help.okta.com/okta_help.htm?id=ext_Apps_Configuring_WS_Federation). If you want your customers to see the new custom domain rather than the Okta org domain, update those SAML or WS-Fed Service Provider integrations to use the new custom URL in the metadata.
 
 * If you sign a user in with your new custom domain and they try to SSO into previous OIDC integrations made with the org domain, your user is prompted to sign in again. To avoid this, you need to change the issuer in these integrations to your custom URL in both the Okta dashboard and your codebase.
 
-* When you implement a custom domain, users aren't automatically rerouted from the original URL to the new custom URL. You must communicate the new custom domain to your users. One way to communicate the change is to [create a custom notification](https://help.okta.com/okta_help.htm?id=ext_Dashboard_End_User_Notifications) that appears on each user's dashboard.
+* When you implement a custom domain, users aren't automatically rerouted from the original URL to the new custom URL. You must communicate the new custom domain to your users.
+
+* If you configure the [FIDO2 (WebAuthn) authenticator](https://help.okta.com/okta_help.htm?type=oie&id=csh-configure-webauthn) in your org and create a custom domain, your users first need to sign in with an authenticator that they're already enrolled in (for example, Okta Verify or email). Then, your users can re-enroll with WebAuthn. Communicate the new URL to your users so that Okta prompts them to re-enroll. Every domain that a user accesses requires re-enrollment because each set of their credentials is scoped to a separate domain.
 
 * When an admin signs in to the custom domain and then accesses the Admin Console from their user dashboard, the org domain changes from the custom domain to the Okta domain.
 
 * If you disable a custom domain, the `issuerMode` for Identity Providers, authorization servers, and OpenID Connect apps is set back to `ORG_URL`.
-
-### Common questions
-
-**Q: Can I add more than one domain?**
-
-No. You can only set up one custom domain per Okta org.
-
-**Q: Does the existing Okta domain work?**
-
-Yes. When you turn the custom domain on, the Okta domain (for example, `example.okta.com`) still works.
 
 ## Use an Okta-managed certificate
 

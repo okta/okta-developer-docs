@@ -22,15 +22,16 @@
     "test:wait-on-local": "wait-for-localhost 8080 --use-get",
     "markdown-lint": "node scripts/markdown-check",
     "stop-all": "if-env CI=true && exit 0 || pkill -f 'yarn' || echo 'done'",
-    "update-docs": "yarn update-event-types && yarn update-error-codes && yarn update-oauth2-error-codes",
+    "update-docs": "yarn update-event-types && yarn update-error-codes && yarn update-oauth2-error-codes && yarn event-types-to-csv",
     "update-event-types": "bash scripts/update-event-types.sh",
     "update-error-codes": "bash scripts/update-error-codes.sh",
     "update-oauth2-error-codes": "bash scripts/update-oauth2-error-codes.sh",
+    "event-types-to-csv": "bash scripts/event-types-to-csv.sh",
     "stylelint": "yarn stylelint:scss && yarn stylelint:vue",
     "stylelint:scss": "stylelint \"packages/@okta/vuepress-theme-prose/**/*.scss\"",
     "stylelint:vue": "stylelint \"packages/@okta/vuepress-theme-prose/**/*.vue\"",
     "eslint": "eslint \"packages/@okta/vuepress-theme-prose/**/*.vue\"",
-    "lint-all": "yarn eslint && yarn stylelint"
+    "lint-all": "yarn eslint --max-warnings=0 && yarn stylelint"
   },
   "repository": "git@github.com:okta/okta.github.io",
   "author": "Brian Retterer <brian.retterer@okta.com>",
@@ -42,6 +43,8 @@
     "chai-as-promised": "*",
     "chalk": "^4.1.2",
     "cypress": "^9.7.0",
+    "eslint": "^8.33.0",
+    "eslint-plugin-vue": "^9.9.0",
     "if-env": "^1.0.4",
     "jest": "^27.5.1",
     "mocha": "^9.2.2",
@@ -52,10 +55,6 @@
     "stylelint": "^14.16.1",
     "stylelint-order": "^5.0.0",
     "stylelint-scss": "^4.3.0",
-    "eslint": "^8.33.0",
-    "eslint-plugin-vue": "^9.9.0"
-  },
-  "dependencies": {
     "broken-link-checker": "^0.7.8",
     "serve-handler": "^6.1.5",
     "vuepress": "1.9.8",
@@ -70,11 +69,20 @@
     "vuepress/**/got": "11.8.5",
     "vuepress/**/ini": "^1.3.7",
     "vuepress/**/json-schema": "^0.4.0",
+    "json5": "2.2.2",
     "vuepress/**/node-forge": "^1.3.1",
     "vuepress/**/normalize-url": "^6.0.1",
     "vuepress/**/nth-check": "^2.1.1",
     "vuepress/**/unset-value": "^2.0.1",
     "vuepress/**/loader-utils": "^2.0.1",
-    "string-replace-loader/loader-utils": "1.4.2"
-  }
+    "vuepress/**/uglify-js": "^3.14.3",
+    "vuepress/**/markdown-it": "^12.3.2",
+    "vuepress/**/highlight.js": "^10.4.1",
+    "string-replace-loader/loader-utils": "1.4.2",
+    "**/chalk/**/ansi-regex": "^3.0.1",
+    "robots-txt-guard": "1.0.0",
+    "tough-cookie": "^4.1.3",
+    "semver": "^7.5.2"
+  },
+  "version": "0.0.0"
 }

@@ -107,7 +107,7 @@
                     list: [
                         'Streamline the sign-in flow',
                         'Use Okta for identity management and secure access',
-                        'Federate using <a href="/docs/guides/oin-oidc-overview/main/">OIDC</a> or <a href="/docs/concepts/saml/">SAML</a>'
+                        'Federate using <a href="/docs/concepts/oauth-openid/">OIDC</a> or <a href="/docs/concepts/saml/">SAML</a>'
                     ]
                 },
                 {

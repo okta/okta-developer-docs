@@ -1,6 +1,6 @@
 {
-  "release" : "2023.06.1",
-  "build" : "2023.06.1-begin-134-g684e9522154f",
+  "release" : "2023.12.1",
+  "build" : "2023.12.1-begin-185-g2bd2582c8e05",
   "errors" : [ {
     "title" : "Access denied",
     "statusCode" : 403,
@@ -70,14 +70,14 @@
     "statusReasonPhrase" : "Bad Request",
     "internalErrorCode" : "scope_denied",
     "errorCode" : "access_denied",
-    "errorDescription" : "Some of the requested scopes were denied by the policy. Denied scopes: [{0}]."
+    "errorDescription" : "Some of the requested scopes were denied by the policy. Denied scopes: [en]."
   }, {
     "title" : "Refresh scopes denied",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
     "internalErrorCode" : "refresh_scopes_denied",
     "errorCode" : "access_denied",
-    "errorDescription" : "Some of the scopes requested for the refresh request were not granted in the original authorize request. Denied scopes: {0}."
+    "errorDescription" : "Some of the scopes requested for the refresh request were not granted in the original authorize request. Denied scopes: en."
   }, {
     "title" : "Unsupported MFA attestation",
     "statusCode" : 403,
@@ -147,7 +147,7 @@
     "statusReasonPhrase" : "Forbidden",
     "internalErrorCode" : "unsupported_token_exchange_flow",
     "errorCode" : "access_denied",
-    "errorDescription" : "The Token Exchange flow from {0} app to {1} app isn't supported."
+    "errorDescription" : "The Token Exchange flow from en app to {1} app isn't supported."
   }, {
     "title" : "Admin consent insufficient permission",
     "statusCode" : 403,
@@ -182,21 +182,21 @@
     "statusReasonPhrase" : "Forbidden",
     "internalErrorCode" : "failed_username_transform_invalid_expression",
     "errorCode" : "access_denied",
-    "errorDescription" : "The username transform '{0}' is invalid."
+    "errorDescription" : "The username transform 'en' is invalid."
   }, {
     "title" : "Failed username transform missed field",
     "statusCode" : 403,
     "statusReasonPhrase" : "Forbidden",
     "internalErrorCode" : "failed_username_transform_missed_field",
     "errorCode" : "access_denied",
-    "errorDescription" : "The following required property is missing: '{0}'."
+    "errorDescription" : "The following required property is missing: 'en'."
   }, {
     "title" : "Failed username transform whitespaces found",
     "statusCode" : 403,
     "statusReasonPhrase" : "Forbidden",
     "internalErrorCode" : "failed_username_transform_whitespaces_found",
     "errorCode" : "access_denied",
-    "errorDescription" : "Unable to create a user. Username contains invalid whitespace characters: '{0}'."
+    "errorDescription" : "Unable to create a user. Username contains invalid whitespace characters: 'en'."
   }, {
     "title" : "User match error",
     "statusCode" : 403,
@@ -287,7 +287,7 @@
     "statusReasonPhrase" : "Forbidden",
     "internalErrorCode" : "invalid_username",
     "errorCode" : "access_denied",
-    "errorDescription" : "Transformed username '{0}' is invalid."
+    "errorDescription" : "Transformed username 'en' is invalid."
   }, {
     "title" : "Password expired",
     "statusCode" : 403,
@@ -322,28 +322,28 @@
     "statusReasonPhrase" : "Forbidden",
     "internalErrorCode" : "direct_auth_not_challenged_for_required_factor_type",
     "errorCode" : "access_denied",
-    "errorDescription" : "Unable to prompt for the requested authenticators. Review the Authentication Policyâs requirements or request another authenticator and try again."
+    "errorDescription" : "Unable to prompt for the requested authenticators. Review the Authentication Policy’s requirements or request another authenticator and try again."
   }, {
     "title" : "Direct auth factor enrollment required",
     "statusCode" : 403,
     "statusReasonPhrase" : "Forbidden",
     "internalErrorCode" : "direct_auth_factor_enrollment_required",
     "errorCode" : "access_denied",
-    "errorDescription" : "The required authenticator cannot be used to sign-in. Check if it is included in the authentication policy and the user is enrolled in the authenticator and try again."
+    "errorDescription" : "The required authenticator cannot be used. Check if it is required by policy and the user is enrolled in the authenticator and try again."
   }, {
     "title" : "Direct auth expired token",
     "statusCode" : 403,
     "statusReasonPhrase" : "Forbidden",
     "internalErrorCode" : "direct_auth_expired_token",
     "errorCode" : "access_denied",
-    "errorDescription" : "'{0}' has expired. Use a new 'oob_code' or 'mfa_token' and try again."
+    "errorDescription" : "'en' has expired. Use a new 'oob_code' or 'mfa_token' and try again."
   }, {
     "title" : "Direct auth grant types supported not prompted",
     "statusCode" : 403,
     "statusReasonPhrase" : "Forbidden",
     "internalErrorCode" : "direct_auth_grant_types_supported_not_prompted",
     "errorCode" : "access_denied",
-    "errorDescription" : "The 'grant_types_supported' '{0}' are not sufficient to satisfy the authentication policy. Configure additional grant types for the client or revise the authentication policy to allow the user to sign-in."
+    "errorDescription" : "The 'grant_types_supported' 'en' are not sufficient to satisfy the authentication policy. Configure additional grant types for the client or revise the authentication policy to allow the user to sign-in."
   }, {
     "title" : "Direct auth prompted grant type disabled for client",
     "statusCode" : 403,
@@ -351,6 +351,27 @@
     "internalErrorCode" : "direct_auth_prompted_grant_type_disabled_for_client",
     "errorCode" : "access_denied",
     "errorDescription" : "The grant types required to satisfy sign on policy are disabled for the client."
+  }, {
+    "title" : "Direct auth recovery authenticator disabled",
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "internalErrorCode" : "direct_auth_recovery_authenticator_disabled",
+    "errorCode" : "access_denied",
+    "errorDescription" : "Authenticators required by recovery policy are not enabled authenticators."
+  }, {
+    "title" : "Direct auth recovery not enabled for user",
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "internalErrorCode" : "direct_auth_recovery_not_enabled_for_user",
+    "errorCode" : "access_denied",
+    "errorDescription" : "Password recovery is not enabled for the user."
+  }, {
+    "title" : "Direct auth recovery no empty auth chain",
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "internalErrorCode" : "direct_auth_recovery_empty_auth_chain",
+    "errorCode" : "access_denied",
+    "errorDescription" : "Recovery policy does not specify any authenticators that can be used for recovery."
   }, {
     "title" : "Authorization pending",
     "statusCode" : 400,
@@ -385,28 +406,28 @@
     "statusReasonPhrase" : "Bad Request",
     "internalErrorCode" : "consent_required",
     "errorCode" : "consent_required",
-    "errorDescription" : "The following scopes require user consent: [{0}]."
+    "errorDescription" : "The following scopes require user consent: [en]."
   }, {
     "title" : "Consent required client credentials",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
     "internalErrorCode" : "consent_required_client_credentials",
     "errorCode" : "consent_required",
-    "errorDescription" : "The following scopes require user consent and cannot be granted for the client credentials grant type: [{0}]."
+    "errorDescription" : "The following scopes require user consent and cannot be granted for the client credentials grant type: [en]."
   }, {
     "title" : "Consent required ropf",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
     "internalErrorCode" : "consent_required_ropf",
     "errorCode" : "consent_required",
-    "errorDescription" : "The following scopes require user consent: [{0}]. To access protected scopes using the resource owner password grant type, please uncheck 'Require consent' in the app settings or set the 'consent_method' to 'TRUSTED' through the apps API."
+    "errorDescription" : "The following scopes require user consent: [en]. To access protected scopes using the resource owner password grant type, please uncheck 'Require consent' in the app settings or set the 'consent_method' to 'TRUSTED' through the apps API."
   }, {
     "title" : "Consent required token exchange",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
     "internalErrorCode" : "consent_required_token_exchange",
     "errorCode" : "consent_required",
-    "errorDescription" : "The following scopes require user consent: [{0}]. To access protected scopes using the token_exchange password grant type, please uncheck 'Require consent' in the app settings or set the apps 'consent_method' to 'TRUSTED'."
+    "errorDescription" : "The following scopes require user consent: [en]. To access protected scopes using the token_exchange password grant type, please uncheck 'Require consent' in the app settings or set the apps 'consent_method' to 'TRUSTED'."
   }, {
     "title" : "No org scopes granted",
     "statusCode" : 400,
@@ -483,14 +504,14 @@
     "statusReasonPhrase" : "Bad Request",
     "internalErrorCode" : "invalid_authorization_details_with_errors",
     "errorCode" : "invalid_authorization_details",
-    "errorDescription" : "Invalid authorization_details. Errors: [{0}]."
+    "errorDescription" : "Invalid authorization_details. Errors: [en]."
   }, {
     "title" : "Invalid authorization details invalid type",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
     "internalErrorCode" : "invalid_authorization_details_invalid_resource_type",
     "errorCode" : "invalid_authorization_details",
-    "errorDescription" : "The type value {0} in authorization_details is not supported."
+    "errorDescription" : "The type value en in authorization_details is not supported."
   }, {
     "title" : "Invalid client",
     "statusCode" : 401,
@@ -749,7 +770,7 @@
     "statusReasonPhrase" : "Unauthorized",
     "internalErrorCode" : "direct_auth_invalid_client_id",
     "errorCode" : "invalid_client",
-    "errorDescription" : "The client_id '{0}' does not match the client_id in the original request '{1}'. Use the original client id and try again."
+    "errorDescription" : "The client_id 'en' does not match the client_id in the original request '{1}'. Use the original client id and try again."
   }, {
     "title" : "Invalid client metadata",
     "statusCode" : 400,
@@ -835,6 +856,13 @@
     "errorCode" : "invalid_dpop_proof",
     "errorDescription" : "The DPoP proof JWT is issued in the future."
   }, {
+    "title" : "Invalid dpop proof JWT too old",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_dpop_proof_jwt_too_old",
+    "errorCode" : "invalid_dpop_proof",
+    "errorDescription" : "The DPoP proof JWT is issued more than five minutes in the past."
+  }, {
     "title" : "Invalid dpop proof JWT expired",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
@@ -863,6 +891,20 @@
     "errorCode" : "invalid_dpop_proof",
     "errorDescription" : "The DPoP proof JWT has already been used."
   }, {
+    "title" : "Dpop proof invalid ath",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "dpop_proof_invalid_ath",
+    "errorCode" : "invalid_dpop_proof",
+    "errorDescription" : "'ath' claim in the DPoP proof does not match the presented access_token."
+  }, {
+    "title" : "Invalid access token dpop binding",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_access_token_dpop_binding",
+    "errorCode" : "invalid_dpop_proof",
+    "errorDescription" : "The access_token is not bound to the provided DPoP proof."
+  }, {
     "title" : "Invalid grant",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
@@ -882,7 +924,7 @@
     "statusReasonPhrase" : "Bad Request",
     "internalErrorCode" : "pkce_verification_failed_with_reason",
     "errorCode" : "invalid_grant",
-    "errorDescription" : "PKCE verification failed: {0}."
+    "errorDescription" : "PKCE verification failed: en."
   }, {
     "title" : "Invalid authorization code",
     "statusCode" : 400,
@@ -1087,6 +1129,13 @@
     "errorCode" : "invalid_grant",
     "errorDescription" : "User rejected out-of-band authentication prompt."
   }, {
+    "title" : "Direct auth invalid login hint",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "direct_auth_invalid_login_hint",
+    "errorCode" : "invalid_grant",
+    "errorDescription" : "The 'login_hint' does not uniquely identify a user."
+  }, {
     "title" : "Invalid initiate login URI",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
@@ -1134,21 +1183,21 @@
     "statusReasonPhrase" : "Bad Request",
     "internalErrorCode" : "sensitive_query_parameters_not_allowed_in_token_requests",
     "errorCode" : "invalid_request",
-    "errorDescription" : "You shouldn't include any sensitive query parameters ({0}) in token requests. Provide parameters as 'x-www-form-urlencoded' values."
+    "errorDescription" : "You shouldn't include any sensitive query parameters (en) in token requests. Provide parameters as 'x-www-form-urlencoded' values."
   }, {
     "title" : "Unsupported response type with scope",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
     "internalErrorCode" : "unsupported_response_type_with_scope",
     "errorCode" : "invalid_request",
-    "errorDescription" : "The response type {0} is not supported when requesting scope {1}. Allowed response types: [{2}]."
+    "errorDescription" : "The response type en is not supported when requesting scope {1}. Allowed response types: [{2}]."
   }, {
     "title" : "Required response type with scope",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
     "internalErrorCode" : "required_response_type_with_scope",
     "errorCode" : "invalid_request",
-    "errorDescription" : "The response type {0} is required when requesting scope {1}."
+    "errorDescription" : "The response type en is required when requesting scope {1}."
   }, {
     "title" : "Illegal origin browser request",
     "statusCode" : 400,
@@ -1253,14 +1302,14 @@
     "statusReasonPhrase" : "Bad Request",
     "internalErrorCode" : "illegal_redirect_uri_enhanced",
     "errorCode" : "invalid_request",
-    "errorDescription" : "The 'redirect_uri' parameter must be a Login redirect URI in the client app settings: {0}"
+    "errorDescription" : "The 'redirect_uri' parameter must be a Login redirect URI in the client app settings: en"
   }, {
     "title" : "Invalid client application type",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
     "internalErrorCode" : "invalid_client_application_type",
     "errorCode" : "invalid_request",
-    "errorDescription" : "Clients with 'application_type' of 'service' are not allowed to access the '{0}' endpoint."
+    "errorDescription" : "Clients with 'application_type' of 'service' are not allowed to access the 'en' endpoint."
   }, {
     "title" : "Invalid state",
     "statusCode" : 400,
@@ -1281,7 +1330,7 @@
     "statusReasonPhrase" : "Bad Request",
     "internalErrorCode" : "invalid_prompt",
     "errorCode" : "invalid_request",
-    "errorDescription" : "Invalid value for 'prompt' parameter. Supported values: [{0}]"
+    "errorDescription" : "Invalid value for 'prompt' parameter. Supported values: [en]"
   }, {
     "title" : "Invalid prompt with zero max age",
     "statusCode" : 400,
@@ -1330,14 +1379,14 @@
     "statusReasonPhrase" : "Bad Request",
     "internalErrorCode" : "pkce_unsupported_code_challenge_method",
     "errorCode" : "invalid_request",
-    "errorDescription" : "PKCE code challenge method is not supported. Valid values: [{0}]"
+    "errorDescription" : "PKCE code challenge method is not supported. Valid values: [en]"
   }, {
     "title" : "Token request missing grant type",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
     "internalErrorCode" : "token_request_missing_grant_type",
     "errorCode" : "invalid_request",
-    "errorDescription" : "The token request must specify a 'grant_type'. Valid values: [{0}]"
+    "errorDescription" : "The token request must specify a 'grant_type'. Valid values: [en]"
   }, {
     "title" : "Token request missing device ID",
     "statusCode" : 400,
@@ -1365,7 +1414,7 @@
     "statusReasonPhrase" : "Bad Request",
     "internalErrorCode" : "illegal_duplicated_parameters",
     "errorCode" : "invalid_request",
-    "errorDescription" : "Duplicate parameter provided in request. Duplicated parameters: [{0}]."
+    "errorDescription" : "Duplicate parameter provided in request. Duplicated parameters: [en]."
   }, {
     "title" : "Invalid authorization server",
     "statusCode" : 400,
@@ -1414,7 +1463,7 @@
     "statusReasonPhrase" : "Bad Request",
     "internalErrorCode" : "missing_token_request_parameter",
     "errorCode" : "invalid_request",
-    "errorDescription" : "The required parameter '{0}' is missing."
+    "errorDescription" : "The required parameter 'en' is missing."
   }, {
     "title" : "Invalid subject token",
     "statusCode" : 400,
@@ -1449,7 +1498,7 @@
     "statusReasonPhrase" : "Bad Request",
     "internalErrorCode" : "invalid_subject_actor_token_match",
     "errorCode" : "invalid_request",
-    "errorDescription" : "When 'actor_token_type' is '{0}', 'subject_token_type' must be '{1}'."
+    "errorDescription" : "When 'actor_token_type' is 'en', 'subject_token_type' must be '{1}'."
   }, {
     "title" : "Invalid requested token type",
     "statusCode" : 400,
@@ -1491,7 +1540,7 @@
     "statusReasonPhrase" : "Bad Request",
     "internalErrorCode" : "invalid_device_token",
     "errorCode" : "invalid_request",
-    "errorDescription" : "The request has a deviceToken with length greater than {0}."
+    "errorDescription" : "The request has a deviceToken with length greater than en."
   }, {
     "title" : "Illegal post logout redirect URI",
     "statusCode" : 400,
@@ -1505,7 +1554,7 @@
     "statusReasonPhrase" : "Bad Request",
     "internalErrorCode" : "illegal_post_logout_redirect_uri_enhanced",
     "errorCode" : "invalid_request",
-    "errorDescription" : "The 'post_logout_redirect_uri' parameter must be a Logout redirect URI in the client app settings: {0}"
+    "errorDescription" : "The 'post_logout_redirect_uri' parameter must be a Logout redirect URI in the client app settings: en"
   }, {
     "title" : "Access token missing",
     "statusCode" : 401,
@@ -1591,12 +1640,26 @@
     "errorCode" : "invalid_request",
     "errorDescription" : "The recovery token is invalid"
   }, {
+    "title" : "Dpop proof required for token",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "dpop_proof_required_for_token",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "The resource request requires a DPoP proof."
+  }, {
+    "title" : "Dpop authentication scheme required",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "dpop_authentication_scheme_required",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "The resource request must use the DPoP authentication scheme when using a DPoP bound token."
+  }, {
     "title" : "Direct auth invalid channel hint",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
     "internalErrorCode" : "direct_auth_invalid_channel_hint",
     "errorCode" : "invalid_request",
-    "errorDescription" : "'{0}' is not supported as a 'channel_hint'. Try again with another value."
+    "errorDescription" : "'en' is not supported as a 'channel_hint'. Try again with another value."
   }, {
     "title" : "Direct auth oob code not for MFA token",
     "statusCode" : 400,
@@ -1610,28 +1673,28 @@
     "statusReasonPhrase" : "Bad Request",
     "internalErrorCode" : "direct_auth_invalid_challenge_type",
     "errorCode" : "invalid_request",
-    "errorDescription" : "{0} is not supported as a 'challenge_type'. Try again with another value."
+    "errorDescription" : "en is not supported as a 'challenge_type'. Try again with another value."
   }, {
     "title" : "Direct auth invalid grant type supported",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
     "internalErrorCode" : "direct_auth_invalid_grant_type_supported",
     "errorCode" : "invalid_request",
-    "errorDescription" : "{0} is not supported as a 'grant_type'. Remove or replace the value and try again."
+    "errorDescription" : "en is not supported as a 'grant_type'. Remove or replace the value and try again."
   }, {
     "title" : "Direct auth invalid as ID",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
     "internalErrorCode" : "direct_auth_invalid_as_id",
     "errorCode" : "invalid_request",
-    "errorDescription" : "The authorization server id '{0}' in the url_path parameter does not match the authorization server id in the original request '{1}'. Use the original authorization server id and try again."
+    "errorDescription" : "The authorization server id 'en' in the url_path parameter does not match the authorization server id in the original request '{1}'. Use the original authorization server id and try again."
   }, {
     "title" : "Direct auth acr values changed",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
     "internalErrorCode" : "direct_auth_acr_values_changed",
     "errorCode" : "invalid_request",
-    "errorDescription" : "The acr_values '{0}' do not match the acr_values requested in the original request '{1}'. Use the originally requested acr_values and try again."
+    "errorDescription" : "The acr_values 'en' do not match the acr_values requested in the original request '{1}'. Use the originally requested acr_values and try again."
   }, {
     "title" : "Direct auth MFA attestation with other acrs",
     "statusCode" : 400,
@@ -1646,6 +1709,27 @@
     "internalErrorCode" : "direct_auth_mfa_attestation_requires_client_credentials",
     "errorCode" : "invalid_request",
     "errorDescription" : "Client authentication is required for MFA attestation requests."
+  }, {
+    "title" : "Direct auth intent values changed",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "direct_auth_intent_values_changed",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "The intent 'en' does not match the intent requested in the original request '{1}'. Use the originally requested intent and try again."
+  }, {
+    "title" : "Direct auth invalid intent",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "direct_auth_invalid_intent",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "'en' is an invalid intent."
+  }, {
+    "title" : "Direct auth missing login hint",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "direct_auth_missing_login_hint",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "A 'login_hint' is required for the request."
   }, {
     "title" : "Invalid request object",
     "statusCode" : 400,
@@ -1813,21 +1897,21 @@
     "statusReasonPhrase" : "Bad Request",
     "internalErrorCode" : "illegal_scope",
     "errorCode" : "invalid_scope",
-    "errorDescription" : "The following scopes are not allowed for this request: [{0}]."
+    "errorDescription" : "The following scopes are not allowed for this request: [en]."
   }, {
     "title" : "Illegal scope combination",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
     "internalErrorCode" : "illegal_scope_combination",
     "errorCode" : "invalid_scope",
-    "errorDescription" : "The following scopes cannot be requested together: [{0}]."
+    "errorDescription" : "The following scopes cannot be requested together: [en]."
   }, {
     "title" : "Required scope combination",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
     "internalErrorCode" : "required_scope_combination",
     "errorCode" : "invalid_scope",
-    "errorDescription" : "The following scopes: [{0}] must be requested together with [{1}]."
+    "errorDescription" : "The following scopes: [en] must be requested together with [{1}]."
   }, {
     "title" : "MFA attestation invalid scope",
     "statusCode" : 400,
@@ -1876,7 +1960,7 @@
     "statusReasonPhrase" : "Bad Request",
     "internalErrorCode" : "direct_auth_invalid_scope",
     "errorCode" : "invalid_scope",
-    "errorDescription" : "The requested scopes '{0}' do not match the scopes requested in the original request '{1}'. Use the originally requested scopes and try again."
+    "errorDescription" : "The requested scopes 'en' do not match the scopes requested in the original request '{1}'. Use the originally requested scopes and try again."
   }, {
     "title" : "Direct auth scope not allowed",
     "statusCode" : 400,
@@ -1884,6 +1968,13 @@
     "internalErrorCode" : "direct_auth_scope_not_allowed",
     "errorCode" : "invalid_scope",
     "errorDescription" : "The 'scope' parameter is unsupported on this endpoint. Try again without this parameter."
+  }, {
+    "title" : "Direct auth invalid scope for intent",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "direct_auth_invalid_scope_for_intent",
+    "errorCode" : "invalid_scope",
+    "errorDescription" : "scope 'en' cannot be requested with intent '{1}'."
   }, {
     "title" : "Invalid social token",
     "statusCode" : 400,
@@ -2004,6 +2095,13 @@
     "errorCode" : "invalid_token",
     "errorDescription" : "The 'web_sso_token' has an invalid issuer."
   }, {
+    "title" : "Access token not dpop bound",
+    "statusCode" : 401,
+    "statusReasonPhrase" : "Unauthorized",
+    "internalErrorCode" : "access_token_not_dpop_bound",
+    "errorCode" : "invalid_token",
+    "errorDescription" : "The presented access_token is not DPoP bound."
+  }, {
     "title" : "Invalid user code",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
@@ -2037,21 +2135,21 @@
     "statusReasonPhrase" : "Bad Request",
     "internalErrorCode" : "jit_failure_missing_fields",
     "errorCode" : "jit_failure_missing_fields",
-    "errorDescription" : "Unable to create the user. The following required properties are missing: '{0}'."
+    "errorDescription" : "Unable to create the user. The following required properties are missing: 'en'."
   }, {
     "title" : "JIT failure values not match pattern",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
     "internalErrorCode" : "jit_failure_values_not_match_pattern",
     "errorCode" : "jit_failure_values_not_match_pattern",
-    "errorDescription" : "Unable to create the user. Properties don't match required pattern. Invalid fields: {0}."
+    "errorDescription" : "Unable to create the user. Properties don't match required pattern. Invalid fields: en."
   }, {
     "title" : "JIT failure values too long",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
     "internalErrorCode" : "jit_failure_values_too_long",
     "errorCode" : "jit_failure_values_too_long",
-    "errorDescription" : "Unable to create the user. Exceeded max length for properties. Invalid fields: {0}."
+    "errorDescription" : "Unable to create the user. Exceeded max length for properties. Invalid fields: en."
   }, {
     "title" : "Login required",
     "statusCode" : 400,
@@ -2114,7 +2212,7 @@
     "statusReasonPhrase" : "Bad Request",
     "internalErrorCode" : "refresh_token_validation_failure",
     "errorCode" : "refresh_token_validation_failure",
-    "errorDescription" : "Can't create refresh token. The following field(s) are too long: '{0}'."
+    "errorDescription" : "Can't create refresh token. The following field(s) are too long: 'en'."
   }, {
     "title" : "Request not supported",
     "statusCode" : 400,
@@ -2191,21 +2289,21 @@
     "statusReasonPhrase" : "Bad Request",
     "internalErrorCode" : "user_claim_evaluation_failure",
     "errorCode" : "server_error",
-    "errorDescription" : "=The '{0}' user claim could not be evaluated."
+    "errorDescription" : "=The 'en' user claim could not be evaluated."
   }, {
     "title" : "System claim evaluation failure",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
     "internalErrorCode" : "system_claim_evaluation_failure",
     "errorCode" : "server_error",
-    "errorDescription" : "The '{0}' system claim could not be evaluated."
+    "errorDescription" : "The 'en' system claim could not be evaluated."
   }, {
     "title" : "Callback returned error",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
     "internalErrorCode" : "callback_returned_error",
     "errorCode" : "server_error",
-    "errorDescription" : "{0}"
+    "errorDescription" : "en"
   }, {
     "title" : "Callback returned error without description",
     "statusCode" : 400,
@@ -2234,6 +2332,13 @@
     "internalErrorCode" : "invalid_callout_response",
     "errorCode" : "server_error",
     "errorDescription" : "The callout service returned an invalid response."
+  }, {
+    "title" : "Direct auth oob failure",
+    "statusCode" : 500,
+    "statusReasonPhrase" : "Internal Server Error",
+    "internalErrorCode" : "direct_auth_oob_failure",
+    "errorCode" : "server_error",
+    "errorDescription" : "Failed to initiate out-of-band authentication."
   }, {
     "title" : "Slow down",
     "statusCode" : 400,
@@ -2268,7 +2373,7 @@
     "statusReasonPhrase" : "Bad Request",
     "internalErrorCode" : "unauthorized_client",
     "errorCode" : "unauthorized_client",
-    "errorDescription" : "The client is not authorized to use the provided grant type. Configured grant types: [{0}]."
+    "errorDescription" : "The client is not authorized to use the provided grant type. Configured grant types: [en]."
   }, {
     "title" : "Unsupported grant type browser request",
     "statusCode" : 400,
@@ -2317,7 +2422,7 @@
     "statusReasonPhrase" : "Bad Request",
     "internalErrorCode" : "unsupported_grant_type",
     "errorCode" : "unsupported_grant_type",
-    "errorDescription" : "The authorization grant type is not supported by the authorization server. Configured grant types: [{0}]."
+    "errorDescription" : "The authorization grant type is not supported by the authorization server. Configured grant types: [en]."
   }, {
     "title" : "Unsupported grant type client creds org AS",
     "statusCode" : 400,
@@ -2359,7 +2464,7 @@
     "statusReasonPhrase" : "Bad Request",
     "internalErrorCode" : "unsupported_response_type",
     "errorCode" : "unsupported_response_type",
-    "errorDescription" : "The response type is not supported by the authorization server. Configured response types: [{0}]."
+    "errorDescription" : "The response type is not supported by the authorization server. Configured response types: [en]."
   }, {
     "title" : "MFA attestation response type invalid",
     "statusCode" : 400,

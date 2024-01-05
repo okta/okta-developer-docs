@@ -22,6 +22,8 @@ The Policy API supports the following **Rule operations**:
 * Create, read, update, and delete a Rule for a Policy
 * Activate and deactivate a Rule
 
+<ApiAuthMethodWarning />
+
 ## Get started
 
 Explore the Policy API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/f443644517abb15117af)
@@ -55,6 +57,8 @@ HTTP 200:
 
 <ApiOperation method="get" url="/api/v1/policies/${policyId}?expand=rules" />
 
+For Okta Classic Engine orgs only. Retrieves a policy and its associated rules. For Okta Identity Engine, see [List Policy Rules](#list-policy-rules). <!--OKTA-622770-->
+
 ##### Request parameters
 
 * The Policy ID described in the [Policy object](#policy-object) is required.
@@ -77,13 +81,20 @@ HTTP 200:
 
 Included as embedded objects, one or more [Policy Rules](#rules).
 
-### Get all Policies by type
+### List all Policies by type
 
 <ApiOperation method="get" url="/api/v1/policies?type=${type}" />
 
 ##### Request parameters
 
-The Policy type described in the [Policy object](#policy-object) is required.
+| Parameter | Description                                                        | Param Type | DataType | Required |
+| --------- | ------------------------------------------------------------------ | ---------- | -------- | -------- |
+| type      | The Policy `type` described in the [Policy object](#policy-object)   | URL        | String   | TRUE     |
+| status    | Refines the query by `status` of the policy: `ACTIVE` or `INACTIVE`  | URL        | String   | FALSE    |
+| q         | Refines the query by policy `name` prefix (`startWith` method)       | URL        | String   | FALSE    |
+| sortBy    | Refines the query by sorting on `name` in ascending order            | URL        | String   | FALSE    |
+| limit     | The number of policies returned, see [Pagination](/docs/reference/core-okta-api/#pagination)                                      | URL        | String   | FALSE     |
+| after     | End page cursor for pagination, see [Pagination](/docs/reference/core-okta-api/#pagination)   | URL        | String   | FALSE     |
 
 ##### Request example
 
@@ -273,10 +284,14 @@ HTTP 204:
 
 ## Policy mapping operations
 
-### Get applications
+### List applications
 <ApiOperation method="get" url="/api/v1/policies/${policyId}/app" />
 
+<ApiLifecycle access="deprecated" />
+
 Retrieves a list of applications mapped to a policy
+
+> **Note:** To retrieve a list of applications mapped to a policy, use [List all resources mapped to a Policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/listPolicyMappings). If you need to assign an application to a specific policy, use the [Update application policy](/docs/reference/api/apps/#update-application-policy) operation of the Apps API.
 
 > **Note:** To assign an application to a specific policy, use the [Update application policy](/docs/reference/api/apps/#update-application-policy) operation of the Apps API.
 
@@ -301,9 +316,10 @@ Array of [Application objects](/docs/reference/api/apps/#application-object)
 ## Policy simulation operations
 <ApiLifecycle access="ie" />
 
-> **Note:** This feature is only available as a part of the Identity Engine. Please [contact support](mailto:dev-inquiries@okta.com) for further information.
+> **Note:** This feature is only available as a part of the Identity Engine. For information on the Identity Engine, [contact support](mailto:dev-inquiries@okta.com).
 
 ### Access simulation
+
 The access simulation API is an admin API that evaluates policy and policy rules based on the existing policy rule configuration. The evaluation result simulates what the real world authentication flow is and what policy rules have been applied or matched to the authentication flow.
 
 <ApiOperation method="post" url="/api/v1/policies/simulate" />
@@ -378,7 +394,7 @@ The following response section explains the error responses and the response bod
 | `policyType` | String| The policy type we are simulating|
 | `id` | String| ID of the specified policy/rule type|
 | `name` | String| Policy name or policy rule name|
-| `status` | 	ENUM (MATCH, NOT_MATCH, UNDEFINED)| The result of this entity evaluation|
+| `status` |     ENUM (MATCH, NOT_MATCH, UNDEFINED)| The result of this entity evaluation|
 | `conditions` | Array | List of all condition that involved for this rule/policy evaluation|
 | `conditions.type` | String| The type of this condition|
 | `name` | String| Policy name or policy rule name|
@@ -516,7 +532,7 @@ HTTP 200:
 
 ## Rules operations
 
-### Get Policy Rules
+### List Policy Rules
 
 <ApiOperation method="get" url="/api/v1/policies/${policyId}/rules" />
 
@@ -871,9 +887,11 @@ Each Policy may contain one or more Rules. Rules, like Policies, contain conditi
 
 ### Default Rules
 
- - Only the default Policy contains a default Rule. In Okta Classic Engine, you can't delete or edit default rules. In Okta Identity Engine, you can't delete default rules, but can edit them except in the case of the default rule on the Authenticator Enrollment policy and the Identity Provider Routing.
- - The default Rule is required and always is the last Rule in the priority order. If you add Rules to the default Policy, they have a higher priority than the default Rule.
- - The `system` attribute determines whether a Rule is created by a system or by a user. The default Rule is the only Rule that has this attribute.
+* Only the default Policy contains a default Rule. In Okta Classic Engine, you can't delete or edit default rules. In Okta Identity Engine, you can't delete default rules, but can edit them except for:
+  * The properties `maxSessionLifetimeMinutes` and `usePersistentCookie` of the default Global session policy's default rule, which are read-only.
+  * The default rules on the Authenticator Enrollment policy and the Identity Provider Routing, which are also read-only.
+* The default Rule is required and always is the last Rule in the priority order. If you add Rules to the default Policy, they have a higher priority than the default Rule.
+* The `system` attribute determines whether a Rule is created by a system or by a user. The default Rule is the only Rule that has this attribute.
 
 ### Rule priority
 
@@ -1057,7 +1075,7 @@ Specifies an authentication entry point
 
 #### Network Condition object
 
-Specifies a network selection mode and a set of network zones to be included or excluded. If the connection parameter's data type is `ZONE`, one of the include or exclude arrays is required. Specific zone IDs to include or exclude are enumerated in the respective arrays. You can use the [Zones API](/docs/reference/api/zones/) to manage network zones.
+Specifies a network selection mode and a set of network zones to be included or excluded. If the connection parameter's data type is `ZONE`, one of the include or exclude arrays is required. Specific zone IDs to include or exclude are enumerated in the respective arrays. You can use the [Zones API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/NetworkZone/) to manage network zones.
 
 | Parameter  | Description            | Data Type          | Required                               |
 | ---------  | ---------------------- | ------------------ | -------------------------------------- |
@@ -1379,8 +1397,8 @@ The following conditions may be applied to the global session policy.
 | Property                  | Description                                                                                                                                                                                                                                                               | Data Type | Required | Default |
 | ---                       | ---                                                                                                                                                                                                                                                                       | ---       | ---      | ---     |
 | maxSessionIdleMinutes     | Maximum number of minutes that a User session can be idle before the session is ended.                                                                                                                                                                                    | Integer   | No       | 120     |
-| maxSessionLifetimeMinutes | Maximum number of minutes from User sign in that a user's session is active. Set this to force Users to sign in again after the number of specified minutes. Disable by setting to `0`.                                                                                  | Integer   | No       | 0       |
-| usePersistentCookie       | If set to `false`, User session cookies only last the length of a browser session. If set to `true`, User session cookies last across browser sessions. This setting doesn't impact Okta Administrator users who can *never* have persistant session cookies. | Boolean   | No       | false   |
+| maxSessionLifetimeMinutes | Maximum number of minutes from User sign in that a user's session is active. Set this to force Users to sign in again after the number of specified minutes. Disable by setting to `0`. This property is read-only for the default rule of the default Global session policy.                                                                                 | Integer   | No       | 0       |
+| usePersistentCookie       | If set to `false`, User session cookies only last the length of a browser session. If set to `true`, User session cookies last across browser sessions. This setting doesn't impact Okta Administrator users who can *never* have persistent session cookies. This property is read-only for the default rule of the default Global session policy. | Boolean   | No       | false   |
 
 ### Rules conditions
 
@@ -1399,7 +1417,6 @@ You can apply the following conditions to the Rules associated with a global ses
 <ApiLifecycle access="ie" />
 
 > **Note:** In Identity Engine, the Multifactor (MFA) Enrollment Policy name has changed to authenticator enrollment policy. The policy type of `MFA_ENROLL` remains unchanged, however, the `settings` data is updated for authenticators. For Classic Engine, see [Multifactor (MFA) Enrollment Policy](#multifactor-mfa-enrollment-policy).
-> The authenticator enrollment policy is a <ApiLifecycle access="beta" /> release.
 
 The authenticator enrollment policy controls which authenticators are available for a User, as well as when a User may enroll in a particular authenticator.
 
@@ -1439,9 +1456,9 @@ The authenticator enrollment policy controls which authenticators are available 
 | factors                                                                          | Factor policy settings. This parameter is for Classic Engine MFA Enrollment policies that have migrated to Identity Engine but haven't converted to using authenticators yet. Factors and authenticators are mutually exclusive in an authenticator enrollment policy. When a policy is updated to use authenticators, the factors are removed.               | [Policy Factors Configuration object](#policy-factors-configuration-object)  | No       |           |
 | type            | Type of policy configuration object   | `FACTORS` or `AUTHENTICATORS`                                                | No       | `FACTORS` |
 
-> **Note:** The `authenticators` parameter allows you to configure all available authenticators, including authentication and recovery. In contrast, the `factors` parameter only allows you to configure multifactor authentication.
-
-> **Note:** For orgs with the Authenticator enrollment policy feature enabled, the new default authenticator enrollment policy created by Okta contains the `authenticators` property in the policy settings. Existing default authenticator enrollment policies from a migrated Classic Engine org remain unchanged and still use the `factors` property in their policy settings.
+> **Notes:**
+> * The `authenticators` parameter allows you to configure all available authenticators, including authentication and recovery. In contrast, the `factors` parameter only allows you to configure multifactor authentication.
+> * For orgs with the Authenticator enrollment policy feature enabled, the new default authenticator enrollment policy created by Okta contains the `authenticators` property in the policy settings. Existing default authenticator enrollment policies from a migrated Classic Engine org remain unchanged and still use the `factors` property in their policy settings.
 
 #### Policy Authenticator object
 
@@ -1532,7 +1549,7 @@ You can apply the following conditions to the Rules associated with the authenti
 
 ## Multifactor (MFA) Enrollment Policy
 
-> **Note:** In Identity Engine, the Multifactor (MFA) Enrollment Policy name has changed to [authenticator enrollment policy](#authenticator-enrollment-policy). In Classic Engine, the Multifactor Enrollment Policy type remains unchanged and is a <ApiLifecycle access="beta" /> release.
+> **Note:** In Identity Engine, the Multifactor (MFA) Enrollment Policy name has changed to [authenticator enrollment policy](#authenticator-enrollment-policy). In Classic Engine, the Multifactor Enrollment Policy type remains unchanged.
 
 The Multifactor (MFA) Enrollment Policy controls which MFA methods are available for a User, as well as when a User may enroll in a particular Factor.
 
@@ -1546,17 +1563,11 @@ The Multifactor (MFA) Enrollment Policy controls which MFA methods are available
        "okta_question": {
          "enroll": {
            "self": "OPTIONAL"
-         },
-         "consent": {
-           "type": "NONE"
          }
        },
        "okta_sms": {
          "enroll": {
            "self": "REQUIRED"
-         },
-         "consent": {
-           "type": "NONE"
          }
        }
      }
@@ -1596,15 +1607,19 @@ The Multifactor (MFA) Enrollment Policy controls which MFA methods are available
 
 | Parameter | Description                            | Data Type                                                     | Required |
 | ---       | ---                                    | ---                                                           | ---      |
-| consent   | Consent requirements for the Factor    | [Policy Factor Consent object](#policy-factor-consent-object) | No       |
 | enroll    | Enrollment requirements for the Factor | [Policy Factor Enroll object](#policy-factor-enroll-object)   | No       |
 
+<!-- # Consent object isn't used. This object is returned for backward compatibility.
+| consent   | Consent requirements for the Factor    | [Policy Factor Consent object](#policy-factor-consent-object) | No       |
+-->
 
 #### Policy Factor Enroll object
 
 | Parameter | Description                               | Data Type                               | Required | Default       |
 | ---       | ---                                       | ---                                     | ---      | ---           |
 | self      | Requirements for User-initiated enrollment | `NOT_ALLOWED`, `OPTIONAL` or `REQUIRED` | No       | `NOT_ALLOWED` |
+
+<!-- # Consent object isn't used. This object is returned for backward compatibility.
 
 #### Policy Factor Consent object
 
@@ -1623,6 +1638,7 @@ Currently, the Policy Factor Consent terms settings are ignored.
 | ---       | ---                                               | ---                                | ---      | ---     |
 | format    | The format of the Consent dialog box to be presented. | `TEXT`, `RTF`, `MARKDOWN` or `URL` | No       | N/A     |
 | value     | The contents of the Consent dialog box.               | String                             | No       | N/A     |
+-->
 
 ### Policy conditions
 
@@ -2327,7 +2343,8 @@ The Constraints are logically evaluated such that only one Constraint object nee
       "reauthenticateIn": "PTOS"
     },
     "possession": { // 1B
-      "userPresence": "OPTIONAL"
+      "userPresence": "REQUIRED",
+      "userVerification": "OPTIONAL"
     }
   },
   { // object 2
@@ -2357,6 +2374,7 @@ The number of Authenticator class constraints in each Constraint object must be 
 | `deviceBound` | String            | Indicates if device-bound Factors are required. This property is only set for `POSSESSION` constraints. | `REQUIRED`, `OPTIONAL`                                                                            |`OPTIONAL`|
 | `phishingResistant` | String            | Indicates if phishing-resistant Factors are required. This property is only set for `POSSESSION` constraints. | `REQUIRED`, `OPTIONAL`                                                                            |`OPTIONAL`|
 | `userPresence` | String            | Indicates if the user needs to approve an Okta Verify prompt or provide biometrics (meets NIST AAL2 requirements). This property is only set for `POSSESSION` constraints.| `REQUIRED`, `OPTIONAL`                                                                            |`REQUIRED`|
+| `userVerification` | String            | Indicates the user interaction requirement (PIN or biometrics) to ensure verification of a possession factor | `REQUIRED`, `OPTIONAL`                                                                            |`OPTIONAL`|
 | `reauthenticateIn`   | String (ISO 8601) | The duration after which the user must re-authenticate regardless of user activity. This re-authentication interval overrides the [Verification Method object](#verification-method-object)'s `reauthenticateIn` interval.     | ISO 8601 period format for recurring time intervals (for example: `PT1H`) | N/A|
 
 #### Authenticator key, type, method, and characteristic relationships for constraints
@@ -2435,6 +2453,9 @@ The following table shows the possible relationships between all the authenticat
       },
       "possession": {
         "types": [
+          "PHONE"
+        ],
+        "methods": [
           "SMS"
         ]
       }

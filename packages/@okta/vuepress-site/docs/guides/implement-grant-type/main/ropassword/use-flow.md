@@ -1,26 +1,26 @@
-If implementing the Resource Owner Password flow is your only option, you need to make direct calls to Okta's [OIDC & OAuth 2.0 API](/docs/reference/api/oidc/). See the following sections for requests required in the flow.
+If implementing the Resource Owner Password flow is your only option, you need to make direct calls to the [OIDC & OAuth 2.0 API](/docs/reference/api/oidc/). See the following sections for requests required in the flow.
 
 ### Request for tokens
 
-Before you can begin this flow, collect the user's password in a manner of your choosing. After you collect the credentials, all that is required is a single API call to the [authorization server's](/docs/concepts/auth-servers/) `/token` endpoint. If you are using the [default custom authorization server](/docs/concepts/auth-servers/#default-custom-authorization-server), then your request would look something like this:
+Before you can begin this flow, collect the user's password in a manner of your choosing. After you collect the credentials, all that's required is a single API call to the [authorization server's](/docs/concepts/auth-servers/) `/token` endpoint. If you're using the org authorization server, then your request would look something like this:
 
 ```bash
 curl --request POST \
-  --url https://${yourOktaDomain}/oauth2/default/v1/token \
+  --url https://${yourOktaDomain}/oauth2/v1/token \
   --header 'accept: application/json' \
   --header 'authorization: Basic MG9hYn...' \
   --header 'content-type: application/x-www-form-urlencoded' \
   --data 'grant_type=password&username=testuser1%40example.com&password=%7CmCovrlnU9oZU4qWGrhQSM%3Dyd&scope=openid'
 ```
 
-> **Important:** The call to your [authorization server's](/docs/concepts/auth-servers/) `/token` endpoint requires authentication. In this case, it is a Basic Auth digest of the client ID and secret. You can find the client ID and secret on your application's **General** tab. See [Client Authentication Methods](/docs/reference/api/oidc/#client-authentication-methods).
+> **Important:** The call to your [authorization server's](/docs/concepts/auth-servers/) `/token` endpoint requires authentication. In this case, it's a Basic Authentication digest of the client ID and secret. You can find the client ID and secret on your application's **General** tab. See [Client Authentication Methods](/docs/reference/api/oidc/#client-authentication-methods).
 
 Note the parameters that are being passed:
 
-- `grant_type` is `password`, indicating that we are using the Resource Owner Password grant type.
-- `username` is the username of a user registered with Okta.
-- `password` is the password of a user registered with Okta.
-- `scope` must be at least `openid`. See the **Create Scopes** section of the [Create an authorization server guide](/docs/guides/customize-authz-server/main/#create-scopes).
+* `grant_type` is `password`, indicating that you're using the Resource Owner Password grant type.
+* `username` is the username of a user registered with Okta.
+* `password` is the password of a user registered with Okta.
+* `scope` is at least `openid`. For custom scopes, see the **Create Scopes** section of the [Create an authorization server guide](/docs/guides/customize-authz-server/main/#create-scopes).
 
 For more information on these parameters, see the [OAuth 2.0 API reference](/docs/reference/api/oidc/#token).
 

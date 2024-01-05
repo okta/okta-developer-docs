@@ -11,18 +11,16 @@ The Okta System Log API provides near real-time, read-only access to your organi
 
 The terms "event" and "log event" are often used interchangeably. In the context of this API, an "event" is an occurrence of interest within the system, and a "log" or "log event" is the recorded fact.
 
-The System Log API, which contains much more [structured data](#logevent-object) than the [Events API](/docs/reference/api/events/#event-object), supports:
+Several common use cases for the System Log API include:
 
-* Additional [SCIM filters](#request-parameters) and the `q` query parameter because of the presence of more structured data than the [Events API](/docs/reference/api/events/#request-parameters)
-* These primary use cases:
-  * Event data export into a security information and event management system (SIEM)
-  * System monitoring
-  * Development debugging
-  * Event introspection and audit
+* Ingesting events into a Security Information and Event Management (SIEM) platform for security analysis and correlation with other relevant security events
+* Ingesting events into a data warehouse or data lake for user activity analysis or complex security detections
+* Ingesting events into an observability system for application monitoring and debugging
+* As a source for customer business logic to react to events asynchronously, such as a periodic collection of new user IDs when self-service registration is enabled.
 
 The System Log API isn't intended for use as a Database as a Service (DBaaS) or to serve data directly to downstream consumers without an intermediate data store.
 
-See [Events API Migration](/docs/concepts/events-api-migration/) for information on migrating from the Events API to the System Log API.
+<ApiAuthMethodWarning />
 
 ## Get started
 
@@ -209,7 +207,7 @@ LogEvent objects are read-only. The following properties are available:
 | eventType             | Type of event that is published                                                       | String                                                          | FALSE    | FALSE  | TRUE     | 1         | 255       |
 | version               | Versioning indicator                                                                   | String                                                          | FALSE    | FALSE  | TRUE     | 1         | 255       |
 | severity              | Indicates how severe the event is: `DEBUG`, `INFO`, `WARN`, `ERROR`                    | String                                                          | FALSE    | FALSE  | TRUE     | 1         | 255       |
-| legacyEventType       | Associated Events API [Action `objectType`](/docs/reference/api/events/#action-objecttypes) attribute value | String                                     | TRUE     | FALSE  | TRUE     | 1         | 255       |
+| legacyEventType       | Associated Events API Action `objectType` attribute value | String                                     | TRUE     | FALSE  | TRUE     | 1         | 255       |
 | displayMessage        | The display message for an event                                                       | String                                                          | TRUE     | FALSE  | TRUE     | 1         | 255       |
 | actor                 | Describes the entity that performs an action                                          | [Actor object](#actor-object)                                   | TRUE     | FALSE  | TRUE     |           |           |
 | client                | The client that requests an action                                                    | [Client object](#client-object)                                 | TRUE     | FALSE  | TRUE     |           |           |
@@ -268,7 +266,7 @@ When an event is triggered by an HTTP request, the client object describes the [
 | id                  | For OAuth requests, this is the ID of the OAuth [client](https://tools.ietf.org/html/rfc6749#section-1.1) making the request. For SSWS token requests, this is the ID of the agent making the request. | String                                                    | TRUE     |
 | userAgent           | The [user agent](https://en.wikipedia.org/wiki/User_agent) that is used by an actor to perform an action                                                                                                      | [UserAgent object](#useragent-object)                     | TRUE     |
 | geographicalContext | The physical location where the client is making its request from                                                                                                                                          | [GeographicalContext object](#geographicalcontext-object) | TRUE     |
-| zone                | The `name` of the [Zone](/docs/reference/api/zones/#ZoneModel) that the client's location is mapped to                                                                                                | String                                                    | TRUE     |
+| zone                | The `name` of the [Zone](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/NetworkZone/#tag/NetworkZone/operation/getNetworkZone) that the client's location is mapped to                                                                                                | String                                                    | TRUE     |
 | ipAddress           | IP address that the client is making its request from                                                                                                                                                      | String                                                    | TRUE     |
 | device              | Type of device that the client operates from (for example, Computer)                                                                                                                                          | String                                                    | TRUE     |
 
@@ -661,7 +659,7 @@ The following example expressions are supported for events with the `filter` que
 
 See [Filtering](/docs/reference/core-okta-api/#filter) for more information on expressions.
 
-The following are examples of common filter expressions:
+The following are examples of filter expressions:
 
 * Events that are published for a target user
 ```javascript
@@ -691,6 +689,21 @@ filter=eventType eq "app.auth.sso" and target.id eq "00uxc78lMKUMVIHLTAXY" and t
 * Events that are published for a given IP address
 ```javascript
 filter=client.ipAddress eq "184.73.186.14"
+```
+
+* Events that start with event_hook
+```javascript
+filter=eventType sw "event_hook"
+```
+
+* Events that contain session
+```javascript
+filter=eventType co "session"
+```
+
+* Events that end with token
+```javascript
+filter=eventType ew "token"
 ```
 
 ###### Keyword filter

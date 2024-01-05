@@ -39,4 +39,16 @@ The `authState$` subject in `OktaAuthStateService` contains an `idToken` that co
    }
    ```
 
-3. Add an instance of the `<app-profile></app-profile>` component into `app.component.html`, again inside the toolbar. This displays a message with your name after you are signed in.
+3. Import the `ProfileComponent` component into `app-routing.module.ts`:
+
+    ```typescript
+    import { ProfileComponent } from './profile/profile.component';
+    ```
+
+4. Add the following to the `routes` array:
+
+    ```typescript
+    { path: 'profile', component: ProfileComponent }
+    ```
+
+5. Add an instance of `<a routerLink="/profile">Profile</a>` into the `app.component.html`, again inside the toolbar. This displays the text, `Profile`, after you're signed in. Clicking the text displays your name in the toolbar.
