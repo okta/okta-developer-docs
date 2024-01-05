@@ -182,7 +182,11 @@ See the [ISO 3166-1 online lookup tool](https://www.iso.org/obp/ui/#search/code/
 
 Group functions take in a list of search criteria as input. Each search criteria is a key-value pair:<br>
 **Key:** Specifies the matching property. Currently supported keys are: `group.id`, `group.type`, and `group.profile.name`.<br>
-**Value:** Specifies a list of matching values that can be exact values or a regex pattern (only supporting the [.*] wildcard to match `starts with`)
+**Value:** Specifies a list of matching values.
+
+The `group.id` and `group.type` keys can match values that are exact.
+
+The `group.profile.name` key supports the operators `EXACT` and `STARTS_WITH` to identify exact matches or matches that include the value. If no operator is specified, the expression uses `STARTS_WITH`. These operators can't be used with `group.id` or `group.type`.
 
 | Function                 | Return Type | Example                                                                                                         | Output                                                                          |
 | ---------------          | ----------- | -------                                                                                                         | -----                                                                           |
@@ -192,6 +196,8 @@ Group functions take in a list of search criteria as input. Each search criteria
 |                          |             | `user.getGroups({'group.type': {'OKTA_GROUP', 'APP_GROUP'}})`                                                   | A list of User Groups that contains the Groups with IDs `00g1emaKYZTWRYYRRTSK`, `00garwpuyxHaWOkdV0g4`, and `00gjitX9HqABSoqTB0g3`  |
 | `user.isMemberOf`        | Boolean     | `user.isMemberOf({'group.id': {'00gjitX9HqABSoqTB0g3', '00garwpuyxHaWOkdV0g4'}}, {'group.type': 'APP_GROUP'})`  | True                                                                            |
 |                          |             | `user.isMemberOf({'group.id': {'00gjitX9HqABSoqTB0g3', '00garwpuyxHaWOkdV0g4'}}, {'group.type': 'BUILT_IN'})`   | False
+|                          |             | `user.isMemberOf({'group.profile.name': 'West Coast', 'operator': 'STARTS_WITH' })`   | True
+|                          |             | `user.isMemberOf({'group.profile.name': 'West Coast', 'operator': 'EXACT' })`   | False
 
 ### Linked Object function
 

@@ -8,6 +8,20 @@ title: Okta Identity Engine API Products release notes 2023
 
 ## December
 
+### Weekly release 2023.12.2
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Bugs fixed in 2023.12.2](#bugs-fixed-in-2023-12-2) | January 4, 2024 |
+
+#### Bugs fixed in 2023.12.2
+
+* When the Single Logout (SLO) feature was enabled for an org, an extra `?` character was appended to sign-out redirect URIs (`post_logout_redirect_uri`). (OKTA-668618)
+
+* A `next` link header was returned when a list clients (`GET /oauth2/v1/clients`) request was made when there were no further clients to be fetched. (OKTA-658169)
+
+* When using [Okta Expression Language in Identity Engine](/docs/reference/okta-expression-language-in-identity-engine/#group-functions), the `EXACT` and `STARTS_WITH` operators couldn't be used with the `group.profile.name` key to return exact matches. (OKTA-636560)
+
 ### Weekly release 2023.12.1
 
 | Change | Expected in Preview Orgs |
