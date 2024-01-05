@@ -39,7 +39,7 @@ Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 
 ### The user submits their profile data
 
-When the user clicks **Sign Up**, create a UserProfile object and set its properties to the values entered by the user. Pass this object and the current `ProceeedContext` as parameters tp `IDXAuthenticationWrapper.register()`.
+When the user clicks **Sign Up**, create a `UserProfile` object and set its properties to the values entered by the user. Pass this object and the current `ProceeedContext` as parameters to `IDXAuthenticationWrapper.register()`.
 
 ```java
 UserProfile userProfile = new UserProfile();
@@ -269,7 +269,7 @@ Build a form that allows the user to enter the OTP sent to them by SMS. Dependin
 The user checks their phone and copies the OTP into the form. When the user submits the OTP, create a `VerifyAuthenticatorOptions` object containing the OTP. Pass this object as a parameter to `IDXAuthenticationWrapper.verifyAuthenticator()`.
 
 ```java
-VerifyAuthenticatorOptions verifyAuthenticatorOptions = 
+VerifyAuthenticatorOptions verifyAuthenticatorOptions =
    new VerifyAuthenticatorOptions(code);
 AuthenticationResponse authenticationResponse =
    idxAuthenticationWrapper.verifyAuthenticator(proceedContext, verifyAuthenticatorOptions);
@@ -280,8 +280,6 @@ AuthenticationResponse authenticationResponse =
 If the SMS OTP is valid, the returned response object has an `AuthenticationStatus` of `Success`. This status signifies that no more factors (required or optional) are waiting to be enrolled and verified.
 
 The user is now registered with no more factors to be verified. Store the returned tokens in a session and redirect the user to the app's default signed-in page. Call `AuthenticationResponse.getTokenResponse()` to retrieve the required tokens (access, refresh, ID) for authenticated user activity.
-
-
 
 ### The user skips the phone authenticator
 

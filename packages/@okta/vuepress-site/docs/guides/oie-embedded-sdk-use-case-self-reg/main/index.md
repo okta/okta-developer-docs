@@ -42,7 +42,7 @@ Self-service registration allows users to sign up to an application by themselve
 
 ## Configuration updates
 
-Configure the Okta org to accept self-registration with the password, email, and/or phone factors.
+Configure your Okta org to accept self-registration with the password, email, and/or phone factors.
 
 1. See [Set up your Okta org for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/-/main/#set-up-your-okta-org-for-a-multifactor-use-case) to set up the password, email, and phone factors in your Okta org.
 1. [Create a profile enrollment policy](#create-a-profile-enrollment-policy)
