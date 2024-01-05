@@ -86,11 +86,14 @@ To create a rule for a policy:
     * **AND Scopes requested:** Select the scopes (any scopes, or a list that you specify) that the user can request as part of the rule conditions.
     * **THEN Use this inline hook:**  Select an [inline hook](/docs/concepts/inline-hooks/), if any, that you want to use to customize the token returned by Okta API Access Management.
     * **AND Access token lifetime is:** Select the length of time before an access token expires.
-    * **AND Refresh token lifetime is:** Leave the default of `Unlimited` unless you need to customize how long a refresh token is valid before it expires.
+    * **AND Refresh token lifetime is:** Leave the default of `Unlimited` unless you need to customize how long you can use a refresh token before it expires.
 
     > **Note:** If you customize the refresh token lifetime, and you [rotate your refresh tokens](/docs/guides/refresh-tokens/main/#refresh-token-rotation), that lifetime is inherited from the initial refresh token minted when the user first authenticates and stays the same through the series of refresh token rotations until the timeframe that you set expires.
 
-    * **but will expire if not used every:** Defines the maximum time that a refresh token is idle (unused) before it expires. For example, if a request isn't made to refresh an access token within this timeframe, the refresh token expires. Leave the default of **7 days** or make any necessary changes.
+    * **but will expire if not used every:** Defines the maximum time that a refresh token can be idle (unused) before it expires. For example, if a request isn't made to refresh an access token within this timeframe, the refresh token expires. Leave the default of **7 days** or make any necessary changes.
+
+    > **Note:** This idle time resets each time a request is made to refresh an access token and when a refresh token is rotated. It doesn't affect the refresh token lifetime, only how long the refresh token can remain unused before it expires.
+
 5. Click **Create Rule**.
 
 Rules are evaluated in priority order, so the first rule in the first policy that matches the client request is applied and no further processing occurs. If you need to change the order of your rules, reorder the rules using drag and drop.
