@@ -88,7 +88,7 @@ To create a rule for a policy:
     * **AND Access token lifetime is:** Select the length of time before an access token expires.
     * **AND Refresh token lifetime is:** Leave the default of `Unlimited` unless you need to customize how long you can use a refresh token before it expires.
 
-    > **Note:** If you customize the refresh token lifetime, and you [rotate your refresh tokens](/docs/guides/refresh-tokens/main/#refresh-token-rotation), that lifetime is inherited from the initial refresh token minted when the user first authenticates and stays the same through the series of refresh token rotations until the timeframe that you set expires.
+    > **Note:** If you customize the refresh token lifetime and [rotate your refresh tokens](/docs/guides/refresh-tokens/main/#refresh-token-rotation), that lifetime is inherited from the initial refresh token minted when the user first authenticates. It stays the same through the series of refresh token rotations until the timeframe that you set expires.
 
     * **but will expire if not used every:** Defines the maximum time that a refresh token can be idle (unused) before it expires. For example, if a request isn't made to refresh an access token within this timeframe, the refresh token expires. Leave the default of **7 days** or make any necessary changes.
 
