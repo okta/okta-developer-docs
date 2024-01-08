@@ -36,9 +36,8 @@ export default {
           Hence, we need to add a separate check for these routes.
           Refer - https://oktainc.atlassian.net/browse/OKTA-483028
         */
-        anchor => this.$page.path.includes('docs/reference/error-codes') &&
-        anchor.parentElement.tagName.toLowerCase() !== 'h4' ? anchor.parentElement.parentElement.offsetTop :
-        anchor.parentElement.offsetTop
+        anchor => Array.from(anchor.parentElement.classList)?.includes('container-level-2') ? anchor.parentElement.parentElement.offsetTop :
+          anchor.parentElement.offsetTop
       );
 
       this.anchorsOffset = anchorOffsets.map((anchorOffset, index, anchorOffsets) => ({

@@ -51,7 +51,7 @@
           class="title-error-code"
           v-html="$options.filters.titleErrorCode(oktaError)"
         />
-        <span>{{ oktaError.title }}
+        <span class="container-level-2">{{ oktaError.title }}
           <a
             :href="'#' + oktaError.errorCode"
             aria-hidden="true"
