@@ -102,8 +102,8 @@
       <div class="dont-show-again-checkbox">
         <input
           id="dont-show-again-checkbox"
-          type="checkbox"
           v-model="isDontShowModalChecked"
+          type="checkbox"
         >
         <label for="dont-show-again-checkbox">
           Don't show this again.
