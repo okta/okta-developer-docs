@@ -49,6 +49,14 @@
   @media (prefers-reduced-motion: reduce) {
     animation: none;
   }
+
+  .dont-show-again-checkbox {
+    margin-top: 20px;
+
+    input, label {
+      cursor: pointer;
+    }
+  }
 }
 
 .c-dialog__close {

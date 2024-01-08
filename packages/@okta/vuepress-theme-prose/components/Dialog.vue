@@ -99,6 +99,16 @@
           </a>
         </article>
       </div>
+      <div class="dont-show-again-checkbox">
+        <input
+          id="dont-show-again-checkbox"
+          type="checkbox"
+          v-model="isDontShowModalChecked"
+        >
+        <label for="dont-show-again-checkbox">
+          Don't show this again.
+        </label>
+      </div>
     </div>
   </div>
 </template>
@@ -108,20 +118,32 @@
     name: "HomeDialog",
     data() {
       return {
-        dialogHidden: false,
+        dialogHidden: true,
+        isDontShowModalChecked: false
       };
     },
     mounted() {
+      this.$nextTick(() => {
+        if (!localStorage.getItem('hideIntroModal')) {
+          this.dialogHidden = false;
+        }
+      });
       const ESC_KEY = 27;
       window.addEventListener("keydown", (event) => {
         if (event.keyCode === ESC_KEY) {
-          this.dialogHidden = !this.dialogHidden
+          if (this.isDontShowModalChecked) {
+            localStorage.setItem("hideIntroModal", "true");
+          }
+          this.dialogHidden = !this.dialogHidden;
         }
       })
     },
     methods: {
       hideDialog() {
-        this.dialogHidden = !this.dialogHidden
+        if (this.isDontShowModalChecked) {
+          localStorage.setItem("hideIntroModal", "true");
+        }
+        this.dialogHidden = !this.dialogHidden;
       }
     }
   }
