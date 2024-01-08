@@ -73,15 +73,14 @@ For example, this button is used to import the Users API collection:
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/1755573c5cf5fbf7968b)
 
-You can then select the option to open the collection using the Postman app. Alternatively, you are also given the option to use the **Web View** link to download the collection as a JSON file and import it:
+You can select the option to open the collection using the Postman app or you can use the **Web View** link to download the collection as a JSON file and import it.
 
-* Import that file into Postman by selecting **Import** from the **File** menu.
-* In the **Import** window, leave **Import File** selected and click **Choose Files**.
-* Browse to your download location, select the JSON file, and click **Open**.
-* Click **Import**.
+To import a JSON file collection from Postman:
 
-> **Note:** You can import and work with the rest of the Okta API using the link at the top of each API reference page,
-or see [all Postman collections](/docs/reference/postman-collections/). This tutorial only requires the Users API collection.
+1. Import that file into Postman by selecting **Import** from the **File** menu.
+1. In the **Import** window, leave **Import File** selected and click **Choose Files**.
+1. Browse to your download location, select the JSON file, and click **Open**.
+1. Click **Import**.
 
 ## Set up Okta for API access
 
