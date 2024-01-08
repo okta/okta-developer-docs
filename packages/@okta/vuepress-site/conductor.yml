@@ -1928,7 +1928,7 @@ redirects:
   - from: /docs/api/getting_started/api_test_client
     to: /code/rest/
   - from: /docs/guides/build-sso-integration/submit-your-app/index.html
-    to: /docs/guides/build-sso-integration/
+    to: /docs/guides/build-sso-integration/openidconnect/main/#next-steps
   - from: /docs/guides/build-sso-integration/openidconnect/submit-your-app/index.html
     to: /docs/guides/build-sso-integration/openidconnect/main/#next-steps
   - from: /docs/guides/build-sso-integration/saml2/submit-your-app/index.html
@@ -1976,17 +1976,17 @@ redirects:
   - from: /docs/guides/saml-application-setup/configure-saml-in-okta/index.html
     to: /docs/guides/add-private-app/saml2/main/
   - from: /docs/guides/saml-application-setup/assign-users-to-the-app
-    to: /docs/guides/add-private-app/saml2/main/
+    to: /docs/guides/add-private-app/saml2/main/#assign-users
   - from: /docs/guides/saml-application-setup/assign-users-to-the-app/index.html
-    to: /docs/guides/add-private-app/saml2/main/
+    to: /docs/guides/add-private-app/saml2/main/#assign-users
   - from: /docs/guides/saml-application-setup/config-saml-in-app
     to: /docs/guides/add-private-app/saml2/main/
   - from: /docs/guides/saml-application-setup/config-saml-in-app/index.html
     to: /docs/guides/add-private-app/saml2/main/
   - from: /docs/guides/saml-application-setup/next-steps
-    to: /docs/guides/add-private-app/saml2/main/
+    to: /docs/guides/add-private-app/saml2/main/#next-steps
   - from: /docs/guides/saml-application-setup/next-steps/index.html
-    to: /docs/guides/add-private-app/saml2/main/
+    to: /docs/guides/add-private-app/saml2/main/#next-steps
   - from: /docs/reference/webfinger/index.html
     to: /docs/reference/api/webfinger/
   - from: /docs/reference/webfinger
@@ -4376,7 +4376,7 @@ redirects:
   - from: /docs/guides/submit-app/openidconnect/update-submission/index.html
     to: /docs/guides/submit-oin-app/openidconnect/main/#update-your-integration
   - from: /docs/guides/submit-app/faqs/index.html
-    to: /docs/guides/submit-oin-app/openidconnect/main/#see-also
+    to: /docs/guides/submit-app-overview/
   - from: /docs/guides/submit-app/saml2/overview
     to: /docs/guides/submit-oin-app/saml2/main/
   - from: /docs/guides/submit-app/saml2/create-guide
@@ -4698,7 +4698,7 @@ redirects:
   - from: /docs/guides/oin-oidc-guide/background
     to: /docs/guides/oin-sso-overview/
   - from: /docs/guides/oin-oidc-guide/protocol-level-requirements
-    to: /docs/guides/build-sso-integration/openidconnect/main/
+    to: /docs/guides/build-sso-integration/openidconnect/main/#build-your-integration
   - from: /docs/guides/oin-oidc-guide/multi-tenancy
     to: /docs/guides/oin-sso-overview/#okta-organization-and-multi-tenancy
   - from: /docs/guides/oin-oidc-guide/integration-best-practices

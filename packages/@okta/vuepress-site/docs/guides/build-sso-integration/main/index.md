@@ -97,7 +97,7 @@ The following are common use cases for adding a private SSO integration:
 
 ## Next steps
 
-After you've added the SSO component in your app, start the submission process to have your SSO integration included in the OIN:
+If you want to publish your integration, start the submission process to have your SSO integration included in the OIN:
 
 * Review the [Publish an OIN integration](/docs/guides/submit-app-overview/) overview to understand the submission process for publishing an integration.
 * Follow the [OIN Wizard: Submit an SSO integration](/docs/guides/submit-oin-app/) guide to submit your SSO integration.
