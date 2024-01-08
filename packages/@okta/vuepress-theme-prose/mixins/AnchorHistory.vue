@@ -36,7 +36,7 @@ export default {
           Hence, we need to add a separate check for these routes.
           Refer - https://oktainc.atlassian.net/browse/OKTA-483028
         */
-        anchor => Array.from(anchor.parentElement.classList)?.includes('container-level-2') ? anchor.parentElement.parentElement.offsetTop :
+        anchor => anchor?.classList.contains('container-level-2') ? anchor.parentElement.parentElement.offsetTop :
           anchor.parentElement.offsetTop
       );
 

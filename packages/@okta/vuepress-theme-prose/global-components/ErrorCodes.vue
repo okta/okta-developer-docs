@@ -51,11 +51,11 @@
           class="title-error-code"
           v-html="$options.filters.titleErrorCode(oktaError)"
         />
-        <span class="container-level-2">{{ oktaError.title }}
+        <span>{{ oktaError.title }}
           <a
             :href="'#' + oktaError.errorCode"
             aria-hidden="true"
-            class="header-anchor header-link"
+            class="header-anchor header-link container-level-2"
           ><i class="fa fa-link" /></a></span>
       </h4>
       <div class="error-code-mappings">
