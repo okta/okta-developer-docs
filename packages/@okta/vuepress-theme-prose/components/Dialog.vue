@@ -114,6 +114,9 @@
 </template>
 
 <script>
+import storage from '../util/localStorage';
+const HIDE_INTRO_MODAL_KEY = 'hide_intro_modal';
+
   export default {
     name: "HomeDialog",
     data() {
@@ -124,7 +127,7 @@
     },
     mounted() {
       this.$nextTick(() => {
-        if (!localStorage.getItem('hideIntroModal')) {
+        if (!storage.getItem(HIDE_INTRO_MODAL_KEY)) {
           this.dialogHidden = false;
         }
       });
@@ -132,7 +135,7 @@
       window.addEventListener("keydown", (event) => {
         if (event.keyCode === ESC_KEY) {
           if (this.isDontShowModalChecked) {
-            localStorage.setItem("hideIntroModal", "true");
+            storage.setItem(HIDE_INTRO_MODAL_KEY, "true");
           }
           this.dialogHidden = !this.dialogHidden;
         }
@@ -141,7 +144,7 @@
     methods: {
       hideDialog() {
         if (this.isDontShowModalChecked) {
-          localStorage.setItem("hideIntroModal", "true");
+          storage.setItem(HIDE_INTRO_MODAL_KEY, "true");
         }
         this.dialogHidden = !this.dialogHidden;
       }
