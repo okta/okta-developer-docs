@@ -38,13 +38,13 @@ Self-service registration allows users to sign up to an application by themselve
 
 </div>
 
-<StackSnippet snippet="pwdoptionalusecase" inline />
+<StackSnippet snippet="pwdoptionalusecase" />
 
 ## Configuration updates
 
 Configure your Okta org to accept self-registration with the password, email, and/or phone factors.
 
-1. See [Set up your Okta org for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/-/main/#set-up-your-okta-org-for-a-multifactor-use-case) to set up the password, email, and phone factors in your Okta org.
+1. See <StackSnippet snippet="setupyourorglink" inline /> to set up the password, email, and phone factors in your Okta org.
 1. [Create a profile enrollment policy](#create-a-profile-enrollment-policy)
 1. [Set the Email and Phone authenticators as optional enrollment factors](#set-the-email-and-phone-authenticators-as-optional-enrollment-factors)
 
@@ -88,7 +88,7 @@ Even when only the password factor is required for an Okta application, you can 
 
 To replicate this scenario:
 
-1. Configure your org following the steps described in [Set up your Okta org for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/-/main/#set-up-your-okta-org-for-a-multifactor-use-case).
+1. Configure your org following the steps described in <StackSnippet snippet="setupyourorglink" inline />.
 1. Set your application's authentication policy to require only the password factor.
    1. In the Admin Console, go to **Applications** > **Applications**.
    {style="list-style-type:lower-alpha"}
