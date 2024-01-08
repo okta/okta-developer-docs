@@ -179,7 +179,7 @@ AuthenticationResponse authenticationResponse =
 
 ### Display a second list of optional authenticators to enroll
 
-`verifyAuthenticator()` returns an `AuthneticationResponse` object with an `AuthenticationStatus` property of `AWAITING_AUTHENTICATOR_ENROLLMENT_SELECTION`. This indicates that the user still has authentication factors to enroll before registration is complete.
+`verifyAuthenticator()` returns an `AuthenticationResponse` object with an `AuthenticationStatus` property of `AWAITING_AUTHENTICATOR_ENROLLMENT_SELECTION`. This indicates that the user still has authentication factors to enroll before registration is complete.
 
 Redirect the user to the list page you created earlier to choose which one. The code is the same. The page should show only the phone factor. However, since this factor is optional and the user has now enrolled two factors, the `canSkip` property populated by `isSkipAuthenticatorPresent()` is now `true` meaning that the list page should now also display a **Skip** button.
 
