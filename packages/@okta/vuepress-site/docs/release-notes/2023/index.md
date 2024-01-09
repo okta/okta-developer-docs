@@ -18,6 +18,8 @@ title: Okta API Products release notes 2023
 
 * A `next` link header was returned when a list clients (`GET /oauth2/v1/clients`) request was made when there were no further clients to be fetched. (OKTA-658169)
 
+* Some free-trial orgs could send customized email templates. (OKTA-673562)
+
 ### Weekly release 2023.12.1
 
 | Change | Expected in Preview Orgs |

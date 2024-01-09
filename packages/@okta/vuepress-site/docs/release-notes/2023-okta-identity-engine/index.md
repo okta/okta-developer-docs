@@ -22,6 +22,8 @@ title: Okta Identity Engine API Products release notes 2023
 
 * When using [Okta Expression Language in Identity Engine](/docs/reference/okta-expression-language-in-identity-engine/#group-functions), the `EXACT` and `STARTS_WITH` operators couldn't be used with the `group.profile.name` key to return exact matches. (OKTA-636560)
 
+* Some free-trial orgs could send customized email templates. (OKTA-673562)
+
 ### Weekly release 2023.12.1
 
 | Change | Expected in Preview Orgs |
