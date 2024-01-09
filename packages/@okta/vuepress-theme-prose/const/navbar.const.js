@@ -600,6 +600,10 @@ export const guides = [
                 title: "Build an SSO integration",
                 guideName: "build-sso-integration",
               },
+              {
+                title: "Add a private SSO integration",
+                guideName: "add-private-app",
+              },
             ],
           },
           {
@@ -649,12 +653,16 @@ export const guides = [
                 guideName: "submit-app-prereq",
               },
               {
-                title: "Submit an SSO integration",
-                guideName: "submit-sso-app",
+                title: "OIN Wizard: Submit an SSO integration",
+                guideName: "submit-oin-app",
               },
               {
-                title: "Submit an LCM integration",
+                title: "OIN Manager: Submit an LCM integration",
                 guideName: "submit-app",
+              },
+              {
+                title: "OIN Manager: Submit an SSO integration (to remove) ",
+                guideName: "submit-sso-app",
               },
             ]
           },
