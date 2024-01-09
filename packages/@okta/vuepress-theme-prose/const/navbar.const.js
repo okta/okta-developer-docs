@@ -1159,6 +1159,11 @@ export const releaseNotes = [
       title: "Release Notes",
       path: "/docs/release-notes/",
       subLinks: [
+         { title: "2024", path: "/docs/release-notes/2024/" },
+         {
+            title: "2024 - Okta Identity Engine",
+            path: "/docs/release-notes/2024-okta-identity-engine/",
+         },
          { title: "2023", path: "/docs/release-notes/2023/" },
          {
             title: "2023 - Okta Identity Engine",
