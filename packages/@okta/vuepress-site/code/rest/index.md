@@ -67,9 +67,9 @@ You need a free Okta developer-edition org to get started. Don't have one? [Crea
 
 Go to the Okta [Postman collections](https://developer.okta.com/docs/reference/postman-collections/) reference to import the collection you want to test. Alternatively, you can fork a collection from the [Okta Public API Collections](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/overview) online workspace.
 
-To import a collection from the Okta [Postman collections](https://developer.okta.com/docs/reference/postman-collections/) reference page, click **Run in Postman** for the collection you want.
+To import a collection from the Okta [Postman collections](https://developer.okta.com/docs/reference/postman-collections/) reference page, click **Run in Postman** next to the collection you want.
 
-For example, this button is used to import the Users API collection:
+For example, click this **Run in Postman** action to import the Users API collection:
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/1755573c5cf5fbf7968b)
 
