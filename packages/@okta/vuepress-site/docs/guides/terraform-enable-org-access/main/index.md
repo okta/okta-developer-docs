@@ -18,7 +18,7 @@ Create an Okta application and credentials that Terraform uses to manage the obj
 
 * Familiarity with Terraform terms: configuration, resources, state, and commands. See [Terraform overview](/docs/guides/terraform-overview).
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
-* [Super admin permissions](https://help.okta.com/en-us/Content/Topics/Security/administrators-super-admin.htm?cshid=ext_superadmin)
+* [Super admin permissions](https://help.okta.com/okta_help.htm?id=ext_superadmin)
 * [OpenSSL command line program](https://github.com/openssl/openssl#download). Some operating systems already include `openssl` or `openssl-rsa`.
 * [A Terraform installation](https://www.terraform.io/)
 
@@ -158,7 +158,7 @@ Check whether Terraform can manage Okta objects by running a configuration. This
 1. In a terminal, go to the directory that contains `main.tf`.
 1. Run `terraform init` to initialize the Terraform configuration.
 1. Run `terraform plan` to preview the changes to your Okta org.
-1. Run `terraform apply` to apply the changes to your org. Enter “yes” when prompted to confirm.
+1. Run `terraform apply` to apply the changes to your org. Enter "yes" when prompted to confirm.
 1. In your Okta org, check **Directory** > **Groups** to view the group created by Terraform. If the group exists, you successfully authorized Terraform to access your org.
 
 The `terraform.tfstate` file in the Terraform configuration directory stores the group information. Terraform uses this information when you modify and apply your configurations:
