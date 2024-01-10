@@ -20,3 +20,4 @@ https://regionalevents.okta.com/enterprisereadyworkshops/
 https://app.getpostman.com/run-collection/1a927e3b353fd0e1b158/
 https://app.getpostman.com/run-collection/ff723148292df05bb58b/
 https://csrc.nist.gov/pubs/sp/800/63/b/upd2/final/
+https://accounts.google.com/signup/

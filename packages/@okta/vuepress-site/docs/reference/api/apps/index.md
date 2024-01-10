@@ -230,6 +230,9 @@ curl -v -X POST \
 
 Adds a new Okta Org2Org application to your organization
 
+> **Note:** You can't send this request to Okta Developer-Edition orgs because the Org2Org app integration isn't available in developer orgs. If you need to test this feature in your Developer-Edition org, contact your Okta account team.
+
+
 ##### Settings
 
 
