@@ -42,7 +42,7 @@ A new `userVerification` property is available for the `constraints` object of t
 
 #### Read-only permission for admin role assignments is GA in Production
 
-Super admins can now assign the Roles, resources, and admin assignments permission to their delegated admins. This permission gives admins a read-only view of the admin roles, resource sets, and admin assignments in the org. See [About role permission](https://help.okta.com/okta_help.htm?type=oie&id=csh-about-role-permissions). <!-- OKTA-640563 IAM_READ_RESOURCES -->
+Super admins can now assign the **View roles, resources, and admin assignments** permission to their delegated admins. This permission gives admins a read-only view of the admin roles, resource sets, and admin assignments in the org. See [About role permission](https://help.okta.com/okta_help.htm?type=oie&id=csh-about-role-permissions). <!-- OKTA-640563 IAM_READ_RESOURCES -->
 
 #### Seamless ISV experience is GA in Preview
 
