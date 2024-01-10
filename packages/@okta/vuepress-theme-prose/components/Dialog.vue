@@ -106,7 +106,7 @@
           type="checkbox"
         >
         <label for="dont-show-again-checkbox">
-          Don't show this again.
+          Don't show this again
         </label>
       </div>
     </div>
