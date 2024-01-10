@@ -11,7 +11,7 @@ title: Okta API Products release notes 2024
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
 | [DPoP support for Okta management APIs is GA in Preview](#dpop-support-for-okta-management-apis-is-ga-in-preview) | December 13, 2024 |
-| [Read-only permission for admin role assignments is GA in Preview](#read-only-permission-for-admin-role-assignments-is-ga-in-preview) | January 10, 2024 |
+| [Read-only permission for admin role assignments is GA in Production](#read-only-permission-for-admin-role-assignments-is-ga-in-production) | November 8, 2023 |
 | [Seamless ISV experience is GA in Preview](#seamless-isv-experience-is-ga-in-preview) | January 10, 2024 |
 | [System Log events for IdP keystore operations](#system-log-events-for-idp-keystore-operations) | January 10, 2024 |
 | [Updated RADIUS authentication prompts](#updated-radius-authentication-prompts) | January 10, 2024 |
@@ -21,7 +21,7 @@ title: Okta API Products release notes 2024
 You can now use OAuth 2.0 Demonstrating Proof-of-Possession (DPoP) access tokens to access Okta management APIs.
 See [Configure OAuth 2.0 Demonstrating Proof-of-Possession](/docs/guides/dpop/oktaresourceserver/main/). <!-- OKTA-673922 OKTA_RESOURCE_SERVER_DPOP_SUPPORT-->
 
-#### Read-only permission for admin role assignments is GA in Preview
+#### Read-only permission for admin role assignments is GA in Production
 
 Super admins can now assign the Roles, resources, and admin assignments permission to their delegated admins. This permission gives admins a read-only view of the admin roles, resource sets, and admin assignments in the org. See [About role permission](https://help.okta.com/okta_help.htm?type=oie&id=csh-about-role-permissions). <!-- OKTA-640563 IAM_READ_RESOURCES -->
 

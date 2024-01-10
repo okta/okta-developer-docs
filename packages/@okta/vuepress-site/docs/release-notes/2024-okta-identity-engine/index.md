@@ -12,11 +12,11 @@ title: Okta Identity Engine API Products release notes 2024
 
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
-| [DPoP support for Okta management APIs is GA in Preview](#dpop-support-for-okta-management-apis-is-ga-in-preview) | December 13, 2024 |
+| [DPoP support for Okta management APIs is GA in Preview](#dpop-support-for-okta-management-apis-is-ga-in-preview) | December 13, 2023 |
 | [Email or password no longer required in authenticator enrollment policy is GA in Preview](#email-or-password-no-longer-required-in-authenticator-enrollment-policy-is-ga-in-preview) | January 10, 2024 |
 | [More properties returned for Devices API user summaries](#more-properties-returned-for-devices-api-user-summaries) | January 10, 2024 |
 | [New possession constraint available for Policy API is GA in Production](#new-possession-constraint-available-for-policy-api-is-ga-in-production) | December 6, 2023 |
-| [Read-only permission for admin role assignments is GA in Preview](#read-only-permission-for-admin-role-assignments-is-ga-in-preview) | January 10, 2024 |
+| [Read-only permission for admin role assignments is GA in Production](#read-only-permission-for-admin-role-assignments-is-ga-in-production) | November 8, 2023 |
 | [Seamless ISV experience is GA in Preview](#seamless-isv-experience-is-ga-in-preview) | January 10, 2024 |
 | [Stay signed in is EA in Preview](#stay-signed-in-is-ea-in-preview) | January 10, 2024 |
 | [System Log events for IdP keystore operations](#system-log-events-for-idp-keystore-operations) | January 10, 2024 |
@@ -40,7 +40,7 @@ The [List all Devices](https://developer.okta.com/docs/api/openapi/okta-manageme
 
 A new `userVerification` property is available for the `constraints` object of the [Policy API](/docs/reference/api/policy/#constraints). This setting can ensure the verification of a possession factor through a PIN or biometrics. <!-- OKTA-669846 ASSURANCE_USER_VERIFICATION_POSSESSION_CONSTRAINT -->
 
-#### Read-only permission for admin role assignments is GA in Preview
+#### Read-only permission for admin role assignments is GA in Production
 
 Super admins can now assign the Roles, resources, and admin assignments permission to their delegated admins. This permission gives admins a read-only view of the admin roles, resource sets, and admin assignments in the org. See [About role permission](https://help.okta.com/okta_help.htm?type=oie&id=csh-about-role-permissions). <!-- OKTA-640563 IAM_READ_RESOURCES -->
 
