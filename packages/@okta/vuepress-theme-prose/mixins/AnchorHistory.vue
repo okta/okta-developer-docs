@@ -86,11 +86,6 @@ export default {
 
       if (decodeURIComponent(this.$route.hash) !== decodeURIComponent(anchor)) {
         this.$vuepress.$set("disableScrollBehavior", true);
-        this.$router.replace(anchor, () => {
-          this.$nextTick(() => {
-            this.$vuepress.$set("disableScrollBehavior", false);
-          });
-        });
       }
     },
 

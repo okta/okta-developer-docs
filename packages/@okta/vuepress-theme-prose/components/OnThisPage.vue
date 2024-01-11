@@ -49,7 +49,8 @@ export default {
   data() {
     return {
       anchors: [],
-      activeAnchor: null
+      activeAnchor: null,
+      isCalledOnceFromUpdated: false,
     };
   },
   computed: {
@@ -78,12 +79,21 @@ export default {
   mounted() {
     window.addEventListener("load", () => {
       this.$nextTick(() => {
-        this.setAnchors(this.getOnThisPageAnchors());
-        this.setActiveAnchor();
-        window.addEventListener("scroll", this.setActiveAnchor);
         window.addEventListener("resize", this.updateAnchors);
       });
     });
+    this.setAnchors(this.getOnThisPageAnchors());
+    this.setActiveAnchor();
+    window.addEventListener("scroll", this.setActiveAnchor);
+  },
+  updated() {
+    if (!this.isCalledOnceFromUpdated) {
+      // Sometimes anchors are not set during the mounting phase. Hence, we need to set the anchors again 
+      // in the updated hook and we only need to do it once, hence, the isCalledOnceFromUpdated condition.
+      this.isCalledOnceFromUpdated = true;
+      this.setAnchors(this.getOnThisPageAnchors());
+      this.setActiveAnchor();
+    }
   },
   beforeDestroy() {
     window.removeEventListener("scroll", this.setActiveAnchor);
