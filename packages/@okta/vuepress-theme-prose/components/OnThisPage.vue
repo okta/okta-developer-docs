@@ -90,11 +90,13 @@ export default {
     if (!this.isCalledOnceFromUpdated) {
       // Sometimes anchors are not set during the mounting phase. Hence, we need to set the anchors again 
       // in the updated hook and we only need to do it once, hence, the isCalledOnceFromUpdated condition.
+      // Adding a setTimeout as due to some reason this was not working in the preview build but was working
+      // locally. Adding a setTimeout fixes the issue in the preview build.
       setTimeout(() => {
         this.isCalledOnceFromUpdated = true;
         this.setAnchors(this.getOnThisPageAnchors());
         this.setActiveAnchor();
-      }, 1000);
+      }, 500);
     }
   },
   beforeDestroy() {
