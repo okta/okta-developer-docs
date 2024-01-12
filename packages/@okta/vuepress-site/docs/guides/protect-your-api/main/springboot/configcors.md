@@ -1,24 +1,37 @@
-1. To configure CORS in Spring Security, enable it in the `SecurityFilterChain` that you defined in the previous step:
+1. Add the following **import** statement to **DemoApplication.java**:
 
    ```java
-    @Bean
-    SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        return http
-                // previous configuration
-                ...
-                .cors(withDefaults())
-                .build();
-    }
-}
+   import org.springframework.web.bind.annotation.CrossOrigin;
    ```
 
-2. Configure individual controllers with `CrossOrigin` annotation. For example:
+1. Enable CORS in the `SecurityFilterChain` bean that you defined in the previous step:
 
    ```java
-     ...
-   @CrossOrigin(origins = "http://example.com:80")
+   @EnableWebSecurity
+   @Configuration
+   static class OktaOAuth2WebSecurityConfiguration {
+
+      @Bean
+      SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+         return http.authorizeHttpRequests(
+             (req) -> req.requestMatchers("/api/whoami").authenticated()
+                 .requestMatchers("/**").permitAll()
+             )
+             .oauth2ResourceServer((srv) -> srv.jwt(Customizer.withDefaults()))
+             .cors(Customizer.withDefaults())
+             .build();
+      }
+   }
+   ```
+
+1. Configure individual endpoints with `CrossOrigin` annotation. For example:
+
+   ```java
    @GetMapping("/api/whoami")
-     ...
+   @CrossOrigin(origins = "http://example.com")
+   public String whoami(Authentication authentication) {
+      return authentication.getDetails().toString();
+   }
    ```
 
-   > **Note**: For more detailed information, see the [Spring CORS guide](https://spring.io/guides/gs/rest-service-cors/).
+> **Note**: For more detailed information, see the [Spring CORS guide](https://spring.io/guides/gs/rest-service-cors/).

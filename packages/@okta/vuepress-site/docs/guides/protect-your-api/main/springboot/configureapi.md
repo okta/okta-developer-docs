@@ -1,10 +1,10 @@
-Configure the Okta Spring Boot Starter by setting the following environment variables, making sure you replace the below placeholder with your own value:
+1. Open **src** > **main** > **resources** > **application.properties**.
+1. Add the following, replacing the placeholders with your own values.
 
-```bash
-OKTA_OAUTH2_ISSUER=https://${yourOktaDomain}/oauth2/default
+   ```properties
+   okta.oauth2.issuer=https://${yourOktaDomain}/oauth2/${yourAuthServer}
+   okta.oauth2.audience=${yourAudience}
+   server.port=8081
+   ```
 
-# Optional
-OKTA_OAUTH2_AUDIENCE=api://default
-```
-
-> **Note:** For other configuration techniques see [Spring Boot's external configuration guide](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html).
+> **Note**: For other ways to configure the properties, see the [Spring Boot Externalized Configuration](https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.external-config).
