@@ -51,6 +51,13 @@ header.page-header .header--links {
   justify-content: space-between;
   padding-right: 35px;
   padding-left: 45px;
+
+  ul.menu--items > li.expandable > a:after,
+  ul.menu--items > li.expandable > span:after {
+    top: 13px;
+
+    background-image: url("/img/icons/chevron-down-white.svg");
+  }
 }
 
 header.page-header .header--links ul.menu--items + ul.menu--items {
