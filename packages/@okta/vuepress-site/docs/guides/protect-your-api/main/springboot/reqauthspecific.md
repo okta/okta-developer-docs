@@ -31,15 +31,15 @@ Use a `SecurityFilterChain` bean to identify the routes that require authenticat
    }
    ```
 
-Note that the matchers are considered in order. Therefore, the following is invalid because the first matcher matches every request and will never get to the second mapping:
+   The matchers are considered in order. Therefore, the following is invalid because the first matcher matches every request and the second mapping is never reached:
 
-```java
-return http.authorizeHttpRequests(
-    (req) -> req.requestMatchers("/**").permitAll()
-        .requestMatchers("/api/whoami").authenticated()
-    )
-    .oauth2ResourceServer((srv) -> srv.jwt(Customizer.withDefaults()))
-    .build();
-```
+   ```java
+   return http.authorizeHttpRequests(
+      (req) -> req.requestMatchers("/**").permitAll()
+         .requestMatchers("/api/whoami").authenticated()
+      )
+      .oauth2ResourceServer((srv) -> srv.jwt(Customizer.withDefaults()))
+      .build();
+   ```
 
-To allow **only** anonymous access to an endpoint, replace `permitAll()` with `anonymous()`. Any calls to an endpoint marked anonymous-only from a client using any method of authentication will receive an **HTTP 403 Forbidden** response.
+   To allow **only** anonymous access to an endpoint, replace `permitAll()` with `anonymous()`. Any call to an endpoint marked anonymous-only from a client using any method of authentication receives an **HTTP 403 Forbidden** response.
