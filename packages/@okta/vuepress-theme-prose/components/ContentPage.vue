@@ -37,15 +37,11 @@ export default {
         window.addEventListener("popstate", e => {
           e.target.location.hash && this.scrollToAnchor(e.target.location.hash);
         });
-        window.addEventListener("scroll", this.setHeadingAnchorToURL);
-        window.addEventListener('resize', this.updateAnchors);
       });
     };
   },
   beforeDestroy() {
-    window.removeEventListener("scroll", this.setHeadingAnchorToURL);
     window.removeEventListener("popstate", this.scrollToAnchor);
-    window.removeEventListener('resize', this.updateAnchors);
   },
   methods: {
     onPageChange() {
@@ -97,19 +93,6 @@ export default {
         }
       }
     },
-
-    updateAnchors: _.debounce(function () {
-      this.getAnchorsOffset();
-      this.setHeadingAnchorToURL();
-    }, 200),
-
-    setHeadingAnchorToURL: _.debounce(function() {
-      const activeAnchor = this.getActiveAnchor();
-      activeAnchor
-        ? this.historyReplaceAnchor(activeAnchor.hash)
-        : this.historyReplaceAnchor("");
-    }, 200),
-
     getAnchors() {
       return Array.from(document.querySelectorAll(".header-anchor"));
     }

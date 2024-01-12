@@ -77,14 +77,10 @@ export default {
     }
   },
   mounted() {
-    window.addEventListener("load", () => {
-      this.$nextTick(() => {
-        window.addEventListener("resize", this.updateAnchors);
-      });
-    });
     this.setAnchors(this.getOnThisPageAnchors());
     this.setActiveAnchor();
     window.addEventListener("scroll", this.setActiveAnchor);
+    window.addEventListener("resize", this.updateAnchors);
   },
   updated() {
     if (!this.isCalledOnceFromUpdated) {
