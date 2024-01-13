@@ -848,8 +848,6 @@ The following sequence of calls begins when you enable provisioning for your SCI
     Only provide schema definitions for extensions unknown to Okta.
 1. Resource endpoints. These endpoints are dynamic; whatever is defined for the endpoint in the ResourceType is the endpoint that Okta calls. For each ResourceType with Okta's Role or Entitlement URN, Okta retrieves all values from the defined endpoints. For example, there might be a Profile ResourceType that has a corresponding `/Profiles` endpoint. Other common endpoints include `/Entitlements`, `/Roles`, and `/Licenses`.
 
-**insert image here - Scott to provide**
-
 After the sequence of calls is complete, in Governance-enabled apps, you can view entitlements in the **Governance** tab.
 
 This combination of endpoints enables user schema discovery. Okta combines the gathered information from the endpoints to build a representation in Okta to faciliate the use of entitlements within the app.
@@ -900,18 +898,18 @@ Common resource types include the following:
 
 Currently, Okta doesn't offer any custom handling for Groups. 
 
-To expose Entitlements and Roles, you must create corresponding `ResourceType`s for these entities. See [ResourceTypes](#resourcetype) section for examples.
+To expose Entitlements and Roles, you must create a correspond `ResourceType` each of these entities. See [ResourceTypes](#resourcetype).
 
 #### /Schemas
 
-Caveat: There's no need for a /Schemas endpoing if the app doesn't use any custom schema extension. Okta handles the base definition for the following:
+For any required custom schema extensions, implement the `/Schemas` endpoint. See [Schemas](#schemas) for an implementation example.
+
+> Note: You don't need a `/Schemas` endpoint for apps that don't use custom schema extensions. Okta handles the base definitions for the following resources and objects:
 - Entitlements
 - Roles
 - User:Core
 - User:Enterprise
 
-For any required custom schema extensions, implement the /Schemas endpoint. See the example implementation in "Schemas". (include link to section with the code)
- 
 #### Example user discovery data
 
 The following sections provide sample structures in JSON format for ResourceTypes, schemas, custom entitlements with extensions, and a User that contains entitlements and roles.
@@ -929,69 +927,70 @@ The following sections provide sample structures in JSON format for ResourceType
 - Schema extensions - List any extensions required for addtional properties. Generally, Entitlements and Roles don't need to have extensions, while it's common for Users to have highly customized extensions. For example, a User might have a schema extension to store a custom attribute for a particular app. 
 
 (Maybe just replace this with a simpler version? Just a License? Or a whole API return)
-The following is an example definition of ResourceTypes, including definitions of a Role, Entitlement, Profile:
+The following is an example definition of ResourceTypes, including definitions of a Role, Entitlement, Profile. Comments prefixed with `//` are included for illustrative purposes; they are not JSON-compliant:
 ~~~
 // <base>/scim/v2/ResourceTypes   
 // Sample Role resource
-[
-  {
+{
     "schemas": [
-      "urn:ietf:params:scim:schemas:core:2.0:ResourceType"
+      "urn:ietf:params:scim:api:messages:2.0:ListResponse"
     ],
-    "id": "Role",
-    "name": "Role",
-    "endpoint": "/Roles",
-    "description": "Role",
-    "schema": "urn:okta:scim:schemas:core:1.0:Role",
-    "schemaExtensions": [
-      {
-        "schema": "urn:isvname:scim:schemas:extension:appname:1.0:Role",
-        "resourceType": "ResourceType"
-      }
-    ],
-    "meta": {
-      "location": "https://example.com/v2/ResourceTypes/Role",
-      "resourceType": "ResourceType"
-    }
-  }
-]
-
-// Sample (Generic/Singular) Entitlement resource
-{
-  "schemas": [
-    "urn:ietf:params:scim:schemas:core:2.0:ResourceType"
-  ],
-  "id": "Entitlement",
-  "name": "Entitlement",
-  "description": "Entitlement resource",
-  "endpoint": "/Entitlements",
-  "schema": "urn:okta:scim:schemas:core:1.0:Entitlement",
-  "meta": {
-    "location": "https://example.com/v2/ResourceTypes/Entitlement",
-    "resourceType": "ResourceType"
-  }
-}
-
-// Sample (Specific or with Extensions) "Profile" type of Entitlement resource
-{
-  "schemas": [
-    "urn:ietf:params:scim:schemas:core:2.0:ResourceType"
-  ],
-  "id": "Profile",
-  "name": "Profile",
-  "endpoint": "/Profiles",
-  "description": "Profile",
-  "schema": "urn:okta:scim:schemas:core:1.0:Entitlement",
-  "schemaExtensions": [
-    {
-      "schema": "urn:isvname:scim:schemas:extension:appname:1.0:Profile",
-      "required": true
-    }
-  ],
-  "meta": {
-    "location": "https://example.com/v2/ResourceTypes/Profile",
-    "resourceType": "ResourceType"
-  }
+    "totalResults": 3,
+    "startIndex": 1,
+    "itemsPerPage": 3,
+    "Resources": [
+        {
+            // Sample Role (default w/ no extensions)
+            "schemas": [
+            "urn:ietf:params:scim:schemas:core:2.0:ResourceType"
+            ],
+            "id": "Role",
+            "name": "Role",
+            "endpoint": "/Roles",
+            "description": "Role",
+            "schema": "urn:okta:scim:schemas:core:1.0:Role",
+            "meta": {
+                "location": "https://example.com/v2/ResourceTypes/Role",
+                "resourceType": "ResourceType"
+            }
+        },
+        // Sample Entitlement resource
+        {
+            "schemas": [
+                "urn:ietf:params:scim:schemas:core:2.0:ResourceType"
+            ],
+            "id": "Entitlement",
+            "name": "Entitlement",
+            "description": "Entitlement resource",
+            "endpoint": "/Entitlements",
+            "schema": "urn:okta:scim:schemas:core:1.0:Entitlement",
+            "meta": {
+                "location": "https://example.com/v2/ResourceTypes/Entitlement",
+                "resourceType": "ResourceType"
+            }
+        },
+        // Sample (with Extensions) "Profile" type of Entitlement resource
+        {
+            "schemas": [
+                "urn:ietf:params:scim:schemas:core:2.0:ResourceType"
+            ],
+            "id": "Profile",
+            "name": "Profile",
+            "endpoint": "/Profiles",
+            "description": "Profile",
+            "schema": "urn:okta:scim:schemas:core:1.0:Entitlement",
+            "schemaExtensions": [
+                {
+                    "schema": "urn:isvname:scim:schemas:extension:appname:1.0:Profile",
+                    "required": true
+                }
+            ],
+            "meta": {
+                "location": "https://example.com/v2/ResourceTypes/Profile",
+                "resourceType": "ResourceType"
+            }
+        }
+    ]
 }
 ~~~
 
@@ -1001,51 +1000,37 @@ The following is an example definition of ResourceTypes, including definitions o
 // <base>/scim/v2/Schemas/urn:isvname:scim:schemas:extension:appname:1.0:License  
   // Sample schema for an Entitlement property schemaExtension
 {
-  "id": "urn:isvname:scim:schemas:extension:appname:1.0:Profile",
-  "name": "Profile",
-  "description": "An example of a Profile Entitlement schema extension",
-  "attributes": [
-    {
-      "name": "customProfileProperty",
-      "type": "string",
-      "multiValued": false,
-      "description": "A Profile Entitlement extension field",
-      "required": false,
-      "caseExact": false,
-      "mutability": "readWrite",
-      "returned": "default",
-      "uniqueness": "none"
-    }
-  ],
-  "meta": {
-    "resourceType": "Schema",
-    "location": "/v2/Schemas/urn:isvname:scim:schemas:extension:appname:1.0:Profile"
-  }
-} 
-    
-// <base>/scim/v2/Schemas/urn:isvname:scim:schemas:extension:appname:1.0:RoleExample
-// Sample schema for a Role property
-{
-  "id": "urn:isvname:scim:schemas:extension:appname:1.0:RoleExample",
-  "name": "RoleExample",
-  "description": "An example of a Role schemaExtension",
-  "attributes": [
-    {
-      "name": "customRoleProperty",
-      "type": "string",
-      "multiValued": false,
-      "description": "A custom Role field",
-      "required": false,
-      "caseExact": false,
-      "mutability": "readWrite",
-      "returned": "default",
-      "uniqueness": "none"
-    }
-  ],
-  "meta": {
-    "resourceType": "Schema",
-    "location": "/v2/Schemas/urn:isvname:scim:schemas:extension:appname:1.0:RoleExample"
-  }
+    "schemas": [
+      "urn:ietf:params:scim:api:messages:2.0:ListResponse"
+    ],
+    "totalResults": 1,
+    "startIndex": 1,
+    "itemsPerPage": 1,
+    "Resources": [
+        // Sample schema for an Entitlement property schemaExtension
+        {
+            "id": "urn:isvname:scim:schemas:extension:appname:1.0:Profile",
+            "name": "Profile",
+            "description": "An example of a Profile Entitlement schema extension",
+            "attributes": [
+            {
+                "name": "customProfileProperty",
+                "type": "string",
+                "multiValued": false,
+                "description": "A Profile Entitlement extension field",
+                "required": false,
+                "caseExact": false,
+                "mutability": "readWrite",
+                "returned": "default",
+                "uniqueness": "none"
+            }
+            ],
+            "meta": {
+                "resourceType": "Schema",
+                "location": "/v2/Schemas/urn:isvname:scim:schemas:extension:appname:1.0:Profile"
+            }
+        }
+    ]
 }
 ~~~
 
@@ -1054,20 +1039,71 @@ The following is an example definition of ResourceTypes, including definitions o
 ~~~
 // Sample representation of hypothetical /Entitlements
   // License
-[
-  {
+{
     "schemas": [
-      "urn:okta:scim:schemas:core:1.0:Entitlement",
-      "urn:<isvname>:scim:schemas:extension:<appname>:1.0:License"
+      "urn:ietf:params:scim:api:messages:2.0:ListResponse"
     ],
-    "type": "License",
-    "id": "license-123",
-    "displayName": "Basic",
-    "urn:<isvname>:scim:schemas:extension:<appname>:1.0:License": {
-      "customEntitlementProperty": "value"
-    }
-  }
-]
+    "totalResults": 2,
+    "startIndex": 1,
+    "itemsPerPage": 2,
+    "Resources": [
+        // Sample List of License Resources (/Profiles endpoint, described in ResourceTypes response)
+        {
+            "schemas": [
+                "urn:okta:scim:schemas:core:1.0:Entitlement",
+                "urn:<isvname>:scim:schemas:extension:<appname>:1.0:Profile"
+            ],
+            "type": "Profile",
+            "id": "profile-123",
+            "displayName": "Profile 123",
+            "urn:<isvname>:scim:schemas:extension:<appname>:1.0:Profile": {
+                "customProfileProperty": "test-value"
+            }
+        },
+        {
+            "schemas": [
+                "urn:okta:scim:schemas:core:1.0:Entitlement",
+                "urn:<isvname>:scim:schemas:extension:<appname>:1.0:Profile"
+            ],
+            "type": "Profile",
+            "id": "profile-321",
+            "displayName": "Profile 321",
+            "urn:<isvname>:scim:schemas:extension:<appname>:1.0:Profile": {
+                "customProfileProperty": "test-value"
+            }
+        }
+    ]
+}
+~~~
+
+### Role example
+
+~~~
+{
+    "schemas": [
+      "urn:ietf:params:scim:api:messages:2.0:ListResponse"
+    ],
+    "totalResults": 2,
+    "startIndex": 1,
+    "itemsPerPage": 2,
+    "Resources": [
+        // Default Roles resource example
+        {
+            "schemas": [
+                "urn:okta:scim:schemas:core:1.0:Role"
+            ],
+            "id": "role-1",
+            "displayName": "First Role",
+        },
+        {
+            "schemas": [
+                "urn:okta:scim:schemas:core:1.0:Role"
+            ],
+            "id": "role-2",
+            "displayName": "Second Role",
+        }
+    ]
+}
 ~~~
 
 ### User with entitlements and roles
