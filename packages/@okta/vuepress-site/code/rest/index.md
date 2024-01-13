@@ -10,10 +10,10 @@ meta:
 
 A great way to learn an Application Programming Interface (API) is to issue requests and inspect the responses. You can use Okta Postman collections to learn how to incorporate Okta APIs into your workflow. To use these collections, you need to:
 
-* [Obtain an Okta org](#sign-up-for-okta).
-* [Set up your Postman environment](#set-up-your-postman-environment).
-* [Import the Okta collection you want to test](#import-a-collection).
-* [Set up Okta for API access](#set-up-okta-for-api-access).
+1. Obtain an Okta org. [Sign up for Okta](#sign-up-for-okta) if you don't have an existing Okta org.
+1. [Set up your Postman environment](#set-up-your-postman-environment).
+1. [Import the Okta collection you want to test](#import-a-collection).
+1. [Set up Okta for API access](#set-up-okta-for-api-access).
 
 You can then [send test requests](#send-a-request) to your Okta org and verify the results.
 
@@ -28,9 +28,9 @@ You need a free Okta developer-edition org to get started. Don't have one? [Crea
 1. [Install the Postman app](https://www.getpostman.com/apps).
 1. Start Postman if it's not open already.
 1. In the upper-left corner, click **Import**.
-1. In the **Import** dialog box, click **Link** and then paste the following link into the **Enter a URL** box: `https://developer.okta.com/docs/api/postman/example.oktapreview.com.environment`.
+1. In the **Import** dialog, specify the following link into the **Paste cURL, Raw text or URL** box: `https://developer.okta.com/docs/api/postman/example.oktapreview.com.environment`.
    > **Note:** You can also download this environment locally and import it as a file.
-1. Click **Continue** and then **Import** to confirm your environment import.
+1. Click the enter key to confirm your environment import.
 1. In the upper-right corner, click the box that lists the environments and then select `{yourOktaDomain}` from the list. The initial value is `No Environment` if you just installed Postman.
 
     <div class="three-quarter">
@@ -44,11 +44,11 @@ You need a free Okta developer-edition org to get started. Don't have one? [Crea
     </div>
 
 1. In the upper-right corner, next to `{yourOktaDomain}`, click **Environment quick look** ![Postman environment quick look button](/img/postman/postman_eye_icon_button.png  "Displays the eye icon button").
-1. In the upper-right corner of the **{yourOktaDomain}** dialog box, click **Edit**.
+1. In the upper-right corner of the **{yourOktaDomain}** dialog, click **Edit**.
 
     <div class="three-quarter">
 
-    ![Postman environment quick look edit link: Displays an arrow pointing to the edit link in the upper-right corner of the ${yourOktaDomain} dialog box](/img/postman/postman_environment_quick_look_edit.png)
+    ![Postman environment quick look edit link: Displays an arrow pointing to the edit link in the upper-right corner of the ${yourOktaDomain} dialog](/img/postman/postman_environment_quick_look_edit.png)
 
     <!--
     Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3236%3A31016  postman_environment_quick_look_edit
@@ -56,31 +56,33 @@ You need a free Okta developer-edition org to get started. Don't have one? [Crea
 
     </div>
 
-1. In the **Manage Environments** dialog box, do the following:
-    * Click on the environment name, delete the placeholder text, and name your environment, for example: `Test Okta Org`.
-    * For the `url` variable, in the **Initial Value** and **Current Value** columns, replace the placeholder text with your org's full URL, for example: `https://dev-1234567.okta.com`. Remember to remove the `-admin` part of your subdomain.
+1. In the environment tab, do the following:
+    1. Click on the environment name, delete the placeholder text, and name your environment. For example: `dev-1234567 Okta Org`
+    {style="list-style-type:lower-alpha"}
+    1. For the `url` variable, in the **Initial Value** and **Current Value** columns, replace the placeholder text with your org's full URL. For example: `https://dev-1234567.okta.com`. Remember to remove the `-admin` part of your subdomain.
 
 1. Click **Save** near the top of the tab.
 1. To close the environment tab, hover over the tab and click the **x**.
 
 ## Import a collection
 
-Go to the Okta [Postman collections](https://developer.okta.com/docs/reference/postman-collections/) reference to import the collection you want to test. Alternatively, you can fork a collection from the [Okta Public API Collections](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/overview) online workspace.
+Go to the Okta [Postman collections](https://developer.okta.com/docs/reference/postman-collections/) reference to import the collection you want to test.
 
-To import a collection from the Okta [Postman collections](https://developer.okta.com/docs/reference/postman-collections/) reference page, click **Run in Postman** next to the collection you want.
+> **Note:** Alternatively, you can fork a collection from the [Okta Public API Collections](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/overview) online Workspace.
 
-For example, click this **Run in Postman** action to import the Users API collection:
+To import a collection from the Okta [Postman collections](https://developer.okta.com/docs/reference/postman-collections/) reference page:
 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/1755573c5cf5fbf7968b)
+1. Click **Run in Postman** next to the collection you want.
 
-You can select the option to open the collection using the Postman app or you can use the **Web View** link to download the collection as a JSON file and import it.
+   For example, click this **Run in Postman** action to import the Users API collection:
+   [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/9daeb4b935a423c39009)
+   > **Note:** The **Run in Postman** option is also available on each [core API reference](/docs/reference/core-okta-api/) page on this site.
 
-To import a JSON file collection from Postman:
+1. Select the **Run in** option to import your collection to your local Postman app or to your web Postman account.
 
-1. Import that file into Postman by selecting **Import** from the **File** menu.
-1. In the **Import** window, leave **Import File** selected and click **Choose Files**.
-1. Browse to your download location, select the JSON file, and click **Open**.
-1. Click **Import**.
+   If you select the web option, you need to sign in to your online Postman account.
+
+1. Select the Workspace to import your collection and click **Import**.
 
 ## Set up Okta for API access
 
@@ -130,11 +132,13 @@ First, you need to create an OIDC app integration that you can define your scope
 1. For the **Grant type**, use the **Authorization Code** grant flow that is already selected.
 1. In the **Sign-in redirect URIs** box, specify the callback location where Okta returns a browser (along with the token) after the user finishes authenticating. You can use the default values for testing purposes.
 1. In the **Assignments** section, select **Limit access to selected groups** and add a group or **Skip group assignment for now**. It's good practice to create and use groups for testing purposes.
-1. Click **Save**. The settings page for the app integration appears, showing the **General** tab. Make note of the **Client ID** and **Client secret** listed in the **Client Credentials** section. You need this information for the [Get an access token and make a request](#get-an-access-token-and-make-a-request) task.
+1. Click **Save**. The settings page for the app integration appears, showing the **General** tab. Make note of the **Client ID** and **Client secret** listed in the **Client Credentials** section. You need this information for the [Get an OIDC access token and make a request](#get-an-oidc-access-token-and-make-a-request) task.
 1. Click the **Assignments** tab and ensure that the right users are assigned to the app. If you skipped the assignment during the app integration creation, you must add one or more users. For instructions on how to assign the app integration to individual users and groups, see the [Assign app integrations](https://help.okta.com/okta_help.htm?id=ext_Apps_Apps_Page-assign) topic in the Okta product documentation.
 1. Select the **Okta API Scopes** tab and then click **Grant** for each of the scopes that you want to add to the application's grant collection. Ensure that you grant the scopes for the API access you require. See [Okta OAuth 2.0 scopes](https://developer.okta.com/docs/api/oauth2/).
 
    > **Notes:** When an API request is sent to the org authorization server's `/authorize` endpoint, it validates all of the requested scopes in the request against the app's grants collection. The scope is granted if it exists in the app's grants collection.
+
+After you obtain your client ID and secret from your app integration, see [Get an OIDC access token and make a request](#get-an-oidc-access-token-and-make-a-request).
 
 ### OAuth 2.0 service app authentication setup
 
@@ -173,7 +177,8 @@ First, you need to create a service app integration that you can define your sco
    1. Click **Generate new key** and the public and private keys appear in JWK format.
 
       This is your only opportunity to save the private key. Click **Copy to clipboard** to copy the private key and store it somewhere safe for the [Create and sign the JWT](#create-and-sign-the-jwt) task.
-   1. Click **Done**. The new public key is now registered with the app and appears in a table in the **PUBLIC KEYS** section of the **General** tab.
+   1. Click **Done** to close the dialog.
+   1. Click **Save** in the **Client Credentials** section. The new public key is now registered with the app and appears in a table in the **PUBLIC KEYS** section of the **General** tab.
 
 #### Create and sign the JWT
 
@@ -216,13 +221,13 @@ For the `SSWS` Okta propriety authentication scheme, go to the Admin Console of 
 
 1. In Postman, click  **Environment quick look** ![Postman environment quick look button](/img/postman/postman_eye_icon_button.png  "Displays the eye icon button") next to your test environment in the upper-right corner.
 
-1. In the upper-right corner of your environment dialog box, click **Edit**.
-1. In the **Manage Environments** dialog box, do the following:
+1. In the upper-right corner of your environment dialog, click **Edit**.
+1. In the environment variable page, do the following:
     * In the **Initial Value** and **Current Value** columns of the `apikey` variable, enter your API token that you created earlier, for example: `00LzMWxMq_0sdErHy9Jf1sijEGexYZlsdGr9a4QjkS`.
 
     <div class="three-quarter">
 
-    ![Displays arrows that points to the Environment Name box and the url and apikey variables in the Manage Environments dialog box](/img/postman/postman_manage_environments_dialog.png)
+    ![Displays arrows that points to the Environment Name box and the url and apikey variables in the Manage Environments dialog](/img/postman/postman_manage_environments_dialog.png)
 
     <!--
     Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3236%3A31047  postman_manage_environments_dialog
@@ -235,46 +240,46 @@ For the `SSWS` Okta propriety authentication scheme, go to the Admin Console of 
 
 ## Send a request
 
+Test sending a request based on your chosen authentication scheme:
+
+* [Get an OIDC access token and make a request](#get-an-oidc-access-token-and-make-a-request)
+
+* [Get an OAuth 2.0 access token and make a request](#get-an-oauth-20-access-token-and-make-a-request)
+
+* [Make an SSWS API token request](#make-an-ssws-api-token-request)
+
 ### Get an OIDC access token and make a request
-
-You can get an access token and make a request to an endpoint after you have the following:
-
-* An Okta OpenID Connect app
-* One or more grants associated with that app
-* Users with appropriate permissions associated with the app
-* Users with appropriate administrator permissions in Okta
 
 Request an access token by making a request to your Okta [org authorization server](/docs/concepts/auth-servers/) `/authorize` endpoint. Only the org authorization server can mint access tokens that contain Okta API scopes.
 
-> **Note:** See [Token lifetime](/docs/reference/api/oidc/#token-lifetime) for more information on hard-coded and configurable token lifetimes.
-
-This page helps you build a request in Postman.
-
-We recommend that you always use the Authorization Code with PKCE grant flow. See [Implement the Authorization Code with PKCE flow](/docs/guides/implement-grant-type/authcodepkce/main/) for details on this grant type.
+> **Notes:**
+> * See [Token lifetime](/docs/reference/api/oidc/#token-lifetime) for more information on hard-coded and configurable token lifetimes.
+> * Okta recommends that you always use the Authorization Code with PKCE grant flow. See [Implement the Authorization Code with PKCE flow](/docs/guides/implement-grant-type/authcodepkce/main/) for details on this grant type.
 
 1. In Postman, select the request that you want to make, such as a `GET` request to the `/api/v1/users` endpoint to get back a list of all users.
-2. On the **Header** tab, remove the existing SSWS Authorization API Key.
+2. On the **Header** tab, remove the existing `SSWS {apikey}` **Authorization** parameter.
 3. Click the **Authorization** tab and from the **Type** dropdown list, select **OAuth 2.0**.
 4. On the right pane, go to the **Configure New Token** section.
 5. In the first field, enter a name for the token and select **Authorization Code (With PKCE)** as the grant type.
 6. Define the remaining fields for the token request:
 
-    * **Callback URL**: Define the callback location where Okta returns the token after the user finishes authenticating. This URL must match one of the redirect URIs that you configured in the [Create an OAuth 2.0 app in Okta](#create-an-oauth-2-0-app-in-okta) section.
+    * **Callback URL**: Define the callback location where Okta returns the token after the user finishes authenticating. This URL must match one of the redirect URIs that you configured in the [Create an OIDC app in Okta](#create-an-oidc-app-in-okta) section.
     * **Auth URL**: Enter the authorization endpoint for your org authorization server, for example, `https://${yourOktaDomain}/oauth2/v1/authorize`.
     * **Access Token URL**: Enter the token endpoint for your org authorization server, for example, `https://${yourOktaDomain}/oauth2/v1/token`.
-    * **Client ID**: Use the `client_id` of your Okta OAuth 2.0 application that you created in the [Create an OAuth 2.0 app in Okta](#create-an-oauth-2-0-app-in-okta) section.
-    * **Client secret**: Use the `client_secret` of your Okta OAuth 2.0 application that you created in the [Create an OAuth 2.0 app in Okta](#create-an-oauth-2-0-app-in-okta) section.
+    * **Client ID**: Use the client ID of your Okta OIDC app integration that you created in the [Create an OIDC app in Okta](#create-an-oidc-app-in-okta) section. Alternatively, you can add the client ID to the `clientId` variable in your Postman environment.
+    * **Client secret**: Use the client secret of your Okta OIDC app integration that you created in the [Create an OIDC app in Okta](#create-an-oidc-app-in-okta) section.
     * **Code Challenge Method**: Leave the default of `SHA-256` selected.
     * **Code Verifier**: Leave it empty so that Postman generates its own.
-    * **Scope**: Use `okta.users.read` for this example. Include the scopes that allow you to perform the actions on the endpoint that you want to access. The scopes requested for the access token must exist in the application's grants collection, and the user must have the permission to perform those actions. See [Scopes and supported endpoints](#scopes-and-supported-endpoints).
-    * **State**: Use the default value or any alphanumeric value. The authorization server reflects this string when redirecting the browser back to the client, which your client can verify to help prevent cross-site request forgery attacks.
+    * **Scope**: Include the scopes that allow you to perform the actions on the endpoint that you want to access. The scopes requested for the access token must exist in the app's grants collection, and the user must have the permission to perform those actions. Use `okta.users.read` for this example.
+    * **State**: Specify any alphanumeric value. The authorization server reflects this string when redirecting the browser back to the client, which your client can verify to help prevent cross-site request forgery attacks.
     * **Client Authentication**: Set to **Send client credentials in body**.
 
-7. Click **Get New Access Token**. You're prompted to sign in to your Okta org. After you are authenticated, the **Manage Access Tokens** window displays the access token, including the scopes requested. The token also automatically populates the **Available Token** dropdown list.
-    > **Note:** The lifetime for this token is fixed at one hour.
+7. Click **Get New Access Token**. You're prompted to sign in to your Okta org. Sign in as a user that was assigned to your OIDC app integration.
+
+   After you are authenticated, the **Manage Access Tokens** window displays the access token, including the scopes requested. The token also automatically populates the **Current Token** dropdown list.
+     > **Note:** The lifetime for this token is fixed at one hour.
 8. Click **Use Token** at the top of the window to use this access token in your request to the `/users` endpoint.
 9. Click **Send**. Since you requested `okta.users.read`, the response should contain an array of all the users associated with your app. This depends on the user's permissions.
-
 
 ### Get an OAuth 2.0 access token and make a request
 
