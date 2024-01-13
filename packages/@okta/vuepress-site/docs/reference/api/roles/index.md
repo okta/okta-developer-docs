@@ -4091,7 +4091,8 @@ User permissions are only effective regarding the Groups to which the admin is g
 | `okta.devices.lifecycle.suspend` <br><ApiLifecycle access="ea" />                             | Allows the admin to suspend device access to Okta                                      | All Devices
 | `okta.devices.lifecycle.unsuspend` <br><ApiLifecycle access="ea" />                           | Allows the admin to unsuspend and restore device access to Okta                                                                                                      | All Devices
 | `okta.devices.lifecycle.delete` <br><ApiLifecycle access="ea" />                              | Allows the admin to permanently delete devices                                                                                                 | All Devices
-| `okta.devices.read` <br><ApiLifecycle access="ea" />                              | Allows the admin to read device details                                                                                                | All Devices
+| `okta.devices.read` <br><ApiLifecycle access="ea" />                              | Allows the admin to read device details                                                                                                | All Devices |
+| `okta.iam.read` | Allows the admin to view roles, resources, and admin assignments                                                                  | All Identity and Access Management Resources |
 
 > **Note:** Governance permissions are currently only supported as part of the [Standard IAM-based Roles](/docs/concepts/role-assignment/#iam-based-standard-role-types). You can't use these to create or update other roles.
 
