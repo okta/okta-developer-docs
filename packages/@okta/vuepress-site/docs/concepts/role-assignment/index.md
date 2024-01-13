@@ -254,7 +254,7 @@ Standard resource sets are managed by Okta only and can't be updated or deleted.
 | `okta.devices.lifecycle.unsuspend` <br><ApiLifecycle access="ea" />                           | Allows the admin to unsuspend and restore device access to Okta                                                                                                      | All Devices
 | `okta.devices.lifecycle.delete` <br><ApiLifecycle access="ea" />                              | Allows the admin to permanently delete devices                                                                                                 | All Devices
 | `okta.devices.read` <br><ApiLifecycle access="ea" />                              | Allows the admin to read device details                                                                                                 | All Devices |
-| `okta.iam.read` | Allows the admin to view roles, resources, and admin assignments                                                                  | All Identity and Access Management Resources |
+| `okta.iam.read` | Allows the admin to view roles, resources, and admin assignments                                                                  | All Identity and Access Management resources |
 
 > **Note:** Governance permissions are currently only supported as part of the [Standard IAM-based Roles](#iam-based-standard-role-types). You can't use these to create or update other roles.
 
