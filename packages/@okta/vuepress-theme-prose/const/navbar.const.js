@@ -1035,10 +1035,7 @@ export const reference = [
                { title: "Zones", path: "/docs/reference/api/zones/" }
             ]
          },
-         {
-          title: "Okta Privileged Access",
-          path: "https://developer.okta.com/docs/api/openapi/opa/",
-         },
+         { title: "Okta Privileged Access", path: "https://developer.okta.com/docs/api/openapi/opa/", },
          {
             title: "Advanced Server Access API",
             subLinks: [
