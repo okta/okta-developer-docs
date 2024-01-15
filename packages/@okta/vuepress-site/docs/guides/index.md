@@ -57,6 +57,7 @@ guides:
  - scim-provisioning-integration-prepare
  - scim-provisioning-integration-connect
  - scim-provisioning-integration-test
+ - scim-with-entitlements
  - sign-in-overview
  - secure-oauth-between-orgs
  - single-logout
