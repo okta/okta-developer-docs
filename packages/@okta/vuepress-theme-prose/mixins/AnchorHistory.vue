@@ -26,9 +26,18 @@ export default {
       }
 
       this.paddedHeaderHeight = this.getPaddedHeaderHeight()
-
+      
       const anchorOffsets = this.anchors.map(
-        anchor => anchor.parentElement.offsetTop
+        /* 
+          In case of a few pages like error codes (/docs/reference/error-codes/), we are using our custom template
+          for showing header-anchor (ErrorCodes.vue) where the generated HTML has different template than the default
+          vuepress template for showing anchor tags.
+          The anchor tag is not a direct child of h2/h3/h4 in this case but instead, is the grandchild of these header elements.
+          Hence, we need to add a separate check for these routes.
+          Refer - https://oktainc.atlassian.net/browse/OKTA-483028
+        */
+        anchor => anchor?.classList.contains('container-level-2') ? anchor.parentElement.parentElement.offsetTop :
+          anchor.parentElement.offsetTop
       );
 
       this.anchorsOffset = anchorOffsets.map((anchorOffset, index, anchorOffsets) => ({
@@ -67,21 +76,6 @@ export default {
             });
           });
         }
-      }
-    },
-
-    historyReplaceAnchor: function(anchor) {
-      // If mobile tree nav opened don't make router changes while scroll.
-      // It will cause of mobile menu closing.
-      if (this.appContext.isTreeNavMobileOpen) return;
-
-      if (decodeURIComponent(this.$route.hash) !== decodeURIComponent(anchor)) {
-        this.$vuepress.$set("disableScrollBehavior", true);
-        this.$router.replace(anchor, () => {
-          this.$nextTick(() => {
-            this.$vuepress.$set("disableScrollBehavior", false);
-          });
-        });
       }
     },
 
