@@ -1,4 +1,4 @@
-The following steps document how to integrate the sample code into your application. The sample code wraps the SDK's functionality using a more prescriptive and explicit interface. It converts the SDK's generic remediation interface into explicit authentication steps and automatically executes steps such as the code-to-token exchange. The following diagram illustrates this call flow from your applications's UI to the sample code, SDK, and API. The Integrating code component in the diagram represents the code you need to write to call the sample code's interface.
+The following steps document how to integrate the sample code into your app. The sample code wraps the SDK's functionality using a more prescriptive and explicit interface. It converts the SDK's generic remediation interface into explicit authentication steps and automatically executes steps such as the code-to-token exchange. The following diagram illustrates this call flow from your app's UI to the sample code, SDK, and API. The Integrating code component in the diagram represents the code you need to write to call the sample code's interface.
 
 <div class="full">
 
@@ -14,11 +14,11 @@ Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 
 ### 1: Launch the app and initialize the SDK
 
-The first step is to initialize the SDK when the user opens your app. This is done by creating an instance of `MultifactorLogin` and passing into its initializer a `configuration` object and `stephandler` closure. The `stephandler` closure is called whenever an application interaction is requested during the password recovery flow. In this case, the `stephandler` closure is called for the following user interactions:
+The first step is to initialize the SDK when the user opens your app. This is done by creating an instance of `MultifactorLogin` and passing into its initializer a `configuration` object and `stephandler` closure. The `stephandler` closure is called whenever an app interaction is requested during the password recovery flow. In this case, the `stephandler` closure is called for the following user interactions:
 
 1. Choose the email factor for authentication.
 1. Verify the email verification code.
-1. Choose phone factor method (for example SMS). Note that this step won't be called if the user skips the phone factor.
+1. Choose the phone factor method (for example SMS). Note that this step won't be called if the user skips the phone factor.
 
  ```swift
 self.authHandler = MultifactorLogin(configuration: configuration)
@@ -46,7 +46,7 @@ self.authHandler = MultifactorLogin(configuration: configuration)
 }
 ```
 
-For more information on how to set the `configuration` parameter, see [SDK](/docs/guides/oie-embedded-common-download-setup-app/ios/main/#sdk) in [Download and set up the SDK, Sign-In Widget, and sample app](/docs/guides/oie-embedded-common-download-setup-app/ios/main).
+See [SDK](/docs/guides/oie-embedded-common-download-setup-app/ios/main/#sdk) in [Download and set up the SDK, Sign-In Widget, and sample app](/docs/guides/oie-embedded-common-download-setup-app/ios/main) for more information on how to set the `configuration` parameter.
 
 ### 2: The user initiates the sign-up
 

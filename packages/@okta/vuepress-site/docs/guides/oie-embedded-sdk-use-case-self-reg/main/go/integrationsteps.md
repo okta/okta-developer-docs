@@ -1,6 +1,6 @@
 ### The user enters the site
 
-When the user goes to the home page and the application loads, call `idx.NewClient` to create a SDK client object.
+When the user goes to the home page and the application loads, call `idx.NewClient` to create an SDK client object.
 
 ```go
 idx, err := idx.NewClient(
@@ -16,7 +16,7 @@ if err != nil {
 
 ### The user clicks the sign-up link
 
-Add a **Sign up** link to your app's sign-in page. The self-registration flow begins when the user clicks the **Sign up** link and the browser takes them to the create account page.
+Add a **Sign up** link to your app's sign-in page. The self-registration flow begins when the user clicks the **Sign up** link and the browser takes them to the Create Account page.
 
 <div class="half wireframe-border">
 
@@ -68,7 +68,7 @@ if enrollResponse.HasStep(idx.EnrollmentStepPasswordSetup) {
 }
 ```
 
-`InitProfileEnroll` returns an `EnrollmentResponse` object. Call its `HasStep` method passing in the `EnrollmentStepPasswordSetup` constant for the status of the registration process. `HasStep` returns `true` indicating the user should enroll their password.
+`InitProfileEnroll` returns an `EnrollmentResponse` object. Call its `HasStep` method passing in the `EnrollmentStepPasswordSetup` constant for the status of the registration process. `HasStep` returns `true` indicating that the user should enroll their password.
 
 ### The user enrolls their password
 
@@ -102,7 +102,7 @@ if err != nil {
 
 ### The app displays a list of authenticators to enroll
 
-Call `enrollmentResponse.HasStep` passing in the `EnrollmentStepSuccess` constant for the status of the registration process. `HasStep` returns true indicating the user should enroll another factor.
+Call `enrollmentResponse.HasStep` passing in the `EnrollmentStepSuccess` constant for the status of the registration process. `HasStep` returns `true` indicating that the user should enroll another factor.
 
 ```go
 if !enrollResponse.HasStep(idx.EnrollmentStepSuccess) {
@@ -111,7 +111,7 @@ if !enrollResponse.HasStep(idx.EnrollmentStepSuccess) {
 }
 ```
 
-Create a page that displays a list of **required** authentication factors the user can enroll to verify their identity. They must choose a factor from the list and click **Next**. Use `EnrollmentResponse.HasStep` to identify which factors can be displayed and whether the user can skip the remaining factors. The constants used are:
+Create a page that displays a list of required authentication factors the user can enroll to verify their identity. They must choose a factor from the list and click **Next**. Use `EnrollmentResponse.HasStep` to identify which factors to display and whether the user can skip the remaining factors. The constants used are:
 
 * `EnrollmentStepSkip`
 * `EnrollmentStepPhoneVerification`
@@ -145,8 +145,7 @@ if !phoneFactor && !emailFactor {
 }
 ```
 
-The flags set in the previous code are used in the following code to toggle the
-factor display and skip option.
+The flags set in the previous code are used in the following code to toggle the factor display and skip option.
 
 ```go
 {{ if not .FactorSkip }}
@@ -171,7 +170,7 @@ factor display and skip option.
   {{end}}
 ```
 
-In this scenario, you configured the app's authentication policy to require a password and another factor. Therefore the user must enroll at least one of either the email or phone factors.
+In this scenario, you configure the app's authentication policy to require a password and another factor. Therefore, the user must enroll at least one of either the email or phone factors.
 
 <div class="half wireframe-border">
 
@@ -206,7 +205,7 @@ if err != nil {
 
 ### The app displays an OTP input page
 
-If the call is successful, a one-time passcode (OTP) is sent to the user's email. Build a form that allows the user to enter the OTP sent to them by email.
+If the call is successful, a one-time passcode (OTP) is sent to the user's email. Build a form that allows the user to enter that OTP.
 
 <div class="half wireframe-border">
 
@@ -235,7 +234,7 @@ if enrollResponse.Token() != nil {
 enrollResponse, err = enrollResponse.ConfirmEmail(r.Context(), r.FormValue("code"))
 ```
 
-### The app displays a second list of optional authenticators to enrol
+### The app displays a second list of optional authenticators to enroll
 
 Assuming that the verification was successful, call `WhereAmI` on the returned `EnrollmentResponse` object. `WhereAmI` returns an `EnrollmentResponse` object with information about how to proceed. In this scenario, the user still has authentication factors to enroll before registration is complete.
 
@@ -247,7 +246,7 @@ s.cache.Set("enrollResponse", enrollResponse, time.Minute*5)
 http.Redirect(w, r, "/enrollFactor", http.StatusFound)
 ```
 
-Redirect the user to the list page you created earlier to choose which one. The code is the same. The page should show only the phone factor. However, since this factor is optional and the user has now enrolled two factors, `enrollResponse.HasStep(idx.EnrollmentStepSkip)` returns `true` meaning that the list page should now also display a **Skip** button.
+Redirect the user to the list page you created earlier to choose another authentication factor. The code is the same. The page should show only the phone factor. However, since this factor is optional and the user has now enrolled two factors, `enrollResponse.HasStep(idx.EnrollmentStepSkip)` returns `true` meaning that the list page should now also display a **Skip** button.
 
 ```go
 if enrollResponse.HasStep(idx.EnrollmentStepSkip) {
@@ -276,7 +275,7 @@ Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 
 ### The user skips the phone authenticator
 
-If the user opts to skip phone enrollment, call `EnrollmentResponse.Skip`. This skips the authenticator enrollment and eliminates the need to verify the factor:
+If the user skips phone enrollment, call `EnrollmentResponse.Skip`. This skips the authenticator enrollment and eliminates the need to verify the factor:
 
 ```go
 func (s *Server) transitionToProfile(er *idx.EnrollmentResponse, w http.ResponseWriter, r *http.Request) {
@@ -287,11 +286,11 @@ func (s *Server) transitionToProfile(er *idx.EnrollmentResponse, w http.Response
   ...
 ```
 
-For more details about enrolling the phone factor, see the sample application. For details on how to verify a sign-in flow with the phone factor, see[Sign in with password and phone factors](/docs/guides/oie-embedded-sdk-use-case-sign-in-pwd-phone/go/main/).
+For more details about enrolling the phone factor, see the sample application. For details on how to verify a sign-in flow with the phone factor, see [Sign in with password and phone factors](/docs/guides/oie-embedded-sdk-use-case-sign-in-pwd-phone/go/main/).
 
 ### Complete registration
 
-The user is now registered with no more factors to be verified. The `EnrollmentResponse` object returned from the `Skip` method returns tokens indicating the register and sign-in was successful. Redirect the user to the app's default signed-in page.
+The user is now registered with no more factors to be verified. The `EnrollmentResponse` object returned from the `Skip` method returns tokens indicating that the registration and sign-in flows were successful. Redirect the user to the app's default signed-in page.
 
 ```go
 if enrollResponse.Token() != nil {

@@ -1,6 +1,6 @@
 ### The user clicks the sign-up link
 
-Add a **Sign up** link to your app's sign-in page. The user clicks the **Sign up** link and the browser takes them to the create account page.
+Add a **Sign up** link to your app's sign-in page. The user clicks the **Sign up** link and the browser takes them to the Create Account page.
 
 <div class="half wireframe-border">
 
@@ -90,7 +90,7 @@ At this point, `nextStep` contains `select-authenticator-enroll` indicating the 
 
 ### The app displays a list of required authenticators to enroll
 
-Create a page that displays a list of **required** authentication factors the user can enroll to verify their identity. They must choose a factor from the list and click **Next**.
+Create a page that displays a list of required authentication factors the user can enroll to verify their identity. They must choose a factor from the list and click **Next**.
 
 <div class="half wireframe-border">
 
@@ -103,7 +103,7 @@ Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 
 </div>
 
-This page is used several times during the registration flow. Use the `nextStep` property's `inputs` collection to build the list. If you completed the steps properly in [Configuration updates](#configuration-updates), the only required authenticator is the password factor. This is the sole factor stored in the `inputs` property.
+This page is used several times during the registration flow. Use the `nextStep` property's `inputs` collection to build the list. If you complete the steps properly in [Configuration updates](#configuration-updates), the only required authenticator is the password factor. This is the sole factor stored in the `inputs` property.
 
 ```js
 nextStep: {
@@ -170,7 +170,7 @@ router.post('/enroll-authenticator/okta_password', async (req, res, next) => {
 
 `proceed()` returns a response object with a `status` of `IdxStatus.PENDING` and a `nextStep` field that indicates that the user still has authentication factors to enroll (`enroll-authenticator`) before registration is complete.
 
-In this scenario, you configured the app's authentication policy to require a password and another factor. Therefore the user must enroll at least one of either the email or phone factors. Redirect them to the list page you created earlier to choose which one.
+In this scenario, you configure the app's authentication policy to require a password and another factor. Therefore, the user must enroll at least one of either the email or phone factors. Redirect them to the list page you created earlier to choose which one.
 
 <div class="half wireframe-border">
 
@@ -226,7 +226,7 @@ router.post('/enroll-authenticator/okta_email', async (req, res, next) => {
 
 `proceed()` returns a response object with a `status` of `IdxStatus.PENDING` and a `nextStep` field that indicates that the user still has authentication factors to enroll (`enroll-authenticator`) before registration is complete.
 
-Redirect the user to the list page you created earlier to choose which one. The code is the same. The page should show only the phone factor. However, since this factor is optional and the user has now enrolled two factors, `nextStep` includes the `canSkip` property set to `true` meaning that the list page should now also display a **Skip** button.
+Redirect the user to the list page you created earlier to choose another authentication factor. The code is the same. The page should show only the phone factor. However, since this factor is optional and the user has now enrolled two factors, `nextStep` includes the `canSkip` property set to `true` meaning that the list page should now also display a **Skip** button.
 
 <div class="half wireframe-border">
 
@@ -305,7 +305,7 @@ Build a form that allows the user to enter the OTP sent to them by SMS. Dependin
 
 <div class="half wireframe-border">
 
-![A form with a field for a verification code, a note to find the code in an SMS and a submit button](/img/wireframes/enter-verification-code-form-with-sms-message.png)
+![A form with a field for a verification code, a note to find the code in an SMS, and a submit button](/img/wireframes/enter-verification-code-form-with-sms-message.png)
 
 <!--
 
@@ -347,7 +347,7 @@ case IdxStatus.SUCCESS:
 
 ### The user skips the phone authenticator
 
-If the user opts to skip phone enrollment, call `idx.proceed()` passing in the value `{skip: true}`.
+If the user skips phone enrollment, call `idx.proceed()` passing in the value `{skip: true}`.
 
 ```js
 router.post('/select-authenticator/skip', async (req, res, next) => {

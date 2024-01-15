@@ -1,6 +1,6 @@
 ### The user clicks the sign-up link
 
-Add a **Sign up** link to your app's sign-in page. The self-registration flow begins when the user clicks the **Sign up** link and the browser takes them to the create account page.
+Add a **Sign up** link to your app's sign-in page. The self-registration flow begins when the user clicks the **Sign up** link and the browser takes them to the Create Account page.
 
 <div class="half wireframe-border">
 
@@ -58,7 +58,7 @@ if (registerResponse.AuthenticationStatus ==
 
 ### Display a list of required authenticators to enroll
 
-Create a page that displays a list of **required** authentication factors the user can enroll to verify their identity. They must choose a factor from the list and click **Next**. If you completed the steps properly in [Configuration updates](#configuration-updates), the only required authenticator is the password factor. This is the sole factor stored in the `Authenticators` list property.
+Create a page that displays a list of required authentication factors the user can enroll to verify their identity. They must choose a factor from the list and click **Next**. If you complete the steps properly in [Configuration updates](#configuration-updates), the only required authenticator is the password factor. This is the sole factor stored in the `Authenticators` list property.
 
 <div class="half wireframe-border">
 
@@ -153,7 +153,7 @@ var authnResponse = await idxAuthClient.VerifyAuthenticatorAsync(
 
 `VerifyAuthenticatorAsync()` returns a `RegisterResponse` object with an `AuthenticationStatus` property of `AwaitingAuthenticatorEnrollment`. This indicates that the user still has authentication factors to enroll before registration is complete.
 
-In this scenario, you configured the app's authentication policy to require a password and another factor. Therefore the user must enroll at least one of either the email or phone factors. Redirect them to the list page you created earlier to choose which one.
+In this scenario, you configure the app's authentication policy to require a password and another factor. Therefore, the user must enroll at least one of either the email or phone factors. Redirect them to the list page you created earlier to choose which one.
 
 <div class="half wireframe-border">
 
@@ -166,7 +166,7 @@ Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 
 </div>
 
-The following code snippet shows how the response is handled. The authenticator list page is loaded again (the first time was for password) with the two remaining factors.
+The following code snippet shows how to handle the response. The authenticator list page loads again (the first time was for password) with the two remaining factors.
 
 ```csharp
 switch (authnResponse.AuthenticationStatus)
@@ -180,7 +180,7 @@ switch (authnResponse.AuthenticationStatus)
 ...
 ```
 
-> **Note** To learn how the `CanSkip` property is used to allow users to skip enrolling more optional factors, see  [Display a second list of optional authenticators to enroll](#display-a-second-list-of-optional-authenticators-to-enroll).
+> **Note** To learn how to use the `CanSkip` property to allow users to skip enrolling more optional factors, see  [Display a second list of optional authenticators to enroll](#display-a-second-list-of-optional-authenticators-to-enroll).
 
 ### The user submits the email authenticator
 
@@ -256,7 +256,7 @@ switch (authnResponse.AuthenticationStatus)
    ...
 ```
 
-Redirect them to the list page you created earlier to choose which one. The code is the same. The page should show only the phone factor. However, since this factor is optional and the user has now enrolled two factors, the `CanSkip` property is now true meaning that the list page should now also display a Skip button.
+Redirect the user to the list page you created earlier to choose another authentication factor. The code is the same. The page should show only the phone factor. However, since this factor is optional and the user has now enrolled two factors, the `CanSkip` property is now `true` meaning that the list page should now also display a **Skip** button.
 
 <div class="half wireframe-border">
 
@@ -320,7 +320,7 @@ Build a form that allows the user to enter their phone number.
 
 #### The user submits their phone number
 
-When the user submits their phone number, create an `EnrollPhoneAuthenticatorOptions` object and assign its `AuthenticatorId`, `PhoneNumber`, and `MethodType` properties to the phone authenticator id, phone number, and `AuthenticatorMethodType.Sms` respectively. Pass this object as a parameter to `EnrollAuthenticatorAsync()`.
+When the user submits their phone number, create an `EnrollPhoneAuthenticatorOptions` object and assign its `AuthenticatorId`, `PhoneNumber`, and `MethodType` properties to the phone authenticator ID, phone number, and `AuthenticatorMethodType.Sms` respectively. Pass this object as a parameter to `EnrollAuthenticatorAsync()`.
 
 > **Note:** Only SMS is supported for the phone authenticator type.
 
@@ -357,7 +357,7 @@ Build a form that allows the user to enter the OTP sent to them by SMS. Dependin
 
 <div class="half wireframe-border">
 
-![A form with a field for a verification code, a note to find the code in an SMS and a submit button](/img/wireframes/enter-verification-code-form-with-sms-message.png)
+![A form with a field for a verification code, a note to find the code in an SMS, and a submit button](/img/wireframes/enter-verification-code-form-with-sms-message.png)
 
    <!--
    Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3400%3A37154&t=vr9MuCR8C4rCt3hC-1 enter-verification-code-form-with-sms-message
@@ -405,7 +405,7 @@ switch (authnResponse.AuthenticationStatus)
 
 ### The user skips the phone authenticator
 
-If the user opts to skip phone enrollment, call `SkipAuthenticatorSelectionAsync()`. This method skips phone enrollment and eliminates the need to verify the factor:
+If the user skips phone enrollment, call `SkipAuthenticatorSelectionAsync()`. This method skips phone enrollment and eliminates the need to verify the factor:
 
 ```csharp
 try
@@ -439,8 +439,8 @@ If the returned response object has an `AuthenticationStatus` of `Success`, the 
 
 The method can also throw exceptions for unsuccessful registrations such as the following:
 
-* `TerminalStateException`&mdash;an exception inherited from `OktaException` that's raised when an unexpected message is returned from the Okta API and no further remediation is possible.
-* `OktaException`&mdash;a general base exception that's raised when any Okta client and API exceptions are thrown.
+* `TerminalStateException`: an exception inherited from `OktaException` that's raised when an unexpected message is returned from the Okta API and no further remediation is possible.
+* `OktaException`: a general base exception that's raised when any Okta client and API exceptions are thrown.
 
 After a successful registration, store the returned tokens in a session and redirect the user to the app's default signed-in page.
 

@@ -1,6 +1,6 @@
 ### Start the new user registration with the password factor
 
-The following diagram illustrates the beginning of the registration process where the user initiates their sign-in and enrolls their password.
+The following diagram illustrates the beginning of the registration process where the user initiates their sign-in flow and enrolls their password.
 
 <div class="full">
 
@@ -32,7 +32,7 @@ Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 
 ### Enroll and verify the phone factor
 
-After the password and email are verified, the user may also enroll the phone factor. However it’s now optional as the user has already enrolled two factors. The following flow describes the steps when the user does enroll the optional phone factor.
+After the password and email are verified, the user may also enroll the phone factor. However, it's now optional as the user has already enrolled two factors. The following flow describes the steps when the user does enroll the optional phone factor.
 
 <div class="full">
 
@@ -48,7 +48,7 @@ Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 
 ### Skip the optional remaining factors
 
-The user can also opt to skip enrolling more factors when those remaining unenrolled are optional. In this case, the user opts to skip the phone factor.
+The user can also skip enrolling more factors when the remaining unenrolled factors are optional. In this case, the user skips the phone factor.
 
 <div class="full">
 
