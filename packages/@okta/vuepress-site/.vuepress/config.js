@@ -46,6 +46,7 @@ module.exports = ctx => ({
     ['script', { class: 'coveo-script', src: 'https://static.cloud.coveo.com/searchui/v2.8959/14/js/CoveoJsSearch.Lazy.min.js', integrity: 'sha512-RV1EooPduQhwl0jz+hmjBw/nAtfeXNm6Dm/hlCe5OR1jAlG4RErUeYfX1jaaM88H8DiyCJDzEWZkOR0Q13DtrA==', crossorigin: 'anonymous', defer: true}],
     ['script', { src: 'https://geoip-js.com/js/apis/geoip2/v2.1/geoip2.js'}],
     ['link', { rel: 'apple-touch-icon', sizes:'180x180', href: '/favicon/favicon.png' }],
+    ['link', { rel: 'icon', type:"image/png", href: '/favicon/favicon.png' }],
     ['link', { rel: 'icon', type:"image/svg", sizes:"32x32",  href: '/favicon/favicon.svg' }],
     ['link', { rel: 'icon', type:"image/svg", sizes:"16x16",  href: '/favicon/favicon.svg' }],
     ['link', { rel: 'manifest',  href: '/favicon/manifest.json' }],
