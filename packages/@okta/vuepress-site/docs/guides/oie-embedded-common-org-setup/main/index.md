@@ -90,13 +90,14 @@ Create an app integration that represents the application you want to add authen
 
    * Select the **Refresh Token** checkbox.
    * Set **Sign-in redirect URIs** to <StackSnippet snippet="redirecturi" inline />
+   * Set **Controlled Access** to **Allow everyone in your organization to access**.
 
 1. Click **Save**.
 1. On the **General** tab, note the **Client ID** value (and if applicable, the **Client secret** value) that is used later in your embedded solution.
 
 <StackSnippet snippet="emailcallbackuri" />
 
-> **Note:** New apps are automatically assigned the shared default authentication policy with a catch-all rule that allows a user access to the app using either one or two factors, depending on your org setup. To view more information on the default authentication policy, from the left navigation pane, select **Security** > **Authentication Policies** and then select **Default Policy**.
+> **Note:** New apps are automatically assigned the default authentication policy requiring a user verify their identity with two factors. To view or change this policy, select the **Sign On** tab, and then locate the **User Authentication** section.
 
 <StackSnippet snippet="appsbaseurl" />
 
@@ -111,17 +112,22 @@ After you've created your app integration in your Okta org, the next step is to 
 
 ### Set up your Okta org for a password factor only use case
 
-This section shows you how to set up your Okta org and app to support password factor only use cases. These use cases are intended to use the password factor without any additional factors (such as email or phone SMS). In the [Create a new application](#create-a-new-application) section, you updated that app’s policy to **Password only** to use **Password** as the only factor required for a user to sign in. In the next section, follow the steps to finish setting up your Okta org for a password factor only use case.
+This section shows you how to set up your Okta org and app to support password factor only use cases. These use cases are intended to use the password factor without any additional factors (such as email or phone SMS). In the [Create a new application](#create-a-new-application) section, the app was assigned **Any two factors**, the default policy for a new app that requires a user to verify their identity with any two enabled authentication factors.
 
-#### Update the password authenticator to password only
+First, assign the **Password only** policy to your app:
 
-For password-only authentication, you need to update the password authenticator policy rule to not require any additional verification.
+1. In the Admin Console, go to **Applications** > **Applications**, and select your app.
+1. Select the **Sign On** tab.
+1. Click **Edit** in the **User Authentication** section.
+1. Select **Password only** for the **Authentication policy**, and then click **Save**.
 
-1. In the Admin Console, go to **Security** > **Authenticators**.
+Next, check the password authenticator does not require any additional verification.
+
+1. Go to **Security** > **Authenticators**.
 1. Select **Edit** from the **Actions** menu on the **Password** authenticator row.
 1. On the **Password** policy page, scroll down to the rules section and click the pencil icon next to the **Default Rule**.
 1. In the **Edit Rule** dialog box, select **Not required** in the **AND Additional verification is** section.
-1. Click **Update Rule**.
+1. Click **Update rule**.
 
 ### Set up your Okta org for a password-optional use case
 
