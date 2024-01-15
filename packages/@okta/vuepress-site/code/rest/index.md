@@ -1,5 +1,5 @@
 ---
-title: Test the Okta REST APIs with Postman
+title: Test the Okta REST APIs using Postman
 language: rest
 integration: back-end
 icon: code-rest
@@ -10,7 +10,8 @@ meta:
 
 A great way to learn an Application Programming Interface (API) is to issue requests and inspect the responses. You can use Okta Postman collections to learn how to incorporate Okta APIs into your workflow. To use these collections, you need to:
 
-1. Obtain an Okta org. [Sign up for Okta](#sign-up-for-okta) if you don't have an existing Okta org.
+1. Obtain an Okta org.<br>
+   [Sign up for Okta](#sign-up-for-okta) if you don't have an existing Okta org.
 1. [Set up your Postman environment](#set-up-your-postman-environment).
 1. [Import the Okta collection you want to test](#import-a-collection).
 1. [Set up Okta for API access](#set-up-okta-for-api-access).
@@ -165,7 +166,7 @@ First, you need to create a service app integration that you can define your sco
    {style="list-style-type:lower-alpha"}
    1. Select **Super Administrator** under Roles and click **Save Changes**.
 
-1. Select the **Okta API Scopes** tab and then click **Grant** for each of the scopes that you want to add to the application's grant collection. Ensure that you grant the scopes for the API access you require. See [Okta OAuth 2.0 scopes](https://developer.okta.com/docs/api/oauth2/).
+1. Select the **Okta API Scopes** tab and then click **Grant** for each of the scopes that you want to add to the app grant collection. Ensure that you grant the scopes for the API access you require. See [Okta OAuth 2.0 scopes](https://developer.okta.com/docs/api/oauth2/).
 
    > **Notes:** When an API request is sent to the org authorization server's `/token` endpoint, it validates all of the requested scopes in the request against the app's grants collection. The scope is granted if it exists in the app's grants collection.
 
@@ -211,11 +212,11 @@ To generate a JWT for testing purposes:
 
 ### API token authentication setup
 
-Use this authentication scheme to quickly test various Okta endpoints. The token allows you to access a broad range of APIs since there's no scope associated with the token. However, only the Okta admin that created the API token can use it, and access to the APIs depend on the privileges of that admin user.
+Use this authentication scheme to quickly test various Okta endpoints.
+
+For the SSWS Okta propriety authentication scheme, go to the Admin Console of your Okta org to obtain an API token. See [Create an API token](/docs/guides/create-an-api-token/) for your org.
 
 > **Note:** Not all Okta APIs support SSWS API token authentication. See the security scheme of [Okta API endpoints](https://developer.okta.com/docs/api/).
-
-For the `SSWS` Okta propriety authentication scheme, go to the Admin Console of your Okta org to obtain an API token. See [Create an API token](/docs/guides/create-an-api-token/) for your org.
 
 #### Update your Postman environment with the API token
 
@@ -238,6 +239,8 @@ For the `SSWS` Okta propriety authentication scheme, go to the Admin Console of 
 1. Click **Save** near the top of the tab.
 1. To close the environment tab, hover over the tab and click the **x**.
 
+After you obtain your API token from your Okta org, see [Make an SSWS API token request](#make-an-ssws-api-token-request).
+
 ## Send a request
 
 Test sending a request based on your chosen authentication scheme:
@@ -259,7 +262,10 @@ In Postman, the initial `/authorize` request is added to the **OAuth 2.0** **Aut
 > * Okta recommends that you always use the Authorization Code with PKCE grant flow. See [Implement the Authorization Code with PKCE flow](/docs/guides/implement-grant-type/authcodepkce/main/) for details on this grant type.
 
 1. In Postman, select the request that you want to make, such as a `GET` request to the `/api/v1/users` endpoint to get back a list of all users.
-2. On the **Header** tab, remove the existing `SSWS {apikey}` **Authorization** parameter.
+2. On the **Header** tab, remove the existing **Authorization** parameter:
+    ```json
+    SSWS {{apikey}
+    ```
 3. Click the **Authorization** tab and from the **Type** dropdown list, select **OAuth 2.0**.
 4. On the right pane, go to the **Configure New Token** section.
 5. In the first field, enter a name for the token and select **Authorization Code (With PKCE)** as the grant type.
@@ -271,27 +277,29 @@ In Postman, the initial `/authorize` request is added to the **OAuth 2.0** **Aut
     * **Client ID**: Use the client ID of your Okta OIDC app integration that you created in the [Create an OIDC app in Okta](#create-an-oidc-app-in-okta) section. Alternatively, you can add the client ID to the `clientId` variable in your Postman environment.
     * **Client secret**: Use the client secret of your Okta OIDC app integration that you created in the [Create an OIDC app in Okta](#create-an-oidc-app-in-okta) section.
     * **Code Challenge Method**: Leave the default of `SHA-256` selected.
-    * **Code Verifier**: Leave it empty so that Postman generates its own.
+    * **Code Verifier**: Leave this field empty so that Postman generates its own.
     * **Scope**: Include the scopes that allow you to perform the actions on the endpoint that you want to access. The scopes requested for the access token must exist in the app's grants collection, and the user must have the permission to perform those actions. Use `okta.users.read` for this example.
-    * **State**: Specify any alphanumeric value. The authorization server reflects this string when redirecting the browser back to the client, which your client can verify to help prevent cross-site request forgery attacks.
+    * **State**: Specify any alphanumeric value. The authorization server reflects this string when redirecting the browser back to the client.
     * **Client Authentication**: Set to **Send client credentials in body**.
 
 7. Click **Get New Access Token**. You're prompted to sign in to your Okta org. Sign in as a user that was assigned to your OIDC app integration.
 
-   After you are authenticated, the **Manage Access Tokens** window displays the access token, including the scopes requested. The token also automatically populates the **Current Token** dropdown list.
+   After you're authenticated, the **Manage Access Tokens** window displays the access token, including the scopes requested. The token also automatically populates the **Current Token** dropdown list.
      > **Note:** The lifetime for this token is fixed at one hour.
 8. Click **Use Token** at the top of the window to use this access token in your request to the `/users` endpoint.
 9. Click **Send**. Since you requested `okta.users.read`, the response should contain an array of all the users associated with your app. This depends on the user's permissions.
 
 ### Get an OAuth 2.0 access token and make a request
 
-To request an access token using the Client Credentials grant flow, your app makes a request to your Okta [org authorization server's](/docs/concepts/auth-servers) `/token` endpoint.
+To request an access token using the Client Credentials grant flow, your app first makes a request to your Okta [org authorization server's](/docs/concepts/auth-servers) `/token` endpoint.
+
+> **Note:** Client Credentials requests to the Okta org authorization server must use the private key JWT token method (`client_assertion_type`) for the `/token` endpoint. <br>If this request isn't supported in Postman, execute the corresponding `curl` command to obtain the access token.
 
 Include the following parameters:
 
 * `scope`: Include the scopes that allow you to perform the actions on the endpoint that you want to access. The scopes requested for the access token must already be in the service app grant collection. See [Scopes and supported endpoints](/docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints).
 
-    In this example, we only request access for one scope. When you request an access token for multiple scopes, the format for the scope value looks like this: `scope=okta.users.read okta.apps.read`
+    In this example, only one access scope is requested. When you request an access token for multiple scopes, the format for the scope value looks like this: `scope=okta.users.read okta.apps.read`
 
 * `client_assertion_type`: Specifies the type of assertion, in this case a JWT token:  `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`
 
@@ -322,19 +330,20 @@ The response should look something like this (the token is truncated for brevity
 
 > **Note:** The lifetime for this token is fixed at one hour.
 
-#### Make a request
-
-Make a request to the `/users` endpoint using the access token.
+Use the `access_token` value from the response to make your Okta API request.
 
 1. In Postman, select the request that you want to make, such as a `GET` request to the `/api/v1/users` endpoint to get back a list of all users.
-1. On the **Header** tab, remove the existing `SSWS {apikey}` Authorization parameter.
+1. On the **Header** tab, remove the existing **Authorization** parameter:
+    ```json
+    SSWS {{apikey}
+    ```
 1. Click the **Authorization** tab and from the **Type** dropdown list, select **OAuth 2.0**.
-   * On the right **Current Token** section, select **Available Tokens** and paste the access token into the **Token** box. Ensure that **Header Prefix** is set to **Bearer**.
+   * On the right **Current Token** section, select **Available Tokens** and paste the access token into the **Token** box. Ensure that the **Header Prefix** is set to **Bearer**.
 
-   or
+   Or
 
    * Select **Bearer Token** from the **Type** dropdown list in the **Authorization** tab. Paste the access token to the **Token** box on the right.
-1. Click **Send** on the API request. <br> The response should contain an array of all the users associated with your app. This is dependent on the user's permissions.
+1. Click **Send** on the API request. <br> The response should contain an array of all the users in your org.
 
 **Example Request**
 
@@ -342,43 +351,52 @@ Make a request to the `/users` endpoint using the access token.
 curl -X GET "https://${yourOktaDomain}/api/v1/users"
     -H "Accept: application/json"
     -H "Content-Type: application/json"
-    -H "Authorization: Bearer eyJraWQiOiJEa1lUbmhTdkd5OEJkbk9yMVdYTENhbVFRTUZiNTlYbHdBWVR2bVg5ekxNIiwiYWxnIjoiUlMyNTYifQ.eyJ2ZXIiOjEsImp0aSI6IkFULmRNcmJJc1paTWtMR0FyN1gwRVNKdmdsX19JOFF4N0pwQlhrVjV6ZGt5bk0iLCJpc3MiOiJodHRwczovL2xvZ2luLndyaXRlc2hhcnBlci5jb20iLCJhdWQiOiJodHRwczovL2dlbmVyaWNvaWRjLm9rdGFwcmV2aWV3LmNvbSIsInN1YiI6IjBvYXI5NXp0OXpJcFl1ejZBMGg3IiwiaWF0IjoxNTg4MTg1NDU3LCJleHAiOjE1ODgxODkwNTcsImNpZCI6IjBvYXI5NXp0OXpJcFl1ejZBMGg3Iiwic2NwIjpbIm9rdGEudXNlcnMubWFuYWdlIl19.TrrStbXUFtuH5TemMISgozR1xjT3rVaLHF8hqnwbe9gmFffVrLovY-JLl63G8vZVnyudvZ_fWkOBUxip1hcGm80KvrSgpdOp9Nazz-mjkP6T6JwslRFHDe8SC_4h2LG9zi5PV9y3hAayBK51q1HIwgAxl_2F7q4l0jLKDFsWjQS8epNaB05NLI12BDvO-C-7ZGGJ4EQfGS9EjN9lS-vWnt_V3ojTL0BJCKgL5Y0c9D2VkSqVN4j-7BSRZt0Un3MAEgznXmk2ecg3y7s9linGR0mC3QqKeyDfFNdsUJG6ac0h2CFFZQizpQu1DFmI_ADKmzxVQGPICuslgJFFoIF4ZA"
+    -H "Authorization: Bearer eyJraWQiOiJ.....UfThlJ7w"
 ```
-
+The access token is truncated for brevity.
 
 ### Make an SSWS API token request
 
-After you've imported the Users API collection and added your Okta org information to your environment, you're ready to send a request.
+Use the API token `SSWS` authentication scheme to make your request.
 
-To make sure everything works, send a request to list all of the users in your org:
+1. In Postman, select the request that you want to make, such as a `GET` request to the `/api/v1/users` endpoint to get back a list of all users.
+1. On the **Header** tab, ensure that the **Authorization** parameter is set to
+    ```json
+    SSWS {{apikey}}
+    ```
 
-1. Select the **Collections** tab in Postman and expand the **Users (Okta API)** collection.
-1. Expand the **List Users** folder and select **List Users**. This loads the List Users request into Postman, ready to send.
+   > **Note:** You can also set this information from the **Authorization** tab:
+   > * **Type**: `API Key`
+   > * **Key**: `Authorization`
+   > * **Value**:
+   >   ```json
+   >    SSWS {{apikey}}
+   >    ```
+   > * **Add to**: `Header`
+
 1. Click **Send**. The result pane automatically displays the results of your request:
 
 If you receive an error, it's likely that one of the values in the environment isn't set correctly. Check the values and try again.
 
-After you have completed this simple request, you're ready to explore the Okta API.
-
 ## Tips
 
-Now that you have a working collection, you can use the following tips to work more efficiently.
+Use the following tips to work more efficiently with your collection.
 
 ### Find IDs for Okta API requests
 
-Your imported collections contain URLs and JSON request bodies that have sample data with variables such as `${userId}`. You can replace URL and body variables with the IDs of the resources that you want to specify.
+Your imported collections contain URLs and JSON request bodies that have sample data with variables such as `${userId}`. You can replace variables in the URL and body with the IDs of the resources that you want to specify.
 
 1. To get a user's ID, for example, send a request to list the users in your org like you did in the previous section. Each user listed in the response has an ID:
 
   <div class="three-quarter border">
 
-  ![Response example for a GET users request that highlights the ID in the response](/img/postman/postman_response2.png)
+  ![Response example for a request that highlights the ID in the response](/img/postman/postman_response2.png)
 
   </div>
 
 2. Copy the `id` of the resource, in this example the `id` for Tony Stark, for use in your next request.
 
-### Retain headers when you click links
+### Retain the headers when you click links
 
 You can retain headers when when you click HAL links in the responses.
 
@@ -390,6 +408,8 @@ To retain the headers:
 
 ## Next steps
 
-Now that you have imported a collection and successfully tested a request and received a response, you can use Postman to learn more about the Okta APIs.
+Use Postman to learn more about the Okta APIs:
 
-Access an Okta API, download the collection for that API, and try the request examples that come with the collection to help you more fully understand how that API works.
+* Review the [API reference](https://developer.okta.com/docs/api/).
+* Import the corresponding API Postman collection.
+* Try request examples that come with the collection to help you more fully understand how that API works.
