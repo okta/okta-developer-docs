@@ -1035,24 +1035,8 @@ export const reference = [
                { title: "Zones", path: "/docs/reference/api/zones/" }
             ]
          },
-         { title: "Okta Privileged Access", path: "https://developer.okta.com/docs/api/openapi/opa/", },
-         {
-            title: "Advanced Server Access API",
-            subLinks: [
-               { title: "Introduction", path: "/docs/reference/api/asa/introduction/", },
-               { title: "ASA AD Connections API", path: "/docs/reference/api/asa/ad-connections/", },
-               { title: "ASA Attributes API", path: "/docs/reference/api/asa/attributes/", },
-               { title: "ASA Audits API", path: "/docs/reference/api/asa/audits/" },
-               { title: "ASA Clients API", path: "/docs/reference/api/asa/clients/", },
-               { title: "ASA Entitlements API", path: "/docs/reference/api/asa/entitlements/", },
-               { title: "ASA Groups API", path: "/docs/reference/api/asa/groups/" },
-               { title: "ASA Projects API", path: "/docs/reference/api/asa/projects/", },
-               { title: "ASA Services API", path: "/docs/reference/api/asa/services/", },
-               { title: "ASA Service Users API", path: "/docs/reference/api/asa/service-users/", },
-               { title: "ASA Teams API", path: "/docs/reference/api/asa/teams/" },
-               { title: "ASA Users API", path: "/docs/reference/api/asa/users/" },
-            ],
-         },
+         { title: "Okta Privileged Access API", path: "/docs/api/openapi/opa/" },
+         { title: "Advanced Server Access API", path: "/docs/api/openapi/asa/" },
          {
             title: "SCIM Protocol",
             path: "/docs/reference/scim/",
