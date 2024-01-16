@@ -120,7 +120,6 @@ An **Access denied** error occurs because of:
 * Improper attribute/claim format from the IdP
 * Improper IdP configuration (the IdP didn’t challenge a factor that the sign-on policy requires.)
 
-## Limitations
+## Limitation
 
-* Okta doesn’t pass auth requirements to the IdP.
-* Okta isn’t able to remediate when the IdP isn’t able to challenge the user for the required factors.
+Okta doesn’t pass auth requirements to the IdP.
