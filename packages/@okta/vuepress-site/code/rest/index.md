@@ -20,7 +20,7 @@ You can then [send test requests](#send-a-request) to your Okta org and verify t
 
 ## Sign up for Okta
 
-You need a free Okta developer-edition org to get started. Don't have one? [Create an org for free](https://developer.okta.com/signup). When you create an Okta org, the org is assigned a base URL such as `dev-1234567.okta.com`. This is your unique subdomain in Okta.
+You need a free Okta developer-edition org to get started. Don't have one? [Create an org for free](https://developer.okta.com/signup). The developer-edition org is assigned a base URL such as `dev-1234567.okta.com`. This is your unique subdomain in Okta.
 
 > **Note:** Use this unique subdomain whenever you see the `{yourOktaDomain}` variable in this document.
 
@@ -29,10 +29,10 @@ You need a free Okta developer-edition org to get started. Don't have one? [Crea
 1. [Install the Postman app](https://www.getpostman.com/apps).
 1. Start Postman if it's not open already.
 1. In the upper-left corner, click **Import**.
-1. In the **Import** dialog, specify the following link into the **Paste cURL, Raw text or URL** box: `https://developer.okta.com/docs/api/postman/example.oktapreview.com.environment`.
+1. In the **Import** dialog, specify the following link into the **Paste cURL, Raw text or URL** textbox: `https://developer.okta.com/docs/api/postman/example.oktapreview.com.environment`.
    > **Note:** You can also download this environment locally and import it as a file.
 1. Click the enter key to confirm your environment import.
-1. In the upper-right corner, click the box that lists the environments and then select `{yourOktaDomain}` from the list. The initial value is `No Environment` if you just installed Postman.
+1. In the upper-right corner, click the box that lists the environments and then select **`{yourOktaDomain}`** from the list. The initial value is `No Environment` if you just installed Postman.
 
     <div class="three-quarter">
 
@@ -45,7 +45,7 @@ You need a free Okta developer-edition org to get started. Don't have one? [Crea
     </div>
 
 1. In the upper-right corner, next to `{yourOktaDomain}`, click **Environment quick look** ![Postman environment quick look button](/img/postman/postman_eye_icon_button.png  "Displays the eye icon button").
-1. In the upper-right corner of the **{yourOktaDomain}** dialog, click **Edit**.
+1. In the upper-right corner of the `{yourOktaDomain}` dialog, click **Edit**.
 
     <div class="three-quarter">
 
@@ -119,11 +119,11 @@ You need to either obtain an API token (API key), an OIDC, or an OAuth 2.0 acces
 
 ### OpenID Connect authentication setup
 
-If your use case requires you to access a limited number Okta endpoints as a specific user, you can use an OIDC access token in the authorization header of your API requests. See the following sections to set up your Okta org for API authentication using OIDC.
+If your use case requires you to access a limited number Okta endpoints as a specific user, you can use an OIDC access token in the authorization header of your API requests. See the following task to set up your Okta org for API authentication using OIDC.
 
 #### Create an OIDC app in Okta
 
-First, you need to create an OIDC app integration that you can define your scope-based access to Okta APIs.
+First, you need to create an OIDC app integration to define your scope-based access to Okta APIs.
 
 1. [Sign in](https://developer.okta.com/login) to your Okta org Admin Console as a user with administrative privileges (Super Admin role).
 1. In the Admin Console, go to **Applications** > **Applications**.
@@ -255,7 +255,7 @@ Test sending a request based on your chosen authentication scheme:
 
 Request an access token by making a request to your Okta [org authorization server](/docs/concepts/auth-servers/) `/authorize` endpoint. Only the org authorization server can mint access tokens that contain Okta API scopes.
 
-In Postman, the initial `/authorize` request is added to the **OAuth 2.0** **Authorization** tab > **Configure New Token** section.
+In Postman, the initial `/authorize` request is added to the **OAuth 2.0** Authorization tab > **Configure New Token** section.
 
 > **Notes:**
 > * See [Token lifetime](/docs/reference/api/oidc/#token-lifetime) for more information on hard-coded and configurable token lifetimes.
@@ -264,7 +264,7 @@ In Postman, the initial `/authorize` request is added to the **OAuth 2.0** **Aut
 1. In Postman, select the request that you want to make, such as a `GET` request to the `/api/v1/users` endpoint to get back a list of all users.
 2. On the **Header** tab, remove the existing **Authorization** parameter:
     ```json
-    SSWS {{apikey}
+    SSWS {{apikey}}
     ```
 3. Click the **Authorization** tab and from the **Type** dropdown list, select **OAuth 2.0**.
 4. On the right pane, go to the **Configure New Token** section.
@@ -335,7 +335,7 @@ Use the `access_token` value from the response to make your Okta API request.
 1. In Postman, select the request that you want to make, such as a `GET` request to the `/api/v1/users` endpoint to get back a list of all users.
 1. On the **Header** tab, remove the existing **Authorization** parameter:
     ```json
-    SSWS {{apikey}
+    SSWS {{apikey}}
     ```
 1. Click the **Authorization** tab and from the **Type** dropdown list, select **OAuth 2.0**.
    * On the right **Current Token** section, select **Available Tokens** and paste the access token into the **Token** box. Ensure that the **Header Prefix** is set to **Bearer**.
