@@ -4,21 +4,22 @@ title: Basic sign-in flow using the password factor
 
 <ApiLifecycle access="ie" />
 
-> **Note:** A request context for the browser client is required when a server-side web application uses an embedded SDK as a proxy between itself and Okta. This context contains values (geolocation, IP address, and user agent) that inform a secure response. However, these values are currently taken from the server rather than the client. As a result, network zones and behaviors that drive their conditions based on these request context values don’t currently work.
+Enable a password-only sign-in flow in your web application using the embedded SDK.
 
-Enable a password-only sign-in flow in your application using an Embedded SDK.
-
-<StackSnippet snippet="pwdoptionalusecase" inline />
+> **Note**: Passwords are a security vulnerability because they can be easily stolen and are prone to phishing attacks. Give your users the ability to authenticate with a fingerprint, YubiKey, email, phone, or another authenticator by replacing password-only sign-in experiences with either a [password-optional](https://developer.okta.com/docs/guides/pwd-optional-overview) or a multifactor experience.
+>
+> To learn about a sign-in use case where the password is optional, see [Sign in with email only](/docs/guides/pwd-optional-sign-in-email/aspnet/main/).
 
 ---
 
 **Learning outcomes**
 
-* Add a sign-in flow to an application requiring only a password
+Add a sign-in flow to a server-side web application requiring only a password
 
 **What you need**
 
 <StackSnippet snippet="whatyouneed" />
+<br />
 
 **Sample code**
 
@@ -28,7 +29,7 @@ Enable a password-only sign-in flow in your application using an Embedded SDK.
 
 ## Configuration updates
 
-To configure your app in Admin Console so it requires only a password, see <StackSnippet snippet="configureyourapp" inline />.
+To configure your application so it requires only a password, see <StackSnippet snippet="configureyourapp" inline />.
 
 ## Summary of steps
 
