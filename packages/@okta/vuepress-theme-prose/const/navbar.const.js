@@ -1043,8 +1043,10 @@ export const reference = [
                { title: "Zones", path: "/docs/reference/api/zones/" }
             ]
          },
-         { title: "Okta Privileged Access API", path: "/docs/api/openapi/opa/" },
-         { title: "Advanced Server Access API", path: "/docs/api/openapi/asa/" },
+         {
+            title: "Advanced Server Access API",
+            path: "/docs/reference/api/asa/introduction/"
+         },
          {
             title: "SCIM Protocol",
             path: "/docs/reference/scim/",
