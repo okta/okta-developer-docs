@@ -148,7 +148,7 @@ The JWKS should look something like this:
 
 ## Generate the JWK using the Admin Console
 
-Generate a public/private key pair using the Admin Console. Since this is an Early Access feature, contact [Support](mailto:support@okta.com) to have it enabled for your org.
+Generate a public/private key pair using the Admin Console. Since this is an Early Access feature, contact [Support](https://support.okta.com) to have it enabled for your org.
 
 > **Note:** Use the Admin Console to generate a JWK public/private key pair for testing purposes only. For a production use case, use your own internal instance of the key pair generator. See this [key pair generator](https://github.com/mitreid-connect/mkjwk.org) for an example.
 

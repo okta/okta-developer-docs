@@ -2,7 +2,7 @@
 	"info": {
 		"_postman_id": "8d3e2dbb-9a2a-4388-ac92-1b8a83581dd3",
 		"name": "Advanced Server Access API",
-		"description": "The Advanced Server Access API is a control plane API for operations in Okta Advanced Server Access (formerly ScaleFT)\n\nContact Support:\n Name: Okta Support\n Email: support@okta.com",
+		"description": "The Advanced Server Access API is a control plane API for operations in Okta Advanced Server Access (formerly ScaleFT)\n\nContact Support:\n Name: Okta Support\n Site: https://support.okta.com",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
