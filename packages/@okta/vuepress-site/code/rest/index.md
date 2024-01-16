@@ -296,13 +296,13 @@ In Postman, the initial `/authorize` request is added to the **OAuth 2.0** Autho
    After you're authenticated, the **Manage Access Tokens** window displays the access token, including the scopes requested. The token also automatically populates the **Current Token** dropdown list.
      > **Note:** The lifetime for this token is fixed at one hour.
 8. Click **Use Token** at the top of the window to use this access token in your request to the `/users` endpoint.
-9. Click **Send**. Since you requested `okta.users.read`, the response should contain an array of all the users associated with your app. This depends on the user's permissions.
+9. Click **Send**. <br>The result pane displays the results of your request. In this `GET /api/v1/users` example, a list of users associated with your app appears.
 
 ### Get an OAuth 2.0 access token and make a request
 
 To request an access token using the Client Credentials grant flow, you need to first makes a request to your Okta [org authorization server's](/docs/concepts/auth-servers) `/token` endpoint.
 
-> **Note:** Client Credentials requests to the Okta org authorization server must use the private key JWT token method (`client_assertion_type`) for the `/token` endpoint. <br>If this request isn't supported in Postman, execute the corresponding `curl` command to obtain the access token.
+> **Note:** Client Credentials requests to the Okta org authorization server must use the private key JWT token method (`client_assertion_type`) for the `/token` endpoint. The client ID and secret method isn't allowed.
 
 Include the following parameters:
 
@@ -325,6 +325,8 @@ curl --location --request POST 'https://${yourOktaDomain}/oauth2/v1/token' \
     --data-urlencode 'client_assertion_type=urn:ietf:params:oauth:client-assertion-type:jwt-bearer' \
     --data-urlencode 'client_assertion=eyJhbGciOiJSU....tHQ6ggOnrG-ZFRSkZc8Pw'
 ```
+
+> **Note:** If you can't make this request in Postman, execute the `curl` command in your local terminal to obtain the access token.
 
 The response should look something like this (the token is truncated for brevity):
 
@@ -352,7 +354,7 @@ Use the `access_token` value from the response to make your Okta API request.
    Or
 
    * Select **Bearer Token** from the **Type** dropdown list in the **Authorization** tab. Paste the access token to the **Token** box on the right.
-1. Click **Send** on the API request. <br> The response should contain an array of all the users in your org.
+1. Click **Send** for the API request. <br>The result pane displays the results of your request. In this `GET /api/v1/users` example, a list of users in your org appears.
 
 **Example Request**
 
@@ -383,7 +385,8 @@ Use the API token `SSWS` authentication scheme to make your request.
    >    ```
    > * **Add to**: `Header`
 
-1. Click **Send**. The result pane automatically displays the results of your request:
+1. Click **Send**.
+   <br>The result pane displays the results of your request.
 
 If you receive an error, it's likely that one of the values in the environment isn't set correctly. Check the values and try again.
 
@@ -419,6 +422,6 @@ To retain the headers:
 
 Use Postman to learn more about the Okta APIs:
 
-* Review the [API reference](https://developer.okta.com/docs/api/).
-* Import the more API Postman collections.
-* Try request examples in the collections to help you more fully understand how the API behaves.
+* Review the [Okta API reference](https://developer.okta.com/docs/api/).
+* Import more API Postman collections.
+* Try request examples in the collections to help you understand how the APIs behave.

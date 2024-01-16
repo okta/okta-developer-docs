@@ -920,7 +920,7 @@ export const languagesSdk = [
                { title: "React Native", path: "/code/react-native/" },
             ],
          },
-         { title: "Test APIs using Postman", path: "/code/rest/" },
+         { title: "Test APIs with Postman", path: "/code/rest/" },
       ],
    },
 ];
