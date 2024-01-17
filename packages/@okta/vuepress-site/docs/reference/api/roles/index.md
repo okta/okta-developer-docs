@@ -4091,7 +4091,8 @@ User permissions are only effective regarding the Groups to which the admin is g
 | `okta.devices.lifecycle.suspend` <br><ApiLifecycle access="ea" />                             | Allows the admin to suspend device access to Okta                                      | All Devices
 | `okta.devices.lifecycle.unsuspend` <br><ApiLifecycle access="ea" />                           | Allows the admin to unsuspend and restore device access to Okta                                                                                                      | All Devices
 | `okta.devices.lifecycle.delete` <br><ApiLifecycle access="ea" />                              | Allows the admin to permanently delete devices                                                                                                 | All Devices
-| `okta.devices.read` <br><ApiLifecycle access="ea" />                              | Allows the admin to read device details                                                                                                | All Devices
+| `okta.devices.read` <br><ApiLifecycle access="ea" />                              | Allows the admin to read device details                                                                                                | All Devices |
+| `okta.iam.read` | Allows the admin to view roles, resources, and admin assignments                                                                  | All Identity and Access Management resources |
 
 > **Note:** Governance permissions are currently only supported as part of the [Standard IAM-based Roles](/docs/concepts/role-assignment/#iam-based-standard-role-types). You can't use these to create or update other roles.
 
@@ -4160,6 +4161,7 @@ The following are the supported resources.
 |                         | A specific Delegated Flow                                           | `orn:${partition}:workflow:${yourOrgId}:flows:${flowId}`                             |                                                                                                                                                         |
 | Governance              | All Access Certifications           | `orn:$partition$:governance:$orgId$:certifications`                                   |                                                                                                                                                         |
 |                         | All Access Requests                | `orn:$partition$:governance:$orgId$:requests`                                         |                                                                                                                                                         |
+| Identity and Access Management              | All Identity and Access Management resources           | `orn:$partition$:iam:$orgId$:contained_resources`                                   |                                                                                                                                                         |
 
 The ID of a resource is unique to the Resource Set, whereas the link that points to the resource is unique for the org. A Group, if used in two Resource Sets, has distinct IDs in each Resource Set but has the same self link in both.
 
