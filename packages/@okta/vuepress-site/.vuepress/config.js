@@ -158,6 +158,7 @@ module.exports = ctx => ({
     },
 
     primary_left_nav: [
+      { text: 'Customer Identity Cloud', link: 'https://developer.auth0.com' },
       { text: 'Community',
         children: [
           { text: 'Forum', link: 'https://devforum.okta.com' },
