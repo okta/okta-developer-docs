@@ -18,7 +18,7 @@ The first step is to initialize the SDK when the user opens your app. This is do
 
 1. Choose the email factor for authentication.
 1. Verify the email verification code.
-1. Choose the phone factor method (for example SMS). Note that this step won't be called if the user skips the phone factor.
+1. Choose the phone factor method (for example: SMS). Note that this step won't be called if the user skips the phone factor.
 
  ```swift
 self.authHandler = MultifactorLogin(configuration: configuration)

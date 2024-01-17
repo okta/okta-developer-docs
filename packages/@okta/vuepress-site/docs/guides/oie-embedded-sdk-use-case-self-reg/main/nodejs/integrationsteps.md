@@ -46,7 +46,7 @@ router.post('/register', async (req, res, next) => {
 });
 ```
 
-`register()` returns an anonymous response object containing two properties.
+`register()` returns an anonymous response object that contains two properties.
 
 * `status` indicates the status of the registration flow.
 * `nextStep` contains information about the next required step of the flow.
@@ -86,7 +86,7 @@ function getNextRouteFromTransaction ({ nextStep }) {
 };
 ```
 
-At this point, `nextStep` contains `select-authenticator-enroll` indicating the user must select an authentication factor to enroll to verify their identity.
+At this point, `nextStep` contains `select-authenticator-enroll` indicating that the user must select an authentication factor to enroll to verify their identity.
 
 ### The app displays a list of required authenticators to enroll
 
@@ -133,7 +133,7 @@ router.post('/select-authenticator', async (req, res, next) => {
 });
 ```
 
-`proceed()` returns a response object with a `status` of `IdxStatus.PENDING` and a `nextStep` field that indicates the user needs to enroll the authenticator (`enroll-authenticator`). In this context, the user needs to supply a new password.
+`proceed()` returns a response object with a `status` of `IdxStatus.PENDING` and a `nextStep` field that indicates that the user needs to enroll the authenticator (`enroll-authenticator`). In this context, the user needs to supply a new password.
 
 Create a page that allows the user to supply a new password for verification. For example:
 
@@ -253,9 +253,9 @@ const transaction = await authClient.idx.proceed({ authenticator });
 
 #### The app displays a phone number input page
 
-`proceed()` returns a response object with a `status` of `IdxStatus.PENDING` and a `nextStep` field that indicates that the user needs to supply phone registration data (`authenticator-enrollment-data`), which includes the phone number and verification method (SMS or voice).
+`proceed()` returns a response object with a `status` of `IdxStatus.PENDING` and a `nextStep` field that indicates that the user needs to supply phone registration data (`authenticator-enrollment-data`). This data includes the phone number and verification method (SMS or voice).
 
-Build a form that allows the user to enter their phone number, and a second form to select a phone verification method.
+Build a form that allows the user to enter their phone number and a second form to select a phone verification method.
 
 <div class="half wireframe-border">
 
@@ -333,7 +333,7 @@ router.post('/enroll-authenticator/phone_number', async (req, res, next) => {
 
 If the request to verify the code is successful, `proceed()` returns a response object with a `status` of `IdxStatus.SUCCESS`. This status signifies that no more factors (required or optional) are waiting to be enrolled and verified.
 
-The user is now registered with no more factors to be verified. Call `authClient.tokenManager.setTokens()`  to store the returned tokens in a session and redirect the user to the app's default signed-in page.
+The user is now registered with no more factors to be verified. Call `authClient.tokenManager.setTokens()` to store the returned tokens in a session and redirect the user to the app's default signed-in page.
 
 ```js
 // web-server/utils/handleTransaction.js
@@ -357,4 +357,4 @@ router.post('/select-authenticator/skip', async (req, res, next) => {
 });
 ```
 
-If the returned response object has a `status` of `IdxStatus.SUCCESS`, the user is now registered with no more factors to be verified. Call `authClient.tokenManager.setTokens()`  to store the returned tokens in a session and redirect the user to the app's default signed-in page.
+If the returned response object has a `status` of `IdxStatus.SUCCESS`, the user is now registered with no more factors to be verified. Call `authClient.tokenManager.setTokens()` to store the returned tokens in a session and redirect the user to the app's default signed-in page.

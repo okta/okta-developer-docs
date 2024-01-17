@@ -15,7 +15,7 @@ Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 
 > **Note**: The account's username is also its email address.
 
-Create a page for the user to enter their basic profile information: their email, first name, and family name. Call `IDXAuthenticationWrapper.begin()` to start the registration process, and then `getProceedContext()` to get the [`ProceedContext`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/ProceedContext.java) object containing the current state of the authentication flow. Finally, pass `ProceedContext` as a parameter to `IDXAuthenticationWrapper.fetchSignUpFormValues()` to dynamically build the create account form:
+Create a page for the user to enter their basic profile information: their email, first name, and family name. Call `IDXAuthenticationWrapper.begin()` to start the registration process, and then `getProceedContext()` to get the [`ProceedContext`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/ProceedContext.java) object that contains the current state of the authentication flow. Finally, pass `ProceedContext` as a parameter to `IDXAuthenticationWrapper.fetchSignUpFormValues()` to dynamically build the create account form:
 
 ```java
 AuthenticationResponse beginResponse = idxAuthenticationWrapper.begin();
@@ -114,7 +114,7 @@ Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 
 </div>
 
-When the user submits their new password, create a `VerifyAuthenticatorOptions` object containing the new password. Pass this object as a parameter to `IDXAuthenticationWrapper.verifyAuthenticator()`.
+When the user submits their new password, create a `VerifyAuthenticatorOptions` object that contains the new password. Pass this object as a parameter to `IDXAuthenticationWrapper.verifyAuthenticator()`.
 
 ```java
 VerifyAuthenticatorOptions verifyAuthenticatorOptions =
@@ -160,15 +160,14 @@ Build a form that allows the user to enter the OTP sent to them by email.
 ![A form with a field for a verification code and a submit button](/img/wireframes/enter-verification-code-form.png)
 
 <!--
-
-Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3398%3A36808&t=2h5Mmz3COBLhqVzv-1 enter-verification-code-form
+   Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3398%3A36808&t=2h5Mmz3COBLhqVzv-1 enter-verification-code-form
  -->
 
 </div>
 
 ### The user submits the OTP
 
-The user opens the email and copies the OTP into the form. When the user submits the OTP, create a `VerifyAuthenticatorOptions` object containing the OTP. Pass this object as a parameter to `IDXAuthenticationWrapper.verifyAuthenticator()`:
+The user opens the email and copies the OTP into the form. When the user submits the OTP, create a `VerifyAuthenticatorOptions` object that contains the OTP. Pass this object as a parameter to `IDXAuthenticationWrapper.verifyAuthenticator()`:
 
 ```java
 VerifyAuthenticatorOptions verifyAuthenticatorOptions =
@@ -208,9 +207,9 @@ authenticationResponse = idxAuthenticationWrapper.selectAuthenticator(proceedCon
 
 #### Display phone number input page
 
-The returned `EnrollResponse` object has an `AuthenticationStatus` of `AWAITING_AUTHENTICATOR_ENROLLMENT_DATA`. This status indicates that Identity Engine is waiting for the user for more data before the factor can be enrolled. In this case, the user needs to supply a phone number, and a phone verification method.
+The returned `EnrollResponse` object has an `AuthenticationStatus` of `AWAITING_AUTHENTICATOR_ENROLLMENT_DATA`. This status indicates that Identity Engine is waiting for the user for more data before the factor can be enrolled. In this case, the user needs to supply a phone number and a phone verification method.
 
-Build a form that allows the user to enter their phone number, and a second form to select a phone verification method.
+Build a form that allows the user to enter their phone number and a second form to select a phone verification method.
 
 <div class="half wireframe-border">
 
@@ -266,7 +265,7 @@ Build a form that allows the user to enter the OTP sent to them by SMS. Dependin
 
 #### The user submits the SMS OTP
 
-The user checks their phone and copies the OTP into the form. When the user submits the OTP, create a `VerifyAuthenticatorOptions` object containing the OTP. Pass this object as a parameter to `IDXAuthenticationWrapper.verifyAuthenticator()`.
+The user checks their phone and copies the OTP into the form. When the user submits the OTP, create a `VerifyAuthenticatorOptions` object that contains the OTP. Pass this object as a parameter to `IDXAuthenticationWrapper.verifyAuthenticator()`.
 
 ```java
 VerifyAuthenticatorOptions verifyAuthenticatorOptions =
