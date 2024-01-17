@@ -50,4 +50,4 @@ Import any Okta API collection for Postman from the following list:
 
 These buttons are also available at the top of each [API reference page](/docs/reference/api/apps/).
 
-Learn more about how to [use Postman with the Okta REST APIs](/reference/rest/).
+Learn more about how to [use Postman with the Okta REST APIs](/docs/reference/rest/).
