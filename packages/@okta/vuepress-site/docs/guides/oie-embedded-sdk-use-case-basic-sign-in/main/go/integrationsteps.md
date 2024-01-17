@@ -1,7 +1,6 @@
 ### Your app displays the sign-in page
 
-When the user navigates to the sign-in page and the application loads for the first time, create a new
-SDK `Client` object by calling `NewClient`.
+When the user goes to the sign-in page and the application loads for the first time, create an SDK `Client` object by calling `NewClient`.
 
 ```go
 idx, err := idx.NewClient(
