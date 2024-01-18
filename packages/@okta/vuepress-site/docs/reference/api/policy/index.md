@@ -2121,7 +2121,7 @@ You can apply the following conditions to the IdP Discovery Policy:
 | providers | List of configured Identity Providers that a given Rule can route to | array     | Yes      |
 
 > **Note:** Ability to define multiple providers is a part of the Identity Engine.
-> Please [contact support](https://support.okta.com/) for further information.
+> [Contact support](https://support.okta.com/) for information on the Identity Engine.
 
 > **Note:** IdP types of `OKTA`, `AgentlessDSSO`, and `IWA` don't require an `id`.
 
