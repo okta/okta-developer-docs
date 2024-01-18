@@ -69,9 +69,7 @@ fun handleTerminalTransitions(response: AuthenticationResponse)
 
 #### Other authentication statuses
 
-Handle other returned [AuthenticationStatus](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/model/AuthenticationStatus.java) cases if there are other factors to verify.
-
-For example:
+Handle other returned [AuthenticationStatus](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/model/AuthenticationStatus.java) cases if there are other factors to verify. For example:
 
 ```kotlin
 fun handleKnownTransitions(
