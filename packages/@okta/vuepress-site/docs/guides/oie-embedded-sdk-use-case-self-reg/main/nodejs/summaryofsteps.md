@@ -1,48 +1,63 @@
-The following sequence diagrams show the sequence of steps for self-service registration.
+### Start the new user registration with the password factor
 
-### Start a new user registration with the password authenticator
+The following diagram illustrates the beginning of the registration process where the user initiates their sign-in flow and enrolls their password.
 
-The following diagram illustrates the beginning of the registration process where the user initiates the sign-in process and enters their password.
+<div class="full">
 
-<div class="three-quarter">
+![A sequence diagram that shows the beginning of the self-service registration flow, from the user clicking Create Account to their enrolling a password](/img/oie-embedded-sdk/oie-embedded-nodejs-selfservice-pwd-flow-diagram.png)
 
-![Displays the Self-service registration start of flow diagram.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-seq-nodejs-start.png)
+<!--
 
-</div>
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?type=design&node-id=4621-38712&mode=design&t=EaZdPwSdXrKU04Cr-11  oie-embedded-nodejs-selfservice-pwd-flow-diagram
 
-### Enroll and verify the email authenticator
-
-The self-registration flow continues in this sequence.
-
-<div class="three-quarter">
-
-![Displays the Self-service registration enroll flow diagram.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-seq-nodejs-enroll-verify.png)
+ -->
 
 </div>
 
-### Option 1: Skip the optional remaining authenticators
+### Enroll and verify the email factor
 
-The user can also opt to skip the authenticators when all of the remaining
-authenticators are optional. In this case, the user opts to skip the phone
-(SMS) authenticator.
+The self-registration flow continues by enrolling the user's email address.
 
-<div class="three-quarter">
+<div class="full">
 
-![Displays the Self-service registration skip phone flow diagram.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-seq-nodejs-skip-phone.png)
+![A sequence diagram that shows the email factor enrollment part of the self-service registration flow](/img/oie-embedded-sdk/oie-embedded-nodejs-selfservice-email-flow-diagram.png)
+
+<!--
+
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?type=design&node-id=4621-38719&mode=design&t=EaZdPwSdXrKU04Cr-11  oie-embedded-nodejs-selfservice-email-flow-diagram
+
+ -->
 
 </div>
 
-### Option 2: Enroll and verify the phone (SMS) authenticator
+### Enroll and verify the phone factor
 
-After the password and email are verified, the user has the option to
-enroll in the phone authenticator.
+After the password and email are verified, the user may also enroll the phone factor. However, it's now optional as the user has already enrolled two factors. The following flow describes the steps when the user does enroll the optional phone factor.
 
-> **Note:** Based on the steps described in [Set up your Okta org for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#set-up-your-okta-org-for-a-multifactor-use-case), the Okta application is set up to require one possession factor (either email or phone). After the email authenticator is verified, the phone authenticator becomes optional.
+<div class="full">
 
-The following flow describes the steps when the user enrolls in the optional phone SMS authenticator.
+![A sequence diagram that shows the phone factor enrollment part of the self-service registration flow](/img/oie-embedded-sdk/oie-embedded-nodejs-selfservice-phone-flow-diagram.png)
 
-<div class="three-quarter">
+<!--
 
-![Displays the self-service registration enroll flow diagram.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-seq-nodejs-phone.png)
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?type=design&node-id=4621-38761&mode=design&t=EaZdPwSdXrKU04Cr-11 oie-embedded-nodejs-selfservice-phone-flow-diagram
+
+ -->
+
+</div>
+
+### Skip the optional remaining factors
+
+The user can also skip enrolling more factors when the remaining unenrolled factors are optional. In this case, the user skips the phone factor.
+
+<div class="full">
+
+![A sequence diagram that shows the phone factor being skipped as part of the self-service registration skip phone flow](/img/oie-embedded-sdk/oie-embedded-nodejs-selfservice-skip-flow-diagram.png)
+
+<!--
+
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?type=design&node-id=4621-38764&mode=design&t=EaZdPwSdXrKU04Cr-11 oie-embedded-nodejs-selfservice-skip-flow-diagram
+
+ -->
 
 </div>

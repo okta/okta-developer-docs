@@ -1,46 +1,63 @@
 ### Start the new user registration with the password factor
 
-The following diagram illustrates the beginning of the registration process where the user initiates their sign-in and enters their password.
+The following diagram illustrates the beginning of the registration process where the user initiates their sign-in flow and enrolls their password.
 
-<div class="three-quarter">
+<div class="full">
 
-![Displays a diagram that shows the beginning of self-service registration flow](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-seq-start.png)
+![A sequence diagram that shows the beginning of the self-service registration flow, from the user clicking Create Account to their enrolling a password](/img/oie-embedded-sdk/oie-embedded-dotnet-selfservice-pwd-flow-diagram.png)
+
+<!--
+
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?type=design&node-id=4556-22852&mode=design&t=xppJfMMfiQ95U2De-4  oie-embedded-dotnet-selfservice-pwd-flow-diagram
+
+ -->
 
 </div>
 
 ### Enroll and verify the email factor
 
-The self-registration flow continues in this sequence.
+The self-registration flow continues by enrolling the user's email address.
 
-<div class="three-quarter">
+<div class="full">
 
-![Displays a diagram that continues from the last diagram and shows the self-service registration enrollment flow](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-seq-enroll-verify.png)
+![A sequence diagram that shows the email factor enrollment part of the self-service registration flow](/img/oie-embedded-sdk/oie-embedded-dotnet-selfservice-email-flow-diagram.png)
+
+<!--
+
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?type=design&node-id=4556-22885&mode=design&t=xppJfMMfiQ95U2De-11 oie-embedded-dotnet-selfservice-email-flow-diagram
+
+ -->
 
 </div>
 
-### Enroll and verify the phone (SMS) factor
+### Enroll and verify the phone factor
 
-After the password and email are verified, the user has the option to
-enroll in the phone factor.
+After the password and email are verified, the user may also enroll the phone factor. However, it's now optional as the user has already enrolled two factors. The following flow describes the steps when the user does enroll the optional phone factor.
 
-> **Note:** Based on the steps described in [Set up your Okta org for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-a-multifactor-use-case), the Okta application is set up to require one possession factor (either email or phone). After the email factor is verified, the phone factor becomes optional.
+<div class="full">
 
-The following flow describes the steps when the user enrolls in the optional phone SMS factor.
+![A sequence diagram that shows the phone factor enrollment part of the self-service registration flow](/img/oie-embedded-sdk/oie-embedded-dotnet-selfservice-phone-flow-diagram.png)
 
-<div class="three-quarter">
+<!--
 
-![Displays a diagram that continues from the last diagram and shows the self-service registration enroll flow](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-seq-phone.png)
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?type=design&node-id=4556-22924&mode=design&t=xppJfMMfiQ95U2De-11  oie-embedded-dotnet-selfservice-phone-flow-diagram
+
+ -->
 
 </div>
 
 ### Skip the optional remaining factors
 
-The user can also opt to skip the factors when all of the remaining
-factors are optional. In this case, the user opts to skip the phone
-(SMS) factor.
+The user can also skip enrolling more factors when the remaining unenrolled factors are optional. In this case, the user skips the phone factor.
 
-<div class="three-quarter">
+<div class="full">
 
-![Displays a diagram that contineus from the last diagram and shows the self-service registration skip phone flow](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-seq-skip-phone.png)
+![A sequence diagram that shows the phone factor being skipped as part of the self-service registration skip phone flow](/img/oie-embedded-sdk/oie-embedded-dotnet-selfservice-skip-flow-diagram.png)
+
+<!--
+
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?type=design&node-id=4556-22926&mode=design&t=xppJfMMfiQ95U2De-11  oie-embedded-dotnet-selfservice-skip-flow-diagram
+
+ -->
 
 </div>

@@ -2,11 +2,17 @@ The sequence of steps for self-service registration is described in the followin
 
 ### Start a new user registration with the password authenticator
 
-The following diagram illustrates the beginning of the registration process where the user initiates their sign-in and enters their password.
+The following diagram illustrates the beginning of the registration process where the user initiates their sign-in flow and enrolls their password.
 
-<div class="three-quarter">
+<div class="full">
 
-![Displays the sequence diagram for starting self-registration with password flow for Java SDK](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-seq-start-java.png)
+![A sequence diagram that shows the beginning of the self-service registration flow, from the user clicking Create Account to their enrolling a password](/img/oie-embedded-sdk/oie-embedded-android-selfservice-pwd-flow-diagram.png)
+
+<!--
+
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?type=design&node-id=4579-22804&mode=design&t=aNZwypVsE0zfHlUi-11  oie-embedded-android-selfservice-pwd-flow-diagram
+
+ -->
 
 </div>
 
@@ -14,9 +20,15 @@ The following diagram illustrates the beginning of the registration process wher
 
 After being shown the list of available authenticators, the customer continues the self-registration flow by selecting the email authenticator.
 
-<div class="three-quarter">
+<div class="full">
 
-![Displays the sequence diagram for enrolling self-registration MFA flow with Java SDK](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-seq-enroll-verify-java.png)
+![A sequence diagram that shows the email factor enrollment part of the self-service registration flow](/img/oie-embedded-sdk/oie-embedded-android-selfservice-email-flow-diagram.png)
+
+<!--
+
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?type=design&node-id=4579-22841&mode=design&t=aNZwypVsE0zfHlUi-11  oie-embedded-android-selfservice-email-flow-diagram
+
+ -->
 
 </div>
 
@@ -24,9 +36,15 @@ After being shown the list of available authenticators, the customer continues t
 
 After the password and email authenticators are verified, the user has the option to skip the phone authenticator.
 
-<div class="three-quarter">
+<div class="full">
 
-![Displays the sequence diagram for skipping an optional phone authenticator flow with the Java SDK Self-service](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-seq-skip-phone-java.png)
+![A sequence diagram that shows the phone factor being skipped as part of the self-service registration skip phone flow](/img/oie-embedded-sdk/oie-embedded-android-selfservice-skip-flow-diagram.png)
+
+<!--
+
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?type=design&node-id=4579-22901&mode=design&t=aNZwypVsE0zfHlUi-11 oie-embedded-android-selfservice-skip-flow-diagram
+
+ -->
 
 </div>
 
@@ -38,8 +56,14 @@ After the password and email authenticators are verified, the user has the optio
 
 The following flow describes the steps when the user enrolls the optional phone authenticator.
 
-<div class="three-quarter">
+<div class="full">
 
-![Displays the sequence diagram for enrolling an optional phone SMS authenticator flow with the Java SDK](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-seq-phone-java.png)
+![A sequence diagram that shows the phone factor enrollment part of the self-service registration flow](/img/oie-embedded-sdk/oie-embedded-android-selfservice-phone-flow-diagram.png)
+
+<!--
+
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?type=design&node-id=4579-22867&mode=design&t=aNZwypVsE0zfHlUi-11  oie-embedded-android-selfservice-phone-flow-diagram
+
+ -->
 
 </div>
