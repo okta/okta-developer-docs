@@ -13,7 +13,7 @@ Explore the [Okta Public API Collections](https://www.postman.com/okta-eng/works
 
 <ApiLifecycle access="ie" />
 
-> **Note:** This feature is only available as a part of Okta Identity Engine. Please [contact support](https://support.okta.com/) for further information.
+> **Note:** This feature is only available as a part of Okta Identity Engine. [Contact support](https://support.okta.com/)  for information on the Identity Engine.
 
 The Okta Devices API provides a centralized integration platform to fetch and manage device information. Okta administrators can use these APIs to manage workforce identity Device object information.
 
