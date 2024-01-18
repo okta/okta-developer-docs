@@ -18,8 +18,8 @@ This guide explains how to configure an OpenID Connect Identity Provider to send
 **What you need**
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
-* An existing OpenID Connect Identity Provider (IdP) that’s able to send AMR claims to Okta. This can be another Okta org (org2org) or a third party IdP.
-* The IdP AMR Claims Mapping feature enabled for your org. Contact [Okta Support](mailto:support@okta.com) to enable this EA feature.
+* An existing OpenID Connect Identity Provider (IdP) that's able to send AMR claims to Okta. This can be another Okta org (org2org) or a third party IdP.
+* The IdP AMR Claims Mapping feature enabled for your org. Contact [Okta Support](https://support.okta.com) to enable this EA feature.
 
 ---
 
@@ -51,7 +51,7 @@ AMR claims provide important context to Okta during policy evaluation. For examp
 
 ## Configure the IdP for AMR claims
 
-Before you configure Okta to accept AMR claims, it’s important to first configure the IdP to send the claims correctly. Every IdP is different. Okta expects the IdP to pass the AMR claims in a specific way, depending on the supported federation protocol.
+Before you configure Okta to accept AMR claims, it's important to first configure the IdP to send the claims correctly. Every IdP is different. Okta expects the IdP to pass the AMR claims in a specific way, depending on the supported federation protocol.
 
 ### OpenID Connect Identity Provider
 
@@ -118,8 +118,8 @@ An **Access denied** error occurs because of:
 
 * Improper policy configuration
 * Improper attribute/claim format from the IdP
-* Improper IdP configuration (the IdP didn’t challenge a factor that the sign-on policy requires.)
+* Improper IdP configuration (the IdP didn't challenge a factor that the sign-on policy requires.)
 
 ## Limitation
 
-Okta doesn’t pass auth requirements to the IdP.
+Okta doesn't pass auth requirements to the IdP.
