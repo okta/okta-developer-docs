@@ -1,5 +1,5 @@
 ---
-# This file controls the links and content shown on the /pricing landing page. NOTE: as of Jan 2024, this page no longer builds the pricing page, which is a redirect to: https://www.okta.com/pricing/#customer-identity-products
+# This file controls the links and content shown on the /pricing landing page. **Note:** As of Jan 2024, this page no longer builds the pricing page, which is a redirect to `https://www.okta.com/pricing/#customer-identity-products`.
 
 component: Pricing
 title: Pricing
