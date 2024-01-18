@@ -2144,7 +2144,7 @@ You can apply the following conditions to the IdP Discovery Policy:
 
 <ApiLifecycle access="ie" />
 
-> **Note:** This feature is only available as a part of the Identity Engine. [Contact support](https://support.okta.com/) for further information.
+> **Note:** This feature is only available as a part of the Identity Engine. [Contact support](https://support.okta.com/) for information on the Identity Engine.
 
 You can define multiple IdP instances in a single Policy Action. This allows users to choose a Provider when they sign in.
 
