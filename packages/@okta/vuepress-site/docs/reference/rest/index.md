@@ -255,32 +255,32 @@ Test sending a request in Postman based on your chosen authentication scheme:
 
 ### Get an OIDC access token and make a request
 
-Request an access token by making a request to your Okta [org authorization server](/docs/concepts/auth-servers/) `/authorize` endpoint. Only the Okta org authorization server can mint access tokens that contain Okta API scopes.
+Request an access token by making a call to your Okta [org authorization server](/docs/concepts/auth-servers/) `/authorize` endpoint. Only the Okta org authorization server can mint access tokens that contain Okta API scopes.
 
-In Postman, the initial `/authorize` request is added to the **OAuth 2.0** Authorization tab > **Configure New Token** section.
+In Postman, the initial `/authorize` request is included in the **OAuth 2.0** Authorization tab > **Configure New Token** section.
 
 > **Notes:**
 > * See [Token lifetime](/docs/reference/api/oidc/#token-lifetime).
 > * Okta recommends that you always use the Authorization Code with PKCE grant flow. See [Implement the Authorization Code with PKCE flow](/docs/guides/implement-grant-type/authcodepkce/main/) for details on this grant type.
 
-1. In Postman, select the request that you want to make, such as a `GET` request to the `/api/v1/users` endpoint to get back a list of all users.
+1. Select the request that you want to make from Postman, such as a `GET` request to the `/api/v1/users` endpoint to get back a list of all users.
 2. On the **Header** tab, remove the **Authorization** parameter if it exists.
 3. Click the **Authorization** tab and from the **Type** dropdown list, select **OAuth 2.0**.
 4. On the right pane, go to the **Configure New Token** section.
 5. In the first field, enter a name for the token and select **Authorization Code (With PKCE)** as the grant type.
 6. Define the remaining fields for the token request:
 
-    * **Callback URL**: Define the callback location where Okta returns the token after the user finishes authenticating. This URL must match one of the redirect URIs that you configured in the [Create an OIDC app in Okta](#create-an-oidc-app-in-okta) section.
+    * **Callback URL**: Define the callback location where Okta returns the token after the user finishes authenticating. This URL must match one of the redirect URIs that you configured in the [Create an OIDC app in Okta](#create-an-oidc-app-in-okta) task.
     * **Auth URL**: Enter the authorization endpoint for your org authorization server: `https://${yourOktaDomain}/oauth2/v1/authorize`.
     * **Access Token URL**: Enter the token endpoint for your org authorization server: `https://${yourOktaDomain}/oauth2/v1/token`.
-    * **Client ID**: Specify the client ID value of your Okta OIDC app integration that you created in the [Create an OIDC app in Okta](#create-an-oidc-app-in-okta) section.
+    * **Client ID**: Specify the client ID value of your Okta OIDC app integration that you created in the [Create an OIDC app in Okta](#create-an-oidc-app-in-okta) task.
 
         Alternatively, you can add the client ID to the `clientId` variable in your Postman environment and use the following **Client ID** value:
         ```json
         {{clientId}}
         ```
 
-    * **Client secret**: Specify the client secret of your Okta OIDC app integration that you created in the [Create an OIDC app in Okta](#create-an-oidc-app-in-okta) section.
+    * **Client secret**: Specify the client secret of your Okta OIDC app integration that you created in the [Create an OIDC app in Okta](#create-an-oidc-app-in-okta) task.
 
         Alternatively, you can add the client secret to the `clientSecret` variable in your Postman environment and use the following **Client secret** value:
         ```json
@@ -295,7 +295,7 @@ In Postman, the initial `/authorize` request is added to the **OAuth 2.0** Autho
 
 7. Click **Get New Access Token**. You're prompted to sign in to your Okta org. Sign in as a user that was assigned to your OIDC app integration.
 
-   After you're authenticated, the **Manage Access Tokens** window displays the access token, including the scopes requested. The token also automatically populates the **Current Token** dropdown list.
+   After you're authenticated, the access token and the scopes requested appear in the **Manage Access Tokens** window. The token also appears in the **Current Token** dropdown list.
      > **Note:** The lifetime for this token is fixed at one hour.
 8. Click **Use Token** at the top of the window to use this access token in your request to the `/users` endpoint.
 9. Click **Send**. <br>The result pane displays the results of your request. In this `GET /api/v1/users` example, a list of users associated with your app appears.
@@ -307,7 +307,7 @@ Use the `access_token` value from the [Get an OAuth 2.0 access token from a sign
 1. In Postman, select the request that you want to make, such as a `GET` request to the `/api/v1/users` endpoint to get back a list of all users.
 1. On the **Header** tab, remove the **Authorization** parameter if it exists.
 1. Click the **Authorization** tab and from the **Type** dropdown list, select **OAuth 2.0**.
-   * On the right **Current Token** section, select **Available Tokens** and paste the access token into the **Token** box. Ensure that the **Header Prefix** is set to **Bearer**.
+   * On the right **Current Token** section, select **Available Tokens** and paste the access token into the **Token** box. Ensure that **Header Prefix** is set to **Bearer**.
 
    Or
 
