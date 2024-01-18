@@ -727,7 +727,7 @@ curl -v -X GET \
 
 Permanently deletes a Device that is in `DEACTIVATED` status. The Device can be transitioned to `DEACTIVATED` status using the [deactivate](#deactivate-device) API.
 
-This deletion is destructive and deletes all the profile data related to the device. Once deleted, device data can't be recovered. A Device that isn't in a `DEACTIVATED` state raises an error if a delete operation is attempted.
+This deletion is destructive and deletes all the profile data related to the device. After it's deleted, device data can't be recovered. A Device that isn't in a `DEACTIVATED` state raises an error if a delete operation is attempted.
 
 #### Permitted OAuth 2.0 scopes
 `okta.devices.manage`
