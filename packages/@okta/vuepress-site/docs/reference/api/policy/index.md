@@ -1280,7 +1280,7 @@ Specifies a particular platform or device to match on
 
 <ApiLifecycle access="ie" />
 
-> **Note:** This feature is only available as a part of the Identity Engine. Please [contact support](https://support.okta.com/) for further information.
+> **Note:** This feature is only available as a part of the Identity Engine. Please [contact support](https://support.okta.com/) for information on the Identity Engine.
 
 Specifies the device condition to match on
 
