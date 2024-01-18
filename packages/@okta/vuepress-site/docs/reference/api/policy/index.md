@@ -2224,7 +2224,7 @@ refers to the user's `username`. If the user is signing in with the username `jo
 
 <ApiLifecycle access="ie" />
 
-> **Note:** This feature is only available as a part of the Identity Engine. [Contact support](https://support.okta.com/) for further information.
+> **Note:** This feature is only available as a part of the Identity Engine. [Contact support](https://support.okta.com/) for information on the Identity Engine.
 
 > **Note:** The app sign-on policy name has changed to authentication policy. The policy type of `ACCESS_POLICY` remains unchanged.
 
