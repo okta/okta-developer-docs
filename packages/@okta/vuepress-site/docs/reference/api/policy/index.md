@@ -211,7 +211,7 @@ HTTP 204:
 
 <ApiLifecycle access="ie" />
 
-> **Note:** This feature is only available as a part of the Identity Engine. Please [contact support](https://support.okta.com/) for further information.
+> **Note:** This feature is only available as a part of the Identity Engine. [Contact support](https://support.okta.com/) for information on the Identity Engine.
 
 > **Note:** Within the Identity Engine, this feature is only supported for [authentication policies](#authentication-policy).
 
