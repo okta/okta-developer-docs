@@ -6,7 +6,7 @@
       hidden: hidden }"
   >
     <router-link
-      v-if="entityType === types.link"
+      v-if="entityType === types.link && !link.isExternalLink"
       v-slot="{ route, href, navigate }"
       :to="link.path"
       custom
@@ -29,6 +29,16 @@
         </slot>
       </a>
     </router-link>
+
+    <SmartLink
+      v-if="link.isExternalLink"
+      :item="{ link: link.path, target: link.target ? link.target : '_blank' }"
+      classes="tree-nav-link"
+    >
+      <span class="text-holder">
+        {{ link.title }}
+      </span>
+    </SmartLink>
 
     <div v-if="entityType === types.blankDivider">
       <div class="blank-divider">
@@ -108,6 +118,7 @@ export default {
   name: "SidebarItem",
   components: {
     SidebarItem: () => import("../components/SidebarItem.vue"),
+    SmartLink: () => import("../components/SmartLink.vue"),
   },
   inject: ["appContext", "stackSelectorData"],
   props: ["link"],
