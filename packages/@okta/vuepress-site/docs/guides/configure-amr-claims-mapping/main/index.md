@@ -93,6 +93,41 @@ The `amr` property is a JSON array of strings that are identifiers for [authenti
 }
 ```
 
+### Supported AMR values by authenticator type
+
+The following table describes the AMR values that are supported by Okta.
+
+Authenticator key: Identifies an authenticator that you can add or remove using the Admin Console (**Security** > **Authenticators**).
+Authenticator type: Describes the type of authenticator. These attributes are especially useful in situations where there are apps and security keys being used together in an authentication flow.
+Method type: Defines the security method used by the authenticator.
+AMR value: Lists the supported AMR values for each authenticator.
+Factor class: Describes the type of factor that the authenticator is.
+
+| Authenticator key            | Authenticator type        | Method type       | AMR value                             | Factor class   |
+| :--------------------------- | :------------------------ | :---------------- | :------------------------------------ | :------------- |
+| okta_                        | password                  | password          | pwd                                   | Knowledge      |
+| secruity-question            | security_question         | security_question | kba                                   |                |
+| okta_email                   | email                     | email             | email                                 | Possession     |
+| phone_number                 | phone                     | sms               | sms                                   |                |
+|                                                          | voice             | tel                                   |                |
+| duo                          | app                       | duo               | duo                                   |                |
+| symantec_vip                 |                           | otp               | symantec                              |                |
+| google_otp                   |                           |                   | google_otp                            |                |
+| okta_verify                  |                           | totp              | okta_verify, pop                      |                |
+|                                                          | push              | okta_verify, pop                      | Possession,    |
+|                                                                                                                      | Inherence      |
+|                                                          | signed_nonce      | okta_verify, phr                      |                |
+| custom_app                   |                           | push              | swk                                   |                |
+| webauthn                     | security_key              | webauthn          | pop                                   |                |
+| onprem_mfa                   |                           | otp               | oauth_otp                             | Possession     |
+| rsa_token                    |                           |                   | rsa                                   |                |
+| yubikey_token                | yubikey_token             |                   | yubikey                               |                |
+| custom_otp                   | custom_otp                |                   | otp                                   |                |
+| external_idp                 | federated                 | idp               | fed                                   |                |
+| smart_card_idp               |                           | cert              | sc + swk,                             | Possession,    |
+|                                                                              | additional                            | Knowledge      |
+|                                                                              | options: hwk (replaces swk), pin, mfa ||
+
 ### Okta-to-Okta
 
 Okta-to-Okta (org2org), also known as hub and spoke, refers to a deployment model where the IdP and Service Provider (SP) are both Okta orgs. Use the [Add an External Identity Provider guide for Okta-to-Okta](/docs/guides/add-an-external-idp/oktatookta/main/) to configure your Okta-to-Okta orgs for AMR claims mapping.
