@@ -22,9 +22,8 @@ Get a new org set up and ready for various use cases.
 
 Okta provides two embedded identity solutions:
 
-* **Embedded SDK only**: A highly customizable solution that provides native language support for a variety of identity
-   use cases.
-* **Embedded Widget + SDK**: A quick and easy to set up solution that moves most of the the heavy lifting to Okta. Although the amount of code that you need to write is small, many of the most advanced identity use cases (for example, social sign-in, multifactor authentication) are supported out of the box.
+* **Embedded SDK only**: A highly customizable solution that provides native language support for various identity use cases.
+* **Embedded Widget + SDK**: A quick and easy to set up solution that moves most of the heavy lifting to Okta. Although the amount of code that you need to write is small, many of the most advanced identity use cases (for example, social sign-in, multifactor authentication) are supported out of the box.
 
 <div class="three-quarter">
 
@@ -45,7 +44,7 @@ Sample apps are provided for each solution to show you exactly how to integrate 
 1. [Create your Okta account](#create-your-okta-account).
 1. [Verify that the Interaction Code grant type is enabled](/docs/guides/implement-grant-type/interactioncode/main/#verify-that-the-interaction-code-grant-type-is-enabled).
 1. [Update the default custom authorization server](#update-the-default-custom-authorization-server).
-1. [Create a new application](#create-a-new-application).
+1. [Create an application](#create-a-new-application).
 
 After you've created your app, you need to [set up your Okta org for your use case](#set-up-your-okta-org-for-your-use-case) scenario.
 
@@ -73,7 +72,7 @@ You need to configure your default custom authorization server to enable the Int
 
 1. Click **Update Rule**.
 
-### Create a new application
+### Create an application
 
 Create an app integration that represents the application you want to add authentication to with Okta:
 
@@ -97,13 +96,13 @@ Create an app integration that represents the application you want to add authen
 
 <StackSnippet snippet="emailcallbackuri" />
 
-> **Note:** New apps are automatically assigned the default authentication policy requiring a user verify their identity with two factors. To view or change this policy, select the **Sign On** tab, and then locate the **User Authentication** section.
+> **Note:** New apps are automatically assigned the default authentication policy, which requires a user to verify their identity with two factors. To view or change this policy, select the **Sign On** tab, and then locate the **User Authentication** section.
 
 <StackSnippet snippet="appsbaseurl" />
 
 ## Set up your Okta org for your use case
 
-After you've created your app integration in your Okta org, the next step is to configure your app and org to support the use case that you're implementing.
+After you've created your app integration in your Okta org, the next step is to configure your app and org to support the use cases that you're implementing.
 
 * For a basic password factor only use case, see [Set up your Okta org for a password factor only use case](#set-up-your-okta-org-for-a-password-factor-only-use-case)
 * For a password-optional use case, see [Set up your Okta org for a password-optional use case](#set-up-your-okta-org-for-a-password-optional-use-case)
@@ -112,7 +111,7 @@ After you've created your app integration in your Okta org, the next step is to 
 
 ### Set up your Okta org for a password factor only use case
 
-This section shows you how to set up your Okta org and app to support password factor only use cases. These use cases are intended to use the password factor without any additional factors (such as email or phone SMS). In the [Create a new application](#create-a-new-application) section, the app was assigned **Any two factors**, the default policy for a new app that requires a user to verify their identity with any two enabled authentication factors.
+This section shows you how to set up your Okta org and app to support password factor-only use cases. These use cases are intended to use the password factor without any additional factors (such as email or phone SMS). In the [Create a new application](#create-a-new-application) section, the app is assigned **Any two factors**, the default policy for a new app that requires a user to verify their identity with any two enabled authentication factors.
 
 First, assign the **Password only** policy to your app:
 
@@ -121,7 +120,7 @@ First, assign the **Password only** policy to your app:
 1. Click **Edit** in the **User Authentication** section.
 1. Select **Password only** for the **Authentication policy**, and then click **Save**.
 
-Next, check the password authenticator does not require any additional verification.
+Next, check that the password authenticator doesn't require any additional verification.
 
 1. Go to **Security** > **Authenticators**.
 1. Select **Edit** from the **Actions** menu on the **Password** authenticator row.
@@ -147,7 +146,7 @@ To ensure that only password-optional users can **sign in** without a password a
 2. [Add a new global session policy for the group](#add-a-new-global-session-policy-for-password-optional-users).
 3. [Add a new authentication policy for the group](#add-a-new-authentication-policy-for-password-optional-users).
 4. Ensure that password-optional users never fall through to the default policy. The default policy should always have a password as a required authenticator.
-5. Explicitly exclude your main admin account from any further password-optional policies you create.
+5. Explicitly exclude your main admin account from any further password-optional policies that you create.
 
 > **Note**: See also [Set up password-optional sign-in experience](https://help.okta.com/okta_help.htm?type=oie&id=ext-passwordless).
 
@@ -194,7 +193,7 @@ To ensure that only password-optional users can sign in without a password and e
 
 ##### Create a password-optional authenticator enrollment policy
 
-An authenticator enrollment policy determines which authenticators must challenge a user before they are successfully signed in. In this case, email is set to **Required**, while all the other authenticators are set to **Optional**.
+An authenticator enrollment policy determines which authenticators must challenge a user before they’re successfully signed in. In this case, email is set to **Required**, while all the other authenticators are set to **Optional**.
 
 1. Choose **Security** > **Authenticators**.
 2. Select the **Enrollment** tab, and then click **Add A Policy**.

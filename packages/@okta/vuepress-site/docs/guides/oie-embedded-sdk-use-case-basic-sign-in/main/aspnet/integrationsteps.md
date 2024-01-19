@@ -31,7 +31,7 @@ var authnResponse = await idxAuthClient
 
 ### Your app handles an authentication success response
 
-When the user correctly supplies their password, `AuthenticateAsync()` returns an `AuthenticationResponse` with an `AuthenticationStatus` of `Success`. Call `AuthenticationHelper.GetIdentityFromTokenResponseAsync()` to retrieve the user's OIDC claims information as ID tokens and pass it into your application. The user has now signed in.
+When the user correctly supplies their password, `AuthenticateAsync()` returns an `AuthenticationResponse` with an `AuthenticationStatus` of `Success`. Call `AuthenticationHelper.GetIdentityFromTokenResponseAsync()` to retrieve the user's OIDC claims information as ID tokens and pass it into your app. The user has now signed in.
 
 ```csharp
 switch (authnResponse.AuthenticationStatus)
@@ -41,7 +41,7 @@ switch (authnResponse.AuthenticationStatus)
          .GetIdentityFromTokenResponseAsync(
             _idxClient.Configuration, authnResponse.TokenInfo);
       _authenticationManager.SignIn(
-         new AuthenticationProperties { IsPersistent = model.RememberMe }, 
+         new AuthenticationProperties { IsPersistent = model.RememberMe },
          identity);
       return RedirectToAction("Index", "Home");
 
