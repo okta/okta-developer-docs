@@ -8,6 +8,16 @@ title: Okta Identity Engine API Products release notes 2024
 
 ## January
 
+### Weekly release 2024.01.1
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Bug fixed in 2024.01.1](#bug-fixed-in-2024-01-1) | January 18, 2024 |
+
+#### Bug fixed in 2024.01.1
+
+Users could activate their Okta accounts from expired activation email links using the SDKs. (OKTA-666148)
+
 ### Monthly release 2024.01.0
 
 | Change | Expected in Preview Orgs |
