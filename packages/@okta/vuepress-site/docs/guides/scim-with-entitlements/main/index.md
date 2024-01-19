@@ -446,8 +446,5 @@ The following example demonstrates what the SCIM server might include in a User 
 
 ## See also
 
-After ....
-
-## Next steps
-
-.... Now that you know what these guides cover, you can get started by [Preparing your SCIM API service](/docs/guides/scim-provisioning-integration-prepare/).
+- [Okta and SCIM Version 2.0](/docs/reference/scim/scim-20/)
+- [Create SCIM app integrations with entitlement management](https://help.okta.com/okta_help.htm?type=oie&id=ext-aiw-scim-entitlements)
