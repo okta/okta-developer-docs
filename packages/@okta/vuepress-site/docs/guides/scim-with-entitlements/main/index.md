@@ -38,13 +38,13 @@ When an app is provisioned, Okta calls the SCIM server to retrieve a list of res
 The following sequence of calls begins when you enable provisioning for your SCIM 2.0 app with entitlements:
 1. `/ResourceTypes`: Gets available Entitlements, Roles, Users, and Extension Schema Uniform Resource Names (URNs)
 1. `/Schemas`: Gets available schemas that match the ResourceType extension URNs from previous call
-    > The schemas for Entitlements, Roles, and User (both Core and Enterprise) are known by Okta, and aren't required from `/Schemas`. 
+    > The schemas for Entitlements, Roles, and Users (both Core and Enterprise) are known by Okta, and aren't required from `/Schemas`. 
     Only provide schema definitions for extensions unknown to Okta.
 1. Resource endpoints. These endpoints are dynamic; whatever is defined for the endpoint in the ResourceType is the endpoint that Okta calls. For each ResourceType with Okta's Role or Entitlement URN, Okta retrieves all values from the defined endpoints. For example, there might be a Profile ResourceType that has a corresponding `/Profiles` endpoint. Other common endpoints include `/Entitlements`, `/Roles`, and `/Licenses`.
 
 After the sequence of calls is complete, in Governance-enabled apps, you can view entitlements in the **Governance** tab of the app integration in the Admin Console.
 
-This combination of endpoints enables user schema discovery. Okta combines the gathered information from the endpoints to build a representation in Okta to faciliate the use of entitlements within the app.
+This combination of endpoints enables user schema discovery. Okta combines the gathered information from the endpoints to build a representation in Okta to facilitate the use of entitlements within the app.
 
 ### User schema discovery and Profile Editor
 
@@ -107,11 +107,11 @@ Each resource includes the following fields:
 - `name`: The name displayed for the resource on the Governance tab of the app integration.
 - `endpoint`: The endpoint Okta calls to gather entitlements for this resource.
 - `description`: A description for the resource.
-- `schema`: A Unifom Resource Name (URN) that conforms to Okta's Role/Entitlement URN for Okta Identity Governance:
+- `schema`: A Uniform Resource Name (URN) that conforms to Okta's Role/Entitlement URN for Okta Identity Governance:
     - Role: `urn:okta:scim:schemas:core:1.0:Role`
     - Entitlement: `urn:okta:scim:schemas:core:1.0:Entitlement`
     - The schema for users is the standard: `urn:ietf:params:scim:schemas:core:2.0:User`
-- Schema extensions: List any extensions required for addtional properties. Generally, Entitlements and Roles don't need to have extensions, while it's common for Users to have highly customized extensions. For example, a User might have a schema extension to store a custom attribute for a particular app. 
+- Schema extensions: List any extensions required for additional properties. Generally, Entitlements and Roles don't need to have extensions, while it's common for Users to have highly customized extensions. For example, a User might have a schema extension to store a custom attribute for a particular app. 
 
 The default location for ResourceTypes definitions is `BaseURL/scim/v2/ResourceTypes`. For example, if your server is hosted on [https://example.com](https://example.com) then the available ResourceTypes can be retrieved from `https://example.com/scim/v2/ResourceTypes`.
 
