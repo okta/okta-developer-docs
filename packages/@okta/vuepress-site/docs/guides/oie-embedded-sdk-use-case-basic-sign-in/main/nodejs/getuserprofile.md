@@ -1,12 +1,8 @@
 ## Get the user profile information
 
-Depending on your requirements and what information you want to retrieve after the user successfully signs in, you can obtain basic user information by making a request to the authorization server.
-
-After obtaining the appropriate tokens, make a request to the `/v1/userinfo` endpoint, as shown in the SDK sample application by calling the following function in the `userContext.js` file:
+After the user signs in successfully, request basic user information from the authorization server using the tokens that were returned in the previous step.
 
 ```javascript
-const { getAuthClient } = require('../utils');
-
 module.exports = async function userContext(req, res, next) {
   const authClient = getAuthClient(req);
   const { idToken, accessToken, refreshToken } = authClient.tokenManager.getTokensSync();
@@ -23,5 +19,3 @@ module.exports = async function userContext(req, res, next) {
   next();
 };
 ```
-
-See [`/v1/userinfo` endpoint](/docs/reference/api/oidc/#userinfo) for more response details.

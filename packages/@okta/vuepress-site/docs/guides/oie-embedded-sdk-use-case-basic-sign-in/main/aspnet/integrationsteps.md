@@ -1,6 +1,6 @@
-### 1: Build a sign-in page on the client
+### Your app displays the sign-in page
 
-Build a sign-in page that captures the user's name and password.
+Build a sign-in page that captures both the user's name and their password.
 
 <div class="half wireframe-border">
 
@@ -13,62 +13,49 @@ Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 
 </div>
 
-### 2: Authenticate the user credentials
+### The user submits their username and password
 
-After the user initiates the sign-in process, create an `AuthenticationOptions` object and set its `Username` and `Password`
-properties to the values entered by the user. Send this object to the
-`IdxClient.AuthenticateAsync()` method.
+When the user submits their username and password, create an `AuthenticationOptions` object and assign its `Username` and `Password` properties to the values entered by the user. Pass this object as a parameter to `IdxClient.AuthenticateAsync()`.
 
 ```csharp
 var idxAuthClient = new IdxClient();
- var authnOptions = new Okta.Idx.Sdk.AuthenticationOptions()
-      {
-          Username = model.UserName,
-          Password = model.Password,
-      };
+var authnOptions = new AuthenticationOptions()
+   {
+      Username = model.UserName,
+      Password = model.Password,
+   };
 
-var authnResponse = await idxAuthClient.AuthenticateAsync(authnOptions).ConfigureAwait
-(false);
+var authnResponse = await idxAuthClient
+   .AuthenticateAsync(authnOptions).ConfigureAwait(false);
 ```
 
-### 3: Handle the response from the user sign-in flow
+### Your app handles an authentication success response
 
-Depending on the `AuthenticationResponse.AuthenticationStatus` value, you need to handle the response accordingly:
-
-For a successful user sign-in
-(`AuthenticationResponse.AuthenticationStatus = Success`), do the following:
-
-1. Store the response tokens into the session (for example, using a cookie) so that the tokens can be used in
-   subsequent calls to the SDK. The sample code uses `Microsoft.Owin.Security.IAuthenticationManager.SignIn` to persist these tokens.
-1. Optional. Use the tokens returned from `AuthenticateAsync` to pull the user's basic profile information. See [Get the user profile information](#get-the-user-profile-information).
-1. After the tokens are stored, send the user to the default home page.
+When the user correctly supplies their password, `AuthenticateAsync()` returns an `AuthenticationResponse` with an `AuthenticationStatus` of `Success`. Call `AuthenticationHelper.GetIdentityFromTokenResponseAsync()` to retrieve the user's OIDC claims information as ID tokens and pass it into your app. The user has now signed in.
 
 ```csharp
-switch (authnResponse?.AuthenticationStatus)
+switch (authnResponse.AuthenticationStatus)
 {
    case AuthenticationStatus.Success:
-       ClaimsIdentity identity = await
-         AuthenticationHelper.GetIdentityFromAuthResponseAsync
-           (_idxClient.Configuration, authnResponse);
-           _authenticationManager.SignIn(
-                new AuthenticationProperties
-                    {
-                       IsPersistent = model.RememberMe
-                     }, identity);
-        return RedirectToAction("Index", "Home");
+      ClaimsIdentity identity = await AuthenticationHelper
+         .GetIdentityFromTokenResponseAsync(
+            _idxClient.Configuration, authnResponse.TokenInfo);
+      _authenticationManager.SignIn(
+         new AuthenticationProperties { IsPersistent = model.RememberMe },
+         identity);
+      return RedirectToAction("Index", "Home");
 
-    case AuthenticationStatus.PasswordExpired:
-        return RedirectToAction("ChangePassword", "Manage");
+   case AuthenticationStatus.PasswordExpired:
+      // User has to change their password
 
-    case AuthenticationStatus.AwaitingChallengeAuthenticatorSelection:
-        TempData["authenticators"] = ViewModelHelper.ConvertToAuthenticatorViewModelList
-            (authnResponse.Authenticators);
-            Session["isChallengeFlow"] = true;
-             return RedirectToAction("selectAuthenticator", "Manage");
-      default:
-             return View("Login", model);
-   }
+   case AuthenticationStatus.AwaitingChallengeAuthenticatorSelection:
+      // User has to verify their identity with another authentication factor
 
+   default:
+      return View("Login", model);
+}
+
+return View(view, model);
 ```
 
-In the previous code sample, the `AuthenticationHelper.GetIdentityFromAuthResponseAsync()` method gets the user profile information. Optionally, you can obtain basic user information after the user successfully signs in by making a request to the Okta OpenID Connect authorization server (see the next section).
+Store these tokens for future requests and redirect the user to the default page after a successful sign-in attempt.

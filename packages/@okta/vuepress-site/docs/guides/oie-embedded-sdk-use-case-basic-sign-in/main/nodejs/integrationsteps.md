@@ -1,6 +1,6 @@
-### 1: Build a sign-in page on the client
+### Your app displays the sign-in page
 
-Build a sign-in page that captures both the username and password, similar to the following wireframe.
+Build a sign-in page that captures both the user's name and their password.
 
 <div class="half wireframe-border">
 
@@ -13,103 +13,70 @@ Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 
 </div>
 
-### 2: Authenticate the user credentials
+### The user submits their username and password
 
-When the user initiates the sign-in process, your app needs to:
+When the user submits their `username` and `password`, pass them as parameters to [`OktaAuth.idx.authenticate()`](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#idxauthenticate).
 
-* Create a new `OktaAuth` object, which is `authClient` in the SDK sample app's `login.js` file
-* Set its `username` and `password` properties to the values entered by the user
-* Send this object to [`idx.authenticate()`](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#idxauthenticate) to authenticate the user
-
-```JavaScript
-router.post('/login', async (req, res, next) => {
-  const { username, password } = req.body;
-  const authClient = getAuthClient(req);
-  const transaction = await authClient.idx.authenticate({
-    username,
-    password,
-  });
-  handleTransaction({ req, res, next, authClient, transaction });
-});
+```javascript
+const authClient = getAuthClient(req);
+const transaction = await authClient.idx.authenticate({ username, password });
 ```
 
-### 3: Handle the response from the user sign-in flow
+### Your app handles an authentication success response
 
-The application handles the response from the authentication call through the `handleTransaction()` function, as shown in the SDK sample application's `handleTransaction.js` file. The `transaction` parameter is the `IdxStatus` value that is passed in through the response from Okta.
-
-```JavaScript
-module.exports = function handleTransaction({
-  req,
-  res,
-  next,
-  authClient,
-  transaction,
-}) {
-  const {
-    nextStep,
-    tokens,
-    status,
-    error,
-  } = transaction;
-
-...
-```
+`authenticate()` returns a `transaction` object with a `status` property indicating the current state of the sign-in flow. Handle the returned `IdxStatus` value accordingly:
 
 #### Success status
 
-For a successful sign-in response, the `IdxStatus` field indicates a success `IdxStatus.SUCCESS`, retrieves the token from the response, and processes the authenticated user in the app. The SDK sample application
-saves the tokens to storage in the `handleTransaction.js` file and redirects the user back to the home page.
+When the user correctly supplies their password, `IdxStatus` equals `IdxStatus.SUCCESS`. Call `tokenManager.setTokens()` to save the tokens retrieved from the response for future requests, and then redirect the user back to the home page. The user is now signed in.
 
-```JavaScript
-case IdxStatus.SUCCESS:
-      // Save tokens to storage (req.session)
-      authClient.tokenManager.setTokens(tokens);
-      // Redirect back to home page
-      res.redirect('/');
-      return;
+```js
+  const { nextStep, tokens, status, error, } = transaction;
+  // Persist states to session
+  req.setFlowStates({ idx: transaction });
 
-...
-
-```
-
-#### Other authentication statuses
-
-You need to handle other returned `IdxStatus` cases if the user didn't sign in successfully. For example, in the SDK application's `handleTransactions.js` file:
-
-```JavaScript
- switch (status) {
-    case IdxStatus.PENDING:
-      // Proceed to next step
-      try {
-        if (!proceed({ req, res, nextStep })) {
-          next(new Error(`
-            The current flow cannot support the policy configuration in your org.
-          `));
-        }
-      } catch (err) {
-        next(err);
-      }
-      return;
+  switch (status) {
     case IdxStatus.SUCCESS:
       // Save tokens to storage (req.session)
       authClient.tokenManager.setTokens(tokens);
       // Redirect back to home page
       res.redirect('/');
       return;
-    case IdxStatus.FAILURE:
-      authClient.transactionManager.clear();
-      next(error);
-      return;
-    case IdxStatus.TERMINAL:
-      redirect({ req, res, path: '/terminal' });
-      return;
-    case IdxStatus.CANCELED:
-      res.redirect('/');
-      return;
-  }
 
+   // Handle other statuses
+}
 ```
 
-### 4 (Optional): Get the user profile information
+#### Other authentication statuses
 
-Optionally, you can obtain basic user information after the user is authenticated by making a request to the Okta OpenID Connect authorization server (see the next section).
+Handle other returned `IdxStatus` cases if the user didn't sign in successfully or there are other factors to verify. For example:
+
+```js
+switch (status) {
+   case IdxStatus.SUCCESS:
+      // handle success
+   return;
+   case IdxStatus.PENDING:
+      // Proceed to next step
+      try {
+         if (!proceed({ req, res, nextStep })) {
+            next(new Error(`
+            Oops! The current flow cannot support the policy configuration in your org.
+            `));
+         }
+      } catch (err) {
+         next(err);
+      }
+   return;
+   case IdxStatus.FAILURE:
+      authClient.transactionManager.clear();
+      next(error);
+   return;
+   case IdxStatus.TERMINAL:
+      redirect({ req, res, path: '/terminal' });
+   return;
+   case IdxStatus.CANCELED:
+      res.redirect('/');
+   return;
+}
+```

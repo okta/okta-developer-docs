@@ -1,7 +1,11 @@
-This use case explains how to build a simple UI to capture the username and password, and authenticate the credentials with Okta using the SDK.
+The following diagram summarizes the steps involved in a sign-in flow using only a password:
 
-<div class="three-quarter">
+<div class="full">
 
-![Displays the basic sign-in flow sequence diagram for Java SDK](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-sign-on-seq-java.png)
+![A sequence diagram showing the steps in a password-only sign-in flow](/img/oie-embedded-sdk/oie-embedded-android-sign-in-pwd-only-flow-diagram.png)
+
+<!--
+   Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?type=design&node-id=4630-40819&mode=design&t=e5J2RTLV0JkcOFHo-11  oie-embedded-android-sign-in-pwd-only-flow-diagram
+-->
 
 </div>
