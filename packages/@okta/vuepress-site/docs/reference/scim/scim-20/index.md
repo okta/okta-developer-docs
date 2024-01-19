@@ -52,9 +52,9 @@ After you complete this step, whenever a user is assigned to the integration in 
 
 **GET** /Users
 
-Okta checks that the User object exists on the SCIM server through a GET method request with the `filter=userName eq "${userName}"` path parameter. This check is performed using the `eq` (equal) operator against the unique identifier for all users. You can use any other attribute (instead of `${userName}`) that was configured as a unique identifier for the SCIM integration.
+Okta checks that the User object exists on the SCIM server through a GET method request with the `filter=userName eq "${userName}"` query parameter. Your SCIM server must support this query parameter to provision users with Okta successfully. This check is performed using the `eq` (equal) operator against the unique identifier configured for the SCIM integration.
 
-For example, if the email attribute is configured as a unique identifier, then the path parameter to determine if the user exist is `filter=userName eq "${email}"`.
+For example, if the email attribute is configured as a unique identifier, then the query parameter to determine if the user exists is `filter=userName eq "${email}"`.
 
 > **Note:** The filter must check an attribute that is _unique_ for all Users in the Service Provider profiles.
 
