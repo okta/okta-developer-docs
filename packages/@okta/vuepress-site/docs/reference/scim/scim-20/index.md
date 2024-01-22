@@ -538,22 +538,20 @@ For a detailed explanation on deleting users, see [Delete (Deprovision)](/docs/c
 
 ### Create Groups
 
-
-
 To create a Group object on the SCIM server, you first need to enable provisioning with the Group Push feature in the Admin Console:
 
 1. Select your SCIM integration from the list of integrations in your Okta org.
 2. On the **Push Groups** tab, click **Push Groups**.
 
-You can select which existing Okta group to push, either by specifying a name or a rule.
+You can select which existing Okta group to push, either by specifying a name or a rule. If a group doesn't exist, create a new group in Okta and then push it to the SCIM server. For more information, see [About Group push](https://help.okta.com/okta_help.htm?id=ext_Directory_Using_Group_Push) in the Okta Help Center.
 
 After you complete this step, the following requests are made against the SCIM server:
 
 * Determine if the Group object already exists. Okta runs a query against the `displayName` values stored on the SCIM server.
-    * If the Group isn't found on the SCIM server, create a new group in Okta and then push it to the SCIM server (`POST /Groups`)
-    * If the Group is found on the SCIM server, the **Push Groups** operation fails.
 
-For more information, see [About Group push](https://help.okta.com/okta_help.htm?id=ext_Directory_Using_Group_Push) in the Okta Help Center.
+* If the Group isn't found on the SCIM server, create a new group on the SCIM server (`POST /Groups`)
+
+* If the Group is found on the SCIM server, the **Push Groups** operation fails.
 
 #### Determine if the Group already exists
 
@@ -561,15 +559,15 @@ For more information, see [About Group push](https://help.okta.com/okta_help.htm
 
 Okta checks that the Group object exists on the SCIM server through a GET method request with the `filter=displayName eq "${groupName}"` path parameter. This check is performed using the `eq` (equal) operator against the group name on the target app.
 
-The requests from Okta to the Service Provider are of the form:
+The following is an example of a request to the SCIM server:
 
 ```http
-GET /scim/v2/Groups?filter=displayName%20eq%20%22test.groupA%22&startIndex=1&count=100 HTTP/1.1
+GET /scim/v2/Groups?filter=displayName%20eq%20%22Test%20SCIMv2%22&startIndex=1&count=100 HTTP/1.1
 User-Agent: Okta SCIM Client 1.0.0
 Authorization: <Authorization credentials>
 ```
 
-The SCIM application checks the filter provided and returns an empty response if no Groups match the filter criteria. For example:
+The SCIM server checks the filter provided and returns an empty response if no Groups match the filter criteria. For example:
 
 ```http
 HTTP/1.1 200 OK
@@ -584,7 +582,7 @@ Content-Type: text/json;charset=UTF-8
 }
 ```
 
-Another acceptable response from the SCIM application if no User objects match the filter criteria is to return the error schema response:
+Another acceptable response from the SCIM server is an error response if no Group objects match the filter criteria:
 
 ```http
 HTTP/1.1 404 Not Found
@@ -601,7 +599,7 @@ Content-Type: text/html; charset=UTF-8
 
 **POST** /Groups
 
-After the group is created in Okta, Okta makes a POST method request to the Service Provider:
+After Okta determines that the group doesn't exists in the SCIM application (from the `GET /Groups` operation), Okta makes a POST method request to the SCIM server:
 
 ```http
 POST /scim/v2/Groups HTTP/1.1
