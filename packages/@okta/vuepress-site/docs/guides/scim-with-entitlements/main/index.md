@@ -6,7 +6,7 @@ meta:
 layout: Guides
 ---
 
-This guide teaches you the requirements to create a SCIM 2.0 server that supports provisioning entitlements to an app integration in Okta.
+This guide teaches you how to create a SCIM 2.0 server that supports provisioning entitlements to an app integration in Okta.
 
 ---
 
@@ -38,11 +38,11 @@ When an app is provisioned, Okta calls the SCIM server to retrieve a list of res
 The following sequence of calls begins when you enable provisioning for your SCIM 2.0 app with entitlements:
 1. `/ResourceTypes`: Gets available Entitlements, Roles, Users, and Extension Schema Uniform Resource Names (URNs)
 1. `/Schemas`: Gets available schemas that match the ResourceType extension URNs from previous call
-    > The schemas for Entitlements, Roles, and Users (both Core and Enterprise) are known by Okta, and aren't required from `/Schemas`. 
+    > The schemas for Entitlements, Roles, and Users (both Core and Enterprise) are known by Okta and aren't required from `/Schemas`. 
     Only provide schema definitions for extensions unknown to Okta.
-1. Resource endpoints. These endpoints are dynamic; whatever is defined for the endpoint in the ResourceType is the endpoint that Okta calls. For each ResourceType with Okta's Role or Entitlement URN, Okta retrieves all values from the defined endpoints. For example, there might be a Profile ResourceType that has a corresponding `/Profiles` endpoint. Other common endpoints include `/Entitlements`, `/Roles`, and `/Licenses`.
+1. Resource endpoints. These endpoints are dynamic. Whatever is defined for the endpoint in the ResourceType is the endpoint that Okta calls. For each ResourceType with Okta's Role or Entitlement URN, Okta retrieves all values from the defined endpoints. For example, a Profile ResourceType could have a corresponding `/Profiles` endpoint. Other common endpoints include `/Entitlements`, `/Roles`, and `/Licenses`.
 
-After the sequence of calls is complete, in Governance-enabled apps, you can view entitlements in the **Governance** tab of the app integration in the Admin Console.
+After the sequence of calls is complete, you can view entitlements in the **Governance** tab of a Governance-enabled app integration in the Admin Console.
 
 This combination of endpoints enables user schema discovery. Okta combines the gathered information from the endpoints to build a representation in Okta to facilitate the use of entitlements within the app.
 
@@ -50,9 +50,9 @@ This combination of endpoints enables user schema discovery. Okta combines the g
 
 User schema discovery must be enabled on your org for your app to understand entitlements and roles. To enable it, contact [Okta Support](https://support.okta.com/).
 
-When user schema discovery is enabled for an app integration, admins can't add attributes to the app user profile in the Profile Editor in the Admin Console. This ability is disabled because the contents of the app user profile are determined by the SCIM server between Okta and the downstream app. Okta gathers profile elements from the SCIM server to dynamically build the app user profile.
+When user schema discovery is enabled for an app integration, admins can't add attributes to the app user profile in the Profile Editor in the Admin Console. This option is disabled because the contents of the app user profile are determined by the SCIM server between Okta and the downstream app. Okta gathers profile elements from the SCIM server to dynamically build the app user profile.
 
-The SCIM server should be updated as necessary to maintain parity with the downstream app. User schema discovery  allows the app provider to determine the contents of the app user profile.
+The SCIM server should be updated to maintain parity with the downstream app. User schema discovery allows the app provider to determine the contents of the app user profile.
 
 ### Create an app that supports entitlements and user schema discovery
 
@@ -68,7 +68,7 @@ https://help.okta.com/oie/en-us/content/topics/apps/aiw_scim_entitlements.htm
 
 ### User operations
 
-Create, update, and import User operations are handled using [SCIM User operations](/docs/reference/scim/scim-20/#scim-user-operations).  The User object should include any Entitlements, Roles, and custom User schema extensions that your app requires. See [User with entitlements and roles](#user-with-entitlements-and-roles) for an example.
+Create, update, and import User operations are handled using [SCIM User operations](/docs/reference/scim/scim-20/#scim-user-operations). The User object should include any Entitlements, Roles, and custom User schema extensions that your app requires. See [User with entitlements and roles](#user-with-entitlements-and-roles) for an example.
 
 ### Endpoints for user schema discovery
 
@@ -82,9 +82,9 @@ Common resource types include the following:
 - Entitlements
 - Roles
 
-Currently, Okta doesn't offer any custom handling for Groups. 
+Okta doesn't offer custom handling for Groups. 
 
-To expose Entitlements and Roles, you must create a corresponding `ResourceType` each of these entities. See [ResourceTypes](#resourcetype) for an implementation example.
+To expose Entitlements and Roles, you must create a corresponding `ResourceType` for each of these entities. See [ResourceTypes](#resourcetype) for an implementation example.
 
 #### /Schemas
 
@@ -105,7 +105,7 @@ The following sections provide sample structures in JSON format for ResourceType
 Each resource includes the following fields:
 - `id`: The value used by Okta.
 - `name`: The name displayed for the resource on the Governance tab of the app integration.
-- `endpoint`: The endpoint Okta calls to gather entitlements for this resource.
+- `endpoint`: The endpoint that Okta calls to gather entitlements for this resource.
 - `description`: A description for the resource.
 - `schema`: A Uniform Resource Name (URN) that conforms to Okta's Role/Entitlement URN for Okta Identity Governance:
     - Role: `urn:okta:scim:schemas:core:1.0:Role`
