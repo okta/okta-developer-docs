@@ -106,23 +106,23 @@ The following table describes the AMR values that are supported by Okta.
 | Authenticator key            | Authenticator type        | Method type       | AMR value                             | Factor class          |
 | :--------------------------- | :------------------------ | :---------------- | :------------------------------------ | :-------------------- |
 | okta_password                | password                  | password          | pwd                                   | Knowledge             |
-| secruity_question            | security_question         | security_question | kba                                   |                       |
+| secruity_question            | security_question         | security_question | kba                                   | Knowledge             |
 | okta_email                   | email                     | email             | email                                 | Possession            |
-| phone_number                 | phone                     | sms               | sms                                   |                       |
-|                              |                           | voice             | tel                                   |                       |
-| duo                          | app                       | duo               | duo                                   |                       |
-| symantec_vip                 | app                       | otp               | symantec                              |                       |
-| google_otp                   | app                       | otp               | google_otp                            |                       |
-| okta_verify                  | app                       | totp              | okta_verify, otp                      |                       |
+| phone_number                 | phone                     | sms               | sms                                   | Possession            |
+|                              |                           | voice             | tel                                   | Possession            |
+| duo                          | app                       | duo               | duo                                   | Possession            |
+| symantec_vip                 | app                       | otp               | symantec                              | Possession            |
+| google_otp                   | app                       | otp               | google_otp                            | Possession            |
+| okta_verify                  | app                       | totp              | okta_verify, otp                      | Possession            |
 |                              |                           | push              | okta_verify, pop                      | Possession, Inherence |
-|                              |                           | signed_nonce      | okta_verify, phr                      |                       |
-| custom_app                   | app                       | push              | swk                                   |                       |
-| webauthn                     | security_key              | webauthn          | pop                                   |                       |
+|                              |                           | signed_nonce      | okta_verify, phr                      | Possession, Inherence |
+| custom_app                   | app                       | push              | swk                                   | Possession, Inherence |
+| webauthn                     | security_key              | webauthn          | pop                                   | Possession, Inherence |
 | onprem_mfa                   | security_key              | otp               | oauth_otp                             | Possession            |
-| rsa_token                    | security_key              |                   | rsa                                   |                       |
-| yubikey_token                | security_key              |                   | yubikey                               |                       |
-| custom_otp                   | security_key              |                   | otp                                   |                       |
-| external_idp                 | federated                 | idp               | fed                                   |                       |
+| rsa_token                    | security_key              |                   | rsa                                   | Possession            |
+| yubikey_token                | security_key              |                   | yubikey                               | Possession            |
+| custom_otp                   | security_key              |                   | otp                                   | Possession            |
+| external_idp                 | federated                 | idp               | fed                                   | Possession            |
 | smart_card_idp               | federated                 | cert              | sc + swk, additional options: hwk (replaces swk), pin, mfa    | Possession, Knowledge |
 
 ### Okta-to-Okta
