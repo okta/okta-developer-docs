@@ -2,7 +2,7 @@
 title: Build a SCIM 2.0 server with entitlements
 meta:
   - name: description
-    content: Use this guide to learn about the requirements to build a SCIM 2.0 server to support the exchange of entitlements between a downstream app and an Okta integration.
+    content: Build a SCIM 2.0 server to support the exchange of entitlements between a downstream app and an Okta integration.
 layout: Guides
 ---
 
@@ -12,7 +12,7 @@ This guide teaches you how to create a SCIM 2.0 server that supports provisionin
 
 **Learning outcomes**
 
-* Learn the elements that are required to build a SCIM 2.0 server that supports provisioning entitlements to an app integration in Okta
+* Learn which endpoints are required to support entitlements
 * Understand how Okta uses SCIM calls to gather information about users in a downstream app
 
 **What you need**
