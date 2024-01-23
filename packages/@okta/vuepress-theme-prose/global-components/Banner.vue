@@ -100,23 +100,29 @@
           headerNav = document.getElementsByClassName('header-nav')[0],
           currEle = document.getElementById(this.id),
           fixedHeader = document.getElementsByClassName('fixed-header')[0],
-          allBanners = document.getElementsByClassName('banner');
+          allBanners = document.getElementsByClassName('banner'),
+          sideNavigation = document.getElementsByClassName('on-this-page-navigation');
 
           return {
             root,
             headerNav,
             currEle,
             fixedHeader,
-            allBanners
+            allBanners,
+            sideNavigation
           };
       },
       resetLayoutStyles() {
         if (this.showBanner) {
-          const  { root, headerNav, allBanners } = this.getHtmlElements(),
+          const  { root, headerNav, allBanners, sideNavigation } = this.getHtmlElements(),
             otherBannersWithGreaterIndex = _.filter(allBanners, (banner) => banner.index > this.bannerIndex);
           root.style.position = 'relative';
           root.style.top = `${root.offsetTop - this.bannerHeight}px`;
           headerNav.style.top = `${headerNav.offsetTop - this.bannerHeight}px`;
+
+          if (sideNavigation && sideNavigation[0]) {
+            sideNavigation[0].style.top = `${sideNavigation[0].computedStyleMap().get('top').value - this.bannerHeight}px`;
+          }
 
           _.forEach(otherBannersWithGreaterIndex, (banner) => {
             banner.style.top = `${banner.offsetTop - this.bannerHeight}px`;
@@ -124,8 +130,9 @@
         }
       },
       adjustHeaderWithBanner() {
-        const x = window.matchMedia("(max-width: 1439px)"),
-          { root, headerNav, fixedHeader, allBanners } = this.getHtmlElements();
+        const maxWidthMedia = window.matchMedia("(max-width: 1439px)"),
+          tabletMedia = window.matchMedia("(>=tablet)"),
+          { root, headerNav, fixedHeader, allBanners, sideNavigation } = this.getHtmlElements();
 
           let top = 0;
           let totalBannerHeight = 0;
@@ -154,11 +161,17 @@
           root.style.position = 'relative';
           root.style.top = `${totalBannerHeight}px`;
 
-          if (x.matches) {
+          if (maxWidthMedia.matches) {
             headerNav.style.top = `${totalBannerHeight + fixedHeader.clientHeight}px`;
           } else {
             // 87 is the fixed header height in dev docs
             headerNav.style.top = `${87 + totalBannerHeight}px`;
+          }
+
+          if (tabletMedia && sideNavigation && sideNavigation[0]) {
+            sideNavigation[0].style.top = `${170 + totalBannerHeight}px`;
+          } else {
+            sideNavigation[0].style.top = `${175 + totalBannerHeight}px`;
           }
       },
       closeBanner() {
@@ -178,7 +191,7 @@
 
   display: flex;
   flex-direction: row;
-
+  z-index: 101;
   padding: 10px;
 
   width: 100%;
