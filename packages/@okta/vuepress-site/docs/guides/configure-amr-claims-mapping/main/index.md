@@ -114,7 +114,7 @@ The following table describes the AMR values that are supported by Okta.
 | symantec_vip                 | app                       | otp               | symantec                              | Possession            |
 | google_otp                   | app                       | otp               | google_otp                            | Possession            |
 | okta_verify                  | app                       | totp              | okta_verify, otp                      | Possession            |
-|                              |                           | push              | okta_verify, pop                      | Possession, Inherence |
+|                              |                           | push              | okta_verify, swk                      | Possession, Inherence |
 |                              |                           | signed_nonce      | okta_verify, phr                      | Possession, Inherence |
 | custom_app                   | app                       | push              | swk                                   | Possession, Inherence |
 | webauthn                     | security_key              | webauthn          | pop                                   | Possession, Inherence |
