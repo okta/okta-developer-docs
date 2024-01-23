@@ -127,7 +127,7 @@ After you obtain your client ID and secret from your app integration, see [Get a
 
 If your use case requires access to a limited number of Okta endpoints as a service or daemon without user context, use the Client Credentials grant flow. The Client Credentials grant flow is the only grant flow supported with the OAuth 2.0 service app when you want to mint access tokens that contain Okta scopes.
 
- > **Note:** Client Credentials grant requests to the Okta org authorization server must use the private key JWT token method (`client_assertion_type`) for the `/token` endpoint. The client ID and secret method isn't allowed. Tasks in this section show you how to generate the public/private JWKS and JWT for the `/token` endpoint.
+ > **Note:** Client Credentials grant requests to the Okta org authorization server must use the private key JSON Web Token (JWT) token method (`client_assertion_type`) for the `/token` endpoint. The client ID and secret method isn't allowed. Tasks in this section show you how to generate the public/private JWKS and JWT for the `/token` endpoint.
 
 See the following tasks to set up your Okta org for a service app API access.
 
@@ -165,17 +165,14 @@ First, create a service app integration where you can define your scope-based ac
    1. Click **Done** to close the dialog.
    1. Click **Save** in the **Client Credentials** section. The new public key is now registered with the app and appears in a table in the **PUBLIC KEYS** section of the **General** tab.
 
-   
-
-
 #### Create and sign the JWT
 
-After you obtain the JWKS from you Okta service app, create a JSON Web Token (JWT) for your access token request.
+After you obtain the JWKS from your Okta service app, create a JSON Web Token (JWT) for your access token request.
 
 Use the private JWKS as the JWT header and use the following [token claims](/docs/reference/api/oidc/#token-claims-for-client-authentication-with-client-secret-or-private-key-jwt) as the JWT payload:
 
 * `aud`: Set this value to `https://${yourOktaDomain}/oauth2/v1/token`.
-* `exp`: The expiration time of the token in seconds since January 1, 1970 UTC (current UNIX timestamp). Set this value to a maximum of only an hour in the future.
+* `exp`: The expiration time of the token, in seconds since January 1, 1970 UTC (current UNIX timestamp). Set this value to a maximum of only an hour in the future.
 * `iss`: Set this value to your service app client ID (from the [Create a service app in Okta](#create-a-service-app-in-okta) task).
 * `sub`: Set this value to your service app client ID.
 
@@ -254,7 +251,7 @@ Include the following parameters in your `/token` request:
 
 ### Get an access token and make a request
 
-Request an OAuth 2.0 access token by making a call to your Okta [org authorization server](/docs/concepts/auth-servers/) `/authorize` endpoint. Only the Okta org authorization server can mint access tokens that contain Okta API scopes.
+Request an OAuth 2.0 access token with a call to your Okta [org authorization server](/docs/concepts/auth-servers/) `/authorize` endpoint. Only the Okta org authorization server can mint access tokens that contain Okta API scopes.
 
 In Postman, the initial `/authorize` request is included in the **Authorization** tab > **OAuth 2.0** type > **Configure New Token** section.
 
@@ -306,7 +303,7 @@ If you have an access token (such as the `access_token` value from the [Get an a
 1. In Postman, select the request that you want to make, such as a `GET` request to the `/api/v1/users` endpoint to get back a list of all users.
 1. On the **Header** tab, remove the **Authorization** parameter if it exists.
 1. Click the **Authorization** tab and from the **Type** dropdown list, select **OAuth 2.0**.
-   * On the right **Current Token** section, select **Available Tokens** and paste the access token into the **Token** box. Ensure that **Header Prefix** is set to **Bearer**.
+   * On the right **Current Token** section, select **Available Tokens** and paste the access token into the **Token** box. Ensure that the **Header Prefix** is set to **Bearer**.
 
    Or
 
