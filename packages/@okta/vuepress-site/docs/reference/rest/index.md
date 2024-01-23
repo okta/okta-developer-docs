@@ -48,7 +48,6 @@ You need a free Okta developer-edition org to get started. Don't have one? [Crea
 
     <!--
     ![Postman environment quick look edit link: Displays an arrow pointing to the edit link in the upper-right corner of the ${yourOktaDomain} dialog](/img/postman/postman_environment_quick_look_edit.png)
-
     Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3236%3A31016  postman_environment_quick_look_edit
     -->
 
@@ -93,7 +92,7 @@ Scoped access tokens have several advantages, including:
 > **Note:** Okta doesn't recommend using the Okta-propriety `SSWS` API token authentication scheme.
 > This API token scheme allows you to access a broad range of APIs since there's no scope associated with the token. Access to the APIs depends on the privileges of the user that [created the API token](/docs/guides/create-an-api-token/main/). The API token also has a fixed expiry date.
 
-You need to obtain an OAuth 2.0 access token to configure the authorization header of your Postman API requests to Okta. To obtain this access token, set up Okta for your use case. See:
+You need to obtain an OAuth 2.0 access token to configure the authorization header of your Postman API requests to Okta. To obtain this access token, set up Okta for your use case:
 
 * [User-based API access setup](#user-based-api-access-setup): to obtain an access token that is scoped for specific resources and actions and tied to the permissions of an Okta user
 * [Service-based API access setup](#service-based-api-access-setup): to obtain an access token that is scoped for specific resources and actions, not associated with an Okta user
@@ -128,7 +127,7 @@ After you obtain your client ID and secret from your app integration, see [Get a
 
 If your use case requires access to a limited number of Okta endpoints as a service or daemon without user context, use the Client Credentials grant flow. The Client Credentials grant flow is the only grant flow supported with the OAuth 2.0 service app when you want to mint access tokens that contain Okta scopes.
 
-> **Note:** Client Credentials grant requests to the Okta org authorization server must use the private key JWT token method (`client_assertion_type`) for the `/token` endpoint. The client ID and secret method isn't allowed.
+ > **Note:** Client Credentials grant requests to the Okta org authorization server must use the private key JWT token method (`client_assertion_type`) for the `/token` endpoint. The client ID and secret method isn't allowed. Tasks in this section show you how to generate the public/private JWKS and JWT for the `/token` endpoint.
 
 See the following tasks to set up your Okta org for a service app API access.
 
@@ -165,6 +164,9 @@ First, create a service app integration where you can define your scope-based ac
       This is your only opportunity to save the private key. Click **Copy to clipboard** to copy the private key and store it somewhere safe for the [Create and sign the JWT](#create-and-sign-the-jwt) task.
    1. Click **Done** to close the dialog.
    1. Click **Save** in the **Client Credentials** section. The new public key is now registered with the app and appears in a table in the **PUBLIC KEYS** section of the **General** tab.
+
+   
+
 
 #### Create and sign the JWT
 
