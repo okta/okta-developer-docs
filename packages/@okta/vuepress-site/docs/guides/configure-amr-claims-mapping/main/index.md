@@ -106,7 +106,7 @@ The following table describes the AMR values that Okta supports.
 | Authenticator key            | Authenticator type        | Method type       | AMR value                             | Factor class          |
 | :--------------------------- | :------------------------ | :---------------- | :------------------------------------ | :-------------------- |
 | okta_password                | password                  | password          | pwd                                   | Knowledge             |
-| secruity_question            | security_question         | security_question | kba                                   | Knowledge             |
+| security_question            | security_question         | security_question | kba                                   | Knowledge             |
 | okta_email                   | email                     | email             | email                                 | Possession            |
 | phone_number                 | phone                     | sms               | sms                                   | Possession            |
 |                              |                           | voice             | tel                                   | Possession            |
