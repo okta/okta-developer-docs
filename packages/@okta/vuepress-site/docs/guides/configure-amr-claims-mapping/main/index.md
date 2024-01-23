@@ -95,7 +95,7 @@ The `amr` property is a JSON array of strings that are identifiers for [authenti
 
 ### Supported AMR values by authenticator type
 
-The following table describes the AMR values that are supported by Okta.
+The following table describes the AMR values that Okta supports.
 
 * **Authenticator key**: Identifies an authenticator that you can add or remove using the Admin Console (**Security** > **Authenticators**)
 * **Authenticator type**: Describes the type of authenticator. These attributes are especially useful in situations where there are apps and security keys being used together in an authentication flow.
