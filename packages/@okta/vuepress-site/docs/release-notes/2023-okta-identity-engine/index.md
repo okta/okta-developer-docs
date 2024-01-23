@@ -40,8 +40,8 @@ You can now use OAuth 2.0 Demonstrating Proof-of-Possession (DPoP) access tokens
 | [Org detail retrieval and user app listing for MyAccount API is GA in Production](#org-detail-retrieval-and-user-app-listing-for-myaccount-api-is-ga-in-production) | November 8, 2023 |
 | [MyAccount Authenticators API is GA in Preview](#myaccount-authenticators-api-is-ga-in-preview) | December 6, 2023 |
 | [Demonstrating Proof-of-Possession is GA in Production](#demonstrating-proof-of-possession-is-ga-in-production) | March 15, 2023 |
-| [New possession constraint available for Policy API](#new-possession-constraint-available-for-policy-api) | December 6, 2023 |
-| [Bugs fixed in 2023.12.0](#bugs-fixed-in-2023-12-0) | December 6, 2023 |
+| [New possession constraint property available for Policy API](#new-possession-constraint-property-available-for-policy-api) | December 6, 2023 |
+| [Bugs fixed in 2023.12.0](#bugs-fixed-in-2023012) | December 6, 2023 |
 
 #### Devices API: new expand query parameter option
 
@@ -60,7 +60,7 @@ With the new MyAccount Authenticators API (`/idp/myaccount/authenticators/`), yo
 
 OAuth 2.0 Demonstrating Proof-of-Possession (DPoP) is a security feature that adds an extra layer of protection to OAuth 2.0 access tokens. It enables the client to demonstrate that it possesses a particular key or secret associated with the access token. OAuth 2.0 DPoP can help prevent certain attacks, such as token theft or token replay attacks, where an attacker intercepts a legitimate access token and uses it to gain unauthorized access to a protected resource. See [Configure OAuth 2.0 Demonstrating Proof-of-Possession](/docs/guides/dpop/main/). <!-- OKTA-585491 -->
 
-#### New possession constraint available for Policy API
+#### New possession constraint property available for Policy API
 
 A new `userVerification` property is available for the `constraints` object of the [Policy API](/docs/reference/api/policy/#constraints). This setting can ensure the verification of a possession factor through a PIN or biometrics. <!-- OKTA-669846 -->
 
