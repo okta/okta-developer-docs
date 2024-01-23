@@ -93,6 +93,38 @@ The `amr` property is a JSON array of strings that are identifiers for [authenti
 }
 ```
 
+### Supported AMR values by authenticator type
+
+The following table describes the AMR values that Okta supports.
+
+* **Authenticator key**: Identifies an authenticator that you can add or remove using the Admin Console (**Security** > **Authenticators**)
+* **Authenticator type**: Describes the type of authenticator. These attributes are especially useful in situations where there are apps and security keys being used together in an authentication flow.
+* **Method type**: Defines the security method used by the authenticator
+* **AMR value**: Lists the supported AMR values for each authenticator
+* **Factor class**: Describes the type of authenticator factor
+
+| Authenticator key            | Authenticator type        | Method type       | AMR value                             | Factor class          |
+| :--------------------------- | :------------------------ | :---------------- | :------------------------------------ | :-------------------- |
+| okta_password                | password                  | password          | pwd                                   | Knowledge             |
+| security_question            | security_question         | security_question | kba                                   | Knowledge             |
+| okta_email                   | email                     | email             | email                                 | Possession            |
+| phone_number                 | phone                     | sms               | sms                                   | Possession            |
+|                              |                           | voice             | tel                                   | Possession            |
+| duo                          | app                       | duo               | duo                                   | Possession            |
+| symantec_vip                 | app                       | otp               | symantec                              | Possession            |
+| google_otp                   | app                       | otp               | google_otp                            | Possession            |
+| okta_verify                  | app                       | totp              | okta_verify, otp                      | Possession            |
+|                              |                           | push              | okta_verify, swk                      | Possession, Inherence |
+|                              |                           | signed_nonce      | okta_verify, phr                      | Possession, Inherence |
+| custom_app                   | app                       | push              | swk                                   | Possession, Inherence |
+| webauthn                     | security_key              | webauthn          | pop                                   | Possession, Inherence |
+| onprem_mfa                   | security_key              | otp               | oauth_otp                             | Possession            |
+| rsa_token                    | security_key              |                   | rsa                                   | Possession            |
+| yubikey_token                | security_key              |                   | yubikey                               | Possession            |
+| custom_otp                   | security_key              |                   | otp                                   | Possession            |
+| external_idp                 | federated                 | idp               | fed                                   | Possession            |
+| smart_card_idp               | federated                 | cert              | sc + swk, additional options: hwk (replaces swk), pin, mfa    | Possession, Knowledge |
+
 ### Okta-to-Okta
 
 Okta-to-Okta (org2org), also known as hub and spoke, refers to a deployment model where the IdP and Service Provider (SP) are both Okta orgs. Use the [Add an External Identity Provider guide for Okta-to-Okta](/docs/guides/add-an-external-idp/oktatookta/main/) to configure your Okta-to-Okta orgs for AMR claims mapping.
