@@ -624,6 +624,10 @@ export const guides = [
                   },
                 ],
               },
+              {
+                title: "Build a SCIM server with entitlements",
+                path: "/docs/guides/scim-with-entitlements/main/",
+              },
             ],
           },
           {
