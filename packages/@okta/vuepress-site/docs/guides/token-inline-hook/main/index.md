@@ -226,16 +226,14 @@ The token inline hook is ready for preview and testing. You now have the followi
 
 1. From the **Preview example Inline Hook request** block, click **Generate Request**. You should see the user's request information in JSON format that is sent to the external service.
 
-   >**Note:** You can also click **Edit** to modify this call for development or testing purposes.
+1. You can also click **Edit** to modify this call for development or testing purposes. For this example, click **Edit** to add an `identity` object required by the external service code. Place the following JSON code before the `access` object:
 
-1. For this example, click **Edit** to add an `identity` object required by the external service code. Place the following JSON code before the `access` object:
-
-```json
- "identity": {
-    "claims": {
-        "preferred_username": "test.user@example.com"}
-},
-```
+    ```json
+    "identity": {
+        "claims": {
+            "preferred_username": "test.user@example.com"}
+    },
+    ```
 
 1. From the **View service's response** block, click **View Response**. A response appears from your external service in JSON format, which either adds a claim to the token or doesn't based on your external service's logic and the email value you sent as part of the `preferred_username` parameter.
 
