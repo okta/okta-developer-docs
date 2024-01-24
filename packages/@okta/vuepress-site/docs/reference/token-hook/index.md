@@ -199,6 +199,14 @@ When you return an error object, it should have the following structure:
 
 Returning an error object causes Okta to return an OAuth 2.0 error to the requester of the token, with the value of `error` set to `server_error`, and the value of `error_description` set to the string that you supplied in the `errorSummary` property of the `error` object that you returned.
 
+#### Sample error response
+
+```json
+"error": {
+    "errorSummary": "Human-readable summary of the error"
+}
+```
+
 > **Note:** If the error object doesn't include the `errorSummary` property defined, the following common default message is returned to the end user: `The callback service returned an error`.
 
 ## Sample JSON payload of a request
