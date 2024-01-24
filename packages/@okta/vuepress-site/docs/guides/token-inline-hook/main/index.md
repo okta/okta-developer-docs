@@ -18,7 +18,7 @@ This guide provides a working example of an Okta token inline hook. It uses the 
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup/)
 * [Glitch.com](https://glitch.com) project or account
-* A Node.js Express framework sample application. This guide works with the sample application in the Sample code section below.
+* A Node.js Express framework sample application. This guide works with the application in the Sample code section below.
 
 **Sample code**
 
@@ -31,7 +31,7 @@ This guide provides a working example of an Okta token inline hook. It uses the 
 
 The token inline hook can be used to customize the Authorization Code flow that occurs between an application and the Okta org used for authentication.
 
-This guide provides example code for an external service to respond to calls from a token inline hook, and provides an end-to-end scenario using a local application, an Okta org, and the external service.
+This guide provides example code for an external service to respond to calls from a token inline hook, and provides an end-to-end scenario using a local application, an Okta org, and an external service.
 
 ### The Scenario
 
@@ -49,11 +49,62 @@ At a high-level, the following workflow occurs:
 
 ## Set up the sample Express application
 
-The sample Node.js Express application is designed to demonstrate the [Authorization Code flow](/docs/guides/implement-grant-type/authcode/main/), and includes an Okta-Hosted Login sample used in this token inline hook guide. Access the code from the following Github repository:
+The sample Node.js Express application is designed to demonstrate the [Authorization Code flow](/docs/guides/implement-grant-type/authcode/main/), and includes an Okta-Hosted Login sample used in this token inline hook guide. Access the code from the following Github repository and use the following instructions to set up your sample application.
 
 * [Express Sample Applications for Okta](https://github.com/okta/samples-nodejs-express-4)
 
-Follow the [README.md](https://github.com/okta/samples-nodejs-express-4/tree/master/okta-hosted-login) instructions to install and run the Okta-Hosted Login sample application with your Okta org. Make sure to have this application running before proceeding with the token inline hook setup.
+<!-- Follow the [README.md](https://github.com/okta/samples-nodejs-express-4/tree/master/okta-hosted-login) instructions to install and run the Okta-Hosted Login sample application with your Okta org. Make sure to have this application running before proceeding with the token inline hook setup. -->
+
+### Install the application locally
+
+1. Clone the repo locally:
+
+    `git clone https://github.com/okta/samples-nodejs-express-4.git`
+
+1. Change to the application folder:
+
+    `cd samples-nodejs-express-4/`
+
+1. Install the dependencies:
+
+    `npm install`
+
+### Create an Okta app integration
+
+An Okta app integration represents your app in your Okta org. The integration configures how your app integrates with the Okta services including which users and groups have access, authentication policies, token refresh requirements, redirect URLs, and more. The integration includes configuration information required by the app to access Okta.
+
+1. [Sign in to your Okta organization](https://developer.okta.com/login) with your administrator account.
+1. Click **Admin** in the upper-right corner of the page.
+1. Open the Applications configuration pane by selecting **Applications** > **Applications**.
+1. Click **Create App Integration**.
+1. Select a **Sign-in method** of **OIDC - OpenID Connect**.
+1. Select an **Application type** of **Web Application**, then click **Next**.
+   > **Note:** If you choose an inappropriate application type, it breaks the sign-in or sign-out flows by requiring the verification of a client secret, which public clients don't have.
+1. Enter an **App integration name**.
+1. Ensure that the **Authorization Code** grant type is selected.
+1. Enter the **Sign-in redirect URIs** for local development. For this sample, use the default value `http://localhost:8080/authorization-code/callback`.
+1. Enter the **Sign-out redirect URIs** for local development. For this sample, use the default value `http://localhost:8080`.
+1. In the **Assignments** section, define the type of **Controlled access** for your app. Select **Allow everyone in your organization to access**. See [Assign app integrations](https://help.okta.com/okta_help.htm?type=oie&id=ext-lcm-user-app-assign).
+1. Clear the **Enable immediate access with Federation Broker Mode** checkbox.
+1. Click **Save** to create the app integration. The **General** tab for your integration opens after it's saved. Keep this pane open as you need to copy the **Client ID**, **Client Secret**, and your org domain name when configuring your app.
+
+### Add the integration credentials to your local application
+
+1. Open the application in your editor of choice.
+1. In the root folder of your local application (`samples-nodejs-express-4`), add an environment variable file called `dotenv`. There is no extension to this file.
+1. Add the following variables and values to the `dotenv` file. The `CLIENT_ID` and `CLIENT_SECRET` values are available on the **General** tab of your app integration.
+
+    * ISSUER=https://${yourOktaDomain.com}/oauth2/default
+    * CLIENT_ID=${yourClientID}
+    * CLIENT_SECRET:${yourClientSecret}
+
+### Run your local application
+
+1. To start your local application web server:
+
+    `npm run okta-hosted-login-server`
+
+1. Go to the page `http://localhost:8080` in your browser. If you see a home page that prompts you to sign in, the application is working. Click the **Log in** button to redirect to the Okta hosted sign-in page and to authenticate a user.
 
 ## Parse the token inline hook request
 
