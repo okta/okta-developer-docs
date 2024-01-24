@@ -119,9 +119,9 @@ If you'd like to create the external service yourself, use the following section
 
 ### Parse the token inline hook request
 
-The external service in this scenario requires code to handle the token inline hook request from the Okta org. Use the [Okta Token Inline Hook](https://glitch.com/edit/#!/okta-inlinehook-tokenhook) Glitch example to either build or copy the code (re-mix on Glitch) that parses the token inline hook call.
+<!-- The external service in this scenario requires code to handle the token inline hook request from the Okta org. Use the [Okta Token Inline Hook](https://glitch.com/edit/#!/okta-inlinehook-tokenhook) Glitch example to either build or copy the code (re-mix on Glitch) that parses the token inline hook call.
 
-> **Note**: Make sure to have the required default code and packages in your project. See [Common Hook Set-up Steps](/docs/guides/common-hook-set-up-steps/).
+> **Note**: Make sure to have the required default code and packages in your project. See [Common Hook Set-up Steps](/docs/guides/common-hook-set-up-steps/).-->
 
 From the token inline hook request, the following code retrieves the value of the user name from the `data.identity` object.
 
