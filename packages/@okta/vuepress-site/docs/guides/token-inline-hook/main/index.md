@@ -168,15 +168,15 @@ The token inline hook is now set up with a status of active.
 
 ### Enable the token inline hook
 
-1. Navigate to **Security** > **API** > **Authorization Servers**.
+1. Go to **Security** > **API** > **Authorization Servers**.
 
 2. Select a custom authorization server from the list (usually **default**).
 
-3. Select the **Access Policies** tab. Navigate to the Rule table and click the Edit icon next to the policy rule that will use the Inline hook. In most cases, edit the **Default Policy Rule** of the **Default Policy**.
+3. Select the **Access Policies** tab. Go to the rule table and click the edit icon next to the policy rule that will use the inline hook. In most cases, edit the **Default Policy Rule** of the **Default Policy**.
 
-4. From the **Use this inline hook** drop-down menu, select the token inline hook you activated ("Patient Token Hook").
+4. From the **Use this inline hook** dropdown menu, select the token inline hook you activated ("Patient Token Hook").
 
-5. Click **Update Rule**.
+5. Click **Update rule**.
 
 The token inline hook is now ready for triggering when the default policy rule is invoked from an authentication request.
 
@@ -201,8 +201,8 @@ This extension renders the [ID token](/docs/reference/api/oidc/#id-token), and i
 The token inline hook is ready for preview and testing. You now have the following applications configured:
 
 * The Okta-Hosted-Login sample application (`samples-nodejs-express-4`) is ready to authenticate users from your Okta org.
-*  The external service (Glitch.com project) is ready with code to receive and respond to an Okta token inline hook call.
-*  The Okta org is set up to call the external service when a token inline hook is triggered by a user sign-in from the Okta-Hosted-Login sample application, and ready to receive a response.
+* The external service (Glitch.com project) is ready with code to receive and respond to an Okta token inline hook call.
+* The Okta org is set up to call the external service when a token inline hook is triggered by a user sign in from the Okta-Hosted-Login sample application, and is ready to receive a response.
 
 >**Note:** Make sure you have users assigned to your application and at least one user is part of the [Patients data store](/docs/guides/token-inline-hook/#check-against-the-data-store) in your Glitch application.
 
@@ -220,7 +220,7 @@ The token inline hook is ready for preview and testing. You now have the followi
     * **Select an application**: Your OIDC sample application name
     * **Select an authorization server**: Your authorization server name. In this example, use `default`.
     * **Select a grant type**: Your application's grant type. In this example, use `Authorization Code`.
-    * **Select scopes**: The granted scopes
+    * **Select scopes**: The granted scopes. This example didn't require a scope. Add any scope to move to the next step, for example, `okta.myAccount.read`.
 
     >**Note:** Based on your grant type selection, preview fields may vary.
 
@@ -228,7 +228,16 @@ The token inline hook is ready for preview and testing. You now have the followi
 
    >**Note:** You can also click **Edit** to modify this call for development or testing purposes.
 
-1. From the **View service's response** block, click **View Response**. A response appears from your external service in JSON format, which either adds a claim to the token or doesn't based on your external service's logic.
+1. For this example, click **Edit** to add an `identity` object required by the external service code. Place the following JSON code before the `access` object:
+
+```json
+ "identity": {
+    "claims": {
+        "preferred_username": "test.user@example.com"}
+},
+```
+
+1. From the **View service's response** block, click **View Response**. A response appears from your external service in JSON format, which either adds a claim to the token or doesn't based on your external service's logic and the email value you sent as part of the `preferred_username` parameter.
 
 ### Test your hook
 
@@ -259,6 +268,8 @@ Review the following guides to implement other inline or event hook examples:
 * [Event hook](/docs/guides/event-hook-implementation/)
 * [Registration inline hook](/docs/guides/registration-inline-hook/)
 * [Password import inline hook](/docs/guides/password-import-inline-hook/)
+* [SAML assertion inline hook](/docs/guides/saml-inline-hook/)
+* [Telephony inline hook](/docs/guides/telephony-inline-hook/)
 
 ## See also
 
