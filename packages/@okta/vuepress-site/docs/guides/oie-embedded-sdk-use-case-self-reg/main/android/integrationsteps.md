@@ -1,6 +1,6 @@
 ### 1: Register new users
 
-The self-registration flow begins when the user clicks the **Sign up** link on your app's sign-in page. Create a **Sign up** link that directs the user to a create account form, similar to the following wireframe.
+The self-registration flow begins when the user clicks the **Sign up** link on your app's sign-in page. Create a **Sign up** link that directs the user to a Create Account form, similar to the following wireframe.
 
 <div class="half wireframe-border">
 
@@ -181,7 +181,7 @@ Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 
 #### Option 1: The user skips the phone authenticator
 
-If the user decides to skip the phone authenticator enrollment, make a call to the `IDXAuthenticationWrapper.skipAuthenticatorEnrollment()` method. This method skips the authenticator enrollment.
+If the user skips the phone authenticator enrollment, make a call to the `IDXAuthenticationWrapper.skipAuthenticatorEnrollment()` method. This method skips the authenticator enrollment.
 
 ```kotlin
 val authenticationResponse = idxAuthenticationWrapper.skipAuthenticatorEnrollment(proceedContext)
@@ -220,7 +220,7 @@ You need to build a form to capture the user's SMS verification code.
 
 <div class="half wireframe-border">
 
-![A form with a field for a verification code, a note to find the code in a SMS and a submit button](/img/wireframes/enter-verification-code-form-with-sms-message.png)
+![A form with a field for a verification code, a note to find the code in a SMS, and a submit button](/img/wireframes/enter-verification-code-form-with-sms-message.png)
 
 <!--
 

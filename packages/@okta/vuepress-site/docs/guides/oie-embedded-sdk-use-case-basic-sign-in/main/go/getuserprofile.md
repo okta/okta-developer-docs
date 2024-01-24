@@ -1,7 +1,6 @@
 ## Get the user profile information
 
-You can obtain basic user information by making a request to the authorization server. Make a call to the
-`/v1/userinfo` endpoint using the tokens obtained from the `LoginResponse` object's `Token` property.
+After the user signs in successfully, request basic user information from the authorization server using the tokens that were returned in the previous step.
 
 ```go
 func getProfileData(r *http.Request) map[string]string {
@@ -9,7 +8,8 @@ func getProfileData(r *http.Request) map[string]string {
 
   session, err := sessionStore.Get(r, "okta-custom-login-session-store")
 
-  if err != nil || session.Values["access_token"] == nil || session.Values["access_token"] == "" {
+  if err != nil || session.Values["access_token"] == nil ||
+     session.Values["access_token"] == "" {
     return m
   }
 

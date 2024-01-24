@@ -6,7 +6,7 @@ meta:
 layout: Guides
 ---
 
-Use this guide to understand the process of submitting a Lifecycle management (LCM) integration to the Okta Integration Network (OIN) using the OIN Manager. You can submit a System for Cross-domain Identity Management (SCIM) or a Workflows connector LCM integration. This guide also shows you how to update a previously published LCM integration or delete a draft submission.
+Use this guide to understand the process of submitting a lifecycle management (LCM) integration to the Okta Integration Network (OIN) using the OIN Manager. You can submit a System for Cross-domain Identity Management (SCIM) or a Workflows connector LCM integration. This guide also shows you how to update a previously published LCM integration or delete a draft submission.
 
 ---
 
@@ -27,7 +27,7 @@ Use this guide to understand the process of submitting a Lifecycle management (L
 
 ## Overview
 
-The [Okta Integration Network (OIN) Manager](https://oinmanager.okta.com) is a submission tool that's connected to your developer org where you test and develop your Okta integration. Use this tool to submit your LCM app integration for verification and publication in the OIN catalog.
+The [Okta Integration Network (OIN) Manager](https://oinmanager.okta.com) is a submission tool that's connected to your developer org where you test and develop your Okta integration. Use this tool to submit your lifecycle management (LCM) app integration for verification and publication in the OIN catalog.
 
 ### Protocols supported
 

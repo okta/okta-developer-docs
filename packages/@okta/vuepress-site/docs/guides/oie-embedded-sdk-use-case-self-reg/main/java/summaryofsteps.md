@@ -1,43 +1,63 @@
-### Start a new user registration with the password authenticator
+### Start the new user registration with the password factor
 
-The following diagram illustrates the beginning of the registration process when the user initiates the sign-in flow and enters their password.
+The following diagram illustrates the beginning of the registration process where the user initiates their sign-in flow and enrolls their password.
 
-<div class="three-quarter">
+<div class="full">
 
-![Displays the sequence diagram for starting self-registration with password flow for Java SDK](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-seq-start-java.png)
+![A sequence diagram that shows the beginning of the self-service registration flow, from the user clicking Create Account to their enrolling a password](/img/oie-embedded-sdk/oie-embedded-java-selfservice-pwd-flow-diagram.png)
 
-</div>
+<!--
 
-### Enroll and verify the email authenticator
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?type=design&node-id=4574-22906&mode=design&t=xppJfMMfiQ95U2De-11  oie-embedded-java-selfservice-pwd-flow-diagram
 
-After being shown the list of available authenticators, the customer continues the self-registration flow by selecting the email authenticator.
-
-<div class="three-quarter">
-
-![Displays sequence diagram for enrolling self-registration MFA flow with Java SDK](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-seq-enroll-verify-java.png)
+ -->
 
 </div>
 
-### Skip the optional remaining authenticators
+### Enroll and verify the email factor
 
-After the password and email authenticators are verified, the user has the option to skip the phone authenticator.
+The self-registration flow continues by enrolling the user's email address.
 
-<div class="three-quarter">
+<div class="full">
 
-![Displays the sequence diagram for skipping an optional phone authenticator flow with the Java SDK Self-service](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-seq-skip-phone-java.png)
+![A sequence diagram that shows the email factor enrollment part of the self-service registration flow](/img/oie-embedded-sdk/oie-embedded-java-selfservice-email-flow-diagram.png)
+
+<!--
+
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?type=design&node-id=4575-22939&mode=design&t=xppJfMMfiQ95U2De-11  oie-embedded-java-selfservice-email-flow-diagram
+
+ -->
 
 </div>
 
-### Enroll and verify the phone (SMS) authenticator
+### Enroll and verify the phone factor
 
-After the password and email factors are verified, the user has the option to enroll the phone authenticator.
+After the password and email are verified, the user may also enroll the phone factor. However, it's now optional as the user has already enrolled two factors. The following flow describes the steps when the user does enroll the optional phone factor.
 
-> **Note:** Based on the configuration described in [Set up your Okta org for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/java/main/#set-up-your-okta-org-for-a-multifactor-use-case), the Okta app is set up to require one possession factor (either email or phone). After the email authenticator is verified, the phone authenticator becomes optional.
+<div class="full">
 
-The following flow describes the steps when the user enrolls the optional phone authenticator.
+![A sequence diagram that shows the phone factor enrollment part of the self-service registration flow](/img/oie-embedded-sdk/oie-embedded-java-selfservice-phone-flow-diagram.png)
 
-<div class="three-quarter">
+<!--
 
-![Displays the sequence diagram for enrolling an optional phone SMS authenticator flow with the Java SDK](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-seq-phone-java.png)
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?type=design&node-id=4575-22985&mode=design&t=xppJfMMfiQ95U2De-11  oie-embedded-java-selfservice-phone-flow-diagram
+
+ -->
+
+</div>
+
+### Skip the optional remaining factors
+
+The user can also skip enrolling more factors when the remaining unenrolled factors are optional. In this case, the user skips the phone factor.
+
+<div class="full">
+
+![A sequence diagram that shows the phone factor being skipped as part of the self-service registration skip phone flow](/img/oie-embedded-sdk/oie-embedded-java-selfservice-skip-flow-diagram.png)
+
+<!--
+
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?type=design&node-id=4575-22988&mode=design&t=xppJfMMfiQ95U2De-11 oie-embedded-java-selfservice-skip-flow-diagram
+
+ -->
 
 </div>

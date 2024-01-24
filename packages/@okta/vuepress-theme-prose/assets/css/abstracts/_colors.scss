@@ -133,6 +133,7 @@
   --c-support-text: var(--c-gray-950);
   --c-support-button-bg: var(--c-gray-950);
   --c-support-button-text: var(--c-lightgray-450);
+  --c-text-background: var(--c-lightgray-200);
   --c-workforce-bg: var(--c-lightgray-450);
   --c-workforce-text: var(--c-gray-950);
   --c-workforce-block-bg: var(--c-lightgray-400);
@@ -192,6 +193,7 @@
   --c-text-base: var(--c-gray-100);
   --c-text-lighter: var(--c-gray-100);
   --c-text-gray: var(--c-gray-600);
+  --c-text-background: var(--c-gray-600);
   --c-link-base: var(--c-lightgray-450);
   --c-link-lightblue: var(--c-blue-200);
   --c-link-signup: var(--c-blue-500);
@@ -280,7 +282,8 @@ $colors: (
     "lighter": var(--c-text-lighter),
     "cyan": var(--c-cyan-base),
     "dark": var(--c-black),
-    "accent": var(--c-text-gray)
+    "accent": var(--c-text-gray),
+    "background": var(--c-text-background)
   ),
   "tile": (
     "angle": var(--c-tile-angle)
