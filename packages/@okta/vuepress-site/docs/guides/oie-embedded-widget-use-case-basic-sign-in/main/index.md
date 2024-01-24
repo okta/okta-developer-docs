@@ -6,13 +6,15 @@ title: Basic sign-in flow using the Widget
 
 Enable a password-only sign-in flow in your web app using the embedded Sign-In Widget.
 
-<StackSnippet snippet="pwdoptionalusecase" inline />
+> **Note**: Passwords are a security vulnerability because they can be easily stolen and are prone to phishing attacks. Give your users the ability to use other authenticators by replacing password-only sign-in experiences with either a [password-optional](https://developer.okta.com/docs/guides/pwd-optional-overview) or a multifactor experience.
+<StackSnippet snippet="pwdoptionalusecase" />
 
 ---
 
 **Learning outcomes**
 
-Add a sign-in flow to a server-side web app that uses the Sign-In Widget and requires only a password.
+* Enable Sign-In Widget support in your org and application
+* Add a sign-in flow to a server-side web app that uses the Sign-In Widget and requires only a password.
 
 **What you need**
 
@@ -27,7 +29,7 @@ Add a sign-in flow to a server-side web app that uses the Sign-In Widget and req
 
 ## Configuration updates
 
-To configure your app so it requires only a password, see <StackSnippet snippet="configureyourapp" inline />.
+<StackSnippet snippet="configureyourapp" />
 
 ## Summary of steps
 

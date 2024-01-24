@@ -1,65 +1,96 @@
-### 1: The user signs in
+### Your app displays the sign-in page
 
-After you complete the steps in the [Load the Widget](/docs/guides/oie-embedded-widget-use-case-load/aspnet/main/) use case and the Widget loads successfully, the next step is for the user to sign in. There is no additional code that you need to add to your app for this step. The user enters their credentials and clicks the **Next** or **Sign In** button.
+Build a sign-in page that captures the user's name and password with the Widget. Ensure the page completes the steps described in [Load the Widget](/docs/guides/oie-embedded-widget-use-case-load/aspnet/main/) when the page loads.
 
-<div class="half">
+### The user submits their username and password
 
-![Screenshot of basic Okta Sign-In Widget](/img/siw/okta-sign-in-javascript.png)
+When the user submits their credentials, the widget sends an identify request to Identity Engine. OIE returns an interaction code to the sign-in redirect URI you configured earlier.
 
-</div>
+### Your app handles an authentication success response
 
-### 2: Handle the callback from the Widget
+Handle the callback from OIE to the sign-in redirect URI.
 
-This step handles the callback from the Widget that returns an `interaction_code`. This code is redeemed in the next step for tokens. The callback URL must be identical and is defined in the following locations:
+1. Check for any errors returned from OIE. If the user correctly supplies their password, there are no errors.
+1. Call `idxClient.RedeemInteractionCodeAsync()`  to exchange the code for the user's ID and access tokens from the authorization server.
+1. Call `AuthenticationHelper.GetIdentityFromTokenResponseAsync()` to retrieve the user's OIDC claims information using the ID tokens and save them for future use.
+1. Redirect the user to the default page after a successful sign-in attempt.
 
-* The `RedirectURI` parameter in the configuration setting that is defined in [Download and set up the SDK and sample app](/docs/guides/oie-embedded-common-download-setup-app/aspnet/main/).
-* A URI that is defined in the **Sign-in redirect URIs** field in the Okta Application. The **Sign-in redirect URIs** field is described in [Create a new application](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#create-a-new-application).
-
-For the sample application, the **RedirectURI** should be set to `https://localhost:44314/interactioncode/callback`
-
-The sample application uses the MVC architecture and defines the following `Callback` function in the `InteractionCodeController` controller to handle the callback.
+The user has now signed in.
 
 ```csharp
-public async Task<ActionResult> Callback(string state = null, string interaction_code = null, string error = null, string error_description = null)
+public async Task<ActionResult> Callback(
+  string state = null, string interaction_code = null,
+  string error = null, string error_description = null)
 {
+   try
+   {
+      IIdxContext idxContext = Session[state] as IIdxContext;
 
+      if ("interaction_required".Equals(error))
+      {
+         return Redirect($"/Account/SignInWidget?state={state}");
+      }
+
+      if (!string.IsNullOrEmpty(error))
+      {
+         return View("Error", 
+            new InteractionCodeErrorViewModel {
+               Error = error, ErrorDescription = error_description
+            });
+      }
+
+      if (string.IsNullOrEmpty(interaction_code))
+      {
+         return View("Error", 
+            new InteractionCodeErrorViewModel {
+               Error = "null_interaction_code", 
+               ErrorDescription = "interaction_code was not specified" });
+      }
+
+      Okta.Idx.Sdk.TokenResponse tokens =
+         await idxClient.RedeemInteractionCodeAsync(
+            idxContext, interaction_code);
+
+      ClaimsIdentity identity =
+         await AuthenticationHelper.GetIdentityFromTokenResponseAsync(
+            idxClient.Configuration, tokens);
+      authenticationManager.SignIn(
+         new AuthenticationProperties { IsPersistent = false }, identity);
+
+      return RedirectToAction("Index", "Home");
+   }
+   catch (Exception ex)
+   {
+      return View("Error", 
+         new InteractionCodeErrorViewModel {
+            Error = ex.GetType().Name, ErrorDescription = ex.Message });
+   }
 }
 ```
 
-### 3: Get the tokens
+### Get the user profile information
 
-The next step is to call `RedeemInteractionCodeAsync` inside the callback function for the `IdxClient`. The interaction code is used to get the ID and access tokens, which you can subsequently use to pull user information.
-
-```csharp
-Okta.Idx.Sdk.TokenResponse tokens = await _idxClient.RedeemInteractionCodeAsync(idxContext, interaction_code);
-```
-
-### 4: Persist the tokens in a session
-
-Persist the tokens in session for future use. The following code from the sample app uses `IAuthenticationManager` from `Microsoft.Owin.Security` to persist the tokens in session.
+After the user signs in successfully, request basic user information from the authorization server using the tokens that were returned in the previous step.
 
 ```csharp
-ClaimsIdentity identity = await AuthenticationHelper.GetIdentityFromTokenResponseAsync(_idxClient.Configuration, tokens);
-_authenticationManager.SignIn(new AuthenticationProperties { IsPersistent = false }, identity);
-```
-
-### 5 (Optional): Get the user profile information
-
-Depending on your implementation, you can choose to pull user information. When you use the tokens that are provided by the `RedeemInteractionCodeAsync` method, you can request the user profile information from the `v1/userinfo` endpoint. The following code from the sample app provides details for this call.
-
-```csharp
-public static async Task<IEnumerable<Claim>> GetClaimsFromUserInfoAsync(IdxConfiguration configuration, string accessToken)
+public static async Task<IEnumerable<Claim>> GetClaimsFromUserInfoAsync(
+   IdxConfiguration configuration, string accessToken)
 {
-    Uri userInfoUri = new Uri(IdxUrlHelper.GetNormalizedUriString(configuration.Issuer,
-       "v1/userinfo"));
-    HttpClient httpClient = new HttpClient();
-    var userInfoResponse = await httpClient.GetUserInfoAsync(new UserInfoRequest
-           {
-                Address = userInfoUri.ToString(),
-                Token = accessToken,
-           }).ConfigureAwait(false);
-   var nameClaim = new Claim(ClaimTypes.Name, userInfoResponse.Claims.FirstOrDefault(x => x.Type
-            == "name")?.Value);
+   Uri userInfoUri = new Uri(
+      IdxUrlHelper.GetNormalizedUriString(configuration.Issuer, "v1/userinfo")
+   );
+   HttpClient httpClient = new HttpClient();
+
+   var userInfoResponse = await httpClient.GetUserInfoAsync(
+      new UserInfoRequest {
+         Address = userInfoUri.ToString(), Token = accessToken,
+      }
+   ).ConfigureAwait(false);
+
+   var nameClaim = new Claim(
+      ClaimTypes.Name,
+      userInfoResponse.Claims.FirstOrDefault(x => x.Type == "name")?.Value
+   );
    return userInfoResponse.Claims.Append(nameClaim);
 }
 ```
