@@ -57,17 +57,11 @@ The sample Node.js Express application is designed to demonstrate the [Authoriza
 
 ### Install the application locally
 
-1. Clone the repo locally:
+1. Clone the repo locally: `git clone https://github.com/okta/samples-nodejs-express-4.git`
 
-    `git clone https://github.com/okta/samples-nodejs-express-4.git`
+1. Change to the application folder: `cd samples-nodejs-express-4/`
 
-1. Change to the application folder:
-
-    `cd samples-nodejs-express-4/`
-
-1. Install the dependencies:
-
-    `npm install`
+1. Install the dependencies: `npm install`
 
 ### Create an Okta app integration
 
@@ -79,7 +73,6 @@ An Okta app integration represents your app in your Okta org. The integration co
 1. Click **Create App Integration**.
 1. Select a **Sign-in method** of **OIDC - OpenID Connect**.
 1. Select an **Application type** of **Web Application**, then click **Next**.
-   > **Note:** If you choose an inappropriate application type, it breaks the sign-in or sign-out flows by requiring the verification of a client secret, which public clients don't have.
 1. Enter an **App integration name**.
 1. Ensure that the **Authorization Code** grant type is selected.
 1. Enter the **Sign-in redirect URIs** for local development. For this sample, use the default value `http://localhost:8080/authorization-code/callback`.
@@ -94,19 +87,37 @@ An Okta app integration represents your app in your Okta org. The integration co
 1. In the root folder of your local application (`samples-nodejs-express-4`), add an environment variable file called `dotenv`. There is no extension to this file.
 1. Add the following variables and values to the `dotenv` file. The `CLIENT_ID` and `CLIENT_SECRET` values are available on the **General** tab of your app integration.
 
-    * ISSUER=https://${yourOktaDomain.com}/oauth2/default
-    * CLIENT_ID=${yourClientID}
-    * CLIENT_SECRET:${yourClientSecret}
+    * **ISSUER**=`https://${yourOktaDomain.com}/oauth2/default`
+    * **CLIENT_ID**=`${yourClientId}`
+    * **CLIENT_SECRET**:`${yourClientSecret}`
+
+Your `dotenv`file appears as follows:
+
+```txt
+ISSUER=https://yourOktaDomain.com/oauth2/default
+CLIENT_ID=0oaens3by4RMAYl3I5d7
+CLIENT_SECRET=BrPT0k1bCPgdQpiFU7LX__O6ANpoxm-MvwsY29_G-uzxLwGRbL3yhHFEaK9kn_IX
+```
 
 ### Run your local application
 
-1. To start your local application web server:
-
-    `npm run okta-hosted-login-server`
+1. To start your local application web server: `npm run okta-hosted-login-server`
 
 1. Go to the page `http://localhost:8080` in your browser. If you see a home page that prompts you to sign in, the application is working. Click the **Log in** button to redirect to the Okta hosted sign-in page and to authenticate a user.
 
-## Parse the token inline hook request
+## Create the external service code
+
+You can now create the external service code that resides on your third-party site (in this example, the Glitch.com site). The third-party site receives and responds to the token inline hook call from Okta. The responses to the token inline hook call can modify or remove an existing custom claim or an OIDC standard profile claim. You can also update how long an access token or an ID token is valid. In this example code, a new claim is added to the identity token. For further information on the token inline hook commands object, see the [Token inline hook reference](/docs/reference/token-hook) documentation.
+
+Copy (re-mix) the Glitch.com project code, [Okta Token Inline Hook](https://glitch.com/edit/#!/okta-inlinehook-tokenhook), to run the scenario right away. Skip to the [Activate and enable the token inline hook](#activate-and-enable-the-token-inline-hook) section to configure the token inline hook.
+
+>**Note:** Ensure that you modify the project code's data store with a user that belongs to your org.
+
+If you'd like to create the external service yourself, use the following sections that detail the portion of code that parses the token inline hook call, checks the data store, and then responds to Okta.
+
+> **Note**: Make sure to have the required default code and packages in your project. See [Common Hook Set-up Steps](/docs/guides/common-hook-set-up-steps/).
+
+### Parse the token inline hook request
 
 The external service in this scenario requires code to handle the token inline hook request from the Okta org. Use the [Okta Token Inline Hook](https://glitch.com/edit/#!/okta-inlinehook-tokenhook) Glitch example to either build or copy the code (re-mix on Glitch) that parses the token inline hook call.
 
@@ -116,7 +127,7 @@ From the token inline hook request, the following code retrieves the value of th
 
 <StackSelector snippet="request" noSelector/>
 
-## Check against the data store
+### Check against the data store
 
 In this scenario, a pre-populated static array of patient names and patient IDs (`patients`) is used to simulate a real-world data store. The user name included with the Okta request is checked against this array. If the user name in the request matches a value in the `patients` array, the associated patient ID is stored as a variable, `patientID`.
 
@@ -124,7 +135,7 @@ In this scenario, a pre-populated static array of patient names and patient IDs 
 
 <StackSelector snippet="check-patients" noSelector/>
 
-## Send a response to Okta
+### Send a response to Okta
 
 The variable, `patientID`, can now be returned to Okta as an additional token claim using the `commands` object. For further information on the token `commands` object, see the [token inline hook](/docs/reference/token-hook/#commands) reference documentation.
 
@@ -193,7 +204,7 @@ The token inline hook is ready for preview and testing. You now have the followi
 *  The external service (Glitch.com project) is ready with code to receive and respond to an Okta token inline hook call.
 *  The Okta org is set up to call the external service when a token inline hook is triggered by a user sign-in from the Okta-Hosted-Login sample application, and ready to receive a response.
 
->**Note:** Make sure you have users assigned to your application and at least one user is part of the [Patients data store](/docs/guides/token-inline-hook/#check-against-the-data-store/) in your Glitch application.
+>**Note:** Make sure you have users assigned to your application and at least one user is part of the [Patients data store](/docs/guides/token-inline-hook/#check-against-the-data-store) in your Glitch application.
 
 ### Preview the token inline hook
 
