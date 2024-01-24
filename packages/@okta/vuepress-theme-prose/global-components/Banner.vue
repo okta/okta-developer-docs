@@ -189,9 +189,11 @@
   top: 0;
   left: 0;
 
+  z-index: 101;
+
   display: flex;
   flex-direction: row;
-  z-index: 101;
+
   padding: 10px;
 
   width: 100%;
