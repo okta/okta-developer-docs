@@ -1,16 +1,16 @@
 ### Your app displays the sign-in page
 
-Build a sign-in page that captures the user's name and password with the Widget. Ensure the page completes the steps described in [Load the Widget](/docs/guides/oie-embedded-widget-use-case-load/go/main/) when the page loads.
+Build a sign-in page that captures the user's name and password with the Widget. Ensure that the page completes the steps described in [Load the Widget](/docs/guides/oie-embedded-widget-use-case-load/go/main/) when the page loads.
 
 ### The user submits their username and password
 
-When the user submits their credentials, the widget sends an identify request to Identity Engine. OIE returns an interaction code to the sign-in redirect URI you configured earlier.
+When the user submits their credentials, the Widget sends an identify request to Identity Engine. Identity Engine returns an interaction code to the sign-in redirect URI that you configured earlier.
 
 ### Your app handles an authentication success response
 
-Handle the callback from OIE to the sign-in redirect URI.
+Handle the callback from Identity Engine to the sign-in redirect URI.
 
-1. Check for any errors returned from OIE. If the user correctly supplies their password, there are no errors.
+1. Check for any errors returned from Identity Engine. If the user correctly supplies their password, there are no errors.
 1. Call `idxClient.RedeemInteractionCode` to exchange the interaction code for the user's access token with the authorization server.
 1. Store the tokens in session variables for future use.
 1. Redirect the user to the default page after a successful sign-in attempt.

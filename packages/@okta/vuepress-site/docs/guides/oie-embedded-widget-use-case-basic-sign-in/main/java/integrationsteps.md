@@ -1,19 +1,19 @@
 ### Your app displays the sign-in page
 
-Build a sign-in page that captures the user's name and password with the Widget. Ensure the page completes the steps described in [Load the Widget](/docs/guides/oie-embedded-widget-use-case-load/java/main/) when the page loads.
+Build a sign-in page that captures the user's name and password with the Widget. Ensure that the page completes the steps described in [Load the Widget](/docs/guides/oie-embedded-widget-use-case-load/java/main/) when the page loads.
 
 ### The user submits their username and password
 
-When the user submits their credentials, the widget sends an identify request to Identity Engine. OIE returns an interaction code to the sign-in redirect URI you configured earlier.
+When the user submits their credentials, the Widget sends an identify request to Identity Engine. Identity Engine returns an interaction code to the sign-in redirect URI that you configured earlier.
 
 ### Exchange interaction code for tokens
 
-Handle the callback from OIE to the sign-in redirect URI. The Spring security framework doesn't understand Okta’s Interaction code flow. Therefore:
+Handle the callback from Identity Engine to the sign-in redirect URI. The Spring security framework doesn't understand Okta’s interaction code flow. Therefore:
 
 1. Intercept Spring’s OAuth authentication code flow
-1. Exchange the Interaction code that is obtained from Okta for an access token
+1. Exchange the interaction code that is obtained from Okta for an access token
 1. Populate the user profile attributes
-1. Construct an [`OAuth2AuthenticationToken`](https://github.com/spring-projects/spring-security/blob/main/oauth2/oauth2-client/src/main/java/org/springframework/security/oauth2/client/authentication/OAuth2AuthenticationToken.java) to hand back to Spring's authentication code flow.
+1. Construct an [`OAuth2AuthenticationToken`](https://github.com/spring-projects/spring-security/blob/main/oauth2/oauth2-client/src/main/java/org/springframework/security/oauth2/client/authentication/OAuth2AuthenticationToken.java) to hand back to Spring's authentication code flow
 
 ```java
 @Override
