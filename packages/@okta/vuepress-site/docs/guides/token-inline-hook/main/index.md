@@ -40,7 +40,7 @@ In the following token inline hook scenario, the external service code parses a 
 At a high-level, the following workflow occurs:
 
 * A user logs into an Okta-hosted Login sample application.
-* The Okta org authenticates the user and mints an authentication token.
+* The Okta org authenticates a user and mints an authentication token.
 * The Okta token inline hook triggers and sends a request to an external service.
 * The external service evaluates the request, and if the user is a patient, adds a patient ID claim to the token.
 * The authentication token is directed back to the Okta-hosted Login application where the user is signed in.
@@ -83,7 +83,7 @@ An Okta app integration represents your app in your Okta org. The integration co
 
 ### Add the integration credentials to your local application
 
-1. Open the application in your editor of choice.
+1. Open the Express sample application in your editor of choice.
 1. In the root folder of your local application (`samples-nodejs-express-4`), add an environment variable file called `dotenv`. There's no extension to this file.
 1. Add the following variables and values to the `dotenv` file. The `CLIENT_ID` and `CLIENT_SECRET` values are available on the **General** tab of your app integration.
 
@@ -95,8 +95,8 @@ Your `dotenv`file appears as follows:
 
 ```txt
 ISSUER=https://yourOktaDomain.com/oauth2/default
-CLIENT_ID=0oaens3by4RMAYl3I5d7
-CLIENT_SECRET=BrPT0k1bCPgdQpiFU7LX__O6ANpoxm-MvwsY29_G-uzxLwGRbL3yhHFEaK9kn_IX
+CLIENT_ID=0oaens...4RMAYl3I5d7
+CLIENT_SECRET=BrPT0k1bCPgdQpiFU7LX...O6ANpoxm-MvwsY29_G-uzxLwGRbL3yhHFEaK9kn_IX
 ```
 
 ### Run your local application
@@ -109,9 +109,7 @@ CLIENT_SECRET=BrPT0k1bCPgdQpiFU7LX__O6ANpoxm-MvwsY29_G-uzxLwGRbL3yhHFEaK9kn_IX
 
 You can now create the external service code that resides on your third-party site (in this example, the Glitch.com site). The third-party site receives and responds to the token inline hook call from Okta. The responses to the token inline hook call can modify or remove an existing custom claim or an OIDC standard profile claim. You can also update how long an access token or an ID token is valid. In this example, a new claim is added to the identity token. For further information on the token inline hook commands object, see the [Token inline hook reference](/docs/reference/token-hook) documentation.
 
-Copy (re-mix) the Glitch.com project code, [Okta Token Inline Hook](https://glitch.com/edit/#!/okta-inlinehook-tokenhook), to run the scenario right away. Skip to the [Activate and enable the token inline hook](#activate-and-enable-the-token-inline-hook) section to configure the token inline hook.
-
->**Note:** Ensure that you modify the project code's data store with a user that belongs to your org.
+Copy (re-mix) the Glitch.com project code, [Okta Token Inline Hook](https://glitch.com/edit/#!/okta-inlinehook-tokenhook) and[Customize the external service for your org](#customize-the-external-service-for-your-org) to run the scenario right away. Skip to the [Activate and enable the token inline hook](#activate-and-enable-the-token-inline-hook) section to configure the token inline hook.
 
 If you'd like to create the external service yourself, use the following sections that detail the portion of code that parses the token inline hook call, checks the data store, and then responds to Okta.
 
@@ -131,7 +129,7 @@ From the token inline hook request, the following code retrieves the value of th
 
 In this scenario, a pre-populated static array of patient names and patient IDs (`patients`) is used to simulate a real-world data store. The username included with the Okta request is checked against this array. If the username in the request matches a value in the `patients` array, the associated patient ID is stored as a variable, `patientID`.
 
-> **Note:** Modify this data store to make sure it contains one or more usernames that are assigned to your application in your Okta org.
+> **Note:** Modify this data store to make sure it contains one or more usernames that are assigned to your application in your Okta org. See [Customize the external service for your org](#customize-the-external-service-for-your-org).
 
 <StackSelector snippet="check-patients" noSelector/>
 
@@ -140,6 +138,24 @@ In this scenario, a pre-populated static array of patient names and patient IDs 
 The variable, `patientID`, can now be returned to Okta as an additional token claim using the `commands` object. For further information on the token `commands` object, see the [token inline hook](/docs/reference/token-hook/#commands) reference documentation.
 
 <StackSelector snippet="send-response" noSelector/>
+
+### Customize the external service for your org
+
+1. In the Glitch.com `server.js` file, modify the project code's data store with a user that belongs to your org.
+
+    ```JavaScript
+    {
+        username: 'your_test_user@example.com',
+        ExternalServicePatientID: '1235',
+    }
+    ```
+
+1. Click the `.env` file in the left-hand panel, to update the external application's environment variables to the following values:
+
+    * **USER**=`admin`
+    * **PASSWORD**=`supersecret`
+
+These are the HTTP Basic Authentication credentials that validate the inline token request from Okta.
 
 ## Activate and enable the token inline hook
 
