@@ -26,26 +26,7 @@ public async Task<ActionResult> Callback(
    {
       IIdxContext idxContext = Session[state] as IIdxContext;
 
-      if ("interaction_required".Equals(error))
-      {
-         return Redirect($"/Account/SignInWidget?state={state}");
-      }
-
-      if (!string.IsNullOrEmpty(error))
-      {
-         return View("Error", 
-            new InteractionCodeErrorViewModel {
-               Error = error, ErrorDescription = error_description
-            });
-      }
-
-      if (string.IsNullOrEmpty(interaction_code))
-      {
-         return View("Error", 
-            new InteractionCodeErrorViewModel {
-               Error = "null_interaction_code", 
-               ErrorDescription = "interaction_code was not specified" });
-      }
+      // error handling elided
 
       Okta.Idx.Sdk.TokenResponse tokens =
          await idxClient.RedeemInteractionCodeAsync(
