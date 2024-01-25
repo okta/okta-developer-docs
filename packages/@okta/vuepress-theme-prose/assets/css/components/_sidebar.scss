@@ -38,7 +38,8 @@
   margin-top: 0;
 }
 
-.tree-nav .sections.bordered:before {
+.tree-nav .sections.bordered:before,
+.tree-nav .sections.show-border:before {
   content: "";
 
   position: absolute;
@@ -53,7 +54,8 @@
 }
 
 @media (max-width: 1439px) {
-  .tree-nav .sections.bordered:before {
+  .tree-nav .sections.bordered:before,
+  .tree-nav .sections.show-border:before {
     left: -38px;
   }
 }
