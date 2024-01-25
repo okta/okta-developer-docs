@@ -8,7 +8,9 @@ When the user submits their credentials, the Widget sends an identify request to
 
 ### Exchange interaction code for tokens
 
-Handle the callback from Identity Engine to the sign-in redirect URI. The Spring security framework doesn't understand Okta’s interaction code flow. Therefore:
+Handle the callback from Identity Engine to the sign-in redirect URI.
+
+The Okta Java SDK uses the [Spring Boot framework](https://spring.io/guides/gs/spring-boot/) to handle the OAuth 2.0 authentication flow. However, the Spring security framework doesn't understand Okta’s interaction code flow. Therefore:
 
 1. Intercept Spring’s OAuth authentication code flow
 1. Exchange the interaction code that is obtained from Okta for an access token
@@ -34,26 +36,32 @@ public Authentication attemptAuthentication(
    if (!Strings.hasText(interactionCode)) {
       String error = requestParams.getFirst("error");
       String errorDesc = requestParams.getFirst("error_description");
-      throw new OAuth2AuthenticationException(new OAuth2Error(error, errorDesc, null));
+      throw new OAuth2AuthenticationException(
+         new OAuth2Error(error, errorDesc, null));
    }
 
    // exchange the interaction code for an access and refresh tokens
-   final JsonNode jsonNode = helperUtil.exchangeCodeForToken(interactionCode, codeVerifier);
-   final OAuth2AccessToken oAuth2AccessToken = helperUtil.buildOAuth2AccessToken(jsonNode);
-   final OAuth2RefreshToken oAuth2RefreshToken = helperUtil.buildOAuth2RefreshToken(jsonNode);
+   final JsonNode jsonNode =
+      helperUtil.exchangeCodeForToken(interactionCode, codeVerifier);
+   final OAuth2AccessToken oAuth2AccessToken =
+      helperUtil.buildOAuth2AccessToken(jsonNode);
+   final OAuth2RefreshToken oAuth2RefreshToken =
+      helperUtil.buildOAuth2RefreshToken(jsonNode);
 
    // retrieve user properties
    final OAuth2User oauth2User = helperUtil.BuildOAuth2User(request, response);
 
-   final Collection<? extends GrantedAuthority> mappedAuthorities = this.authoritiesMapper
-            .mapAuthorities(oauth2User.getAuthorities());
-   final OAuth2LoginAuthenticationToken authenticationResult = new OAuth2LoginAuthenticationToken(
+   final Collection<? extends GrantedAuthority> mappedAuthorities =
+      this.authoritiesMapper.mapAuthorities(oauth2User.getAuthorities());
+   final OAuth2LoginAuthenticationToken authenticationResult =
+      new OAuth2LoginAuthenticationToken(
             clientRegistration, oAuth2AuthorizationExchange,
             oauth2User, mappedAuthorities, oAuth2AccessToken, oAuth2RefreshToken);
    authenticationResult.setDetails(authenticationDetails);
 
    // return OAuth2AuthenticationToken to Spring
-   final OAuth2AuthenticationToken oauth2Authentication = new OAuth2AuthenticationToken(
+   final OAuth2AuthenticationToken oauth2Authentication =
+      new OAuth2AuthenticationToken(
             oauth2User, authenticationResult.getAuthorities(),
             authenticationResult.getClientRegistration().getRegistrationId());
    oauth2Authentication.setDetails(authenticationDetails);
@@ -79,9 +87,9 @@ try {
    HttpEntity<String> requestEntity = new HttpEntity<>(null, httpHeaders);
 
    ParameterizedTypeReference<Map<String, Object>> responseType =
-            new ParameterizedTypeReference<Map<String, Object>>() { };
+      new ParameterizedTypeReference<Map<String, Object>>() { };
    ResponseEntity<Map<String, Object>> responseEntity =
-            restTemplate.exchange(userInfoUrl, HttpMethod.GET, requestEntity, responseType);
+      restTemplate.exchange(userInfoUrl, HttpMethod.GET, requestEntity, responseType);
 
    claims = responseEntity.getBody();
 } catch (Exception e) {

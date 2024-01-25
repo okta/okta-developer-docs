@@ -22,7 +22,8 @@ func (s *Server) LoginCallbackHandler(w http.ResponseWriter, r *http.Request) {
 
    // error handling elided
 
-   accessToken, err := s.idxClient.RedeemInteractionCode(r.Context(), lr.Context(), r.URL.Query().Get("interaction_code"))
+   accessToken, err := s.idxClient.RedeemInteractionCode(
+      r.Context(), lr.Context(), r.URL.Query().Get("interaction_code"))
    if err != nil {
       log.Fatalf("access token error: %+v\n", err)
    }

@@ -1,6 +1,6 @@
 ### Your app displays the sign-in page
 
-Build a sign-in page that captures the user's name and password with the Widget. Ensure that the page completes the steps described in [Load the Widget](/docs/guides/oie-embedded-widget-use-case-load/aspnet/main/) when the page loads.
+Build a sign-in page that captures the user's name and password with the Widget. Ensure that the page completes the steps described in [Load the Widget](/docs/guides/oie-embedded-widget-use-case-load/nodejs/main/) when the page loads.
 
 ### The user submits their username and password
 
@@ -18,22 +18,23 @@ The user has now signed in.
 
 ```javascript
 router.get('/login/callback', async (req, res, next) => {
-  const parsedUrl = new URL(req.protocol + '://' + req.get('host') + req.originalUrl);
-  const { search, href } = parsedUrl;
-  const { state, otp } = req.query;
-  const authClient = getAuthClient(req);
+   const parsedUrl =
+      new URL(req.protocol + '://' + req.get('host') + req.originalUrl);
+   const { search, href } = parsedUrl;
+   const { state, otp } = req.query;
+   const authClient = getAuthClient(req);
 
-  // error handling elided
+   // error handling elided
 
-  try {
-    // Exchange code for tokens
-    await authClient.idx.handleInteractionCodeRedirect(href);
+   try {
+      // Exchange code for tokens
+      await authClient.idx.handleInteractionCodeRedirect(href);
 
-// Redirect back to home page
-    res.redirect('/');
-  } catch (err) {
-    next(err);
-  }
+      // Redirect back to home page
+      res.redirect('/');
+   } catch (err) {
+      next(err);
+   }
 });
 ```
 
@@ -43,12 +44,12 @@ After the user signs in successfully, retrieve basic user information from sessi
 
 ```javascript
 router.get('/', (req, res) => {
-  const userinfo = req.userContext && req.userContext.userinfo;
-  const attributes = userinfo ? Object.entries(userinfo) : [];
-  res.render('home', {
-    isLoggedIn: !!userinfo,
-    userinfo,
-    attributes
-  });
+   const userinfo = req.userContext && req.userContext.userinfo;
+   const attributes = userinfo ? Object.entries(userinfo) : [];
+   res.render('home', {
+      isLoggedIn: !!userinfo,
+      userinfo,
+      attributes
+   });
 });
 ```
