@@ -11,7 +11,7 @@ When the user submits their credentials, the Widget sends an identify request to
 Handle the callback from Identity Engine to the sign-in redirect URI.
 
 1. Check for any errors returned from Identity Engine. If the user correctly supplies their password, there are no errors.
-1. Call `authClient.idx.handleInteractionCodeRedirect`  to exchange the code for the user's tokens from the authorization server and save them for future use.
+1. Call `authClient.idx.handleInteractionCodeRedirect` to exchange the code for the user's tokens from the authorization server, and then save the tokens for future use.
 1. Redirect the user to the default page after a successful sign-in attempt.
 
 The user has now signed in.

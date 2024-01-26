@@ -10,12 +10,12 @@ When the user submits their credentials, the Widget sends an identify request to
 
 Handle the callback from Identity Engine to the sign-in redirect URI.
 
-The Okta Java SDK uses the [Spring Boot framework](https://spring.io/guides/gs/spring-boot/) to handle the OAuth 2.0 authentication flow. However, the Spring security framework doesn't understand Okta’s interaction code flow. Therefore:
+The Okta Java SDK uses the [Spring Boot framework](https://spring.io/guides/gs/spring-boot/) to handle the OAuth 2.0 authentication flow. However, the Spring security framework doesn't understand Okta's interaction code flow. Therefore:
 
-1. Intercept Spring’s OAuth authentication code flow
-1. Exchange the interaction code that is obtained from Okta for an access token
-1. Populate the user profile attributes
-1. Construct an [`OAuth2AuthenticationToken`](https://github.com/spring-projects/spring-security/blob/main/oauth2/oauth2-client/src/main/java/org/springframework/security/oauth2/client/authentication/OAuth2AuthenticationToken.java) to hand back to Spring's authentication code flow
+1. Intercept Spring's OAuth authentication code flow.
+1. Exchange the interaction code that is obtained from Okta for an access token.
+1. Populate the user profile attributes.
+1. Construct an [`OAuth2AuthenticationToken`](https://github.com/spring-projects/spring-security/blob/main/oauth2/oauth2-client/src/main/java/org/springframework/security/oauth2/client/authentication/OAuth2AuthenticationToken.java) to hand back to Spring's authentication code flow.
 
 ```java
 @Override

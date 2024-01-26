@@ -11,8 +11,8 @@ When the user submits their credentials, the Widget sends an identify request to
 Handle the callback from Identity Engine to the sign-in redirect URI.
 
 1. Check for any errors returned from Identity Engine. If the user correctly supplies their password, there are no errors.
-1. Call `idxClient.RedeemInteractionCodeAsync()`  to exchange the code for the user's ID and access tokens from the authorization server.
-1. Call `AuthenticationHelper.GetIdentityFromTokenResponseAsync()` to retrieve the user's OIDC claims information using the ID tokens and save them for future use.
+1. Call `idxClient.RedeemInteractionCodeAsync()` to exchange the code for the user's ID and access tokens from the authorization server.
+1. Include the ID tokens when you call `AuthenticationHelper.GetIdentityFromTokenResponseAsync()` to retrieve the user's OIDC claims information, and then save the ID tokens for future use.
 1. Redirect the user to the default page after a successful sign-in attempt.
 
 The user has now signed in.

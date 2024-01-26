@@ -13,7 +13,7 @@ Enable a password-only sign-in flow in your web app using the embedded Sign-In W
 
 **Learning outcomes**
 
-* Enable Sign-In Widget support in your org and application
+* Enable Sign-In Widget support in your org and application.
 * Add a sign-in flow to a server-side web app that uses the Sign-In Widget and requires only a password.
 
 **What you need**

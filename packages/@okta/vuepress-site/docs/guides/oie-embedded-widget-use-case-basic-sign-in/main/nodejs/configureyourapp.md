@@ -6,6 +6,6 @@ Ensure that the Interaction Code flow is enabled:
 * [In your authorization server](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#update-the-default-custom-authorization-server)
 * [In your app integration](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#create-an-application)
 
-To configure your app so it requires only a password, see [Set up your Okta org for a password factor-only use case](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#set-up-your-okta-org-for-a-password-factor-only-use-case)
+To configure your app so it requires only a password, see [Set up your Okta org for a password factor-only use case](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#set-up-your-okta-org-for-a-password-factor-only-use-case).
 
 Ensure that the **Sign-In Redirect URI** that you set in your app integration and your app's config file are the same. If you're using the sample app, this should be `https://localhost:8080/login/callback`. Where you see `${yourSignInRedirectUri}` in this guide, replace it with your sign-in redirect URI.
