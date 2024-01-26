@@ -2378,7 +2378,7 @@ The number of Authenticator class constraints in each Constraint object must be 
 | `reauthenticateIn`   | String (ISO 8601) | The duration after which the user must re-authenticate regardless of user activity. This re-authentication interval overrides the [Verification Method object](#verification-method-object)'s `reauthenticateIn` interval.     | ISO 8601 period format for recurring time intervals (for example: `PT1H`) | N/A|
 | `authenticationMethods`  <ApiLifecycle access="ea" />  | array of [Authentication method objects](#authentication-method-object) | This property specifies the precise authenticator and method for authentication.  || `OPTIONAL`|
 | `excludedAuthenticationMethods` <ApiLifecycle access="ea" />   | array of [Authentication method objects](#authentication-method-object) | This property specifies the precise authenticator and method to exclude from authentication.  || `OPTIONAL`|
-| `required` <ApiLifecycle access="ea" />   | Boolean | This property indicates whether the knowledge or possession factor is required by the assurance. It's optional in the request, but is always returned in the response. By default, this field is `true`. If the knowledge or possession constraint has values for`excludedAuthenticationMethods` the `required` value is false.  || `OPTIONAL`|
+| `required` <ApiLifecycle access="ea" />   | Boolean | This property indicates whether the knowledge or possession factor is required by the assurance. It's optional in the request, but is always returned in the response. By default, this field is `true`. If the knowledge or possession constraint has values for`excludedAuthenticationMethods` then the `required` value is false.  || `OPTIONAL`|
 
 #### Authentication method object
 
