@@ -1,0 +1,60 @@
+{
+ :allowed-event-types ["pull_request"]
+ :event-queue-delay-ms 100
+ :file-size-limit "1 MB"
+ :acrolinx-parallel-workers 2
+ :allowed-branchname-matches "master"
+ :track-new-repos true
+ :gh-status-when-no-check true ;after 3.0.x is enabled by default
+ :acrolinx-check-type "batch"
+ :ignored-filetypes ["XML" "YAML" "HTML" "TEXT" "JAVA" "CPP" "PROPERTIES" "JSON" "MS_OFFICE" "PDF"]
+ :targets ; This requires ":use-gh-statuses" to be enabled
+   {
+     :counts {
+              ;:clarity 0
+              ;:consistency 7
+              ;:correctness 10
+              ;:inclusive 10
+              ;:scannability 10
+              ;:tone 10
+              ;:words_and_phrases 10
+              ;:total 2 ; absolute flag count, it should not be used in convination with the other possible categories.
+              }
+     :scores {
+              ;:minimum 50
+              ;:clarity 40
+              ;:consistency 70
+              ;:correctness 40
+              ;:inclusive-language 10
+              ;:scannability 80
+              ;:tone 80
+              ;:words_and_phrases 40
+              :qualityscore 70
+              }
+    } 
+ 
+ ;;:guidance-profile "890b68c3-3fa2-369d-b86d-37151d236d9b"
+ ;;:guidance-profile "Demo Testing"
+  :template-header
+ "
+## Acrolinx score **DRAFT 06.01.22**
+ 
+A minimum Acrolinx Score of **40** is required. The total score is an average of the subscores.
+
+Select **Total score** to review the Acrolinx scorecard for your article. Try to increase your individual scores, ex. Correctness. Your article will be clearer and more consistent with Microsoft standards.
+ 
+| Article | **Total score**<br />**Required:70** | Word and phrases<br />(Brand, terms)<br />Preferred: 40 | Correctness<br />(Spelling, grammar)<br />Preferred: 40 | Clarity<br />(Readability)<br />Preferred: 10 | Inclusive language<br />(+ accesibility)<br />Preferred: 10 |
+|---------|:------------------------------------:|:--------------------------------------------------------:|:--------------------------------------------------------:|:---------------------------------------------:|:------------------------------------------------------------:|
+"
+
+ :template-change
+ "| ${s/status} ${s/file} | [${acrolinx/qualityscore}](${acrolinx/scorecard}) | ${acrolinx/scores/words_and_phrases}  | ${acrolinx/scores/correctness}  | ${acrolinx/scores/clarity}  | ${acrolinx/scores/inclusive}  |
+"
+
+ :template-footer
+
+  "
+  - The results from this response were procced by the [hugo-targets1.solution.acrolinx.sh](https://hugo-targets1.solution.acrolinx.sh) Acrolinx Cloud Host.
+  - Scorecard links by default are only good for 7 days. [Link for this commit's Content Analysis Dashboard](${acrolinx/aggregdash})
+  "
+}
