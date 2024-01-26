@@ -680,11 +680,11 @@ export const guides = [
             guideName: "dpop",
           },
           {
-            title: "Configure OAuth for Okta",
+            title: "Implement OAuth for Okta",
             guideName: "implement-oauth-for-okta",
           },
           {
-            title: "Configure OAuth for Okta: Service App",
+            title: "Implement OAuth for Okta: Service App",
             guideName: "implement-oauth-for-okta-serviceapp",
           },
           {
