@@ -2601,7 +2601,7 @@ The following table shows the possible relationships between all the authenticat
     "constraints": [
       {
           "possession": {
-             "authenticationMethods": [ { "key": "okta_verify", "method": "OTP" } ]
+             "authenticationMethods": [ { "key": "okta_verify", "method": "TOTP" } ]
           }
       }
    ]
