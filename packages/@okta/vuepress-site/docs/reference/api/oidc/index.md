@@ -665,6 +665,17 @@ The following parameters can be posted as a part of the URL-encoded form values 
 | token                   | An access token, ID token, refresh token, or device secret.                                                                   | String        |
 | token_type_hint         | Indicates the type of `token` being passed. Valid values: `access_token`, `id_token`, `refresh_token`, and `device_secret`.   | String (Enum) |
 
+#### Request example (access token)
+
+```bash
+curl -v -X POST \
+-H "Content-Type: application/x-www-form-urlencoded' \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
+-H "Authorization: Basic MG9hNG54a.....lbnRTZWNyZXR9fQ==" \
+"https://${yourOktaDomain}/oauth2/v1/introspect" \
+-d "token=${accessToken}&token_type_hint=access_token"
+```
+
 #### Response properties
 
 Based on the type of token and whether it is active, the returned JSON contains a different set of information. Besides the claims in the token, the possible top-level members include:
@@ -1797,7 +1808,7 @@ Provide the `client_id` in a JWT that you sign with the `client_secret` using an
   POST /token HTTP/1.1
   Host: server.example.com
   Content-Type: application/x-www-form-urlencoded
-  
+
   grant_type=authorization_code&
     code=i1WsRn1uB1&
     client_id=0oajncakofQmjxlSw0h3
