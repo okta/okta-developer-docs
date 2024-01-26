@@ -1797,6 +1797,7 @@ Provide the `client_id` in a JWT that you sign with the `client_secret` using an
   POST /token HTTP/1.1
   Host: server.example.com
   Content-Type: application/x-www-form-urlencoded
+  
   grant_type=authorization_code&
     code=i1WsRn1uB1&
     client_id=0oajncakofQmjxlSw0h3
@@ -1822,6 +1823,7 @@ For example:
 POST /token HTTP/1.1
 Host: server.example.com
 Content-Type: application/x-www-form-urlencoded
+
 grant_type=authorization_code&
   code=i1WsRn1uB1&
   client_id=0oajncakofQmjxlSw0h3
