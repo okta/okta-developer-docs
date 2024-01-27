@@ -1,57 +1,98 @@
-### 1: The user initiates the sign-in flow
+### Your app displays the sign-in page
 
-The user signs in with the Sign-In Widget that was set up in the [Load the Widget](/docs/guides/oie-embedded-widget-use-case-load/java/main/) use case. After the user enters their credentials and clicks **Sign in**, the Widget sends an identify request to Okta.
+Build a sign-in page that captures the user's name and password with the Widget. Ensure that the page completes the steps described in [Load the Widget](/docs/guides/oie-embedded-widget-use-case-load/java/main/) when the page loads.
 
-### 2: Handle the callback from Okta
+### The user submits their username and password
 
-Okta returns an Interaction code to the **Sign-in redirect URI** that is specified in your [Okta app integration](/docs/guides/oie-embedded-common-org-setup/java/main/#create-a-new-application).
+When the user submits their credentials, the Widget sends an identify request to Identity Engine. Identity Engine returns an interaction code to the sign-in redirect URI that you configured earlier.
 
-> **Note:** The redirect URI value that is used to start up the app (such as the `OKTA_IDX_REDIRECTURI` environment variable), must be defined as one of the **Sign-in redirect URI** settings for the app integration that is created in the Admin console. See [Create a new application](/docs/guides/oie-embedded-common-org-setup/java/main/#create-a-new-application).
+### Exchange interaction code for tokens
+
+Handle the callback from Identity Engine to the sign-in redirect URI.
+
+The Okta Java SDK uses the [Spring Boot framework](https://spring.io/guides/gs/spring-boot/) to handle the OAuth 2.0 authentication flow. However, the Spring security framework doesn't understand Okta's interaction code flow. Therefore:
+
+1. Intercept Spring's OAuth authentication code flow.
+1. Exchange the interaction code that is obtained from Okta for an access token.
+1. Populate the user profile attributes.
+1. Construct an [`OAuth2AuthenticationToken`](https://github.com/spring-projects/spring-security/blob/main/oauth2/oauth2-client/src/main/java/org/springframework/security/oauth2/client/authentication/OAuth2AuthenticationToken.java) to hand back to Spring's authentication code flow.
 
 ```java
-String issuer = oktaOAuth2Properties.getIssuer();
-// the widget needs the base url, just grab the root of the issuer
-String orgUrl = new URL(new URL(issuer), "/").toString();
+@Override
+public Authentication attemptAuthentication(
+   final HttpServletRequest request, final HttpServletResponse response)
+   throws AuthenticationException, IOException {
 
-ModelAndView mav = new ModelAndView("login");
-mav.addObject(STATE, state);
-mav.addObject(NONCE, nonce);
-mav.addObject(SCOPES, oktaOAuth2Properties.getScopes());
-mav.addObject(OKTA_BASE_URL, orgUrl);
-mav.addObject(OKTA_CLIENT_ID, oktaOAuth2Properties.getClientId());
-mav.addObject(INTERACTION_HANDLE, idxClientContext.getInteractionHandle());
-mav.addObject(CODE_VERIFIER, idxClientContext.getCodeVerifier());
-mav.addObject(CODE_CHALLENGE, idxClientContext.getCodeChallenge());
-mav.addObject(CODE_CHALLENGE_METHOD, CODE_CHALLENGE_METHOD_VALUE);
+   final ServletRequestAttributes servletRequestAttributes =
+      (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
+   final HttpSession session = servletRequestAttributes.getRequest().getSession();
 
-// from ClientRegistration.redirectUriTemplate, if the template is change you must update this
-mav.addObject(REDIRECT_URI,
-   request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() +
-   request.getContextPath() + "/authorization-code/callback"
-);
-mav.addObject(ISSUER_URI, issuer);
+   final MultiValueMap<String, String> requestParams =
+      OAuth2AuthorizationResponseUtils.toMultiMap(request.getParameterMap());
 
-session.setAttribute(CODE_VERIFIER, idxClientContext.getCodeVerifier());
+   final String interactionCode = requestParams.getFirst("interaction_code");
+   final String codeVerifier = (String) session.getAttribute("codeVerifier");
+
+   if (!Strings.hasText(interactionCode)) {
+      String error = requestParams.getFirst("error");
+      String errorDesc = requestParams.getFirst("error_description");
+      throw new OAuth2AuthenticationException(
+         new OAuth2Error(error, errorDesc, null));
+   }
+
+   // exchange the interaction code for an access and refresh tokens
+   final JsonNode jsonNode =
+      helperUtil.exchangeCodeForToken(interactionCode, codeVerifier);
+   final OAuth2AccessToken oAuth2AccessToken =
+      helperUtil.buildOAuth2AccessToken(jsonNode);
+   final OAuth2RefreshToken oAuth2RefreshToken =
+      helperUtil.buildOAuth2RefreshToken(jsonNode);
+
+   // retrieve user properties
+   final OAuth2User oauth2User = helperUtil.BuildOAuth2User(request, response);
+
+   final Collection<? extends GrantedAuthority> mappedAuthorities =
+      this.authoritiesMapper.mapAuthorities(oauth2User.getAuthorities());
+   final OAuth2LoginAuthenticationToken authenticationResult =
+      new OAuth2LoginAuthenticationToken(
+            clientRegistration, oAuth2AuthorizationExchange,
+            oauth2User, mappedAuthorities, oAuth2AccessToken, oAuth2RefreshToken);
+   authenticationResult.setDetails(authenticationDetails);
+
+   // return OAuth2AuthenticationToken to Spring
+   final OAuth2AuthenticationToken oauth2Authentication =
+      new OAuth2AuthenticationToken(
+            oauth2User, authenticationResult.getAuthorities(),
+            authenticationResult.getClientRegistration().getRegistrationId());
+   oauth2Authentication.setDetails(authenticationDetails);
+   return oauth2Authentication;
+}
 ```
 
-### 3: Request and store the tokens from Okta
+### Get the user profile information
 
-The Spring security framework doesn't understand Okta’s Interaction code flow. Therefore, your app needs to intercept Spring’s OAuth authentication code flow, exchange the Interaction code that is obtained from Okta for an access token, populate the user profile attributes, and construct [`OAuth2AuthenticationToken.java`](https://github.com/spring-projects/spring-security/blob/main/oauth2/oauth2-client/src/main/java/org/springframework/security/oauth2/client/authentication/OAuth2AuthenticationToken.java) before handing over the authentication flow back to Spring.
-
-In the following example, the helper function `exchangeCodeForToken()` is used to obtain the access and refresh tokens.
+After the user signs in successfully, request basic user information from the authorization server using the [`OAuth2AuthenticationToken`](https://github.com/spring-projects/spring-security/blob/main/oauth2/oauth2-client/src/main/java/org/springframework/security/oauth2/client/authentication/OAuth2AuthenticationToken.java) returned in the previous step.
 
 ```java
-final JsonNode jsonNode = helperUtil.exchangeCodeForToken(interactionCode, codeVerifier);
-final OAuth2AccessToken oAuth2AccessToken = helperUtil.buildOAuth2AccessToken(jsonNode);
-final OAuth2RefreshToken oAuth2RefreshToken = helperUtil.buildOAuth2RefreshToken(jsonNode);
-```
+Map<String, Object> claims = new LinkedHashMap<>();
 
-### 4 (Optional): Get the user profile information
+try {
+   // get user claim info from /v1/userinfo endpoint
+   String userInfoUrl = normalizedIssuerUri(issuer, "/v1/userinfo");
 
-Retrieve the user profile attributes with the access token object, and populate the [`OAuth2AuthenticationToken`](https://github.com/spring-projects/spring-security/blob/main/oauth2/oauth2-client/src/main/java/org/springframework/security/oauth2/client/authentication/OAuth2AuthenticationToken.java) object reference for Spring to continue with the rest of the authentication flow. See the helper class method [`getUserAttributes()`](https://github.com/okta/okta-idx-java/blob/master/samples/embedded-sign-in-widget/src/main/java/com/okta/spring/example/HelperUtil.java) for details.
+   HttpHeaders httpHeaders = new HttpHeaders();
+   headers.set("Authorization", "Bearer " + oAuth2AccessToken.getTokenValue());
+   headers.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
 
-```java
-final Map<String, Object> userAttributes =
-      helperUtil.getUserAttributes(clientRegistration.getProviderDetails().getUserInfoEndpoint().getUri(),
-            oAuth2AccessToken);
+   HttpEntity<String> requestEntity = new HttpEntity<>(null, httpHeaders);
+
+   ParameterizedTypeReference<Map<String, Object>> responseType =
+      new ParameterizedTypeReference<Map<String, Object>>() { };
+   ResponseEntity<Map<String, Object>> responseEntity =
+      restTemplate.exchange(userInfoUrl, HttpMethod.GET, requestEntity, responseType);
+
+   claims = responseEntity.getBody();
+} catch (Exception e) {
+   logger.error("Error retrieving profile from user info endpoint", e);
+}
 ```
