@@ -36,7 +36,7 @@ If an error occurs during the sign-in flow, Okta needs to display an error page 
 The [Brands API](/docs/reference/api/brands/) allows you to set icons, images, and colors across the following:
 
 - Sign-in page (redirect authentication)
-- error pages
+- Error pages
 - email templates
 - Okta End-User Dashboard
 
