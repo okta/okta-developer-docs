@@ -37,7 +37,7 @@ The [Brands API](/docs/reference/api/brands/) allows you to set icons, images, a
 
 - Sign-in page (redirect authentication)
 - Error pages
-- email templates
+- Email templates
 - Okta End-User Dashboard
 
 You don't need to set a customized Okta URL domain to use the API.
