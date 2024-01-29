@@ -27,7 +27,7 @@ Customize error pages as part of the sign-in flow.
 
 When using redirect authentication, you can create a unique sign-in experience. First, set up a [custom domain](/docs/guides/custom-url-domain/) and then create a [Widget style](/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget) that matches your application's look and feel.
 
-If an error occurs during sign-in, Okta needs to display an error page to the user. You can use the code editor to customize the error page.
+If an error occurs during the sign-in flow, Okta needs to display an error page to the user. You can use the code editor to customize the error page.
 
 > **Note:** A custom error page only appears when an app connects to Okta by using your custom domain. Otherwise, the default Okta error page appears when a critical error occurs, or you haven't properly configured an app. See [Okta deployment models&mdash;redirect vs. embedded](/docs/concepts/redirect-vs-embedded/#redirect-authentication) for more information on redirect functionality.
 
