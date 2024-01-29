@@ -685,7 +685,7 @@ curl -v -X POST \
 curl -v -X POST \
 -H "Content-Type: application/x-www-form-urlencoded" \
 -H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
-'https://sharper.trexcloud.com/oauth2/v1/introspect'
+'https://example.okta.com/oauth2/v1/introspect'
 -d "token=${accessToken}" \
 -d "token_type_hint=access_token" \
 -d "client_assertion=eyJhb.....LUtUrm-yQ" \
