@@ -2,9 +2,13 @@
 
 After you've completed the steps in [Configuration Updates](#configuration-updates), and have configured your app to [load the Sign-In Widget](/docs/guides/oie-embedded-widget-use-case-load/java/main/), then the **Sign in with Facebook** option is available in the embedded Widget. No coding is required to have the **Sign in with Facebook** option.
 
-<div class="half">
+<div class="half wireframe-border">
 
-![Displays the Sign-In Widget with the 'Sign in with Facebook' button](/img/oie-embedded-sdk/oie-embedded-widget-use-case-social-sign-in-screen-java.png)
+![The Okta Sign-In Widget's sign-in form with a field for a username, next button, sign in with Facebook button and links to reset your password and sign up](/img/wireframes/widget-sign-in-form-username-only-sign-up-forgot-your-password-facebook-links.png)
+
+<!--
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?type=design&node-id=4662-25341&mode=design&t=mABNx7Cm2rdSOFyx-11 widget-sign-in-form-username-only-sign-up-forgot-your-password-facebook-links
+ -->
 
 </div>
 
