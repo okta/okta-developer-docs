@@ -665,15 +665,31 @@ The following parameters can be posted as a part of the URL-encoded form values 
 | token                   | An access token, ID token, refresh token, or device secret.                                                                   | String        |
 | token_type_hint         | Indicates the type of `token` being passed. Valid values: `access_token`, `id_token`, `refresh_token`, and `device_secret`.   | String (Enum) |
 
-#### Request example (access token)
+#### Request example (access token, using `client_secret_basic` client authentication)
+
+> **Note:** Tokens are truncated for brevity.
 
 ```bash
 curl -v -X POST \
--H "Content-Type: application/x-www-form-urlencoded' \
+-H "Content-Type: application/x-www-form-urlencoded" \
 -H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: Basic MG9hNG54a.....lbnRTZWNyZXR9fQ==" \
 "https://${yourOktaDomain}/oauth2/v1/introspect" \
--d "token=${accessToken}&token_type_hint=access_token"
+-d "token=${accessToken}" \
+-d "token_type_hint=access_token"
+```
+
+#### Request example (access token, using `private_key_jwt` client authentication)
+
+```bash
+curl -v -X POST \
+-H "Content-Type: application/x-www-form-urlencoded" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
+'https://example.okta.com/oauth2/v1/introspect'
+-d "token=${accessToken}" \
+-d "token_type_hint=access_token" \
+-d "client_assertion=eyJhb.....LUtUrm-yQ" \
+-d "client_assertion_type=urn:ietf:params:oauth:client-assertion-type:jwt-bearer"
 ```
 
 #### Response properties
