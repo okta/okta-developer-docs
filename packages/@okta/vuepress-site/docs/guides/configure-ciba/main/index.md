@@ -228,7 +228,7 @@ The OIDC client sends the CIBA challenge request to an Okta authorization server
 **Example request**
 
 ```bash
-curl --request GET \
+curl --request POST \
   --url https://${yourOktaDomain}/oauth2/default/v1/bc/authorize \
   --header 'Accept: application/json' \
   --header 'authorization: Basic MG9hY...' \

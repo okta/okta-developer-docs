@@ -50,7 +50,7 @@ export default {
     return {
       anchors: [],
       activeAnchor: null,
-      paddedHeaderHeight: 0
+      isCalledOnceFromUpdated: false,
     };
   },
   computed: {
@@ -70,28 +70,34 @@ export default {
     $page(to, from) {
       if (from.title !== to.title) {
         this.$nextTick(function() {
-          this.anchors = this.getOnThisPageAnchors();
+          this.setAnchors(this.getOnThisPageAnchors());
+
         });
       }
     }
   },
   mounted() {
-    this.paddedHeaderHeight =
-      document.querySelector(".fixed-header").clientHeight +
-      LAYOUT_CONSTANTS.HEADER_TO_CONTENT_GAP;
-    window.addEventListener("load", () => {
-      this.$nextTick(() => {
-        this.anchors = this.getOnThisPageAnchors();
-        this.setActiveAnchor();
-        //this.setAlwaysOnViewPosition();
-      });
-    });
-    // window.addEventListener("scroll", this.setAlwaysOnViewPosition);
+    this.setAnchors(this.getOnThisPageAnchors());
+    this.setActiveAnchor();
     window.addEventListener("scroll", this.setActiveAnchor);
+    window.addEventListener("resize", this.updateAnchors);
+  },
+  updated() {
+    if (!this.isCalledOnceFromUpdated) {
+      // Sometimes anchors are not set during the mounting phase. Hence, we need to set the anchors again 
+      // in the updated hook and we only need to do it once, hence, the isCalledOnceFromUpdated condition.
+      // Adding a setTimeout as due to some reason this was not working in the preview build but was working
+      // locally. Adding a setTimeout fixes the issue in the preview build.
+      setTimeout(() => {
+        this.isCalledOnceFromUpdated = true;
+        this.setAnchors(this.getOnThisPageAnchors());
+        this.setActiveAnchor();
+      }, 500);
+    }
   },
   beforeDestroy() {
-    // window.removeEventListener("scroll", this.setAlwaysOnViewPosition);
     window.removeEventListener("scroll", this.setActiveAnchor);
+    window.removeEventListener("resize", this.updateAnchors);
   },
   methods: {
     setAlwaysOnViewPosition: _.debounce(function() {
@@ -112,7 +118,12 @@ export default {
       this.activeAnchor = onThisPageActiveAnchor
         ? onThisPageActiveAnchor.hash
         : "";
-    }, 50),
+    }, 200),
+
+    updateAnchors: _.debounce(function () {
+      this.getAnchorsOffset();
+      this.setActiveAnchor();
+    }, 200),
 
     getOnThisPageAnchors() {
       const onThisPageLinks = [].slice.call(

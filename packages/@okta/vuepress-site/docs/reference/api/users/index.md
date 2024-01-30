@@ -1163,7 +1163,7 @@ The first three parameters in the table below correspond to different ways to li
 
 - If you don't specify a value for `limit`, the maximum (200) is used as a default.  If you are using a `q` parameter, the default limit is 10.
 - An HTTP 500 status code usually indicates that you have exceeded the request timeout. Retry your request with a smaller limit and [paginate](/docs/reference/core-okta-api/#pagination) the results.
-- Okta strongly advises that you use the `search` parameter, which delivers optimal performance. The `q` or `filter` parameters may struggle to perform, in which case Okta recommends reformatting the request to use `search`.
+- The `search` parameter delivers optimal performance. Using the `q` or `filter` parameters affect search performance. They may also yield no results, in which case you should try reformatting the request to use `search`.
 - Treat the `after` cursor as an opaque value and obtain it through the next link relation. See [Pagination](/docs/reference/core-okta-api/#pagination).
 
 ##### Response parameters
@@ -1199,6 +1199,7 @@ This operation:
   - `sortOrder` is optional and defaults to ascending
   - `sortOrder` is ignored if `sortBy` is not present
   - Users with the same value for the `sortBy` property will be ordered by `id`
+  - The `ne` (not equal) operator isn't supported, but you can obtain the same result by using `lt ... or ... gt`. For example, to see all users except those that have a status of "STAGED", use `(status lt "STAGED" or status gt "STAGED")`.
 
 | Search Term Example                             | Description                                     |
 | :---------------------------------------------- | :---------------------------------------------- |
@@ -2621,7 +2622,8 @@ Generates a one-time token (OTT) that can be used to reset a user's password.  T
 This operation will transition the user to the status of `RECOVERY` and the user will not be able to login or initiate a forgot password flow until they complete the reset flow.
 
 This operation provides an option to delete all the user' sessions.  However, if the request is made in the context of a session owned by the specified user, that session isn't cleared.
->**Note:** You can also use this API to convert a user with the Okta Credential Provider to a use a Federated Provider. After this conversion, the user cannot directly sign in with password. The second example demonstrates this usage.
+
+>**Note:** You can also use this API to convert a user with the Okta Credential Provider to a use a Federated Provider. After this conversion, the user can't directly sign in with a password. The second example demonstrates this usage. To convert a federated user back to an Okta user, use the default API call. See the final example.
 
 ##### Request parameters
 
@@ -2669,7 +2671,7 @@ curl -v -X POST \
 }
 ```
 
-##### Request example (Convert a User to a Federated User)
+##### Request example (Convert a user to a Federated User)
 
 To convert a user to a federated user, pass `FEDERATION` as the `provider` in the [Provider object](#provider-object). The `sendEmail`
 parameter must be false or omitted for this type of conversion.
@@ -2679,11 +2681,28 @@ curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/reset_password?provider=FEDERATION&sendEmail=false"
+"https://${yourOktaDomain}/api/v1/users/{userId}/lifecycle/reset_password?provider=FEDERATION&sendEmail=false"
 ```
 
 ##### Response example
 
+```json
+{}
+```
+
+##### Request example (Convert a Federated User to an Okta User)
+
+To convert a federated user to an Okta user, call the default endpoint.
+
+```bash
+curl -v -X POST \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://${yourOktaDomain}/api/v1/users/{userId}/lifecycle/reset_password"
+```
+
+##### Response example
 
 ```json
 {}
@@ -4252,7 +4271,7 @@ Specifies the authentication provider that validates the user's password credent
 
 | Property   | DataType                                                              | Nullable   | Unique   | Readonly |
 | :--------- | :-------------------------------------------------------------        | :--------- | :------- | :------- |
-| type       | `OKTA`, `ACTIVE_DIRECTORY`,`LDAP`, `FEDERATION`, `SOCIAL` or `IMPORT` | FALSE      | FALSE    | TRUE     |
+| type       | `OKTA`, `ACTIVE_DIRECTORY`,`LDAP`, `FEDERATION`, `SOCIAL`, or `IMPORT` | FALSE      | FALSE    | TRUE     |
 | name       | String                                                                | TRUE       | FALSE    | TRUE     |
 
 > **Note:** `ACTIVE_DIRECTORY` or `LDAP` providers specify the directory instance name as the `name` property.
@@ -4263,7 +4282,7 @@ Specifies the authentication provider that validates the user's password credent
 
 ### Links object
 
-Specifies link relations (see [Web Linking](http://tools.ietf.org/html/rfc8288) available for the current status of a user.  The Links object is used for dynamic discovery of related resources, lifecycle operations, and credential operations.  The Links object is read-only.
+The Links object specifies link relations (see [Web Linking](http://tools.ietf.org/html/rfc8288) available for the current status of a user). The Links object is used for dynamic discovery of related resources, lifecycle operations, and credential operations. The Links object is read-only.
 
 #### Individual Users vs. collection of Users
 

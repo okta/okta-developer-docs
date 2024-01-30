@@ -1,6 +1,6 @@
 {
-  "release" : "2023.11.1",
-  "build" : "2023.11.1-begin-148-g6ab15ef55aa3",
+  "release" : "2024.01.1",
+  "build" : "2024.01.1-begin-97-g2d5653584823",
   "errors" : [ {
     "title" : "API validation exception",
     "includesExceptionMessage" : true,
@@ -1752,6 +1752,30 @@
     "statusReasonPhrase" : "Bad Request",
     "errorCode" : "E0000235",
     "errorSummary" : "Resource Selector: {0}",
+    "errorDescription" : null
+  }, {
+    "title" : "Email customization invalid bcp47 locale format exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "errorCode" : "E0000236",
+    "errorSummary" : "The language doesn't conform to the BCP 47 standard for locales.",
+    "errorDescription" : null
+  }, {
+    "title" : "Email customization test locale not permitted exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "errorCode" : "E0000237",
+    "errorSummary" : "The language isn't a platform-supported locale.",
+    "errorDescription" : null
+  }, {
+    "title" : "Policy lock exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 423,
+    "statusReasonPhrase" : "Locked",
+    "errorCode" : "E0000239",
+    "errorSummary" : "Policy priorities are being reconciled. Please try again later.",
     "errorDescription" : null
   } ]
 }

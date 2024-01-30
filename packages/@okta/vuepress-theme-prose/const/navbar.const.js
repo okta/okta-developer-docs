@@ -600,6 +600,10 @@ export const guides = [
                 title: "Build an SSO integration",
                 guideName: "build-sso-integration",
               },
+              {
+                title: "Add a private SSO integration",
+                guideName: "add-private-app",
+              },
             ],
           },
           {
@@ -623,6 +627,10 @@ export const guides = [
                     path: "/docs/guides/scim-provisioning-integration-test/main/",
                   },
                 ],
+              },
+              {
+                title: "Build a SCIM server with entitlements",
+                path: "/docs/guides/scim-with-entitlements/main/",
               },
             ],
           },
@@ -649,12 +657,16 @@ export const guides = [
                 guideName: "submit-app-prereq",
               },
               {
-                title: "Submit an SSO integration",
-                guideName: "submit-sso-app",
+                title: "OIN Wizard: Submit an SSO integration",
+                guideName: "submit-oin-app",
               },
               {
-                title: "Submit an LCM integration",
+                title: "OIN Manager: Submit an LCM integration",
                 guideName: "submit-app",
+              },
+              {
+                title: "OIN Manager: Submit an SSO integration (to remove) ",
+                guideName: "submit-sso-app",
               },
             ]
           },
@@ -668,11 +680,11 @@ export const guides = [
             guideName: "dpop",
           },
           {
-            title: "Configure OAuth for Okta",
+            title: "Implement OAuth for Okta",
             guideName: "implement-oauth-for-okta",
           },
           {
-            title: "Configure OAuth for Okta: Service App",
+            title: "Implement OAuth for Okta: Service App",
             guideName: "implement-oauth-for-okta-serviceapp",
           },
           {
@@ -1036,44 +1048,7 @@ export const reference = [
          },
          {
             title: "Advanced Server Access API",
-            subLinks: [
-               {
-                  title: "Introduction",
-                  path: "/docs/reference/api/asa/introduction/",
-               },
-               {
-                title: "ASA AD Connections API",
-                path: "/docs/reference/api/asa/ad-connections/",
-               },
-               {
-                  title: "ASA Attributes API",
-                  path: "/docs/reference/api/asa/attributes/",
-               },
-               { title: "ASA Audits API", path: "/docs/reference/api/asa/audits/" },
-               {
-                  title: "ASA Clients API",
-                  path: "/docs/reference/api/asa/clients/",
-               },
-               {
-                  title: "ASA Entitlements API",
-                  path: "/docs/reference/api/asa/entitlements/",
-               },
-               { title: "ASA Groups API", path: "/docs/reference/api/asa/groups/" },
-               {
-                  title: "ASA Projects API",
-                  path: "/docs/reference/api/asa/projects/",
-               },
-               {
-                  title: "ASA Services API",
-                  path: "/docs/reference/api/asa/services/",
-               },
-               {
-                title: "ASA Service Users API",
-                path: "/docs/reference/api/asa/service-users/",
-             },
-               { title: "ASA Teams API", path: "/docs/reference/api/asa/teams/" },
-               { title: "ASA Users API", path: "/docs/reference/api/asa/users/" },
-            ],
+            path: "/docs/reference/api/asa/introduction/"
          },
          {
             title: "SCIM Protocol",
@@ -1154,78 +1129,6 @@ export const reference = [
          {
             title: 'Architecture Center',
             path: '/docs/reference/architecture-center/',
-            subLinks: [
-               {
-                  title: 'Case studies',
-                  subLinks: [
-                     {
-                        title: "CompanyX",
-                        path: "/docs/reference/architecture-center/companyx/",
-                     },
-                  ],
-               },
-               {
-                  title: 'Reference Architectures',
-                  subLinks: [
-                     {
-                        title: "Directory coexistence",
-                        path: "/docs/reference/architecture-center/directory-coexistence/",
-                        subLinks: [
-                           {
-                              title: "Lab overview and prerequisites",
-                              path: "/docs/reference/architecture-center/directory-coexistence/lab/",
-                           },
-                           {
-                              title: "Migrate users from Azure AD",
-                              path: "/docs/reference/architecture-center/directory-coexistence/lab-azure-ad/",
-                           },
-                           {
-                              title: "Migrate users from an LDAP server",
-                              path: "/docs/reference/architecture-center/directory-coexistence/lab-ldap-server/",
-                           },
-                           {
-                              title: "Migrate users from a generic database",
-                              path: "/docs/reference/architecture-center/directory-coexistence/lab-generic-database/",
-                           },
-                        ],
-                     },
-                     {
-                        title: "Manage multiple Okta environments",
-                        path: "/docs/reference/architecture-center/multiple-environments/",
-                        subLinks: [
-                           {
-                              title: "Lab overview and prerequisites",
-                              path: "/docs/reference/architecture-center/multiple-environments/lab/",
-                           },
-                           {
-                              title: "Configure Terraform Cloud",
-                              path: "/docs/reference/architecture-center/multiple-environments/lab-1-configure-terraform-cloud/",
-                           },
-                           {
-                              title: "Create resources",
-                              path: "/docs/reference/architecture-center/multiple-environments/lab-2-create-resources/",
-                           },
-                           {
-                              title: "Rename a group",
-                              path: "/docs/reference/architecture-center/multiple-environments/lab-3-rename-a-group/",
-                           },
-                           {
-                              title: "Deploy changes to production",
-                              path: "/docs/reference/architecture-center/multiple-environments/lab-4-deploy-changes-to-production/",
-                           },
-                           {
-                              title: "Detect drift",
-                              path: "/docs/reference/architecture-center/multiple-environments/lab-5-detect-drift/",
-                           },
-                           {
-                              title: "Synchronize environments daily",
-                              path: "/docs/reference/architecture-center/multiple-environments/lab-6-synchronize-environments-daily/",
-                           },
-                        ],
-                     },
-                  ],
-               },
-            ],
          },
       ],
    },
@@ -1236,6 +1139,11 @@ export const releaseNotes = [
       title: "Release Notes",
       path: "/docs/release-notes/",
       subLinks: [
+         { title: "2024", path: "/docs/release-notes/2024/" },
+         {
+            title: "2024 - Okta Identity Engine",
+            path: "/docs/release-notes/2024-okta-identity-engine/",
+         },
          { title: "2023", path: "/docs/release-notes/2023/" },
          {
             title: "2023 - Okta Identity Engine",

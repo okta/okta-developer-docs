@@ -22,15 +22,16 @@
     "test:wait-on-local": "wait-for-localhost 8080 --use-get",
     "markdown-lint": "node scripts/markdown-check",
     "stop-all": "if-env CI=true && exit 0 || pkill -f 'yarn' || echo 'done'",
-    "update-docs": "yarn update-event-types && yarn update-error-codes && yarn update-oauth2-error-codes",
+    "update-docs": "yarn update-event-types && yarn update-error-codes && yarn update-oauth2-error-codes && yarn event-types-to-csv",
     "update-event-types": "bash scripts/update-event-types.sh",
     "update-error-codes": "bash scripts/update-error-codes.sh",
     "update-oauth2-error-codes": "bash scripts/update-oauth2-error-codes.sh",
+    "event-types-to-csv": "bash scripts/event-types-to-csv.sh",
     "stylelint": "yarn stylelint:scss && yarn stylelint:vue",
     "stylelint:scss": "stylelint \"packages/@okta/vuepress-theme-prose/**/*.scss\"",
     "stylelint:vue": "stylelint \"packages/@okta/vuepress-theme-prose/**/*.vue\"",
     "eslint": "eslint \"packages/@okta/vuepress-theme-prose/**/*.vue\"",
-    "lint-all": "yarn eslint && yarn stylelint"
+    "lint-all": "yarn eslint --max-warnings=0 && yarn stylelint"
   },
   "repository": "git@github.com:okta/okta.github.io",
   "author": "Brian Retterer <brian.retterer@okta.com>",

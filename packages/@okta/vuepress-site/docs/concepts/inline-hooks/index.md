@@ -169,7 +169,7 @@ Lets you specify additional information to make available in the Okta System Log
 
 ## Time out and retry
 
-When Okta calls an external service, it enforces a default timeout of 3 seconds. Okta attempts at most one retry. A request isn't retried if the external service endpoint responds with a 2xx HTTP success code or a 4xx HTTP error code. If the external service endpoint responds with a redirect, it isn't followed.
+When Okta calls an external service, it enforces a default timeout of three seconds. Okta attempts at most one retry. A request isn't retried if the external service endpoint responds with a 2xx HTTP success code or a 4xx HTTP error code. If the external service endpoint responds with a redirect, it isn't followed.
 
 ### Inline hooks and concurrent rate limits
 

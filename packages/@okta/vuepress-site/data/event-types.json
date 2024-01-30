@@ -1,6 +1,6 @@
 {
-  "release" : "2023.11.1",
-  "build" : "2023.11.1-begin-141-ge17ef2794a59",
+  "release" : "2024.01.1",
+  "build" : "2024.01.1-begin-97-g2d5653584823",
   "categories" : [ {
     "id" : "access-gateway",
     "name" : "Access Gateway"
@@ -101,6 +101,9 @@
     "id" : "fastpass-and-device-assurance",
     "name" : "FastPass and Device Assurance"
   }, {
+    "id" : "first-party-apps",
+    "name" : "First Pary Apps"
+  }, {
     "id" : "federation",
     "name" : "Federation"
   }, {
@@ -153,7 +156,7 @@
     "name" : "eNduser eXperience Team"
   }, {
     "id" : "oin-advanced-apps",
-    "name" : "OIN Advanced Apps"
+    "name" : "Advanced Apps"
   }, {
     "id" : "oin-apps",
     "name" : "OIN Apps"
@@ -9286,7 +9289,7 @@
         "created" : "2023-12-01",
         "release" : "2023.12.0"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "pam" ],
       "mappings" : [ ],
@@ -9303,7 +9306,7 @@
         "created" : "2023-12-01",
         "release" : "2023.12.0"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "pam" ],
       "mappings" : [ ],
@@ -9320,7 +9323,7 @@
         "created" : "2023-12-01",
         "release" : "2023.12.0"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "pam" ],
       "mappings" : [ ],
@@ -9337,7 +9340,7 @@
         "created" : "2023-12-01",
         "release" : "2023.12.0"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "pam" ],
       "mappings" : [ ],
@@ -9354,7 +9357,7 @@
         "created" : "2023-12-01",
         "release" : "2023.12.0"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "pam" ],
       "mappings" : [ ],
@@ -9371,7 +9374,7 @@
         "created" : "2023-12-01",
         "release" : "2023.12.0"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "pam" ],
       "mappings" : [ ],
@@ -9388,7 +9391,7 @@
         "created" : "2023-12-01",
         "release" : "2023.12.0"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "pam" ],
       "mappings" : [ ],
@@ -9439,7 +9442,7 @@
         "created" : "2023-12-01",
         "release" : "2023.12.0"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "pam" ],
       "mappings" : [ ],
@@ -13053,6 +13056,57 @@
         "targets" : [ "HookKeyResourceDetails" ]
       }
     }, {
+      "id" : "system.idp.key.create",
+      "category" : "federation",
+      "description" : "Fired when a new Identity provider key credential is created. This can be used to audit that a new identity provider key credential has been created. When fired, this event indicates a new X.509 certificate credential is added to the IdP key store.",
+      "info" : {
+        "created" : "2023-12-12",
+        "release" : "2023.12.2"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "event-hook-eligible", "idp" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "system.idp.key.delete",
+      "category" : "federation",
+      "description" : "Fired when an Identity provider key credential is deleted. This can be used to audit that an identity provider key credential has been deleted. When fired, this event indicates a X.509 certificate credential by kid is deleted if it isn't currently being used by an active or inactive IdP.",
+      "info" : {
+        "created" : "2023-12-12",
+        "release" : "2023.12.2"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "event-hook-eligible", "idp" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "system.idp.key.update",
+      "category" : "federation",
+      "description" : "Fired when an Identity provider key credential is updated. This can be used to audit that an identity provider key credential has been updated. When fired, this event indicates a X.509 certificate credential is updated in the IdP key store.",
+      "info" : {
+        "created" : "2023-12-12",
+        "release" : "2023.12.2"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "event-hook-eligible", "idp" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
       "id" : "system.idp.lifecycle.activate",
       "category" : "federation",
       "description" : "Fired when an Identity provider is activated. This can be used to audit that an identity provider has been activated. When fired, this event indicates an Identity provider was activated. This event also indicates the type of the identity provider that was activated.",
@@ -13110,6 +13164,23 @@
       "info" : {
         "created" : "2020-09-03",
         "release" : "2020.09.1"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "event-hook-eligible", "idp" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "IdpDebugData",
+        "actor" : null,
+        "targets" : [ "ResourceDetails" ]
+      }
+    }, {
+      "id" : "system.idp.lifecycle.read_client_secret",
+      "category" : "federation",
+      "description" : "Fired when Identity provider(s) with a client secret is read. This can be used to audit that identity provider(s) with a client secret has been read. When fired, this event indicates one or more Identity providers with a client secret was read.",
+      "info" : {
+        "created" : "2023-12-15",
+        "release" : "2020.12.2"
       },
       "beta" : false,
       "internal" : false,
@@ -14972,6 +15043,23 @@
         "debugData" : "UserAuthenticationDebugData",
         "actor" : null,
         "targets" : [ "UserAuthenticationResourceDetails" ]
+      }
+    }, {
+      "id" : "user.account.preference_update",
+      "category" : "auth-experiences",
+      "description" : "User preferences updated. This can be used for debugging and auditing purposes. These preferences live outside the user profile.",
+      "info" : {
+        "created" : "2023-10-23",
+        "release" : "2023.11.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "account", "user" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "UserAccountPreferenceDebugData",
+        "actor" : null,
+        "targets" : [ "UserAccountPreferenceResourceDetails" ]
       }
     }, {
       "id" : "user.account.privilege.grant",
@@ -22259,6 +22347,14 @@
             "format" : "id",
             "examples" : [ "X2VCdlgDiOx8wuRzdWiZ6gAABOk", "X04hrZh4mEb9dgc6GkD5@AAACPU" ]
           },
+          "server_status" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "SAFE_MODE" ]
+          },
           "cae_enforce_mode" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -26523,6 +26619,14 @@
             "customer" : false,
             "format" : "id",
             "examples" : [ "X2VCdlgDiOx8wuRzdWiZ6gAABOk", "X04hrZh4mEb9dgc6GkD5@AAACPU" ]
+          },
+          "idp_ids_with_secrets" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[0oa105vfnZXjOkfhY0g4]", "[0oa10curT7LcpG5QF0g4, 0oa108lzxa2rd3NyW0g4]", "[0oa10fpNcoWitlFSa0g4, 0oa10k1GLb53GWM1a0g4, 0oa10t5eHwpwp1mOE0g4, 0oa10zdSPwHVVJWYE0g4]" ]
           },
           "protocol" : {
             "type" : "String",
@@ -34116,6 +34220,14 @@
             "format" : "id",
             "examples" : [ "X2VCdlgDiOx8wuRzdWiZ6gAABOk", "X04hrZh4mEb9dgc6GkD5@AAACPU" ]
           },
+          "changed_device_signals" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : true,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"device.profile.managed\":{\"oldValue\":true, \"newValue\":false},\"device.provider.wsc.fireWall\":{\"oldValue\":\"GOOD\", \"newValue\":\"NONE\"}}" ]
+          },
           "source" : {
             "type" : "String",
             "sensitive" : false,
@@ -34124,10 +34236,18 @@
             "format" : "text",
             "examples" : [ "OKTA" ]
           },
-          "ip_address" : {
+          "previous_ip_address" : {
             "type" : "String",
             "sensitive" : false,
-            "personal" : false,
+            "personal" : true,
+            "customer" : false,
+            "format" : "ip",
+            "examples" : [ "52.45.198.145", "34.206.19.192" ]
+          },
+          "new_ip_address" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : true,
             "customer" : false,
             "format" : "ip",
             "examples" : [ "52.45.198.145", "34.206.19.192" ]
@@ -35982,6 +36102,187 @@
           }
         }
       },
+      "UserAccountPreferenceDebugData" : {
+        "name" : "UserAccountPreferenceDebugData",
+        "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
+          "oag_app" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
+          "webhooks" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ ]
+          },
+          "risk_change" : {
+            "type" : "RiskChangeSecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
+          },
+          "log_only_security_data" : {
+            "type" : "LogOnlySecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"risk\":{\"reasons\":\"Anomalous Device\",\"level\":\"MEDIUM\"}, \"behaviors\":{\"New Geo-Location\":\"NEGATIVE\",\"New Device\":\"POSITIVE\",\"New IP\":\"NEGATIVE\",\"New State\":\"BAD_REQUEST\",\"New Country\":\"NEGATIVE\",\"Velocity\":\"NEGATIVE\",\"New City\":\"BAD_REQUEST\"}}", "{\"risk\":{\"reasons\":\"Anomalous Device\",\"level\":\"MEDIUM\"},\"behaviors\":{}}", "{\"risk\":{},\"behaviors\":{\"New Geo-Location\":\"NEGATIVE\",\"New Device\":\"POSITIVE\",\"New IP\":\"NEGATIVE\",\"New State\":\"BAD_REQUEST\",\"New Country\":\"NEGATIVE\",\"Velocity\":\"NEGATIVE\",\"New City\":\"BAD_REQUEST\"}}", "{\"risk\":{},\"behaviors\":{}}" ]
+          },
+          "threat_detections" : {
+            "type" : "ObjectNode",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"Password Spray\":\"HIGH\"}", "{\"Password Spray\":\"MEDIUM\"}", "{\"Login Failures\":\"HIGH\"}", "{\"Login Failures\":\"MEDIUM\"}", "{\"Password Spray\":\"HIGH\",\"Login Failures\":\"HIGH\"}", "{\"Password Spray\":\"HIGH\",\"Login Failures\":\"MEDIUM\"}", "{\"Password Spray\":\"MEDIUM\",\"Login Failures\":\"HIGH\"}", "{\"Password Spray\":\"MEDIUM\",\"Login Failures\":\"MEDIUM\"}", "{\"Login Failures\":\"HIGH\",\"Password Spray\":\"HIGH\"}", "{\"Login Failures\":\"HIGH\",\"Password Spray\":\"MEDIUM\"}", "{\"Login Failures\":\"MEDIUM\",\"Password Spray\":\"HIGH\"}", "{\"Login Failures\":\"MEDIUM\",\"Password Spray\":\"MEDIUM\"}" ]
+          },
+          "threat_suspected" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
+          "security_conditions" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
+          },
+          "tunnels" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[{\"operator\":\"HOTSPOT_VPN\",\"type\":\"VPN\",\"anonymous\":true}]" ]
+          },
+          "anonymizer_status" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "private" ]
+          },
+          "proxy_type" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "tor", "service" ]
+          },
+          "behaviors" : {
+            "type" : "Map",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "{New Geo-Location=NEGATIVE, New Device=POSITIVE, New IP=NEGATIVE, New State=BAD_REQUEST, New Country=NEGATIVE, Velocity=NEGATIVE, New City=BAD_REQUEST}", "{Anomalous Location: Country=NEGATIVE, 857d6e8a-1418-483b-9bed-19753635b1bc_1529707130=NEGATIVE, 89cfb2b1-39df-4ab2-9083-cfc743ec95fb=NEGATIVE, 9123fc2e-e5c7-47c4-920b-afecc8571d93=NEGATIVE, 1be3ee59-d12c-42ff-b04e-cc9de57c9a1d=NEGATIVE, bff2f33e-0d48-40e1-8add-a0dd9bc1a587=POSITIVE, 35fd8813-7bb3-4387-b6db-03b5ae95422a=BAD_REQUEST}" ]
+          },
+          "partner_risk" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[{reasons=malware detected, malicious proxy, level=HIGH, name=sig-sci}, {reasons=malware suspected, level=MEDIUM, name=perimeter-x}]", "[{name=sig-sci, level=HIGH}]" ]
+          },
+          "risk" : {
+            "type" : "Map",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "{reasons=Anomalous Device, level=MEDIUM}", "{reasons=Anomalous Location, Anomalous Device, level=HIGH}", "{level=LOW}" ]
+          },
+          "url" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "url",
+            "examples" : [ "/login/do-login?" ]
+          },
+          "request_uri" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "uri",
+            "examples" : [ "/api/v1/authn", "/api/v1/users", "/idp/idx/identify" ]
+          },
+          "request_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "X0S8xnvcK5njK7m0q@zzQQAAAAo" ]
+          },
+          "redirect_uri" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "uri",
+            "examples" : [ "http://httpbin.org" ]
+          },
+          "original_principal" : {
+            "type" : "Resource",
+            "sensitive" : false,
+            "personal" : true,
+            "customer" : false,
+            "format" : "",
+            "examples" : [ "debug_context.debug_data.original_principal.alternate_id=RadiusAge**@******.***", "debug_context.debug_data.original_principal.display_name=RadiusAge**@******.***", "debug_context.debug_data.original_principal.id=00u43fi43mLCWz0rW1t7", "debug_context.debug_data.original_principal.type=User" ]
+          },
+          "device_fingerprint" : {
+            "type" : "String",
+            "sensitive" : true,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
+          },
+          "dt_hash" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "fc735b3e2a613ad06e315578b8d94e289475ab1c4cdf83512f3f18d0536a13e1" ]
+          },
+          "authn_request_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "X2VCdlgDiOx8wuRzdWiZ6gAABOk", "X04hrZh4mEb9dgc6GkD5@AAACPU" ]
+          }
+        }
+      },
       "UserAuthenticationDebugData" : {
         "name" : "UserAuthenticationDebugData",
         "properties" : {
@@ -36775,6 +37076,14 @@
             "customer" : false,
             "format" : "iso8601",
             "examples" : [ "2023-07-18T19:08:49.000Z" ]
+          },
+          "authenticator_method_challenge_time" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "iso8601",
+            "examples" : [ "2023-11-05T09:30:41.000-05:00" ]
           },
           "prompting_policy_types" : {
             "type" : "List",
@@ -37809,6 +38118,22 @@
             "format" : "text",
             "examples" : [ "[]", "[idxkLq_mlpcQ0qc0Uud4bJYTA, idxUThM1uykQQKY5wtpn9B6zg]" ]
           },
+          "logged_out_app_instance_ids_partial_logout" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[]", "[0oa9trrz4ezn3eA6y1t7, 0oahz5y1qAZHenikC0g4]" ]
+          },
+          "app_instance_ids_partial_logout" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[]", "[0oa9trrz4ezn3eA6y1t7, 0oahz5y1qAZHenikC0g4]" ]
+          },
           "logged_out_app_instance_ids" : {
             "type" : "List",
             "sensitive" : false,
@@ -37831,7 +38156,7 @@
             "personal" : false,
             "customer" : false,
             "format" : "text",
-            "examples" : [ "ENTITY_RISK", "SESSION_RISK", "SINGLE_LOGOUT" ]
+            "examples" : [ "ENTITY_RISK", "CONTINUOUS_ACCESS", "MANUAL" ]
           },
           "total_oidc_logout_requests" : {
             "type" : "Integer",
@@ -40752,6 +41077,19 @@
             "customer" : true,
             "format" : "username",
             "examples" : [ "testing@test.com", "test" ]
+          }
+        }
+      },
+      "UserAccountPreferenceResourceDetails" : {
+        "name" : "UserAccountPreferenceResourceDetails",
+        "properties" : {
+          "keep_me_signed_in_selection" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "OPTIN_IDENTIFIER", "OPTIN_POSTAUTH", "OPTOUT_POSTAUTH" ]
           }
         }
       },

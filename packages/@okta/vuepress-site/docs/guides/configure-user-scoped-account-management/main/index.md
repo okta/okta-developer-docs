@@ -54,14 +54,6 @@ A valid API version in the `Accept` header is required to access the API. Curren
 Accept: application/json; okta-version=1.0.0
 ```
 
-## Access Token assurance
-
-MyAccount operations that create, update, or delete resources require access tokens that are 15 minutes old or younger. API calls with access tokens older than 15 minutes require re-authentication. If you don't reauthenticate the token, the API returns a 403 error with the following content in the header:
-
-```bash
-www-authenticate: Bearer realm="IdpMyAccountAPI", error="insufficient_authentication_context", error_description="The access token requires additional assurance to access the resource", max_age=900
-```
-
 ## Grant the required scopes
 
 > **Note:** If you have a custom authorization server, the MyAccount API-related scopes are granted by default. See [Create an authorization server](/docs/guides/customize-authz-server/-/main/).

@@ -1,7 +1,6 @@
-### 1: The user navigates to the home page
+### Your app displays the sign-in page
 
-When the user navigates to the home page and the application loads, create a new
-SDK Client object by calling the `NewClient()` method.
+When the user goes to the sign-in page and the app loads for the first time, create an SDK `Client` object by calling `NewClient`.
 
 ```go
 idx, err := idx.NewClient(
@@ -15,9 +14,7 @@ if err != nil {
 }
 ```
 
-### 2: Capture credentials with the sign-in page
-
-Build a sign-in page that captures the user's name and password.
+Display a sign-in page that captures the user's name and password.
 
 <div class="half wireframe-border">
 
@@ -30,21 +27,18 @@ Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 
 </div>
 
-During page load, call the `Client` object's `InitLogin()` method. This method returns a `LoginResponse` object that is used to initiate the sign-in process with Okta. This object also contains a list of available social Identity Providers (IdPs) that are discussed in more detail in the [Sign in with Facebook](/docs/guides/oie-embedded-sdk-use-case-sign-in-soc-idp/go/main/)
-use case.
+During page load, call `Client.InitLogin`. This returns a `LoginResponse` object that is used to initiate the sign-in process with Okta.
 
 ```go
 lr, err := s.idxClient.InitLogin(context.TODO())
 if err != nil {
-	log.Fatalf("Could not initalize login: %s", err.Error())
+    log.Fatalf("Could not initalize login: %s", err.Error())
 }
 ```
 
-### 3: The user initiates the sign-in flow
+### The user submits their username and password
 
-After the user enters their credentials and submits their sign-in request,
-create an `IdentityRequest` object, passing in the username and password from the
-sign-in form.
+When the user submits their username and password, create an `IdentityRequest` object and assign its `identifier` and `password` properties to the values entered by the user. Pass this object as a parameter to `LoginResponse.Identify`.
 
 ```go
 ir := &idx.IdentifyRequest{
@@ -53,11 +47,7 @@ ir := &idx.IdentifyRequest{
         Password: r.FormValue("password"),
     },
 }
-```
 
-Next, you can use the `LoginResponse` object obtained from [step 2](#_2-capture-credentials-with-the-sign-in-page) to call the `Identify()` method with the new `IdentifyRequest` object as an argument.
-
-```go
 lr, err = lr.Identify(context.TODO(), ir)
 if err != nil {
     session.Values["Errors"] = err.Error()
@@ -67,33 +57,28 @@ if err != nil {
 }
 ```
 
-### 4: Save the tokens and redirect the user to the default home page
+### Your app handles an authentication success response
 
-The `Identify()` method returns two objects: `LoginResponse` and `error`. Use the `error` object to determine if there were errors in the
-user sign-in. If the `error` object is `nil` and the`LoginResponse` object's
-`Token` property is not `nil`, then the sign-in process is successful. Store the tokens in a session for later use, such as fetching user profile information and refreshing the tokens.
+When the user correctly supplies their password, `err` is `nil` and `LoginResponse.Token` contains the required access and ID tokens to retrieve the user's OIDC claims information. The user is now signed in.
 
 ```go
-lr, err = lr.Identify(context.TODO(), ir)
-if err != nil {
-  session.Values["Errors"] = err.Error()
-  session.Save(r, w)
-  http.Redirect(w, r, "/login", http.StatusFound)
-  return
-}
-
+ //If we have tokens we have success, so lets store tokens
 if lr.Token() != nil {
+  session, err := sessionStore.Get(r, "direct-auth")
+  if err != nil {
+    log.Fatalf("could not get store: %s", err)
+  }
   session.Values["access_token"] = lr.Token().AccessToken
   session.Values["id_token"] = lr.Token().IDToken
+
   err = session.Save(r, w)
   if err != nil {
-  log.Fatalf("could not save access token: %s", err)
+    log.Fatalf("could not save access token: %s", err)
   }
+ //Redirect the user to /profile
   http.Redirect(w, r, "/", http.StatusFound)
   return
 }
 ```
 
-### 5 (Optional): Get the user profile information
-
-Optionally, you can obtain basic user information after the user successfully signs in by making a request to the Okta OpenID Connect authorization server. See the next section for more information.
+Store these tokens for future requests and redirect the user to the default page after a successful sign-in attempt.

@@ -1,8 +1,6 @@
-> **Note:** These steps describe integrating the Okta email OTP flow into your app. To learn more about Okta email including how to integrate Okta email using magic links, see the [Okta email (magic link/OTP) integration guide](/docs/guides/authenticators-okta-email/nodeexpress/main/).
+### The user clicks the sign-up link
 
-### 1: Create a sign-up link for new users
-
-The self-registration flow begins when the user clicks the **Sign Up** link (or **Register** from the SDK sample application home page). On the sign-in page, create a **Sign Up** link that links to the create account page that you create in the next step, similar to the following wireframe.
+Add a **Sign up** link to your app's sign-in page. The user clicks the **Sign up** link and the browser takes them to the Create Account page.
 
 <div class="half wireframe-border">
 
@@ -15,13 +13,13 @@ Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 
 </div>
 
-### 2: Enter information in the create account page
+> **Note**: The account's username is also its email address.
 
-The next step is to enter basic information (for example, email, first name, and last name). Create a page that accepts this information.
+Create a page for the user to enter their basic profile information: their email, first name, and family name. For example:
 
 <div class="half wireframe-border">
 
-![A sign-up form with fields for first name, last name, and email address, and a create account button](/img/wireframes/sign-up-form-first-last-name-email.png)
+![A sign-up form with fields for first name, family name, and email address, and a create account button](/img/wireframes/sign-up-form-first-last-name-email.png)
 
 <!--
 
@@ -30,9 +28,12 @@ Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 
 </div>
 
-When the user clicks **Register**, pass the user profile data that is captured from the Create account page into the `idx.register` method, as shown in `register.js` of the SDK sample application:
+### The user submits their profile data
 
-```JavaScript
+When the user clicks **Sign Up**, create an instance of the `OktaAuth` object and then call [`idx.register()`](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#idxregister) on the object, passing in the values entered by the user. This starts the registration flow:
+
+```js
+// web-server/routes/register.js
 router.post('/register', async (req, res, next) => {
   const { firstName, lastName, email } = req.body;
   const authClient = getAuthClient(req);
@@ -45,28 +46,51 @@ router.post('/register', async (req, res, next) => {
 });
 ```
 
-If the org's application is properly configured with multiple factors, `idx.register` returns a response with `Idx.Status:PENDING` and a `nextStep` field requiring an authenticator key that needs to be verified. If you completed the steps properly in [Set up your Okta org for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#set-up-your-okta-org-for-a-multifactor-use-case), the authenticator is **password** (`Authenticator: AuthenticatorKey.OKTA_PASSWORD`). The next steps, as shown in the SDK sample application, are handled by `handleTransaction.js` for the subsequent flows.
+`register()` returns an anonymous response object that contains two properties.
 
-```JavaScript
-// registration
+* `status` indicates the status of the registration flow.
+* `nextStep` contains information about the next required step of the flow.
+
+A `status` of `IdxStatus.PENDING` indicates that the user hasn’t completed the flow. Query `nextStep` to determine what to do next:
+
+```js
+// web-server/utils/getNextRouteFromTransaction.js
+function getNextRouteFromTransaction ({ nextStep }) {
+  let nextRoute;
+
+  const { name, authenticator } = nextStep;
+  const { key } = authenticator || {};
+
+  switch (name) {
+    // registration
     case 'enroll-profile':
-      redirect({ req, res, path: '/register' });
-      return true;
-// authenticator enrollment
+      nextRoute = '/register';
+      break;
+    // authenticator enrollment
     case 'select-authenticator-enroll':
-      redirect({ req, res, path: '/select-authenticator' });
-      return true;
+      nextRoute = '/select-authenticator';
+      break;
     case 'enroll-authenticator':
-      redirect({ req, res, path: `/enroll-authenticator/${type}` });
-      return true;
+      nextRoute = `/enroll-authenticator/${key}`;
+      break;
     case 'authenticator-enrollment-data':
-      redirect({ req, res, path: `/enroll-authenticator/${type}/enrollment-data` });
-      return true;
+      nextRoute = `/enroll-authenticator/${key}/enrollment-data`;
+      break;
+
+   /// other cases elided
+
+    default:
+      break;
+  }
+  return nextRoute;
+};
 ```
 
-### 3: The user enters the password authenticator and the password
+At this point, `nextStep` contains `select-authenticator-enroll` indicating that the user must select an authentication factor to enroll to verify their identity.
 
-Create a page that displays an authenticator enrollment selection, in this case for password only.
+### The app displays a list of required authenticators to enroll
+
+Create a page that displays a list of required authentication factors the user can enroll to verify their identity. They must choose a factor from the list and click **Next**.
 
 <div class="half wireframe-border">
 
@@ -79,7 +103,39 @@ Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 
 </div>
 
-After the user enters the password authenticator value, and `idx.register` is called with this value, the response returns a status of `Idx.Status:PENDING` and a `nextStep` field that requires the user to enter a password value. The user is directed to a page to set up a password value, similar to the following wireframe (see the SDK sample application route to `/enroll-authenticator`).
+This page is used several times during the registration flow. Use the `nextStep` property's `inputs` collection to build the list. If you complete the steps properly in [Configuration updates](#configuration-updates), the only required authenticator is the password factor. This is the sole factor stored in the `inputs` property.
+
+```js
+nextStep: {
+    inputs: [
+      { name: 'authenticator',
+         options: [{ label: Password, value: AuthenticatorKey.OKTA_PASSWORD }]
+      }
+   ],
+}
+```
+
+### The user enrolls their password
+
+When the user selects the password authenticator and clicks **Next**, pass the selected authenticator as a parameter to `idx.proceed()`.
+
+```js
+// web-server/routes/authenticator.js
+router.post('/select-authenticator', async (req, res, next) => {
+  try {
+    const { authenticator } = req.body;
+    const authClient = getAuthClient(req);
+    const transaction = await authClient.idx.proceed({ authenticator });
+    handleTransaction({ req, res, next, authClient, transaction });
+  } catch (err) {
+    next(err);
+  }
+});
+```
+
+`proceed()` returns a response object with a `status` of `IdxStatus.PENDING` and a `nextStep` field that indicates that the user needs to enroll the authenticator (`enroll-authenticator`). In this context, the user needs to supply a new password.
+
+Create a page that allows the user to supply a new password for verification. For example:
 
 <div class="half wireframe-border">
 
@@ -92,11 +148,29 @@ Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 
 </div>
 
-### 4: The user submits their password
+When the user submits their new password, pass it as a parameter to `idx.proceed()`.
 
-After the user submits a password, call `idx.register` and pass in this value for the user. The response returns a status of `Idx.Status:PENDING` and a `nextStep` field that requires inputs for additional authenticators. The user is directed to a page to select authenticators, as shown in the following wireframe (also see the SDK sample application route to `/select-authenticator`).
+```js
+// web-server/routes/authenticator.js
+router.post('/enroll-authenticator/okta_password', async (req, res, next) => {
+  const { password, confirmPassword } = req.body;
+  const authClient = getAuthClient(req);
+  if (password !== confirmPassword) {
+    // TODO: handle validation in middleware
+    next(new Error('Password not match'));
+    return;
+  }
 
-See [`idx.register`](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#idxregister) for more details on the self-registration flow.
+  const transaction = await authClient.idx.proceed({ password });
+  handleTransaction({ req, res, next, authClient, transaction });
+});
+```
+
+### Display a list of optional authenticators to enroll
+
+`proceed()` returns a response object with a `status` of `IdxStatus.PENDING` and a `nextStep` field that indicates that the user still has authentication factors to enroll (`enroll-authenticator`) before registration is complete.
+
+In this scenario, you configure the app's authentication policy to require a password and another factor. Therefore, the user must enroll at least one of either the email or phone factors. Redirect them to the list page you created earlier to choose which one.
 
 <div class="half wireframe-border">
 
@@ -109,11 +183,19 @@ Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 
 </div>
 
-### 5: The user selects the email authenticator
+### The user submits the email authenticator
 
-In this use case, the user selects the **Email** as the authenticator to verify. Pass this user-selected authenticator key (`Authenticator: AuthenticatorKey.OKTA_EMAIL)`) to `idx.register`.
+If the user chooses and submits the email authenticator, pass the selected authenticator key as a parameter to `idx.proceed()`.
 
- If the call is successful, the method returns a status of `Idx.Status:PENDING` and a `nextStep` field that requires verification, which indicates that the SDK is ready for the email verification code. The next step is to redirect the user to the email verification code page, similar to the following wireframe (see also the SDK sample application route to `/enroll-authenticator`).
+```js
+const transaction = await authClient.idx.proceed({ authenticator });
+```
+
+### The app displays the OTP input page
+
+If the call is successful, a one-time passcode (OTP) is sent to the user's email. The returned response object has a `status` of `IdxStatus.PENDING` and a `nextStep` field that indicates that Identity Engine is waiting for the user to check their email and enter the OTP.
+
+Build a form that allows the user to enter the OTP sent to them by email.
 
 <div class="half wireframe-border">
 
@@ -126,11 +208,25 @@ Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 
 </div>
 
-### 6: The user submits the email verification code
+### The user submits the OTP
 
-The next step is to call `idx.register`, again passing in the verification code. In the email verification use case, the code passed into the method is the code found in the verification email.
+The user opens the email and copies the OTP into the form. When the user submits their OTP, pass it as a parameter to `idx.proceed()`:
 
-Based on the configuration described in [Set up your Okta org for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#set-up-your-okta-org-for-a-multifactor-use-case), the app in this use case is set up to require one possession factor (either email or phone). After the email authenticator is verified, the phone authenticator becomes optional. In this step, the `nextStep` field can include `canSkip` for the phone authenticator. You can build a **Skip** button in your form to allow the user to skip the optional phone authenticator.
+```js
+// web-server/routes/authenticator.js
+router.post('/enroll-authenticator/okta_email', async (req, res, next) => {
+  const { verificationCode } = req.body;
+  const authClient = getAuthClient(req);
+  const transaction = await authClient.idx.proceed({ verificationCode });
+  handleTransaction({ req, res, next, authClient, transaction });
+});
+```
+
+### The app displays a second list of optional authenticators to enroll
+
+`proceed()` returns a response object with a `status` of `IdxStatus.PENDING` and a `nextStep` field that indicates that the user still has authentication factors to enroll (`enroll-authenticator`) before registration is complete.
+
+Redirect the user to the list page you created earlier to choose another authentication factor. The code is the same. The page should show only the phone factor. However, since this factor is optional and the user has now enrolled two factors, `nextStep` includes the `canSkip` property set to `true` meaning that the list page should now also display a **Skip** button.
 
 <div class="half wireframe-border">
 
@@ -143,34 +239,27 @@ Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 
 </div>
 
-If the user decides to skip the optional factor, they are considered signed in since they have already verified the required factors. See [Option 1: Skip phone factor](#option-1-the-user-skips-the-phone-authenticator) for the skip authenticator flow. If the user decides to select the optional factor, see [Option 2: User selects phone authenticator](#option-2-the-user-selects-the-phone-authenticator) for the optional phone authenticator flow.
+The user can either enroll in or skip the phone factor. Your code should handle both scenarios as follows.
 
-### 7: Handle the phone options
+### The user enrolls the phone authenticator
 
-In this use case, the end user can choose to skip the phone authenticator or add the phone authenticator.
+#### The user submits the phone authenticator
 
-#### Option 1: The user skips the phone authenticator
+If the user chooses and submits the email authenticator, pass the selected authenticator key as a parameter to `idx.proceed()`.
 
-If the user decides to skip the phone authenticator enrollment, make a call to `idx.register` passing in the value `{skip: true}`. This method skips the authenticator enrollment, as shown in `Authenticator.js` from the SDK sample application.
-
-```JavaScript
-router.post('/select-authenticator/skip', async (req, res, next) => {
-  const { idxMethod } = req.getFlowStates();
-  const authClient = getAuthClient(req);
-  const transaction = await authClient.idx[idxMethod]({ skip: true });
-  handleTransaction({ req, res, next, authClient, transaction });
-});
+```js
+const transaction = await authClient.idx.proceed({ authenticator });
 ```
 
-If the request to skip the optional authenticator is successful, the SDK returns `Idx.SUCCESS` and tokens. The user is successfully signed in.
+#### The app displays a phone number input page
 
-#### Option 2: The user selects the phone authenticator
+`proceed()` returns a response object with a `status` of `IdxStatus.PENDING` and a `nextStep` field that indicates that the user needs to supply phone registration data (`authenticator-enrollment-data`). This data includes the phone number and verification method (SMS or voice).
 
-After the user selects the phone authenticator value, and `idx.register` is called with this authenticator key (`Authenticator: AuthenticatorKey.PHONE_NUMBER`), the response returns a status of `Idx.Status:PENDING` and a `nextStep` field that requires phone registration data, which includes the phone number and verification method (SMS or voice). The user is directed to a page to enroll the phone data.
+Build a form that allows the user to enter their phone number and a second form to select a phone verification method.
 
 <div class="half wireframe-border">
 
-![A form with a field for a phone number, formatting advice and a next button](/img/wireframes/enter-phone-number-form.png)
+![A form with a field for a phone number, formatting advice, and a next button](/img/wireframes/enter-phone-number-form.png)
 
 <!--
 
@@ -179,17 +268,44 @@ Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 
 </div>
 
-#### The user selects SMS as the verify method and enters their phone number
-
-The user can select SMS or voice verification to receive the phone verification code. Capture this information and send it to`idx.register`. In this use case, use SMS. The user then enters the phone number where the SMS code is sent.
-
-> **Note:** The SDK requires that the phone number be in the following format: `+##########`, including the beginning plus (+) sign, for example, `+5551234567`.
-
-The SDK sends the phone authenticator data to Okta, processes the request, and sends an SMS code to the specified phone number. After the SMS code is sent, Okta sends a response to the SDK, which returns `Idx.Status:PENDING` and the `nextStep` field requiring verification. This status indicates that the user needs to provide the verification code for the phone authenticator:
+> **Note:** The SDK requires the following phone number format: `+##########`. For example, `+5551234567`.
 
 <div class="half wireframe-border">
 
-![A form with a field for a verification code, a note to find the code in a SMS and a submit button](/img/wireframes/enter-verification-code-form-with-sms-message.png)
+![A choose your phone verification method form with SMS and voice options and a next button](/img/wireframes/choose-phone-verification-method-form.png)
+
+<!--
+
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3400%3A37129&t=vr9MuCR8C4rCt3hC-1 choose-phone-verification-method-form
+ -->
+
+</div>
+
+#### The user submits their phone information
+
+When the user submits their phone number and verification method (in this case, use SMS), pass this information as parameters to `idx.proceed()`.
+
+```js
+router.post('/enroll-authenticator/phone_number/enrollment-data', async (req, res, next) => {
+  const { phoneNumber, methodType } = req.body;
+  const authClient = getAuthClient(req);
+  const transaction = await authClient.idx.proceed({
+    methodType,
+    phoneNumber,
+  });
+  handleTransaction({ req, res, next, authClient, transaction });
+});
+```
+
+#### The app displays the SMS OTP input page
+
+If the call is successful, your SMS provider sends a one-time passcode (OTP) in an SMS to the user's mobile phone. The returned response object has a `status` of `IdxStatus.PENDING`. This status indicates that Identity Engine is waiting for the user to check their email and enter the OTP.
+
+Build a form that allows the user to enter the OTP sent to them by SMS. Depending on your implementation, the page can be the same page that verifies the email code.
+
+<div class="half wireframe-border">
+
+![A form with a field for a verification code, a note to find the code in an SMS, and a submit button](/img/wireframes/enter-verification-code-form-with-sms-message.png)
 
 <!--
 
@@ -198,13 +314,29 @@ Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 
 </div>
 
-#### The user submits the SMS verification code
+#### The user submits the SMS OTP
 
-The user receives the verification code as an SMS message on their phone and submits it in the verify code form. Send this code to `idx.register`.
+The user checks their phone and copies the OTP into the form. When the user submits the OTP, pass this information as parameters to `idx.proceed()`.
 
-If the request to verify the code is successful, the SDK returns a status of `Idx.Status:SUCCESS` and saves tokens to storage, as shown on `handleTransaction.js` of the SDK sample application.
+```js
+router.post('/enroll-authenticator/phone_number', async (req, res, next) => {
+  const { verificationCode } = req.body;
+  const authClient = getAuthClient(req);
+  const transaction = await authClient.idx.proceed({ 
+    verificationCode,
+  });
+  handleTransaction({ req, res, next, authClient, transaction });
+});
+```
 
-```JavaScript
+#### Complete registration
+
+If the request to verify the code is successful, `proceed()` returns a response object with a `status` of `IdxStatus.SUCCESS`. This status signifies that no more factors (required or optional) are waiting to be enrolled and verified.
+
+The user is now registered with no more factors to be verified. Call `authClient.tokenManager.setTokens()` to store the returned tokens in a session and redirect the user to the app's default signed-in page.
+
+```js
+// web-server/utils/handleTransaction.js
 case IdxStatus.SUCCESS:
       // Save tokens to storage (req.session)
       authClient.tokenManager.setTokens(tokens);
@@ -213,4 +345,16 @@ case IdxStatus.SUCCESS:
       return;
 ```
 
-The user is signed in and sent to the default sign-in page.
+### The user skips the phone authenticator
+
+If the user skips phone enrollment, call `idx.proceed()` passing in the value `{skip: true}`.
+
+```js
+router.post('/select-authenticator/skip', async (req, res, next) => {
+  const authClient = getAuthClient(req);
+  const transaction = await authClient.idx.proceed({ skip: true });
+  handleTransaction({ req, res, next, authClient, transaction });
+});
+```
+
+If the returned response object has a `status` of `IdxStatus.SUCCESS`, the user is now registered with no more factors to be verified. Call `authClient.tokenManager.setTokens()` to store the returned tokens in a session and redirect the user to the app's default signed-in page.

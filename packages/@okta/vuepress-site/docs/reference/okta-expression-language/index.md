@@ -239,7 +239,7 @@ The following should be noted about these functions:
 
 * Be sure to pass the correct App name for the `managerSource`, `assistantSource`, and `attributeSource` parameters.
 * Currently, `active_directory` is the only supported value for `managerSource` and `assistantSource`.
-* Calling the `getManagerUser("active_directory")` function doesn't trigger a user profile update after the manager is changed.
+* Calling either of the `getManagerUser()` or `getManagerAppUser()` functions doesn't trigger a user profile update after the manager is changed.
 * The manager and assistant functions aren't supported for user profiles sourced from multiple Active Directory instances.
 * The manager and assistant functions aren't supported for user profile attributes from multiple app instances. That is, the expression `getManagerUser("active_directory", "google").firstName` returns null if your org has two or more instances of a `google` app.
 
@@ -247,7 +247,7 @@ The following should be noted about these functions:
 
 | Function              | Description                                                                                                                                 |
 | --------              | ---------                                                                                                                                   |
-| `hasDirectoryUser()`  | Checks whether the user has an Active Directory assignment and returns a boolean                                                            |
+| `hasDirectoryUser()`  | Checks whether the user has an Active Directory (AD) assignment and returns `true` if the user has a single AD assignment or `false` if the user has either zero or multiple AD assignments  |
 | `hasWorkdayUser()`    | Checks whether the user has a Workday assignment and returns a boolean                                                                      |
 | `findDirectoryUser()` | Finds the Active Directory App user object and returns that object or null if the user has more than one or no Active Directory assignments |
 | `findWorkdayUser()`   | Finds the Workday App user object and returns that object or null if the user has more than one or no Workday assignments                   |

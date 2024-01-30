@@ -1,6 +1,6 @@
 {
-  "release" : "2023.11.1",
-  "build" : "2023.11.1-begin-141-ge17ef2794a59",
+  "release" : "2024.01.1",
+  "build" : "2024.01.1-begin-97-g2d5653584823",
   "errors" : [ {
     "title" : "Access denied",
     "statusCode" : 403,
@@ -336,7 +336,7 @@
     "statusReasonPhrase" : "Forbidden",
     "internalErrorCode" : "direct_auth_expired_token",
     "errorCode" : "access_denied",
-    "errorDescription" : "'en' has expired. Use a new 'oob_code' or 'mfa_token' and try again."
+    "errorDescription" : "'en' has expired. Use a new '{1}' and try again."
   }, {
     "title" : "Direct auth grant types supported not prompted",
     "statusCode" : 403,
@@ -856,6 +856,13 @@
     "errorCode" : "invalid_dpop_proof",
     "errorDescription" : "The DPoP proof JWT is issued in the future."
   }, {
+    "title" : "Invalid dpop proof JWT too old",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_dpop_proof_jwt_too_old",
+    "errorCode" : "invalid_dpop_proof",
+    "errorDescription" : "The DPoP proof JWT is issued more than five minutes in the past."
+  }, {
     "title" : "Invalid dpop proof JWT expired",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
@@ -883,6 +890,20 @@
     "internalErrorCode" : "dpop_proof_already_used",
     "errorCode" : "invalid_dpop_proof",
     "errorDescription" : "The DPoP proof JWT has already been used."
+  }, {
+    "title" : "Dpop proof invalid ath",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "dpop_proof_invalid_ath",
+    "errorCode" : "invalid_dpop_proof",
+    "errorDescription" : "'ath' claim in the DPoP proof does not match the presented access_token."
+  }, {
+    "title" : "Invalid access token dpop binding",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_access_token_dpop_binding",
+    "errorCode" : "invalid_dpop_proof",
+    "errorDescription" : "The access_token is not bound to the provided DPoP proof."
   }, {
     "title" : "Invalid grant",
     "statusCode" : 400,
@@ -1114,6 +1135,20 @@
     "internalErrorCode" : "direct_auth_invalid_login_hint",
     "errorCode" : "invalid_grant",
     "errorDescription" : "The 'login_hint' does not uniquely identify a user."
+  }, {
+    "title" : "Direct auth invalid webauthn no pending challenge",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "direct_auth_no_pending_challenge",
+    "errorCode" : "invalid_grant",
+    "errorDescription" : "There is no pending WebAuthn challenge for the request."
+  }, {
+    "title" : "Direct auth invalid webauthn verification failure",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "direct_auth_verification_failure",
+    "errorCode" : "invalid_grant",
+    "errorDescription" : "None of the WebAuthn authenticators the user has enrolled for was able to validate the assertion"
   }, {
     "title" : "Invalid initiate login URI",
     "statusCode" : 400,
@@ -1619,6 +1654,20 @@
     "errorCode" : "invalid_request",
     "errorDescription" : "The recovery token is invalid"
   }, {
+    "title" : "Dpop proof required for token",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "dpop_proof_required_for_token",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "The resource request requires a DPoP proof."
+  }, {
+    "title" : "Dpop authentication scheme required",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "dpop_authentication_scheme_required",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "The resource request must use the DPoP authentication scheme when using a DPoP bound token."
+  }, {
     "title" : "Direct auth invalid channel hint",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
@@ -1695,6 +1744,34 @@
     "internalErrorCode" : "direct_auth_missing_login_hint",
     "errorCode" : "invalid_request",
     "errorDescription" : "A 'login_hint' is required for the request."
+  }, {
+    "title" : "Direct auth invalid challenge hint",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "direct_auth_invalid_challenge_hint",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "'en' is not supported as a 'challenge_hint'. Try again with another value."
+  }, {
+    "title" : "Direct auth invalid webauth challenge data",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "direct_auth_invalid_webauthn_challenge_data",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "'clientDataJSON' is not a Base64 encoded JSON string containing a 'challenge'."
+  }, {
+    "title" : "Direct auth invalid webauthn request",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "direct_auth_invalid_webauthn_request",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "WebAuthn requests must contain 'authenticatorData', 'clientDataJSON', and 'signature'."
+  }, {
+    "title" : "Direct auth webauthn challenge not for MFA token",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "direct_auth_webauthn_challenge_not_for_mfa_token",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "The 'challenge' and the 'mfa_token' provided are not associated with each other. Review the values and try again."
   }, {
     "title" : "Invalid request object",
     "statusCode" : 400,
@@ -2060,6 +2137,13 @@
     "errorCode" : "invalid_token",
     "errorDescription" : "The 'web_sso_token' has an invalid issuer."
   }, {
+    "title" : "Access token not dpop bound",
+    "statusCode" : 401,
+    "statusReasonPhrase" : "Unauthorized",
+    "internalErrorCode" : "access_token_not_dpop_bound",
+    "errorCode" : "invalid_token",
+    "errorDescription" : "The presented access_token is not DPoP bound."
+  }, {
     "title" : "Invalid user code",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
@@ -2290,6 +2374,13 @@
     "internalErrorCode" : "invalid_callout_response",
     "errorCode" : "server_error",
     "errorDescription" : "The callout service returned an invalid response."
+  }, {
+    "title" : "Direct auth oob failure",
+    "statusCode" : 500,
+    "statusReasonPhrase" : "Internal Server Error",
+    "internalErrorCode" : "direct_auth_oob_failure",
+    "errorCode" : "server_error",
+    "errorDescription" : "Failed to initiate out-of-band authentication."
   }, {
     "title" : "Slow down",
     "statusCode" : 400,

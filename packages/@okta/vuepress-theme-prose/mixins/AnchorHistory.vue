@@ -5,38 +5,59 @@ export default {
   inject: ['appContext'],
   data() {
     return {
-      paddedHeaderHeight: 0
+      paddedHeaderHeight: 0,
+      anchorOffset: []
     };
   },
-  computed: {
-    anchorsOffset() {
+  mounted() {},
+  methods: {
+    getPaddedHeaderHeight: function () {
+      return  document.querySelector(".fixed-header").clientHeight +
+              LAYOUT_CONSTANTS.HEADER_TO_CONTENT_GAP;
+    },
+
+    setAnchors: function (anchors) {
+        this.anchors = anchors;
+        this.getAnchorsOffset();
+    },
+    getAnchorsOffset: function () {
+      if (!this.anchors) {
+        return;
+      }
+
+      this.paddedHeaderHeight = this.getPaddedHeaderHeight()
+      
       const anchorOffsets = this.anchors.map(
-        anchor => anchor.parentElement.offsetTop
+        /* 
+          In case of a few pages like error codes (/docs/reference/error-codes/), we are using our custom template
+          for showing header-anchor (ErrorCodes.vue) where the generated HTML has different template than the default
+          vuepress template for showing anchor tags.
+          The anchor tag is not a direct child of h2/h3/h4 in this case but instead, is the grandchild of these header elements.
+          Hence, we need to add a separate check for these routes.
+          Refer - https://oktainc.atlassian.net/browse/OKTA-483028
+        */
+        anchor => anchor?.classList.contains('container-level-2') ? anchor.parentElement.parentElement.offsetTop :
+          anchor.parentElement.offsetTop
       );
 
-      return anchorOffsets.map((anchorOffset, index, anchorOffsets) => ({
+      this.anchorsOffset = anchorOffsets.map((anchorOffset, index, anchorOffsets) => ({
         start: anchorOffset,
         end: anchorOffsets[index + 1]
       }));
-    }
-  },
-  mounted() {
-    this.paddedHeaderHeight =
-      document.querySelector(".fixed-header").clientHeight +
-      LAYOUT_CONSTANTS.HEADER_TO_CONTENT_GAP;
-  },
-  methods: {
+    },
+
     scrollToAnchor: function(anchorId) {
       const target = document.querySelector(anchorId);
-      if (target) {
-        const scrollToPosition = target.offsetTop - this.paddedHeaderHeight;
-        window.scrollTo(0, scrollToPosition);
-        // Chrome & Safari: when zoomed in/out, window.scrollTo does not always perform scroll strictly equal to passed parameter
-        // https://bugs.chromium.org/p/chromium/issues/detail?id=890345
-        if (window.scrollY < scrollToPosition) {
-          const scrollAlignment = 2;
-          window.scrollBy(0, scrollAlignment);
-        }
+      if (!target) {
+        return;
+      }
+      const scrollToPosition = target.offsetTop - this.getPaddedHeaderHeight();
+      window.scrollTo(0, scrollToPosition);
+      // Chrome & Safari: when zoomed in/out, window.scrollTo does not always perform scroll strictly equal to passed parameter
+      // https://bugs.chromium.org/p/chromium/issues/detail?id=890345
+      if (window.scrollY < scrollToPosition) {
+        const scrollAlignment = 2;
+        window.scrollBy(0, scrollAlignment);
       }
     },
 
@@ -55,21 +76,6 @@ export default {
             });
           });
         }
-      }
-    },
-
-    historyReplaceAnchor: function(anchor) {
-      // If mobile tree nav opened don't make router changes while scroll.
-      // It will cause of mobile menu closing.
-      if (this.appContext.isTreeNavMobileOpen) return;
-
-      if (decodeURIComponent(this.$route.hash) !== decodeURIComponent(anchor)) {
-        this.$vuepress.$set("disableScrollBehavior", true);
-        this.$router.replace(anchor, () => {
-          this.$nextTick(() => {
-            this.$vuepress.$set("disableScrollBehavior", false);
-          });
-        });
       }
     },
 

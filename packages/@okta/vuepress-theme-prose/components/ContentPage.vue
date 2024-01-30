@@ -18,31 +18,29 @@ export default {
     $page(to, from) {
       if (from.title !== to.title) {
         this.$nextTick(function() {
-          this.anchors = this.getAnchors();
+          this.setAnchors(this.getAnchors());
           this.onPageChange();
         });
       }
     }
   },
   mounted() {
+    // When ContentPage gets initialized first time after navigating from homepage, the document's readyState is
+    // already `complete`. Hence, it does not go in the `onreadystatechange` event handler because the state never
+    // changes and does not initialize the listeners and anchors. However, when we refresh the page, the initial
+    // readyState is `interactive`. So, when the state changes to `complete` we call the onreadystatechange handler
+    // and it initializes the listeners. Hence, we need to check the readyState condition here for the above usecase.
+    if (document.readyState === 'complete') {
+      this.initializeAnchorsAndListeners();
+    }
     document.onreadystatechange = () => {
       if (document.readyState !== "complete") {
         return;
       }
-
-      this.$nextTick(function() {
-        this.anchors = this.getAnchors();
-        this.onPageChange();
-
-        window.addEventListener("popstate", e => {
-          e.target.location.hash && this.scrollToAnchor(e.target.location.hash);
-        });
-        window.addEventListener("scroll", this.setHeadingAnchorToURL);
-      });
+      this.initializeAnchorsAndListeners();
     };
   },
   beforeDestroy() {
-    window.removeEventListener("scroll", this.setHeadingAnchorToURL);
     window.removeEventListener("popstate", this.scrollToAnchor);
   },
   methods: {
@@ -56,6 +54,16 @@ export default {
         window.scrollTo(0, 0);
       }
       this.onClickCaptureAnchors();
+    },
+    initializeAnchorsAndListeners() {
+      this.$nextTick(function() {
+        this.setAnchors(this.getAnchors());
+        this.onPageChange();
+
+        window.addEventListener("popstate", e => {
+          e.target.location.hash && this.scrollToAnchor(e.target.location.hash);
+        });
+      });
     },
     onClickCaptureAnchors() {
       const noneHeadingAnchors = Array.from(
@@ -95,12 +103,6 @@ export default {
         }
       }
     },
-    setHeadingAnchorToURL: _.debounce(function() {
-      const activeAnchor = this.getActiveAnchor();
-      activeAnchor
-        ? this.historyReplaceAnchor(activeAnchor.hash)
-        : this.historyReplaceAnchor("");
-    }, 200),
     getAnchors() {
       return Array.from(document.querySelectorAll(".header-anchor"));
     }

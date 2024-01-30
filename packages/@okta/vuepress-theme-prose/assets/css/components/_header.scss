@@ -51,6 +51,13 @@ header.page-header .header--links {
   justify-content: space-between;
   padding-right: 35px;
   padding-left: 45px;
+
+  ul.menu--items > li.expandable > a:after,
+  ul.menu--items > li.expandable > span:after {
+    top: 13px;
+
+    background-image: url("/img/icons/chevron-down-white.svg");
+  }
 }
 
 header.page-header .header--links ul.menu--items + ul.menu--items {
@@ -191,8 +198,8 @@ header.page-header .link:focus {
   }
 
   header.page-header .header--logo > img {
-    width: 101px;
-    height: 13px;
+    width: 180px;
+    height: 28px;
   }
 
   header.page-header ul.menu--items > li + li {
@@ -229,7 +236,7 @@ header.page-header .link:focus {
   }
 
   header.page-header .link--small {
-    font-size: 12px;
+    font-size: 16px;
   }
 }
 
