@@ -50,7 +50,8 @@ To analyze and detect potentially malicious IP addresses that seek to bypass you
 
 ### Known limitations
 
-* Avoid using `meta` tags to customize the CSP. `meta` tags impact the overall policy. It's easier to control CSP customizations by adding trusted external resources in the Admin Console. See [Multiple content security policies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy#multiple_content_security_policies).
+* Avoid using `meta` tags to customize the CSP. `meta` tags impact the overall policy. It's easier to control CSP customizations by adding trusted external resources in the Admin Console. See [Customize the Content Security Policy (CSP) for a custom domain](https://help.okta.com/okta_help.htm?type=oie&id=ext-config-csp).
+See also [Multiple content security policies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy#multiple_content_security_policies).
 * If you add too many trusted external resources to your custom CSP, the HTTP header size can exceed the limit allowed by some server software. Update the default server limits or reduce the number of trusted external resources.
 * You can have a maximum of 20 URIs.
 * If you add a trusted origin URL that redirects to a different URL, you must include the redirect URL in the trusted origin list.
@@ -116,8 +117,8 @@ Triple curly braces (`{{{`) are only used for the `errorDescription` variable to
 | <span v-pre>`{{bgImageUrl}}`</span> | The URL to the background image configured for your application. You can change this image by using the [Sign-in Configuration](https://help.okta.com/okta_help.htm?type=oie&id=ext-branding-set-theme) option, but this changes the background image in all instances where the variable is used, including your custom sign-in page. If you want to change only the background image for your custom error pages, include the URL to the image instead of the variable. |
 | <span v-pre>`{{orgLogo}}`</span> | The logo image that has been configured for your application. You can change this logo by using the [Sign-in Configuration](https://help.okta.com/okta_help.htm?type=oie&id=ext-branding-set-theme) option, but this changes the org logo in all instances where the variable is used, including your custom sign-in page. If you want to change only the logo image for your custom error pages, include the URL to the image instead of the variable. |
 | <span v-pre>`{{{errorDescription}}}`</span> | A detailed description of the error |
-| <span v-pre>`{{back}}`</span> | The text "Go to Homepage". When the user clicks the button, they’re returned to the sign-in page. |
-| <span v-pre>`{{technicalDetails}}`</span> | Any additional messaging, if the error code has any. Here are sample technical details for an error code:</br>"If you’re using custom expressions like `\{0}`, make sure that the field `customField` is present in the user profile. Review your attribute list and make the appropriate change."</br>See [Okta Error Codes](/docs/reference/error-codes/#okta-error-codes-listed-by-error-code). |
+| <span v-pre>`{{back}}`</span> | The text "Go to Homepage". When the user clicks the button, they're returned to the sign-in page. |
+| <span v-pre>`{{technicalDetails}}`</span> | Any additional messaging, if the error code has any. Here are sample technical details for an error code:</br>"If you're using custom expressions like `\{0}`, make sure that the field `customField` is present in the user profile. Review your attribute list and make the appropriate change."</br>See [Okta Error Codes](/docs/reference/error-codes/#okta-error-codes-listed-by-error-code). |
 | <span v-pre>`{{buttonText}}`</span> | Inserts the button text based on the page context. When the user selects the button, they're directed to the `buttonHref` URL. The <span v-pre>`{{back}}`</span> variable is also supported for the same purpose. |
 | <span v-pre>`{{buttonHref}}`</span> | The hyperlink for the button |
 | <span v-pre>`{{themedStylesUrl}}`</span> | The URL for the themed style sheet |

@@ -49,7 +49,8 @@ To analyze and detect potentially malicious IP addresses that seek to bypass you
 
 #### Known limitations
 
-* Avoid using `meta` tags to customize the CSP. `meta` tags impact the overall policy. It's easier to control CSP customizations by adding trusted external resources in the Admin Console. See [Multiple content security policies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy#multiple_content_security_policies).
+* Avoid using `meta` tags to customize the CSP. `meta` tags impact the overall policy. It's easier to control CSP customizations by adding trusted external resources in the Admin Console. See [Customize the Content Security Policy (CSP) for a custom domain](https://help.okta.com/okta_help.htm?type=oie&id=ext-config-csp).
+See also [Multiple content security policies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy#multiple_content_security_policies).
 * If you add too many trusted external resources to your custom CSP, the HTTP header size can exceed the limit allowed by some server software. Update the default server limits or reduce the number of trusted external resources.
 * You can have a maximum of 20 URIs.
 * If you add a trusted origin URL that redirects to a different URL, you need to include the redirect URL on the trusted origin list.
@@ -276,7 +277,7 @@ There are two main impacts:
 
 * **Visual:** The Okta Sign-In Widget could appear briefly to end users during the transition, interrupting the custom branded experience.
 
-* **Programmatic:** Non-user (or back-end) authentication flows receive an `HTTP 200 OK` response with a body, instead of an `HTTP 302 Found` redirect status response. As a result, back-end coding doesn’t detect the status response and the JavaScript method performs the redirect.
+* **Programmatic:** Non-user (or back-end) authentication flows receive an `HTTP 200 OK` response with a body, instead of an `HTTP 302 Found` redirect status response. As a result, back-end coding doesn't detect the status response and the JavaScript method performs the redirect.
 
 **Resolve the visual impact**
 
