@@ -89,7 +89,7 @@
       <ul
         v-if="entityType === types.parent"
         v-show="sublinksExpanded || isCurrentPage(link.path)"
-        :class="sublinksExpanded ? 'sections show-border' : 'sections'"
+        :class="sublinksExpanded || isCurrentPage(link.path) ? 'sections show-border' : 'sections'"
       >
         <SidebarItem
           v-for="sublink in link.subLinks"
