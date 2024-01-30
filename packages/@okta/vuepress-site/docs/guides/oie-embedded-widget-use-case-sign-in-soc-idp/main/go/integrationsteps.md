@@ -8,7 +8,7 @@ The following Sign-In Widget displays the Facebook button:
 
 <div class="half wireframe-border">
 
-![The Okta Sign-In Widget's sign-in form with a field for a username, next button, sign in with Facebook button and links to reset your password and sign up](/img/wireframes/widget-sign-in-form-username-only-sign-up-forgot-your-password-facebook-links.png)
+![The Okta Sign-In Widget's sign-in form with a field for a username, a Next button, a Sign in with Facebook button, and links to reset your password and sign up](/img/wireframes/widget-sign-in-form-username-only-sign-up-forgot-your-password-facebook-links.png)
 
 <!--
 Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?type=design&node-id=4662-25341&mode=design&t=mABNx7Cm2rdSOFyx-11 widget-sign-in-form-username-only-sign-up-forgot-your-password-facebook-links
