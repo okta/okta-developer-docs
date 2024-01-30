@@ -17,5 +17,6 @@ Use this guide to implement a direct authentication single-factor one-time passc
 * An app that you want to implement OAuth 2.0 direct authentication OTP with Okta
 * A test user in your org that's enrolled in an authenticator like Google Authenticator
 * The Direct Authentication feature enabled for your org. Contact [Okta Support](https://support.okta.com) to enable this EA feature.
+* Assigned the Super Admin administrator role. When you create an app, or update an existing app, you must have Super Admin permissions to enable direct authentication grant types.
 
 <ApiAmProdWarning />
