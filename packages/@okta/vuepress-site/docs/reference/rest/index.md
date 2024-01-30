@@ -10,8 +10,7 @@ meta:
 
 A great way to learn an Application Programming Interface (API) is to issue requests and inspect the responses. You can use Okta Postman collections to learn how to incorporate Okta APIs into your workflow. To use these collections, complete the following steps:
 
-1. Obtain an Okta org.<br>
-   [Sign up for Okta](#sign-up-for-okta) if you don't have an existing Okta org.
+1. [Sign up for Okta](#sign-up-for-okta) if you don't have an existing Okta org.
 1. [Set up your Postman environment](#set-up-your-postman-environment).
 1. [Import the Okta collection](#import-a-collection) that you want to test.
 1. [Set up Okta for API access](#set-up-okta-for-api-access).
