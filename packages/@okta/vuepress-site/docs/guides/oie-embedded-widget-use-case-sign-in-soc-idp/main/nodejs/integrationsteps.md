@@ -2,6 +2,16 @@
 
 If the the steps in [Configuration updates](#configuration-updates) were completed, the **Sign in with Facebook** link appears automatically on the Widget. No code change is required for the Facebook sign-in link to appear.
 
+<div class="half wireframe-border">
+
+![The Okta Sign-In Widget's sign-in form with a field for a username, a Next button, a Sign in with Facebook button, and links to reset your password and sign up](/img/wireframes/widget-sign-in-form-username-only-sign-up-forgot-your-password-facebook-links.png)
+
+<!--
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?type=design&node-id=4662-25341&mode=design&t=mABNx7Cm2rdSOFyx-11 widget-sign-in-form-username-only-sign-up-forgot-your-password-facebook-links
+ -->
+
+</div>
+
 When the user clicks this link they are send to the Facebook login screen.
 
 ### 2: The user signs in to Facebook

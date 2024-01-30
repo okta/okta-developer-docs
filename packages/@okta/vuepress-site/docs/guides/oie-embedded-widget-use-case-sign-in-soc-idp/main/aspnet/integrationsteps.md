@@ -2,6 +2,16 @@
 
 After you complete the steps in [Set up your Okta org for a social IdP use case](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-a-social-idp-use-case), the **Sign in with Facebook** link should appear automatically on the Widget. You don't need to make any code changes to make the link appear.
 
+<div class="half wireframe-border">
+
+![The Okta Sign-In Widget's sign-in form with a field for a username, a Next button, a Sign in with Facebook button, and links to reset your password and sign up](/img/wireframes/widget-sign-in-form-username-only-sign-up-forgot-your-password-facebook-links.png)
+
+<!--
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?type=design&node-id=4662-25341&mode=design&t=mABNx7Cm2rdSOFyx-11 widget-sign-in-form-username-only-sign-up-forgot-your-password-facebook-links
+ -->
+
+</div>
+
 When the user clicks this link, they are sent to the Facebook login screen.
 
 ### 2: The user signs in to Facebook
