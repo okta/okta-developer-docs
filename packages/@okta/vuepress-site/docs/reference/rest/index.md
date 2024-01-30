@@ -8,7 +8,7 @@ meta:
     content: Get started with Okta REST APIs and learn how to import a collection and send requests in Postman.
 ---
 
-A great way to learn an Application Programming Interface (API) is to issue requests and inspect the responses. You can use Okta Postman collections to learn how to incorporate Okta APIs into your workflow. To use these collections, you need to:
+A great way to learn an Application Programming Interface (API) is to issue requests and inspect the responses. You can use Okta Postman collections to learn how to incorporate Okta APIs into your workflow. To use these collections, complete the following steps:
 
 1. Obtain an Okta org.<br>
    [Sign up for Okta](#sign-up-for-okta) if you don't have an existing Okta org.
@@ -65,7 +65,7 @@ Go to the Okta [Postman collections](https://developer.okta.com/docs/reference/p
 
 > **Note:** Alternatively, you can fork a collection from the [Okta Public API Collections](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/overview).
 
-To import a collection from the Okta [Postman Collections](https://developer.okta.com/docs/reference/postman-collections/) reference page:
+To import a collection from the Okta [Postman Collections](https://developer.okta.com/docs/reference/postman-collections/) reference page, complete the following steps:
 
 1. Click **Run in Postman** next to the collection you want.
 
@@ -83,14 +83,14 @@ To import a collection from the Okta [Postman Collections](https://developer.okt
 
 To access Okta APIs from Postman, you need to authenticate with the Okta API resource server. Okta APIs support the OAuth 2.0 authentication scheme that uses access tokens. Access tokens enable the bearer to perform specific actions on specific Okta endpoints, defined by the scopes in the token.
 
-Scoped access tokens have several advantages, including:
+Scoped access tokens have several advantages:
 
 * More access granularity
 * Shorter token lifespans
 * Can be generated and retrieved using an API
 
 > **Note:** Okta doesn't recommend using the Okta-propriety `SSWS` API token authentication scheme.
-> This API token scheme allows you to access a broad range of APIs since there's no scope associated with the token. Access to the APIs depends on the privileges of the user that [created the API token](/docs/guides/create-an-api-token/main/). The API token also has a fixed expiry date.
+> This API token scheme allows you to access a broad range of APIs because there's no scope associated with the token. Access to the APIs depends on the privileges of the user that [created the API token](/docs/guides/create-an-api-token/main/). The API token also has a fixed expiry date.
 
 You need to obtain an OAuth 2.0 access token to configure the authorization header of your Postman API requests to Okta. To obtain this access token, set up Okta for your use case:
 
@@ -105,7 +105,7 @@ If your use case requires you to access a limited number of Okta endpoints as a 
 
 Create an OIDC app integration to define your scope-based access to Okta APIs with the Authorization Code grant flow with PKCE.
 
-1. [Sign in](https://developer.okta.com/login) to your Okta org Admin Console as a user with administrative privileges (Super Admin role).
+1. [Sign in](https://developer.okta.com/login) to your Admin Console as a user with administrative privileges (super admin role).
 1. In the Admin Console, go to **Applications** > **Applications**.
 1. Click **Create App Integration**.
 1. On the **Create a new app integration** page, select **OIDC - OpenID Connect** as the **Sign-in method**. Choose **Web Application** for the **Application type**. Creating a web app is an easy way to test scope-based access to Okta APIs. Click **Next**.
@@ -117,7 +117,7 @@ Create an OIDC app integration to define your scope-based access to Okta APIs wi
 1. Click the **Assignments** tab and ensure that the right users are assigned to the app. If you skipped the assignment during the app integration creation, you must add one or more users. For instructions on how to assign the app integration to individual users and groups, see the [Assign app integrations](https://help.okta.com/okta_help.htm?id=ext_Apps_Apps_Page-assign) topic in the Okta product documentation.
 1. Select the **Okta API Scopes** tab and then click **Grant** for each of the scopes that you want to add to the app grant collection. Ensure that you grant the scopes for the API access you require. See [Okta OAuth 2.0 scopes](https://developer.okta.com/docs/api/oauth2/).<br>For example, click **Grant** next to `okta.users.read`.
 
-   > **Notes:** When an API request is sent to the org authorization server's `/authorize` endpoint, it validates the requested scopes in the request against the app's grants collection. The scope is granted if it exists in the app's grants collection.
+   > **Note:** When an API request is sent to the org authorization server's `/authorize` endpoint, it validates the requested scopes in the request against the app's grants collection. The scope is granted if it exists in the app's grants collection.
 
 After you obtain your client ID and secret from your app integration, see [Get an access token and make a request](#get-an-access-token-and-make-a-request).
 
@@ -135,7 +135,7 @@ See the following tasks to set up your Okta org for a service app API access.
 
 First, create a service app integration where you can define your scope-based access to Okta APIs.
 
-1. [Sign in](https://developer.okta.com/login) to your Okta org Admin Console as a user with administrative privileges (Super Admin role).
+1. [Sign in](https://developer.okta.com/login) to your Admin Console as a user with administrative privileges (super admin role).
 1. In the Admin Console, go to **Applications** > **Applications**.
 1. Click **Create App Integration**.
 1. On the **Create a new app integration** page, select **API Services** as the **Sign-in method** and click **Next**.
@@ -178,7 +178,7 @@ Use the private JWKS as the JWT header and use the following [token claims](/doc
 
 > **Note:** The instructions in this section are for testing purposes only. In production environments, use Okta SDKs or other language libraries to create and sign the JWT. See [Build a JWT with a private key](/docs/guides/build-self-signed-jwt/java/main/#build-a-jwt-with-a-private-key) for an example in Java or JavaScript.
 
-To generate a JWT for testing purposes:
+To generate a JWT for testing purposes, complete the following steps:
 
 1. Go to the [Generate JWT tool](https://www.jsonwebtoken.dev/). This tool supports both JWT and PEM formats.
 1. In the **Signing Key** box, paste the private key that you generated for your service app and leave the format as **JWK KEY**. Select **PEM KEY** if you saved your private key in PEM format.
@@ -331,7 +331,7 @@ Use the following tips to work more efficiently with your collection.
 
 Your imported collections contain URLs and JSON request bodies that have sample data with variables such as `${userId}`. You can replace the variables in the URL and body with the IDs of the resources that you want to specify.
 
-1. To get a user's ID, for example, send a request to list the users in your org like you did in the previous section. Each user listed in the response has an ID:
+1. To get a user's ID, send a request to list the users in your org like you did in the previous section. Each user listed in the response has an ID:
 
   <div class="three-quarter border">
 
