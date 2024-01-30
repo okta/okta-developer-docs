@@ -23,7 +23,7 @@ This guide shows you how to rotate and manage your client secrets without servic
 * **OAuth secrets and key management** feature enabled in the Admin Console (**Settings** | **Features**)
 * Access to the new APIs: Client Secret Management `/api/v1/apps/{appId}//credentials/secrets` and JWKS Management `/api/v1/apps/{appId}/credentials/jwks`
 * An existing OpenID Connect client app in Okta for testing in Okta
-[Postman client](https://www.getpostman.com/downloads/) to test requests. See [Get Started with the Okta APIs](https://developer.okta.com/code/rest/) for information on setting up Postman.
+[Postman client](https://www.getpostman.com/downloads/) to test requests. See [Get Started with the Okta APIs](https://developer.okta.com/docs/reference/rest/) for information on setting up Postman.
 * The Client Secret Rotation and Key Management Postman collection that allows you to test the API calls that are described in this guide. Click **Run in Postman** to add the collection to Postman.
 
   [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/8e9d91cef0d5ab9e9fa7)

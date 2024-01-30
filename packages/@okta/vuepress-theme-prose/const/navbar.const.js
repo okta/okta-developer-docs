@@ -932,7 +932,6 @@ export const languagesSdk = [
                { title: "React Native", path: "/code/react-native/" },
             ],
          },
-         { title: "Test APIs using Postman", path: "/code/rest/" },
       ],
    },
 ];
@@ -1066,8 +1065,14 @@ export const reference = [
             ],
          },
          {
-            title: "Postman Collections",
-            path: "/docs/reference/postman-collections/",
+            title: "Test APIs with Postman",
+            path: "/docs/reference/rest/",
+            subLinks: [
+              {
+                 title: "Postman Collections",
+                 path: "/docs/reference/postman-collections/",
+              },
+            ],
          },
          {
             title: "Hooks",
