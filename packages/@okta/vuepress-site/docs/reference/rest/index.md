@@ -164,6 +164,8 @@ First, create a service app integration where you can define your scope-based ac
    1. Click **Done** to close the dialog.
    1. Click **Save** in the **Client Credentials** section. The new public key is now registered with the app and appears in a table in the **PUBLIC KEYS** section of the **General** tab.
 
+> **Note:** If you need to add more JWKS, click **Add** from the **Client Credentials** section in non-edit mode.
+
 #### Create and sign the JWT
 
 After you obtain the JWKS from your Okta service app, create a JSON Web Token (JWT) for your access token request.
