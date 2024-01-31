@@ -23,7 +23,7 @@ Okta as a SAML Service Provider is referred to as Inbound SAML. Okta as a SAML I
 
 > **Note:** After you update the key credential, users can't access the SAML app until you upload the new certificate to the ISV.
 
-See [Get Started with the Okta REST APIs](/code/rest/) for information on how to use the Postman REST API test client for these steps.
+See [Get Started with the Okta REST APIs](/docs/reference/rest/) for information on how to use the Postman REST API test client for these steps.
 
 ## List your apps
 
@@ -363,4 +363,4 @@ For Inbound SAML, follow the existing procedures for your setup.
 
 ## See also
 
-* [Get Started with the Okta REST APIs](/code/rest/)
+* [Get Started with the Okta REST APIs](/docs/reference/rest/)

@@ -142,7 +142,7 @@ For someone to make a request to your API, they need an access token. How an acc
 
 > **Note**: The information contained within an access token varies depending on the type of flow used to create it. For example, the Client Credentials flow doesn't contain any claims with user information such as a user ID or email.
 
-If you're using [Postman](/code/rest/) and the Client Credentials flow, call `https://${yourOktaDomain}/oauth2/default/v1/token`, with an Authorization header set, to receive an access token.
+If you're using [Postman](/docs/reference/rest/) and the Client Credentials flow, call `https://${yourOktaDomain}/oauth2/default/v1/token`, with an Authorization header set, to receive an access token.
 
 <div class="three-quarter border">
 

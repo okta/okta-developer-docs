@@ -51,3 +51,4 @@ Import any Okta API collection for Postman from the following list:
 | UI Schema                         | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/1a927e3b353fd0e1b158) |
 | User Types                        | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/519c04869c17079762f9) |
 | Users                             | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/9daeb4b935a423c39009) |
+

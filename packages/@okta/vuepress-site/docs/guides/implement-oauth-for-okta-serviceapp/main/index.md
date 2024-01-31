@@ -18,7 +18,7 @@ This guide explains how to interact with Okta APIs by using scoped OAuth 2.0 acc
 **What you need**
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
-* [Postman client](https://www.getpostman.com/downloads/) to test requests with the access token. See [Get Started with the Okta APIs](https://developer.okta.com/code/rest/) for information on setting up Postman.
+* [Postman client](https://www.getpostman.com/downloads/) to test requests with the access token. See [Get Started with the Okta APIs](https://developer.okta.com/docs/docs/reference/rest/) for information on setting up Postman.
 
 ---
 
