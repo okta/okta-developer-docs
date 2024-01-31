@@ -967,7 +967,7 @@ The Rules object defines several attributes:
 | Parameter     | Description                                                        | Data Type                                      | Required   | Default                |
 | :------------ | :----------------------------------------------------------------- | :--------------------------------------------- | :--------- | :--------------------- |
 | id            | Identifier of the Rule                                             | String                                         | No         | Assigned               |
-| type          | Rule type. Valid values: `SIGN_ON`, `PASSWORD`, `MFA_ENROLL`, `IDP_DISCOVERY`.<br><br> <ApiLifecycle access="ie" /><br>**Note:** The following policy types are available only with the Identity Engine: `ACCESS_POLICY`, `CONTINUOUS_ACCESS`, `ENTITY_RISK`, or `PROFILE_ENROLLMENT`. <br>[Contact support](mailto:dev-inquiries@okta.com) for more information on the Identity Engine.| String (Enum)                                  | Yes        |                        |
+| type          | Rule type. Valid values: `SIGN_ON`, `PASSWORD`, `MFA_ENROLL`, and `IDP_DISCOVERY`.<br><br> <ApiLifecycle access="ie" /><br>**Note:** The following policy types are available only with the Identity Engine: `ACCESS_POLICY` and `PROFILE_ENROLLMENT`. <br>[Contact support](https://support.okta.com/) for more information on the Identity Engine. <br><br> <ApiLifecycle access="ea" /><br>**Note:** The following policy types `CONTINUOUS_ACCESS` and `ENTITY_RISK` are only available with the Identity Engine and are EA release features. Contact your Okta account team to enable these features.| String (Enum)                                 | Yes        |                        |
 | name          | Name of the Rule                                                   | String                                         | Yes        |                        |
 | status        | Status of the Rule: `ACTIVE` or `INACTIVE`                         | String (Enum)                                  | No         | ACTIVE                 |
 | priority      | Priority of the Rule                                               | Integer                                        | No         | Last / Lowest Priority |
@@ -2693,7 +2693,7 @@ Policy Rule conditions aren't supported for this policy.
 
 ## Entity risk policy
 
-<ApiLifecycle access="ie" />
+<ApiLifecycle access="ie" /> <ApiLifecycle access="ea" />
 
 The Entity risk policy specifies what action or task to execute in reaction to a risk event. The type is specified as `ENTITY_RISK`.
 
@@ -2761,7 +2761,7 @@ The `entityRisk` object's `actions` array can be empty or contain one of two `ac
 
 ## Continuous Access Evaluation (CAE) policy
 
-<ApiLifecycle access="ie" />
+<ApiLifecycle access="ie" /> <ApiLifecycle access="ea" />
 
 Continuous Access Evaluation (CAE) policies determine the action to take based on changes to an existing user session. After a session event is triggered, the global session policy and all authentication policies are reevaluated and a course of action is undertaken as defined by the CAE policy. The policy type is specified as `CONTINUOUS_ACCESS`.
 
