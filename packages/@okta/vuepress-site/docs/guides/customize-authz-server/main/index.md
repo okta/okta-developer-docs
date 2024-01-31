@@ -24,13 +24,15 @@ Set up and test your authorization server.
 
 Okta allows you to create multiple custom authorization servers that you can use to protect your own resource servers. Within each authorization server you can define your own OAuth 2.0 scopes, claims, and access policies.
 
-If you have an [Okta Developer Edition](https://developer.okta.com/signup/) account, you already have a custom authorization server created for you called `default`. If this custom authorization server has been renamed, there is an additional `Default` label that helps to identify the default authorization server that was created out of the box. For simple use cases this default custom authorization server should suffice. If your application has requirements such as additional scopes, customizing rules for when to grant scopes, or you need additional authorization servers with different scopes and claims, then this guide is for you.
+If you have an [Okta Developer Edition](https://developer.okta.com/signup/) account, you already have a custom authorization server created for you called `default`. If you renamed this custom authorization server, there’s an additional `Default` label to help identify the default authorization server created out of the box.
+
+For simple use cases the default custom authorization server should suffice. If your application has requirements such as requiring more scopes, customizing rules for when to grant scopes, or you need more authorization servers with different scopes and claims, then this guide is for you.
 
 See [Which authorization server should you use](/docs/concepts/auth-servers/#which-authorization-server-should-you-use) for more information on the types of authorization servers available to you and what you can use them for.
 
 ## Create an authorization server
 
-> **Note:** If you have an [Okta Developer Edition](https://developer.okta.com/signup/) account and you don't want to create any additional custom authorization servers, you can skip this step because you already have a custom authorization server created for you called "default". The `${authorizationServerId}` for the default server is `default`.
+> **Note:** If you have an [Okta Developer Edition](https://developer.okta.com/signup/) account and you don't want to create any additional custom authorization servers, you can skip this step. You already have a custom authorization server created for you called "default." The `${authorizationServerId}` for the default server is `default`.
 
 1. In the Admin Console, go to **Security** > **API**.
 
@@ -42,7 +44,7 @@ When you finish, the authorization server's **Settings** tab displays the inform
 
 ## Create access policies
 
-Access policies are containers for rules. Each [access policy](/docs/guides/configure-access-policy/) applies to a particular OpenID Connect application, and the rules that it contains define different access and refresh token lifetimes depending on the nature of the token request.
+Access policies are containers for rules. Each [access policy](/docs/guides/configure-access-policy/) applies to a particular OpenID Connect application. The rules that the policy contains define different access and refresh token lifetimes depending on the nature of the token request.
 
 1. In the Admin Console, go to **Security** > **API**.
 1. On the **Authorization Servers** tab, select the name of an authorization server.
@@ -58,19 +60,19 @@ The first policy and rule that matches the client request is applied and no furt
 
 ## Create Rules for each Access Policy
 
-Rules define particular token lifetimes for a given combination of grant type, user, and scope. They are evaluated in priority order and once a matching rule is found no other rules are evaluated. If no matching rule is found, then the authorization request fails.
+Rules define particular token lifetimes for a given combination of grant type, user, and scope. They’re evaluated in priority order and once a matching rule is found no other rules are evaluated. If no matching rule is found, then the authorization request fails.
 
-Access policy rules are allowlists. If you want to create granular rules, you must first ensure that you have no rules that match "any" of something (for example "any user"). You can then create specific rules for each specific use case that you do want to support. For example, if you wanted to ensure that only administrators using the Implicit flow were granted access, then you would create a rule specifying that if:
+Access policy rules are allowlists. If you want to create granular rules, you must first ensure that you have no rules that match "any" of something (for example "any user"). You can then create specific rules for each specific use case you do want to support. For example, if you wanted to ensure that only administrators using the Implicit flow were granted access, then you would create a rule specifying if:
 
 * A request is made using the `implicit` grant type
 * The user is a member of the `admin` group
 * Any scope is specified
 
-Then, the access token that is granted has a lifetime of, for example, one hour.
+Then, the access token that's granted has a lifetime of, for example, one hour.
 
 You can also use rules to restrict grant types, users, or scopes. For example, you could prevent the use of all scopes other than `openid` and `offline_access` by only creating rules that specifically mention those two scopes. This means you would have to not create any rules that match "any scopes" and ensure that all of your rules only match the `openid` and/or `offline_access` scopes.
 
-Any request that is sent with a different scope won't match any rules and consequently fails.
+Any request that is sent with a different scope won't match any rules and therefore fails.
 
 To create a rule for a policy:
 
@@ -86,11 +88,17 @@ To create a rule for a policy:
     * **AND Scopes requested:** Select the scopes (any scopes, or a list that you specify) that the user can request as part of the rule conditions.
     * **THEN Use this inline hook:**  Select an [inline hook](/docs/concepts/inline-hooks/), if any, that you want to use to customize the token returned by Okta API Access Management.
     * **AND Access token lifetime is:** Select the length of time before an access token expires.
-    * **AND Refresh token lifetime is:** Select the length of time before a refresh token expires.
-    * **but will expire if not used every:** Defines when the refresh token expires if it isn't used. Leave the default of **7 days** or make any necessary changes.
+    * **AND Refresh token lifetime is:** Leave the default of `Unlimited` unless you need to customize how long you can use a refresh token before it expires.
+
+    > **Note:** If you customize the refresh token lifetime and [rotate your refresh tokens](/docs/guides/refresh-tokens/main/#refresh-token-rotation), that lifetime is inherited from the initial refresh token minted when the user first authenticates. It stays the same through the series of refresh token rotations until the timeframe that you set expires.
+
+    * **but will expire if not used every:** Defines the maximum time that a refresh token can be idle (unused) before it expires. For example, if a request isn't made to refresh an access token within this timeframe, the refresh token expires. Leave the default of **7 days** or make any necessary changes.
+
+    > **Note:** This idle time resets each time a request is made to refresh an access token and when a refresh token is rotated. It doesn't affect the refresh token lifetime, only how long the refresh token can remain unused before it expires.
+
 5. Click **Create Rule**.
 
-Rules are evaluated in priority order, so the first rule in the first policy that matches the client request is applied and no further processing occurs. If you need to change the order of your rules, reorder the rules using drag and drop.
+Rules are evaluated in priority order. The first rule in the first policy that matches the client request is applied and no further processing occurs. If you need to change the order of your rules, reorder the rules using drag and drop.
 
 > **Note:** Service applications, which use the Client Credentials flow, have no user. If you use this flow, make sure that you have at least one rule that specifies the condition **No user**.
 
@@ -113,43 +121,43 @@ If you need scopes in addition to the reserved scopes provided, you can create t
 
     > **Note:** You can configure individual clients to ignore this setting and skip consent.
 
-1. Select **Set as a default scope** if you want Okta to grant authorization requests to apps that don't specify scopes on an authorization request. If the client omits the scope parameter in an authorization request, Okta returns all of the default scopes that are permitted in the access token by the access policy rule.
+1. Select **Set as a default scope** if you want Okta to grant authorization requests to apps that don't specify scopes on an authorization request. If the client omits the scope parameter in an authorization request, Okta returns all default scopes that are permitted in the access token by the access policy rule.
 1. Select **Include in public metadata** if you want the scope to be [publicly discoverable](/docs/reference/api/oidc/#well-known-oauth-authorization-server).
 1. Click **Create**.
 
-Scopes that you add are referenced by the [**Claims** dialog box](#create-claims).
+The [**Claims** dialog box](#create-claims) references the scopes that you add.
 
-If you set a scope as a default scope, then it is included by default in any tokens that are created. Depending on which flow you are using, it might also allow you to exclude the `scope` parameter from your token request.
+If you set a scope as a default scope, then it’s included by default in any tokens that are created. Depending on which flow you’re using, it might also allow you to exclude the `scope` parameter from your token request.
 
 ## Create Claims
 
 Tokens contain claims that are statements about the subject (for example: name, role, or email address).
 
-Create ID Token claims for OpenID Connect or access tokens for OAuth 2.0:
+Create ID token claims for OpenID Connect or access tokens for OAuth 2.0:
 
 1. In the Admin Console, go to **Security** > **API**.
 1. On the **Authorization Servers** tab, select the name of the authorization server, and then click **Claims**. Okta provides a default subject claim. You can edit the mapping or create your own claims.
 1. Click **Add Claim**, enter a **Name** for the claim, and configure the claim settings:
 
-    * **Include in token type** &mdash; select **Access Token** (OAuth 2.0) or **ID Token** (OpenID Connect). If you choose **ID Token**, you can also define whether you want the claim included only when requested or always included.
-    * **Value type** &mdash; select whether you want to define the claim by a **Groups** filter or by an **Expression** written using Okta Expression Language.
-    * **Value** &mdash; this option appears if you choose **Expression**. Use Okta Expression Language syntax to generate values derived from attributes in Universal Directory and app profiles, for example: `appuser.username`.
-    
+    * **Include in token type**&mdash;select **Access Token** (OAuth 2.0) or **ID Token** (OpenID Connect). If you choose **ID Token**, you can also define whether you want the claim included only when requested or always included.
+    * **Value type**&mdash;select whether you want to define the claim by a **Groups** filter or by an **Expression** written using Okta Expression Language.
+    * **Value**&mdash;this option appears if you choose **Expression**. Use Okta Expression Language syntax to generate values derived from attributes in Universal Directory and app profiles, for example: `appuser.username`.
+
       * See [Okta Expression Language](/docs/reference/okta-expression-language).
       * See [Expressions for OAuth 2.0/OIDC custom claims](/docs/reference/okta-expression-language/#expressions-for-oauth-2-0-oidc-custom-claims) for custom claim-specific expressions.
       > **Note:** Check that your expression returns the results expected. You can validate an expression using the **Token Preview** tab.
-    * **Filter** &mdash; this option appears if you choose **Groups**. Use it to add a group filter.
+    * **Filter**&mdash;this option appears if you choose **Groups**. Use it to add a group filter.
       > **Note:** Up to 100 groups are included in the claim. If the filter results in more than that, the request fails.
-    * **Disable claim** &mdash; select if you want to temporarily disable the claim for testing or debugging.
-    * **Include in** &mdash; specify whether the claim is valid for any scope or select the scopes for which the claim is valid.
+    * **Disable claim**&mdash;select if you want to temporarily disable the claim for testing or debugging.
+    * **Include in**&mdash;specify whether the claim is valid for any scope or select the scopes for which the claim is valid.
 
 ## Test the authorization server
 
-After you have followed the instructions to set up and customize your authorization server, you can test it by sending any one of the API calls that returns OAuth 2.0 and/or OpenID Connect tokens.
+After you set up and customize your authorization server, test it by sending any one of the API calls that returns OAuth 2.0 and OpenID Connect tokens.
 
 > **Note:** The `${authorizationServerId}` for the default server is `default`.
 
-You can find a full description of Okta's relevant APIs on the [OpenID Connect & OAuth 2.0 API](/docs/reference/api/oidc/) page.
+You can find a full description of the relevant Okta APIs on the [OpenID Connect & OAuth 2.0 API](/docs/reference/api/oidc/) page.
 
 The following are a few things that you can try to ensure that your authorization server is functioning as expected.
 
@@ -157,7 +165,7 @@ The following are a few things that you can try to ensure that your authorizatio
 
 ### OpenID Connect configuration
 
-To verify that your server was created and has the expected configuration values, you can send an API request to the server's OpenID Connect Metadata URI: `https://${yourOktaDomain}/oauth2/${authorizationServerId}/.well-known/openid-configuration` using an HTTP client or by typing the URI inside of a browser. This returns information about the OpenID configuration of your authorization server.
+You can send an API request to the server's OpenID Connect Metadata URI to verify that your server was created and has the expected configuration values: `https://${yourOktaDomain}/oauth2/${authorizationServerId}/.well-known/openid-configuration` using an HTTP client or by typing the URI inside a browser. This returns information about the OpenID configuration of your authorization server.
 
 For more information on this endpoint, see how to [retrieve authorization server OpenID Connect metadata](/docs/reference/api/oidc/#well-known-openid-configuration).
 
@@ -169,15 +177,15 @@ You can retrieve a list of all scopes for your authorization server, including c
 
 For more information on this endpoint, see [Get all scopes](/docs/reference/api/authorization-servers/#get-all-scopes).
 
-If you created any custom claims, the easiest way to confirm that they have been successfully added is to use this endpoint:
+If you created any custom claims, the easiest way to confirm that they’ve been successfully added is to use this endpoint:
 
 `/api/v1/authorizationServers/${authorizationServerId}/claims`
 
 For more information on this endpoint, see [Get all claims](/docs/reference/api/authorization-servers/#get-all-claims).
 
-### Testing an OpenID Connect flow
+### Test an OpenID Connect flow
 
-To test your authorization server more thoroughly, you can try a full authentication flow that returns an ID Token. To do this, you need a client application in Okta with at least one user assigned to it.
+To test your authorization server more thoroughly, you can try a full authentication flow that returns an ID token. To do this, you need a client application in Okta with at least one user assigned to it.
 
 For more information you can read about:
 
@@ -205,21 +213,21 @@ Add the following URL query parameters to the URL:
 
 > **Note:** A `nonce` value isn't required if the `response_type` is `code`.
 
-All of the values are fully documented here: [Obtain an Authorization Grant from a user](/docs/reference/api/oidc/#authorize).
+All values are fully documented here: [Obtain an Authorization Grant from a user](/docs/reference/api/oidc/#authorize).
 
 The resulting URL looks like this:
 
 `https://${yourOktaDomain}/oauth2/${authorizationServerId}/v1/authorize?client_id=examplefa39J4jXdcCwWA&response_type=id_token&response_mode=fragment&scope=openid%20profile&redirect_uri=https%3A%2F%2FyourRedirectUriHere.com&state=WM6D&nonce=YsG76jo`
 
-If you paste this into your browser, you are redirected to the sign-in page for your Okta org with a URL that looks like this:
+If you paste this into your browser, you’re redirected to the sign-in page for your Okta org with a URL that looks like this:
 
 `https://{yourOktaDomain}/login/login.htm?fromURI=%2Foauth2%2Fv1%2Fauthorize%2Fredirect%3Fokta_key%aKeyValueWillBeHere`
 
-Enter the credentials for a user who is mapped to your OpenID Connect application, and you are directed to the `redirect_uri` that you specified. An ID Token and any state that you defined are also included:
+Enter the credentials for a user who is mapped to your OpenID Connect application, and you’re directed to the `redirect_uri` that you specified. An ID token and any state that you defined are also included:
 
 `https://yourRedirectUriHere.com/#id_token=eyJhbGciOiJSUzI1NiIsImtpZCI6ImluZUdjZVQ4SzB1SnZyWGVUX082WnZLQlB2RFowO[...]z7UvPoMEIjuBTH-zNkTS5T8mGbY8y7532VeWKA&state=WM6D`
 
-To check the returned ID Token, you can copy the value and paste it into any JWT decoder (for example: <https://token.dev>). Using a JWT decoder you can check the payload to confirm that it contains all of the claims that you are expecting, including custom ones. If you included a `nonce` value, that is also included:
+To check the returned ID token, you can copy the value and paste it into any JWT decoder (for example: <https://token.dev>). Using a JWT decoder you can check the payload to confirm that it contains all claims that you’re expecting, including custom ones. If you included a `nonce` value, that value is also included:
 
 ```json
 {
@@ -247,7 +255,7 @@ To check the returned ID Token, you can copy the value and paste it into any JWT
 }
 ```
 
-In this example, we see the `nonce` with value `YsG76jo` and the custom claim `preferred_honorific` with value `Commodore`.
+This example includes the `nonce` with value `YsG76jo` and the custom claim `preferred_honorific` with value `Commodore`.
 
 ## See also
 

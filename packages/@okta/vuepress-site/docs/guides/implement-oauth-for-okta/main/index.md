@@ -17,7 +17,7 @@ This guide explains how to interact with Okta APIs by using scoped OAuth 2.0 acc
 **What you need**
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
-* [Postman client](https://www.getpostman.com/downloads/) to test requests with the access token. See [Get Started with the Okta APIs](https://developer.okta.com/code/rest/) for information on setting up Postman.
+* [Postman client](https://www.getpostman.com/downloads/) to test requests with the access token. See [Get Started with the Okta APIs](https://developer.okta.com/docs/reference/rest/) for information on setting up Postman.
 
 > **Note:** OAuth for Okta works only with the APIs listed on the [OAuth 2.0 Scopes](https://developer.okta.com/docs/api/oauth2/) page.
 
@@ -105,7 +105,7 @@ https://${yourOktaDomain}/oauth2/v1/authorize?client_id=0oan47pj9BsB30h7&respons
 
 We recommend that you always use the Authorization Code with PKCE grant flow. See [Implement the Authorization Code with PKCE flow](/docs/guides/implement-grant-type/authcodepkce/main/) for details on this grant type.
 
-> **Note:** If this is your first time working with the Okta APIs, read [Get Started with the Okta REST APIs](/code/rest/) first.
+> **Note:** If this is your first time working with the Okta APIs, read [Get Started with the Okta REST APIs](/docs/reference/rest/) first.
 
 1. In Postman, select the request that you want to make, such as a `GET` request to the `/api/v1/users` endpoint to get back a list of all users.
 2. On the **Header** tab, remove the existing SSWS Authorization API Key.

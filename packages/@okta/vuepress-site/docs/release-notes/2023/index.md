@@ -2,9 +2,31 @@
 title: Okta API Products release notes 2023
 ---
 
-> Help us improve our release notes by filling out this short [survey](https://surveys.okta.com/jfe/form/SV_4VEZcIGOX0TBgkC).
-
 ## December
+
+### Weekly release 2023.12.2
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Bugs fixed in 2023.12.2](#bugs-fixed-in-2023-12-2) | January 4, 2024 |
+
+#### Bugs fixed in 2023.12.2
+
+* Some inbound SSO flows failed when a default app was set for the Sign-In Widget. (OKTA-621160)
+
+* A `next` link header was returned when a list clients (`GET /oauth2/v1/clients`) request was made when there were no further clients to be fetched. (OKTA-658169)
+
+* Some free-trial orgs could send customized email templates. (OKTA-673562)
+
+### Weekly release 2023.12.1
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [DPoP support for Okta management APIs is EA in Preview](#dpop-support-for-okta-management-apis-is-ea-in-preview)| December 13, 2023 |
+
+#### DPoP support for Okta management APIs is EA in Preview
+
+You can now use OAuth 2.0 Demonstrating Proof-of-Possession (DPoP) access tokens to access Okta management APIs. See [Configure OAuth 2.0 Demonstrating Proof-of-Possession](/docs/guides/dpop/oktaresourceserver/main/).<!-- OKTA-673922 OKTA_RESOURCE_SERVER_DPOP_SUPPORT-->
 
 ### Monthly release 2023.12.0
 

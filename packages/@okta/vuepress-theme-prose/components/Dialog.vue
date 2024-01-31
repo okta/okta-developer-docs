@@ -99,29 +99,54 @@
           </a>
         </article>
       </div>
+      <div class="dont-show-again-checkbox">
+        <input
+          id="dont-show-again-checkbox"
+          v-model="isDontShowModalChecked"
+          type="checkbox"
+        >
+        <label for="dont-show-again-checkbox">
+          Don't show this again
+        </label>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import storage from '../util/localStorage';
+const HIDE_INTRO_MODAL_KEY = 'hide_intro_modal';
+
   export default {
     name: "HomeDialog",
     data() {
       return {
-        dialogHidden: false,
+        dialogHidden: true,
+        isDontShowModalChecked: false
       };
     },
     mounted() {
+      this.$nextTick(() => {
+        if (!storage.getItem(HIDE_INTRO_MODAL_KEY)) {
+          this.dialogHidden = false;
+        }
+      });
       const ESC_KEY = 27;
       window.addEventListener("keydown", (event) => {
         if (event.keyCode === ESC_KEY) {
-          this.dialogHidden = !this.dialogHidden
+          if (this.isDontShowModalChecked) {
+            storage.setItem(HIDE_INTRO_MODAL_KEY, "true");
+          }
+          this.dialogHidden = !this.dialogHidden;
         }
       })
     },
     methods: {
       hideDialog() {
-        this.dialogHidden = !this.dialogHidden
+        if (this.isDontShowModalChecked) {
+          storage.setItem(HIDE_INTRO_MODAL_KEY, "true");
+        }
+        this.dialogHidden = !this.dialogHidden;
       }
     }
   }

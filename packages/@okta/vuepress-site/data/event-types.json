@@ -1,6 +1,6 @@
 {
-  "release" : "2023.12.1",
-  "build" : "2023.12.1-begin-185-g2bd2582c8e05",
+  "release" : "2024.01.1",
+  "build" : "2024.01.1-begin-97-g2d5653584823",
   "categories" : [ {
     "id" : "access-gateway",
     "name" : "Access Gateway"
@@ -13056,6 +13056,57 @@
         "targets" : [ "HookKeyResourceDetails" ]
       }
     }, {
+      "id" : "system.idp.key.create",
+      "category" : "federation",
+      "description" : "Fired when a new Identity provider key credential is created. This can be used to audit that a new identity provider key credential has been created. When fired, this event indicates a new X.509 certificate credential is added to the IdP key store.",
+      "info" : {
+        "created" : "2023-12-12",
+        "release" : "2023.12.2"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "event-hook-eligible", "idp" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "system.idp.key.delete",
+      "category" : "federation",
+      "description" : "Fired when an Identity provider key credential is deleted. This can be used to audit that an identity provider key credential has been deleted. When fired, this event indicates a X.509 certificate credential by kid is deleted if it isn't currently being used by an active or inactive IdP.",
+      "info" : {
+        "created" : "2023-12-12",
+        "release" : "2023.12.2"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "event-hook-eligible", "idp" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "system.idp.key.update",
+      "category" : "federation",
+      "description" : "Fired when an Identity provider key credential is updated. This can be used to audit that an identity provider key credential has been updated. When fired, this event indicates a X.509 certificate credential is updated in the IdP key store.",
+      "info" : {
+        "created" : "2023-12-12",
+        "release" : "2023.12.2"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "event-hook-eligible", "idp" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
       "id" : "system.idp.lifecycle.activate",
       "category" : "federation",
       "description" : "Fired when an Identity provider is activated. This can be used to audit that an identity provider has been activated. When fired, this event indicates an Identity provider was activated. This event also indicates the type of the identity provider that was activated.",
@@ -13113,6 +13164,23 @@
       "info" : {
         "created" : "2020-09-03",
         "release" : "2020.09.1"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "event-hook-eligible", "idp" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "IdpDebugData",
+        "actor" : null,
+        "targets" : [ "ResourceDetails" ]
+      }
+    }, {
+      "id" : "system.idp.lifecycle.read_client_secret",
+      "category" : "federation",
+      "description" : "Fired when Identity provider(s) with a client secret is read. This can be used to audit that identity provider(s) with a client secret has been read. When fired, this event indicates one or more Identity providers with a client secret was read.",
+      "info" : {
+        "created" : "2023-12-15",
+        "release" : "2020.12.2"
       },
       "beta" : false,
       "internal" : false,
@@ -22279,6 +22347,14 @@
             "format" : "id",
             "examples" : [ "X2VCdlgDiOx8wuRzdWiZ6gAABOk", "X04hrZh4mEb9dgc6GkD5@AAACPU" ]
           },
+          "server_status" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "SAFE_MODE" ]
+          },
           "cae_enforce_mode" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -26543,6 +26619,14 @@
             "customer" : false,
             "format" : "id",
             "examples" : [ "X2VCdlgDiOx8wuRzdWiZ6gAABOk", "X04hrZh4mEb9dgc6GkD5@AAACPU" ]
+          },
+          "idp_ids_with_secrets" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[0oa105vfnZXjOkfhY0g4]", "[0oa10curT7LcpG5QF0g4, 0oa108lzxa2rd3NyW0g4]", "[0oa10fpNcoWitlFSa0g4, 0oa10k1GLb53GWM1a0g4, 0oa10t5eHwpwp1mOE0g4, 0oa10zdSPwHVVJWYE0g4]" ]
           },
           "protocol" : {
             "type" : "String",

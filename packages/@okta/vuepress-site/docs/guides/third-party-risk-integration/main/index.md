@@ -18,7 +18,7 @@ This guide explains how to configure an Okta org to receive risk events from a t
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
 * A configured Okta org for third-party risk providers. Contact your Okta customer support representative for this configuration.
-* A [Postman client](https://www.postman.com/downloads/) to configure and test the risk provider integration. See [Get Started with the Okta APIs](/code/rest/) to set up Postman.
+* A [Postman client](https://www.postman.com/downloads/) to configure and test the risk provider integration. See [Get Started with the Okta APIs](/docs/reference/rest/) to set up Postman.
 * The Risk API collection. Download from: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/47546754d382762468c6)
 
 ---
