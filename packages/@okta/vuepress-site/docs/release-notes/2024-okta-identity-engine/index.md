@@ -12,10 +12,15 @@ title: Okta Identity Engine API Products release notes 2024
 
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
+| [Identity Threat Protection with Okta AI is EA in Production](#identity-threat-protection-with-okta-ai-is-ea-in-production)| January 31, 2024 |
 | [Content Security Policy for custom domains is EA in Preview](#content-security-policy-for-custom-domains-is-ea-in-preview)| January 31, 2024 |
 | [Granular API policy authenticator controls is self-service EA in Preview](#granular-api-policy-authenticator-controls-is-self-service-ea-in-preview)| January 31, 2024 |
 | [IP restrictions on tokens](#ip-restrictions-on-tokens)| January 31, 2024 |
 | [Bugs fixed in 2024.01.2](#bugs-fixed-in-2024-01-2) | January 31, 2024 |
+
+#### Identity Threat Protection with Okta AI is EA in Production
+
+Identity Threat Protection with Okta AI is a powerful risk assessment and response solution that provides post-authentication security to your org. By continuously analyzing risk signals that are native to Okta, risk signals from integrated security partner vendors, and your policy conditions, it safeguards orgs against identity attacks that occur during and outside of a user's session. When Identity Threat Protection discovers a risk, it can immediately end the user's sessions, prompt an MFA challenge, or invoke a workflow to restore your org's security posture. Using intuitive dashboard widgets and reports, you can easily monitor security threats as they happen. See [Identity Threat Protection with Okta AI](https://help.okta.com/okta_help.htm?type=oie&id=ext-itp-overview). <!-- OKTA-683713 ENABLE_ITP_FEATURES_FOR_EA -->
 
 
 #### Content Security Policy for custom domains is EA in Preview
