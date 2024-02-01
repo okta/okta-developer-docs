@@ -14,6 +14,7 @@ title: Okta Identity Engine API Products release notes 2024
 | ------ | ------------------------ |
 | [Content Security Policy for custom domains is EA in Preview](#content-security-policy-for-custom-domains-is-ea-in-preview)| January 31, 2024 |
 | [Granular API policy authenticator controls is self-service EA in Preview](#granular-api-policy-authenticator-controls-is-self-service-ea-in-preview)| January 31, 2024 |
+| [IP restrictions on tokens](#ip-restrictions-on-tokens)| January 31, 2024 |
 | [Bugs fixed in 2024.01.2](#bugs-fixed-in-2024-01-2) | January 31, 2024 |
 
 
@@ -24,6 +25,10 @@ The Content Security Policy (CSP) feature lets admins control which URLs may be 
 #### Granular API policy authenticator controls is self-service EA in Preview
 
 The Authentication Policy API now includes three new `constraints` object parameters that provide precise control over what specific authenticators and methods are displayed to end users. Previously, some authenticators were mapped to the same authenticator `types` and `methods`. The parameters `authenticationMethods` and `excludeAuthenticationMethods` now identify (or exclude) the exact authenticator for both `knowledge` and `possession` constraints. The `required` parameter indicates whether the `knowledge` or `possession` constraints are required by the assurance. See the [Policy API](/docs/reference/api/policy/#constraints). <!--OKTA-676888 ASSURANCE_GRANULAR_AUTHENTICATOR_CONSTRAINTS -->
+
+#### IP restrictions on tokens
+
+Admins can specify allowlisted and blocklisted network zones for static, Single Sign-On Web System (SSWS) API tokens. This strengthens org security by letting them control where calls to Okta APIs can originate from. It also restricts attackers and malware from stealing SSWS tokens or replaying them outside of their IP range to gain unauthorized access. <!-- OKTA-689850 -->
 
 #### Bugs fixed in 2024.01.2
 
