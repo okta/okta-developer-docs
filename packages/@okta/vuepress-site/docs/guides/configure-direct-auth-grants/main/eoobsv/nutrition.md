@@ -17,5 +17,6 @@ Use this guide to implement a direct authentication out-of-band (OOB) flow for y
 * An app that you want to implement OAuth 2.0 direct authentication OOB with Okta
 * A test user in your org enrolled in the Phone authenticator with **SMS** and/or **Voice call** enabled
 * The Direct Authentication feature enabled for your org. Contact [Okta Support](https://support.okta.com) to enable this EA feature.
+* Super admin role assigned to you. When you create an app, or update an existing app, you must have super admin permissions to enable direct authentication grant types.
 
 <ApiAmProdWarning />
