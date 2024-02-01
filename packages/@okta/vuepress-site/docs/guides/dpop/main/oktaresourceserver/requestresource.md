@@ -1,7 +1,5 @@
 ## Make a request to an Okta resource
 
-<ApiLifecycle access="ea" />
-
 Access to an Okta resource requires more steps.
 
 1. Hash and base64url-encode the DPoP-bound access token for use as the `ath` value.
