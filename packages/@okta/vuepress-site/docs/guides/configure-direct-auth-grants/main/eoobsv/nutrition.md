@@ -1,7 +1,7 @@
 <ApiLifecycle access="ea" />
 <ApiLifecycle access="ie" />
 
-Use this guide to implement a direct authentication out-of-band (OOB) flow for your app in Okta. The guide uses the Phone authenticator with SMS or Voice factors.
+Use this guide to implement a direct authentication out-of-band (OOB) flow for your app. The guide uses the Phone authenticator with SMS or Voice factors.
 
 ---
 
