@@ -49,12 +49,6 @@ redirects:
     to: /code/javascript/okta_sign-in_widget/
   - from: /docs/reference/api/okta_signin_widget.html
     to: /code/javascript/okta_sign-in_widget_ref/index.html
-  - from: /code/php/jwt-validation/index.html
-    to: https://github.com/okta/okta-jwt-verifier-php
-  - from: /code/php/quickstart-signin-widget/index.html
-    to: /docs/guides/quickstart/
-  - from: /docs/guides/simplesamlphp.html
-    to: /code/php/simplesamlphp/index.html
   - from: /docs/examples/pysaml2.html
     to: /code/python/pysaml2/index.html
   - from: /docs/guides/pysaml2.html
@@ -3697,38 +3691,6 @@ redirects:
     to: /docs/guides/sign-into-web-app-redirect/node-express/main/#get-info-about-the-user
   - from: /docs/guides/sign-into-web-app/nodeexpress/next-steps/index.html
     to: /docs/guides/sign-into-web-app-redirect/node-express/main/#next-steps
-  - from: /docs/guides/sign-into-web-app/php/before-you-begin
-    to: /docs/guides/sign-into-web-app-redirect/php/main/
-  - from: /docs/guides/sign-into-web-app/php/define-callback
-    to: /docs/guides/sign-into-web-app-redirect/php/main/#define-a-callback-route
-  - from: /docs/guides/sign-into-web-app/php/create-okta-application
-    to: /docs/guides/sign-into-web-app-redirect/php/main/#create-an-okta-integration-for-your-app
-  - from: /docs/guides/sign-into-web-app/php/configure-packages
-    to: /docs/guides/sign-into-web-app-redirect/php/main/#add-packages
-  - from: /docs/guides/sign-into-web-app/php/redirect-to-sign-in
-    to: /docs/guides/sign-into-web-app-redirect/php/main/#redirect-to-the-sign-in-page
-  - from: /docs/guides/sign-into-web-app/php/require-authentication
-    to: /docs/guides/sign-into-web-app-redirect/php/main/#configure-required-authentication
-  - from: /docs/guides/sign-into-web-app/php/get-user-info
-    to: /docs/guides/sign-into-web-app-redirect/php/main/#get-info-about-the-user
-  - from: /docs/guides/sign-into-web-app/php/next-steps
-    to: /docs/guides/sign-into-web-app-redirect/php/main/#next-steps
-  - from: /docs/guides/sign-into-web-app/php/before-you-begin/index.html
-    to: /docs/guides/sign-into-web-app-redirect/php/main/
-  - from: /docs/guides/sign-into-web-app/php/define-callback/index.html
-    to: /docs/guides/sign-into-web-app-redirect/php/main/#define-a-callback-route
-  - from: /docs/guides/sign-into-web-app/php/create-okta-application/index.html
-    to: /docs/guides/sign-into-web-app-redirect/php/main/#create-an-okta-integration-for-your-app
-  - from: /docs/guides/sign-into-web-app/php/configure-packages/index.html
-    to: /docs/guides/sign-into-web-app-redirect/php/main/#add-packages
-  - from: /docs/guides/sign-into-web-app/php/redirect-to-sign-in/index.html
-    to: /docs/guides/sign-into-web-app-redirect/php/main/#redirect-to-the-sign-in-page
-  - from: /docs/guides/sign-into-web-app/php/require-authentication/index.html
-    to: /docs/guides/sign-into-web-app-redirect/php/main/#configure-required-authentication
-  - from: /docs/guides/sign-into-web-app/php/get-user-info/index.html
-    to: /docs/guides/sign-into-web-app-redirect/php/main/#get-info-about-the-user
-  - from: /docs/guides/sign-into-web-app/php/next-steps/index.html
-    to: /docs/guides/sign-into-web-app-redirect/php/main/#next-steps
   - from: /docs/guides/sign-into-web-app/python/before-you-begin
     to: /docs/guides/sign-into-web-app-redirect/python/main/
   - from: /docs/guides/sign-into-web-app/python/define-callback
@@ -4325,10 +4287,6 @@ redirects:
     to: /docs/guides/validate-access-tokens/nodejs/main/
   - from: /docs/guides/validate-access-tokens/nodejs/overview/index.html
     to: /docs/guides/validate-access-tokens/nodejs/main/
-  - from: /docs/guides/validate-access-tokens/php/overview
-    to: /docs/guides/validate-access-tokens/php/main/
-  - from: /docs/guides/validate-access-tokens/php/overview/index.html
-    to: /docs/guides/validate-access-tokens/php/main/
   - from: /docs/guides/validate-access-tokens/python/overview
     to: /docs/guides/validate-access-tokens/python/main/
   - from: /docs/guides/validate-access-tokens/python/overview/index.html
@@ -4573,26 +4531,6 @@ redirects:
     to: /docs/guides/protect-your-api/nodeexpress/main/#configure-cors
   - from: /docs/guides/protect-your-api/nodeexpress/next-steps/index.html
     to: /docs/guides/protect-your-api/nodeexpress/main/#next-steps
-  - from: /docs/guides/protect-your-api/php/before-you-begin
-    to: /docs/guides/protect-your-api/php/main/
-  - from: /docs/guides/protect-your-api/php/configure-packages
-    to: /docs/guides/protect-your-api/php/main/#add-and-configure-packages
-  - from: /docs/guides/protect-your-api/php/require-authentication
-    to: /docs/guides/protect-your-api/php/main/#require-authentication
-  - from: /docs/guides/protect-your-api/php/configure-cors
-    to: /docs/guides/protect-your-api/php/main/#configure-cors
-  - from: /docs/guides/protect-your-api/php/next-steps
-    to: /docs/guides/protect-your-api/php/main/#next-steps
-  - from: /docs/guides/protect-your-api/php/before-you-begin/index.html
-    to: /docs/guides/protect-your-api/php/main/
-  - from: /docs/guides/protect-your-api/php/configure-packages/index.html
-    to: /docs/guides/protect-your-api/php/main/#add-and-configure-packages
-  - from: /docs/guides/protect-your-api/php/require-authentication/index.html
-    to: /docs/guides/protect-your-api/php/main/#require-authentication
-  - from: /docs/guides/protect-your-api/php/configure-cors/index.html
-    to: /docs/guides/protect-your-api/php/main/#configure-cors
-  - from: /docs/guides/protect-your-api/php/next-steps/index.html
-    to: /docs/guides/protect-your-api/php/main/#next-steps
   - from: /docs/guides/protect-your-api/python/before-you-begin
     to: /docs/guides/protect-your-api/python/main/
   - from: /docs/guides/protect-your-api/python/configure-packages
@@ -4985,36 +4923,8 @@ redirects:
     to: /docs/guides/sign-into-web-app-redirect/node-express/main/index.html#next-steps
   - from: /docs/guides/sign-into-web-app/
     to: /docs/guides/sign-into-web-app-redirect/
-  - from: /docs/guides/sign-into-web-app/php/main/#understand-the-callback-route
-    to: /docs/guides/sign-into-web-app-redirect/php/main/#define-a-callback-route
-  - from: /docs/guides/sign-into-web-app/php/main/#create-an-okta-app-integration
-    to: /docs/guides/sign-into-web-app-redirect/php/main/#create-an-okta-integration-for-your-app
-  - from: /docs/guides/sign-into-web-app/php/main/#add-and-configure-packages
-    to: /docs/guides/sign-into-web-app-redirect/php/main/#add-packages
-  - from: /docs/guides/sign-into-web-app/php/main/#redirect-to-the-sign-in-page
-    to: /docs/guides/sign-into-web-app-redirect/php/main/#redirect-to-the-sign-in-page
-  - from: /docs/guides/sign-into-web-app/php/main/#require-authentication
-    to: /docs/guides/sign-into-web-app-redirect/php/main/#configure-required-authentication
-  - from: /docs/guides/sign-into-web-app/php/main/#get-info-about-the-user
-    to: /docs/guides/sign-into-web-app-redirect/php/main/#get-info-about-the-user
-  - from: /docs/guides/sign-into-web-app/php/main/#next-steps
-    to: /docs/guides/sign-into-web-app-redirect/php/main/#next-steps
   - from: /docs/guides/sign-into-web-app/index.html
     to: /docs/guides/sign-into-web-app-redirect/
-  - from: /docs/guides/sign-into-web-app/php/main/index.html#understand-the-callback-route
-    to: /docs/guides/sign-into-web-app-redirect/php/main/index.html#define-a-callback-route
-  - from: /docs/guides/sign-into-web-app/php/main/index.html#create-an-okta-app-integration
-    to: /docs/guides/sign-into-web-app-redirect/php/main/index.html#create-an-okta-integration-for-your-app
-  - from: /docs/guides/sign-into-web-app/php/main/index.html#add-and-configure-packages
-    to: /docs/guides/sign-into-web-app-redirect/php/main/index.html#add-packages
-  - from: /docs/guides/sign-into-web-app/php/main/index.html#redirect-to-the-sign-in-page
-    to: /docs/guides/sign-into-web-app-redirect/php/main/index.html#redirect-to-the-sign-in-page
-  - from: /docs/guides/sign-into-web-app/php/main/index.html#require-authentication
-    to: /docs/guides/sign-into-web-app-redirect/php/main/index.html#configure-required-authentication
-  - from: /docs/guides/sign-into-web-app/php/main/index.html#get-info-about-the-user
-    to: /docs/guides/sign-into-web-app-redirect/php/main/index.html#get-info-about-the-user
-  - from: /docs/guides/sign-into-web-app/php/main/index.html#next-steps
-    to: /docs/guides/sign-into-web-app-redirect/php/main/index.html#next-steps
   - from: /docs/guides/sign-into-web-app/
     to: /docs/guides/sign-into-web-app-redirect/
   - from: /docs/guides/sign-into-web-app/python/main/#understand-the-callback-route
