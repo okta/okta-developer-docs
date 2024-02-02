@@ -8,7 +8,6 @@ The following open source and paid tool kits can help you implement SAML 2.0 for
 * .NET Framework 4.0 or earlier: [ComponentSpace SAML 2.0 for ASP.NET and ASP.NET Core](https://www.componentspace.com/) (paid software)
 * Java: [OpenSAML](https://wiki.shibboleth.net/confluence/display/OS30/Home), which is part of the [Shibboleth Development Project](https://www.shibboleth.net/)
 * Java: [Spring Security SAML](/code/java/spring_security_saml)
-* PHP: [SimpleSAMLphp](/code/php/simplesamlphp)
 * Python: [PySAML2](/code/python/pysaml2)
 * Ruby: [Ruby-SAML](https://github.com/onelogin/ruby-saml)
 
