@@ -185,7 +185,7 @@ Now that you have set up an application icon in your Okta organization and have 
 
 Use both methods to test your application. In each case, you know if the test worked when you see a screen that looks like the one below:
 
-![Authenticated user](/img/example-application-authenticated-user.png "Authenticated user")
+![Authenticated user](/img/archive/php/example-application-authenticated-user.png "Authenticated user")
 
 1. Sign in from the Okta SimpleSAMLphp example application (This is known as an **SP-initiated sign-in**.)
    * Open the example application in your browser:
@@ -193,7 +193,7 @@ Use both methods to test your application. In each case, you know if the test wo
    * Click the `example-okta-com` link.
 2. Sign in from Okta (This is known as an **IdP-initiated" sign-in**.)
    * Sign in to your Okta organization.
-   * Click the button for the application that you created earlier "Configuring Okta to work with SimpleSAMLphp" section above: ![SimpleSAMLphp Example](/img/simplesamlphp-example-okta-chiclet.png "SimpleSAMLphp Example").
+   * Click the button for the application that you created earlier "Configuring Okta to work with SimpleSAMLphp" section above: ![SimpleSAMLphp Example](/img/archive/php/simplesamlphp-example-okta-chiclet.png "SimpleSAMLphp Example").
 
 You know that your testing was successful if you are able to get to the "Logged in" page pictured above using both the SP-initated and IdP-initated sign-in flows.
 

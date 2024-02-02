@@ -190,7 +190,7 @@ Before integrating email magic links in your app, it's important to understand h
 
 The following diagram illustrates these steps:
 
-![Email magic link flow for redirect auth](/img/authenticators-email-magic-link-summary-redirect-flow-overview.png "Image title") -->
+![Email magic link flow for redirect auth](/img/archive/php/authenticators-email-magic-link-summary-redirect-flow-overview.png "Image title") -->
 
 Try the email magic link recovery flow:
 
