@@ -102,7 +102,8 @@
 </template>
 
 <script>
-import { guideFromPath } from "../util/guides"
+import { guideFromPath } from "../util/guides";
+import _ from 'lodash';
 
 export default {
   name: "SidebarItem",
@@ -192,7 +193,9 @@ export default {
       });
       let lastExpandedSection = document.querySelectorAll('.tree-nav li.subnav-active > .sections');
       if (lastExpandedSection.length) {
-        lastExpandedSection[lastExpandedSection.length - 1].classList.add('bordered');
+        _.forEach(lastExpandedSection, (sec) => {
+          sec.classList.add('bordered');
+        });
       }
     },
     isCurrentPage(link) {

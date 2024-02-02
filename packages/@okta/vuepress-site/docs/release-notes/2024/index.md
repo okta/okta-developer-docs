@@ -6,6 +6,30 @@ title: Okta API Products release notes 2024
 
 ## January
 
+### Weekly release 2024.01.2
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Content Security Policy for custom domains is EA in Preview](#content-security-policy-for-custom-domains-is-ea-in-preview)| January 31, 2024 |
+| [IP restrictions on tokens](#ip-restrictions-on-tokens)| January 31, 2024 |
+| [Bugs fixed in 2024.01.2](#bugs-fixed-in-2024-01-2) | January 31, 2024 |
+
+#### Content Security Policy for custom domains is EA in Preview
+
+The Content Security Policy (CSP) feature lets admins control which URLs may be linked to from customized sign-in and error pages in orgs that use custom domains. Admins add trusted URLs to Okta that link to items such as images and add these links to the code in their sign-in and error pages. This feature enhances security by enabling admins to allow only approved content to appear and prevent the introduction of potentially malicious code to these pages. See [Content Security Policy (CSP) for your custom domain](/docs/guides/custom-widget/main/#content-security-policy-csp-for-your-custom-domain). <!-- OKTA-600774 FF CONTENT_SECURITY_POLICY_FOR_CUSTOMIZABLE_SIGN_IN_AND_ERROR_PAGES -->
+
+#### IP restrictions on tokens
+
+Admins can specify allowlisted and blocklisted network zones for static, Single Sign-On Web System (SSWS) API tokens. This strengthens org security by letting them control where calls to Okta APIs can originate from. It also restricts attackers and malware from stealing SSWS tokens or replaying them outside of their IP range to gain unauthorized access. <!-- OKTA-689850 -->
+
+#### Bugs fixed in 2024.01.2
+
+* POST requests to the `/sessions/me/lifecycle/refresh` endpoint didn't return an updated session cookie. (OKTA-665452)
+
+* System Log events for the access token, ID token, and user SSO grants didn't include `externalSessionId`. (OKTA-664370)
+
+* System Log events for access token and ID token grants didn't include user attributes. (OKTA-674218)
+
 ### Monthly release 2024.01.0
 
 | Change | Expected in Preview Orgs |
