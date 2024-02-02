@@ -40,7 +40,7 @@ The following scenarios are included in this guide:
 * [Simple enrollment and authentication](#simple-enrollment-and-authentication)
 * [Enable self-service enrollment](#enable-self-service-enrollment)
 * [Add MFA with a mandatory second factor](#add-mfa-with-a-mandatory-second-factor)
-* [Authenticator recovery](#authenticator-recovery)
+* [Authenticator recovery](#self-service-password-recovery)
 * [Progressive Profiling](#progressive-profiling)
 * [Identity Provider routing to Facebook](#identity-provider-routing-to-facebook)
 
@@ -140,8 +140,8 @@ To enable self-service password-optional enrollments in the Sign-In Widget, [Set
 
     > **Note:** Alternatively, you can verify your email address by copying the one-time passcode from the email into the Sign-In Widget.
 
-5. Click **Set up later** for all the optional authenticators. The app redirects you to the home page.
-6. Click **Logout** in the upper-right corner of the page to sign out of the PHP app.
+6. Click **Set up later** for all the optional authenticators. The app redirects you to the home page.
+7. Click **Logout** in the upper-right corner of the page to sign out of the PHP app.
 
 ## Add MFA with a mandatory second factor
 
@@ -307,7 +307,7 @@ To connect your org to the IdP, add and configure that IdP in Okta.
 
     By default, Okta requires the `email` attribute for a user. The `email` scope is required to create and link the user to the Okta Universal Directory.
 
-    > **Note:** For more information about these settings and the **Advanced Settings**, see [Social Identity Provider Settings](/docs/guides/add-an-external-idp/-/configure-idp-in-okta/#social-identity-provider-settings).
+    > **Note:** For more information about these settings and the **Advanced Settings**, see [Social Identity Provider Settings](/docs/guides/add-an-external-idp/openidconnect/main/#create-an-identity-provider-in-okta).
 
 4. Click **Add Identity Provider**. The Identity Provider page appears.
 5. Locate the IdP that you just added and click the arrow next to the IdP name to expand.

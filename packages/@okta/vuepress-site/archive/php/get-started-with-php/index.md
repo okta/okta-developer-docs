@@ -19,12 +19,12 @@ These resources walk you through adding user authentication to your PHP app in m
 
 <ul class='language-ctas'>
    <li>
-      <a href='/docs/guides/sign-into-web-app-redirect/php/main/' class='Button--blueDarkOutline' data-proofer-ignore>
+      <a href='/archive/php/sign-into-web-app-redirect/' class='Button--blueDarkOutline' data-proofer-ignore>
          <span>Sign users in quickstart</span>
       </a>
    </li>
    <!-- <li>
-    <a href='/docs/guides/protect-your-api/php/main/' class='Button--blueDarkOutline' data-proofer-ignore>
+    <a href='/archive/php/protect-your-api/' class='Button--blueDarkOutline' data-proofer-ignore>
       <span>Protect your API quickstart</span>
     </a>
   </li> -->
@@ -51,7 +51,7 @@ These SDKs help you integrate with Okta by redirecting to the Okta Sign-In Widge
 
 Okta-hosted Sign-In Widget guide:
 
-[Sign users in to your web app using the redirect model](/docs/guides/sign-into-web-app-redirect/php/main/)
+[Sign users in to your web app using the redirect model](/archive/php/sign-into-web-app-redirect/)
 
 Other guides:
 

@@ -12,7 +12,7 @@ meta:
 
 > **Info**: PHP is no longer a supported language at Okta, and this article is no longer updated.
 
-Add a user sign-in flow to a server-side web application with Okta's [redirect model](https://developer.okta.com/docs/concepts/redirect-vs-embedded/#redirect-authentication).
+Add a user sign-in flow to a server-side web application with Okta's [redirect model](/docs/concepts/redirect-vs-embedded/#redirect-authentication).
 
 ---
 
@@ -25,7 +25,7 @@ Add a user sign-in flow to a server-side web application with Okta's [redirect m
 
 **What you need**
 
-* An [Okta Developer Edition org](https://developer.okta.com/signup/)
+* An [Okta Developer Edition org](/signup/)
 * A recent version of [PHP](https://www.php.net/) and [composer](https://getcomposer.org/) installed.
 
 **Sample code**
@@ -56,7 +56,7 @@ An **app integration** represents your application in your Okta org. Use it to c
 To create an app integration for your application:
 
 1. Open the Admin Console for your org.
-   1. [Sign in to your Okta organization](https://developer.okta.com/login) with your administrator account.
+   1. [Sign in to your Okta organization](/login) with your administrator account.
    {style="list-style-type:lower-alpha"}
    1. Click **Admin** in the upper-right corner of the page.
 1. Go to **Applications** > **Applications** to view the current app integrations.
