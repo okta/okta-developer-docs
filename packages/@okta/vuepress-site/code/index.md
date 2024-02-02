@@ -19,7 +19,6 @@ Pick your platform from the options below. These pages contain links to SDKs tha
 <br>
 <Cards>
   <Card href="/code/go/" :showHeaderIcon=true headerIcon="code-go">Go</Card>
-  <Card href="/code/php/" :showHeaderIcon=true headerIcon="code-php">PHP</Card>
   <Card href="/code/python/" :showHeaderIcon=true headerIcon="code-python">Python</Card>
 </Cards>
 

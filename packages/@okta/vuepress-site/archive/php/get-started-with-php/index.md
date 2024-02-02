@@ -3,10 +3,15 @@ title: Add user authentication and Okta Resource Management to your PHP app
 language: PHP
 integration: back-end
 icon: code-php
+layout: Guides
 meta:
   - name: description
     content: Use our PHP guide, SDK, and libraries to help you add user authentication to your PHP application.
+  - name: robots
+    content: noindex, nofollow
 ---
+
+> **Info**: PHP is no longer a supported language at Okta, and this article is no longer updated.
 
 ## Get started with PHP + Okta
 

@@ -3,7 +3,13 @@ title: SimpleSAMLphp
 language: PHP
 icon: code-php
 excerpt: How to use SimpleSAMLphp to add support for Okta via SAML.
+layout: guides
+meta:
+  - name: robots
+    content: noindex, nofollow
 ---
+
+> **Info**: PHP is no longer a supported language at Okta, and this article is no longer updated.
 
 This guide describes how to use [SimpleSAMLphp](https://simplesamlphp.org/) to add support for Okta (through SAML) to applications written in
 PHP. Note that while the example application in this guide uses plain PHP, the concepts presented here are general enough to use in other
