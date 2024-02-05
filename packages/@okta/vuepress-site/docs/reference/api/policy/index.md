@@ -1365,7 +1365,7 @@ The entity risk detection condition object specifies the detected risk events th
 
 | Parameter | Description                   | Data Type | Required |
 | ---       | ---                           | --------  | -------- |
-| `include` | An array of [detected risk events](#detected-risk-event-values) to include in the Entity policy rule      | array  | Yes |
+| `include` | An array of [detected risk events](#detected-risk-event-values) to include in the entity policy rule      | array  | Yes |
 
 ##### Detected risk event values
 
