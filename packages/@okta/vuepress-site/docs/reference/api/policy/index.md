@@ -2711,7 +2711,7 @@ The entity risk policy specifies what action or task to execute in reaction to a
 
 Policy conditions aren't supported for this policy.
 
-### Policy Rules conditions
+### Policy rules conditions
 
 You can apply the following conditions to the rules associated with an entity risk policy:
 
