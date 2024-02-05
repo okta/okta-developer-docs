@@ -1347,7 +1347,7 @@ The entity risk score condition object specifies a particular level of risk for 
 
 | Parameter | Description              | Data Type | Required |
 | ---       | ---                      | ---       | ---      |
-| `level`    | The risk score level of the Entity risk policy rule      | `ANY`, `LOW`, `MEDIUM`, or `HIGH`     | Yes      |
+| `level`    | The risk score level of the entity risk policy rule      | `ANY`, `LOW`, `MEDIUM`, or `HIGH`     | Yes      |
 
 #### Entity risk score condition object example
 
