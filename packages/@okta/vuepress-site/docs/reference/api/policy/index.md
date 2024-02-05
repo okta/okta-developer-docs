@@ -2695,7 +2695,7 @@ Policy Rule conditions aren't supported for this policy.
 
 <ApiLifecycle access="ie" /> <ApiLifecycle access="ea" />
 
-The Entity risk policy specifies what action or task to execute in reaction to a risk event. The type is specified as `ENTITY_RISK`.
+The entity risk policy specifies what action or task to execute in reaction to a risk event. The type is specified as `ENTITY_RISK`.
 
 #### Entity risk policy example
 
