@@ -2779,7 +2779,7 @@ Continuous Access Evaluation (CAE) policies determine the action to take based o
 
 Policy conditions aren't supported for this policy.
 
-### Policy Rules conditions
+### Policy rules conditions
 
 You can apply the following conditions to the rules associated with an entity risk policy:
 
