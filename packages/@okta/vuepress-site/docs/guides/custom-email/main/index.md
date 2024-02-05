@@ -201,7 +201,7 @@ Include `null` in the subject or body of the email customization. Okta replaces 
 - Okta-provided translated content for the brand locale, if it's set
 - Okta-provided content in English
 
-You can now use the `getTimeDiffHoursNow` function in each of the available email notification templates. If you want to add more locales, you need to use this function instead of the `formatTimeDiffHoursNowInUserLocale` function. The new function returns only the time value in the specified unit of time. See [Use functions for email templates](#use-functions-for-email-templates).
+If you use functions while adding more locales, use the `getTimeDiffHoursNow` function instead of the `formatTimeDiffHoursNowInUserLocale` function. It returns only the time value in the specified unit of time. See [Use functions for email templates](#use-functions-for-email-templates).
 
 ### Use the Admin Console
 
