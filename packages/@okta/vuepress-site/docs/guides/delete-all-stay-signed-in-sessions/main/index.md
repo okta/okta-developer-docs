@@ -29,7 +29,7 @@ This guide explains how to delete all sessions of the **Stay signed in** feature
 
 ## About **Stay signed in**
 
-**Stay signed in** lets users establish an Okta session that continues across browsers and devices. When a user selects this option during authentication, they won't be prompted again for MFA for the amount of time defined in your global session policy.
+**Stay signed in** lets users establish an Okta session that continues after they close and reopen their browsers. When a user selects this option during authentication, they won't be prompted again for MFA for the amount of time defined in your global session policy.
 
 There are two ways to present the **Stay signed in** option to your users. By default, it's displayed on the Sign-In Widget when users enter their credentials. You can also configure it so that the prompt appears after users authenticate. This option is recommended for orgs that use delegated authentication or identity providers, because their users may bypass the credential entry page of the Sign-In Widget.
 
