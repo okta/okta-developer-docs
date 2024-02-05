@@ -329,6 +329,7 @@ Variables used for function parameters must match the function data type. For ex
 | formatTimeDiffDateNowInUserLocale(Date date)                  | Produces a localized formatted duration string for the given date                                                  |
 | escapeHtml(String html)                                       | Escapes the characters in the provided string using HTML entities                                                             |
 | escapeHtmlAttr(String html)                                   | Encodes data for use in HTML attributes                                                                           |
+| getTimeDiffHoursNow(int hours, String timeUnit)  | Produces a duration string for the given number of hours converted to the specified time units. Supported string values for the timeUnit argument are milliseconds, seconds, minutes, hours, days, and years. |
 
 ## Test your custom email templates
 
