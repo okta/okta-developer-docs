@@ -2713,7 +2713,7 @@ Policy conditions aren't supported for this policy.
 
 ### Policy Rules conditions
 
-You can apply the following conditions to the rules associated with an Entity risk policy:
+You can apply the following conditions to the rules associated with an entity risk policy:
 
 * [People condition](#people-condition-object)
 
