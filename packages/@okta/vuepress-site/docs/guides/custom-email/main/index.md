@@ -192,7 +192,7 @@ Okta uses the default language when the end user’s locale doesn't match any em
 
 Enable more locales by using the [BCP 47 format](https://www.rfc-editor.org/info/bcp47). These locales are in addition to the 27 default languages that Okta provides.
 
-You can only create customizations using these additional languages by calling the Customizations API. Once created, the new locale appears in the Admin Console along with the default-supported locales. See [Create an Email Customization](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Customization/#tag/Customization/operation/createEmailCustomization).
+You can only create customizations using these additional languages by calling the Brands API. Once created, the new locale appears in the Admin Console along with the default-supported locales. See [Create an Email Customization](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Customization/#tag/Customization/operation/createEmailCustomization).
 
 Include `null` in the subject or body of the email customization. Okta replaces `null` with a default value based on the following order of priority:
 
