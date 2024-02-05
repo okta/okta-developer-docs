@@ -763,7 +763,7 @@ Different Policy types control settings for different operations. All Policy typ
 * [Authentication policy](#authentication-policy) <ApiLifecycle access="ie" /><br>
 * [Profile enrollment policy](#profile-enrollment-policy) <ApiLifecycle access="ie" /><br>
 * [Entity risk policy](#entity-risk-policy) <ApiLifecycle access="ie" /><br>
-* [Continuous Access Evaluation policy](#continuous-access-evaluation-policy) <ApiLifecycle access="ie" /><br>
+* [Continuous Access evaluation policy](#continuous-access-evaluation-policy) <ApiLifecycle access="ie" /><br>
 
 ### Policy priority and defaults
 
@@ -2759,13 +2759,13 @@ The `entityRisk` object's `actions` array can be empty or contain one of two `ac
 }
 ```
 
-## Continuous Access Evaluation policy
+## Continuous Access evaluation policy
 
 <ApiLifecycle access="ie" /> <ApiLifecycle access="ea" />
 
-Continuous Access Evaluation, implemented in the API as a policy, determines the action to take based on changes to an existing user session. After a session event is triggered, the global session policy and all authentication policies are reevaluated and a course of action is undertaken as defined by the Continuous Access Evaluation policy. The policy type is specified as `CONTINUOUS_ACCESS`.
+Continuous Access evaluation, implemented in the API as a policy, determines the action to take based on changes to an existing user session. After a session event is triggered, the global session policy and all authentication policies are reevaluated and a course of action is undertaken as defined by the Continuous Access evaluation policy. The policy type is specified as `CONTINUOUS_ACCESS`.
 
-#### Continuous Access Evaluation example
+#### Continuous Access evaluation example
 
 ```json
     {
@@ -2785,13 +2785,13 @@ You can apply the following conditions to the rules associated with an entity ri
 
 * [People condition](#people-condition-object)
 
-### Continuous Access Evaluation object
+### Continuous Access evaluation object
 
-The `actions` object of the Continuous Access Evaluation policy rule indicates the next steps to take in response to a failure of the reevaluated global session policy or authentication policies. The object is specified as `continuousAccess`.
+The `actions` object of the Continuous Access evaluation policy rule indicates the next steps to take in response to a failure of the reevaluated global session policy or authentication policies. The object is specified as `continuousAccess`.
 
 | Property                | Description              | Data Type                                       | Required                      | Default |
 | ---                     | ---------------          | ---                                             | ---                           | ---     |
-| `failureActions`               | The action to take when the Continuous Access Evaluation detects a failure.              | Array of [failureAction value objects](#failureactions-array-object-values)                         | Yes                           | `[]`   |
+| `failureActions`               | The action to take when the Continuous Access evaluation detects a failure.              | Array of [failureAction value objects](#failureactions-array-object-values)                         | Yes                           | `[]`   |
 
 #### failureActions array object values
 
@@ -2819,7 +2819,7 @@ This `failureActions` object defines the options for the `TERMINATE_ALL_SESSION`
 
 | Property                | Description              | Data Type                                       | Required                      | Default |
 | ---                     | ---------------          | ---                                             | ---                           | ---     |
-| `action`               | The action to take when Continuous Access Evaluation detects a failure.              | `"TERMINATE_SESSION"`                       | Yes                           | No   |
+| `action`               | The action to take when Continuous Access evaluation detects a failure.              | `"TERMINATE_SESSION"`                       | Yes                           | No   |
 | `slo.appSelectionMode`               | This property defines the session to terminate: everyone, no one, or a specific app instance              | `"SPECIFIC"`, `"NONE"`, or `"ALL"`                       | Yes                           | No   |
 | `slo.InstanceIds`               | This property defines the app instance access to terminate. Only include this property when `slo.appSelectionMode` is set to `"SPECIFIC"`.              | Array of IDs                     | No                          | No   |
 
