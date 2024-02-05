@@ -186,8 +186,20 @@ After you customize a template in one language, you need to customize templates 
 
 Okta uses the default language when the end user’s locale doesn't match any email customizations.
 
-### 
+### Enable additional locales
 
+<ApiLifecycle access="ea" />
+
+Enable additional locales by using the [BCP 47 format](https://www.rfc-editor.org/info/bcp47). These locales are in addition to the 27 default languages that Okta provides.
+
+You can only create customizations using these additional languages by calling the Customizations API. Once created, the new locale appears in the Admin Console along with the default supported locales. See [Create an Email Customization](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Customization/#tag/Customization/operation/createEmailCustomization).
+
+Include `null` in the subject or body of the email customization. Okta replaces `null` with a default value based on the following order of priority:
+
+- An existing default email customization, if one exists
+- Okta-provided translated content for the specified language, if one exists
+- Okta-provided translated content for the brand locale, if it's set
+- Okta-provided content in English
 
 ### Use the Admin Console
 
