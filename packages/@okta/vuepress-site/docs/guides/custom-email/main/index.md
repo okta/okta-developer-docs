@@ -186,11 +186,15 @@ After you customize a template in one language, you need to customize templates 
 
 Okta uses the default language when the end user’s locale doesn't match any email customizations.
 
-> **Note:** If you've enabled [Early Access (EA) multibrand customization](https://help.okta.com/okta_help.htm?type=oie&id=csh-branding), your Admin Console navigation is different. See parenthetical notes.
+### 
 
-1. In the Admin Console, go to **Customizations** > **Branding**. (EA users: go to **Customizations** > **Brands**, and then select the brand you want.)
-1. In the **Communications** section, in the **Emails** box, click **Edit**. (EA users: click **Emails**.)
-1. In the **Email Templates** box, select an email template that you customized.
+
+### Use the Admin Console
+
+1. In the Admin Console, go to **Customizations** > **Brands**.
+1. Select a brand.
+1. Click **Emails**.
+1. In the **Email Templates** box, select an email template that you have customized.
    - The code editor is in preview mode and shows the default language version.
    - **Translations**: Customize email template translations:
       1. Click **Edit**.
