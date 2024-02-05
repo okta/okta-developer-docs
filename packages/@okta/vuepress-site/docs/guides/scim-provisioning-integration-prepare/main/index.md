@@ -15,11 +15,9 @@ The first step in delivering your SCIM integration is preparing a SCIM-compliant
 
 Okta supports lifecycle provisioning using either version 2.0 and version 1.1 of the SCIM protocol.
 
-If your service already supports the SCIM protocol, it is important that you review the Okta SCIM reference documentation to understand the specifics of how Okta implements the SCIM protocol:
+If your service already supports the SCIM protocol, you still need to review the [Okta SCIM reference](/docs/reference/scim/) to understand the specifics of how Okta implements the SCIM protocol.
 
-- [SCIM Reference](/docs/reference/scim/)
-
-If you haven't yet implemented SCIM, Okta recommends that you use version 2.0 of the SCIM protocol.
+If you haven't yet implemented SCIM, Okta recommends that you use [version 2.0 of the SCIM protocol](/docs/reference/scim/scim-20/).
 
 ## Features
 
@@ -103,9 +101,9 @@ Okta requires that your SCIM implementation stores the following four user attri
 
 >**Note:** Keep your User ID value distinct from the user's email address. Many systems use an email address as a user identifier, but this isn't recommended, as email addresses often change. Using a distinct User ID to identify user resources prevents future issues.
 
-Note that Okta supports more than those four user attributes. However, these are the base attributes that you must support.  The full schema of user attributes supported by SCIM 2.0 is described in [section 4 of RFC 7643](https://tools.ietf.org/html/rfc7643#section-4).
+Okta supports more than those four user attributes. However, these are the base attributes that you must support. The full schema of user attributes supported by SCIM 2.0 is described in [section 4 of RFC 7643](https://tools.ietf.org/html/rfc7643#section-4).
 
-If your integration supports user attributes beyond those four base attributes, you can add support for more attributes to your SCIM API. Sometimes, you might need to configure Okta to map non-standard user attributes into the user profile for your application. See [Check the attributes and corresponding mappings](/docs/guides/scim-provisioning-integration-connect/main/#check-the-attributes-and-corresponding-mappings), or the "Add custom attributes to an Okta user profile" section in the [Work with Okta user profiles and attributes](https://help.okta.com/okta_help.htm?id=ext_Directory_Profile_Editor_Tasks) topic in the Okta product documentation.
+If your integration supports user attributes beyond those four base attributes, you can add support for more attributes to your SCIM API. Sometimes, you might need to configure Okta to map non-standard user attributes into the user profile for your application. See [Check the attributes and corresponding mappings](/docs/guides/scim-provisioning-integration-connect/main/#check-the-attributes-and-corresponding-mappings), or [Add custom attributes to an Okta user profile](https://help.okta.com/okta_help.htm?id=ext_Directory_Profile_Editor_Tasks) in the Okta product documentation.
 
 ### Unique ID
 
@@ -148,7 +146,7 @@ Sometimes it isn't feasible for your cloud-based application to natively support
 
 ## Provision to on-premises applications
 
-This provisioning guide targets cloud-based applications, but Okta does have a solution for on-premise applications. See [Provision on-premises provisioning](https://help.okta.com/okta_help.htm?id=ext_OPP_configure) for details about the Okta agent-based provisioning solution.
+This provisioning guide targets cloud-based applications. For on-premise applications, see [Provision on-premises provisioning](https://help.okta.com/okta_help.htm?id=ext_OPP_configure) for details about the Okta agent-based provisioning solution.
 
 ## Test your SCIM API
 
@@ -162,28 +160,27 @@ If you’re developing your SCIM integration in a local environment and need to 
 
 To get started using Runscope to test your SCIM API:
 
-1. Download the Okta SCIM Spec Test file that corresponds to the version of SCIM you set up on your server. Use this file to import the Okta SCIM test suite into Runscope.
+1. Download the Okta SCIM specification test file that corresponds to the version of SCIM you set up on your server. Use this file to import the Okta SCIM test suite into Runscope.
 
     - [Okta SCIM 2.0 Spec Test JSON](/standards/SCIM/SCIMFiles/Okta-SCIM-20-SPEC-Test.json)
     - [Okta SCIM 1.1 Spec Test JSON](/standards/SCIM/SCIMFiles/Okta-SCIM-11-SPEC-Test.json)
 
-1. If you are new to Runscope, your dashboard displays sample Runscope tutorials. Click **Skip Tutorial**.
+1. If you're new to Runscope, your dashboard displays sample Runscope tutorials. Click **Skip Tutorial**.
 1. You should now see a page titled **API Tests**.
-1. In the lower left of your screen, click **Import Test**.
+1. In the lower left of your page, click **Import Test**.
 1. A new page appears, titled **Import Tests into &#x2026;**
 1. Select **API Monitoring Tests** as the import format.
 1. Click **Choose File** and select the JSON file that you saved in step 1.
 1. Click **Import API Test**.
 1. After the import is finished, click **All Tests** on the left of your page.
 
-After you've imported the Okta SCIM test suite into Runscope, the next step is to customize the test suite with the variables for your SCIM implementation.
+After you've imported the Okta SCIM test suite into Runscope, customize the test suite with the variables for your SCIM implementation.
 
 ## Customize the imported Runscope test for your SCIM integration
 
 After importing the Okta SCIM test suite into Runscope, you need to configure the test settings for your SCIM integration:
 
-1. You should be looking at the **API Tests** window in Runscope, if not, click the **Tests** tab at the top of the Runscope user interface.
-1. You should see a test named **Okta SCIM X.X Spec Test** (where X.X corresponds to the SCIM version of the JSON file you uploaded).
+1. Look at the **API Tests** window in Runscope (click the **Tests** tab at the top of the Runscope user interface). A test named **Okta SCIM X.X Spec Test** appears (where X.X corresponds to the SCIM version of the JSON file you uploaded).
 1. Click **Edit** on the test panel.
 1. The **Okta SCIM X.X SPEC Test** window appears. Under the **Environment** section of your test, there's a collapsed section labeled **Test Settings**. Click the small arrow to expand this section.
 1. Select the **Initial Variables** tab.
@@ -232,11 +229,12 @@ After importing the Okta SCIM test suite into Runscope, you need to configure th
 
 After you've customized your SCIM test in Runscope with the details of your SCIM server, you can run the test:
 
-1. If you followed the steps above, **Run Now** appears at the top of your test.
-1. Click **Run Now**.
-1. On the left side of your page, the test appears in the **Recent Test Runs** section.
+1. The **Run Now** appears at the top of your test. Click **Run Now**.
+
+    On the left side of your page, the test appears in the **Recent Test Runs** section.
+
 1. Click **View Progress** in the **Recent Test Runs** section.
-1. While the test is still running, it displays live updates of the test in progress.
+1. While the test runs, it displays live updates of the test in progress.
 
     During the test phase, several more variables are created, based on results returned from your SCIM server.
 
