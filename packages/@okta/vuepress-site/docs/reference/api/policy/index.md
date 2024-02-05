@@ -1343,7 +1343,7 @@ See [Okta Expression Language in Identity Engine](/docs/reference/okta-expressio
 
 <ApiLifecycle access="ie" />
 
-The Entity risk score condition object specifies a particular level of risk for the Entity risk policy rule. The object is specified as `entityRisk`.
+The entity risk score condition object specifies a particular level of risk for the entity risk policy rule. The object is specified as `entityRisk`.
 
 | Parameter | Description              | Data Type | Required |
 | ---       | ---                      | ---       | ---      |
