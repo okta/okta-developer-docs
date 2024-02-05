@@ -58,7 +58,7 @@ If you’re going to publish your integration to the OIN catalog, Okta requires 
 - `https://system-admin.trexcloud.com/admin/app/cpc/${appName}/oauth/callback`
 - `http://system-admin.okta1.com:1802/admin/app/cpc/${appName}/oauth/callback`
 
-Where the `${appName}` is an identifier provided to you after you create your app instance using the App Integration Wizard (AIW) in the Admin Console.
+Where the `${appName}` is an identifier provided to you after you create your app integration instance in Okta.
 
 Obtain the `${appName}` from the Admin Console URL when you select **Applications** > **Applications** > your app instance. The Admin Console URL has the following format:
 
@@ -68,7 +68,7 @@ https://${orgSubDomain}-admin.${oktaEnvironment}.com/admin/app/${appName}/instan
 
 The `${appName}` is the string between `/app/` and `/instance/` in the URL.
 
-> **Note:** If you have issues locating your unique `${appName}` identifier, send an email to <oin@okta.com>.
+> **Note:** If you have issues locating your `${appName}` identifier, send an email to <oin@okta.com>.
 
 ### Base URL
 
@@ -121,7 +121,7 @@ In addition to the basic user schema attributes, your SCIM API must also specify
 - Must be case-sensitive and read-only
 - Can't be hidden from the API request
 
-A best practice is to use a generated global unique identifier (GUID) for this value.
+As a best practice, generate a global unique identifier (GUID) for this value.
 
 **Note:** You can't use the string `bulkId` within any unique identifier value. It’s a reserved keyword.
 
@@ -156,7 +156,7 @@ The best way to develop and verify that your SCIM integration is to use an autom
 
 If you don't have a Runscope account, you can sign up with a [free trial to Runscope](https://www.runscope.com/okta) for Okta developers.
 
-If you’re developing your SCIM integration in a local environment and need to expose it to Runscope for testing, we suggest using the [ngrok](https://ngrok.com/) tool so you can route external address requests to your local web server.
+If you’re developing your SCIM integration in a local environment and need to expose it to Runscope for testing, use the [ngrok](https://ngrok.com/) tool so you can route external address requests to your local web server.
 
 To get started using Runscope to test your SCIM API:
 
