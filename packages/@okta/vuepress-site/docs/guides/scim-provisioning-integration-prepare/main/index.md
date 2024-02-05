@@ -229,7 +229,7 @@ After importing the Okta SCIM test suite into Runscope, you need to configure th
 
 After you've customized your SCIM test in Runscope with the details of your SCIM server, you can run the test:
 
-1. The **Run Now** appears at the top of your test. Click **Run Now**.
+1. Click **Run Now** at the top of your test.
 
     On the left side of your page, the test appears in the **Recent Test Runs** section.
 
