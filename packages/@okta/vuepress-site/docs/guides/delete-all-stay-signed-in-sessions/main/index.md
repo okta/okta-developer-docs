@@ -6,7 +6,7 @@ title: Delete all Stay signed in sessions
 
 This guide explains how to delete all sessions of the **Stay signed in** feature using the [My Account Sessions API](https://developer.okta.com/docs/api/openapi/okta-myaccount/myaccount/tag/Sessions/). See [Stay signed in](https://help.okta.com/okta_help.htm?type=oie&id=ext-stay-signed-in) for more details.
 
-> **Note:** This document is written for Okta Identity Engine. If you are using Okta Classic Engine, time to upgrade. See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.
+> **Note:** This document is written for Okta Identity Engine. If you’re using Classic Engine, time to upgrade. See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.
 
 ---
 
@@ -19,7 +19,7 @@ This guide explains how to delete all sessions of the **Stay signed in** feature
 
 - An Okta developer org configured for a **Stay signed in** use case
 - Access to the [My Account Sessions API](https://developer.okta.com/docs/api/openapi/okta-myaccount/myaccount/tag/Sessions/)
-- [Postman client](https://www.getpostman.com/downloads/)  to set up `userPersistentCookie`. See [Get Started with the Okta APIs](https://developer.okta.com/code/rest/) for information on setting up Postman.
+- [Postman client](https://www.getpostman.com/downloads/) to set up `userPersistentCookie`. See [Get Started with the Okta APIs](https://developer.okta.com/code/rest/) for information on setting up Postman.
 
 **Sample code**
 
@@ -44,13 +44,13 @@ Enable the `usePersistentCookie` option in the API if you want users to stay sig
 
 ### About Single Sign-On (SSO) cookies
 
-Single Sign-On (SSO) allows users to authenticate once and access multiple resources without being prompted for additional credentials. Okta supports both session and persistent SSO:
+SSO allows users to authenticate once and access multiple resources without being prompted for more credentials. Okta supports both session and persistent SSO:
 
 Session SSO: Session SSO cookies are written for the authenticated user, which eliminates further prompts when the user switches applications during a particular session. However, if a particular session ends, the user is prompted for their credentials again.
 
 Persistent SSO: Persistent SSO cookies are written for the authenticated user, which eliminates further prompts when the user switches applications for as long as the persistent SSO cookie is valid.
 
-The difference between persistent SSO and session SSO is you can maintain persistent SSO across different sessions. Persistent SSO is disabled by default in Okta. To share a sign-in session across different sessions, you need to enable persistent SSO.
+The difference between persistent SSO and session SSO is that you can maintain persistent SSO across different sessions. Persistent SSO is disabled by default in Okta. To share a sign-in session across different sessions, you need to enable persistent SSO.
 
 ### Enable the parameter
 
@@ -74,7 +74,7 @@ Before you begin, be sure to:
     > **Tip:** You can also highlight the policy ID, right-click it, and set it as the value for the `policyId` variable in your environment.
 4. Click the **Get Rules** request to open it.
 5. In the request URL, replace the `policyId` variable with the policy ID that you copied. If you assigned the policy ID as a variable in your environment, skip this step.
-    > **Tip:** To see which value is assigned to a variable, hover over the variable in the request URL and a box pops up that displays the currently assigned variable value.
+    > **Tip:** To see which value is assigned to a variable, hover over the variable in the request URL. A box pops up that displays the currently assigned variable value.
 6. Click **Send** to run the request.
 
     Example:
@@ -131,7 +131,7 @@ Before you begin, be sure to:
 
 ## Delete all sessions
 
-This API call revokes all active identity provider sessions of the user. This forces the user to authenticate on the next operation. Also revokes OpenID Connect and OAuth refresh and access tokens issued to the user. See [My Account Sessions API](https://developer.okta.com/docs/api/openapi/okta-myaccount/myaccount/tag/Sessions/).
+This API call revokes all active identity provider sessions of the user. As a result, the user must authenticate on the next operation. Also, this call revokes OpenID Connect and OAuth refresh and access tokens issued to the user. See [My Account Sessions API](https://developer.okta.com/docs/api/openapi/okta-myaccount/myaccount/tag/Sessions/).
 
 > **Note:** The deletion happens at the browser level, not the device level.
 
@@ -139,10 +139,8 @@ This API call revokes all active identity provider sessions of the user. This fo
 
 ```bash
 curl -i -X DELETE \
-
-  https://subdomain.okta.com/idp/myaccount/sessions \
-
-  -H 'Authorization: Bearer <YOUR_TOKEN_HERE>'
+  https://subdomain.okta.com/idp/myaccount/sessions \
+  -H 'Authorization: Bearer <YOUR_TOKEN_HERE>'
 ```
 
 ## See also
