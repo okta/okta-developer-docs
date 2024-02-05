@@ -62,7 +62,7 @@ A global session policy and an authentication policy control the authentication 
 
 <ApiLifecycle access="ie" /> <ApiLifecycle access="ea" />
 
-Identity Threat Protection with Okta AI is an identity threat solution that combines current security practices with continuous real-time risk assessment. See [Identity Threat Protection with Okta AI](https://help.okta.com/okta_help.htm?type=oie&id=ext-itp-overview). Identity Threat Protection uses the Entity Risk policy and Continuous Access Evaluation for these threat evaluations.
+Identity Threat Protection with Okta AI is an identity threat solution that combines current security practices with continuous real-time risk assessment. See [Identity Threat Protection with Okta AI](https://help.okta.com/okta_help.htm?type=oie&id=ext-itp-overview). Identity Threat Protection uses the entity risk policy and Continuous Access Evaluation for these threat evaluations.
 
 * [Entity risk policy](/docs/reference/api/policy/#entity-risk-policy): The entity risk policy monitors your org for user risk-level changes related to identity-based threats. For Admin Console tasks and further information, see [Entity risk policy](https://help.okta.com/okta_help.htm?type=oie&id=csh-entity-risk-policy).
 
