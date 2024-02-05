@@ -62,6 +62,8 @@ If you are going to publish your integration to the OIN catalog, Okta requires t
 
 where the `${appName}` is a unique identifier provided to you after your integration is submitted and processed by Okta. If, for any reason, your unique `${appName}` identifier isn't provided to you after the initial review, send an email to <oin@okta.com>.
 
+> **Note:** The `${appName}` is provided to you after you create your app instance using the App Integration Wizard (AIW) in the Admin Console. Obtain the `${appName}` from the Admin Console URL when you select **Applications** > **Applications** > your app instance. The Admin Console URL has the following format: `https://{orgSubDomain}-admin.{oktaEnvironment}.com/admin/app/{appName}/instance/{instanceID}/#tab-general`. The `{appName}` is the string between `/app/` and `/instance/` in the URL.
+
 ### Base URL
 
 You can choose any base URL for your API endpoint. Note that a base URL can't contain the underscore `_` character.
