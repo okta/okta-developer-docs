@@ -9,7 +9,7 @@ meta:
     content: noindex, nofollow
 ---
 
-> **Info**: PHP is no longer a supported language at Okta, and this article is no longer updated.
+> **Info**: PHP is no longer a supported language at Okta. This article is no longer updated and was archived in February 2024.
 
 This guide describes how to use [SimpleSAMLphp](https://simplesamlphp.org/) to add support for Okta (through SAML) to applications written in PHP. Note that while the example application in this guide uses plain PHP, the concepts presented here are general enough to use in other PHP frameworks.
 
@@ -193,7 +193,9 @@ Use both methods to test your application. In each case, you know if the test wo
    * Click the `example-okta-com` link.
 2. Sign in from Okta (This is known as an **IdP-initiated" sign-in**.)
    * Sign in to your Okta organization.
-   * Click the button for the application that you created earlier "Configuring Okta to work with SimpleSAMLphp" section above: ![SimpleSAMLphp Example](/img/archive/php/simplesamlphp-example-okta-chiclet.png "SimpleSAMLphp Example").
+   * Click the button for the application that you created earlier "Configuring Okta to work with SimpleSAMLphp" section above:
+
+      ![SimpleSAMLphp Example](/img/archive/php/simplesamlphp-example-okta-chiclet.png "SimpleSAMLphp Example").
 
 You know that your testing was successful if you are able to get to the "Logged in" page pictured above using both the SP-initated and IdP-initated sign-in flows.
 

@@ -10,7 +10,7 @@ meta:
     content: noindex, nofollow
 ---
 
-> **Info**: PHP is no longer a supported language at Okta, and this article is no longer updated.
+> **Info**: PHP is no longer a supported language at Okta. This article is no longer updated and was archived in February 2024.
 
 Add a user sign-in flow to a server-side web application with Okta's [redirect model](/docs/concepts/redirect-vs-embedded/#redirect-authentication).
 

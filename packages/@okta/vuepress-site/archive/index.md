@@ -5,11 +5,13 @@ meta:
     content: noindex, nofollow
 ---
 
+# Document Archive
+
 The document archive stores articles on technologies and techniques that are no longer supported by Okta. The articles themselves are also no longer maintained or updated.
 
 ## PHP
 
-In 2023, Okta sunsetted support for its PHP SDKs and it was decided to archive the PHP-related material in January 2024.
+In 2023, Okta sunsetted support for its PHP SDKs and it was decided to archive the PHP-related material in February 2024.
 
 * Guides
   * [Protect your API endpoints](/archive/php/protect-your-api)

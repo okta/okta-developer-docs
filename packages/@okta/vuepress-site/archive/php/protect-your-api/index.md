@@ -10,7 +10,7 @@ meta:
     content: noindex, nofollow
 ---
 
-> **Info**: PHP is no longer a supported language at Okta, and this article is no longer updated.
+> **Info**: PHP is no longer a supported language at Okta. This article is no longer updated and was archived in February 2024.
 
 Add a layer of authorization to your web services with [Okta API Access Management](/docs/concepts/api-access-management/).
 

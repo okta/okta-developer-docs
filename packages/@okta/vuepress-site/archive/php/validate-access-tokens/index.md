@@ -12,6 +12,8 @@ meta:
     content: noindex, nofollow
 ---
 
+> **Info**: PHP is no longer a supported language at Okta. This article is no longer updated and was archived in February 2024.
+
 This guide explains how to verify a token's signature, manage key rotation, and how to use a refresh token to get a new access token.
 
 ---
