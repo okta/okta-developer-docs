@@ -6,7 +6,7 @@ title: Delete all Stay signed in sessions
 
 This guide explains how to delete all sessions of the **Stay signed in** feature using the [My Account Sessions API](https://developer.okta.com/docs/api/openapi/okta-myaccount/myaccount/tag/Sessions/). See [Stay signed in](https://help.okta.com/okta_help.htm?type=oie&id=ext-stay-signed-in) for more details.
 
-> **Note:** This document is written for Okta Identity Engine. If you’re using Classic Engine, time to upgrade. See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.
+> **Note:** This document is written for Okta Identity Engine. See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.
 
 ---
 
