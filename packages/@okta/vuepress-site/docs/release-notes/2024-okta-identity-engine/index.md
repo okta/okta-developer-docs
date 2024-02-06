@@ -6,6 +6,27 @@ title: Okta Identity Engine API Products release notes 2024
 
 > Help us improve our release notes by filling out this short [survey](https://surveys.okta.com/jfe/form/SV_4VEZcIGOX0TBgkC).
 
+## February
+
+### Monthly release 2024.02.0
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [ ](#dpop-support-for-okta-management-apis-is-ga-in-preview) | December 13, 2024 |
+| [ ](#read-only-permission-for-admin-role-assignments-is-ga-in-production) | February 7, 2024 |
+| [ ](#seamless-isv-experience-is-ga-in-preview) | February 7, 2024 |
+| [ ](#system-log-events-for-idp-keystore-operations) | February 7, 2024 |
+| [ ](#updated-radius-authentication-prompts) | February 7, 2024 |
+
+#### DPoP support for Okta management APIs is GA in Preview
+
+You can now use OAuth 2.0 Demonstrating Proof-of-Possession (DPoP) access tokens to access Okta management APIs.
+See [Configure OAuth 2.0 Demonstrating Proof-of-Possession](/docs/guides/dpop/oktaresourceserver/main/). <!-- OKTA-673922 OKTA_RESOURCE_SERVER_DPOP_SUPPORT-->
+
+#### Bugs fixed in 2024.02.0
+
+
+
 ## January
 
 ### Weekly release 2024.01.2
