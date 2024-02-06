@@ -37,7 +37,8 @@ The following shows a sample Identity Engine i18n configuration:
 ```javascript
 // The i18n object maps language codes to a hash of property keys ->
 // property values.
-i18n: {
+var config = OktaUtil.getSignInWidgetConfig()
+config['i18n'] = {
   // Overriding English properties
   'en': {
     'oie.password.challenge.title': 'Verify with Acme password',
