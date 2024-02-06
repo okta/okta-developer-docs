@@ -9,7 +9,7 @@ meta:
     content: noindex, nofollow
 ---
 
-> **Info**: PHP is no longer a supported language at Okta. This article is no longer updated and was archived in February 2024.
+> **Info**: This topic was archived on February 9 2024 and is no longer updated. PHP is no longer a supported language at Okta.
 
 This guide describes how to use [SimpleSAMLphp](https://simplesamlphp.org/) to add support for Okta (through SAML) to applications written in PHP. Note that while the example application in this guide uses plain PHP, the concepts presented here are general enough to use in other PHP frameworks.
 
