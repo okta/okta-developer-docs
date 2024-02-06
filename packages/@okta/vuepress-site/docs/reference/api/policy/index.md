@@ -762,8 +762,8 @@ Different Policy types control settings for different operations. All Policy typ
 * [OAuth Authorization policy](/docs/reference/api/authorization-servers/#policy-object)
 * [Authentication policy](#authentication-policy) <ApiLifecycle access="ie" /><br>
 * [Profile enrollment policy](#profile-enrollment-policy) <ApiLifecycle access="ie" /><br>
-* [Entity risk policy](#entity-risk-policy) <ApiLifecycle access="ie" /><br>
-* [Continuous Access evaluation policy](#continuous-access-evaluation-policy) <ApiLifecycle access="ie" /><br>
+* [Entity risk policy](#entity-risk-policy) <ApiLifecycle access="ie" /> <ApiLifecycle access="ea" /><br>
+* [Continuous Access evaluation policy](#continuous-access-evaluation-policy) <ApiLifecycle access="ie" /> <ApiLifecycle access="ea" /><br>
 
 ### Policy priority and defaults
 
