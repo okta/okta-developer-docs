@@ -186,11 +186,29 @@ After you customize a template in one language, you need to customize templates 
 
 Okta uses the default language when the end user’s locale doesn't match any email customizations.
 
-> **Note:** If you've enabled [Early Access (EA) multibrand customization](https://help.okta.com/okta_help.htm?type=oie&id=csh-branding), your Admin Console navigation is different. See parenthetical notes.
+### Enable additional locales
 
-1. In the Admin Console, go to **Customizations** > **Branding**. (EA users: go to **Customizations** > **Brands**, and then select the brand you want.)
-1. In the **Communications** section, in the **Emails** box, click **Edit**. (EA users: click **Emails**.)
-1. In the **Email Templates** box, select an email template that you customized.
+<ApiLifecycle access="ea" />
+
+Enable more locales by using the [BCP 47 format](https://www.rfc-editor.org/info/bcp47). These locales are in addition to the 27 default languages that Okta provides.
+
+You can only create customizations using these additional languages by calling the Brands API. Once created, the new locale appears in the Admin Console along with the default-supported locales. See [Create an Email Customization](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Customization/#tag/Customization/operation/createEmailCustomization).
+
+Include `null` in the subject or body of the email customization. Okta replaces `null` with a default value based on the following order of priority:
+
+- An existing default email customization, if one exists
+- Okta-provided translated content for the specified language, if one exists
+- Okta-provided translated content for the brand locale, if it's set
+- Okta-provided content in English
+
+If you use functions while adding more locales, use the `getTimeDiffHoursNow` function instead of the `formatTimeDiffHoursNowInUserLocale` function. `getTimeDiffHoursNow` returns only the time value in the specified unit. See [Use functions for email templates](#use-functions-for-email-templates).
+
+### Use the Admin Console
+
+1. In the Admin Console, go to **Customizations** > **Brands**.
+1. Select a brand.
+1. Click **Emails**.
+1. In the **Email Templates** box, select an email template that you have customized.
    - The code editor is in preview mode and shows the default language version.
    - **Translations**: Customize email template translations:
       1. Click **Edit**.
@@ -329,6 +347,7 @@ Variables used for function parameters must match the function data type. For ex
 | formatTimeDiffDateNowInUserLocale(Date date)                  | Produces a localized formatted duration string for the given date                                                  |
 | escapeHtml(String html)                                       | Escapes the characters in the provided string using HTML entities                                                             |
 | escapeHtmlAttr(String html)                                   | Encodes data for use in HTML attributes                                                                           |
+| getTimeDiffHoursNow(int hours, String timeUnit)  | Produces a duration string for the given number of hours converted to the specified time units. Supported string values for the timeUnit argument are milliseconds, seconds, minutes, hours, days, and years. |
 
 ## Test your custom email templates
 
