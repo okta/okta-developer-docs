@@ -1,6 +1,6 @@
 {
-  "release" : "2024.01.1",
-  "build" : "2024.01.1-begin-97-g2d5653584823",
+  "release" : "2024.02.1",
+  "build" : "2024.02.1-begin-157-ga636aff6c99d",
   "categories" : [ {
     "id" : "access-gateway",
     "name" : "Access Gateway"
@@ -1044,7 +1044,7 @@
         "created" : "2023-10-02",
         "release" : "2023.10.0"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "risk", "security" ],
       "mappings" : [ ],
@@ -6445,12 +6445,12 @@
     }, {
       "id" : "device.signals.status.timeout",
       "category" : "device-platform",
-      "description" : "A registered device associated with at least one user session hasn't communicated with Okta within the required time interval. Use this event to investigate a potentially insecure device and compromised user session. This event contains the device unique identifier in the System Log actor object. You can use this information to find other related events.",
+      "description" : "A registered device associated with at least one user session hasn't communicated with Okta within the required time interval. Use this event to find registered devices that have lost communication with Okta. This event contains the device unique identifier in the System Log actor object. You can use this information to find other related events.",
       "info" : {
         "created" : "2023-10-10",
         "release" : "2023.11.0"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "device-identity", "oie-only" ],
       "mappings" : [ ],
@@ -6594,6 +6594,91 @@
         "debugData" : "SystemDebugData",
         "actor" : null,
         "targets" : [ "DirectoryResourceDetails" ]
+      }
+    }, {
+      "id" : "directory.realm.assignment.create",
+      "category" : "ud-core",
+      "description" : "A new realm assignment has been created. This event may be used to identify when a realm assignment is created, and who it was that created the assignment. This may be useful for admins to audit realm activity in the system log. This event only indicates the creation of a realm assignment. See directory.realm.assignment.delete for deletion of realm assignments.",
+      "info" : {
+        "created" : "2023-12-20",
+        "release" : "2024.02.0"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "realms" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "RealmAssignmentResourceDetails" ]
+      }
+    }, {
+      "id" : "directory.realm.assignment.delete",
+      "category" : "ud-core",
+      "description" : "A realm assignment has been deleted. This event may be used to identify when a realm assignment is deleted, and who it was that deleted the assignment. This may be useful for admins to audit realm activity in the system log. This event only indicates the deletion of a realm assignment. See directory.realm.assignment.create for creation of realm assignments.",
+      "info" : {
+        "created" : "2023-12-20",
+        "release" : "2024.02.0"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "realms" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "RealmAssignmentResourceDetails" ]
+      }
+    }, {
+      "id" : "directory.realm.assignment.execution_completed",
+      "category" : "ud-core",
+      "description" : "A realm assignment job has finished running. This event may be used to identify when a realm assignment job has finished running and how many users were moved. This may be useful for admins to audit realm activity in the system log. This event only indicates a realm assignment job finished running. See directory.realm.assignment.execution_started to determine when it started execution.",
+      "info" : {
+        "created" : "2023-12-20",
+        "release" : "2024.02.0"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "realms" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "RealmAssignmentExecutionResourceDetails" ]
+      }
+    }, {
+      "id" : "directory.realm.assignment.execution_started",
+      "category" : "ud-core",
+      "description" : "A realm assignment job has started running. This event may be used to identify when a realm assignment job is run. This may be useful for admins to audit realm activity in the system log. This event only indicates a realm assignment job started running. See directory.realm.assignment.execution_completed to determine when the assignment job finished running and how many users were moved.",
+      "info" : {
+        "created" : "2023-12-20",
+        "release" : "2024.02.0"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "realms" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "RealmAssignmentExecutionResourceDetails" ]
+      }
+    }, {
+      "id" : "directory.realm.assignment.update",
+      "category" : "ud-core",
+      "description" : "A realm assignment has been updated. This event may be used to identify when a realm assignment is updated, and who it was that updated the assignment. This may be useful for admins to audit realm activity in the system log. This event only indicates an existing realm assignment was updated. See directory.realm.assignment.create and directory.realm.assignment.delete for creation and deletion of realm assignments.",
+      "info" : {
+        "created" : "2023-12-20",
+        "release" : "2024.02.0"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "realms" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "RealmAssignmentUpdateDebugData",
+        "actor" : null,
+        "targets" : [ "RealmAssignmentResourceDetails" ]
       }
     }, {
       "id" : "directory.realm.lifecycle.create",
@@ -10275,7 +10360,7 @@
         "created" : "2023-08-07",
         "release" : "2023.09.0"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "event-hook-eligible", "policy", "security", "session" ],
       "mappings" : [ ],
@@ -10292,7 +10377,7 @@
         "created" : "2023-08-07",
         "release" : "2023.09.0"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "policy", "security", "session" ],
       "mappings" : [ ],
@@ -10309,7 +10394,7 @@
         "created" : "2023-08-07",
         "release" : "2023.09.0"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "policy", "security", "session" ],
       "mappings" : [ ],
@@ -10319,23 +10404,6 @@
         "targets" : [ "RuleResourceDetails", "PolicyResourceDetails" ]
       }
     }, {
-      "id" : "policy.continuous_access_evaluate.fail",
-      "category" : "authn-platform",
-      "description" : "Continuous Access Evaluation has occurred and has resulted in a FAIL action. Can be used to identify which user, apps, and session were involved in a CAE failure event. Event fired when CAE evaluation results in failure.",
-      "info" : {
-        "created" : "2023-02-10",
-        "release" : "2023.03.0"
-      },
-      "beta" : true,
-      "internal" : false,
-      "tags" : [ "event-hook-eligible", "policy", "security", "session" ],
-      "mappings" : [ ],
-      "schema" : {
-        "debugData" : "ContinuousAccessEvaluationDebugData",
-        "actor" : null,
-        "targets" : [ "PolicyEvaluationResourceDetails" ]
-      }
-    }, {
       "id" : "policy.entity_risk.action",
       "category" : "authn-platform",
       "description" : "Entity Risk policy action invocation. Signal that an action associated with an entity risk policy evaluation has been invoked. Event fired when an action associated with an entity risk policy evaluation has been invoked.",
@@ -10343,7 +10411,7 @@
         "created" : "2023-08-07",
         "release" : "2023.09.0"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "policy", "security", "session" ],
       "mappings" : [ ],
@@ -10360,7 +10428,7 @@
         "created" : "2023-08-07",
         "release" : "2023.09.0"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "policy", "security", "session" ],
       "mappings" : [ ],
@@ -11035,7 +11103,7 @@
     }, {
       "id" : "security.authenticator.lifecycle.update",
       "category" : "mfa-platform",
-      "description" : "Fired when an admin updates an authenticator in the org. This event can be used to identify who updated an authenticator and which authenticator was updated. The actor specifies the user that updated the authenticator and the target specifies the authenticator name and the id. This event could also contain some authenticator specific information. Authenticator update occurs when an authenticator is edited. Related events include security.authenticator.lifecycle.create.",
+      "description" : "Fired when an admin updates an authenticator in the org. This event can be used to identify who updated an authenticator and which authenticator was updated. The actor specifies the user that updated the authenticator and the target specifies the authenticator name and the ID. There may be a second target with details of any authenticator method updates. This event could also contain authenticator specific information. Authenticator update occurs when an authenticator is edited. Related events include security.authenticator.lifecycle.create.",
       "info" : {
         "created" : "2022-05-20",
         "release" : "2022.06.0"
@@ -11047,7 +11115,7 @@
       "schema" : {
         "debugData" : "AuthenticatorDebugData",
         "actor" : null,
-        "targets" : [ "CustomAppAuthenticatorResourceDetails" ]
+        "targets" : [ "CustomAppAuthenticatorResourceDetails", "AuthenticatorMethodResourceDetails" ]
       }
     }, {
       "id" : "security.behavior.settings.create",
@@ -11176,7 +11244,7 @@
         "created" : "2023-09-12",
         "release" : "2023.09.0"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : true,
       "tags" : [ "risk", "security" ],
       "mappings" : [ ],
@@ -11193,7 +11261,7 @@
         "created" : "2023-09-12",
         "release" : "2023.09.0"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : true,
       "tags" : [ "risk", "security" ],
       "mappings" : [ ],
@@ -11238,13 +11306,13 @@
       }
     }, {
       "id" : "security.partner.report.risk",
-      "category" : "adaptive",
+      "category" : "device-platform",
       "description" : "Fired when a partner submits a valid SSE for each security event. The event can help Org Admins debug/monitor partner SSE (Shared Signals and Events) submissions. The event contains debug context data about the partner's risk report.",
       "info" : {
         "created" : "2022-06-30",
         "release" : "2022.10.0"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ ],
       "mappings" : [ ],
@@ -14484,6 +14552,23 @@
         "targets" : [ "MFAFactorResourceDetails" ]
       }
     }, {
+      "id" : "system.mfa.preregister.initiate",
+      "category" : "passwordless",
+      "description" : "Admin triggered MFA preregistration flow. Provides Workflows and other third-party services with a hook to kick off MFA preregistration flow. When fired, Okta Workflows can hook into the event to initiate a MFA factor preregistration flow for a user. The event specifies relevant target data in PreregistrationMFAFactorResourceDetails which can be used to determine the fulfillment provider and factor type being enrolled, as well as the YubiKey make/model, configurations, and inventory bucket for the WebAuthn enrollment. Currently only supported for WebAuthn enrollment with Yubico YED fulfillment.",
+      "info" : {
+        "created" : "2024-01-26",
+        "release" : "2024.02.0"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "event-hook-eligible", "mfa" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "PreregistrationMFAFactorResourceDetails" ]
+      }
+    }, {
       "id" : "system.operation.concurrency_limit.violation",
       "category" : "performance",
       "description" : "Operation concurrency limit violation. This can be used to track if there are too many concurrent operations of the given type.  The operation type information is available in debugData. When fired, this event contains information about the operation such as its actor, type, scope and threshold details. OperationRateLimitType in debugData will indicate the category to which the concurrency limit is being applied (e.g. web_request), OperationRateLimitSubtype defines specific subtypes (e.g. ssws_token) and OperationRateLimitScope will indicate the scope of the rate limit (e.g. token).",
@@ -15009,6 +15094,23 @@
         "debugData" : "UserAccessDebugData",
         "actor" : null,
         "targets" : [ "ResourceDetails" ]
+      }
+    }, {
+      "id" : "user.account.expire_password",
+      "category" : "passwordless",
+      "description" : "Fired when the user's Okta password is expired. This can be used to audit cases where a user's password is expired by an administrator. When fired, this event contains information about the user whose password was expired, whether a temporary password was created for the user, or if the user's sessions were revoked.",
+      "info" : {
+        "created" : "2024-01-09",
+        "release" : "2024.01.2"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "account", "user" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "UserAccessDebugData",
+        "actor" : null,
+        "targets" : [ "UserAccessResourceDetails" ]
       }
     }, {
       "id" : "user.account.lock",
@@ -15630,7 +15732,7 @@
         "created" : "2023-02-06",
         "release" : "2023.03.0"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : true,
       "tags" : [ "risk", "security" ],
       "mappings" : [ ],
@@ -15641,7 +15743,7 @@
       }
     }, {
       "id" : "user.internal.session_context_change",
-      "category" : "adaptive",
+      "category" : "cred-platform",
       "description" : "User session context changed. This internal event indicates that the context in which the session is being used has changed significantly enough from the context in which the event was created, that re-evaluation of policy may be required. Often this indicates a security issue related to the session.",
       "info" : {
         "created" : "2023-02-06",
@@ -16021,7 +16123,7 @@
         "created" : "2022-08-17",
         "release" : "2023.01.2"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "event-hook-eligible", "risk", "security" ],
       "mappings" : [ ],
@@ -16072,7 +16174,7 @@
         "created" : "2023-01-11",
         "release" : "2023.01.0"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "session", "user" ],
       "mappings" : [ ],
@@ -16101,7 +16203,7 @@
     }, {
       "id" : "user.session.expire",
       "category" : "cred-platform",
-      "description" : "Expire user session.",
+      "description" : "Expire user session. This event does not appear in the system logs unless the user explicitly signs out or the user session is revoked by an admin.",
       "info" : {
         "created" : "2016-04-01",
         "release" : "2016.15"
@@ -20117,6 +20219,14 @@
             "customer" : false,
             "format" : "iso8601",
             "examples" : [ "2023-07-18T19:08:49.000Z" ]
+          },
+          "enrollment_method_challenge_time" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "iso8601",
+            "examples" : [ "2023-11-05T09:30:41.000-05:00" ]
           },
           "matched_authenticator_groups" : {
             "type" : "String",
@@ -33197,6 +33307,51 @@
           }
         }
       },
+      "RealmAssignmentUpdateDebugData" : {
+        "name" : "RealmAssignmentUpdateDebugData",
+        "properties" : {
+          "previous_assignment_profile_source" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "",
+            "examples" : [ "0oanrajfrtdHZYrwn0x7" ]
+          },
+          "previous_assignment_priority" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "",
+            "examples" : [ "1, 24" ]
+          },
+          "previous_assignment_expression" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "",
+            "examples" : [ "profile.isFullTime==true" ]
+          },
+          "previous_assignment_status" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "",
+            "examples" : [ "0, 1" ]
+          },
+          "previous_target_realm_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "",
+            "examples" : [ "guo3xgsQ20ntLMtF20g4" ]
+          }
+        }
+      },
       "RichClientDebugData" : {
         "name" : "RichClientDebugData",
         "properties" : {
@@ -36035,6 +36190,14 @@
             "customer" : false,
             "format" : "id",
             "examples" : [ "X2VCdlgDiOx8wuRzdWiZ6gAABOk", "X04hrZh4mEb9dgc6GkD5@AAACPU" ]
+          },
+          "temp_password_set" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
           },
           "session_revocation" : {
             "type" : "Boolean",
@@ -39158,6 +39321,14 @@
       "UserAuthenticationResourceDetails" : {
         "name" : "UserAuthenticationResourceDetails",
         "properties" : {
+          "policy_rule_factor_mode" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "1FA", "2FA" ]
+          },
           "policy_type" : {
             "type" : "String",
             "sensitive" : false,
@@ -39281,6 +39452,35 @@
             "customer" : false,
             "format" : "iso8601",
             "examples" : [ "2020-08-05T09:30:41.000-05:00" ]
+          }
+        }
+      },
+      "AuthenticatorMethodResourceDetails" : {
+        "name" : "AuthenticatorMethodResourceDetails",
+        "properties" : {
+          "method_action_details" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "SmsMethodConfig{type=sms, status=ACTIVE}" ]
+          },
+          "method_action" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "ACTIVATE", "DEACTIVATE", "UPDATE" ]
+          },
+          "method_type" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "SMS", "VOICE" ]
           }
         }
       },
@@ -40519,6 +40719,51 @@
           }
         }
       },
+      "PreregistrationMFAFactorResourceDetails" : {
+        "name" : "PreregistrationMFAFactorResourceDetails",
+        "properties" : {
+          "factor_type" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "SECURITY_QUESTION", "SOFT_TOKEN", "YUBIKEY_OTP_FACTOR" ]
+          },
+          "yubico_inventory_product_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "12", "13", "14", "15", "16", "17", "18", "19", "20", "47" ]
+          },
+          "yubico_customization_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "00000000-0000-0000-0000-000000000000" ]
+          },
+          "yubico_product_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "1", "2", "3", "4", "5", "7", "8", "9", "10", "11", "54" ]
+          },
+          "fulfillment_provider" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "yubico" ]
+          }
+        }
+      },
       "PushProviderResourceDetails" : {
         "name" : "PushProviderResourceDetails",
         "properties" : {
@@ -40561,6 +40806,112 @@
             "customer" : false,
             "format" : "text",
             "examples" : [ "00ox7oj39kH8PPs1v0g3", "00owu6i9Vm1NZM4aa0g3" ]
+          }
+        }
+      },
+      "RealmAssignmentExecutionResourceDetails" : {
+        "name" : "RealmAssignmentExecutionResourceDetails",
+        "properties" : {
+          "execution_number_of_users_moved" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "",
+            "examples" : [ "0, 300" ]
+          },
+          "execution_status" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "",
+            "examples" : [ "1, 24" ]
+          },
+          "execution_assignment_profile_source" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "",
+            "examples" : [ "0oanrajfrtdHZYrwn0x7" ]
+          },
+          "execution_assignment_el_expression" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "",
+            "examples" : [ "profile.isFullTime==true" ]
+          },
+          "execution_assignment_target_realm_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "",
+            "examples" : [ "guo3xgsQ20ntLMtF20g4" ]
+          },
+          "execution_assignment_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "",
+            "examples" : [ "rul3xgsQ20ntLMtF20g4" ]
+          },
+          "execution_job_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "",
+            "examples" : [ "job3xgsQ20ntLMtF20g4" ]
+          }
+        }
+      },
+      "RealmAssignmentResourceDetails" : {
+        "name" : "RealmAssignmentResourceDetails",
+        "properties" : {
+          "assignment_profile_source" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "",
+            "examples" : [ "0oanrajfrtdHZYrwn0x7" ]
+          },
+          "assignment_priority" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "",
+            "examples" : [ "1, 24" ]
+          },
+          "assignment_expression" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "",
+            "examples" : [ "profile.isFullTime==true" ]
+          },
+          "assignment_status" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "",
+            "examples" : [ "0, 1" ]
+          },
+          "target_realm_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "",
+            "examples" : [ "guo3xgsQ20ntLMtF20g4" ]
           }
         }
       },
