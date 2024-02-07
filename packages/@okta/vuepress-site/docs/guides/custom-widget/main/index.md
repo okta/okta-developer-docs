@@ -54,6 +54,7 @@ See also [Multiple content security policies](https://developer.mozilla.org/en-U
 * If you add too many trusted external resources to your custom CSP, the HTTP header size can exceed the limit allowed by some server software. Update the default server limits or reduce the number of trusted external resources.
 * You can have a maximum of 20 URIs.
 * If you add a trusted origin URL that redirects to a different URL, you need to include the redirect URL on the trusted origin list.
+
 <!-- nonce not supported yet
 #### Add a nonce reference
 
@@ -65,7 +66,8 @@ Example:
 
 ```html
 <style nonce="{{nonceValue}}">
-```-->
+```
+-->
 
 #### Configure the default CSP
 
