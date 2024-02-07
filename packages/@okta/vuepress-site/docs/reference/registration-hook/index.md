@@ -266,13 +266,13 @@ See [request properties](#objects-in-the-request-from-okta) for full details.
 
 ## Sample SSR responses
 
-The external service responds to Okta indicating whether to accept the end user's self-registration attempt. The response returns a `commands` object in the body of the HTTPS response. This object contains specific syntax that indicates whether the user is allowed or denied to self-register.
+The external service responds to Okta indicating whether to accept the end user's self-registration attempt, and if required update a user profile value. The response returns a `commands` object in the body of the HTTPS response. This object contains specific syntax that indicates whether the user is allowed or denied to self-register and the user profile attribute to update.
 
 See [response properties](#response-objects-that-you-send) for full details.
 
-### Sample SSR response using data.userProfile
+### Sample SSR response to update a user profile
 
-The following sample response shows a successful self-registration:
+The following sample response shows a successful self-registration update using `com.okta.user.profile.update`:
 
 ```json
 {
@@ -287,7 +287,7 @@ The following sample response shows a successful self-registration:
 }
 ```
 
-### Sample SSR response using data.action
+### Sample SSR response to deny a user registration
 
 The following sample response uses the `DENY` value and a custom error caused by an invalid email domain:
 
@@ -376,7 +376,7 @@ The external service responds to Okta indicating whether to accept the end user'
 
 See [response properties](#response-objects-that-you-send) for full details.
 
-### Sample progressive enrollment response using data.UserProfileUpdate
+### Sample progressive enrollment response to update a user profile
 
 The following sample response shows the addition of an employee number to an end user's profile:
 
@@ -393,7 +393,7 @@ The following sample response shows the addition of an employee number to an end
 }
 ```
 
-### Sample progressive enrollment response using data.action
+### Sample progressive enrollment response to deny a user registration
 
 The following sample response uses the `DENY` value and a custom error caused by an invalid employee number:
 
