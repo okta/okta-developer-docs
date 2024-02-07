@@ -63,7 +63,7 @@ If your Okta org uses Identity Engine, then the <StackSnippet snippet="granttype
 
 Before you can implement authorization, you need to register your app in Okta by creating an app integration from the Admin Console.
 
-> **Note:** When you create an app, or update an existing app, you must have super admin permissions to enable direct authentication grant types.
+> **Note:** When you create or update an app, you must have super admin permissions to enable direct authentication grant types.
 
 1. Open the **Admin Console** for your org.
 1. Select **Applications** > **Applications** to view the current app integrations.
