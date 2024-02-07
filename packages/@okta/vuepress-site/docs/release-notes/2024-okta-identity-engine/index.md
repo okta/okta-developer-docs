@@ -62,7 +62,7 @@ Super admin permissions are now required to enable or change direct authenticati
 
 #### Developer documentation update in 2024.02.0
 
-* Instructions for [testing Okta REST APIs with Postman] have been updated to provide OAuth 2.0 authentication set up and use. OAuth 2.0 is recommended to access Okta management APIs instead of the proprietary SSWS API token to ensure enhanced security.
+* Instructions for [testing Okta REST APIs with Postman](/docs/reference/rest/) have been updated to provide OAuth 2.0 authentication set up and use. OAuth 2.0 is recommended to access Okta management APIs instead of the proprietary SSWS API token to ensure enhanced security.
 
   These instructions are now under **References** > **Test APIs with Postman**.
 
