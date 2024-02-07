@@ -16,6 +16,7 @@ title: Okta API Products release notes 2024
 | [New function for email templates is EA in Preview](#new-function-for-email-templates-is-ea-in-preview) | February 7, 2024 |
 | [POST requests now allowed to the logout endpoint](#post-requests-now-allowed-to-the-logout-endpoint) | February 7, 2024 |
 | [Seamless ISV experience is GA in Production](#seamless-isv-experience-is-ga-in-production) | January 10, 2024 |
+| [Developer documentation update in 2024.02.0](#developer-documentation-update-in-2024-02-0) | February 7, 2024 |
 | [Bugs fixed in 2024.02.0](#bugs-fixed-in-2024-02-0) | February 7, 2024 |
 
 #### Assign admin roles to an app
@@ -41,6 +42,14 @@ You can now access the `/oauth2/{id}/v1/logout` and `/oauth2/v1/logout` endpoint
 #### Seamless ISV experience is GA in Production
 
 Okta now provides a seamless ISV experience to optimize the [Okta Integration Network (OIN)](https://www.okta.com/integrations/) submission experience for SAML and OIDC integrations. This new experience enables independent software vendors (ISVs) to build and manually test their integration metadata before submission. This reduces the time needed for the OIN team to review and validate that the integration functions as intended, which shortens the time to publish in the OIN. This experience also incorporates communication processes in Salesforce, enabling improved collaboration internally within Okta teams and externally with ISVs. See [Publish an OIN integration](https://developer.okta.com/docs/guides/submit-app-overview/) overview and [Submit an SSO integration with the OIN Wizard](https://developer.okta.com/docs/guides/submit-oin-app/) guide. <!-- OKTA-663167 APP_MANIFESTS -->
+
+#### Developer documentation update in 2024.02.0
+
+* Instructions for [testing Okta REST APIs with Postman] have been updated to provide OAuth 2.0 authentication set up and use. OAuth 2.0 is recommended to access Okta management APIs instead of the proprietary SSWS API token to ensure enhanced security.
+
+  These instructions are now under **References** > **Test APIs with Postman**.
+
+* The [Self-service registration](/docs/guides/oie-embedded-sdk-use-case-self-reg/) guide is now easier to read and quicker to complete. All flow diagrams have been updated so they are easier to follow, and configuration instructions now match the current Admin Console.
 
 #### Bugs fixed in 2024.02.0
 

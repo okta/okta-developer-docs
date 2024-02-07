@@ -21,6 +21,7 @@ title: Okta Identity Engine API Products release notes 2024
 | [POST requests now allowed to the logout endpoint](#post-requests-now-allowed-to-the-logout-endpoint) | February 7, 2024 |
 | [Seamless ISV experience is GA in Production](#seamless-isv-experience-is-ga-in-production) | January 10, 2024 |
 | [Super admin role now required to update direct authentication grants](#super-admin-role-now-required-to-update-direct-authentication-grants) | February 7, 2024 |
+| [Developer documentation update in 2024.02.0](#developer-documentation-update-in-2024-02-0) | February 7, 2024 |
 | [Bug fixed in 2024.01.2](#bug-fixed-in-2024-02-0) | February 7, 2024 |
 
 #### Assign admin roles to an app
@@ -58,6 +59,14 @@ Okta now provides a seamless ISV experience to optimize the [Okta Integration Ne
 #### Super admin role now required to update direct authentication grants
 
 Super admin permissions are now required to enable or change direct authentication grants for clients. <!-- OKTA-677469 -->
+
+#### Developer documentation update in 2024.02.0
+
+* Instructions for [testing Okta REST APIs with Postman] have been updated to provide OAuth 2.0 authentication set up and use. OAuth 2.0 is recommended to access Okta management APIs instead of the proprietary SSWS API token to ensure enhanced security.
+
+  These instructions are now under **References** > **Test APIs with Postman**.
+
+* The [Self-service registration](/docs/guides/oie-embedded-sdk-use-case-self-reg/) guide is now easier to read and quicker to complete. All flow diagrams have been updated so they are easier to follow, and configuration instructions now match the current Admin Console.
 
 #### Bug fixed in 2024.02.0
 
