@@ -266,13 +266,13 @@ See [request properties](#objects-in-the-request-from-okta) for full details.
 
 ## Sample SSR responses
 
-The external service responds to Okta indicating whether to accept the end user's self-registration attempt, and if required update a user profile value. The response returns a `commands` object in the body of the HTTPS response. This object contains specific syntax that indicates whether the user is allowed or denied to self-register and the user profile attribute to update.
+The external service responds to Okta indicating whether to accept the end user's self-registration attempt. If self-registration is allowed, an update to a user profile attribute can also be returned. The `commands` object in the body of the HTTPS response contains specific syntax that configures these operations.
 
 See [response properties](#response-objects-that-you-send) for full details.
 
 ### Sample SSR response to update a user profile
 
-The following sample response shows a successful self-registration update using `com.okta.user.profile.update`:
+The following sample response shows a successful self-registration attribute update using `com.okta.user.profile.update`:
 
 ```json
 {
