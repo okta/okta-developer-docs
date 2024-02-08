@@ -206,7 +206,7 @@ After importing the Okta SCIM test suite into Runscope, you need to configure th
 
    </div>
 
-    This script sets up several randomly generated "dummy" variables that are used during the testing process:
+    This script sets up several randomly generated variable values that are used during the testing process:
 
     | Variable name | Example value | Notes |
     |:-|:-|:-|
