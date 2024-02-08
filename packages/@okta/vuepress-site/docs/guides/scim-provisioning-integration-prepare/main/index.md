@@ -103,7 +103,7 @@ Okta requires that your SCIM implementation stores the following four user attri
 
 Okta supports more than those four user attributes. However, these are the base attributes that you must support. The full schema of user attributes supported by SCIM 2.0 is described in [section 4 of RFC 7643](https://tools.ietf.org/html/rfc7643#section-4).
 
-If your integration supports user attributes beyond those four base attributes, you can add support for more attributes to your SCIM API. Sometimes, you might need to configure Okta to map non-standard user attributes into the user profile for your application. See [Check the attributes and corresponding mappings](/docs/guides/scim-provisioning-integration-connect/main/#check-the-attributes-and-corresponding-mappings), or [Add custom attributes to an Okta user profile](https://help.okta.com/okta_help.htm?id=ext_Directory_Profile_Editor_Tasks) in the Okta product documentation.
+If your integration supports user attributes beyond those four base attributes, you can add support for more attributes to your SCIM API. Sometimes, you might need to configure Okta to map non-standard user attributes into the user profile for your app. See [Check the attributes and corresponding mappings](/docs/guides/scim-provisioning-integration-connect/main/#check-the-attributes-and-corresponding-mappings), or [Add custom attributes to an Okta user profile](https://help.okta.com/okta_help.htm?id=ext_Directory_Profile_Editor_Tasks) in the Okta product documentation.
 
 ### Unique ID
 
@@ -146,7 +146,7 @@ Sometimes it isn't feasible for your cloud-based application to natively support
 
 ## Provision to on-premises applications
 
-This provisioning guide targets cloud-based applications. For on-premise applications, see [Provision on-premises provisioning](https://help.okta.com/okta_help.htm?id=ext_OPP_configure) for details about the Okta agent-based provisioning solution.
+This provisioning guide targets cloud-based apps. For on-premise apps, see [Provision on-premises provisioning](https://help.okta.com/okta_help.htm?id=ext_OPP_configure) for details about the Okta agent-based provisioning solution.
 
 ## Test your SCIM API
 
@@ -167,8 +167,7 @@ To get started using Runscope to test your SCIM API:
 
 1. If you're new to Runscope, your dashboard displays sample Runscope tutorials. Click **Skip Tutorial**.
 1. You should now see a page titled **API Tests**.
-1. In the lower left of your page, click **Import Test**.
-1. A new page appears, titled **Import Tests into &#x2026;**
+1. In the lower left of your page, click **Import Test**. A new page appears, titled **Import Tests into &#x2026;**.
 1. Select **API Monitoring Tests** as the import format.
 1. Click **Choose File** and select the JSON file that you saved in step 1.
 1. Click **Import API Test**.
