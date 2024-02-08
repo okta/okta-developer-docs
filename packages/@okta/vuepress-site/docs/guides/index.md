@@ -34,6 +34,7 @@ guides:
  - customize-tokens-dynamic
  - customize-tokens-static
  - customize-tokens-groups-claim
+ - delete-all-stay-signed-in-sessions
  - device-authorization-grant
  - embedded-siw
  - enable-cors

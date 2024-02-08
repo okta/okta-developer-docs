@@ -397,6 +397,7 @@ export const guides = [
             guideName: "configure-amr-claims-mapping"
           },
           { title: "Sign users out", guideName: "oie-embedded-sdk-use-case-basic-sign-out" },
+          { title: "Delete all Stay signed in sessions", guideName: "delete-all-stay-signed-in-sessions" },
           { title: "Single Logout", guideName: "single-logout" },
           {
             title: "Basics",
