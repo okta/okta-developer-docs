@@ -16,7 +16,7 @@ Only Beta and Early Access (EA) features are considered self-service. Once a fea
 
 ## Beta Features
 
-Though all available Betas qualify as "self-service features", Betas can be either open or closed. Open Betas can be both enabled or disabled using the API, however closed Betas can only be disabled. If a feature has Feature dependencies that are in Closed Beta, then you will not be able to enable it. If you'd like to enable a closed Beta, you should [contact Support](mailto:support@okta.com). Enabling an Open Beta will trigger an email to the admin who performed the action.
+Though all available Betas qualify as "self-service features", Betas can be either open or closed. Open Betas can be both enabled or disabled using the API, however closed Betas can only be disabled. If a feature has Feature dependencies that are in Closed Beta, then you will not be able to enable it. If you'd like to enable a closed Beta, you should [contact Support](https://support.okta.com). Enabling an Open Beta will trigger an email to the admin who performed the action.
 
 > **Note:** Beta Features are only available in Preview cells.
 

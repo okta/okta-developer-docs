@@ -1,6 +1,6 @@
-### 1: Click the sign-up link
+### The user clicks the sign-up link
 
-The self-registration flow begins when the user clicks the **Sign up** link. On the sign-in page, create a **Sign up** link that links to the create account page.
+Add a **Sign up** link to your app's sign-in page. The self-registration flow begins when the user clicks the **Sign up** link and the browser takes them to the Create Account page.
 
 <div class="half wireframe-border">
 
@@ -13,13 +13,15 @@ Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 
 </div>
 
-### 2: Enter the profile data
+> **Note**: The account's username is also its email address.
 
-The next step for the user after they click the **Sign up** link is to enter basic information (for example, email, first name, and last name). Create a page that accepts this information. The following wireframe shows an example of a create account page.
+### The user submits their profile data
+
+Create a page for the user to enter their basic profile information: their email, first name, and family name. For example:
 
 <div class="half wireframe-border">
 
-![A sign-up form with fields for first name, last name, and email address, and a create account button](/img/wireframes/sign-up-form-first-last-name-email.png)
+![A sign-up form with fields for first name, family name, and email address, and a create account button](/img/wireframes/sign-up-form-first-last-name-email.png)
 
 <!--
 
@@ -28,9 +30,7 @@ Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 
 </div>
 
-### 3: Select Register
-
-When the user clicks **Register**, create a `UserProfile` object and set its properties with the user profile information captured from the create account page. Pass this object into the `IdxClient RegisterAsync` method.
+When the user clicks **Sign Up**, create a `UserProfile` object and set its properties to the values entered by the user. Pass this object as a parameter to `IdxClient.RegisterAsync()`.
 
 ```csharp
 var idxAuthClient = new IdxClient();
@@ -43,23 +43,22 @@ userProfile.SetProperty("email", model.Email);
 var registerResponse = await idxAuthClient.RegisterAsync(userProfile);
 ```
 
-### 4: Handle the register response
-
-If the org's application is properly configured with multiple factors, `RegisterAsync` should return a response with an `AuthenticationStatus` of `AwaitingAuthenticatorEnrollment`. This status indicates that there is a required authenticator that needs to be verified. If you completed the steps properly in [Set up your Okta org for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-a-multifactor-use-case), the authenticator is the password factor that is stored in the `Authenticators` list property.
+`RegisterAsync()` returns a `RegisterResponse` object. Query its `AuthenticationStatus` property for the status of the registration process. A status of `AwaitingAuthenticatorEnrollment` indicates that the user must enroll an authentication factor to verify their identity.
 
 ```csharp
-if (registerResponse.AuthenticationStatus == AuthenticationStatus.AwaitingAuthenticatorEnrollment)
-    {
-       Session["idxContext"] = registerResponse.IdxContext;
-       TempData["authenticators"] = ViewModelHelper.
-             ConvertToAuthenticatorViewModelList(registerResponse.Authenticators);
-       return RedirectToAction("SelectAuthenticator", "Manage");
-    }
+if (registerResponse.AuthenticationStatus ==
+   AuthenticationStatus.AwaitingAuthenticatorEnrollment)
+{
+   Session["idxContext"] = registerResponse.IdxContext;
+   TempData["authenticators"] = ViewModelHelper.
+      ConvertToAuthenticatorViewModelList(registerResponse.Authenticators);
+   return RedirectToAction("SelectAuthenticator", "Manage");
+}
 ```
 
-### 5: Show the password authenticator
+### Display a list of required authenticators to enroll
 
-The next step is to build a page that shows a user the required factors that need to be verified. After the call to `RegisterAsync`, the user needs to see the password factor requirement and select it for verification.
+Create a page that displays a list of required authentication factors the user can enroll to verify their identity. They must choose a factor from the list and click **Next**. If you complete the steps properly in [Configuration updates](#configuration-updates), the only required authenticator is the password factor. This is the sole factor stored in the `Authenticators` list property.
 
 <div class="half wireframe-border">
 
@@ -72,15 +71,17 @@ Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 
 </div>
 
-The page should be generic and should handle the list of authenticators that are returned from the various methods of the SDK. Use the `Authenticators` property in the returned response to build the list.
+This page is used several times during the registration flow. Find the names and IDs of the available authenticators in the response object's `Authenticators` collection to build the list.
 
 ```csharp
 var authenticators = (IList<AuthenticatorViewModel>)TempData["authenticators"];
 var viewModel = new SelectAuthenticatorViewModel
   {
      Authenticators = authenticators,
-     PasswordId = authenticators.FirstOrDefault(x => x.Name.ToLower() == "password")?.AuthenticatorId,
-     PhoneId = authenticators.FirstOrDefault(x => x.Name.ToLower() == "phone")?.AuthenticatorId,
+     PasswordId = authenticators.
+        FirstOrDefault(x => x.Name.ToLower() == "password")?.AuthenticatorId,
+     PhoneId = authenticators.
+        FirstOrDefault(x => x.Name.ToLower() == "phone")?.AuthenticatorId,
      CanSkip = TempData["canSkip"] != null && (bool)TempData["canSkip"]
   };
 
@@ -88,11 +89,9 @@ TempData["authenticators"] = viewModel.Authenticators;
 return View(viewModel);
 ```
 
-### 6: Submit the password authenticator
+### The user enrolls their password
 
-The next step is to call the `EnrollAuthenticatorAsync` method when the user
-selects the authenticator. In this use case, the `AuthenticatorId` for the
-password factor is passed.
+When the user selects the password authenticator and clicks **Next**, create an `EnrollAuthenticatorOptions` object and assign its `AuthenticatorId` property to the password authenticator ID. Pass this object as a parameter to `IdxClient.EnrollAuthenticatorAsync()`.
 
 ```csharp
 var enrollAuthenticatorOptions = new EnrollAuthenticatorOptions
@@ -100,12 +99,11 @@ var enrollAuthenticatorOptions = new EnrollAuthenticatorOptions
      AuthenticatorId = model.AuthenticatorId,
 };
 
-var enrollResponse = await idxAuthClient.EnrollAuthenticatorAsync(enrollAuthenticatorOptions, (IIdxContext)Session["IdxContext"]);
+var enrollResponse = await idxAuthClient.EnrollAuthenticatorAsync(
+      enrollAuthenticatorOptions, (IIdxContext)Session["IdxContext"]);
 ```
 
-### 7: Handle the submit response
-
-The `EnrollAuthenticatorAsync` call returns an `AuthenticationStatus`. If the enrollment is successful, this property should return `AwaitingAuthenticatorVerification`. When `AwaitingAuthenticatorVerification` is returned, the next step is to verify the authenticator. In this use case, the user needs to verify with the password authenticator.
+`EnrollAuthenticatorAsync()` returns an `EnrollResponse` object with an `AuthenticationStatus` of `AwaitingAuthenticatorVerification`. This indicates that the new user needs to verify the authenticator. In this case, this means the user needs to supply a new password.
 
 ```csharp
 switch (enrollResponse?.AuthenticationStatus)
@@ -125,9 +123,7 @@ default:
 }
 ```
 
-### 8: Show the new password page
-
-After `AwaitingAuthenticatorVerification` is returned, the next step is to build a page that allows the user to supply a new password for verification.
+Create a page that allows the user to supply a new password for verification. For example:
 
 <div class="half wireframe-border">
 
@@ -140,27 +136,24 @@ Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 
 </div>
 
-### 9: Submit the new password
-
-When the user fills out the new password and clicks **Register**, a call to `VerifyAuthenticatorAsync` is made to verify (in this use case, to set the password for
-the new user). Use the `Code` property in the `VerifyAuthenticatorOptions` parameter
-to store the new password.
+When the user submits their new password, create a `VerifyAuthenticatorOptions` object and assign its `Code` property to the new password. Pass this object as a parameter to `VerifyAuthenticatorAsync()`.
 
 ```csharp
 var idxAuthClient = new IdxClient(null);
-           var verifyAuthenticatorOptions = new VerifyAuthenticatorOptions
-           {
-               Code = code,
-           };
+var verifyAuthenticatorOptions = new VerifyAuthenticatorOptions
+{
+   Code = code,
+};
 
-var authnResponse = await idxAuthClient.VerifyAuthenticatorAsync(verifyAuthenticatorOptions, (IIdxContext)Session["idxContext"]);
+var authnResponse = await idxAuthClient.VerifyAuthenticatorAsync(
+   verifyAuthenticatorOptions, (IIdxContext)Session["idxContext"]);
 ```
 
-### 10: Handle the submit response
+### Display a list of optional authenticators to enroll
 
-If you completed the steps in [Set up your Okta org for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-a-multifactor-use-case), `AuthenticationResponse.AuthenticationStatus` should return a status of `AwaitingAuthenticatorEnrollment`.
+`VerifyAuthenticatorAsync()` returns a `RegisterResponse` object with an `AuthenticationStatus` property of `AwaitingAuthenticatorEnrollment`. This indicates that the user still has authentication factors to enroll before registration is complete.
 
-The `AwaitingAuthenticatorEnrollment` status is returned because the required email and optional phone factors await to be enrolled and verified. The user should be redirected to an authenticator list page.
+In this scenario, you configure the app's authentication policy to require a password and another factor. Therefore, the user must enroll at least one of either the email or phone factors. Redirect them to the list page you created earlier to choose which one.
 
 <div class="half wireframe-border">
 
@@ -173,9 +166,7 @@ Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 
 </div>
 
-> **Note:** In the previous wireframe, a **Skip** button is not provided. You could choose to implement a skip option on your authenticators list page when one of the authenticators is optional. Since the email factor is required but the phone is optional, we'll describe it in later steps.
-
-The code snippet below shows how the response is handled. `AwaitingAuthenticatorEnrollment` identifies that there are additional factors (in this use case, email and optionally phone). The authenticator list page is loaded again (the first time was for password) with the two additional factors.
+The following code snippet shows how to handle the response. The authenticator list page loads again (the first time was for password) with the two remaining factors.
 
 ```csharp
 switch (authnResponse.AuthenticationStatus)
@@ -189,29 +180,29 @@ switch (authnResponse.AuthenticationStatus)
 ...
 ```
 
-> **Note** The `CanSkip` property in the code sample above is used for optional factors. See the SDK sample for more information.
+> **Note** To learn how to use the `CanSkip` property to allow users to skip enrolling more optional factors, see  [Display a second list of optional authenticators to enroll](#display-a-second-list-of-optional-authenticators-to-enroll).
 
-### 11: Submit the email authenticator
+### The user submits the email authenticator
 
-If the user selects the email authenticator, call the `EnrollAuthenticatorAsync` method and pass in the email `AuthenticatorId`. If the call is successful, a code is sent to the user's email.
+If the user chooses and submits the email authenticator, create an `EnrollAuthenticatorOptions` object and assign its `AuthenticatorId` property to the email authenticator ID. Pass this object as a parameter to `IdxClient.EnrollAuthenticatorAsync()`.
 
 ```csharp
 var enrollAuthenticatorOptions = new EnrollAuthenticatorOptions
 {
-     AuthenticatorId = model.AuthenticatorId,
+   AuthenticatorId = model.AuthenticatorId,
 };
 
-var enrollResponse = await idxAuthClient.EnrollAuthenticatorAsync(enrollAuthenticatorOptions, (IIdxContext)Session["IdxContext"]);
+var enrollResponse = await idxAuthClient.EnrollAuthenticatorAsync(
+   enrollAuthenticatorOptions, (IIdxContext)Session["IdxContext"]);
 ```
 
-### 12: Handle the submit response
+### Display OTP input page
 
-If the call to `EnrollAuthenticatorAsync` was successful, it should return an `AuthenticationStatus` of `AwaitingAuthenticatorVerification`. When `AwaitingAuthenticatorVerification` is returned, a code is sent to the user's email, and the user needs to verify this code.
-
-The following sample app code snippet shows that the user is redirected to the verify authenticator page to verify that the code was sent in the email.
+If the call is successful, a one-time passcode (OTP) is sent to the user's email. The returned `EnrollResponse` object has an `AuthenticationStatus` of `AwaitingAuthenticatorVerification`. This status indicates that Identity Engine is waiting for the user to check their email and enter the OTP.
 
 ```csharp
-var enrollResponse = await idxAuthClient.EnrollAuthenticatorAsync(enrollAuthenticatorOptions, (IIdxContext)Session["IdxContext"]);
+var enrollResponse = await idxAuthClient.EnrollAuthenticatorAsync(
+   enrollAuthenticatorOptions, (IIdxContext)Session["IdxContext"]);
 
 switch (enrollResponse?.AuthenticationStatus)
 {
@@ -221,9 +212,7 @@ switch (enrollResponse?.AuthenticationStatus)
 }
 ```
 
-### 13: Obtain the email verification code from email
-
-Build the email verification code page that accepts the code from the email.
+Build a form that allows the user to enter the OTP sent to them by email.
 
 <div class="half wireframe-border">
 
@@ -236,44 +225,38 @@ Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 
 </div>
 
-### 14: Submit the email code
+### The user submits the OTP
 
-The next step is to call `VerifyAuthenticatorAsync`. In the email verification, the code that is passed into `VerifyAuthenticatorAsync` is the code found in the verification email.
+The user opens the email and copies the OTP into the form. When the user submits the OTP, create a `VerifyAuthenticatorOptions` object and assign its `Code` property to the OTP. Pass this object as a parameter to `VerifyAuthenticatorAsync()`.
 
 ```csharp
 var idxAuthClient = new IdxClient(null);
-           var verifyAuthenticatorOptions = new VerifyAuthenticatorOptions
-           {
-               Code = code,
-           };
+var verifyAuthenticatorOptions = new VerifyAuthenticatorOptions
+{
+   Code = code,
+};
 
-var authnResponse = await idxAuthClient.VerifyAuthenticatorAsync(verifyAuthenticatorOptions, (IIdxContext)Session["idxContext"]);
+var authnResponse = await idxAuthClient.VerifyAuthenticatorAsync(
+   verifyAuthenticatorOptions, (IIdxContext)Session["idxContext"]);
 ```
 
-### 15: Handle the submit response
+### Display a second list of optional authenticators to enroll
 
-The next step is to handle the response from `VerifyAuthenticatorAsync`. If the email code was valid, the method should return `AuthenticationStatus` of `AwaitingAuthenticatorEnrollment`. This status signifies that there is another factor (required or optional) waiting to be enrolled and verified. If the steps described in [Set up your Okta org for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-a-multifactor-use-case) were properly followed, the user should be sent back to the authenticator list page that shows only the phone authenticator.
+`VerifyAuthenticatorAsync()` returns a `RegisterResponse` object with an `AuthenticationStatus` property of `AwaitingAuthenticatorEnrollment`. This indicates that the user still has authentication factors to enroll before registration is complete.
 
 ```csharp
-var authnResponse = await _idxClient.VerifyAuthenticatorAsync(verifyAuthenticatorOptions,
-     (IIdxContext)Session["idxContext"]);
-Session["idxContext"] = authnResponse.IdxContext;
-
 switch (authnResponse.AuthenticationStatus)
-      {
-          case AuthenticationStatus.AwaitingAuthenticatorEnrollment:
-               TempData["authenticators"] =
-               ViewModelHelper.ConvertToAuthenticatorViewModelList
-               (authnResponse.Authenticators);
-               TempData["canSkip"] = authnResponse.CanSkip;
-               return RedirectToAction("SelectAuthenticator", "Manage");
-           ...
-      }
+{
+   ...
+   case AuthenticationStatus.AwaitingAuthenticatorEnrollment:
+      TempData["authenticators"] =
+         ViewModelHelper.ConvertToAuthenticatorViewModelList(authnResponse.Authenticators);
+         TempData["canSkip"] = authnResponse.CanSkip;
+      return RedirectToAction("SelectAuthenticator", "Manage");
+   ...
 ```
 
-### 16: Show the remaining list of authenticators
-
-The remaining authenticator should display the phone factor to the user. Since this factor is currently optional and no other required factors need to be verified, the user should have the ability to skip the factor. Create a **Skip** button for this use case. This **Skip** button is governed by the `CanSkip` property on the `AuthenticationResponse`. See the following screenshot for an illustration.
+Redirect the user to the list page you created earlier to choose another authentication factor. The code is the same. The page should show only the phone factor. However, since this factor is optional and the user has now enrolled two factors, the `CanSkip` property is now `true` meaning that the list page should now also display a **Skip** button.
 
 <div class="half wireframe-border">
 
@@ -286,187 +269,181 @@ Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 
 </div>
 
-The user can either enroll in the phone factor or skip the phone factor. Your code should handle both scenarios that will be described in the following steps.
+The user can either enroll in or skip the phone factor. Your code should handle both scenarios as follows.
 
-### 17: Handle the phone authenticator options
+### The user enrolls the phone authenticator
 
-#### 18 Option 1: Enroll and verify the phone authenticator
+#### The user submits the phone authenticator
 
-1. Start phone verification
+If the user selects the phone authenticator, create an `EnrollAuthenticatorOptions` object and assign its `AuthenticatorId` property to the phone authenticator ID. Pass this object as a parameter to `IdxClient.EnrollAuthenticatorAsync()`.
 
-   If the user selects the phone authenticator (instead of skipping it), a call to `EnrollAuthenticatorAsync` is made passing in the phone `AuthenticatorId`. If the call was successful, the method should return an `AwaitingAuthenticatorEnrollmentData` response. The `AwaitingAuthenticatorEnrollmentData` response indicates that the enrollment data is required before the flow continues to verification.
+```csharp
+var enrollAuthenticatorOptions = new EnrollAuthenticatorOptions
+{
+   AuthenticatorId = model.AuthenticatorId,
+};
 
-   In the use case to verify the phone authenticator, the phone number is required, and the user should be redirected to a page where they can enter in a phone number. See the following code snippet from the sample app.
+var enrollResponse = await idxAuthClient.EnrollAuthenticatorAsync(
+   enrollAuthenticatorOptions, (IIdxContext)Session["IdxContext"]);
+```
 
-   ```csharp
-   var enrollResponse = await _idxClient.EnrollAuthenticatorAsync(enrollAuthenticatorOptions,
-      (IIdxContext)Session["IdxContext"]);
+#### Display phone number input page
+
+The returned `EnrollResponse` object has an `AuthenticationStatus` of `AwaitingAuthenticatorEnrollmentData`. This status indicates that Identity Engine is waiting for the user for more data before the factor can be enrolled. In this case, the user needs to supply a phone number.
+
+```csharp
+var enrollResponse = await idxAuthClient.EnrollAuthenticatorAsync(
+   enrollAuthenticatorOptions,(IIdxContext)Session["IdxContext"]);
+switch (enrollResponse?.AuthenticationStatus)
+{
    ...
+   case AuthenticationStatus.AwaitingAuthenticatorEnrollmentData:
+      return RedirectToAction("EnrollPhoneAuthenticator", "Manage");
+   ...
+}
+```
 
-   switch (enrollResponse?.AuthenticationStatus)
-      {
-            ...
-            case AuthenticationStatus.AwaitingAuthenticatorEnrollmentData:
-                  return RedirectToAction("EnrollPhoneAuthenticator", "Manage");
-            ...
-         }
-   ```
+Build a form that allows the user to enter their phone number.
 
-2. Show phone entry page
+<div class="half wireframe-border">
 
-   Build the phone number entry page that accepts the phone number. The user uses the phone number entry page to enroll and verify.
-
-   <div class="half wireframe-border">
-   ![A form with a field for a phone number, formatting advice and a next button](/img/wireframes/enter-phone-number-form.png)
-
-   </div>
+![A form with a field for a phone number, formatting advice, and a next button](/img/wireframes/enter-phone-number-form.png)
 
    <!--
 
 	Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3399%3A37078&t=2h5Mmz3COBLhqVzv-1 enter-phone-number-form
 	-->
 
-   > **Note:** The SDK requires that the phone number be in the following format: `+#######`, including the beginning plus (+) sign.
+</div>
 
-3. Submit phone number
+> **Note:** The .NET SDK requires the phone number in the following format: `+# ### ### ####`, including the beginning plus (+) sign.
 
-   When the user enters their phone number and clicks the **Send code via SMS** button, a call to `EnrollAuthenticatorAsync` is made with the following values:
+#### The user submits their phone number
 
-   * Authenticator ID
-   * Phone number
-   * Method type (only SMS is currently supported)
+When the user submits their phone number, create an `EnrollPhoneAuthenticatorOptions` object and assign its `AuthenticatorId`, `PhoneNumber`, and `MethodType` properties to the phone authenticator ID, phone number, and `AuthenticatorMethodType.Sms` respectively. Pass this object as a parameter to `EnrollAuthenticatorAsync()`.
 
-   > **Note:** Only SMS is currently supported for the phone authenticator type.
+> **Note:** Only SMS is supported for the phone authenticator type.
 
-   The above values are passed using the `EnrollPhoneAuthenticatorOptions` parameter. See the following code snippet for details.
+```csharp
+var enrollPhoneAuthenticatorOptions = new EnrollPhoneAuthenticatorOptions
+{
+   AuthenticatorId = Session["phoneId"].ToString(),
+   PhoneNumber = model.PhoneNumber,
+   MethodType = AuthenticatorMethodType.Sms,
+};
 
-   ```csharp
-   var enrollPhoneAuthenticatorOptions = new EnrollPhoneAuthenticatorOptions
-      {
-         AuthenticatorId = Session["phoneId"].ToString(),
-         PhoneNumber = model.PhoneNumber,
-         MethodType = AuthenticatorMethodType.Sms,
-      };
+var enrollResponse = await idxAuthClient.EnrollAuthenticatorAsync(
+   enrollPhoneAuthenticatorOptions, (IIdxContext)Session["IdxContext"]);
+Session["IdxContext"] = enrollResponse.IdxContext;
+```
 
-   var enrollResponse = await _idxClient.EnrollAuthenticatorAsync(enrollPhoneAuthenticatorOptions,
-         (IIdxContext)Session["IdxContext"]);
-         Session["IdxContext"] = enrollResponse.IdxContext;
-   ```
+#### Display SMS OTP input page
 
-4. Handle the submit response
+If the call is successful, a one-time passcode (OTP) is sent by SMS to the user's mobile phone. The returned `EnrollResponse` object has an `AuthenticationStatus` of `AwaitingAuthenticatorVerification`. This status indicates that Identity Engine is waiting for the user to check their email and enter the OTP.
 
-   If the call to `EnrollAuthenticatorAsync` is successful, the `AuthenticationStatus` of `AwaitingAuthenticatorVerification` is returned. When `AwaitingAuthenticatorVerification` is returned, a code is sent to the phone number through SMS.
+```csharp
+var enrollResponse = await idxAuthClient.EnrollAuthenticatorAsync(
+   enrollAuthenticatorOptions, (IIdxContext)Session["IdxContext"]);
 
-   In the following code snippet, the user is redirected to a reusable code verification page that handles the code for both email and SMS. Your implementation may vary.
+switch (enrollResponse?.AuthenticationStatus)
+{
+   case AuthenticationStatus.AwaitingAuthenticatorVerification:
+        return RedirectToAction("VerifyAuthenticator", "Manage");
+   ...
+}
+```
 
-   ```csharp
-   var enrollResponse = await _idxClient.EnrollAuthenticatorAsync(enrollPhoneAuthenticatorOptions,
-      (IIdxContext)Session["IdxContext"]);
-      ...
-   if (enrollResponse.AuthenticationStatus ==
-      AuthenticationStatus.AwaitingAuthenticatorVerification)
-      {
-         return RedirectToAction("VerifyAuthenticator", "Manage");
-      }
-   ```
+Build a form that allows the user to enter the OTP sent to them by SMS. Depending on your implementation, the page can be the same page that verifies the email code. The sample app reuses the same page for both email and phone verification.
 
-5. Display phone verification code page
+<div class="half wireframe-border">
 
-   Build a page that accepts the code sent to your phone number through SMS. Depending on your implementation, the page can be the same page that verifies the email code. The sample app reuses the same page for both email and phone verification.
-
-   <div class="half wireframe-border">
-
-   ![A form with a field for a verification code, a note to find the code in a SMS and a submit button](/img/wireframes/enter-verification-code-form-with-sms-message.png)
-
-
-   </div>
+![A form with a field for a verification code, a note to find the code in an SMS, and a submit button](/img/wireframes/enter-verification-code-form-with-sms-message.png)
 
    <!--
-
    Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3400%3A37154&t=vr9MuCR8C4rCt3hC-1 enter-verification-code-form-with-sms-message
    -->
 
-6. Submit phone code
+</div>
 
-   After the user enters the phone code and clicks **Verify**, a call is made to `VerifyAuthenticatorAsync`. In the phone verification use case, the code that passes into `VerifyAuthenticatorAsync` is the code that was sent through SMS to the phone number.
+#### The user submits the SMS OTP
 
-   ```csharp
-   var idxAuthClient = new IdxClient(null);
-            var verifyAuthenticatorOptions = new VerifyAuthenticatorOptions
-            {
-                  Code = code,
-            };
+The user checks their phone and copies the OTP into the form. When the user submits the OTP, create a `VerifyAuthenticatorOptions` object and assign its `Code` property to the OTP. Pass this object as a parameter to `VerifyAuthenticatorAsync()`.
 
-   var authnResponse = await idxAuthClient.VerifyAuthenticatorAsync(verifyAuthenticatorOptions, (IIdxContext)Session["idxContext"]);
-   ```
+```csharp
+var idxAuthClient = new IdxClient(null);
+var verifyAuthenticatorOptions = new VerifyAuthenticatorOptions
+{
+   Code = code,
+};
 
-7. Complete authentication
+var authnResponse = await idxAuthClient.VerifyAuthenticatorAsync(
+   verifyAuthenticatorOptions, (IIdxContext)Session["idxContext"]);
+```
 
-   The next step is to handle the response from `VerifyAuthenticatorAsync`. If the phone SMS code was valid, the method should return an `AuthenticationStatus` of `Success`. This status signifies that no more factors (required or optional) are waiting to be enrolled and verified.
+#### Complete registration
 
-   If the steps described in [Set up your Okta org (for multifactor use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-multi-factor-use-cases) were properly followed, the user should now be registered with no more factors to be verified. The user should then be sent to the default page after they have successfully registered. In the sample application, the user is sent to the user profile page.
+If the SMS OTP is valid, the returned response object has an `AuthenticationStatus` of `Success`. This status signifies that no more factors (required or optional) are waiting to be enrolled and verified.
 
-   ```csharp
-   var authnResponse = await _idxClient.VerifyAuthenticatorAsync(verifyAuthenticatorOptions, (IIdxContext)Session["idxContext"]);
-   Session["idxContext"] = authnResponse.IdxContext;
+The user is now registered with no more factors to be verified. Store the returned tokens in a session and redirect the user to the app's default signed-in page.
 
-   switch (authnResponse.AuthenticationStatus)
+```csharp
+var authnResponse = await idxAuthClient.VerifyAuthenticatorAsync(
+   verifyAuthenticatorOptions, (IIdxContext)Session["idxContext"]);
+Session["idxContext"] = authnResponse.IdxContext;
+
+switch (authnResponse.AuthenticationStatus)
+{
+   ...
+   case AuthenticationStatus.Success:
+      ClaimsIdentity identity = await AuthenticationHelper.GetIdentityFromTokenResponseAsync(
+         idxAuthClient.Configuration, authnResponse.TokenInfo);
+      _authenticationManager.SignIn(new AuthenticationProperties(), identity);
+      return RedirectToAction("Index", "Home");
+   ...
+}
+```
+
+### The user skips the phone authenticator
+
+If the user skips phone enrollment, call `SkipAuthenticatorSelectionAsync()`. This method skips phone enrollment and eliminates the need to verify the factor:
+
+```csharp
+try
+{
+   var skipSelectionResponse = await idxAuthClient.SkipAuthenticatorSelectionAsync
+   ((IIdxContext)Session["IdxContext"]);
+
+   switch (skipSelectionResponse.AuthenticationStatus)
    {
-      ...
       case AuthenticationStatus.Success:
-            ClaimsIdentity identity = await
-            AuthenticationHelper.GetIdentityFromTokenResponseAsync(_idxClient.Configuration,
-            authnResponse.TokenInfo);
-            _authenticationManager.SignIn(new AuthenticationProperties(), identity);
-            return RedirectToAction("Index", "Home");
-      ...
-   }
-   ```
-
-#### 19 Option 2: Skip phone enrollment
-
-1. If the user opts to skip phone enrollment, a call to `SkipAuthenticatorSelectionAsync` needs to be made. This method skips phone enrollment and eliminates the need to verify the factor:
-
-   ```csharp
-   try
-   {
-         var skipSelectionResponse = await _idxClient.SkipAuthenticatorSelectionAsync
-         ((IIdxContext)Session["IdxContext"]);
-
-         switch (skipSelectionResponse.AuthenticationStatus)
-         {
-            case AuthenticationStatus.Success:
-               ClaimsIdentity identity = await AuthenticationHelper.GetIdentityFromTokenResponseAsync
-               (_idxClient.Configuration, skipSelectionResponse.TokenInfo);
-               _authenticationManager.SignIn(new AuthenticationProperties(), identity);
-               return RedirectToAction("Index", "Home");
-         }
+         ClaimsIdentity identity = await AuthenticationHelper.GetIdentityFromTokenResponseAsync
+         (idxAuthClient.Configuration, skipSelectionResponse.TokenInfo);
+         _authenticationManager.SignIn(new AuthenticationProperties(), identity);
          return RedirectToAction("Index", "Home");
    }
-   catch (TerminalStateException exception)
-   {
-         TempData["TerminalStateMessage"] = exception.Message;
-         return RedirectToAction("Login", "Account");
-   }
-   catch (OktaException exception)
-   {
-         ModelState.AddModelError(string.Empty, exception.Message);
-         return RedirectToAction("SelectAuthenticator");
-   }
-   ```
+   return RedirectToAction("Index", "Home");
+}
+catch (TerminalStateException exception)
+{
+   TempData["TerminalStateMessage"] = exception.Message;
+   return RedirectToAction("Login", "Account");
+}
+catch (OktaException exception)
+{
+   ModelState.AddModelError(string.Empty, exception.Message);
+   return RedirectToAction("SelectAuthenticator");
+}
+```
 
-2. Complete authentication
+If the returned response object has an `AuthenticationStatus` of `Success`, the user is now registered with no more factors to be verified. Redirect the user to the app's default signed-in page.
 
-   If `SkipAuthenticatorSelectionAsync` returns an `AuthenticationStatus` of `Success`, the registration is completed successfully.
-   The method can also throw exceptions for unsuccessful registrations such as the following:
+The method can also throw exceptions for unsuccessful registrations such as the following:
 
-   * `TerminalStateException` &mdash; An exception inherited from `OktaException` that's raised when an unexpected message is returned from the Okta API and no further remediation is possible.
-   * `OktaException` &mdash; A general base exception that's raised when any Okta client and API exceptions are thrown.
+* `TerminalStateException`: an exception inherited from `OktaException` that's raised when an unexpected message is returned from the Okta API and no further remediation is possible.
+* `OktaException`: a general base exception that's raised when any Okta client and API exceptions are thrown.
 
-   After a successful registration, store the returned tokens in a session and send the user to the default signed-in page.
-   In the sample app, this page is the user profile page. See
-   [Get the user profile information](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/aspnet/main/#get-the-user-profile-information) for more details on how to fetch user information.
+After a successful registration, store the returned tokens in a session and redirect the user to the app's default signed-in page.
 
-### Troubleshooting Tips
+### Troubleshooting tips
 
-When you test this use case, ensure that you use a new email for each time. If you have a gmail account, you can reuse the same email by adding a plus (+) and additional text (for example, `myemail+1@gmail.com`, `myemail+2@gmail.com`, and so on). Ensure that the password that you use meets the minimum security requirements.
+When you test this use case, ensure that you use a new email for each test. If you have a gmail account, you can reuse the same email by adding a plus (+) and extra text (for example, `myemail+1@gmail.com`, `myemail+2@gmail.com`, and so on). Ensure that the password that you use meets the minimum security requirements.

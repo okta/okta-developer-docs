@@ -13,7 +13,7 @@ Explore the [Okta Public API Collections](https://www.postman.com/okta-eng/works
 
 <ApiLifecycle access="ie" />
 
-> **Note:** This feature is only available as a part of Okta Identity Engine. Please [contact support](mailto:dev-inquiries@okta.com) for further information.
+> **Note:** This feature is only available as a part of Okta Identity Engine. [Contact support](https://support.okta.com/)  for information on the Identity Engine.
 
 The Okta Devices API provides a centralized integration platform to fetch and manage device information. Okta administrators can use these APIs to manage workforce identity Device object information.
 
@@ -187,13 +187,13 @@ Content-Type: application/json
 
 <ApiOperation method="get" url="/api/v1/devices" />
 
-Fetches a list of all Devices that aren’t `DELETED` for your org. Responses are paginated with maximum size of 200.
+Fetches a list of all Devices that aren't `DELETED` for your org. Responses are paginated with maximum size of 200.
 
 A subset of Devices can be returned that match a supported search criteria using the `search` query parameter.
 
 Searches for devices based on the properties specified in the `search` parameter conforming SCIM filter specifications (case-insensitive). This data is eventually consistent. The API returns different results depending on specified queries in the request. An empty list is returned if no objects match the `search` request.
 
-> **Note:** Listing devices with `search` shouldn’t be used as a part of any critical flows—such as authentication or updates—to prevent potential data loss. The `search` results may not reflect the latest information, as this endpoint uses a search index that may not be up to date with recent updates to the object. <br> Don't use search results directly for record updates, as the data might be stale and therefore overwrite newer data, resulting in data loss. <br> Use an `id` lookup for records that you update to ensure your results contain the latest data.
+> **Note:** Listing devices with `search` shouldn't be used as a part of any critical flows—such as authentication or updates—to prevent potential data loss. The `search` results may not reflect the latest information, as this endpoint uses a search index that may not be up to date with recent updates to the object. <br> Don't use search results directly for record updates, as the data might be stale and therefore overwrite newer data, resulting in data loss. <br> Use an `id` lookup for records that you update to ensure your results contain the latest data.
 
 This operation:
 
@@ -727,7 +727,7 @@ curl -v -X GET \
 
 Permanently deletes a Device that is in `DEACTIVATED` status. The Device can be transitioned to `DEACTIVATED` status using the [deactivate](#deactivate-device) API.
 
-This deletion is destructive and deletes all the profile data related to the device. Once deleted, device data can't be recovered. A Device that isn’t in a `DEACTIVATED` state raises an error if a delete operation is attempted.
+This deletion is destructive and deletes all the profile data related to the device. After it's deleted, device data can't be recovered. A Device that isn't in a `DEACTIVATED` state raises an error if a delete operation is attempted.
 
 #### Permitted OAuth 2.0 scopes
 `okta.devices.manage`
@@ -849,7 +849,7 @@ Content-Type: application/json
 #### Error responses
 
 * Passing an invalid `id` returns a `404 Not Found` status code with the error code `E0000007`.
-* Passing an `id` that isn’t in the `CREATED` or `DEACTIVATED` status returns a `400 Bad Request` status code with the error code `E0000001`.
+* Passing an `id` that isn't in the `CREATED` or `DEACTIVATED` status returns a `400 Bad Request` status code with the error code `E0000001`.
 
 ### Deactivate Device
 
@@ -917,7 +917,7 @@ Content-Type: application/json
 #### Error responses
 
 * Passing an invalid `id` returns a `404 Not Found` status code with the error code `E0000007`.
-* Passing an `id` that isn’t in the `ACTIVE` or `SUSPENDED` status returns a `400 Bad Request` status code with the error code `E0000001`.
+* Passing an `id` that isn't in the `ACTIVE` or `SUSPENDED` status returns a `400 Bad Request` status code with the error code `E0000001`.
 
 ### Suspend Device
 
@@ -987,7 +987,7 @@ Content-Type: application/json
 ###### Error response
 
 * Passing an invalid `id` returns a `404 Not Found` status code with the error code `E0000007`.
-* Passing an `id` that isn’t in the `ACTIVE` status returns a `400 Bad Request` status code with the error code `E0000001`.
+* Passing an `id` that isn't in the `ACTIVE` status returns a `400 Bad Request` status code with the error code `E0000001`.
 
 ### Unsuspend Device
 
@@ -1050,7 +1050,7 @@ Content-Type: application/json
 ###### Error response
 
 * Passing an invalid `id` returns a `404 Not Found` status code with the error code `E0000007`.
-* Passing an `id` that isn’t in the `SUSPENDED` status returns a `400 Bad Request` status code with the error code `E0000001`.
+* Passing an `id` that isn't in the `SUSPENDED` status returns a `400 Bad Request` status code with the error code `E0000001`.
 
 ## Devices API objects
 

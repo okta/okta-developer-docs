@@ -34,6 +34,7 @@ guides:
  - customize-tokens-dynamic
  - customize-tokens-static
  - customize-tokens-groups-claim
+ - delete-all-stay-signed-in-sessions
  - device-authorization-grant
  - embedded-siw
  - enable-cors
@@ -57,6 +58,7 @@ guides:
  - scim-provisioning-integration-prepare
  - scim-provisioning-integration-connect
  - scim-provisioning-integration-test
+ - scim-with-entitlements
  - sign-in-overview
  - secure-oauth-between-orgs
  - single-logout

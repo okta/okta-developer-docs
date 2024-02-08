@@ -16,7 +16,7 @@ This page discusses the following:
 * The deployment models that use these features
 * Changes to the documentation experience to support Identity Engine
 
-> **Note**: If you’re an admin, or are looking for product docs related to Identity Engine, see the Identity Engine [Get started page](https://help.okta.com/okta_help.htm?type=oie&id=ext-get-started-oie).
+> **Note**: If you're an admin, or are looking for product docs related to Identity Engine, see the Identity Engine [Get started page](https://help.okta.com/okta_help.htm?type=oie&id=ext-get-started-oie).
 
 ## Identity Engine new features
 
@@ -62,7 +62,7 @@ Okta only supports the following CAPTCHA services:
 - [hCAPTCHA (invisible)](https://docs.hcaptcha.com/invisible)
 - [reCAPTCHA v2 (invisible)](https://developers.google.com/recaptcha/docs/invisible)
 
->**Note:** Using any other CAPTCHA type could lead to lockout. Contact [Okta support](mailto:support@okta.com) if lockout occurs.
+>**Note:** Using any other CAPTCHA type could lead to lockout. Contact [Okta support](https://support.okta.com) if lockout occurs.
 
 You can use either hCAPTCHA or reCAPTCHA with the redirect or embedded authentication deployment models. See [Okta deployment models](/docs/concepts/redirect-vs-embedded/).
 
@@ -104,6 +104,6 @@ In our documentation, Okta is moving towards supporting Identity Engine by defau
 
 On March 1, 2022, all new [Okta orgs](/docs/concepts/okta-organizations/) are Identity Engine orgs, so that all new customers can take advantage of the new features.
 
-If you’re a Classic Engine customer who wants to upgrade their apps to use Identity Engine, go to [Identity Engine upgrade overview](/docs/guides/oie-upgrade-overview/).
+If you're a Classic Engine customer who wants to upgrade their apps to use Identity Engine, go to [Identity Engine upgrade overview](/docs/guides/oie-upgrade-overview/).
 
 For Classic Engine customers who don't yet want to upgrade, your existing functionality continues to work for now, including your Classic Engine org, v1 API, and SDKs.

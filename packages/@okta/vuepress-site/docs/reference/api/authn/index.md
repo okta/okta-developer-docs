@@ -36,7 +36,7 @@ Trusted applications are backend applications that act as an authentication brok
 ## Get started with authentication
 
 * Make sure that you need the API. Check out the [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/) that is built on the Authentication API. The Sign-In Widget is easier to use and supports basic use cases.
-* For more advanced use cases, learn [the Okta API basics](/code/rest/).
+* For more advanced use cases, learn [the Okta API basics](/docs/reference/rest/).
 * Explore the Authentication API:
 
     [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/41c71ad6815e708b504a)

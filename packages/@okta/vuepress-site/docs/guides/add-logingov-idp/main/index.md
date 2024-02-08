@@ -60,9 +60,7 @@ Login.gov requires you to [test your app integration](https://developers.login.g
       You can enter an expression to reformat the value, if desired. For example, if the IdP username is `john.doe@mycompany.com`, then you could specify the replacement of `mycompany` with `endpointA.mycompany` to make the transformed username `john.doe@endpointA.mycompany.com`. See [Okta Expression Language](/docs/reference/okta-expression-language/).
 
    * **Match against:** Specifies which attributes of existing users in Okta are compared to the IdP username to determine if an account link needs to be established. If an existing account link is found, no comparison is performed.
-   * **Account link policy:** Specifies whether Okta automatically links an incoming IdP user to the matched Okta user. If disabled, Okta doesn't link an incoming IdP user to an existing Okta user and relies solely on manually or previously linked accounts.
-
-      > **Note:** When you are setting up your IdP in Okta, there are a number of settings that allow you to finely control the IdP sign-in behavior. While the provider-specific instructions show one possible configuration, [Account Linking and JIT Provisioning](/docs/concepts/identity-providers/#account-linking-and-just-in-time-provisioning) discusses configuration options in more detail so that you can choose the right configuration for your use case.
+   * **Account link policy:** Specifies whether Okta automatically links an incoming IdP user to the matched Okta user. If disabled, Okta doesn't link an incoming IdP user to an existing Okta user and relies solely on manually or previously linked accounts. See [Account link](#account-link).
 
 1. Click **Finish**. A page appears that displays the IdP's configuration.
 
@@ -77,6 +75,18 @@ Login.gov requires you to [test your app integration](https://developers.login.g
 ### Optional attribute mappings
 
 When you create the Login.gov IdP configuration in Okta, the Login.gov attributes are already mapped to Okta user profile attributes. However, these Login.gov attributes aren't mapped: `ial` and `aal`. If you need these attributes in Okta, use the Profile Editor to map them to Okta custom attributes. See App to Okta attribute mapping in [About attribute mappings](https://help.okta.com/okta_help.htm?id=ext-usgp-about-attribute-mappings).
+
+### Account link
+
+You can automatically link external IdP accounts to Okta accounts when the user signs in using the external IdP. If **Account Link Policy** is set to Automatic (`AUTO`), then Okta searches the Universal Directory for a user's profile to link. The user profile is found when the **IdP username** value (email) passed by the IdP matches the **Match against** value (username). See [Account Linking and JIT Provisioning](/docs/concepts/identity-providers/#account-linking-and-just-in-time-provisioning).
+
+To remove an existing account link or validate account linking with every sign-in flow, Okta recommends that you make a `DELETE` call to the `/api/v1/idps/${idpId}/users/${userId}` [endpoint](/docs/reference/api/idps/#unlink-user-from-idp) to remove the link between the Okta user and the IdP user before authentication.
+
+If **Account Link Policy** is disabled, no account linking occurs. You can manually create an account link without a transaction by making a `POST` call to the `/api/v1/idps/${idps}/users/${userId}` [endpoint](/docs/reference/api/idps/#link-a-user-to-a-social-provider-without-a-transaction).
+
+See [Add an Identity Provider](/docs/reference/api/idps/#add-identity-provider) for API examples of account-linking JSON payloads.
+
+For security best practices, consider disabling account linking after all existing users from the external IdP have signed in to your Okta org. At this point, all links have been created. After you disable linking and JIT provisioning is enabled, Okta adds new users that are created in the external IdP.
 
 ## Create an app at the Identity Provider
 

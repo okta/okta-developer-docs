@@ -4,9 +4,9 @@ excerpt: Learn how to setup a custom domain and a custom email address.
 layout: Guides
 ---
 
-This guide explains how to customize your Okta org with your custom domain and how to configure a custom email address so that you can present a branded experience to your end users.
+This guide explains how to customize your Okta org with your custom domain. It also explains how to configure a custom email address so that you can present a branded experience to your end users.
 
-> **Note:** You can't sign in to [Okta Workflows](https://help.okta.com/okta_help.htm?type=wf&id=ext-Okta-workflows) through a custom domain (Okta-managed or using your own TLS certificate). You must sign in through your default [Okta domain](/docs/guides/find-your-domain/main/).
+> **Note:** You can't sign in to [Okta Workflows](https://help.okta.com/okta_help.htm?type=wf&id=ext-Okta-workflows) through a custom domain (Okta-managed or using your own Transport Layer Security (TLS) certificate). Sign in through your default [Okta domain](/docs/guides/find-your-domain/main/).
 
 ---
 
@@ -40,7 +40,7 @@ You can customize your Okta organization by replacing the Okta domain name with 
 
 For example, you use Okta as a user store for your apps, but you don't want your users to know that the app uses Okta behind the scenes. Okta orgs host pages on subdomains such as `example.okta.com`. You can create a [CNAME record](https://datatracker.ietf.org/doc/html/rfc1035#section-3.2.2) for the Okta domain, allowing you to alias it to another subdomain that you own, like `login.example.com`.
 
-> **Note:** You must first setup a custom domain if you also want to customize the Okta-hosted [sign-in page](/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget) or [error pages](/docs/guides/custom-error-pages/).
+> **Note:** Set up a [custom domain](/docs/guides/custom-url-domain/main/) and customize your [CSP](https://content-security-policy.com/) if you also want to customize the [sign-in page](/docs/guides/custom-widget/main/#content-security-policy-csp-for-your-custom-domain) and [error pages](/docs/guides/custom-error-pages/main/#content-security-policy-csp-for-your-custom-domain).
 
 Okta serves pages on your custom domain over HTTPS. To set up this feature, you need to provide a TLS certificate that is valid for your domain. See [Validate your TLS certificate](#validate-your-tls-certificate).
 
@@ -99,7 +99,7 @@ The third generation of the Okta Sign-In Widget doesn’t guarantee the stabilit
   * The public key isn't from a certificate authority (CA).
 
 
-* Any DNS Text (`TXT`) and `CNAME` record names and values included in your domain configuration must be resolvable and contain the values provided by Okta. You can validate these names and values with a DNS query tool, such as [dig](https://bind9.readthedocs.io/en/latest/manpages.html?highlight=#dig-dns-lookup-utility).
+* Any DNS text (`TXT`) and `CNAME` record names and values included in your domain configuration must be resolvable and contain the values provided by Okta. You can validate these names and values with a DNS query tool, such as [dig](https://bind9.readthedocs.io/en/latest/manpages.html?highlight=#dig-dns-lookup-utility).
 
 * Okta currently only supports 2048-bit keys for the private key that you upload. However, your certificate chain can use keys of any size.
 
@@ -205,7 +205,7 @@ You need to add a DNS TXT record to your domain to verify ownership of your doma
 
 4. Paste the value that you copied from the **Data** column into the appropriate field, for example, the **Record** or **Value** field.
 
-5. Wait for the DNS record to propagate (typically 10 to 15 minutes, but it may take longer).
+5. Wait for the DNS record to propagate (typically 10–15 minutes, but it may take longer).
 
     > **Note:** It may take up to 24 hours for your DNS changes to propagate. If your changes don't appear within 24 hours, return to this step and confirm your settings. Use a tool like [Dig](https://toolbox.googleapps.com/apps/dig/) to check your DNS records.
 
@@ -268,7 +268,7 @@ There are websites available for flushing the caches for [Google DNS](https://go
 
 ## Update other Okta settings
 
-After you add your custom domain, some features or APIs require additional configuration to reflect that change.
+After you add your custom domain, some features or APIs require extra configuration to reflect that change.
 
 ### Update custom authorization server
 
@@ -283,7 +283,7 @@ You need to update existing custom authorization servers to return the custom do
 
 ### Update issuer for OpenID Connect apps
 
-Additionally, you may want to change the issuer for your OpenID Connect apps that are using the org authorization server.
+Also, you may want to change the issuer for your OpenID Connect apps that are using the org authorization server.
 
 1. In the Admin Console, go to **Applications** > **Applications**.
 1. Click the OpenID Connect app that you want to update.

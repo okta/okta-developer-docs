@@ -397,6 +397,7 @@ export const guides = [
             guideName: "configure-amr-claims-mapping"
           },
           { title: "Sign users out", guideName: "oie-embedded-sdk-use-case-basic-sign-out" },
+          { title: "Delete all Stay signed in sessions", guideName: "delete-all-stay-signed-in-sessions" },
           { title: "Single Logout", guideName: "single-logout" },
           {
             title: "Basics",
@@ -628,6 +629,10 @@ export const guides = [
                   },
                 ],
               },
+              {
+                title: "Build a SCIM server with entitlements",
+                path: "/docs/guides/scim-with-entitlements/main/",
+              },
             ],
           },
           {
@@ -676,11 +681,11 @@ export const guides = [
             guideName: "dpop",
           },
           {
-            title: "Configure OAuth for Okta",
+            title: "Implement OAuth for Okta",
             guideName: "implement-oauth-for-okta",
           },
           {
-            title: "Configure OAuth for Okta: Service App",
+            title: "Implement OAuth for Okta: Service App",
             guideName: "implement-oauth-for-okta-serviceapp",
           },
           {
@@ -928,7 +933,6 @@ export const languagesSdk = [
                { title: "React Native", path: "/code/react-native/" },
             ],
          },
-         { title: "Test APIs using Postman", path: "/code/rest/" },
       ],
    },
 ];
@@ -1062,8 +1066,14 @@ export const reference = [
             ],
          },
          {
-            title: "Postman Collections",
-            path: "/docs/reference/postman-collections/",
+            title: "Test APIs with Postman",
+            path: "/docs/reference/rest/",
+            subLinks: [
+              {
+                 title: "Postman Collections",
+                 path: "/docs/reference/postman-collections/",
+              },
+            ],
          },
          {
             title: "Hooks",

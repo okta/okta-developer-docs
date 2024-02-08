@@ -62,11 +62,11 @@ redirects:
   - from: /code/python/sdk/index.html
     to: https://github.com/okta/okta-sdk-python
   - from: /docs/getting_started/api_test_client.html
-    to: /code/rest/index.html
+    to: /docs/reference/rest/index.html
   - from: /docs/api/getting_started/api_test_client.html
-    to: /code/rest/index.html
+    to: /docs/reference/rest/index.html
   - from: /docs/api/getting_started/index.html
-    to: /code/rest/index.html
+    to: /docs/reference/rest/index.html
   - from: /docs/getting_started/design_principles.html
     to: /docs/reference/core-okta-api/#design-principles
   - from: /docs/api
@@ -1946,7 +1946,7 @@ redirects:
   - from: /docs/guides/submit-app/submit/index.html
     to: /docs/guides/submit-app-overview/
   - from: /docs/api/getting_started/api_test_client
-    to: /code/rest/
+    to: /docs/reference/rest/
   - from: /docs/guides/build-sso-integration/submit-your-app/index.html
     to: /docs/guides/build-sso-integration/openidconnect/main/#next-steps
   - from: /docs/guides/build-sso-integration/openidconnect/submit-your-app/index.html
@@ -2144,9 +2144,13 @@ redirects:
   - from: /docs/guides/session-cookie/overview/index.html
     to: /docs/guides/session-cookie/
   - from: /docs/rest
-    to: /code/rest/
+    to: /docs/reference/rest/
   - from: /docs/rest/index.html
-    to: /code/rest/
+    to: /docs/reference/rest/
+  - from: /code/rest/index.html
+    to: /docs/reference/rest/
+  - from: /code/rest
+    to: /docs/reference/rest/
   - from: /docs/code/python/pysaml2.html
     to: /code/python/pysaml2/
   - from: /integrate-with-okta/index.html
