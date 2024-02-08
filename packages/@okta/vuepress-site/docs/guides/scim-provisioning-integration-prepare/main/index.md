@@ -165,8 +165,7 @@ To get started using Runscope to test your SCIM API:
     - [Okta SCIM 2.0 Spec Test JSON](/standards/SCIM/SCIMFiles/Okta-SCIM-20-SPEC-Test.json)
     - [Okta SCIM 1.1 Spec Test JSON](/standards/SCIM/SCIMFiles/Okta-SCIM-11-SPEC-Test.json)
 
-1. If you're new to Runscope, your dashboard displays sample Runscope tutorials. Click **Skip Tutorial**.
-1. You should now see a page titled **API Tests**.
+1. If you're new to Runscope, your dashboard displays sample Runscope tutorials. Click **Skip Tutorial**. A page titled **API Tests** appears.
 1. In the lower left of your page, click **Import Test**. A new page appears, titled **Import Tests into &#x2026;**.
 1. Select **API Monitoring Tests** as the import format.
 1. Click **Choose File** and select the JSON file that you saved in step 1.
