@@ -211,7 +211,7 @@ HTTP 204:
 
 <ApiLifecycle access="ie" />
 
-> **Note:** This feature is only available as a part of the Identity Engine. Please [contact support](mailto:dev-inquiries@okta.com) for further information.
+> **Note:** This feature is only available as a part of the Identity Engine. [Contact support](https://support.okta.com/) for information on the Identity Engine.
 
 > **Note:** Within the Identity Engine, this feature is only supported for [authentication policies](#authentication-policy).
 
@@ -316,7 +316,7 @@ Array of [Application objects](/docs/reference/api/apps/#application-object)
 ## Policy simulation operations
 <ApiLifecycle access="ie" />
 
-> **Note:** This feature is only available as a part of the Identity Engine. For information on the Identity Engine, [contact support](mailto:dev-inquiries@okta.com).
+> **Note:** This feature is only available as a part of the Identity Engine. For information on the Identity Engine, [contact support](https://support.okta.com/).
 
 ### Access simulation
 
@@ -847,7 +847,7 @@ The Policy object defines several attributes:
 | Parameter   | Description                                                                                                                                          | Data Type                                         | Required | Default                |
 | ---------   | -----------                                                                                                                                          | ---------                                         | -------- | -------                |
 | id          | Identifier of the Policy                                                                                                                             | String                                            | No       | Assigned               |
-| type        | Specifies the [type of Policy](#policy-types). Valid values: `OKTA_SIGN_ON`, `PASSWORD`, `MFA_ENROLL`, or `IDP_DISCOVERY`.<br><br> <ApiLifecycle access="ie" /><br>**Note:** The following policy types are available only with the Identity Engine: `ACCESS_POLICY` or `PROFILE_ENROLLMENT`.<br> [Contact support](mailto:dev-inquiries@okta.com) for more information on the Identity Engine.  | String                                            | Yes      |                        |
+| type        | Specifies the [type of Policy](#policy-types). Valid values: `OKTA_SIGN_ON`, `PASSWORD`, `MFA_ENROLL`, or `IDP_DISCOVERY`.<br><br> <ApiLifecycle access="ie" /><br>**Note:** The following policy types are available only with the Identity Engine: `ACCESS_POLICY` or `PROFILE_ENROLLMENT`.<br> [Contact support](https://support.okta.com/) for more information on the Identity Engine.  | String                                            | Yes      |                        |
 | name        | Name of the Policy                                                                                                                                   | String                                            | Yes      |                        |
 | system      | This is set to `true` on system policies, which cannot be deleted.                                                                                   | Boolean                                           | No       | `false`                |
 | description | Description of the Policy.                                                                                                                           | String                                            | No       | Null                   |
@@ -965,7 +965,7 @@ The Rules object defines several attributes:
 | Parameter     | Description                                                        | Data Type                                      | Required   | Default                |
 | :------------ | :----------------------------------------------------------------- | :--------------------------------------------- | :--------- | :--------------------- |
 | id            | Identifier of the Rule                                             | String                                         | No         | Assigned               |
-| type          | Rule type. Valid values: `SIGN_ON`, `PASSWORD`, `MFA_ENROLL`, `IDP_DISCOVERY`.<br><br> <ApiLifecycle access="ie" /><br>**Note:** The following policy types are available only with the Identity Engine: `ACCESS_POLICY` or `PROFILE_ENROLLMENT`. <br>[Contact support](mailto:dev-inquiries@okta.com) for more information on the Identity Engine.| String (Enum)                                  | Yes        |                        |
+| type          | Rule type. Valid values: `SIGN_ON`, `PASSWORD`, `MFA_ENROLL`, `IDP_DISCOVERY`.<br><br> <ApiLifecycle access="ie" /><br>**Note:** The following policy types are available only with the Identity Engine: `ACCESS_POLICY` or `PROFILE_ENROLLMENT`. <br>[Contact support](https://support.okta.com/) for more information on the Identity Engine.| String (Enum)                                  | Yes        |                        |
 | name          | Name of the Rule                                                   | String                                         | Yes        |                        |
 | status        | Status of the Rule: `ACTIVE` or `INACTIVE`                         | String (Enum)                                  | No         | ACTIVE                 |
 | priority      | Priority of the Rule                                               | Integer                                        | No         | Last / Lowest Priority |
@@ -1280,7 +1280,7 @@ Specifies a particular platform or device to match on
 
 <ApiLifecycle access="ie" />
 
-> **Note:** This feature is only available as a part of the Identity Engine. Please [contact support](mailto:dev-inquiries@okta.com) for further information.
+> **Note:** This feature is only available as a part of the Identity Engine. Please [contact support](https://support.okta.com/) for information on the Identity Engine.
 
 Specifies the device condition to match on
 
@@ -2121,7 +2121,7 @@ You can apply the following conditions to the IdP Discovery Policy:
 | providers | List of configured Identity Providers that a given Rule can route to | array     | Yes      |
 
 > **Note:** Ability to define multiple providers is a part of the Identity Engine.
-> Please [contact support](mailto:dev-inquiries@okta.com) for further information.
+> [Contact support](https://support.okta.com/) for information on the Identity Engine.
 
 > **Note:** IdP types of `OKTA`, `AgentlessDSSO`, and `IWA` don't require an `id`.
 
@@ -2144,7 +2144,7 @@ You can apply the following conditions to the IdP Discovery Policy:
 
 <ApiLifecycle access="ie" />
 
-> **Note:** This feature is only available as a part of the Identity Engine. [Contact support](mailto:dev-inquiries@okta.com) for further information.
+> **Note:** This feature is only available as a part of the Identity Engine. [Contact support](https://support.okta.com/) for information on the Identity Engine.
 
 You can define multiple IdP instances in a single Policy Action. This allows users to choose a Provider when they sign in.
 
@@ -2224,7 +2224,7 @@ refers to the user's `username`. If the user is signing in with the username `jo
 
 <ApiLifecycle access="ie" />
 
-> **Note:** This feature is only available as a part of the Identity Engine. [Contact support](mailto:dev-inquiries@okta.com) for further information.
+> **Note:** This feature is only available as a part of the Identity Engine. [Contact support](https://support.okta.com/) for information on the Identity Engine.
 
 > **Note:** The app sign-on policy name has changed to authentication policy. The policy type of `ACCESS_POLICY` remains unchanged.
 
@@ -2374,8 +2374,20 @@ The number of Authenticator class constraints in each Constraint object must be 
 | `deviceBound` | String            | Indicates if device-bound Factors are required. This property is only set for `POSSESSION` constraints. | `REQUIRED`, `OPTIONAL`                                                                            |`OPTIONAL`|
 | `phishingResistant` | String            | Indicates if phishing-resistant Factors are required. This property is only set for `POSSESSION` constraints. | `REQUIRED`, `OPTIONAL`                                                                            |`OPTIONAL`|
 | `userPresence` | String            | Indicates if the user needs to approve an Okta Verify prompt or provide biometrics (meets NIST AAL2 requirements). This property is only set for `POSSESSION` constraints.| `REQUIRED`, `OPTIONAL`                                                                            |`REQUIRED`|
-| `userVerification` | String            | Indicates the user interaction requirement (PIN or biometrics) to ensure verification of a possession factor | `REQUIRED`, `OPTIONAL`                                                                            |`OPTIONAL`|
+| `userVerification` | String            | Indicates the user interaction requirement (PIN or biometrics) to ensure verification of a possession factor. This property is only set for `POSSESSION` constraints. | `REQUIRED`, `OPTIONAL`                                                                            |`OPTIONAL`|
 | `reauthenticateIn`   | String (ISO 8601) | The duration after which the user must re-authenticate regardless of user activity. This re-authentication interval overrides the [Verification Method object](#verification-method-object)'s `reauthenticateIn` interval.     | ISO 8601 period format for recurring time intervals (for example: `PT1H`) | N/A|
+| `authenticationMethods`  <ApiLifecycle access="ea" />  | array of [Authentication method objects](#authentication-method-object) | This property specifies the precise authenticator and method for authentication.  || `OPTIONAL`|
+| `excludedAuthenticationMethods` <ApiLifecycle access="ea" />   | array of [Authentication method objects](#authentication-method-object) | This property specifies the precise authenticator and method to exclude from authentication.  || `OPTIONAL`|
+| `required` <ApiLifecycle access="ea" />   | Boolean | This property indicates whether the knowledge or possession factor is required by the assurance. It's optional in the request, but is always returned in the response. By default, this field is `true`. If the knowledge or possession constraint has values for`excludedAuthenticationMethods` then the `required` value is false.  || `OPTIONAL`|
+
+#### Authentication method object
+
+The authentication method object contains key-value pairs that identify the specific authenticator and method to use or exclude for the policy rule. For a list of authenticator keys and methods, see [Authenticator key, type, method, and characteristic relationships for constraints](#authenticator-key-type-method-and-characteristic-relationships-for-constraints). For examples, see [Verification Method with Authentication Method JSON Examples](#verification-method-with-authentication-method-json-examples).
+
+| Property  | Description          | Data Type                                         | Required |
+| ---       | ---                  | ---                                               | ---      |
+| key       | A label that identifies the authenticator | String | Yes      |
+| method     | Specifies the method used for the authenticator   | String | No      |
 
 #### Authenticator key, type, method, and characteristic relationships for constraints
 
@@ -2559,6 +2571,88 @@ The following table shows the possible relationships between all the authenticat
       }
     }
   ]
+}
+```
+
+#### Verification Method with Authentication Method JSON examples
+
+<ApiLifecycle access="ea" />
+
+```json
+// allow an authenticator - key only
+{
+    "type": "ASSURANCE",
+    "factorMode": "1FA",
+    "constraints": [
+      {
+          "possession": {
+             "authenticationMethods": [ { "key": "google_otp" } ] // allow list, authenticators/methods not listed in the list are not allowed
+          }
+      }
+   ]
+}
+```
+
+```json
+// allow an authenticator method
+{
+    "type": "ASSURANCE",
+    "factorMode": "1FA",
+    "constraints": [
+      {
+          "possession": {
+             "authenticationMethods": [ { "key": "okta_verify", "method": "TOTP" } ]
+          }
+      }
+   ]
+}
+```
+
+```json
+// exclude an authenticator - key only
+{
+    "type": "ASSURANCE",
+    "factorMode": "1FA",
+    "constraints": [
+      {
+          "possession": {
+             "excludedAuthenticationMethods": [ { "key": "google_otp" } ]
+          }
+      }
+   ]
+}
+```
+
+```json
+// exclude an authenticator method
+{
+    "type": "ASSURANCE",
+    "factorMode": "1FA",
+    "constraints": [
+      {
+          "possession": {
+             "excludedAuthenticationMethods": [ { "key": "google_otp", "method": "OTP" } ]
+          }
+      }
+   ]
+}
+```
+
+```json
+// 2FA exclude password, only allows webauthn
+{
+    "type": "ASSURANCE",
+    "factorMode": "2FA",
+    "constraints": [
+      {
+          "knowledge": {
+             "excludedAuthenticationMethods": [ { "key": "okta_password" } ]
+          },
+          "possession": {
+             "authenticationMethods": [ { "key": "webauthn" } ]
+          }
+      }
+   ]
 }
 ```
 

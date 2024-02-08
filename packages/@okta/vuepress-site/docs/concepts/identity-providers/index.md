@@ -103,15 +103,9 @@ Account linking is configured at the Identity Provider level. When you create an
 * **Match Against**: Okta Username
 * **IdP Username**: idpuser.email
 
-To enable account linking, select `Automatic` from the **Account Link Policy** dropdown list, and then leave the other two defaults. With these settings, when any validated OpenID Connect JWT is provided, Okta searches the Universal Directory for a user's profile where the `email` attribute value passed by the Identity Provider (the **IdP Username** value) matches the `username` attribute value (the **Match Against** value). If there's a match, then the user is linked by mapping the required, static `sub` claim provided in the JWT to that user.
+To enable account linking, select `Automatic` from the **Account Link Policy** dropdown list, and then leave the other two defaults. With these settings, when a user signs in with an external IdP, Okta searches the Universal Directory for a user's profile to link. The user profile is found when the **IdP username** value (email) passed by the IdP matches the **Match against** value (username).
 
-> **Important:** After an account is linked, any validated JWT token with the same `sub` claim (which is mapped to the `idp.externalId` in the Identity Provider profile) is automatically mapped to the same user regardless of the content of the claims in the JWT or if the values for **IdP Username** and **Match Against** no longer result in a match.
-
-To remove an existing account link or validate account linking on every sign in, Okta recommends that you make a DELETE call to the [`/api/v1/idps/${idpId}/users/${userId}` endpoint](/docs/reference/api/idps/#unlink-user-from-idp) to remove the link between the Okta user and the Identity Provider user before authentication.
-
-If the **Account Link Policy** is disabled, no account linking occurs. You can manually create an account link without a transaction by making a POST call to the [`/api/v1/idps/${idps}/users/${userId}` endpoint](/docs/reference/api/idps/#link-a-user-to-a-social-provider-without-a-transaction) before Okta receives a validated JWT from an Identity Provider.
-
-> **Note:** See [Add an Identity Provider](/docs/reference/api/idps/#add-identity-provider) for examples of creating an Identity Provider and the parameter values needed to configure account linking.
+> **Note:** See [Add an Identity Provider](/docs/reference/api/idps/#add-identity-provider) for API examples of creating an Identity Provider and the `policy.accountLink` parameter values needed to configure account linking.
 
 ### JIT provisioning
 

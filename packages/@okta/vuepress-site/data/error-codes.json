@@ -1,6 +1,6 @@
 {
-  "release" : "2023.12.1",
-  "build" : "2023.12.1-begin-185-g2bd2582c8e05",
+  "release" : "2024.02.1",
+  "build" : "2024.02.1-begin-157-ga636aff6c99d",
   "errors" : [ {
     "title" : "API validation exception",
     "includesExceptionMessage" : true,
@@ -1752,6 +1752,46 @@
     "statusReasonPhrase" : "Bad Request",
     "errorCode" : "E0000235",
     "errorSummary" : "Resource Selector: {0}",
+    "errorDescription" : null
+  }, {
+    "title" : "Email customization invalid bcp47 locale format exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "errorCode" : "E0000236",
+    "errorSummary" : "The language doesn't conform to the BCP 47 standard for locales.",
+    "errorDescription" : null
+  }, {
+    "title" : "Email customization test locale not permitted exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "errorCode" : "E0000237",
+    "errorSummary" : "The language isn't permitted for email customization.",
+    "errorDescription" : null
+  }, {
+    "title" : "Policy lock exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 423,
+    "statusReasonPhrase" : "Locked",
+    "errorCode" : "E0000239",
+    "errorSummary" : "Policy priorities are being reconciled. Please try again later.",
+    "errorDescription" : null
+  }, {
+    "title" : "Agent time out",
+    "includesExceptionMessage" : true,
+    "statusCode" : 502,
+    "statusReasonPhrase" : "Bad Gateway",
+    "errorCode" : "E0000240",
+    "errorSummary" : "Request timed out waiting for agent.",
+    "errorDescription" : null
+  }, {
+    "title" : "No connected agents",
+    "includesExceptionMessage" : true,
+    "statusCode" : 504,
+    "statusReasonPhrase" : "Gateway Timeout",
+    "errorCode" : "E0000241",
+    "errorSummary" : "No connected agents.",
     "errorDescription" : null
   } ]
 }

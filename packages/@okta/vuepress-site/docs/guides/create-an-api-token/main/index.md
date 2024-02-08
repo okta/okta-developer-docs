@@ -77,6 +77,6 @@ With the token created, you can begin using it, supplying it in the `Authorizati
 
 ## See also
 
-* See [Use Postman with the Okta REST APIs](/code/rest/) for a guide to trying out Okta APIs using Postman, as an easy way to explore.
+* See [Use Postman with the Okta REST APIs](/docs/reference/rest/) for a guide to trying out Okta APIs using Postman, as an easy way to explore.
 * See [System Log Transaction Object](/docs/reference/api/system-log/#transaction-object) for information on viewing the API token ID in the Okta System Log.
 * For information on the general principles the Okta API follows, see [Design Principles](/docs/reference/core-okta-api/#design-principles).

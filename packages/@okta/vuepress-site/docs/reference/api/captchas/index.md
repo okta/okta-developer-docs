@@ -13,7 +13,7 @@ Explore the [Okta Public API Collections](https://www.postman.com/okta-eng/works
 
 <ApiLifecycle access="ie" />
 
-> **Note:** This feature is only available as a part of Okta Identity Engine. [Contact support](mailto:dev-inquiries@okta.com) for further information.
+> **Note:** This feature is only available as a part of Okta Identity Engine. [Contact support](https://support.okta.com/) for information on the Identity Engine. 
 
 As an option to increase org security, Okta supports CAPTCHA services to prevent automated sign-in attempts. You can integrate one of two providers: [hCaptcha](https://www.hcaptcha.com/) or [reCAPTCHA v2](https://developers.google.com/recaptcha/docs/invisible).
 

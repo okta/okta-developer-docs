@@ -1,5 +1,5 @@
 ---
-# This file controls the links and content shown on the /pricing landing page.
+# This file controls the links and content shown on the /pricing landing page. **Note:** As of Jan 2024, this page no longer builds the pricing page, which is a redirect to `https://www.okta.com/pricing/#customer-identity-products`.
 
 component: Pricing
 title: Pricing
@@ -10,7 +10,7 @@ links:
   signup: /signup/
   contactSales: https://www.okta.com/contact-sales/
   pricing: https://www.okta.com/pricing
-  emailSupport: mailto:dev-inquiries@okta.com
+  emailSupport: https://support.okta.com/
 
 tableHeadings:
   pricing:
@@ -63,7 +63,7 @@ tableHeadings:
         name: Custom Widget
       threatInsight:
         name: ThreatInsight
-        subName: "*Contact support@okta.com to turn on malicious IP logging"
+        subName: "*Contact https://support.okta.com to turn on malicious IP logging"
       apiMgmt:
         name: API Access Management
       o2oIntegration:

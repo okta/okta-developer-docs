@@ -1,7 +1,6 @@
-### 1: Navigate to the homepage
+### The user enters the site
 
-When the user navigates to the home page and the application loads, create a new
-SDK Client object by calling the `NewClient` method.
+When the user goes to the home page and the application loads, call `idx.NewClient` to create an SDK client object.
 
 ```go
 idx, err := idx.NewClient(
@@ -15,13 +14,28 @@ if err != nil {
 }
 ```
 
-### 2: Navigate to the sign-up page
+### The user clicks the sign-up link
 
-Build a sign-up page that captures the user's first name, last name, and email.
+Add a **Sign up** link to your app's sign-in page. The self-registration flow begins when the user clicks the **Sign up** link and the browser takes them to the Create Account page.
 
 <div class="half wireframe-border">
 
-![A sign-up form with fields for first name, last name, and email address, and a create account button](/img/wireframes/sign-up-form-first-last-name-email.png)
+![A sign-in form with fields for username and password, a next button, and links to the sign-up and forgot your password forms](/img/wireframes/sign-in-form-username-password-sign-up-forgot-your-password-links.png)
+
+<!--
+
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3398%3A36729&t=wzNwSZkdctajVush-1 sign-in-form-username-password-sign-up-forgot-your-password-links
+ -->
+
+</div>
+
+> **Note**: The account's username is also its email address.
+
+Create a page for the user to enter their basic profile information: their email, first name, and family name.
+
+<div class="half wireframe-border">
+
+![A sign-up form with fields for first name, family name, and email address, and a create account button](/img/wireframes/sign-up-form-first-last-name-email.png)
 
 <!--
 
@@ -30,39 +44,35 @@ Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 
 </div>
 
-### 3: Submit the sign-up information
+### The user submits their profile data
 
-When the user submits their sign-up information, create a `UserProfile` object and set its
-`FirstName`, `LastName`, and `Email` to the values they entered on the page. Call the
-`Client` object's `InitProfileEnroll` method, passing in this object.
+When the user clicks **Sign Up**, create a `UserProfile` object and set its `FirstName`, `LastName`, and `Email` to the values entered by the user. Pass this object as a parameter to `idxClient.InitProfileEnroll`.
 
 ```go
 profile := &idx.UserProfile{
-  FirstName: r.FormValue("firstName"),
-  LastName:  r.FormValue("lastName"),
-  Email:     r.FormValue("email"),
+    FirstName: r.FormValue("firstName"),
+    LastName: r.FormValue("lastName"),
+    Email: r.FormValue("email"),
 }
 
-enrollResponse, err := s.idxClient.InitProfileEnroll(context.TODO(), profile)
+enrollResponse, err := s.idxClient.InitProfileEnroll(
+    context.TODO(), profile)
 if err != nil {
- //Error handling
+    //Error handling
 }
 
 s.cache.Set("enrollResponse", enrollResponse, time.Minute*5)
 if enrollResponse.HasStep(idx.EnrollmentStepPasswordSetup) {
-  http.Redirect(w, r, "/enrollPassword", http.StatusFound)
-  return
+    http.Redirect(w, r, "/enrollPassword", http.StatusFound)
+    return
 }
 ```
 
-The `InitProfileEnroll` method returns an `EnrollmentResponse` object. Execute the `HasStep` method
-on this object, passing in the `EnrollmentStepPasswordSetup` constant. If
-the Okta configuration is set up correctly, `HasStep` should return `true`. At this point, the
-user should enter their password.
+`InitProfileEnroll` returns an `EnrollmentResponse` object. Call its `HasStep` method passing in the `EnrollmentStepPasswordSetup` constant for the status of the registration process. `HasStep` returns `true` indicating that the user should enroll their password.
 
-### 4: Show the password page
+### The user enrolls their password
 
-Create a page for the user to enter their password.
+Create a page that allows the user to supply a new password for verification. For example:
 
 <div class="half wireframe-border">
 
@@ -75,12 +85,7 @@ Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 
 </div>
 
-### 5: Submit the password
-
-When the user submits their password, call the `EnrollmentResponse` object's `SetNewPassword` method,
-passing in the password the user entered on the page. The method returns an `EnrollmentResponse`
-object. Call the `HasStep` method on this object and pass in the `EnrollmentStepSuccess` constant.
-The method should return `true`, which indicates the next phase is the factor enrollment.
+When the user submits their password, call `enrollResponse.SetNewPassword`, passing in the new password as a parameter.
 
 ```go
 cer, _ := s.cache.Get("enrollResponse")
@@ -93,26 +98,26 @@ enrollResponse, err = enrollResponse.SetNewPassword(context.TODO(), r.FormValue(
 if err != nil {
  //Error Handling
 }
+```
 
+### The app displays a list of authenticators to enroll
+
+Call `enrollmentResponse.HasStep` passing in the `EnrollmentStepSuccess` constant for the status of the registration process. `HasStep` returns `true` indicating that the user should enroll another factor.
+
+```go
 if !enrollResponse.HasStep(idx.EnrollmentStepSuccess) {
   http.Redirect(w, r, "/enrollFactor", http.StatusFound)
   return
 }
 ```
 
-### 6: Build a list of available factors to display to the user
-
-The next step is to build a page to display the list of available factors
-that the user can enroll into. In this use case it will be the email and phone
-factors. Use the `EnrollmentResponse` object's `HasStep` method
-to identify which factors can be displayed and whether the user can skip the
-remaining factors. The constants used are:
+Create a page that displays a list of required authentication factors the user can enroll to verify their identity. They must choose a factor from the list and click **Next**. Use `EnrollmentResponse.HasStep` to identify which factors to display and whether the user can skip the remaining factors. The constants used are:
 
 * `EnrollmentStepSkip`
 * `EnrollmentStepPhoneVerification`
 * `EnrollmentStepEmailVerification`
 
-The sample application's code below shows the logic used to display the factors page.
+The following code shows the logic used to build the list.
 
 ```go
 cer, _ := s.cache.Get("enrollResponse")
@@ -140,8 +145,7 @@ if !phoneFactor && !emailFactor {
 }
 ```
 
-The flags set in the previous code are used in the following code to toggle the
-factor display and skip option.
+The flags set in the previous code are used in the following code to toggle the factor display and skip option.
 
 ```go
 {{ if not .FactorSkip }}
@@ -166,7 +170,7 @@ factor display and skip option.
   {{end}}
 ```
 
-An example wireframe is shown below.
+In this scenario, you configure the app's authentication policy to require a password and another factor. Therefore, the user must enroll at least one of either the email or phone factors.
 
 <div class="half wireframe-border">
 
@@ -179,10 +183,9 @@ Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 
 </div>
 
-### 7: Submit the email factor for verification
+### The user submits the email authenticator
 
-Assuming that the user selected the email factor and clicked **Continue**, the next step is to
-call the `EnrollmentResponse` object's `VerifyEmail` method.
+If the user chooses and submits the email authenticator, call `EnrollmentResponse.VerifyEmail`.
 
 ```go
 cer, _ := s.cache.Get("enrollResponse")
@@ -200,8 +203,9 @@ if err != nil {
   s.render("enrollEmail.gohtml", w, r)
 ```
 
-After `VerifyEmail` is called, redirect the user to a page that accepts the
-email confirmation code.
+### The app displays an OTP input page
+
+If the call is successful, a one-time passcode (OTP) is sent to the user's email. Build a form that allows the user to enter that OTP.
 
 <div class="half wireframe-border">
 
@@ -214,13 +218,9 @@ Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 
 </div>
 
-### 8: Submit the verification code
+### The user submits the OTP
 
-After the user submits the verification code from their email, call the `EnrollmentResponse`
-object's `ConfirmEmail` method, passing in the verification code. Assuming that the verification was
-successful, call the `WhereAmI` method on the returned `EnrollmentResponse` object.
-`WhereAmI` returns an `EnrollmentResponse` object with information about
-how to proceed.
+The user opens the email and copies the OTP into the form. When the user submits the OTP, call  `EnrollmentResponse.ConfirmEmail`, passing in the OTP as a parameter.
 
 ```go
 cer, _ := s.cache.Get("enrollResponse")
@@ -232,7 +232,13 @@ if enrollResponse.Token() != nil {
 }
 
 enrollResponse, err = enrollResponse.ConfirmEmail(r.Context(), r.FormValue("code"))
+```
 
+### The app displays a second list of optional authenticators to enroll
+
+Assuming that the verification was successful, call `WhereAmI` on the returned `EnrollmentResponse` object. `WhereAmI` returns an `EnrollmentResponse` object with information about how to proceed. In this scenario, the user still has authentication factors to enroll before registration is complete.
+
+```go
  //Identify what is next to proceed with the register
 enrollResponse, err = enrollResponse.WhereAmI(r.Context())
 
@@ -240,9 +246,7 @@ s.cache.Set("enrollResponse", enrollResponse, time.Minute*5)
 http.Redirect(w, r, "/enrollFactor", http.StatusFound)
 ```
 
-### 9: Again show the list that contains the available factors to enroll
-
-The next step is to show a list of available factors using the same page created in Step 6. Based on the Okta org configured for this use case, only the phone factor should appear. The `EnrollmentResponse` object's `HasStep` method that you called in [Step 6](#_6-build-a-list-of-available-factors-to-display-to-the-user) is used to toggle the visibility of the **Skip** button and show the available factors. In this step, the **Skip** button and phone factor option should be visible.
+Redirect the user to the list page you created earlier to choose another authentication factor. The code is the same. The page should show only the phone factor. However, since this factor is optional and the user has now enrolled two factors, `enrollResponse.HasStep(idx.EnrollmentStepSkip)` returns `true` meaning that the list page should now also display a **Skip** button.
 
 ```go
 if enrollResponse.HasStep(idx.EnrollmentStepSkip) {
@@ -269,10 +273,9 @@ Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 
 </div>
 
-### 10: Skip the phone factor
+### The user skips the phone authenticator
 
-Assuming that the user skips the phone factor and completes the registration with only the email factor,
-call the `EnrollmentResponses` object's `Skip` method.
+If the user skips phone enrollment, call `EnrollmentResponse.Skip`. This skips the authenticator enrollment and eliminates the need to verify the factor:
 
 ```go
 func (s *Server) transitionToProfile(er *idx.EnrollmentResponse, w http.ResponseWriter, r *http.Request) {
@@ -283,15 +286,11 @@ func (s *Server) transitionToProfile(er *idx.EnrollmentResponse, w http.Response
   ...
 ```
 
-For more details about enrolling the phone factor, see the sample application. For details on how
-to verify a sign-in flow with the phone factor, see
-[Sign in with password and phone factors](/docs/guides/oie-embedded-sdk-use-case-sign-in-pwd-phone/go/main/).
+For more details about enrolling the phone factor, see the sample application. For details on how to verify a sign-in flow with the phone factor, see [Sign in with password and phone factors](/docs/guides/oie-embedded-sdk-use-case-sign-in-pwd-phone/go/main/).
 
-### 11: Store the tokens in a session and go to the signed-in home page
+### Complete registration
 
-The `EnrollmentResponse` object returned from the `Skip` method should return tokens
-indicating the register and sign-in was successful. Send the user to their
-signed-in home page.
+The user is now registered with no more factors to be verified. The `EnrollmentResponse` object returned from the `Skip` method returns tokens indicating that the registration and sign-in flows were successful. Redirect the user to the app's default signed-in page.
 
 ```go
 if enrollResponse.Token() != nil {
@@ -303,7 +302,3 @@ if enrollResponse.Token() != nil {
   }
 }
 ```
-
-### 12 (Optional): Get the user profile information
-
-Optionally, you can obtain basic user information after a successful user sign-in flow by making a request to Okta's OpenID Connect authorization server. See [Get the user profile information](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/go/main/#get-the-user-profile-information).
