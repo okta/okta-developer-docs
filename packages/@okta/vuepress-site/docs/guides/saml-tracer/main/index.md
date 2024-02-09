@@ -65,8 +65,7 @@ Figure 3: IdP-Initiated Response in SAML tracer
 
 When you receive a SAML request and response successfully from Okta, it indicates that your configuration is successfully working with Okta.
 
-As you can see from the SimpleSAMLPhp, Spring Security SAML and PySAML examples,
-the application can read attributes passed from Okta after a user logs in.
+As you can see from the examples, the application can read attributes passed from Okta after a user signs in.
 
 ## Example SAML request
 

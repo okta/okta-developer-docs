@@ -912,7 +912,6 @@ export const languagesSdk = [
                { title: "Go", path: "/code/go/" },
                { title: "Java", path: "/code/java/" },
                { title: "Node.js", path: "/code/nodejs/" },
-               { title: "PHP", path: "/code/php/" },
                { title: "Python", path: "/code/python/" },
             ],
          },
