@@ -61,7 +61,7 @@ If the `kid` claim doesn't match, it's possible that the signing keys have chang
 You should verify the following:
 
 * The `iss` (issuer) claim matches the identifier of your Okta authorization server.
-* The `aud` (audience) claim should match the Client ID that you used to request the ID Token. This will be the Client ID for the Application you created in Okta.
+* The `aud` (audience) claim should match the Client ID that you used to request the ID Token. This will be the Client ID for the application that you created in Okta.
 * The `iat` (issued at time) claim indicates when this ID token was issued, expressed in Unix time.
 * The `exp` (expiry time) claim is the time at which this token will expire., expressed in Unix time. You should make sure that this time has not already passed.
 * The `nonce` claim value should match whatever was passed when you requested the ID token.
@@ -84,4 +84,4 @@ The Okta JWT Verifier is available for the following languages:
 
 * A high-level overview of OpenID Connect can be found [here](/docs/concepts/oauth-openid/#openid-connect).
 * The ID tokens are in JSON Web Token (JWT) format, the specification for which can be found here: <https://tools.ietf.org/html/rfc7519>. They are signed using private JSON Web Keys (JWK), the specification for which you can find here: <https://tools.ietf.org/html/rfc7517>.
-* More information about Okta's ID tokens can be found in the [OIDC & OAuth 2.0 API Reference](/docs/reference/api/oidc/#id-token).
+* More information about Okta ID tokens can be found in the [OIDC & OAuth 2.0 API Reference](/docs/reference/api/oidc/#id-token).

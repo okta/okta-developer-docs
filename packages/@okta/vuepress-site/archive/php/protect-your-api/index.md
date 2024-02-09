@@ -18,10 +18,10 @@ Add a layer of authorization to your web services with [Okta API Access Manageme
 
 **Learning outcomes**
 
-* Configure a web API to use Okta
-* Define which endpoints require authorization and which don't
-* Enable Cross-Origin Resource Sharing (CORS) for the API
-* Test the API is secure
+* Configure a web API to use Okta.
+* Define which endpoints require authorization and which don't.
+* Enable Cross-Origin Resource Sharing (CORS) for the API.
+* Test that the API is secure.
 
 **What you need**
 
@@ -41,13 +41,13 @@ Add a layer of authorization to your web services with [Okta API Access Manageme
 
 Applications accessing your web APIs require the same level of [authentication and authorization](https://www.okta.com/identity-101/authentication-vs-authorization/) as users accessing your web applications. However, the sign-in flow should be silent and require no human user interaction. Use Okta to grant the correct level of access to your APIs on your behalf.
 
-In this quickstart, you:
+Use this quickstart to learn how to perform these tasks:
 
 1. [Check that API Access Management is enabled](#check-that-api-access-management-is-enabled)
 1. [Create and configure a new web API to use Okta](#create-and-configure-a-new-web-api-to-use-okta)
 1. [Configure different levels of access for different endpoints](#configure-different-levels-of-access-for-different-endpoints)
 1. [Enable CORS for your API](#enable-cors-for-your-api)
-1. [Test your API is secure](#test-your-api-is-secure)
+1. [Test that your API is secure](#test-that-your-api-is-secure)
 
 > **Tip**: You need your Okta org domain to follow this tutorial. It looks like `dev-123456.okta.com`. See [Find your Okta domain](/docs/guides/find-your-domain/). Where you see `${yourOktaDomain}` in this guide, replace it with your Okta domain.
 
@@ -78,7 +78,7 @@ Moving on, where you see `${yourAudience}` and `${yourAuthServerName}` in this g
 
 ## Create and configure a new web API to use Okta
 
-Now that you have an authorization server and noted how to identify it:
+Now that you have an authorization server and have noted how to identify it, perform these tasks:
 
 1. [Create an API project](#create-an-api-project)
 1. [Add the required packages to your project](#add-the-required-packages-to-your-project)
@@ -293,7 +293,7 @@ If you’re using a PHP framework like [Laravel](https://laravel.com/docs/9.x/ro
 header('Access-Control-Allow-Origin: *');
 ```
 
-## Test your API is secure
+## Test that your API is secure
 
 You can now test if your endpoint security works as intended. To do this, you will:
 

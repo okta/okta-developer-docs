@@ -40,7 +40,7 @@ The easiest and most secure way to add a user sign-in flow to your server-side w
 
 > **Note**: To use the redirect model in a _single-page application (SPA)_, see [Sign users in to your SPA using the redirect model](/docs/guides/sign-into-spa-redirect/). To use the redirect model in a _mobile app_, see [Sign users in to your mobile app using the redirect model](/docs/guides/sign-into-mobile-app-redirect/).
 
-In this quickstart, you:
+Use this quickstart to learn how to perform these tasks:
 
 1. [Create an app integration in the Admin Console](#create-an-app-integration-in-the-admin-console).
 1. [Create and configure a new web application to use Okta](#create-and-configure-a-new-web-application-to-use-okta).
@@ -53,7 +53,7 @@ In this quickstart, you:
 
 An **app integration** represents your application in your Okta org. Use it to configure how your application connects with Okta services.
 
-To create an app integration for your application:
+Follow these steps to create an app integration for your application:
 
 1. Open the Admin Console for your org.
    1. [Sign in to your Okta organization](/login) with your administrator account.
@@ -154,7 +154,7 @@ Earlier you [noted the client ID and client secret](#note-your-client-id-and-cli
 
 ### Add the pages and logic for a user to sign in and sign out
 
-A user can start the sign-in process by:
+There are two ways that a user can start the sign-in process:
 
 * Clicking a sign-in link or button
 * Trying to access a protected page, such as their profile page.
