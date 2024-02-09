@@ -1,6 +1,6 @@
 {
-  "release" : "2024.01.1",
-  "build" : "2024.01.1-begin-97-g2d5653584823",
+  "release" : "2024.02.1",
+  "build" : "2024.02.1-begin-157-ga636aff6c99d",
   "errors" : [ {
     "title" : "API validation exception",
     "includesExceptionMessage" : true,
@@ -1767,7 +1767,7 @@
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
     "errorCode" : "E0000237",
-    "errorSummary" : "The language isn't a platform-supported locale.",
+    "errorSummary" : "The language isn't permitted for email customization.",
     "errorDescription" : null
   }, {
     "title" : "Policy lock exception",
@@ -1776,6 +1776,22 @@
     "statusReasonPhrase" : "Locked",
     "errorCode" : "E0000239",
     "errorSummary" : "Policy priorities are being reconciled. Please try again later.",
+    "errorDescription" : null
+  }, {
+    "title" : "Agent time out",
+    "includesExceptionMessage" : true,
+    "statusCode" : 502,
+    "statusReasonPhrase" : "Bad Gateway",
+    "errorCode" : "E0000240",
+    "errorSummary" : "Request timed out waiting for agent.",
+    "errorDescription" : null
+  }, {
+    "title" : "No connected agents",
+    "includesExceptionMessage" : true,
+    "statusCode" : 504,
+    "statusReasonPhrase" : "Gateway Timeout",
+    "errorCode" : "E0000241",
+    "errorSummary" : "No connected agents.",
     "errorDescription" : null
   } ]
 }

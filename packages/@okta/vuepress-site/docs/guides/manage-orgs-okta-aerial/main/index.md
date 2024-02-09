@@ -115,6 +115,8 @@ Grant scopes to the client:
 
 To authenticate with Okta Aerial, a client obtains an access token from the Aerial org. See [Implement OAuth for Okta with a service app](/docs/guides/implement-oauth-for-okta-serviceapp/main/#get-an-access-token).
 
+> **Note:** [Demonstrating Proof-of-Possession (DPoP)](https://datatracker.ietf.org/doc/html/rfc9449) is supported but not required. See [Configure OAuth 2.0 Demonstrating Proof-of-Possession](https://developer.okta.com/docs/guides/dpop/main/).
+
 Create a [JWT assertion](/docs/guides/implement-oauth-for-okta-serviceapp/main/#create-and-sign-the-jwt) and use it to make a [token request](/docs/guides/implement-oauth-for-okta-serviceapp/main/#create-and-sign-the-jwt) to the Aerial org.
 
 ```bash
@@ -134,6 +136,8 @@ Add the access token to the Authorization header of Okta Aerial API requests:
 ```bash
 Authorization: Bearer ${access_token}
 ```
+
+
 <!-- our OAuth docs for service apps rely on Postman for this step. need something in the interim until Postman is ready -->
 
 ## Create a child org

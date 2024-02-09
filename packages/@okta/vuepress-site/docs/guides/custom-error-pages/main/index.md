@@ -25,7 +25,7 @@ Customize error pages as part of the sign-in flow.
 
 ## About error page customization
 
-When using redirect authentication, you can create a unique sign-in experience. First, set up a [custom domain](/docs/guides/custom-url-domain/) and then create a [Widget style](/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget) that matches your application's look and feel.
+When using redirect authentication, you can create a unique sign-in experience. First, set up a [custom domain](/docs/guides/custom-url-domain/). Then create a [Widget style](/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget) that matches your application's look and feel.
 
 If an error occurs during the sign-in flow, Okta needs to display an error page to the user. You can use the code editor to customize the error page.
 
@@ -55,6 +55,7 @@ See also [Multiple content security policies](https://developer.mozilla.org/en-U
 * If you add too many trusted external resources to your custom CSP, the HTTP header size can exceed the limit allowed by some server software. Update the default server limits or reduce the number of trusted external resources.
 * You can have a maximum of 20 URIs.
 * If you add a trusted origin URL that redirects to a different URL, you must include the redirect URL in the trusted origin list.
+
 <!-- nonce not supported yet
 ### Add a nonce reference
 
@@ -66,7 +67,8 @@ Example:
 
 ```html
 <style nonce="{{nonceValue}}">
-```-->
+```
+-->
 
 ### Customize the default CSP
 
@@ -104,7 +106,7 @@ Use the code editor to modify any HTML, CSS, or JavaScript on the error page. Se
 
 ## Use variables
 
-The Okta error page template is written using [Mustache](http://mustache.github.io/mustache.5.html) and uses predefined variables to insert relevant values into the error page. To see the variables in a code sample, refer to the error page default code in the code editor. See [Edit the error page](#edit-the-error-page).
+The Okta error page template is written using [Mustache](http://mustache.github.io/mustache.5.html) and uses predefined variables to insert relevant values into the error page. To see the variables in a code sample, refer to the default code in the code editor. See [Edit the error page](#edit-the-error-page).
 
 Variables with double curly braces (`{{`) return escaped HTML by default. Escaping allows you to show "special" characters in HTML. For example, `<p>hello</p>` displays as a paragraph element and the `<p>` tags don't render. For the `<p>` tags to render, escape or replace the `<p>` tags by using `&lt;p&gt; hello &lt;/p&gt;`. In this example, `&lt;p&gt;` escapes `<` and `&lt;/p&gt;` escapes `>`.
 
