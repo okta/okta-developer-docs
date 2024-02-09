@@ -10,7 +10,7 @@ This guide explains how you can find your Okta org domain.
 
 ## Are you an end user?
 
-If you require assistance to sign-in or access your organization's Okta org, see the [Okta end-user documentation](https://help.okta.com/okta_help.htm?type=eu&id=csh-user-home). For Okta Verify information, see [Okta verify documentation](https://help.okta.com/okta_help.htm?type=eu&id=ext_ov_endusers). In general, find your organization's Okta domain URL from your IT administrators.
+If you require assistance to sign in or access your organization's Okta org, see the [Okta end-user documentation](https://help.okta.com/okta_help.htm?type=eu&id=csh-user-home). For Okta Verify information, see [Okta verify documentation](https://help.okta.com/okta_help.htm?type=eu&id=ext_ov_endusers). In general, find your organization's Okta domain URL from your IT administrators.
 
 ## Are you a developer?
 
