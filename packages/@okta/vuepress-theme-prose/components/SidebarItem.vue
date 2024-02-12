@@ -6,7 +6,7 @@
       hidden: hidden }"
   >
     <router-link
-      v-if="entityType === types.link && link.path && !link.path.toLowerCase().startsWith('http') && !link.path.toLowerCase().startsWith('www.')"
+      v-if="entityType === types.link"
       v-slot="{ route, href, navigate }"
       :to="link.path"
       custom
@@ -31,7 +31,7 @@
     </router-link>
 
     <SmartLink
-      v-if="link.path && (link.path.toLowerCase().startsWith('http') || link.path.toLowerCase().startsWith('www.'))"
+      v-if="entityType === types.smartLink"
       :item="{ link: link.path, target: link.target ? link.target : '_blank' }"
       classes="tree-nav-link"
     >
@@ -152,13 +152,17 @@ export default {
       types: {
         link: 'link',
         parent: 'parent',
-        blankDivider: 'blankDivider'
+        blankDivider: 'blankDivider',
+        smartLink: 'smartLink'
       }
     };
   },
   computed:{
     entityType: function(){
       if (this.link.hasOwnProperty('path')) {
+        if (this.link.path.toLowerCase().startsWith('http') || this.link.path.toLowerCase().startsWith('www.')) {
+          return this.types.smartLink;
+        }
         if (this.link.path == 'empty') {
           return this.types.blankDivider
         }
