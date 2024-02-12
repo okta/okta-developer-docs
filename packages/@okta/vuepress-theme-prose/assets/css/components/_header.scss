@@ -53,7 +53,7 @@ header.page-header .header--links {
   padding-left: 45px;
 
   ul.menu--items > li.expandable > a:after,
-  ul.menu--items > li.expandable > span:after {
+  ul.menu--items > li.expandable > span:not(.mobile-docs-menu):after {
     top: 13px;
 
     background-image: url("/img/icons/chevron-down-white.svg");
@@ -403,6 +403,18 @@ header.page-header .link:focus {
 
     transition: none;
     transform: rotate(90deg);
+  }
+
+  header.page-header .menu--slideout .menu--mobile a {
+    font-size: 14px;
+  }
+
+  header.page-header .menu--slideout .menu--mobile .external-link {
+    line-height: 20px;
+
+    .tree-nav-link {
+      color: var(--c-text-darker) !important;
+    }
   }
 
   header.page-header .sign-up--button {
