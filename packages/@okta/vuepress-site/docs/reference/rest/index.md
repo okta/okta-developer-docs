@@ -209,6 +209,8 @@ Include the following parameters in your `/token` request:
 
     In this example, only one access scope is requested (`scope=okta.users.read`). When you request an access token for multiple scopes, the format for the scope value looks like this: `scope=okta.users.read okta.apps.read`
 
+* `grant_type`: Use `client_credentials`.
+
 * `client_assertion_type`: Specifies the type of assertion, in this case a JWT token:  `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`
 
 * `client_assertion`: The signed JWT. Paste the JWT that you signed in the [Create and sign the JWT](#create-and-sign-the-jwt) section.
