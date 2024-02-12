@@ -7,7 +7,7 @@ meta:
 
 # Import a Postman Collection
 
-Learn how to [use Postman with the Okta REST APIs](/code/rest/).
+Learn how to [use Postman with the Okta REST APIs](/docs/reference/rest/).
 
 > **Note:** These buttons are also available at the top of each [API reference page](/docs/reference/api/apps/).
 
