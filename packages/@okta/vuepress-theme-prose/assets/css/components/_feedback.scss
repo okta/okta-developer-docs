@@ -1,9 +1,11 @@
 /* QUALTRICS FEEDBACK WIDGET */
 #feedback-tab {
   position: fixed;
-
+  
   right: 0;
   bottom: 158px;
+  
+  z-index: 3;
 
   width: 36px;
   height: 139px;
@@ -11,7 +13,6 @@
   overflow: hidden;
 
   background-color: #242424;
-  z-index: 3;
 }
 
 #feedback-link {
