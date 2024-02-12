@@ -181,6 +181,10 @@ export const guides = [
             ],
           },
           {
+            title: "Google",
+            path: "https://www.google.com",
+          },
+          {
             title: "Embedded authentication",
             subLinks: [
               {
@@ -200,6 +204,11 @@ export const guides = [
                     guideName: "oie-embedded-common-run-samples",
                   },
                 ],
+              },
+              {
+                title: "Google",
+                path: "https://www.google.com",
+                target: '_self'
               },
               {
                 title: "Auth JS fundamentals",
@@ -666,10 +675,20 @@ export const guides = [
                 guideName: "submit-app",
               },
               {
+                title: "Google sub link 1",
+                path: "https://www.google.com",
+                target: '_self'
+              },
+              {
                 title: "OIN Manager: Submit an SSO integration (to remove) ",
                 guideName: "submit-sso-app",
               },
-            ]
+              {
+                title: "Google sub link 2",
+                path: "https://www.google.com",
+              },
+            ],
+            target: '_blank'
           },
         ],
       },
