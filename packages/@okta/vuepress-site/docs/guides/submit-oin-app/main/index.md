@@ -204,7 +204,7 @@ As a customer admin persona, assign users to your app integration instance to te
 
 Test case preconditions:
 
-* [Generated the app integration instance in the OIN Wizard](#generate-the-instance-for-the-idp-flow)
+* [Generated the app integration instance in the OIN Wizard](#generate-the-instance-for-testing)
 * Sign-on options are configured for the instance
 
 To assign test users to your integration:
@@ -219,14 +219,14 @@ To assign test users to your integration:
 
 ### How to test an IdP flow
 
-Test the IdP sign-in flow as a customer end-user persona. Use an end user that you [assigned to your integration](#assign-test-users-to-your-integration-instance). This sign-in flow initiates from the Okta End-User Dashboard.
+Test the IdP sign-in flow as a customer end-user persona. Use an end user that you [assigned to your integration](#assign-test-users-to-your-integration-instance) (#assign-test-users-to-your-integration-instance). This sign-in flow initiates from the Okta End-User Dashboard.
 
 #### Sign in with the IdP flow
 
 Test case preconditions:
 
 * App integration supports IdP SSO
-* [App integration instance was generated in the OIN Wizard](#generate-the-instance-for-the-idp-flow) and sign-on options are configured
+* [App integration instance was generated in the OIN Wizard](#generate-the-instance-for-testing) and sign-on options are configured
 * The test end user used to sign in to the app was [assigned to the integration](#assign-test-users-to-your-integration-instance)
 
 To test the SSO IdP flow:
@@ -247,14 +247,14 @@ To test the SP flow (the app-initiated flow), you need to execute the test cases
 There are two options to sign in with the SP-initiated flow:
 
 1. Direct URL: [Sign in with a direct URL for the SP flow](#sign-in-with-a-direct-url-for-the-sp-flow)
-2. Sign-in page: [Sign in with the sign-in page for the SP flow](#sign-in-with-the-sign-in-page-for-the-sp-flow)
+2. Sign-in page: [Sign in with the sign-in page for the SP flow](#sign-in-with-a-sign-in-page-for-the-sp-flow)
 
 #### Sign in with a direct URL for the SP flow
 
 Test case preconditions:
 
 * App integration supports SP-initiated SSO
-* [App integration instance was generated in the OIN Wizard](#generate-the-instance-for-the-idp-flow) and sign-on options are configured
+* [App integration instance was generated in the OIN Wizard](#generate-the-instance-for-testing) and sign-on options are configured
 * The test end user was [assigned to the integration](#assign-test-users-to-your-integration-instance)
 
 To test the SP-initiated flow with a direct URL:
@@ -272,7 +272,7 @@ To test the SP-initiated flow with a direct URL:
 Test case preconditions:
 
 * App integration supports SP-initiated SSO
-* [App integration instance was generated in the OIN Wizard](#generate-the-instance-for-the-idp-flow) and sign-on options are configured
+* [App integration instance was generated in the OIN Wizard](#generate-the-instance-for-testing) and sign-on options are configured
 * The test end user was [assigned to the integration](#assign-test-users-to-your-integration-instance)
 
 To test the SP-initiated flow with a sign-in page:
@@ -301,7 +301,7 @@ Test case preconditions:
 
 * App integration supports IdP flow
 * App integration supports JIT provisioning
-* [App integration instance was generated in the OIN Wizard](#generate-the-instance-for-the-idp-flow) and sign-on options are configured
+* [App integration instance was generated in the OIN Wizard](#generate-the-instance-for-testing) and sign-on options are configured
 * The [Sign in with the IdP flow](#sign-in-with-the-idp-flow) test case was executed successfully
 * A new test user profile that isn't in Okta or in your app
 
@@ -332,8 +332,8 @@ Test case preconditions:
 
 * App integration supports SP flow
 * App integration supports JIT provisioning
-* [App integration instance was generated in the OIN Wizard](#generate-the-instance-for-the-idp-flow) and sign-on options are configured
-* The [Sign in with the SP flow](#sign-in-with-a-direct-url-for-the-sp-flow) test case was executed successfully
+* [App integration instance was generated in the OIN Wizard](#generate-the-instance-for-testing) and sign-on options are configured
+* The [Sign in with the SP flow](#how-to-test-an-sp-flow) test case was executed successfully
 * A new test user profile that isn't in Okta or in your app
 
 To test JIT provisioning with the SP flow:
