@@ -4,7 +4,7 @@ excerpt: Enable Cross-Origin Resource Sharing for your app
 layout: Guides
 ---
 
-This guide explains Cross-Origin Resource Sharing (CORS), why it is useful, how it is relevant to your Okta apps, and how to enable and test it.
+This guide explains Cross-Origin Resource Sharing (CORS), why it’s useful, how it’s relevant to your Okta apps, and how to enable and test it.
 
 ---
 
@@ -17,13 +17,13 @@ This guide explains Cross-Origin Resource Sharing (CORS), why it is useful, how 
 
 ## About CORS
 
-[Cross-Origin Resource Sharing (CORS)](https://www.w3.org/TR/cors/) is a mechanism that allows a web page to make an AJAX call using [XMLHttpRequest (XHR)](https://xhr.spec.whatwg.org/) to a domain that is different than the domain where the script was loaded. Such cross-domain requests would otherwise be forbidden by web browsers as indicated by the [same origin security policy](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy). CORS defines a [standardized](http://www.w3.org/TR/cors/) way in which the browser and the server can interact to determine whether or not to allow the cross-origin request.
+[Cross-Origin Resource Sharing (CORS)](https://www.w3.org/TR/cors/) is a mechanism that allows a web page to make an AJAX call using [XMLHttpRequest (XHR)](https://xhr.spec.whatwg.org/). Use XHR to call a domain that is different than the domain where the script was loaded. Such cross-domain requests would otherwise be forbidden by web browsers as indicated by the [same origin security policy](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy). CORS defines a [standardized](http://www.w3.org/TR/cors/) way in which the browser and the server can interact to determine whether to allow the cross-origin request.
 
-In Okta, CORS allows JavaScript, which is hosted on your websites, to make an XHR to the Okta API with a token. See [OAuth 2.0](/docs/guides/implement-oauth-for-okta/).
+In Okta, CORS allows JavaScript, which is hosted on your website, to make an XHR to the Okta API with a token. See [OAuth 2.0](/docs/guides/implement-oauth-for-okta/).
 
 Every website origin must be explicitly permitted through the Admin Console for CORS. See [Grant cross-origin access to websites](#grant-cross-origin-access-to-websites).
 
-If you are using [OAuth 2.0](/docs/guides/implement-oauth-for-okta/) tokens to make calls to Okta APIs, you don't need to add a Trusted Origin because OAuth for Okta APIs don't rely on cookies. These APIs use bearer tokens instead. See [Scopes and supported endpoints](/docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints).
+If you’re using [OAuth 2.0](/docs/guides/implement-oauth-for-okta/) tokens to make calls to Okta APIs, you don't need to add a Trusted Origin because OAuth for Okta APIs don't rely on cookies. These APIs use bearer tokens instead. See [Scopes and supported endpoints](/docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints).
 
 > **Caution:** You should only grant access to specific origins (websites) that you control and trust to access the Okta API.
 
@@ -48,18 +48,18 @@ You can enable CORS for websites that need cross-origin requests to the Okta API
 1. Make sure that **CORS** is selected as the **Type**. You can also enable the **Redirect** setting, which allows for redirection to this Trusted Origin after a user signs in or out.
 1. Click **Save**.
 
-> **Note:** If you don't enable CORS, or disable it at a later date, the list of websites is retained.
+> **Note:** If you don't enable CORS, or disable it later, the list of websites is retained.
 
 ## Test your configuration
 
 Do the following to test your CORS configuration:
 
 1. Grant cross-origin access to `https://developer.okta.com`.
-2. In the same browser in which you have an active session in your Okta organization, enter your Okta subdomain in the form below and click **Test**. Your Okta user profile appears below the form.
+2. In the same browser in which you have an active session in your Okta organization, enter your Okta subdomain in the following form and click **Test**. Your Okta user profile appears below the form.
 
 <CorsTest />
 
-> **Note:** If this test seems to be working incorrectly, make sure that you have all tracking blockers turned off in your browser and reload the page.
+> **Note:** If this test seems not to work, make sure that you have all tracking blockers turned off in your browser and reload the page.
 
 ### Request examples
 
