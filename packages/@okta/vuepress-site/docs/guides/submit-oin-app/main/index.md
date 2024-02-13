@@ -219,7 +219,7 @@ To assign test users to your integration:
 
 ### How to test an IdP flow
 
-Test the IdP sign-in flow as a customer end-user persona. Use an end user that you [assigned to your integration](#assign-test-users-to-your-integration-instance) (#assign-test-users-to-your-integration-instance). This sign-in flow initiates from the Okta End-User Dashboard.
+Test the IdP sign-in flow as a customer end-user persona. Use an end user that you [assigned to your integration](#assign-test-users-to-your-integration-instance). This sign-in flow initiates from the Okta End-User Dashboard.
 
 #### Sign in with the IdP flow
 
