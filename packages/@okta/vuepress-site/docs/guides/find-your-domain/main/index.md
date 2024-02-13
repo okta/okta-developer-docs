@@ -8,13 +8,19 @@ This guide explains how you can find your Okta org domain.
 
 <!-- I don't think this article needs nutrition facts; it is too short and simple -->
 
+## Are you an end user?
+
+If you require assistance to sign in or access your organization's Okta org, see the [Okta end-user documentation](https://help.okta.com/okta_help.htm?type=eu&id=csh-user-home). For Okta Verify information, see [Okta verify documentation](https://help.okta.com/okta_help.htm?type=eu&id=ext_ov_endusers). In general, find your organization's Okta domain URL from your IT administrators.
+
+## Are you a developer?
+
 If you're building an application by using one of our SDKs or client libraries, you may run into the following message:
 
 > **Note:** Your Okta URL is missing. Replace `${yourOktaDomain}` with your Okta domain. You can copy your domain from the Okta Admin Console.
 
 Okta orgs host pages on subdomains and each org is assigned a URL. The typical org URL is the tenant name (the subdomain), and then the domain name.
 
-## Find your Okta domain
+### Find your Okta domain
 
 To find your Okta URL (also called an Okta domain):
 
