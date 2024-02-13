@@ -8,7 +8,7 @@
  :gh-status-when-no-check true ;after 3.0.x is enabled by default
  :acrolinx-check-type "batch"
  :ignored-filetypes ["XML" "YAML" "HTML" "TEXT" "JAVA" "CPP" "PROPERTIES" "JSON" "MS_OFFICE" "PDF"]
- :allowed-filename-matches ["(?i)^(?!packages\\/@okta\\/vuepress-site\\/docs\\/reference\\/api).*$" "(?i)^(?!packages\\/@okta\\/vuepress-site\\/docs\\/release-notes).*$"]
+ :allowed-filename-matches ["(?i)^(?!packages\\/@okta\\/vuepress-site\\/docs\\/reference\\/api).*$"]
  :targets ; This requires ":use-gh-statuses" to be enabled
    {
      :counts {
@@ -30,7 +30,7 @@
               ;:scannability 80
               ;:tone 80
               ;:words_and_phrases 40
-              :qualityscore 65
+              :qualityscore 70
               }
     }
  ;;:guidance-profile "e4ea9087-8bac-43dc-8a6b-104478b4b737" ;; from Okta Prod, This is now controlled by Acrolinx Platform Target Assigments
