@@ -140,7 +140,6 @@ First, create a service app integration where you can define your scope-based ac
 1. On the **Create a new app integration** page, select **API Services** as the **Sign-in method** and click **Next**.
 1. Enter a name for your app integration and click **Save**. The settings page for the app integration appears, showing the **General** tab. Make note of the **Client ID** listed in the **Client Credentials** section. You need this information for the [Create and sign the JWT](#create-and-sign-the-jwt) task.
 1. Click the **Admin roles** tab and assign an admin role with permissions to the resource sets that you require.
-   > **Note:** This step is only required for Preview orgs. For Production orgs, this step is required only if the **Assign admin roles to public client apps** Early Access feature is enabled.
 
    You can assign the [standard admin roles](https://help.okta.com/okta_help.htm?type=oie&id=ext-administrators-admin-comparison) or a [custom admin role](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-creating-custom-admin-roles) with permissions to specific resource sets. See [Assign admin roles to apps](https://help.okta.com/okta_help.htm?type=oie&id=csh-work-with-admin-assign-admin-role-to-apps).
 
@@ -148,6 +147,8 @@ First, create a service app integration where you can define your scope-based ac
    1. Click **Edit assignments**.
    {style="list-style-type:lower-alpha"}
    1. Select **Super Administrator** under Roles and click **Save Changes**.
+
+   > **Note:** To bypass the assign-admin-role step, enable the **Public client app admins** org setting. This enabled setting automatically assigns the super admin role to custom API service apps that you create after the scopes are granted. Go to **Settings** > **Account** > **Public client app admins** in the Admin Console to edit this setting. See [Assign admin roles to apps](https://help.okta.com/okta_help.htm?type=oie&id=csh-work-with-admin-assign-admin-role-to-apps).
 
 1. Select the **Okta API Scopes** tab and then click **Grant** for each of the scopes that you want to add to the app grant collection. Ensure that you grant the scopes for the API access you require. See [Okta OAuth 2.0 scopes](https://developer.okta.com/docs/api/oauth2/). <br>For example, click **Grant** next to `okta.users.read`.
 
