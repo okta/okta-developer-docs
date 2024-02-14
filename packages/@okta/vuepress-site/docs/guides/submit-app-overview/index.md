@@ -43,7 +43,7 @@ The Okta OIN team reviews and prioritizes all submissions.
 The following steps outline the submission process for SSO integrations with the OIN Wizard:
 
 1. Build the integration in your app.
-1. Sign in to your developer-edition org Admin Console.
+1. Sign in to your Developer Edition org Admin Console.
    - Add integration details in the OIN Wizard.
    - Generate the app integration instance.
    - Test the integration.
@@ -68,7 +68,7 @@ Source link : https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 The following steps outline the submission process for API service integrations with the OIN Manager:
 
 1. Build the integration in your service app.
-1. Sign in to the OIN Manager with your developer-edition org credentials.
+1. Sign in to the OIN Manager with your Developer Edition org credentials.
    - Add integration details in the OIN Manager.
    - Generate the app integration instance.
    - Test the integration.
@@ -83,10 +83,10 @@ The following steps outline the submission process for API service integrations 
 The following steps and flowchart outline the submission process for SCIM or Workflows integrations with the OIN Manager:
 
 1. Build the SCIM integration or Workflows capabilities in your app.
-   - Sign in to your developer-edition org Admin Console.
+   - Sign in to your Developer Edition org Admin Console.
    - Create the SCIM integration instance or build your Workflows connector.
    - Test the integration.
-1. Sign in to the OIN Manager with your developer-edition org credentials.
+1. Sign in to the OIN Manager with your Developer Edition org credentials.
    - Add integration details in the OIN Manager.
    - Submit the integration.
 1. Review feedback.

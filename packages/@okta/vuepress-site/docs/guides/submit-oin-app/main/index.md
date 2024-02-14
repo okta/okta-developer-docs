@@ -18,8 +18,8 @@ Use this guide to learn how to submit a Single Sign-On (SSO) integration to the 
 
 **What you need**
 
-* An [Okta Developer-Edition org](https://developer.okta.com/signup/). The OIN Wizard is only available in developer-edition orgs.
-* An admin user in the developer-edition org with either the Super Administrator or the Application Administrator role
+* An [Okta Developer Edition org](https://developer.okta.com/signup/). The OIN Wizard is only available in Developer Edition orgs.
+* An admin user in the Developer Edition org with either the Super Administrator or the Application Administrator role
 * A functional SSO integration based on the [Build a Single Sign-On integration](/docs/guides/build-sso-integration/) guide
 * The various items necessary for submission in accordance with the [OIN submission requirements](/docs/guides/submit-app-prereq/)
 
@@ -27,7 +27,7 @@ Use this guide to learn how to submit a Single Sign-On (SSO) integration to the 
 
 ## Overview
 
-Okta provides you with a seamless experience to integrate and submit your app for publication in the [Okta Integration Network (OIN)](https://www.okta.com/okta-integration-network/). When you obtain an [Okta Developer-Edition org](https://developer.okta.com/signup/), you can use it as a sandbox to integrate your app with Okta and explore more Okta features. When you decide to publish your integration to the OIN, you can use the same developer-edition org to submit your integration using the OIN Wizard.
+Okta provides you with a seamless experience to integrate and submit your app for publication in the [Okta Integration Network (OIN)](https://www.okta.com/okta-integration-network/). When you obtain an [Okta Developer Edition org](https://developer.okta.com/signup/), you can use it as a sandbox to integrate your app with Okta and explore more Okta features. When you decide to publish your integration to the OIN, you can use the same Developer Edition org to submit your integration using the OIN Wizard.
 
 The OIN Wizard is a full-service tool in the Okta Admin Console for you to:
 
@@ -68,7 +68,7 @@ Review the [OIN submission requirements](/docs/guides/submit-app-prereq) before 
 
 Start your integration submission for OIN publication:
 
-1. Sign in to your [Okta Developer-Edition org](/login/) as a user with administrative privileges.
+1. Sign in to your [Developer Edition org](/login/) as a user with administrative privileges.
 1. Go to **Applications** > **Your OIN Integrations** in the Admin Console.
 1. Click **Build new OIN integration**. The OIN Wizard appears.
 1. From the **Select your protocol** section, select **<StackSnippet snippet="protocol-fullname" inline/>**.
@@ -232,7 +232,7 @@ Test case preconditions:
 To test the SSO IdP flow:
 
 1. Open a new incognito window in your browser.
-1. Go to your developer-edition Okta org. For example: `https://dev-12345678.okta.com`
+1. Go to your Developer Edition Okta org. For example: `https://dev-12345678.okta.com`
 1. Sign in to the Okta End-User Dashboard as an end user that was assigned the integration.
     > **Note**: If you sign in as a non-admin user to your Okta org from a browser, the End-User Dashboard appears.
 1. Confirm that your app tile appears on the Okta End-User Dashboard.
@@ -393,7 +393,7 @@ You can modify a submitted or published integration in the **Your OIN Integratio
 
 To update a submitted integration:
 
-1. Sign in to your [developer-edition Okta org](/login/) as a user with admin privileges.
+1. Sign in to your [Okta Developer Edition org](/login/) as a user with admin privileges.
 1. Go to **Applications** > **Your OIN Integrations** in the Admin Console.
 1. Click your integration to update from the dashboard. The OIN Wizard appears.
 1. Go to the OIN Wizard page that you want to update.
