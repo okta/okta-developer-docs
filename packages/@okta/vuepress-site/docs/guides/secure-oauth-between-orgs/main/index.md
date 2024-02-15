@@ -200,21 +200,6 @@ For the hub-and-spoke OAuth 2.0 Org2Org provisioning connection, Okta recommends
 * `USER_ADMIN` (Group administrator)
 * `GROUP_MEMBERSHIP_ADMIN` (Group membership administrator)
 
-<!-- Consider adding this section when custom roles can be verified by the Integration Platform team at GA
-
-If you're using [custom roles](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-creating-custom-admin-roles) for the OAuth 2.0 Org2Org provisioning connection, you require the following:
-
-* Permissions required:
-  * Manage users
-  * Manage groups
-
-* Resource sets recommended:
-  * All Users
-  * All Groups
-
-> **Note:** You can bind resource sets to many different types of resources, such as user groups, flows, authorization servers, and so on. You don't necessarily have to use the All Groups resource set in this use case. You can specify permissions for a specific subset of users in a custom role. See [Custom role assignment](/docs/concepts/role-assignment/#custom-role-assignment) and the [Custom Role assignment API operations](/docs/reference/api/roles/#custom-role-assignment-operations).
--->
-
 You can use the Admin Console to assign an admin role to your service app. See [Assign admin roles to apps](https://help.okta.com/okta_help.htm?type=oie&id=csh-work-with-admin-assign-admin-role-to-apps) and go to the **Admin roles** tab from your app integration details. Alternatively, you can assign the admin role to your service app with the Okta API.
 
 As an Okta super admin, make a `POST /oauth2/v1/clients/${yourServiceAppId}/roles` request to the hub org with the following required parameters to assign an admin role:
