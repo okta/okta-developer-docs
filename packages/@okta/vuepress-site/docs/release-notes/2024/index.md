@@ -6,6 +6,16 @@ title: Okta API Products release notes 2024
 
 ## February
 
+### Weekly release 2024.02.1
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Bug fixed in 2024.02.1](#bug-fixed-in-2024-02-1) | February 14, 2024 |
+
+#### Bug fixed in 2024.02.1
+
+The List all enrolled Factors endpoint (`GET /api/v1/users/{userId}/factors`) returned an incorrectly prefixed ID for SMS factors with a PENDING ACTIVATION status. (OKTA-690496)
+
 ### Monthly release 2024.02.0
 
 | Change | Expected in Preview Orgs |
