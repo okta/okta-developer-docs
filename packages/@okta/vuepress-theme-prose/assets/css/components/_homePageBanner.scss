@@ -1,0 +1,120 @@
+.hero-wrapper-container {
+  display: flex;
+  margin: 0% 11%;
+
+  .hero__wrapper,
+  .home-page-banner {
+    display: flex;
+    flex-basis: 50%;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .full-width-wrapper {
+    flex-basis: 100%;
+  }
+
+  .home-page-banner-hidden {
+    visibility: hidden;
+  }
+
+  .home-page-banner {
+    flex-basis: 50%;
+  }
+
+  .home-page-banner--heading {
+    --banner-heading-size: 45px;
+
+    font-weight: 300;
+    font-size: var(--banner-heading-size);
+
+    line-height: 1;
+    letter-spacing: -0.02em;
+
+    color: var(--c-lightgray-450);
+
+    @include media(">tablet") {
+      --banner-heading-size: 60px;
+    }
+
+    @include media(">desktop") {
+      --banner-heading-size: 72px;
+    }
+  }
+
+  .home-page-banner--heading-hidden {
+    visibility: hidden;
+  }
+
+  .home-page-banner--description {
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 1.4;
+    letter-spacing: 0.005em;
+
+    color: var(--c-lightgray-450);
+  }
+
+  .home-page-banner--description a {
+    text-decoration: underline;
+
+    color: #ffffff;
+  }
+
+  .home-page-banner--cta-container {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+  }
+
+  .home-page-banner--cta-container .home-page-action-button {
+    padding-right: 2rem;
+    padding-left: 2rem;
+
+    min-height: 2.5rem;
+
+    border: 1px solid #ffffff;
+    border-radius: 0.25rem;
+
+    font-weight: 500;
+
+    line-height: 1.625;
+
+    cursor: pointer;
+  }
+
+  .home-page-banner--cta-container .home-page-action-button.primary-button {
+    background: #ffffff;
+
+    color: #000000;
+  }
+
+  .home-page-banner--cta-container .home-page-action-button.secondary-button {
+    background: transparent;
+
+    color: #ffffff;
+  }
+}
+
+.dark-theme .hero-wrapper-container {
+  .home-page-banner--description {
+    color: var(--c-green-100);
+  }
+}
+
+.dark-theme .home-page-banner--description a {
+  text-decoration: underline;
+  color: var(--c-green-100);
+}
+
+@media only screen and (max-width: 600px) {
+  .hero-wrapper-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .home-page-banner {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+}
