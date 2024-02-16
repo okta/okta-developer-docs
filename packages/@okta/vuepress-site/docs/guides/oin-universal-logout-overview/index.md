@@ -13,7 +13,7 @@ Universal Logout enables an IdP, or a security incident management tool, to send
 
 A Universal Logout endpoint must be built for the app to handle logout requests. This endpoint receives a request to log a user out and then attempts to revoke all sessions and tokens for the user. The endpoint then returns a result indicating success or failure.
 
-**[Read the full API Specification](https://okta-universal-logout.redoc.ly/openapi/logout/logout/tag/UniversalLogout/)**
+**[Read the full API Specification](https://datatracker.ietf.org/doc/html/draft-parecki-oauth-global-token-revocation)**
 
 If you're building an app that's used by enterprise customers, and would like to empower your customers to instantly mitigate risks across their ecosystem, read on for how you can support Universal Logout with Okta.
 
