@@ -49,7 +49,7 @@
         this.selectedOption = value
         const target = document.querySelector('#'+value.code)
 
-        const scrollToPosition = target.offsetTop - target.offsetHeight
+        const scrollToPosition = target.offsetTop - target.offsetHeight + 20;
 
         window.scrollTo({top: scrollToPosition, behavior: 'smooth'})
       }

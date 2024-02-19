@@ -54,7 +54,6 @@ export default {
       const scrollToPosition = target.offsetTop - target.offsetHeight;
 
       window.scrollTo({top: scrollToPosition, behavior: 'smooth'});
-
     },
 
     historyPushAndScrollToAnchor: function(anchor) {
