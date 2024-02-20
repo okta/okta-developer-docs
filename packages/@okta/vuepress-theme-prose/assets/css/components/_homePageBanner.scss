@@ -23,9 +23,11 @@
   }
 
   .home-page-banner--heading {
-    --banner-heading-size: 45px;
+    --banner-heading-size: 44px;
 
-    font-weight: 300;
+    padding-top: 23px;
+
+    font-weight: 400;
     font-size: var(--banner-heading-size);
 
     line-height: 1;
@@ -34,11 +36,7 @@
     color: var(--c-lightgray-450);
 
     @include media(">tablet") {
-      --banner-heading-size: 60px;
-    }
-
-    @include media(">desktop") {
-      --banner-heading-size: 72px;
+      --banner-heading-size: 48px;
     }
   }
 
@@ -47,12 +45,18 @@
   }
 
   .home-page-banner--description {
+    --banner-description-size: 20px;
+    
     font-weight: 300;
-    font-size: 20px;
+    font-size: var(--banner-description-size);
     line-height: 1.4;
     letter-spacing: 0.005em;
 
     color: var(--c-lightgray-450);
+
+    @include media(">tablet") {
+      --banner-description-size: 24px;
+    }
   }
 
   .home-page-banner--description a {
@@ -63,13 +67,20 @@
 
   .home-page-banner--cta-container {
     display: flex;
+    flex-direction: column;
     gap: 20px;
     margin-top: 20px;
+
+    @include media(">tablet") {
+      flex-direction: row;
+    }
   }
 
   .home-page-banner--cta-container .home-page-action-button {
     padding-right: 2rem;
     padding-left: 2rem;
+
+    width: 100%;
 
     min-height: 2.5rem;
 
