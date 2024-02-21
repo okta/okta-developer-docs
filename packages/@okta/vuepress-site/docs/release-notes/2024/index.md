@@ -6,6 +6,22 @@ title: Okta API Products release notes 2024
 
 ## February
 
+### Weekly release 2024.02.2
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Bugs fixed in 2024.02.2](#bugs-fixed-in-2024022) | February 22, 2024 |
+
+#### Bugs fixed in 2024.02.2
+
+* The number of unsuccessful calls to the `/api/v1/authn` endpoint sometimes exceeded the threshold set in the password policy settings. (OKTA-698017)
+
+* Okta sometimes incorrectly returned an Invalid Phone Number error during SMS factor enrollment. (OKTA-683026)
+
+* Sometimes, an OAuth 2.0-secured inline hook that contained a custom domain authorization server in the token URL returned a null pointer exception error, instead of an appropriate error. (OKTA-656265)
+
+* User passwords could be updated to match the answer to the recovery question. (OKTA-654993)
+
 ### Weekly release 2024.02.1
 
 | Change | Expected in Preview Orgs |
