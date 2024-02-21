@@ -1,2 +1,2 @@
-1. In XCode, run the OktaBrowserSignIn project.
+1. In Xcode, run the OktaBrowserSignIn project.
 2. In the simulator, click **Sign In**.

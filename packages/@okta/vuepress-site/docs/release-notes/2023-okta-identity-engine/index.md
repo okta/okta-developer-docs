@@ -947,7 +947,7 @@ You can add a new Smart Card authenticator that enables PIV to be used in authen
 
 #### Splunk edition support for Log Streaming integrations is GA in Preview
 
-The Spunk Cloud Log Streaming integration now supports GCP and GovCloud customers. You can set the Splunk edition parameter (`settings.edition`) to AWS (`aws`), GCP (`gcp`), or AWS GovCloud (`aws_govcloud`) in your Log Streaming integration. See [Splunk Cloud Settings properties](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/LogStream/#tag/LogStream/operation/createLogStream!path=1/settings&t=request). <!--OKTA-544449-->
+The Splunk Cloud Log Streaming integration now supports GCP and GovCloud customers. You can set the Splunk edition parameter (`settings.edition`) to AWS (`aws`), GCP (`gcp`), or AWS GovCloud (`aws_govcloud`) in your Log Streaming integration. See [Splunk Cloud Settings properties](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/LogStream/#tag/LogStream/operation/createLogStream!path=1/settings&t=request). <!--OKTA-544449-->
 
 #### Updated AWS EventBridge supported regions for Log Stream integrations
 
