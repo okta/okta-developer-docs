@@ -44,7 +44,7 @@
     <template
       v-for="oktaError in filteredErrorCodes"
     >
-      <h4 :id="oktaError.errorCode" >
+      <h4 :id="oktaError.errorCode">
         <span
           class="title-error-code"
           v-html="$options.filters.titleErrorCode(oktaError)"
