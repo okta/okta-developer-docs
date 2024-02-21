@@ -91,7 +91,8 @@ Okta now provides a seamless ISV experience to optimize the [Okta Integration Ne
 | ------ | ------------------------ |
 | [Content Security Policy for custom domains is EA in Preview](#content-security-policy-for-custom-domains-is-ea-in-preview)| January 31, 2024 |
 | [IP restrictions on tokens](#ip-restrictions-on-tokens)| January 31, 2024 |
-| [Bugs fixed in 2024.01.2](#bugs-fixed-in-2024-01-2) | January 31, 2024 |
+| [HTTP header filter](#http-header-filter)| January 31, 2024 |
+| [Bugs fixed in 2024.01.2](#bugs-fixed-in-2024012) | January 31, 2024 |
 
 #### Content Security Policy for custom domains is EA in Preview
 
@@ -100,6 +101,10 @@ The Content Security Policy (CSP) feature lets admins control which URLs may be 
 #### IP restrictions on tokens
 
 Admins can specify allowlisted and blocklisted network zones for static, Single Sign-On Web System (SSWS) API tokens. This strengthens org security by letting them control where calls to Okta APIs can originate from. It also restricts attackers and malware from stealing SSWS tokens or replaying them outside of their IP range to gain unauthorized access. <!-- OKTA-689850 -->
+
+#### HTTP header filter
+
+To improve the security of your org, Okta now filters and encodes any illegal unicode characters for outgoing HTTP headers. <!-- OKTA-694896 -->
 
 #### Bugs fixed in 2024.01.2
 

@@ -8,6 +8,22 @@ title: Okta Identity Engine API Products release notes 2024
 
 ## February
 
+### Weekly release 2024.02.2
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Bugs fixed in 2024.02.2](#bugs-fixed-in-2024022) | February 22, 2024 |
+
+#### Bugs fixed in 2024.02.2
+
+* The number of unsuccessful calls to the `/api/v1/authn` endpoint sometimes exceeded the threshold set in the password policy settings. (OKTA-698017)
+
+* Okta sometimes incorrectly returned an Invalid Phone Number error during SMS factor enrollment. (OKTA-683026)
+
+* Sometimes, an OAuth 2.0-secured inline hook that contained a custom domain authorization server in the token URL returned a null pointer exception error, instead of an appropriate error. (OKTA-656265)
+
+* User passwords could be updated to match the answer to the recovery question. (OKTA-654993)
+
 ### Monthly release 2024.02.0
 
 | Change | Expected in Preview Orgs |
@@ -81,8 +97,8 @@ When users signed in with an external Identity Provider and the multiple matchin
 | [Content Security Policy for custom domains is EA in Preview](#content-security-policy-for-custom-domains-is-ea-in-preview)| January 31, 2024 |
 | [Granular API policy authenticator controls is self-service EA in Preview](#granular-api-policy-authenticator-controls-is-self-service-ea-in-preview)| January 31, 2024 |
 | [IP restrictions on tokens](#ip-restrictions-on-tokens)| January 31, 2024 |
-| [Bugs fixed in 2024.01.2](#bugs-fixed-in-2024-01-2) | January 31, 2024 |
-
+| [HTTP header filter](#http-header-filter)| February 22, 2024 |
+| [Bugs fixed in 2024.01.2](#bugs-fixed-in-2024012) | January 31, 2024 |
 
 #### Content Security Policy for custom domains is EA in Preview
 
@@ -95,6 +111,10 @@ The Authentication Policy API now includes three new `constraints` object parame
 #### IP restrictions on tokens
 
 Admins can specify allowlisted and blocklisted network zones for static, Single Sign-On Web System (SSWS) API tokens. This strengthens org security by letting them control where calls to Okta APIs can originate from. It also restricts attackers and malware from stealing SSWS tokens or replaying them outside of their IP range to gain unauthorized access. <!-- OKTA-689850 -->
+
+#### HTTP header filter
+
+To improve the security of your org, Okta now filters and encodes any illegal unicode characters for outgoing HTTP headers. <!-- OKTA-694896 -->
 
 #### Bugs fixed in 2024.01.2
 
