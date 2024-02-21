@@ -12,7 +12,7 @@ title: Okta Identity Engine API Products release notes 2024
 
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
-| [Bugs fixed in 2024.02.2](#bugs-fixed-in-2024022) | February 22, 2024 |
+| [Bugs fixed in 2024.02.2](#bugs-fixed-in-2024-02-2) | February 22, 2024 |
 
 #### Bugs fixed in 2024.02.2
 
@@ -47,8 +47,8 @@ To improve the security of your org, Okta now filters and encodes any illegal un
 | [POST requests now allowed to the logout endpoint](#post-requests-now-allowed-to-the-logout-endpoint) | February 7, 2024 |
 | [Seamless ISV experience is GA in Production](#seamless-isv-experience-is-ga-in-production) | January 10, 2024 |
 | [Super admin role now required to update direct authentication grants](#super-admin-role-now-required-to-update-direct-authentication-grants) | February 7, 2024 |
-| [Developer documentation update in 2024.02.0](#developer-documentation-update-in-2024020) | February 7, 2024 |
-| [Bug fixed in 2024.01.2](#bugs-fixed-in-2024012) | February 7, 2024 |
+| [Developer documentation update in 2024.02.0](#developer-documentation-update-in-2024-02-0) | February 7, 2024 |
+| [Bug fixed in 2024.02.0](#bug-fixed-in-2024-02-0) | February 7, 2024 |
 
 #### Assign admin roles to an app
 
@@ -107,7 +107,7 @@ When users signed in with an external Identity Provider and the multiple matchin
 | [Content Security Policy for custom domains is EA in Preview](#content-security-policy-for-custom-domains-is-ea-in-preview)| January 31, 2024 |
 | [Granular API policy authenticator controls is self-service EA in Preview](#granular-api-policy-authenticator-controls-is-self-service-ea-in-preview)| January 31, 2024 |
 | [IP restrictions on tokens](#ip-restrictions-on-tokens)| January 31, 2024 |
-| [Bugs fixed in 2024.01.2](#bugs-fixed-in-2024012) | January 31, 2024 |
+| [Bugs fixed in 2024.01.2](#bugs-fixed-in-2024-01-2) | January 31, 2024 |
 
 #### Content Security Policy for custom domains is EA in Preview
 

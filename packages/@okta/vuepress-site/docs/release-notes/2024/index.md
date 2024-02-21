@@ -10,7 +10,7 @@ title: Okta API Products release notes 2024
 
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
-| [Bugs fixed in 2024.02.2](#bugs-fixed-in-2024022) | February 22, 2024 |
+| [Bugs fixed in 2024.02.2](#bugs-fixed-in-2024-02-2) | February 22, 2024 |
 
 #### Bugs fixed in 2024.02.2
 
@@ -27,7 +27,7 @@ title: Okta API Products release notes 2024
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
 | [HTTP header filter](#http-header-filter) | February 22, 2024 |
-| [Bug fixed in 2024.02.1](#bug-fixed-in-2024021) | February 14, 2024 |
+| [Bug fixed in 2024.02.1](#bug-fixed-in-2024-02-1) | February 14, 2024 |
 
 #### HTTP header filter
 
@@ -47,8 +47,8 @@ The List all enrolled Factors endpoint (`GET /api/v1/users/{userId}/factors`) re
 | [New function for email templates is EA in Preview](#new-function-for-email-templates-is-ea-in-preview) | February 7, 2024 |
 | [POST requests now allowed to the logout endpoint](#post-requests-now-allowed-to-the-logout-endpoint) | February 7, 2024 |
 | [Seamless ISV experience is GA in Production](#seamless-isv-experience-is-ga-in-production) | January 10, 2024 |
-| [Developer documentation update in 2024.02.0](#developer-documentation-update-in-2024020) | February 7, 2024 |
-| [Bugs fixed in 2024.02.0](#bugs-fixed-in-2024020) | February 7, 2024 |
+| [Developer documentation update in 2024.02.0](#developer-documentation-update-in-2024-02-0) | February 7, 2024 |
+| [Bugs fixed in 2024.02.0](#bugs-fixed-in-2024-02-0) | February 7, 2024 |
 
 #### Assign admin roles to an app
 
@@ -96,7 +96,7 @@ Okta now provides a seamless ISV experience to optimize the [Okta Integration Ne
 | ------ | ------------------------ |
 | [Content Security Policy for custom domains is EA in Preview](#content-security-policy-for-custom-domains-is-ea-in-preview)| January 31, 2024 |
 | [IP restrictions on tokens](#ip-restrictions-on-tokens)| January 31, 2024 |
-| [Bugs fixed in 2024.01.2](#bugs-fixed-in-2024012) | January 31, 2024 |
+| [Bugs fixed in 2024.01.2](#bugs-fixed-in-2024-01-2) | January 31, 2024 |
 
 #### Content Security Policy for custom domains is EA in Preview
 
