@@ -295,7 +295,7 @@ export default {
     color: #888888;
   }
 
-  .error-codes .error-code h4 {
+  .error-codes h4 {
     clear: left;
     margin: 25px 0 0;
     padding: 6px 10px;
@@ -308,11 +308,11 @@ export default {
     color: $link_color;
   }
 
-  .error-codes .error-code h4 .title-error-code {
+  .error-codes h4 .title-error-code {
     font-family: "Menlo", "Monaco", "Consolas", "Courier New", monospace;
   }
 
-  .error-codes .error-code h4::before {
+  .error-codes h4::before {
     content: "";
 
     margin-right: 8px;
@@ -320,29 +320,29 @@ export default {
     font-family: "fontawesome";
   }
 
-  .error-codes .error-code pre {
+  .error-codes pre {
     margin: 0;
     padding: 0.5rem;
 
     white-space: pre-line;
   }
 
-  .error-codes .error-code pre code {
+  .error-codes pre code {
     white-space: pre;
   }
 
-  .error-codes .error-code .toggleErrorExample {
+  .error-codes .toggleErrorExample {
     font-size: 14px;
     color: $link_color;
 
     cursor: pointer;
   }
 
-  .error-codes .error-code .toggleErrorExample .underline:hover {
+  .error-code .toggleErrorExample .underline:hover {
     text-decoration: underline;
   }
 
-  .error-codes .error-code .toggleErrorExample:before {
+  .error-codes .toggleErrorExample:before {
     content: "";
 
     margin-right: 8px;
@@ -351,7 +351,7 @@ export default {
     text-decoration: none;
   }
 
-  .error-codes .error-code .toggleErrorExample.open::before {
+  .error-codes .toggleErrorExample.open::before {
     content: "";
 
     margin-right: 8px;
@@ -360,7 +360,7 @@ export default {
     text-decoration: none;
   }
 
-  .error-codes .error-code .error-code-mappings {
+  .error-codes .error-code-mappings {
     margin: -1em 0;
     padding: 10px 15px;
 
@@ -368,12 +368,12 @@ export default {
     color: #888888;
   }
 
-  .error-codes .error-code .error-code-description {
+  .error-codes .error-code-description {
     margin-top: 10px;
     margin-bottom: 5px;
   }
 
-  .error-codes .error-code .error-code-tag::before {
+  .error-codes .error-code-tag::before {
     content: "";
 
     padding: 2px 4px;
@@ -381,7 +381,7 @@ export default {
     font-family: "fontawesome";
   }
 
-  .error-codes .error-code .error-code-tag.world::before {
+  .error-codes .error-code-tag.world::before {
     content: "";
 
     padding: 2px 4px;
@@ -389,7 +389,7 @@ export default {
     font-family: "fontawesome";
   }
 
-  .error-codes .error-code .error-code-tag {
+  .error-codes .error-code-tag {
     display: block;
     float: left;
     margin: 2px;
@@ -401,7 +401,7 @@ export default {
     font-size: 0.7em;
   }
 
-  .error-codes .error-code .error-code-release {
+  .error-codes .error-code-release {
     clear: both;
 
     opacity: 0.7;
