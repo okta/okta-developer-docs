@@ -41,12 +41,10 @@
     <div id="error-code-count">
       Found <b>{{ resultCount }}</b> matches
     </div>
-    <div
+    <template
       v-for="oktaError in filteredErrorCodes"
-      :key="oktaError.errorCode"
-      class="error-code"
     >
-      <h4 :id="oktaError.errorCode">
+      <h4 :id="oktaError.errorCode" >
         <span
           class="title-error-code"
           v-html="$options.filters.titleErrorCode(oktaError)"
@@ -100,7 +98,7 @@
           </code>
         </pre>
       </div>
-    </div>
+    </template>
   </div>
 </template>
 
