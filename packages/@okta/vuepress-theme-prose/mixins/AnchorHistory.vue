@@ -51,7 +51,7 @@ export default {
       if (!target) {
         return;
       }
-      const scrollToPosition = target.offsetTop - target.offsetHeight;
+      const scrollToPosition = target.offsetTop - 20;
 
       window.scrollTo({top: scrollToPosition, behavior: 'smooth'});
     },
