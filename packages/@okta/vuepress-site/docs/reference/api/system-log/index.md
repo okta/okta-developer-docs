@@ -39,6 +39,7 @@ See [Examples](#examples) for ways you can use the System Log API. See [Useful S
 Each LogEvent object describes a single logged action or "event" that is performed by a set of actors for a set of targets.
 
 ### Example LogEvent object
+
 ```json
 {
   "version": "0",
@@ -52,6 +53,19 @@ Each LogEvent object describes a single logged action or "event" that is perform
       "rawUserAgent": "UNKNOWN-DOWNLOAD"
     },
     "ipAddress": "12.97.85.90"
+  },
+  "device": {
+    "id": "guob5wtu7rAggkg9G1d7",
+    "name": "MacBookPro16,1",
+    "os_platform": "OSX",
+    "os_version": "14.3.0",
+    "managed": false,
+    "registered": true,
+    "device_integrator": null,
+    "disk_encryption_type": "ALL_INTERNAL_VOLUMES",
+    "screen_lock_type": "BIOMETRIC",
+    "jailbreak": null,
+    "secure_hardware_present": true
   },
   "actor": {
     "id": "00u1qw1mqitPHM8AJ0g7",
@@ -123,6 +137,19 @@ Each LogEvent object describes a single logged action or "event" that is perform
      "ipAddress": String, Optional
      "device": String, Optional
      "id": String, Optional
+},
+"device": { Object, Optional
+            "id": String, Optional
+            "name": String, Optional
+            "os_platform": String, Optional
+            "os_version": String, Optional
+            "managed": Boolean, Optional
+            "registered": Boolean, Optional
+            "device_integrator": Object, Optional
+            "disk_encryption_type": String, one of: NONE, FULL, SYSTEM_VOLUME, ALL_INTERNAL_VALUES, and USER, Optional
+            "screen_lock_type": String, one of: NONE, PASSCODE, and BIOMETRIC, Optional
+            "jailbreak": Boolean, Optional
+            "secure_hardware_present": Boolean, Optional
 },
 "outcome": { Object, Optional
      "result": String, one of: SUCCESS, FAILURE, SKIPPED, ALLOW, DENY, CHALLENGE, UNKNOWN, Required
@@ -199,6 +226,7 @@ Each LogEvent object describes a single logged action or "event" that is perform
               "version": String, one of V4, V6 Optional
               "source": String, Optional
           ], Optional
+}
 }
 ```
 
@@ -313,6 +341,40 @@ When an event is triggered by an HTTP request, the client object describes the [
 | zone                | The `name` of the [Zone](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/NetworkZone/#tag/NetworkZone/operation/getNetworkZone) that the client's location is mapped to                                                                                                | String                                                    | TRUE     |
 | ipAddress           | IP address that the client is making its request from                                                                                                                                                      | String                                                    | TRUE     |
 | device              | Type of device that the client operates from (for example, Computer)                                                                                                                                          | String                                                    | TRUE     |
+
+### Device object
+
+The entity that defines a device xyz.
+
+| Property    | Description                                                  | DataType            | Nullable |
+| ----------- | ------------------------------------------------------------ | ---------------     | -------- |
+| id          | ID of the device                                               | String              | FALSE    |
+| name        | Name of the device                                             | String              | FALSE    |
+| os_platform | Operating system of the device                                   | String              | TRUE     |
+| os_version  | Operating system version of the device                                   | String              | TRUE     |
+| managed     | Indicates if the device is configured for device management and is enrolled in Okta Verify                                                          | Boolean              | TRUE     |
+| registered  | Indicates if the device is registered with an Okta org and is bound to an Okta Verify instance on the device                                                          | Boolean             | TRUE     |
+| device_integrator     | The integration platform or software used with the device                                                            | Object             | TRUE     |
+| disk_encryption_type     | The amount of disk encryption for a device. Values can be: `NONE`, `FULL`, `SYSTEM_VOLUME`, `ALL_INTERNAL_VALUES`, and `USER`.                                                              | Enum              | TRUE     |
+| screen_lock_type     | The availability of a screen lock on the device. Values can be: `NONE`, `PASSCODE`, and `BIOMETRIC`.                                                           | Enum             | TRUE     |
+| jailbreak     |  If the device has removed software restrictions                                                             | Boolean            | TRUE    |
+| secure_hardware_present     |  The availability of hardware security on the device                                                            | Boolean             | TRUE    |
+
+```json
+"device": {
+            "id": "guob5wtu7rAggkg9G1d7",
+            "name": "MacBookPro16,1",
+            "os_platform": "OSX",
+            "os_version": "14.3.0",
+            "managed": false,
+            "registered": true,
+            "device_integrator": null,
+            "disk_encryption_type": "ALL_INTERNAL_VOLUMES",
+            "screen_lock_type": "BIOMETRIC",
+            "jailbreak": null,
+            "secure_hardware_present": true
+        }
+```
 
 ### UserAgent object
 
