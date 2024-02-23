@@ -25,7 +25,7 @@ Configure Login.gov as an external Identity Provider so that your users can quic
 
 Okta manages the connection to the Identity Provider (IdP) for your application. The connection sits between your application and the IdP that authenticates your users. The industry-standard term for this is Inbound Federation. Okta uses the OpenID Connect (OIDC) protocol with private key JWT for inbound federation with Login.gov. When a user signs in, you can link the user's Identity Provider account to an existing Okta user profile or choose to create a user profile using Just-In-Time (JIT) provisioning.
 
-> **Note:** Okta also support other services, such as directories and credential providers. See the [Okta Integration Network Catalog](https://www.okta.com/okta-integration-network/) to browse all integrations by use case.
+> **Note:** Okta also supports other services, such as directories and credential providers. See the [Okta Integration Network Catalog](https://www.okta.com/okta-integration-network/) to browse all integrations by use case.
 
 ## Create an Identity Provider in Okta
 
