@@ -200,6 +200,8 @@ Refer to the following guides for OAuth 2.0 and OpenID Connect authentication im
 * For service access token requests, see [Implement OAuth for Okta with service app](/docs/guides/implement-oauth-for-okta-serviceapp/).
 * For partner service apps in the Okta Integration Network (OIN), see [Build an API service integration](/docs/guides/build-api-integration/main/).
 
+To set up OAuth 2.0 and OpenID Connect authentication for testing purposes, see [Test the Okta REST APIs with Postman](/docs/reference/rest/).
+
 #### API token authentication
 
 The Okta API requires the custom HTTP authentication scheme `SSWS` for API token (API key) authentication. Requests must have a valid API token specified in the HTTP `Authorization` header with the `SSWS` scheme.
