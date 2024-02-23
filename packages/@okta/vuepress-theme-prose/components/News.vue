@@ -20,70 +20,32 @@
             Blog
           </p>
           <h3 class="news__article-title dont-break-out">
-            {{ blogPostTitles[0] || 'How Authentication and Authorization Work for SPAs' }}
+            {{ blogPosts[0].title }}
           </h3>
           <a
             class="news__article-link dont-break-out"
-            :href="blogPostLinks[0] || 'https://developer.okta.com/blog/2023/04/04/spa-auth-tokens'"
+            :href="blogPosts[0].link"
           >
             Read the blog post
           </a>
         </div>
       </article>
-      <article class="news__article">
+      <article
+        v-for="(blog, index) in blogPosts.slice(1)"
+        :key="index"
+        class="news__article"
+      >
         <p class="news__text dont-break-out">
-          {{ blogPostTitles[1] ? 'Blog' : 'Video' }}
+          {{ blog.type }}
         </p>
         <h3 class="news__article-title dont-break-out">
-          {{ blogPostTitles[1] || 'Podcast: Phishing-Resistant Authenticators with Megha Rastogi' }}
+          {{ blog.title }}
         </h3>
         <a
           class="news__article-link dont-break-out"
-          :href="blogPostLinks[1] || 'https://www.youtube.com/watch?v=PiY5HDp0ABI'"
+          :href="blog.link"
         >
-          {{ blogPostLinks[1] ? 'Read the blog post' : 'Watch the video' }}
-        </a>
-      </article>
-      <article class="news__article">
-        <p class="news__text dont-break-out">
-          Blog
-        </p>
-        <h3 class="news__article-title dont-break-out">
-          {{ blogPostTitles[2] || 'Step-up Authentication in Modern Applications' }}
-        </h3>
-        <a
-          class="news__article-link dont-break-out"
-          :href="blogPostLinks[2] || 'https://developer.okta.com/blog/2023/03/08/step-up-auth'"
-        >
-          Read the blog post
-        </a>
-      </article>
-      <article class="news__article">
-        <p class="news__text dont-break-out">
-          Blog
-        </p>
-        <h3 class="news__article-title dont-break-out">
-          {{ blogPostTitles[3] || 'A Secure and Themed Sign-in Page' }}
-        </h3>
-        <a
-          class="news__article-link dont-break-out"
-          :href="blogPostLinks[3] || 'https://developer.okta.com/blog/2023/01/12/signin-custom-domain'"
-        >
-          Read the blog post
-        </a>
-      </article>
-      <article class="news__article">
-        <p class="news__text dont-break-out">
-          Blog
-        </p>
-        <h3 class="news__article-title dont-break-out">
-          {{ blogPostTitles[4] || 'Streamline Your Okta Configuration in Angular Apps' }}
-        </h3>
-        <a
-          class="news__article-link dont-break-out"
-          :href="blogPostLinks[4] || 'https://developer.okta.com/blog/2023/03/07/angular-forroot'"
-        >
-          Read the blog post
+          {{ blog.type === BLOG_TYPES.BLOG ? 'Read the blog post' : 'Watch the video' }}
         </a>
       </article>
     </div>
@@ -92,14 +54,48 @@
 
 <script>
 const axios = require('axios');
+const BLOG_TYPES = {
+  BLOG: 'Blog',
+  VIDEO: 'Video'
+};
+
+const initialBlogPosts = [
+  {
+    type: BLOG_TYPES.BLOG,
+    link: 'https://developer.okta.com/blog/2023/04/04/spa-auth-tokens',
+    title: 'How Authentication and Authorization Work for SPAs'
+  },
+  {
+    type: BLOG_TYPES.VIDEO,
+    link: 'https://www.youtube.com/watch?v=PiY5HDp0ABI',
+    title: 'Podcast: Phishing-Resistant Authenticators with Megha Rastogi'
+  },
+  {
+    type: BLOG_TYPES.BLOG,
+    link: 'https://developer.okta.com/blog/2023/03/08/step-up-auth',
+    title: 'Step-up Authentication in Modern Applications'
+  },
+  {
+    type: BLOG_TYPES.BLOG,
+    link: 'https://developer.okta.com/blog/2023/01/12/signin-custom-domain',
+    title: 'A Secure and Themed Sign-in Page'
+  },
+  {
+    type: BLOG_TYPES.BLOG,
+    link: 'https://developer.okta.com/blog/2023/03/07/angular-forroot',
+    title: 'Streamline Your Okta Configuration in Angular Apps'
+  }
+]
 
 export default {
   name: 'News',
   data() {
     return {
-      blogPostTitles: [],
-      blogPostLinks: []
+      blogPosts: initialBlogPosts
     }
+  },
+  created() {
+    this.BLOG_TYPES = BLOG_TYPES;
   },
   mounted() {
     this.getBlogPosts();
@@ -111,16 +107,12 @@ export default {
 
       function parseNode(node, obj) {
         if (node.nodeType === Node.TEXT_NODE) {
-          if (node.nodeValue.trim() !== '') {
-            obj['#text'] = node.nodeValue.trim();
-          }
+          obj['#text'] = node.nodeValue.trim();
         } else if (node.nodeType === Node.ELEMENT_NODE) {
           let nodeName = node.nodeName;
           let item = {};
-          if (node.childNodes.length > 0) {
-            for (let i = 0; i < node.childNodes.length; i++) {
-              parseNode(node.childNodes[i], item);
-            }
+          for (let i = 0; i < node.childNodes.length; i++) {
+            parseNode(node.childNodes[i], item);
           }
           if (obj[nodeName]) {
             if (!Array.isArray(obj[nodeName])) {
@@ -138,24 +130,32 @@ export default {
       return result;
     },
     async getBlogPosts() {
+      this.blogPosts = initialBlogPosts;
+
+      let result;
       try {
-        const result = await axios.get('https://developer.okta.com/feed.xml');
-        
-        if (result && result.data) {
-          const jsObject = this.xmlToJs(result.data);
-          if (jsObject?.rss?.channel?.item?.length >= 5) {
-            for (let i = 0; i < 5; i++) {
-              this.blogPostTitles.push(jsObject?.rss?.channel?.item[i]?.title['#text']);
-              this.blogPostLinks.push(jsObject?.rss?.channel?.item[i]?.link['#text']);
-            }
-          } else {
-            this.blogPostTitles = [];
-            this.blogPostLinks = [];
-          }
-        }
+        result = await axios.get('https://developer.okta.com/feed.xml');     
       } catch {
-        this.blogPostTitles = [];
-        this.blogPostLinks = [];
+        return;
+      }
+      if (!result || !result.data) {
+        return;
+      }
+
+      const jsObject = this.xmlToJs(result.data);
+      const length = jsObject?.rss?.channel?.item?.length;
+      if (!length || length < 5) {
+        return;
+      }
+
+      this.blogPosts = [];
+      
+      for (let i = 0; i < 5; i++) {
+        this.blogPosts.push({
+          type: BLOG_TYPES.BLOG,
+          link: jsObject.rss.channel.item[i].link['#text'],
+          title: jsObject.rss.channel.item[i].title['#text']
+        });
       }
     }
   }
