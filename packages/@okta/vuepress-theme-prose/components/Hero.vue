@@ -57,7 +57,7 @@ export default {
   name: "Hero",
   data() {
     return {
-      showBanner: true
+      showBanner: false
     }
   }
 };
