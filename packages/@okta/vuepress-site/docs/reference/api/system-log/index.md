@@ -55,7 +55,7 @@ Each LogEvent object describes a single logged action or "event" that is perform
     "ipAddress": "12.97.85.90"
   },
   "device": {
-    "id": "guob5wtu7rAggkg9G1d7",
+    "id": "guob5wtu7rBggkg9G1d7",
     "name": "MacBookPro16,1",
     "os_platform": "OSX",
     "os_version": "14.3.0",
