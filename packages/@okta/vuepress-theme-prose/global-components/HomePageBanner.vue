@@ -12,45 +12,27 @@
       class="home-page-banner--cta-container"
     >
       <a
-        v-if="primaryCtaLink"  
+        v-if="primaryCtaLink && primaryCtaText"  
         :href="primaryCtaLink"
         :target="primaryLinkTarget ? primaryLinkTarget : '_blank'"
       >
         <button
-          v-if="primaryCtaText"
           class="home-page-action-button primary-button"
-          @click="handlePrimaryCtaClick()"
         >
           {{ primaryCtaText }}
         </button>
       </a>
-      <button
-        v-else-if="primaryCtaText"
-        class="home-page-action-button primary-button"
-        @click="handlePrimaryCtaClick()"
-      >
-        {{ primaryCtaText }}
-      </button>
       <a
-        v-if="secondaryCtaLink" 
+        v-if="secondaryCtaLink && secondaryCtaText" 
         :href="secondaryCtaLink"
         :target="secondaryLinkTarget ? secondaryLinkTarget : '_blank'"
       >
         <button
-          v-if="secondaryCtaText"
           class="home-page-action-button secondary-button"
-          @click="handleSecondaryCtaClick()"
         >
           {{ secondaryCtaText }}
         </button>
       </a>
-      <button
-        v-else-if="secondaryCtaText"
-        class="home-page-action-button secondary-button"
-        @click="handleSecondaryCtaClick()"
-      >
-        {{ secondaryCtaText }}
-      </button>
     </div>
   </div>
 </template>
@@ -58,14 +40,6 @@
 <script>
 export default {
   name: "HomePageBanner",
-  props: ["primaryCtaLink", "primaryCtaText", "primaryLinkTarget", "secondaryCtaLink", "secondaryCtaText", "secondaryLinkTarget"],
-  methods: {
-    handlePrimaryCtaClick() {
-      this.$emit("onPrimaryCtaClick");
-    },
-    handleSecondaryCtaClick() {
-      this.$emit("onSecondaryCtaClick");
-    },
-  },
+  props: ["primaryCtaLink", "primaryCtaText", "primaryLinkTarget", "secondaryCtaLink", "secondaryCtaText", "secondaryLinkTarget"]
 };
 </script>

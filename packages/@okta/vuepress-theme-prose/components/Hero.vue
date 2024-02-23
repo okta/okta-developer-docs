@@ -33,8 +33,6 @@
           primary-link-target="_self"
           secondary-cta-text="Secondary button"
           secondary-cta-link="https://www.yahoo.com"
-          @onPrimaryCtaClick="handlePrimaryCtaClick()"
-          @onSecondaryCtaClick="handleSecondaryCtaClick()"
         >
           <template #heading>
             Banner heading
@@ -59,16 +57,8 @@ export default {
   name: "Hero",
   data() {
     return {
-      showBanner: false
+      showBanner: true
     }
-  },
-  methods: {
-    handlePrimaryCtaClick() {
-      // This callback gets triggered when primary CTA button is clicked in the HomePageBanner
-    },
-    handleSecondaryCtaClick() {
-      // This callback gets triggered when secondary CTA button is clicked in the HomePageBanner
-    },
-  },
+  }
 };
 </script>
