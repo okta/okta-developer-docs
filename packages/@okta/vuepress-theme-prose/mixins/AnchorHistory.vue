@@ -51,14 +51,9 @@ export default {
       if (!target) {
         return;
       }
-      const scrollToPosition = target.offsetTop - this.getPaddedHeaderHeight();
-      window.scrollTo(0, scrollToPosition);
-      // Chrome & Safari: when zoomed in/out, window.scrollTo does not always perform scroll strictly equal to passed parameter
-      // https://bugs.chromium.org/p/chromium/issues/detail?id=890345
-      if (window.scrollY < scrollToPosition) {
-        const scrollAlignment = 2;
-        window.scrollBy(0, scrollAlignment);
-      }
+      const scrollToPosition = target.offsetTop - 20;
+
+      window.scrollTo({top: scrollToPosition, behavior: 'smooth'});
     },
 
     historyPushAndScrollToAnchor: function(anchor) {
