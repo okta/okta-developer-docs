@@ -344,7 +344,7 @@ When an event is triggered by an HTTP request, the client object describes the [
 
 ### Device object
 
-The entity that defines a device xyz.
+The entity that describes a device enrolled with passwordless authentication using Okta Verify.
 
 | Property    | Description                                                  | DataType            | Nullable |
 | ----------- | ------------------------------------------------------------ | ---------------     | -------- |
@@ -352,7 +352,7 @@ The entity that defines a device xyz.
 | name        | Name of the device                                             | String              | FALSE    |
 | os_platform | Operating system of the device                                   | String              | TRUE     |
 | os_version  | Operating system version of the device                                   | String              | TRUE     |
-| managed     | Indicates if the device is configured for device management and is enrolled in Okta Verify                                                          | Boolean              | TRUE     |
+| managed     | Indicates if the device is configured for device management and is registered with Okta                                                        | Boolean              | TRUE     |
 | registered  | Indicates if the device is registered with an Okta org and is bound to an Okta Verify instance on the device                                                          | Boolean             | TRUE     |
 | device_integrator     | The integration platform or software used with the device                                                            | Object             | TRUE     |
 | disk_encryption_type     | The amount of disk encryption for a device. Values can be: `NONE`, `FULL`, `SYSTEM_VOLUME`, `ALL_INTERNAL_VALUES`, and `USER`.                                                              | Enum              | TRUE     |
@@ -361,19 +361,19 @@ The entity that defines a device xyz.
 | secure_hardware_present     |  The availability of hardware security on the device                                                            | Boolean             | TRUE    |
 
 ```json
-"device": {
-            "id": "guob5wtu7rAggkg9G1d7",
-            "name": "MacBookPro16,1",
-            "os_platform": "OSX",
-            "os_version": "14.3.0",
-            "managed": false,
-            "registered": true,
-            "device_integrator": null,
-            "disk_encryption_type": "ALL_INTERNAL_VOLUMES",
-            "screen_lock_type": "BIOMETRIC",
-            "jailbreak": null,
-            "secure_hardware_present": true
-        }
+{
+  "id": "guob5wtu7rAggkg9G1d7",
+  "name": "MacBookPro16,1",
+  "os_platform": "OSX",
+  "os_version": "14.3.0",
+  "managed": false,
+  "registered": true,
+  "device_integrator": null,
+  "disk_encryption_type": "ALL_INTERNAL_VOLUMES",
+  "screen_lock_type": "BIOMETRIC",
+  "jailbreak": null,
+  "secure_hardware_present": true
+}
 ```
 
 ### UserAgent object
