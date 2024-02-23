@@ -394,7 +394,6 @@ You can't publish integrations with the following Okta features in the OIN catal
 
 * **SAML apps with certain features:** The [OIN Wizard](/docs/guides/submit-oin-app/openidconnect/main/) places certain limits on SAML integration submissions. Examples of these limitations include:
    * Only one to three app instance variables allowed
-   * No attribute statement support
    * No RelayState support
    * No force authentication (`ForceAuthn`) support
 

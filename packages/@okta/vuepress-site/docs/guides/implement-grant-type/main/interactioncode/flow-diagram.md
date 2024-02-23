@@ -50,7 +50,7 @@ The Interaction Code flow is similar to the [OAuth 2.0 Authorization Code flow w
 
    > **Note:** A confidential client authenticates with the authorization server while a public client (like the Sign-In Widget) identifies itself to the authorization server. Both must provide the PKCE code challenge.
 
-1. Okta evaluates the sign-on policies for the app and authentication server and determines that remediation is required.
+1. Okta evaluates the sign-on policies for the app and authorization server and determines that remediation is required.
 1. The Identity Engine component of the authorization server sends the `interaction_handle` parameter in a response body to the client app.
 
    > **Note:** The `interaction_handle` is used to continue the interaction directly with the Identity Engine. This is why you need to register the client, either confidential or public, with the Identity Engine to perform this direct interaction.

@@ -47,7 +47,11 @@
     methods: {
       inputChanged: function(value) {
         this.selectedOption = value
-        window.scrollTo(0, document.querySelector('#'+value.code).offsetTop - document.querySelector('.fixed-header').clientHeight - 45);
+        const target = document.querySelector('#'+value.code)
+
+        const scrollToPosition = target.offsetTop - 20;
+
+        window.scrollTo({top: scrollToPosition, behavior: 'smooth'})
       }
     }
   }

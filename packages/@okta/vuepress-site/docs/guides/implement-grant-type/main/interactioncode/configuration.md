@@ -26,7 +26,7 @@ If you disable the Interaction Code grant type:
 
 ## Enable Interaction Code grant for your authorization server
 
-After you [enable the Interaction Code grant for your org](#enable-interaction-code-grant-for-your-org), it’s automatically configured in your [org authorization server](/docs/concepts/auth-servers/#org-authorization-server). If you're using a [custom authentication server](/docs/concepts/auth-servers/#custom-authorization-server), you need to enable Interaction Code grant for it in the Admin Console:
+After you [enable the Interaction Code grant for your org](#enable-interaction-code-grant-for-your-org), it’s automatically configured in your [org authorization server](/docs/concepts/auth-servers/#org-authorization-server). If you're using a [custom authorization server](/docs/concepts/auth-servers/#custom-authorization-server), you need to enable Interaction Code grant for it in the Admin Console:
 
 1. Open the **Admin Console** for your org.
 1. Go to **Security** > **API**.
