@@ -2,15 +2,13 @@
   <div class="layout">
     <div class="fixed-header">
       <Header />
+      <HeaderNav />
     </div>
     <div
       :class="{
         'page-body': true,
       }"
     >
-      <HeaderNav />
-
-
       <div
         v-if="$page.frontmatter.component"
         class="content"
