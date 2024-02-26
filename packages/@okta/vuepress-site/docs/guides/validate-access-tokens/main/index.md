@@ -50,7 +50,7 @@ The JSON Web Keys (JWK) need to be retrieved from your [Okta authorization serve
 
 > For more information about retrieving this metadata, see [Retrieve Authorization Server Metadata](/docs/reference/api/oidc/#well-knownoauth-authorization-server).
 
-### Decoding and Validating the Access Token
+### Decode and Validate the Access Token
 
 You need to decode the access token, which is in JWT format.  This involves the following steps:
 - Verify the token signature.
