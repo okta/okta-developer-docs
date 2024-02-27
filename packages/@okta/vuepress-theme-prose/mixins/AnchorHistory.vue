@@ -83,8 +83,8 @@ export default {
 
       const matchingPair = this.anchorsOffset.find(
         pair =>
-          scrollTop >= pair.start - this.paddedHeaderHeight &&
-          (!pair.end || scrollTop < pair.end - this.paddedHeaderHeight),
+          scrollTop >= pair.start - 20 &&
+          (!pair.end || scrollTop < pair.end - 20),
         this
       );
       const activeAnchor = matchingPair
