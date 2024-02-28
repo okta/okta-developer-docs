@@ -712,6 +712,10 @@ export const guides = [
           {
             title: "Anything-as-a-Source integration",
             path: "/docs/guides/anything-as-a-source/",
+          },
+          {
+            title: "Set up an app provisioning connection",
+            guideName: "app-provisioning-connection"
           }
         ],
       },
