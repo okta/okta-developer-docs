@@ -5,17 +5,11 @@ export default {
   inject: ['appContext'],
   data() {
     return {
-      paddedHeaderHeight: 0,
       anchorOffset: []
     };
   },
   mounted() {},
   methods: {
-    getPaddedHeaderHeight: function () {
-      return  document.querySelector(".fixed-header").clientHeight +
-              LAYOUT_CONSTANTS.HEADER_TO_CONTENT_GAP;
-    },
-
     setAnchors: function (anchors) {
         this.anchors = anchors;
         this.getAnchorsOffset();
@@ -25,8 +19,6 @@ export default {
         return;
       }
 
-      this.paddedHeaderHeight = this.getPaddedHeaderHeight()
-      
       const anchorOffsets = this.anchors.map(
         /* 
           In case of a few pages like error codes (/docs/reference/error-codes/), we are using our custom template
@@ -51,7 +43,7 @@ export default {
       if (!target) {
         return;
       }
-      const scrollToPosition = target.offsetTop - 20;
+      const scrollToPosition = target.offsetTop - LAYOUT_CONSTANTS.ANCHOR_TOP_MARGIN;
 
       window.scrollTo({top: scrollToPosition, behavior: 'smooth'});
     },
@@ -83,8 +75,8 @@ export default {
 
       const matchingPair = this.anchorsOffset.find(
         pair =>
-          scrollTop >= pair.start - 20 &&
-          (!pair.end || scrollTop < pair.end - 20),
+          scrollTop >= pair.start - LAYOUT_CONSTANTS.ANCHOR_TOP_MARGIN &&
+          (!pair.end || scrollTop < pair.end - LAYOUT_CONSTANTS.ANCHOR_TOP_MARGIN),
         this
       );
       const activeAnchor = matchingPair
