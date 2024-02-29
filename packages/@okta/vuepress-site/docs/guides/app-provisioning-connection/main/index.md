@@ -2,18 +2,18 @@
 title: Set up an app provisioning connection
 meta:
   - name: description
-    content: Configure and enable an app provisioning connection with the Okta API
+    content: Configure and enable an app provisioning connection with the Okta APIs
 layout: Guides
 ---
 
-This guide shows you how to use the Okta API to configure and enable an Okta provisioning connection with a supported third-party app integration.
+This guide shows you how to use the Okta APIs to configure and enable an Okta provisioning connection with a supported third-party app integration.
 
 ---
 
 **Learning outcomes**
 
-* Learn how to enable a token-based or OAuth 2.0-based provisioning connection for a supported app integration using the Okta API
-* Learn how to configure provisioning features for a supported app integration using the Okta API
+* Learn how to enable a token-based or OAuth 2.0-based provisioning connection for a supported app integration using the Okta APIs.
+* Learn how to configure provisioning features for a supported app integration using the Okta APIs.
 
 **What you need**
 
@@ -82,9 +82,9 @@ After you create your app integration in Okta, configure the provisioning connec
       }'
     ```
 
-2. [Configure the provisioning features for your app](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationFeatures/#tag/ApplicationFeatures/operation/updateFeatureForApplication): INBOUND_PROVISIONING or USER_PROVISIONING.
+2. [Configure the provisioning features for your app](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationFeatures/#tag/ApplicationFeatures/operation/updateFeatureForApplication): INBOUND_PROVISIONING and/or USER_PROVISIONING.
 
-    * INBOUND_PROVISIONING feature: For token-based connections, only the Org2Org (`okta_org2org`) app supports this feature. INBOUND_PROVISIONING is similar to the app **Provisioning** > **To Okta** provisioning setting in the Admin Console, where user profiles are imported from the third-party app into Okta. You can schedule user import and configure rules for [user creation and matching](https://help.okta.com/en-us/content/topics/users-groups-profiles/usgp-edit-app-provisioning.htm).
+    * INBOUND_PROVISIONING feature: For token-based connections, only the Okta Org2Org (`okta_org2org`) app supports this feature. INBOUND_PROVISIONING is similar to the app **Provisioning** > **To Okta** provisioning setting in the Admin Console, where user profiles are imported from the third-party app into Okta. You can schedule user import and configure rules for [user creation and matching](https://help.okta.com/en-us/content/topics/users-groups-profiles/usgp-edit-app-provisioning.htm).
 
     * USER_PROVISIONING feature: For token-based connections, both the Okta Org2Org (`okta_org2org`) and Zscaler 2.0 (`zscalerbyz`) apps support this feature. USER_PROVISIONING is similar to the app **Provisioning** > **To App** provisioning setting in the Admin Console, where [user profiles are pushed](https://help.okta.com/okta_help.htm?type=oie&id=ext_Using_Selective_Profile_Push) from Okta to the third-party app. You can configure rules for creating users, deactivating users, and syncing passwords.
 
@@ -110,7 +110,7 @@ After you create your app integration in Okta, configure the provisioning connec
 
 1. [Set the default Provisioning Connection](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationConnections/#tag/ApplicationConnections/operation/updateDefaultProvisioningConnectionForApplication) for your app to use the OAuth 2.0 authentication scheme.
 
-    `google` app example:
+    Here’s a `google` app example:
 
     ```bash
     curl -i -X POST \
@@ -126,7 +126,7 @@ After you create your app integration in Okta, configure the provisioning connec
 
     > **Note:** The bearer token (`{yourOktaAccessToken}`) in the header of this example is your token to access Okta APIs. See [Okta API authentication](/docs/reference/core-okta-api/#authentication).
 
-    `office365` app example:
+    In this `office365` app example, you need to specify Microsoft Office 365 admin user credentials in the `profile` payload.
 
     ```bash
     curl -i -X POST \
@@ -229,7 +229,7 @@ After you create your app integration in Okta, configure the provisioning connec
       -H 'Authorization: Bearer {yourOktaAccessToken}'
     ```
 
-1. [Configure the provisioning feature for your app](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationFeatures/#tag/ApplicationFeatures/operation/updateFeatureForApplication): INBOUND_PROVISIONING or USER_PROVISIONING.
+1. [Configure the provisioning features for your app](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationFeatures/#tag/ApplicationFeatures/operation/updateFeatureForApplication): INBOUND_PROVISIONING and/or USER_PROVISIONING.
 
     * INBOUND_PROVISIONING feature: This feature is similar to the app **Provisioning** > **To Okta** provisioning setting in the Admin Console, where user profiles are imported from the third-party app into Okta. You can schedule user import and configure rules for [user creation and matching](https://help.okta.com/en-us/content/topics/users-groups-profiles/usgp-edit-app-provisioning.htm).
 
