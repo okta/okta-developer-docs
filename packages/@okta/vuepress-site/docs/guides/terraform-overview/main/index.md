@@ -22,7 +22,7 @@ For example, you can include an `okta_groups` resource in your Terraform code to
 
 The Okta Provider interacts with your org by making API calls using the Okta Go SDK. Each resource and data source makes calls to different APIs to read and manage the objects in your org. Some resources and data sources make more than one API call when you run your Terraform code. See [Minimize Terraform rate limit errors](/docs/guides/terraform-design-rate-limits) for tips on managing the number of API calls that Terraform makes.
 
-For a closer look at how resources and data sources call the API, see the [terraform-provider-okta](https://github.com/okta/terraform-provider-okta) Github repository.
+For a closer look at how resources and data sources call the API, see the [terraform-provider-okta](https://github.com/okta/terraform-provider-okta) GitHub repository.
 
 > **Note:** To use Terraform to automate your Customer Identity Cloud (CIC), use the Auth0 Provider.
 

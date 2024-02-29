@@ -1,6 +1,6 @@
 Let's say that you have an API that provides messages for a user. You could create a component that gets the access token and uses it to make an authenticated request to your server.
 
-Here is what the Vue component could look like for this hypothetical example using [axios](https://github.com/axios/axios):
+Here is what the Vue component could look like for this hypothetical example using [Axios](https://github.com/axios/axios):
 
 ```js
 <template>
