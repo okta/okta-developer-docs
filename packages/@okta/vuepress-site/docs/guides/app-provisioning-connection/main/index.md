@@ -27,7 +27,7 @@ This guide shows you how to use the Okta APIs to configure and enable an Okta pr
 
 You can enable and configure app provisioning connections for supported integrations using Okta APIs. This operation was only available in the Admin Console before Okta provided API support for provisioning connections. See [Configure provisioning for an app integration](https://help.okta.com/okta_help.htm?type=oie&id=ext_prov_lcm_prov_app) in the product documentation.
 
-Okta supports token-based or OAuth 2.0-based authentication for the provisioning connections. The following provisioning apps support specific connection authentication types.
+Okta supports token-based or OAuth 2.0-based authentication for the provisioning connections. The following are Okta-supported app integrations and the authentication types they use for their provisioning connection.
 
 | Connection authentication | <div style="width:300px">Apps supported</div> | Description |
 | ------------------------- | -------------- | ----------- |
