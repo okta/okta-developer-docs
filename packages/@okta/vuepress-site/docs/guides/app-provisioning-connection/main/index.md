@@ -27,7 +27,7 @@ This guide shows you how to use the Okta APIs to configure and enable an Okta pr
 
 You can enable and configure app provisioning connections for supported integrations using Okta APIs. This operation was only available in the Admin Console before Okta provided API support for provisioning connections. See [Configure provisioning for an app integration](https://help.okta.com/okta_help.htm?type=oie&id=ext_prov_lcm_prov_app) in the product documentation.
 
-Okta supports token-based or OAuth 2.0-based authentication for the provisioning connections. The following are Okta-supported app integrations and the authentication types they use for their provisioning connection.
+Okta supports token-based or OAuth 2.0-based authentication for the provisioning connections. The following are Okta-supported app integrations and the authentication types that they use for their provisioning connection.
 
 | Connection authentication | <div style="width:300px">Apps supported</div> | Description |
 | ------------------------- | -------------- | ----------- |
@@ -47,7 +47,7 @@ After you create your app integration in Okta, configure the provisioning connec
 
 > **Note:** The API operations in these steps correspond to the configuration in the **Provisioning** tab of your app integration in the Admin Console. For example, see [Okta Org2Org configuration](https://help.okta.com/okta_help.htm?type=oie&id=ext-org2org-intg).
 
-1. [Set the default Provisioning Connection](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationConnections/#tag/ApplicationConnections/operation/updateDefaultProvisioningConnectionForApplication) for your app to use the Token authentication scheme. You can activate the connection simultaneously with the activate query parameter.
+1. [Set the default Provisioning Connection](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationConnections/#tag/ApplicationConnections/operation/updateDefaultProvisioningConnectionForApplication) for your app to use the token authentication scheme. You can activate the connection simultaneously with the activate query parameter.
 
     In this `zscalerbyz` app example, `{yourZscalerToken}` is the API token you obtained from your Zscaler 2.0 app.
 
@@ -84,7 +84,7 @@ After you create your app integration in Okta, configure the provisioning connec
 
 2. [Configure the provisioning features for your app](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationFeatures/#tag/ApplicationFeatures/operation/updateFeatureForApplication): INBOUND_PROVISIONING and/or USER_PROVISIONING.
 
-    * INBOUND_PROVISIONING feature: For token-based connections, only the Okta Org2Org (`okta_org2org`) app supports this feature. INBOUND_PROVISIONING is similar to the app **Provisioning** > **To Okta** setting in the Admin Console, where user profiles are imported from the third-party app into Okta. You can schedule user import and configure rules for [user creation and matching](https://help.okta.com/en-us/content/topics/users-groups-profiles/usgp-edit-app-provisioning.htm).
+    * INBOUND_PROVISIONING feature: For token-based connections, only the Okta Org2Org (`okta_org2org`) app supports this feature. INBOUND_PROVISIONING is similar to the app **Provisioning** > **To Okta** setting in the Admin Console, where user profiles are imported from the third-party app into Okta. You can schedule user import and configure rules for [user creation and matching](https://help.okta.com/en-us/content/topics/users-groups-profiles/usgp-edit-app-provisioning.htm).  <!-- Use this alias in the final doc: https://help.okta.com/okta_help.htm?type=oie&id=ext-usgp-edit-app-provisioning -->
 
     * USER_PROVISIONING feature: For token-based connections, both the Okta Org2Org (`okta_org2org`) and Zscaler 2.0 (`zscalerbyz`) apps support this feature. USER_PROVISIONING is similar to the app **Provisioning** > **To App** setting in the Admin Console, where [user profiles are pushed](https://help.okta.com/okta_help.htm?type=oie&id=ext_Using_Selective_Profile_Push) from Okta to the third-party app. You can configure rules for creating users, deactivating users, and syncing passwords.
 
@@ -197,7 +197,7 @@ After you create your app integration in Okta, configure the provisioning connec
 
     After you finish the consent flow successfully, the third-party app returns a callback to Okta, which validates the response and then issues a URL (`continue_oauth_flow_url`) to complete the OAuth 2.0 flow.
 
-    Here's an example of the third-party app response after consent is provided:
+    Here's an example of the response after consent is provided:
 
     ```json
     {
