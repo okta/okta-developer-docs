@@ -16,7 +16,7 @@ This guide describes how to install and configure an example application that de
 
 > **Note:** The library isn't Okta's and isn't supported by Okta.
 
-This guide assumes that you are familiar with the basics of Python software development: using the command line, editing text files, using [virtualenv](https://virtualenv.pypa.io/en/latest/), and using [pip](https://en.wikipedia.org/wiki/Pip_%28package_manager%29).
+This guide assumes that you are familiar with the basics of Python software development: using the command line, editing text files, using [`virtualenv`](https://virtualenv.pypa.io/en/latest/), and using [`pip`](https://en.wikipedia.org/wiki/Pip_%28package_manager%29).
 
 If you're already familiar with Okta, you can skip to the section titled "Configuring PySAML2 to work with Okta."
 
@@ -125,8 +125,8 @@ Use both methods to test your application. In each case, you know if the test wo
 
     	```bash
     	$ source venv/bin/activate
-	$ python app.py
-	```
+	    $ python app.py
+	    ```
 
     -   Open the example application in your browser:
         `http://localhost:5000/`
@@ -138,16 +138,16 @@ Use both methods to test your application. In each case, you know if the test wo
 
     -  Start the example application from the command line:
 
-    ```bash
-    	$ source venv/bin/activate
-	$ python app.py
-	```
+        ```bash
+        $ source venv/bin/activate
+        $ python app.py
+	    ```
 
     -  Sign in to your Okta organization.
 
     -  Click the button for the application that you created earlier in the "Configuring Okta to work with PySAML2" section above: ![PySAML2 Example](/img/pysaml2-example-okta-chiclet.png "PySAML2 Example")
 
-If you can to get to the "Logged in" page using both of the methods above, the test are successful.
+If you can to get to the "Logged in" page using both of the methods above, the tests are successful.
 
 Congratulations on getting Okta working with PySAML2!
 
