@@ -11,7 +11,7 @@ This guide walks you through integrating authentication and authorization into a
 
 ## Prerequisites
 
-If you don't already have a **Developer Edition Account**, you can create one at [https://developer.okta.com/signup/](https://developer.okta.com/signup/).
+[Okta Developer Edition organization](https://developer.okta.com/signup/)
 
 ### Add an OpenID Connect Client
 
@@ -24,11 +24,17 @@ If you don't already have a **Developer Edition Account**, you can create one at
 | Login redirect URIs  | `com.okta.example:/callback`                         |
 | Logout redirect URIs | `com.okta.example:/logout`                            |
 
+    | Setting              | Value                                |
+    | -------------------  | ------------------------------------ |
+    | Application Name     | OpenId Connect App (must be unique)  |
+    | Login redirect URIs  | `com.okta.example:/callback`         |
+    | Logout redirect URIs | `com.okta.example:/logout`           |
+
 > **Note:** As with any Okta application, make sure that you assign Users or Groups to the OpenID Connect Client. Otherwise, no one can use it.
 
 ## Installation
 
-The simplest way to add authentication into an iOS app is using the library [Okta AppAuth](http://cocoapods.org/pods/OktaAuth), available through [CocoaPods](http://cocoapods.org). To install it, simply add the following line to your Podfile:
+The simplest way to add authentication into an iOS app is using the library [Okta AppAuth](http://cocoapods.org/pods/OktaAuth), available through [CocoaPods](http://cocoapods.org). To install it, simply add the following line to your `Podfile`:
 
 ```ruby
 pod 'OktaAuth', '~> 0.1'
@@ -43,23 +49,23 @@ Create a new `Okta.plist` file in your application's bundle with the following f
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>issuer</key>
-	<string>https://${yourOktaDomain}/oauth2/${authorizationServerId}</string>
-	<key>clientId</key>
-	<string>${clientIdValue}</string>
-	<key>redirectUri</key>
-	<string>${redirectUrlValue}</string>
+    <key>issuer</key>
+    <string>https://${yourOktaDomain}/oauth2/${authorizationServerId}</string>
+    <key>clientId</key>
+    <string>${clientIdValue}</string>
+    <key>redirectUri</key>
+    <string>${redirectUrlValue}</string>
         <key>scopes</key>
-	<array>
-		<string>offline_access</string>
-		<string>openid</string>
-		<string>profile</string>
-	</array>
+    <array>
+        <string>offline_access</string>
+        <string>openid</string>
+        <string>profile</string>
+    </array>
 </dict>
 </plist>
 ```
 
-**Note**: To receive a `refresh_token`, you must include the `offline_access` scope.
+> **Note**: To receive a `refresh_token`, you must include the `offline_access` scope.
 
 > **Important:** Most native applications send access tokens to access APIs. If you're building an API that needs to accept access tokens, [create an authorization server](/docs/guides/customize-authz-server/).
 
@@ -109,7 +115,7 @@ In native applications, it is common for users to have a long-lived session. It'
 
 ### Store the User's Tokens
 
-Tokens are securly stored in the keychain. They are easily set and retrieved with the helper methods `set` and `get`.
+Tokens are securely stored in the keychain. They are easily set and retrieved with the helper methods `set` and `get`.
 
 ```swift
 OktaAuth

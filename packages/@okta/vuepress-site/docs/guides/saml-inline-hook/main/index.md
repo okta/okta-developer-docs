@@ -54,7 +54,7 @@ At a high-level, the following workflow occurs:
 
 The Spring Boot, SAML, and Okta application is designed to implement Single Sign-On (SSO) with Spring Security's SAML and Okta.
 
-Access the Spring Boot, SAML, and Okta code from the following Github repository:
+Access the Spring Boot, SAML, and Okta code from the following GitHub repository:
 
 [https://github.com/oktadev/okta-spring-boot-saml-example](https://github.com/oktadev/okta-spring-boot-saml-example)
 
