@@ -3534,12 +3534,9 @@ These endpoints allow you to manage tokens issued by an Authorization Server for
 
 Read [Validate Access Tokens](/docs/guides/validate-access-tokens/) to understand more about how OAuth 2.0 tokens work.
 
-<ApiLifecycle access="ea" />
 
 ### List Refresh Tokens
 
-
-<ApiLifecycle access="ea" />
 
 <ApiOperation method="get" url="/api/v1/users/${userId}/clients/${clientId}/tokens" />
 
@@ -3623,8 +3620,6 @@ curl -v -X GET \
 
 ### Get Refresh Token
 
-
-<ApiLifecycle access="ea" />
 
 <ApiOperation method="get" url="/api/v1/users/${userId}/clients/${clientId}/tokens/${tokenId}" />
 
@@ -3735,8 +3730,6 @@ curl -v -X GET \
 ### Revoke All Refresh Tokens
 
 
-<ApiLifecycle access="ea" />
-
 <ApiOperation method="delete" url="/api/v1/users/${userId}/clients/${clientId}/tokens" />
 
 Revokes all refresh tokens issued for the specified User and Client. Any access tokens issued with these refresh tokens will also be revoked, but access tokens issued without a refresh token will not be affected.
@@ -3769,8 +3762,6 @@ HTTP/1.1 204 No Content
 
 ### Revoke Refresh Token
 
-
-<ApiLifecycle access="ea" />
 
 <ApiOperation method="delete" url="/api/v1/users/${userId}/clients/${clientId}/tokens/${tokenId}" />
 
