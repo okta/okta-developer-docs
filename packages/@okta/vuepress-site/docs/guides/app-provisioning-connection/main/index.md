@@ -47,9 +47,9 @@ After you create your app integration in Okta, configure the provisioning connec
 
 > **Note:** The API operations in these steps correspond to the configuration in the **Provisioning** tab of your app integration in the Admin Console. For example, see [Okta Org2Org configuration](https://help.okta.com/okta_help.htm?type=oie&id=ext-org2org-intg).
 
-1. [Set the default Provisioning Connection](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationConnections/#tag/ApplicationConnections/operation/updateDefaultProvisioningConnectionForApplication) for your app to use the token authentication scheme. You can activate the connection simultaneously with the activate query parameter.
+1. [Set the default Provisioning Connection](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationConnections/#tag/ApplicationConnections/operation/updateDefaultProvisioningConnectionForApplication) for your app to use the token authentication scheme. You can activate the connection simultaneously with the `activate` query parameter.
 
-    In this `zscalerbyz` app example, `{yourZscalerToken}` is the API token you obtained from your Zscaler 2.0 app.
+    In this Zscaler 2.0 (`zscalerbyz`) app example, `{yourZscalerToken}` is the API token you obtained from your Zscaler 2.0 app.
 
     ```bash
     curl -i -X POST \
