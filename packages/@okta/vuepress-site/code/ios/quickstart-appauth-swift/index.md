@@ -20,15 +20,9 @@ This guide walks you through integrating authentication and authorization into a
 
 | Setting              | Value                                               |
 | -------------------  | --------------------------------------------------- |
-| Application Name     | OpenId Connect App (must be unique)               |
-| Login redirect URIs  | `com.okta.example:/callback`                         |
-| Logout redirect URIs | `com.okta.example:/logout`                            |
-
-    | Setting              | Value                                |
-    | -------------------  | ------------------------------------ |
-    | Application Name     | OpenId Connect App (must be unique)  |
-    | Login redirect URIs  | `com.okta.example:/callback`         |
-    | Logout redirect URIs | `com.okta.example:/logout`           |
+| Application Name     | OpenId Connect App (must be unique)                 |
+| Login redirect URIs  | `com.okta.example:/callback`                        |
+| Logout redirect URIs | `com.okta.example:/logout`                          |
 
 > **Note:** As with any Okta application, make sure that you assign Users or Groups to the OpenID Connect Client. Otherwise, no one can use it.
 
