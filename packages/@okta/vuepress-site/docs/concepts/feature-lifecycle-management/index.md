@@ -56,4 +56,4 @@ In this example:
 * Feature A has three dependencies: Feature B, Feature C, and Feature D.
 * Feature D has one dependant: Feature A.
 
-If Feature A has Feature B as a dependency, which means that Feature A can't be enabled if Feature B isn't enabled first. Conversely, Feature B has Feature A as one of its dependants. This means that Feature B can't be disabled unless you disable Feature A first.
+If Feature A has Feature B as a dependency, then Feature A can't be enabled if Feature B isn't enabled first. Conversely, Feature B has Feature A as one of its dependants. This means that Feature B can't be disabled unless you disable Feature A first.
