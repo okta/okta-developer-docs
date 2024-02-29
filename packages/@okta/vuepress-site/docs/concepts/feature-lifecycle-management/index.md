@@ -6,7 +6,7 @@ title: Feature Lifecycle Management
 
 This page covers a few key concepts that underpin the [Okta Features API](/docs/reference/api/features/). The Features API allows you to manage self-service features, their feature dependants, and their feature dependencies. For Beta features, special restrictions apply to the behavior of the API.
 
-See [Release lifecycle](/docs/api/openapi/okta-management/guides/release-lifecycle/).
+See [Release lifecycle](https://developer.okta.com/docs/api/openapi/okta-management/guides/release-lifecycle/).
 
 ## Self-service features
 
