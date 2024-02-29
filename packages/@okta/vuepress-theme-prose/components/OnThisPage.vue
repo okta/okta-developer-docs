@@ -34,7 +34,6 @@
 </template>
 
 <script>
-import { LAYOUT_CONSTANTS } from "../layouts/Layout.vue";
 import AnchorHistory from "../mixins/AnchorHistory.vue";
 import _ from "lodash";
 export default {
@@ -100,19 +99,6 @@ export default {
     window.removeEventListener("resize", this.updateAnchors);
   },
   methods: {
-    setAlwaysOnViewPosition: _.debounce(function() {
-      let maxHeight =
-        document.querySelector(".on-this-page").clientHeight - window.scrollY;
-      if (maxHeight > window.innerHeight) {
-        maxHeight =
-          window.innerHeight -
-          document.querySelector(".fixed-header").clientHeight -
-          60;
-      }
-      document.querySelector(".on-this-page-navigation").style.height =
-        maxHeight + "px";
-    }, 200),
-
     setActiveAnchor: _.debounce(function() {
       const onThisPageActiveAnchor = this.getActiveAnchor();
       this.activeAnchor = onThisPageActiveAnchor
