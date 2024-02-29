@@ -68,7 +68,7 @@ Okta Identity Engine:
 
 Okta Classic Engine:
 
-* The [Okta .NET Authentication SDK](https://github.com/okta/okta-auth-dotnet) is useful if you cann't use OIDC and need your server-side code to interact with the Authentication API for handling the sign-in flow.
+* The [Okta .NET Authentication SDK](https://github.com/okta/okta-auth-dotnet) is useful if you can't use OIDC and need your server-side code to interact with the Authentication API for handling the sign-in flow.
 * Okta's [Okta ASP.NET OIDC middleware Integration](https://github.com/okta/okta-aspnet) makes it easy to add sign-in to your ASP.NET Core applications and protect your Web APIs.
 * [Okta ASP.NET OIDC integration on NuGet](https://www.nuget.org/packages/Okta.AspNet)
 

@@ -334,7 +334,7 @@ When you sign in, the resulting page shows that you have a `ROLE_USER` authority
 
 ## Deploy with Heroku
 
-After you have Okta working with the generated Spring Security SAML application, the next step is to take the example code and move it to your production enviroment. The specifics of how this works are different depending on how your application is set up.
+After you have Okta working with the generated Spring Security SAML application, the next step is to take the example code and move it to your production environment. The specifics of how this works are different depending on how your application is set up.
 
 One quick way to see this app working in a production environment is to deploy it to Heroku. [Install the Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli) and create an account to begin. Then, follow the steps below to prepare and deploy your app.
 

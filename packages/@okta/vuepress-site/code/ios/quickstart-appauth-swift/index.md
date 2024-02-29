@@ -109,7 +109,7 @@ In native applications, it is common for users to have a long-lived session. It'
 
 ### Store the User's Tokens
 
-Tokens are securly stored in the keychain. They are easily set and retrieved with the helper methods `set` and `get`.
+Tokens are securely stored in the keychain. They are easily set and retrieved with the helper methods `set` and `get`.
 
 ```swift
 OktaAuth

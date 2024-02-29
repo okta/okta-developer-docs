@@ -196,7 +196,7 @@ else {
 }
 ```
 
-> **Note:** This example, like everything else on this page, is for illustrative purposess only. The `prompt()` method isn't considered a secure way of asking for user authentication credentials.
+> **Note:** This example, like everything else on this page, is for illustrative purposes only. The `prompt()` method isn't considered a secure way of asking for user authentication credentials.
 
 #### Complete Okta Session and OIDC token example
 
