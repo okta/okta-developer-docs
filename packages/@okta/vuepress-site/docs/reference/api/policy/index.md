@@ -2576,8 +2576,6 @@ The following table shows the possible relationships between all the authenticat
 
 #### Verification Method with Authentication Method JSON examples
 
-<ApiLifecycle access="ea" />
-
 ```json
 // allow an authenticator - key only
 {
