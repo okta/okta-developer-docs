@@ -42,7 +42,6 @@ guide. As noted in the [Create your integration](/docs/guides/build-sso-integrat
 
   **Note:** `5000` is the port that Flask uses by default. If you're using a different port number, change `5000` to appropriate one.
 
-
 ## Configure PySAML2 to work with Okta
 
 Now that you have configured the PySAML2 Example application icon in your Okta organization, you are ready to configure PySAML2 to work with your Okta organization. In this section we use the **Identity Provider metadata** link from the section above to configure PySAML2. After you complete the following steps, you have a working example of connecting Okta to a sample Python application using PySAML2.
@@ -81,7 +80,7 @@ Now that you have configured the PySAML2 Example application icon in your Okta o
     $ $EDITOR app.py
     ```
 
-5. After opening the `app.py` file, modify the contents of the `metadata_url_for` dictionary as shown below.
+5. In `app.py` file, modify the contents of the `metadata_url_for` dictionary as shown below.
 
     ``` python
     metadata_url_for = {
@@ -89,7 +88,7 @@ Now that you have configured the PySAML2 Example application icon in your Okta o
     }
     ```
 
-6. Be sure to replace the contents of `${metadataUrl}` with the link that you copied in step \#10 of the [Setting up a SAML application in Okta](/docs/guides/customize-authz-server/) instructions that you followed above.
+    Replace the contents of `${metadataUrl}` with the link that you copied in step \#10 of the [Setting up a SAML application in Okta](/docs/guides/customize-authz-server/) instructions that you followed above.
 
     > **Note:** The contents of `${metadataUrl}` should look similar to: `https://${yourOktaDomain}/app/a0b1c2deFGHIJKLMNOPQ/sso/saml/metadata`
 
