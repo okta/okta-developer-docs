@@ -6,7 +6,7 @@ layout: Guides
 
 This guide explains how to customize your Okta org with your custom domain. It also explains how to configure a custom email address so that you can present a branded experience to your end users.
 
-> **Note:** You can't sign in to [Okta Workflows](https://help.okta.com/okta_help.htm?type=wf&id=ext-Okta-workflows) through a custom domain (Okta-managed or using your own Transport Layer Security (TLS) certificate). Sign in through your default [Okta domain](/docs/guides/find-your-domain/main/).
+> **Note:** As of 29 February 2024, the value to which you should point your custom domain CNAME is `example.okta-dnssec.com`, instead of `example.okta.com`. This value appears for all new and existing custom domains and allows you to be [DNSSEC (Domain Name System Security Extensions)](https://datatracker.ietf.org/doc/html/rfc9364) compliant. The former value (`example.okta.com`) continues to work.
 
 ---
 
@@ -38,7 +38,7 @@ For configuring a custom email address:
 
 You can customize your Okta organization by replacing the Okta domain name with your own domain name. Your customized domain allows you to create a seamless branded experience for your users so that all URLs look like your app.
 
-For example, you use Okta as a user store for your apps, but you don't want your users to know that the app uses Okta behind the scenes. Okta orgs host pages on subdomains such as `example.okta.com`. You can create a [CNAME record](https://datatracker.ietf.org/doc/html/rfc1035#section-3.2.2) for the Okta domain, allowing you to alias it to another subdomain that you own, like `login.example.com`.
+For example, you use Okta as a user store for your apps, but you don't want your users to know that the app uses Okta behind the scenes. Okta orgs host pages on subdomains such as `example.okta-dnssec.com` or `example.okta.com`. You can create a [CNAME record](https://datatracker.ietf.org/doc/html/rfc1035#section-3.2.2) for the Okta domain, allowing you to alias it to another subdomain that you own, like `login.example.com`.
 
 > **Note:** Set up a [custom domain](/docs/guides/custom-url-domain/main/) and customize your [CSP](https://content-security-policy.com/) if you also want to customize the [sign-in page](/docs/guides/custom-widget/main/#content-security-policy-csp-for-your-custom-domain) and [error pages](/docs/guides/custom-error-pages/main/#content-security-policy-csp-for-your-custom-domain).
 
@@ -46,7 +46,7 @@ Okta serves pages on your custom domain over HTTPS. To set up this feature, you 
 
 You can also [configure a custom email address](#about-custom-email-addresses) to present a branded experience to your end users.
 
-> **Note:** When you create a custom domain, the Okta domain (for example, `company.okta.com`) still works.
+> **Note:** When you create a custom domain, the Okta domain (for example, `company.okta-dnssec.com` or `company.okta.com`) still works.
 
 ### Multibrand and custom domains
 
@@ -79,6 +79,8 @@ The third generation of the Okta Sign-In Widget doesn’t guarantee the stabilit
   * If it's your first time setting up a custom domain with an Okta-managed certificate, you need to add `letsencrypt.org` to the issuers list or Okta can't get the TLS certificate. See [Let's Encrypt - Using CAA](https://letsencrypt.org/docs/caa/).
 
   * If you have an Okta-managed certificate and you later get a CAA record, Okta can't renew your certificate. You must either add `letsencrypt.org` to the issuers list or remove the CAA record.
+
+* You can't sign in to [Okta Workflows](https://help.okta.com/okta_help.htm?type=wf&id=ext-Okta-workflows) through a custom domain (Okta-managed or using your own Transport Layer Security (TLS) certificate). Sign in through your default [Okta domain](/docs/guides/find-your-domain/main/).
 
 * If you use your own TLS certificate, consider the following:
 
@@ -135,6 +137,8 @@ This method of configuring a custom domain is recommended because Okta manages y
 ### Update your DNS TXT
 
 You need to add DNS TXT and CNAME records for your domain to prove ownership of your domain with Okta before Okta can serve traffic over it. These records include the values provided in the Host and Value columns of the table on the Update your DNS page. Okta verifies that you own your domain when it finds the records that contain the required values.
+
+> **Note:** As of 29 February 2024, the value to which you should point your custom domain CNAME is `example.okta-dnssec.com`, instead of `example.okta.com`. This value appears for all new and existing custom domains and allows you to be [DNSSEC (Domain Name System Security Extensions)](https://datatracker.ietf.org/doc/html/rfc9364) compliant. The former value (`example.okta.com`) continues to work.
 
 1. On the **Update your DNS** page of the configuration wizard, copy the values of the **Host** and **Value** columns into a text file.
 2. Sign in to your Domain Name registrar and locate the option to modify your DNS records.
@@ -269,6 +273,8 @@ There are websites available for flushing the caches for [Google DNS](https://go
 ## Update other Okta settings
 
 After you add your custom domain, some features or APIs require extra configuration to reflect that change.
+
+> **Note:** As of 29 February 2024, the value to which you should point your custom domain CNAME is `example.okta-dnssec.com`, instead of `example.okta.com`. This value appears for all new and existing custom domains and allows you to be [DNSSEC (Domain Name System Security Extensions)](https://datatracker.ietf.org/doc/html/rfc9364) compliant. The former value (`example.okta.com`) continues to work.
 
 ### Update custom authorization server
 
