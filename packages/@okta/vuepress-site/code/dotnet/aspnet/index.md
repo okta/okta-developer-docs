@@ -79,13 +79,8 @@ Okta Classic Engine:
 
 ## Recommended guides
 
-Okta-hosted Sign-In Widget guide:
-
-Sign into your web app with redirect auth  (coming soon)
-
-Embedded SDK and Sign-In Widget sign-in guide:
-
-[Get set up with Identity Engine sample apps and embedded use cases](/docs/guides/oie-embedded-common-org-setup/aspnet/main/)
+* Okta-hosted Sign-In Widget guide: Sign into your web app with redirect auth  (coming soon)
+*  Embedded SDK and Sign-In Widget sign-in guide: [Get set up with Identity Engine sample apps and embedded use cases](/docs/guides/oie-embedded-common-org-setup/aspnet/main/)
 
 Other guides:
 

@@ -11,24 +11,24 @@ This guide walks you through integrating authentication and authorization into a
 
 ## Prerequisites
 
-If you don't already have a **Developer Edition Account**, you can create one at [https://developer.okta.com/signup/](https://developer.okta.com/signup/).
+If you don't already have a **Developer Edition Account**, you can create one [by signing up](https://developer.okta.com/signup/).
 
 ### Add an OpenID Connect Client
 
 * Sign in to the Okta Developer Dashboard, and **Create New App**.
 * Choose **Native app** as the platform, then populate your new OpenID Connect application with values similar to:
 
-| Setting              | Value                                               |
-| -------------------  | --------------------------------------------------- |
-| Application Name     | OpenId Connect App (must be unique)               |
-| Login redirect URIs  | `com.okta.example:/callback`                         |
-| Logout redirect URIs | `com.okta.example:/logout`                            |
+    | Setting              | Value                                |
+    | -------------------  | ------------------------------------ |
+    | Application Name     | OpenId Connect App (must be unique)  |
+    | Login redirect URIs  | `com.okta.example:/callback`         |
+    | Logout redirect URIs | `com.okta.example:/logout`           |
 
 > **Note:** As with any Okta application, make sure that you assign Users or Groups to the OpenID Connect Client. Otherwise, no one can use it.
 
 ## Installation
 
-The simplest way to add authentication into an iOS app is using the library [Okta AppAuth](http://cocoapods.org/pods/OktaAuth), available through [CocoaPods](http://cocoapods.org). To install it, simply add the following line to your Podfile:
+The simplest way to add authentication into an iOS app is using the library [Okta AppAuth](http://cocoapods.org/pods/OktaAuth), available through [CocoaPods](http://cocoapods.org). To install it, simply add the following line to your `Podfile`:
 
 ```ruby
 pod 'OktaAuth', '~> 0.1'
@@ -59,7 +59,7 @@ Create a new `Okta.plist` file in your application's bundle with the following f
 </plist>
 ```
 
-**Note**: To receive a `refresh_token`, you must include the `offline_access` scope.
+> **Note**: To receive a `refresh_token`, you must include the `offline_access` scope.
 
 > **Important:** Most native applications send access tokens to access APIs. If you're building an API that needs to accept access tokens, [create an authorization server](/docs/guides/customize-authz-server/).
 
