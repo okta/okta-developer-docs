@@ -170,7 +170,7 @@ You need to add DNS TXT and CNAME records for your domain to prove ownership of 
 
 Before starting, make sure that you have the TLS certificate (PEM-encoded) for your subdomain and the 2048-bit private key (PEM-encoded).
 
-Okta performs validation checks on the certificate that you upload. If your TLS certificate is a wildcard certificate, it must include the full URL in the Common Name (CN) or Subject Alternative Name (SAN) when it is generated. Otherwise, the following error occurs when you attempt to upload the certificate:
+Okta performs validation checks on the certificate that you upload. If your TLS certificate is a wildcard certificate, it must include the full URL in the Common Name (CN) or Subject Alternative Name (SAN) when it’s generated. Otherwise, the following error occurs when you attempt to upload the certificate:
 
 `The specified certificate does not match your Custom URL Domain.`
 
@@ -285,7 +285,7 @@ You need to update existing custom authorization servers to return the custom do
 1. In the Admin Console, go to **Security** > **API**.
 1. On the **Authorization Servers** tab, select the custom authorization server that you want to update.
 1. Click **Edit** on the custom authorization server that you selected.
-1. From the **Issuer** drop-down box, select the custom URL and click **Save**.
+1. From the **Issuer** dropdown box, select the custom URL and click **Save**.
 
 ### Update issuer for OpenID Connect apps
 
@@ -294,7 +294,7 @@ Also, you may want to change the issuer for your OpenID Connect apps that are us
 1. In the Admin Console, go to **Applications** > **Applications**.
 1. Click the OpenID Connect app that you want to update.
 1. Select the **Sign On** tab, scroll to the **OpenID Connect ID Token** section, and then click **Edit**.
-1. From the **Issuer** drop-down box, select the custom URL and click **Save**.
+1. From the **Issuer** dropdown box, select the custom URL and click **Save**.
 
 ### Update app endpoints
 
@@ -313,7 +313,7 @@ You might notice that the URL has your Okta `dev-*` domain, rather than your cus
 To fix this, update your authorization server to use your custom domain:
 
 1. Sign in to your Okta account and go to **Security** > **API** > **Authorization Servers**.
-1. Locate the  **default** custom authorization server, and then click **Edit**.
+1. Locate the default** custom authorization server, and then click **Edit**.
 1. In the **Settings** section, click **Edit**.
 1. Change the **Issuer** to **Dynamic (based on request domain)**.
 1. Make another request to `./well-known/openid-configuration`. Your custom domain is returned.
