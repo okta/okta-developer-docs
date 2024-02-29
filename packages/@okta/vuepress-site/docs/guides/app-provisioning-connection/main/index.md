@@ -84,9 +84,9 @@ After you create your app integration in Okta, configure the provisioning connec
 
 2. [Configure the provisioning features for your app](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationFeatures/#tag/ApplicationFeatures/operation/updateFeatureForApplication): INBOUND_PROVISIONING and/or USER_PROVISIONING.
 
-    * INBOUND_PROVISIONING feature: For token-based connections, only the Okta Org2Org (`okta_org2org`) app supports this feature. INBOUND_PROVISIONING is similar to the app **Provisioning** > **To Okta** provisioning setting in the Admin Console, where user profiles are imported from the third-party app into Okta. You can schedule user import and configure rules for [user creation and matching](https://help.okta.com/en-us/content/topics/users-groups-profiles/usgp-edit-app-provisioning.htm).
+    * INBOUND_PROVISIONING feature: For token-based connections, only the Okta Org2Org (`okta_org2org`) app supports this feature. INBOUND_PROVISIONING is similar to the app **Provisioning** > **To Okta** setting in the Admin Console, where user profiles are imported from the third-party app into Okta. You can schedule user import and configure rules for [user creation and matching](https://help.okta.com/en-us/content/topics/users-groups-profiles/usgp-edit-app-provisioning.htm).
 
-    * USER_PROVISIONING feature: For token-based connections, both the Okta Org2Org (`okta_org2org`) and Zscaler 2.0 (`zscalerbyz`) apps support this feature. USER_PROVISIONING is similar to the app **Provisioning** > **To App** provisioning setting in the Admin Console, where [user profiles are pushed](https://help.okta.com/okta_help.htm?type=oie&id=ext_Using_Selective_Profile_Push) from Okta to the third-party app. You can configure rules for creating users, deactivating users, and syncing passwords.
+    * USER_PROVISIONING feature: For token-based connections, both the Okta Org2Org (`okta_org2org`) and Zscaler 2.0 (`zscalerbyz`) apps support this feature. USER_PROVISIONING is similar to the app **Provisioning** > **To App** setting in the Admin Console, where [user profiles are pushed](https://help.okta.com/okta_help.htm?type=oie&id=ext_Using_Selective_Profile_Push) from Okta to the third-party app. You can configure rules for creating users, deactivating users, and syncing passwords.
 
 For request and response examples, see the last step to configure the provisioning feature in [Enable OAuth 2.0-based connection for your app](#enable-oauth-2-0-based-connection-for-your-app).
 
@@ -231,7 +231,7 @@ After you create your app integration in Okta, configure the provisioning connec
 
 1. [Configure the provisioning features for your app](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationFeatures/#tag/ApplicationFeatures/operation/updateFeatureForApplication): INBOUND_PROVISIONING and/or USER_PROVISIONING.
 
-    * INBOUND_PROVISIONING feature: This feature is similar to the app **Provisioning** > **To Okta** provisioning setting in the Admin Console, where user profiles are imported from the third-party app into Okta. You can schedule user import and configure rules for [user creation and matching](https://help.okta.com/en-us/content/topics/users-groups-profiles/usgp-edit-app-provisioning.htm).
+    * INBOUND_PROVISIONING feature: This feature is similar to the app **Provisioning** > **To Okta** setting in the Admin Console, where user profiles are imported from the third-party app into Okta. You can schedule user import and configure rules for [user creation and matching](https://help.okta.com/en-us/content/topics/users-groups-profiles/usgp-edit-app-provisioning.htm).
 
       For example:
 
@@ -269,7 +269,7 @@ After you create your app integration in Okta, configure the provisioning connec
           }'
       ```
 
-    * USER_PROVISIONING feature: This feature is similar to the app **Provisioning** > **To App** provisioning setting in the Admin Console, where [user profiles are pushed](https://help.okta.com/okta_help.htm?type=oie&id=ext_Using_Selective_Profile_Push) from Okta to the third-party app. You can configure rules for creating users, deactivating users, and syncing passwords.
+    * USER_PROVISIONING feature: This feature is similar to the app **Provisioning** > **To App** setting in the Admin Console, where [user profiles are pushed](https://help.okta.com/okta_help.htm?type=oie&id=ext_Using_Selective_Profile_Push) from Okta to the third-party app. You can configure rules for creating users, deactivating users, and syncing passwords.
 
       For example:
 
