@@ -8,6 +8,32 @@ title: Okta Identity Engine API Products release notes 2024
 
 ## February
 
+### Weekly release 2024.02.2
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Bugs fixed in 2024.02.2](#bugs-fixed-in-2024-02-2) | February 22, 2024 |
+
+#### Bugs fixed in 2024.02.2
+
+<!-- * The number of unsuccessful calls to the `/api/v1/authn` endpoint sometimes exceeded the threshold set in the password policy settings. (OKTA-698017) Removed for 2024.02.2 as per doc action-->
+
+* Okta sometimes incorrectly returned an Invalid Phone Number error during SMS factor enrollment. (OKTA-683026)
+
+* Sometimes, an OAuth 2.0-secured inline hook that contained a custom domain authorization server in the token URL returned a null pointer exception error, instead of an appropriate error. (OKTA-656265)
+
+* User passwords could be updated to match the answer to the recovery question. (OKTA-654993)
+
+### Weekly release 2024.02.1
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [HTTP header filter](#http-header-filter) | February 22, 2024 |
+
+#### HTTP header filter
+
+To improve the security of your org, Okta now filters and encodes any illegal unicode characters for outgoing HTTP headers. <!-- OKTA-694896 -->
+
 ### Monthly release 2024.02.0
 
 | Change | Expected in Preview Orgs |
@@ -22,7 +48,7 @@ title: Okta Identity Engine API Products release notes 2024
 | [Seamless ISV experience is GA in Production](#seamless-isv-experience-is-ga-in-production) | January 10, 2024 |
 | [Super admin role now required to update direct authentication grants](#super-admin-role-now-required-to-update-direct-authentication-grants) | February 7, 2024 |
 | [Developer documentation update in 2024.02.0](#developer-documentation-update-in-2024-02-0) | February 7, 2024 |
-| [Bug fixed in 2024.01.2](#bug-fixed-in-2024-02-0) | February 7, 2024 |
+| [Bug fixed in 2024.02.0](#bug-fixed-in-2024-02-0) | February 7, 2024 |
 
 #### Assign admin roles to an app
 
@@ -82,7 +108,6 @@ When users signed in with an external Identity Provider and the multiple matchin
 | [Granular API policy authenticator controls is self-service EA in Preview](#granular-api-policy-authenticator-controls-is-self-service-ea-in-preview)| January 31, 2024 |
 | [IP restrictions on tokens](#ip-restrictions-on-tokens)| January 31, 2024 |
 | [Bugs fixed in 2024.01.2](#bugs-fixed-in-2024-01-2) | January 31, 2024 |
-
 
 #### Content Security Policy for custom domains is EA in Preview
 

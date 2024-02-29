@@ -54,11 +54,11 @@ At a high-level, the following workflow occurs:
 
 The Spring Boot, SAML, and Okta application is designed to implement Single Sign-On (SSO) with Spring Security's SAML and Okta.
 
-Access the Spring Book, SAML, and Okta code from the following Github repository:
+Access the Spring Boot, SAML, and Okta code from the following Github repository:
 
 [https://github.com/oktadev/okta-spring-boot-saml-example](https://github.com/oktadev/okta-spring-boot-saml-example)
 
-See [Get Started with Spring Book and SAML](https://developer.okta.com/blog/2022/08/05/spring-boot-saml), a blog post by developer advocate Matt Raible, for background and instructions on setting up this application.
+See [Get Started with Spring Boot and SAML](https://developer.okta.com/blog/2022/08/05/spring-boot-saml), a blog post by developer advocate Matt Raible, for background and instructions on setting up this application.
 
 Or follow the [README](https://github.com/oktadev/okta-spring-boot-saml-example/blob/main/README.md) instructions to install and run the Spring Boot sample application with your Okta org.
 
@@ -263,7 +263,7 @@ The SAML assertion inline hook is now set up with a status of active.
 
 ### Enable the SAML assertion inline hook
 
-1. Navigate to **Applications** and select your SAML application (in this example, "Spring Book SAML").
+1. Navigate to **Applications** and select your SAML application (in this example, "Spring Boot SAML").
 
 1. Click **General**.
 
@@ -297,7 +297,7 @@ The SAML assertion inline hook is ready for preview and testing. You now have th
 
 1. In the first block titled **Configure Inline Hook request**, define a value for `data.userProfile` by searching and selecting a user in your org from the **data.userProfile** dropdown list.
 
-1. Select your SAML application by typing in the **Select a SAML app** field (in this example, "Spring Book SAML"), and clicking on your application.
+1. Select your SAML application by typing in the **Select a SAML app** field (in this example, "Spring Boot SAML"), and clicking on your application.
 
 1. From the **Preview example Inline Hook request** block, click **Generate Request**. You should see the user's request information in JSON format that is sent to the external service.
 

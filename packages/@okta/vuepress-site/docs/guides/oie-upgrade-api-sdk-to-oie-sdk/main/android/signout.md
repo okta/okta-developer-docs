@@ -8,7 +8,7 @@ The Identity Engine Java SDK contains a revoke option in the wrapper client to r
 
 >**Note:** In a mobile app, there is no session storage. You must store the tokens yourself, and then clear them when you use this method.
 
-This step is required since the user is authorized by an Okta authentication server. The following code snippet shows how the `IDXAuthenticationWrapper.revokeToken()` method is called:
+This step is required since the user is authorized by an Okta authorization server. The following code snippet shows how the `IDXAuthenticationWrapper.revokeToken()` method is called:
 
 ```java
 String accessToken = tokenResponse.getAccessToken();

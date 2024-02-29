@@ -51,7 +51,7 @@ export default {
         this.scrollToAnchor(`${anchor}`);
       } else {
         // navigating via back button to no-anchor URL
-        window.scrollTo(0, 0);
+        window.scrollTo({top: 0, behavior: 'instant'});
       }
       this.onClickCaptureAnchors();
     },
