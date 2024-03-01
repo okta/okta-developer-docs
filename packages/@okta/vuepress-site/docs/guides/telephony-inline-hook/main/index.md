@@ -36,7 +36,7 @@ This guide provides an example of an Okta telephony inline hook. This example us
 
 * Make sure that you have an active phone number in Twilio with SMS and MMS capabilities.
 
-* Create a [TwiML bin](https://www.twilio.com/docs/runtime/tutorials/twiml-bins#create-a-new-twiml-bin) in your Twilio account for use with Voice (Call) messages. You need the handler URL that is automatically generated to use as a variable. Additionally, place an `otp` tag key in double brackets in the prepopulated XML. This tag key directly references the dynamic `otp` used in this exercise. For example:
+* Create a [TwiML bin](https://www.twilio.com/docs/runtime/tutorials/twiml-bins#create-a-new-twiml-bin) in your Twilio account for use with voice call messages. You'll use the automatically generated handler URL as a variable. Additionally, include an `otp` tag key within double brackets in the prepopulated XML. This tag key references the dynamic `otp` used later in this exercise. For example:
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
@@ -47,11 +47,11 @@ This guide provides an example of an Okta telephony inline hook. This example us
 
 ## About telephony inline hook implementation
 
-You can customize a telephony Service Provider for your org by using an Okta telephony inline hook. A telephony inline hook allows you to integrate your own custom code into Okta flows that send SMS or Voice (Call) messages (except Okta Verify enrollment). You can integrate this hook with enrollment, authentication, and recovery flows that involve the Phone authenticator. While the one-time passcode (OTP) is sent to the requester, Okta calls your external service to deliver the OTP, and the external service responds with commands that indicate success or failure in delivering the OTP.
+The Okta telephony inline hook allows you to integrate your own custom code into Okta flows that send SMS or voice call messages (except Okta Verify enrollment). You can integrate this hook with enrollment, authentication, and recovery flows that involve phone authenticators. Okta uses your external provider to deliver the one-time passcode (OTP) to the Requester. The provider can respond with commands that indicate if the delivery was successful or not.
 
 > **Note:** An org can have only one active telephony inline hook.
 
-In the following example, the external service code parses requests from Okta and responds to Okta with commands that indicate whether the SMS or Voice (Call) message was sent successfully.
+In the following example, the external service code parses requests from Okta and responds to Okta with commands that indicate whether the SMS or voice call message was sent successfully.
 
 At a high-level, the following workflow occurs:
 
@@ -71,7 +71,7 @@ Verify that your org has the Phone authenticator added and enabled for **Authent
 1. In the Admin Console, go to **Security** > **Authenticators**.
 1. On the **Setup** tab, verify that the Phone authenticator is listed and that **Authentication, Recovery** is enabled in the **Used for** column.
 1. Select **Edit** from the **Actions** menu and verify that both **Voice call** and **SMS** are selected as how the verification messages are sent.
-1. Verify that **Authentication and recovery** is selected as how the Phone authenticator is used.
+1. Verify that the **Authentication and recovery** option is selected.
 1. Click **Save** if made any changes.
 
 > **Note:** If the Phone authentication isn't already added, click **Add Authenticator** and then click **Add** on the Phone tile and make sure that you select the options mentioned earlier and click **Add**.
@@ -141,13 +141,13 @@ The following code retrieves the value of the OTP code sent by Okta from the `da
 
 ## Response sent to the user
 
-The following code is used to send the SMS or Voice (Call) to the user:
+The following code is used to send the SMS or voice call to the user:
 
 <StackSelector snippet="sendsmsmakecall" noSelector/>
 
 ## Send response to Okta
 
-The way to tell Okta that the SMS or Voice (Call) message was successfully sent is by returning a `commands` object in the body of your HTTPS response. The `commands` object is an array that allows you to send multiple commands. The two required properties are `type` and `value`. The`value` property is where you specify the status of your telephony transaction and other relevant transaction metadata. The action type is `com.okta.telephony.action`.
+The way to tell Okta that the SMS or voice call message was successfully sent is by returning a `commands` object in the body of your HTTPS response. The `commands` object is an array that allows you to send multiple commands. The two required properties are `type` and `value`. The`value` property is where you specify the status of your telephony transaction and other relevant transaction metadata. The action type is `com.okta.telephony.action`.
 
 <StackSelector snippet="responsetookta" noSelector/>
 
@@ -168,7 +168,7 @@ To preview the telephony inline hook:
     > **Note**: If your user doesn't have a phone number in their profile, change the phone number to one that you want to test in the **Preview example inline hook request** section. Click **Edit** and then add a value for the `phoneNumber` in the `messageProfile` section of the request (for example, `"+15555551212"`).
 
 1. From the **Preview example inline hook request** section, click **Generate Request**. You should see the user's request information in JSON format that is sent to the external service.
-1. From the **View Service's Response** section, click **View Response**. You should see the response from your external service in JSON format. Upon a successful response, an SMS code or Voice (Call) message with the code is sent to the specified user. If there's an error, the error message appears in the response.
+1. From the **View Service's Response** section, click **View Response**. You should see the response from your external service in JSON format. Upon a successful response, an SMS code or voice call message with the code is sent to the specified user. If there's an error, the error message appears in the response.
 
     > **Note**: If the external service fails, an OTP is still delivered to the user through the default Okta telephony provider. If the failure happens when previewing the hook, Okta doesn't generate an OTP.
 
