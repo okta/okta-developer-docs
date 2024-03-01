@@ -3,7 +3,9 @@ const overviewPages = require('./scripts/build-overview-pages');
 const findLatestWidgetVersion = require('./scripts/findLatestWidgetVersion');
 const convertReplacementStrings = require('./scripts/convert-replacement-strings');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const Path = require('path')
+const Path = require('path');
+const axios = require('axios');
+const { parseString } = require('xml2js');
 const signInWidgetMajorVersion = 7;
 
 const projectRootDir = Path.resolve(__dirname, '../../../../');
@@ -329,7 +331,7 @@ module.exports = ctx => ({
     ...overviewPages()
   ],
 
-  extendPageData ($page) {
+  async extendPageData ($page) {
     const {
       _filePath,           // file's absolute path
       _computed,           // access the client global computed mixins at build time, e.g _computed.$localePath.
@@ -348,6 +350,26 @@ module.exports = ctx => ({
         $page.redir = `/docs/guides/${found.guide}/${found.mainFramework}/${found.sections[0]}/`
       } else {
         $page.redir = `/docs/guides/${found.guide}/${found.sections[0]}/`
+      }
+    }
+
+    if (path === '/') {
+      $page.newsFeedDataJson = null;
+      let response;
+      try {
+        response = await axios.get('https://developer.okta.com/feed.xml');     
+      } catch {
+        $page.newsFeedDataJson = null;
+      }
+
+      if (response && response.data) {
+        parseString(response.data, { compact: true, spaces: 4 }, (err, jsonObj) => {
+          if (err) {
+            return;
+          }
+        
+          $page.newsFeedDataJson = jsonObj;
+        });
       }
     }
 

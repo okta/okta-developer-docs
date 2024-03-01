@@ -53,7 +53,6 @@
 </template>
 
 <script>
-const axios = require('axios');
 const BLOG_TYPES = {
   BLOG: 'Blog',
   VIDEO: 'Video'
@@ -101,61 +100,21 @@ export default {
     this.getBlogPosts();
   },
   methods: {
-    xmlToJs(xmlString) {
-      let xmlDoc = new DOMParser().parseFromString(xmlString, 'text/xml');
-      let result = {};
-
-      function parseNode(node, obj) {
-        if (node.nodeType === Node.TEXT_NODE) {
-          obj['#text'] = node.nodeValue.trim();
-        } else if (node.nodeType === Node.ELEMENT_NODE) {
-          let nodeName = node.nodeName;
-          let item = {};
-          for (let i = 0; i < node.childNodes.length; i++) {
-            parseNode(node.childNodes[i], item);
-          }
-          if (obj[nodeName]) {
-            if (!Array.isArray(obj[nodeName])) {
-              obj[nodeName] = [obj[nodeName]];
-            }
-            obj[nodeName].push(item);
-          } else {
-            obj[nodeName] = item;
-          }
-        }
-      }
-
-      parseNode(xmlDoc.documentElement, result);
-
-      return result;
-    },
-    async getBlogPosts() {
-      this.blogPosts = initialBlogPosts;
-
-      let result;
-      try {
-        result = await axios.get('https://developer.okta.com/feed.xml');     
-      } catch {
-        return;
-      }
-      if (!result || !result.data) {
-        return;
-      }
-
-      const jsObject = this.xmlToJs(result.data);
-      const length = jsObject?.rss?.channel?.item?.length;
+    getBlogPosts() {
+      const blogsObj = this.$page.newsFeedDataJson;
+      const length = blogsObj?.rss?.channel[0]?.item?.length;
       if (!length || length < 5) {
         return;
       }
 
       this.blogPosts = [];
-      
+
       for (let i = 0; i < 5; i++) {
-        this.blogPosts.push({
+        this.blogPosts[i] = {
           type: BLOG_TYPES.BLOG,
-          link: jsObject.rss.channel.item[i].link['#text'],
-          title: jsObject.rss.channel.item[i].title['#text']
-        });
+          link: blogsObj.rss.channel[0].item[i].link[0],
+          title: blogsObj.rss.channel[0].item[i].title[0]
+        };
       }
     }
   }
