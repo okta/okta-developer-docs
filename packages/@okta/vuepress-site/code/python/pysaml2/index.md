@@ -89,7 +89,7 @@ Now that you have configured the PySAML2 Example application icon in your Okta o
     }
     ```
 
-6. Replace the contents of `${metadataUrl}` with the link that you copied in step \#10 of the [Setting up a SAML application in Okta](/docs/guides/customize-authz-server/) instructions that you followed above.
+6. Replace the contents of `${metadataUrl}` with the link that you copied in step \#10 of the [Setting up a SAML application in Okta](/docs/guides/customize-authz-server/) instructions.
 
     > **Note:** The contents of `${metadataUrl}` should look similar to: `https://${yourOktaDomain}/app/a0b1c2deFGHIJKLMNOPQ/sso/saml/metadata`
 
