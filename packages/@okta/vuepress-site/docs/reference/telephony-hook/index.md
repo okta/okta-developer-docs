@@ -18,7 +18,7 @@ This page provides reference documentation for telephony inline hooks, a type of
 
 ## About
 
-The Okta telephony inline hook allows you to integrate your own custom code into Okta flows that send SMS or voice (CALL) messages. You can integrate this hook with enrollment, authentication, and recovery flows that involve the phone authenticator. While the one-time passcode (OTP) is sent to the requester, Okta calls your external service to deliver the OTP, and your service can respond with commands that indicate success or failure in delivering the OTP.
+The Okta telephony inline hook allows you to integrate your own custom code into Okta flows that send `SMS` or `voice call` messages. You can integrate this hook with enrollment, authentication, and recovery flows that involve the phone authenticator. While the one-time passcode (OTP) is sent to the requester, Okta calls your external service to deliver the OTP, and your service can respond with commands that indicate success or failure in delivering the OTP.
 
 You can have only one active telephony inline hook per org.
 
@@ -57,10 +57,10 @@ Provides information on the properties of the message being sent to the OTP requ
 
 | Property | Description                        | Data Type                    |
 |----------|------------------------------------|------------------------------|
-| msgTemplate   | SMS message template. Not applicable for CALL.      | String     |
+| msgTemplate   | SMS message template. Not applicable for `voice call` Factors.      | String     |
 | phoneNumber | Phone number enrolled for the Phone authenticator by the OTP requester             | String |
 | otpExpires   | Time when the OTP expires | String     |
-| deliveryChannel   | OTP delivery method: SMS or CALL | String     |
+| deliveryChannel   | OTP delivery method. Possible values: `SMS` or `voice call` | String     |
 | otpCode   | OTP code | String     |
 | locale   | Location of the OTP requester | String     |
 
