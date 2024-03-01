@@ -49,7 +49,7 @@ At a high-level, the following workflow occurs:
 
 ## Set up the sample Express application
 
-The sample Node.js Express application is designed to demonstrate the [Authorization Code flow](/docs/guides/implement-grant-type/authcode/main/), and includes an Okta-hosted Login sample used in this token inline hook guide. Access the code from the following github repository and use the following instructions to set up your sample application.
+The sample Node.js Express application is designed to demonstrate the [Authorization Code flow](/docs/guides/implement-grant-type/authcode/main/), and includes an Okta-hosted Login sample used in this token inline hook guide. Access the code from the following GitHub repository and use the following instructions to set up your sample application.
 
 * [Express Sample Applications for Okta](https://github.com/okta/samples-nodejs-express-4)
 

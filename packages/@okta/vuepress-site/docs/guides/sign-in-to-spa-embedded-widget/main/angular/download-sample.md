@@ -1,4 +1,4 @@
-1. In your project folder, download the sample application from the gitHub repository and navigate to the custom-login folder.
+1. In your project folder, download the sample application from the GitHub repository and navigate to the custom-login folder.
 
     ```bash
     git clone https://github.com/okta/samples-js-angular.git

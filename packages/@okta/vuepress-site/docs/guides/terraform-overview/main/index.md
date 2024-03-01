@@ -22,7 +22,7 @@ For example, you can include an `okta_groups` resource in your Terraform code to
 
 The Okta Provider interacts with your org by making API calls using the Okta Go SDK. Each resource and data source makes calls to different APIs to read and manage the objects in your org. Some resources and data sources make more than one API call when you run your Terraform code. See [Minimize Terraform rate limit errors](/docs/guides/terraform-design-rate-limits) for tips on managing the number of API calls that Terraform makes.
 
-For a closer look at how resources and data sources call the API, see the [terraform-provider-okta](https://github.com/okta/terraform-provider-okta) Github repository.
+For a closer look at how resources and data sources call the API, see the [terraform-provider-okta](https://github.com/okta/terraform-provider-okta) GitHub repository.
 
 > **Note:** To use Terraform to automate your Customer Identity Cloud (CIC), use the Auth0 Provider.
 
@@ -50,7 +50,7 @@ See [State](https://developer.hashicorp.com/terraform/language/state) in the Ter
 
 Terraform includes a command-line interface (CLI) that you use to interact with and run your configuration. The CLI includes many useful commands, but there are three key commands that you use to run any configuration:
 
-* `terraform init`: Initializes your configuration’s directory by downloading the required provider plugins, installs modules used in the configuration, and configures the Terraform backend for storing state. See [Command: init](https://developer.hashicorp.com/terraform/cli/commands/init) in the Terraform documentation.
+* `terraform init`: Initializes your configuration's directory by downloading the required provider plugins, installs modules used in the configuration, and configures the Terraform backend for storing state. See [Command: init](https://developer.hashicorp.com/terraform/cli/commands/init) in the Terraform documentation.
 * `terraform plan`: Generates a preview of the resources that Terraform creates, changes, and removes when you apply the configuration. See [Command: plan](https://developer.hashicorp.com/terraform/cli/commands/plan) in the Terraform documentation.
 * `terraform apply`: Creates, changes, and removes objects in your org according to the plan. See [Command: apply](https://developer.hashicorp.com/terraform/cli/commands/apply) in the Terraform documentation.
 
