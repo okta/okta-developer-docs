@@ -6,7 +6,7 @@ excerpt: Customizes Okta's flows that send SMS or voice messages
 
 # Telephony inline hook reference
 
-This page provides reference documentation for telephony inline hooks, a type of inline hook supported by Okta. It provides sample JSON objects that are contained in the outbound request from Okta to your external service, and sample JSON objects that you can include in your response.
+This page provides reference documentation for telephony inline hooks, a type of inline hook supported by Okta. You can use this content to understand how to structure the JSON objects sent and received by Okta when communicating with an external telephony provider.
 
 ## See also
 
@@ -14,11 +14,11 @@ This page provides reference documentation for telephony inline hooks, a type of
 
 - For information on the API for registering external service endpoints with Okta, see [Inline Hooks Management API](/docs/reference/api/inline-hooks/) or [Add an inline hook](https://help.okta.com/okta_help.htm?type=oie&id=ext-add-inline-hook).
 
-- For a use case example of how to implement a telephony inline hook, see [Telephony inline hook with Twilio](/docs/guides/telephony-inline-hook/).
+- For an example implementation of a telephony inline hook, see [Telephony inline hook with Twilio](/docs/guides/telephony-inline-hook/).
 
 ## About
 
-The Okta telephony inline hook allows you to integrate your own custom code into Okta flows that send SMS or voice (CALL) messages. You can integrate this hook with enrollment, authentication, and recovery flows that involve the phone authenticator. While the one-time passcode (OTP) is sent to the requester, Okta calls your external service to deliver the OTP, and your service can respond with commands that indicate success or failure in delivering the OTP.
+The Okta telephony inline hook allows you to integrate your own custom code into Okta flows that send SMS or voice call messages. You can integrate this hook with enrollment, authentication, and recovery flows that involve the phone authenticator. Okta uses your external provider to deliver the one-time passcode (OTP) to the Requester. The provider can respond with commands that indicate if the delivery was successful or not.
 
 You can have only one active telephony inline hook per org.
 
@@ -33,36 +33,36 @@ OTP request or event for which this transaction is being requested: authenticati
 
 Acceptable values for `requestType`
 
-| Enum Value                      | Associated Okta Event                                                                                          |
-| ------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| `com.okta.user.telephony.pre-enrollment`                  | Enrollment |
-| `com.okta.user.telephony.mfa-verification`    | Authentication |
-| `com.okta.user.telephony.account-unlock`              | Account Unlock |
-| `com.okta.user.telephony.password-reset`              | Password Reset |
+| Enum Value                      | Associated Okta Event      |
+|---------------------------------|----------------------------|
+| `com.okta.user.telephony.pre-enrollment`    | Enrollment     |
+| `com.okta.user.telephony.mfa-verification`  | Authentication |
+| `com.okta.user.telephony.account-unlock`    | Account unlock |
+| `com.okta.user.telephony.password-reset`    | Password reset |
 
 ### data.userProfile
 
-Provides information on the OTP requester
+Provides information on the OTP Requester
 
-| Property | Description                   | Data Type                    |
-|----------|-------------------------------|------------------------------|
-| firstName   | First name of the OTP requester | String     |
-| lastName | Last name of the OTP requester        | String |
-| login | Okta sign in of the OTP requester        | String |
-| userId | Okta user ID of the OTP requester        | String |
+| Property    | Description                       | Data Type                    |
+|-------------|-----------------------------------|------------------------------|
+| firstName   | First name of the OTP Requester   | String |
+| lastName    | Family name of the OTP Requester  | String |
+| userId      | Okta user ID of the OTP Requester | String |
+| login       | Okta sign in of the OTP Requester | String |
 
 ### data.messageProfile
 
-Provides information on the properties of the message being sent to the OTP requester.
+Provides information on the properties of the message being sent to the OTP Requester.
 
 | Property | Description                        | Data Type                    |
 |----------|------------------------------------|------------------------------|
-| msgTemplate   | SMS message template. Not applicable for CALL.      | String     |
-| phoneNumber | Phone number enrolled for the Phone authenticator by the OTP requester             | String |
-| otpExpires   | Time when the OTP expires | String     |
-| deliveryChannel   | OTP delivery method: SMS or CALL | String     |
-| otpCode   | OTP code | String     |
-| locale   | Location of the OTP requester | String     |
+| msgTemplate     | SMS message template. Not applicable for `voice call` authentication.    | String |
+| phoneNumber     | Phone number enrolled for the Phone authenticator by the OTP Requester   | String |
+| otpExpires      | Timestamp when the OTP expires                                           | String |
+| deliveryChannel | OTP delivery method. Possible values: `SMS` or `voice call`              | String |
+| otpCode         | OTP code                                                                 | String |
+| locale          | Location of the OTP Requester                                            | String |
 
 ## Objects in the response that you send
 
@@ -81,7 +81,7 @@ The `value` property is itself a nested object in which you specify a status, pr
 | Property | Description                                                              | Data Type       |
 |----------|--------------------------------------------------------------------------|-----------------|
 | type     | One of the [supported commands](#supported-commands)                    | String          |
-| value    | Result of the send OTP operation. It specifies whether the OTP was sent successfully by the external web service or provider. | [value](#value) |
+| value    | Result of the send OTP operation. Indicates if the external web service or provider sent the OTP. | [value](#value) |
 
 #### Supported commands
 
@@ -98,17 +98,17 @@ The `value` object specifies the result of the Send OTP operation and includes t
 | Property | Description                 | Data Type       |
 |----------|-----------------------------|-----------------|
 | status                 | Whether the OTP was sent successfully using the customer's web service                 | [status](#status) |
-| provider               | Provider used to send the OTP using the customer's web service                         | String            |
-| transactionId          | Transaction ID that uniquely identifies an attempt to deliver the OTP to the requester | String            |
+| provider               | The provider used to send the OTP using the customer's web service                     | String            |
+| transactionId          | Transaction ID that uniquely identifies an attempt to deliver the OTP to the Requester | String            |
 | transactionMetadata    | Any relevant transaction metadata, such as duration                                    | String            |
 
 #### status
 
 | Status     | Description               |
 |------------|---------------------------|
-| SUCCESSFUL | External web service was able to deliver the OTP to the requester                |
-| PENDING    | External web service wasn't able to confirm delivery of the OTP to the requester |
-| FAILED     | External web service was unable to deliver the OTP to the requester              |
+| SUCCESSFUL | External web service was able to deliver the OTP to the Requester                |
+| PENDING    | External web service wasn't able to confirm delivery of the OTP to the Requester |
+| FAILED     | External web service was unable to deliver the OTP to the Requester              |
 
 ### error
 
@@ -118,7 +118,7 @@ When you return an error object, it should have the following structure:
 |--------------|--------------------------------------|-----------|
 | errorSummary | Human-readable summary of the error | String    |
 
-Returning an error object causes Okta to retry sending the OTP to the requester using the Okta telephony providers.
+Returning an error object causes Okta to retry sending the OTP to the Requester using the Okta telephony providers.
 
 > **Note:** If the error object doesn't include a defined `errorSummary` property, the following default message is returned to the end user: `The callback service returned an error`.
 
@@ -206,7 +206,7 @@ This section provides example JSON payloads for the supported operations.
 
 ## Timeout behavior
 
-After receiving the Okta request, if there’s a response timeout, the Okta process flow proceeds with trying to send the OTP using the Okta telephony providers. See [Troubleshoot](#troubleshoot).
+If the provider response times out, Okta attempts to send the OTP using the Okta telephony providers. See [Troubleshoot](#troubleshoot).
 
 ## Troubleshoot
 
@@ -216,9 +216,9 @@ This section explains several common causes of failure for telephony inline hook
 
 |       Issue      |          Impact            |      Error Visibility       |
 |------------------|----------------------------|-----------------------------|
-| External service fails to communicate or times out                          | Inline hook operation is skipped, OTP is sent to the requester using an Okta telephony provider   | Administrators only                       |
-| External service responds with any HTTP status code besides `200`           | Inline hook operation is skipped, OTP is sent to the requester using an Okta telephony provider   | Administrators only                       |
-| External service returns an error object                                    | Inline hook operation fails, OTP is sent to the requester using an Okta telephony provider        | Administrators, developers, and end users |
+| External service fails to communicate or times out                          | Inline hook operation is skipped, OTP is sent to the Requester using an Okta telephony provider   | Administrators only                       |
+| External service responds with any HTTP status code besides `200`           | Inline hook operation is skipped, OTP is sent to the Requester using an Okta telephony provider   | Administrators only                       |
+| External service returns an error object                                    | Inline hook operation fails, OTP is sent to the Requester using an Okta telephony provider        | Administrators, developers, and end users |
 | Hook response is malformed or can't be mapped to the expected API response  | Inline hook operation is skipped                                                                  | Administrators only                       |
 | Request header doesn't include an `authScheme`                              | Inline hook operation is skipped                                                                  | Administrators only                       |
 | Response uses an invalid status                                             | Inline hook operation is skipped                                                                  | Administrators only                       |
