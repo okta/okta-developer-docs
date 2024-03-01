@@ -45,7 +45,7 @@ Acceptable values for `requestType`
 Provides information on the OTP Requester
 
 | Property    | Description                       | Data Type                    |
-|-------------|---------------------------------- |------------------------------|
+|-------------|-----------------------------------|------------------------------|
 | firstName   | First name of the OTP Requester   | String |
 | lastName    | Family name of the OTP Requester  | String |
 | userId      | Okta user ID of the OTP Requester | String |
