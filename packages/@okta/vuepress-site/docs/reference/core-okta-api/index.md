@@ -188,7 +188,7 @@ See [Error Codes](/docs/reference/error-codes/) for a list of API error codes.
 
 Okta APIs support two authentication options:
 
-* [OAuth 2.0 and OpenID Connect](#oauth-20-and-openid-connect-authentication)
+* [OAuth 2.0 and OpenID Connect](#oauth-2-0-and-openid-connect-authentication)
 * [API token](#api-token-authentication)
 
 #### OAuth 2.0 and OpenID Connect authentication
@@ -199,6 +199,8 @@ Refer to the following guides for OAuth 2.0 and OpenID Connect authentication im
 * For user access token requests, see [Implement OAuth for Okta](/docs/guides/implement-oauth-for-okta/).
 * For service access token requests, see [Implement OAuth for Okta with service app](/docs/guides/implement-oauth-for-okta-serviceapp/).
 * For partner service apps in the Okta Integration Network (OIN), see [Build an API service integration](/docs/guides/build-api-integration/main/).
+
+To set up OAuth 2.0 and OpenID Connect authentication for testing purposes, see [Test the Okta REST APIs with Postman](/docs/reference/rest/).
 
 #### API token authentication
 
