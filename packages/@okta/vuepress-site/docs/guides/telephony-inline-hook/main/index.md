@@ -34,7 +34,7 @@ This guide provides an example of an Okta telephony inline hook. This guide uses
 
 > **Note:** You can also use Amazon Web Services Lambda Serverless Framework as an external service. See [Setting Up Serverless Framework With AWS](https://www.serverless.com/framework/docs/getting-started).
 
-* Make sure you have an user in your org with a Phone authenticator enrolled. See [MFA Usage report](https://help.okta.com/okta_help.htm?type=oie&id=ext-mfa-usage).
+* Make sure you have a user in your org with a Phone authenticator enrolled. See [MFA Usage report](https://help.okta.com/okta_help.htm?type=oie&id=ext-mfa-usage).
 
 * Make sure you have an active phone number in Twilio with SMS and MMS capabilities.
 
