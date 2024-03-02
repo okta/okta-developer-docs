@@ -104,7 +104,7 @@ Create an Okta OIDC client app integration to represent the consumption device. 
 1. In the Admin Console, go to **Applications** > **Applications**, and then click **Create App Integration**.
 2. Select **OIDC - OpenID Connect** as the **Sign-in method** and choose the type of application that you want to integrate with Okta. In this example, select **Web Application**.
 3. Click **Next**, and then enter a name for your app integration.
-4. Select **Client-initiated backchannel authentication flow (CIBA)** as a **Grant type**.
+4. In the **Grant type** section, click **Advanced** and select **Client-initiated backchannel authentication flow (CIBA)** in the **Other grants** section.
 5. Select the Custom Authenticator that you [previously configured using the Mobile SDK](https://github.com/okta/okta-mobile-swift) from the **Preferred authenticator for CIBA** dropdown list.
 6. In the **Sign-in redirect URIs** box, specify the callback location where Okta returns the tokens after the user finishes authenticating. You can use the default URI for this exercise.
 
@@ -173,10 +173,11 @@ You can also use the [Apps API](/docs/reference/api/apps/#add-oauth-2-0-client-a
 You can use either the org authorization server or a custom authorization server with CIBA. In this example, use the `default` custom authorization server.
 
 1. In the Admin Console, go to **Security** > **API**.
-2. On the **Authorization Servers** tab, select the edit icon to the right of the authorization server that you want to use. In this example, use the `default` custom authorization server.
-3. Select **Access Policies**.
-4. Select the edit icon for the Default Policy Rule.
-5. Select **Client-initiated backchannel authentication (CIBA)** as a grant type and click **Update rule**.
+1. On the **Authorization Servers** tab, select the edit icon to the right of the authorization server that you want to use. In this example, use the `default` custom authorization server.
+1. Select **Access Policies**.
+1. Select the edit icon for the Default Policy Rule.
+1. Click **Advanced** in the **IF Grant type is** section, and then select **Client-initiated backchannel authentication (CIBA)** in the **Other grants** section.
+1. Click **Update rule**.
 
 ## Enroll a Custom Authenticator to use CIBA
 
