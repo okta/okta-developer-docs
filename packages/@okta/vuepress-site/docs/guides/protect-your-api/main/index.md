@@ -31,7 +31,7 @@ Add a layer of authorization to your web services with [Okta API Access Manageme
 
 ## Overview
 
-Applications accessing your web APIs require the same level of [authentication and authorization](https://www.okta.com/identity-101/authentication-vs-authorization/) as users accessing your web applications. However, the sign-in flow should be silent and require no human user interaction. Use Okta to grant the correct level of access to your APIs on your behalf.
+Background services and third-party APIs accessing your own APIs require the same level of [authentication and authorization](https://www.okta.com/identity-101/authentication-vs-authorization/) as users accessing your web applications. However, a machine-to-machine sign-in flow should be silent and require no human user interaction. Use Okta to grant the correct level of access to your APIs on your behalf.
 
 In this quickstart, you:
 
@@ -42,6 +42,8 @@ In this quickstart, you:
 1. [Test your API is secure](#test-your-api-is-secure)
 
 > **Tip**: You need your Okta org domain to follow this tutorial. It looks like `dev-123456.okta.com`. See [Find your Okta domain](/docs/guides/find-your-domain/). Where you see `${yourOktaDomain}` in this guide, replace it with your Okta domain.
+
+> **Note**: For a similar use case where Okta secures a machine-to-machine sign-in flow between a background service app and the Okta APIs, see [Implement OAuth for Okta with a service app](/docs/guides/implement-oauth-for-okta-serviceapp/)
 
 ## Check that API Access Management is enabled
 

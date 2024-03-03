@@ -1,16 +1,8 @@
-Create a `@public_route` decorator to mark any route accessible without `login`:
+
+Every endpoint allows anonymous access if they do not validate the request's accompanying access token.
 
 ```python
-def public_route(decorated_function):
-    decorated_function.is_public = True
-    return decorated_function
-```
-
-For example, to make the default route (`/`) public, update it as follows:
-
-```python
-@app.route("/")
-@public_route
-def hello():
-    return render_template("hello.html")
+@app.route("/hello")
+def get_anonymous():
+    return "you are anonymous"
 ```

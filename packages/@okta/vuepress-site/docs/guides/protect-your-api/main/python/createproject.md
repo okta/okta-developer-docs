@@ -4,4 +4,4 @@
    * app.py
    * .okta.env
 
-Use the [sample code](https://github.com/okta-samples/okta-php-api-quickstart) to follow along. Note that it includes extra functionality not covered in the tutorial, such as signing users in and out.
+Use the [sample code](https://github.com/okta-samples/okta-flask-api-sample) to follow along.
