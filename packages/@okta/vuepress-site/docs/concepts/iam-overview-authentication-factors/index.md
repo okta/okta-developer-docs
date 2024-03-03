@@ -75,7 +75,7 @@ For users to sign in with their external IdP credentials, you must forward their
 
 - **OpenID Connect (OIDC)**. See [OAuth 2.0 and OpenID Connect overview](/docs/concepts/oauth-openid/) for a high-level introduction to these protocols.
 
-- **Secure Authentication Markup Language (SAML)**. See [SAML app integrations](https://help.okta.com/okta_help.htm?id=ext-apps-about-saml) for how you can use Okta as an Identity Provider or a Service Provider using SAML.
+- **Security Assertion Markup Language (SAML)**. See [SAML app integrations](https://help.okta.com/okta_help.htm?id=ext-apps-about-saml) for how you can use Okta as an Identity Provider or a Service Provider using SAML.
 
 - **WS-Federation (WS-Fed)** is typically used to sign in to legacy Windows-based web apps and Office 365. See [WS-Fed app integrations](https://help.okta.com/okta_help.htm?type=oie&id=ext-apps-about-wsfed).
 

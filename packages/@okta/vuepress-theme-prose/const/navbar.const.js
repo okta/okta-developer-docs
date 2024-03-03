@@ -912,7 +912,6 @@ export const languagesSdk = [
                { title: "Go", path: "/code/go/" },
                { title: "Java", path: "/code/java/" },
                { title: "Node.js", path: "/code/nodejs/" },
-               { title: "PHP", path: "/code/php/" },
                { title: "Python", path: "/code/python/" },
             ],
          },
@@ -1048,9 +1047,13 @@ export const reference = [
             ]
          },
          {
-            title: "Advanced Server Access API",
-            path: "/docs/reference/api/asa/introduction/"
+            title: "Okta Privileged Access API",
+            path: "https://developer.okta.com/docs/api/openapi/opa/"
          },
+         {
+          title: "Advanced Server Access API",
+          path: "https://developer.okta.com/docs/api/openapi/asa/"
+       },
          {
             title: "SCIM Protocol",
             path: "/docs/reference/scim/",

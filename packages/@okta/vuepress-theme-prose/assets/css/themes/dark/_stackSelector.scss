@@ -3,7 +3,13 @@
 }
 
 .page-body .content--container .stack-selector .selector-control .vs__dropdown-toggle .vs__open-indicator {
-  transform: scale(0.6);
+  transform: scale(1);
+}
+
+@media (max-width: 1439px) {
+  .page-body .content--container .stack-selector .selector-control .vs__dropdown-toggle .vs__open-indicator {
+    transform: scale(0.6);
+  }
 }
 
 .page-body .content--container .stack-selector .selector-control .instructions-label {

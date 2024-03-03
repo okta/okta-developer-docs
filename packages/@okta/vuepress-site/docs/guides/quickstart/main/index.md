@@ -25,7 +25,6 @@ A traditional web app that runs on the server.
 
 <Cards>
   <Card href="/docs/guides/sign-into-web-app-redirect/go/main/" headerImage="/img/homepage/stackselectors/go.png">Go</Card>
-  <Card href="/docs/guides/sign-into-web-app-redirect/php/main/" headerImage="/img/homepage/stackselectors/php.png">PHP</Card>
   <Card href="/docs/guides/sign-into-web-app-redirect/python/main/" headerImage="/img/homepage/stackselectors/python.png">Python Flask</Card>
 </Cards>
 
@@ -65,6 +64,5 @@ An API endpoint or service that is protected by Okta.
 
 <Cards>
   <Card href="/docs/guides/protect-your-api/go/main/" headerImage="/img/homepage/stackselectors/go.png">Go Gin</Card>
-  <Card href="/docs/guides/protect-your-api/php/main/" headerImage="/img/homepage/stackselectors/php.png">PHP</Card>
   <Card href="/docs/guides/protect-your-api/python/main/" headerImage="/img/homepage/stackselectors/python.png">Python Flask</Card>
 </Cards>

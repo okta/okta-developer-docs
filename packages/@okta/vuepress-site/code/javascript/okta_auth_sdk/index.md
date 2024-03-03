@@ -59,7 +59,7 @@ var authClient = new OktaAuth({
 });
 ```
 
-Replace each of these property values with ones from your Okta org and application. For more information about these properties, see the [Client Configuration section of the Auth SDK reference][authjs-reference-client-configuration].
+Replace each of these property values with ones from your Okta org and application. For more information about these properties, see the [Client Configuration section of the Auth SDK reference](https://github.com/okta/okta-auth-js/#configuration-reference).
 
 ### Retrieve ID token from Okta
 
@@ -71,7 +71,7 @@ authClient.token.getWithRedirect({
 });
 ```
 
-[Read more about getWithRedirect in the Auth SDK Reference][authjs-reference-token-getwithredirect].
+[Read more about getWithRedirect in the Auth SDK Reference](https://github.com/okta/okta-auth-js/#tokengetwithredirectoptions).
 
 ### Parse the token
 
@@ -90,7 +90,7 @@ You can also display a specific part of the parsed token:
 console.log(`Hi ${idToken.claims.email}!`);
 ```
 
-[Read more about parseFromUrl in the Auth SDK Reference][authjs-reference-token-parsefromurl].
+[Read more about parseFromUrl in the Auth SDK Reference](https://github.com/okta/okta-auth-js/#tokenparsefromurloptions).
 
 ### Store the parsed token
 
@@ -100,7 +100,7 @@ After the token is parsed out of the URL, you can add it to the Token Manager us
 authClient.tokenManager.add('idToken', idToken);
 ```
 
-[Read more about tokenManager.add in the Auth SDK Reference][authjs-reference-tokenmanager-add].
+[Read more about tokenManager.add in the Auth SDK Reference](https://github.com/okta/okta-auth-js/#tokenmanager-api).
 
 The full code to parse the token, display the email from it, and then add it to the SDK's Token Manager looks like this:
 
@@ -128,7 +128,7 @@ authClient.tokenManager.get('idToken')
 })
 ```
 
-[Read more about tokenManager.get in the Auth SDK Reference][authjs-reference-tokenmanager-get].
+[Read more about tokenManager.get in the Auth SDK Reference](https://github.com/okta/okta-auth-js/#tokenmanagergetkey).
 
 ### Complete OpenID Connect token example
 
@@ -176,7 +176,7 @@ if (authClient.isLoginRedirect()) {
 
 In the code example above, the ID token is retrieved using a redirect to the Okta sign-in page. It's also possible to take a `username` and `password` pair input by the user and pass them to the `signIn` method. This method then initiates an authentication process that returns an [Okta session cookie](/docs/guides/session-cookie/#retrieving-a-session-cookie-by-visiting-a-session-redirect-link). You can then use this Okta session cookie, along with the `getWithRedirect` method, to get back the ID Token. This means that there is no need to redirect the user to the Okta sign-in page.
 
-[Read more about signIn in the Auth SDK Reference][authjs-reference-signin].
+[Read more about signIn in the Auth SDK Reference](https://github.com/okta/okta-auth-js/?tab=readme-ov-file#signinwithcredentialsoptions).
 
 ``` js
 else {
@@ -196,7 +196,7 @@ else {
 }
 ```
 
-> **Note:** This example, like everything else on this page, is for illustrative purposess only. The `prompt()` method isn't considered a secure way of asking for user authentication credentials.
+> **Note:** This example, like everything else on this page, is for illustrative purposes only. The `prompt()` method isn't considered a secure way of asking for user authentication credentials.
 
 #### Complete Okta Session and OIDC token example
 

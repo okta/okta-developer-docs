@@ -122,6 +122,10 @@
   max-width: calc(82% - 350px);
 }
 
+:target {
+  scroll-margin-top: 160px;
+}
+
 .content--container .content-area-full {
   padding: 0 59px;
   max-width: 100%;

@@ -2,7 +2,7 @@
 title: Understanding SAML
 meta:
   - name: description
-    content: Secure Authentication Markup Language is a standards-based protocol for exchanging digital authentication signatures. Learn how SAML operates and how to set up SAML applications in Okta.
+    content: Security Assertion Markup Language is a standards-based protocol for exchanging digital authentication signatures. Learn how SAML operates and how to set up SAML applications in Okta.
 ---
 
 # SAML

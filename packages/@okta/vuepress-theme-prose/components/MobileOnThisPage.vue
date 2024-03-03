@@ -27,6 +27,8 @@
 </template>
 
 <script>
+  import { LAYOUT_CONSTANTS } from "../layouts/Layout";
+
   export default {
     name: 'MobileOnThisPage',
     data: ()=>({ 
@@ -47,7 +49,11 @@
     methods: {
       inputChanged: function(value) {
         this.selectedOption = value
-        window.scrollTo(0, document.querySelector('#'+value.code).offsetTop - document.querySelector('.fixed-header').clientHeight - 45);
+        const target = document.querySelector('#'+value.code)
+
+        const scrollToPosition = target.offsetTop - LAYOUT_CONSTANTS.ANCHOR_TOP_MARGIN;
+
+        window.scrollTo({top: scrollToPosition, behavior: 'smooth'})
       }
     }
   }
