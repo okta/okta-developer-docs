@@ -19,7 +19,7 @@ This quickstart uses several packages to build the API  and consume access token
    from dotenv import load_dotenv
    ```
 
-1. Use [flask](https://flask.palletsprojects.com/en/3.0.x/) to build your API on. Add the following below your previous code:
+1. Use [flask](https://flask.palletsprojects.com/en/3.0.x/) to build your API on:
 
    ```python
    from flask import Flask, make_response, request, session

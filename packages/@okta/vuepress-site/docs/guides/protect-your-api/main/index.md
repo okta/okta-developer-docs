@@ -43,7 +43,7 @@ In this quickstart, you:
 
 > **Tip**: You need your Okta org domain to follow this tutorial. It looks like `dev-123456.okta.com`. See [Find your Okta domain](/docs/guides/find-your-domain/). Where you see `${yourOktaDomain}` in this guide, replace it with your Okta domain.
 
-> **Note**: For a similar use case where Okta secures a machine-to-machine sign-in flow between a background service app and the Okta APIs, see [Implement OAuth for Okta with a service app](/docs/guides/implement-oauth-for-okta-serviceapp/)
+> **Note**: For a similar use case where Okta secures a machine-to-machine sign-in flow between a background service app and the Okta APIs, rather than a service app and your own API, see [Implement OAuth for Okta with a service app](/docs/guides/implement-oauth-for-okta-serviceapp/)
 
 ## Check that API Access Management is enabled
 

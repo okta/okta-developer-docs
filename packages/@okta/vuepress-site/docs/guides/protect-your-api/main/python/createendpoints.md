@@ -1,4 +1,4 @@
-1. Add the following import statements to the top of `app.py`:
+1. Add the following `import` statements to the top of `app.py`:
 
    ```python
    import pybase64

@@ -16,7 +16,7 @@ def read_authorization_header():
         session["authpayload"]=None
 ```
 
-Additional [signature validation](/docs/guides/validate-access-tokens/python/main/) should be completed to ensure the token is valid before storing the `jsonPayload` in a session variable.
+> **Note**: Additional [signature validation](/docs/guides/validate-access-tokens/python/main/) is needed to ensure the token is valid before storing the `jsonPayload` in a session variable.
 
 Each endpoint requiring authentication should check for `session["authpayload"]`. For example:
 
