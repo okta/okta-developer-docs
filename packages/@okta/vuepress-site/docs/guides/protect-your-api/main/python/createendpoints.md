@@ -11,11 +11,11 @@
    app = Flask(__name__)
    app.config.update({'SECRET_KEY': secrets.token_urlsafe()})
 
-   @app.route("/whoami")
+   @app.route("/api/whoami")
    def whoami():
       return "you are a super developer"
 
-   @app.route("/hello")
+   @app.route("/api/hello")
    def get_anonymous():
       return "you are anonymous"
 
