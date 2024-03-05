@@ -6,12 +6,10 @@
     * **Authorization Code** (mandatory for web platform applications)
     * **Refresh token** (not supported for OIN app integrations)
     * **Implicit (hybrid)** (optional) Click **Advanced** to select.
-      **Note:** If you're using Okta Classic Engine, select **Implicit (hybrid)** from the **Grant type** section.
+      **Note:** If you're using Classic Engine, select **Implicit (hybrid)** from the **Grant type** section.
   * SPA:
     * **Authorization Code**
-    * **Implicit (hybrid)** Click **Advanced** to select, and then choose:
-      * **Allow ID Token with implicit grant type**
-      * **Allow Access Token with implicit grant type**
+    * **Implicit (hybrid)** Click **Advanced** to select.
 
     > **Note:** For SPA app integrations, the **Authorization Code** grant type always uses PKCE to verify the client. Also, the **Client acting on behalf of itself** grant type isn't supported in OIN app integrations.
 

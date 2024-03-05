@@ -4,7 +4,7 @@
 
     **Note:** If you're using Okta Classic Engine, select **Refresh Token** and **SAML 2.0 Assertion** in the **Grant type** section.
 
-1. In the **Sign-in redirect URIs** box, enter the callback location where Okta returns the browser (along with the token).
+1. Enter the callback location in the **Sign-in redirect URIs** box. This is where Okta returns the browser (along with the token).
 1. Fill in the remaining details for your app integration, then click **Save**.
 1. Locate the **General Settings** section on the **General** tab, and then click **Edit**.
 
@@ -15,7 +15,7 @@
 
 Save the generated **Client ID** and **Client secret** values to implement your authorization flow.
 
-> **Note:** You can either create an OIDC app integration or use an existing one. In the previous instructions, you're creating a native (mobile)app integration using the Admin Console. Use the [Dynamic Client Registration API](/docs/reference/api/oauth-clients/#client-application-object) to create a SPA or web client application for use with the SAML 2.0 Assertion grant type.
+> **Note:** You can either create an OIDC app integration or use an existing one. In the previous instructions, you're creating a native (mobile) app integration using the Admin Console. Use the [Dynamic Client Registration API](/docs/reference/api/oauth-clients/#client-application-object) to create a SPA or web client application for use with the SAML 2.0 Assertion grant type.
 
 ### Configure the authorization server policy
 
@@ -26,7 +26,7 @@ Make sure that the SAML 2.0 Assertion grant type is enabled in the authorization
 
     > **Note:** See [Configure an access policy](/docs/guides/configure-access-policy/) for information on creating an access policy in the Okta authorization server.
 
-1. Select the **Access Policies** tab and then click the pencil for the default policy rule to make changes in the **Edit Rule** dialog.
+1. Select the **Access Policies** tab and then click the pencil for the default policy rule to access the **Edit Rule** dialog.
 1. Click **Advanced** in the **IF Grant type is** section, and then select **SAML 2.0 Assertion**.
 
 > **Note:** If you're using Classic Engine, select **SAML 2.0 Assertion** in the **IF Grant type is** section.

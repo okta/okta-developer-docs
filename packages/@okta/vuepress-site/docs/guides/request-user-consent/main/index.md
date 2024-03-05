@@ -21,11 +21,11 @@ Implement an Okta-hosted user consent dialog.
 
 ## About the user consent dialog
 
-When configured, the Okta-hosted user consent dialog for OAuth 2.0 or OpenID Connect authentication flows allows users to acknowledge and accept that they are giving an app access to some of their data. With the correct configuration, Okta displays a consent dialog that shows which app is asking for access to what data. The dialog displays the app logo that you specify and also provides details about what data is shared if the user consents.
+When configured, the Okta-hosted user consent dialog for OAuth 2.0 or OpenID Connect authentication flows enables users to acknowledge and accept that they’re giving an app access to some of their data. With the correct configuration, Okta displays a consent dialog that shows which app is asking for access to what data. The dialog displays the app logo that you specify and also provides details about what data is shared if the user consents.
 
 ## User consent and tokens
 
-User consent represents a user's explicit permission to allow an application to access resources protected by scopes. Consent grants are different from tokens because a consent can outlast a token, and there can be multiple tokens with varying sets of scopes derived from a single consent.
+User consent represents a user's explicit permission to allow an application to access resources protected by scopes. Consent grants are different from tokens. This is because a consent can outlast a token. There can also be multiple tokens with varying sets of scopes derived from a single consent.
 
 You can configure which scopes aren't required, which are optional, and which are required.
 
