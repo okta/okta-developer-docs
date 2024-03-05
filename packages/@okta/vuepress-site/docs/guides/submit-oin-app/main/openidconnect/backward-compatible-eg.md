@@ -3,7 +3,7 @@
    To handle empty `companyId` values, you can define the redirect URL as:
 
    ```bash
-   {String.len(app.companyId) == 0 ? 'https://login.myapp.io' : 'https://login.myapp.io?connection=' + app.companyId}
+   https://{String.len(app.companyId) == 0 ? 'login.myapp.io' : 'login.myapp.io?connection=' + app.companyId}
    ```
 
    This expression handles both scenarios where `companyId` is populated or empty.

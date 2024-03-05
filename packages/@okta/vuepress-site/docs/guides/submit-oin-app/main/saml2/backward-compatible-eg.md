@@ -3,7 +3,7 @@
    To handle empty `companyId` values, you can define the ACS URL as:
 
    ```bash
-   ${empty org.companyId ? 'https://login.myapp.io' : 'https://login.myapp.io?connection=' + org.companyId}
+   https://${empty org.companyId ? 'login.myapp.io' : 'login.myapp.io?connection=' += org.companyId}
    ```
 
    This expression handles both scenarios where `companyId` is populated or empty.
