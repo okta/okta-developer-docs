@@ -13,9 +13,11 @@ title: Okta Identity Engine API Products release notes 2024
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
 | [TITLE](#LINK)| March 6, 2023 |
-| [Bugs fixed in 2024.03.0](#bugs-fixed-in-2024-03-0) | March 6, 2024 |
+| [Bug fixed in 2024.03.0](#bugs-fixed-in-2024-03-0) | March 6, 2024 |
 
-#### Bugs fixed in 2024.03.1
+#### Bug fixed in 2024.03.1
+
+Some group claims failed if Okta Expression Language was used. (OKTA-660870)
 
 ## February
 

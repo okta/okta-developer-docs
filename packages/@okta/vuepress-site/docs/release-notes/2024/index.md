@@ -15,6 +15,12 @@ title: Okta API Products release notes 2024
 
 #### Bugs fixed in 2024.03.1
 
+* Okta required a `sharedSecret` length of 16 characters when enrolling a Google Authenticator using the Factors API. Okta now accepts `sharedSecret` lengths between 16 and 32 characters. (OKTA-654920)
+
+* Some group claims failed if Okta Expression Language was used. (OKTA-660870)
+
+* An inline hook secured by an OAuth 2.0 token that had no expiry value returned an HTTP 400 Bad Request error. (OKTA-702184)
+
 ## February
 
 ### Weekly release 2024.02.2
