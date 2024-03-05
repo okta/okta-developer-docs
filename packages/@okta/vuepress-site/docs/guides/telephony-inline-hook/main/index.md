@@ -4,8 +4,6 @@ excerpt: Learn how to easily implement a telephony inline hook
 layout: Guides
 ---
 
-<ApiLifecycle access="ie" /><br>
-
 This guide provides an example of an Okta telephony inline hook. This guide uses [Glitch](https://glitch.com/) as an external service and Twilio as a telephony provider that receives and responds to SMS and voice inline hook calls. While this guide uses Twilio, the process explained in this guide should be similar for any other telephony provider.
 
 ---
@@ -61,7 +59,7 @@ At a high-level, the following workflow occurs:
 * Okta recieves a response that indicates if the OTP was sent successfully.
 
 ### Multiple providers
-Although each org can have only one active telephony inline hook, you aren't limited to a single telephony provider. Orgs sometimes use conditional logic to control how requests are sent to multiple telephony providers. This might be done to protect against provider failures, or to route messages depending on a user's country or region.
+Although each org can have only one active telephony inline hook, you aren't limited to a single telephony provider. Orgs sometimes build conditional logic into their web service to control how requests are sent to multiple telephony providers. This might be done to protect against provider failures, or to route messages depending on a user's country or region.
 
 ## Configure your org to use the Phone authenticator
 
