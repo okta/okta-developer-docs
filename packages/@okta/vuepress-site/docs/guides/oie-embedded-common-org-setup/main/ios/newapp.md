@@ -1,1 +1,1 @@
-On the **New Native App Integration** page:
+On the **New Native App Integration** page

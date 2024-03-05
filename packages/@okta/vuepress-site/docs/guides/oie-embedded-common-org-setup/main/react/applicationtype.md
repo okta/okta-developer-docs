@@ -1,1 +1,1 @@
-Select **Single-Page Application** as the application type, and then click **Next**.
+Select **Single-Page Application** as the application type, and then click **Next**

@@ -35,13 +35,13 @@ This guide uses the [Okta Authenticator Sample App](https://github.com/okta/okta
 
 Organizations are constantly looking for ways to strike a balance between offering a frictionless user experience without compromising security. It becomes even more challenging when the users try to perform sensitive transactions. Okta uses CIBA to provide customers with a simple and secure transaction verification solution.
 
-CIBA extends OIDC to define a decoupled flow where the authentication or transaction flow is initiated on one device and verified on another. The device on which the OIDC application initiates the transaction is called the consumption device and the device where the user verifies the transaction is called the authentication device.
+CIBA extends OIDC to define a decoupled flow where the authentication or transaction flow is initiated on one device and verified on another. The device that the OIDC application initiates the transaction on is called the consumption device. The device where the user verifies the transaction is called the authentication device.
 
 ### CIBA grant-type flow
 
 <div class="three-quarter">
 
-![Sequence diagram that displays the back and forth between the client, authorization server, and authentication device for the client-initiated backchannel authentication flow](/img/authorization/CIBAflow.png)
+![Sequence diagram that displays communication between the client, authorization server, and authentication device for the client-initiated backchannel authentication flow](/img/authorization/CIBAflow.png)
 
 </div>
 
@@ -70,7 +70,7 @@ as -> client: Returns requested tokens
 
     To identify the user that more authentication is being requested for, the request must include either a previously issued ID token (obtained during the user’s initial authorization) as an `id_token_hint` or the user’s username (email address) as a `login_hint`.
 
-    > **Note:** The `id_token_hint` is used in cases where the user is signed in to the application running on the consumption device, and the user is authenticated by the same authorization server. The user is also in control of both the consumption and authentication devices.
+    > **Note:** The `id_token_hint` is used in cases where the user is signed in to the application running on the consumption device, and the same authorization server authenticates the user. The user is also in control of both the consumption and authentication devices.
 
 2. The authorization server validates the authentication request and the user identification, and then sends the backchannel authentication response with the authentication request ID (`auth_req_id`) to the client.
 
