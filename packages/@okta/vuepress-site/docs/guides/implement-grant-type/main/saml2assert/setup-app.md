@@ -1,9 +1,13 @@
 5. Select **Native Application** for **Application type**, then click **Next**.
 1. Enter an **App integration name**.
+1. Select **Refresh Token** in the **Grant type** section, and then click **Advanced** and select **SAML 2.0 Assertion**. These selections enable you to exchange an assertion for the access token and also request a refresh token.
+
+    **Note:** If you're using Okta Classic Engine, select **Refresh Token** and **SAML 2.0 Assertion** in the **Grant type** section.
+
 1. In the **Sign-in redirect URIs** box, enter the callback location where Okta returns the browser (along with the token).
 1. Fill in the remaining details for your app integration, then click **Save**.
 1. Locate the **General Settings** section on the **General** tab, and then click **Edit**.
-1. Select **Refresh Token** and **SAML 2.0 Assertion** as the **Allowed grant types**. These selections enable you to exchange an assertion for the access token and also request a refresh token.
+
 
    > **Note:** The refresh token lifetime depends on the assertion lifetime and the [API Access Management policies](#configure-the-authorization-server-policy). The assertion lifetime is based on the incoming assertion. The lowest of these defined values is the refresh token max lifetime. For example, the SAML assertion expiry is set to 30 days, and the refresh token expiry in your access policies is set to 180 days. This results in a refresh token lifetime of 30 days.
 
@@ -22,6 +26,9 @@ Make sure that the SAML 2.0 Assertion grant type is enabled in the authorization
 
     > **Note:** See [Configure an access policy](/docs/guides/configure-access-policy/) for information on creating an access policy in the Okta authorization server.
 
-1. Select the **Access Policies** tab and then click the pencil for the default policy rule to make changes.
-1. In the **Edit Rule** window, select **SAML 2.0 Assertion** in the **IF Grant type is** section.
+1. Select the **Access Policies** tab and then click the pencil for the default policy rule to make changes in the **Edit Rule** dialog.
+1. Click **Advanced** in the **IF Grant type is** section, and then select **SAML 2.0 Assertion**.
+
+> **Note:** If you're using Classic Engine, select **SAML 2.0 Assertion** in the **IF Grant type is** section.
+
 1. Click **Update Rule**.

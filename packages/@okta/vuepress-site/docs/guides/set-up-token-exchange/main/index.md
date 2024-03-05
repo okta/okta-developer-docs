@@ -66,7 +66,9 @@ In token exchange use cases, an API microservice can act both as a resource serv
 1. On the **Applications** page, click **Create App Integration**.
 1. Select **API Services**, and then click **Next**.
 1. Name your application. For this example, enter **API1**, and then click **Save**.
-1. In the **General Settings** section of the **General** tab, click **Edit** and select **Token Exchange** as the grant type for your application.
+1. Click **Edit** in the **General Settings** section of the **General** tab.
+1. Click **Advanced** in the **Grant type** section, and then select **Token Exchange**.
+    **Note**: If you're using Okta Classic Engine, select **Token Exchange** in the **Grant type** section.
 1. Click **Save**.
 1. Copy the client ID in the **Client Credentials** section, and then copy the client secret in the **CLIENT SECRETS** section.
 1. [Base64-encode](/docs/guides/implement-grant-type/clientcreds/main/#base64-encode-the-client-id-and-client-secret) the client ID and client secret for use in the token exchange request from API1 to API2.
@@ -124,7 +126,7 @@ Use the Authorization Code with PKCE flow to obtain an authorization code for th
 
 #### Request an authorization code
 
-Navigate to the `/authorize` endpoint using a request URL with the appropriate parameters: 
+Navigate to the `/authorize` endpoint using a request URL with the appropriate parameters:
 
   ```bash
     https://${yourOktaDomain}/oauth2/default/v1/authorize?client_id=${nativeAppClientId}&response_type=code&scope=openid&redirect_uri=${configuredRedirectUri}&state=teststate&code_challenge_method=S256&code_challenge=${code_challenge}
@@ -149,6 +151,7 @@ If the user doesn't have an existing session, this request opens the Okta sign-i
 ```bash
 https://${configuredRedirectUri}/?code=FQGFlDO-J1jXl....7-cfYJ0KtKB8&state=testState
 ```
+
 #### Exchange code for tokens request
 
 Use the following example to build the request to exchange the authorization code for tokens.

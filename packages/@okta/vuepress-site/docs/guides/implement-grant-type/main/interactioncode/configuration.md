@@ -13,7 +13,7 @@ To access this setting:
 1. Open the [Admin Console](/docs/concepts/okta-organizations/#admin-console) for your org.
 1. Go to **Settings** > **Account** > **Embedded widget sign-in support**.
 1. Click **Edit**.
-1. Select the **Interaction code** checkbox to enable Interaction Code as a grant type.
+1. Click **Advanced** in the **Grant type** section, and then select **Interaction Code**.
 1. Click **Save**.
 
 If you enable the Interaction Code grant type, the number of applications and authorization servers that use the Interaction Code grant type appear.
@@ -32,8 +32,9 @@ After you [enable the Interaction Code grant for your org](#enable-interaction-c
 1. Go to **Security** > **API**.
 1. Select the **Authorization Servers** tab, and then select the pencil icon next to the custom authorization server that you want to update.
 1. Select the **Access Policies** tab.
-1. Select the pencil icon from the **Actions** column for the policy that applies to your app. For example, the **Default Policy Rule**.
-1. Locate the **Edit Rule** dialog box, and then select the **Interaction Code** checkbox.
+1. Select the pencil icon from the **Actions** column for the policy that applies to your app, for example, the **Default Policy Rule**.
+1. Click **Advanced** in the **IF Grant type is** section of the **Edit Rule** dialog.
+1. Select **Interaction Code** in the **Other grants** section.
 
      <VerifyICGrantType />
 

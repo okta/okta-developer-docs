@@ -33,9 +33,7 @@ Okta provides two embedded identity solutions:
 
 This guide shows you how to set up your Okta org to support the embedded SDK or the embedded widget with SDK solutions. Ensure that you [get set up](#get-set-up) with Okta and [set up your Okta org for your use case](#set-up-your-okta-org-for-your-use-case) before you <StackSnippet snippet="downloadguideuri" inline />.
 
-<ApiLifecycle access="ea" />
-
-> **Note:** You have the option to use the Direct Authentication API with your apps in Identity Engine rather than an embedded SDK. This allows you to directly authenticate users rather than delegating authentication to Okta Identity Providers and authorization servers through an HTTP redirect in a web browser. Direct authentication is beneficial in scenarios where there's a high degree of trust between the user and the app. It's also beneficial where browser-based flows aren't feasible, like with mobile apps. See the `/challenge` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/OrgAS/#tag/OrgAS/operation/challengeOrgAS), the `/oob-authenticate` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/OrgAS/#tag/OrgAS/operation/oob-authenticateOrgAS), and the new `grant_types` for the `/token` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/OrgAS/#tag/OrgAS/operation/token) to help tailor authentication to your specific use cases. Also, for information on how to set up each new grant type, see [Implement by grant type](/docs/guides/implement-grant-type/main/).
+> **Note:** You have the option to use direct authentication with your apps in Identity Engine rather than an embedded SDK. This allows you to directly authenticate users rather than delegating authentication to Okta Identity Providers and authorization servers through an HTTP redirect in a web browser. Direct authentication is beneficial in scenarios where there's a high degree of trust between the user and the app. It's also beneficial where browser-based flows aren't feasible, like with mobile apps. See the `/challenge` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/OrgAS/#tag/OrgAS/operation/challengeOrgAS), the `/oob-authenticate` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/OrgAS/#tag/OrgAS/operation/oob-authenticateOrgAS), and the new `grant_types` for the `/token` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/OrgAS/#tag/OrgAS/operation/token) to help tailor authentication to your specific use cases. Also, for information on how to set up each new grant type, see [Implement by grant type](/docs/guides/configure-direct-auth-grants/aotp/main/).
 
 ## Get set up
 
@@ -65,8 +63,8 @@ You need to configure your default custom authorization server to enable the Int
 1. From your Okta org's [Admin Console](/docs/concepts/okta-organizations/#admin-console), select **Security** > **API**.
 1. On the **Authorization Servers** tab, select the pencil icon for the **default** custom authorization server.
 1. Select the **Access Policies** tab.
-1. Select the pencil icon from the **Actions** column for the **Default Policy Rule**.
-1. In the **Edit Rule** dialog box, select the **Interaction Code** checkbox.
+1. Select the pencil icon from the **Actions** column for the **Default Policy Rule** to access the **Edit Rule** dialog.
+1. In the **IF Grant type is** section, select the **Interaction Code** checkbox.
 
    <VerifyICGrantType />
 
@@ -83,11 +81,11 @@ Create an app integration that represents the application you want to add authen
 1. <StackSnippet snippet="newapp" />
 
    * Enter an application name.
-   * Ensure that the **Interaction Code** checkbox is selected.
+   * Select the **Refresh Token** checkbox.
+   * Click **Advanced** in the **Grant type** section and ensure that the **Interaction Code** checkbox is selected.
 
       <VerifyICGrantType />
 
-   * Select the **Refresh Token** checkbox.
    * Set **Sign-in redirect URIs** to <StackSnippet snippet="redirecturi" inline />
    * Set **Controlled Access** to **Allow everyone in your organization to access**.
 
@@ -164,7 +162,7 @@ To ensure that only password-optional users can **sign in** without a password a
 
 1. Choose **Directory** > **Groups**.
 2. Click **Add Group**.
-3. Give the group a name. For example, "Password-optional Users".
+3. Give the group a name, for example, `Password-optional Users`.
 4. Click **Save**.
 
 #### Enable password-optional user sign-up flow

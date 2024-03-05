@@ -104,7 +104,8 @@ To configure Native SSO, start by setting up your application. To walk through t
 1. Click **Create App Integration**.
 1. On the Create a new app integration page, select **OIDC - OpenID Connect** as the **Sign-in method** and choose **Native Application** as the **Application type**. Click **Next**.
 1. Enter a name for your new app integration.
-1. Select **Token Exchange** in the **Grant type** section.
+1. Click **Advanced** in the **Grant type** section, and then select **Token Exchange**.
+    **Note**: If you're using Okta Classic Engine, select **Token Exchange** in the **Grant type** section.
 1. In this example, we are granting everyone access to the application. In the **Assignments** section, select **Allow everyone in your organization to access**. Click **Save**.
 1. On the **General** tab, click the **Copy to clipboard** icon for the **Client ID** and save the ID somewhere.
 1. Repeat the steps for client 2.
@@ -120,7 +121,12 @@ To update the authorization server policy rule:
 1. From the left navigation pane in the Admin Console, go to **Security** > **API** to view your authorization servers.
 1. On the **Authorization Servers** tab, click the pencil icon for the "default" custom authorization server.
 1. On the **Scopes** tab, verify that `offline_access`, `device_sso`, and `openid` appear in the scopes table.
-1. In the Edit Rule dialog box, select **Token Exchange** as a grant type in the **IF Grant type is** section and click **Update Rule**.
+1. Select the **Access Policies** tab and click the pencil for the Default Policy Rule to access the **Edit Rule** dialog.
+1. Select **Advanced** in the **IF Grant type is** section, and then select **Token Exchange**.
+
+  **Note**: If you're using Okta Classic Engine, select **Token Exchange** in the **IF Grant type is** section.
+
+1. Click **Update Rule**
 
 ## Native SSO desktop session lifetime
 

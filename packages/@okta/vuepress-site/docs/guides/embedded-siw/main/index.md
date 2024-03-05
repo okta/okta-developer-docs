@@ -148,11 +148,11 @@ Create an app integration in the Okta org that represents the application you wa
 1. On the **New Single-Page App Integration** page:
 
    * Enter an application name.
-   * Select the **Interaction Code** checkbox.
+   * Select the **Refresh Token** checkbox.
+   * Click **Advanced** in the **Grant type** section, and then select the **Interaction Code** checkbox.
 
       <VerifyICGrantType />
 
-   * Select the **Refresh Token** checkbox.
    * Set **Sign-in redirect URIs** to `http://localhost:3000/`.
    * Set **Sign-out redirect URIs** to `http://localhost:3000/`.
 
@@ -166,7 +166,7 @@ Create an app integration in the Okta org that represents the application you wa
 
    > **Note:** Be sure to also [update the password authenticator policy rule](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#update-the-password-authenticator-to-password-only) to not require any additional verification.
 
-1. In the **Security** > **API** > **Authorization Servers** section, verify that the custom authorization server uses the Interaction Code grant type by selecting the **default** server, clicking **Access Policies**, and editing the **Default Policy Rule**. Review the **If Grant type is** section to ensure the **Interaction Code** checkbox is selected.
+1. In the **Security** > **API** > **Authorization Servers** section, verify that the custom authorization server uses the Interaction Code grant type by selecting the **default** server, clicking **Access Policies**, and editing the **Default Policy Rule**. Click **Advanced** in the **IF Grant type is** section to ensure that **Interaction Code** is selected.
 
     <VerifyICGrantType />
 

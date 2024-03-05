@@ -50,7 +50,9 @@ Use the following steps to display the user consent dialog as part of an OpenID 
 1. In the Admin Console, go to **Applications** > **Applications**.
 1. Select the OpenID Connect app that you want to require user consent for.
 1. On the **General** tab, scroll down to the **User Consent** section and verify that the **Require consent** checkbox is selected. If it isn't, click **Edit** and select **Require consent**.
-1. In this example, we use the **Implicit** flow for testing purposes. In the **Application** section, select **Implicit** flow and then both **Allow ID Token with implicit grant type** and **Allow Access Token with implicit grant type**.
+1. In this example, we use the **Implicit** flow for testing purposes. In the **Grant type** section, click **Advanced**, select **Implicit**, and then select both **Allow ID Token with implicit grant type** and **Allow Access Token with implicit grant type**.
+
+    **Note:** If you're using Okta Classic Engine, select **Implicit (hybrid)** in the **Grant type** section.
 
     For the [Authorization Code flow](/docs/concepts/oauth-openid/#authorization-code-flow), the response type is `code`. You can exchange an authorization code for an ID token and/or an access token using the `/token` endpoint.
 
