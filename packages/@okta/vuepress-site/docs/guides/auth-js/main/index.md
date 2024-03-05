@@ -310,7 +310,7 @@ var config = {
 
 1. Go to `http://localhost:8080`. The static-spa application page appears with a custom login form. Application status details appear to the right of the page.
 
-1. Sign in with a user from your org assigned to the app integration. The static-spa application page appears and displays the user's info and access token details on the page.
+1. Sign in with a user from your org assigned to the app integration. The static-spa application page appears and displays the user's info and access token details.
 
 > **Note:** You can also configure an embedded Sign-In Widget use-case or a redirect use-case by updating the configuration details in the application. Click `Edit Config` to make those changes. For more information, see the [static-spa sample](https://github.com/okta/okta-auth-js/tree/master/samples/generated/static-spa#configuring).
 
