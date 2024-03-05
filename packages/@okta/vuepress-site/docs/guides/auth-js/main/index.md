@@ -14,7 +14,7 @@ This guide explains authentication fundamentals using Auth JS, known more formal
 
 * Understand how to implement basic sign-in using Auth JS.
 * Understand basic installation and code configurations using AuthJS.
-* Implement the sample SPA use case and sign a user into the application.
+* Implement the sample SPA use case and sign a user in to the application.
 
 **What you need**
 
