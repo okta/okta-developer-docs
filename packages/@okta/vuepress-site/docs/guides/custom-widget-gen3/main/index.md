@@ -89,7 +89,7 @@ Design tokens make the Sign-In Widget's visual style consistent and easier to up
 * Line height
 * Spacing
 
-You need to pass the design token values into the `OktaSignIn` constructor. For example:
+Pass the design token values into the `OktaSignIn` constructor. For example:
 
 ```javascript
 new OktaSignIn({
@@ -267,8 +267,8 @@ The following examples illustrate the impact of basic changes:
 ### Color change
 
 * `PalettePrimaryMain` from `#546be7` (blue) to `#D11DCA` (magenta)
-* `TypographyColorBody` from `#272727` (dark grey) to `#00297A` (navy blue)
-* `TypographyColorHeading` from `#272727` (dark grey) to `#00297A` (navy blue)
+* `TypographyColorBody` from `#272727` (dark gray) to `#00297A` (navy blue)
+* `TypographyColorHeading` from `#272727` (dark gray) to `#00297A` (navy blue)
 
 **Before color changes**
 
@@ -319,7 +319,7 @@ The following examples illustrate the impact of basic changes:
 ### Border radius and spacing change
 
 * `BorderRadiusMain` from `6px` to `24px`
-* `Spacing5` from `1.71428571rem` (24px, default) to `2.85714286rem` (40px)
+* `Spacing5` from `1.71428571rem` (24 px, default) to `2.85714286rem` (40 px)
 
 **Before border radius and spacing changes**
 
