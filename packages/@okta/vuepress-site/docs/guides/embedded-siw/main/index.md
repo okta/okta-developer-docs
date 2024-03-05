@@ -14,7 +14,7 @@ This guide explains authentication fundamentals using JavaScript and the embedde
 
 * Understand how to implement basic sign-in using JavaScript and the embedded Okta Sign-In Widget.
 * Understand basic installation and code configurations using JavaScript.
-* Implement a simple SPA use case and sign a user into the application.
+* Implement a simple SPA use case and sign a user in to the application.
 
 **What you need**
 
