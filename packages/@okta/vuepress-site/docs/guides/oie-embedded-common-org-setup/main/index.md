@@ -78,7 +78,7 @@ Create an app integration that represents the application you want to add authen
 1. Click **Create App Integration**.
 1. Select **OIDC - OpenID Connect** as the **Sign-in method**.
 1. <StackSnippet snippet="applicationtype" />
-1. <StackSnippet snippet="newapp" />:
+1. <StackSnippet snippet="newapp" />
 
    * Enter an application name.
    * Select the **Refresh Token** checkbox.
