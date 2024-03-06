@@ -10,14 +10,14 @@ title: Okta API Products release notes 2024
 
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
-| [Permission conditions for profile attributes is GA in Production](#permission-conditions-for-profile-attributes-is-ga-in-production) | March 6, 2023 |
-| [Content Security Policy for custom domains is GA in Preview](#content-security-policy-for-custom-domains-is-ga-in-preview)           | March 6, 2023 |
-| [New mappings property for Policy API is EA in Preview](#new-mappings-property-for-policy-api-is-ea-in-preview)                       | March 6, 2023 |
-| [AAL values for Login.gov IdP](#aal-values-for-logingov-idp)                                                                          | March 6, 2023 |
-| [Externally signed org AS access tokens](#externally-signed-org-as-access-tokens)                                                     | March 6, 2023 |
-| [Support case management for admins is GA in Preview](#support-case-management-for-admins-is-ga-in-preview)                           | March 6, 2023 |
-| [Realms for Workforce](#realms-for-workforce)                                                                                         | March 6, 2023 |
-| [Enhanced app API contracts](#enhanced-app-api-contracts)                                                                             | March 6, 2023 |
+| [Permission conditions for profile attributes is GA in Production](#permission-conditions-for-profile-attributes-is-ga-in-production) | March 7, 2024 |
+| [Content Security Policy for custom domains is GA in Preview](#content-security-policy-for-custom-domains-is-ga-in-preview)           | March 7, 2024 |
+| [New mappings property for Policy API is EA in Preview](#new-mappings-property-for-policy-api-is-ea-in-preview)                       | March 7, 2024 |
+| [AAL values for Login.gov IdP](#aal-values-for-logingov-idp)                                                                          | March 7, 2024 |
+| [Externally signed org AS access tokens](#externally-signed-org-as-access-tokens)                                                     | March 7, 2024 |
+| [Support case management for admins is GA in Preview](#support-case-management-for-admins-is-ga-in-preview)                           | March 7, 2024 |
+| [Realms for Workforce](#realms-for-workforce)                                                                                         | March 7, 2024 |
+| [Enhanced app API contracts](#enhanced-app-api-contracts)                                                                             | March 7, 2024 |
 | [Bugs fixed in 2024.03.0](#bugs-fixed-in-2024-03-0) | March 6, 2024 |
 
 #### Permission conditions for profile attributes is GA in Production
