@@ -273,7 +273,7 @@ This section shows you how to set up your Okta org and app to support the multif
 1. Ensure that no options are selected for the **AND Possession factor constraints are** field.
 1. Click **Save**.
 
-   > **Note:** Since the default authentication policy is a shared policy, changes you make apply to both new and existing apps that are assigned to it.
+   > **Note:** Because the default authentication policy is a shared policy, changes you make apply to both new and existing apps that are assigned to it.
 
 ### Set up your Okta org for a social IdP use case
 
