@@ -1,1 +1,1 @@
-On the **New Single-Page App Integration** page
+On the **New Single-Page App Integration** page.
