@@ -1,1 +1,1 @@
-On the **New Web App Integration** page
+On the **New Web App Integration** page:
