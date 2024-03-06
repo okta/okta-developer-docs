@@ -52,12 +52,13 @@ If your Okta org uses Identity Engine, then the <StackSnippet snippet="granttype
 1. In the Admin Console, go to **Security** > **API**.
 2. On the **Authorization Servers** tab, click the pencil icon next to the authorization server that you want to use.
 3. Select the **Access Policies** tab.
-4. Click the pencil icon from the **Actions** column for the **Default Policy Rule**.
+4. Click the pencil icon from the **Actions** column for the **Default Policy Rule** to access the **Edit Rule** dialog.
 
     > **Note:** If you're using a different policy for your app, edit that policy instead.
 
-5. In the **Edit Rule** dialog, select the **<StackSnippet snippet="granttype" inline />** checkbox (in addition to any other grant type that is already supported).
-6. Click **Update Rule**.
+5. Click **Advanced** in the **If Grant type is** section.
+6. Select **<StackSnippet snippet="granttype" inline />** in the **Okta direct auth API grants** section (in addition to any other grant type that is already supported).
+7. Click **Update Rule**.
 
 ## Set up your app
 
@@ -71,7 +72,7 @@ Before you can implement authorization, you need to register your app in Okta by
 1. Select **<StackSnippet snippet="sign-in-method" inline />** as the **Sign-in method**.
 1. Select **Native Application** as the **Application type**, then click **Next**.
 1. Specify the **App integration name**.
-1. Enable the <StackSnippet snippet="setupappgt" inline /> in addition to the defaults.
+1. Click **Advanced** in the **Grant type** section and select the <StackSnippet snippet="setupappgt" inline /> in addition to the defaults.
 1. Select **Allow everyone in your organization to access**, then click **Save**.
 1. From the **General** tab of your app integration, copy and save the generated **Client ID** value to implement your authorization flow.
 

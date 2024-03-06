@@ -24,17 +24,17 @@ This guide explains authentication fundamentals using Auth JS, known more formal
 
 **Sample code**
 
-* [static-spa sample](https://github.com/okta/okta-auth-js/tree/master/samples/generated/static-spa)
+* [Static-spa sample](https://github.com/okta/okta-auth-js/tree/master/samples/generated/static-spa)
 
 ---
 
 ## About the Okta Auth JavaScript SDK
 
-The Okta Auth JS SDK builds on top of the [Authentication API](/docs/reference/api/authn/) and [OpenID Connect API](/docs/reference/api/oidc/), as well as the Identity Engine [interaction code](/docs/concepts/interaction-code/) flow, to enable you to create a fully branded sign-in experience using JavaScript.
+The Okta Auth JS SDK builds on top of the [Authentication API](/docs/reference/api/authn/) and [OpenID Connect API](/docs/reference/api/oidc/). The SDK also builds on top of the Identity Engine [interaction code](/docs/concepts/interaction-code/) flow. This enables you to create a fully branded sign-in experience using JavaScript.
 
-The Okta Auth JS SDK is used by Okta's [Sign-in Widget](https://github.com/okta/okta-signin-widget), which powers the default Okta sign-in page. If you're building a JavaScript front end or single-page application (SPA), the Auth JS SDK provides added control and customization beyond what is possible with the Widget.
+The Okta Auth JS SDK is used by the Okta [Sign-In Widget](https://github.com/okta/okta-signin-widget), which powers the default Okta sign-in page. If you're building a JavaScript front-end or single-page application (SPA), the Auth JS SDK provides added control and customization beyond what is possible with the Widget.
 
-In this guide you'll learn how to use the Auth JS SDK with a simple static page application to authenticate and store an OpenID Connect (OIDC) token (`idToken`) and access token (`accessToken`).
+In this guide you learn how to use the Auth JS SDK with a simple static page application to authenticate and store an OpenID Connect (OIDC) token (`idToken`) and access token (`accessToken`).
 
 If you'd like to explore the entire Auth JS SDK, see [Okta Auth JS JavaScript SDK](https://github.com/okta/okta-auth-js/#readme).
 
@@ -69,11 +69,11 @@ More information is available in the [Okta Auth JS SDK](https://github.com/okta/
 
 ## Add code to reference the SDK
 
-The following sections display basic code snippets you use when accessing Auth JS.
+The following sections display basic code snippets that you use when accessing Auth JS.
 
 ### Initialize the SDK
 
-To initialize the SDK, create a new instance of the `OktaAuth` object. The `apps.js` file of the static-spa sample uses the function `createAuthClient()`:
+To initialize the SDK, create an instance of the `OktaAuth` object. The `apps.js` file of the static-spa sample uses the function `createAuthClient()`:
 
 ```JavaScript
  function createAuthClient() {
@@ -151,7 +151,7 @@ function submitStaticSigninForm() {
 
 ### Handle responses
 
-For a successful sign-in, the response from Okta includes a status field value of `SUCCESS` and includes the access and ID tokens. The `handleTransaction` function in the static-spa sample processes this state, as well as other values of the status field. The `endAuthFlow` function stores the tokens.
+For a successful sign-in, the response from Okta includes a status field value of `SUCCESS` and includes the access and ID tokens. The `handleTransaction` function in the static-spa sample processes this state, and other values of the status field. The `endAuthFlow` function stores the tokens.
 
 ```JavaScript
 function handleTransaction(transaction) {
@@ -213,7 +213,7 @@ See [`token.getUserInfo`](https://github.com/okta/okta-auth-js#tokengetuserinfoa
 
 ## Run the sample application
 
-Run the static-spa sample application to see a working example of the authentication flow using the Auth JS SDK. To run the Auth JS SDK static-spa sample application:
+Run the static-spa sample application to see a functional example of the authentication flow using the Auth JS SDK. To run the Auth JS SDK static-spa sample application:
 
 * Create an app integration on your Okta org.
 * Download and install the sample application.
@@ -230,26 +230,28 @@ Create an app integration in the Okta org that represents the application you wa
 1. On the **New Single-Page App Integration** page:
 
    * Enter an application name.
-   * Select the **Interaction Code** checkbox.
+   * Select **Refresh Token** as a **Grant type**.
+   * Click **Advanced**, and then select **Interaction Code** in the **Other grants** section.
 
       <VerifyICGrantType />
 
-   * Select the **Refresh Token** checkbox.
    * Set **Sign-in redirect URIs** to `http://localhost:8080/login/callback`.
 
 1. In the **Assignments** section, select **Allow everyone in your organization to access**.
 1. Click **Save**.
 1. Select the **Sign On** tab and scroll down to the **User authentication** section. New apps are automatically assigned the shared default [authentication policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-asop). This policy has a catch-all rule that allows a user access to the app using either one or two factors, depending on your org setup.
-1. For this use case, we want to use only the password factor. Click **Edit** and select the **Password only** [preset policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-preset-auth-policies) to assign it to your app.
+1. For this use case, Okta wants to use only the password factor. Click **Edit** and select the **Password only** [preset policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-preset-auth-policies) to assign it to your app.
 
     > **Note:** Be sure to also [update the password authenticator policy rule](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#update-the-password-authenticator-to-password-only) to not require any additional verification.
 
 1. Click **Save**.
-1. In the **Security** > **API** > **Authorization Servers** section, verify that the custom authorization server uses the Interaction Code grant type by selecting the **default** server, clicking **Access Policies**, and editing the **Default Policy Rule**. Review the **If Grant type is** section to ensure the **Interaction Code** checkbox is selected.
+1. In the **Security** > **API** > **Authorization Servers** section, verify that the custom authorization server uses the Interaction Code grant type by selecting the **default** server, clicking **Access Policies**, and editing the **Default Policy Rule**.
+1. Click **Advanced** in the **If Grant type is** section.
+1. Locate the **Other grants** section and ensure that **Interaction Code** is selected.
 
     <VerifyICGrantType />
 
-1. In the **Security** > **API** > **Trusted Origins** page, ensure that there is an entry for your sign in redirect URI (`http://localhost:8080`). See [Enable CORS](/docs/guides/enable-cors/).
+1. In the **Security** > **API** > **Trusted Origins** page, ensure that there's an entry for your sign in redirect URI (`http://localhost:8080`). See [Enable CORS](/docs/guides/enable-cors/).
 
 > **Note:** From the **General** tab of your app integration, save the generated **Client ID** value, which is used in the next section.
 
@@ -257,7 +259,7 @@ Create an app integration in the Okta org that represents the application you wa
 
 The sample app, `static-spa` resides in the `okta-auth-js` repository. Clone the repository and install the project dependencies:
 
-1. Clone the Okta Auth JavaScript SDK repository to your local project directory and navigate to the `static-spa` directory:
+1. Clone the Okta Auth JavaScript SDK repository to your local project directory and go to the `static-spa` directory:
 
 ```shell
 git clone https://github.com/okta/okta-auth-js.git
@@ -306,9 +308,9 @@ var config = {
     npm start
     ```
 
-1. Navigate to `http://localhost:8080`. The static-spa application page appears with a custom login form. Application status details appear to the right of the screen.
+1. Go to `http://localhost:8080`. The static-spa application page appears with a custom login form. Application status details appear to the right of the page.
 
-1. Sign in with a user from your org assigned to the app integration. The static-spa application page appears printing the user's info and access token details to the page.
+1. Sign in with a user from your org assigned to the app integration. The static-spa application page appears and displays the user's info and access token details.
 
 > **Note:** You can also configure an embedded Sign-In Widget use-case or a redirect use-case by updating the configuration details in the application. Click `Edit Config` to make those changes. For more information, see the [static-spa sample](https://github.com/okta/okta-auth-js/tree/master/samples/generated/static-spa#configuring).
 

@@ -21,11 +21,11 @@ Implement an Okta-hosted user consent dialog.
 
 ## About the user consent dialog
 
-When configured, the Okta-hosted user consent dialog for OAuth 2.0 or OpenID Connect authentication flows allows users to acknowledge and accept that they are giving an app access to some of their data. With the correct configuration, Okta displays a consent dialog that shows which app is asking for access to what data. The dialog displays the app logo that you specify and also provides details about what data is shared if the user consents.
+When configured, the Okta-hosted user consent dialog for OAuth 2.0 or OpenID Connect authentication flows enables users to acknowledge and accept that they’re giving an app access to some of their data. With the correct configuration, Okta displays a consent dialog that shows which app is asking for access to what data. The dialog displays the app logo that you specify and also provides details about what data is shared if the user consents.
 
 ## User consent and tokens
 
-User consent represents a user's explicit permission to allow an application to access resources protected by scopes. Consent grants are different from tokens because a consent can outlast a token, and there can be multiple tokens with varying sets of scopes derived from a single consent.
+User consent represents a user's explicit permission to allow an application to access resources protected by scopes. Consent grants are different from tokens. This is because a consent can outlast a token. There can also be multiple tokens with varying sets of scopes derived from a single consent.
 
 You can configure which scopes aren't required, which are optional, and which are required.
 
@@ -50,7 +50,9 @@ Use the following steps to display the user consent dialog as part of an OpenID 
 1. In the Admin Console, go to **Applications** > **Applications**.
 1. Select the OpenID Connect app that you want to require user consent for.
 1. On the **General** tab, scroll down to the **User Consent** section and verify that the **Require consent** checkbox is selected. If it isn't, click **Edit** and select **Require consent**.
-1. In this example, we use the **Implicit** flow for testing purposes. In the **Application** section, select **Implicit** flow and then both **Allow ID Token with implicit grant type** and **Allow Access Token with implicit grant type**.
+1. In this example, we use the **Implicit** flow for testing purposes. In the **Grant type** section, click **Advanced**, select **Implicit**, and then select both **Allow ID Token with implicit grant type** and **Allow Access Token with implicit grant type**.
+
+    **Note:** If you're using Okta Classic Engine, select **Implicit (hybrid)** in the **Grant type** section.
 
     For the [Authorization Code flow](/docs/concepts/oauth-openid/#authorization-code-flow), the response type is `code`. You can exchange an authorization code for an ID token and/or an access token using the `/token` endpoint.
 
