@@ -2,6 +2,7 @@
 title: Guides overview
 guides:
  - add-an-external-idp
+ - app-provisioning-connection
  - archive-auth-js
  - archive-embedded-siw
  - archive-registration-inline-hook
