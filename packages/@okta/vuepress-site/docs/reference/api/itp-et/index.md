@@ -30,3 +30,4 @@ Description: An admin has provided feedback on a detection Okta provided which i
 | target (User)         | The user associated with a risk activity            | String         | String         |
 | actor                 |                   | String         | String         |
 | client                |                   | String         | String         |
+
