@@ -70,7 +70,7 @@ In token exchange use cases, an API microservice can act both as a resource serv
 1. Name your application. For this example, enter **API1**, and then click **Save**.
 1. Click **Edit** in the **General Settings** section of the **General** tab.
 1. Click **Advanced** in the **Grant type** section, select **Token Exchange**, and click **Save**.
-    **Note**: If you're using Classic Engine, select **Token Exchange** in the **Grant type** section.
+    > **Note**: If you're using Classic Engine, select **Token Exchange** in the **Grant type** section.
 1. Copy the client ID in the **Client Credentials** section, and then copy the client secret in the **CLIENT SECRETS** section.
 1. [Base64-encode](/docs/guides/implement-grant-type/clientcreds/main/#base64-encode-the-client-id-and-client-secret) the client ID and client secret for use in the token exchange request from API1 to API2.
 

@@ -1,9 +1,7 @@
 5. Select **Native Application** for **Application type**, then click **Next**.
 1. Enter an **App integration name**.
 1. Select **Refresh Token** in the **Grant type** section, and then click **Advanced** and select **SAML 2.0 Assertion**. These selections enable you to exchange an assertion for the access token and also request a refresh token.
-
-    **Note:** If you're using Okta Classic Engine, select **Refresh Token** and **SAML 2.0 Assertion** in the **Grant type** section.
-
+   > **Note:** If you're using Okta Classic Engine, select **Refresh Token** and **SAML 2.0 Assertion** in the **Grant type** section.
 1. Enter the callback location in the **Sign-in redirect URIs** box. This is where Okta returns the browser (along with the token).
 1. Fill in the remaining details for your app integration, then click **Save**.
 1. Locate the **General Settings** section on the **General** tab, and then click **Edit**.
