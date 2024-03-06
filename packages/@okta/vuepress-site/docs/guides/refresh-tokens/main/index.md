@@ -89,7 +89,7 @@ When you create a mobile or web app and want to use refresh token rotation:
 1. Select **Allow everyone in your organization to access** in the **Assignments** section, and then click **Save**.
 1. After creating the app integration, on the **General** tab, click **Edit** in the **General Settings** section.
 1. In the **Refresh Token** section, select **Rotate token after every use**.
-1. The default number of seconds for the **Grace period for token rotation** is set to 30 seconds. You can change the value to any number from 0 thru 60 seconds. After the refresh token is rotated, the previous token remains valid for this amount of time to allow clients to get the new token.
+1. The default number of seconds for the **Grace period for token rotation** is set to 30 seconds. You can change the value to any number from 0 through 60 seconds. After the refresh token is rotated, the previous token remains valid for this amount of time to allow clients to get the new token.
 1. Click **Save** to confirm your changes.
 
 > **Note:** When a refresh token is rotated, the new `refresh_token` string in the response has a different value than the previous `refresh_token` string due to security concerns with single-page apps. However, the expiration date remains the same. The lifetime is inherited from the initial refresh token minted when the user first authenticates.
@@ -254,7 +254,7 @@ If the value of the `prompt` parameter is `none`, this guarantees that the user 
 
 The introduction of browser privacy controls such as Intelligent Tracking Prevention (ITP) and Enhanced Tracking Prevention (ETP) affect how browsers handle third-party cookies. These browser privacy controls prevent the use of an Okta session cookie to silently renew user sessions, which force users to reauthenticate and take away the seamless user experience.
 
-Refresh token rotation provides a solution for SPAs to maintain user sessions in an ITP browser world. Since refresh tokens are independent of any cookies, you don't have to rely on an Okta session cookie to renew access and ID tokens.
+Refresh token rotation provides a solution for SPAs to maintain user sessions in an ITP browser world. Because refresh tokens are independent of any cookies, you don't have to rely on an Okta session cookie to renew access and ID tokens.
 
 > **Note:** You can still use the Okta session cookie and silently renew the tokens as long as the application and Okta are in the same domain.
 
