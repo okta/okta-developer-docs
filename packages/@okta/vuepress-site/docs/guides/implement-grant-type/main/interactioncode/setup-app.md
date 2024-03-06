@@ -1,7 +1,6 @@
 5. For **Application type**, select **Native Application**, **Single-Page Application**, or **Web Application** (depending on the type of application that you're creating), then click **Next**.
 1. Enter the **App integration name**.
-1. Select the **Refresh Token** checkbox in the **Grant type** section.
-1. Click **Advanced**, and then select **Interaction Code**.
+1. Select **Interaction Code** and **Refresh Token** as allowed **Grant type**s.
 
    <VerifyICGrantType />
 
@@ -20,7 +19,7 @@ Complete the following steps to enable the Interaction Code grant for an existin
 1. Choose **Applications > Applications** to show the available app integrations.
 1. Select your app integration from the list.
 1. Locate the **General Settings** panel on the **General** tab, and then click **Edit**.
-1. Click **Advanced** in the **Grant type** section, and then select **Interaction Code**.
+1. Select the **Interaction code** checkbox under the **Grant type**.
 
    <VerifyICGrantType />
 

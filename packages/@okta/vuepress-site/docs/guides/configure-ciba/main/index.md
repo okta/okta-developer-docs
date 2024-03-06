@@ -35,13 +35,13 @@ This guide uses the [Okta Authenticator Sample App](https://github.com/okta/okta
 
 Organizations are constantly looking for ways to strike a balance between offering a frictionless user experience without compromising security. It becomes even more challenging when the users try to perform sensitive transactions. Okta uses CIBA to provide customers with a simple and secure transaction verification solution.
 
-CIBA extends OIDC to define a decoupled flow where the authentication or transaction flow is initiated on one device and verified on another. The device that the OIDC application initiates the transaction on is called the consumption device. The device where the user verifies the transaction is called the authentication device.
+CIBA extends OIDC to define a decoupled flow where the authentication or transaction flow is initiated on one device and verified on another. The device on which the OIDC application initiates the transaction is called the consumption device and the device where the user verifies the transaction is called the authentication device.
 
 ### CIBA grant-type flow
 
 <div class="three-quarter">
 
-![Sequence diagram that displays communication between the client, authorization server, and authentication device for the client-initiated backchannel authentication flow](/img/authorization/CIBAflow.png)
+![Sequence diagram that displays the back and forth between the client, authorization server, and authentication device for the client-initiated backchannel authentication flow](/img/authorization/CIBAflow.png)
 
 </div>
 
@@ -70,7 +70,7 @@ as -> client: Returns requested tokens
 
     To identify the user that more authentication is being requested for, the request must include either a previously issued ID token (obtained during the user’s initial authorization) as an `id_token_hint` or the user’s username (email address) as a `login_hint`.
 
-    > **Note:** The `id_token_hint` is used in cases where the user is signed in to the application running on the consumption device, and the same authorization server authenticates the user. The user is also in control of both the consumption and authentication devices.
+    > **Note:** The `id_token_hint` is used in cases where the user is signed in to the application running on the consumption device, and the user is authenticated by the same authorization server. The user is also in control of both the consumption and authentication devices.
 
 2. The authorization server validates the authentication request and the user identification, and then sends the backchannel authentication response with the authentication request ID (`auth_req_id`) to the client.
 
@@ -104,7 +104,7 @@ Create an Okta OIDC client app integration to represent the consumption device. 
 1. In the Admin Console, go to **Applications** > **Applications**, and then click **Create App Integration**.
 2. Select **OIDC - OpenID Connect** as the **Sign-in method** and choose the type of application that you want to integrate with Okta. In this example, select **Web Application**.
 3. Click **Next**, and then enter a name for your app integration.
-4. In the **Grant type** section, click **Advanced** and select **Client-initiated backchannel authentication flow (CIBA)** in the **Other grants** section.
+4. Select **Client-initiated backchannel authentication flow (CIBA)** as a **Grant type**.
 5. Select the Custom Authenticator that you [previously configured using the Mobile SDK](https://github.com/okta/okta-mobile-swift) from the **Preferred authenticator for CIBA** dropdown list.
 6. In the **Sign-in redirect URIs** box, specify the callback location where Okta returns the tokens after the user finishes authenticating. You can use the default URI for this exercise.
 
@@ -173,11 +173,10 @@ You can also use the [Apps API](/docs/reference/api/apps/#add-oauth-2-0-client-a
 You can use either the org authorization server or a custom authorization server with CIBA. In this example, use the `default` custom authorization server.
 
 1. In the Admin Console, go to **Security** > **API**.
-1. On the **Authorization Servers** tab, select the edit icon to the right of the authorization server that you want to use. In this example, use the `default` custom authorization server.
-1. Select **Access Policies**.
-1. Select the edit icon for the Default Policy Rule.
-1. Click **Advanced** in the **IF Grant type is** section, and then select **Client-initiated backchannel authentication (CIBA)** in the **Other grants** section.
-1. Click **Update rule**.
+2. On the **Authorization Servers** tab, select the edit icon to the right of the authorization server that you want to use. In this example, use the `default` custom authorization server.
+3. Select **Access Policies**.
+4. Select the edit icon for the Default Policy Rule.
+5. Select **Client-initiated backchannel authentication (CIBA)** as a grant type and click **Update rule**.
 
 ## Enroll a Custom Authenticator to use CIBA
 

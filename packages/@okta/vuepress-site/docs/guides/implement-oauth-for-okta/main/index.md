@@ -48,7 +48,7 @@ Create the client application that you want to use with the Okta APIs.
     > **Note:** It's important to choose the appropriate application type for apps that are public clients. Failing to do so may result in Okta API endpoints attempting to verify an app's client secret, which public clients aren't designed to have, and would break the sign-in or sign-out flow.
 
 1. Enter a name for your app integration.
-1. For the **Grant type**, **Authorization Code** is required. It's selected by default, and you can't clear the checkbox.
+1. For the **Grant type**, Okta recommends that you always use the Authorization Code grant flow and clear the **Implicit (hybrid)** checkbox.
 1. In the **Sign-in redirect URIs** box, specify the callback location where Okta returns a browser (along with the token) after the user finishes authenticating. You can use the default URI for this exercise.
 
     > **Note:** You can leave the rest of the default values, as they work with this guide for testing purposes.
@@ -110,7 +110,7 @@ We recommend that you always use the Authorization Code with PKCE grant flow. Se
 1. In Postman, select the request that you want to make, such as a `GET` request to the `/api/v1/users` endpoint to get back a list of all users.
 2. On the **Header** tab, remove the existing SSWS Authorization API Key.
 3. Click the **Authorization** tab and from the **Type** dropdown list, select **OAuth 2.0**.
-4. On the right pane, go to the **Configure New Token** section.
+4. On the right pane, go to the  **Configure New Token** section.
 5. In the first field, enter a name for the token and select **Authorization Code (With PKCE)** as the grant type.
 6. Define the remaining fields for the token request:
 

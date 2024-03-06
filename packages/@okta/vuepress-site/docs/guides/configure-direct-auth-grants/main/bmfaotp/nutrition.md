@@ -1,3 +1,4 @@
+<ApiLifecycle access="ea" />
 <ApiLifecycle access="ie" />
 
 Use this guide to implement a direct authentication multifactor one-time-passcode (MFA OTP) flow for your app.

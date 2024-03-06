@@ -1,3 +1,4 @@
+<ApiLifecycle access="ea" />
 <ApiLifecycle access="ie" />
 
 Use this guide to implement a direct authentication out-of-band (OOB) flow for your app. The guide uses the phone authenticator with SMS or Voice factors.

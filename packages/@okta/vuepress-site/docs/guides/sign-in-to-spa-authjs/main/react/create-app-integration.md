@@ -8,7 +8,7 @@ Before you integrate Okta authentication into your React app, you need to regist
     | Setting                | Value/Description                                    |
     | -------------------    | ---------------------------------------------------  |
     | App integration name   | Specify a unique name for your app                  |
-    | Grant types            | Leave **Authorization Code** selected, and then select **Refresh Token**. Click **Advanced** and select **Interaction Code**. |
+    | Grant types            | Select **Authorization Code**, **Interaction Code**, and  **Refresh Token** |
     | Sign-in redirect URIs  | Specify your app URI for the callback redirect from Okta. For example, `http://localhost:8080/login/callback`. |
     | Sign-out redirect URIs | Specify your app sign-out redirect URI. For example: `http://localhost:8080`. Ensure that you add all your deployment URIs.|
     | Trusted Origins > Base URIs | Specify your app base URI for CORS. For example: `http://localhost:8080`. Ensure that you add trusted origins for all base URIs. |

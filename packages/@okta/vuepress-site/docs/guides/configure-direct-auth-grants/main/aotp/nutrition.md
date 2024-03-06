@@ -1,3 +1,4 @@
+<ApiLifecycle access="ea" />
 <ApiLifecycle access="ie" />
 
 Use this guide to implement a direct authentication single-factor one-time passcode (OTP) flow for your app.
