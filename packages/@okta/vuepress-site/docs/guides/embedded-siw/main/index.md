@@ -179,7 +179,7 @@ Create an app integration in the Okta org that represents the application you wa
 
     <VerifyICGrantType />
 
-1. Select the **Trusted Origins** tab and ensure that there’s an entry for your sign in redirect URI. See [Enable CORS](/docs/guides/enable-cors/).
+1. Select the **Trusted Origins** tab and ensure that there’s an entry for your sign-in redirect URI. See [Enable CORS](/docs/guides/enable-cors/).
 
 #### Create a simple SPA
 
