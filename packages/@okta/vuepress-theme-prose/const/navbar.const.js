@@ -1016,7 +1016,7 @@ export const reference = [
                { title: "Dynamic Client Registration", path: "/docs/reference/api/oauth-clients/" },
                { title: "Email Domains", path: "/docs/reference/api/email-domains/" },
                { title: "Event Types", path: "/docs/reference/api/event-types/" },
-               { title: "ITP Event Types", path: "/docs/reference/api/api/itp-et/" },
+               { title: "ITP Event Types", path: "/docs/reference/api/itp-et/" },
                { title: "Factors", path: "/docs/reference/api/factors/" },
                { title: "Features", path: "/docs/reference/api/features/" },
                { title: "Groups", path: "/docs/reference/api/groups/" },

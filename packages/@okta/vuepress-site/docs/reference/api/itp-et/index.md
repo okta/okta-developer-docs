@@ -7,7 +7,9 @@ category: management
 
 Event types are the primary method of categorization within the Okta eventing platform. They allow consumers to group notable system occurrences based on behavior. This resource contains detailed reference material on event types for the Identity Threat Protection solution.
 
-### user.risk.change
+### User Risk Change
+
+`user.risk.change`
 
 Description: Indicates a user's risk level has changed. This event type can be used to monitor risk level changes for users. This event is triggered when Okta determines that a user is associated with activity or context that indicate risk.
 
