@@ -878,6 +878,7 @@ Specifies Link relations (see [Web Linking](http://tools.ietf.org/html/rfc8288) 
 | activate   | Action to activate a Policy or Rule (present if the Rule is currently inactive) | String    | Yes      |
 | deactivate | Action to deactivate a Policy or Rule (present if the Rule is currently active) | String    | Yes      |
 | rules      | Action to retrieve the Rules objects for the given Policy                       | String    | Yes      |
+| mappings   | Action to retrieve the links to Policy mappings                                 | String    | Yes      |
 
 ## Rules
 
