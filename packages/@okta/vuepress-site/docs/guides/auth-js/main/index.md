@@ -246,7 +246,7 @@ Create an app integration in the Okta org that represents the application you wa
 
 1. Click **Save**.
 1. In the **Security** > **API** > **Authorization Servers** section, verify that the custom authorization server uses the Interaction Code grant type by selecting the **default** server, clicking **Access Policies**, and editing the **Default Policy Rule**.
-1. Click **Advanced** in the **If Grant type is** section.
+1. Click **Advanced** in the **IF Grant type is** section.
 1. Locate the **Other grants** section and ensure that **Interaction Code** is selected.
 
     <VerifyICGrantType />
