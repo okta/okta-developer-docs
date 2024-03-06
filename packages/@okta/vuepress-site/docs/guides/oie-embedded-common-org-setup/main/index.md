@@ -77,8 +77,8 @@ Create an app integration that represents the application you want to add authen
 1. Go to **Applications** > **Applications** in the Admin Console.
 1. Click **Create App Integration**.
 1. Select **OIDC - OpenID Connect** as the **Sign-in method**.
-1. <StackSnippet snippet="applicationtype" />.
-1. <StackSnippet snippet="newapp" />:
+1. <StackSnippet snippet="applicationtype" />
+1. <StackSnippet snippet="newapp" />
 
    * Enter an application name.
    * Select the **Refresh Token** checkbox.
@@ -86,7 +86,7 @@ Create an app integration that represents the application you want to add authen
 
       <VerifyICGrantType />
 
-   * Set **Sign-in redirect URIs** to <StackSnippet snippet="redirecturi" inline />.
+   * Set **Sign-in redirect URIs** to <StackSnippet snippet="redirecturi" inline />
    * Set **Controlled Access** to **Allow everyone in your organization to access**.
 
 1. Click **Save**.
@@ -163,7 +163,7 @@ To ensure that only password-optional users can **sign in** without a password a
 
 1. Choose **Directory** > **Groups**.
 2. Click **Add Group**.
-3. Give the group a name, for example, `Password-optional Users`.
+3. Give the group a name, for example, "Password-optional Users."
 4. Click **Save**.
 
 #### Enable password-optional user sign-up flow
@@ -273,7 +273,7 @@ This section shows you how to set up your Okta org and app to support the multif
 1. Ensure that no options are selected for the **AND Possession factor constraints are** field.
 1. Click **Save**.
 
-   > **Note:** Since the default authentication policy is a shared policy, changes you make apply to both new and existing apps that are assigned to it.
+   > **Note:** Because the default authentication policy is a shared policy, changes you make apply to both new and existing apps that are assigned to it.
 
 ### Set up your Okta org for a social IdP use case
 

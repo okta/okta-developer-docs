@@ -14,7 +14,7 @@ This guide explains authentication fundamentals using JavaScript and the embedde
 
 * Understand how to implement basic sign-in using JavaScript and the embedded Okta Sign-In Widget.
 * Understand basic installation and code configurations using JavaScript.
-* Implement a simple SPA use case and sign a user into the application.
+* Implement a simple SPA use case and sign a user in to the application.
 
 **What you need**
 
@@ -179,7 +179,7 @@ Create an app integration in the Okta org that represents the application you wa
 
     <VerifyICGrantType />
 
-1. Select the **Trusted Origins** tab and ensure that there’s an entry for your sign in redirect URI. See [Enable CORS](/docs/guides/enable-cors/).
+1. Select the **Trusted Origins** tab and ensure that there’s an entry for your sign-in redirect URI. See [Enable CORS](/docs/guides/enable-cors/).
 
 #### Create a simple SPA
 

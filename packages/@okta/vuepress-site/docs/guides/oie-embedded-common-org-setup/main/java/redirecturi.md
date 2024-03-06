@@ -1,1 +1,1 @@
- a URI that is appropriate for your app. For example, `http://localhost:8080` if you're using the sample app
+ a URI that is appropriate for your app. For example, `http://localhost:8080` if you're using the sample app.

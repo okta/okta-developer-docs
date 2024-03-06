@@ -14,7 +14,7 @@ This guide explains authentication fundamentals using Auth JS, known more formal
 
 * Understand how to implement basic sign-in using Auth JS.
 * Understand basic installation and code configurations using AuthJS.
-* Implement the sample SPA use case and sign a user into the application.
+* Implement the sample SPA use case and sign a user in to the application.
 
 **What you need**
 
@@ -240,7 +240,7 @@ Create an app integration in the Okta org that represents the application you wa
 1. In the **Assignments** section, select **Allow everyone in your organization to access**.
 1. Click **Save**.
 1. Select the **Sign On** tab and scroll down to the **User authentication** section. New apps are automatically assigned the shared default [authentication policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-asop). This policy has a catch-all rule that allows a user access to the app using either one or two factors, depending on your org setup.
-1. For this use case, Okta want to use only the password factor. Click **Edit** and select the **Password only** [preset policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-preset-auth-policies) to assign it to your app.
+1. For this use case, Okta wants to use only the password factor. Click **Edit** and select the **Password only** [preset policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-preset-auth-policies) to assign it to your app.
 
     > **Note:** Be sure to also [update the password authenticator policy rule](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#update-the-password-authenticator-to-password-only) to not require any additional verification.
 
@@ -310,7 +310,7 @@ var config = {
 
 1. Go to `http://localhost:8080`. The static-spa application page appears with a custom login form. Application status details appear to the right of the page.
 
-1. Sign in with a user from your org assigned to the app integration. The static-spa application page appears and displays the user's info and access token details on the page.
+1. Sign in with a user from your org assigned to the app integration. The static-spa application page appears and displays the user's info and access token details.
 
 > **Note:** You can also configure an embedded Sign-In Widget use-case or a redirect use-case by updating the configuration details in the application. Click `Edit Config` to make those changes. For more information, see the [static-spa sample](https://github.com/okta/okta-auth-js/tree/master/samples/generated/static-spa#configuring).
 

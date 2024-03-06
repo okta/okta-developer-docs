@@ -1,1 +1,1 @@
-Select **Web Application** as application type, and then click **Next**
+Select **Web Application** as application type, and then click **Next**.
