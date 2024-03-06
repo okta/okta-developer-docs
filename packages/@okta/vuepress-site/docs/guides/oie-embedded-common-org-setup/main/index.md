@@ -163,7 +163,7 @@ To ensure that only password-optional users can **sign in** without a password a
 
 1. Choose **Directory** > **Groups**.
 2. Click **Add Group**.
-3. Give the group a name, for example, `Password-optional Users`.
+3. Give the group a name, for example, "Password-optional Users."
 4. Click **Save**.
 
 #### Enable password-optional user sign-up flow
