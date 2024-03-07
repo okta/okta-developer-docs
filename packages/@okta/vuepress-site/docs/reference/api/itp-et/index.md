@@ -30,13 +30,13 @@ This resource contains detailed reference material on event types triggered with
 | ID        | Unique identifier of the target            | String     | 00u8xut93qEWYx5sx1d7       |
 | Type        | The type of target object     | String     | User       |
 | **actor**                 |  ???                 |         |         |
-| alternateId        |  Email address of the actor          |      |        |
-| DetailEntry         |             |      |        |
-| DisplayName        | Display name of the actor            |      |        |
-| ID        | Unique identifier of the actor            |      |        |
-| Type        | The type of actor object           |      |        |
+| alternateId        |  Email address of the actor          | String     |        |
+| DetailEntry         |             | String     |        |
+| DisplayName        | Display name of the actor            | String     |        |
+| ID        | Unique identifier of the actor            | String      |        |
+| Type        | The type of actor object           | String     |        |
 | **client**                | The client device used by the  ???                |       |         |
-| IPAddress              | IP address                |       |         |
+| IPAddress              | The IP address of the client device               |       |         |
 
 ### analytics.feedback.provide
 
@@ -58,45 +58,346 @@ This resource contains detailed reference material on event types triggered with
 | ID        | Unique identifier of the target            | String     | 00u8xut93qEWYx5sx1d7       |
 | Type        | The type of target object     | String     | User       |
 | **actor**                 |  ???                 |         |         |
-| alternateId        |  Email address of the actor          |      |        |
-| DetailEntry         |             |      |        |
-| DisplayName        | Display name of the actor            |      |        |
+| alternateId        |  Email address of the actor          | String     |        |
+| DetailEntry         |             | string     |        |
+| DisplayName        | Display name of the actor            | String     |        |
 | ID        | Unique identifier of the actor            |      |        |
 | Type        | The type of actor object           |      |        |
-| **client**                | The client device used by the  ???                |       |         |
+| **client**                |  ???                |       |         |
 | IPAddress              | IP address                |       |         |
+
 ### security.events.provider.receive_event
 
 **Description:** Triggered when an event provider submits a valid SSF for each security event. The event can help Org Admins debug/monitor partner SSF (Shared Signals Framework) submissions. The event contains debug context data about the event provider's risk report.
 
+| Key Event Attributes  | Description                                         | Data Type      | Example Values |
+| --------------------- | --------------------------------------------------- | -------------- | -------------- |
+| **event.system.debugContext.debugData**                |                 |         |         |
+| DtHash              |                  | String         | String         |
+| RequestId             |                   | String         | String         |
+| RequestUri               |                  | String         | String         |
+| ???              |                   | String         | String         |
+| ???             |                  | String         | String         |
+| Uri              |                   | String         | String         |
+| **target** (User)         |             |      |        |
+| alternateId        | Email address of the target           | String     |        |
+| DetailEntry         |             |      |        |
+| DisplayName        | Display name of the target           | String     |        |
+| ID        | Unique identifier of the target            | String     | 00u8xut93qEWYx5sx1d7       |
+| Type        | The type of target object     | String     | User       |
+| **actor**                 |  ???                 |         |         |
+| alternateId        |  Email address of the actor          | String     |        |
+| DetailEntry         |             | string     |        |
+| DisplayName        | Display name of the actor            | String     |        |
+| ID        | Unique identifier of the actor            |      |        |
+| Type        | The type of actor object           |      |        |
+| **client**                |  ???                |       |         |
+| IPAddress              | IP address                |       |         |
 
 ### device.signals.status.timeout
 
 **Description:** A registered device associated with at least one user session hasn't communicated with Okta within the required time interval. Use this event to investigate a potentially insecure device and compromised user session. This event contains the device unique identifier in the System Log actor object. You can use this information to find other related events.
 
+| Key Event Attributes  | Description                                         | Data Type      | Example Values |
+| --------------------- | --------------------------------------------------- | -------------- | -------------- |
+| **event.system.debugContext.debugData**                |                 |         |         |
+| DtHash              |                  | String         | String         |
+| RequestId             |                   | String         | String         |
+| RequestUri               |                  | String         | String         |
+| ???              |                   | String         | String         |
+| ???             |                  | String         | String         |
+| Uri              |                   | String         | String         |
+| **target** (User)         |            |      |        |
+| alternateId        | Email address of the target           | String     |        |
+| DetailEntry         |             |      |        |
+| DisplayName        | Display name of the target           | String     |        |
+| ID        | Unique identifier of the target            | String     | 00u8xut93qEWYx5sx1d7       |
+| Type        | The type of target object     | String     | User       |
+| **actor**                 |  ???                 |         |         |
+| alternateId        |  Email address of the actor          | String     |        |
+| DetailEntry         |             | string     |        |
+| DisplayName        | Display name of the actor            | String     |        |
+| ID        | Unique identifier of the actor            |      |        |
+| Type        | The type of actor object           |      |        |
+| **client**                |  ???                |       |         |
+| IPAddress              | IP address                |       |         |
+
 ### policy.auth.reevaluate.fail
 
 **Description:** Auth policy re-evaluation has occurred and has resulted in a continuous access violation. Can be used to identify which user, apps, and session were involved in a continuous access violation event. Event fired when continuing access evaluation results in failure.
+
+| Key Event Attributes  | Description                                         | Data Type      | Example Values |
+| --------------------- | --------------------------------------------------- | -------------- | -------------- |
+| **event.system.debugContext.debugData**                |                 |         |         |
+| Behaviors             |                  | key-value pairs        |  `{New Geo-Location=POSITIVE, New Device=NEGATIVE, New IP=POSITIVE, New State=POSITIVE, New Country=POSITIVE, Velocity=POSITIVE, New City=POSITIVE} `       |
+| CaeEnforceMode             |                   | Boolean         | `true`       |
+| DtHash              |                  | String         | `46274094c25162d72c76f50cb9293f29a738632015ad7d880b9cee52528cf0b5 `       |
+| RequestId             |                   | String         |          |
+| RequestUri               |                  | String         |          |
+| Risk            |                  | key-value pairs         |          |
+| ServerStatus            |                  | Enum         | `ACTIVE`         |
+| ThreatSuspected            |                  | Boolean         | `false`         |
+| TraceId            |                  | String         | `65d55fa6-b5a9-40f9-a6f1-627b9fa71b50`        |
+| Uri              |                   | String         | String         |
+| **target** (User)         | The user associated with ???           |      |        |
+| alternateId        | Email address of the target           | String     |        |
+| DetailEntry         |             |      |        |
+| DisplayName        | Display name of the target           | String     |        |
+| ID        | Unique identifier of the target            | String     | `00u3xut92qEWYx5sx1d6`       |
+| Type        | The type of target object     | String     | User       |
+| **target** (Policy Evaluation)         | The policy evaluation ???           |      |        |
+| alternateId        | Email address of the target           | String     |        |
+| **target.DetailEntry** (Policy Evaluation)       |             |      |        |
+| AppInstanceIds         |             |      |        |
+| MatchedRuleAction        |             |      |        |
+| MatchedRuleAssuranceMet        |             |      |        |
+| MatchedRuleDisplayName         |             |      |        |
+| MatchedRuleId        |             |      |        |
+| PolicyType         |             |      |        |
+| DisplayName        | Display name of the target           | String     |        |
+| ID        | Unique identifier of the target            | String     | `00u8xst93qEWYx65sx1d7`       |
+| Type        | The type of target object     | String     | Policy Evaluation       |
+| **actor**                 |  ???                 |         |         |
+| alternateId        |  Email address of the actor          | String     |        |
+| DetailEntry         |             | string     |        |
+| DisplayName        | Display name of the actor            | String     |        |
+| ID        | Unique identifier of the actor            |      |        |
+| Type        | The type of actor object           |      |        |
+| **client**                |  ???                |       |         |
+| IPAddress              | IP address                |       |         |
 
 ### policy.continuous_access.evaluate
 
 **Description:** Evaluation of Entity Risk policy. Signal that entity risk policy has been evaluated for an entity for which we have received a risk change event. Event fired when entity risk policy has been evaluated for an entity for which a risk change event was generated.
 
+| Key Event Attributes  | Description                                         | Data Type      | Example Values |
+| --------------------- | --------------------------------------------------- | -------------- | -------------- |
+| **event.system.debugContext.debugData**                |                 |         |         |
+| Behaviors             |                  | key-value pairs        |  `{New Geo-Location=POSITIVE, New Device=NEGATIVE, New IP=POSITIVE, New State=POSITIVE, New Country=POSITIVE, Velocity=POSITIVE, New City=POSITIVE} `       |
+| DtHash              |                  | String         | `46274094c25162d72c76f50cb9293f29a738632015ad7d880b9cee52528cf0b5 `       |
+| RequestId             |                   | String         |          |
+| RequestUri               |                  | String         |          |
+| Risk            |                  | key-value pairs         |`{reasons=Anomalous Geo-Distance, New Device, New ASN, New IP, New State, New Country, New City, level=HIGH}`          |
+| ThreatSuspected            |                  | Boolean         | `false`         |
+| TraceId            |                  | String         | `65d55fa6-b5a9-40f9-a6f1-627b9fa71b50`        |
+| Url              |                   | String         | String         |
+| **target** (User)         | The user associated with ???           |      |        |
+| alternateId        | Email address of the target           | String     |        |
+| DetailEntry         |             |      |        |
+| DisplayName        | Display name of the target           | String     |        |
+| ID        | Unique identifier of the target            | String     | `00u3xut92qEWYx5sx1d6`       |
+| Type        | The type of target object     | String     | User       |
+| **target** (Rule)         | ???           |      |        |
+| alternateId        | Email address of the target           | String     |        |
+| **target.DetailEntry** (Rule)       |             |      |        |
+| RuleAction        |             | Enum     | `TERMINATE_SESSION`       |
+| SingleLogOutEnabled        |             | Boolean     | `true`      |
+| SingleLogOutSelectionMode        |            | Enum     | `ALL`       |
+| DisplayName        | Display name of the target           | String     |        |
+| ID        | Unique identifier of the target            | String     | `00u8xst93qEWYx65sx1d7`       |
+| Type        | The type of target object     | String     | Rule      |
+| **target** (Policy)         |  ???         |      |        |
+| alternateId        | Email address of the target           | String     |        |
+| DetailEntry         |             |      |        |
+| DisplayName        | Display name of the target           | String     |        |
+| ID        | Unique identifier of the target            | String     | `00u3xut92qEWYx5sx1d6`       |
+| Type        | The type of target object     | String     | Policy      |
+| **actor**                 |  ???                 |         |         |
+| alternateId        |  Email address of the actor          | String     |        |
+| DetailEntry         |             | string     |        |
+| DisplayName        | Display name of the actor            | String     |        |
+| ID        | Unique identifier of the actor            |      |        |
+| Type        | The type of actor object           |      |        |
+| **client**                |  ???                |       |         |
+| IPAddress              | IP address                |       |         |
+
 ### policy.continuous_access.action
 
 **Description:** Entity Risk policy action invocation. Signal that an action associated with an entity risk policy evaluation has been invoked. Event fired when an action associated with an entity risk policy evaluation has been invoked.
+
+| Key Event Attributes  | Description                                         | Data Type      | Example Values |
+| --------------------- | --------------------------------------------------- | -------------- | -------------- |
+| **event.system.debugContext.debugData**                |                 |         |         |
+| Behaviors             |                  | key-value pairs        |  `{New Geo-Location=POSITIVE, New Device=NEGATIVE, New IP=POSITIVE, New State=POSITIVE, New Country=POSITIVE, Velocity=POSITIVE, New City=POSITIVE} `       |
+| DtHash              |                  | String         | `46274094c25162d72c76f50cb9293f29a738632015ad7d880b9cee52528cf0b5 `       |
+| RequestId             |                   | String         |          |
+| RequestUri               |                  | String         |          |
+| Risk            |                  | key-value pairs         |`{reasons=Anomalous Geo-Distance, New Device, New ASN, New IP, New State, New Country, New City, level=HIGH}`          |
+| ThreatSuspected            |                  | Boolean         | `false`         |
+| TraceId            |                  | String         | `65d55fa6-b5a9-40f9-a6f1-627b9fa71b50`        |
+| Url             |                   | String         | String         |
+| **target** (User)         | The user associated with ???           |      |        |
+| alternateId        | Email address of the target           | String     |        |
+| DetailEntry         |             |      |        |
+| DisplayName        | Display name of the target           | String     |        |
+| ID        | Unique identifier of the target            | String     | `00u3xut92qEWYx5sx1d6`       |
+| Type        | The type of target object     | String     | User       |
+| **target** (Rule)         | ???           |      |        |
+| alternateId        | Email address of the target           | String     |        |
+| **target.DetailEntry** (Rule)       |             |      |        |
+| RuleAction        |             | Enum     | `TERMINATE_SESSION`       |
+| SingleLogOutEnabled        |             | Boolean     | `true`      |
+| SingleLogOutSelectionMode        |            | Enum     | `ALL`       |
+| DisplayName        | Display name of the target           | String     |        |
+| ID        | Unique identifier of the target            | String     | `00u8xst93qEWYx65sx1d7`       |
+| Type        | The type of target object     | String     | Rule       |
+| **target** (Policy)         |  ???         |      |        |
+| alternateId        | Email address of the target           | String     |        |
+| DetailEntry         |             |      |        |
+| DisplayName        | Display name of the target           | String     |        |
+| ID        | Unique identifier of the target            | String     | `00u3xut92qEWYx5sx1d6`       |
+| Type        | The type of target object     | String     | Policy       |
+| **target** (PolicyAction)         | ???           |      |        |
+| alternateId        | Email address of the target           | String     |        |
+| **target.DetailEntry** (Rule)       |             |      |        |
+| PolicyAction        |             | Enum     | `TERMINATE_SESSION`       |
+| PolicySingleLogOutEnabled        |             | Boolean     | `true`      |
+| PolicySingleLogOutSelectionMode        |            | Enum     | `ALL`       |
+| DisplayName        | Display name of the target           | String     |        |
+| ID        | Unique identifier of the target            | String     | `00u8xst93qEWYx65sx1d7`       |
+| Type        | The type of target object     | String     | PolicyAction      |
+| **actor**                 |  ???                 |         |         |
+| alternateId        |  Email address of the actor          | String     |        |
+| DetailEntry         |             | string     |        |
+| DisplayName        | Display name of the actor            | String     |        |
+| ID        | Unique identifier of the actor            |      |        |
+| Type        | The type of actor object           |      |        |
+| **client**                |  ???                |       |         |
+| IPAddress              | IP address                |       |         |
 
 ### user.session.context.changed
 
 **Description:** User session context changed. This event indicates that the context in which the session is being used has changed significantly enough from the context in which the event was created, that re-evaluation of policy may be required. Often this indicates a security issue related to the session.
 
-### policy.entity.risk.evaluate
+| Key Event Attributes  | Description                                         | Data Type      | Example Values |
+| --------------------- | --------------------------------------------------- | -------------- | -------------- |
+| **event.system.debugContext.debugData**                |                 |         |         |
+| Behaviors             |                  | key-value pairs        |  `{New Geo-Location=POSITIVE, New Device=NEGATIVE, New IP=POSITIVE, New State=POSITIVE, New Country=POSITIVE, Velocity=POSITIVE, New City=POSITIVE} `       |
+| Causes              |                  | Array        | [ipAddress.change]      |
+| DtHash              |                  | String         | `46274094c25162d72c76f50cb9293f29a738632015ad7d880b9cee52528cf0b5 `       |
+| ExternalSessionId              |                  | String         | `idxncn50DUmRpqWcz3doJX18g`       |
+| NewIpAddress            |                   | String         |          |
+| PreviousIpAddress              |                  | String         |          |
+| RequestId             |                   | String         |          |
+| RequestUri               |                  | String         |          |
+| Risk            |                  | key-value pairs         |`{reasons=Anomalous Geo-Distance, New Device, New ASN, New IP, New State, New Country, New City, level=HIGH}`          |
+| Source            |                  | String        | `OKTA`         |
+| ThreatSuspected            |                  | Boolean         | `false`         |
+| TraceId            |                  | String         | `65d55fa6-b5a9-40f9-a6f1-627b9fa71b50`        |
+| Url             |                   | String         | String         |
+| **target** (User)         |            |      |        |
+| alternateId        | Email address of the target           | String     |        |
+| DetailEntry         |             |      |        |
+| DisplayName        | Display name of the target           | String     |        |
+| ID        | Unique identifier of the target            | String     | 00u8xut93qEWYx5sx1d7       |
+| Type        | The type of target object     | String     | User       |
+| **target** (Session)         |            |      |        |
+| alternateId        | Email address of the target           | String     |        |
+| DetailEntry         |             |      |        |
+| DisplayName        | Display name of the target           | String     |        |
+| ID        | Unique identifier of the target            | String     | 00u8xut93qEWYx5sx1d7       |
+| Type        | The type of target object     | String     | Session      |
+| **actor**                 |  ???                 |         |         |
+| alternateId        |  Email address of the actor          | String     |        |
+| DetailEntry         |             | string     |        |
+| DisplayName        | Display name of the actor            | String     |        |
+| ID        | Unique identifier of the actor            |      |        |
+| Type        | The type of actor object           |      |        |
+| **client**                |  ???                |       |         |
+| IPAddress              | IP address                |       |         |
+
+### policy.entity_risk.evaluate
 
 **Description:** Evaluation of Entity Risk policy. Signal that entity risk policy has been evaluated for an entity for which we have received a risk change event. Event fired when entity risk policy has been evaluated for an entity for which a risk change event was generated.
 
-### policy.entity.risk.action
+| Key Event Attributes  | Description                                         | Data Type      | Example Values |
+| --------------------- | --------------------------------------------------- | -------------- | -------------- |
+| **event.system.debugContext.debugData**                |                 |         |         |
+| Behaviors             |                  | key-value pairs        |  `{New Geo-Location=POSITIVE, New Device=NEGATIVE, New IP=POSITIVE, New State=POSITIVE, New Country=POSITIVE, Velocity=POSITIVE, New City=POSITIVE} `       |
+| DtHash              |                  | String         | `46274094c25162d72c76f50cb9293f29a738632015ad7d880b9cee52528cf0b5 `       |
+| RequestId             |                   | String         |          |
+| RequestUri               |                  | String         |          |
+| Risk            |                  | key-value pairs         |`{reasons=Anomalous Geo-Distance, New Device, New ASN, New IP, New State, New Country, New City, level=HIGH}`          |
+| ThreatSuspected            |                  | Boolean         | `false`         |
+| TraceId            |                  | String         | `65d55fa6-b5a9-40f9-a6f1-627b9fa71b50`        |
+| Url             |                   | String         | String         |
+| **target** (User)         |            |      |        |
+| alternateId        | Email address of the target           | String     |        |
+| DetailEntry         |             |      |        |
+| DisplayName        | Display name of the target           | String     |        |
+| ID        | Unique identifier of the target            | String     | `00u8xut93qEWYx5sx1d7`       |
+| Type        | The type of target object     | String     | User       |
+| **target** (Policy)         |            |      |        |
+| alternateId        | Email address of the target           | String     |        |
+| DetailEntry         |             |      |        |
+| DisplayName        | Display name of the policy           | String     | `Entity Risk Policy`       |
+| ID        | Unique identifier of the target            | String     | `00u8xut93qEWYx5sx1d7`       |
+| Type        | The type of target object     | String     | Policy      |
+| **target** (Rule)         |            |      |        |
+| alternateId        | Email address of the target           | String     |        |
+| DetailEntry.RuleAction         |             | ENUM        | RUN_WORKFLOW       |
+| DetailEntry.WorkflowId         |             | String     | 572749       |
+| DisplayName        | Name of the rule          | String     | `SESSION_INFLUENCED_USER_RISK + MEDIUM`       |
+| ID        | Unique identifier of the target            | String     | `00u8xut93qEWYx5sx1d7`       |
+| Type        | The type of target object     | String     | Rule      |
+| **actor**                 |  ???                 |         |         |
+| alternateId        |  Email address of the actor          | String     |        |
+| DetailEntry         |             | string     |        |
+| DisplayName        | Display name of the actor            | String     |        |
+| ID        | Unique identifier of the actor            |      |        |
+| Type        | The type of actor object           |      |        |
+| **client**                |  ???                |       |         |
+| IPAddress              | IP address                |       |         |
+
+### policy.entity_risk.action
 
 **Description:** Entity Risk policy action invocation. Signal that an action associated with an entity risk policy evaluation has been invoked. Event fired when an action associated with an entity risk policy evaluation has been invoked.
+
+| Key Event Attributes  | Description                                         | Data Type      | Example Values |
+| --------------------- | --------------------------------------------------- | -------------- | -------------- |
+| **event.system.debugContext.debugData**                |                 |         |         |
+| Behaviors             |                  | key-value pairs        |  `{New Geo-Location=POSITIVE, New Device=NEGATIVE, New IP=POSITIVE, New State=POSITIVE, New Country=POSITIVE, Velocity=POSITIVE, New City=POSITIVE} `       |
+| DtHash              |                  | String         | `46274094c25162d72c76f50cb9293f29a738632015ad7d880b9cee52528cf0b5 `       |
+| RequestId             |                   | String         |          |
+| RequestUri               |                  | String         |          |
+| Risk            |                  | key-value pairs         |`{reasons=Anomalous Geo-Distance, New Device, New ASN, New IP, New State, New Country, New City, level=HIGH}`          |
+| ThreatSuspected            |                  | Boolean         | `false`         |
+| TraceId            |                  | String         | `65d55fa6-b5a9-40f9-a6f1-627b9fa71b50`        |
+| Url             |                   | String         | String         |
+| **target** (User)         |            |      |        |
+| alternateId        | Email address of the target           | String     |        |
+| DetailEntry         |             |      |        |
+| DisplayName        | Display name of the target           | String     |        |
+| ID        | Unique identifier of the target            | String     | `00u8xut93qEWYx5sx1d7`       |
+| Type        | The type of target object     | String     | User       |
+| **target** (Policy)         |            |      |        |
+| alternateId        | Email address of the target           | String     |        |
+| DetailEntry         |             |      |        |
+| DisplayName        | Display name of the policy           | String     | `Entity Risk Policy`       |
+| ID        | Unique identifier of the target            | String     | `00u8xut93qEWYx5sx1d7`       |
+| Type        | The type of target object     | String     | Policy      |
+| **target** (Rule)         |            |      |        |
+| alternateId        | Email address of the target           | String     |        |
+| DetailEntry.RuleAction         |             |      | `TERMINATE_ALL_SESSIONS`      |
+| DetailEntry.WorkflowAction         |             |      | `TERMINATE_ALL_SESSIONS`      |
+| DisplayName        | Name of the rule action         | String     | `USER_REPORTED_SUSPICIOUS_ACTIVITY + HIGH`       |
+| ID        | Unique identifier of the target            | String     | `00u8xut93qEWYx5sx1d7`       |
+| Type        | The type of target object     | String     | Rule      |
+| **target** (PolicyAction)         |            |      |        |
+| alternateId        | Email address of the target           | String     |        |
+| DetailEntry.PolicyAction         |             |  ENUM    | `TERMINATE_ALL_SESSIONS`      |
+| DetailEntry.PolicyWorkflowId         |             |  ENUM    |       |
+| DisplayName        | Name of the policy action         | String     |`TERMINATE_ALL_SESSIONS`         |
+| ID        | Unique identifier of the target            | String     | `00u8xut93qEWYx5sx1d7`       |
+| Type        | The type of target object     | String     | PolicyAction      |
+| **actor**                 |  ???                 |         |         |
+| alternateId        |  Email address of the actor          | String     |        |
+| DetailEntry         |             | string     |        |
+| DisplayName        | Display name of the actor            | String     |        |
+| ID        | Unique identifier of the actor            |      |        |
+| Type        | The type of actor object           |      |        |
+| **client**                |  ???                |       |         |
+| IPAddress              | IP address                |       |         |
 
 ### user.session.end
 
