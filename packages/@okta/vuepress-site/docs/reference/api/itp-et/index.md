@@ -8,19 +8,7 @@ meta:
 
 # Identity Threat Protection
 
-This resource contains detailed reference material on event types triggered with the Identity Threat Protection solution. Use these details to understand the threats ...
-
-### user.risk.change
-
-**Description:** Indicates a user's risk level has changed. This event type can be used to monitor risk level changes for users. This event is triggered when Okta determines that a user is associated with activity or context that indicate risk.
-
-| Key Event Attributes  | Description                                         | Data Type            | Example Values |
-| --------------------- | --------------------------------------------------- | -------------------- | -------------- |
-| Risk                  |                                                     | key-value pair       |` {previousLevel=LOW, level=MEDIUM, detectionName=Session Influenced User Risk, reasons=idxGuvnnpQKQ8uVw56TGp23Qg, issuer=OKTA} `        |
-| TraceId               | Id generated for the risk request                   | String         | String         |
-| target (User)         | The user associated with a risk activity            | String         | String         |
-| actor                 |  ???                 | String         | String         |
-| client                |  ???                | String         | String         |
+This resource contains detailed reference material on event types triggered with the Identity Threat Protection solution. Use the information in from these attributes to understand the threats and risk environment for your org.
 
 ### user.risk.change
 
@@ -33,22 +21,22 @@ This resource contains detailed reference material on event types triggered with
 | RequestId              |                 |         |         |
 | RequestUri              |                 |         |         |
 | Uri             |                 |         |         |
-| Risk                  |                                                     | key-value pair       |` {previousLevel=LOW, level=MEDIUM, detectionName=Session Influenced User Risk, reasons=idxGuvnnpQKQ8uVw56TGp23Qg, issuer=OKTA} `        |
-| TraceId               | Id generated for the risk request                   | String         | String         |
+| Risk                  |   ??????                                                  | key-value pair       |` {previousLevel=LOW, level=MEDIUM, detectionName=Session Influenced User Risk, reasons=idxGuvnnpQKQ8uVw56TGp23Qg, issuer=OKTA} `        |
+| TraceId               | ID generated for the risk request                   | String         | String         |
 | **target** (User)         | The user associated with a risk activity            |      |        |
-| alternateId        |            |      |        |
+| alternateId        | Email address of the target           | String     |        |
 | DetailEntry         |             |      |        |
-| DisplayName        |            |      |        |
-| ID        |             |      |        |
-| Type        |            |      |        |
+| DisplayName        | Display name of the target           | String     |        |
+| ID        | Unique identifier of the target            | String     | 00u8xut93qEWYx5sx1d7       |
+| Type        | The type of target object     | String     | User       |
 | **actor**                 |  ???                 |         |         |
-| alternateId        |            |      |        |
+| alternateId        |  Email address of the actor          |      |        |
 | DetailEntry         |             |      |        |
-| DisplayName        |            |      |        |
-| ID        |             |      |        |
-| Type        |            |      |        |
-| **client**                |  ???                |       |         |
-| IPAddress              |                |       |         |
+| DisplayName        | Display name of the actor            |      |        |
+| ID        | Unique identifier of the actor            |      |        |
+| Type        | The type of actor object           |      |        |
+| **client**                | The client device used by the  ???                |       |         |
+| IPAddress              | IP address                |       |         |
 
 ### analytics.feedback.provide
 
@@ -56,12 +44,27 @@ This resource contains detailed reference material on event types triggered with
 
 | Key Event Attributes  | Description                                         | Data Type      | Example Values |
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
-| RequestId               | Id generated for the risk request                   | String         | String         |
-| RequestUri              | Id generated for the risk request                   | String         | String         |
-| target (User)         | The user associated with a risk activity            | String         | String         |
-| actor                 |                   | String         | String         |
-| client                |                   | String         | String         |
-
+| **event.system.debugContext.debugData**                |                 |         |         |
+| DtHash              |                  | String         | String         |
+| RequestId             |                   | String         | String         |
+| RequestUri               |                  | String         | String         |
+| EventUuid              |                   | String         | String         |
+| Label              |                  | String         | String         |
+| Uri              |                   | String         | String         |
+| **target** (User)         | The user associated with a risk activity            |      |        |
+| alternateId        | Email address of the target           | String     |        |
+| DetailEntry         |             |      |        |
+| DisplayName        | Display name of the target           | String     |        |
+| ID        | Unique identifier of the target            | String     | 00u8xut93qEWYx5sx1d7       |
+| Type        | The type of target object     | String     | User       |
+| **actor**                 |  ???                 |         |         |
+| alternateId        |  Email address of the actor          |      |        |
+| DetailEntry         |             |      |        |
+| DisplayName        | Display name of the actor            |      |        |
+| ID        | Unique identifier of the actor            |      |        |
+| Type        | The type of actor object           |      |        |
+| **client**                | The client device used by the  ???                |       |         |
+| IPAddress              | IP address                |       |         |
 ### security.events.provider.receive_event
 
 **Description:** Triggered when an event provider submits a valid SSF for each security event. The event can help Org Admins debug/monitor partner SSF (Shared Signals Framework) submissions. The event contains debug context data about the event provider's risk report.
