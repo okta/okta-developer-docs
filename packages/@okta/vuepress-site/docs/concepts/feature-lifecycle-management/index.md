@@ -18,7 +18,7 @@ Only Beta and Early Access (EA) features are considered self-service. After a fe
 
 ## Beta features
 
-Though all available Beta features qualify as "self-service", Betas are either open or closed. You can enable or disable open Betas using the API. But, you can only disable closed Betas. If a feature has dependencies that are in closed Beta, then you can't enable it. If you want to enable a closed Beta, [contact Support](https://support.okta.com). When you enable an open Beta, it triggers an email to the admin who performed the action.
+Though all available Beta features qualify as "self-service," Betas are either open or closed. You can enable or disable open Betas using the API. But, you can only disable closed Betas. If a feature has dependencies that are in closed Beta, then you can't enable it. If you want to enable a closed Beta, [contact Support](https://support.okta.com). When you enable an open Beta, it triggers an email to the admin who performed the action.
 
 > **Note:** Beta features are only available in Preview orgs.
 
