@@ -4,7 +4,7 @@ title: Feature Lifecycle Management
 
 # Feature lifecycle management
 
-This page covers a few key concepts that underpin the [Okta Features API](/docs/reference/api/features/). The Features API allows you to manage self-service features, their feature dependants, and their feature dependencies. For Beta features, special restrictions apply to the behavior of the API.
+This page covers a few key concepts that underpin the [Okta Features API](/docs/reference/api/features/). The Features API allows you to manage self-service features, their feature dependents, and their feature dependencies. For Beta features, special restrictions apply to the behavior of the API.
 
 See [Release lifecycle](https://developer.okta.com/docs/api/openapi/okta-management/guides/release-lifecycle/).
 
@@ -22,9 +22,9 @@ Though all available Beta features qualify as "self-service", Betas are either o
 
 > **Note:** Beta features are only available in Preview orgs.
 
-## Dependencies and dependants
+## Dependencies and dependents
 
-Features might have dependencies and dependants. Dependencies are other features that the feature relies on, whereas dependants are features that rely on the feature.
+Features might have dependencies and dependents. Dependencies are other features that the feature relies on, whereas dependents are features that rely on the feature.
 
 Consider the following example:
 
@@ -54,6 +54,6 @@ featA ..> featD
 In this example:
 
 * Feature A has three dependencies: Feature B, Feature C, and Feature D.
-* Feature D has one dependant: Feature A.
+* Feature D has one dependent: Feature A.
 
-If Feature A has Feature B as a dependency, then you can't enable Feature A unless you enable Feature B first. Conversely, Feature B has Feature A as one of its dependants. This means that you can't disable Feature B unless you disable Feature A first.
+If Feature A has Feature B as a dependency, then you can't enable Feature A unless you enable Feature B first. Conversely, Feature B has Feature A as one of its dependents. This means that you can't disable Feature B unless you disable Feature A first.
