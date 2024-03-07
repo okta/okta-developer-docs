@@ -10,17 +10,17 @@ See [Release lifecycle](https://developer.okta.com/docs/api/openapi/okta-managem
 
 ## Self-service features
 
-Self-service features are features an Okta admin can directly enable or disable. Features that aren't self-service can only be enabled or disabled by getting in touch with Okta Support. The [Okta Features API](/docs/reference/api/features/) is used to list, enable, and disable self-service features.
+Self-service features are features that you can directly enable or disable. Contact Okta Support to enable features that aren't self-service. The [Okta Features API](/docs/reference/api/features/) is used to list, enable, and disable self-service features.
 
-> **Note:** A Beta feature marked as self-service will stay as self-service, even if it's closed and temporarily unavailable to be enabled. For example, if an [open Beta](#beta-features) transitions into a closed Beta, the feature will remain self-service. This means that it appears in the list of available self-service features, but you can't enable it without contacting Support.
+> **Note:** A Beta feature marked as self-service remains as self-service, even if it's closed and temporarily unavailable. For example, if an [open Beta](#beta-features) transitions into a closed Beta, the feature remains self-service. This means that it appears in the list of available self-service features, but you can't enable it without contacting Support.
 
-Only Beta and Early Access (EA) features are considered self-service. Once a feature transitions from either of these states to Generally Available (GA), it will no longer be listed as an available self-service feature.
+Only Beta and Early Access (EA) features are considered self-service. After a feature transitions from either of these states to Generally Available (GA), it's no longer listed as an available self-service feature.
 
 ## Beta features
 
-Though all available Beta features qualify as "self-service", Betas can be either open or closed. Open Betas can be enabled or disabled using the API. Closed Betas can only be disabled. If a feature has dependencies that are in Closed Beta, then you can't enable it. If you'd like to enable a closed Beta, [contact Support](https://support.okta.com). Enabling an Open Beta triggers an email to the admin who performed the action.
+Though all available Beta features qualify as "self-service", Betas are either open or closed. You can enable or disable open Betas using the API. But, you can only disable closed Betas. If a feature has dependencies that are in closed Beta, then you can't enable it. If you want to enable a closed Beta, [contact Support](https://support.okta.com). When you enable an open Beta, it triggers an email to the admin who performed the action.
 
-> **Note:** Beta features are only available in Preview orgs environments.
+> **Note:** Beta features are only available in Preview orgs.
 
 ## Dependencies and dependants
 
@@ -56,4 +56,4 @@ In this example:
 * Feature A has three dependencies: Feature B, Feature C, and Feature D.
 * Feature D has one dependant: Feature A.
 
-If Feature A has Feature B as a dependency, then Feature A can't be enabled if Feature B isn't enabled first. Conversely, Feature B has Feature A as one of its dependants. This means that Feature B can't be disabled unless you disable Feature A first.
+If Feature A has Feature B as a dependency, then you can't enable Feature A unless you enable Feature B first. Conversely, Feature B has Feature A as one of its dependants. This means that you can't disable Feature B unless you disable Feature A first.
