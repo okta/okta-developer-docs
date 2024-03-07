@@ -42,7 +42,7 @@ Access tokens returned from the org authorization server are now signed using th
 
 #### Support case management for admins is GA in Preview
 
-Super admins can now assign the View, create, and manage Okta support cases permission and Support Cases resource to a custom admin role. This allows delegated admins to manage the support cases that they’ve opened. See [About role permissions](https://help.okta.com/okta_help.htm?type=oie&id=csh-about-role-permissions). <!-- OKTA-700229 -->
+Super admins can now assign the **View, create, and manage Okta support cases** permission and Support Cases resource to a custom admin role. This allows delegated admins to manage the support cases that they’ve opened. See [About role permissions](https://help.okta.com/okta_help.htm?type=oie&id=csh-about-role-permissions). <!-- OKTA-700229 -->
 
 #### Realms for Workforce
 
