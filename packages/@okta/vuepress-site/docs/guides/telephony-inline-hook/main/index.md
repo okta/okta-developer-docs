@@ -99,9 +99,9 @@ Update the **Okta Dashboard** [preset authentication policy](https://help.okta.c
 
 ## Activate the telephony inline hook in Okta
 
-You must activate the telephony inline hook in your Okta org. Activating the telephony inline hook registers the hook with the Okta org and associates it with your external service.
+You must activate the telephony inline hook in your Okta org. Activating the telephony inline hook registers the hook with the Okta org and associates it with your external service. 
 
-Alternatively, you can use the Inline Hooks Management API to create an inline hook.See [Inline Hooks Management API
+Alternatively, you can use the Inline Hooks Management API to create an inline hook. See [Inline Hooks Management API
 ](/docs/reference/api/inline-hooks/#create-inline-hook).
 
 1. Go to the **Workflow** > **Inline Hooks** page.
