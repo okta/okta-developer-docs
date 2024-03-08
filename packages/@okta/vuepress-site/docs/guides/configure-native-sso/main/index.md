@@ -108,7 +108,7 @@ To configure Native SSO, start by setting up your application. To walk through t
 1. Select **OIDC - OpenID Connect** as the **Sign-in method**, select **Native Application** as the **Application type**, and then click **Next**.
 1. Enter a name for your new app integration.
 1. Click **Advanced** in the **Grant type** section, and then select **Token Exchange**.
-    **Note**: If you're using Classic Engine, select **Token Exchange** in the **Grant type** section.
+   > **Note**: If you're using Classic Engine, select **Token Exchange** in the **Grant type** section.
 1. Select **Allow everyone in your organization to access** in the **Assignments** section. For this use case, grant everyone access to the application.
 1. Click **Save** and on the **General** tab that appears, click the **Copy to clipboard** icon for the **Client ID** and save the ID somewhere.
 1. Repeat the steps for client 2.
@@ -126,7 +126,7 @@ To update the policy rule:
 1. On the **Scopes** tab, verify that `offline_access`, `device_sso`, and `openid` appear in the scopes table.
 1. Select the **Access Policies** tab and click the pencil for the **Default Policy Rule** to access the **Edit Rule** dialog.
 1. Select **Advanced** in the **IF Grant type is** section, and then select **Token Exchange**.
-  **Note**: If you're using Classic Engine, select **Token Exchange** in the **IF Grant type is** section.
+   > **Note**: If you're using Classic Engine, select **Token Exchange** in the **IF Grant type is** section.
 1. Click **Update Rule**.
 
 ## Native SSO desktop session lifetime

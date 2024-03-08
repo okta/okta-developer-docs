@@ -4,7 +4,7 @@
 
 1. Enter the **App integration name**.
 1. Click **Advanced** in the **Grant type** section, and then select **Implicit (hybrid)**.
-    **Note**: If you're using Okta Classic Engine, select **Implicit (hybrid)** in the **Grant type** section.
+   > **Note**: If you're using Classic Engine, select **Implicit (hybrid)** in the **Grant type** section.
 1. In the **Sign-in redirect URIs** box, enter the callback location where Okta returns the browser (along with the access token).
 1. Complete the remaining details for your app integration, then click **Save**.
 

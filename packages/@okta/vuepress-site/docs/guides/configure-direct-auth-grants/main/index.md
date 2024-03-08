@@ -56,7 +56,7 @@ If your Okta org uses Identity Engine, then the <StackSnippet snippet="granttype
 
     > **Note:** If you're using a different policy for your app, edit that policy instead.
 
-5. Click **Advanced** in the **If Grant type is** section.
+5. Click **Advanced** in the **IF Grant type is** section.
 6. Select **<StackSnippet snippet="granttype" inline />** in the **Okta direct auth API grants** section (in addition to any other grant type that is already supported).
 7. Click **Update Rule**.
 

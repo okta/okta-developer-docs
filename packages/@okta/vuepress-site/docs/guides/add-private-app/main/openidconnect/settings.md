@@ -6,7 +6,7 @@
     * **Authorization Code** (mandatory for web platform applications)
     * **Refresh token** (not supported for OIN app integrations)
     * **Implicit (hybrid)** (optional) Click **Advanced** to select.
-      **Note:** If you're using Classic Engine, select **Implicit (hybrid)** from the **Grant type** section.
+      > **Note:** If you're using Classic Engine, select **Implicit (hybrid)** from the **Grant type** section.
   * SPA:
     * **Authorization Code**
     * **Implicit (hybrid)** Click **Advanced** to select.
