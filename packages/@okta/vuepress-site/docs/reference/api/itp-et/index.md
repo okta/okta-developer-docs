@@ -436,15 +436,19 @@ This resource contains detailed reference material on event types triggered with
 
 ### user.session.clear
 
-**Description:**   This event is triggered when Admin invokes to clear sessions by clicking on the "Clear user session". This event appears only once and contains "externalSessionId" and "System.Transaction.ID".
+**Description:**   This event is triggered when Admin invokes to clear sessions by clicking on the "Clear user session". This event appears only once and contains `externalSessionId` and `System.Transaction.ID`.
 
 | Key Event Attributes  | Description                                         | Data Type      | Example Values |
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
 | **event.system.debugContext.debugData**                |                 |         |         |
 | DtHash              |                  | String         | String         |
 | RequestId             |                   | String         | String         |
-| RequestUri               |                  | String         | String         |
-| Url              |                   | String         | String         |
+| RequestUri             |                  | String         | String         |
+| Url           |                   | String         | String         |
+| **event.System.Transaction**                |                 |         |         |
+| ID              |                  | String         | String         |
+| **event.AuthenticationContext**                |                 |         |         |
+| ExternalSessionId              |                  | String         | String         |
 | **target** (User)         | The user who had their session cleared            |      |        |
 | alternateId        | Email address of the target           | String     |        |
 | DetailEntry         |             |      |        |
@@ -468,8 +472,7 @@ This resource contains detailed reference material on event types triggered with
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
 | **event.system.debugContext.debugData**                |                 |         |         |
 | AppInstanceIds            |A list of application IDs that Okta triggered for Universal Logout                 | Array of IDs         | [0oa1ysra5y0ESChAr0h8]        |
-| TraceId            | The `TraceId` is used in continuous access evaluation use cases. A request that triggers a CAE evaluation can ultimately trigger things like CAE action events - and those will be executed from the async jobs. `TraceId` connects together events triggered both by the original request handler and from the async jobs triggered by this handler.
-                  | String         | `94384405-51e3-4e13-b8b0-ba857b585a63`         |
+| TraceId            | The `TraceId` is used in continuous access evaluation use cases. A request that triggers a CAE evaluation can ultimately trigger things like CAE action events - and those will be executed from the async jobs. `TraceId` connects together events triggered both by the original request handler and from the async jobs triggered by this handler. | String         | `94384405-51e3-4e13-b8b0-ba857b585a63`         |
 | **target** (User)         | The user ???           |      |        |
 | alternateId        | Email address of the target           | String     |        |
 | DetailEntry         |             |      |        |
