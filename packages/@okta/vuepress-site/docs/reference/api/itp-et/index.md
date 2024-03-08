@@ -8,7 +8,9 @@ meta:
 
 # Identity Threat Protection
 
-This resource contains detailed reference material on event types triggered with the Identity Threat Protection solution. Use the information in from these attributes to understand the threats and risk environment for your org.
+This resource contains detailed reference material on event types triggered with the Identity Threat Protection solution. Use the information from these attributes to understand the users, threats, and risk environment for your org.
+
+>**Note:** Not every attribute is documented for the event types. Only those primarily used to assist in reviewing an identity threat interaction. Additionally, attributes and sub-attributes may differ based on the your implementation of the Identity Threat Protection solution.
 
 ### user.risk.change
 
@@ -401,15 +403,66 @@ This resource contains detailed reference material on event types triggered with
 
 ### user.session.end
 
-**Description:** This event is triggered when Okta terminates all IDX sessions. If there are 'N' active sessions for an user the event will appear 'N' times. All 'N' events contain externalSessionId and System.Transaction.ID that correlates with the System.Transaction.ID under the user.session.clear event
+**Description:** This event is triggered when Okta terminates all IDX sessions. If there are 'N' active sessions for an user the event will appear 'N' times. All 'N' events contain externalSessionId and System.Transaction.ID that correlates with the System.Transaction.ID under the user.session.clear event.
+
+| Key Event Attributes  | Description                                         | Data Type      | Example Values |
+| --------------------- | --------------------------------------------------- | -------------- | -------------- |
+| **event.system.debugContext.debugData**                |                 |         |         |
+| AppInstanceIds             |                  | String         | String         |
+| AppInstanceIdsPartialLogout             |                  | String         | String         |
+| LoggedOutAppInstanceIds             |                  | String         | String         |
+| LoggedOutAppInstanceIdsPartialLogout              |                  | String         | String         |
+| LogoutEventType              |                  | String         | String         |
+| LogoutEventType             |                  | String         | String         |
+| DtHash              |                  | String         | String         |
+| RequestId             |                   | String         | String         |
+| RequestUri               |                  | String         | String         |
+| ThreatSuspected             |                   | String         | String         |
+| Url              |                   | String         | String         |
+| **target** (User)         | The user associated with a risk activity            |      |        |
+| alternateId        | Email address of the target           | String     |        |
+| DetailEntry         |             |      |        |
+| DisplayName        | Display name of the target           | String     |        |
+| ID        | Unique identifier of the target            | String     | 00u8xut93qEWYx5sx1d7       |
+| Type        | The type of target object     | String     | User       |
+| **actor**                 |  ???                 |         |         |
+| alternateId        |  Email address of the actor          | String     |        |
+| DetailEntry         |             | string     |        |
+| DisplayName        | Display name of the actor            | String     |        |
+| ID        | Unique identifier of the actor            |      |        |
+| Type        | The type of actor object           |      |        |
+| **client**                |  ???                |       |         |
+| IPAddress              | IP address                |       |         |
 
 ### user.session.clear
 
 **Description:**   This event is triggered when Admin invokes to clear sessions by clicking on the "Clear user session". This event appears only once and contains "externalSessionId" and "System.Transaction.ID".
 
+| Key Event Attributes  | Description                                         | Data Type      | Example Values |
+| --------------------- | --------------------------------------------------- | -------------- | -------------- |
+| **event.system.debugContext.debugData**                |                 |         |         |
+| DtHash              |                  | String         | String         |
+| RequestId             |                   | String         | String         |
+| RequestUri               |                  | String         | String         |
+| Url              |                   | String         | String         |
+| **target** (User)         | The user who had their session cleared            |      |        |
+| alternateId        | Email address of the target           | String     |        |
+| DetailEntry         |             |      |        |
+| DisplayName        | Display name of the target           | String     |        |
+| ID        | Unique identifier of the target            | String     | 00u8xut93qEWYx5sx1d7       |
+| Type        | The type of target object     | String     | User       |
+| **actor**                 |  ???                 |         |         |
+| alternateId        |  Email address of the actor          | String     |        |
+| DetailEntry         |             | string     |        |
+| DisplayName        | Display name of the actor            | String     |        |
+| ID        | Unique identifier of the actor            |      |        |
+| Type        | The type of actor object           |      |        |
+| **client**                |  ???                |       |         |
+| IPAddress              | IP address                |       |         |
+
 ### user.authentication.universal_logout
 
-**Description:** This event is triggered when an admin or system account triggers Universal Logout against an app instance. It contains the app instance details for which the Universal Logout API was fired. This event identifies when applications have had Universal Logout triggered for audit or debugging purposes. This event is only fired once. It's only fired for applications that have been configured for Universal Logout. You can configure it under Risk policy, Continuous Access policy, or in an admin-initiated Clear User Session
+**Description:** This event is triggered when an admin or system account triggers Universal Logout against an app instance. It contains the app instance details for which the Universal Logout API was fired. This event identifies when applications have had Universal Logout triggered for audit or debugging purposes. This event is only fired once. It's only fired for applications that have been configured for Universal Logout. You can configure it under Risk policy, Continuous Access policy, or in an admin-initiated Clear User Session.
 
 ### workflows.users.delegatedflow.run
 
