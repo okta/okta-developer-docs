@@ -1,4 +1,4 @@
-To check for a successful sign-in request whenever an endpoint is requested, use `@before-request` to check for the authorization request header:
+Whenever an endpoint is requested, use `@before-request` to check for the authorization request header and verify that the sign-in request was successful:
 
 ```python
 @app.before_request

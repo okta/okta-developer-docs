@@ -33,13 +33,13 @@ Add a layer of authorization to your web services with [Okta API Access Manageme
 
 Background services and third-party APIs accessing your own APIs require the same level of [authentication and authorization](https://www.okta.com/identity-101/authentication-vs-authorization/) as users accessing your web applications. However, a machine-to-machine sign-in flow should be silent and require no human user interaction. Use Okta to grant the correct level of access to your APIs on your behalf.
 
-In this quickstart, you:
+This quickstart contains the following tasks:
 
 1. [Check that API Access Management is enabled](#check-that-api-access-management-is-enabled)
 1. [Create and configure a new web API to use Okta](#create-and-configure-a-new-web-api-to-use-okta)
 1. [Configure different levels of access for different endpoints](#configure-different-levels-of-access-for-different-endpoints)
 1. [Enable CORS for your API](#enable-cors-for-your-api)
-1. [Test your API is secure](#test-your-api-is-secure)
+1. [Test your API is secure](#test-that-your-api-is-secure)
 
 > **Tip**: You need your Okta org domain to follow this tutorial. It looks like `dev-123456.okta.com`. See [Find your Okta domain](/docs/guides/find-your-domain/). Where you see `${yourOktaDomain}` in this guide, replace it with your Okta domain.
 
@@ -72,12 +72,12 @@ Moving on, where you see `${yourAudience}` and `${yourAuthServerName}` in this g
 
 ## Create and configure a new web API to use Okta
 
-Now that you have an authorization server and noted how to identify it:
+Now that you have an authorization server and noted how to identify it, complete the following steps:
 
-1. [Create an API project](#create-an-api-project)
-1. [Add the required packages to your project](#add-the-required-packages-to-your-project)
-1. [Configure your API to use Okta](#configure-your-api-to-use-okta)
-1. [Create two endpoints to secure](#create-two-endpoints-to-secure)
+1. [Create an API project](#create-an-api-project).
+1. [Add the required packages to your project](#add-the-required-packages-to-your-project).
+1. [Configure your API to use Okta](#configure-your-api-to-use-okta).
+1. [Create two endpoints to secure](#create-two-endpoints-to-secure).
 
 ### Create an API project
 
@@ -122,17 +122,17 @@ Enable [Cross-Origin Resource Sharing  (CORS)](https://fetch.spec.whatwg.org/#ht
 
 <StackSnippet snippet="configcors" />
 
-## Test your API is secure
+## Test that your API is secure
 
-You can now test if your endpoint security works as intended. To do this, you will:
+You can now test if your endpoint security works as intended. To do this, complete the following steps:
 
-1. [Create an API services integration to represent another machine or service attempting to make requests to the API](#create-an-api-services-integration)
-1. [Create a custom scope for the authorization server to assign to the API integration](#create-a-custom-scope-for-the-api)
-1. [Run the API](#run-your-api)
+1. [Create an API services integration to represent another machine or service attempting to make requests to the API](#create-an-api-services-integration).
+1. [Create a custom scope for the authorization server to assign to the API integration](#create-a-custom-scope-for-the-api).
+1. [Run the API](#run-your-api).
 1. Use [Postman](https://www.getpostman.com/apps) to
-   1. [Request an access token for the API](#request-an-access-token-for-the-api)
+   1. [Request an access token for the API](#request-an-access-token-for-the-api).
    {style="list-style-type:lower-alpha"}
-   1. [Query both the `\hello` and `\whoami` endpoints](#query-the-hello-and-whoami-endpoints)
+   1. [Query both the `\hello` and `\whoami` endpoints](#query-the-hello-and-whoami-endpoints).
 
 ### Create an API Services integration
 

@@ -4,5 +4,5 @@ Spring Boot-specific resources:
 * [Spring Boot and Okta in 2 Minutes](https://developer.okta.com/blog/2020/11/24/spring-boot-okta)
 * [Build a Secure Spring Data JPA Resource Server](https://developer.okta.com/blog/2020/11/20/spring-data-jpa)
 * [Okta Spring Boot Starter on GitHub](https://github.com/okta/okta-spring-boot)
-* [Okta Spring Security Resource Server Example](https://github.com/okta/samples-java-spring/tree/master/resource-server). An example of an API being accessed by an app after a user has logged in.
+* [Okta Spring Security Resource Server Example](https://github.com/okta/samples-java-spring/tree/master/resource-server). An example of an API being accessed by an app after a user has signed in.
 * [Spring Security OAuth Reference](https://docs.spring.io/spring-security/reference/servlet/oauth2/login/index.html)
