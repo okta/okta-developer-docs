@@ -151,7 +151,7 @@ To tell Okta that the SMS or voice call message was successfully sent, return a 
 
 ## Preview and test
 
-The external service example is now ready with code to receive and respond to an Okta call. The Okta org is set up to call the external service using a telephony inline hook. In your Okta org, preview the JSON-formatted request and response directly from the Admin Console. You can also test the code directly in your org.
+The external service example is now ready with code to receive and respond to an Okta call. The Okta org is set up to call the external service using a telephony inline hook. In your Okta org, preview the JSON-formatted request and response directly from the Admin Console.
 
 ### Preview
 
