@@ -84,7 +84,7 @@ Moving on, where you see `${clientId}` and `${clientSecret}` in this guide, repl
 
 ## Create and configure a new web application to use Okta
 
-Now that you have created the app integration and noted the configuration settings, you:
+Now that you have created the app integration and noted the configuration settings, complete the following steps:
 
 * [Create a web application](#create-a-web-application).
 * [Add the required packages to your application](#add-the-required-packages-to-your-application)
