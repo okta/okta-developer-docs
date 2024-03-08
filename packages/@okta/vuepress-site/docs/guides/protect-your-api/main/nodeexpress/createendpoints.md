@@ -1,4 +1,4 @@
-Add the following two routes near the bottom of `server.js`:
+Add the code for the endpoints to the end of `index.js`:
 
 ```js
 app.get('/api/hello', (req, res) => {

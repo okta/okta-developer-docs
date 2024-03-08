@@ -1,17 +1,21 @@
-1. Add a new empty API controller class to the Controller folder named `InfoController`.
-2. Add the following `using` statements to the top of the file:
+1. Create an empty API controller named `InfoController.cs` in the `Controllers` folder.
+
+   1. Right-click the `Controllers` folder in **Solution Explorer** and select **Add** > **Controller...**
+   {style="list-style-type:lower-alpha"}
+   1. Select **API Controller - Empty**, and then click **Add**.
+   1. Enter the name `InfoController.cs`, and then click **Add**.
+
+1. Add the following `using` statements to the top of the file:
 
    ```csharp
    using Microsoft.AspNetCore.Authorization;
    using Microsoft.AspNetCore.Cors;
-   using Microsoft.AspNetCore.Http;
-   using Microsoft.AspNetCore.Mvc;
    using System.Collections.Generic;
    using System.Linq;
    using System.Security.Claims;
    ```
 
-2. Create your secure and anonymous access API routes by replacing the existing `InfoController` class with the following:
+1. Replace the existing `InfoController` class with the following code:
 
    ```csharp
    [ApiController]

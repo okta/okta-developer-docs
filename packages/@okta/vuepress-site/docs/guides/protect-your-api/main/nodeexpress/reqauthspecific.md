@@ -1,6 +1,6 @@
-1. Remove the call to register the middleware for all routes in the app instance.
+1. Remove the call to register the middleware for all endpoints from `index.js`.
 
-2. Add the middleware to the specific routes that require authentication.
+1. Add the middleware to the specific routes that require authentication, for example:
 
    ```js
    app.get('/api/whoami', authenticationRequired, (req, res) => {

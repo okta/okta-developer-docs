@@ -406,7 +406,7 @@ Learn more about concepts introduced in this guide:
 * [API Access Management](/docs/concepts/api-access-management/)
 * [Authorization servers](/docs/concepts/auth-servers/)
 * [oAuth 2.0 Credit Credentials flow](/docs/guides/implement-grant-type/clientcreds/main/)
-* [Test the Okta REST APIs using Postman](/code/rest/)
+* [Test the Okta REST APIs using Postman](/docs/reference/rest/)
 * Define your own custom OAuth 2.0 [scopes](/docs/guides/customize-authz-server/main/#create-scopes), [claims](/docs/guides/customize-authz-server/main/#create-claims), and [access policies](/docs/guides/customize-authz-server/main/#create-access-policies) to support authorization for your APIs.
 * [Customize tokens returned from Okta from custom claims](/docs/guides/customize-tokens-returned-from-okta/main/)
 
