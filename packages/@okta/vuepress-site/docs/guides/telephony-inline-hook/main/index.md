@@ -99,7 +99,8 @@ Update the **Okta Dashboard** [preset authentication policy](https://help.okta.c
 
 ## Activate the telephony inline hook in Okta
 
-You must activate the telephony inline hook in your Okta org. Activating the telephony inline hook registers the hook with the Okta org and associates it with your external service.
+You must activate the telephony inline hook in your Okta org. Activating the telephony inline hook registers the hook with the Okta org and associates it with your external service. The following steps use Okta Workflows, but you can also use the Inline Hooks Management API. See [Telephony inline hook reference](https://developer.okta.com/docs/reference/telephony-hook).
+
 
 1. Go to the **Workflow** > **Inline Hooks** page.
 1. Click **Add Inline Hook** and select **Telephony** from the dropdown list.
@@ -150,7 +151,9 @@ To tell Okta that the SMS or voice call message was successfully sent, return a 
 
 ## Preview and test
 
-The external service example is now ready with code to receive and respond to an Okta call. The Okta org is set up to call the external service using a telephony inline hook. In your Okta org, preview the JSON-formatted request and response directly from the Admin Console. You can also test the code directly in your org.
+The external service example is now ready with code to receive and respond to an Okta call. The Okta org is set up to call the external service using a telephony inline hook. In your Okta org, preview the JSON-formatted request and response directly from the Admin Console. You can also test the code directly in your org. 
+
+The following steps use Okta Workflows, but you can also use the Inline Hooks Management API. See [Telephony inline hook reference](https://developer.okta.com/docs/reference/telephony-hook).
 
 ### Preview
 
