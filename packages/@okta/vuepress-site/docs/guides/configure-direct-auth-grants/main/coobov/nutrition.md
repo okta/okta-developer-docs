@@ -1,4 +1,3 @@
-<ApiLifecycle access="ea" />
 <ApiLifecycle access="ie" />
 
 Use this guide to implement a direct authentication out-of-band (OOB) flow for your app. The guide uses Okta Verify Push with the Okta Verify authenticator.

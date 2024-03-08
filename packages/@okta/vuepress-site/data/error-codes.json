@@ -1,6 +1,6 @@
 {
-  "release" : "2024.02.1",
-  "build" : "2024.02.1-begin-157-ga636aff6c99d",
+  "release" : "2024.03.1",
+  "build" : "2024.03.1-begin-166-gc41ac4b03009",
   "errors" : [ {
     "title" : "API validation exception",
     "includesExceptionMessage" : true,
@@ -1792,6 +1792,14 @@
     "statusReasonPhrase" : "Gateway Timeout",
     "errorCode" : "E0000241",
     "errorSummary" : "No connected agents.",
+    "errorDescription" : null
+  }, {
+    "title" : "Invalid etag exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "errorCode" : "E0000242",
+    "errorSummary" : "ETag syntax is invalid.",
     "errorDescription" : null
   } ]
 }

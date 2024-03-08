@@ -1,4 +1,3 @@
-<ApiLifecycle access="ea" />
 <ApiLifecycle access="ie" />
 
 This guide explains how to implement a direct authentication multifactor out-of-band (MFA OOB) flow for your app. The guide uses the phone authenticator with the SMS or voice factor.

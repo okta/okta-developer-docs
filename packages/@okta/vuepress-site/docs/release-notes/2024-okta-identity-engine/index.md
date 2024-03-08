@@ -6,6 +6,73 @@ title: Okta Identity Engine API Products release notes 2024
 
 > Help us improve our release notes by filling out this short [survey](https://surveys.okta.com/jfe/form/SV_4VEZcIGOX0TBgkC).
 
+## March
+
+### Monthly release 2024.03.0
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Direct Authentication is GA in Preview](#direct-authentication-is-ga-in-preview)                                                     | March 7, 2024 |
+| [Permission conditions for profile attributes is GA in Production](#permission-conditions-for-profile-attributes-is-ga-in-production) | March 7, 2024 |
+| [Content Security Policy for custom domains is GA in Preview](#content-security-policy-for-custom-domains-is-ga-in-preview)           | March 7, 2024 |
+| [New mappings property for Policy API is EA in Preview](#new-mappings-property-for-policy-api-is-ea-in-preview)                       | March 7, 2024 |
+| [My Account Authenticators API is GA in Production](#my-account-authenticators-api-is-ga-in-production)                               | March 7, 2024 |
+| [AAL values for Login.gov IdP](#aal-values-for-logingov-idp)                                                                          | March 7, 2024 |
+| [Granular API policy authenticator controls is GA in Preview](#granular-api-policy-authenticator-controls-is-ga-in-preview)           | March 7, 2024 |
+| [Externally signed org AS access tokens](#externally-signed-org-as-access-tokens)                                                     | March 7, 2024 |
+| [Support case management for admins is GA in Preview](#support-case-management-for-admins-is-ga-in-preview)                           | March 7, 2023 |
+| [Realms for Workforce](#realms-for-workforce)                                                                                         | March 7, 2023 |
+| [Enhanced app API contracts](#enhanced-app-api-contracts)                                                                             | March 7, 2024 |
+| [Bug fixed in 2024.03.0](#bugs-fixed-in-2024-03-0)                                                                                    | March 7, 2024 |
+
+#### Direct Authentication is GA in Preview
+
+[Direct Authentication](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/OrgAS/#tag/OrgAS/operation/token) offers a new set of OAuth 2.0 grants that give app developers greater control over the authentication process. When redirect authentication isn't an option, you can use direct authentication to allow client apps to authenticate users directly, without relying on HTTP redirection through a web browser. This is beneficial when there's a high degree of trust between the user and the app and when browser-based flows aren't feasible, like with mobile apps. See [Configure Direct Auth grant types](/docs/guides/configure-direct-auth-grants/aotp/main/). <!-- OKTA-585748 -->
+
+#### Permission conditions for profile attributes is GA in Production
+
+You can now apply conditions to the **View users and their details** and **Edit users' profile attributes** custom admin role permissions. Permission conditions help you limit the scope of a role by including or excluding admins' access to individual profile attributes. This gives you more granular control over your custom admin roles and helps meet your org's unique security needs. See [Permission conditions](https://help.okta.com/okta_help.htm?type=oie&id=ext-permission-conditions). <!-- OKTA-586185 -->
+
+#### Content Security Policy for custom domains is GA in Preview
+
+The Content Security Policy (CSP) feature lets admins control which URLs may be linked to from customized sign-in and error pages in orgs that use custom domains. Admins add trusted URLs to Okta that link to items such as images and add these links to the code in their sign-in and error pages. This feature enhances security by enabling admins to allow only approved content to appear and prevent the introduction of potentially malicious code to these pages. See [Content Security Policy (CSP) for your custom domain](/docs/guides/custom-widget/main/#content-security-policy-csp-for-your-custom-domain). <!-- OKTA-600774 FF CONTENT_SECURITY_POLICY_FOR_CUSTOMIZABLE_SIGN_IN_AND_ERROR_PAGES -->
+
+#### New mappings property for Policy API is EA in Preview
+
+A new `mappings` property is available for the `links` object in  `GET /api/v1/policies/${policyId}` and `GET /api/v1/policies?type=${type}` responses. This property displays links to policy mappings. See [Policy API](/docs/reference/api/policy/#links-object). <!-- OKTA-637310 -->
+
+#### My Account Authenticators API is GA in Production
+
+The MyAccounts Authenticators API (`/idp/myaccount/authenticators/`) enables you to list enrolled and un-enrolled authenticator information. You can also access details of specific authenticators and enrollments. <!-- OKTA-670703 -->
+
+#### AAL values for Login.gov IdP
+
+The [Login.gov IdP configuration](/docs/guides/add-logingov-idp/main/#create-an-identity-provider-in-okta) has been updated to include all allowed AAL values. <!-- OKTA-673125 -->
+
+#### Granular API policy authenticator controls is GA in Preview
+
+The Authentication Policy API now includes three new `constraints` object parameters that provide precise control over what specific authenticators and methods are displayed to end users. Previously, some authenticators were mapped to the same authenticator `types` and `methods`. The parameters `authenticationMethods` and `excludeAuthenticationMethods` now identify (or exclude) the exact authenticator for both `knowledge` and `possession` constraints. The `required` parameter indicates whether the `knowledge` or `possession` constraints are required by the assurance. See the [Policy API](/docs/reference/api/policy/#constraints). <!--OKTA-676880 ASSURANCE_GRANULAR_AUTHENTICATOR_CONSTRAINTS -->
+
+#### Externally signed org AS access tokens
+
+Access tokens returned from the org authorization server are now signed using the externally published signing key. These access tokens must still be treated as opaque strings and not be validated or consumed by any application other than Okta. <!-- OKTA-694170 -->
+
+#### Support case management for admins is GA in Preview
+
+Super admins can now assign the **View, create, and manage Okta support cases** permission and Support Cases resource to a custom admin role. This allows delegated admins to manage the support cases that they've opened. See [About role permissions](https://help.okta.com/okta_help.htm?type=oie&id=csh-about-role-permissions). <!-- OKTA-700229 -->
+
+#### Realms for Workforce
+
+Realms allows you to unlock greater flexibility in managing and delegating management of your distinct user populations within a single Okta org. See the [Realms](/docs/api/openapi/okta-management/management/tag/Realms) and [Realm Assignments](/docs/api/openapi/okta-management/management/tag/RealmAssignments) APIs. <!-- OKTA-702163 -->
+
+#### Enhanced app API contracts
+
+Okta has API documentation on creating instances of custom apps. Yet, it doesn't fully describe the app metadata required for features such as SSO and provisioning for apps installed from the Okta Integration Network (OIN). In an effort to improve the API for apps in the OIN, new app metadata contracts have been added to the Okta management API. Operators and developers can programmatically create instances of popular OIN apps in their ecosystem and set up the provisioning connection. See [Set up an app provisioning connection](/docs/guides/app-provisioning-connection/main/). <!-- OKTA-703567 -->
+
+#### Bug fixed in 2024.03.1
+
+Some group claims failed if Okta Expression Language was used. (OKTA-660870)
+
 ## February
 
 ### Weekly release 2024.02.2
