@@ -106,7 +106,7 @@ To improve the security of your org, Okta now filters and encodes any illegal un
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
 | [Assign admin roles to an app](#assign-admin-roles-to-an-app)| June 14, 2023 |
-| [DPoP support for Okta management APIs is GA in Production](#dpop-support-for-okta-management-apis-is-ga-in-production) | December 13, 2024 |
+| [DPoP support for Okta management APIs is GA in Production](#dpop-support-for-okta-management-apis-is-ga-in-production) | December 13, 2023 |
 | [Dynamic OS version compliance for device assurance](#dynamic-os-version-compliance-for-device-assurance) | June 14, 2023 |
 | [New attribute to manage SAML app session lifetimes is EA in Preview](#new-attribute-to-manage-saml-app-session-lifetimes-is-ea-in-preview) | February 7, 2024 |
 | [New email domain for free trial orgs](#new-email-domain-for-free-trial-orgs) | February 7, 2024 |
