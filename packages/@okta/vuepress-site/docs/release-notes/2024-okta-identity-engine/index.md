@@ -20,7 +20,6 @@ title: Okta Identity Engine API Products release notes 2024
 | [AAL values for Login.gov IdP](#aal-values-for-logingov-idp)                                                                          | March 7, 2024 |
 | [Granular API policy authenticator controls is GA in Preview](#granular-api-policy-authenticator-controls-is-ga-in-preview)           | March 7, 2024 |
 | [Externally signed org AS access tokens](#externally-signed-org-as-access-tokens)                                                     | March 7, 2024 |
-| [Granular controls for authentication policies](#granular-controls-for-authentication-policies)                                       | March 7, 2024 |
 | [Support case management for admins is GA in Preview](#support-case-management-for-admins-is-ga-in-preview)                           | March 7, 2023 |
 | [Realms for Workforce](#realms-for-workforce)                                                                                         | March 7, 2023 |
 | [Enhanced app API contracts](#enhanced-app-api-contracts)                                                                             | March 7, 2024 |
