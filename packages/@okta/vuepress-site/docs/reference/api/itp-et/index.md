@@ -464,6 +464,52 @@ This resource contains detailed reference material on event types triggered with
 
 **Description:** This event is triggered when an admin or system account triggers Universal Logout against an app instance. It contains the app instance details for which the Universal Logout API was fired. This event identifies when applications have had Universal Logout triggered for audit or debugging purposes. This event is only fired once. It's only fired for applications that have been configured for Universal Logout. You can configure it under Risk policy, Continuous Access policy, or in an admin-initiated Clear User Session.
 
+| Key Event Attributes  | Description                                         | Data Type      | Example Values |
+| --------------------- | --------------------------------------------------- | -------------- | -------------- |
+| **event.system.debugContext.debugData**                |                 |         |         |
+| AppInstanceIds            |A list of application IDs that Okta triggered for Universal Logout                 | Array of IDs         | [0oa1ysra5y0ESChAr0h8]        |
+| TraceId            | The `TraceId` is used in continuous access evaluation use cases. A request that triggers a CAE evaluation can ultimately trigger things like CAE action events - and those will be executed from the async jobs. `TraceId` connects together events triggered both by the original request handler and from the async jobs triggered by this handler.
+                  | String         | `94384405-51e3-4e13-b8b0-ba857b585a63`         |
+| **target** (User)         | The user ???           |      |        |
+| alternateId        | Email address of the target           | String     |        |
+| DetailEntry         |             |      |        |
+| DisplayName        | Display name of the target           | String     |        |
+| ID        | Unique identifier of the target            | String     | 00u8xut93qEWYx5sx1d7       |
+| Type        | The type of target object     | String     | User       |
+| **actor**                 |  ???                 |         |         |
+| alternateId        |  Email address of the actor          | String     |        |
+| DetailEntry         |             | string     |        |
+| DisplayName        | Display name of the actor            | String     |        |
+| ID        | Unique identifier of the actor            |      |        |
+| Type        | The type of actor object           |      |        |
+| **client**                |  ???                |       |         |
+| IPAddress              | IP address                |       |         |
+
 ### workflows.users.delegatedflow.run
 
 **Description:** This event can be used by admins or security team members to monitor the execution of delegated flows in the Workflows platform from the Admin application. The actor field provides the Okta User ID of the user that ran the flow.  The target fields provide context on the Workflows instance as well as the name and flow id of the executed flow. This event only indicates if the flow was successfully triggered and does not provide information about whether the flow encountered an error.
+
+| Key Event Attributes  | Description                                         | Data Type      | Example Values |
+| --------------------- | --------------------------------------------------- | -------------- | -------------- |
+| **event.system.debugContext.debugData**                |                 |         |         |
+| SessionId          |               | String         | `ad995fe6-e721-4a8a-86ac-d942bc59ea41`       |
+| **target** (AppInstance)         | The user ???           |      |        |
+| alternateId        | Okta Workflows          | String     |  Okta Workflows      |
+| DetailEntry         |             |      |        |
+| DisplayName        | Display name of the target           | String     |        |
+| ID        | Unique identifier of the target            | String     | 00u8xut93qEWYx5sx1d7       |
+| Type        | The type of target object     | String     | AppInstance      |
+| **target** (Flow)         | The user ???           |      |        |
+| alternateId        | Name of flow          | String     |  Test Delegated Flow     |
+| DetailEntry         |             |      |        |
+| DisplayName        | Display name of the target           | String     |        |
+| ID        | Unique identifier of the target            | String     | 00u8xut93qEWYx5sx1d7       |
+| Type        | The type of target object     | String     | Flow      |
+| **actor**                 |  ???                 |         |         |
+| alternateId        |  Email address of the actor          | String     |        |
+| DetailEntry         |             | string     |        |
+| DisplayName        | Display name of the actor            | String     |        |
+| ID        | Unique identifier of the actor            |      |        |
+| Type        | The type of actor object           |  String    |  User      |
+| **client**                |  ???                |       |         |
+| IPAddress              | IP address                |       |         |
