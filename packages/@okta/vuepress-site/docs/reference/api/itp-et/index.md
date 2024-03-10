@@ -14,7 +14,7 @@ This resource contains detailed reference material on event types triggered with
 
 ### user.risk.change
 
-**Description:** Indicates a user's risk level has changed. This event type can be used to monitor risk level changes for users. This event is triggered when Okta determines that a user is associated with activity or context that indicate risk.
+**Description:** Indicates a user's risk level has changed. This event can be used to monitor risk level changes for users. This event is triggered when Okta determines that a user is associated with a risk context or activity.
 
 | Key Event Attributes  | Description                                         | Data Type            | Example Values |
 | --------------------- | --------------------------------------------------- | -------------------- | -------------- |
@@ -23,7 +23,7 @@ This resource contains detailed reference material on event types triggered with
 | RequestId              |                 |         |         |
 | RequestUri              |                 |         |         |
 | Uri             |                 |         |         |
-| Risk                  |   ??????                                                  | key-value pair       |` {previousLevel=LOW, level=MEDIUM, detectionName=Session Influenced User Risk, reasons=idxGuvnnpQKQ8uVw56TGp23Qg, issuer=OKTA} `        |
+| Risk                  |   Contains data on the risk: previous risk level, current risk level, detection names, reasons, and issuer.                                                   | key-value pair       |` {previousLevel=LOW, level=MEDIUM, detectionName=Session Influenced User Risk, reasons=idxGuvnnpQKQ8uVw56TGp23Qg, issuer=OKTA} `        |
 | TraceId               | ID generated for the risk request                   | String         | String         |
 | **target** (User)         | The user associated with a risk activity            |      |        |
 | alternateId        | Email address of the target           | String     |        |
@@ -31,7 +31,7 @@ This resource contains detailed reference material on event types triggered with
 | DisplayName        | Display name of the target           | String     |        |
 | ID        | Unique identifier of the target            | String     | 00u8xut93qEWYx5sx1d7       |
 | Type        | The type of target object     | String     | User       |
-| **actor**                 |  ???                 |         |         |
+| **actor**                 |  The entity reporting the user risk change (can be a system principal or a user)                |         |         |
 | alternateId        |  Email address of the actor          | String     |        |
 | DetailEntry         |             | String     |        |
 | DisplayName        | Display name of the actor            | String     |        |
@@ -53,6 +53,9 @@ This resource contains detailed reference material on event types triggered with
 | EventUuid              |                   | String         | String         |
 | Label              |                  | String         | String         |
 | Uri              |                   | String         | String         |
+| **event.system.debugContext.debugData.PartnerRiskReportData**                |                 |         |         |
+| Issuer             | the issuer of the security event | String         | String         |
+| Security event URL ???             | security event definition,                  | String         | String         |
 | **target** (User)         | The user associated with a risk activity            |      |        |
 | alternateId        | Email address of the target           | String     |        |
 | DetailEntry         |             |      |        |
@@ -87,7 +90,7 @@ This resource contains detailed reference material on event types triggered with
 | DisplayName        | Display name of the target           | String     |        |
 | ID        | Unique identifier of the target            | String     | 00u8xut93qEWYx5sx1d7       |
 | Type        | The type of target object     | String     | User       |
-| **actor**                 |  ???                 |         |         |
+| **actor**                 |  the entity reporting the user risk change (can be a system principal or a user)                 |         |         |
 | alternateId        |  Email address of the actor          | String     |        |
 | DetailEntry         |             | string     |        |
 | DisplayName        | Display name of the actor            | String     |        |
@@ -403,7 +406,7 @@ This resource contains detailed reference material on event types triggered with
 
 ### user.session.end
 
-**Description:** This event is triggered when Okta terminates all IDX sessions. If there are 'N' active sessions for an user the event will appear 'N' times. All 'N' events contain externalSessionId and System.Transaction.ID that correlates with the System.Transaction.ID under the user.session.clear event.
+**Description:** This event is triggered when Okta terminates all IDX sessions. If there are 'N' active sessions for a user the event appears 'N' times. All 'N' events contain `externalSessionId` and `System.Transaction.ID` that correlate with the `System.Transaction.ID` under the `user.session.clear` event.
 
 | Key Event Attributes  | Description                                         | Data Type      | Example Values |
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
@@ -419,6 +422,10 @@ This resource contains detailed reference material on event types triggered with
 | RequestUri               |                  | String         | String         |
 | ThreatSuspected             |                   | String         | String         |
 | Url              |                   | String         | String         |
+| **event.System.Transaction**                |                 |         |         |
+| ID              |                  | String         | String         |
+| **event.AuthenticationContext**                |                 |         |         |
+| ExternalSessionId              |                  | String         | String         |
 | **target** (User)         | The user associated with a risk activity            |      |        |
 | alternateId        | Email address of the target           | String     |        |
 | DetailEntry         |             |      |        |
@@ -436,7 +443,7 @@ This resource contains detailed reference material on event types triggered with
 
 ### user.session.clear
 
-**Description:**   This event is triggered when Admin invokes to clear sessions by clicking on the "Clear user session". This event appears only once and contains `externalSessionId` and `System.Transaction.ID`.
+**Description:**   This event is triggered when an Admin invokes clear sessions by clicking on the "Clear user session". This event appears only once and contains `externalSessionId` and `System.Transaction.ID`.
 
 | Key Event Attributes  | Description                                         | Data Type      | Example Values |
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
