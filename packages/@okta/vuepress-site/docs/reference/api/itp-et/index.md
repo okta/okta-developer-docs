@@ -6,7 +6,7 @@ meta:
     content: ITP specific event types
 ---
 
-# Identity Threat Protection
+# Identity Threat Protection Event Types
 
 This resource contains detailed reference material on event types triggered with the Identity Threat Protection solution. Use the information from these attributes to understand the users, threats, and risk environment for your org.
 
