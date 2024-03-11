@@ -75,7 +75,7 @@
         Since: <SmartLink :item="{link: '/docs/release-notes/', text: eventType.info.release}" />
       </div>
       <div v-if="eventType.id === 'user.risk.change'">
-      <p> See also: <a href="http://localhost:8080/docs/reference/api/itp-et">ITP Event Types</a></p>
+        <p> See also: <a href="http://localhost:8080/docs/reference/api/itp-et">ITP Event Types</a></p>
       </div>
     </div>
   </div>
