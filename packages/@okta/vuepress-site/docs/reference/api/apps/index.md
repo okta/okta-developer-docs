@@ -2600,7 +2600,7 @@ Updates an application in your organization
 
 > **Notes:**
 > * All properties must be specified when updating an app. **Delta updates are not supported.**
-> * You can't modify system-assigned properties, such as `id`, `name`, `status`, `lastUpdated`, and `created`.
+> * You can't modify system-assigned properties, such as `id`, `name`, `status`, `lastUpdated`, and `created`. The values for these properties in the PUT request body are ignored.
 
 ##### Response parameters
 
