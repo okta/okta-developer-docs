@@ -18,8 +18,6 @@ When you're configuring federation between two Okta orgs, use OpenID Connect as 
 1. Click **Save**.
 1. Copy the **Client ID** and **Client secret** from the **Client Credentials** section and paste into a text editor. You need these when you configure this Identity Provider in your other Okta org in the next section.
 
-If you plan to [enable Authentication method reference (AMR) claims](#create-an-identity-provider-in-okta) in the Okta org that you connect to this IdP org, you must enable **Use standard AMR value format**. Enable this option to send AMR claim values to apps using the standard format of the supported protocol rather than the legacy Okta format.
+<AmrOktaToOkta/>
 
-1. Go to **Security** > **General** and locate the **Organization Security** section.
-1. Select **Enabled** from the **Use standard AMR value format** dropdown.
-1. Click **Save**.
+See [Create an Identity Provider in Okta](#create-an-identity-provider-in-okta) for Okta-to-Okta orgs.
