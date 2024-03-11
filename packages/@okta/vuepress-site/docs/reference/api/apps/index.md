@@ -2598,7 +2598,9 @@ Updates an application in your organization
 | app           | Updated app              | Body       | [Application](#application-object) | FALSE    |         |
 | applicationId | `id` of an app to update | URL        | String                            | TRUE     |         |
 
-> **Note:** All properties must be specified when updating an app. **Delta updates are not supported.**
+> **Notes:**
+> * All properties must be specified when updating an app. **Delta updates are not supported.**
+> * You can't modify system-assigned properties, such as `id`, `name`, `status`, `lastUpdated`, and `created`.
 
 ##### Response parameters
 
