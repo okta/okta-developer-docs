@@ -63,7 +63,9 @@
       >
         No Description
       </p>
-
+      <div v-if="['user.risk.change', 'analytics.feedback.provide', 'security.events.provider.receive_event'].indexOf(eventType.id) !== -1">
+        <p class="event-itp-type"> See also: <a href="http://localhost:8080/docs/reference/api/itp-et">ITP Event Types</a></p>
+      </div>
       <div class="event-type-tags">
         <code
           v-for="tag in eventType.tags"
@@ -73,9 +75,6 @@
       </div>
       <div class="event-type-release">
         Since: <SmartLink :item="{link: '/docs/release-notes/', text: eventType.info.release}" />
-      </div>
-      <div v-if="eventType.id === 'user.risk.change'">
-        <p> See also: <a href="http://localhost:8080/docs/reference/api/itp-et">ITP Event Types</a></p>
       </div>
     </div>
   </div>
@@ -241,6 +240,11 @@
   .event-types .event-type .event-type-description {
     margin-top: 10px;
     margin-bottom: 5px;
+  }
+
+  .event-types .event-type .event-itp-type {
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
 
   .event-types .event-type .event-type-tag::before {

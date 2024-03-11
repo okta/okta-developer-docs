@@ -16118,7 +16118,7 @@
     }, {
       "id" : "user.risk.change",
       "category" : "adaptive",
-      "description" : "Indicates a user's risk <b>level</b> has changed. This can be used to monitor risk level changes for users. This event is fired when Okta determines that a user is associated with activity or context that indicate risk. More further details on this event type, see [Identity Threat Protection Event Types](/docs/reference/api/itp-et) or <a href=\"https://www.w3schools.com/\">Visit W3Schools.com!</a> or Since: <SmartLink :item=\"{link: '/docs/release-notes/', text: eventType.info.release}\" /> or let's try [link](https://developer.okta.com).",
+      "description" : "Indicates a user's risk level has changed. This can be used to monitor risk level changes for users. This event is fired when Okta determines that a user is associated with activity or context that indicate risk.",
       "info" : {
         "created" : "2022-08-17",
         "release" : "2023.01.2"
