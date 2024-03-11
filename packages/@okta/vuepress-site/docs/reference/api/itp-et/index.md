@@ -19,23 +19,11 @@ This resource contains detailed reference material on event types triggered with
 | Key Event Attributes  | Description                                         | Data Type            | Example Values |
 | --------------------- | --------------------------------------------------- | -------------------- | -------------- |
 | **event.system.debugContext.debugData**                |                 |         |         |
-| DtHash               |                 |         |         |
-| RequestId              |                 |         |         |
-| RequestUri              |                 |         |         |
-| Uri             |                 |         |         |
 | Risk                  |   Contains data on the risk: previous risk level, current risk level, detection names, reasons, and issuer.                                                   | key-value pair       |` {previousLevel=LOW, level=MEDIUM, detectionName=Session Influenced User Risk, reasons=idxGuvnnpQKQ8uVw56TGp23Qg, issuer=OKTA} `        |
 | TraceId               | ID generated for the risk request                   | String         | String         |
-| **target** (User)         | The user associated with a risk activity            |      |        |
-| alternateId        | Email address of the target           | String     |        |
-| DetailEntry         |             |      |        |
-| DisplayName        | Display name of the target           | String     |        |
-| ID        | Unique identifier of the target            | String     | 00u8xut93qEWYx5sx1d7       |
+| **target** (User)         | The user associated with a risk activity ???           |      |        |
 | Type        | The type of target object     | String     | User       |
 | **actor**                 |  The entity reporting the user risk change (can be a system principal or a user)                |         |         |
-| alternateId        |  Email address of the actor          | String     |        |
-| DetailEntry         |             | String     |        |
-| DisplayName        | Display name of the actor            | String     |        |
-| ID        | Unique identifier of the actor            | String      |        |
 | Type        | The type of actor object           | String     |        |
 | **client**                | The client device used by the  ???                |       |         |
 | IPAddress              | The IP address of the client device               |       |         |
@@ -47,26 +35,14 @@ This resource contains detailed reference material on event types triggered with
 | Key Event Attributes  | Description                                         | Data Type      | Example Values |
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
 | **event.system.debugContext.debugData**                |                 |         |         |
-| DtHash              |                  | String         | String         |
-| RequestId             |                   | String         | String         |
-| RequestUri               |                  | String         | String         |
 | EventUuid              |                   | String         | String         |
 | Label              |                  | String         | String         |
-| Uri              |                   | String         | String         |
 | **event.system.debugContext.debugData.PartnerRiskReportData**                |                 |         |         |
 | Issuer             | the issuer of the security event | String         | String         |
 | Security event URL ???             | security event definition,                  | String         | String         |
 | **target** (User)         | The user associated with a risk activity            |      |        |
-| alternateId        | Email address of the target           | String     |        |
-| DetailEntry         |             |      |        |
-| DisplayName        | Display name of the target           | String     |        |
-| ID        | Unique identifier of the target            | String     | 00u8xut93qEWYx5sx1d7       |
 | Type        | The type of target object     | String     | User       |
 | **actor**                 |  ???                 |         |         |
-| alternateId        |  Email address of the actor          | String     |        |
-| DetailEntry         |             | string     |        |
-| DisplayName        | Display name of the actor            | String     |        |
-| ID        | Unique identifier of the actor            |      |        |
 | Type        | The type of actor object           |      |        |
 | **client**                |  ???                |       |         |
 | IPAddress              | IP address                |       |         |
@@ -78,23 +54,11 @@ This resource contains detailed reference material on event types triggered with
 | Key Event Attributes  | Description                                         | Data Type      | Example Values |
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
 | **event.system.debugContext.debugData**                |                 |         |         |
-| DtHash              |                  | String         | String         |
-| RequestId             |                   | String         | String         |
-| RequestUri               |                  | String         | String         |
 | ???              |                   | String         | String         |
 | ???             |                  | String         | String         |
-| Uri              |                   | String         | String         |
 | **target** (User)         |             |      |        |
-| alternateId        | Email address of the target           | String     |        |
-| DetailEntry         |             |      |        |
-| DisplayName        | Display name of the target           | String     |        |
-| ID        | Unique identifier of the target            | String     | 00u8xut93qEWYx5sx1d7       |
 | Type        | The type of target object     | String     | User       |
 | **actor**                 |  the entity reporting the user risk change (can be a system principal or a user)                 |         |         |
-| alternateId        |  Email address of the actor          | String     |        |
-| DetailEntry         |             | string     |        |
-| DisplayName        | Display name of the actor            | String     |        |
-| ID        | Unique identifier of the actor            |      |        |
 | Type        | The type of actor object           |      |        |
 | **client**                |  ???                |       |         |
 | IPAddress              | IP address                |       |         |
