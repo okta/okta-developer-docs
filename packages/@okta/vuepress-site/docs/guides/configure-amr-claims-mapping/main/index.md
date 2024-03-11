@@ -29,6 +29,14 @@ Authentication Method Reference (AMR) claims mapping allows an admin to configur
 
 AMR claims provide important context to Okta during policy evaluation. For example, AMR claims give Okta a better understanding of which factors were used by the external IdP to verify the user's identity. This creates a more seamless and secure user experience, reduces friction, and boosts productivity.
 
+### Okta to Okta orgs and AMR claims
+
+If you plan to [enable Authentication method reference (AMR) claims](#create-an-identity-provider-in-okta) in the Okta org that you connect to the IdP org, you must enable **Use standard AMR value format**. Enable this option to send AMR claim values to apps using the standard format of the supported protocol rather than the legacy Okta format.
+
+1. Go to **Security** > **General** and locate the **Organization Security** section.
+1. Select **Enabled** from the **Use standard AMR value format** dropdown.
+1. Click **Save**.
+
 ## AMR claims mapping flow
 
 <div class="three-quarter">
