@@ -18,6 +18,6 @@ When you're configuring federation between two Okta orgs, use OpenID Connect as 
 1. Click **Save**.
 1. Copy the **Client ID** and **Client secret** from the **Client Credentials** section and paste into a text editor. You need these when you configure this Identity Provider in your other Okta org in the next section.
 
-<AmrOktaToOkta/>
+<AMROktatoOkta/>
 
 See [Create an Identity Provider in Okta](#create-an-identity-provider-in-okta) for Okta-to-Okta orgs.

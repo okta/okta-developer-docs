@@ -29,6 +29,10 @@ Authentication Method Reference (AMR) claims mapping allows an admin to configur
 
 AMR claims provide important context to Okta during policy evaluation. For example, AMR claims give Okta a better understanding of which factors were used by the external IdP to verify the user's identity. This creates a more seamless and secure user experience, reduces friction, and boosts productivity.
 
+### Okta-to-Okta orgs and AMR claims
+
+When you configure AMR claims in Okta-to-Okta orgs, there are some configuration steps to consider. If you plan to enable AMR claims in the Okta org that you connect to the IdP org, you must enable the **Use standard AMR value format** to send AMR claim values in the correct format. See the [configuration steps](#okta-to-okta) in this guide.
+
 ## AMR claims mapping flow
 
 <div class="three-quarter">
@@ -129,7 +133,7 @@ The following table describes the AMR values that Okta supports.
 
 Okta-to-Okta (org2org), also known as hub and spoke, refers to a deployment model where the IdP and Service Provider (SP) are both Okta orgs. Use the [Add an External Identity Provider guide for Okta-to-Okta](/docs/guides/add-an-external-idp/oktatookta/main/) to configure your Okta-to-Okta orgs for AMR claims mapping.
 
-<AmrOktaToOkta/>
+<AMROktatoOkta/>
 
 ### Custom OpenID Connect apps
 
