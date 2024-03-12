@@ -6,6 +6,16 @@ title: Okta API Products release notes 2024
 
 ## March
 
+### Monthly release 2024.03.1
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Bug fixed in 2024.03.1](#bugs-fixed-in-2024-03-1) | March 13, 2024 |
+
+#### Bug fixed in 2024.03.1
+
+OTPs sent using a Telephony Inline Hook weren’t subject to rate limits.
+
 ### Monthly release 2024.03.0
 
 | Change | Expected in Preview Orgs |
