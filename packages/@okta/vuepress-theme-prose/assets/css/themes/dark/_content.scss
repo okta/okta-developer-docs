@@ -33,14 +33,10 @@
 }
 
 .page-body .content--container .vs__dropdown-menu .vs__dropdown-option {
-  border-color: transparent !important;
+  border-bottom: 1px solid var(--c-text-gray);
   background-color: cv("code");
 
   color: cv("text");
-}
-
-.page-body .content--container .vs__dropdown-menu .vs__dropdown-option--highlight {
-  border-color: transparent !important;
 }
 
 [class^="icon-"]:before,

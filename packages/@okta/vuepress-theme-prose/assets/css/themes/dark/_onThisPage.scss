@@ -21,3 +21,11 @@
 .page-body .content--container .on-this-page a.router-link-active {
   border-color: cv("action");
 }
+
+.mobile-on-this-page .vs__dropdown-menu .vs__dropdown-option--highlight {
+  border: 1px solid var(--c-text-base) !important;
+}
+
+.mobile-on-this-page .vs__dropdown-menu .vs__dropdown-option {
+  border-bottom: 1px solid var(--c-text-gray);
+}

@@ -13,3 +13,18 @@
 .page-body .content--container .stack-selector .selector-control nav {
   background-color: transparent;
 }
+
+.stack-selector .selector-control .vs__dropdown-menu .vs__dropdown-option--highlight {
+  box-sizing: border-box;
+
+  border: 1px solid var(--c-text-base);
+
+  color: inherit;
+}
+
+.stack-selector .selector-control .vs__dropdown-menu .vs__dropdown-option--highlight:last-child {
+  box-sizing: border-box;
+
+  border: 1px solid var(--c-text-base);
+  border-radius: 0 0 4px 4px;
+}
