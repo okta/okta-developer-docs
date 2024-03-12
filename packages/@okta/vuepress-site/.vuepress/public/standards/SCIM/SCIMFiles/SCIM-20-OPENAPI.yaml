@@ -1,0 +1,1194 @@
+openapi: 3.0.1
+info:
+  title: SCIM API
+  description: SCIM V2 API
+  version: 0.1.0
+servers:
+  - url: 'https://your-server/'
+tags:
+  - name: SCIM V2
+paths:
+  /Users:
+    get:
+      tags:
+        - User
+        - OIN
+        - Custom Apps
+      summary: Search or list users
+      operationId: searchUsers
+      parameters:
+        - name: filter
+          in: query
+          description: Okta checks that the User object exists on the SCIM server through a GET method request with the `filter=userName` parameter (or any other filter parameter that was configured with the SCIM integration). This check is performed using the `eq` (equal) operator and is the only one necessary to successfully provision users with Okta.
+          schema:
+            type: string
+        - name: startIndex
+          in: query
+          description: start index (1-based)
+          schema:
+            type: integer
+            format: int32
+            default: 1
+        - name: count
+          in: query
+          description: page size
+          schema:
+            type: integer
+            format: int32
+            default: 100
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/UserSearchResponse'
+        400:
+          description: bad request
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        401:
+          description: authorization failure
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        403:
+          description: permissions denied
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        429:
+          description: too many requests
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        500:
+          description: internal server error
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+    post:
+      tags:
+        - User
+        - OIN
+        - Custom Apps
+      summary: Create a user.
+      operationId: createUser
+      requestBody:
+        description: A new user without 'id'.
+        content:
+          application/scim+json:
+            schema:
+              $ref: '#/components/schemas/User'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+        required: true
+      responses:
+        201:
+          description: successfully created user
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/User'
+        400:
+          description: bad request
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        401:
+          description: authorization failure
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        403:
+          description: permissions denied
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        404:
+          description: not found
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        409:
+          description: duplicate email
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        429:
+          description: too many requests
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        500:
+          description: internal server error
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /Users/{id}:
+    get:
+      tags:
+        - User
+        - OIN
+        - Custom Apps
+      summary: Get a user by id.
+      operationId: getUser
+      parameters:
+        - name: id
+          in: path
+          description: User id.
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/User'
+        401:
+          description: authorization failure
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        403:
+          description: permissions denied
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        404:
+          description: not found
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        429:
+          description: too many requests
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        500:
+          description: internal server error
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+    put:
+      tags:
+        - User
+        - OIN
+        - Custom Apps
+      summary: Fully update/replace a user.
+      operationId: updateUser
+      parameters:
+        - name: id
+          in: path
+          description: User id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: An updated user.
+        content:
+          application/scim+json:
+            schema:
+              $ref: '#/components/schemas/User'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+        required: true
+      responses:
+        200:
+          description: successfully updated a user
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/User'
+        400:
+          description: bad request
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        401:
+          description: authorization failure
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        403:
+          description: permissions denied
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        404:
+          description: not found
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        409:
+          description: duplicate email
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        429:
+          description: too many requests
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        500:
+          description: internal server error
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+    patch:
+      tags:
+        - User
+        - OIN
+      summary: Partially update/patch a user.
+      operationId: patchUser
+      parameters:
+        - name: id
+          in: path
+          description: user id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: Patch operations list.
+        content:
+          application/scim+json:
+            schema:
+              $ref: '#/components/schemas/Patch'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Patch'
+        required: false
+      responses:
+        200:
+          description: successfully updated user
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/User'
+        400:
+          description: bad request
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        401:
+          description: authorization failure
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        403:
+          description: permissions denied
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        404:
+          description: not found
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        409:
+          description: duplicate email
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        429:
+          description: too many requests
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        500:
+          description: internal server error
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /Groups:
+    get:
+      tags:
+        - Group
+        - OIN
+        - Custom Apps
+      summary: Search or list Groups
+      operationId: searchGroups
+      parameters:
+        - name: startIndex
+          in: query
+          description: start index (1-based)
+          schema:
+            type: integer
+            format: int32
+            default: 1
+        - name: count
+          in: query
+          description: page size
+          schema:
+            type: integer
+            format: int32
+            default: 100
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/GroupSearchResponse'
+        400:
+          description: bad request
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        401:
+          description: authorization failure
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        403:
+          description: permissions denied
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        429:
+          description: too many requests
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        500:
+          description: internal server error
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+    post:
+      tags:
+        - Group
+        - OIN
+        - Custom Apps
+      summary: Create a group.
+      operationId: createGroup
+      requestBody:
+        description: A new group without 'id'.
+        content:
+          application/scim+json:
+            schema:
+              $ref: '#/components/schemas/Group'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Group'
+        required: true
+      responses:
+        201:
+          description: successfully created group
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/Group'
+        400:
+          description: bad request
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        401:
+          description: authorization failure
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        403:
+          description: permissions denied
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        404:
+          description: not found
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        409:
+          description: duplicate email
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        429:
+          description: too many requests
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        500:
+          description: internal server error
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /Groups/{id}:
+    get:
+      tags:
+        - Group
+        - OIN
+        - Custom Apps
+      summary: Get a group by id.
+      operationId: getGroup
+      parameters:
+        - name: id
+          in: path
+          description: Group id.
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/Group'
+        401:
+          description: authorization failure
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        403:
+          description: permissions denied
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        404:
+          description: not found
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        429:
+          description: too many requests
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        500:
+          description: internal server error
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+    put:
+      tags:
+        - Group
+        - Custom Apps
+      summary: Fully update/replace a group.
+      operationId: updateGroup
+      parameters:
+        - name: id
+          in: path
+          description: Group id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: An updated group.
+        content:
+          application/scim+json:
+            schema:
+              $ref: '#/components/schemas/Group'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Group'
+        required: true
+      responses:
+        200:
+          description: successfully updated a group
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/Group'
+        400:
+          description: bad request
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        401:
+          description: authorization failure
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        403:
+          description: permissions denied
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        404:
+          description: not found
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        429:
+          description: too many requests
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        500:
+          description: internal server error
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+    patch:
+      tags:
+        - Group
+        - OIN
+      summary: Partially update/patch a group.
+      operationId: patchGroup
+      parameters:
+        - name: id
+          in: path
+          description: group id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: Patch operations list.
+        content:
+          application/scim+json:
+            schema:
+              $ref: '#/components/schemas/Patch'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Patch'
+        required: false
+      responses:
+        200:
+          description: successfully updated group
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/Group'
+        400:
+          description: bad request
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        401:
+          description: authorization failure
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        403:
+          description: permissions denied
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        404:
+          description: not found
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        429:
+          description: too many requests
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        500:
+          description: internal server error
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+    delete:
+      tags:
+        - Group
+        - OIN
+        - Custom Apps
+      summary: Delete a group.
+      operationId: deleteGroup
+      parameters:
+        - name: id
+          in: path
+          description: group id
+          required: true
+          schema:
+            type: string
+      responses:
+        204:
+          description: successfully deleted
+          content: {}
+        401:
+          description: authorization failure
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        403:
+          description: permissions denied
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        404:
+          description: not found
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        429:
+          description: too many requests
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        500:
+          description: internal server error
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+components:
+  schemas:
+    Address:
+      type: object
+      properties:
+        formatted:
+          type: string
+          description: The full mailing address, formatted for display or use with a mailing label.  This attribute MAY contain newlines.
+        streetAddress:
+          type: string
+          description: The full street address component, which may include house number, street name, P.O. box, and multi-line extended street address information.  This attribute MAY contain newlines.
+        locality:
+          type: string
+          description: The city or locality component.
+        region:
+          type: string
+          description: The state or region component.
+        postalCode:
+          type: string
+          description: The zip code or postal code component.
+        country:
+          type: string
+          description: The country name component.
+        type:
+          type: string
+          description: A label indicating the attribute's function, e.g., 'work' or 'home'.
+          enum:
+            - work
+            - home
+            - other
+    Email:
+      type: object
+      properties:
+        type:
+          type: string
+          description: A label indicating the attribute's function, e.g., 'work' or 'home'.
+          enum:
+            - work
+            - home
+            - other
+        value:
+          type: string
+          description: Email addresses for the user.  The value SHOULD be canonicalized by the service provider, e.g., 'bjensen@example.com' instead of 'bjensen@EXAMPLE.COM'.
+        display:
+          type: string
+          description: A human-readable name, primarily used for display purposes.
+        primary:
+          type: boolean
+          description: A Boolean value indicating the 'primary' or preferred attribute value for this attribute, e.g., the preferred mailing address or primary email address.  The primary attribute value 'true' MUST appear no more than once.
+    EnterpriseUser:
+      type: object
+      properties:
+        employeeNumber:
+          type: string
+          description: Numeric or alphanumeric identifier assigned to a person, typically based on order of hire or association with an organization.
+        costCenter:
+          type: string
+          description: Identifies the name of a cost center.
+        organization:
+          type: string
+          description: Identifies the name of an organization.
+        division:
+          type: string
+          description: Identifies the name of a division.
+        department:
+          type: string
+          description: Identifies the name of a department.
+        manager:
+          $ref: '#/components/schemas/Manager'
+    Entitlement:
+      type: object
+      properties:
+        value:
+          type: string
+          description: The value of an entitlement.
+        display:
+          type: string
+          description: A human-readable name, primarily used or display purposes.
+        type:
+          type: string
+          description: A label indicating the attribute's function.
+        primary:
+          type: boolean
+          description: A Boolean value indicating the 'primary' or preferred attribute value for this attribute.  The primary attribute value 'true' MUST appear no more than once.
+    ErrorResponse:
+      type: object
+      properties:
+        detail:
+          type: string
+          description: detail error message
+        schemas:
+          type: array
+          items:
+            type: string
+            enum:
+              - urn:ietf:params:scim:api:messages:2.0:Error
+        scimType:
+          type: string
+          description: bad request type when status code is 400
+          enum:
+            - uniqueness
+            - tooMany
+            - mutability
+            - sensitive
+            - invalidSyntax
+            - invalidFilter
+            - invalidPath
+            - invalidValue
+            - invalidVers
+            - noTarget
+        status:
+          type: string
+          description: same as HTTP status code, e.g. 400, 401, etc.
+    Group:
+      required:
+        - schemas
+        - displayName
+      type: object
+      properties:
+        id:
+          type: string
+          description: A unique identifier for a SCIM resource as defined by the service provider.
+          readOnly: true
+        externalId:
+          type: string
+          description: A String that is an identifier for the resource as defined by the provisioning client.
+        displayName:
+          type: string
+          description: A human-readable name for the Group.
+        members:
+          type: array
+          description: A list of members of the Group.
+          items:
+            $ref: '#/components/schemas/GroupMembership'
+        schemas:
+          type: array
+          items:
+            type: string
+            enum:
+              - urn:ietf:params:scim:schemas:core:2.0:Group
+        meta:
+          $ref: '#/components/schemas/Meta'
+    GroupMembership:
+      type: object
+      properties:
+        value:
+          type: string
+          description: The identifier of the group.
+          readOnly: true
+        '$ref':
+          type: string
+          description: The URI corresponding to a SCIM resource that is a member of this Group.
+          readOnly: true
+        display:
+          type: string
+          description: A human-readable name, primarily used for display purposes.
+          readOnly: true
+        type:
+          type: string
+          description: A label indicating the attribute's function, e.g., 'direct'/'indirect', or 'User'/'Group'.
+          readOnly: true
+    GroupSearchResponse:
+      type: object
+      properties:
+        Resources:
+          type: array
+          description: Group search result.
+          items:
+            $ref: '#/components/schemas/Group'
+        itemsPerPage:
+          type: integer
+          format: int64
+        schemas:
+          type: array
+          items:
+            type: string
+            enum:
+              - urn:ietf:params:scim:api:messages:2.0:ListResponse
+        startIndex:
+          type: integer
+          description: The 1-based index of the first result in the current set of list results.
+          format: int64
+        totalResults:
+          type: integer
+          description: The total number of results returned by the list or query operation.
+          format: int64
+    InstantMessageAddress:
+      type: object
+      properties:
+        value:
+          type: string
+          description: Instant messaging address for the User.
+        display:
+          type: string
+          description: A human-readable name, primarily used for display purposes.
+        type:
+          type: string
+          description: A label indicating the attribute's function, e.g., 'aim', 'gtalk', 'xmpp'.
+          enum:
+            - aim
+            - gtalk
+            - icq
+            - xmpp
+            - msn
+            - skype
+            - qq
+            - yahoo
+        primary:
+          type: boolean
+          description: A Boolean value indicating the 'primary' or preferred attribute value for this attribute, e.g., the preferred messenger or primary messenger.  The primary attribute value 'true' MUST appear no more than once.
+    Meta:
+      type: object
+      properties:
+        created:
+          type: string
+          format: date-time
+        lastModified:
+          type: string
+          format: date-time
+        location:
+          type: string
+          description: resource location URI
+        resourceType:
+          type: string
+          enum:
+            - User
+            - Group
+      description: resource metadata
+    Manager:
+      type: object
+      description: The User's manager.  A complex type that optionally allows service providers to represent organizational hierarchy by referencing the 'id' attribute of another User.
+      properties:
+        value:
+          type: string
+          description: The id of the SCIM resource representing the User's manager.
+        '$ref':
+          type: string
+          description: The URI of the SCIM resource representing the User's manager.
+        displayName:
+          type: string
+          description: The displayName of the User's manager.
+          readOnly: true
+    Name:
+      type: object
+      description: The components of the user's real name.
+      properties:
+        formatted:
+          type: string
+          description: The full name, including all middle names, titles, and suffixes as appropriate, formatted for display (e.g., 'Ms. Barbara J Jensen, III').
+        familyName:
+          type: string
+          description: The family name of the User, or last name in most Western languages (e.g., 'Jensen' given the full name 'Ms. Barbara J Jensen, III').
+        givenName:
+          type: string
+          description: The given name of the User, or first name in most Western languages (e.g., 'Barbara' given the full name 'Ms. Barbara J Jensen, III').
+        middleName:
+          type: string
+          description: The middle name(s) of the User (e.g., 'Jane' given the full name 'Ms. Barbara J Jensen, III').
+        honorificPrefix:
+          type: string
+          description: The honorific prefix(es) of the User, or title in most Western languages (e.g., 'Ms.' given the full name 'Ms. Barbara J Jensen, III').
+        honorificSuffix:
+          type: string
+          description: The honorific suffix(es) of the User, or suffix in most Western languages (e.g., 'III' given the full name 'Ms. Barbara J Jensen, III').
+    Patch:
+      required:
+        - Operations
+        - schemas
+      type: object
+      properties:
+        Operations:
+          type: array
+          description: Patch operations list.
+          items:
+            $ref: '#/components/schemas/PatchOperation'
+        schemas:
+          type: array
+          items:
+            type: string
+            enum:
+              - urn:ietf:params:scim:api:messages:2.0:PatchOp
+    PatchOperation:
+      required:
+        - op
+      type: object
+      properties:
+        op:
+          type: string
+          enum:
+            - add
+            - replace
+            - remove
+        path:
+          type: string
+          description: The "path" attribute value is a String containing an attribute path describing the target of the operation.  The "path" attribute is OPTIONAL for "add" and "replace" and is REQUIRED for "remove" operations.
+        value:
+          type: object
+          properties: {}
+          description: Corresponding 'value' of that field specified by 'path'
+    PhoneNumber:
+      type: object
+      properties:
+        type:
+          type: string
+          description: A label indicating the attribute's function, e.g., 'work', 'home', 'mobile'.
+          enum:
+            - work
+            - mobile
+            - other
+        value:
+          type: string
+          description: Phone number of the User.
+        display:
+          type: string
+          description: A human-readable name, primarily used for display purposes.
+        primary:
+          type: boolean
+          description: A Boolean value indicating the 'primary' or preferred attribute value for this attribute, e.g., the preferred phone number or primary phone number.  The primary attribute value 'true' MUST appear no more than once.
+    Photo:
+      type: object
+      properties:
+        type:
+          type: string
+          description: A label indicating the attribute's function, i.e., 'photo' or 'thumbnail'.
+          enum:
+            - photo
+            - thumbnail
+        value:
+          type: string
+          description: URL of a photo of the User.
+        primary:
+          type: boolean
+          description: A Boolean value indicating the 'primary' or preferred attribute value for this attribute, e.g., the preferred photo or thumbnail.  The primary attribute value 'true' MUST appear no more than once.
+        display:
+          type: string
+          description: A human-readable name, primarily used for display purposes.
+    Role:
+      type: object
+      properties:
+        value:
+          type: string
+          description: The value of a role.
+        display:
+          type: string
+          description: A human-readable name, primarily used for display purposes.
+        type:
+          type: string
+          description: A label indicating the attribute's function.
+        primary:
+          type: boolean
+          description: A Boolean value indicating the 'primary' or preferred attribute value for this attribute.  The primary attribute value 'true' MUST appear no more than once.
+    User:
+      required:
+        - schemas
+        - userName
+      type: object
+      properties:
+        active:
+          type: boolean
+          description: A Boolean value indicating the User's administrative status.
+          default: true
+        addresses:
+          type: array
+          description: A physical mailing address for this User. Canonical type values of 'work', 'home', and 'other'.
+          items:
+            $ref: '#/components/schemas/Address'
+        emails:
+          type: array
+          description: Email addresses for the user.  The value SHOULD be canonicalized by the service provider, e.g., 'bjensen@example.com' instead of 'bjensen@EXAMPLE.COM'. Canonical type values of 'work', 'home', and 'other'.
+          items:
+            $ref: '#/components/schemas/Email'
+        externalId:
+          type: string
+          description: A String that is an identifier for the resource as defined by the provisioning client.
+        id:
+          type: string
+          description: A unique identifier for a SCIM resource as defined by the service provider.
+          readOnly: true
+        name:
+          $ref: '#/components/schemas/Name'
+        displayName:
+          type: string
+          description: The name of the User, suitable for display to end-users.  The name SHOULD be the full name of the User being described, if known.
+        nickName:
+          type: string
+          description: The casual way to address the user in real life, e.g., 'Bob' or 'Bobby' instead of 'Robert'.  This attribute SHOULD NOT be used to represent a User's username (e.g., 'bjensen' or 'mpepperidge').
+        profileUrl:
+          type: string
+          description: A fully qualified URL pointing to a page representing the User's online profile.
+        title:
+          type: string
+          description: The user's title, such as \"Vice President.\"
+        userType:
+          type: string
+          description: Used to identify the relationship between the organization and the user.  Typical values used might be 'Contractor', 'Employee', 'Intern', 'Temp', 'External', and 'Unknown', but any value may be used.
+        preferredLanguage:
+          type: string
+          description: Indicates the User's preferred written or spoken language.  Generally used for selecting a localized user interface; e.g., 'en_US' specifies the language English and country US.
+        locale:
+          type: string
+          description: Used to indicate the User's default location for purposes of localizing items such as currency, date time format, or numerical representations.
+        timezone:
+          type: string
+          description: The User's time zone in the 'Olson' time zone database format, e.g., 'America/Los_Angeles'.
+        password:
+          type: string
+          description: The User's cleartext password.  This attribute is intended to be used as a means to specify an initial password when creating a new User or to reset an existing User's password.
+        phoneNumbers:
+          type: array
+          description: Phone numbers for the User. The value SHOULD be canonicalized by the service provider according to the format specified in RFC 3966, e.g., 'tel:+1-201-555-0123'. Canonical type values of 'work', 'home', 'mobile', 'fax', 'pager', and 'other'.
+          items:
+            $ref: '#/components/schemas/PhoneNumber'
+        photos:
+          type: array
+          description: URLs of photos of the User.
+          items:
+            $ref: '#/components/schemas/Photo'
+        ims:
+          type: array
+          description: Instant messaging addresses for the User.
+          items:
+            $ref: '#/components/schemas/InstantMessageAddress'
+        groups:
+          type: array
+          description: A list of groups to which the user belongs, either through direct membership, through nested groups, or dynamically calculated.
+          items:
+            $ref: '#/components/schemas/GroupMembership'
+          readOnly: true
+        entitlements:
+          type: array
+          description: A list of entitlements for the User that represent a thing the User has.
+          items:
+            $ref: '#/components/schemas/Entitlement'
+        roles:
+          type: array
+          description: A list of roles for the User that collectively represent who the User is, e.g., 'Student', 'Faculty'.
+          items:
+            $ref: '#/components/schemas/Role'
+        x509Certificates:
+          type: array
+          description: A list of certificates issued to the User.
+          items:
+            $ref: '#/components/schemas/X509Certificate'
+        schemas:
+          type: array
+          items:
+            type: string
+            enum:
+              - urn:ietf:params:scim:schemas:core:2.0:User
+              - urn:ietf:params:scim:schemas:extension:enterprise:2.0:User
+        'urn:ietf:params:scim:schemas:extension:enterprise:2.0:User':
+          $ref: '#/components/schemas/EnterpriseUser'
+        userName:
+          type: string
+          description: Unique identifier for the User, typically used by the user to directly authenticate to the service provider.
+        meta:
+          $ref: '#/components/schemas/Meta'
+    UserSearchResponse:
+      type: object
+      properties:
+        Resources:
+          type: array
+          description: User search result.
+          items:
+            $ref: '#/components/schemas/User'
+        itemsPerPage:
+          type: integer
+          format: int64
+        schemas:
+          type: array
+          items:
+            type: string
+            enum:
+              - urn:ietf:params:scim:api:messages:2.0:ListResponse
+        startIndex:
+          type: integer
+          description: The 1-based index of the first result in the current set of list results.
+          format: int64
+        totalResults:
+          type: integer
+          description: The total number of results returned by the list or query operation.
+          format: int64
+    X509Certificate:
+      type: object
+      properties:
+        value:
+          type: string
+          format: binary
+          description: The value of an X.509 certificate.
+        display:
+          type: string
+          description: A human-readable name, primarily used for display purposes.
+        type:
+          type: string
+          description: A label indicating the attribute's function.
+        primary:
+          type: boolean
+          description: A Boolean value indicating the 'primary' or preferred attribute value for this attribute.  The primary attribute value 'true' MUST appear no more than once.
