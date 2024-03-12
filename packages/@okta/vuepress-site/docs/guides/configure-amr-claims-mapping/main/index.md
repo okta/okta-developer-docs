@@ -31,7 +31,7 @@ AMR claims provide important context to Okta during policy evaluation. For examp
 
 ### Okta-to-Okta orgs and AMR claims
 
-When you configure AMR claims in Okta-to-Okta orgs, there are some configuration steps to consider. To enable AMR claims in the Okta org that you connect to the IdP org, you must enable **Use standard AMR value format** in the Idp org to send AMR claim values in the correct format. See the [configuration steps](#okta-to-okta) in this guide.
+When you configure AMR claims in Okta-to-Okta orgs, there are some configuration steps to consider. To enable AMR claims in the Okta org that you connect to the IdP org, you must enable **Use standard AMR value format** in the IdP org to send AMR claim values in the correct format. See the [configuration steps](#okta-to-okta) in this guide.
 
 ## AMR claims mapping flow
 
