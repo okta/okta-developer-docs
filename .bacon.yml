@@ -1,0 +1,17 @@
+test_suites:
+- name: promote
+  job_name: promote
+  script_path: /root/okta/okta-developer-docs/scripts
+  sort_order: '1'
+  timeout: '60'
+  script_name: publish
+  criteria: MERGE
+  queue_name: small
+- name: semgrep
+  job_name: semgrep
+  script_path: /root/okta/okta-developer-docs/scripts
+  sort_order: '2'
+  timeout: '30'
+  script_name: semgrep
+  criteria: MERGE
+  queue_name: small
