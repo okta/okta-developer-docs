@@ -152,12 +152,8 @@ $small-spacing: 0.75rem;
   padding: 0.7rem 1rem;
   width: 100%;
 
-  border: none;
+  border: 1px solid transparent;
   border-bottom: 1px solid cv("gray", "100");
-}
-
-.stack-selector .selector-control .vs__dropdown-menu .vs__dropdown-option:last-child {
-  border-bottom: none;
 }
 
 .stack-selector .selector-control .vs__dropdown-menu .vs__dropdown-option--highlight {
