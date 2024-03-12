@@ -14,7 +14,7 @@ title: Okta API Products release notes 2024
 
 #### Bug fixed in 2024.03.1
 
-OTPs sent using a Telephony Inline Hook weren’t subject to rate limits.
+One-time passcodes (OTPs) that were sent using a telephony inline hook weren’t subject to rate limits.
 
 ### Monthly release 2024.03.0
 
