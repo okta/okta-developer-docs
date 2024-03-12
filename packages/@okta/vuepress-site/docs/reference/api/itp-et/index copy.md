@@ -70,11 +70,23 @@ This resource contains detailed reference material on event types triggered with
 | Key Event Attributes  | Description                                         | Data Type      | Example Values |
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
 | **event.system.debugContext.debugData**                |                 |         |         |
+| DtHash              |                  | String         | String         |
+| RequestId             |                   | String         | String         |
+| RequestUri               |                  | String         | String         |
 | ???              |                   | String         | String         |
 | ???             |                  | String         | String         |
+| Uri              |                   | String         | String         |
 | **target** (User)         |            |      |        |
+| alternateId        | Email address of the target           | String     |        |
+| DetailEntry         |             |      |        |
+| DisplayName        | Display name of the target           | String     |        |
+| ID        | Unique identifier of the target            | String     | 00u8xut93qEWYx5sx1d7       |
 | Type        | The type of target object     | String     | User       |
 | **actor**                 |  ???                 |         |         |
+| alternateId        |  Email address of the actor          | String     |        |
+| DetailEntry         |             | string     |        |
+| DisplayName        | Display name of the actor            | String     |        |
+| ID        | Unique identifier of the actor            |      |        |
 | Type        | The type of actor object           |      |        |
 | **client**                |  ???                |       |         |
 | IPAddress              | IP address                |       |         |
@@ -88,14 +100,22 @@ This resource contains detailed reference material on event types triggered with
 | **event.system.debugContext.debugData**                |                 |         |         |
 | Behaviors             |                  | key-value pairs        |  `{New Geo-Location=POSITIVE, New Device=NEGATIVE, New IP=POSITIVE, New State=POSITIVE, New Country=POSITIVE, Velocity=POSITIVE, New City=POSITIVE} `       |
 | CaeEnforceMode             |                   | Boolean         | `true`       |
+| DtHash              |                  | String         | `46274094c25162d72c76f50cb9293f29a738632015ad7d880b9cee52528cf0b5 `       |
+| RequestId             |                   | String         |          |
+| RequestUri               |                  | String         |          |
 | Risk            |                  | key-value pairs         |          |
 | ServerStatus            |                  | Enum         | `ACTIVE`         |
 | ThreatSuspected            |                  | Boolean         | `false`         |
 | TraceId            |                  | String         | `65d55fa6-b5a9-40f9-a6f1-627b9fa71b50`        |
+| Uri              |                   | String         | String         |
 | **target** (User)         | The user associated with ???           |      |        |
-| Type        | The type of target object     | String     | User      |
+| alternateId        | Email address of the target           | String     |        |
+| DetailEntry         |             |      |        |
+| DisplayName        | Display name of the target           | String     |        |
+| ID        | Unique identifier of the target            | String     | `00u3xut92qEWYx5sx1d6`       |
+| Type        | The type of target object     | String     | User       |
 | **target** (Policy Evaluation)         | The policy evaluation ???           |      |        |
-| Type        | The type of target object          | String     | Policy Evaluation       |
+| alternateId        | Email address of the target           | String     |        |
 | **target.DetailEntry** (Policy Evaluation)       |             |      |        |
 | AppInstanceIds         |             |      |        |
 | MatchedRuleAction        |             |      |        |
@@ -105,7 +125,12 @@ This resource contains detailed reference material on event types triggered with
 | PolicyType         |             |      |        |
 | DisplayName        | Display name of the target           | String     |        |
 | ID        | Unique identifier of the target            | String     | `00u8xst93qEWYx65sx1d7`       |
+| Type        | The type of target object     | String     | Policy Evaluation       |
 | **actor**                 |  ???                 |         |         |
+| alternateId        |  Email address of the actor          | String     |        |
+| DetailEntry         |             | string     |        |
+| DisplayName        | Display name of the actor            | String     |        |
+| ID        | Unique identifier of the actor            |      |        |
 | Type        | The type of actor object           |      |        |
 | **client**                |  ???                |       |         |
 | IPAddress              | IP address                |       |         |
@@ -118,22 +143,39 @@ This resource contains detailed reference material on event types triggered with
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
 | **event.system.debugContext.debugData**                |                 |         |         |
 | Behaviors             |                  | key-value pairs        |  `{New Geo-Location=POSITIVE, New Device=NEGATIVE, New IP=POSITIVE, New State=POSITIVE, New Country=POSITIVE, Velocity=POSITIVE, New City=POSITIVE} `       |
+| DtHash              |                  | String         | `46274094c25162d72c76f50cb9293f29a738632015ad7d880b9cee52528cf0b5 `       |
+| RequestId             |                   | String         |          |
+| RequestUri               |                  | String         |          |
 | Risk            |                  | key-value pairs         |`{reasons=Anomalous Geo-Distance, New Device, New ASN, New IP, New State, New Country, New City, level=HIGH}`          |
 | ThreatSuspected            |                  | Boolean         | `false`         |
 | TraceId            |                  | String         | `65d55fa6-b5a9-40f9-a6f1-627b9fa71b50`        |
+| Url              |                   | String         | String         |
 | **target** (User)         | The user associated with ???           |      |        |
+| alternateId        | Email address of the target           | String     |        |
+| DetailEntry         |             |      |        |
+| DisplayName        | Display name of the target           | String     |        |
+| ID        | Unique identifier of the target            | String     | `00u3xut92qEWYx5sx1d6`       |
 | Type        | The type of target object     | String     | User       |
 | **target** (Rule)         | ???           |      |        |
-| Type        | The type of target object           | String     | Rule       |
+| alternateId        | Email address of the target           | String     |        |
 | **target.DetailEntry** (Rule)       |             |      |        |
 | RuleAction        |             | Enum     | `TERMINATE_SESSION`       |
 | SingleLogOutEnabled        |             | Boolean     | `true`      |
 | SingleLogOutSelectionMode        |            | Enum     | `ALL`       |
 | DisplayName        | Display name of the target           | String     |        |
 | ID        | Unique identifier of the target            | String     | `00u8xst93qEWYx65sx1d7`       |
+| Type        | The type of target object     | String     | Rule      |
 | **target** (Policy)         |  ???         |      |        |
+| alternateId        | Email address of the target           | String     |        |
+| DetailEntry         |             |      |        |
+| DisplayName        | Display name of the target           | String     |        |
+| ID        | Unique identifier of the target            | String     | `00u3xut92qEWYx5sx1d6`       |
 | Type        | The type of target object     | String     | Policy      |
 | **actor**                 |  ???                 |         |         |
+| alternateId        |  Email address of the actor          | String     |        |
+| DetailEntry         |             | string     |        |
+| DisplayName        | Display name of the actor            | String     |        |
+| ID        | Unique identifier of the actor            |      |        |
 | Type        | The type of actor object           |      |        |
 | **client**                |  ???                |       |         |
 | IPAddress              | IP address                |       |         |
@@ -146,30 +188,48 @@ This resource contains detailed reference material on event types triggered with
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
 | **event.system.debugContext.debugData**                |                 |         |         |
 | Behaviors             |                  | key-value pairs        |  `{New Geo-Location=POSITIVE, New Device=NEGATIVE, New IP=POSITIVE, New State=POSITIVE, New Country=POSITIVE, Velocity=POSITIVE, New City=POSITIVE} `       |
+| DtHash              |                  | String         | `46274094c25162d72c76f50cb9293f29a738632015ad7d880b9cee52528cf0b5 `       |
+| RequestId             |                   | String         |          |
+| RequestUri               |                  | String         |          |
 | Risk            |                  | key-value pairs         |`{reasons=Anomalous Geo-Distance, New Device, New ASN, New IP, New State, New Country, New City, level=HIGH}`          |
 | ThreatSuspected            |                  | Boolean         | `false`         |
 | TraceId            |                  | String         | `65d55fa6-b5a9-40f9-a6f1-627b9fa71b50`        |
+| Url             |                   | String         | String         |
 | **target** (User)         | The user associated with ???           |      |        |
+| alternateId        | Email address of the target           | String     |        |
+| DetailEntry         |             |      |        |
+| DisplayName        | Display name of the target           | String     |        |
+| ID        | Unique identifier of the target            | String     | `00u3xut92qEWYx5sx1d6`       |
 | Type        | The type of target object     | String     | User       |
 | **target** (Rule)         | ???           |      |        |
-| Type       | The type of target object           | String     | Rule       |
+| alternateId        | Email address of the target           | String     |        |
 | **target.DetailEntry** (Rule)       |             |      |        |
 | RuleAction        |             | Enum     | `TERMINATE_SESSION`       |
 | SingleLogOutEnabled        |             | Boolean     | `true`      |
 | SingleLogOutSelectionMode        |            | Enum     | `ALL`       |
 | DisplayName        | Display name of the target           | String     |        |
 | ID        | Unique identifier of the target            | String     | `00u8xst93qEWYx65sx1d7`       |
+| Type        | The type of target object     | String     | Rule       |
 | **target** (Policy)         |  ???         |      |        |
+| alternateId        | Email address of the target           | String     |        |
+| DetailEntry         |             |      |        |
+| DisplayName        | Display name of the target           | String     |        |
+| ID        | Unique identifier of the target            | String     | `00u3xut92qEWYx5sx1d6`       |
 | Type        | The type of target object     | String     | Policy       |
 | **target** (PolicyAction)         | ???           |      |        |
-| Type        | The type of target object           | String     | PolicyAction       |
+| alternateId        | Email address of the target           | String     |        |
 | **target.DetailEntry** (Rule)       |             |      |        |
 | PolicyAction        |             | Enum     | `TERMINATE_SESSION`       |
 | PolicySingleLogOutEnabled        |             | Boolean     | `true`      |
 | PolicySingleLogOutSelectionMode        |            | Enum     | `ALL`       |
 | DisplayName        | Display name of the target           | String     |        |
 | ID        | Unique identifier of the target            | String     | `00u8xst93qEWYx65sx1d7`       |
+| Type        | The type of target object     | String     | PolicyAction      |
 | **actor**                 |  ???                 |         |         |
+| alternateId        |  Email address of the actor          | String     |        |
+| DetailEntry         |             | string     |        |
+| DisplayName        | Display name of the actor            | String     |        |
+| ID        | Unique identifier of the actor            |      |        |
 | Type        | The type of actor object           |      |        |
 | **client**                |  ???                |       |         |
 | IPAddress              | IP address                |       |         |
@@ -183,18 +243,34 @@ This resource contains detailed reference material on event types triggered with
 | **event.system.debugContext.debugData**                |                 |         |         |
 | Behaviors             |                  | key-value pairs        |  `{New Geo-Location=POSITIVE, New Device=NEGATIVE, New IP=POSITIVE, New State=POSITIVE, New Country=POSITIVE, Velocity=POSITIVE, New City=POSITIVE} `       |
 | Causes              |                  | Array        | [ipAddress.change]      |
+| DtHash              |                  | String         | `46274094c25162d72c76f50cb9293f29a738632015ad7d880b9cee52528cf0b5 `       |
 | ExternalSessionId              |                  | String         | `idxncn50DUmRpqWcz3doJX18g`       |
 | NewIpAddress            |                   | String         |          |
 | PreviousIpAddress              |                  | String         |          |
+| RequestId             |                   | String         |          |
+| RequestUri               |                  | String         |          |
 | Risk            |                  | key-value pairs         |`{reasons=Anomalous Geo-Distance, New Device, New ASN, New IP, New State, New Country, New City, level=HIGH}`          |
 | Source            |                  | String        | `OKTA`         |
 | ThreatSuspected            |                  | Boolean         | `false`         |
 | TraceId            |                  | String         | `65d55fa6-b5a9-40f9-a6f1-627b9fa71b50`        |
+| Url             |                   | String         | String         |
 | **target** (User)         |            |      |        |
+| alternateId        | Email address of the target           | String     |        |
+| DetailEntry         |             |      |        |
+| DisplayName        | Display name of the target           | String     |        |
+| ID        | Unique identifier of the target            | String     | 00u8xut93qEWYx5sx1d7       |
 | Type        | The type of target object     | String     | User       |
 | **target** (Session)         |            |      |        |
+| alternateId        | Email address of the target           | String     |        |
+| DetailEntry         |             |      |        |
+| DisplayName        | Display name of the target           | String     |        |
+| ID        | Unique identifier of the target            | String     | 00u8xut93qEWYx5sx1d7       |
 | Type        | The type of target object     | String     | Session      |
 | **actor**                 |  ???                 |         |         |
+| alternateId        |  Email address of the actor          | String     |        |
+| DetailEntry         |             | string     |        |
+| DisplayName        | Display name of the actor            | String     |        |
+| ID        | Unique identifier of the actor            |      |        |
 | Type        | The type of actor object           |      |        |
 | **client**                |  ???                |       |         |
 | IPAddress              | IP address                |       |         |
@@ -207,21 +283,37 @@ This resource contains detailed reference material on event types triggered with
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
 | **event.system.debugContext.debugData**                |                 |         |         |
 | Behaviors             |                  | key-value pairs        |  `{New Geo-Location=POSITIVE, New Device=NEGATIVE, New IP=POSITIVE, New State=POSITIVE, New Country=POSITIVE, Velocity=POSITIVE, New City=POSITIVE} `       |
+| DtHash              |                  | String         | `46274094c25162d72c76f50cb9293f29a738632015ad7d880b9cee52528cf0b5 `       |
+| RequestId             |                   | String         |          |
+| RequestUri               |                  | String         |          |
 | Risk            |                  | key-value pairs         |`{reasons=Anomalous Geo-Distance, New Device, New ASN, New IP, New State, New Country, New City, level=HIGH}`          |
 | ThreatSuspected            |                  | Boolean         | `false`         |
 | TraceId            |                  | String         | `65d55fa6-b5a9-40f9-a6f1-627b9fa71b50`        |
+| Url             |                   | String         | String         |
 | **target** (User)         |            |      |        |
+| alternateId        | Email address of the target           | String     |        |
+| DetailEntry         |             |      |        |
+| DisplayName        | Display name of the target           | String     |        |
+| ID        | Unique identifier of the target            | String     | `00u8xut93qEWYx5sx1d7`       |
 | Type        | The type of target object     | String     | User       |
 | **target** (Policy)         |            |      |        |
+| alternateId        | Email address of the target           | String     |        |
+| DetailEntry         |             |      |        |
+| DisplayName        | Display name of the policy           | String     | `Entity Risk Policy`       |
+| ID        | Unique identifier of the target            | String     | `00u8xut93qEWYx5sx1d7`       |
 | Type        | The type of target object     | String     | Policy      |
 | **target** (Rule)         |            |      |        |
-|  Type        | The type of target object           | String     | Rule       |
-| **target.DetailEntry**        |             |        |        |
-| RuleAction         |             | ENUM        | RUN_WORKFLOW       |
-| WorkflowId         |             | String     | 572749       |
+| alternateId        | Email address of the target           | String     |        |
+| DetailEntry.RuleAction         |             | ENUM        | RUN_WORKFLOW       |
+| DetailEntry.WorkflowId         |             | String     | 572749       |
 | DisplayName        | Name of the rule          | String     | `SESSION_INFLUENCED_USER_RISK + MEDIUM`       |
 | ID        | Unique identifier of the target            | String     | `00u8xut93qEWYx5sx1d7`       |
+| Type        | The type of target object     | String     | Rule      |
 | **actor**                 |  ???                 |         |         |
+| alternateId        |  Email address of the actor          | String     |        |
+| DetailEntry         |             | string     |        |
+| DisplayName        | Display name of the actor            | String     |        |
+| ID        | Unique identifier of the actor            |      |        |
 | Type        | The type of actor object           |      |        |
 | **client**                |  ???                |       |         |
 | IPAddress              | IP address                |       |         |
@@ -234,28 +326,44 @@ This resource contains detailed reference material on event types triggered with
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
 | **event.system.debugContext.debugData**                |                 |         |         |
 | Behaviors             |                  | key-value pairs        |  `{New Geo-Location=POSITIVE, New Device=NEGATIVE, New IP=POSITIVE, New State=POSITIVE, New Country=POSITIVE, Velocity=POSITIVE, New City=POSITIVE} `       |
+| DtHash              |                  | String         | `46274094c25162d72c76f50cb9293f29a738632015ad7d880b9cee52528cf0b5 `       |
+| RequestId             |                   | String         |          |
+| RequestUri               |                  | String         |          |
 | Risk            |                  | key-value pairs         |`{reasons=Anomalous Geo-Distance, New Device, New ASN, New IP, New State, New Country, New City, level=HIGH}`          |
 | ThreatSuspected            |                  | Boolean         | `false`         |
 | TraceId            |                  | String         | `65d55fa6-b5a9-40f9-a6f1-627b9fa71b50`        |
+| Url             |                   | String         | String         |
 | **target** (User)         |            |      |        |
+| alternateId        | Email address of the target           | String     |        |
+| DetailEntry         |             |      |        |
+| DisplayName        | Display name of the target           | String     |        |
+| ID        | Unique identifier of the target            | String     | `00u8xut93qEWYx5sx1d7`       |
 | Type        | The type of target object     | String     | User       |
 | **target** (Policy)         |            |      |        |
+| alternateId        | Email address of the target           | String     |        |
+| DetailEntry         |             |      |        |
+| DisplayName        | Display name of the policy           | String     | `Entity Risk Policy`       |
+| ID        | Unique identifier of the target            | String     | `00u8xut93qEWYx5sx1d7`       |
 | Type        | The type of target object     | String     | Policy      |
 | **target** (Rule)         |            |      |        |
-| Type       | The type of target object              | String     | Rule       |
-| **target.DetailEntry**        |             |      |     |
-| RuleAction         |             |      | `TERMINATE_ALL_SESSIONS`      |
-| WorkflowAction         |             |      | `TERMINATE_ALL_SESSIONS`      |
+| alternateId        | Email address of the target           | String     |        |
+| DetailEntry.RuleAction         |             |      | `TERMINATE_ALL_SESSIONS`      |
+| DetailEntry.WorkflowAction         |             |      | `TERMINATE_ALL_SESSIONS`      |
 | DisplayName        | Name of the rule action         | String     | `USER_REPORTED_SUSPICIOUS_ACTIVITY + HIGH`       |
 | ID        | Unique identifier of the target            | String     | `00u8xut93qEWYx5sx1d7`       |
+| Type        | The type of target object     | String     | Rule      |
 | **target** (PolicyAction)         |            |      |        |
-| Type        | The type of target object           | String     | PolicyAction       |
-| **target.DetailEntry**         |             |     |       |
-| PolicyAction         |             |  ENUM    | `TERMINATE_ALL_SESSIONS`      |
-| PolicyWorkflowId         |             |  ENUM    |       |
+| alternateId        | Email address of the target           | String     |        |
+| DetailEntry.PolicyAction         |             |  ENUM    | `TERMINATE_ALL_SESSIONS`      |
+| DetailEntry.PolicyWorkflowId         |             |  ENUM    |       |
 | DisplayName        | Name of the policy action         | String     |`TERMINATE_ALL_SESSIONS`         |
 | ID        | Unique identifier of the target            | String     | `00u8xut93qEWYx5sx1d7`       |
+| Type        | The type of target object     | String     | PolicyAction      |
 | **actor**                 |  ???                 |         |         |
+| alternateId        |  Email address of the actor          | String     |        |
+| DetailEntry         |             | string     |        |
+| DisplayName        | Display name of the actor            | String     |        |
+| ID        | Unique identifier of the actor            |      |        |
 | Type        | The type of actor object           |      |        |
 | **client**                |  ???                |       |         |
 | IPAddress              | IP address                |       |         |
@@ -273,14 +381,26 @@ This resource contains detailed reference material on event types triggered with
 | LoggedOutAppInstanceIdsPartialLogout              |                  | String         | String         |
 | LogoutEventType              |                  | String         | String         |
 | LogoutEventType             |                  | String         | String         |
+| DtHash              |                  | String         | String         |
+| RequestId             |                   | String         | String         |
+| RequestUri               |                  | String         | String         |
 | ThreatSuspected             |                   | String         | String         |
+| Url              |                   | String         | String         |
 | **event.System.Transaction**                |                 |         |         |
 | ID              |                  | String         | String         |
 | **event.AuthenticationContext**                |                 |         |         |
 | ExternalSessionId              |                  | String         | String         |
 | **target** (User)         | The user associated with a risk activity            |      |        |
+| alternateId        | Email address of the target           | String     |        |
+| DetailEntry         |             |      |        |
+| DisplayName        | Display name of the target           | String     |        |
+| ID        | Unique identifier of the target            | String     | 00u8xut93qEWYx5sx1d7       |
 | Type        | The type of target object     | String     | User       |
 | **actor**                 |  ???                 |         |         |
+| alternateId        |  Email address of the actor          | String     |        |
+| DetailEntry         |             | string     |        |
+| DisplayName        | Display name of the actor            | String     |        |
+| ID        | Unique identifier of the actor            |      |        |
 | Type        | The type of actor object           |      |        |
 | **client**                |  ???                |       |         |
 | IPAddress              | IP address                |       |         |
@@ -292,14 +412,25 @@ This resource contains detailed reference material on event types triggered with
 | Key Event Attributes  | Description                                         | Data Type      | Example Values |
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
 | **event.system.debugContext.debugData**                |                 |         |         |
-| ???             |                  | String         | String         |
+| DtHash              |                  | String         | String         |
+| RequestId             |                   | String         | String         |
+| RequestUri             |                  | String         | String         |
+| Url           |                   | String         | String         |
 | **event.System.Transaction**                |                 |         |         |
 | ID              |                  | String         | String         |
 | **event.AuthenticationContext**                |                 |         |         |
 | ExternalSessionId              |                  | String         | String         |
 | **target** (User)         | The user who had their session cleared            |      |        |
+| alternateId        | Email address of the target           | String     |        |
+| DetailEntry         |             |      |        |
+| DisplayName        | Display name of the target           | String     |        |
+| ID        | Unique identifier of the target            | String     | 00u8xut93qEWYx5sx1d7       |
 | Type        | The type of target object     | String     | User       |
 | **actor**                 |  ???                 |         |         |
+| alternateId        |  Email address of the actor          | String     |        |
+| DetailEntry         |             | string     |        |
+| DisplayName        | Display name of the actor            | String     |        |
+| ID        | Unique identifier of the actor            |      |        |
 | Type        | The type of actor object           |      |        |
 | **client**                |  ???                |       |         |
 | IPAddress              | IP address                |       |         |
@@ -314,8 +445,16 @@ This resource contains detailed reference material on event types triggered with
 | AppInstanceIds            |A list of application IDs that Okta triggered for Universal Logout                 | Array of IDs         | [0oa1ysra5y0ESChAr0h8]        |
 | TraceId            | The `TraceId` is used in continuous access evaluation use cases. A request that triggers a CAE evaluation can ultimately trigger things like CAE action events - and those will be executed from the async jobs. `TraceId` connects together events triggered both by the original request handler and from the async jobs triggered by this handler. | String         | `94384405-51e3-4e13-b8b0-ba857b585a63`         |
 | **target** (User)         | The user ???           |      |        |
+| alternateId        | Email address of the target           | String     |        |
+| DetailEntry         |             |      |        |
+| DisplayName        | Display name of the target           | String     |        |
+| ID        | Unique identifier of the target            | String     | 00u8xut93qEWYx5sx1d7       |
 | Type        | The type of target object     | String     | User       |
 | **actor**                 |  ???                 |         |         |
+| alternateId        |  Email address of the actor          | String     |        |
+| DetailEntry         |             | string     |        |
+| DisplayName        | Display name of the actor            | String     |        |
+| ID        | Unique identifier of the actor            |      |        |
 | Type        | The type of actor object           |      |        |
 | **client**                |  ???                |       |         |
 | IPAddress              | IP address                |       |         |
@@ -329,12 +468,21 @@ This resource contains detailed reference material on event types triggered with
 | **event.system.debugContext.debugData**                |                 |         |         |
 | SessionId          |               | String         | `ad995fe6-e721-4a8a-86ac-d942bc59ea41`       |
 | **target** (AppInstance)         | The user ???           |      |        |
+| alternateId        | Okta Workflows          | String     |  Okta Workflows      |
+| DetailEntry         |             |      |        |
+| DisplayName        | Display name of the target           | String     |        |
 | ID        | Unique identifier of the target            | String     | 00u8xut93qEWYx5sx1d7       |
 | Type        | The type of target object     | String     | AppInstance      |
 | **target** (Flow)         | The user ???           |      |        |
+| alternateId        | Name of flow          | String     |  Test Delegated Flow     |
+| DetailEntry         |             |      |        |
+| DisplayName        | Display name of the target           | String     |        |
 | ID        | Unique identifier of the target            | String     | 00u8xut93qEWYx5sx1d7       |
 | Type        | The type of target object     | String     | Flow      |
 | **actor**                 |  ???                 |         |         |
+| alternateId        |  Email address of the actor          | String     |        |
+| DetailEntry         |             | string     |        |
+| DisplayName        | Display name of the actor            | String     |        |
 | ID        | Unique identifier of the actor            |      |        |
 | Type        | The type of actor object           |  String    |  User      |
 | **client**                |  ???                |       |         |
