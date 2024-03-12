@@ -20,11 +20,11 @@ This resource contains detailed reference material on event types triggered with
 | --------------------- | --------------------------------------------------- | -------------------- | -------------- |
 | **event.system.debugContext.debugData**                |                 |         |         |
 | Risk                  |   Contains data on the risk: previous risk level, current risk level, detection names, reasons, and issuer.                                                   | key-value pair       |` {previousLevel=LOW, level=MEDIUM, detectionName=Session Influenced User Risk, reasons=idxGuvnnpQKQ8uVw56TGp23Qg, issuer=OKTA} `        |
-| TraceId               | ID generated for the risk request                   | String         | String         |
+| TraceId               | ID generated for the risk request                   | String         | `65d65fa6-b5a9-50e9-b6f1-637b9fb71c50`        |
 | **target** (User)         | The user associated with a risk activity ???           |      |        |
 | Type        | The type of target object     | String     | User       |
 | **actor**                 |  The entity reporting the user risk change (can be a system principal or a user)                |         |         |
-| Type        | The type of actor object           | String     |        |
+| Type        | The type of actor object           | String     | User       |
 | **client**                | The client device used by the  ???                |       |         |
 | IPAddress              | The IP address of the client device               |       |         |
 
