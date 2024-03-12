@@ -1,6 +1,6 @@
 <template>
   <p>
-    If you plan to enable AMR claims in the Okta org that you connect to the IdP org, you must enable <strong>Use standard AMR value format</strong>. Enable this option to send AMR claim values to apps using the standard format of the supported protocol rather than the legacy Okta format.<br>
+    If you plan to enable AMR claims in the Okta org that you connect to the IdP org, you must enable <strong>Use standard AMR value format</strong> in the IdP org. Enable this option to send AMR claim values to apps using the standard format of the supported protocol rather than the legacy Okta format.<br>
     <br>
     <ol>
       <li>Go to <strong>Security</strong> > <strong>General</strong> and locate the <strong>Organization Security</strong> section.</li>
