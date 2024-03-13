@@ -1,6 +1,6 @@
 ### 1: The user selects the Facebook Identity Provider
 
-After you complete the steps in [Set up your Okta org for a social IdP use case](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-a-social-idp-use-case), the **Sign in with Facebook** link should appear automatically on the widget. You don't need to make any code changes to make the link appear.
+After you complete the steps in [Set up your Okta org for a social IdP use case](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-a-social-idp-use-case), the **Sign in with Facebook** link should appear automatically on the Widget. You don't need to make any code changes to make the link appear.
 
 <div class="half wireframe-border">
 
@@ -32,7 +32,7 @@ If the user's Facebook login is successful, Facebook routes the user to the valu
 
 After Facebook sends the success login request to your Okta org, the org redirects the request to your app through the Application's **Sign-in redirect URIs** field.
 
-This step handles the callback from the widget that returns an `interaction_code`. This code is redeemed in the next step for tokens. The callback URL must be identical and is defined in these two locations:
+This step handles the callback from the Widget that returns an `interaction_code`. This code is redeemed in the next step for tokens. The callback URL must be identical and is defined in these two locations:
 
 * The `RedirectURI` parameter in the configuration setting that is defined in [Download and set up the SDK and sample app](/docs/guides/oie-embedded-common-download-setup-app/aspnet/main/).
 * A URI defined in the **Sign-in redirect URIs** field in the Okta Application. The **Sign-in redirect URIs** field is described in [Create a new application](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#create-a-new-application).

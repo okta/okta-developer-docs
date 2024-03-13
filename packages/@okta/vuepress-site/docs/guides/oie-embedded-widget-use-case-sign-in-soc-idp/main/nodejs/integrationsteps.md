@@ -1,6 +1,6 @@
 ### 1: The user selects the Facebook sign-in link
 
-If the the steps in [Configuration updates](#configuration-updates) were completed, the **Sign in with Facebook** link appears automatically on the widget. No code change is required for the Facebook sign-in link to appear.
+If the the steps in [Configuration updates](#configuration-updates) were completed, the **Sign in with Facebook** link appears automatically on the Widget. No code change is required for the Facebook sign-in link to appear.
 
 <div class="half wireframe-border">
 
@@ -38,7 +38,7 @@ After Facebook sends the success login request to your Okta org, the org
 redirects the request to your app via the Application’s
 **Sign-in redirect URIs** field.
 
-This step handles the callback from the widget that
+This step handles the callback from the Widget that
 returns an `interaction_code`. This code is redeemed in the
 next step for tokens. The callback URL is defined in two locations
 and must be identical. These locations are:

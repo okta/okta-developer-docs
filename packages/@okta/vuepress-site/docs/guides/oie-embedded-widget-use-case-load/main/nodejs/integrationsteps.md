@@ -1,17 +1,17 @@
 ### 1: Source the Sign-In Widget to your sign-in page
 
-Add the Sign-In Widget source to your sign-in page by referencing the Okta CDN, replacing `${widgetVersion}` with the [latest version](https://github.com/okta/okta-signin-widget/releases/) of the widget:
+Add the Sign-In Widget source to your sign-in page by referencing the Okta CDN, replacing `${widgetVersion}` with the [latest version](https://github.com/okta/okta-signin-widget/releases/) of the Widget:
 
 ```html
 <script src="https://global.oktacdn.com/okta-signin-widget/${widgetVersion}/js/okta-sign-in.min.js" type="text/javascript"></script>
 <link href="https://global.oktacdn.com/okta-signin-widget/${widgetVersion}/css/okta-sign-in.min.css" type="text/css" rel="stylesheet"/>
 ```
 
-See also [Using the Okta CDN](https://github.com/okta/okta-signin-widget#using-the-okta-cdn). The latest version of the widget is -=OKTA_REPLACE_WITH_WIDGET_VERSION=-.
+See also [Using the Okta CDN](https://github.com/okta/okta-signin-widget#using-the-okta-cdn). The latest version of the Widget is -=OKTA_REPLACE_WITH_WIDGET_VERSION=-.
 
-### 2: Add JavaScript to initialize and load the widget
+### 2: Add JavaScript to initialize and load the Widget
 
-Load the widget on the sign-in page, similar to the following snippet:
+Load the Widget on the sign-in page, similar to the following snippet:
 
 ```html
 <div id="content" class="ui padded relaxed">
@@ -75,7 +75,7 @@ The Okta Sign-In Widget renders in the sign-in page when the `router.get('/login
 
 ### 3: Run your app
 
-The final step is to run your app. If the widget and your Okta org are properly configured, then the Okta Sign-In Widget appears in your sign-in page:
+The final step is to run your app. If the Widget and your Okta org are properly configured, then the Okta Sign-In Widget appears in your sign-in page:
 
 <div class="half">
 
