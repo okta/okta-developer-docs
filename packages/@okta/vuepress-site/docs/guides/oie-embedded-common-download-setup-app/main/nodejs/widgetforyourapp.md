@@ -45,7 +45,7 @@ In this code sample, `widgetConfig` is referenced in the `login.js` file, which 
 
 > **Important**: In Okta Sign-In Widget version 7+, Identity Engine is enabled by default. If you are using an earlier version than 7, you must explicitly enable Identity Engine features by setting `useInteractionCodeFlow: true` in the configuration settings shown above. If you are using version 7+ and you want to use Okta Classic Engine rather than Identity Engine, specify `useClassicEngine: true` in the configuration settings.
 
-Load the Widget in the sign-in page, similar to the following snippet:
+Load the widget in the sign-in page, similar to the following snippet:
 
 ```html
 <div id="content" class="ui padded relaxed">

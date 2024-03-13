@@ -10,7 +10,7 @@ layout: Guides
 
 The Okta Sign-In Widget is a JavaScript library that gives you a fully-featured and customizable login experience which can be used to authenticate users on any website.
 
-Okta uses the Widget as part of its normal sign-in page. If you would like to customize the Widget, then you will need to host it yourself. This guide will walk you through the [installation process](#installation) for the Widget, as well as [a few common use cases](#use-cases) for the Widget and how to implement them. The full Widget reference can be found [on GitHub](https://github.com/okta/okta-signin-widget#okta-sign-in-widget).
+Okta uses the widget as part of its normal sign-in page. If you would like to customize the widget, then you will need to host it yourself. This guide will walk you through the [installation process](#installation) for the widget, as well as [a few common use cases](#use-cases) for the widget and how to implement them. The full Widget reference can be found [on GitHub](https://github.com/okta/okta-signin-widget#okta-sign-in-widget).
 
 <div class="half">
 
@@ -20,7 +20,7 @@ Okta uses the Widget as part of its normal sign-in page. If you would like to cu
 
 ## Installation
 
-The first step is to install the Widget. For this, you have two options: linking out to the Okta CDN, or local installation via npm instead.
+The first step is to install the widget. For this, you have two options: linking out to the Okta CDN, or local installation via npm instead.
 
 ### CDN
 
@@ -44,7 +44,7 @@ npm install @okta/okta-signin-widget@latest
 
 See also [Using the npm module](https://github.com/okta/okta-signin-widget#using-the-npm-module). The latest version of the widget is -=OKTA_REPLACE_WITH_WIDGET_VERSION=-.
 
-#### Bundling the Widget
+#### Bundling the widget
 
 If you are bundling your assets, import them from `@okta/okta-signin-widget`. For example, using [webpack](https://webpack.js.org/):
 
@@ -57,15 +57,15 @@ import '@okta/okta-signin-widget/dist/css/okta-sign-in.min.css';
 
 ### Enabling cross-origin access
 
-Because the Widget will be making cross-origin requests, you need to enable Cross-Origin Resource Sharing (CORS) by adding your application's URL to your Okta org's Trusted Origins (in **API** > **Trusted Origins**). More information about this can be found on the [Enable CORS](/docs/guides/enable-cors/) page.
+Because the widget will be making cross-origin requests, you need to enable Cross-Origin Resource Sharing (CORS) by adding your application's URL to your Okta org's Trusted Origins (in **API** > **Trusted Origins**). More information about this can be found on the [Enable CORS](/docs/guides/enable-cors/) page.
 
 ## Usage
 
-Once you have installed the Widget and enabled CORS, you can start using it.
+Once you have installed the widget and enabled CORS, you can start using it.
 
-### Initializing the Widget
+### Initializing the widget
 
-The code that initializes the Widget looks like this:
+The code that initializes the widget looks like this:
 
 ```javascript
 <div id="widget-container"></div>
@@ -92,7 +92,7 @@ The code that initializes the Widget looks like this:
 
 #### Mobile Consideration
 
-To ensure that the Widget renders properly on mobile, include the `viewport` metatag in your `head`:
+To ensure that the widget renders properly on mobile, include the `viewport` metatag in your `head`:
 
 ```html
 <head>
@@ -106,7 +106,7 @@ The Widget can handle a number of different authentication scenarios. Here are a
 
 #### Sign In and Display User's Email
 
-In this case, you would like to use the Widget to sign in to a simple web page and display the user's email. This requires an Okta developer account, and you have to create a new Single-Page App (SPA) for it to work.
+In this case, you would like to use the widget to sign in to a simple web page and display the user's email. This requires an Okta developer account, and you have to create a new Single-Page App (SPA) for it to work.
 
 1. Sign in to your Okta Admin Console. Go to **Applications** > **Applications**.
 1. Click **Create App Integration**.
@@ -190,7 +190,7 @@ Once you get Python running an HTTP server, you'll be able to access your page a
 
 #### Sign In to Okta with the Default Dashboard
 
-In this case, you would like to use the Widget to sign in to the default Okta dashboard. This requires taking the Widget initialization code, and modifying the success behavior so that it redirects to your org's dashboard.
+In this case, you would like to use the widget to sign in to the default Okta dashboard. This requires taking the widget initialization code, and modifying the success behavior so that it redirects to your org's dashboard.
 
 ```javascript
 function success(res) {
@@ -218,7 +218,7 @@ function success(res) {
 
 #### Sign In to Your Application
 
-If you'd like to use the Widget to sign in to your own application instead of Okta, you will have to [set-up a custom authorization server](/docs/guides/customize-authz-server/) in Okta.
+If you'd like to use the widget to sign in to your own application instead of Okta, you will have to [set-up a custom authorization server](/docs/guides/customize-authz-server/) in Okta.
 
 #### Server-side Web Application using "authorization_code" flow
 
@@ -296,11 +296,11 @@ function callMessagesApi() {
 
 ### Handling Errors
 
-The Widget render function either results in a success or error. The error function is called when the Widget has been initialized with invalid config options, or has entered a state it cannot recover from.
+The Widget render function either results in a success or error. The error function is called when the widget has been initialized with invalid config options, or has entered a state it cannot recover from.
 
 The Widget is designed to internally handle any user and API errors. This means that the custom error handler should primarily be used for debugging any configuration errors.
 
-There are three kinds of errors that aren't handled by the Widget, and so can be handled by custom code:
+There are three kinds of errors that aren't handled by the widget, and so can be handled by custom code:
 
 - ConfigError
 - UnsupportedBrowserError
@@ -371,7 +371,7 @@ You can also develop your mobile app with frameworks like Ionic and Flutter. We 
 
 ## Customizations
 
-The Okta Sign-In Widget is fully customizable through CSS and JavaScript. See [Style the Widget](/docs/guides/custom-widget/) for more information and multiple examples of customization options.
+The Okta Sign-In Widget is fully customizable through CSS and JavaScript. See [Style the widget](/docs/guides/custom-widget/) for more information and multiple examples of customization options.
 
 ## See also 
 

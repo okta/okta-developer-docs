@@ -1,4 +1,4 @@
-The first step for any application is to install or embed the Widget. Best practice is to install locally through a package manager (for example, `npm`) for better performance and testing purposes.
+The first step for any application is to install or embed the widget. Best practice is to install locally through a package manager (for example, `npm`) for better performance and testing purposes.
 
 ### npm
 

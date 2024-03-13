@@ -11,7 +11,7 @@
 
 ### Troubleshoot
 
-* If the Widget doesn't load, verify that you have properly set up your local configurations. Follow the steps in [Set the configuration values](/docs/guides/oie-embedded-common-download-setup-app/nodejs/main/#set-the-configuration-values).
+* If the widget doesn't load, verify that you have properly set up your local configurations. Follow the steps in [Set the configuration values](/docs/guides/oie-embedded-common-download-setup-app/nodejs/main/#set-the-configuration-values).
 
 * If the "There was an unexpected internal error. Please try again." message appears instead of the Sign-In Widget, then verify that CORS is enabled. Follow the steps in [Add a trusted origin and enable CORS](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#add-a-trusted-origin-and-enable-cors) to enable CORS.
 

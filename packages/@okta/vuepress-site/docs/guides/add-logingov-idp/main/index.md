@@ -147,7 +147,7 @@ If you're using Classic Engine, you still need to configure the [routing rule](h
     config.idpDisplay = "SECONDARY";
 ```
 
-You can find out more about the Okta Sign-In Widget [on GitHub](https://github.com/okta/okta-signin-widget#okta-sign-in-widget). Implementing sign-in flows with an Identity Provider uses the Widget's [OpenID Connect authentication flow](https://github.com/okta/okta-signin-widget#openid-connect).
+You can find out more about the Okta Sign-In Widget [on GitHub](https://github.com/okta/okta-signin-widget#okta-sign-in-widget). Implementing sign-in flows with an Identity Provider uses the widget's [OpenID Connect authentication flow](https://github.com/okta/okta-signin-widget#openid-connect).
 
 > **Note:** For a production environment, use the following Okta Sign-In Widget configuration:
 > ```javascript

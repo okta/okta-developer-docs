@@ -52,7 +52,7 @@ The `StartWidgetSigninAsync` call returns a `WidgetSigninResponse` response obje
 
 > **Important**: In Okta Sign-In Widget version 7+, Identity Engine is enabled by default. If you are using an earlier version than 7, you must explicitly enable Identity Engine features by setting `"useInteractionCodeFlow": true` in the configuration settings shown above. If you are using version 7+ and you want to use Okta Classic Engine rather than Identity Engine, specify `"useClassicEngine" = true` in the configuration settings.
 
-### 2: Load the Widget
+### 2: Load the widget
 
 #### 2a: Add namespaces and model
 
@@ -79,15 +79,15 @@ Add the Sign-In Widget source to your page by referencing the Okta CDN, replacin
 
 See also [Using the Okta CDN](https://github.com/okta/okta-signin-widget#using-the-okta-cdn). The latest version of the widget is -=OKTA_REPLACE_WITH_WIDGET_VERSION=-.
 
-#### 2c: Add JavaScript to initialize and load the Widget
+#### 2c: Add JavaScript to initialize and load the widget
 
 The next step includes the following activities:
 
 1. Create a JavaScript object from the model.
-1. Initialize the JavaScript model object and the Widget object that passes in the `div id` (for example, `okta-signin-widget-container`) on the page.
-1. Call the `showSignInAndRedirect` method on the Widget object to display the sign-in page.
+1. Initialize the JavaScript model object and the widget object that passes in the `div id` (for example, `okta-signin-widget-container`) on the page.
+1. Call the `showSignInAndRedirect` method on the widget object to display the sign-in page.
 
-The `div id` that you passed into the Widget needs to match a `div` on the page that you are going to create in the next step. See the following sample code.
+The `div id` that you passed into the widget needs to match a `div` on the page that you are going to create in the next step. See the following sample code.
 
 ```csharp
 <script type="text/javascript">
@@ -114,15 +114,15 @@ The `div id` that you passed into the Widget needs to match a `div` on the page 
 
 #### 2d: Add div tag
 
-The final step is to add a `div` element with the `id` (for example, `okta-signin-widget-container`). The `id` needs to match the `id` that you passed into the Widget object in the previous step.
+The final step is to add a `div` element with the `id` (for example, `okta-signin-widget-container`). The `id` needs to match the `id` that you passed into the widget object in the previous step.
 
 ```html
 <div id="okta-signin-widget-container"></div>
 ```
 
-### 3: Display the Widget
+### 3: Display the widget
 
-The final step is to run your app. If the Widget and Okta org are properly configured, the Sign-In Widget loads and appears, similar to the following image.
+The final step is to run your app. If the widget and Okta org are properly configured, the Sign-In Widget loads and appears, similar to the following image.
 
 <div class="half">
 
