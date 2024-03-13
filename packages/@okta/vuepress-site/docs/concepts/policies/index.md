@@ -35,7 +35,7 @@ The [authentication policy](#authentication-policies) for each application deter
 
 A [password policy](#password-policies) also helps you control how users access your app. It determines the requirements for a user's password length and complexity, and the frequency with which a user must change their password.
 
-You can also create an [authenticator enrollment policy](#authenticator-enrollment-policies). Prompt users to enroll in a factor the first time they sign in or define conditions that trigger additional authentication challenges, like when users attempt to access your app from a new country.
+You can also create an [authenticator enrollment policy](#authenticator-enrollment-policies). For example, prompt users to enroll in a factor the first time they sign in. You can also define conditions that trigger additional authentication challenges, like when users attempt to access your app from a new country.
 
 You can create custom forms for your sign-in flows with [profile enrollment policies](#profile-enrollment-policies) to progressively build user profiles by collecting profile data incrementally as end users engage with your app.
 
