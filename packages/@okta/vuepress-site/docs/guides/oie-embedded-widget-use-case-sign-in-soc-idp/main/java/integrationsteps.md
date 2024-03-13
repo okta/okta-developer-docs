@@ -36,7 +36,7 @@ Okta returns the Interaction code to the **Sign-in redirect URI** that is specif
 
 ```java
 String issuer = oktaOAuth2Properties.getIssuer();
-// the Widget needs the base url, just grab the root of the issuer
+// the widget needs the base url, just grab the root of the issuer
 String orgUrl = new URL(new URL(issuer), "/").toString();
 
 ModelAndView mav = new ModelAndView("login");
