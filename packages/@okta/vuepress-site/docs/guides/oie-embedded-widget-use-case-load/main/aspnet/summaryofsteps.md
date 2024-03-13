@@ -1,4 +1,4 @@
-The sequence of steps to load the Widget is illustrated below:
+The sequence of steps to load the widget is illustrated below:
 
 <div class="full">
 

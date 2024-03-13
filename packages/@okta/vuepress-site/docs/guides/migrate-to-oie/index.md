@@ -96,7 +96,7 @@ For reference, here is the default template:
 
 > **Note:** "Embedded" means the Sign-In Widget is included directly in your application through npm module or script tag. The `@okta/okta-signin-widget` version 5.2.0 or above is needed to enable the interaction code flow.
 
-Set the option `useInteractionCodeFlow` to `true` on the object passed to the Sign-In Widget constructor. This step enables the Identity Engine for the Widget. Both the authorization server and the application must have the [interaction code](#enable-interaction-code-grant) grant type enabled.
+Set the option `useInteractionCodeFlow` to `true` on the object passed to the Sign-In Widget constructor. This step enables the Identity Engine for the widget. Both the authorization server and the application must have the [interaction code](#enable-interaction-code-grant) grant type enabled.
 
 > **Note:** Your code may break if it is calling the `renderEl` method and expects `sessionToken` or `session.setCookieAndRedirect` on the response object. Instead of `renderEl`, we recommend calling the `showSignInToGetTokens` method. This method receives and returns tokens without any browser redirect.
 

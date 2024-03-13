@@ -13,10 +13,10 @@ The sample app is located here: `okta-auth-js/samples/generated/express-embedded
 
 ### Troubleshoot
 
-* If the Widget doesn't load, verify that you have properly set up your local configurations. Follow the steps in [Set the configuration values](/docs/guides/oie-embedded-common-download-setup-app/nodejs/main/#set-the-configuration-values).
+* If the widget doesn't load, verify that you have properly set up your local configurations. Follow the steps in [Set the configuration values](/docs/guides/oie-embedded-common-download-setup-app/nodejs/main/#set-the-configuration-values).
 
 * If the "There was an unexpected internal error. Please try again." message appears instead of the Sign-In Widget, then verify that CORS is enabled. Follow the steps in [Add a trusted origin and enable CORS](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#add-a-trusted-origin-and-enable-cors) to enable CORS.
 
 ### Start your work with the use cases
 
-After you successfully run the sample app, the next step is to build your integration by using the sample app as your guide. See [Load the Widget](/docs/guides/oie-embedded-widget-use-case-load/nodejs/main/) to start using the Widget and explore the available use cases.
+After you successfully run the sample app, the next step is to build your integration by using the sample app as your guide. See [Load the widget](/docs/guides/oie-embedded-widget-use-case-load/nodejs/main/) to start using the widget and explore the available use cases.

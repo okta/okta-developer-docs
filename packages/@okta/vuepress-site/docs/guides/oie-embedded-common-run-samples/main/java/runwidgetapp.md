@@ -35,4 +35,4 @@
 
 ### Start your work with the use cases
 
-After you successfully run the sample app, the next step is to build your integration by using the sample app as your guide. See [Load the Widget](/docs/guides/oie-embedded-widget-use-case-load/java/main/) to start using the Widget and explore the available use cases.
+After you successfully run the sample app, the next step is to build your integration by using the sample app as your guide. See [Load the widget](/docs/guides/oie-embedded-widget-use-case-load/java/main/) to start using the widget and explore the available use cases.

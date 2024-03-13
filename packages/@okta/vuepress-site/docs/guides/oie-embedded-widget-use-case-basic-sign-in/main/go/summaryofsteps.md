@@ -1,4 +1,4 @@
-The following sequence diagram illustrates a simple sign-in flow with the Widget.
+The following sequence diagram illustrates a simple sign-in flow with the widget.
 
 <div class="full">
 

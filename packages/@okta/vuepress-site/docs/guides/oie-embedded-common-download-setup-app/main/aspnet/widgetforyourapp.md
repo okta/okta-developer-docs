@@ -52,7 +52,7 @@ The following JSON sample shows you a set of Sign-In Widget configurations for i
 
 > **Important**: In Okta Sign-In Widget version 7+, Identity Engine is enabled by default. If you are using an earlier version than 7, you must explicitly enable Identity Engine features by setting `"useInteractionCodeFlow": true` in the configuration settings shown above. If you are using version 7+ and you want to use Okta Classic Engine rather than Identity Engine, specify `"useClassicEngine": true` in the configuration settings.
 
-Initialize the Sign-In Widget with `OktaSignIn()` and the required Widget configurations (shown as `widgetConfig` in the following sample). Call `showSignInAndRedirect()` to render the Widget on the sign-in page.
+Initialize the Sign-In Widget with `OktaSignIn()` and the required Widget configurations (shown as `widgetConfig` in the following sample). Call `showSignInAndRedirect()` to render the widget on the sign-in page.
 
 ```csharp
 <div id="okta-signin-widget-container"></div>
@@ -77,4 +77,4 @@ Initialize the Sign-In Widget with `OktaSignIn()` and the required Widget config
 </script>
 ```
 
-See [Load the Widget](/docs/guides/oie-embedded-widget-use-case-load/aspnet/main) for further details on integrating the Sign-In Widget into your app.
+See [Load the widget](/docs/guides/oie-embedded-widget-use-case-load/aspnet/main) for further details on integrating the Sign-In Widget into your app.

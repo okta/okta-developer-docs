@@ -32,7 +32,7 @@ Before you download the SDK, Widget, and sample apps, you need the following:
 
 ## Configure the SDK, Sign-In Widget, and sample app
 
-Before you integrate either the SDK or the Widget into your app, you need to understand the configuration settings that are required to initialize the SDK and/or the Sign-In Widget.
+Before you integrate either the SDK or the widget into your app, you need to understand the configuration settings that are required to initialize the SDK and/or the Sign-In Widget.
 
 ### Configuration settings
 
