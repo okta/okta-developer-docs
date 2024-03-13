@@ -67,23 +67,49 @@ export default {
     },
 
     getActiveAnchor: function() {
-      const scrollTop = Math.max(
-        window.pageYOffset,
-        document.documentElement.scrollTop,
-        document.body.scrollTop
-      );
+      const anchors = Array.from(document.querySelectorAll(".header-anchor"));
 
-      const matchingPair = this.anchorsOffset.find(
-        pair =>
-          scrollTop >= pair.start - LAYOUT_CONSTANTS.ANCHOR_TOP_MARGIN &&
-          (!pair.end || scrollTop < pair.end - LAYOUT_CONSTANTS.ANCHOR_TOP_MARGIN),
-        this
-      );
-      const activeAnchor = matchingPair
-        ? this.anchors[this.anchorsOffset.indexOf(matchingPair)]
-        : null;
+      // error-codes section
+      const anchorOffsets = anchors.map(anchor => {
+        if(anchor.classList.contains('container-level-2')) {
+          const parentHTag = anchor.parentElement.parentElement;
+          return {
+            element: anchor,
+            offsetTop: parentHTag.offsetTop,
+            offsetHeight: parentHTag.offsetHeight
+          }
+        }
 
-      return activeAnchor;
+        const parentHTag = anchor.parentElement;
+        return {
+          element: anchor,
+          offsetTop: parentHTag.offsetTop,
+          offsetHeight: parentHTag.offsetHeight
+        }
+      });
+
+      const scrollPosition = window.scrollY;
+      let start = 0;
+      let end = anchorOffsets.length - 1;
+
+      while (start <= end) {
+        let mid = Math.floor((start + end) / 2);
+        let midOffsetTop = anchorOffsets[mid].offsetTop;
+        let midOffsetTopNext = anchorOffsets[mid + 1]?.offsetTop || 99999;
+
+        if(scrollPosition >= midOffsetTop - LAYOUT_CONSTANTS.ANCHOR_TOP_MARGIN && 
+        scrollPosition <= midOffsetTopNext - LAYOUT_CONSTANTS.ANCHOR_TOP_MARGIN) {
+          return anchorOffsets[mid].element
+        }
+        
+        if (scrollPosition < midOffsetTop) {
+          end = mid - 1;
+        } else {
+          start = mid + 1;
+        }
+      }
+
+      return null
     }
   }
 };
