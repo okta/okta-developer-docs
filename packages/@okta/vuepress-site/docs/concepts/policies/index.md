@@ -48,9 +48,8 @@ You can create custom forms for your sign-in flows with [profile enrollment poli
 When you want to restrict access to an API based on the calling application, you can create an [access policy](/docs/reference/api/authorization-servers/#policy-object).
 
 Access policies are also good when you need scopes in addition to the [reserved scopes](/docs/reference/api/oidc/#scopes) that are created with any Okta authorization server. For example, to improve compatibility for an application, you can return additional profile information for the user by [creating custom scopes with corresponding claims](/docs/guides/customize-authz-server/main/#create-scopes) that tie them to a piece of user information.
-When you want to restrict access to an API based on the calling application, you can create an [access policy](/docs/reference/api/authorization-servers/#policy-object).
 
-Access policies are also good when you need scopes in addition to the [reserved scopes](/docs/reference/api/oidc/#scopes) that are created with any Okta authorization server. For example, to improve compatibility for an application, you can return additional profile information for the user by [creating custom scopes with corresponding claims](/docs/guides/customize-authz-server/main/#create-scopes) that tie them to a piece of user information.
+When you want to restrict access to an API based on the calling application, you can create an [access policy](/docs/reference/api/authorization-servers/#policy-object).
 
 ## How policies work
 
@@ -60,14 +59,7 @@ Policy settings for a particular [policy type](#policy-types) consist of one or 
 * **Rules** describe the conditions of policy behavior, such as requests from a geographical location or if the user is on a trusted network.
 
 The conditions of a policy and a rule combined determine whether to apply a policy. As a best practice, restrictive rules should be placed at the top of the priority list. Beyond that, you can create combinations of conditions for multiple scenarios. There’s no limit to the number of rules your policies can have.
-Policy settings for a particular [policy type](#policy-types) consist of one or more Policy objects with one or more policy rules:
 
-* **Policies** contain groups of resources requiring similar treatment, like apps with the same security characteristics or user groups with the same account setup requirements
-* **Rules** describe the conditions of policy behavior, such as requests from a geographical location or if the user is on a trusted network.
-
-The conditions of a policy and a rule combined determine whether to apply a policy. As a best practice, restrictive rules should be placed at the top of the priority list. Beyond that, you can create combinations of conditions for multiple scenarios. There’s no limit to the number of rules your policies can have.
-
-Different policy types control settings for different operations. All policy types share a common framework, message structure, and API, but have different policy settings and rule data. When a policy is retrieved, such as when the user attempts to sign in to Okta, then policy evaluation takes place:
 Different policy types control settings for different operations. All policy types share a common framework, message structure, and API, but have different policy settings and rule data. When a policy is retrieved, such as when the user attempts to sign in to Okta, then policy evaluation takes place:
 
 * Each policy of the appropriate type is considered in the order that the policies appear in the policy list.
@@ -161,9 +153,6 @@ Policy evaluation is different when you use the AuthN authentication pipeline ve
 ### Best Practices
 
 If you have both Classic Engine applications and Identity Engine applications, consider the following:
-If you have both Classic Engine applications and Identity Engine applications, consider the following:
 
-* You should create group-based sign-on policy rules that tightly couple applications to corresponding groups. For example, create a single-page application and then a corresponding group for it that evaluates sign-on policies.
-* Standard risk apps should use one-factor authentication and high risk apps should use two-factor authentication that is defined in a sign-on policy. This should help when you need to lower security for Okta FastPass apps and not disturb the high-risk apps that are still on Classic Engine, but need MFA.
 * You should create group-based sign-on policy rules that tightly couple applications to corresponding groups. For example, create a single-page application and then a corresponding group for it that evaluates sign-on policies.
 * Standard risk apps should use one-factor authentication and high risk apps should use two-factor authentication that is defined in a sign-on policy. This should help when you need to lower security for Okta FastPass apps and not disturb the high-risk apps that are still on Classic Engine, but need MFA.
