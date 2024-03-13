@@ -12,7 +12,7 @@ Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 
 </div>
 
-When the user selects **Sign in with Facebook** from the widget, they are directed to the Facebook sign-in screen.
+When the user selects **Sign in with Facebook** from the Widget, they are directed to the Facebook sign-in screen.
 
 The user enters their Facebook credentials (email and password) on the Facebook sign-in screen, which is hosted by the Facebook platform.
 
@@ -36,7 +36,7 @@ Okta returns the Interaction code to the **Sign-in redirect URI** that is specif
 
 ```java
 String issuer = oktaOAuth2Properties.getIssuer();
-// the widget needs the base url, just grab the root of the issuer
+// the Widget needs the base url, just grab the root of the issuer
 String orgUrl = new URL(new URL(issuer), "/").toString();
 
 ModelAndView mav = new ModelAndView("login");

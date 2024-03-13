@@ -6,7 +6,7 @@ The sample app is located here in the [Golang embedded Sign-In Widget sample app
 1. Open the embedded Widget sample application directory using Visual Studio Code or
    your preferred IDE. The directory path to the sample application directory is: `samples-golang/identity-engine/embedded-sign-in-widget`.
 1. Add an `okta.yaml` configuration file. See [Option 1: Create a configuration file](/docs/guides/oie-embedded-common-download-setup-app/go/main/#option-1-create-a-configuration-file) for more information on how to configure and where to place the configuration file.
-1. From the command line, navigate to the widget's sample application directory (`../samples-golang/identity-engine/embedded-sign-in-widget/`).
+1. From the command line, navigate to the Widget's sample application directory (`../samples-golang/identity-engine/embedded-sign-in-widget/`).
 1. From the command line, execute the following command to install dependencies: `go get`
 1. From the command line, execute the following command to start the application: `go run main.go`
 1. In a web browser, navigate to `http://localhost:8000/`. The Golang embedded Widget app landing page appears.
@@ -20,4 +20,4 @@ The sample app is located here in the [Golang embedded Sign-In Widget sample app
 
 ### Start your work with the use cases
 
-After you successfully run the sample app, the next step is to build your integration by using the sample app as your guide. See [Load the widget](/docs/guides/oie-embedded-widget-use-case-load/go/main/) to start using the widget and explore the available use cases.
+After you successfully run the sample app, the next step is to build your integration by using the sample app as your guide. See [Load the Widget](/docs/guides/oie-embedded-widget-use-case-load/go/main/) to start using the Widget and explore the available use cases.
