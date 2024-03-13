@@ -3,7 +3,7 @@
 Begin to integrate the Sign-In Widget into your own embedded app by following these steps:
 
 1. [Set up your app for .Net 4.8 or greater](#_1-set-up-your-app-for-net-4-8-or-greater), similar to the SDK embedded app.
-1. [Add the Okta SDK Nuget packages](#_2-add-the-okta-sdk-nuget-packages), similar to the SDK embedded app.
+1. [Add the Okta SDK NuGet packages](#_2-add-the-okta-sdk-nuget-packages), similar to the SDK embedded app.
 1. Ensure that you're using the [latest release of the Sign-In Widget](https://github.com/okta/okta-signin-widget/releases/).
 1. [Source the Sign-In Widget from the Okta CDN](#source-the-sign-in-widget-from-the-okta-cdn).
 1. [Configure and initialize the Sign-In Widget](#configure-and-initialize-the-sign-in-widget).
