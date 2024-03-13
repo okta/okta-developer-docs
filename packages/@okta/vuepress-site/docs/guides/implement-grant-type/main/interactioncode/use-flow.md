@@ -10,7 +10,7 @@ For instructions on how to install and use Identity Engine SDKs, see [Download a
 
 ### Apps using an embedded Sign-In Widget and Identity Engine SDK
 
-An app integration using the client-hosted [Sign-In Widget](/code/javascript/okta_sign-in_widget/) with an appropriate [Identity Engine SDK](/docs/guides/oie-embedded-common-download-setup-app/) is a simpler way of implementing embedded authentication where the widget handles most of the remediation process.
+An app integration using the client-hosted [Sign-In Widget](/code/javascript/okta_sign-in_widget/) with an appropriate [Identity Engine SDK](/docs/guides/oie-embedded-common-download-setup-app/) is a simpler way of implementing embedded authentication where the widget handles most of the remediation process. You still have control over the step-by-step remediation user experience by configuring authenticators and sign-on policies in your Okta org. With the remedial process managed by the widget, your app just needs to handle the Interaction Code returned from the completed user interaction. See how this flow is built by reviewing the [Build a use case with the embedded Widget](/docs/guides/oie-embedded-widget-use-case-basic-sign-in) guide.
 
 You still have control over the step-by-step remediation user experience by configuring authenticators and sign-on policies in your Okta org. With the remedial process managed by the widget, your app just needs to handle the Interaction Code returned from the completed user interaction. See how this flow is built by reviewing the [Build a use case with the embedded Widget](/docs/guides/oie-embedded-widget-use-case-basic-sign-in) guide.
 
