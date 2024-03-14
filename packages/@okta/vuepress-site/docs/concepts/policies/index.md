@@ -18,7 +18,6 @@ Policies enable you to control who can access your app and how. They also help y
 There are many possibilities for policy use:
 
 * Create authorization rules based on complex logic using conditions.
-* Determine the extra levels of authentication that must be performed before a user accesses a specific application.
 * Determine the extra levels of authentication that must be performed before a user accesses a specific app.
 * Maintain a list of allowed users and deny access based on multiple conditions.
 * Change the returned scopes of the access token and add claims to it and to the ID token using [inline hooks](/docs/concepts/inline-hooks/).
@@ -39,7 +38,7 @@ The [authentication policy](#authentication-policies) for each app determines wh
 
 A [password policy](#password-policies) also helps you control how users access your app. It determines the requirements for a user's password length and complexity, and it defines how often a user must change their password.
 
-You can also create an [authenticator enrollment policy](#authenticator-enrollment-policies). For example, prompt users to enroll in a factor the first time they sign in. You can also define conditions that trigger additional authentication challenges, like when users attempt to access your app from a new country.
+You can also create an [authenticator enrollment policy](#authenticator-enrollment-policies). For example, prompt users to enroll in a factor the first time they sign in. You can also define conditions that trigger additional authentication challenges, like when users attempt to access your app from country they've never signed in from before.
 
 You can create custom forms for your sign-in flows with [profile enrollment policies](#profile-enrollment-policies). This allows you to progressively build user profiles by collecting profile data incrementally as end users engage with your app.
 
@@ -47,27 +46,26 @@ You can create custom forms for your sign-in flows with [profile enrollment poli
 
 When you want to restrict access to an API based on the calling app, you can create an [access policy](/docs/reference/api/authorization-servers/#policy-object).
 
-Access policies are also good when you need scopes in addition to the [reserved scopes](/docs/reference/api/oidc/#scopes) that are created with any Okta authorization server. For example, to improve compatibility for an application, you can return additional profile information for the user by [creating custom scopes with corresponding claims](/docs/guides/customize-authz-server/main/#create-scopes) that tie them to a piece of user information.
+Access policies are also useful when you need scopes in addition to the [reserved scopes](/docs/reference/api/oidc/#scopes) that are created with any Okta authorization server. For example, to improve compatibility for an app, you can return additional profile information for the user by [creating custom scopes with corresponding claims](/docs/guides/customize-authz-server/main/#create-scopes) that tie them to a piece of user information.
 
-When you want to restrict access to an API based on the calling application, you can create an [access policy](/docs/reference/api/authorization-servers/#policy-object).
+When you want to restrict access to an API based on the calling app, you can create an [access policy](/docs/reference/api/authorization-servers/#policy-object).
 
 ## How policies work
 
-Policy settings for a particular [policy type](#policy-types) consist of one or more Policy objects with one or more policy rules:
+Policy settings for a particular [policy type](#policy-types) consist of one or more policy objects with one or more policy rules:
 
 * **Policies** contain groups of resources requiring similar treatment, like apps with the same security characteristics or user groups with the same account setup requirements
 * **Rules** describe the conditions of policy behavior, such as requests from a geographical location or if the user is on a trusted network.
 
-The conditions of a policy and a rule combined determine whether to apply a policy. As a best practice, restrictive rules should be placed at the top of the priority list. Beyond that, you can create combinations of conditions for multiple scenarios. There’s no limit to the number of rules your policies can have.
+The policy's conditions and a rules combined determine when the policy is applied. As a best practice, restrictive rules should be placed at the top of the priority list. Otherwise, you can create combinations of conditions for different scenarios. There’s no limit to the number of rules your policies can have.
 
-Different policy types control settings for different operations. All policy types share a common framework, message structure, and API, but have different policy settings and rule data. When a policy is retrieved, such as when the user attempts to sign in to Okta, then policy evaluation takes place:
+Different policy types control the settings for different operations. All policy types share a common framework, message structure, and API, but have different policy settings and rule data. When a policy is retrieved, such as when the user attempts to sign in to Okta, then policy evaluation takes place:
 
 * Each policy of the appropriate type is considered in the order that the policies appear in the policy list.
 * Each condition associated with the policy is evaluated:
   * If one or more conditions can't be met, then the next policy in the list is considered.
   * If the conditions can be met, then each rule associated with the policy is considered in the order that the rules appear in the rules list.
 * Each condition associated with a given rule is evaluated:
-  * If all the conditions associated with a rule are met, then the settings contained in the rule and in the associated policy are applied to the user.
   * If all the conditions associated with a rule are met, then the settings contained in the rule and in the associated policy are applied to the user.
   * If none of the policy rules have conditions that can be met, then the next policy in the list is considered.
 
@@ -95,7 +93,7 @@ A [global session policy](/docs/reference/api/policy/#global-session-policy) con
 
 #### Authentication policies
 
-An [authentication policy](/docs/reference/api/policy/#authentication-policy) determines the extra levels of authentication performed before a user can access an application, such as enforcing factor requirements. See [Authentication policies](https://help.okta.com/oie/en-us/content/topics/identity-engine/policies/about-app-sign-on-policies.htm).
+An [authentication policy](/docs/reference/api/policy/#authentication-policy) determines the extra levels of authentication performed before a user can access an app, such as enforcing factor requirements. See [Authentication policies](https://help.okta.com/oie/en-us/content/topics/identity-engine/policies/about-app-sign-on-policies.htm).
 
 You can create an authentication policy specifically for the app or create a few policies and [share them](https://help.okta.com/okta_help.htm?type=oie&id=ext-share-auth-policy) across multiple apps.
 
@@ -131,7 +129,7 @@ With progressive enrollment flows, you can capture the minimum user information 
 
 ### API access policies
 
-An [OAuth Authorization Policy](/docs/reference/api/authorization-servers/#policy-object) manages authorization between clients and Okta. The access policy is specific to a particular client application. The rules it contains define particular token lifetimes for a given combination of grant type, user, and scope.
+An [OAuth Authorization Policy](/docs/reference/api/authorization-servers/#policy-object) manages authorization between clients and Okta. The access policy is specific to a particular client app. The rules it contains define particular token lifetimes for a given combination of grant type, user, and scope.
 
 ### Route to other identity providers
 
@@ -148,11 +146,11 @@ Policy evaluation is different when you use the AuthN authentication pipeline ve
 |                               | Sign on policy | Multifactor Authentication (MFA) |
 | :---------------------------- | :------------------------------ | :--------- |
 | AuthN authentication pipeline | Uses the [Okta sign-on policy](/docs/guides/archive-configure-signon-policy/main/) only when making calls using the SDKs or the Classic Authentication API. | Set MFA at the org level using the [Okta sign-on policy](/docs/guides/archive-configure-signon-policy/main/#prompt-for-an-mfa-factor-for-a-certain-group) for apps that use the Classic Authentication API. |
-| Identity Engine authentication pipeline | Evaluates both the global session policy and authentication policies when authenticating users. | [Set MFA](/docs/guides/configure-signon-policy/main/) at either the org level or at the application level. |
+| Identity Engine authentication pipeline | Evaluates both the global session policy and authentication policies when authenticating users. | [Set MFA](/docs/guides/configure-signon-policy/main/) at either the org level or at the app level. |
 
 ### Best Practices
 
-If you have both Classic Engine applications and Identity Engine applications, consider the following:
+If you have both Classic Engine and Identity Engine apps:
 
-* You should create group-based sign-on policy rules that tightly couple applications to corresponding groups. For example, create a single-page application and then a corresponding group for it that evaluates sign-on policies.
+* You should create group-based sign-on policy rules that tightly couple apps to corresponding groups. For example, create a single-page app and then a corresponding group for it that evaluates sign-on policies.
 * Standard risk apps should use one-factor authentication and high risk apps should use two-factor authentication that is defined in a sign-on policy. This should help when you need to lower security for Okta FastPass apps and not disturb the high-risk apps that are still on Classic Engine, but need MFA.
