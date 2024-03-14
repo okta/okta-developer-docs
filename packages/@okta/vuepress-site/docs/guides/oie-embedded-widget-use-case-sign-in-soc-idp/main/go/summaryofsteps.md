@@ -1,4 +1,4 @@
-The following diagram is a sequence of steps for the social sign-in flow with the widget.
+The following sequence diagram illustrates the steps for the social sign-in flow.
 
 <div class="full">
 
