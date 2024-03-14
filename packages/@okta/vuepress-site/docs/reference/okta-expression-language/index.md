@@ -410,7 +410,7 @@ To include a granted scope array and convert it to a space-delimited string, use
 
 Group rule conditions only allow `String`, `Arrays`, and `user` expressions.
 
-For example, given the user profile has a base string attribute called `email`, and assuming the user profile has a custom boolean attribute called `hasBadge` and a custom string attribute called `favoriteColor`, the following expressions are allowed in group rule conditions:
+For example, given the user profile has a base string attribute called `email`, and assuming the user profile has a custom Boolean attribute called `hasBadge` and a custom string attribute called `favoriteColor`, the following expressions are allowed in group rule conditions:
 
 * `user.hasBadge`
 * `String.stringContains(user.email, "@example.com")`
