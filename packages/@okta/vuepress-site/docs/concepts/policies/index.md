@@ -43,7 +43,7 @@ You can also create an [authenticator enrollment policy](#authenticator-enrollme
 
 You can create custom forms for your sign-in flows with [profile enrollment policies](#profile-enrollment-policies). This allows you to progressively build user profiles by collecting profile data incrementally as end users engage with your app.
 
-### Control which application can access what information from your APIs
+### Control which app can access what information from your APIs
 
 When you want to restrict access to an API based on the calling application, you can create an [access policy](/docs/reference/api/authorization-servers/#policy-object).
 
