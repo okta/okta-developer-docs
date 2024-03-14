@@ -58,7 +58,7 @@ To reference an IdP user profile attribute, specify the IdP variable and the cor
 
 ## Reference application and organization properties
 
-In addition to referencing user attributes, you can also reference application properties and the properties of your organization. To reference a particular attribute, specify the appropriate binding and the attribute variable name. The binding for an application is its name with `_app` appended. The app name can be found as described in the [profile attributes of an app user](#application-user-profile).
+In addition to referencing user attributes, you can also reference app properties and the properties of your org. To reference a particular attribute, specify the appropriate binding and the attribute variable name. The binding for an application is its name with `_app` appended. The app name can be found as described in the [profile attributes of an app user](#application-user-profile).
 
 ### Application properties
 
