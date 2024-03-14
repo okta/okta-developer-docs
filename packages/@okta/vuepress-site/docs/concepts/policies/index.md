@@ -19,7 +19,7 @@ There are many possibilities for policy use:
 
 * Create authorization rules based on complex logic using conditions.
 * Determine the extra levels of authentication that must be performed before a user accesses a specific application.
-* Determine the extra levels of authentication that must be performed before a user accesses a specific application.
+* Determine the extra levels of authentication that must be performed before a user accesses a specific app.
 * Maintain a list of allowed users and deny access based on multiple conditions.
 * Change the returned scopes of the access token and add claims to it and to the ID token using [inline hooks](/docs/concepts/inline-hooks/).
 * Notify other systems in real time through an API when a user signs in.
