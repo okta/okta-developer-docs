@@ -7,7 +7,7 @@ meta:
 
 ## What are policies?
 
-Policies are a set of rules that help you manage access to your applications and APIs. You can restrict access based on various conditions, such as user and group membership, device, location, or time. You can also require more authentication steps when accessing sensitive applications, such as a push notification to a mobile device or an SMS one-time passcode.
+Policies are sets of rules that help you manage access to your apps and APIs. You can restrict access based on various conditions, such as user and group membership, device, location, or time. For accessing sensitive apps, you can require more authentication steps, like a push notification to a mobile device or an SMS one-time passcode.
 
 Policies are evaluated when a request is made. Rules in the policies define permissions that determine whether the request is allowed or denied. Policies are stored in Okta as JSON documents.
 
