@@ -13,11 +13,11 @@ This document details the features and syntax of the Okta Expression Language (E
 
 Okta Expression Language is based on [SpEL](http://docs.spring.io/spring/docs/3.0.x/reference/expressions.html) and uses a subset of the functionalities offered by SpEL.
 
-Expressions allow you to reference, transform, and combine attributes before storing them on a user profile or passing them to an application for authentication or provisioning. For example, you might use a custom expression to create a username by stripping `@company.com` from an email address. Or, you might combine the `firstName` and `lastName` attributes into a single `displayName` attribute.
+Expressions allow you to reference, transform, and combine attributes before storing them on a user profile or passing them to an app for authentication or provisioning. For example, you might use a custom expression to create a username by stripping `@company.com` from an email address. Or, you might combine the `firstName` and `lastName` attributes into a single `displayName` attribute.
 
 ## Reference user attributes
 
-When you create an Okta expression, you can reference any attribute that lives on an Okta user profile or application user profile.
+When you create an Okta expression, you can reference any attribute that lives on an Okta user profile or app user profile.
 
 ### Okta user profile
 
@@ -31,11 +31,11 @@ Every user has an Okta user profile. The Okta user profile is the central source
 
 ### Application user profile
 
-In addition to an Okta user profile, all users have a separate application user profile for each of their applications. Application user profiles store application-specific information about users, such as the application `userName` or user `role`.
+In addition to an Okta user profile, all users have a separate app user profile for each of their apps. Application user profiles store app-specific information about users, such as the app `userName` or user `role`.
 
-To reference an profile attribute of an app user, specify the app variable and the attribute variable in the user profile of the app. In specifying the app, you can either name the specific application you're referencing or use an implicit reference to an in-context app.
+To reference a profile attribute of an app user, specify the app variable and the attribute variable in the user profile of the app. In specifying the app, you can either name the specific app you're referencing or use an implicit reference to an in-context app.
 
-> **Note:** The app reference is usually the `name` of the app, as distinct from the `label` (display name). See [Application properties](/docs/reference/api/apps/#application-properties). If your organization configures multiple instances of the same app, a randomly assigned suffix differentiates the names of the subsequent instances, for example: `zendesk_9ao1g13`. The name of any specific app instance in the Profile Editor appears in lighter text beneath the label of the app.
+> **Note:** The app reference is usually the `name` of the app, as distinct from the `label` (display name). See [Application properties](/docs/reference/api/apps/#app-properties). If your organization configures multiple instances of the same app, a randomly assigned suffix differentiates the names of the subsequent instances, for example: `zendesk_9ao1g13`. The name of any specific app instance in the Profile Editor appears in lighter text beneath the label of the app.
 
 | Syntax                | Definitions                                                                                | examples                                                              |
 | --------              | ----------                                                                                 | ------------                                                          |
@@ -54,11 +54,11 @@ To reference an IdP user profile attribute, specify the IdP variable and the cor
 | ---------------------- | -------------------------------------------------------------------------------------------- | ------------      |
 | `idpuser.$attribute`   | `idpuser` implicit reference to in-context IdP<br>`$attribute` the attribute variable name   | idpuser.firstName |
 
-> **Note:** In the Universal Directory, the base Okta user profile has about 30 attributes. You can add any number of custom attributes. All application user profiles have a username attribute and possibly others depending on the app. To find a full list of Okta user and app user attributes and their variable names, in the Admin Console go to **People** > **Profile Editor**. If you're not using Universal Directory, contact your support or professional services team.
+> **Note:** In the Universal Directory, the base Okta user profile has about 30 attributes. You can add any number of custom attributes. All app user profiles have a username attribute and possibly others depending on the app. To find a full list of Okta user and app user attributes and their variable names, in the Admin Console go to **People** > **Profile Editor**. If you're not using Universal Directory, contact your support or professional services team.
 
-## Reference application and organization properties
+## Reference app and organization properties
 
-In addition to referencing user attributes, you can also reference app properties and the properties of your org. To reference a particular attribute, specify the appropriate binding and the attribute variable name. The binding for an application is its name with `_app` appended. The app name can be found as described in the [profile attributes of an app user](#application-user-profile).
+In addition to referencing user attributes, you can also reference app properties and the properties of your org. To reference a particular attribute, specify the appropriate binding and the attribute variable name. The binding for an app is its name with `_app` appended. The app name can be found as described in the [profile attributes of an app user](#app-user-profile).
 
 ### Application properties
 
@@ -251,7 +251,7 @@ The following should be noted about these functions:
 | Function              | Description                                                                                                                                 |
 | --------              | ---------                                                                                                                                   |
 | `hasDirectoryUser()`  | Checks whether the user has an Active Directory (AD) assignment and returns `true` if the user has a single AD assignment or `false` if the user has either zero or multiple AD assignments  |
-| `hasWorkdayUser()`    | Checks whether the user has a Workday assignment and returns a boolean                                                                      |
+| `hasWorkdayUser()`    | Checks whether the user has a Workday assignment and returns a Boolean                                                                      |
 | `findDirectoryUser()` | Finds the Active Directory App user object and returns that object or null if the user has more than one or no Active Directory assignments |
 | `findWorkdayUser()`   | Finds the Workday App user object and returns that object or null if the user has more than one or no Workday assignments                   |
 
@@ -280,7 +280,7 @@ The format for conditional expressions is:
 <br>There are several rules for specifying the condition.
 
 * Expressions must have valid syntax.
-* Expressions must evaluate to a boolean.
+* Expressions must evaluate to a Boolean.
 * Expressions can't contain an assignment operator, such as `=`.
 * User attributes used in expressions can contain only available user or app user attributes.
 
