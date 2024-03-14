@@ -6,19 +6,19 @@ title: Reference overview
 
 # Reference overview
 
-Details on parameters, requests, and responses for Okta's API endpoints.
+Details on parameters, requests, and responses for Okta API endpoints.
 
 ## Core Okta API
 
 The Core Okta API is the primary way that apps and services interact with Okta. You can use it to implement basic auth functions such as signing in your users and programmatically managing your Okta objects.
 
-[Explore core Okta API](/docs/reference/core-okta-api/)
+[Explore the core Okta API](/docs/reference/core-okta-api/)
 
 <Cards><Card href="/docs/reference/postman-collections/" cardTitle="Postman Collections" :showFooter=true>Import any Okta API collection for Postman.</Card><Card href="/docs/reference/api/asa/introduction/" cardTitle="Advanced Server Access API" :showFooter=true>Scale your control of servers with automation.</Card></Cards>
 
 ## Okta hooks
 
-Okta Event and inline hooks allow you to integrate custom functionality into specific Okta process flows. event hooks send Okta events of interest to your systems as they occur, just like a webhook. inline hooks allow developers to modify in-flight Okta processes with custom logic and data from a non-Okta source. For example, you can migrate users from another data store and keep the user’s current password with a [password inline hook](/docs/reference/password-hook/).
+Okta event and inline hooks allow you to integrate custom functionality into specific Okta process flows. event hooks send Okta events of interest to your systems as they occur, just like a webhook. inline hooks allow developers to modify in-flight Okta processes with custom logic and data from a non-Okta source. For example, you can migrate users from another data store and keep the user’s current password with a [password inline hook](/docs/reference/password-hook/).
 
 ## Okta Expression Language
 
