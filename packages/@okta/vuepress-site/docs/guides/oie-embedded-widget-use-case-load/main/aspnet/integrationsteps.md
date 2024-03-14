@@ -1,6 +1,6 @@
-### 1: Navigate to the sign-in page
+### 1: Go to the sign-in page
 
-The first step is to call the `StartWidgetSigninAsync` method when the page that contains the embedded Widget is loaded. The `IdxClient` contains the configuration information (either from the `okta.yaml` file, env variables, or passed in from the constructor) to establish a connection to the Okta org and application.
+The first step is to call the `StartWidgetSigninAsync` method when the page that contains the embedded widget is loaded. The `IdxClient` contains the configuration information (either from the `okta.yaml` file, env variables, or passed in from the constructor) to establish a connection to the Okta org and application.
 
 The following sample code shows the instantiation of the `IdxClient` and the `StartWidgetSignInAsync` call.
 
@@ -50,7 +50,7 @@ The `StartWidgetSigninAsync` call returns a `WidgetSigninResponse` response obje
 }
 ```
 
-> **Important**: In Okta Sign-In Widget version 7+, Identity Engine is enabled by default. If you are using an earlier version than 7, you must explicitly enable Identity Engine features by setting `"useInteractionCodeFlow": true` in the configuration settings shown above. If you are using version 7+ and you want to use Okta Classic Engine rather than Identity Engine, specify `"useClassicEngine" = true` in the configuration settings.
+> **Important**: In Okta Sign-In Widget version 7+, Identity Engine is enabled by default. If you’re using an earlier version than 7, you must explicitly enable Identity Engine features by setting `"useInteractionCodeFlow": true` in the configuration settings shown in the previous example. If you’re using version 7+ and you want to use Okta Classic Engine rather than Identity Engine, specify `"useClassicEngine" = true` in the configuration settings.
 
 ### 2: Load the widget
 
@@ -87,7 +87,7 @@ The next step includes the following activities:
 1. Initialize the JavaScript model object and the widget object that passes in the `div id` (for example, `okta-signin-widget-container`) on the page.
 1. Call the `showSignInAndRedirect` method on the widget object to display the sign-in page.
 
-The `div id` that you passed into the widget needs to match a `div` on the page that you are going to create in the next step. See the following sample code.
+The `div id` that you passed into the widget needs to match a `div` on the page that you’re going to create in the next step. See the following sample code.
 
 ```csharp
 <script type="text/javascript">
@@ -126,7 +126,7 @@ The final step is to run your app. If the widget and Okta org are properly confi
 
 <div class="half">
 
-![Screenshot of basic Okta Sign-In Widget](/img/siw/okta-sign-in-javascript.png)
+![Basic Okta Sign-In Widget](/img/siw/okta-sign-in-javascript.png)
 
 </div>
 

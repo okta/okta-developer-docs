@@ -1,4 +1,4 @@
-The sequence of steps to sign in to the widget is illustrated below:
+The sequence of steps to sign in to the widget is illustrated in the following diagram:
 
 <div class="full">
 

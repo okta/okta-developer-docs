@@ -1,4 +1,4 @@
-> **Note:** [Run the embedded Widget sample app](/docs/guides/oie-embedded-common-run-samples/go/main/#run-the-embedded-widget-sample-app) and explore the available [embedded Widget use cases](/docs/guides/oie-embedded-widget-use-case-basic-sign-in/go/main/) to get familiar with the Identity Engine and Sign-In Widget flow.
+> **Note:** [Run the embedded widget sample app](/docs/guides/oie-embedded-common-run-samples/go/main/#run-the-embedded-widget-sample-app) and explore the available [embedded widget use cases](/docs/guides/oie-embedded-widget-use-case-basic-sign-in/go/main/) to get familiar with the Identity Engine and Sign-In Widget flow.
 
 Begin to integrate the Sign-In Widget into your own embedded app by following these steps:
 
@@ -56,6 +56,6 @@ Initialize the Sign-In Widget with `OktaSignIn()` and the required Widget config
 </script>
 ```
 
-> **Important**: In Okta Sign-In Widget version 7+, Identity Engine is enabled by default. If you are using an earlier version than 7, you must explicitly enable Identity Engine features by setting `config.useInteractionCodeFlow = true;` in the configuration settings shown above. If you are using version 7+ and you want to use Okta Classic Engine rather than Identity Engine, specify `config.useClassicEngine = true;` in the configuration settings.
+> **Important**: In Okta Sign-In Widget version 7+, Identity Engine is enabled by default. If you’re using an earlier version than 7, you must explicitly enable Identity Engine features by setting `config.useInteractionCodeFlow = true;` in the configuration settings shown in the previous example. If you’re using version 7+ and you want to use Okta Classic Engine rather than Identity Engine, specify `config.useClassicEngine = true;` in the configuration settings.
 
 See [Load the widget](/docs/guides/oie-embedded-widget-use-case-load/go/main) for further details on integrating the Sign-In Widget into your app.

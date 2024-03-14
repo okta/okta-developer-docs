@@ -19,7 +19,7 @@ In addition to configuring the Interaction Code grant type in your [authorizatio
 * In Okta Sign-In Widget version 7+, Identity Engine is enabled by default, so there are no additional steps to take.
 * If you’re using an earlier version than 7, you must explicitly enable Identity Engine features by setting `useInteractionCodeFlow: true` in the config.
 
-> **Note**: For typical use case configurations, see [setting up your Okta org](/docs/guides/oie-embedded-common-org-setup/).
+> **Note**: For typical use-case configurations, see [setting up your Okta org](/docs/guides/oie-embedded-common-org-setup/).
 
 ### Apps using an embedded Identity Engine SDK only
 
