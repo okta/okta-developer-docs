@@ -8,7 +8,7 @@ When the user submits their credentials, the widget sends an identify request to
 
 ### Exchange interaction code for tokens
 
-Handle the callback from Identity Engine to the sign-in redirect URI.
+Handle the callback from the Identity Engine to the sign-in redirect URI.
 
 The Okta Java SDK uses the [Spring Boot framework](https://spring.io/guides/gs/spring-boot/) to handle the OAuth 2.0 authentication flow. However, the Spring security framework doesn't understand the interaction code flow. Therefore:
 
