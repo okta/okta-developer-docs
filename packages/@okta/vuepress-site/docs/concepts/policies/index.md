@@ -45,7 +45,7 @@ You can create custom forms for your sign-in flows with [profile enrollment poli
 
 ### Control which app can access what information from your APIs
 
-When you want to restrict access to an API based on the calling application, you can create an [access policy](/docs/reference/api/authorization-servers/#policy-object).
+When you want to restrict access to an API based on the calling app, you can create an [access policy](/docs/reference/api/authorization-servers/#policy-object).
 
 Access policies are also good when you need scopes in addition to the [reserved scopes](/docs/reference/api/oidc/#scopes) that are created with any Okta authorization server. For example, to improve compatibility for an application, you can return additional profile information for the user by [creating custom scopes with corresponding claims](/docs/guides/customize-authz-server/main/#create-scopes) that tie them to a piece of user information.
 
