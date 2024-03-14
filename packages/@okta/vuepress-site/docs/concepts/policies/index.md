@@ -35,7 +35,7 @@ You can [configure a global session policy](/docs/guides/configure-signon-policy
 
 ### Control how users access your app
 
-The [authentication policy](#authentication-policies) for each application determines what extra levels of authentication must be performed before a user can access an application. [Add a rule](/docs/guides/configure-access-policy), for example, to prompt groups that are assigned to your app to reauthenticate after 60 minutes.
+The [authentication policy](#authentication-policies) for each app determines what extra levels of authentication must be performed before a user can access an app. [Add a rule](/docs/guides/configure-access-policy), for example, to prompt groups that are assigned to your app to reauthenticate after 60 minutes.
 
 A [password policy](#password-policies) also helps you control how users access your app. It determines the requirements for a user's password length and complexity, and the frequency with which a user must change their password.
 
