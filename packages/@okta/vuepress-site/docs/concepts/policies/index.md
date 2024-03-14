@@ -23,8 +23,6 @@ There are many possibilities for policy use:
 * Change the returned scopes of the access token and add claims to it and to the ID token using [inline hooks](/docs/concepts/inline-hooks/).
 * Notify other systems in real time through an API when a user signs in.
 * Use token scopes to look up user information in an external database or API, then add that data to the user's profile object.
-* Notify other systems in real time through an API when a user signs in.
-* Use token scopes to look up user information in an external database or API, then add that data to the user's profile object.
 
 ### Control who can access your app
 
