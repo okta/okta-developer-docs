@@ -35,7 +35,7 @@ In addition to an Okta user profile, all users have a separate application user 
 
 To reference an profile attribute of an app user, specify the app variable and the attribute variable in the user profile of the app. In specifying the app, you can either name the specific application you're referencing or use an implicit reference to an in-context app.
 
-> **Note:** The application reference is usually the `name` of the application, as distinct from the `label` (display name). See [Application properties](/docs/reference/api/apps/#application-properties). If your organization configures multiple instances of the same application, a randomly assigned suffix differentiates the names of the subsequent instances, for example: `zendesk_9ao1g13`. The name of any specific app instance in the Profile Editor appears in lighter text beneath the label of the app.
+> **Note:** The app reference is usually the `name` of the app, as distinct from the `label` (display name). See [Application properties](/docs/reference/api/apps/#application-properties). If your organization configures multiple instances of the same app, a randomly assigned suffix differentiates the names of the subsequent instances, for example: `zendesk_9ao1g13`. The name of any specific app instance in the Profile Editor appears in lighter text beneath the label of the app.
 
 | Syntax                | Definitions                                                                                | examples                                                              |
 | --------              | ----------                                                                                 | ------------                                                          |
