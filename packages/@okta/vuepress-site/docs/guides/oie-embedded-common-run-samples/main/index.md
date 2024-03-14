@@ -6,7 +6,7 @@ layout: Guides
 
 <ApiLifecycle access="ie" />
 
-This guide covers how you can run the embedded Okta Identity Engine SDK or Sign-In Widget sample app after you successfully [create and set up your Okta org](/docs/guides/oie-embedded-common-org-setup/) and [download and set up the SDK](/docs/guides/oie-embedded-common-download-setup-app).
+This guide covers how you can run the embedded Okta Identity Engine SDK or Sign-In Widget sample app. Make sure that you successfully [create and set up your Okta org](/docs/guides/oie-embedded-common-org-setup/) and [download and set up the SDK](/docs/guides/oie-embedded-common-download-setup-app) first.
 
 ---
 
@@ -26,17 +26,17 @@ Run the Okta Identity Engine embedded SDK or embedded Sign-In Widget sample app.
 
 ---
 
-## The embedded Widget flow
+## The embedded widget flow
 
 In tandem with the embedded SDK, the widget integrates into your app by using a native language interface and communicates directly with the Okta APIs. The following diagram summarizes the flow.
 
 <div class="three-quarter">
 
-![Displays the Embedded SDK Widget flow](/img/oie-embedded-sdk/embedded-widget-overview.png)
+![Displays the embedded SDK widget flow](/img/oie-embedded-sdk/embedded-widget-overview.png)
 
 </div>
 
-## Run the embedded Widget sample app
+## Run the embedded widget sample app
 
 <StackSnippet snippet="runwidgetapp" />
 
