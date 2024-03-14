@@ -35,14 +35,11 @@ This resource contains detailed reference material on event types triggered with
 | Key Event Attributes  | Description                                         | Data Type      | Example Values |
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
 | **event.system.debugContext.debugData**                |                 |         |         |
-| EventUuid              |                   | String         | String         |
-| Label              |                  | String         | String         |
-| **event.system.debugContext.debugData.PartnerRiskReportData**                |                 |         |         |
-| Issuer             | the issuer of the security event | String         | String         |
-| Security event URL ???             | security event definition,                  | String         | String         |
-| **target** (User)         | The user associated with a risk activity            |      |        |
+| EventUuid              | The ID of the `user.risk.change` or `session.context.change` event that prompted the Admin feedback.               | String         | `721b1961-f0a6-11ee-bfa6-c1c3bad801v3`        |
+| Label              | The type of feedback from the admin, either `true_positive` or `false_positive`                | Enum         |  `true_positive`        |
+| **target** (User)         | The user that the feedback is about           |      |        |
 | Type        | The type of target object     | String     | User       |
-| **actor**                 |  ???                 |         |         |
+| **actor**                 |  The user or admin that is providing the feedback                |         |         |
 | Type        | The type of actor object           |      |        |
 | **client**                |  ???                |       |         |
 | IPAddress              | IP address                |       |         |
@@ -54,8 +51,10 @@ This resource contains detailed reference material on event types triggered with
 | Key Event Attributes  | Description                                         | Data Type      | Example Values |
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
 | **event.system.debugContext.debugData**                |                 |         |         |
-| ???              |                   | String         | String         |
-| ???             |                  | String         | String         |
+| partnerRiskReportData              | The SSF submission from an event provider. It includes the issuer of the security event, security event URL, and the security event definition.                   | key-value pairs         | `"{\n  \"issuer\" : \"https://example.jamf.com\",\n  \"https://schemas.openid.net/secevent/caep/event-type/session-revoked\" : {\n    \"subject\" : {\n      \"user\" : {\n        \"format\" : \"email\",\n        \"email\" : \"joe.alex@example.com\"\n      },\n      \"device\" : {\n        \"format\" : \"opaque\",\n        \"sub\" : \"1234ABCD-123A-123B-123C-12345ABCDEFG\"\n      }\n    },\n    \"event_timestamp\" : 1709484521,\n    \"reason_admin\" : {\n      \"en\" : \"Malware detected\"\n    }\n  }\n}"`         |
+| **event.system.debugContext.debugData.PartnerRiskReportData**                |                 |         |         |
+| Issuer             | the issuer of the security event | String         |         |
+| Security event URL ???             | security event definition,                  | String         |         |
 | **target** (User)         |             |      |        |
 | Type        | The type of target object     | String     | User       |
 | **actor**                 |  the entity reporting the user risk change (can be a system principal or a user)                 |         |         |
@@ -70,7 +69,7 @@ This resource contains detailed reference material on event types triggered with
 | Key Event Attributes  | Description                                         | Data Type      | Example Values |
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
 | **event.system.debugContext.debugData**                |                 |         |         |
-| ???              |                   | String         | String         |
+| deviceSignalsLastReceived              | The date and time of the last receipt of a device signal                  | String         | `"2024-03-13T19:26:53" `       |
 | ???             |                  | String         | String         |
 | **target** (User)         |            |      |        |
 | Type        | The type of target object     | String     | User       |
