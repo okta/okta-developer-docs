@@ -9,7 +9,7 @@ meta:
 
 This document details the features and syntax of the Okta Expression Language (EL). You can use this language throughout the Okta Admin Console and API for the Okta Classic Engine and Okta Identity Engine.
 
-> **Note:** If you're using EL for the [authentication policies](/docs/guides/configure-signon-policy/main/) of the Identity Engine, the [Access Certification campaigns](https://help.okta.com/okta_help.htm?id=ext-el-eg) or Entitlement Management policies for Okta Identity Governance, use the features and syntax of the [Okta Expression Language in Okta Identity Engine](/docs/reference/okta-expression-language-in-identity-engine/).
+> **Note:** If you're using EL for the [authentication policies](/docs/guides/configure-signon-policy/main/) of the Identity Engine, [Access Certification campaigns](https://help.okta.com/okta_help.htm?id=ext-el-eg), or Entitlement Management policies for Okta Identity Governance, use the features and syntax of the [Okta Expression Language in Okta Identity Engine](/docs/reference/okta-expression-language-in-identity-engine/).
 
 Okta Expression Language is based on [SpEL](http://docs.spring.io/spring/docs/3.0.x/reference/expressions.html) and uses a subset of the functionalities offered by SpEL.
 
@@ -205,11 +205,12 @@ For more information on using group functions for dynamic and static allowlists,
 
 Use this function to retrieve the user identified with the specified `primary` relationship. You can then access the properties of that user.
 
-Function `user.getLinkedObject($primaryName)`:
-  * Parameter: (String primaryName)
-  * Return type: User
-  * Example: `user.getLinkedObject("manager").lastName`
-  * Example result: `Gates`
+`user.getLinkedObject($primaryName)`:
+
+* Parameter: (String primaryName)
+* Return type: User
+* Example: `user.getLinkedObject("manager").lastName`
+* Example result: `Gates`
 
 ### Time functions
 
@@ -255,7 +256,7 @@ The following should be noted about these functions:
 | `findDirectoryUser()` | Finds the Active Directory App user object and returns that object or null if the user has more than one or no Active Directory assignments |
 | `findWorkdayUser()`   | Finds the Workday App user object and returns that object or null if the user has more than one or no Workday assignments                   |
 
-Use the previous functions together to check if a user has an Active Directory or Workday assignment, and then return a corresponding attribute. See the following 'Popular expressions' table for some examples.
+Use the previous functions together to check if a user has an Active Directory or Workday assignment, and if so, return a corresponding attribute. See the following 'Popular expressions' table for some examples.
 
 ## Constants and operators
 
@@ -268,7 +269,7 @@ Use the previous functions together to check if a user has an Active Directory o
 | Refer to an `Array` element                                                                 | `{1, 2, 3}[0]` or `user.arrayProperty[0]`   |
 | Concatenate two strings                                                                     | `user.firstName + user.lastName`            |
 | Concatenate two strings with space                                                          | `user.firstName + " " + user.lastName`      |
-| Ternary operator example:<br>If group code is 123, assign the value of Sales, else assign Other | `user.groupCode == 123 ? 'Sales' : 'Other'` |
+| Ternary operator example:<br>If the group code is 123, assign the value of Sales, else assign Other | `user.groupCode == 123 ? 'Sales' : 'Other'` |
 
 ## Conditional expressions
 
@@ -277,14 +278,14 @@ You can specify IF/THEN/ELSE statements with the Okta EL. The primary use of the
 The format for conditional expressions is:
 <p><code>[Condition] ? [Value if TRUE] : [Value if FALSE]</code></p>
 
-<br>There are several rules for specifying the condition.
+<br>There are several rules for specifying the condition:
 
 * Expressions must have valid syntax.
 * Expressions must evaluate to a Boolean.
 * Expressions can't contain an assignment operator, such as `=`.
 * User attributes used in expressions can contain only available user or app user attributes.
 
-<br>The following functions are supported in conditions.
+<br>The following functions are supported in these conditions:
 
 * Any Okta Expression Language function
 * The `AND` operator
@@ -341,7 +342,7 @@ The following samples are valid conditional expressions. The actions in these ca
 | IF            | !user.isContractor                             | fullTimeEmployees                              |
 | IF            | user.salary > 1000000 AND !user.isContractor   | expensiveFullTimeEmployees                     |
 
-#### Null and blank attributes checking examples
+#### Check for null and blank attributes
 
 To catch user attributes that are null or blank, use the following valid conditional expression:<br>
 `user.employeeNumber != "" AND user.employeeNumber != null ? user.employeeNumber : user.nonEmployeeNumber`
@@ -374,7 +375,6 @@ Sample user data:
 | Static Domain + Email Prefix with Separator                        | `"XDOMAIN\" + toLowerCase(substring( user.firstName, 0, 1)) + toLowerCase(user.lastName)`                                                                | XDOMAIN\wchurchill      | Add the `XDOMAIN` string. Append a backslash "\" character. Obtain the Firstname value. From the result, retrieve characters greater than position 0 through position 1, including position 1. Convert it to lowercase. Obtain the Lastname value. Convert it to lowercase.                                                                                                                                       |
 | Workday ID                                                         | `hasWorkdayUser() ? findWorkdayUser().employeeID : null`                                                                                                 | 123456                  | Check if the user has a Workday assignment, and if so, return their Workday employee ID.                                                                                                                                                                                                                                                                                                                   |
 | Active Directory UPN                                               | `hasDirectoryUser() ? findDirectoryUser().managerUpn : null`                                                                                             | bob@okta.com            | Check if the user has an Active Directory assignment, and if so, return their Active Directory manager UPN.                                                                                                                                                                                                                                                                                                |
-
 
 ## Expressions for OAuth 2.0/OIDC custom claims
 
