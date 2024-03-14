@@ -8,17 +8,6 @@ title: Reference overview
 
 Details on parameters, requests, and responses for Okta's API endpoints.
 
-## APIs documented only on the new beta reference
-
-In some cases, APIs have only been documented on the [new beta reference site](https://developer.okta.com/docs/api/). This section provides a list of those, so that you can easily find them.
-
-* [Agent Pools](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AgentPools/#tag/AgentPools)
-* [API Service Integrations](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApiServiceIntegrations/)
-* [Customized Sign-in Page](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Customization/#tag/Customization/operation/getSignInPage)
-* [Customized Sign-out Page](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Customization/#tag/Customization/operation/getSignOutPageSettings)
-* [Customized Error Page](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Customization/#tag/Customization/operation/getErrorPage)
-* [Group Owners](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/#tag/Group/operation/listGroupOwners)
-
 ## Core Okta API
 
 The Core Okta API is the primary way that apps and services interact with Okta. You can use it to implement basic auth functions such as signing in your users and programmatically managing your Okta objects.
