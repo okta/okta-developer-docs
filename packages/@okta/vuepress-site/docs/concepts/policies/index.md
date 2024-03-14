@@ -37,7 +37,7 @@ You can [configure a global session policy](/docs/guides/configure-signon-policy
 
 The [authentication policy](#authentication-policies) for each app determines what extra levels of authentication must be performed before a user can access an app. [Add a rule](/docs/guides/configure-access-policy), for example, to prompt groups that are assigned to your app to reauthenticate after 60 minutes.
 
-A [password policy](#password-policies) also helps you control how users access your app. It determines the requirements for a user's password length and complexity, and the frequency with which a user must change their password.
+A [password policy](#password-policies) also helps you control how users access your app. It determines the requirements for a user's password length and complexity, and it defines how often a user must change their password.
 
 You can also create an [authenticator enrollment policy](#authenticator-enrollment-policies). For example, prompt users to enroll in a factor the first time they sign in. You can also define conditions that trigger additional authentication challenges, like when users attempt to access your app from a new country.
 
