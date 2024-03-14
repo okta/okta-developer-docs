@@ -54,7 +54,7 @@ To reference an IdP user profile attribute, specify the IdP variable and the cor
 | ---------------------- | -------------------------------------------------------------------------------------------- | ------------      |
 | `idpuser.$attribute`   | `idpuser` implicit reference to in-context IdP<br>`$attribute` the attribute variable name   | idpuser.firstName |
 
-> **Note:** In the Universal Directory, the base Okta user profile has about 30 attributes. You can add any number of custom attributes. All application user profiles have a username attribute and possibly others depending on the application. To find a full list of Okta user and app user attributes and their variable names, in the Admin Console go to **People** > **Profile Editor**. If you're not using Universal Directory, contact your support or professional services team.
+> **Note:** In the Universal Directory, the base Okta user profile has about 30 attributes. You can add any number of custom attributes. All application user profiles have a username attribute and possibly others depending on the app. To find a full list of Okta user and app user attributes and their variable names, in the Admin Console go to **People** > **Profile Editor**. If you're not using Universal Directory, contact your support or professional services team.
 
 ## Reference application and organization properties
 
