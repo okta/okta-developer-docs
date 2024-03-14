@@ -13,7 +13,7 @@ Policies are evaluated when a request is made. Rules in the policies define perm
 
 ## Policy use cases
 
-Policies enable you to control who can access your app, how users access your app, and which applications can access what information from your APIs.
+Policies enable you to control who can access your app and how. They also help you control which apps can access information from your APIs.
 
 There are many possibilities for policy use:
 
