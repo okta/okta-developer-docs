@@ -1,5 +1,5 @@
 ---
-title: Widget basic sign-in flow
+title: Basic sign-in flow using the widget
 ---
 
 <ApiLifecycle access="ie" />
