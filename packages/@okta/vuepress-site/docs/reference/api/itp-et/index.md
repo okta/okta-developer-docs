@@ -21,11 +21,11 @@ This resource contains detailed reference material on event types triggered with
 | **event.system.debugContext.debugData**                |                 |         |         |
 | Risk                  |   Contains data on the risk: previous risk level, current risk level, detection names, reasons, and issuer.                                                   | key-value pair       |` {previousLevel=LOW, level=MEDIUM, detectionName=Session Influenced User Risk, reasons=idxGuvnnpQKQ8uVw56TGp23Qg, issuer=OKTA} `        |
 | TraceId               | ID generated for the risk request                   | String         | `65d65fa6-b5a9-50e9-b6f1-637b9fb71c50`        |
-| **target** (User)         | The user associated with a risk activity ???           |      |        |
+| **target** (User)         | The user associated with a risk activity ???           | Object     |        |
 | type        | The type of target object     | String     | User       |
-| **actor**                 |  The entity reporting the user risk change (can be a system principal or a user)                |         |         |
+| **actor**                 |  The entity reporting the user risk change (can be a system principal or a user)                | Object        |         |
 | type        | The type of actor object           | String     | User       |
-| **client**                | The client device used by the  ???                |       |         |
+| **client**                | The client device used by the  ???                | Object      |         |
 | IPAddress              | The IP address of the client device               |       |         |
 
 ### analytics.feedback.provide
@@ -37,11 +37,11 @@ This resource contains detailed reference material on event types triggered with
 | **event.system.debugContext.debugData**                |                 |         |         |
 | EventUuid              | The ID of the `user.risk.change` or `session.context.change` event that prompted the Admin feedback.               | String         | `721b1961-f0a6-11ee-bfa6-c1c3bad801v3`        |
 | Label              | The type of feedback from the admin, either `true_positive` or `false_positive`                | Enum         |  `true_positive`        |
-| **target** (User)         | The user that the feedback is about           |      |        |
+| **target** (User)         | The user that the feedback is about           | Object     |        |
 | type        | The type of target object     | String     | User       |
-| **actor**                 |  The user or admin that is providing the feedback                |         |         |
+| **actor**                 |  The user or admin that is providing the feedback                | Object        |         |
 | type        | The type of actor object           |      |        |
-| **client**                |  ???                |       |         |
+| **client**                |  ???                | Object      |         |
 | IPAddress              | IP address                |       |         |
 
 ### security.events.provider.receive_event
@@ -52,14 +52,11 @@ This resource contains detailed reference material on event types triggered with
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
 | **event.system.debugContext.debugData**                |                 |         |         |
 | partnerRiskReportData              | The SSF submission from an event provider. It includes the issuer of the security event, security event URL, and the security event definition.                   | key-value pairs         | `"{\n  \"issuer\" : \"https://example.jamf.com\",\n  \"https://schemas.openid.net/secevent/caep/event-type/session-revoked\" : {\n    \"subject\" : {\n      \"user\" : {\n        \"format\" : \"email\",\n        \"email\" : \"joe.alex@example.com\"\n      },\n      \"device\" : {\n        \"format\" : \"opaque\",\n        \"sub\" : \"1234ABCD-123A-123B-123C-12345ABCDEFG\"\n      }\n    },\n    \"event_timestamp\" : 1709484521,\n    \"reason_admin\" : {\n      \"en\" : \"Malware detected\"\n    }\n  }\n}"`         |
-| **event.system.debugContext.debugData.PartnerRiskReportData**                |                 |         |         |
-| Issuer             | the issuer of the security event | String         |         |
-| Security event URL ???             | security event definition,                  | String         |         |
-| **target** (User)         |             |      |        |
-| type        | The type of target object     | String     | User       |
-| **actor**                 |  the entity reporting the user risk change (can be a system principal or a user)                 |         |         |
-| type        | The type of actor object           |      |        |
-| **client**                |  ???                |       |         |
+| **target** (User)         |  The user affected by the SSF           | Object     |        |
+| type        | The type of target object     | String     |       |
+| **actor**                 |  The entity reporting the user risk change (can be a system principal or a user)                 | Object        |         |
+| type        | The type of actor object           | String     | SecurityEventProvider        |
+| **client**                |  ???                | Object      |         |
 | IPAddress              | IP address                |       |         |
 
 ### device.signals.status.timeout
@@ -70,12 +67,12 @@ This resource contains detailed reference material on event types triggered with
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
 | **event.system.debugContext.debugData**                |                 |         |         |
 | deviceSignalsLastReceived              | The date and time of the last receipt of a device signal                  | String         | `"2024-03-13T19:26:53" `       |
-| **target** (User)         | The user who still has an active session on that device           |      |        |
+| **target** (User)         | The user who still has an active session on that device           | Object     |        |
 | type        | The type of target object     | String     | User       |
-| **actor**                 | The registered device associated with the user sessions                |         |         |
+| **actor**                 | The registered device associated with the user sessions                | Object        |         |
 | id       | The ID of the registered device          | string     |  `guv1ibaeaz4lr8Eo70a9`      |
 | type        | The type of device          |      |        |
-| **client**                |                  |       |         |
+| **client**                |                  | Object      |         |
 | IPAddress              | IP address                |       |         |
 
 ### policy.auth.reevaluate.fail
@@ -91,9 +88,9 @@ This resource contains detailed reference material on event types triggered with
 | ServerStatus            |                  | Enum         | `ACTIVE`         |
 | ThreatSuspected            |                  | Boolean         | `false`         |
 | TraceId            |                  | String         | `65d55fa6-b5a9-40f9-a6f1-627b9fa71b50`        |
-| **target** (User)         | The user associated with ???           |      |        |
+| **target** (User)         | The user associated with ???           | Object     |        |
 | type        | The type of target object     | String     | User      |
-| **target** (Policy Evaluation)         | The policy evaluation ???           |      |        |
+| **target** (Policy Evaluation)         | The policy evaluation ???           | Object     |        |
 | type        | The type of target object          | String     | Policy Evaluation       |
 | **target.DetailEntry** (Policy Evaluation)       |             |      |        |
 | AppInstanceIds         |             |      |        |
@@ -104,9 +101,9 @@ This resource contains detailed reference material on event types triggered with
 | PolicyType         |             |      |        |
 | DisplayName        | Display name of the target           | String     |        |
 | ID        | Unique identifier of the target            | String     | `00u8xst93qEWYx65sx1d7`       |
-| **actor**                 |  ???                 |         |         |
+| **actor**                 |  ???                 | Object        |         |
 | type        | The type of actor object           |      |        |
-| **client**                |  ???                |       |         |
+| **client**                |  ???                | Object      |         |
 | IPAddress              | IP address                |       |         |
 
 ### policy.continuous_access.evaluate
@@ -120,9 +117,9 @@ This resource contains detailed reference material on event types triggered with
 | Risk            |                  | key-value pairs         |`{reasons=Anomalous Geo-Distance, New Device, New ASN, New IP, New State, New Country, New City, level=HIGH}`          |
 | ThreatSuspected            |                  | Boolean         | `false`         |
 | TraceId            |                  | String         | `65d55fa6-b5a9-40f9-a6f1-627b9fa71b50`        |
-| **target** (User)         | The user associated with ???           |      |        |
+| **target** (User)         | The user associated with ???           | Object     |        |
 | type        | The type of target object     | String     | User       |
-| **target** (Rule)         | ???           |      |        |
+| **target** (Rule)         | ???           | Object     |        |
 | type        | The type of target object           | String     | Rule       |
 | **target.DetailEntry** (Rule)       |             |      |        |
 | RuleAction        |             | Enum     | `TERMINATE_SESSION`       |
@@ -130,10 +127,10 @@ This resource contains detailed reference material on event types triggered with
 | SingleLogOutSelectionMode        |            | Enum     | `ALL`       |
 | DisplayName        | Display name of the target           | String     |        |
 | ID        | Unique identifier of the target            | String     | `00u8xst93qEWYx65sx1d7`       |
-| **target** (Policy)         |  ???         |      |        |
+| **target** (Policy)         |  ???         | Object     |        |
 | type        | The type of target object     | String     | Policy      |
 | **actor**                 |  ???                 |         |         |
-| type        | The type of actor object           |      |        |
+| type        | The type of actor object           | Object     |        |
 | **client**                |  ???                |       |         |
 | IPAddress              | IP address                |       |         |
 
@@ -148,9 +145,9 @@ This resource contains detailed reference material on event types triggered with
 | Risk            |                  | key-value pairs         |`{reasons=Anomalous Geo-Distance, New Device, New ASN, New IP, New State, New Country, New City, level=HIGH}`          |
 | ThreatSuspected            |                  | Boolean         | `false`         |
 | TraceId            |                  | String         | `65d55fa6-b5a9-40f9-a6f1-627b9fa71b50`        |
-| **target** (User)         | The user associated with ???           |      |        |
+| **target** (User)         | The user associated with ???           | Object      |        |
 | type        | The type of target object     | String     | User       |
-| **target** (Rule)         | ???           |      |        |
+| **target** (Rule)         | ???           | Object     |        |
 | type       | The type of target object           | String     | Rule       |
 | **target.DetailEntry** (Rule)       |             |      |        |
 | RuleAction        |             | Enum     | `TERMINATE_SESSION`       |
@@ -158,9 +155,9 @@ This resource contains detailed reference material on event types triggered with
 | SingleLogOutSelectionMode        |            | Enum     | `ALL`       |
 | DisplayName        | Display name of the target           | String     |        |
 | ID        | Unique identifier of the target            | String     | `00u8xst93qEWYx65sx1d7`       |
-| **target** (Policy)         |  ???         |      |        |
+| **target** (Policy)         |  ???         | Object      |        |
 | type        | The type of target object     | String     | Policy       |
-| **target** (PolicyAction)         | ???           |      |        |
+| **target** (PolicyAction)         | ???           | Object     |        |
 | type        | The type of target object           | String     | PolicyAction       |
 | **target.DetailEntry** (Rule)       |             |      |        |
 | PolicyAction        |             | Enum     | `TERMINATE_SESSION`       |
@@ -168,7 +165,7 @@ This resource contains detailed reference material on event types triggered with
 | PolicySingleLogOutSelectionMode        |            | Enum     | `ALL`       |
 | DisplayName        | Display name of the target           | String     |        |
 | ID        | Unique identifier of the target            | String     | `00u8xst93qEWYx65sx1d7`       |
-| **actor**                 |  ???                 |         |         |
+| **actor**                 |  ???                 | Object        |         |
 | type        | The type of actor object           |      |        |
 | **client**                |  ???                |       |         |
 | IPAddress              | IP address                |       |         |
@@ -189,13 +186,13 @@ This resource contains detailed reference material on event types triggered with
 | Source            |                  | String        | `OKTA`         |
 | ThreatSuspected            |                  | Boolean         | `false`         |
 | TraceId            |                  | String         | `65d55fa6-b5a9-40f9-a6f1-627b9fa71b50`        |
-| **target** (User)         |            |      |        |
+| **target** (User)         |            | Object     |        |
 | type        | The type of target object     | String     | User       |
-| **target** (Session)         |            |      |        |
+| **target** (Session)         |            | Object     |        |
 | type        | The type of target object     | String     | Session      |
-| **actor**                 |  ???                 |         |         |
+| **actor**                 |  ???                 | Object        |         |
 | type        | The type of actor object           |      |        |
-| **client**                |  ???                |       |         |
+| **client**                |  ???                | Object      |         |
 | IPAddress              | IP address                |       |         |
 
 ### policy.entity_risk.evaluate
@@ -209,9 +206,9 @@ This resource contains detailed reference material on event types triggered with
 | Risk            |                  | key-value pairs         |`{reasons=Anomalous Geo-Distance, New Device, New ASN, New IP, New State, New Country, New City, level=HIGH}`          |
 | ThreatSuspected            |                  | Boolean         | `false`         |
 | TraceId            |                  | String         | `65d55fa6-b5a9-40f9-a6f1-627b9fa71b50`        |
-| **target** (User)         |            |      |        |
+| **target** (User)         |            | Object      |        |
 | type        | The type of target object     | String     | User       |
-| **target** (Policy)         |            |      |        |
+| **target** (Policy)         |            | Object     |        |
 | type        | The type of target object     | String     | Policy      |
 | **target** (Rule)         |            |      |        |
 | type        | The type of target object           | String     | Rule       |
@@ -220,9 +217,9 @@ This resource contains detailed reference material on event types triggered with
 | WorkflowId         |             | String     | 572749       |
 | DisplayName        | Name of the rule          | String     | `SESSION_INFLUENCED_USER_RISK + MEDIUM`       |
 | ID        | Unique identifier of the target            | String     | `00u8xut93qEWYx5sx1d7`       |
-| **actor**                 |  ???                 |         |         |
+| **actor**                 |  ???                 | Object        |         |
 | type        | The type of actor object           |      |        |
-| **client**                |  ???                |       |         |
+| **client**                |  ???                | Object      |         |
 | IPAddress              | IP address                |       |         |
 
 ### policy.entity_risk.action
@@ -236,11 +233,11 @@ This resource contains detailed reference material on event types triggered with
 | Risk            |                  | key-value pairs         |`{reasons=Anomalous Geo-Distance, New Device, New ASN, New IP, New State, New Country, New City, level=HIGH}`          |
 | ThreatSuspected            |                  | Boolean         | `false`         |
 | TraceId            |                  | String         | `65d55fa6-b5a9-40f9-a6f1-627b9fa71b50`        |
-| **target** (User)         |            |      |        |
+| **target** (User)         |            | Object     |        |
 | type        | The type of target object     | String     | User       |
-| **target** (Policy)         |            |      |        |
+| **target** (Policy)         |            | Object     |        |
 | type        | The type of target object     | String     | Policy      |
-| **target** (Rule)         |            |      |        |
+| **target** (Rule)         |            | Object     |        |
 | type       | The type of target object              | String     | Rule       |
 | **target.DetailEntry**        |             |      |     |
 | RuleAction         |             |      | `TERMINATE_ALL_SESSIONS`      |
@@ -249,12 +246,12 @@ This resource contains detailed reference material on event types triggered with
 | ID        | Unique identifier of the target            | String     | `00u8xut93qEWYx5sx1d7`       |
 | **target** (PolicyAction)         |            |      |        |
 | type        | The type of target object           | String     | PolicyAction       |
-| **target.DetailEntry**         |             |     |       |
+| **target.DetailEntry**         |             | Object    |       |
 | PolicyAction         |             |  ENUM    | `TERMINATE_ALL_SESSIONS`      |
 | PolicyWorkflowId         |             |  ENUM    |       |
 | DisplayName        | Name of the policy action         | String     |`TERMINATE_ALL_SESSIONS`         |
 | ID        | Unique identifier of the target            | String     | `00u8xut93qEWYx5sx1d7`       |
-| **actor**                 |  ???                 |         |         |
+| **actor**                 |  ???                 | Object        |         |
 | type        | The type of actor object           |      |        |
 | **client**                |  ???                |       |         |
 | IPAddress              | IP address                |       |         |
@@ -266,22 +263,21 @@ This resource contains detailed reference material on event types triggered with
 | Key Event Attributes  | Description                                         | Data Type      | Example Values |
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
 | **event.system.debugContext.debugData**                |                 |         |         |
-| AppInstanceIds             |                  | String         | String         |
-| AppInstanceIdsPartialLogout             |                  | String         | String         |
-| LoggedOutAppInstanceIds             |                  | String         | String         |
-| LoggedOutAppInstanceIdsPartialLogout              |                  | String         | String         |
-| LogoutEventType              |                  | String         | String         |
-| LogoutEventType             |                  | String         | String         |
-| ThreatSuspected             |                   | String         | String         |
+| AppInstanceIds             |                  | String         |          |
+| AppInstanceIdsPartialLogout             |                  | String         |          |
+| LoggedOutAppInstanceIds             |                  | String         |          |
+| LoggedOutAppInstanceIdsPartialLogout              |                  | String         |          |
+| LogoutEventType              |                  | String         |          |
+| ThreatSuspected             |                   | String         |          |
 | **event.System.Transaction**                |                 |         |         |
-| ID              |                  | String         | String         |
+| ID              |                  | String         |  `c579b0f27865c4b93be9ceb6f00e5373`          |
 | **event.AuthenticationContext**                |                 |         |         |
-| ExternalSessionId              |                  | String         | String         |
-| **target** (User)         | The user associated with a risk activity            |      |        |
+| ExternalSessionId              |                  | String         | `102Oxl7hHhjTMvV2L8MGc_SYR`     |
+| **target** (User)         | The user associated with a risk activity            | Object     |        |
 | type        | The type of target object     | String     | User       |
-| **actor**                 |  ???                 |         |         |
+| **actor**                 |  ???                 |  Object       |         |
 | type        | The type of actor object           |      |        |
-| **client**                |  ???                |       |         |
+| **client**                |  ???                | Object      |         |
 | IPAddress              | IP address                |       |         |
 
 ### user.session.clear
@@ -291,16 +287,16 @@ This resource contains detailed reference material on event types triggered with
 | Key Event Attributes  | Description                                         | Data Type      | Example Values |
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
 | **event.system.debugContext.debugData**                |                 |         |         |
-| ???             |                  | String         | String         |
+| ???             |                  | String         |         |
 | **event.System.Transaction**                |                 |         |         |
-| ID              |                  | String         | String         |
+| ID              |                  | String         | `c579b0f27865c4b93be9ceb6f00e5373`         |
 | **event.AuthenticationContext**                |                 |         |         |
-| ExternalSessionId              |                  | String         | String         |
-| **target** (User)         | The user who had their session cleared            |      |        |
+| ExternalSessionId              |                  | String         | `102Oxl7hHhjTMvV2L8MGc_SYR`           |
+| **target** (User)         | The user who had their session cleared            | Object     |        |
 | type        | The type of target object     | String     | User       |
-| **actor**                 |  ???                 |         |         |
+| **actor**                 |  ???                 | Object        |         |
 | type        | The type of actor object           |      |        |
-| **client**                |  ???                |       |         |
+| **client**                |  ???                | Object      |         |
 | IPAddress              | IP address                |       |         |
 
 ### user.authentication.universal_logout
@@ -312,11 +308,11 @@ This resource contains detailed reference material on event types triggered with
 | **event.system.debugContext.debugData**                |                 |         |         |
 | AppInstanceIds            |A list of application IDs that Okta triggered for Universal Logout                 | Array of IDs         | [0oa1ysra5y0ESChAr0h8]        |
 | TraceId            | The `TraceId` is used in continuous access evaluation use cases. A request that triggers a CAE evaluation can ultimately trigger things like CAE action events - and those will be executed from the async jobs. `TraceId` connects together events triggered both by the original request handler and from the async jobs triggered by this handler. | String         | `94384405-51e3-4e13-b8b0-ba857b585a63`         |
-| **target** (User)         | The user ???           |      |        |
+| **target** (User)         | The user ???           | Object     |        |
 | type        | The type of target object     | String     | User       |
-| **actor**                 |  ???                 |         |         |
+| **actor**                 |  ???                 | Object        |         |
 | type        | The type of actor object           |      |        |
-| **client**                |  ???                |       |         |
+| **client**                |  ???                | Object      |         |
 | IPAddress              | IP address                |       |         |
 
 ### workflows.users.delegatedflow.run
@@ -327,14 +323,14 @@ This resource contains detailed reference material on event types triggered with
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
 | **event.system.debugContext.debugData**                |                 |         |         |
 | SessionId          |               | String         | `ad995fe6-e721-4a8a-86ac-d942bc59ea41`       |
-| **target** (AppInstance)         | The user ???           |      |        |
+| **target** (AppInstance)         | The user ???           | Object     |        |
 | id        | Unique identifier of the target            | String     | 00u8xut93qEWYx5sx1d7       |
 | type        | The type of target object     | String     | AppInstance      |
-| **target** (Flow)         | The user ???           |      |        |
+| **target** (Flow)         | The user ???           | Object     |        |
 | id        | Unique identifier of the target            | String     | 00u8xut93qEWYx5sx1d7       |
 | type        | The type of target object     | String     | Flow      |
-| **actor**                 |  ???                 |         |         |
+| **actor**                 |  ???                 | Object        |         |
 | id        | Unique identifier of the actor            |      |        |
 | type        | The type of actor object           |  String    |  User      |
-| **client**                |  ???                |       |         |
+| **client**                |  ???                | Object      |         |
 | IPAddress              | IP address                |       |         |
