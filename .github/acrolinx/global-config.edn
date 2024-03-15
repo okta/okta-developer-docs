@@ -8,7 +8,7 @@
  :gh-status-when-no-check true ;after 3.0.x is enabled by default
  :acrolinx-check-type "batch"
  :ignored-filetypes ["XML" "YAML" "HTML" "TEXT" "JAVA" "CPP" "PROPERTIES" "JSON" "MS_OFFICE" "PDF"]
- :allowed-filename-matches ["(?i)^(?!packages\\/@okta\\/(vuepress-site\\/3rd_party_notices|archive|books|code|copyright|docs\\/(reference\\/api|release-notes))).*$"]
+ :allowed-filename-matches ["(?i)^(?!packages\\/@okta\\/vuepress-site\\/(3rd_party_notices|archive|books|code|copyright|docs\\/(reference\\/api|release-notes))).*$"]
  :targets ; This requires ":use-gh-statuses" to be enabled
    {
      :counts {
