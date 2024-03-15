@@ -1,10 +1,10 @@
 ---
-title: Load Sign-In Widget
+title: Load the widget
 ---
 
 <ApiLifecycle access="ie" />
 
-This guide covers the use case to load the Sign-In widget, and provides a flow diagram and a sequence of integration steps.
+This guide covers the use case to load the Sign-In Widget, and provides a flow diagram and a sequence of integration steps.
 
 ---
 
