@@ -4,8 +4,6 @@ title: API Security
 
 # API Security
 
-THIS IS A TEST CHANGE!!
-
 <div class="tagline">A guide to building and securing APIs<br>from the developer team at Okta</div>
 
 ### Table of Contents
