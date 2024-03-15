@@ -73,3 +73,7 @@ sections:
 - All other product and service names mentioned herein are registered trademarks or trademarks of their respective companies.
 
 ---
+
+# Testing
+
+This change should not trigger an Acrolinx run.
