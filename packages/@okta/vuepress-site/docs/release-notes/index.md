@@ -7,8 +7,6 @@ meta:
 
 # Okta API Products Release Notes
 
-## Testing
-
 > Help us improve our release notes by filling out this short [survey](https://surveys.okta.com/jfe/form/SV_4VEZcIGOX0TBgkC).
 
 These release notes list customer-visible changes to API Products by release number. Additionally, separate Okta Identity Engine API release notes are provided that list customer-visible changes to the Identity Engine API Products by release number.

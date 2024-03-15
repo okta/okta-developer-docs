@@ -1,5 +1,3 @@
 ---
 title: API Resources
 ---
-
-# Testing
