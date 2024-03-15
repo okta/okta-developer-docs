@@ -128,7 +128,7 @@ After the user clicks the link, they're prompted to sign in with the Identity Pr
 
 ### Okta Sign-In Widget
 
-> **Note:** This section wonly applies to Okta Classic Engine.<br>
+> **Note:** This section only applies to Okta Classic Engine.<br>
 > If you're using Okta Identity Engine, the **Sign in with IdP** option is available on the widget after you [create an Identity Provider in your Okta org](#create-an-identity-provider-in-okta) and configure the [routing rule](https://help.okta.com/okta_help.htm?id=ext-cfg-routing-rules). No additional code is required. See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version and [Upgrade your widget](/docs/guides/oie-upgrade-sign-in-widget/main/#idp-discovery) for upgrade considerations to Identity Engine.
 
 Okta also offers an easily embeddable JavaScript widget that reproduces the look and behavior of the standard Okta sign-in page. You can add a **Sign in with ${IdentityProviderName}** button by adding the following code to your Okta Sign-In Widget configuration:
