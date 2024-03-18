@@ -65,18 +65,7 @@ export default {
       return this.showOnthisPage || this.$page.hasStackContent;
     }
   },
-  watch: {
-    $page(to, from) {
-      if (from.title !== to.title) {
-        this.$nextTick(function() {
-          this.setAnchors(this.getOnThisPageAnchors());
-
-        });
-      }
-    }
-  },
   mounted() {
-    this.setAnchors(this.getOnThisPageAnchors());
     this.setActiveAnchor();
     window.addEventListener("scroll", this.setActiveAnchor);
     window.addEventListener("resize", this.updateAnchors);
@@ -89,7 +78,6 @@ export default {
       // locally. Adding a setTimeout fixes the issue in the preview build.
       setTimeout(() => {
         this.isCalledOnceFromUpdated = true;
-        this.setAnchors(this.getOnThisPageAnchors());
         this.setActiveAnchor();
       }, 500);
     }
@@ -107,19 +95,8 @@ export default {
     }, 200),
 
     updateAnchors: _.debounce(function () {
-      this.getAnchorsOffset();
       this.setActiveAnchor();
     }, 200),
-
-    getOnThisPageAnchors() {
-      const onThisPageLinks = [].slice.call(
-        document.querySelectorAll(".on-this-page-link")
-      );
-      const anchors = Array.from(document.querySelectorAll(".header-anchor"));
-      return anchors.filter(anchor =>
-        onThisPageLinks.some(sidebarLink => sidebarLink.hash === anchor.hash)
-      );
-    }
   }
 };
 </script>

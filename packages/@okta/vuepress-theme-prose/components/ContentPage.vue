@@ -18,7 +18,6 @@ export default {
     $page(to, from) {
       if (from.title !== to.title) {
         this.$nextTick(function() {
-          this.setAnchors(this.getAnchors());
           this.onPageChange();
         });
       }
@@ -57,7 +56,6 @@ export default {
     },
     initializeAnchorsAndListeners() {
       this.$nextTick(function() {
-        this.setAnchors(this.getAnchors());
         this.onPageChange();
 
         window.addEventListener("popstate", e => {
@@ -103,9 +101,6 @@ export default {
         }
       }
     },
-    getAnchors() {
-      return Array.from(document.querySelectorAll(".header-anchor"));
-    }
   }
 };
 </script>
