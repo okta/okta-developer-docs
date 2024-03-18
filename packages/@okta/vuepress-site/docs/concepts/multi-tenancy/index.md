@@ -117,11 +117,11 @@ Host tenants in a single org using Universal Directory (UD)
 
 ### Summary
 
-This configuration hosts all tenants in a single org. Customers have two
-ways to do this:
+This configuration hosts all tenants in a single org. Customers have one
+way to do this:
 
 * Roll your own custom solution
-* Use the [okta-dac](https://docs.idp.rocks/) project
+<!-- * Use the [okta-dac](https://docs.idp.rocks/) project-->
 
 Since a tenant doesn't exist as a separate entity within the org, both methods
 require abstracting tenants through the use of the org’s users and user groups.
@@ -192,6 +192,15 @@ Admin users manage users of a tenant. Their responsibilities include:
 
 These users can create new tenants and tenant admins. They are used by
 the Okta customer to manage tenants in their org.
+
+<!--
+
+The DAC project site is no longer accessible. DAC will be incorporated
+into the Okta product at a future date. After its incorporation, this
+section will be readded with new content relative to that newly incorporated
+DAC project. This section has been commented out (instead of removed) to give
+guidance on how the content should be structured and formatted when the new DAC
+is ready.
 
 ### The okta-dac project
 
@@ -289,6 +298,7 @@ Solution Provider to integrate this code within your existing portal.
 #### More information
 
 See [okta-dac](https://docs.idp.rocks/) for more information.
+-->
 
 ## Configuration 2
 
@@ -307,10 +317,11 @@ Reasons why organizations choose this configuration include:
 isolated when placed into separate orgs. This isolation becomes relevant
 when user data is required to reside in a specific region (for
 example, government regulations).
-* **Strong delegated admin support:** Although there's delegated admin
+* **Strong delegated admin support:**
+ <!-- Although there's delegated admin
 support in [okta-dac](#the-okta-dac-project), the number of delegated
-responsibilities that are supported is limited. Splitting customers and
-partners into separate orgs offer the maximum level of delegated
+responsibilities that are supported is limited.-->
+Splitting customers and partners into separate orgs offer the maximum level of delegated
 responsibility support.
 * **Out-of-the-box duplicate name support:** This configuration offers
 native support for duplicate usernames, since duplicate usernames can exist
