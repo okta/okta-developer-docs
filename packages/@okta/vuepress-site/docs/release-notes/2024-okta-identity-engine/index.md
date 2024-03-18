@@ -69,7 +69,7 @@ Realms allows you to unlock greater flexibility in managing and delegating manag
 
 Okta has API documentation on creating instances of custom apps. Yet, it doesn't fully describe the app metadata required for features such as SSO and provisioning for apps installed from the Okta Integration Network (OIN). In an effort to improve the API for apps in the OIN, new app metadata contracts have been added to the Okta management API. Operators and developers can programmatically create instances of popular OIN apps in their ecosystem and set up the provisioning connection. See [Set up an app provisioning connection](/docs/guides/app-provisioning-connection/main/). <!-- OKTA-703567 -->
 
-#### Bug fixed in 2024.03.1
+#### Bug fixed in 2024.03.0
 
 Some group claims failed if Okta Expression Language was used. (OKTA-660870)
 

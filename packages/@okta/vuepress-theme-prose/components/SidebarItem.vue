@@ -29,11 +29,12 @@
         </slot>
       </a>
     </router-link>
-
-    <SmartLink
+    
+    <a
       v-if="entityType === types.smartLink"
-      :item="{ link: link.path, target: link.target ? link.target : '_blank' }"
-      classes="tree-nav-link"
+      :href="link.path"
+      :target="link.target ? link.target : '_blank'"
+      class="tree-nav-link"
     >
       <span class="text-holder">
         {{ link.title }}
@@ -60,7 +61,7 @@
           />
         </svg>
       </span>
-    </SmartLink>
+    </a>
 
     <div v-if="entityType === types.blankDivider">
       <div class="blank-divider">
@@ -140,8 +141,7 @@ import _ from 'lodash';
 export default {
   name: "SidebarItem",
   components: {
-    SidebarItem: () => import("../components/SidebarItem.vue"),
-    SmartLink: () => import("../components/SmartLink.vue"),
+    SidebarItem: () => import("../components/SidebarItem.vue")
   },
   inject: ["appContext", "stackSelectorData"],
   props: ["link"],
