@@ -20,7 +20,7 @@ Run the embedded Identity Engine SDK or Sign-In Widget sample app.
 * An [Identity Engine SDK set up for the sample app](/docs/guides/oie-embedded-common-download-setup-app/)
 * An Identity Engine [sample app](#sample-code)
 
-**Sample code*
+**Sample code**
 
 <StackSnippet snippet="samplecode" />
 
