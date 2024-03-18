@@ -26,6 +26,8 @@ The widget is a JavaScript library that provides a full-featured and customizabl
 
 Use the widget on the Okta default sign-in page to start an Okta SSO session and to set the Okta [session cookie](/docs/guides/session-cookie/) in the web browser. The widget can also perform a complete [OpenID Connect (OIDC)](/docs/concepts/oauth-openid/) flow and/or integrate with [external Identity Providers](/docs/concepts/identity-providers/).
 
+>**Note:** Some browsers have begun blocking third-party cookies by default, disrupting Okta functionality in certain flows. See [Mitigate the impact of third-party cookie deprecation](https://help.okta.com/okta_help.htm?type=oie&id=ext-third-party-cookies).
+
 This article teaches you how to upgrade the Sign-In Widget when it’s used in any of the following ways:
 
 * Redirect sign-in page (default): Okta provides a sign-in page that is available at your [org's URL](/docs/concepts/okta-organizations/). By default, a user who signs in on this page is redirected to the Okta user dashboard.

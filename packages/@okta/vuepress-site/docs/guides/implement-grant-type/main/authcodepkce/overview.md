@@ -4,4 +4,4 @@ The Authorization Code flow with a Proof Key for Code Exchange (PKCE) is the rec
 
 See the [OAuth 2.0 and OpenID Connect decision flowchart](/docs/concepts/oauth-openid/#choosing-an-oauth-2-0-flow) for flow recommendations.
 
-> **Note:** Some browsers have begun blocking third-party cookies by default, disrupting Okta functionality in certain flows. See [FAQ: How Blocking Third-Party Cookies Can Potentially Impact Your Okta Environment](https://support.okta.com/help/s/article/FAQ-How-Blocking-Third-Party-Cookies-Can-Potentially-Impact-Your-Okta-Environment).
+> **Note:** Some browsers have begun blocking third-party cookies by default, disrupting Okta functionality in certain flows. See [Mitigate the impact of third-party cookie deprecation](https://help.okta.com/okta_help.htm?type=oie&id=ext-third-party-cookies).
