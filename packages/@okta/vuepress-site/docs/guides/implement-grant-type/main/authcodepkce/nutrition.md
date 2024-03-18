@@ -1,4 +1,4 @@
-This guide explains how to implement an Authorization Code with PKCE flow for your app in Okta.
+This guide explains how to implement an Authorization Code with a Proof Key for Code Exchange (PKCE) flow for your app in Okta.
 
 ---
 
