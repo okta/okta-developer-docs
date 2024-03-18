@@ -69,37 +69,22 @@ export default {
     getActiveAnchor: function() {
       const anchors = Array.from(document.querySelectorAll(".header-anchor"));
 
-      // error-codes section
-      const anchorOffsets = anchors.map(anchor => {
-        if(anchor.classList.contains('container-level-2')) {
-          const parentHTag = anchor.parentElement.parentElement;
-          return {
-            element: anchor,
-            offsetTop: parentHTag.offsetTop,
-            offsetHeight: parentHTag.offsetHeight
-          }
-        }
+      const scrollPosition = Math.max(
+        window.pageYOffset,
+        document.documentElement.scrollTop,
+        document.body.scrollTop
+     ) + LAYOUT_CONSTANTS.ANCHOR_TOP_MARGIN;
 
-        const parentHTag = anchor.parentElement;
-        return {
-          element: anchor,
-          offsetTop: parentHTag.offsetTop,
-          offsetHeight: parentHTag.offsetHeight
-        }
-      });
-
-      const scrollPosition = window.scrollY;
       let start = 0;
-      let end = anchorOffsets.length - 1;
+      let end = anchors.length - 1;
 
       while (start <= end) {
         let mid = Math.floor((start + end) / 2);
-        let midOffsetTop = anchorOffsets[mid].offsetTop;
-        let midOffsetTopNext = anchorOffsets[mid + 1]?.offsetTop || 99999;
+        let midOffsetTop = anchors[mid].offsetTop;
+        let midOffsetTopNext = anchors[mid + 1]?.offsetTop || 99999;
 
-        if(scrollPosition >= midOffsetTop - LAYOUT_CONSTANTS.ANCHOR_TOP_MARGIN && 
-        scrollPosition <= midOffsetTopNext - LAYOUT_CONSTANTS.ANCHOR_TOP_MARGIN) {
-          return anchorOffsets[mid].element
+        if(scrollPosition >= midOffsetTop && scrollPosition <= midOffsetTopNext) {
+          return anchors[mid]
         }
         
         if (scrollPosition < midOffsetTop) {
