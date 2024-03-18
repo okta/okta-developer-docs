@@ -9,9 +9,9 @@ Add the Sign-In Widget source to your sign-in page by referencing the Okta CDN, 
 
 See also [Using the Okta CDN](https://github.com/okta/okta-signin-widget#using-the-okta-cdn). The latest version of the widget is -=OKTA_REPLACE_WITH_WIDGET_VERSION=-.
 
-### 2: Add JavaScript to initialize and load the Widget
+### 2: Add JavaScript to initialize and load the widget
 
-Initialize the Widget in the sign-in page, similar to the following snippet:
+Initialize the widget in the sign-in page, similar to the following snippet:
 
 ```html
 <script th:inline="javascript">
@@ -49,14 +49,14 @@ Initialize the Widget in the sign-in page, similar to the following snippet:
 
 The Okta Sign-In Widget renders in the sign-in page when your app's sign-in page controller is triggered.
 
-> **Important**: In Okta Sign-In Widget version 7+, Identity Engine is enabled by default. If you are using an earlier version than 7, you must explicitly enable Identity Engine features by setting `config.useInteractionCodeFlow = true;` in the configuration settings shown above. If you are using version 7+ and you want to use Okta Classic Engine rather than Identity Engine, specify `config.useClassicEngine = true;` in the configuration settings.
+> **Important**: In Okta Sign-In Widget version 7+, Identity Engine is enabled by default. If you’re using an earlier version than 7, you must explicitly enable Identity Engine features by setting `config.useInteractionCodeFlow = true;` in the configuration settings shown in the previous example. If you’re using version 7+ and you want to use Okta Classic Engine rather than Identity Engine, specify `config.useClassicEngine = true;` in the configuration settings.
 
 ### 3: Run your app
 
-The final step is to run your app. If the Widget and your Okta org are properly configured, then the Okta Sign-In Widget displays in your sign-in page:
+The final step is to run your app. If the widget and your Okta org are properly configured, then the Okta Sign-In Widget displays in your sign-in page:
 
 <div class="half">
 
-![Screenshot of basic Okta Sign-In Widget](/img/siw/okta-sign-in-javascript.png)
+![Basic Okta Sign-In Widget](/img/siw/okta-sign-in-javascript.png)
 
 </div>

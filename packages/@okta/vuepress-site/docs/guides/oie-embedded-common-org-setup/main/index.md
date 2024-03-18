@@ -37,7 +37,7 @@ This guide shows you how to set up your Okta org to support the embedded SDK or 
 
 ## Get set up
 
-Sample apps are provided for each solution to show you exactly how to integrate the SDK and the Widget into your own app. Before you can run the sample apps or integrate embedded authentication into your own app, you need to do the following:
+Sample apps are provided for each solution to show you exactly how to integrate the SDK and the widget into your own app. Before you can run the sample apps or integrate embedded authentication into your own app, you need to do the following:
 
 1. [Create your Okta account](#create-your-okta-account).
 1. [Verify that the Interaction Code grant type is enabled](/docs/guides/implement-grant-type/interactioncode/main/#verify-that-the-interaction-code-grant-type-is-enabled).
