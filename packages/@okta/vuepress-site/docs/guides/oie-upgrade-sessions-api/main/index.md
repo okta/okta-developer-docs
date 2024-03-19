@@ -16,7 +16,7 @@ After your org is upgraded to Okta Identity Engine, there are a few things you s
 
 >**Note:**: Use session cookies with browsers only. Using session cookies outside of a browser is subject to change and isn't supported or recommended by Okta.
 
->**Note:** Some browsers have begun blocking third-party cookies by default, disrupting Okta functionality in certain flows. See [Mitigate the impact of third-party cookie deprecation](https://help.okta.com/okta_help.htm?type=oie&id=ext-third-party-cookies).
+>**Note:** Some browsers block third-party cookies by default, which disrupts Okta functionality in certain flows. See [Mitigate the impact of third-party cookie deprecation](https://help.okta.com/okta_help.htm?type=oie&id=ext-third-party-cookies).
 
 The following section discusses different use cases and what the changes are after you upgrade your org to Identity Engine:
 
