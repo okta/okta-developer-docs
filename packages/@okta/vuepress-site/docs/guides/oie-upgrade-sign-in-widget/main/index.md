@@ -4,7 +4,7 @@ title: Upgrade the Okta Sign-In Widget
 
 <ApiLifecycle access="ie" />
 
-This guide covers how to upgrade the Okta Sign-In Widget. The upgrade depends on whether your deployment model is redirect authentication or embedded authentication.
+This guide explains how to upgrade the Okta Sign-In Widget. The upgrade depends on whether your deployment model is redirect authentication or embedded authentication.
 
 ---
 
