@@ -36,7 +36,7 @@ The [authentication policy](#authentication-policies) for each app determines wh
 
 A [password policy](#password-policies) also helps you control how users access your app. It determines the requirements for a user's password length and complexity, and it defines how often a user must change their password.
 
-You can also create an [authenticator enrollment policy](#authenticator-enrollment-policies). For example, prompt users to enroll in a factor the first time they sign in. You can also define conditions that trigger additional authentication challenges, like when users attempt to access your app from country they've never signed in from before.
+You can create an [authenticator enrollment policy](#authenticator-enrollment-policies). For example, prompt users to enroll in a factor the first time they sign in. You can also define conditions that trigger additional authentication challenges, like when users attempt to access your app from a country they've never signed in from before.
 
 You can create custom forms for your sign-in flows with [profile enrollment policies](#profile-enrollment-policies). This allows you to progressively build user profiles by collecting profile data incrementally as end users engage with your app.
 
@@ -52,10 +52,10 @@ When you want to restrict access to an API based on the calling app, you can cre
 
 Policy settings for a particular [policy type](#policy-types) consist of one or more policy objects with one or more policy rules:
 
-* **Policies** contain groups of resources requiring similar treatment, like apps with the same security characteristics or user groups with the same account setup requirements
+* **Policies** contain groups of resources requiring similar treatment, like apps with the same security characteristics or user groups with the same account setup requirements.
 * **Rules** describe the conditions of policy behavior, such as requests from a geographical location or if the user is on a trusted network.
 
-The policy's conditions and a rules combined determine when the policy is applied. As a best practice, restrictive rules should be placed at the top of the priority list. Otherwise, you can create combinations of conditions for different scenarios. There’s no limit to the number of rules your policies can have.
+The combined policy conditions and a rules determine when the policy is applied. As a best practice, place restrictive rules at the top of the priority list. Otherwise, you can create combinations of conditions for different scenarios. There’s no limit to the number of rules your policies can have.
 
 Different policy types control the settings for different operations. All policy types share a common framework, message structure, and API, but have different policy settings and rule data. When a policy is retrieved, such as when the user attempts to sign in to Okta, then policy evaluation takes place:
 
@@ -75,7 +75,7 @@ A default policy is automatically created for each type of policy. This ensures 
 
 Default policies also always have one default rule that you can't delete, and that rule is always the last rule in the priority order. When you add rules to the default policy, they have a higher priority than the default rule.
 
-The [`system` attribute](/docs/reference/api/policy/#policy-object) determines whether a system or a user created the policy. Default policies and default rules are the only policies and rules that have this attribute. The `system` attribute set to `TRUE` on default policies or rules indicates that those policies and rules are system-created policies, and you can't delete them.
+The [`system` attribute](/docs/reference/api/policy/#policy-object) determines whether a system or an admin created the policy. Default policies and default rules are the only policies and rules that have this attribute. The `system` attribute set to `TRUE` on default policies or rules indicates that those policies and rules are system-created policies, and you can't delete them.
 
 ## Policy types
 
@@ -133,7 +133,7 @@ An [OAuth Authorization Policy](/docs/reference/api/authorization-servers/#polic
 
 The [IdP Discovery Policy](/docs/reference/api/policy/#idp-discovery-policy) determines where to route users when they attempt to sign in to your org. You can route users to various [identity providers](/docs/guides/add-an-external-idp/).
 
-> **Note:** This policy isn't for performing authentication or authorization. It's used only to determine where a user is routed. You can't control access with an IdP discovery Policy.
+> **Note:** This policy isn't for performing authentication or authorization. It's used only to determine where a user is routed. You can't control access with an IdP discovery policy.
 
 For more information about IdP routing rules and use cases, see [Identity Provider routing rules](https://help.okta.com/oie/en-us/content/topics/security/identity_provider_discovery.htm).
 
