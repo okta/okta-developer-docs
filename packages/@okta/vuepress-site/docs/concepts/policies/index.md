@@ -87,11 +87,11 @@ You can configure policies for sign-on, passwords, enrollment, and API access. Y
 
 #### Global session policies
 
-A [global session policy](/docs/reference/api/policy/#global-session-policy) controls who has access and how a user gains access to Okta. See [Global session policies](https://help.okta.com/oie/en-us/content/topics/identity-engine/policies/about-okta-sign-on-policies.htm) and [Configure a global session policy and an authentication policy](/docs/guides/configure-signon-policy/main/).
+A [global session policy](/docs/reference/api/policy/#global-session-policy) controls who has access and how a user gains access to Okta. See [Global session policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-osop) and [Configure a global session policy and an authentication policy](/docs/guides/configure-signon-policy/main/).
 
 #### Authentication policies
 
-An [authentication policy](/docs/reference/api/policy/#authentication-policy) determines the extra levels of authentication performed before a user can access an app, such as enforcing factor requirements. See [Authentication policies](https://help.okta.com/oie/en-us/content/topics/identity-engine/policies/about-app-sign-on-policies.htm).
+An [authentication policy](/docs/reference/api/policy/#authentication-policy) determines the extra levels of authentication performed before a user can access an app, such as enforcing factor requirements. See [Authentication policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-asop).
 
 You can create an authentication policy specifically for the app or create a few policies and [share them](https://help.okta.com/okta_help.htm?type=oie&id=ext-share-auth-policy) across multiple apps.
 
@@ -101,7 +101,7 @@ Use the [Authentication Policies page](https://help.okta.com/okta_help.htm?type=
 
 A [password policy](/docs/reference/api/policy/#password-policy) determines the requirements for a user's password length and complexity, and how often a user must change their password. Okta provides a default policy to enforce the use of strong passwords.
 
-See [Configure the password authenticator](https://help.okta.com/oie/en-us/content/topics/identity-engine/authenticators/configure-password.htm) for more information on passwords as an authenticator factor.
+See [Configure the password authenticator](https://help.okta.com/okta_help.htm?type=oie&id=ext-configure-password) for more information on passwords as an authenticator factor.
 
 ### Enrollment policies
 
@@ -115,7 +115,7 @@ Enable factors in your Okta org by creating a policy with one or more authentica
 
 > **Note:** In Identity Engine, the Multifactor (MFA) Enrollment Policy name has changed to [authenticator enrollment policy](/docs/reference/api/policy/#authenticator-enrollment-policy).
 
-See [Authenticator enrollment policy](https://help.okta.com/oie/en-us/content/topics/identity-engine/policies/about-mfa-enrollment-policies.htm) for additional information on MFA authentication, enrollment policies, and rules.
+See [Authenticator enrollment policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-mfa-enrol-policies) for additional information on MFA authentication, enrollment policies, and rules.
 
 #### Profile enrollment policies
 
@@ -135,7 +135,7 @@ The [IdP Discovery Policy](/docs/reference/api/policy/#idp-discovery-policy) det
 
 > **Note:** This policy isn't for performing authentication or authorization. It's used only to determine where a user is routed. You can't control access with an IdP discovery policy.
 
-For more information about IdP routing rules and use cases, see [Identity Provider routing rules](https://help.okta.com/oie/en-us/content/topics/security/identity_provider_discovery.htm).
+For more information about IdP routing rules and use cases, see [Identity Provider routing rules](https://help.okta.com/okta_help.htm?type=oie&id=ext_Identity_Provider_Discovery).
 
 ## Policy evaluation based on authentication pipelines
 
