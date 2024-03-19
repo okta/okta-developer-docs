@@ -22,7 +22,7 @@ Retrieve a session cookie and initiate SSO.
 
 Okta uses an HTTP session cookie to provide access to your Okta org and apps across web requests for interactive user-agents such as a browser.
 
-> **Note:** Some browsers have begun blocking third-party cookies by default, which disrupts Okta functionality in certain flows. See [Mitigate the impact of third-party cookie deprecation](https://help.okta.com/okta_help.htm?type=oie&id=ext-third-party-cookies).
+> **Note:** Some browsers block third-party cookies by default, which disrupts Okta functionality in certain flows. See [Mitigate the impact of third-party cookie deprecation](https://help.okta.com/okta_help.htm?type=oie&id=ext-third-party-cookies).
 
 Okta sessions are created and managed with the [Session API](/docs/reference/api/sessions/). A session token is sent as part of a request, contained in a `sessionToken` parameter. If the request is successful, the session cookie is set with a `Set-Cookie` header in the response.
 
