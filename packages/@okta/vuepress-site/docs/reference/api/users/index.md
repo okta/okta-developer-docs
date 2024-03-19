@@ -780,7 +780,7 @@ Fetch a user by `id`, `login`, or `login shortname` if the short name is unambig
 
 >**Hint:** you can substitute `me` for the `id` to fetch the current user linked to an API token or session cookie.
 
->**Note:** Some browsers have begun blocking third-party cookies by default, disrupting Okta functionality in certain flows. See [Mitigate the impact of third-party cookie deprecation](https://help.okta.com/okta_help.htm?type=oie&id=ext-third-party-cookies).
+>**Note:** Some browsers block third-party cookies by default, which disrupts Okta functionality in certain flows. See [Mitigate the impact of third-party cookie deprecation](https://help.okta.com/okta_help.htm?type=oie&id=ext-third-party-cookies).
 
 ##### Response parameters
 
