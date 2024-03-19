@@ -64,7 +64,7 @@ This resource contains detailed reference material on event types triggered with
 | Key Event Attributes  | Description                                         | Data Type      | Example Values |
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
 | **event.system.debugContext.debugData**                |                 |         |         |
-| deviceSignalsLastReceived              | The date and time of the last receipt of a device signal                  | String         | `"2024-03-13T19:26:53" `       |
+| deviceSignalsLastReceived              | The date and time of the last receipt of a device signal                  | String         | `"2024-03-13T19:26:53"`       |
 | **target** (User)         | The user who still has an active session on that device           | Object     |        |
 | type        | The type of target object     | String     | User       |
 | **actor**                 | The registered device associated with the user sessions                | Object        |         |
