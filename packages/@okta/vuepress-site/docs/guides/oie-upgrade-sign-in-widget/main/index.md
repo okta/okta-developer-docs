@@ -37,7 +37,7 @@ This article teaches you how to upgrade the Sign-In Widget when it’s used in a
 
 * Redirect authentication (default): Okta provides a sign-in page that's available at your [org's URL](/docs/concepts/okta-organizations/). By default, a user who signs in on this page is redirected to the Okta End-User Dashboard.
 * Redirect authentication (customizable): Okta provides a sign-in page that you can customize. You can then make it available under a custom domain that's a subdomain of your company's top-level domain.
-* Embedded authentication (self-hosted): You can embed the widget directly into your application.
+* Embedded authentication (self-hosted): You can embed the widget directly into your app.
 
 After you've completed the widget upgrade, review the [Okta Identity Engine overview](/docs/concepts/oie-intro/) to take advantage of the new features in Identity Engine.
 
