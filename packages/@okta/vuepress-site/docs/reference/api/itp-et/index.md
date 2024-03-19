@@ -21,12 +21,10 @@ This resource contains detailed reference material on event types triggered with
 | **event.system.debugContext.debugData**                |                 |         |         |
 | Risk                  | Contains the level of risk (`LOW`, `MEDIUM`, or `HIGH`) and the reasons that contributed to the risk level, See [Risk scoring](https://help.okta.com/okta_help.htm?type=oie&id=csh-risk-scoring).                                                | key-value pair       |` {previousLevel=LOW, level=MEDIUM, detectionName=Session Influenced User Risk, reasons=idxGuvnnpQKQ8uVw56TGp23Qg, issuer=OKTA} `        |
 | TraceId               | ID generated for the risk request                   | String         | `65d65fa6-b5a9-50e9-b6f1-637b9fb71c50`        |
-| **target** (User)         | The user associated with a risk activity ???           | Object     |        |
+| **target** (User)         | The user associated with a risk change          | Object     |        |
 | type        | The type of target object     | String     | User       |
 | **actor**                 |  The entity reporting the user risk change (can be a system principal or a user)                | Object        |         |
 | type        | The type of actor object           | String     | User       |
-| **client**                | The client device used by the  ???                | Object      |         |
-| IPAddress              | The IP address of the client device               |       |         |
 
 ### analytics.feedback.provide
 
@@ -51,10 +49,10 @@ This resource contains detailed reference material on event types triggered with
 | Key Event Attributes  | Description                                         | Data Type      | Example Values |
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
 | **event.system.debugContext.debugData**                |                 |         |         |
-| partnerRiskReportData              | The SSF submission from an event provider. It includes the issuer of the security event, security event URL, and the security event definition.                   | key-value pairs         | `"{\n  \"issuer\" : \"https://example.jamf.com\",\n  \"https://schemas.openid.net/secevent/caep/event-type/session-revoked\" : {\n    \"subject\" : {\n      \"user\" : {\n        \"format\" : \"email\",\n        \"email\" : \"joe.alex@example.com\"\n      },\n      \"device\" : {\n        \"format\" : \"opaque\",\n        \"sub\" : \"1234ABCD-123A-123B-123C-12345ABCDEFG\"\n      }\n    },\n    \"event_timestamp\" : 1709484521,\n    \"reason_admin\" : {\n      \"en\" : \"Malware detected\"\n    }\n  }\n}"`         |
-| **target** (User)         |  The user affected by the SSF           | Object     |        |
+| partnerRiskReportData              | The SSF submission from an event provider. It includes the issuer of the security event, security event URL, and the security event definition.                   | key-value pairs         | `"{\n  \"issuer\" : \"https://example.eventprovider.com\",\n  \"https://schemas.openid.net/secevent/caep/event-type/session-revoked\" : {\n    \"subject\" : {\n      \"user\" : {\n        \"format\" : \"email\",\n        \"email\" : \"joe.alex@example.com\"\n      },\n      \"device\" : {\n        \"format\" : \"opaque\",\n        \"sub\" : \"1234ABCD-123A-123B-123C-12345ABCDEFG\"\n      }\n    },\n    \"event_timestamp\" : 1709484521,\n    \"reason_admin\" : {\n      \"en\" : \"Malware detected\"\n    }\n  }\n}"`         |
+| **target** (User)         |  The user affected by the event           | Object     |        |
 | type        | The type of target object     | String     |       |
-| **actor**                 |  The entity reporting the user risk change (can be a system principal or a user)                 | Object        |         |
+| **actor**                 |  The security events provider                | Object        |         |
 | type        | The type of actor object           | String     | SecurityEventProvider        |
 | **client**                |  ???                | Object      |         |
 | IPAddress              | IP address                |       |         |
@@ -72,8 +70,6 @@ This resource contains detailed reference material on event types triggered with
 | **actor**                 | The registered device associated with the user sessions                | Object        |         |
 | id       | The ID of the registered device          | string     |  `guv1ibaeaz4lr8Eo70a9`      |
 | type        | The type of device          |      |        |
-| **client**                |                  | Object      |         |
-| IPAddress              | IP address                |       |         |
 
 ### policy.auth.reevaluate.fail
 
