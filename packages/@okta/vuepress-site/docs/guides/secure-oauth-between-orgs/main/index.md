@@ -12,7 +12,7 @@ This guide explains how to securely configure Okta hub-and-spoke orgs to synchro
 **Learning outcomes**
 
 * Set up a hub-and-spoke Okta org provisioning connection to use the OAuth 2.0 Client Credentials grant flow.
-* Configure the hub (target) Okta org with service apps for each spoke (source) Okta org.
+* Configure the hub Okta org with service apps for each spoke Okta org.
 * Configure an Org2Org app on each spoke Okta org.
 * Configure and activate Org2Org provisioning on spoke Okta orgs.
 * Rotate keys for the OAuth 2.0 connection.
