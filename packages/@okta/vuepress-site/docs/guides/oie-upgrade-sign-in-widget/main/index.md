@@ -31,7 +31,7 @@ Use the widget on the Okta default sign-in page to do the following:
 * Perform a complete [OpenID Connect (OIDC)](/docs/concepts/oauth-openid/) flow
 * Integrate with [external Identity Providers](/docs/concepts/identity-providers/)
 
->**Note:** Some browsers have begun blocking third-party cookies by default, disrupting Okta functionality in certain flows. See [Mitigate the impact of third-party cookie deprecation](https://help.okta.com/okta_help.htm?type=oie&id=ext-third-party-cookies).
+>**Note:** Some browsers block third-party cookies by default, which disrupts Okta functionality in certain flows. See [Mitigate the impact of third-party cookie deprecation](https://help.okta.com/okta_help.htm?type=oie&id=ext-third-party-cookies).
 
 This article teaches you how to upgrade the Sign-In Widget when it’s used in any of the following ways:
 
