@@ -18,7 +18,7 @@ describe('table of contents navigation spec', () => {
     tocPage.getLastSectionHeading().should('be.inViewport');
   });
 
-  xit(
+  it(
     "should scroll to h5 header but displays it parent h3 as active item in onthispage sidebar",
     () => {
       const hash = "#post-operation";
