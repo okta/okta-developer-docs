@@ -16,6 +16,8 @@ After your org is upgraded to Okta Identity Engine, there are a few things you s
 
 >**Note:**: Use session cookies with browsers only. Using session cookies outside of a browser is subject to change and isn't supported or recommended by Okta.
 
+>**Note:** Some browsers block third-party cookies by default, which disrupts Okta functionality in certain flows. See [Mitigate the impact of third-party cookie deprecation](https://help.okta.com/okta_help.htm?type=oie&id=ext-third-party-cookies).
+
 The following section discusses different use cases and what the changes are after you upgrade your org to Identity Engine:
 
 1. **Are you using the Sign-In Widget?** Everything works as configured. The Sign-In Widget takes care of calling the correct Identity Engine endpoints and returns the `idx` cookie in the response.
