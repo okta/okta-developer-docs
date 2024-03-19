@@ -233,7 +233,7 @@ The following specific features are no longer supported, and you can't configure
 
 * `features.idpDiscovery`: Enabled IdP Discovery when the user signed in. The [Identity Provider routing rules](https://help.okta.com/okta_help.htm?id=ext_Identity_Provider_Discovery) are evaluated by default when applicable.
 
-* `features.showPasswordToggleOnSignInPage`: Provided end users with the ability to toggle the visibility of their password on the Okta sign-in page. This allows users to check their password entry before clicking **Sign In**. This feature also prevented an account lockout due to exceeding their org's permitted number of failed sign-in attempts.
+* `features.showPasswordToggleOnSignInPage`: Provided end users with the ability to view their password on the Okta sign-in page. This allows users to check their password entry before clicking **Sign In**. This feature also prevented an account lockout due to exceeding their org's permitted number of failed sign-in attempts.
 
 * `features.scrollOnError`: Scrolled errors into view. Errors appear inside the widget.
 
