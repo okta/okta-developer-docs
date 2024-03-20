@@ -3,7 +3,7 @@ version: 2.1
 jobs:
   node_build_checks:
     docker:
-      - image: circleci/node:14-buster
+      - image: circleci/node:14-bullseye
     resource_class: xlarge
     environment:
       NODE_OPTIONS: '--max_old_space_size=3584'
@@ -16,8 +16,11 @@ jobs:
       #     name: Build
       #     command: yarn build
       - run:
-          name: Install libnss3
+          name: Debian versions and node version
           command: uname -r && cat /etc/debian_version && node -v
+      - run:
+          name: Install libnss3
+          command: sudo apt-get update && sudo apt-get install -y libnss3
       - run:
           name: Run checks
           command: ./scripts/yarn-checks.sh
