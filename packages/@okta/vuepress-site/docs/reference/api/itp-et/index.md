@@ -174,12 +174,13 @@ This resource contains detailed reference material on event types triggered with
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
 | **event.system.debugContext.debugData**                |                 |         |         |
 | Behaviors             | List of behaviors identified for the current event. `POSITIVE` - the specific behavior is identified. `NEGATIVE` - the specific behavior wasn't identified. See [About Behavior Detection](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-behavior-detection).                 | key-value pairs        |  `{New Geo-Location=POSITIVE, New Device=NEGATIVE, New IP=POSITIVE, New State=POSITIVE, New Country=POSITIVE, Velocity=POSITIVE, New City=POSITIVE} `       |
-| Causes              |                  | Array        | [ipAddress.change]      |
-| ExternalSessionId              |                  | String         | `idxncn50DUmRpqWcz3doJX18g`       |
-| NewIpAddress            |                   | String         |          |
-| PreviousIpAddress              |                  | String         |          |
+| Causes              | The cause of the change in session context. The values can be an `ipAddress.change` or `deviceContext.change`.                 | Array        | [ipAddress.change]      |
+| ExternalSessionId              | The ID of the session that had the context change                 | String         | `idxncn50DUmRpqWcz3doJX18g`       |
+| NewIpAddress            | The new IP address for an `ipAddress.change` cause or the new IP address for a device context change.               | String         |          |
+| PreviousIpAddress              | The previous IP address for an `ipAddress.change` cause or the new IP address for a device context change.                 | String         |          |
+| changedDeviceSignals              | The change in device signals for the session.               | key-value pairs       | `{\"device.profile.managed\":{\"oldValue\":true, \"newValue\":false},\"device.provider.wsc.fireWall\":{\"oldValue\":\"GOOD\", \"newValue\":\"NONE\"}} ` |
 | Risk            | Contains the level of risk (`LOW`, `MEDIUM`, or `HIGH`) and the reasons that contributed to the risk level, See [Risk scoring](https://help.okta.com/okta_help.htm?type=oie&id=csh-risk-scoring).                 | key-value pairs         |`{reasons=Anomalous Geo-Distance, New Device, New ASN, New IP, New State, New Country, New City, level=HIGH}`          |
-| Source            |                  | String        | `OKTA`         |
+| Source            | The source of the session context change                 | String        | `OKTA`         |
 | ThreatSuspected            |                  | Boolean         | `false`         |
 | TraceId            |  A unique ID that is used across a single flow of ITP events to easily correlate them all into one system log query                | String         | `65d55fa6-b5a9-40f9-a6f1-627b9fa71b50`        |
 | **target** (User)         |            | Object     |        |
