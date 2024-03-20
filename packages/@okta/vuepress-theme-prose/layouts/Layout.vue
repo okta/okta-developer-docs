@@ -80,7 +80,9 @@
       </div>
     </div>
     <Footer />
-    <Feedback />
+    <Feedback
+      v-if="showFeedback"
+    />
   </div>
 </template>
 
@@ -135,6 +137,7 @@ export default {
         to: '',
         from: ''
       },
+      showFeedback: true,
     };
   },
   computed: {
@@ -172,6 +175,7 @@ export default {
   },
   watch: {
     $route(to, from) {
+      this.hideFeedBack();
       this.appContext.isTreeNavMobileOpen = false;
       this.redirIfRequired();
 
@@ -197,6 +201,7 @@ export default {
     this.onResize();
     window.addEventListener("resize", this.onResize);
     this.redirIfRequired();
+    this.hideFeedBack();
   },
   beforeDestroy() {
     window.removeEventListener("resize", this.onResize);
@@ -234,6 +239,14 @@ export default {
     getTreeNavDocs() {
       this.appContext.treeNavDocs = this.appContext.treeNavDocs.length > 0 ? this.appContext.treeNavDocs : this.getNavigationData();
       return this.appContext.treeNavDocs;
+    },
+    hideFeedBack() {
+      if (this.$page.path === '/') {
+        this.showFeedback = false;
+        return;
+      }
+
+      this.showFeedback = true;
     },
   }
 };
