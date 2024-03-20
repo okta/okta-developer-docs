@@ -3,7 +3,7 @@ version: 2.1
 jobs:
   node_build_checks:
     docker:
-      - image: circleci/node:14
+      - image: circleci/node:14-buster
     resource_class: xlarge
     environment:
       NODE_OPTIONS: '--max_old_space_size=3584'
