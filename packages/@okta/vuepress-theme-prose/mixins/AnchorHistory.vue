@@ -39,7 +39,12 @@ export default {
     },
 
     getActiveAnchor: function() {
-      const anchors = Array.from(document.querySelectorAll(".header-anchor"));
+      const headerAnchors = Array.from(document.querySelectorAll(".header-anchor"));
+      const onThisPageLinks = Array.from(document.querySelectorAll(".on-this-page-link"));
+
+      let anchors = headerAnchors.filter(anchor =>
+        onThisPageLinks.some(sidebarLink => sidebarLink.hash === anchor.hash)
+      );
 
       const scrollPosition = Math.max(
         window.pageYOffset,

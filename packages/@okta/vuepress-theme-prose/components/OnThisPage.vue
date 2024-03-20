@@ -68,7 +68,6 @@ export default {
   mounted() {
     this.setActiveAnchor();
     window.addEventListener("scroll", this.setActiveAnchor);
-    window.addEventListener("resize", this.updateAnchors);
   },
   updated() {
     if (!this.isCalledOnceFromUpdated) {
@@ -84,7 +83,6 @@ export default {
   },
   beforeDestroy() {
     window.removeEventListener("scroll", this.setActiveAnchor);
-    window.removeEventListener("resize", this.updateAnchors);
   },
   methods: {
     setActiveAnchor: _.debounce(function() {
@@ -92,10 +90,6 @@ export default {
       this.activeAnchor = onThisPageActiveAnchor
         ? onThisPageActiveAnchor.hash
         : "";
-    }, 200),
-
-    updateAnchors: _.debounce(function () {
-      this.setActiveAnchor();
     }, 200),
   }
 };
