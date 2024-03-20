@@ -1,5 +1,22 @@
 version: 2.1
 
+jobs:
+  node_build_checks:
+    docker:
+      - image: circleci/node:14
+    environment:
+      NODE_OPTIONS: '--max_old_space_size=3584'
+    steps:
+      - run:
+          name: Install dependencies
+          command: yarn install --frozen-lockfile
+      - run:
+          name: Build
+          command: yarn build
+      - run:
+          name: Run checks
+          command: ./scripts/yarn-checks.sh
+
 orbs:
   general-platform-helpers: okta/general-platform-helpers@1.8
 
@@ -12,3 +29,8 @@ workflows:
           name: "Scan with Semgrep"
           requires:
             - semgrep-prepare
+
+  node_build_checks_workflow:
+    jobs:
+      - node_build_checks:
+          name: "Node Build Checks"
