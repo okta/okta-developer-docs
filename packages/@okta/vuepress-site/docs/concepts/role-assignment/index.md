@@ -147,7 +147,7 @@ If the resource has a corresponding Okta API, you can specify the resource by it
 
 #### Supported resources
 
-| Service                 | Resource                                                            |  ORN Identifier                                                               | REST URL                                                                                                                                                |
+| Service                 | Resource                                                            |  ORN identifier                                                               | REST URL                                                                                                                                                |
 | :---------------------- | :------------------------------------------------------------------ | :---------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Directory               | All users                                                           | `orn:${partition}:directory:${yourOrgId}:users`                                       | [`https://${yourOktaDomain}/api/v1/users`](/docs/reference/api/users/#list-users)                                                                       |
 |                         | All groups                                                          | `orn:${partition}:directory:${yourOrgId}:groups`                                      | [`https://${yourOktaDomain}/api/v1/groups`](/docs/reference/api/groups/#list-groups)                                                                    |
@@ -192,25 +192,26 @@ To specify binding Members, use the REST URL of the corresponding Okta API:
   ```
 
 <ApiLifecycle access="ea" />
+
 The following resource sets are currently supported out of the box and can be used to assign admins only when used with
 their associated roles. Standard resource sets and roles are always identified using their type as `id`.
 | Resource set id/type                                              | Applicable role id/type    | Resources                                              |
 | :---------------------------------------------------------------- | :------------------------- | ------------------------------------------------------ |
-| `ACCESS_CERTIFICATIONS_IAM_POLICY` <ApiLifecycle access="ea" /> | `ACCESS_CERTIFICATIONS_ADMIN` | All users, All groups, All Apps, All Access certifications    |
-| `ACCESS_REQUESTS_IAM_POLICY`       <ApiLifecycle access="ea" /> | `ACCESS_REQUESTS_ADMIN`       | All users, All groups, All Access Requests, Access Request App |
+| `ACCESS_CERTIFICATIONS_IAM_POLICY` <ApiLifecycle access="ea" /> | `ACCESS_CERTIFICATIONS_ADMIN` | All users, all groups, all Apps, all access certifications    |
+| `ACCESS_REQUESTS_IAM_POLICY`       <ApiLifecycle access="ea" /> | `ACCESS_REQUESTS_ADMIN`       | all users, all groups, all access requests, access request app |
 Standard resource sets are managed by Okta only and can't be updated or deleted.
 
 ## Custom vs. standard
 
-* An admin can have both standard role assignments and custom role bindings. Note that privileges granted to an admin are an aggregate of:
+* An admin can have both standard role assignments and custom role bindings. Privileges granted to an admin are an aggregate of the following:
   * Standard roles directly assigned
   * Standard roles granted through group membership
   * Custom roles directly assigned
   * Custom roles granted through group membership
 
-  As a result, if an admin was granted a standard role that is limited to a single group, and at the same time received group management privileges on all groups in the org through a custom role, the ultimate outcome is group management on all groups.
+  As a result, if an admin was granted a standard role that is limited to a single group, and received group management privileges on all groups in the org through a custom role, the ultimate outcome is group management on all groups.
 
-* You can't assign a custom role without a resource set. The custom role is applicable only to a subset of resources. Standard roles, however, are initially granted to the entire org. They’re only scoped to specific resources by subsequent invoking of the [target operations](/docs/reference/api/roles/#role-target-operations).
+* You can't assign a custom role without a resource set. The custom role is applicable only to a subset of resources. Standard roles, however, are initially granted to the entire org. You can only scope standard roles to specific resources by invoking [target operations](/docs/reference/api/roles/#role-target-operations).
 
 ### Permission types
 
@@ -239,10 +240,10 @@ Standard resource sets are managed by Okta only and can't be updated or deleted.
 | `okta.groups.members.manage`                                | Allows the admin to only manage member operations in a group in your Okta org                                                                        | All groups, a specific group                 |
 | `okta.groups.read`                                          | Allows the admin to only read information about groups and their members in your Okta organization                                                   | All groups, a specific group                 |
 | `okta.groups.appAssignment.manage`                          | Allows the admin to manage a group's app assignment (also need `okta.apps.assignment.manage` to assign to a specific app)                            | All groups, a specific group                 |
-| `okta.apps.read`                                            | Allows the admin to only read information about apps and their members in your Okta organization                                                     | All Apps, All apps of a specific type, a specific App |
-| `okta.apps.manage`                                          | Allows the admin to fully manage apps and their members in your Okta organization                                                                    | All Apps, All apps of a specific type, a specific App |
-| `okta.apps.assignment.manage`                               | Allows the admin to only manage assignment operations of an app in your Okta org                                                                     | All Apps, All apps of a specific type, a specific App |
-| `okta.profilesources.import.run`                            | Allows the admin to run imports for apps with a profile source, such as HRaaS and AD/LDAP apps. Admins with this permission can create users through the import. | All Apps, All apps of a specific type, a specific App |
+| `okta.apps.read`                                            | Allows the admin to only read information about apps and their members in your Okta organization                                                     | All Apps, all apps of a specific type, a specific App |
+| `okta.apps.manage`                                          | Allows the admin to fully manage apps and their members in your Okta organization                                                                    | All Apps, all apps of a specific type, a specific App |
+| `okta.apps.assignment.manage`                               | Allows the admin to only manage assignment operations of an app in your Okta org                                                                     | All Apps, all apps of a specific type, a specific App |
+| `okta.profilesources.import.run`                            | Allows the admin to run imports for apps with a profile source, such as HRaaS and AD/LDAP apps. Admins with this permission can create users through the import. | All Apps, all apps of a specific type, a specific App |
 | `okta.authzServers.read`                                    | Allows the admin to read authorization servers                                                                                                      | All authorization servers, a specific authorization server |
 | `okta.authzServers.manage`                                  | Allows the admin to manage authorization servers                                                                                                    | All authorization servers, a specific authorization server |
 | `okta.customizations.read`                                  | Allows the admin to read customizations                                                                                                             | All customizations |
@@ -252,7 +253,7 @@ Standard resource sets are managed by Okta only and can't be updated or deleted.
 | `okta.workflows.read`                                       | Allows the admin to view delegated flows                                                                                                    | All delegated flows, a specific delegated flow |
 | `okta.workflows.invoke`                                     | Allows the admin to view and run delegated flows                                                                                                    | All delegated flows, a specific delegated flow |
 | `okta.governance.accessCertifications.manage` <br><ApiLifecycle access="ea" />  | Allows the admin to view and manage access certification campaigns                                                                  | All certifications |
-| `okta.governance.accessRequests.manage`  <br><ApiLifecycle access="ea" />  | Allows the admin to view and manage access requests                                                                                       | All Access Requests |
+| `okta.governance.accessRequests.manage`  <br><ApiLifecycle access="ea" />  | Allows the admin to view and manage access requests                                                                                       | All access requests |
 | `okta.apps.manageFirstPartyApps`  <br><ApiLifecycle access="ea" />  | Allows the admin to manage first-party apps                                                                                       | All Access Requests |
 | `okta.devices.manage`  <br><ApiLifecycle access="ea" />  | Allows the admin to manage devices and perform all device lifecycle operations                                                                                       | All devices |
 | `okta.devices.lifecycle.manage`  <br><ApiLifecycle access="ea" />  | Allows the admin to perform any device lifecycle operations                                                                                    | All devices |
@@ -266,6 +267,6 @@ Standard resource sets are managed by Okta only and can't be updated or deleted.
 
 > **Note:** Governance permissions are currently only supported as part of the [Standard IAM-based Roles](#iam-based-standard-role-types). You can't use these to create or update other roles.
 
-> **Note:** The `okta.apps.manageFirstPartyApps` permission is currently only supported as part of some [Standard IAM-based Roles](/docs/concepts/role-assignment/#iam-based-standard-role-types). You can't use it to create or update other roles.
+> **Note:** The `okta.apps.manageFirstPartyApps` permission is only supported as part of some [Standard IAM-based Roles](/docs/concepts/role-assignment/#iam-based-standard-role-types). You can't use it to create or update other roles.
 
 > **Note:** The `okta.devices.*` permissions are self-service Early Access. Turn on the **Enable custom admin roles for device permissions** feature from the **Settings** > **Feature** page in the Admin Console to access these permissions. See [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features).
