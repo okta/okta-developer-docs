@@ -23,9 +23,9 @@ jobs:
       # - run:
       #     name: Build
       #     command: yarn build
-      - run:
-          name: Install libnss3
-          command: sudo apt update && sudo apt install -t bullseye libnss3 && apt show libnss3
+      # - run:
+      #     name: Install libnss3
+      #     command: sudo apt update && sudo apt install -t bullseye libnss3 && apt show libnss3
       - run:
           name: Run checks
           command: ./scripts/yarn-checks.sh
