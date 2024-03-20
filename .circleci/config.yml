@@ -2,6 +2,7 @@ version: 2.1
 
 jobs:
   node_build_checks:
+    executor: my-ubuntu-exec
     docker:
       - image: circleci/node:14
     resource_class: xlarge
