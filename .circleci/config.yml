@@ -1,5 +1,12 @@
 version: 2.1
 
+parameters:
+  trigger_source:
+    type: enum
+    default: auto
+    description: Workflow trigger type.
+    enum: [auto, manual]
+
 jobs:
   node_build_checks:
       docker:
