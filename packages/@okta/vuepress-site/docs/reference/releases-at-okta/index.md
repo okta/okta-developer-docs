@@ -18,7 +18,7 @@ Changes, regardless of lifecycle stage, are always reported in the [Okta API Pro
 | Description                | Beta                 | EA                   | GA                   | Deprecated |
 | :------------              | :------------------: | :-----------------:  | :------------------: | :---------:|
 | Contact with Product Team  | &check;              | &cross;              | &cross;              | N/A         |
-| API changes               | Subject to change    | Backwards compatible | Backwards compatible | N/A        |
+| API changes                | Subject to change    | Backwards compatible | Backwards compatible | N/A        |
 | Okta Support               | &cross;              | &check;              | &check;              | &check;    |
 | Service-level agreements   | &cross;              | &check;              | &check;              | &check;    |
 | Announced in Release Notes | &cross;              | &check;              | &check;              | &check;    |
@@ -28,7 +28,7 @@ Changes, regardless of lifecycle stage, are always reported in the [Okta API Pro
 
 ## Beta Release
 
-Each feature's Product Team manages and supports these features and internally validate them for a set of use cases. Minimal documentation is directly provided to customers for API-related Beta releases and is normally not publicly hosted. API endpoint and configuration information is normally supplied.
+Each feature's Product Team manages and supports the feature and internally validates it for a set of use cases. Minimal documentation is directly provided to customers for API-related Beta releases and is normally not publicly hosted. API endpoint and configuration information is normally supplied.
 
 > **Important:** Okta only enables Beta features in preview org environments because Okta Customer Support doesn't support these features. Beta features can change at any time during the Beta release.
 
