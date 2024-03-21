@@ -19,11 +19,11 @@ This resource contains detailed reference material on event types triggered with
 | Key Event Attributes  | Description                                         | Data Type            | Example Values |
 | --------------------- | --------------------------------------------------- | -------------------- | -------------- |
 | **event.system.debugContext.debugData**                |                 |         |         |
-| Risk                  | Contains the level of risk (`LOW`, `MEDIUM`, or `HIGH`) and the reasons that contributed to the risk level, See [Risk scoring](https://help.okta.com/okta_help.htm?type=oie&id=csh-risk-scoring).                                                | key-value pair       |` {previousLevel=LOW, level=MEDIUM, detectionName=Session Influenced User Risk, reasons=idxGuvnnpQKQ8uVw56TGp23Qg, issuer=OKTA} `        |
+| Risk                  | Contains the level of risk (`LOW`, `MEDIUM`, or `HIGH`) and the reasons that contributed to the risk level. The `detectionName` key defines the risks monitored by Okta. See [Detections](https://help.okta.com/okta_help.htm?type=oie&id=csh-detections).                            | key-value pair       |` {previousLevel=LOW, level=MEDIUM, detectionName=Session Influenced User Risk, reasons=Associated sessionId is suspected to be hijacked, issuer=OKTA} `        |
 | TraceId               | ID generated for the risk request                   | String         | `65d65fa6-b5a9-50e9-b6f1-637b9fb71c50`        |
 | **target** (User)         | The user associated with a risk change          | Object     |        |
 | type        | The type of target object     | String     | User       |
-| **actor**                 |  The entity reporting the user risk change (can be a system principal or a user)                | Object        |         |
+| **actor**                 |  The entity reporting the user risk change (can be a system principal, end user, or org administrator)                | Object        |         |
 | type        | The type of actor object           | String     | User       |
 
 ### analytics.feedback.provide
@@ -49,7 +49,7 @@ This resource contains detailed reference material on event types triggered with
 | Key Event Attributes  | Description                                         | Data Type      | Example Values |
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
 | **event.system.debugContext.debugData**                |                 |         |         |
-| partnerRiskReportData              | The SSF submission from an event provider. It includes the issuer of the security event, security event URL, and the security event definition.                   | key-value pairs         | `"{\n  \"issuer\" : \"https://example.eventprovider.com\",\n  \"https://schemas.openid.net/secevent/caep/event-type/session-revoked\" : {\n    \"subject\" : {\n      \"user\" : {\n        \"format\" : \"email\",\n        \"email\" : \"joe.alex@example.com\"\n      },\n      \"device\" : {\n        \"format\" : \"opaque\",\n        \"sub\" : \"1234ABCD-123A-123B-123C-12345ABCDEFG\"\n      }\n    },\n    \"event_timestamp\" : 1709484521,\n    \"reason_admin\" : {\n      \"en\" : \"Malware detected\"\n    }\n  }\n}"`         |
+| partnerRiskReportData              | The SSF submission from an event provider. It includes the issuer of the security event, security event URL, and the security event definition.                   | key-value pairs         | `"{  \"issuer\" : \"https://example.eventprovider.com\",\n  \"https://schemas.openid.net/secevent/caep/event-type/session-revoked\" : {\n    \"subject\" : {\n      \"user\" : {\n        \"format\" : \"email\",\n        \"email\" : \"joe.alex@example.com\"\n      },\n      \"device\" : {\n        \"format\" : \"opaque\",\n        \"sub\" : \"1234ABCD-123A-123B-123C-12345ABCDEFG\"\n      }\n    },\n    \"event_timestamp\" : 1709484521,\n    \"reason_admin\" : {\n      \"en\" : \"Malware detected\"\n    }\n  }\n}"`         |
 | **target** (User)         |  The user affected by the event           | Object     |        |
 | type        | The type of target object     | String     |       |
 | **actor**                 |  The security events provider                | Object        |         |
@@ -166,7 +166,7 @@ This resource contains detailed reference material on event types triggered with
 | **client**                |  ???                |       |         |
 | IPAddress              | IP address                |       |         |
 
-### user.session.context.changed
+### user.session.context.change
 
 **Description:** User session context changed. This event indicates that the context in which the session is being used has changed significantly enough from the context in which the event was created, that re-evaluation of policy may be required. Often this indicates a security issue related to the session.
 
@@ -183,11 +183,13 @@ This resource contains detailed reference material on event types triggered with
 | Source            | The source of the session context change                 | String        | `OKTA`         |
 | ThreatSuspected            |                  | Boolean         | `false`         |
 | TraceId            |  A unique ID that is used across a single flow of ITP events to easily correlate them all into one system log query                | String         | `65d55fa6-b5a9-40f9-a6f1-627b9fa71b50`        |
-| **target** (User)         |            | Object     |        |
+| **target** (User)         | The user session with a change in context           | Object     |        |
 | type        | The type of target object     | String     | User       |
-| **target** (Session)         |            | Object     |        |
+| **target** (Session)         | The session of the user with a change in context           | Object     |        |
 | type        | The type of target object     | String     | Session      |
-| **actor**                 |  ???                 | Object        |         |
+| **target** (Device)         | For `deviceContext.change` in an asynchronous flow, the device with a change in context          | Object     |        |
+| type        | The type of target object     | String     | Session      |
+| **actor**                 |  For `ipAddress.change` and `deviceContext.change` in a synchronous flow, the user. For `deviceContext.change` in an asynchronous flow, the system principal             | Object        |         |
 | type        | The type of actor object           |      |        |
 | **client**                |  ???                | Object      |         |
 | IPAddress              | IP address                |       |         |
