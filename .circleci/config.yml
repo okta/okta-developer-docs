@@ -72,6 +72,13 @@ workflows:
   #         name: "Node Build Checks"
   
   nightly_link_checker_workflow:
+    triggers:
+      - schedule:
+          cron: "20 7 21 4 *"
+          filters:
+            branches:
+              only:
+                - master
     jobs:
       - nightly_link_checker:
-          name: "Nightly Link Checker"
+          context: Nightly Link Checker
