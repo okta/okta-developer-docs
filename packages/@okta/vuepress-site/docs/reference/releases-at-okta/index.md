@@ -6,7 +6,7 @@ title: Release lifecycle
 
 Okta features travel through a regular lifecycle:
 
-- [Beta](#beta-release)
+- [Beta](#beta)
 - [Early Access (EA)](#early-access-ea)
 - [General Availability (GA)](#general-availability-ga)
 
