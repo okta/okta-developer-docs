@@ -8,13 +8,13 @@ This guide provides a working example of an Okta SAML assertion inline hook. It 
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Understand the Okta SAML assertion inline hook calls and responses.
 * Implement a simple working example of a SAML assertion inline hook with a Glitch.com Node.js external service.
 * Preview and test the SAML assertion inline hook.
 
-**What you need**
+#### What you need
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup/)
 * [Glitch.com](https://glitch.com) project or account

@@ -10,12 +10,12 @@ This guide explains how to define custom Groups claims for tokens that are retur
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Customize Okta tokens with a static allowlist.
 * Use a static allowlist with an authorization server.
 
-**What you need**
+#### What you need
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
 * [OpenID Connect client application](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-oidc) in Okta with at least [one user assigned to it](https://help.okta.com/okta_help.htm?id=ext-assign-apps)

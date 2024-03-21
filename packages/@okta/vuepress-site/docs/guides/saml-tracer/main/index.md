@@ -8,12 +8,12 @@ This guide explains how to test a SAML app implementation with the SAML tracer b
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Install and use SAML Tracer.
 * Create SAML requests for SP- and IdP-initiated flows and inspect them in SAML tracer.
 
-**What you need**
+#### What you need
 
 A SAML app to test. See [Prepare a SAML integration](/docs/guides/build-sso-integration/saml2/main/#prepare-a-saml-integration).
 

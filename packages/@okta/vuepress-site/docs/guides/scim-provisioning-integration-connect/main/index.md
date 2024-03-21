@@ -11,13 +11,13 @@ This guide teaches you how to configure Okta to make SCIM requests to your SCIM 
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Create an Okta SCIM integration.
 * Configure SCIM provisioning.
 * Verify user profile and attribute mappings.
 
-**What you need**
+#### What you need
 
 * A SCIM API service
 * An [Okta Developer Edition org](https://developer.okta.com/signup/)

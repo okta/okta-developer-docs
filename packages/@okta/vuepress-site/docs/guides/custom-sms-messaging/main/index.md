@@ -8,11 +8,11 @@ This guide explains how to customize the text of the SMS messages that Okta send
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 Customize SMS messages.
 
-**What you need**
+#### What you need
 
 [Okta Developer Edition organization](https://developer.okta.com/signup)
 

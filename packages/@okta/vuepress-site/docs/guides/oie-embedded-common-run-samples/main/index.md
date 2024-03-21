@@ -11,11 +11,11 @@ This guide describes how to run the embedded Identity Engine SDK or Sign-In Widg
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 Run the embedded Identity Engine SDK or Sign-In Widget sample app.
 
-**What you need**
+#### What you need
 
 * An [Okta org already configured for a password only use case](/docs/guides/oie-embedded-common-org-setup/#set-up-your-okta-org-for-a-password-factor-only-use-case)
 * An [Identity Engine SDK set up for the sample app](/docs/guides/oie-embedded-common-download-setup-app/)

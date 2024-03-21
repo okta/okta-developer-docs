@@ -8,11 +8,11 @@ This guide explains how you can deploy your Okta-protected app to many different
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 Deploy your app.
 
-**What you need**
+#### What you need
 
 An app to deploy
 

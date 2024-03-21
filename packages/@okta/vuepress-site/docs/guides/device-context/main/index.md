@@ -9,12 +9,12 @@ title: Device Context Overview
 Enable a new device rule for your org's authentication policy.
 
 ---
-**Learning outcomes**
+#### Learning outcomes
 
 * Send a unique device ID to the Okta servers with a custom HTTP request header.
 * Understand how device context enables Adaptive Multifactor Authentication (AMFA).
 
-**What you need**
+#### What you need
 
 * <StackSnippet snippet="whatyouneedsdk" />
 * <StackSnippet snippet="whatyouneedorg" />

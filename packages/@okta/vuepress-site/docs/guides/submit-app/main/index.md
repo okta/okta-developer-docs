@@ -10,12 +10,12 @@ Use this guide to understand the process of submitting a lifecycle management (L
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Understand how to submit a new LCM integration to the OIN
 * Understand how to update or delete a previously published integration
 
-**What you need**
+#### What you need
 
 * A functional LCM integration created and tested in accordance with one of the following guides:
    * [Build a SCIM provisioning integration](/docs/guides/scim-provisioning-integration-overview/)

@@ -4,11 +4,11 @@ This guide walks you through building a password sign-in React app that uses the
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Understand the sequence of steps required to implement Okta [embedded authentication](/docs/concepts/redirect-vs-embedded/#embedded-authentication) with Okta Auth JS and React libraries for your React app.
 
-**What you need**
+#### What you need
 
 * [Okta Developer Edition organization](/signup)
 * [Okta Auth SDK](https://github.com/okta/okta-auth-js) (`@okta/okta-auth-js`)

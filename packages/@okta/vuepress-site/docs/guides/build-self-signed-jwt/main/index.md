@@ -11,7 +11,7 @@ This guide explains how to build a self-signed JSON Web Token (JWT) that is used
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Build a signed JWT for request authentication to OpenID Connect endpoints.
 * Understand which claims are required in your JWT payload.

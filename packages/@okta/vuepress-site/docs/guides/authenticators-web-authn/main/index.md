@@ -7,12 +7,12 @@ title: Web Authentication integration guide
 This guide shows you how to integrate Web Authentication (WebAuthn) into your app using the embedded SDK.
 
 ---
-**Learning outcomes**
+#### Learning outcomes
 
 * Understand the WebAuthn flow
 * Learn step-by-step how to integrate WebAuthn into your authentication use case
 
-**What you need**
+#### What you need
 
 * <StackSnippet snippet="oiesdksetup" />
 * An authenticator such as a fingerprint scanner or hardware security key

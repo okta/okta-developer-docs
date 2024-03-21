@@ -8,7 +8,7 @@ Optimize your configuration to reduce the number of API calls that Terraform mak
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Optimize the number of API calls in your Terraform configuration.
 * Set a maximum rate for Terraform API usage.

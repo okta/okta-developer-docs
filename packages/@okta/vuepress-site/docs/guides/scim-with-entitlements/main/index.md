@@ -10,12 +10,12 @@ This guide teaches you how to create a SCIM 2.0 server that supports provisionin
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Learn which endpoints are required to support entitlements
 * Understand how Okta uses SCIM calls to gather information about users in a downstream app
 
-**What you need**
+#### What you need
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup).
 * Some basic development experience with the System for Cross-domain Identity Management (SCIM) [core schema](https://datatracker.ietf.org/doc/html/rfc7643) and [protocol](https://datatracker.ietf.org/doc/html/rfc7644)

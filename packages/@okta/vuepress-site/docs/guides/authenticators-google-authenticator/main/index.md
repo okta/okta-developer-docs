@@ -7,12 +7,12 @@ title: Google Authenticator integration guide
 This guide shows you how to integrate Google Authenticator into your authentication use cases using the embedded SDK.
 
 ---
-**Learning outcomes**
+#### Learning outcomes
 
 * Understand the Google Authenticator flow.
 * Learn step-by-step how to integrate Google Authenticator into your authentication use case
 
-**What you need**
+#### What you need
 
 * <StackSnippet snippet="oiesdksetup" />
 * Google Authenticator installed on a mobile device

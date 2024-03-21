@@ -6,12 +6,12 @@ The [Okta JavaScript Auth SDK](https://github.com/okta/okta-auth-js) (Auth JS) h
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Understand how to implement a simple redirect sign-in using Auth JS.
 * Understand basic installation and code configurations using AuthJS.
 
-**What you need**
+#### What you need
 
 [Okta Developer Edition organization](https://developer.okta.com/signup/)
 

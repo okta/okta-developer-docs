@@ -8,11 +8,11 @@ This guide provides examples for programmatically retrieving and setting a sessi
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 Retrieve a session cookie and initiate SSO.
 
-**What you need**
+#### What you need
 
 [Okta Developer Edition organization](https://developer.okta.com/signup)
 

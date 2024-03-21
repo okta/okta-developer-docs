@@ -18,7 +18,7 @@ When using email to prove their identity, a user can copy an OTP from an email i
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Understand the differences between EML and OTP
 * Integrate EML into applications using the Embedded Sign-In Widget or a supported Embedded SDK.

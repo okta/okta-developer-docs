@@ -12,12 +12,12 @@ This guide explains how to implement multifactor authentication (MFA) and provid
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Set up your Okta org to use MFA.
 * Enroll, activate, and test a factor. The examples shown are Google Authenticator and SMS.
 
-**What you need**
+#### What you need
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
 * [Postman configured](/docs/reference/rest/) to make API requests to your Developer Edition org

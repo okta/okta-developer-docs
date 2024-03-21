@@ -8,7 +8,7 @@ Add authentication with the Okta [redirect model](https://developer.okta.com/doc
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Create an integration that represents your app in your Okta org.
 * Add dependencies and configure your app to use Okta redirect authentication.

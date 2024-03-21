@@ -4,11 +4,11 @@ This guide walks you through building a password sign-in Vue.js app that uses th
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Understand the sequence of steps required to implement Okta embedded authentication with Okta Auth JS and Vue.js libraries for your Vue.js app.
 
-**What you need**
+#### What you need
 
 * [Okta Developer Edition organization](/signup)
 * [Okta Auth SDK](https://github.com/okta/okta-auth-js) (`@okta/okta-auth-js`)

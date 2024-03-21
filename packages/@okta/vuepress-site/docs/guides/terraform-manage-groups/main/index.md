@@ -8,13 +8,13 @@ Use Terraform to configure access to Okta applications and manage sign-in flows 
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Configure automatic group assignment for users in your org.
 * Use groups to manage user access to Okta applications.
 * Use groups to manage user sign-in flows.
 
-**What you need**
+#### What you need
 
 * Familiarity with the Terraform terms: configuration, resources, state, and commands. See [Terraform overview](/docs/guides/terraform-overview).
 * An [Okta Developer Edition organization](https://developer.okta.com/signup) or an Okta Identity Engine organization

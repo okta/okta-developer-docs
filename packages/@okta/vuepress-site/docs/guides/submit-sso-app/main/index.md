@@ -16,12 +16,12 @@ Use this guide to understand the process of submitting a Single Sign-On (SSO) OI
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Understand how to submit a new SSO integration to the OIN
 * Understand how to update or delete a previously published OIN SSO integration
 
-**What you need**
+#### What you need
 
 * A functional SSO integration created and tested in accordance with the [Build a Single Sign-On integration](/docs/guides/build-sso-integration/) guide
 

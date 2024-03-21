@@ -8,12 +8,12 @@ This guide shows you how to refresh access and ID tokens by using either the Ide
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Understand refresh tokens.
 * Know how to refresh tokens by using the SDK or the OIDC & OAuth 2.0 API.
 
-**What you need**
+#### What you need
 
 * An [Okta org that is already configured for your use case](/docs/guides/oie-embedded-common-org-setup/)
 * An [Identity Engine SDK that is set up for your own app](/docs/guides/oie-embedded-common-download-setup-app/)

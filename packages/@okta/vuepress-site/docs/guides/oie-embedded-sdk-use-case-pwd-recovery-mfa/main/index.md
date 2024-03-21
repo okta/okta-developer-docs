@@ -10,12 +10,12 @@ This use case describes how to integrate a password recovery flow into your app 
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Understand how to set up password recovery with only an email factor.
 * Integrate the password recovery flow into your app.
 
-**What you need**
+#### What you need
 
 * An app that uses the embedded Okta Identity Engine SDK
 * [Okta org already configured for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/-/main/#set-up-your-okta-org-for-a-multifactor-use-case)

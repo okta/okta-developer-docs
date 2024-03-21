@@ -8,11 +8,11 @@ This guide covers how you can style an updated Okta Sign-In Widget and make your
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 Find out how to modify and customize the look of the widget.
 
-**What you need**
+#### What you need
 
 [Widget that is updated to the latest available release](/docs/guides/oie-upgrade-sign-in-widget/main/)
 

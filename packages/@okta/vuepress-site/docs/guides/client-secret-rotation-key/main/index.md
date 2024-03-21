@@ -12,12 +12,12 @@ This guide shows you how to rotate and manage your client secrets without servic
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Create additional client secrets for a client app and manage existing client secrets.
 * Generate public/private key pairs for a client app using the Admin Console and manage additional key pairs.
 
-**What you need**
+#### What you need
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
 * **OAuth secrets and key management** feature enabled in the Admin Console (**Settings** | **Features**)

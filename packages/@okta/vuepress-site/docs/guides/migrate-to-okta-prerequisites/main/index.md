@@ -10,7 +10,7 @@ This guide provides you with information to create a plan for migrating existing
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 Create a plan for migrating existing users to Okta.
 

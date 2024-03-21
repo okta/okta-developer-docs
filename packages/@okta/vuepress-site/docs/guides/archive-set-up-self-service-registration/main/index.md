@@ -8,13 +8,13 @@ This guide explains how to set up Okta's self-service registration (SSR) functio
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Use policies to govern SSR behavior.
 * Enable and disable SSR recovery options.
 * Configure SSR options in the Okta Sign-In Widget.
 
-**What you need**
+#### What you need
 
 * SSR enabled in your Okta org.
 * [Super admin permissions](https://help.okta.com/okta_help.htm?id=ext_superadmin) (required to enable SSR)

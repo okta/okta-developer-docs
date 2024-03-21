@@ -11,7 +11,7 @@ This guide explains how to verify a token's signature, manage key rotation, and 
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 Validate access tokens.
 

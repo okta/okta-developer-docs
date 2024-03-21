@@ -11,13 +11,13 @@ This guide series teaches you the steps required to build an Okta integration th
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Prepare a SCIM API service.
 * Connect the SCIM API service to Okta via an integration.
 * Test your integration to make sure everything is working correctly.
 
-**What you need**
+#### What you need
 
 * An Okta Developer Edition organization. Don't have one? [Create one for free](https://developer.okta.com/signup).
 * A SCIM Version 2.0 API design that supports the [minimum feature set](/docs/guides/scim-provisioning-integration-prepare/main/#features).

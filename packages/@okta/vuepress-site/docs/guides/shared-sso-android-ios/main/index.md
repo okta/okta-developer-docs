@@ -14,12 +14,12 @@ This guide uses sample apps to demonstrate how to share a Single Sign-On (SSO) s
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Persist a session between multiple OIDC mobile apps
 * Clear the session when appropriate
 
-**What you need**
+#### What you need
 
 * An Okta Developer Edition organization. Don't have one? [Create one for free](https://developer.okta.com/signup)
 * Android Studio with an emulator for Android testing

@@ -7,13 +7,13 @@ title: Okta email (magic link/OTP) integration guide
 Learn how to integrate the Okta Email authenticator into your app with the Embedded SDK.
 
 ---
-**Learning outcomes**
+#### Learning outcomes
 
 * Configure your Okta org to use the email authenticator.
 * Enroll and challenge a user with email OTP and magic links.
 * Enable OTP only for the email authenticator.
 
-**What you need**
+#### What you need
 
 <StackSnippet snippet="whatyouneed" />
 <br />

@@ -14,12 +14,12 @@ This guide explains how to add the Okta Identity Engine SDK to your app, which i
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Upgrade to the minimum SDK requirements.
 * Add or upgrade to the Identity Engine SDK.
 
-**What you need**
+#### What you need
 
 An [Identity Engine-upgraded Okta org](/docs/guides/oie-upgrade-overview/)
 

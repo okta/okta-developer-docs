@@ -8,7 +8,7 @@ This guide explains how to upload your SAML certificates to sign the assertion f
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * List your apps by using Okta APIs.
 * Generate, sign, and publish a Certificate Signing Request (CSR).

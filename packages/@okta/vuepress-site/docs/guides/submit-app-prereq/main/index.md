@@ -14,7 +14,7 @@ This guide provides you with a list of the requirements needed before submitting
 
 Understand the requirements necessary to submit your integration using the [OIN Wizard](/docs/guides/submit-oin-app/) or the [OIN Manager](https://oinmanager.okta.com).
 
-**What you need**
+#### What you need
 
 A built and tested app integration that's ready for Okta verification
 

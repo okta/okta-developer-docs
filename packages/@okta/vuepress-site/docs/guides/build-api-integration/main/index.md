@@ -8,7 +8,7 @@ Build, test, and submit an API service integration to the Okta Integration Netwo
 
 ---
 
-**What you need**
+#### What you need
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
 

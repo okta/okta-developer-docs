@@ -8,12 +8,12 @@ title: New user activation
 
 Learn how to use the Embedded SDK to integrate user activation with self-service registration.
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Integrate user activations using Okta email
 * Integrate user activations using your infrastructure
 
-**What you need**
+#### What you need
 
 <StackSnippet snippet="whatyouneed" />
 </br>

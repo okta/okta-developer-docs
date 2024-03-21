@@ -8,7 +8,7 @@ This guide explains how to validate ID tokens with Okta.
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Retrieve and parse your Okta JSON Web Keys (JWK).
 * Decode the ID token.

@@ -12,11 +12,11 @@ This guide covers the use case for a user sign-in flow with password and phone f
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 Understand how to implement a user sign-in flow with password and phone factors.
 
-**What you need**
+#### What you need
 
 * An app that uses the embedded Okta Identity Engine SDK
 * [Okta org already configured for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/-/main/#set-up-your-okta-org-for-a-multifactor-use-case)

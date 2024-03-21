@@ -10,14 +10,14 @@ Review the following sections to understand the concepts behind the Identity Eng
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Understand why you should upgrade your application to use the Identity Engine SDK
 * Learn the differences between the Classic Engine Authentication SDK and the Identity Engine SDK
 * Identify the mappings between Classic Engine Authentication SDK methods and the Identity Engine SDK for your language
 * Identify the mappings between Classic Engine Authentication APIs and the Identity Engine SDK for your language
 
-**What you need**
+#### What you need
 
 * An Identity Engine enabled Okta org
 * The Interaction Code grant enabled

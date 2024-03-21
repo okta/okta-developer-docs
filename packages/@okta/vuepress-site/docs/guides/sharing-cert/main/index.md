@@ -8,12 +8,12 @@ This guide explains how to share application key credentials across multiple app
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Create a new application key credential for your source app and update it to use the new certificate.
 * Share this credential with, and use it in, the target app.
 
-**What you need**
+#### What you need
 
 A couple of existing Okta apps already set up so that application key credentials can be shared between the apps, for example, [a web app](/docs/guides/sign-into-web-app-redirect/asp-net-core-3/main/).
 

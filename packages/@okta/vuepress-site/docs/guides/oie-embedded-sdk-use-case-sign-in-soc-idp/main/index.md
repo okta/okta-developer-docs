@@ -10,11 +10,11 @@ This guide covers a sequence of steps that you can follow to build an app that a
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 Set up your Okta org and app to support sign-in with Facebook IdP use cases.
 
-**What you need**
+#### What you need
 
 * An app that uses the embedded Okta Identity Engine SDK
 * [Okta org already set up for a social IdP use case](/docs/guides/oie-embedded-common-org-setup/-/main/#set-up-your-okta-org-for-a-social-idp-use-case)

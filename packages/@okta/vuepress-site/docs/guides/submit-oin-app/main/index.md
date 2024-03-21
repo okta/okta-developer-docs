@@ -10,13 +10,13 @@ Use this guide to learn how to submit a Single Sign-On (SSO) integration to the 
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Learn how to submit an SSO integration using the OIN Wizard.
 * Learn how to create an integration instance for testing from the OIN Wizard.
 * Understand the basic test cases required for your SSO features.
 
-**What you need**
+#### What you need
 
 * An [Okta Developer Edition org](https://developer.okta.com/signup/). The OIN Wizard is only available in Developer Edition orgs.
 * An admin user in the Developer Edition org with either the Super Administrator or the Application Administrator role

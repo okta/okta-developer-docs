@@ -8,13 +8,13 @@ This guide provides a working example of an Okta Password Import Hook. It uses t
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Understand the Okta password import inline hook calls and responses.
 * Implement a simple working example of a password import inline hook with a Glitch.com project.
 * Preview and test a password import inline hook.
 
-**What you need**
+#### What you need
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup/)
 * [Glitch.com](https://glitch.com) project or account

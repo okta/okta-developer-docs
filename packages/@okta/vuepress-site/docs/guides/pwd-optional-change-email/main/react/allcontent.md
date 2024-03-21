@@ -1,10 +1,10 @@
 Enable users to change their primary email address in a password-optional application.
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Integrate the change primary email flow into your SPA app.
 
-**What you need**
+#### What you need
 
 <StackSnippet snippet="whatyouneed" />
 </br>

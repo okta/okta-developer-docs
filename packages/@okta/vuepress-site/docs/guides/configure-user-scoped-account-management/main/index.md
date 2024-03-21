@@ -17,12 +17,12 @@ This guide explains how to set up end user-driven account management in your org
 <!-- > **Note:** This guide covers a narrow set of use cases that call the MyAccount API. Most use cases are covered by the SDKs. See -->
 
 ---
-**Learning outcomes**
+#### Learning outcomes
 
 * Set up your org with the required scopes to call the MyAccount API.
 * Allow your end users to call the API to update their profile and enroll another authenticator after they first sign in.
 
-**What you need**
+#### What you need
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
 * Access to the latest version of the MyAccount API: `/idp/myaccount`

@@ -15,11 +15,11 @@ Okta manages the connection to the IdP for your application, sitting between you
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 Configure a social Identity Provider so that your users can quickly sign up or sign in to your application by using their social Identity Provider account.
 
-**What you need**
+#### What you need
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
 * An OpenID Connect (OIDC) app integration in Okta for the app that you want to add authentication to. You can [create a new OIDC app integration](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-oidc) or use an existing one.
