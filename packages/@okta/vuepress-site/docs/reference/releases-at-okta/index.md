@@ -11,7 +11,7 @@ Okta features travel through a regular lifecycle:
 > **Note:** Okta reserves the right to add new parameters, properties, or resources to the API without advance notice.
 These updates are non-breaking because they’re additive. Follow [the compatibility rules](/docs/reference/core-okta-api/) to ensure that your application doesn't break when additive changes are made. Breaking changes such as removing or renaming an attribute are released as a new version of the API. Okta provides a migration path for new API versions.
 
-Changes, regardless of life-cycle stage, are always reported in the [Okta API Products Release Notes](/docs/release-notes/).
+Changes, regardless of lifecycle stage, are always reported in the [Okta API Products Release Notes](/docs/release-notes/).
 
 ## Quick Reference Table
 
