@@ -22,6 +22,38 @@ jobs:
           name: Run checks
           command: ./scripts/yarn-checks.sh
 
+jobs:
+  nightly_link_checker:
+    docker:
+      - image: circleci/node:14-bullseye
+    resource_class: xlarge
+    environment:
+      NODE_OPTIONS: '--max_old_space_size=3584'
+    steps:
+      - checkout
+      - run:
+          name: Install dependencies
+          command: yarn install --frozen-lockfile
+      - run:
+          name: Run script and capture logs
+          command: yarn build
+      - run:
+          name: Run link checker
+          command: yarn broken-link-checker:external > output.txt 2>&1 || true
+      - run:
+          name: Extract URLs from log
+          command: |
+            grep -o 'Link: https\?://[^[:space:]]*' output.txt | sed 's/Link: //' > urls.txt
+          when: always
+      - run:
+          name: Remove False Positives
+          command: |
+            comm -23 <(sort urls.txt | uniq) <(sort falsepos.txt | uniq) > broken_external_urls.txt
+      - run:
+          name: Print urls to log
+          command: |
+            cat broken_external_urls.txt
+
 orbs:
   general-platform-helpers: okta/general-platform-helpers@1.8
 
@@ -35,7 +67,12 @@ workflows:
           requires:
             - semgrep-prepare
 
-  node_build_checks_workflow:
+  # node_build_checks_workflow:
+  #   jobs:
+  #     - node_build_checks:
+  #         name: "Node Build Checks"
+  
+  nightly_link_checker_workflow:
     jobs:
-      - node_build_checks:
-          name: "Node Build Checks"
+      - nightly_link_checker:
+          name: "Nightly Link Checker"
