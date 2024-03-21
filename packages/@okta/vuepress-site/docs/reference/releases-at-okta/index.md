@@ -2,6 +2,8 @@
 title: Release Lifecycle
 ---
 
+# Release lifecycle
+
 Okta features travel through a regular lifecycle:
 
 - [Beta](#beta-release)
@@ -9,7 +11,7 @@ Okta features travel through a regular lifecycle:
 - [General Availability (GA)](#general-availability-ga)
 
 > **Note:** Okta reserves the right to add new parameters, properties, or resources to the API without advance notice.
-These updates are non-breaking because they’re additive. Follow [the compatibility rules](/docs/reference/core-okta-api/) to ensure that your application doesn't break when additive changes are made. Breaking changes such as removing or renaming an attribute are released as a new version of the API. Okta provides a migration path for new API versions.
+These updates are non-breaking because they're additive. Follow [the compatibility rules](/docs/reference/core-okta-api/) to ensure that your application doesn't break when additive changes are made. Breaking changes such as removing or renaming an attribute are released as a new version of the API. Okta provides a migration path for new API versions.
 
 Changes, regardless of lifecycle stage, are always reported in the [Okta API Products Release Notes](/docs/release-notes/).
 
@@ -56,9 +58,9 @@ Features in EA are marked with the EA icon: <ApiLifecycle access="ea" />
 
 EA releases are managed in two ways:
 
-- **Early Access:** If you’re interested in an EA feature, you must contact Support to enable the feature. Support can enable features in EA for any customer, provided any prerequisites have been met.
+- **Early Access:** If you're interested in an EA feature, you must contact Support to enable the feature. Support can enable features in EA for any customer, provided any prerequisites have been met.
 
-- **Early Access (Self-Service):** If you’re interested in an EA Self-Service feature, you can enable it for your org from the **Settings** > **Features** page in the Admin Console.
+- **Early Access (Self-Service):** If you're interested in an EA Self-Service feature, you can enable it for your org from the **Settings** > **Features** page in the Admin Console.
 
 You can track the availability of EA features on the [Product Roadmap](https://support.okta.com/help/s/productroadmap) page.
 
@@ -75,7 +77,7 @@ GA features released in preview orgs stay in preview for a month before moving t
 
 Features in GA are supported by Okta Customer Support, and issues are addressed according to your Customer Agreement with Okta.
 
-Documentation for features in GA isn’t marked with any icons.
+Documentation for features in GA isn't marked with any icons.
 
 ## Deprecation
 
