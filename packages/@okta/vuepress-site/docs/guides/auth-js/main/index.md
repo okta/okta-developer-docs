@@ -32,7 +32,7 @@ This guide explains authentication fundamentals using Auth JS, known more formal
 
 The Okta Auth JS SDK builds on top of the [Authentication API](/docs/reference/api/authn/) and [OpenID Connect API](/docs/reference/api/oidc/). The SDK also builds on top of the Identity Engine [interaction code](/docs/concepts/interaction-code/) flow. This enables you to create a fully branded sign-in experience using JavaScript.
 
-The Okta Auth JS SDK is used by the Okta [Sign-In Widget](https://github.com/okta/okta-signin-widget), which powers the default Okta sign-in page. If you're building a JavaScript front-end or single-page application (SPA), the Auth JS SDK provides added control and customization beyond what is possible with the Widget.
+The Okta Auth JS SDK is used by the Okta [Sign-In Widget](https://github.com/okta/okta-signin-widget), which powers the default Okta sign-in page. If you're building a JavaScript front-end or single-page application (SPA), the Auth JS SDK provides added control and customization beyond what is possible with the widget.
 
 In this guide you learn how to use the Auth JS SDK with a simple static page application to authenticate and store an OpenID Connect (OIDC) token (`idToken`) and access token (`accessToken`).
 
@@ -316,6 +316,6 @@ var config = {
 
 ## See also
 
-* [Basic sign-in flow using the password factor](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/nodejs/main)
+* [Basic sign-in flow example with the password factor](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/nodejs/main)
 * [Okta Auth JS and React](/docs/guides/sign-in-to-spa-authjs/react/main)
 * [Okta Auth JS and Vue](/docs/guides/sign-in-to-spa-authjs/vue/main)
