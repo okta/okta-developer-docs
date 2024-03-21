@@ -23,7 +23,7 @@ Changes, regardless of lifecycle stage, are always reported in the [Okta API Pro
 | API changes                | Subject to change    | Backwards compatible | Backwards compatible | N/A        |
 | Okta Support               | &cross;              | &check;              | &check;              | &check;    |
 | Service-level agreements   | &cross;              | &check;              | &check;              | &check;    |
-| Announced in Release Notes | &cross;              | &check;              | &check;              | &check;    |
+| Announced in release notes | &cross;              | &check;              | &check;              | &check;    |
 | In preview orgs            | By invitation or self-service, depending on the feature | By request or self-service, depending on the feature | &check;| &check;|
 | In production orgs         | &cross;              | By request or self-service, depending on the feature| &check;| &check; |
 | Documentation              | Limited              | &check;              | &check;              | N/A         |
@@ -85,12 +85,12 @@ A feature identified as deprecated is no longer recommended for use and may be r
 
 Documentation for features that have been deprecated are marked with the Deprecated icon: <ApiLifecycle access="deprecated" />
 
-## Exceptions to the Beta-EA-GA Lifecycle
+## Exceptions to the Beta-EA-GA lifecycle
 
 Some changes may not go through the full Beta-EA-GA lifecycle:
 
 - Bug fixes that change only the incorrect behavior of the bug
-- Cosmetic changes, such as changing the label of a field in the administrator UI
+- Cosmetic changes, such as changing the label of a field in the Admin Console
 - Changes that are narrow in scope or effect, or purely additive, such as adding an attribute
 
 Changes like these may be released to preview orgs any week of the month, and appear in production the next week.
@@ -99,6 +99,6 @@ Other exceptions include:
 
 - Occasionally, a feature is released using an iterative, custom schedule to enable close monitoring.
 Such features may spend more than one month between preview and production for their GA release.
-- Features exposed in the administrator UI may be EA or GA without the corresponding API being in the same lifecycle stage, or available at all.
+- Features exposed in the Admin Console may be EA or GA without the corresponding API being in the same lifecycle stage, or available at all.
 
 As with all changes that affect our customers, changes outside the regular Beta-EA-GA lifecycle are reported in the [Okta API Release Notes](/docs/release-notes/).
