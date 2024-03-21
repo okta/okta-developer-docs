@@ -2,10 +2,8 @@ version: 2.1
 
 parameters:
   trigger_source:
-    type: enum
-    default: auto
-    description: Workflow trigger type.
-    enum: [auto, manual]
+    type: string
+    default: ""
 
 jobs:
   node_build_checks:
@@ -91,7 +89,7 @@ workflows:
           name: "Nightly Link Checker"
 
   dummy_workflow_manual:
-    when: { equal: [ manual, << pipeline.trigger_source >> ] }
+    when: << pipeline.parameters.trigger_source >>
     jobs:
       - node_build_checks:
           name: "Node Build Checks Manual"
