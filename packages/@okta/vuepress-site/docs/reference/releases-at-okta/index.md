@@ -1,5 +1,5 @@
 ---
-title: Release Lifecycle
+title: Release lifecycle
 ---
 
 # Release lifecycle

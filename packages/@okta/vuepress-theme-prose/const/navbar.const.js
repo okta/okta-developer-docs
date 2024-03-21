@@ -1137,7 +1137,7 @@ export const reference = [
             path: "/docs/reference/okta-expression-language-in-identity-engine/",
          },
          {
-            title: "Release Lifecycle",
+            title: "Release lifecycle",
             path: "/docs/reference/releases-at-okta/",
          },
          {
