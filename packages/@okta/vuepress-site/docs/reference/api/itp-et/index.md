@@ -113,22 +113,22 @@ This resource contains detailed reference material on event types triggered with
 | Risk            | Contains the level of risk (`LOW`, `MEDIUM`, or `HIGH`) and the reasons that contributed to the risk level, See [Risk scoring](https://help.okta.com/okta_help.htm?type=oie&id=csh-risk-scoring).                 | key-value pairs         |`{reasons=Anomalous Geo-Distance, New Device, New ASN, New IP, New State, New Country, New City, level=HIGH}`          |
 | ThreatSuspected            |                  | Boolean         | `false`         |
 | TraceId            | A unique ID that is used across a single flow of ITP events to easily correlate them all into one system log query                 | String         | `65d55fa6-b5a9-40f9-a6f1-627b9fa71b50`        |
-| **target** (User)         | The user associated with ???           | Object     |        |
+| **target** (User)         | The user associated with the risk change           | Object     |        |
 | type        | The type of target object     | String     | User       |
-| **target** (Rule)         | ???           | Object     |        |
+| **target** (Rule)         | The rule associated with the continuous access evaluation            | Object     |        |
 | type        | The type of target object           | String     | Rule       |
 | **target.DetailEntry** (Rule)       |             |      |        |
-| RuleAction        |             | Enum     | `TERMINATE_SESSION`       |
-| SingleLogOutEnabled        |             | Boolean     | `true`      |
-| SingleLogOutSelectionMode        |            | Enum     | `ALL`       |
-| DisplayName        | Display name of the target           | String     |        |
-| ID        | Unique identifier of the target            | String     | `00u8xst93qEWYx65sx1d7`       |
-| **target** (Policy)         |  ???         | Object     |        |
+| RuleAction        | The configured action to respond to the risk. Values include none (Logging Mode), `TERMINATE_SESSION`, and `RUN_WORKFLOW`.             | Enum     | `TERMINATE_SESSION`       |
+| SingleLogOutEnabled        | If `true`, a continuous access evaluation violation enforces application logout          | Boolean     | `true`      |
+| SingleLogOutSelectionMode        | The options of the application logout, either all applications, specific applications, or none. Values can be: `NONE`, `ALL`, `SPECIFIED`.           | Enum     | `ALL`       |
+| DisplayName        | Display name of the target rule           | String     | Test Rule      |
+| ID        | Unique identifier of the target rule           | String     | `00u8xst93qEWYx65sx1d7`       |
+| **target** (Policy)         |  The continuous access evaluation policy        | Object     |        |
 | type        | The type of target object     | String     | Policy      |
-| **actor**                 |  ???                 |         |         |
+| **actor**                 |  The target user if synchronous and system principal if asynchronous                |         |         |
 | type        | The type of actor object           | Object     |        |
-| **client**                |  ???                |       |         |
-| IPAddress              | IP address                |       |         |
+| **client**                |  The client of the actor                |       |         |
+| IPAddress              | IP address of the client                |       |         |
 
 ### policy.continuous_access.action
 
@@ -141,30 +141,30 @@ This resource contains detailed reference material on event types triggered with
 | Risk            | Contains the level of risk (`LOW`, `MEDIUM`, or `HIGH`) and the reasons that contributed to the risk level, See [Risk scoring](https://help.okta.com/okta_help.htm?type=oie&id=csh-risk-scoring).                 | key-value pairs         |`{reasons=Anomalous Geo-Distance, New Device, New ASN, New IP, New State, New Country, New City, level=HIGH}`          |
 | ThreatSuspected            |                  | Boolean         | `false`         |
 | TraceId            | A unique ID that is used across a single flow of ITP events to easily correlate them all into one system log query                 | String         | `65d55fa6-b5a9-40f9-a6f1-627b9fa71b50`        |
-| **target** (User)         | The user associated with ???           | Object      |        |
+| **target** (User)         | The user associated with the risk change           | Object      |        |
 | type        | The type of target object     | String     | User       |
-| **target** (Rule)         | ???           | Object     |        |
+| **target** (Rule)         | The rule associated with the continuous access evaluation           | Object     |        |
 | type       | The type of target object           | String     | Rule       |
 | **target.DetailEntry** (Rule)       |             |      |        |
-| RuleAction        |             | Enum     | `TERMINATE_SESSION`       |
-| SingleLogOutEnabled        |             | Boolean     | `true`      |
-| SingleLogOutSelectionMode        |            | Enum     | `ALL`       |
-| DisplayName        | Display name of the target           | String     |        |
-| ID        | Unique identifier of the target            | String     | `00u8xst93qEWYx65sx1d7`       |
-| **target** (Policy)         |  ???         | Object      |        |
+| RuleAction        | The configured action to respond to the risk. Values include none (Logging Mode), `TERMINATE_SESSION`, and `RUN_WORKFLOW`.            | Enum     | `TERMINATE_SESSION`       |
+| SingleLogOutEnabled        | If `true`, a continuous access evaluation violation enforces application logout             | Boolean     | `true`      |
+| SingleLogOutSelectionMode        | The options of the application logout, either all applications, specific applications, or none. Values can be: `NONE`, `ALL`, `SPECIFIED`.           | Enum     | `ALL`       |
+| DisplayName        | Display name of the rule           | String     | Entity Risk Policy       |
+| ID        | Unique identifier of the rule            | String     | `00u8xst93qEWYx65sx1d7`       |
+| **target** (Policy)         |  The continuous access evaluation policy         | Object      |        |
 | type        | The type of target object     | String     | Policy       |
-| **target** (PolicyAction)         | ???           | Object     |        |
+| **target** (PolicyAction)         | The action associated with the continuous access evaluation           | Object     |        |
 | type        | The type of target object           | String     | PolicyAction       |
-| **target.DetailEntry** (Rule)       |             |      |        |
-| PolicyAction        |             | Enum     | `TERMINATE_SESSION`       |
-| PolicySingleLogOutEnabled        |             | Boolean     | `true`      |
-| PolicySingleLogOutSelectionMode        |            | Enum     | `ALL`       |
-| DisplayName        | Display name of the target           | String     |        |
-| ID        | Unique identifier of the target            | String     | `00u8xst93qEWYx65sx1d7`       |
-| **actor**                 |  ???                 | Object        |         |
+| **target.DetailEntry** (PolicyAction)       |             |      |        |
+| PolicyAction        | The configured action to respond to the risk. Values include none (Logging Mode), `TERMINATE_SESSION`, and `RUN_WORKFLOW`.              | Enum     | `TERMINATE_SESSION`       |
+| PolicySingleLogOutEnabled        |  If `true`, a continuous access evaluation violation enforces application logout             | Boolean     | `true`      |
+| PolicySingleLogOutSelectionMode        | The options of the application logout, either all applications, specific applications, or none. Values can be: `NONE`, `ALL`, `SPECIFIED`.           | Enum     | `ALL`       |
+| DisplayName        | Display name of the action          | String     | `TERMINATE_SESSION`       |
+| ID        | Unique identifier of the continuous access evaluation policy           | String     | `00u8xst93qEWYx65sx1d7`       |
+| **actor**                 |  The target user if synchronous and system principal if asynchronous                 | Object        |         |
 | type        | The type of actor object           |      |        |
-| **client**                |  ???                |       |         |
-| IPAddress              | IP address                |       |         |
+| **client**                |  The client of the actor                 |       |         |
+| IPAddress              | IP address of the client                |       |         |
 
 ### user.session.context.change
 
@@ -205,20 +205,20 @@ This resource contains detailed reference material on event types triggered with
 | Risk            | Contains the level of risk (`LOW`, `MEDIUM`, or `HIGH`) and the reasons that contributed to the risk level, See [Risk scoring](https://help.okta.com/okta_help.htm?type=oie&id=csh-risk-scoring).                 | key-value pairs         |`{reasons=Anomalous Geo-Distance, New Device, New ASN, New IP, New State, New Country, New City, level=HIGH}`          |
 | ThreatSuspected            |                  | Boolean         | `false`         |
 | TraceId            | A unique ID that is used across a single flow of ITP events to easily correlate them all into one system log query                 | String         | `65d55fa6-b5a9-40f9-a6f1-627b9fa71b50`        |
-| **target** (User)         |            | Object      |        |
+| **target** (User)         | The user associated with the risk change            | Object      |        |
 | type        | The type of target object     | String     | User       |
-| **target** (Policy)         |            | Object     |        |
+| **target** (Policy)         | The entity risk policy           | Object     |        |
 | type        | The type of target object     | String     | Policy      |
-| **target** (Rule)         |            |      |        |
+| **target** (Rule)         | The entity risk policy rule           |      |        |
 | type        | The type of target object           | String     | Rule       |
 | **target.DetailEntry**        |             |        |        |
-| RuleAction         |             | ENUM        | RUN_WORKFLOW       |
-| WorkflowId         |             | String     | 572749       |
-| DisplayName        | Name of the rule          | String     | `SESSION_INFLUENCED_USER_RISK + MEDIUM`       |
-| ID        | Unique identifier of the target            | String     | `00u8xut93qEWYx5sx1d7`       |
-| **actor**                 |  ???                 | Object        |         |
+| RuleAction         | The configured action to respond to the risk. Values include none (Logging Mode), `TERMINATE_ALL_SESSIONS`, and `RUN_WORKFLOW`.            | ENUM        | RUN_WORKFLOW       |
+| WorkflowId         | The unique identifier of the workflow            | String     | 572749       |
+| DisplayName        | The name of the rule        | String     | Test rule     |
+| ID        | Unique identifier of the rule          | String     | `00u8xut93qEWYx5sx1d7`       |
+| **actor**                 |  The target user if synchronous and system principal if asynchronous                 | Object        |         |
 | type        | The type of actor object           |      |        |
-| **client**                |  ???                | Object      |         |
+| **client**                | The client of the actor                | Object      |         |
 | IPAddress              | IP address                |       |         |
 
 ### policy.entity_risk.action
@@ -232,27 +232,27 @@ This resource contains detailed reference material on event types triggered with
 | Risk            | Contains the level of risk (`LOW`, `MEDIUM`, or `HIGH`) and the reasons that contributed to the risk level, See [Risk scoring](https://help.okta.com/okta_help.htm?type=oie&id=csh-risk-scoring).                 | key-value pairs         |`{reasons=Anomalous Geo-Distance, New Device, New ASN, New IP, New State, New Country, New City, level=HIGH}`          |
 | ThreatSuspected            |                  | Boolean         | `false`         |
 | TraceId            | A unique ID that is used across a single flow of ITP events to easily correlate them all into one system log query                 | String         | `65d55fa6-b5a9-40f9-a6f1-627b9fa71b50`        |
-| **target** (User)         |            | Object     |        |
+| **target** (User)         | The user associated with the risk change           | Object     |        |
 | type        | The type of target object     | String     | User       |
-| **target** (Policy)         |            | Object     |        |
+| **target** (Policy)         | The entity risk policy           | Object     |        |
 | type        | The type of target object     | String     | Policy      |
-| **target** (Rule)         |            | Object     |        |
+| **target** (Rule)         | The entity risk policy rule           | Object     |        |
 | type       | The type of target object              | String     | Rule       |
 | **target.DetailEntry**        |             |      |     |
-| RuleAction         |             |      | `TERMINATE_ALL_SESSIONS`      |
-| WorkflowAction         |             |      | `TERMINATE_ALL_SESSIONS`      |
-| DisplayName        | Name of the rule action         | String     | `USER_REPORTED_SUSPICIOUS_ACTIVITY + HIGH`       |
-| ID        | Unique identifier of the target            | String     | `00u8xut93qEWYx5sx1d7`       |
+| RuleAction         | The configured action to respond to the risk. Values include none (Logging Mode), `TERMINATE_ALL_SESSIONS`, and `RUN_WORKFLOW`.            | ENUM     | `TERMINATE_ALL_SESSIONS`      |
+| WorkflowAction         | The unique identifier of the workflow            |      | `TERMINATE_ALL_SESSIONS`      |
+| DisplayName        | Name of the rule         | String     | Test rule     |
+| ID        | Unique identifier of the rule           | String     | `00u8xut93qEWYx5sx1d7`       |
 | **target** (PolicyAction)         |            |      |        |
 | type        | The type of target object           | String     | PolicyAction       |
 | **target.DetailEntry**         |             | Object    |       |
-| PolicyAction         |             |  ENUM    | `TERMINATE_ALL_SESSIONS`      |
-| PolicyWorkflowId         |             |  ENUM    |       |
+| PolicyAction         | The configured action to respond to the risk. Values include none (Logging Mode), `TERMINATE_ALL_SESSIONS`, and `RUN_WORKFLOW`.             |  ENUM    | `TERMINATE_ALL_SESSIONS`      |
+| PolicyWorkflowId         | The unique identifier of the workflow            |  ENUM    |       |
 | DisplayName        | Name of the policy action         | String     |`TERMINATE_ALL_SESSIONS`         |
-| ID        | Unique identifier of the target            | String     | `00u8xut93qEWYx5sx1d7`       |
-| **actor**                 |  ???                 | Object        |         |
+| ID        | Unique identifier of the entity risk policy            | String     | `00u8xut93qEWYx5sx1d7`       |
+| **actor**                 |  The target user if synchronous and system principal if asynchronous                 | Object        |         |
 | type        | The type of actor object           |      |        |
-| **client**                |  ???                |       |         |
+| **client**                |  The client of the actor                |       |         |
 | IPAddress              | IP address                |       |         |
 
 ### user.session.end
