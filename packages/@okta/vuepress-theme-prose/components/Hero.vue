@@ -11,7 +11,7 @@
             Okta developer
           </h1>
           <p class="hero__paragraph dont-break-out">
-            Our developer  portal enables you to deploy auth that protects your users, apps, APIs, and infrastructure.
+            Our developer portal enables you to deploy auth that protects your users, apps, APIs, and infrastructure.
           </p>
           <!-- Start workshops promo banner -->
           <p style="color: white; font-size: 18px; line-height: 1.4; max-width: 500px;">
