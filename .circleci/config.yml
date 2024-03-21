@@ -66,19 +66,19 @@ workflows:
           requires:
             - semgrep-prepare
 
-  # node_build_checks_workflow:
-  #   jobs:
-  #     - node_build_checks:
-  #         name: "Node Build Checks"
+  node_build_checks_workflow:
+    jobs:
+      - node_build_checks:
+          name: "Node Build Checks"
   
-  nightly_link_checker_workflow:
+  nightly:
     triggers:
       - schedule:
-          cron: "23 7 21 3 *"
+          cron: "24 13 * * *"
           filters:
             branches:
               only:
                 - master
     jobs:
       - nightly_link_checker:
-          context: Nightly Link Checker
+          name: "Nightly Link Checker"
