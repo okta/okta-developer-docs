@@ -1,7 +1,7 @@
 version: 2.1
 
 parameters:
-  trigger_source:
+  trigger_netlify_manual:
     type: string
     default: ""
 
@@ -64,7 +64,7 @@ orbs:
 workflows:
   semgrep:
     when:
-      not: << pipeline.parameters.trigger_source >>
+      not: << pipeline.parameters.trigger_netlify_manual >>
     jobs:
       - general-platform-helpers/job-semgrep-prepare:
           name: semgrep-prepare
@@ -73,27 +73,27 @@ workflows:
           requires:
             - semgrep-prepare
 
-  node_build_checks_workflow:
+  build_checks:
     when:
-      not: << pipeline.parameters.trigger_source >>
+      not: << pipeline.parameters.trigger_netlify_manual >>
     jobs:
       - node_build_checks:
-          name: "Node Build Checks"
+          name: "Build and Checks"
   
   nightly:
     triggers:
       - schedule:
-          cron: "40 10 21 3 *"
+          cron: "1 5 * * *"
           filters:
             branches:
               only:
-                - ik-circleci
+                - master
     jobs:
       - nightly_link_checker:
           name: "Nightly Link Checker"
 
-  dummy_workflow_manual:
-    when: << pipeline.parameters.trigger_source >>
+  netlify_manual:
+    when: << pipeline.parameters.trigger_netlify_manual >>
     jobs:
       - node_build_checks:
-          name: "Node Build Checks Manual"
+          name: "TODO: Run Netlify Manual"
