@@ -10,7 +10,7 @@ This guide provides you with a list of the requirements needed before submitting
 
 ---
 
-**Learning outcome**
+#### Learning outcomes
 
 Understand the requirements necessary to submit your integration using the [OIN Wizard](/docs/guides/submit-oin-app/) or the [OIN Manager](https://oinmanager.okta.com).
 
