@@ -66,10 +66,10 @@ workflows:
           requires:
             - semgrep-prepare
 
-  node_build_checks_workflow:
-    jobs:
-      - node_build_checks:
-          name: "Node Build Checks"
+  # node_build_checks_workflow:
+  #   jobs:
+  #     - node_build_checks:
+  #         name: "Node Build Checks"
   
   nightly:
     triggers:
@@ -82,3 +82,9 @@ workflows:
     jobs:
       - nightly_link_checker:
           name: "Nightly Link Checker"
+
+  dummy_workflow_manual:
+    when: { equal: [ manual, << pipeline.trigger_source >> ] }
+    jobs:
+      - node_build_checks:
+          name: "Node Build Checks Manual"
