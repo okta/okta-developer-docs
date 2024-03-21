@@ -15,7 +15,7 @@ These updates are non-breaking because they're additive. Follow [the compatibili
 
 Changes, regardless of lifecycle stage, are always reported in the [Okta API Products Release Notes](/docs/release-notes/).
 
-## Quick Reference Table
+## Quick reference table
 
 | Description                | Beta                 | EA                   | GA                   | Deprecated |
 | :------------              | :------------------: | :-----------------:  | :------------------: | :---------:|
@@ -28,7 +28,7 @@ Changes, regardless of lifecycle stage, are always reported in the [Okta API Pro
 | In production orgs         | &cross;              | By request or self-service, depending on the feature| &check;| &check; |
 | Documentation              | Limited              | &check;              | &check;              | N/A         |
 
-## Beta Release
+## Beta
 
 Each feature's Product Team manages and supports the feature and internally validates it for a set of use cases. Minimal documentation is directly provided to customers for API-related Beta releases and is normally not publicly hosted. API endpoint and configuration information is normally supplied.
 
