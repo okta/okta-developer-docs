@@ -25,7 +25,7 @@ Changes, regardless of lifecycle stage, are always reported in the [Okta API Pro
 | Service-level agreements   | &cross;              | &check;              | &check;              | &check;    |
 | Announced in release notes | &cross;              | &check;              | &check;              | &check;    |
 | In Preview orgs            | By invitation or self-service, depending on the feature | By request or self-service, depending on the feature | &check;| &check;|
-| In Preview orgs         | &cross;              | By request or self-service, depending on the feature| &check;| &check; |
+| In Production orgs         | &cross;              | By request or self-service, depending on the feature| &check;| &check; |
 | Documentation              | Limited              | &check;              | &check;              | N/A         |
 
 ## Beta
@@ -73,9 +73,9 @@ A feature in General Availability (GA) is new or enhanced functionality enabled 
 Beginning in February 2017, features move from EA (enabled by request) to GA (enabled for all orgs) in a regular cadence:
 
 1. EA features become GA in Preview orgs in the first release of the month.
-2. These same features become GA in Preview orgs in the first release of the next month.
+2. These same features become GA in Production orgs in the first release of the next month.
 
-GA features that don't have an EA release go directly to Preview orgs. They stay in Preview for a month before moving to Preview.
+GA features that don't have an EA release go directly to Preview orgs. They stay in Preview for a month before moving to Production.
 
 Features in GA are supported by Okta Customer Support, and issues are addressed according to your Customer Agreement with Okta.
 
@@ -95,12 +95,12 @@ Some changes may not go through the full Beta-EA-GA lifecycle:
 - Cosmetic changes, such as changing the label of a field in the Admin Console
 - Changes that are narrow in scope or effect, or purely additive, such as adding an attribute
 
-Changes like these may be released to Preview orgs any week of the month, and appear in Preview the next week.
+Changes like these may be released to Preview orgs any week of the month, and appear in Production the next week.
 
 Other exceptions include:
 
 - Occasionally, a feature is released using an iterative, custom schedule to enable close monitoring.
-Such features may spend more than one month between Preview and Preview for their GA release.
+Such features may spend more than one month between Preview and Production for their GA release.
 - Features exposed in the Admin Console may be EA or GA without the corresponding API being in the same lifecycle stage, or available at all.
 
 As with all changes that affect our customers, changes outside the regular Beta-EA-GA lifecycle are reported in the [Okta API Release Notes](/docs/release-notes/).
