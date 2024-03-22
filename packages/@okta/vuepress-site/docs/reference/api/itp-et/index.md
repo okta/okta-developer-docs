@@ -39,8 +39,6 @@ This resource contains detailed reference material on event types triggered with
 | type        | The type of target object     | String     | User       |
 | **actor**                 |  The user or admin that is providing the feedback                | Object        |         |
 | type        | The type of actor object           |      |        |
-| **client**                |  ???                | Object      |         |
-| IPAddress              | IP address                |       |         |
 
 ### security.events.provider.receive_event
 
