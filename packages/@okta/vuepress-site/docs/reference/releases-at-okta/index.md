@@ -70,7 +70,7 @@ See [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?
 
 A feature in General Availability (GA) is new or enhanced functionality enabled by default for all customers.
 
-Beginning in February 2017, features move from EA (enabled by request) to GA (enabled for all orgs) in a regular cadence:
+Features move from EA (enabled by request) to GA (enabled for all orgs) in a regular cadence:
 
 1. EA features become GA in Preview orgs in the first release of the month.
 2. These same features become GA in Production orgs in the first release of the next month.
