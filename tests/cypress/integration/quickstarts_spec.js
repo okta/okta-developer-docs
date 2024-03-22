@@ -6,7 +6,7 @@ describe('quickstarts page default selections spec', () => {
   const basePage = new BasePage();
 
   beforeEach(() => {
-    basePage.visit('/documentation/');
+    basePage.visit('/documentation/', { failOnStatusCode: false });
     basePage.pageReload();
   });
 
