@@ -325,7 +325,7 @@ example, government regulations).
  <!-- Although there's delegated admin
 support in [okta-dac](#the-okta-dac-project), the number of delegated
 responsibilities that are supported is limited.-->
-Splitting customers and partners into separate orgs offer the maximum level of delegated
+Splitting customers and partners into separate orgs offers the maximum level of delegated
 responsibility support.
 * **Out-of-the-box duplicate name support:** This configuration offers
 native support for duplicate usernames, since duplicate usernames can exist
