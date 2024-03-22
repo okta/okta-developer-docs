@@ -117,14 +117,18 @@ Host tenants in a single org using Universal Directory (UD)
 
 ### Summary
 
-This configuration hosts all tenants in a single org. Customers have one
+This configuration hosts all tenants in a single org. Customers can do this
+by rolling their own custom solution. Since a tenant doesn't exist as a separate
+entity within the org, this method requires abstracting tenants through the use of
+the org’s users and user groups.
+
+<!-- This configuration hosts all tenants in a single org. Customers have one
 way to do this:
 
 * Roll your own custom solution
-<!-- * Use the [okta-dac](https://docs.idp.rocks/) project-->
+* Use the [okta-dac](https://docs.idp.rocks/) project-->
 
-Since a tenant doesn't exist as a separate entity within the org, both methods
-require abstracting tenants through the use of the org’s users and user groups.
+
 
 ### When to choose this configuration
 
