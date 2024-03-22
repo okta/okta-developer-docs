@@ -32,9 +32,9 @@ Changes, regardless of lifecycle stage, are always reported in the [Okta API Pro
 
 Each feature's Product team manages and supports the feature and internally validates it for a set of use cases. Minimal documentation is directly provided to customers for API-related Beta releases and is normally not publicly hosted. API endpoint and configuration information is normally supplied.
 
-> **Important:** Okta only enables Beta features in Preview org environments because Okta Customer Support doesn't support these features. Beta features can change at any time during the Beta release.
+> **Important:** Okta only enables Beta features in Preview org environments. Okta Customer Support doesn't support these features. Beta features can change at any time during the Beta release.
 
-Okta selects a few customers for early testing of features in a Beta release. Customers participating in a Beta program agree to provide feedback that is required for maturing the feature. However, market requirements for that feature determine the timeline for addressing specific areas of feedback (including bugs).
+Okta selects a few customers for early testing of features in a Beta release. Customers participating in a Beta program agree to provide feedback that is required for maturing the feature. Market requirements for a feature determine the timeline for addressing specific areas of feedback (including bugs).
 
 Beta releases are managed in two ways:
 
