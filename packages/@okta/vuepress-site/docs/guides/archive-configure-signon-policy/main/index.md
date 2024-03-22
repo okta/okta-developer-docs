@@ -10,12 +10,12 @@ This guide explains how to add and configure Okta sign-on policies and app sign-
 
 ---
 
-#### Learning outcomes
+**Learning outcomes**
 
 * Know the purpose of Okta Sign-On and app sign-on policies.
 * Add and configure Okta Sign-On and app sign-on policies.
 
-#### What you need
+**What you need**
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
 * [Groups created](https://help.okta.com/okta_help.htm?id=ext_Directory_Groups) in your org

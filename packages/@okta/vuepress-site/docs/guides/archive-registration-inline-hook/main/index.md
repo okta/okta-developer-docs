@@ -10,13 +10,13 @@ This guide provides a working example of an Okta registration inline hook. It us
 
 ---
 
-#### Learning outcomes
+**Learning outcomes**
 
 * Understand the Okta registration inline hook calls and responses.
 * Implement a simple working example of a registration inline hook with a Glitch.com project.
 * Preview and test a registration inline hook.
 
-#### What you need
+**What you need**
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup/)
 * [Glitch.com](https://glitch.com) project or account
