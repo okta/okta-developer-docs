@@ -18,7 +18,7 @@ jobs:
             name: Install dependencies
             command: yarn install --frozen-lockfile
         - run:
-            name: Build
+            name: Build 
             command: yarn build
         - run:
             name: Install libnss3
