@@ -4,7 +4,7 @@ title: User password recovery
 
 <ApiLifecycle access="ie" />
 
-> **Note:** In proxy model architectures, where a server-side application using the Embedded SDK is used as a proxy between client applications and Okta servers, a request context for the client applications is required. Security enforcement is expected to be based on the client request context’s IP address and user agent. However, since these values are currently being derived from the server application rather than the client, this enforcement is not available. As a result, network zones or behaviors that drive their conditions based on these request context values (geolocation, IP Address, or user agent) will not work until we can find a solution to the issue.
+> **Note:** In proxy model architectures, where a server-side application using the Embedded SDK is used as a proxy between client applications and Okta servers, a request context for the client applications is required. The expectation is that security enforcement is based on the client request context's IP address and user agent. However, since these values are currently derived from the server application rather than the client, this enforcement isn't available. As a result, network zones or behaviors that drive their conditions based on these request context values (geolocation, IP Address, or user agent) won't work until a solution to the issue is found.
 
 This use case describes how to integrate a password recovery flow into your app using an Okta SDK. The flow includes an email factor step that the user needs to verify before updating their password.
 
@@ -13,7 +13,7 @@ This use case describes how to integrate a password recovery flow into your app 
 #### Learning outcomes
 
 * Understand how to set up password recovery with only an email factor.
-* Integrate the password recovery flow into your app.
+* Use the Okta SDK in your app to implement a password recovery flow.
 
 #### What you need
 
@@ -44,7 +44,7 @@ Before you build a password recovery flow with an email factor, ensure that your
 In addition to configuring your Okta org for the multifactor use case, you need to enable email as the only factor for password recovery for this flow.
 
 1. In the Admin Console, go to **Security** > **Authenticators**.
-1. From the **Setup** tab, select **Edit** from the **Actions** drop-down menu on the **Password** authenticator row.
+1. From the **Setup** tab, select **Edit** from the **Actions** dropdown menu on the **Password** authenticator row.
 1. On the **Password** page, scroll down to the **Add Rule** section of the **Default Policy** and click
    the edit pencil icon for the **Default Rule**.
 1. In the **Edit Rule** dialog box, ensure that the following values are configured for the **AND Users can initiate recovery with** field:
