@@ -69,7 +69,7 @@ To test the full authentication flow that returns an ID token or an access token
     * Your OpenID Connect application's `client_id`
     * The response type, which for an ID token is `id_token` and an access token is `token`
     > **Note:** The examples in this guide use the [Implicit flow](/docs/concepts/oauth-openid/#implicit-flow). For the [Authorization Code flow](/docs/concepts/oauth-openid/#authorization-code-flow), the response type is `code`. You can exchange an authorization code for an ID token and/or an access token using the `/token` endpoint.
-    * A scope. These examples use `openid` as the scope. When you add a Groups claim, both the `openid` and the `groups` scopes are included.
+    * A scope. These examples use `openid` as their scope. When you add a Groups claim, both the `openid` and the `groups` scopes are included.
     * Your OpenID Connect application's `redirect_uri`
     * Values for `state` and `nonce`, which can be anything
 
@@ -103,7 +103,7 @@ To test the full authentication flow that returns an ID token or an access token
     https://yourRedirectUriHere.com#access_token=eyJraWQiOiIxLVN5M2w2dFl2VTR4MXBSLXR5cVZQWERX[...]YNXrsr1gTzD6C60h0UfLiLUhA&token_type=Bearer&expires_in=3600&scope=openid&state=myState
     ```
 
-5. To check the returned ID token or access token payload, you can copy the value and paste it into any JWT decoder (for example: <https://token.dev>). Using a JWT decoder, confirm that the token contains all of the claims that you're expecting, including the custom one. If you specified a nonce, that is also included.
+5. To check the returned ID token or access token payload, you can copy the value and paste it into any JWT decoder (for example: <https://token.dev>). Use a JWT decoder to confirm that the token contains the claims that you expect, including the custom one. If you specified a nonce, that's also included in the token.
 
 ## Add a Groups claim with a static allowlist
 
