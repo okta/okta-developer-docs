@@ -18,7 +18,7 @@ This guide provides a working example of an Okta SAML assertion inline hook. It 
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup/)
 * [Glitch.com](https://glitch.com) project or account
-* A sample application that uses SAML to implement authentication. This guide works with the application in the Sample code section below.
+* A sample application that uses SAML to implement authentication. This guide works with the application in the Sample code section that follows.
 
 **Sample code**
 
@@ -31,22 +31,22 @@ This guide provides a working example of an Okta SAML assertion inline hook. It 
 
 You can use the SAML assertion inline hook to customize the authentication workflow that occurs between an application and the Okta org, which functions as the Identity Provider (IdP).
 
-This guide provides an end-to-end scenario using a SAML-authenticated application and an Okta org, and includes example code for an external service to respond to calls from a SAML assertion inline hook triggered during the authentication workflow.
+This guide provides an end-to-end scenario that uses a SAML-authenticated application and an Okta org. It includes example code for an external service to respond to calls from a SAML assertion inline hook that's triggered during the authentication workflow.
 
 ### The scenario
 
-In the following scenario, the external service code parses a request from Okta, evaluates the user name against a simple patient data store, and, if the user is part of the patient store, responds to Okta with a command to add a patient ID claim to the SAML assertion. If the user name isn't part of the data store, no action is taken.
+Consider a scenario where the external service code parses a request from Okta and evaluates the user name against a simple patient data store. If the user is part of the patient store, the external service responds to Okta with a command to add a patient ID claim to the SAML assertion. Otherwise, if the user name isn't part of the data store, no action is taken.
 
 At a high-level, the following workflow occurs:
 
 * A user signs in to an application authenticated by SAML, which uses the Okta org as an Identity Provider (IdP), and authenticates the user (A).
 * At this point in the workflow, the Okta SAML assertion inline hook triggers (1) and sends a request to an external service.
-* The external service evaluates the request (2), and if the user is part of the patient data store, sends a response back to Okta to include the patient's ID as part of the assertion (3).
+* The external service evaluates the request (2). If the user exists in the patient data store, the service sends a response to Okta to include the patient's ID in the assertion (3).
 * The user is signed in to the application with the additional claim in the SAML assertion (B).
 
 <div class="three-quarter">
 
-![Hook Call Steps Diagram](/img/hooks/hook-call-steps.png)
+![Hook call steps diagram](/img/hooks/hook-call-steps.png)
 
 </div>
 
@@ -68,15 +68,15 @@ Make sure to have this application running before proceeding with the SAML asser
 
 You can now create the external service code that resides on your third-party site (in this example, the Glitch.com site). The third-party site receives and responds to the SAML assertion inline hook call from Okta. The responses to the SAML assertion inline hook call can customize the SAML assertion in multiple ways, including adding or replacing elements of the assertion. In this example code, a new claim is added to the assertion. For further information on the SAML assertion commands object and how you can modify the assertion, see the [SAML assertion inline hook reference](/docs/reference/saml-hook) documentation.
 
-Copy (re-mix) the Glitch.com project code, [Okta SAML assertion inline hook example](https://glitch.com/edit/#!/okta-inlinehook-samlhook), to run the scenario right away. Skip to the [Activate and enable the SAML assertion inline hook](#activate-and-enable-the-saml-assertion-inline-hook) section to configure the SAML inline hook.
+Copy (remix) the Glitch.com project code, [Okta SAML assertion inline hook example](https://glitch.com/edit/#!/okta-inlinehook-samlhook), to run the scenario right away. Skip to the [Activate and enable the SAML assertion inline hook](#activate-and-enable-the-saml-assertion-inline-hook) section to configure the SAML inline hook.
 
 >**Note:** Ensure that you modify the project code's data store with a user that belongs to your org.
 
-If you'd like to create the external service yourself, use the following sections that detail the portion of code that parses the SAML assertion inline hook call, checks the data store, and then responds to Okta.
+You might want to create the external service yourself. If so, use the following sections that detail the code that parses the SAML assertion inline hook call, checks the data store, and then responds to Okta.
 
 ### Parse the SAML assertion inline hook
 
-The external service in this scenario requires code to handle the SAML assertion inline hook request from the Okta org. Use the Glitch example to either build or copy the code (re-mix on Glitch) that parses the SAML assertion inline hook call.
+The external service in this scenario requires code to handle the SAML assertion inline hook request from the Okta org. Use the Glitch example to either build or copy the code (remix on Glitch) that parses the SAML assertion inline hook call.
 
 > **Note:** Make sure to have the required default code and packages in your Glitch project. See [Common Hook set-up steps](/docs/guides/common-hook-set-up-steps).
 
@@ -241,13 +241,13 @@ app.post("/SAMLHook", (request, response) => {
 
 ## Activate and enable the SAML assertion inline hook
 
-You must activate and enable the SAML assertion inline hook within your Admin Console.
+Activate and enable the SAML assertion inline hook within your Admin Console.
 
 Activating the SAML assertion inline hook registers the hook with the Okta org and associates it with your external service. Enabling the SAML assertion inline hook associates the hook with your SAML application.
 
 ### Activate the SAML assertion inline hook
 
-1. Navigate to the **Workflow** > **Inline Hooks** page.
+1. Go to the **Workflow** > **Inline Hooks** page.
 
 1. Click **Add Inline Hook** and select **SAML** from the dropdown menu.
 
@@ -263,7 +263,7 @@ The SAML assertion inline hook is now set up with a status of active.
 
 ### Enable the SAML assertion inline hook
 
-1. Navigate to **Applications** and select your SAML application (in this example, "Spring Boot SAML").
+1. Go to **Applications** and select your SAML application (in this example, "Spring Boot SAML").
 
 1. Click **General**.
 
@@ -281,11 +281,11 @@ The SAML assertion inline hook is now ready for triggering when a user authentic
 
 ## Preview and test the SAML assertion inline hook
 
-The SAML assertion inline hook is ready for preview and testing. You now have the following applications configured:
+The SAML assertion inline hook is ready for preview and testing. You now have the following configured:
 
 * The SAML application (okta-spring-boot-saml-example) is ready to sign in and authenticate users using your Okta org as an IdP.
 * The external service (okta-inlinehook-samlhook) is ready with code to receive and respond to an Okta SAML assertion inline hook call.
-* The Okta org is set up to call and receive a response from the external service when a SAML assertion inline hook is triggered by a user signing in from the SAML application.
+* The Okta org is set up to call and receive a response from the external service. This occurs when a user signing in from the SAML application triggers a SAML assertion inline hook.
 
 ### Preview the SAML assertion inline hook
 
@@ -295,9 +295,9 @@ The SAML assertion inline hook is ready for preview and testing. You now have th
 
 1. Click **Preview**.
 
-1. In the first block titled **Configure Inline Hook request**, define a value for `data.userProfile` by searching and selecting a user in your org from the **data.userProfile** dropdown list.
+1. Under **Configure Inline Hook request**, define a value for `data.userProfile` by selecting a user in your org from the **data.userProfile** dropdown list.
 
-1. Select your SAML application by typing in the **Select a SAML app** field (in this example, "Spring Boot SAML"), and clicking on your application.
+1. Select your SAML application by typing in the **Select a SAML app** field (in this example, "Spring Boot SAML"), and choosing your application.
 
 1. From the **Preview example Inline Hook request** block, click **Generate Request**. You should see the user's request information in JSON format that is sent to the external service.
 
@@ -307,11 +307,11 @@ The SAML assertion inline hook is ready for preview and testing. You now have th
 
 ### Test the SAML assertion inline hook
 
-1. Start your SAML application by navigating to your project folder (`okta-spring-boot-saml-example >`) and then running the application (`> ./gradlew bootRun`).
+1. Start your SAML application by going to your project folder (`okta-spring-boot-saml-example >`) and then running the application (`> ./gradlew bootRun`).
 
-1. Navigate to your sample application (`http:/localhost:8080`).
+1. Go to your sample application (`http:/localhost:8080`).
 
-1. Navigate to your Glitch.com project and make sure that it's listening for requests by opening the Console Logs window (**Tools** > **Logs**).
+1. Go to your Glitch.com project and make sure that it's listening for requests by opening the Console Logs window (**Tools** > **Logs**).
 
 1. Return to your SAML application and sign in with an Okta user who is NOT in the data store of patients.
 

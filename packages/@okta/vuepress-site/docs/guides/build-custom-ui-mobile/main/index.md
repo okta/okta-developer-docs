@@ -6,17 +6,17 @@ layout: Guides
 
 <ClassicDocOieVersionNotAvailable />
 
-You can connect your mobile app to Okta and sign users in by [opening a browser](/docs/guides/sign-into-mobile-app-redirect/), however, if you prefer that your users not leave your app, you need to build a custom sign-in UI with native controls and screens instead. Use this guide to build a customized sign-in experience inside your mobile application.
+You can connect your mobile app to Okta and sign users in by [opening a browser](/docs/guides/sign-into-mobile-app-redirect/). However, if you prefer that your users not leave your app, you need to build a custom sign-in UI with native controls and screens instead. Use this guide to build a customized sign-in experience inside your mobile application.
 
 <EmbeddedBrowserWarning />
 
-> **Note:** If the browser sign-in method works for your application, we recommend using that since building a custom sign-in UI takes more effort and development time.
+> **Note:** If the browser sign-in method works for your application, it's recommended that you use that method since building a custom sign-in UI takes more effort and development time.
 
 ---
 
 #### Learning outcomes
 
-Build a custom mobile sign-in UI.
+Understand how to create a custom mobile sign-in UI.
 
 #### What you need
 
@@ -41,7 +41,7 @@ To build the custom sign-in UI, you need to install and configure a native Okta 
 
 You should already have added and configured packages when you walked through the [Sign users into your mobile app using the redirect model](/docs/guides/sign-into-mobile-app/-/main/#add-packages) guide.
 
-In addition, you need to install the native Okta Authentication SDK. This SDK works together with the OpenID Connect SDK that you already installed to make authentication requests to Okta.
+In addition, you need to install the native Okta Authentication SDK. This SDK works together with the OpenID Connect SDK that you've already installed to make authentication requests to Okta.
 
 <StackSelector snippet="installoktaauthsdk" noSelector/>
 
@@ -49,7 +49,7 @@ In addition, you need to install the native Okta Authentication SDK. This SDK wo
 
 Okta's Authentication SDK is built around a [state machine](/docs/reference/api/authn/#transaction-state). Review the available states before you use this library.
 
-You can implement an authentication flow using one screen or using multiple screens. When you use multiple screens, you can spilt responsibilties across screens and then inject related data as a dependency.
+You can implement an authentication flow using one screen or using multiple screens. When you use multiple screens, you can spilt responsibilities across screens and then inject related data as a dependency.
 
 For example, multiple screens could handle:
 
