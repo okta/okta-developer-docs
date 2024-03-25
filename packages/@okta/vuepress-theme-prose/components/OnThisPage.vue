@@ -47,9 +47,7 @@ export default {
   props: ["items"],
   data() {
     return {
-      anchors: [],
       activeAnchor: null,
-      isCalledOnceFromUpdated: false,
     };
   },
   computed: {
@@ -68,18 +66,6 @@ export default {
   mounted() {
     this.setActiveAnchor();
     window.addEventListener("scroll", this.setActiveAnchor);
-  },
-  updated() {
-    if (!this.isCalledOnceFromUpdated) {
-      // Sometimes anchors are not set during the mounting phase. Hence, we need to set the anchors again 
-      // in the updated hook and we only need to do it once, hence, the isCalledOnceFromUpdated condition.
-      // Adding a setTimeout as due to some reason this was not working in the preview build but was working
-      // locally. Adding a setTimeout fixes the issue in the preview build.
-      setTimeout(() => {
-        this.isCalledOnceFromUpdated = true;
-        this.setActiveAnchor();
-      }, 500);
-    }
   },
   beforeDestroy() {
     window.removeEventListener("scroll", this.setActiveAnchor);
