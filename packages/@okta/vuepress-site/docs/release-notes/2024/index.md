@@ -6,7 +6,18 @@ title: Okta API Products release notes 2024
 
 ## March
 
-### Monthly release 2024.03.1
+### Weekly release 2024.03.2
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Bugs fixed in 2024.03.2](#bugs-fixed-in-2024-03-2) | March 27, 2024 |
+
+#### Bugs fixed in 2024.03.2
+
+* bug 1
+* bug 2
+
+### Weekly release 2024.03.1
 
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
