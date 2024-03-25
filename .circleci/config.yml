@@ -96,4 +96,4 @@ workflows:
     when: << pipeline.parameters.trigger_netlify_manual >>
     jobs:
       - node_build_checks:
-          name: "TODO: Run Netlify Manual"
+          name: "TODO:Run Netlify Manual"
