@@ -52,8 +52,6 @@ This resource contains detailed reference material on event types triggered with
 | type        | The type of target object     | String     |       |
 | **actor**                 |  The security events provider                | Object        |         |
 | type        | The type of actor object           | String     | SecurityEventProvider        |
-| **client**                |  ???                | Object      |         |
-| IPAddress              | IP address                |       |         |
 
 ### device.signals.status.timeout
 
@@ -87,12 +85,12 @@ This resource contains detailed reference material on event types triggered with
 | **target** (Policy Evaluation)         | The policy evaluation ???           | Object     |        |
 | type        | The type of target object          | String     | Policy Evaluation       |
 | **target.DetailEntry** (Policy Evaluation)       |             |      |        |
-| AppInstanceIds         |             |      |        |
-| MatchedRuleAction        |             |      |        |
-| MatchedRuleAssuranceMet        |             |      |        |
-| MatchedRuleDisplayName         |             |      |        |
-| MatchedRuleId        |             |      |        |
-| PolicyType         |             |      |        |
+| AppInstanceIds         | The apps affected by a continuous access violation event            | Array     |  `[0oa4mczwb7SfcTQ9N0g7, 0oa4yvb15qhL8RKA30g7]`   |
+| MatchedRuleAction        | The action of the rule that matched the evaluation. Values can be `ALLOW` or `DENY`.           | Enum     | `ALLOW`      |
+| MatchedRuleAssuranceMet        | Whether or not the matched rule evaluated to passing all authenticator assurances           | Boolean      | `false`       |
+| MatchedRuleDisplayName         | The matched rule's display name            | String     |        |
+| MatchedRuleId        | The unique identifier of the matched rule            | String     | `0pr4yyl6a8D97WIRC0a7 `      |
+| PolicyType         | The evaluated policy type            |  ENUM    |  `OKTA_SIGN_ON `     |
 | DisplayName        | Display name of the target           | String     |        |
 | ID        | Unique identifier of the target            | String     | `00u8xst93qEWYx65sx1d7`       |
 | **actor**                 |  ???                 | Object        |         |
