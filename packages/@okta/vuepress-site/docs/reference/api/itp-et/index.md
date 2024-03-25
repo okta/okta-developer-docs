@@ -76,7 +76,7 @@ This resource contains detailed reference material on event types triggered with
 | **event.system.debugContext.debugData**                |                 |         |         |
 | Behaviors             | List of behaviors identified for the current event. `POSITIVE` - the specific behavior is identified. `NEGATIVE` - the specific behavior wasn't identified. See [About Behavior Detection](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-behavior-detection).                 | key-value pairs        |  `{New Geo-Location=POSITIVE, New Device=NEGATIVE, New IP=POSITIVE, New State=POSITIVE, New Country=POSITIVE, Velocity=POSITIVE, New City=POSITIVE} `       |
 | CaeEnforceMode             | The UI setting for CAE on whether or not the policy is enforceable. If this is false, Okta logs these events but doesn't take any further action.                  | Boolean         | `true`       |
-| Risk            | Contains the level of risk (`LOW`, `MEDIUM`, or `HIGH`) and the reasons that contributed to the risk level, See [Risk scoring](https://help.okta.com/okta_help.htm?type=oie&id=csh-risk-scoring).                 | key-value pairs         |          |
+| Risk            | ???               | key-value pairs         |          |
 | ServerStatus            |  Describes the current state of Okta's servers. Other values can be READ_ONLY and SAFE_MODE.                | Enum         | `ACTIVE`         |
 | ThreatSuspected            |                  | Boolean         | `false`         |
 | TraceId            | A unique ID that is used across a single flow of ITP events to easily correlate them all into one system log query                 | String         | `65d55fa6-b5a9-40f9-a6f1-627b9fa71b50`        |
@@ -106,7 +106,7 @@ This resource contains detailed reference material on event types triggered with
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
 | **event.system.debugContext.debugData**                |                 |         |         |
 | Behaviors             | List of behaviors identified for the current event. `POSITIVE` - the specific behavior is identified. `NEGATIVE` - the specific behavior wasn't identified. See [About Behavior Detection](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-behavior-detection).                 | key-value pairs        |  `{New Geo-Location=POSITIVE, New Device=NEGATIVE, New IP=POSITIVE, New State=POSITIVE, New Country=POSITIVE, Velocity=POSITIVE, New City=POSITIVE} `       |
-| Risk            | Contains the level of risk (`LOW`, `MEDIUM`, or `HIGH`) and the reasons that contributed to the risk level, See [Risk scoring](https://help.okta.com/okta_help.htm?type=oie&id=csh-risk-scoring).                 | key-value pairs         |`{reasons=Anomalous Geo-Distance, New Device, New ASN, New IP, New State, New Country, New City, level=HIGH}`          |
+| Risk            | ???                | key-value pairs         |`{reasons=Anomalous Geo-Distance, New Device, New ASN, New IP, New State, New Country, New City, level=HIGH}`          |
 | ThreatSuspected            |                  | Boolean         | `false`         |
 | TraceId            | A unique ID that is used across a single flow of ITP events to easily correlate them all into one system log query                 | String         | `65d55fa6-b5a9-40f9-a6f1-627b9fa71b50`        |
 | **target** (User)         | The user associated with the risk change           | Object     |        |
@@ -134,7 +134,7 @@ This resource contains detailed reference material on event types triggered with
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
 | **event.system.debugContext.debugData**                |                 |         |         |
 | Behaviors             | List of behaviors identified for the current event. `POSITIVE` - the specific behavior is identified. `NEGATIVE` - the specific behavior wasn't identified. See [About Behavior Detection](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-behavior-detection).                 | key-value pairs        |  `{New Geo-Location=POSITIVE, New Device=NEGATIVE, New IP=POSITIVE, New State=POSITIVE, New Country=POSITIVE, Velocity=POSITIVE, New City=POSITIVE} `       |
-| Risk            | Contains the level of risk (`LOW`, `MEDIUM`, or `HIGH`) and the reasons that contributed to the risk level, See [Risk scoring](https://help.okta.com/okta_help.htm?type=oie&id=csh-risk-scoring).                 | key-value pairs         |`{reasons=Anomalous Geo-Distance, New Device, New ASN, New IP, New State, New Country, New City, level=HIGH}`          |
+| Risk            | ???                | key-value pairs         |`{reasons=Anomalous Geo-Distance, New Device, New ASN, New IP, New State, New Country, New City, level=HIGH}`          |
 | ThreatSuspected            |                  | Boolean         | `false`         |
 | TraceId            | A unique ID that is used across a single flow of ITP events to easily correlate them all into one system log query                 | String         | `65d55fa6-b5a9-40f9-a6f1-627b9fa71b50`        |
 | **target** (User)         | The user associated with the risk change           | Object      |        |
@@ -170,10 +170,10 @@ This resource contains detailed reference material on event types triggered with
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
 | **event.system.debugContext.debugData**                |                 |         |         |
 | Behaviors             | List of behaviors identified for the current event. `POSITIVE` - the specific behavior is identified. `NEGATIVE` - the specific behavior wasn't identified. See [About Behavior Detection](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-behavior-detection).                 | key-value pairs        |  `{New Geo-Location=POSITIVE, New Device=NEGATIVE, New IP=POSITIVE, New State=POSITIVE, New Country=POSITIVE, Velocity=POSITIVE, New City=POSITIVE} `       |
-| Causes              | The cause of the change in session context. The values can be an `ipAddress.change` or `deviceContext.change`.                 | Array        | [ipAddress.change]      |
+| Causes              | The cause of the change in session context. The values can be an `ipAddress.change` or `deviceContext.change`.                 | Array        | `[ipAddress.change]`     |
 | ExternalSessionId              | The ID of the session that had the context change                 | String         | `idxncn50DUmRpqWcz3doJX18g`       |
-| NewIpAddress            | The new IP address for an `ipAddress.change` cause or the new IP address for a device context change.               | String         |          |
-| PreviousIpAddress              | The previous IP address for an `ipAddress.change` cause or the new IP address for a device context change.                 | String         |          |
+| NewIpAddress            | The new IP address for an `ipAddress.change` cause or the new IP address for a device context change.               | String         | `145.126.159.223 `       |
+| PreviousIpAddress              | The previous IP address for an `ipAddress.change` cause or the new IP address for a device context change.                 | String         |  `67.46.211.18 `       |
 | changedDeviceSignals              | The change in device signals for the session.               | key-value pairs       | `{\"device.profile.managed\":{\"oldValue\":true, \"newValue\":false},\"device.provider.wsc.fireWall\":{\"oldValue\":\"GOOD\", \"newValue\":\"NONE\"}} ` |
 | Risk            | Contains the level of risk for a user entity (`LOW`, `MEDIUM`, or `HIGH`) and the reasons that contributed to the risk level. The `detectionName` key defines the risks monitored by Okta. The `level` key defines the current risk. The `issuer` defines the source of the risk detection. See [Detections](https://help.okta.com/okta_help.htm?type=oie&id=csh-detections).               | key-value pairs         |`{reasons=Anomalous Geo-Distance, New Device, New ASN, New IP, New State, New Country, New City, level=HIGH}`          |
 | Source            | The source of the session context change                 | String        | `OKTA`         |
@@ -198,7 +198,7 @@ This resource contains detailed reference material on event types triggered with
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
 | **event.system.debugContext.debugData**                |                 |         |         |
 | Behaviors             | List of behaviors identified for the current event. `POSITIVE` - the specific behavior is identified. `NEGATIVE` - the specific behavior wasn't identified. See [About Behavior Detection](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-behavior-detection).                 | key-value pairs        |  `{New Geo-Location=POSITIVE, New Device=NEGATIVE, New IP=POSITIVE, New State=POSITIVE, New Country=POSITIVE, Velocity=POSITIVE, New City=POSITIVE} `       |
-| Risk            | Contains the level of risk (`LOW`, `MEDIUM`, or `HIGH`) and the reasons that contributed to the risk level, See [Risk scoring](https://help.okta.com/okta_help.htm?type=oie&id=csh-risk-scoring).                 | key-value pairs         |`{reasons=Anomalous Geo-Distance, New Device, New ASN, New IP, New State, New Country, New City, level=HIGH}`          |
+| Risk            | ???                | key-value pairs         |`{reasons=Anomalous Geo-Distance, New Device, New ASN, New IP, New State, New Country, New City, level=HIGH}`          |
 | ThreatSuspected            |                  | Boolean         | `false`         |
 | TraceId            | A unique ID that is used across a single flow of ITP events to easily correlate them all into one system log query                 | String         | `65d55fa6-b5a9-40f9-a6f1-627b9fa71b50`        |
 | **target** (User)         | The user associated with the risk change            | Object      |        |
@@ -225,7 +225,7 @@ This resource contains detailed reference material on event types triggered with
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
 | **event.system.debugContext.debugData**                |                 |         |         |
 | Behaviors             | List of behaviors identified for the current event. `POSITIVE` - the specific behavior is identified. `NEGATIVE` - the specific behavior wasn't identified. See [About Behavior Detection](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-behavior-detection).                 | key-value pairs        |  `{New Geo-Location=POSITIVE, New Device=NEGATIVE, New IP=POSITIVE, New State=POSITIVE, New Country=POSITIVE, Velocity=POSITIVE, New City=POSITIVE} `       |
-| Risk            | Contains the level of risk (`LOW`, `MEDIUM`, or `HIGH`) and the reasons that contributed to the risk level, See [Risk scoring](https://help.okta.com/okta_help.htm?type=oie&id=csh-risk-scoring).                 | key-value pairs         |`{reasons=Anomalous Geo-Distance, New Device, New ASN, New IP, New State, New Country, New City, level=HIGH}`          |
+| Risk            | ???                 | key-value pairs         |`{reasons=Anomalous Geo-Distance, New Device, New ASN, New IP, New State, New Country, New City, level=HIGH}`          |
 | ThreatSuspected            |                  | Boolean         | `false`         |
 | TraceId            | A unique ID that is used across a single flow of ITP events to easily correlate them all into one system log query                 | String         | `65d55fa6-b5a9-40f9-a6f1-627b9fa71b50`        |
 | **target** (User)         | The user associated with the risk change           | Object     |        |
@@ -258,19 +258,17 @@ This resource contains detailed reference material on event types triggered with
 | Key Event Attributes  | Description                                         | Data Type      | Example Values |
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
 | **event.system.debugContext.debugData**                |                 |         |         |
-| AppInstanceIds             |                  | String         |          |
-| AppInstanceIdsPartialLogout             |                  | String         |          |
-| LoggedOutAppInstanceIds             |                  | String         |          |
-| LoggedOutAppInstanceIdsPartialLogout              |                  | String         |          |
-| LogoutEventType              |                  | String         |          |
-| ThreatSuspected             |                   | String         |          |
+| EndedSessionId             |  ???                 | String         |  `idxffK-esRDSrC5m0ly-Kma9A `       |
+| TraceId            | A unique ID that is used across a single flow of ITP events to easily correlate them all into one system log query                  | String         | `e1214f29-e6b3-4698-b3be-4bccaadf1937`         |
+| ThreatSuspected             |  ???                 | Boolean         |          |
+| Url                        | The log out URL from the end user or admin actor                  | String         |          |
 | **event.System.Transaction**                |                 |         |         |
-| ID              |                  | String         |  `c579b0f27865c4b93be9ceb6f00e5373`          |
+| ID              | For an admin actor, this ID correlates with `user.session.clear` or `user.authentication.universal_logout` events. For a system principal actor, this ID correlates to the `user.authentication.universal_logout` event.               | String         |  `c579b0f27865c4b93be9ceb6f00e5373`          |
 | **event.AuthenticationContext**                |                 |         |         |
-| ExternalSessionId              |                  | String         | `102Oxl7hHhjTMvV2L8MGc_SYR`     |
+| ExternalSessionId              | The ID of the end user session that ends                 | String         | `102Oxl7hHhjTMvV2L8MGc_SYR`     |
 | **target** (User)         | The user associated with a risk activity            | Object     |        |
 | type        | The type of target object     | String     | User       |
-| **actor**                 |  ???                 |  Object       |         |
+| **actor**                 |  The end user, the Admin (in the case of an explicit Admin action), or the System Principal (i the case of a continuous access evaluation)               |  Object       |         |
 | type        | The type of actor object           |      |        |
 | **client**                |  ???                | Object      |         |
 | IPAddress              | IP address                |       |         |
@@ -282,15 +280,15 @@ This resource contains detailed reference material on event types triggered with
 | Key Event Attributes  | Description                                         | Data Type      | Example Values |
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
 | **event.system.debugContext.debugData**                |                 |         |         |
-| ???             |                  | String         |         |
+| Url             | ???                 | String         |         |
 | **event.System.Transaction**                |                 |         |         |
-| ID              |                  | String         | `c579b0f27865c4b93be9ceb6f00e5373`         |
+| ID              | This ID correlates with all associated `user.session.end` events                | String         | `c579b0f27865c4b93be9ceb6f00e5373`         |
 | **event.AuthenticationContext**                |                 |         |         |
-| ExternalSessionId              |                  | String         | `102Oxl7hHhjTMvV2L8MGc_SYR`           |
-| **target** (User)         | The user who had their session cleared            | Object     |        |
+| ExternalSessionId              | The ID of the admin invoking the clear session action                 | String         | `102Oxl7hHhjTMvV2L8MGc_SYR`           |
+| **target** (User)         | The user who had their session cleared by the admin            | Object     |        |
 | type        | The type of target object     | String     | User       |
-| **actor**                 |  ???                 | Object        |         |
-| type        | The type of actor object           |      |        |
+| **actor**                 |  The admin user invoking the clear session action                 | Object        |         |
+| type        | The type of actor object           | String        |  User      |
 | **client**                |  ???                | Object      |         |
 | IPAddress              | IP address                |       |         |
 
@@ -303,9 +301,9 @@ This resource contains detailed reference material on event types triggered with
 | **event.system.debugContext.debugData**                |                 |         |         |
 | AppInstanceIds            |A list of application IDs that Okta triggered for Universal Logout                 | Array of IDs         | [0oa1ysra5y0ESChAr0h8]        |
 | TraceId            | The `TraceId` is used in continuous access evaluation use cases. A request that triggers a CAE evaluation can ultimately trigger things like CAE action events - and those will be executed from the async jobs. `TraceId` connects together events triggered both by the original request handler and from the async jobs triggered by this handler. | String         | `94384405-51e3-4e13-b8b0-ba857b585a63`         |
-| **target** (User)         | The user ???           | Object     |        |
+| **target** (User)         | The user impacted by the universal logout          | Object     |        |
 | type        | The type of target object     | String     | User       |
-| **actor**                 |  ???                 | Object        |         |
+| **actor**                 |  The admin or system principal that triggers universal logout                 | Object        |         |
 | type        | The type of actor object           |      |        |
 | **client**                |  ???                | Object      |         |
 | IPAddress              | IP address                |       |         |
