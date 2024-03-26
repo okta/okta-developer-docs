@@ -72,7 +72,7 @@ Copy (remix) the Glitch.com project code, [Okta SAML assertion inline hook examp
 
 >**Note:** Ensure that you modify the project code's data store with a user that belongs to your org.
 
-You might want to create the external service yourself. If so, use the following sections that detail the code that parses the SAML assertion inline hook call, checks the data store, and then responds to Okta.
+You might want to create the external service yourself. If so, use the following sections that detail a portion of the code that parses the SAML assertion inline hook call, checks the data store, and then responds to Okta.
 
 ### Parse the SAML assertion inline hook
 
