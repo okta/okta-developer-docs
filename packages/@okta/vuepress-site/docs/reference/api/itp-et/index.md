@@ -258,19 +258,17 @@ This resource contains detailed reference material on event types triggered with
 | Key Event Attributes  | Description                                         | Data Type      | Example Values |
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
 | **event.system.debugContext.debugData**                |                 |         |         |
-| EndedSessionId             |  ???                 | String         |  `idxffK-esRDSrC5m0ly-Kma9A `       |
+| EndedSessionId             |  The session ID that is ended for the target user                 | String         |  `idxffK-esRDSrC5m0ly-Kma9A `       |
 | TraceId            | A unique ID that is used across a single flow of ITP events to easily correlate them all into one system log query                  | String         | `e1214f29-e6b3-4698-b3be-4bccaadf1937`         |
 | ThreatSuspected             |  ???                 | Boolean         |          |
 | Url                        | The log out URL from the end user or admin actor                  | String         |          |
 | **event.System.Transaction**                |                 |         |         |
 | ID              | For an admin actor, this ID correlates with `user.session.clear` or `user.authentication.universal_logout` events. For a system principal actor, this ID correlates to the `user.authentication.universal_logout` event.               | String         |  `c579b0f27865c4b93be9ceb6f00e5373`          |
-| **event.AuthenticationContext**                |                 |         |         |
-| ExternalSessionId              | The ID of the end user session that ends                 | String         | `102Oxl7hHhjTMvV2L8MGc_SYR`     |
 | **target** (User)         | The user associated with a risk activity            | Object     |        |
 | type        | The type of target object     | String     | User       |
 | **actor**                 |  The end user, the Admin (in the case of an explicit Admin action), or the System Principal (i the case of a continuous access evaluation)               |  Object       |         |
 | type        | The type of actor object           |      |        |
-| **client**                |  ???                | Object      |         |
+| **client**                |  The client of the system principal actor                | Object      |         |
 | IPAddress              | IP address                |       |         |
 
 ### user.session.clear
@@ -289,7 +287,7 @@ This resource contains detailed reference material on event types triggered with
 | type        | The type of target object     | String     | User       |
 | **actor**                 |  The admin user invoking the clear session action                 | Object        |         |
 | type        | The type of actor object           | String        |  User      |
-| **client**                |  ???                | Object      |         |
+| **client**                |  The client of the admin actor                | Object      |         |
 | IPAddress              | IP address                |       |         |
 
 ### user.authentication.universal_logout
@@ -305,7 +303,7 @@ This resource contains detailed reference material on event types triggered with
 | type        | The type of target object     | String     | User       |
 | **actor**                 |  The admin or system principal that triggers universal logout                 | Object        |         |
 | type        | The type of actor object           |      |        |
-| **client**                |  ???                | Object      |         |
+| **client**                |  The client of the system principal actor for continuous access evaluation and entity risk policy actions, or the client of the admin triggering the clear user sessions action.                 | Object      |         |
 | IPAddress              | IP address                |       |         |
 
 ### workflows.user.delegatedflow.run
