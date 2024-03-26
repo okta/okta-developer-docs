@@ -591,6 +591,8 @@ These operations allow the creation and manipulation of Resource Sets as custom 
 
 Creates a Resource Set with a custom collection of resources
 
+> **Note:** The maximum number of `resources` allowed in a `resource-set` object is 1,000.
+
 #### Request parameters
 
 | Parameter   | Description                                                                    | Param Type   | DataType     | Required |
@@ -768,7 +770,7 @@ curl -v -X GET \
 
 <ApiOperation method="put" url="/api/v1/iam/resource-sets/${resourceSetIdOrLabel}" />
 
-Updates the label and description of a Resource Set
+Updates the label and description of a Resource Set. To update `resources` in a `resource set`, see [Update resources](#update-resources).
 
 #### Request parameters
 
@@ -854,13 +856,17 @@ HTTP/1.1 204 No Content
 
 ### Resource operations
 
-These operations add, remove, and list the resources within a Resource Set.
+These operations allow you to do the following:
+
+* Update the Resources of a Resource Set
+* List the Resources in a Resource Set
+* Delete Resources from a Resource Set
 
 #### Update resources
 
 <ApiOperation method="patch" url="/api/v1/iam/resource-sets/${resourceSetIdOrLabel}/resources" />
 
-Updates resources to a Resource Set
+Updates the Resources of a Resource Set
 
 ##### Request parameters
 
@@ -918,7 +924,7 @@ curl -v -X PATCH \
 
 <ApiOperation method="get" url="/api/v1/iam/resource-sets/${resourceSetIdOrLabel}/resources" />
 
-Lists the Resources that make up a Resource Set
+Lists the Resources in a Resource Set
 
 ##### Request parameters
 
@@ -4121,6 +4127,8 @@ User permissions are only effective regarding the Groups to which the admin is g
 ## Resource Set object
 
 A Resource Set is a collection of resources. As there can be many resources in a set, the object itself doesn't list the resources but provides a paginated link to fetch resources.
+
+> **Note:** The maximum number of `resources` allowed in a `resource-set` object is 1,000.
 
 | Property         | Description                                             | DataType                                                                                                      | Nullable   | Unique   | Read Only |
 | :--------------- | :------------------------------------------------------ | :------------------------------------------------------------------------------------------------------------ | :--------- | :------- | :-------- |
