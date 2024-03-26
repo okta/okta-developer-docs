@@ -85,7 +85,7 @@ Create an endpoint for your application that:
 
 1. Retrieves `otp` and `state` values from the query parameters
 2. Matches the state token with the current `state` in your user's browser session
-3. Makes any other checks that you deem necessary to ensure that the user is working in the same browser on the same device
+3. Makes any other checks you deem necessary to ensure that the user is working in the same browser on the same device
 4. Requests that the user enter the `otp` value manually if steps 2 or 3 fail
 5. Sends the `otp` value to Identity Engine for validation if steps 2 and 3 pass
 6. Redirects the user to a page that continues their authentication process
