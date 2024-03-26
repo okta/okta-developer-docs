@@ -8,7 +8,7 @@ Enable a user to enter a one-time passcode (OTP) in a single step by clicking an
 
 ## Introduction
 
-When using email to prove their identity, a user can copy an OTP from an email into the application they want to use. Email Magic Links (EML) provide a second option, which allows the user to click a hyperlink in the email rather than use the OTP. This results in a quicker, more user-convenient, and still secure experience. However, applications based on the Embedded Sign-In Widget or an Embedded SDK must be adapted to be able to use EML.
+When using email to prove their identity, a user can copy an OTP from an email into the application they want to use. Email Magic Links (EML) provide a second option, which allows the user to click a hyperlink in the email rather than use the OTP. This results in a quicker, more user-convenient, and still secure experience. However, applications based on the Embedded Sign-In Widget or an Embedded SDK must be adapted to use EML.
 
 <div class="three-quarters">
 
