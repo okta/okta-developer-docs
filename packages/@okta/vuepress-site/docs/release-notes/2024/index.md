@@ -18,9 +18,9 @@ title: Okta API Products release notes 2024
 
 * Client rate limiting configurations for the `/login/login.htm` endpoint were displayed incorrectly in the Rate Limit dashboard and were in an inconsistent state for some orgs. (OKTA-699914)
 
-* After an admin deleted a user, an internal server error sometimes occurred when the admin then made a LIST IdP users request (`api/v1/idps/{idpId}/users`). (OKTA-708102)
-
 * Okta sometimes incorrectly returned an Invalid Phone Number error during SMS factor enrollment. (OKTA-705078)
+
+* After an admin deleted a user, an internal server error sometimes occurred when the admin then made a LIST IdP users request (`api/v1/idps/{idpId}/users`). (OKTA-708102)
 
 ### Weekly release 2024.03.1
 
