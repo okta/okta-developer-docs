@@ -44,7 +44,7 @@ To test the full authentication flow that returns an ID token or an access token
 
 2. Use the authorization server's authorization endpoint:
 
-    > **Note:** See [Authorization servers](/docs/guides/customize-authz-server/) for more information on the available types of authorization servers and their uses.
+    > **Note:** See [Authorization servers](/docs/guides/customize-authz-server/) for more information on the types of authorization servers available and their uses.
 
     * An org authorization server authorization endpoint looks like this:
 
