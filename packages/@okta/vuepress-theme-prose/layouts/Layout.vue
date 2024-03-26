@@ -129,7 +129,8 @@ export default {
       appContext: {
         isTreeNavMobileOpen: false,
         isInMobileViewport: false,
-        treeNavDocs: []
+        treeNavDocs: [],
+        anchors: []
       },
       stackSelectorData: {
         to: '',
