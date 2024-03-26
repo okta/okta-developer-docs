@@ -4,13 +4,13 @@ Use this guide to implement a direct authentication single-factor one-time passc
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Understand the OAuth 2.0 direct authentication OTP flow.
 * Set up your app with the OTP grant type.
 * Implement the OTP flow in Okta.
 
-**What you need**
+#### What you need
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
 * An app that you want to implement OAuth 2.0 direct authentication OTP with Okta

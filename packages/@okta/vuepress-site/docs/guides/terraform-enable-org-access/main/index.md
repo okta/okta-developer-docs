@@ -8,13 +8,13 @@ Create an Okta application and credentials that Terraform uses to manage the obj
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Authorize Terraform to automate your Okta org
 * Create the authorization credentials used by Terraform
 * Test that Terraform can access your org
 
-**What you need**
+#### What you need
 
 * Familiarity with Terraform terms: configuration, resources, state, and commands. See [Terraform overview](/docs/guides/terraform-overview).
 * [Okta Developer Edition organization](https://developer.okta.com/signup)

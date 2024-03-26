@@ -10,12 +10,12 @@ This guide explains how to customize your Okta org with your custom domain. It a
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Customize the Okta subdomain (using an Okta-managed certificate or using your own TLS certificate).
 * Configure a custom email address.
 
-**What you need**
+#### What you need
 
 For customizing an Okta-managed domain or using your own TLS certificate:
 

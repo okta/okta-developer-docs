@@ -2,13 +2,13 @@ This guide explains how to implement an Authorization Code flow for your app wit
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Understand the OAuth 2.0 Authorization Code flow.
 * Set up your app with the Authorization Code grant type.
 * Implement the Authorization Code flow in Okta.
 
-**What you need**
+#### What you need
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
 * An app that you want to implement OAuth 2.0 authorization with Okta

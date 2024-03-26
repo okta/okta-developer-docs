@@ -12,7 +12,7 @@ This guide explains how to upgrade the Okta Sign-In Widget. The upgrade depends 
 
 Update your widget based on your user deployment model.
 
-**What you need**
+#### What you need
 
 * An [Identity Engine-upgraded Okta org](/docs/guides/oie-upgrade-overview/)
 * An existing app that uses the Sign-In Widget

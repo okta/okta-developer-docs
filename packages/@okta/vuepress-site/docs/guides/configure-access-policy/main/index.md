@@ -10,13 +10,13 @@ This guide explains access policies and how to configure them for common scenari
 
 ---
 <!-- Nutrition facts bullets -->
-**Learning outcomes**
+#### Learning outcomes
 
 * Understand what access policies are and how they are used.
 * Configure an access policy to limit which scopes that some clients can access.
 * Configure a custom access token lifetime per client.
 
-**What you need**
+#### What you need
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
 * An OIDC client app for testing access policies

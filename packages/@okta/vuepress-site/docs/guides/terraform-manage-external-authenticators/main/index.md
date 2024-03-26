@@ -8,13 +8,13 @@ Enable users to sign in using a trusted external Identity Provider.
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Configure an Identity Provider object to connect an external authentication service to your org.
 * Specify which users can sign in to Okta with an external account.
 * Configure automatic creation of an Okta account the first time a user signs in using an external account.
 
-**What you need**
+#### What you need
 
 * Familiarity with the Terraform terms: configuration, resources, state, and commands. See the [Terraform overview](/docs/guides/terraform-overview).
 * An [Okta Developer Edition organization](https://developer.okta.com/signup) or an Okta Identity Engine organization.

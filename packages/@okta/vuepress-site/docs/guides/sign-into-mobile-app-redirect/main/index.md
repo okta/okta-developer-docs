@@ -8,7 +8,7 @@ Add authentication using the Okta [redirect model](https://developer.okta.com/do
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Create an integration that represents your app in your Okta org.
 * Add dependencies and configure your mobile app to use Okta.

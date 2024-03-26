@@ -8,11 +8,11 @@ This guide covers the JavaScript method that is deprecated from the Okta Sign-In
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 Understand the `showSignIn` methods that are used in the widget so that you can set the redirect URI based on the sign-in policies that the administrator defines.
 
-**What you need**
+#### What you need
 
 [Widget that is updated to the latest available release](/docs/guides/oie-upgrade-sign-in-widget/main/)
 

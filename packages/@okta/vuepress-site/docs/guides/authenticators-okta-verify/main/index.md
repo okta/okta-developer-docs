@@ -12,12 +12,12 @@ Learn how to integrate Okta Verify into your app using the embedded SDK.
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Understand the Okta Verify enrollment and challenge flows
 * Understand how to integrate Okta Verify into your app step-by-step
 
-**What you need**
+#### What you need
 
 * <StackSnippet snippet="whatyouneedsdk" />
 * Okta Verify installed on a mobile device

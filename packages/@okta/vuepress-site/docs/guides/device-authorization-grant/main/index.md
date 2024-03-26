@@ -8,7 +8,7 @@ This guide describes the Device Authorization feature, which allows users to sig
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Create and configure a native OpenID Connect application to support Device Authorization.
 * Enable Device Authorization at the policy rule level.
@@ -16,7 +16,7 @@ This guide describes the Device Authorization feature, which allows users to sig
 * Retrieve tokens for the user.
 * Revoke the tokens.
 
-**What you need**
+#### What you need
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
 * [Device Authorization feature enabled for your org](#before-you-begin)

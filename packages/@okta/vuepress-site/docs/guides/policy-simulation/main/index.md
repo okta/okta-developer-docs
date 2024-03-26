@@ -8,12 +8,12 @@ This guide explains how to test your access policies by using the `/simulate` en
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Understand how to configure and send policy simulation tests using the Policy API.
 * Send and receive an example simulation call.
 
-**What you need**
+#### What you need
 
 * [Okta Preview organization](https://developer.okta.com/login)
 * An app to test your access policies

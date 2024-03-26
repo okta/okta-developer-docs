@@ -8,13 +8,13 @@ Edit email templates and change the appearance of your sign-in pages and Okta En
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Import the Okta objects that control color, logos, and page styling into your Terraform configuration.
 * Change the appearance of sign-in pages, error pages, and the Okta End-User Dashboard for your end users, including color, logos, and page styling.
 * Customize the content, layout, logos, colors, fonts, and languages of email templates for your org.
 
-**What you need**
+#### What you need
 
 * Familiarity with the Terraform terms: configuration, resources, state, and commands. See [Terraform overview](/docs/guides/terraform-overview).
 * An [Okta Developer Edition organization](https://developer.okta.com/signup) or an Okta Identity Engine organization

@@ -8,14 +8,14 @@ This guide explains how to add orgs to your Okta Aerial account and manage Aeria
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 - Authenticate an Aerial API client with Okta Aerial.
 - Add an org to your Aerial account.
 - Enable products in the Aerial linked org.
 - Configure the Aerial org.
 
-**What you need**
+#### What you need
 
 - An Okta Aerial account
 - A parent org

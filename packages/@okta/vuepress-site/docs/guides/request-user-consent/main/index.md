@@ -8,11 +8,11 @@ This guide explains how to configure an Okta-hosted user consent dialog for OAut
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 Implement an Okta-hosted user consent dialog.
 
-**What you need**
+#### What you need
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
 * [OpenID Connect client application](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-oidc) created in your Okta org with at least [one user assigned to it](https://help.okta.com/okta_help.htm?id=ext-assign-apps)

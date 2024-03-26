@@ -8,11 +8,11 @@ This guide discusses how to retain user context in requests to downstream servic
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 Understand the purpose of OAuth 2.0 On-Behalf-Of Token Exchange.
 
-**What you need**
+#### What you need
 
 * [Okta Developer Edition org](https://developer.okta.com/signup)
 * Two custom authorization servers. See [Create an authorization server](/docs/guides/customize-authz-server/main/#create-an-authorization-server) if you need to add them for use with this guide.

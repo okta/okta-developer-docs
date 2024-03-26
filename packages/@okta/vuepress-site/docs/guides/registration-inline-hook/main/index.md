@@ -16,13 +16,13 @@ This guide provides examples of an Okta registration inline hook for profile enr
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Understand the Okta inline hook calls and responses for profile enrollment (SSR) and progressive profile enrollment.
 * Implement examples of a registration inline hook with a Glitch.com project.
 * Preview and test a registration inline hook for profile enrollment (SSR) and progressive profile enrollment.
 
-**What you need**
+#### What you need
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup/)
 * [Glitch.com](https://glitch.com) project or account

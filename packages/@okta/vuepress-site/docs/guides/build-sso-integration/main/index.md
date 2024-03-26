@@ -11,11 +11,11 @@ This guide teaches you how to integrate your federated SSO application with Okta
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 Create and test an SSO app integration for OIN submission.
 
-**What you need**
+#### What you need
 
 * [Okta Developer Edition org](https://developer.okta.com/signup/)
 * An app to integrate SSO with Okta

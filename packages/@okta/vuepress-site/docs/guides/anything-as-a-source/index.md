@@ -9,11 +9,11 @@ This guide outlines how to develop a custom client to manage an identity source 
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Learn how to use the Identity Sources API to manage an Anything-as-a-Source integration with Okta.
 
-**What you need**
+#### What you need
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup/)
    * A Custom Identity Source integration configured in your Okta org (see [Anything-as-a-Source](https://help.okta.com/okta_help.htm?type=oie&id=ext-anything-as-a-source))

@@ -8,12 +8,12 @@ This guide explains common set-up steps when implementing an Okta Event or Inlin
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Understand common set up steps for implementing an Okta event or inline hook.
 * Understand how to use these steps when running the example hook code in the accompanying guides.
 
-**What you need**
+#### What you need
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup/)
 * [Glitch.com](https://glitch.com) project or account

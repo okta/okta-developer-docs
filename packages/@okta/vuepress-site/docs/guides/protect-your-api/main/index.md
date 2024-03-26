@@ -8,14 +8,14 @@ Add a layer of authorization to your web services with [Okta API Access Manageme
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Configure a web API to use Okta
 * Define which endpoints require authorization and which don't
 * Enable Cross-Origin Resource Sharing (CORS) for the API
 * Test the API is secure
 
-**What you need**
+#### What you need
 
 * An [Okta Developer Edition org](https://developer.okta.com/signup/)
 * [Postman](https://www.getpostman.com/apps) to test the API

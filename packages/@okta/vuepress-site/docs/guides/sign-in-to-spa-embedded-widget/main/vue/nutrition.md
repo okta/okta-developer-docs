@@ -4,12 +4,12 @@ This guide walks you through how to build a password-only sign-in flow Vue.js ap
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Understand the sequence of steps required to add the Okta Sign-In Widget to a Vue.js app for embedded authentication.
 * Understand how to run the Vue.js embedded authentication sample app.
 
-**What you need**
+#### What you need
 
 * [Okta Developer Edition organization](/signup)
 * [Okta Auth JS SDK](https://github.com/okta/okta-auth-js) (`@okta/okta-auth-js`)

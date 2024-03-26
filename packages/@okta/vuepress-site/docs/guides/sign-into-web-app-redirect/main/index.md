@@ -8,14 +8,14 @@ Add a user sign-in flow to a server-side web application with Okta's [redirect m
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Implement a simple redirect to an Okta-hosted sign-in page
 * Configure a server-side web application to use Okta
 * Test that users can sign in and sign out
 * Define which parts of an application require authentication and which don't
 
-**What you need**
+#### What you need
 
 * An [Okta Developer Edition org](https://developer.okta.com/signup/)
 * <StackSnippet snippet="whatyouneed" />

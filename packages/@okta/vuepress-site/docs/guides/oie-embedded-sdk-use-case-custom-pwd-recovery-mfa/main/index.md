@@ -7,12 +7,12 @@ title: Custom password recovery
 This guide shows you how to integrate  [Email Magic Links (EML)](/docs/guides/email-magic-links-overview/main/) into the self-service password recovery flow of your applications using Okta's embedded solutions.
 
 ---
-**Learning outcomes**
+#### Learning outcomes
 
 * Understand the flows supported by password recovery
 * Learn to customize your user's password recovery experience
 
-**What you need**
+#### What you need
 
 * <StackSnippet snippet="orgconfigurepwdonly" />
 * <StackSnippet snippet="oiesdksetup" />

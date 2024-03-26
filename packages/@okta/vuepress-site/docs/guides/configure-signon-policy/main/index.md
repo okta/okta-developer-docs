@@ -14,12 +14,12 @@ This guide explains what Global Session Policies and authentication policies are
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Know the purpose of a global session policy and authentication policies.
 * Add and configure a global session policy and authentication policies.
 
-**What you need**
+#### What you need
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
 * [Groups created](/docs/reference/api/groups/) in your org

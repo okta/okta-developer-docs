@@ -9,11 +9,11 @@ This document explains how to configure Login.gov as an [external Identity Provi
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 Configure Login.gov as an external Identity Provider so that your users can quickly sign up or sign in to your application using their Login.gov account.
 
-**What you need**
+#### What you need
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
 * An application that you want to add authentication to. You can [create a new app integration using AIW](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard) or use an existing one.

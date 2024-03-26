@@ -8,13 +8,13 @@ This guide explains how to include the `acr_values` parameter in your authorizat
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Know the purpose of the `acr_values` parameter.
 * Learn about the different types of `acr_values` that are supported out of the box.
 * Use an `acr_values` parameter in your authorization request.
 
-**What you need**
+#### What you need
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
 * An application that you want to configure `acr_values` for. You can [create a new app integration using AIW](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard) or use an existing one.

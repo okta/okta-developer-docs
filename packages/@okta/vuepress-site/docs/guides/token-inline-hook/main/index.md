@@ -8,13 +8,13 @@ This guide provides an example of an Okta token inline hook. It uses the website
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Understand the Okta token inline hook calls and responses.
 * Implement a simple example of a token inline hook with a Glitch.com external service.
 * Test the token inline hook.
 
-**What you need**
+#### What you need
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup/)
 * [Glitch.com](https://glitch.com) project or account

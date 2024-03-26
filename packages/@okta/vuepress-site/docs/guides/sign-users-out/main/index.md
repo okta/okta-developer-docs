@@ -10,12 +10,12 @@ This guide explains an important part of security: minimizing the chances that a
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Sign users out of Okta.
 * Sign users out of your app.
 
-**What you need**
+#### What you need
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
 * An app that can sign in to Okta. To create your own, see the following guides:

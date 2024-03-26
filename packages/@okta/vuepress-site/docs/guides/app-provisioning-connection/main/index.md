@@ -10,12 +10,12 @@ This guide shows you how to use the Okta APIs to configure and enable an Okta pr
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Learn how to enable a token-based or OAuth 2.0-based provisioning connection for a supported app integration using the Okta APIs.
 * Learn how to configure provisioning features for a supported app integration using the Okta APIs.
 
-**What you need**
+#### What you need
 
 * An Okta org
 * An Okta-supported provisioning app integration that you added in your Okta org

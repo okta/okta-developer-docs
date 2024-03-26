@@ -8,13 +8,13 @@ Automate the policies that control how end users authenticate to and access Okta
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Configure a passwordless sign-in flow using the Okta Terraform Provider
 * Configure multifactor authentication (MFA) with Okta Verify using the Okta Terraform Provider
 * Enforce priority order for policies and rules
 
-**What you need**
+#### What you need
 
 * Familiarity with the Terraform terms: configuration, resources, state, and commands. See the [Terraform overview](/docs/guides/terraform-overview).
 * [Okta Developer Edition organization](https://developer.okta.com/signup) or an Okta Identity Engine organization

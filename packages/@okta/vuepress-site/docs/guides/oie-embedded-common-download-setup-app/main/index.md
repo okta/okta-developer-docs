@@ -8,12 +8,12 @@ This guide shows you how to download and configure the Identity Engine SDKs, Sig
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Download the SDK, Sign-In Widget, sample apps, and prerequisites required for your language.
 * Configure the settings that you require for the SDK and the Sign-In Widget.
 
-**What you need**
+#### What you need
 
 * [Okta Developer Edition organization](/signup)
 * <StackSnippet snippet="samplecode" inline />

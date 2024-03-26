@@ -10,7 +10,7 @@ This guide explains how to revoke access or refresh tokens with Okta.
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Revoke tokens.
 * Remove user sessions.

@@ -10,12 +10,12 @@ In this guide you will learn how to integrate biometric authentication like Face
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Handle biometric challenges for your users, storing and retrieving tokens as required
 * Delete access tokens when no longer required
 
-**What you need**
+#### What you need
 
 An app to update with biometric unlock with Touch ID, Face ID, and Smart Lock. See [Sign users into your mobile app using the redirect model](/docs/guides/sign-into-mobile-app-redirect/) guide.
 

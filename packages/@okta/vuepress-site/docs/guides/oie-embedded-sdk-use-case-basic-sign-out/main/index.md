@@ -8,11 +8,11 @@ This guide covers the use case to sign a user out, and provides a flow diagram a
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 Understand how to implement a sign-out flow for a user.
 
-**What you need**
+#### What you need
 
 * An app that uses the embedded Okta Identity Engine SDK
 * [Okta org already set up for your use case](/docs/guides/oie-embedded-common-org-setup/)

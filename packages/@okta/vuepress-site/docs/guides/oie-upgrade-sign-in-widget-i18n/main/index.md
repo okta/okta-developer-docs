@@ -8,11 +8,11 @@ This guide covers how to override existing text strings in the interface with i1
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 Understand how to override text strings with Okta Identity Engine i18n strings so that you can create localized Okta Sign-In Widgets.
 
-**What you need**
+#### What you need
 
 [Widget that is updated to the latest available release](/docs/guides/oie-upgrade-sign-in-widget/main/)
 

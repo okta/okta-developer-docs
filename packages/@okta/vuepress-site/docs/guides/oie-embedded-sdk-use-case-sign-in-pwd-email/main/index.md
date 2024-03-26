@@ -12,12 +12,12 @@ Enable a password and email sign-in flow in your application using the embedded 
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Configure your Okta org to use the email authenticator.
 * Challenge a user's identity with password and email factors.
 
-**What you need**
+#### What you need
 
 * [Identity Engine SDK set up for your own app](/docs/guides/oie-embedded-common-download-setup-app/)
 

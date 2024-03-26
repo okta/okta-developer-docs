@@ -8,11 +8,11 @@ This guide explains how to customize error pages that can appear as part of a si
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 Customize error pages as part of the sign-in flow.
 
-**What you need**
+#### What you need
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
 * [Custom domain](/docs/guides/custom-url-domain/), unless you're using the [Brands API](#use-the-brands-api)

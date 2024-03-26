@@ -8,7 +8,7 @@ This guide provides a high-level overview of using the Native SSO feature in Okt
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Understand the Native SSO flow.
 * Set up your native application.
@@ -18,7 +18,7 @@ This guide provides a high-level overview of using the Native SSO feature in Okt
 * End a desktop session by revoking the device secret.
 * Use the `/logout` request to revoke the device secret.
 
-**What you need**
+#### What you need
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
 * [Native SSO feature enabled for your org](#before-you-begin)

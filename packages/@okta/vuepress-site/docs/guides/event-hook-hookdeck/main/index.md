@@ -8,13 +8,13 @@ This guide provides a functional example of an Okta event hook that uses the Hoo
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Understand the Okta event hook calls and responses.
 * Implement Okta event hooks using a local application and the Hookdeck utility.
 * Preview and test an Okta event hook and review the call details with Hookdeck.
 
-**What you need**
+#### What you need
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup/)
 * A local application. See [Create a local application](#create-a-local-application) in this guide to install a sample code application.
