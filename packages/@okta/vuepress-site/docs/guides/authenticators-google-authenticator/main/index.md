@@ -30,7 +30,7 @@ Google Authenticator is an authenticator app developed by Google used to verify 
 
 After a user is enrolled in Google Authenticator, the service provider (for example, a website) presents a challenge to provide a time-based one-time passcode (TOTP) during authentication. Google Authenticator generates the TOTP, which the user submits to the service provider for verification. The service provider independently generates the password and validates that the submitted password is identical to the generated one.
 
-A shared key linking the Google Authenticator app and service provider allows for both entities to generate the same password. The service provide generates the shared key and adds it to the app during enrollment.
+A shared key linking the Google Authenticator app and service provider allows for both entities to generate the same password. The service provider generates the shared key and adds it to the app during enrollment.
 
 As the service provider, you can provide Google Authenticator support to your users. Enable Google Authenticator in your Okta org and use the Embedded SDK to build support for it in your application.
 
