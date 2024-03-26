@@ -591,7 +591,7 @@ These operations allow the creation and manipulation of Resource Sets as custom 
 
 Creates a Resource Set with a custom collection of resources
 
-> **Note:** The maximum number of `resources` allowed in a `resource-set` object is 1,000.
+> **Note:** The maximum amount of `resources` allowed in a `resource-set` object is 1,000.
 
 #### Request parameters
 
@@ -4128,7 +4128,7 @@ User permissions are only effective regarding the Groups to which the admin is g
 
 A Resource Set is a collection of resources. As there can be many resources in a set, the object itself doesn't list the resources but provides a paginated link to fetch resources.
 
-> **Note:** The maximum number of `resources` allowed in a `resource-set` object is 1,000.
+> **Note:** The maximum amount of `resources` allowed in a `resource-set` object is 1,000.
 
 | Property         | Description                                             | DataType                                                                                                      | Nullable   | Unique   | Read Only |
 | :--------------- | :------------------------------------------------------ | :------------------------------------------------------------------------------------------------------------ | :--------- | :------- | :-------- |
