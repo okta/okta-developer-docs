@@ -770,7 +770,7 @@ curl -v -X GET \
 
 <ApiOperation method="put" url="/api/v1/iam/resource-sets/${resourceSetIdOrLabel}" />
 
-Updates the label and description of a Resource Set. To update `resources` in a `resource set`, see [Update resources](#update-resources).
+Updates the label and description of a Resource Set. To update resources in a resource set, see [Update resources](#update-resources).
 
 #### Request parameters
 
