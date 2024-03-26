@@ -858,15 +858,15 @@ HTTP/1.1 204 No Content
 
 These operations allow you to do the following:
 
-* Update the Resources of a Resource Set
-* List the Resources in a Resource Set
-* Delete Resources from a Resource Set
+* Update the resources of a Resource Set
+* List the resources in a Resource Set
+* Delete resources from a Resource Set
 
 #### Update resources
 
 <ApiOperation method="patch" url="/api/v1/iam/resource-sets/${resourceSetIdOrLabel}/resources" />
 
-Updates the Resources of a Resource Set
+Updates the resources of a Resource Set
 
 ##### Request parameters
 
@@ -924,7 +924,7 @@ curl -v -X PATCH \
 
 <ApiOperation method="get" url="/api/v1/iam/resource-sets/${resourceSetIdOrLabel}/resources" />
 
-Lists the Resources in a Resource Set
+Lists the resources in a Resource Set
 
 ##### Request parameters
 
