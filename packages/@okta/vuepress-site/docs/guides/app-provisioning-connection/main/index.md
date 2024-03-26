@@ -6,16 +6,16 @@ meta:
 layout: Guides
 ---
 
-This guide shows you how to use the Okta APIs to configure and enable an Okta provisioning connection with a supported third-party app integration.
+This guide shows you how to use the Okta APIs to configure and enable an Okta provisioning connection.
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Learn how to enable a token-based or OAuth 2.0-based provisioning connection for a supported app integration using the Okta APIs.
 * Learn how to configure provisioning features for a supported app integration using the Okta APIs.
 
-**What you need**
+#### What you need
 
 * An Okta org
 * A supported provisioning app integration that you added in your Okta org
@@ -27,7 +27,7 @@ This guide shows you how to use the Okta APIs to configure and enable an Okta pr
 
 You can enable and configure app provisioning connections for supported integrations using Okta APIs. This operation was only available in the Admin Console before Okta provided API support for provisioning connections. See [Configure provisioning for an app integration](https://help.okta.com/okta_help.htm?type=oie&id=ext_prov_lcm_prov_app) in the product documentation.
 
-Okta supports token-based or OAuth 2.0-based authentication for the provisioning connections. The following are Okta-supported app integrations and the authentication types that they use for their provisioning connection.
+Okta supports token-based or OAuth 2.0-based authentication for the provisioning connections. The following are Okta-supported app integrations and their provisioning connection authentication types.
 
 | Connection authentication | <div style="width:300px">Apps supported</div> | Description |
 | ------------------------- | -------------- | ----------- |
@@ -36,7 +36,7 @@ Okta supports token-based or OAuth 2.0-based authentication for the provisioning
 
 ## Access Okta APIs
 
-First, you need access to Okta APIs regardless if you're setting up a token-based or an OAuth 2.0-based provisioning connection. You can access the Okta APIs with OAuth 2.0 authentication as a service app or a user.
+First, you need access to the Okta APIs regardless if you're setting up a token-based or an OAuth 2.0-based provisioning connection. You can access Okta APIs with OAuth 2.0 authentication either as a service app or a user.
 
 ### Get Okta API access as a service
 
@@ -44,7 +44,7 @@ To access Okta APIs with OAuth 2.0 in a service-based context, you must create a
 
 See [Service-based API access setup](/docs/reference/rest/#service-based-api-access-setup) for complete steps.
 
-When you create the service app, ensure you have the following scopes:
+When you create the service app, ensure that you have the following scopes:
 
 * `okta.apps.read`
 * `okta.apps.manage`
@@ -59,7 +59,7 @@ To access Okta APIs with OAuth 2.0 in a user-based context, you must create an O
 
 See [User-based API access setup](/docs/reference/rest/#user-based-api-access-setup) for complete steps.
 
-When you create the OIDC app, ensure you have the following scopes:
+When you create the OIDC app, ensure that you have the following scopes:
 
 * `okta.apps.read`
 * `okta.apps.manage`
