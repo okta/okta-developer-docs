@@ -44,7 +44,7 @@ It's a good idea to use sample data that's as close as possible to your real use
 
 ## Create groups
 
-Suppose you have groups in your user data that you want to include when you create your users in Okta. To do this, you must first create Okta Groups that are equivalent to the groups in your user. You can create an Okta Group for the sample data (in this case, "All Employees") using an [Add Group](/docs/reference/api/groups/#add-group) request:
+Suppose you have groups in your user data that you want to include when you create your users in Okta. To do this, you must first create Okta Groups that are equivalent to the groups in your user data. You can create an Okta Group for the sample data (in this case, "All Employees") using an [Add Group](/docs/reference/api/groups/#add-group) request:
 
 ### Request example
 
