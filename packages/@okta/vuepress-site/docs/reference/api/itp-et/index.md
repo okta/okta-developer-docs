@@ -65,7 +65,6 @@ This resource contains detailed reference material on event types triggered with
 | type        | The type of target object     | String     | User       |
 | **actor**                 | The registered device associated with the user sessions                | Object        |         |
 | id       | The ID of the registered device          | string     |  `guv1ibaeaz4lr8Eo70a9`      |
-| type        | The type of device          |      |        |
 
 ### policy.auth.reevaluate.fail
 
@@ -76,9 +75,9 @@ This resource contains detailed reference material on event types triggered with
 | **event.system.debugContext.debugData**                |                 |         |         |
 | Behaviors             | List of behaviors identified for the current event. `POSITIVE` - the specific behavior is identified. `NEGATIVE` - the specific behavior wasn't identified. See [About Behavior Detection](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-behavior-detection).                 | key-value pairs        |  `{New Geo-Location=POSITIVE, New Device=NEGATIVE, New IP=POSITIVE, New State=POSITIVE, New Country=POSITIVE, Velocity=POSITIVE, New City=POSITIVE} `       |
 | CaeEnforceMode             | The UI setting for CAE on whether or not the policy is enforceable. If this is false, Okta logs these events but doesn't take any further action.                  | Boolean         | `true`       |
-| Risk            | ???               | key-value pairs         |          |
+| Risk            | Contains the level of risk for a particular request (`LOW`, `MEDIUM`, or `HIGH`) and the `reasons` that contributed to the risk level.               | key-value pairs         |          |
 | ServerStatus            |  Describes the current state of Okta's servers. Other values can be READ_ONLY and SAFE_MODE.                | Enum         | `ACTIVE`         |
-| ThreatSuspected            |                  | Boolean         | `false`         |
+| ThreatSuspected            | If ThreatInsight is running and detects a request as suspicious, the value for this property is `true`.                 | Boolean         | `false`         |
 | TraceId            | A unique ID that is used across a single flow of ITP events to easily correlate them all into one system log query                 | String         | `65d55fa6-b5a9-40f9-a6f1-627b9fa71b50`        |
 | **target** (User)         | The user associated with ???           | Object     |        |
 | type        | The type of target object     | String     | User      |
@@ -106,8 +105,8 @@ This resource contains detailed reference material on event types triggered with
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
 | **event.system.debugContext.debugData**                |                 |         |         |
 | Behaviors             | List of behaviors identified for the current event. `POSITIVE` - the specific behavior is identified. `NEGATIVE` - the specific behavior wasn't identified. See [About Behavior Detection](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-behavior-detection).                 | key-value pairs        |  `{New Geo-Location=POSITIVE, New Device=NEGATIVE, New IP=POSITIVE, New State=POSITIVE, New Country=POSITIVE, Velocity=POSITIVE, New City=POSITIVE} `       |
-| Risk            | ???                | key-value pairs         |`{reasons=Anomalous Geo-Distance, New Device, New ASN, New IP, New State, New Country, New City, level=HIGH}`          |
-| ThreatSuspected            |                  | Boolean         | `false`         |
+| Risk            | Contains the level of risk for a particular request (`LOW`, `MEDIUM`, or `HIGH`) and the `reasons` that contributed to the risk level.                | key-value pairs         |`{reasons=Anomalous Geo-Distance, New Device, New ASN, New IP, New State, New Country, New City, level=HIGH}`          |
+| ThreatSuspected            | If ThreatInsight is running and detects a request as suspicious, the value for this property is `true`.                   | Boolean         | `false`         |
 | TraceId            | A unique ID that is used across a single flow of ITP events to easily correlate them all into one system log query                 | String         | `65d55fa6-b5a9-40f9-a6f1-627b9fa71b50`        |
 | **target** (User)         | The user associated with the risk change           | Object     |        |
 | type        | The type of target object     | String     | User       |
@@ -135,7 +134,7 @@ This resource contains detailed reference material on event types triggered with
 | **event.system.debugContext.debugData**                |                 |         |         |
 | Behaviors             | List of behaviors identified for the current event. `POSITIVE` - the specific behavior is identified. `NEGATIVE` - the specific behavior wasn't identified. See [About Behavior Detection](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-behavior-detection).                 | key-value pairs        |  `{New Geo-Location=POSITIVE, New Device=NEGATIVE, New IP=POSITIVE, New State=POSITIVE, New Country=POSITIVE, Velocity=POSITIVE, New City=POSITIVE} `       |
 | Risk            | ???                | key-value pairs         |`{reasons=Anomalous Geo-Distance, New Device, New ASN, New IP, New State, New Country, New City, level=HIGH}`          |
-| ThreatSuspected            |                  | Boolean         | `false`         |
+| ThreatSuspected            | If ThreatInsight is running and detects a request as suspicious, the value for this property is `true`.                    | Boolean         | `false`         |
 | TraceId            | A unique ID that is used across a single flow of ITP events to easily correlate them all into one system log query                 | String         | `65d55fa6-b5a9-40f9-a6f1-627b9fa71b50`        |
 | **target** (User)         | The user associated with the risk change           | Object      |        |
 | type        | The type of target object     | String     | User       |
@@ -177,7 +176,7 @@ This resource contains detailed reference material on event types triggered with
 | changedDeviceSignals              | The change in device signals for the session.               | key-value pairs       | `{\"device.profile.managed\":{\"oldValue\":true, \"newValue\":false},\"device.provider.wsc.fireWall\":{\"oldValue\":\"GOOD\", \"newValue\":\"NONE\"}} ` |
 | Risk            | Contains the level of risk for a user entity (`LOW`, `MEDIUM`, or `HIGH`) and the reasons that contributed to the risk level. The `detectionName` key defines the risks monitored by Okta. The `level` key defines the current risk. The `issuer` defines the source of the risk detection. See [Detections](https://help.okta.com/okta_help.htm?type=oie&id=csh-detections).               | key-value pairs         |`{reasons=Anomalous Geo-Distance, New Device, New ASN, New IP, New State, New Country, New City, level=HIGH}`          |
 | Source            | The source of the session context change                 | String        | `OKTA`         |
-| ThreatSuspected            |                  | Boolean         | `false`         |
+| ThreatSuspected            | If ThreatInsight is running and detects a request as suspicious, the value for this property is `true`.                   | Boolean         | `false`         |
 | TraceId            |  A unique ID that is used across a single flow of ITP events to easily correlate them all into one system log query                | String         | `65d55fa6-b5a9-40f9-a6f1-627b9fa71b50`        |
 | **target** (User)         | The user session with a change in context           | Object     |        |
 | type        | The type of target object     | String     | User       |
@@ -187,7 +186,7 @@ This resource contains detailed reference material on event types triggered with
 | type        | The type of target object     | String     | Session      |
 | **actor**                 |  For `ipAddress.change` and `deviceContext.change` in a synchronous flow, the user. For `deviceContext.change` in an asynchronous flow, the system principal             | Object        |         |
 | type        | The type of actor object           |      |        |
-| **client**                |  ???                | Object      |         |
+| **client**                |  The client of the user with the context change, except in the case of a device context change when a user is not interacting with Okta. In that scenario, the client is Okta Verify.              | Object      |         |
 | IPAddress              | IP address                |       |         |
 
 ### policy.entity_risk.evaluate
@@ -198,8 +197,8 @@ This resource contains detailed reference material on event types triggered with
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
 | **event.system.debugContext.debugData**                |                 |         |         |
 | Behaviors             | List of behaviors identified for the current event. `POSITIVE` - the specific behavior is identified. `NEGATIVE` - the specific behavior wasn't identified. See [About Behavior Detection](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-behavior-detection).                 | key-value pairs        |  `{New Geo-Location=POSITIVE, New Device=NEGATIVE, New IP=POSITIVE, New State=POSITIVE, New Country=POSITIVE, Velocity=POSITIVE, New City=POSITIVE} `       |
-| Risk            | ???                | key-value pairs         |`{reasons=Anomalous Geo-Distance, New Device, New ASN, New IP, New State, New Country, New City, level=HIGH}`          |
-| ThreatSuspected            |                  | Boolean         | `false`         |
+| Risk            | Contains the level of risk for a particular request (`LOW`, `MEDIUM`, or `HIGH`) and the `reasons` that contributed to the risk level.                   | key-value pairs         |`{reasons=Anomalous Geo-Distance, New Device, New ASN, New IP, New State, New Country, New City, level=HIGH}`          |
+| ThreatSuspected            | If ThreatInsight is running and detects a request as suspicious, the value for this property is `true`.                   | Boolean         | `false`         |
 | TraceId            | A unique ID that is used across a single flow of ITP events to easily correlate them all into one system log query                 | String         | `65d55fa6-b5a9-40f9-a6f1-627b9fa71b50`        |
 | **target** (User)         | The user associated with the risk change            | Object      |        |
 | type        | The type of target object     | String     | User       |
@@ -225,8 +224,8 @@ This resource contains detailed reference material on event types triggered with
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
 | **event.system.debugContext.debugData**                |                 |         |         |
 | Behaviors             | List of behaviors identified for the current event. `POSITIVE` - the specific behavior is identified. `NEGATIVE` - the specific behavior wasn't identified. See [About Behavior Detection](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-behavior-detection).                 | key-value pairs        |  `{New Geo-Location=POSITIVE, New Device=NEGATIVE, New IP=POSITIVE, New State=POSITIVE, New Country=POSITIVE, Velocity=POSITIVE, New City=POSITIVE} `       |
-| Risk            | ???                 | key-value pairs         |`{reasons=Anomalous Geo-Distance, New Device, New ASN, New IP, New State, New Country, New City, level=HIGH}`          |
-| ThreatSuspected            |                  | Boolean         | `false`         |
+| Risk            | Contains the level of risk for a particular request (`LOW`, `MEDIUM`, or `HIGH`) and the `reasons` that contributed to the risk level.                    | key-value pairs         |`{reasons=Anomalous Geo-Distance, New Device, New ASN, New IP, New State, New Country, New City, level=HIGH}`          |
+| ThreatSuspected            | If ThreatInsight is running and detects a request as suspicious, the value for this property is `true`.                   | Boolean         | `false`         |
 | TraceId            | A unique ID that is used across a single flow of ITP events to easily correlate them all into one system log query                 | String         | `65d55fa6-b5a9-40f9-a6f1-627b9fa71b50`        |
 | **target** (User)         | The user associated with the risk change           | Object     |        |
 | type        | The type of target object     | String     | User       |
@@ -260,7 +259,7 @@ This resource contains detailed reference material on event types triggered with
 | **event.system.debugContext.debugData**                |                 |         |         |
 | EndedSessionId             |  The session ID that is ended for the target user                 | String         |  `idxffK-esRDSrC5m0ly-Kma9A `       |
 | TraceId            | A unique ID that is used across a single flow of ITP events to easily correlate them all into one system log query                  | String         | `e1214f29-e6b3-4698-b3be-4bccaadf1937`         |
-| ThreatSuspected             |  ???                 | Boolean         |          |
+| ThreatSuspected             |  If ThreatInsight is running and detects a request as suspicious, the value for this property is `true`.                   | Boolean         |          |
 | Url                        | The log out URL from the end user or admin actor                  | String         |          |
 | **event.System.Transaction**                |                 |         |         |
 | ID              | For an admin actor, this ID correlates with `user.session.clear` or `user.authentication.universal_logout` events. For a system principal actor, this ID correlates to the `user.authentication.universal_logout` event.               | String         |  `c579b0f27865c4b93be9ceb6f00e5373`          |
@@ -308,20 +307,20 @@ This resource contains detailed reference material on event types triggered with
 
 ### workflows.user.delegatedflow.run
 
-**Description:** This event can be used by admins or security team members to monitor the execution of delegated flows in the Workflows platform from the Admin application. The actor field provides the Okta User ID of the user that ran the flow.  The target fields provide context on the Workflows instance as well as the name and flow id of the executed flow. This event only indicates if the flow was successfully triggered and does not provide information about whether the flow encountered an error.
+**Description:** This event can be used by admins or security team members to monitor the execution of delegated flows in the Workflows platform from the Admin application. The actor field provides the Okta User ID of the user that ran the flow.  The target fields provide context on the Workflows instance as well as the name and flow ID of the executed flow. This event only indicates if the flow was successfully triggered and does not provide information about whether the flow encountered an error.
 
 | Key Event Attributes  | Description                                         | Data Type      | Example Values |
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
 | **event.system.debugContext.debugData**                |                 |         |         |
 | SessionId          |               | String         | `ad995fe6-e721-4a8a-86ac-d942bc59ea41`       |
-| **target** (AppInstance)         | The user ???           | Object     |        |
-| id        | Unique identifier of the target            | String     | 00u8xut93qEWYx5sx1d7       |
+| **target** (AppInstance)         | The Okta Workflows app        | Object     |        |
+| id        | Unique identifier of the OKta Workflows app         | String     | 00u8xut93qEWYx5sx1d7       |
 | type        | The type of target object     | String     | AppInstance      |
-| **target** (Flow)         | The user ???           | Object     |        |
-| id        | Unique identifier of the target            | String     | 00u8xut93qEWYx5sx1d7       |
+| **target** (Flow)         | The workflow instance of the executed flow         | Object     |        |
+| id        | Unique identifier of the target instance           | String     | 00u8xut93qEWYx5sx1d7       |
 | type        | The type of target object     | String     | Flow      |
-| **actor**                 |  ???                 | Object        |         |
-| id        | Unique identifier of the actor            |      |        |
+| **actor**                 |  The user that runs the flow                | Object        |         |
+| id        | Unique identifier of the user that runs the flow           |      |        |
 | type        | The type of actor object           |  String    |  User      |
 | **client**                |  ???                | Object      |         |
 | IPAddress              | IP address                |       |         |
