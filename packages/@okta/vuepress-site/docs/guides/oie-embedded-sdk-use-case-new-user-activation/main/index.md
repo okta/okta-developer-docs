@@ -283,7 +283,7 @@ curl -v -X POST \
 }
 ```
 
-> **Note:** The `id` property is the user Id of the newly created user. See the [Create user without credentials](/docs/reference/api/users/#create-user-without-credentials) API reference for more details on the response.
+> **Note:** The `id` property is the user ID of the newly created user. See the [Create user without credentials](/docs/reference/api/users/#create-user-without-credentials) API reference for more details on the response.
 
 #### 2. Start user activation and get activation token
 
