@@ -18,7 +18,7 @@ This guide shows you how to use the Okta APIs to configure and enable an Okta pr
 **What you need**
 
 * An Okta org
-* An Okta-supported provisioning app integration that you added in your Okta org
+* A supported provisioning app integration that you added in your Okta org
 * Postman (if you want to follow this guide and test the Okta APIs)
 
 ---
@@ -33,6 +33,38 @@ Okta supports token-based or OAuth 2.0-based authentication for the provisioning
 | ------------------------- | -------------- | ----------- |
 | Token | Okta Org2Org (`okta_org2org`)<br>Zscaler 2.0 (`zscalerbyz`) | The provisioning API connection is based on bearer token authentication. For example, with an API key. |
 | OAuth 2.0 | Google Workspace (`google`)<br>Microsoft Office 365 (`office365`)<br>Okta Org2Org (`okta_org2org`)<br>Slack (`slack`)<br>Zoom (`zoomus`) | The provisioning API connection is based on OAuth 2.0 authentication. |
+
+## Access Okta APIs
+
+First, you need access to Okta APIs regardless if you're setting up a token-based or an OAuth 2.0-based provisioning connection. You can access the Okta APIs with OAuth 2.0 authentication as a service app or a user.
+
+### Get Okta API access as a service
+
+To access Okta APIs with OAuth 2.0 in a service-based context, you must create a service app in Okta. You can specify the scopes and resources granted to the service app in Okta, which allows you to obtain an access token with those grants.
+
+See [Service-based API access setup](/docs/reference/rest/#service-based-api-access-setup) for complete steps.
+
+When you create the service app, ensure you have the following scopes:
+
+* `okta.apps.read`
+* `okta.apps.manage`
+
+Ensure that you assign the **Super Administrator** role to your service app.
+
+These scopes and roles allow you to manage the app provisioning connection and features. After you obtain your access token, proceed to the [token-based](#token-based-provisioning-connection) or the [OAuth 2.0-based](#oauth-2-0-based-provisioning-connection) provisioning connection task.
+
+### Get Okta API access as a user
+
+To access Okta APIs with OAuth 2.0 in a user-based context, you must create an OIDC app in Okta for you to sign in to. You can specify the scopes and resources granted to the OIDC app in Okta, which allows you to obtain an access token with those grants.
+
+See [User-based API access setup](/docs/reference/rest/#user-based-api-access-setup) for complete steps.
+
+When you create the OIDC app, ensure you have the following scopes:
+
+* `okta.apps.read`
+* `okta.apps.manage`
+
+These scopes allow you to manage the app provisioning connection and features. After you obtain your access token, proceed to enable your [token-based](#token-based-provisioning-connection) or [OAuth 2.0-based](#oauth-2-0-based-provisioning-connection) provisioning connection.
 
 ## Token-based provisioning connection
 
@@ -95,7 +127,7 @@ After you create your app integration in Okta, configure the provisioning connec
 
 Okta supports a two-legged OAuth 2.0 flow provisioning connection only for the Okta Org2Org app (`org2org`) in a multi-tenant deployment. See [Secure API connections between orgs with OAuth 2.0](/docs/guides/secure-oauth-between-orgs/main/) for enabling and configuring the Org2Org provisioning connection.
 
-A three-legged OAuth 2.0 flow is used to set up the provisioning connection where you need the resource owner's consent to grant access to the third-party app for provisioning.
+A three-legged OAuth 2.0 flow is used to set up the provisioning connection where you need the resource owner's consent to grant access to the third-party app.
 The following app integrations support the OAuth 2.0 flow with granted consent:
 
 * Google Workspace (`google`)
