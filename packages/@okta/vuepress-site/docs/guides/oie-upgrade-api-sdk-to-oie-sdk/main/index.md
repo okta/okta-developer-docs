@@ -388,7 +388,7 @@ curl --location --request POST 'https://${yourOktaDomain}/api/v1/authn/factors/e
 }'
 ```
 
-#### 6. Receive a successful response that confirms the email code
+#### 6. Receive a successful response after confirming the email code
 
 ```JSON
 {
