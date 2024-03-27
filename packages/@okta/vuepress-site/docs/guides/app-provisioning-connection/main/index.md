@@ -36,11 +36,11 @@ Okta supports token-based or OAuth 2.0-based authentication for the provisioning
 
 ## Access Okta APIs
 
-First, you need access to the Okta APIs regardless if you're setting up a token-based or an OAuth 2.0-based provisioning connection. You can access Okta APIs with OAuth 2.0 authentication either as a service app or a user.
+First, you need access to the Okta APIs regardless whether you're setting up a token-based or an OAuth 2.0-based provisioning connection. You can access Okta APIs with OAuth 2.0 authentication either as a service app or a user.
 
 ### Get Okta API access as a service
 
-To access Okta APIs with OAuth 2.0 in a service-based context, you must create a service app in Okta. You can specify the scopes and resources granted to the service app in Okta, which allows you to obtain an access token with those grants.
+To access Okta APIs with OAuth 2.0 in a service-based context, create a service app in Okta. You can specify the scopes and resources granted to the service app, which allows you to obtain an access token with those grants.
 
 See [Service-based API access setup](/docs/reference/rest/#service-based-api-access-setup) for complete steps.
 
@@ -55,9 +55,9 @@ These scopes and roles allow you to manage the app provisioning connection and f
 
 ### Get Okta API access as a user
 
-To access Okta APIs with OAuth 2.0 in a user-based context, you must create an OIDC app in Okta for you to sign in to. You can specify the scopes and resources granted to the OIDC app in Okta, which allows you to obtain an access token with those grants.
+To access Okta APIs with OAuth 2.0 in a user-based context, create an OIDC app in Okta for you to sign in to. You can specify the scopes and resources granted to the OIDC app, which allows you to obtain an access token with those grants.
 
-See [User-based API access setup](/docs/reference/rest/#user-based-api-access-setup) for complete steps.
+See [User-based API access setup](/docs/reference/rest/#user-based-api-access-setup).
 
 When you create the OIDC app, ensure that you have the following scopes:
 
@@ -267,7 +267,7 @@ After you create your app integration in Okta, configure the provisioning connec
 
 ## Configure the provisioning features for your app
 
-After you successfully activated your provisioning connection, use the [Application Features API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationFeatures/) to configure INBOUND_PROVISIONING and/or USER_PROVISIONING features.
+After you successfully activate your provisioning connection, use the [Application Features API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationFeatures/) to configure the INBOUND_PROVISIONING and/or USER_PROVISIONING features.
 
 ### INBOUND_PROVISIONING
 
