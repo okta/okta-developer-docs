@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-source "./helpers.sh"
+source "./scripts/helpers.sh"
 
 export CHROME_HEADLESS=true
 
