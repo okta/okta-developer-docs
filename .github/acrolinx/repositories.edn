@@ -2,4 +2,11 @@
 ;; PLEASE EDIT VERY CAREFULLY.
 ;; Syntax errors may cause loss of data.
 
-[["https://api.github.com/repos/okta/okta-developer-docs" nil]]
+[["https://api.github.com/repos/okta/okta-developer-docs"
+  {:last-baseline #inst "2024-03-27T07:27:42.264-00:00",
+   :last-batch-id
+   "gen.github.baseline.594602db-e43f-4a6b-9a7c-be1807909b2d",
+   :last-total 2290,
+   :last-success 2290,
+   :aggregdash
+   "https://okta.acrolinx.cloud/api/batch/gen.github.baseline.594602db-e43f-4a6b-9a7c-be1807909b2d?csBaseUrl=https%3A%2F%2Fokta.acrolinx.cloud&X-Acrolinx-Client-Locale=en"}]]
