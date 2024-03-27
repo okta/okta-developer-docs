@@ -8,7 +8,7 @@ parameters:
 jobs:
   node_build_checks:
       docker:
-        - image: cimg/node:14.21.3
+        - image: cimg/node:14.21.3-browsers
       resource_class: xlarge
       environment:
         NODE_OPTIONS: '--max_old_space_size=3584'
@@ -26,7 +26,7 @@ jobs:
 
   nightly_link_checker:
     docker:
-      - image: cimg/node:14.21.3
+      - image: cimg/node:14.21.3-browsers
     resource_class: xlarge
     environment:
       NODE_OPTIONS: '--max_old_space_size=3584'
