@@ -8,15 +8,15 @@ meta:
 
 # Identity Threat Protection Event Types
 
-This resource contains detailed reference material on event types triggered with the Identity Threat Protection solution. Use the information from these attributes to understand the users, threats, and risk environment for your org.
+This resource contains detailed reference material on event types triggered with the Identity Threat Protection solution. Use the information from these properties to understand the users, threats, and risk environment for your org.
 
->**Note:** Not every attribute is documented for the event types. Only those primarily used to assist in reviewing an identity threat interaction. Additionally, attributes and sub-attributes may differ based on the your implementation of the Identity Threat Protection solution.
+>**Note:** Not every property is documented for the event types. Only those primarily used to assist in reviewing an identity threat interaction. Additionally, objects and properties may differ based on the your implementation of the Identity Threat Protection solution.
 
 ### user.risk.change
 
 **Description:** Indicates a user's risk level has changed. This event can be used to monitor risk level changes for users. This event is triggered when Okta determines that a user is associated with a risk context or activity.
 
-| Key Event Attributes  | Description                                         | Data Type            | Example Values |
+| Key Event Properties  | Description                                         | Data Type            | Example Values |
 | --------------------- | --------------------------------------------------- | -------------------- | -------------- |
 | **event.system.debugContext.debugData**                |                 |         |         |
 | Risk                  | Contains the level of risk for a user entity (`LOW`, `MEDIUM`, or `HIGH`) and the reasons that contributed to the risk level. The `detectionName` key defines the risks monitored by Okta. The `level` key defines the current risk. The `previousLevel` key defines the previous risk level of the user entity. The `issuer` defines the source of the risk detection. See [Detections](https://help.okta.com/okta_help.htm?type=oie&id=csh-detections).                             | key-value pair       |` {previousLevel=LOW, level=MEDIUM, detectionName=Session Influenced User Risk, reasons=Associated sessionId is suspected to be hijacked, issuer=OKTA} `        |
@@ -30,7 +30,7 @@ This resource contains detailed reference material on event types triggered with
 
 **Description:** An admin has provided feedback on a detection Okta provided which indicated a change in user or session risk. This can be used to monitor feedback provided by admins in response to Okta determined changes in risk. This event is fired when an admin chooses to provide feedback on a detection event in the admin console.
 
-| Key Event Attributes  | Description                                         | Data Type      | Example Values |
+| Key Event Properties  | Description                                         | Data Type      | Example Values |
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
 | **event.system.debugContext.debugData**                |                 |         |         |
 | EventUuid              | The ID of the `user.risk.change` or `session.context.change` event that prompted the Admin feedback.               | String         | `721b1961-f0a6-11ee-bfa6-c1c3bad801v3`        |
@@ -44,7 +44,7 @@ This resource contains detailed reference material on event types triggered with
 
 **Description:** Triggered when an event provider submits a valid SSF for each security event. The event can help Org Admins debug/monitor partner SSF (Shared Signals Framework) submissions. The event contains debug context data about the event provider's risk report.
 
-| Key Event Attributes  | Description                                         | Data Type      | Example Values |
+| Key Event Properties  | Description                                         | Data Type      | Example Values |
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
 | **event.system.debugContext.debugData**                |                 |         |         |
 | partnerRiskReportData              | The SSF submission from an event provider. It includes the issuer of the security event, security event URL, and the security event definition.                   | key-value pairs         | `"{  \"issuer\" : \"https://example.eventprovider.com\",\n  \"https://schemas.openid.net/secevent/caep/event-type/session-revoked\" : {\n    \"subject\" : {\n      \"user\" : {\n        \"format\" : \"email\",\n        \"email\" : \"joe.alex@example.com\"\n      },\n      \"device\" : {\n        \"format\" : \"opaque\",\n        \"sub\" : \"1234ABCD-123A-123B-123C-12345ABCDEFG\"\n      }\n    },\n    \"event_timestamp\" : 1709484521,\n    \"reason_admin\" : {\n      \"en\" : \"Malware detected\"\n    }\n  }\n}"`         |
@@ -57,7 +57,7 @@ This resource contains detailed reference material on event types triggered with
 
 **Description:** A registered device associated with at least one user session that hasn't communicated with Okta within the required time interval. Use this event to investigate a potentially insecure device and a compromised user session. This event contains the device unique identifier in the System Log actor object. You can use this information to find other related events.
 
-| Key Event Attributes  | Description                                         | Data Type      | Example Values |
+| Key Event Properties  | Description                                         | Data Type      | Example Values |
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
 | **event.system.debugContext.debugData**                |                 |         |         |
 | deviceSignalsLastReceived              | The date and time of the last receipt of a device signal                  | String         | `"2024-03-13T19:26:53"`       |
@@ -70,12 +70,12 @@ This resource contains detailed reference material on event types triggered with
 
 **Description:** Auth policy re-evaluation has occurred and has resulted in a continuous access violation. Can be used to identify which user, apps, and session were involved in a continuous access violation event. Event fired when continuing access evaluation results in failure.
 
-| Key Event Attributes  | Description                                         | Data Type      | Example Values |
+| Key Event Properties  | Description                                         | Data Type      | Example Values |
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
 | **event.system.debugContext.debugData**                |                 |         |         |
 | Behaviors             | List of behaviors identified for the current event. `POSITIVE` - the specific behavior is identified. `NEGATIVE` - the specific behavior wasn't identified. See [About Behavior Detection](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-behavior-detection).                 | key-value pairs        |  `{New Geo-Location=POSITIVE, New Device=NEGATIVE, New IP=POSITIVE, New State=POSITIVE, New Country=POSITIVE, Velocity=POSITIVE, New City=POSITIVE} `       |
 | CaeEnforceMode             | The UI setting for CAE on whether or not the policy is enforceable. If this is false, Okta logs these events but doesn't take any further action.                  | Boolean         | `true`       |
-| Risk            | Contains the level of risk for a particular request (`LOW`, `MEDIUM`, or `HIGH`) and the `reasons` that contributed to the risk level.               | key-value pairs         |          |
+| Risk            | Contains the level of risk for a particular request (`LOW`, `MEDIUM`, or `HIGH`) and the `reasons` that contributed to the risk level.               | key-value pairs         | `{reasons=Anomalous Geo-Distance, New Device, New ASN, New IP, New State, New Country, New City, level=HIGH}`        |
 | ServerStatus            |  Describes the current state of Okta's servers. Other values can be READ_ONLY and SAFE_MODE.                | Enum         | `ACTIVE`         |
 | ThreatSuspected            | If ThreatInsight is running and detects a request as suspicious, the value for this property is `true`.                 | Boolean         | `false`         |
 | TraceId            | A unique ID that is used across a single flow of ITP events to easily correlate them all into one system log query                 | String         | `65d55fa6-b5a9-40f9-a6f1-627b9fa71b50`        |
@@ -101,7 +101,7 @@ This resource contains detailed reference material on event types triggered with
 
 **Description:** Evaluation of Entity Risk policy. Signal that entity risk policy has been evaluated for an entity for which we have received a risk change event. Event fired when entity risk policy has been evaluated for an entity for which a risk change event was generated.
 
-| Key Event Attributes  | Description                                         | Data Type      | Example Values |
+| Key Event Properties | Description                                         | Data Type      | Example Values |
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
 | **event.system.debugContext.debugData**                |                 |         |         |
 | Behaviors             | List of behaviors identified for the current event. `POSITIVE` - the specific behavior is identified. `NEGATIVE` - the specific behavior wasn't identified. See [About Behavior Detection](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-behavior-detection).                 | key-value pairs        |  `{New Geo-Location=POSITIVE, New Device=NEGATIVE, New IP=POSITIVE, New State=POSITIVE, New Country=POSITIVE, Velocity=POSITIVE, New City=POSITIVE} `       |
@@ -129,7 +129,7 @@ This resource contains detailed reference material on event types triggered with
 
 **Description:** Entity Risk policy action invocation. Signal that an action associated with an entity risk policy evaluation has been invoked. Event fired when an action associated with an entity risk policy evaluation has been invoked.
 
-| Key Event Attributes  | Description                                         | Data Type      | Example Values |
+| Key Event Properties  | Description                                         | Data Type      | Example Values |
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
 | **event.system.debugContext.debugData**                |                 |         |         |
 | Behaviors             | List of behaviors identified for the current event. `POSITIVE` - the specific behavior is identified. `NEGATIVE` - the specific behavior wasn't identified. See [About Behavior Detection](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-behavior-detection).                 | key-value pairs        |  `{New Geo-Location=POSITIVE, New Device=NEGATIVE, New IP=POSITIVE, New State=POSITIVE, New Country=POSITIVE, Velocity=POSITIVE, New City=POSITIVE} `       |
@@ -165,7 +165,7 @@ This resource contains detailed reference material on event types triggered with
 
 **Description:** User session context changed. This event indicates that the context in which the session is being used has changed significantly enough from the context in which the event was created, that re-evaluation of policy may be required. Often this indicates a security issue related to the session.
 
-| Key Event Attributes  | Description                                         | Data Type      | Example Values |
+| Key Event Properties  | Description                                         | Data Type      | Example Values |
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
 | **event.system.debugContext.debugData**                |                 |         |         |
 | Behaviors             | List of behaviors identified for the current event. `POSITIVE` - the specific behavior is identified. `NEGATIVE` - the specific behavior wasn't identified. See [About Behavior Detection](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-behavior-detection).                 | key-value pairs        |  `{New Geo-Location=POSITIVE, New Device=NEGATIVE, New IP=POSITIVE, New State=POSITIVE, New Country=POSITIVE, Velocity=POSITIVE, New City=POSITIVE} `       |
@@ -193,7 +193,7 @@ This resource contains detailed reference material on event types triggered with
 
 **Description:** Evaluation of Entity Risk policy. Signal that entity risk policy has been evaluated for an entity for which we have received a risk change event. Event fired when entity risk policy has been evaluated for an entity for which a risk change event was generated.
 
-| Key Event Attributes  | Description                                         | Data Type      | Example Values |
+| Key Event Properties | Description                                         | Data Type      | Example Values |
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
 | **event.system.debugContext.debugData**                |                 |         |         |
 | Behaviors             | List of behaviors identified for the current event. `POSITIVE` - the specific behavior is identified. `NEGATIVE` - the specific behavior wasn't identified. See [About Behavior Detection](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-behavior-detection).                 | key-value pairs        |  `{New Geo-Location=POSITIVE, New Device=NEGATIVE, New IP=POSITIVE, New State=POSITIVE, New Country=POSITIVE, Velocity=POSITIVE, New City=POSITIVE} `       |
@@ -220,7 +220,7 @@ This resource contains detailed reference material on event types triggered with
 
 **Description:** Entity Risk policy action invocation. Signal that an action associated with an entity risk policy evaluation has been invoked. Event fired when an action associated with an entity risk policy evaluation has been invoked.
 
-| Key Event Attributes  | Description                                         | Data Type      | Example Values |
+| Key Event Properties  | Description                                         | Data Type      | Example Values |
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
 | **event.system.debugContext.debugData**                |                 |         |         |
 | Behaviors             | List of behaviors identified for the current event. `POSITIVE` - the specific behavior is identified. `NEGATIVE` - the specific behavior wasn't identified. See [About Behavior Detection](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-behavior-detection).                 | key-value pairs        |  `{New Geo-Location=POSITIVE, New Device=NEGATIVE, New IP=POSITIVE, New State=POSITIVE, New Country=POSITIVE, Velocity=POSITIVE, New City=POSITIVE} `       |
@@ -254,7 +254,7 @@ This resource contains detailed reference material on event types triggered with
 
 **Description:** This event is triggered when Okta terminates all IDX sessions. If there are 'N' active sessions for a user the event appears 'N' times. All 'N' events contain `externalSessionId` and `System.Transaction.ID` that correlate with the `System.Transaction.ID` under the `user.session.clear` event.
 
-| Key Event Attributes  | Description                                         | Data Type      | Example Values |
+| Key Event Properties  | Description                                         | Data Type      | Example Values |
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
 | **event.system.debugContext.debugData**                |                 |         |         |
 | EndedSessionId             |  The session ID that is ended for the target user                 | String         |  `idxffK-esRDSrC5m0ly-Kma9A `       |
@@ -274,7 +274,7 @@ This resource contains detailed reference material on event types triggered with
 
 **Description:**   This event is triggered when an Admin invokes clear sessions by clicking on the "Clear user session". This event appears only once and contains `externalSessionId` and `System.Transaction.ID`.
 
-| Key Event Attributes  | Description                                         | Data Type      | Example Values |
+| Key Event Properties  | Description                                         | Data Type      | Example Values |
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
 | **event.system.debugContext.debugData**                |                 |         |         |
 | Url             | ???                 | String         |         |
@@ -309,7 +309,7 @@ This resource contains detailed reference material on event types triggered with
 
 **Description:** This event can be used by admins or security team members to monitor the execution of delegated flows in the Workflows platform from the Admin application. The actor field provides the Okta User ID of the user that ran the flow.  The target fields provide context on the Workflows instance as well as the name and flow ID of the executed flow. This event only indicates if the flow was successfully triggered and does not provide information about whether the flow encountered an error.
 
-| Key Event Attributes  | Description                                         | Data Type      | Example Values |
+| Key Event Properties  | Description                                         | Data Type      | Example Values |
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
 | **event.system.debugContext.debugData**                |                 |         |         |
 | SessionId          |               | String         | `ad995fe6-e721-4a8a-86ac-d942bc59ea41`       |
