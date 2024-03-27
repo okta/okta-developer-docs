@@ -1,0 +1,1 @@
+The parameter works with SAML 2.0 applications.

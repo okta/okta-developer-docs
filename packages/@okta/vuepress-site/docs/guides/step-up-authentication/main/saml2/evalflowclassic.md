@@ -1,0 +1,1 @@
+In Identity Engine, if the user has a session, the previously satisfied authenticators are considered before prompting for factors that are required by the `acr_values` parameter in the request. Additionally, if the user is unable to satisfy the level of assurance, Okta returns an error to the callback endpoint.
