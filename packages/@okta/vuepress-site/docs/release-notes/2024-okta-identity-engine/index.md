@@ -8,6 +8,18 @@ title: Okta Identity Engine API Products release notes 2024
 
 ## March
 
+### Weekly release 2024.03.2
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Bugs fixed in 2024.03.2](#bugs-fixed-in-2024-03-2) | March 27, 2024 |
+
+#### Bugs fixed in 2024.03.2
+
+* Okta sometimes incorrectly returned an Invalid Phone Number error during SMS factor enrollment. (OKTA-705078)
+
+* After an admin deleted a user, an internal server error sometimes occurred when the admin then made a LIST IdP users request (`api/v1/idps/{idpId}/users`). (OKTA-708102)
+
 ### Monthly release 2024.03.0
 
 | Change | Expected in Preview Orgs |
