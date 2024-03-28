@@ -10,13 +10,13 @@ meta:
 
 This resource contains detailed reference material on event types triggered with the Identity Threat Protection solution. Use the information from these properties to understand the users, threats, and risk environment for your org.
 
->**Note:** Not every property is documented for the event types. Only those primarily used to assist in reviewing an identity threat interaction. Additionally, objects and properties may differ based on the your implementation of the Identity Threat Protection solution.
+>**Note:** Not every property is documented for the event types. Only those primarily used to assist in reviewing an identity threat interaction. Also, objects and properties may differ based on your implementation of the Identity Threat Protection solution.
 
 ### user.risk.change
 
-**Description:** Indicates a user's risk level has changed. This event can be used to monitor risk level changes for users. This event is triggered when Okta determines that a user is associated with a risk context or activity.
+**Description:** This event type indicates a user's risk level has changed. This event can be used to monitor risk level changes for users. This event is triggered when Okta determines that a user is associated with a risk context or activity.
 
-| Key Event Properties  | Description                                         | Data Type            | Example Values |
+| Key event properties  | Description                                         | Data type            | Example values |
 | --------------------- | --------------------------------------------------- | -------------------- | -------------- |
 | **event.system.debugContext.debugData**                |                 |         |         |
 | Risk                  | Contains the level of risk for a user entity (`LOW`, `MEDIUM`, or `HIGH`) and the reasons that contributed to the risk level. The `detectionName` key defines the risks monitored by Okta. The `level` key defines the current risk. The `previousLevel` key defines the previous risk level of the user entity. The `issuer` defines the source of the risk detection. See [Detections](https://help.okta.com/okta_help.htm?type=oie&id=csh-detections).                             | key-value pair       |` {previousLevel=LOW, level=MEDIUM, detectionName=Session Influenced User Risk, reasons=Associated sessionId is suspected to be hijacked, issuer=OKTA} `        |
@@ -28,9 +28,9 @@ This resource contains detailed reference material on event types triggered with
 
 ### analytics.feedback.provide
 
-**Description:** An admin has provided feedback on a detection Okta provided which indicated a change in user or session risk. This can be used to monitor feedback provided by admins in response to Okta determined changes in risk. This event is fired when an admin chooses to provide feedback on a detection event in the admin console.
+**Description:** An admin has provided feedback on a detection Okta provided which indicated a change in user or session risk. This can be used to monitor feedback provided by admins in response to Okta determined changes in risk. This event is triggered when an admin chooses to provide feedback on a detection event in the Admin Console.
 
-| Key Event Properties  | Description                                         | Data Type      | Example Values |
+| Key event properties  | Description                                         | Data type      | Example values |
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
 | **event.system.debugContext.debugData**                |                 |         |         |
 | EventUuid              | The ID of the `user.risk.change` or `session.context.change` event that prompted the Admin feedback.               | String         | `721b1961-f0a6-11ee-bfa6-c1c3bad801v3`        |
@@ -42,12 +42,12 @@ This resource contains detailed reference material on event types triggered with
 
 ### security.events.provider.receive_event
 
-**Description:** Triggered when an event provider submits a valid SSF for each security event. The event can help Org Admins debug/monitor partner SSF (Shared Signals Framework) submissions. The event contains debug context data about the event provider's risk report.
+**Description:** This event is triggered when an event provider submits a valid Shared Signals Framework (SSF) security event. The event can help Org Admins debug/monitor partner SSF (Shared Signals Framework) submissions. The event contains debug context data about the event provider's risk report.
 
-| Key Event Properties  | Description                                         | Data Type      | Example Values |
+| Key event properties  | Description                                         | Data type      | Example values |
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
 | **event.system.debugContext.debugData**                |                 |         |         |
-| partnerRiskReportData              | The SSF submission from an event provider. It includes the issuer of the security event, security event URL, and the security event definition.                   | key-value pairs         | `"{  \"issuer\" : \"https://example.eventprovider.com\",\n  \"https://schemas.openid.net/secevent/caep/event-type/session-revoked\" : {\n    \"subject\" : {\n      \"user\" : {\n        \"format\" : \"email\",\n        \"email\" : \"joe.alex@example.com\"\n      },\n      \"device\" : {\n        \"format\" : \"opaque\",\n        \"sub\" : \"1234ABCD-123A-123B-123C-12345ABCDEFG\"\n      }\n    },\n    \"event_timestamp\" : 1709484521,\n    \"reason_admin\" : {\n      \"en\" : \"Malware detected\"\n    }\n  }\n}"`         |
+| partnerRiskReportData              | The SSF submission from an event provider. It includes the issuer of the security event, the security event URL, and the security event definition.                   | key-value pairs         | `"{  \"issuer\" : \"https://example.eventprovider.com\",\n  \"https://schemas.openid.net/secevent/caep/event-type/session-revoked\" : {\n    \"subject\" : {\n      \"user\" : {\n        \"format\" : \"email\",\n        \"email\" : \"joe.alex@example.com\"\n      },\n      \"device\" : {\n        \"format\" : \"opaque\",\n        \"sub\" : \"1234ABCD-123A-123B-123C-12345ABCDEFG\"\n      }\n    },\n    \"event_timestamp\" : 1709484521,\n    \"reason_admin\" : {\n      \"en\" : \"Malware detected\"\n    }\n  }\n}"`         |
 | **target** (User)         |  The user affected by the event           | Object     |        |
 | type        | The type of target object     | String     |       |
 | **actor**                 |  The security events provider                | Object        |         |
@@ -57,7 +57,7 @@ This resource contains detailed reference material on event types triggered with
 
 **Description:** A registered device associated with at least one user session that hasn't communicated with Okta within the required time interval. Use this event to investigate a potentially insecure device and a compromised user session. This event contains the device unique identifier in the System Log actor object. You can use this information to find other related events.
 
-| Key Event Properties  | Description                                         | Data Type      | Example Values |
+| Key event properties  | Description                                         | Data type      | Example values |
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
 | **event.system.debugContext.debugData**                |                 |         |         |
 | deviceSignalsLastReceived              | The date and time of the last receipt of a device signal                  | String         | `"2024-03-13T19:26:53"`       |
@@ -68,46 +68,46 @@ This resource contains detailed reference material on event types triggered with
 
 ### policy.auth_reevaluate.fail
 
-**Description:** Auth policy re-evaluation has occurred and has resulted in a continuous access violation. Can be used to identify which user, apps, and session were involved in a continuous access violation event. Event fired when continuing access evaluation results in failure.
+**Description:** Auth policy reevaluation has occurred and has resulted in a continuous access violation. Can be used to identify which user, apps, and session were involved in a continuous access violation event. The event is triggered when continuing access evaluation results in failure.
 
-| Key Event Properties  | Description                                         | Data Type      | Example Values |
+| Key event properties  | Description                                         | Data type      | Example values |
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
 | **event.system.debugContext.debugData**                |                 |         |         |
 | Behaviors             | List of behaviors identified for the current event. `POSITIVE` - the specific behavior is identified. `NEGATIVE` - the specific behavior wasn't identified. See [About Behavior Detection](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-behavior-detection).                 | key-value pairs        |  `{New Geo-Location=POSITIVE, New Device=NEGATIVE, New IP=POSITIVE, New State=POSITIVE, New Country=POSITIVE, Velocity=POSITIVE, New City=POSITIVE} `       |
-| CaeEnforceMode             | The UI setting for CAE on whether or not the policy is enforceable. If this is false, Okta logs these events but doesn't take any further action.                  | Boolean         | `true`       |
+| CaeEnforceMode             | The Continuous Access evaluation (CAE) UI setting that determines whether the policy is enforceable. If this is false, Okta logs these events but doesn't take any further action.                  | Boolean         | `true`       |
 | Risk            | Contains the level of risk for a particular request (`LOW`, `MEDIUM`, or `HIGH`) and the `reasons` that contributed to the risk level.               | key-value pairs         | `{reasons=Anomalous Geo-Distance, New Device, New ASN, New IP, New State, New Country, New City, level=HIGH}`        |
-| ServerStatus            |  Describes the current state of Okta's servers. Other values can be READ_ONLY and SAFE_MODE.                | Enum         | `ACTIVE`         |
+| ServerStatus            |  Describes the current state of the Okta servers. Other values can be READ_ONLY and SAFE_MODE.                | Enum         | `ACTIVE`         |
 | ThreatSuspected            | If ThreatInsight is running and detects a request as suspicious, the value for this property is `true`.                 | Boolean         | `false`         |
-| TraceId            | A unique ID that is used across a single flow of ITP events to easily correlate them all into one system log query                 | String         | `65d55fa6-b5a9-40f9-a6f1-627b9fa71b50`        |
+| TraceId            | A unique ID that is used across a single flow of ITP events to easily correlate them all into one System Log query                 | String         | `65d55fa6-b5a9-40f9-a6f1-627b9fa71b50`        |
 | **target** (User)         | The user session associated with the failed policy evaluations          | Object     |        |
 | type        | The type of target object     | String     | User      |
-| **target** (Policy Evaluation)         | The re-evaluated policy         | Object     |        |
+| **target** (Policy Evaluation)         | The reevaluated policy         | Object     |        |
 | type        | The type of target object          | String     | Policy Evaluation       |
 | **target.DetailEntry** (Policy Evaluation)       |             |      |        |
 | AppInstanceIds         | The apps affected by a continuous access violation event            | Array     |  `[0oa4mczwb7SfcTQ9N0g7, 0oa4yvb15qhL8RKA30g7]`   |
 | MatchedRuleAction        | The action of the rule that matched the evaluation. Values can be `ALLOW` or `DENY`.           | Enum     | `ALLOW`      |
-| MatchedRuleAssuranceMet        | Whether or not the matched rule evaluated to passing all authenticator assurances           | Boolean      | `false`       |
+| MatchedRuleAssuranceMet        | Whether the matched rule evaluated to passing all authenticator assurances           | Boolean      | `false`       |
 | MatchedRuleDisplayName         | The matched rule's display name            | String     |        |
 | MatchedRuleId        | The unique identifier of the matched rule            | String     | `0pr4yyl6a8D97WIRC0a7 `      |
 | PolicyType         | The evaluated policy type            |  ENUM    |  `OKTA_SIGN_ON `     |
-| DisplayName        | Display name of the target           | String     |        |
+| DisplayName        | Displays the name of the evaluated policy          | String     |        |
 | ID        | Unique identifier of the target            | String     | `00u8xst93qEWYx65sx1d7`       |
-| **actor**                 |  The target user if synchronous and system principal if asynchronous                  | Object        |         |
+| **actor**                 |  The target user if synchronous and the system principal if asynchronous                  | Object        |         |
 | type        | The type of actor object           |      |        |
 | **client**                |  The client of the actor                  | Object      |         |
 | IPAddress              | IP address                |       |         |
 
 ### policy.continuous_access.evaluate
 
-**Description:** Evaluation of Entity Risk policy. Signal that entity risk policy has been evaluated for an entity for which we have received a risk change event. Event fired when entity risk policy has been evaluated for an entity for which a risk change event was generated.
+**Description:** Evaluation of the Entity risk policy. Signals that the entity risk policy has been evaluated for an entity which had a risk change event.
 
-| Key Event Properties | Description                                         | Data Type      | Example Values |
+| Key event properties | Description                                         | Data type      | Example values |
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
 | **event.system.debugContext.debugData**                |                 |         |         |
 | Behaviors             | List of behaviors identified for the current event. `POSITIVE` - the specific behavior is identified. `NEGATIVE` - the specific behavior wasn't identified. See [About Behavior Detection](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-behavior-detection).                 | key-value pairs        |  `{New Geo-Location=POSITIVE, New Device=NEGATIVE, New IP=POSITIVE, New State=POSITIVE, New Country=POSITIVE, Velocity=POSITIVE, New City=POSITIVE} `       |
 | Risk            | Contains the level of risk for a particular request (`LOW`, `MEDIUM`, or `HIGH`) and the `reasons` that contributed to the risk level.                | key-value pairs         |`{reasons=Anomalous Geo-Distance, New Device, New ASN, New IP, New State, New Country, New City, level=HIGH}`          |
 | ThreatSuspected            | If ThreatInsight is running and detects a request as suspicious, the value for this property is `true`.                   | Boolean         | `false`         |
-| TraceId            | A unique ID that is used across a single flow of ITP events to easily correlate them all into one system log query                 | String         | `65d55fa6-b5a9-40f9-a6f1-627b9fa71b50`        |
+| TraceId            | A unique ID that is used across a single flow of ITP events to easily correlate them all into one System Log query                 | String         | `65d55fa6-b5a9-40f9-a6f1-627b9fa71b50`        |
 | **target** (User)         | The user associated with the risk change           | Object     |        |
 | type        | The type of target object     | String     | User       |
 | **target** (Rule)         | The rule associated with the continuous access evaluation            | Object     |        |
@@ -116,26 +116,26 @@ This resource contains detailed reference material on event types triggered with
 | RuleAction        | The configured action to respond to the risk. Values include none (Logging Mode), `TERMINATE_SESSION`, and `RUN_WORKFLOW`.             | Enum     | `TERMINATE_SESSION`       |
 | SingleLogOutEnabled        | If `true`, a continuous access evaluation violation enforces application logout          | Boolean     | `true`      |
 | SingleLogOutSelectionMode        | The options of the application logout, either all applications, specific applications, or none. Values can be: `NONE`, `ALL`, `SPECIFIED`.           | Enum     | `ALL`       |
-| DisplayName        | Display name of the target rule           | String     | Test Rule      |
+| DisplayName        | Display the name of the target rule           | String     | Test Rule      |
 | ID        | Unique identifier of the target rule           | String     | `00u8xst93qEWYx65sx1d7`       |
 | **target** (Policy)         |  The continuous access evaluation policy        | Object     |        |
 | type        | The type of target object     | String     | Policy      |
-| **actor**                 |  The target user if synchronous and system principal if asynchronous                |         |         |
+| **actor**                 |  The target user if synchronous and the system principal if asynchronous                |         |         |
 | type        | The type of actor object           | Object     |        |
 | **client**                |  The client of the actor                |       |         |
 | IPAddress              | IP address of the client                |       |         |
 
 ### policy.continuous_access.action
 
-**Description:** Entity Risk policy action invocation. Signal that an action associated with an entity risk policy evaluation has been invoked. Event fired when an action associated with an entity risk policy evaluation has been invoked.
+**Description:** Entity risk policy action invocation. Signals that an action associated with an evaluation of an entity risk policy has been invoked.
 
-| Key Event Properties  | Description                                         | Data Type      | Example Values |
+| Key event properties  | Description                                         | Data type      | Example values |
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
 | **event.system.debugContext.debugData**                |                 |         |         |
 | Behaviors             | List of behaviors identified for the current event. `POSITIVE` - the specific behavior is identified. `NEGATIVE` - the specific behavior wasn't identified. See [About Behavior Detection](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-behavior-detection).                 | key-value pairs        |  `{New Geo-Location=POSITIVE, New Device=NEGATIVE, New IP=POSITIVE, New State=POSITIVE, New Country=POSITIVE, Velocity=POSITIVE, New City=POSITIVE} `       |
 | Risk            | Contains the level of risk for a particular request (`LOW`, `MEDIUM`, or `HIGH`) and the `reasons` that contributed to the risk level.                | key-value pairs         |`{reasons=Anomalous Geo-Distance, New Device, New ASN, New IP, New State, New Country, New City, level=HIGH}`          |
 | ThreatSuspected            | If ThreatInsight is running and detects a request as suspicious, the value for this property is `true`.                    | Boolean         | `false`         |
-| TraceId            | A unique ID that is used across a single flow of ITP events to easily correlate them all into one system log query                 | String         | `65d55fa6-b5a9-40f9-a6f1-627b9fa71b50`        |
+| TraceId            | A unique ID that is used across a single flow of ITP events to easily correlate them all into one System Log query                 | String         | `65d55fa6-b5a9-40f9-a6f1-627b9fa71b50`        |
 | **target** (User)         | The user associated with the risk change           | Object      |        |
 | type        | The type of target object     | String     | User       |
 | **target** (Rule)         | The rule associated with the continuous access evaluation           | Object     |        |
@@ -144,7 +144,7 @@ This resource contains detailed reference material on event types triggered with
 | RuleAction        | The configured action to respond to the risk. Values include none (Logging Mode), `TERMINATE_SESSION`, and `RUN_WORKFLOW`.            | Enum     | `TERMINATE_SESSION`       |
 | SingleLogOutEnabled        | If `true`, a continuous access evaluation violation enforces application logout             | Boolean     | `true`      |
 | SingleLogOutSelectionMode        | The options of the application logout, either all applications, specific applications, or none. Values can be: `NONE`, `ALL`, `SPECIFIED`.           | Enum     | `ALL`       |
-| DisplayName        | Display name of the rule           | String     | Entity Risk Policy       |
+| DisplayName        | Displays the name of the rule           | String     | Entity Risk Policy       |
 | ID        | Unique identifier of the rule            | String     | `00u8xst93qEWYx65sx1d7`       |
 | **target** (Policy)         |  The continuous access evaluation policy         | Object      |        |
 | type        | The type of target object     | String     | Policy       |
@@ -154,18 +154,18 @@ This resource contains detailed reference material on event types triggered with
 | PolicyAction        | The configured action to respond to the risk. Values include none (Logging Mode), `TERMINATE_SESSION`, and `RUN_WORKFLOW`.              | Enum     | `TERMINATE_SESSION`       |
 | PolicySingleLogOutEnabled        |  If `true`, a continuous access evaluation violation enforces application logout             | Boolean     | `true`      |
 | PolicySingleLogOutSelectionMode        | The options of the application logout, either all applications, specific applications, or none. Values can be: `NONE`, `ALL`, `SPECIFIED`.           | Enum     | `ALL`       |
-| DisplayName        | Display name of the action          | String     | `TERMINATE_SESSION`       |
+| DisplayName        | Displays the name of the action          | String     | `TERMINATE_SESSION`       |
 | ID        | Unique identifier of the continuous access evaluation policy           | String     | `00u8xst93qEWYx65sx1d7`       |
-| **actor**                 |  The target user if synchronous and system principal if asynchronous                 | Object        |         |
+| **actor**                 |  The target user if synchronous and the system principal if asynchronous                 | Object        |         |
 | type        | The type of actor object           |      |        |
 | **client**                |  The client of the actor                 |       |         |
 | IPAddress              | IP address of the client                |       |         |
 
 ### user.session.context.change
 
-**Description:** User session context changed. This event indicates that the context in which the session is being used has changed significantly enough from the context in which the event was created, that re-evaluation of policy may be required. Often this indicates a security issue related to the session.
+**Description:** User session context changed. This event indicates that the context in which the session is being used has changed enough from the context in which the event was created, and that a reevaluation of policy may be required. Often this indicates a security issue related to the session.
 
-| Key Event Properties  | Description                                         | Data Type      | Example Values |
+| Key event properties  | Description                                         | Data type      | Example values |
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
 | **event.system.debugContext.debugData**                |                 |         |         |
 | Behaviors             | List of behaviors identified for the current event. `POSITIVE` - the specific behavior is identified. `NEGATIVE` - the specific behavior wasn't identified. See [About Behavior Detection](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-behavior-detection).                 | key-value pairs        |  `{New Geo-Location=POSITIVE, New Device=NEGATIVE, New IP=POSITIVE, New State=POSITIVE, New Country=POSITIVE, Velocity=POSITIVE, New City=POSITIVE} `       |
@@ -177,7 +177,7 @@ This resource contains detailed reference material on event types triggered with
 | Risk            | Contains the level of risk for a user entity (`LOW`, `MEDIUM`, or `HIGH`) and the reasons that contributed to the risk level. The `detectionName` key defines the risks monitored by Okta. The `level` key defines the current risk. The `issuer` defines the source of the risk detection. See [Detections](https://help.okta.com/okta_help.htm?type=oie&id=csh-detections).               | key-value pairs         |`{reasons=Anomalous Geo-Distance, New Device, New ASN, New IP, New State, New Country, New City, level=HIGH}`          |
 | Source            | The source of the session context change                 | String        | `OKTA`         |
 | ThreatSuspected            | If ThreatInsight is running and detects a request as suspicious, the value for this property is `true`.                   | Boolean         | `false`         |
-| TraceId            |  A unique ID that is used across a single flow of ITP events to easily correlate them all into one system log query                | String         | `65d55fa6-b5a9-40f9-a6f1-627b9fa71b50`        |
+| TraceId            |  A unique ID that is used across a single flow of ITP events to easily correlate them all into one System Log query                | String         | `65d55fa6-b5a9-40f9-a6f1-627b9fa71b50`        |
 | **target** (User)         | The user session with a change in context           | Object     |        |
 | type        | The type of target object     | String     | User       |
 | **target** (Session)         | The session of the user with a change in context           | Object     |        |
@@ -186,52 +186,52 @@ This resource contains detailed reference material on event types triggered with
 | type        | The type of target object     | String     | Session      |
 | **actor**                 |  For `ipAddress.change` and `deviceContext.change` in a synchronous flow, the user. For `deviceContext.change` in an asynchronous flow, the system principal             | Object        |         |
 | type        | The type of actor object           |      |        |
-| **client**                |  The client of the user with the context change, except in the case of a device context change when a user is not interacting with Okta. In that scenario, the client is Okta Verify.              | Object      |         |
+| **client**                |  The user client with the context change, except in the case of a device context change when a user isn't interacting with Okta. In that scenario, the client is Okta Verify.              | Object      |         |
 | IPAddress              | IP address                |       |         |
 
 ### policy.entity_risk.evaluate
 
-**Description:** Evaluation of Entity Risk policy. Signal that entity risk policy has been evaluated for an entity for which we have received a risk change event. Event fired when entity risk policy has been evaluated for an entity for which a risk change event was generated.
+**Description:** Evaluation of Entity risk policy. Signals that an Entity risk policy has been evaluated for an entity, which has received a risk change event.
 
-| Key Event Properties | Description                                         | Data Type      | Example Values |
+| Key event properties | Description                                         | Data type      | Example values |
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
 | **event.system.debugContext.debugData**                |                 |         |         |
 | Behaviors             | List of behaviors identified for the current event. `POSITIVE` - the specific behavior is identified. `NEGATIVE` - the specific behavior wasn't identified. See [About Behavior Detection](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-behavior-detection).                 | key-value pairs        |  `{New Geo-Location=POSITIVE, New Device=NEGATIVE, New IP=POSITIVE, New State=POSITIVE, New Country=POSITIVE, Velocity=POSITIVE, New City=POSITIVE} `       |
 | Risk            | Contains the level of risk for a particular request (`LOW`, `MEDIUM`, or `HIGH`) and the `reasons` that contributed to the risk level.                   | key-value pairs         |`{reasons=Anomalous Geo-Distance, New Device, New ASN, New IP, New State, New Country, New City, level=HIGH}`          |
 | ThreatSuspected            | If ThreatInsight is running and detects a request as suspicious, the value for this property is `true`.                   | Boolean         | `false`         |
-| TraceId            | A unique ID that is used across a single flow of ITP events to easily correlate them all into one system log query                 | String         | `65d55fa6-b5a9-40f9-a6f1-627b9fa71b50`        |
+| TraceId            | A unique ID that is used across a single flow of ITP events to easily correlate them all into one System Log query                 | String         | `65d55fa6-b5a9-40f9-a6f1-627b9fa71b50`        |
 | **target** (User)         | The user associated with the risk change            | Object      |        |
 | type        | The type of target object     | String     | User       |
 | **target** (Policy)         | The entity risk policy           | Object     |        |
 | type        | The type of target object     | String     | Policy      |
-| **target** (Rule)         | The entity risk policy rule           |      |        |
+| **target** (Rule)         | The rule of the entity risk policy           |      |        |
 | type        | The type of target object           | String     | Rule       |
 | **target.DetailEntry**        |             |        |        |
 | RuleAction         | The configured action to respond to the risk. Values include none (Logging Mode), `TERMINATE_ALL_SESSIONS`, and `RUN_WORKFLOW`.            | ENUM        | RUN_WORKFLOW       |
 | WorkflowId         | The unique identifier of the workflow            | String     | 572749       |
 | DisplayName        | The name of the rule        | String     | Test rule     |
 | ID        | Unique identifier of the rule          | String     | `00u8xut93qEWYx5sx1d7`       |
-| **actor**                 |  The target user if synchronous and system principal if asynchronous                 | Object        |         |
+| **actor**                 |  The target user if synchronous and the system principal if asynchronous                 | Object        |         |
 | type        | The type of actor object           |      |        |
 | **client**                | The client of the actor                | Object      |         |
 | IPAddress              | IP address                |       |         |
 
 ### policy.entity_risk.action
 
-**Description:** Entity Risk policy action invocation. Signal that an action associated with an entity risk policy evaluation has been invoked. Event fired when an action associated with an entity risk policy evaluation has been invoked.
+**Description:** Entity risk policy action invocation. Signals that an action associated with an evaluation of an entity risk policy has been invoked.
 
-| Key Event Properties  | Description                                         | Data Type      | Example Values |
+| Key event properties  | Description                                         | Data type      | Example values |
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
 | **event.system.debugContext.debugData**                |                 |         |         |
 | Behaviors             | List of behaviors identified for the current event. `POSITIVE` - the specific behavior is identified. `NEGATIVE` - the specific behavior wasn't identified. See [About Behavior Detection](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-behavior-detection).                 | key-value pairs        |  `{New Geo-Location=POSITIVE, New Device=NEGATIVE, New IP=POSITIVE, New State=POSITIVE, New Country=POSITIVE, Velocity=POSITIVE, New City=POSITIVE} `       |
 | Risk            | Contains the level of risk for a particular request (`LOW`, `MEDIUM`, or `HIGH`) and the `reasons` that contributed to the risk level.                    | key-value pairs         |`{reasons=Anomalous Geo-Distance, New Device, New ASN, New IP, New State, New Country, New City, level=HIGH}`          |
 | ThreatSuspected            | If ThreatInsight is running and detects a request as suspicious, the value for this property is `true`.                   | Boolean         | `false`         |
-| TraceId            | A unique ID that is used across a single flow of ITP events to easily correlate them all into one system log query                 | String         | `65d55fa6-b5a9-40f9-a6f1-627b9fa71b50`        |
+| TraceId            | A unique ID that is used across a single flow of ITP events to easily correlate them all into one System Log query                 | String         | `65d55fa6-b5a9-40f9-a6f1-627b9fa71b50`        |
 | **target** (User)         | The user associated with the risk change           | Object     |        |
 | type        | The type of target object     | String     | User       |
 | **target** (Policy)         | The entity risk policy           | Object     |        |
 | type        | The type of target object     | String     | Policy      |
-| **target** (Rule)         | The entity risk policy rule           | Object     |        |
+| **target** (Rule)         | The rule of the entity risk policy           | Object     |        |
 | type       | The type of target object              | String     | Rule       |
 | **target.DetailEntry**        |             |      |     |
 | RuleAction         | The configured action to respond to the risk. Values include none (Logging Mode), `TERMINATE_ALL_SESSIONS`, and `RUN_WORKFLOW`.            | ENUM     | `TERMINATE_ALL_SESSIONS`      |
@@ -245,36 +245,36 @@ This resource contains detailed reference material on event types triggered with
 | PolicyWorkflowId         | The unique identifier of the workflow            |  ENUM    |       |
 | DisplayName        | Name of the policy action         | String     |`TERMINATE_ALL_SESSIONS`         |
 | ID        | Unique identifier of the entity risk policy            | String     | `00u8xut93qEWYx5sx1d7`       |
-| **actor**                 |  The target user if synchronous and system principal if asynchronous                 | Object        |         |
+| **actor**                 |  The target user if synchronous and the system principal if asynchronous                 | Object        |         |
 | type        | The type of actor object           |      |        |
 | **client**                |  The client of the actor                |       |         |
 | IPAddress              | IP address                |       |         |
 
 ### user.session.end
 
-**Description:** This event is triggered when Okta terminates all IDX sessions. If there are 'N' active sessions for a user the event appears 'N' times. All 'N' events contain `externalSessionId` and `System.Transaction.ID` that correlate with the `System.Transaction.ID` under the `user.session.clear` event.
+**Description:** This event is triggered when Okta terminates all IDX sessions. If there are multiple active sessions for a user the event displays for each session. All events contain `externalSessionId` and `System.Transaction.ID` that correlate with the `System.Transaction.ID` under the `user.session.clear` event.
 
-| Key Event Properties  | Description                                         | Data Type      | Example Values |
+| Key event properties  | Description                                         | Data type      | Example values |
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
 | **event.system.debugContext.debugData**                |                 |         |         |
 | EndedSessionId             |  The session ID that is ended for the target user                 | String         |  `idxffK-esRDSrC5m0ly-Kma9A `       |
-| TraceId            | A unique ID that is used across a single flow of ITP events to easily correlate them all into one system log query                  | String         | `e1214f29-e6b3-4698-b3be-4bccaadf1937`         |
+| TraceId            | A unique ID that is used across a single flow of ITP events to easily correlate them all into one System Log query                  | String         | `e1214f29-e6b3-4698-b3be-4bccaadf1937`         |
 | ThreatSuspected             |  If ThreatInsight is running and detects a request as suspicious, the value for this property is `true`.                   | Boolean         |          |
-| Url                        | The log out URL from the end user or admin actor                  | String         |          |
+| Url                        | The log-out URL from the end user or admin actor                  | String         |          |
 | **event.System.Transaction**                |                 |         |         |
 | ID              | For an admin actor, this ID correlates with `user.session.clear` or `user.authentication.universal_logout` events. For a system principal actor, this ID correlates to the `user.authentication.universal_logout` event.               | String         |  `c579b0f27865c4b93be9ceb6f00e5373`          |
 | **target** (User)         | The user associated with a risk activity            | Object     |        |
 | type        | The type of target object     | String     | User       |
-| **actor**                 |  The end user, the Admin (in the case of an explicit Admin action), or the System Principal (i the case of a continuous access evaluation)               |  Object       |         |
+| **actor**                 |  The end user, the Admin (in the case of an explicit Admin action), or the system principal (i the case of a continuous access evaluation)               |  Object       |         |
 | type        | The type of actor object           |      |        |
 | **client**                |  The client of the system principal actor                | Object      |         |
 | IPAddress              | IP address                |       |         |
 
 ### user.session.clear
 
-**Description:**   This event is triggered when an Admin invokes clear sessions by clicking on the "Clear user session". This event appears only once and contains `externalSessionId` and `System.Transaction.ID`.
+**Description:**   This event is triggered when an Admin invokes clear sessions by clicking "Clear user session". This event appears only one time and contains `externalSessionId` and `System.Transaction.ID`.
 
-| Key Event Properties  | Description                                         | Data Type      | Example Values |
+| Key event properties  | Description                                         | Data type      | Example values |
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
 | **event.system.debugContext.debugData**                |                 |         |         |
 | Url             | ???                 | String         |         |
@@ -291,13 +291,13 @@ This resource contains detailed reference material on event types triggered with
 
 ### user.authentication.universal_logout
 
-**Description:** This event is triggered when an admin or system account triggers Universal Logout against an app instance. It contains the app instance details for which the Universal Logout API was fired. This event identifies when applications have had Universal Logout triggered for audit or debugging purposes. This event is only fired once. It's only fired for applications that have been configured for Universal Logout. You can configure it under Risk policy, Continuous Access policy, or in an admin-initiated Clear User Session.
+**Description:** This event is triggered when an admin or system account triggers Universal Logout against an app instance. It contains the app instance details for which the Universal Logout API was triggered. This event identifies when applications have had Universal Logout triggered for audit or debugging purposes. This event is only triggered once. It's only triggered for applications that have been configured for Universal Logout. You can configure it under Entity risk policy, Continuous Access, or in an admin-initiated Clear User Session.
 
-| Key Event Properties | Description                                         | Data Type      | Example Values |
+| Key event properties | Description                                         | Data type      | Example values |
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
 | **event.system.debugContext.debugData**                |                 |         |         |
 | AppInstanceIds            |A list of application IDs that Okta triggered for Universal Logout                 | Array of IDs         | [0oa1ysra5y0ESChAr0h8]        |
-| TraceId            | The `TraceId` is used in continuous access evaluation use cases. A request that triggers a CAE evaluation can ultimately trigger things like CAE action events - and those will be executed from the async jobs. `TraceId` connects together events triggered both by the original request handler and from the async jobs triggered by this handler. | String         | `94384405-51e3-4e13-b8b0-ba857b585a63`         |
+| TraceId            | The `TraceId` is used in continuous access evaluation use cases. A request that triggers a CAE evaluation can ultimately trigger things like CAE action events - and those are executed from the async jobs. `TraceId` connects together events triggered both by the original request handler and from the async jobs triggered by this handler. | String         | `94384405-51e3-4e13-b8b0-ba857b585a63`         |
 | **target** (User)         | The user impacted by the universal logout          | Object     |        |
 | type        | The type of target object     | String     | User       |
 | **actor**                 |  The admin or system principal that triggers universal logout                 | Object        |         |
@@ -307,14 +307,14 @@ This resource contains detailed reference material on event types triggered with
 
 ### workflows.user.delegatedflow.run
 
-**Description:** This event can be used by admins or security team members to monitor the execution of delegated flows in the Workflows platform from the Admin application. The actor field provides the Okta User ID of the user that ran the flow.  The target fields provide context on the Workflows instance as well as the name and flow ID of the executed flow. This event only indicates if the flow was successfully triggered and does not provide information about whether the flow encountered an error.
+**Description:** This event can be used by admins or security team members to monitor the execution of delegated flows in the Workflows platform from the Admin application. The actor field provides the Okta User ID of the user that ran the flow. The target fields provide context on the Workflows instance and the name and flow ID of the executed flow. This event only indicates if the flow was successfully triggered and doesn't provide information about whether the flow encountered an error.
 
-| Key Event Properties  | Description                                         | Data Type      | Example Values |
+| Key event properties  | Description                                         | Data type      | Example values |
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
 | **event.system.debugContext.debugData**                |                 |         |         |
 | SessionId          |               | String         | `ad995fe6-e721-4a8a-86ac-d942bc59ea41`       |
 | **target** (AppInstance)         | The Okta Workflows app        | Object     |        |
-| id        | Unique identifier of the OKta Workflows app         | String     | 00u8xut93qEWYx5sx1d7       |
+| id        | Unique identifier of the Okta Workflows app         | String     | 00u8xut93qEWYx5sx1d7       |
 | type        | The type of target object     | String     | AppInstance      |
 | **target** (Flow)         | The workflow instance of the executed flow         | Object     |        |
 | id        | Unique identifier of the target instance           | String     | 00u8xut93qEWYx5sx1d7       |
