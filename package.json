@@ -14,6 +14,7 @@
     "check-links:external": "yarn build && yarn broken-link-checker:external",
     "migrate": "yarn workspace @okta/migrate-from-jekyll migrate",
     "test": "yarn dev & yarn test:test-local && yarn stop-all",
+    "test:ci": "node scripts/test-ci-build & yarn test:test-local && yarn stop-all",
     "cy:open": "cypress open",
     "cy:run": "cypress run",
     "test:unit": "jest tests/unit",
