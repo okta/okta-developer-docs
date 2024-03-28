@@ -66,7 +66,7 @@ This resource contains detailed reference material on event types triggered with
 | **actor**                 | The registered device associated with the user sessions                | Object        |         |
 | id       | The ID of the registered device          | string     |  `guv1ibaeaz4lr8Eo70a9`      |
 
-### policy.auth.reevaluate.fail
+### policy.auth_reevaluate.fail
 
 **Description:** Auth policy re-evaluation has occurred and has resulted in a continuous access violation. Can be used to identify which user, apps, and session were involved in a continuous access violation event. Event fired when continuing access evaluation results in failure.
 
@@ -79,9 +79,9 @@ This resource contains detailed reference material on event types triggered with
 | ServerStatus            |  Describes the current state of Okta's servers. Other values can be READ_ONLY and SAFE_MODE.                | Enum         | `ACTIVE`         |
 | ThreatSuspected            | If ThreatInsight is running and detects a request as suspicious, the value for this property is `true`.                 | Boolean         | `false`         |
 | TraceId            | A unique ID that is used across a single flow of ITP events to easily correlate them all into one system log query                 | String         | `65d55fa6-b5a9-40f9-a6f1-627b9fa71b50`        |
-| **target** (User)         | The user associated with ???           | Object     |        |
+| **target** (User)         | The user session associated with the failed policy evaluations          | Object     |        |
 | type        | The type of target object     | String     | User      |
-| **target** (Policy Evaluation)         | The policy evaluation ???           | Object     |        |
+| **target** (Policy Evaluation)         | The re-evaluated policy         | Object     |        |
 | type        | The type of target object          | String     | Policy Evaluation       |
 | **target.DetailEntry** (Policy Evaluation)       |             |      |        |
 | AppInstanceIds         | The apps affected by a continuous access violation event            | Array     |  `[0oa4mczwb7SfcTQ9N0g7, 0oa4yvb15qhL8RKA30g7]`   |
@@ -92,9 +92,9 @@ This resource contains detailed reference material on event types triggered with
 | PolicyType         | The evaluated policy type            |  ENUM    |  `OKTA_SIGN_ON `     |
 | DisplayName        | Display name of the target           | String     |        |
 | ID        | Unique identifier of the target            | String     | `00u8xst93qEWYx65sx1d7`       |
-| **actor**                 |  ???                 | Object        |         |
+| **actor**                 |  The target user if synchronous and system principal if asynchronous                  | Object        |         |
 | type        | The type of actor object           |      |        |
-| **client**                |  ???                | Object      |         |
+| **client**                |  The client of the actor                  | Object      |         |
 | IPAddress              | IP address                |       |         |
 
 ### policy.continuous_access.evaluate
@@ -133,7 +133,7 @@ This resource contains detailed reference material on event types triggered with
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
 | **event.system.debugContext.debugData**                |                 |         |         |
 | Behaviors             | List of behaviors identified for the current event. `POSITIVE` - the specific behavior is identified. `NEGATIVE` - the specific behavior wasn't identified. See [About Behavior Detection](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-behavior-detection).                 | key-value pairs        |  `{New Geo-Location=POSITIVE, New Device=NEGATIVE, New IP=POSITIVE, New State=POSITIVE, New Country=POSITIVE, Velocity=POSITIVE, New City=POSITIVE} `       |
-| Risk            | ???                | key-value pairs         |`{reasons=Anomalous Geo-Distance, New Device, New ASN, New IP, New State, New Country, New City, level=HIGH}`          |
+| Risk            | Contains the level of risk for a particular request (`LOW`, `MEDIUM`, or `HIGH`) and the `reasons` that contributed to the risk level.                | key-value pairs         |`{reasons=Anomalous Geo-Distance, New Device, New ASN, New IP, New State, New Country, New City, level=HIGH}`          |
 | ThreatSuspected            | If ThreatInsight is running and detects a request as suspicious, the value for this property is `true`.                    | Boolean         | `false`         |
 | TraceId            | A unique ID that is used across a single flow of ITP events to easily correlate them all into one system log query                 | String         | `65d55fa6-b5a9-40f9-a6f1-627b9fa71b50`        |
 | **target** (User)         | The user associated with the risk change           | Object      |        |
