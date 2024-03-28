@@ -6,19 +6,19 @@ meta:
 layout: Guides
 ---
 
-This guide shows you how to use the Okta APIs to configure and enable an Okta provisioning connection with a supported third-party app integration.
+This guide shows you how to use the Okta APIs to configure and enable an Okta provisioning connection.
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Learn how to enable a token-based or OAuth 2.0-based provisioning connection for a supported app integration using the Okta APIs.
 * Learn how to configure provisioning features for a supported app integration using the Okta APIs.
 
-**What you need**
+#### What you need
 
 * An Okta org
-* An Okta-supported provisioning app integration that you added in your Okta org
+* A supported provisioning app integration that you added in your Okta org
 * Postman (if you want to follow this guide and test the Okta APIs)
 
 ---
@@ -27,12 +27,44 @@ This guide shows you how to use the Okta APIs to configure and enable an Okta pr
 
 You can enable and configure app provisioning connections for supported integrations using Okta APIs. This operation was only available in the Admin Console before Okta provided API support for provisioning connections. See [Configure provisioning for an app integration](https://help.okta.com/okta_help.htm?type=oie&id=ext_prov_lcm_prov_app) in the product documentation.
 
-Okta supports token-based or OAuth 2.0-based authentication for the provisioning connections. The following are Okta-supported app integrations and the authentication types that they use for their provisioning connection.
+Okta supports token-based or OAuth 2.0-based authentication for the provisioning connections. The following are Okta-supported app integrations and their provisioning connection authentication types.
 
 | Connection authentication | <div style="width:300px">Apps supported</div> | Description |
 | ------------------------- | -------------- | ----------- |
 | Token | Okta Org2Org (`okta_org2org`)<br>Zscaler 2.0 (`zscalerbyz`) | The provisioning API connection is based on bearer token authentication. For example, with an API key. |
 | OAuth 2.0 | Google Workspace (`google`)<br>Microsoft Office 365 (`office365`)<br>Okta Org2Org (`okta_org2org`)<br>Slack (`slack`)<br>Zoom (`zoomus`) | The provisioning API connection is based on OAuth 2.0 authentication. |
+
+## Access Okta APIs
+
+First, you need access to the Okta APIs regardless whether you're setting up a token-based or an OAuth 2.0-based provisioning connection. You can access Okta APIs with OAuth 2.0 authentication either as a service app or a user.
+
+### Get Okta API access as a service
+
+To access Okta APIs with OAuth 2.0 in a service-based context, create a service app in Okta. You can specify the scopes and resources granted to the service app, which allows you to obtain an access token with those grants.
+
+See [Service-based API access setup](/docs/reference/rest/#service-based-api-access-setup) for complete steps.
+
+When you create the service app, ensure that you have the following scopes:
+
+* `okta.apps.read`
+* `okta.apps.manage`
+
+Ensure that you assign the **Super Administrator** role to your service app.
+
+These scopes and roles allow you to manage the app provisioning connection and features. After you obtain your access token, proceed to the [token-based](#token-based-provisioning-connection) or the [OAuth 2.0-based](#oauth-2-0-based-provisioning-connection) provisioning connection task.
+
+### Get Okta API access as a user
+
+To access Okta APIs with OAuth 2.0 in a user-based context, create an OIDC app in Okta for you to sign in to. You can specify the scopes and resources granted to the OIDC app, which allows you to obtain an access token with those grants.
+
+See [User-based API access setup](/docs/reference/rest/#user-based-api-access-setup).
+
+When you create the OIDC app, ensure that you have the following scopes:
+
+* `okta.apps.read`
+* `okta.apps.manage`
+
+These scopes allow you to manage the app provisioning connection and features. After you obtain your access token, proceed to enable your [token-based](#token-based-provisioning-connection) or [OAuth 2.0-based](#oauth-2-0-based-provisioning-connection) provisioning connection.
 
 ## Token-based provisioning connection
 
@@ -82,19 +114,20 @@ After you create your app integration in Okta, configure the provisioning connec
       }'
     ```
 
-2. [Configure the provisioning features for your app](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationFeatures/#tag/ApplicationFeatures/operation/updateFeatureForApplication): INBOUND_PROVISIONING and/or USER_PROVISIONING.
+2. Configure the provisioning features for your app: INBOUND_PROVISIONING and/or USER_PROVISIONING.
 
-    * INBOUND_PROVISIONING feature: For token-based connections, only the Okta Org2Org (`okta_org2org`) app supports this feature. INBOUND_PROVISIONING is similar to the app **Provisioning** > **To Okta** setting in the Admin Console, where user profiles are imported from the third-party app into Okta. You can schedule user import and configure rules for [user creation and matching](https://help.okta.com/okta_help.htm?type=oie&id=ext-usgp-edit-app-provisioning).
+    * INBOUND_PROVISIONING: For token-based connections, only the Okta Org2Org (`okta_org2org`) app supports this feature.
 
-    * USER_PROVISIONING feature: For token-based connections, both the Okta Org2Org (`okta_org2org`) and Zscaler 2.0 (`zscalerbyz`) apps support this feature. USER_PROVISIONING is similar to the app **Provisioning** > **To App** setting in the Admin Console, where [user profiles are pushed](https://help.okta.com/okta_help.htm?type=oie&id=ext_Using_Selective_Profile_Push) from Okta to the third-party app. You can configure rules for creating users, deactivating users, and syncing passwords.
+    * USER_PROVISIONING: For token-based connections, both the Okta Org2Org (`okta_org2org`) and Zscaler 2.0 (`zscalerbyz`) apps support this feature.
 
-For request and response examples, see the last step to configure the provisioning feature in [Enable OAuth 2.0-based connection for your app](#enable-oauth-2-0-based-connection-for-your-app).
+    See
+ [Configure the provisioning features for your app](#configure-the-provisioning-features-for-your-app).
 
 ## OAuth 2.0-based provisioning connection
 
 Okta supports a two-legged OAuth 2.0 flow provisioning connection only for the Okta Org2Org app (`org2org`) in a multi-tenant deployment. See [Secure API connections between orgs with OAuth 2.0](/docs/guides/secure-oauth-between-orgs/main/) for enabling and configuring the Org2Org provisioning connection.
 
-A three-legged OAuth 2.0 flow is used to set up the provisioning connection where you need the resource owner's consent to grant access to the third-party app for provisioning.
+A three-legged OAuth 2.0 flow is used to set up the provisioning connection where you need the resource owner's consent to grant access to the third-party app.
 The following app integrations support the OAuth 2.0 flow with granted consent:
 
 * Google Workspace (`google`)
@@ -229,73 +262,86 @@ After you create your app integration in Okta, configure the provisioning connec
       -H 'Authorization: Bearer {yourOktaAccessToken}'
     ```
 
-1. [Configure the provisioning features for your app](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationFeatures/#tag/ApplicationFeatures/operation/updateFeatureForApplication): INBOUND_PROVISIONING and/or USER_PROVISIONING.
+1. Configure your provisioning features. See
+ [Configure the provisioning features for your app](#configure-the-provisioning-features-for-your-app).
 
-    * INBOUND_PROVISIONING feature: This feature is similar to the app **Provisioning** > **To Okta** setting in the Admin Console, where user profiles are imported from the third-party app into Okta. You can schedule user import and configure rules for [user creation and matching](https://help.okta.com/okta_help.htm?type=oie&id=ext-usgp-edit-app-provisioning).
+## Configure the provisioning features for your app
 
-      For example:
+After you successfully activate your provisioning connection, use the [Application Features API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationFeatures/) to configure the INBOUND_PROVISIONING and/or USER_PROVISIONING features.
 
-      ```bash
-      curl -i -X PUT \
-        'https://{yourOktaDomain}/api/v1/apps/{appId}/features/INBOUND_PROVISIONING' \
-        -H 'Authorization: Bearer {yourOktaAccessToken}' \
-        -H 'Content-Type: application/json' \
-        -d '{
-                  "importSettings": {
-                      "username": {
-                          "userNameFormat": "CUSTOM",
-                          "userNameExpression": "source.userName"
-                      },
-                      "schedule": {
-                          "status": "ENABLED",
-                          "fullImport": {
-                              "expression": "0 */4 * * *",
-                              "timeZone": "America/New_York"
-                          },
-                          "incrementalImport": {
-                          }
-                      }
-                  },
-                  "importRules": {
-                      "userCreateAndMatch": {
-                          "exactMatchCriteria": "USERNAME",
-                          "allowPartialMatch": false,
-                          "autoConfirmPartialMatch": false,
-                          "autoConfirmExactMatch": false,
-                          "autoConfirmNewUsers": false,
-                          "autoActivateNewUsers": false
-                      }
-                  }
-          }'
-      ```
+### INBOUND_PROVISIONING
 
-    * USER_PROVISIONING feature: This feature is similar to the app **Provisioning** > **To App** setting in the Admin Console, where [user profiles are pushed](https://help.okta.com/okta_help.htm?type=oie&id=ext_Using_Selective_Profile_Push) from Okta to the third-party app. You can configure rules for creating users, deactivating users, and syncing passwords.
+The INBOUND_PROVISIONING feature is similar to the app **Provisioning** > **To Okta** setting in the Admin Console, where user profiles are imported from the third-party app into Okta. You can schedule user import and configure rules for [user creation and matching](https://help.okta.com/okta_help.htm?type=oie&id=ext-usgp-edit-app-provisioning).
 
-      For example:
+Use the [Update a Feature](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationFeatures/#tag/ApplicationFeatures/operation/updateFeatureForApplication) request to configure `INBOUND_PROVISIONING`.
 
-      ```bash
-      curl -i -X PUT \
-        'https://{yourOktaDomain}/api/v1/apps/{appId}/features/USER_PROVISIONING' \
-        -H 'Authorization: Bearer {yourOktaAccessToken}' \
-        -H 'Content-Type: application/json' \
-        -d '{
-            "create": {
-              "lifecycleCreate": {
-                  "status": "ENABLED"
-              }
-            },
-            "update": {
-                "lifecycleDeactivate": {
-                    "status": "ENABLED"
+For example:
+
+```bash
+curl -i -X PUT \
+  'https://{yourOktaDomain}/api/v1/apps/{appId}/features/INBOUND_PROVISIONING' \
+  -H 'Authorization: Bearer {yourOktaAccessToken}' \
+  -H 'Content-Type: application/json' \
+  -d '{
+            "importSettings": {
+                "username": {
+                    "userNameFormat": "CUSTOM",
+                    "userNameExpression": "source.userName"
                 },
-                "profile":{
-                    "status": "ENABLED"
-                },
-                "password":{
+                "schedule": {
                     "status": "ENABLED",
-                    "seed": "RANDOM",
-                    "change": "CYCLE"
+                    "fullImport": {
+                        "expression": "0 */4 * * *",
+                        "timeZone": "America/New_York"
+                    },
+                    "incrementalImport": {
+                    }
+                }
+            },
+            "importRules": {
+                "userCreateAndMatch": {
+                    "exactMatchCriteria": "USERNAME",
+                    "allowPartialMatch": false,
+                    "autoConfirmPartialMatch": false,
+                    "autoConfirmExactMatch": false,
+                    "autoConfirmNewUsers": false,
+                    "autoActivateNewUsers": false
                 }
             }
+    }'
+```
+
+### USER_PROVISIONING
+
+The USER_PROVISIONING feature is similar to the app **Provisioning** > **To App** setting in the Admin Console, where [user profiles are pushed](https://help.okta.com/okta_help.htm?type=oie&id=ext_Using_Selective_Profile_Push) from Okta to the third-party app. You can configure rules for creating users, deactivating users, and syncing passwords.
+
+Use the [Update a Feature](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationFeatures/#tag/ApplicationFeatures/operation/updateFeatureForApplication) request to configure `USER_PROVISIONING`.
+
+For example:
+
+```bash
+curl -i -X PUT \
+  'https://{yourOktaDomain}/api/v1/apps/{appId}/features/USER_PROVISIONING' \
+  -H 'Authorization: Bearer {yourOktaAccessToken}' \
+  -H 'Content-Type: application/json' \
+  -d '{
+      "create": {
+        "lifecycleCreate": {
+            "status": "ENABLED"
         }
-      ```
+      },
+      "update": {
+          "lifecycleDeactivate": {
+              "status": "ENABLED"
+          },
+          "profile":{
+              "status": "ENABLED"
+          },
+          "password":{
+              "status": "ENABLED",
+              "seed": "RANDOM",
+              "change": "CYCLE"
+          }
+      }
+  }
+```
