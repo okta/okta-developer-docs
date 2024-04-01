@@ -126,6 +126,12 @@
   scroll-margin-top: 160px;
 }
 
+@include media("<tablet") {
+  :target {
+    scroll-margin-top: 140px;
+  }
+}
+
 .content--container .content-area-full {
   padding: 0 59px;
   max-width: 100%;
