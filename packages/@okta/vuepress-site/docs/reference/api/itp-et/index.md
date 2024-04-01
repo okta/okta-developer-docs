@@ -76,7 +76,7 @@ This resource contains detailed reference material on event types triggered with
 | Behaviors             | List of behaviors identified for the current event. `POSITIVE` - the specific behavior is identified. `NEGATIVE` - the specific behavior wasn't identified. See [About Behavior Detection](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-behavior-detection).                 | key-value pairs        |  `{New Geo-Location=POSITIVE, New Device=NEGATIVE, New IP=POSITIVE, New State=POSITIVE, New Country=POSITIVE, Velocity=POSITIVE, New City=POSITIVE} `       |
 | CaeEnforceMode             | The Continuous Access evaluation (CAE) UI setting that determines whether the policy is enforceable. If this is false, Okta logs these events but doesn't take any further action.                  | Boolean         | `true`       |
 | Risk            | Contains the level of risk for a particular request (`LOW`, `MEDIUM`, or `HIGH`) and the `reasons` that contributed to the risk level.               | key-value pairs         | `{reasons=Anomalous Geo-Distance, New Device, New ASN, New IP, New State, New Country, New City, level=HIGH}`        |
-| ServerStatus            |  Describes the current state of the Okta servers. Other values can be READ_ONLY and SAFE_MODE.                | Enum         | `ACTIVE`         |
+| ServerStatus            |  Describes the current state of the Okta servers. Other values can be `READ_ONLY` and `SAFE_MODE`.                | Enum         | `ACTIVE`         |
 | ThreatSuspected            | If ThreatInsight is running and detects a request as suspicious, the value for this property is `true`.                 | Boolean         | `false`         |
 | TraceId            | A unique ID that is used across a single flow of ITP events to easily correlate them all into one System Log query                 | String         | `65d55fa6-b5a9-40f9-a6f1-627b9fa71b50`        |
 | **target** (User)         | The user session associated with the failed policy evaluations          | Object     |        |
@@ -86,7 +86,7 @@ This resource contains detailed reference material on event types triggered with
 | **target.DetailEntry** (Policy Evaluation)       |             |      |        |
 | AppInstanceIds         | The apps affected by a continuous access violation event            | Array     |  `[0oa4mczwb7SfcTQ9N0g7, 0oa4yvb15qhL8RKA30g7]`   |
 | MatchedRuleAction        | The action of the rule that matched the evaluation. Values can be `ALLOW` or `DENY`.           | Enum     | `ALLOW`      |
-| MatchedRuleAssuranceMet        | Whether the matched rule evaluated to passing all authenticator assurances           | Boolean      | `false`       |
+| MatchedRuleAssuranceMet        | Whether the matched rule evaluated to passing all authenticator assurances. This value is `null` if the `MatchedRuleAction` is `DENY`.           | Boolean      | `false`       |
 | MatchedRuleDisplayName         | The matched rule's display name            | String     |        |
 | MatchedRuleId        | The unique identifier of the matched rule            | String     | `0pr4yyl6a8D97WIRC0a7 `      |
 | PolicyType         | The evaluated policy type            |  ENUM    |  `OKTA_SIGN_ON `     |
