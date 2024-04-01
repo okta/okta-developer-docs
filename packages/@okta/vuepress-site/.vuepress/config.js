@@ -314,6 +314,7 @@ module.exports = ctx => ({
               '/docs/reference/api/archive-myaccount/',
               '/docs/reference/api/myaccount-migration/',
               '/docs/reference/csi-delauth-hook/',
+              'd28m3l9ryqsunl.cloudfront.net/',
               //'/docs/reference/api/inline-hooks-lea/',
               //'/docs/reference/api/hook-keys/'
           ]
@@ -352,6 +353,8 @@ module.exports = ctx => ({
         $page.redir = `/docs/guides/${found.guide}/${found.sections[0]}/`
       }
     }
+    
+    frontmatter.canonicalUrl = `https://developer.okta.com${path}`;
 
     if (path === '/') {
       $page.newsFeedDataJson = null;
