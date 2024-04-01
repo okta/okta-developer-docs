@@ -19,7 +19,7 @@ This guide shows you how to integrate Web Authentication (WebAuthn) into your ap
 
 **Sample code**
 
-* <StackSnippet snippet="samplecode" />
+<StackSnippet snippet="samplecode" />
 
 ---
 
@@ -37,7 +37,7 @@ Besides being resistant to phishing attacks, WebAuthn can drastically reduce sig
 
 WebAuthn uses public-key cryptography to security communicate and validate the user's device, credentials, and other information. An example WebAuthn authentication challenge flow is as follows:
 
-1. A user attempts to sign in to a service provider's website.
+1. A user attempts to sign in to a Service Provider's website.
 1. The website's back-end servers generate a challenge that's cryptographically signed using a public key.
 1. The encrypted challenge and other identifying information is sent to the client app running in the browser.
 1. The client app then calls WebAuthn APIs in the browser and passes the challenge to the authenticator for validation.
@@ -53,7 +53,7 @@ In the previous example the public and private keys are generated on the user's 
 
 </div>
 
-As the service provider, you can provide WebAuthn support to your users by enabling it in your Okta org and building out support for it in your application using the Embedding SDK.
+As the Service Provider, you can provide WebAuthn support to your users by enabling it in your Okta org and building out support for it in your application using the embedded SDK.
 
 ## Update configurations
 
@@ -77,8 +77,8 @@ First, add the WebAuthn authenticator to your org and enable it.
    3. Click **Save** to save your changes.
 
 4. Select the **Enrollment** tab.
-5. Check that **FIDO2 (WebAuthn)** is set to either **Optional** or **Required** in the **Eligible Authenticators** section of the Default Policy.
-   1. If **FIDO2 (WebAuthn)** is set to **Disabled**, click **Edit** for the Default Policy
+5. Check that **FIDO2 (WebAuthn)** is set to either **Optional** or **Required** in the **Eligible Authenticators** section of the default policy.
+   1. If **FIDO2 (WebAuthn)** is set to **Disabled**, click **Edit** for the default policy
    2. Select **Optional** from the dropdown box for **FIDO2 (WebAuthn)**, and then click **Update Policy**.
 
 ### Set your app integration to use the WebAuthn authenticator
