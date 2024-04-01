@@ -276,8 +276,8 @@ This resource contains detailed reference material on event types triggered with
 
 | Key event properties  | Description                                         | Data type      | Example values |
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
-| **event.system.debugContext.debugData**                |                 |         |         |
-| Url             | ???                 | String         |         |
+<!-- | **event.system.debugContext.debugData**                |                 |         |         |
+| Url             | ???                 | String         |         |-->
 | **event.System.Transaction**                |                 |         |         |
 | ID              | This ID correlates with all associated `user.session.end` events                | String         | `c579b0f27865c4b93be9ceb6f00e5373`         |
 | **event.AuthenticationContext**                |                 |         |         |
@@ -322,5 +322,5 @@ This resource contains detailed reference material on event types triggered with
 | **actor**                 |  The user that runs the flow                | Object        |         |
 | id        | Unique identifier of the user that runs the flow           |      |        |
 | type        | The type of actor object           |  String    |  User      |
-| **client**                |  ???                | Object      |         |
-| IPAddress              | IP address                |       |         |
+<!-- | **client**                |  ???                | Object      |         |
+| IPAddress              | IP address                |       |         | -->
