@@ -9,10 +9,9 @@ layout: Guides
 This guide explains access policies and how to configure them for common scenarios.
 
 ---
-<!-- Nutrition facts bullets -->
+
 #### Learning outcomes
 
-* Understand what access policies are and how they are used.
 * Configure an access policy to limit which scopes that some clients can access.
 * Configure a custom access token lifetime per client.
 
@@ -31,9 +30,9 @@ Access policies help you secure your APIs by defining different access and refre
 
 For example, an access token for a banking API may include a `transactions:read` scope with a multi-hour token lifetime. By contrast, the lifetime of an access token for transferring funds should be only a matter of minutes.
 
-You can also [include custom claims](/docs/guides/customize-authz-server/main/#create-claims) in ID and access tokens to disclose the information that you want to share, depending on the client and the scope of the tokens. Scopes specify what access privileges are being requested as part of the authorization. Claims are statements about the user (or `subject`), such as name, role, or email address.
+You can also [include custom claims](/docs/guides/customize-authz-server/main/#create-claims) in ID and access tokens. This discloses the information that you want to share, depending on the client and the scope of the tokens. Scopes specify what access privileges are being requested as part of the authorization. Claims are statements about the user (or `subject`), such as name, role, or email address.
 
-For example, a shopping site may have one set of claims for customers while they browse, but another claim for administrator functions like changing a customer's personal information. Custom claims also help you by reducing the number of lookup calls that are required to retrieve user information from the Identity Provider (IdP). This benefit depends on the level of security that your apps require.
+For example, a shopping site may have one set of claims for customers while they browse. The site may then have another claim for administrator functions like changing a customer's personal information. Custom claims also help you by reducing the number of lookup calls that are required to retrieve user information from the Identity Provider (IdP). This benefit depends on the level of security that your apps require.
 
 Policies are evaluated in priority order, as are the rules in a policy. The first policy and rule that match the client request are applied and no further rule or policy processing occurs. If a client matches no policies, the authentication attempt fails and an error is returned.
 
@@ -50,9 +49,9 @@ Use the following steps to create a policy that limits which scopes that a desig
 
 ### Create the policy container
 
-1. In the Admin Console, go to **Security** > **API**.
+1. Go to **Security** > **API** in the Admin Console.
 
-2. On the **Authorization Servers** tab, select the name of the authorization server that you want to apply the policy to.
+2. Select the name of the authorization server that you want to apply the policy to.
 
 3. Select **Access Policies**, and then **Add Policy**.
 
@@ -64,11 +63,11 @@ Use the following steps to create a policy that limits which scopes that a desig
 
 ### Create the rule
 
-1. Select the name of the access policy that you just created, and then select **Add Rule**.
+1. Select the name of the access policy that you created, and then select **Add Rule**.
 
 2. Enter a **Name** for the rule, and then for this example, leave the defaults for **IF Grant type is** and **AND User is**.
 
-3. For the **AND Scopes requested** field, select **The following scopes:** and then click **OIDC default scopes**. All of the OpenID Connect reserved scopes appear in the box.
+3. For the **AND Scopes requested** field, select **The following scopes:** and then click **OIDC default scopes**. All OpenID Connect reserved scopes appear in the box.
 
 4. Click the **x** to remove all of the scopes except for **openid** and **email**. This limits the scopes that the applications associated with this policy can request to just the `openid` and `email` scopes.
 
@@ -82,7 +81,7 @@ Use the following steps to create a policy that limits which scopes that a desig
 
 Let's test your access policy and get back an access token.
 
-1. You need the following values from your Okta OpenID client application, both of which can be found on the application's **General** tab in the Admin Console:
+1. You need the following values from your Okta OpenID client application. You can find both on the application's **General** tab in the Admin Console:
 
      * Client ID
      * Valid Redirect URI
@@ -179,11 +178,11 @@ Let's test your access policy and get back an access token.
 
      > **Note:** Make sure that you have a user assigned to the client application.
 
-2. Retrieve the authorization server's authorization endpoint by using the server's Metadata URI: `https://${yourOktaDomain}/oauth2/${authorizationServerId}/.well-known/openid-configuration`.
+2. Retrieve the authorization server's authorization endpoint by using the server's metadata URI: `https://${yourOktaDomain}/oauth2/${authorizationServerId}/.well-known/openid-configuration`.
 
      It looks like this: `https://${yourOktaDomain}/oauth2/${authorizationServerId}/v1/authorize`
 
-     Unless you are using the default authorization server, then it looks like this: `https://${yourOktaDomain}/oauth2/default/v1/authorize`
+     Unless you’re using the default authorization server, then it looks like this: `https://${yourOktaDomain}/oauth2/default/v1/authorize`
 
 3. Add the following `/authorize` endpoint query parameters to the URL:
 
@@ -198,21 +197,10 @@ Let's test your access policy and get back an access token.
 
      `https://${yourOktaDomain}/oauth2/${authorizationServerId}/v1/authorize?client_id=${client_id}&response_type=token&response_mode=fragment&scope=openid&redirect_uri=http://yourRedirectURIHere.com&state=WM6D&nonce=YsG76jo`
 
-4. Open a private browsing session in your browser and paste the URL into the address box. You are redirected to the sign-in page for your Okta org.
+4. Open a private browsing session in your browser and paste the URL into the address box. You’re redirected to the sign-in page for your Okta org.
 
-5. Enter the credentials for a user who is mapped to your OpenID Connect application, and you are directed to the `redirect_uri` that you specified. Look in the address box for the URL that contains the access token, scope, and any state that you defined:
+5. Enter the credentials for a user who is mapped to your OpenID Connect application, and you’re directed to the `redirect_uri` that you specified. Look in the address box for the URL that contains the access token, scope, and any state that you defined:
 
      `http://yourRedirectUriHere.com#access_token=eyJraWQiOiJYc2hYcGZTSHdEMk1zU2pvSTlZTmozWF9KdE1mclpmYWFOUklfNlBCVjQw[...]vkAcHgJ1GFmR-7sO0Q&token_type=Bearer&expires_in=900&scope=openid+email&state=WM6D`
 
      In the response, you can see that the value for the `expires_in` parameter is `900`.
-
-## Next steps
-
-You should now understand how to configure an access policy.
-
-You can customize and style various Okta assets to match your company's visual identity and branding:
-
-* [Customize domain and email address](/docs/guides/custom-url-domain/)
-* [SMS customization](/docs/guides/custom-sms-messaging/)
-* [Email customization](/docs/guides/custom-email/)
-* [Style the Sign-In Widget](/docs/guides/custom-widget/)

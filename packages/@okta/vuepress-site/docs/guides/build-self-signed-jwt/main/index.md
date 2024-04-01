@@ -5,7 +5,7 @@ layout: Guides
 ---
 
 
-This guide explains how to build a self-signed JSON Web Token (JWT) that is used throughout Okta. For example, when you make requests to Okta API endpoints that require [client authentication](/docs/reference/api/oidc/#client-authentication-methods), you can optionally use a JWT for additional security.
+This guide explains how to build a self-signed JSON Web Token (JWT) that's used throughout Okta. For example, when you make requests to Okta API endpoints that require [client authentication](/docs/reference/api/oidc/#client-authentication-methods), you can optionally use a JWT for more security.
 
 > **Note**: JWTs allow claims, such as user data, to be represented in a secure manner, helping to ensure trust and security in your app. JWTs are an open standard, and there are various libraries available that allow you to create, verify, and inspect them.
 
@@ -23,8 +23,8 @@ This guide explains how to build a self-signed JSON Web Token (JWT) that is used
 
 There are two types of self-signed JWT assertions that you can build for use when you make requests to endpoints that require client authentication:
 
-* JWT With a Shared Key (`client_secret_jwt`)
-* JWT With a Private Key (`private_key_jwt`)
+* JWT with a Shared Key (`client_secret_jwt`)
+* JWT with a Private Key (`private_key_jwt`)
 
 The difference between building these two types of assertions is the algorithm and key used to sign the JWT.
 
@@ -40,12 +40,12 @@ When you create a JWT assertion claim for client authentication (`client_secret_
 
 | Claim    | Description                                                  | Type        |
 |----------|--------------------------------------------------------------|-------------|
-| aud      | Required. The full URL of the resource that you're trying to access using the JWT to authenticate. For example: `https://${yourOktaDomain}/oauth2/default/v1/token` | String  |
-| exp      | Required. The token expiration time in seconds since January 1, 1970 UTC (UNIX timestamp), for example, `1555594819`. This claim fails the request if the expiration time is more than one hour in the future or if the token is already expired.            | Integer     |
-| iss      | Required. The issuer of the token. This value must be the same as the `client_id` of the application that you are accessing.  | String      |
-| sub      | Required. The subject of the token. This value must be the same as the `client_id` of the application that you are accessing. | String       |
-| jti      | Optional. The unique token identifier. If you specify this parameter, the token can only be used once and, as a result, subsequent token requests won't succeed. | String    |
-| iat      | Optional. When the token was issued in seconds since January 1, 1970 UTC (UNIX timestamp), for example, `1555591219`. If specified, it must be a time before the request is received. | Integer     |
+| `aud`      | Required. The full URL of the resource that you're trying to access using the JWT to authenticate. For example: `https://${yourOktaDomain}/oauth2/default/v1/token` | String  |
+| `exp`      | Required. The token expiration time in seconds since January 1, 1970 UTC (UNIX timestamp), for example, `1555594819`. This claim fails the request if the expiration time is more than one hour in the future or if the token is already expired.            | Integer     |
+| `iss`      | Required. The issuer of the token. This value must be the same as the `client_id` of the application that you’re accessing.  | String      |
+| `sub`      | Required. The subject of the token. This value must be the same as the `client_id` of the application that you’re accessing. | String       |
+| `jti`      | Optional. The unique token identifier. If you specify this parameter, the token can only be used once and, as a result, subsequent token requests won't succeed. | String    |
+| `iat`      | Optional. When the token was issued in seconds since January 1, 1970 UTC (UNIX timestamp), for example, `1555591219`. If specified, it must be a time before the request is received. | Integer     |
 
 ## Build a JWT with a shared key
 
