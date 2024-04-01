@@ -264,6 +264,8 @@ Existing registration inline hooks may experience compatibility issues after mig
 
 In the Admin Console, where you enable a registration inline hook has changed. Enable the hook from the Profile Enrollment Rules page (**Security** > **Profile Enrollment**) instead of the Self-Service Registration page (**Self-service Directory** > **Self-Service Registration**). The creation of the registration inline hook remains the same. You can use either the Admin Console or Inline Hook Management APIs.
 
+> **Note:** If you enabled Multiple Identifiers, go to **Security** > **User Profile**. See [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features).
+
 See [Registration hooks API reference](/docs/reference/registration-hook/) and [Manage Profile Enrollment Policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-profile-enrollment).
 
 ### Security image

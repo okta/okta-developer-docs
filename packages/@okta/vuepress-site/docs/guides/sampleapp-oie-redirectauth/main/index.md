@@ -87,6 +87,7 @@ This section walks you through enabling self-service enrollment for the Sign-In 
 > **Note:** This section assumes that you followed the previous [Initial setup](#initial-setup) and [Simple enrollment and authentication](#simple-enrollment-and-authentication) sections. The steps may be different if you didn't.
 
 1. In the Admin Console, select **Security** > **Profile Enrollment**, and then select **Add Profile Enrollment Policy**.
+   > **Note:** If you enabled Multiple Identifiers, go to **Security** > **User Profile**. See [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features).
 2. Give your Policy a **Name** and then click **Save**.
 3. On the Profile Enrollment page, select the pencil icon for your new Policy from the **Actions** column.
 4. On the Policy page, click **Manage Apps** and then click **Add an App to This Policy**.
@@ -227,6 +228,7 @@ Okta gives you the ability to check for what data is required from a user before
 When you enrolled your test user, the user was only prompted for first and last name, as well as their email and a password. Now add an additional required property to the profile enrollment policy.
 
 1. In the Admin Console side navigation, select **Security** > **Profile Enrollment**.
+   > **Note:** If you enabled Multiple Identifiers, go to **Security** > **User Profile**. See [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features).
 1. Find the profile enrollment policy that you created for self-service enrollment and click the pencil icon in the **Actions** column.
 1. In the **Enrollment Settings** section, click the **Actions** menu icon (&#8942;) and select **Edit**.
 1. For **Progressive Profiling** select **Enabled**.
@@ -243,7 +245,9 @@ When you enrolled your test user, the user was only prompted for first and last 
 
     > **Note:** You can check which user attributes are required for your directory by clicking the information icon beside each attribute. By default, **First name** and **Last name** are marked as required, in addition to what you specify in your enrollment policy.
 
-1. Return to your profile enrolment policy (**Security** > **Profile Enrollment** ). Find the profile enrollment policy that you created for self-service enrollment and click the pencil icon in the **Actions** column.
+1. Return to your profile enrolment policy (**Security** > **Profile Enrollment** ).
+   > **Note:** If you enabled Multiple Identifiers, go to **Security** > **User Profile**. See [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features).
+1. Find the profile enrollment policy that you created for self-service enrollment and click the pencil icon in the **Actions** column.
 1. In the Profile enrollment form section, click **Add form input** and search for `Region (region)`
 
 1. Select the **Required** checkbox, and then click **Save**.

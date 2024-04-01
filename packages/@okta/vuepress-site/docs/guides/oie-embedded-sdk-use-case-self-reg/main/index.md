@@ -54,6 +54,7 @@ Create a policy for self-registration:
 
 1. Open the Admin Console for your org.
 1. Go to **Security** > **Profile Enrollment**, and click **Add Profile Enrollment Policy**.
+   > **Note:** If you enabled Multiple Identifiers, go to **Security** > **User Profile**. See [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features).
 1. Enter a policy **Name**, and click **Save**.
 1. Click the pencil icon next to your new policy.
 1. Ensure that **Self-service registration** is set to **Allowed**.
@@ -102,6 +103,7 @@ To replicate this scenario:
    1. Set **Initiate login URI** to your **Sign-in Redirect URI**, and click **Save**.
 1. Make email verification mandatory in your default profile enrollment policy.
    1. Go to **Security** > **Profile Enrollment**.
+      > **Note:** If you enabled Multiple Identifiers, go to **Security** > **User Profile**. See [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features).
    {style="list-style-type:lower-alpha"}
    1. Click the pencil icon next to the **Default policy**.
    1. Ensure that **Required before access is granted** is selected for **Email Verification**.

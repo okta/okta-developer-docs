@@ -195,6 +195,7 @@ By default, self-service registration isn't enabled for all apps. Use the follow
     1. Click the **Groups** filter.
     1. If the Everyone group isn't assigned, add it by clicking **Assign** > **Assign to Groups**, and assigning to the Everyone group.
 1. Go to **Security** > **Profile Enrollment** and edit the **Default Policy**.
+   > **Note:** If you enabled Multiple Identifiers, go to **Security** > **User Profile**. See [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features).
 1. Notice in the **Profile Enrollment** section, **Denied** is selected for **Self-service registration** by default. This setting removes the self-registration option for all apps assigned to the default policy.
 1. [Test your app](#test-your-app) and note that the **Sign-up** link doesn't appear under the Sign-in page.
 1. Return to the Admin Console, and select **Back to all Profile Enrollment Policies** to return to the **Security** > **Profile Enrollment** page. Click **Add Profile Enrollment Policy**, and then create a name for the policy (for example, "App self-service registration").
@@ -216,6 +217,7 @@ Based on other policy configurations, the self-service registration flow may be 
 Progressive profile enrollment builds out a user's profile incrementally during sign-in. The profile enrollment policy is evaluated every time a user signs in. Based on the profile fields you want to add, this data is requested from users before signing in. At least one field must be set as required to enable the progressive profile enrollment feature. If a user's profile already has the requested data, the user signs in directly.
 
 1. Go to **Security** > **Profile Enrollment** and click **Add Profile Enrollment Policy**.
+   > **Note:** If you enabled Multiple Identifiers, go to **Security** > **User Profile**. See [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features).
 1. Create a name for the policy and **Save**.
 1. Click edit from the **Actions** column for your new policy.
 1. Click **Edit** in the policy and then for **Progressive Profiling**, select the **Enabled** option.
