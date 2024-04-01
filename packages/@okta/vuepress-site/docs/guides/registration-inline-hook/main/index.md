@@ -16,19 +16,19 @@ This guide provides examples of an Okta registration inline hook for profile enr
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Understand the Okta inline hook calls and responses for profile enrollment (SSR) and progressive profile enrollment.
 * Implement examples of a registration inline hook with a Glitch.com project.
 * Preview and test a registration inline hook for profile enrollment (SSR) and progressive profile enrollment.
 
-**What you need**
+#### What you need
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup/)
 * [Glitch.com](https://glitch.com) project or account
 * [A profile enrollment policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-profile-enrollment)
 
-**Sample code**
+#### Sample code
 
 [Okta Registration Inline Hook Example](https://glitch.com/edit/#!/okta-inlinehook-registrationhook-oie)
 
@@ -155,7 +155,7 @@ See the [request properties](/docs/reference/registration-hook/#objects-in-the-r
 
 ## Set up for profile enrollment (SSR) scenario
 
-The simple scenario of profile enrollment (self-service registration) involves new users self-registering from the **Sign up** link with the default three sign-up fields (Email, First name, and Family name). With this use case, the registration inline hook triggers and evaluates the domain in the Email field. If the domain is from `okta.com`, the user can register. If not, the user is denied registration. To implement this scenario:
+The simple scenario of profile enrollment (self-service registration) involves new users self-registering from the **Sign up** link with the default three sign-up fields (email, first name, and family name). With this use case, the registration inline hook triggers and evaluates the domain in the Email field. If the domain is from `okta.com`, the user can register. If not, the user is denied registration. To implement this scenario:
 
 <StackSnippet snippet="introbullets"/>
 
@@ -334,7 +334,7 @@ app.post('/registrationHookPP', async (request, response) => {
 })
 ```
 
-### Add your registration hook for progressive profile
+### Add your registration hook for a progressive profile
 
 Configure your registration inline hook for your Okta org to use the glitch project for progressive profile enrollment.
 
@@ -394,7 +394,9 @@ Your registration inline hook is configured for progressive profile enrollment. 
 
 ## Set up for profile enrollment (SSR) and progressive profile enrollment scenario
 
-This scenario involves both profile enrollment (self-service registration) and progressive profile enrollment use cases. Existing users are prompted for new information (a four-digit employee number) to add to their profile when they sign in. New users self-registering from the **Sign up** link are required to include the default three sign-up fields (Email, First name, and Family name) and the employee number field. With this use case, the external code updates the profiles of existing users if the employee number is four digits. The external code adds new users if their email domain contains `okta.com` and their employee number is four digits, otherwise their registration is denied. To implement this scenario:
+This scenario involves both profile enrollment (self-service registration) and progressive profile enrollment use cases.
+
+Existing users are prompted for new information (a four-digit employee number) to add to their profile when they sign in. New users self-registering from the **Sign up** link are required to include the default three sign-up fields (email, first name, and family name) and the employee number field. With this use case, the external code updates the profiles of existing users if the employee number is four digits. The external code adds new users if their email domain contains `okta.com` and their employee number is four digits, otherwise their registration is denied. To implement this scenario:
 
 <StackSnippet snippet="introbullets"/>
 

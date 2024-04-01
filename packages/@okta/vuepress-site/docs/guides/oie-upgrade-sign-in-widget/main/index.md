@@ -22,9 +22,9 @@ Update your widget based on your user deployment model.
 
 ## About the Okta Sign-In Widget
 
-The widget is a JavaScript library that provides a full-featured and customizable sign-in experience that you can use to authenticate web and mobile app users.
+Sign-In Widget is a JavaScript library that provides a full-featured and customizable sign-in experience that you can use to authenticate web and mobile app users.
 
-Use the widget on the Okta default sign-in page to do the following:
+Use the Sign-In Widget on the Okta default sign-in page to do the following:
 
 * Start an Okta SSO session
 * Set the Okta [session cookie](/docs/guides/session-cookie/) in the web browser
@@ -37,9 +37,9 @@ This article teaches you how to upgrade the Sign-In Widget when it’s used in a
 
 * Redirect authentication (default): Okta provides a sign-in page that's available at your [org's URL](/docs/concepts/okta-organizations/). By default, a user who signs in on this page is redirected to the Okta End-User Dashboard.
 * Redirect authentication (customizable): Okta provides a sign-in page that you can customize. You can then make it available as a custom domain under your company's top-level domain.
-* Embedded authentication (self-hosted): You can embed the widget directly into your app.
+* Embedded authentication (self-hosted): You can embed the Sign-In Widget directly into your app.
 
-After you've completed the widget upgrade, review the [Okta Identity Engine overview](/docs/concepts/oie-intro/) to take advantage of the new features in Identity Engine.
+After you've completed the Sign-In Widget upgrade, review the [Okta Identity Engine overview](/docs/concepts/oie-intro/) to take advantage of the new features in Identity Engine.
 
 ## Best practice for widget maintenance
 
@@ -53,20 +53,20 @@ The specific steps to upgrade your widget depend on your [user authentication de
 
 ## Upgrade process for a redirect sign-in flow
 
-The widget upgrade for a redirect sign-in flow depends on whether you configured a custom URL domain:
+Sign-In Widget upgrade for a redirect sign-in flow depends on whether you configured a custom URL domain:
 
-* [Custom domain](/docs/guides/custom-url-domain/) and customizations outside of simple branding styles aren't configured: The widget is automatically upgraded to the latest version when it's loaded from the content delivery network (CDN).
+* [Custom domain](/docs/guides/custom-url-domain/) and customizations outside of simple branding styles aren't configured: the Sign-In Widget is automatically upgraded to the latest version when it's loaded from the content delivery network (CDN).
 
-* [Custom domain](/docs/guides/custom-url-domain/) and other customizations are configured: Admins must update the widget version in the Admin Console.
+* [Custom domain](/docs/guides/custom-url-domain/) and other customizations are configured: Admins must update Sign-In Widget version in the Admin Console.
 
-To update the widget:
+To update the Sign-In Widget:
 
 1. In the Admin Console, go to **Customizations** > **Brands**, and then select the brand you want.
 
 2. On the **Pages** tab, click **Configure** in the **Sign-in page** section. Go to the **Settings** tab.
 
-    - In the **Sign-In Widget Version** section, check that the **Version** is the highest version available. The widget is always the latest version if you're not using a custom URL domain.
-    - If you're using the [custom domain feature](/docs/guides/custom-url-domain/) and the version isn't correct, you can pin the widget's version. Click **Edit** in the **Sign-In Widget Version** section and then select the **Version** field.
+    - In the **Sign-In Widget Version** section, check that the **Version** is the highest version available. The sign Widget is always the latest version if you're not using a custom URL domain.
+    - If you're using the [custom domain feature](/docs/guides/custom-url-domain/) and the version isn't correct, you can pin Sign-In Widget's version. Click **Edit** in the **Sign-In Widget Version** section and then select the **Version** field.
     - If you enabled multibrand customization, you can't customize the Sign-In Widget for the Okta default brand. See [Branding](https://help.okta.com/okta_help.htm?type=oie&id=csh-branding).
 
     > **Note:** When the third generation of the Sign-In Widget is enabled, the pinned version is ignored.
@@ -98,7 +98,7 @@ In addition to version upgrade, you need to adjust your widget configuration for
 
 ## Changes to widget configuration for Identity Engine
 
-For Identity Engine, the widget is configured differently. You can remove some specific objects that were previously in the widget configuration from the JavaScript, as described in the following sections.
+For Identity Engine, Sign-In Widget is configured differently. You can remove some specific objects that were previously in the Sign-In Widget configuration from the JavaScript, as described in the following sections.
 
 ### Interaction Code flow
 
@@ -115,7 +115,7 @@ var config = {
 }
 ```
 
-If you’re using version 7+ and you want to use Okta Classic Engine rather than Identity Engine, specify `useClassicEngine: true` in your `config` object:
+If you’re using version 7+ and you want to use Classic Engine rather than Identity Engine, specify `useClassicEngine: true` in your `config` object:
 
 ```JavaScript
 var config = {
@@ -128,7 +128,7 @@ var config = {
 
 ### Registration
 
-You no longer need the [registration](https://github.com/okta/okta-signin-widget#registration) JavaScript objects in the widget. You can add registration into your application by configuring your Okta admin settings for [profile enrollment](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-profile-enrollment). This process allows users to self-register into your application.
+You no longer need the [registration](https://github.com/okta/okta-signin-widget#registration) JavaScript objects in the Sign-In Widget. You can add registration into your application by configuring your Okta admin settings for [profile enrollment](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-profile-enrollment). This process allows users to self-register into your application.
 
 Remove the `registration` object and `features.registration` property that are shown in the following snippet:
 
@@ -169,7 +169,7 @@ features: {
 
 ### OpenID Connect/social authentication
 
-You no longer require the `idps` JavaScript object in the widget and can remove it.
+You no longer require the `idps` JavaScript object in Sign-In Widget and can remove it.
 
 ```JavaScript
 idps: [
@@ -183,13 +183,13 @@ This is now optional as the Sign-In Widget automatically includes IdPs based on 
 
 ### Bootstrap from a recovery token
 
-If you're initializing the widget with a recovery token, the `recoveryToken` setting appears, for example:
+If you're initializing Sign-In Widget with a recovery token, the `recoveryToken` setting appears, for example:
 
 ```JavaScript
 recoveryToken: 'x0whAcR02i0leKtWMZVc'
 ```
 
-The recovery token is dynamic and is automatically passed into the initialization of the widget. A value in the `recoveryToken` setting currently doesn't impact widget function, though the setting takes effect in the future.
+The recovery token is dynamic and is automatically passed into the initialization of Sign-In Widget. A value in the `recoveryToken` setting currently doesn't impact widget function, though the setting takes effect in the future.
 
 ### Okta dashboard or custom dashboard sign-in flow
 
@@ -197,7 +197,7 @@ For an Okta dashboard sign-in flow, you no longer need to do the following:
 
 - Configure a redirect to the Okta Identity Cloud
 - Create an Okta session
-- Open a URL specified in the widget
+- Open a URL specified in the Sign-In Widget
 
 Remove the redirect configuration (`setCookieAndRedirect()`) line shown in the following snippet:
 
@@ -211,19 +211,19 @@ function success(res) {
 
 ### Feature flags
 
-The only feature that is supported when you upgrade the widget is `features.hideSignOutLinkInMFA`, which hides the sign-out link for an MFA challenge.
+The only feature that is supported when you upgrade Sign-In Widget is `features.hideSignOutLinkInMFA`, which hides the sign-out link for an MFA challenge.
 
-The following specific features are no longer supported, and you can't configure them in the widget. Remove them from `features` in the JSON code:
+The following specific features are no longer supported, and you can't configure them in the Sign-In Widget. Remove them from `features` in the JSON code:
 
 * `features.rememberMe`: Displayed the "Remember me" function when a user signs in. See the [Organization Settings](https://help.okta.com/okta_help.htm?id=ext_Security_General) section in the Okta product documentation to enable this feature.
 
 * `features.autoPush`: Displayed a checkbox to enable the "Send push automatically" function in the MFA challenge flow. It may be added to the policy configuration in a future release.
 
-* `features.smsRecovery`: Recovered the password for users with a configured mobile phone number by using an SMS message. See [password recovery policy](https://help.okta.com/okta_help.htm?id=ext-add-self-service-password-reset) to enable and configure a possession (for example, a phone) authenticator.
+* `features.smsRecovery`: Recovered the password for users with a configured mobile phone number by using an SMS message. See the [password recovery policy](https://help.okta.com/okta_help.htm?id=ext-add-self-service-password-reset) to enable and configure a possession (for example, a phone) authenticator.
 
-* `features.callRecovery`: Recovered the password for users with a configured mobile phone number by using a voice call. See [password recovery policy](https://help.okta.com/okta_help.htm?id=ext-add-self-service-password-reset) to enable and configure a possession (for example, a phone) authenticator.
+* `features.callRecovery`: Recovered the password for users with a configured mobile phone number by using a voice call. See the [password recovery policy](https://help.okta.com/okta_help.htm?id=ext-add-self-service-password-reset) to enable and configure a possession (for example, a phone) authenticator.
 
-* `features.webauthn`: Prevented the widget from invoking the legacy Windows Hello factor. See [sign-on policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-osop) to enable and configure a possession authenticator.
+* `features.webauthn`: Prevented Sign-In Widget from invoking the legacy Windows Hello factor. See the [sign-on policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-osop) to enable and configure a possession authenticator.
 
 * `features.selfServiceUnlock`: Displayed the "Unlock Account" link so that users could unlock their accounts. See [self-service account recovery](https://help.okta.com/okta_help.htm?type=oie&id=ext-config-sspr) to enable this feature.
 
@@ -235,13 +235,13 @@ The following specific features are no longer supported, and you can't configure
 
 * `features.showPasswordToggleOnSignInPage`: Provided end users with the ability to view their password on the Okta sign-in page. This allows users to check their password entry before clicking **Sign In**. This feature also prevented an account lockout due to exceeding their org's permitted number of failed sign-in attempts.
 
-* `features.scrollOnError`: Scrolled errors into view. Errors appear inside the widget.
+* `features.scrollOnError`: Scrolled errors into view. Errors appear inside the Sign-In Widget.
 
 * `features.skipIdpFactorVerificationBtn`: Provided an automatic redirect to the selected Identity Provider when selected from the list of factors. It's no longer needed since the optional authenticators can skip by default.
 
 ### i18n properties
 
-After you upgrade your org to Identity Engine, you can override existing text strings in the interface. Use Identity Engine i18n strings so that you can create localized widgets. See [Updates to the widget i18n properties](/docs/guides/oie-upgrade-sign-in-widget-i18n).
+After you upgrade your org to Identity Engine, you can override existing text strings in the interface. Use Identity Engine i18n strings so that you can create localized widgets. See [Updates to Sign-In Widget i18n properties](/docs/guides/oie-upgrade-sign-in-widget-i18n).
 
 ## Changes to widget customization for Identity Engine
 
@@ -256,7 +256,7 @@ See [Okta Sign-in Widget: Help links](https://github.com/okta/okta-signin-widget
 
 ### The `processCreds` hook
 
-Developers can't subscribe to the `processCreds` hook in the widget.
+Developers can't subscribe to the `processCreds` hook in Sign-In Widget.
 
 ### Registration inline hooks
 
@@ -274,4 +274,4 @@ The ability for end users to specify a security image when they first register f
 
 ## See also
 
-[Deprecated JavaScript methods in the widget](/docs/guides/oie-upgrade-sign-in-widget-deprecated-methods/main/)
+[Deprecated JavaScript methods in Sign-In Widget](/docs/guides/oie-upgrade-sign-in-widget-deprecated-methods/main/)
