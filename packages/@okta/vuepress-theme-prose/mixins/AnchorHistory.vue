@@ -3,41 +3,19 @@ import { LAYOUT_CONSTANTS } from "../layouts/Layout";
 
 export default {
   inject: ['appContext'],
-  data() {
-    return {
-      anchorOffset: []
-    };
-  },
-  mounted() {},
   methods: {
-    setAnchors: function (anchors) {
-        this.anchors = anchors;
-        this.getAnchorsOffset();
-    },
-    getAnchorsOffset: function () {
-      if (!this.anchors) {
-        return;
-      }
-
-      const anchorOffsets = this.anchors.map(
-        /* 
-          In case of a few pages like error codes (/docs/reference/error-codes/), we are using our custom template
-          for showing header-anchor (ErrorCodes.vue) where the generated HTML has different template than the default
-          vuepress template for showing anchor tags.
-          The anchor tag is not a direct child of h2/h3/h4 in this case but instead, is the grandchild of these header elements.
-          Hence, we need to add a separate check for these routes.
-          Refer - https://oktainc.atlassian.net/browse/OKTA-483028
-        */
-        anchor => anchor?.classList.contains('container-level-2') ? anchor.parentElement.parentElement.offsetTop :
-          anchor.parentElement.offsetTop
+    setAnchors: function () {
+      const headerAnchors = Array.from(
+        document.querySelectorAll(".header-anchor")
+      );
+      const onThisPageLinks = Array.from(
+        document.querySelectorAll(".on-this-page-link")
       );
 
-      this.anchorsOffset = anchorOffsets.map((anchorOffset, index, anchorOffsets) => ({
-        start: anchorOffset,
-        end: anchorOffsets[index + 1]
-      }));
+      this.appContext.anchors = headerAnchors.filter((anchor) =>
+        onThisPageLinks.some((sidebarLink) => sidebarLink.hash === anchor.hash)
+      );
     },
-
     scrollToAnchor: function(anchorId) {
       const target = document.querySelector(anchorId);
       if (!target) {
@@ -67,24 +45,39 @@ export default {
     },
 
     getActiveAnchor: function() {
-      const scrollTop = Math.max(
-        window.pageYOffset,
-        document.documentElement.scrollTop,
-        document.body.scrollTop
-      );
+      const scrollPosition =
+        Math.max(
+          window.pageYOffset,
+          document.documentElement.scrollTop,
+          document.body.scrollTop
+        ) + LAYOUT_CONSTANTS.ANCHOR_TOP_MARGIN;
 
-      const matchingPair = this.anchorsOffset.find(
-        pair =>
-          scrollTop >= pair.start - LAYOUT_CONSTANTS.ANCHOR_TOP_MARGIN &&
-          (!pair.end || scrollTop < pair.end - LAYOUT_CONSTANTS.ANCHOR_TOP_MARGIN),
-        this
-      );
-      const activeAnchor = matchingPair
-        ? this.anchors[this.anchorsOffset.indexOf(matchingPair)]
-        : null;
+      const anchors = this.appContext.anchors;
 
-      return activeAnchor;
-    }
-  }
+      let start = 0;
+      let end = anchors?.length - 1;
+
+      while (start <= end) {
+        let mid = Math.floor((start + end) / 2);
+        let midOffsetTop = anchors[mid].offsetTop;
+        let midOffsetTopNext = anchors[mid + 1]?.offsetTop || 99999;
+
+        if (
+          scrollPosition >= midOffsetTop &&
+          scrollPosition <= midOffsetTopNext
+        ) {
+          return anchors[mid];
+        }
+
+        if (scrollPosition < midOffsetTop) {
+          end = mid - 1;
+        } else {
+          start = mid + 1;
+        }
+      }
+
+      return null;
+    },
+  },
 };
 </script>

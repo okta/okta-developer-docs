@@ -95,7 +95,7 @@ For comparison and reference, here is an example of [a successful Runscope test 
 
 ## Run through OIN QA tests
 
-If you plan to publish your SCIM integration in the OIN catalog, run the test cases in the OIN test plan. See [Okta SCIM Test Plan](/standards/SCIM/SCIMFiles/okta-scim-test-plan.xlsx). Your integration has to pass the test cases in the OIN test plan, in addition to the Runscope test cases.
+If you plan to publish your SCIM integration in the OIN catalog, run the test cases in the OIN test plan. See [Okta SCIM Test Plan](/standards/SCIM/SCIMFiles/okta-scim-test-plan-v2.xlsx). Your integration has to pass the test cases in the OIN test plan, in addition to the Runscope test cases.
 
 ## Next steps
 

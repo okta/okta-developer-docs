@@ -211,8 +211,12 @@ header.page-header .link:focus {
     max-width: 168px;
   }
 
-  header.page-header .search--wrapper .SearchBox .CoveoOmnibox.magic-box .magic-box-input input {
+  header.page-header .menu--slideout.opened .search--wrapper .SearchBox .CoveoOmnibox.magic-box .magic-box-input input {
     padding-left: 30px;
+  }
+
+  header.page-header .search--wrapper .SearchBox .CoveoOmnibox.magic-box .magic-box-input input {
+    padding-left: 40px;
   }
 
   header.page-header .search--wrapper .SearchBox .search--form .CoveoSearchButton {
@@ -261,7 +265,7 @@ header.page-header .link:focus {
 
   header.page-header .menu--slideout {
     position: fixed;
-    top: 70px;
+    top: 90px;
     right: 0;
     bottom: 0;
     left: 0;
@@ -450,7 +454,7 @@ header.page-header .link:focus {
   }
 
   header.page-header .menu--slideout {
-    top: 60px;
+    top: 90px;
   }
 
   header.page-header .sign-up--button {

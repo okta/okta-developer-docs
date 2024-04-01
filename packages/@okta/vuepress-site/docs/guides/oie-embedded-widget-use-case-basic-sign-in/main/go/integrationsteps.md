@@ -4,7 +4,7 @@ Build a sign-in page that captures the user's name and password with the Widget.
 
 ### The user submits their username and password
 
-When the user submits their credentials, the Widget sends an identify request to Identity Engine. Identity Engine returns an interaction code to the sign-in redirect URI that you configured earlier.
+When the user submits their credentials, the widget sends a request to Identity Engine to identify the user. This returns an interaction code to the sign-in redirect URI that you configured earlier.
 
 ### Your app handles an authentication success response
 

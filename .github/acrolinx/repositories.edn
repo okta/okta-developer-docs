@@ -3,10 +3,10 @@
 ;; Syntax errors may cause loss of data.
 
 [["https://api.github.com/repos/okta/okta-developer-docs"
-  {:last-baseline #inst "2024-03-13T07:41:25.209-00:00",
+  {:last-baseline #inst "2024-03-27T07:27:42.264-00:00",
    :last-batch-id
-   "gen.github.baseline.2998752b-10a3-43f1-b0d7-d1531c0b9c1d",
-   :last-total 2408,
-   :last-success 2408,
+   "gen.github.baseline.594602db-e43f-4a6b-9a7c-be1807909b2d",
+   :last-total 2290,
+   :last-success 2290,
    :aggregdash
-   "https://okta.acrolinx.cloud/api/batch/gen.github.baseline.2998752b-10a3-43f1-b0d7-d1531c0b9c1d?csBaseUrl=https%3A%2F%2Fokta.acrolinx.cloud&X-Acrolinx-Client-Locale=en"}]]
+   "https://okta.acrolinx.cloud/api/batch/gen.github.baseline.594602db-e43f-4a6b-9a7c-be1807909b2d?csBaseUrl=https%3A%2F%2Fokta.acrolinx.cloud&X-Acrolinx-Client-Locale=en"}]]

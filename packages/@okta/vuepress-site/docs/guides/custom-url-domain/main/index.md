@@ -6,7 +6,7 @@ layout: Guides
 
 This guide explains how to customize your Okta org with your custom domain. It also explains how to configure a custom email address so that you can present a branded experience to your end users.
 
-> **Note:** As of 29 February 2024, the value to which you should point your custom domain CNAME is `example.okta-dnssec.com`, instead of `example.okta.com`. This value appears for all new and existing custom domains and allows you to be [DNSSEC (Domain Name System Security Extensions)](https://datatracker.ietf.org/doc/html/rfc9364) compliant. The former value (`example.okta.com`) continues to work.
+> **Note:** For Okta for Government Moderate (FedRAMP Moderate) customers, as of 20 February 2024, the value to which you should point your custom domain CNAME is `example.okta-dnssec.com`, instead of `example.okta.com`. This value appears for all new and existing custom domains and allows you to be [DNSSEC (Domain Name System Security Extensions)](https://datatracker.ietf.org/doc/html/rfc9364) compliant. The former value (`example.okta.com`) continues to work.
 
 ---
 
@@ -138,7 +138,7 @@ This method of configuring a custom domain is recommended because Okta manages y
 
 You need to add DNS TXT and CNAME records for your domain to prove ownership of your domain with Okta before Okta can serve traffic over it. These records include the values provided in the Host and Value columns of the table on the Update your DNS page. Okta verifies that you own your domain when it finds the records that contain the required values.
 
-> **Note:** As of 29 February 2024, the value to which you should point your custom domain CNAME is `example.okta-dnssec.com`, instead of `example.okta.com`. This value appears for all new and existing custom domains and allows you to be [DNSSEC (Domain Name System Security Extensions)](https://datatracker.ietf.org/doc/html/rfc9364) compliant. The former value (`example.okta.com`) continues to work.
+> **Note:** For Okta for Government Moderate (FedRAMP Moderate) customers, as of 20 February 2024, the value to which you should point your custom domain CNAME is `example.okta-dnssec.com`, instead of `example.okta.com`. This value appears for all new and existing custom domains and allows you to be [DNSSEC (Domain Name System Security Extensions)](https://datatracker.ietf.org/doc/html/rfc9364) compliant. The former value (`example.okta.com`) continues to work.
 
 1. On the **Update your DNS** page of the configuration wizard, copy the values of the **Host** and **Value** columns into a text file.
 2. Sign in to your Domain Name registrar and locate the option to modify your DNS records.
@@ -266,7 +266,7 @@ You can also use a tool such as `dig` or `nslookup` to test and verify that your
 
 ### Flush the DNS cache
 
-After you've changed your DNS records, old records may still be cached by DNS providers or your local machine. If you've verified that your records are correct, but your custom domain isn't working, you can flush the DNS cache.
+After you've changed your DNS records, old records may still be cached by DNS providers or your local machine. If you've verified that your records are correct, but your custom domain isn't functional, you can flush the DNS cache.
 
 There are websites available for flushing the caches for [Google DNS](https://google-public-dns.appspot.com/cache) and [Open DNS](https://cachecheck.opendns.com/).
 
@@ -274,7 +274,7 @@ There are websites available for flushing the caches for [Google DNS](https://go
 
 After you add your custom domain, some features or APIs require extra configuration to reflect that change.
 
-> **Note:** As of 29 February 2024, the value to which you should point your custom domain CNAME is `example.okta-dnssec.com`, instead of `example.okta.com`. This value appears for all new and existing custom domains and allows you to be [DNSSEC (Domain Name System Security Extensions)](https://datatracker.ietf.org/doc/html/rfc9364) compliant. The former value (`example.okta.com`) continues to work.
+> **Note:** For Okta for Government Moderate (FedRAMP Moderate) customers, as of 20 February 2024, the value to which you should point your custom domain CNAME is `example.okta-dnssec.com`, instead of `example.okta.com`. This value appears for all new and existing custom domains and allows you to be [DNSSEC (Domain Name System Security Extensions)](https://datatracker.ietf.org/doc/html/rfc9364) compliant. The former value (`example.okta.com`) continues to work.
 
 ### Update custom authorization server
 

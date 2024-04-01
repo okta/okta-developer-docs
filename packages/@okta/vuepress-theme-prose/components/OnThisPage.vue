@@ -47,9 +47,7 @@ export default {
   props: ["items"],
   data() {
     return {
-      anchors: [],
       activeAnchor: null,
-      isCalledOnceFromUpdated: false,
     };
   },
   computed: {
@@ -65,38 +63,12 @@ export default {
       return this.showOnthisPage || this.$page.hasStackContent;
     }
   },
-  watch: {
-    $page(to, from) {
-      if (from.title !== to.title) {
-        this.$nextTick(function() {
-          this.setAnchors(this.getOnThisPageAnchors());
-
-        });
-      }
-    }
-  },
   mounted() {
-    this.setAnchors(this.getOnThisPageAnchors());
     this.setActiveAnchor();
     window.addEventListener("scroll", this.setActiveAnchor);
-    window.addEventListener("resize", this.updateAnchors);
-  },
-  updated() {
-    if (!this.isCalledOnceFromUpdated) {
-      // Sometimes anchors are not set during the mounting phase. Hence, we need to set the anchors again 
-      // in the updated hook and we only need to do it once, hence, the isCalledOnceFromUpdated condition.
-      // Adding a setTimeout as due to some reason this was not working in the preview build but was working
-      // locally. Adding a setTimeout fixes the issue in the preview build.
-      setTimeout(() => {
-        this.isCalledOnceFromUpdated = true;
-        this.setAnchors(this.getOnThisPageAnchors());
-        this.setActiveAnchor();
-      }, 500);
-    }
   },
   beforeDestroy() {
     window.removeEventListener("scroll", this.setActiveAnchor);
-    window.removeEventListener("resize", this.updateAnchors);
   },
   methods: {
     setActiveAnchor: _.debounce(function() {
@@ -105,21 +77,6 @@ export default {
         ? onThisPageActiveAnchor.hash
         : "";
     }, 200),
-
-    updateAnchors: _.debounce(function () {
-      this.getAnchorsOffset();
-      this.setActiveAnchor();
-    }, 200),
-
-    getOnThisPageAnchors() {
-      const onThisPageLinks = [].slice.call(
-        document.querySelectorAll(".on-this-page-link")
-      );
-      const anchors = Array.from(document.querySelectorAll(".header-anchor"));
-      return anchors.filter(anchor =>
-        onThisPageLinks.some(sidebarLink => sidebarLink.hash === anchor.hash)
-      );
-    }
   }
 };
 </script>
