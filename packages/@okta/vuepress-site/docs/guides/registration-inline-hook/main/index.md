@@ -251,6 +251,7 @@ Configure your registration inline hook for your Okta org to use the glitch proj
 To associate the registration inline hook with a profile enrollment policy:
 
 1. In the Admin Console, go to **Security > Profile Enrollment**.
+   > **Note:** If you enabled Multiple Identifiers, go to **Security** > **User Profile**. See [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features).
 1. Click **Add Profile Enrollment Policy**.
 1. Give your policy a name (in this example, use "Inline Hook"), and then click **Save**.
 1. From the list of Enrollment Policies, find **Inline Hook** and click the pencil icon.
@@ -370,6 +371,7 @@ Before creating the enrollment policy, ensure the user profile attribute `employ
 To associate the registration inline hook with a profile enrollment policy and add the employee number field:
 
 1. In the Admin Console, go to **Security > Profile Enrollment**.
+    > **Note:** If you enabled Multiple Identifiers, go to **Security** > **User Profile**. See [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features).
 1. Click **Add Profile Enrollment Policy**.
 1. Give your policy a name (in this example, use "Inline Hook"), and then click **Save**.
 1. From the list of Enrollment Policies, find **Inline Hook** and click the pencil icon.
@@ -528,6 +530,7 @@ Before creating the enrollment policy, ensure the user profile attribute `employ
 To associate the registration inline hook with a profile enrollment policy and add the employee number field:
 
 1. In the Admin Console, go to **Security > Profile Enrollment**.
+    > **Note:** If you enabled Multiple Identifiers, go to **Security** > **User Profile**. See [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features).
 1. Click **Add Profile Enrollment Policy**.
 1. Give your policy a name (in this example, use "Inline Hook"), and then click **Save**.
 1. From the list of Enrollment Policies, find **Inline Hook** and click the pencil icon.
