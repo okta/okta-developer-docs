@@ -14,7 +14,7 @@ This resource contains detailed reference material on event types triggered with
 
 ### user.risk.change
 
-**Description:** This event type indicates a user's risk level has changed. This event can be used to monitor risk level changes for users. This event is triggered when Okta determines that a user is associated with a risk context or activity.
+**Description:** This event type indicates that a user's risk level has changed. This event can be used to monitor risk level changes for users. This event is triggered when Okta determines that a user is associated with a risk context or activity.
 
 | Key event properties  | Description                                         | Data type            | Example values |
 | --------------------- | --------------------------------------------------- | -------------------- | -------------- |
@@ -28,7 +28,7 @@ This resource contains detailed reference material on event types triggered with
 
 ### analytics.feedback.provide
 
-**Description:** An admin has provided feedback on a detection Okta provided which indicated a change in user or session risk. This can be used to monitor feedback provided by admins in response to Okta determined changes in risk. This event is triggered when an admin chooses to provide feedback on a detection event in the Admin Console.
+**Description:** This event triggers when an admin provides feedback on a user or session risk detection. This can be used to monitor feedback provided by admins in response to Okta-determined changes in risk.
 
 | Key event properties  | Description                                         | Data type      | Example values |
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
@@ -42,7 +42,7 @@ This resource contains detailed reference material on event types triggered with
 
 ### security.events.provider.receive_event
 
-**Description:** This event is triggered when an event provider submits a valid Shared Signals Framework (SSF) security event. The event can help Org Admins debug/monitor partner SSF (Shared Signals Framework) submissions. The event contains debug context data about the event provider's risk report.
+**Description:** This event is triggered when an event provider submits a valid Shared Signals Framework (SSF) security event. The event can help org admins debug/monitor partner SSF submissions. The event contains debug context data about the event provider's risk report.
 
 | Key event properties  | Description                                         | Data type      | Example values |
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
@@ -55,7 +55,7 @@ This resource contains detailed reference material on event types triggered with
 
 ### device.signals.status.timeout
 
-**Description:** A registered device associated with at least one user session that hasn't communicated with Okta within the required time interval. Use this event to investigate a potentially insecure device and a compromised user session. This event contains the device unique identifier in the System Log actor object. You can use this information to find other related events.
+**Description:** This event is triggered when a registered device that is associated with at least one user session hasn't communicated with Okta within the required time interval. Use this event to investigate a potentially insecure device and compromised user session. This event contains the device unique identifier in the System Log actor object. You can use this information to find other related events.
 
 | Key event properties  | Description                                         | Data type      | Example values |
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
@@ -68,7 +68,7 @@ This resource contains detailed reference material on event types triggered with
 
 ### policy.auth_reevaluate.fail
 
-**Description:** Auth policy reevaluation has occurred and has resulted in a continuous access violation. Can be used to identify which user, apps, and session were involved in a continuous access violation event. The event is triggered when continuing access evaluation results in failure.
+**Description:** This event is triggered when an authentication policy detects a Continuous Access violation and it results in failure. This event is used to determine the user, apps, and session that were involved in a continuous access violation.
 
 | Key event properties  | Description                                         | Data type      | Example values |
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
@@ -99,7 +99,7 @@ This resource contains detailed reference material on event types triggered with
 
 ### policy.continuous_access.evaluate
 
-**Description:** Evaluation of the Entity risk policy. Signals that the entity risk policy has been evaluated for an entity which had a risk change event.
+**Description:** This event triggers when Okta detects a risk change event, and then evaluates the entity risk policy.
 
 | Key event properties | Description                                         | Data type      | Example values |
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
@@ -127,7 +127,7 @@ This resource contains detailed reference material on event types triggered with
 
 ### policy.continuous_access.action
 
-**Description:** Entity risk policy action invocation. Signals that an action associated with an evaluation of an entity risk policy has been invoked.
+**Description:** This event is triggered when an action that's associated with an entity risk policy evaluation is invoked.
 
 | Key event properties  | Description                                         | Data type      | Example values |
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
@@ -163,7 +163,7 @@ This resource contains detailed reference material on event types triggered with
 
 ### user.session.context.change
 
-**Description:** User session context changed. This event indicates that the context in which the session is being used has changed enough from the context in which the event was created, and that a reevaluation of policy may be required. Often this indicates a security issue related to the session.
+**Description:** This event indicates that the current session context has changed from the session context when the event was created, and that a reevaluation of policy may be required. This can indicate a security issue related to the session.
 
 | Key event properties  | Description                                         | Data type      | Example values |
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
@@ -191,7 +191,7 @@ This resource contains detailed reference material on event types triggered with
 
 ### policy.entity_risk.evaluate
 
-**Description:** Evaluation of Entity risk policy. Signals that an Entity risk policy has been evaluated for an entity, which has received a risk change event.
+**Description:** This event triggers when Okta receives a risk event and then evaluates the entity risk policy.
 
 | Key event properties | Description                                         | Data type      | Example values |
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
@@ -252,7 +252,7 @@ This resource contains detailed reference material on event types triggered with
 
 ### user.session.end
 
-**Description:** This event is triggered when Okta terminates all IDX sessions. If there are multiple active sessions for a user the event displays for each session. All events contain `externalSessionId` and `System.Transaction.ID` that correlate with the `System.Transaction.ID` under the `user.session.clear` event.
+**Description:** This event is triggered when Okta terminates all IDX sessions for a user. A separate event is logged for each of the user's active sessions. Each event contains `externalSessionId` and `System.Transaction.ID` values that correlate with the `System.Transaction.ID` for the `user.session.clear` event.
 
 | Key event properties  | Description                                         | Data type      | Example values |
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
@@ -272,7 +272,7 @@ This resource contains detailed reference material on event types triggered with
 
 ### user.session.clear
 
-**Description:**   This event is triggered when an Admin invokes clear sessions by clicking "Clear user session". This event appears only one time and contains `externalSessionId` and `System.Transaction.ID`.
+**Description:**   This event triggers when an admin invokes clear sessions from the user profile. This event appears only one time and contains `externalSessionId` and `System.Transaction.ID`.
 
 | Key event properties  | Description                                         | Data type      | Example values |
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
@@ -291,7 +291,7 @@ This resource contains detailed reference material on event types triggered with
 
 ### user.authentication.universal_logout
 
-**Description:** This event is triggered when an admin or system account triggers Universal Logout against an app instance. It contains the app instance details for which the Universal Logout API was triggered. This event identifies when applications have had Universal Logout triggered for audit or debugging purposes. This event is only triggered once. It's only triggered for applications that have been configured for Universal Logout. You can configure it under Entity risk policy, Continuous Access, or in an admin-initiated Clear User Session.
+**Description:** This event triggers when Okta or an admin invokes Universal Logout against an app instance. It contains the app instance details for which the Universal Logout API was triggered. This event indicates when apps have had Universal Logout triggered for audit or debugging purposes. This event is only triggered once. It's only triggered for apps that have been configured for Universal Logout. You can configure it in an Entity risk policy or Continuous Access, or invoke it manually from the user profile.
 
 | Key event properties | Description                                         | Data type      | Example values |
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
@@ -307,12 +307,12 @@ This resource contains detailed reference material on event types triggered with
 
 ### workflows.user.delegatedflow.run
 
-**Description:** This event can be used by admins or security team members to monitor the execution of delegated flows in the Workflows platform from the Admin application. The actor field provides the Okta User ID of the user that ran the flow. The target fields provide context on the Workflows instance and the name and flow ID of the executed flow. This event only indicates if the flow was successfully triggered and doesn't provide information about whether the flow encountered an error.
+**Description:** This event can be used by admins or security team members to monitor the execution of delegated flows in the Workflows platform from the Admin Console. The actor field provides the Okta User ID of the user that ran the flow. The target fields provide context on the Workflows instance and the name and flow ID of the executed flow. This event only indicates if the flow was successfully triggered and doesn't provide information about whether the flow encountered an error.
 
 | Key event properties  | Description                                         | Data type      | Example values |
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
 | **event.system.debugContext.debugData**                |                 |         |         |
-| SessionId          |               | String         | `ad995fe6-e721-4a8a-86ac-d942bc59ea41`       |
+| SessionId          | Session ID              | String         | `ad995fe6-e721-4a8a-86ac-d942bc59ea41`       |
 | **target** (AppInstance)         | The Okta Workflows app        | Object     |        |
 | id        | Unique identifier of the Okta Workflows app         | String     | 00u8xut93qEWYx5sx1d7       |
 | type        | The type of target object     | String     | AppInstance      |
