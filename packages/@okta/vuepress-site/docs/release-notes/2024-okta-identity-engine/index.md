@@ -23,7 +23,7 @@ title: Okta Identity Engine API Products release notes 2024
 
 #### Permissions for custom admins to manage agents is GA in Preview
 
-Custom admins can now view, register, and manage agents. See [Agent permissions](https://help.okta.com/okta_help.htm?id=). <!-- OKTA-706310 ALLOW_CUSTOM_ADMIN_TO_MANAGE_REGISTER_AGENTS -->
+Custom admins can now view, register, and manage agents. See [Agent permissions](https://help.okta.com/okta_help.htm?id=ext-about-role-permissions). <!-- OKTA-706310 ALLOW_CUSTOM_ADMIN_TO_MANAGE_REGISTER_AGENTS -->
 
 #### Okta now supports the NotonOrAfter property for SLO apps
 

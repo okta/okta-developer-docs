@@ -25,7 +25,7 @@ The Telephony Inline Hook allows customers to generate one-time passcodes within
 
 #### Permissions for custom admins to manage agents is GA in Preview
 
-Custom admins can now view, register, and manage agents. See [Agent permissions](https://help.okta.com/okta_help.htm?id=). <!-- OKTA-706310 ALLOW_CUSTOM_ADMIN_TO_MANAGE_REGISTER_AGENTS -->
+Custom admins can now view, register, and manage agents. See [Agent permissions](https://help.okta.com/okta_help.htm?id=ext-about-role-permissions). <!-- OKTA-706310 ALLOW_CUSTOM_ADMIN_TO_MANAGE_REGISTER_AGENTS -->
 
 #### Enhanced app API contracts is GA in Production
 
