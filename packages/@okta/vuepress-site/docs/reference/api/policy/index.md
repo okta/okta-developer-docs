@@ -880,6 +880,7 @@ Specifies Link relations (see [Web Linking](http://tools.ietf.org/html/rfc8288) 
 | activate   | Action to activate a Policy or Rule (present if the Rule is currently inactive) | String    | Yes      |
 | deactivate | Action to deactivate a Policy or Rule (present if the Rule is currently active) | String    | Yes      |
 | rules      | Action to retrieve the Rules objects for the given Policy                       | String    | Yes      |
+| mappings   | Action to retrieve the links to Policy mappings                                 | String    | Yes      |
 
 ## Rules
 
@@ -2423,8 +2424,20 @@ The number of Authenticator class constraints in each Constraint object must be 
 | `deviceBound` | String            | Indicates if device-bound Factors are required. This property is only set for `POSSESSION` constraints. | `REQUIRED`, `OPTIONAL`                                                                            |`OPTIONAL`|
 | `phishingResistant` | String            | Indicates if phishing-resistant Factors are required. This property is only set for `POSSESSION` constraints. | `REQUIRED`, `OPTIONAL`                                                                            |`OPTIONAL`|
 | `userPresence` | String            | Indicates if the user needs to approve an Okta Verify prompt or provide biometrics (meets NIST AAL2 requirements). This property is only set for `POSSESSION` constraints.| `REQUIRED`, `OPTIONAL`                                                                            |`REQUIRED`|
-| `userVerification` | String            | Indicates the user interaction requirement (PIN or biometrics) to ensure verification of a possession factor | `REQUIRED`, `OPTIONAL`                                                                            |`OPTIONAL`|
+| `userVerification` | String            | Indicates the user interaction requirement (PIN or biometrics) to ensure verification of a possession factor. This property is only set for `POSSESSION` constraints. | `REQUIRED`, `OPTIONAL`                                                                            |`OPTIONAL`|
 | `reauthenticateIn`   | String (ISO 8601) | The duration after which the user must re-authenticate regardless of user activity. This re-authentication interval overrides the [Verification Method object](#verification-method-object)'s `reauthenticateIn` interval.     | ISO 8601 period format for recurring time intervals (for example: `PT1H`) | N/A|
+| `authenticationMethods`  | array of [Authentication method objects](#authentication-method-object) | This property specifies the precise authenticator and method for authentication.  || `OPTIONAL`|
+| `excludedAuthenticationMethods` | array of [Authentication method objects](#authentication-method-object) | This property specifies the precise authenticator and method to exclude from authentication.  || `OPTIONAL`|
+| `required` | Boolean | This property indicates whether the knowledge or possession factor is required by the assurance. It's optional in the request, but is always returned in the response. By default, this field is `true`. If the knowledge or possession constraint has values for`excludedAuthenticationMethods` then the `required` value is false.  || `OPTIONAL`|
+
+#### Authentication method object
+
+The authentication method object contains key-value pairs that identify the specific authenticator and method to use or exclude for the policy rule. For a list of authenticator keys and methods, see [Authenticator key, type, method, and characteristic relationships for constraints](#authenticator-key-type-method-and-characteristic-relationships-for-constraints). For examples, see [Verification Method with Authentication Method JSON Examples](#verification-method-with-authentication-method-json-examples).
+
+| Property  | Description          | Data Type                                         | Required |
+| ---       | ---                  | ---                                               | ---      |
+| key       | A label that identifies the authenticator | String | Yes      |
+| method     | Specifies the method used for the authenticator   | String | No      |
 
 #### Authenticator key, type, method, and characteristic relationships for constraints
 
@@ -2608,6 +2621,86 @@ The following table shows the possible relationships between all the authenticat
       }
     }
   ]
+}
+```
+
+#### Verification Method with Authentication Method JSON examples
+
+```json
+// allow an authenticator - key only
+{
+    "type": "ASSURANCE",
+    "factorMode": "1FA",
+    "constraints": [
+      {
+          "possession": {
+             "authenticationMethods": [ { "key": "google_otp" } ] // allow list, authenticators/methods not listed in the list are not allowed
+          }
+      }
+   ]
+}
+```
+
+```json
+// allow an authenticator method
+{
+    "type": "ASSURANCE",
+    "factorMode": "1FA",
+    "constraints": [
+      {
+          "possession": {
+             "authenticationMethods": [ { "key": "okta_verify", "method": "TOTP" } ]
+          }
+      }
+   ]
+}
+```
+
+```json
+// exclude an authenticator - key only
+{
+    "type": "ASSURANCE",
+    "factorMode": "1FA",
+    "constraints": [
+      {
+          "possession": {
+             "excludedAuthenticationMethods": [ { "key": "google_otp" } ]
+          }
+      }
+   ]
+}
+```
+
+```json
+// exclude an authenticator method
+{
+    "type": "ASSURANCE",
+    "factorMode": "1FA",
+    "constraints": [
+      {
+          "possession": {
+             "excludedAuthenticationMethods": [ { "key": "google_otp", "method": "OTP" } ]
+          }
+      }
+   ]
+}
+```
+
+```json
+// 2FA exclude password, only allows webauthn
+{
+    "type": "ASSURANCE",
+    "factorMode": "2FA",
+    "constraints": [
+      {
+          "knowledge": {
+             "excludedAuthenticationMethods": [ { "key": "okta_password" } ]
+          },
+          "possession": {
+             "authenticationMethods": [ { "key": "webauthn" } ]
+          }
+      }
+   ]
 }
 ```
 

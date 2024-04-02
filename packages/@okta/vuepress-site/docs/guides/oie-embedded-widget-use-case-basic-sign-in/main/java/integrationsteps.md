@@ -1,16 +1,16 @@
 ### Your app displays the sign-in page
 
-Build a sign-in page that captures the user's name and password with the Widget. Ensure that the page completes the steps described in [Load the Widget](/docs/guides/oie-embedded-widget-use-case-load/java/main/) when the page loads.
+Build a sign-in page that captures the user's name and password with the widget. Ensure that the page completes the steps described in [Load the widget](/docs/guides/oie-embedded-widget-use-case-load/java/main/) when the page loads.
 
 ### The user submits their username and password
 
-When the user submits their credentials, the Widget sends an identify request to Identity Engine. Identity Engine returns an interaction code to the sign-in redirect URI that you configured earlier.
+When the user submits their credentials, the widget sends a request to Identity Engine to identify the user. This returns an interaction code to the sign-in redirect URI that you configured earlier.
 
 ### Exchange interaction code for tokens
 
-Handle the callback from Identity Engine to the sign-in redirect URI.
+Handle the callback from the Identity Engine to the sign-in redirect URI.
 
-The Okta Java SDK uses the [Spring Boot framework](https://spring.io/guides/gs/spring-boot/) to handle the OAuth 2.0 authentication flow. However, the Spring security framework doesn't understand Okta's interaction code flow. Therefore:
+The Okta Java SDK uses the [Spring Boot framework](https://spring.io/guides/gs/spring-boot/) to handle the OAuth 2.0 authentication flow. However, the Spring security framework doesn't understand the interaction code flow. Therefore:
 
 1. Intercept Spring's OAuth authentication code flow.
 1. Exchange the interaction code that is obtained from Okta for an access token.

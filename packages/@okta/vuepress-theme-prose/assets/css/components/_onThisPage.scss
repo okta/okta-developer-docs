@@ -140,6 +140,7 @@
 
 .mobile-on-this-page .vs__dropdown-toggle .vs__open-indicator {
   fill: cv("text", "darker");
+  transform: scale(0.6);
 }
 
 .mobile-on-this-page .vs__dropdown-menu {
@@ -155,6 +156,7 @@
   padding: 0.7rem 1rem;
   width: 100%;
 
+  border: 1px solid transparent;
   border-bottom: 1px solid cv("gray", "100");
 
   color: cv("gray", "900");
@@ -169,10 +171,6 @@
 
 .mobile-on-this-page .vs__dropdown-menu .vs__dropdown-option .dropdown-item.subheading {
   margin-left: 1rem;
-}
-
-.mobile-on-this-page .vs__dropdown-menu .vs__dropdown-option:last-child {
-  border-bottom: none;
 }
 
 .mobile-on-this-page .vs__dropdown-menu .vs__dropdown-option--highlight {

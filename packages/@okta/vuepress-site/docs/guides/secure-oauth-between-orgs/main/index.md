@@ -1,17 +1,17 @@
 ---
 title: Secure API connections between orgs with OAuth 2.0
-excerpt: Learn how to synchronize users and groups between orgs with OAuth 2.0 in a multi-tenancy solution.
+excerpt: Learn how to synchronize users and groups between orgs with OAuth 2.0 in a multi-tenant solution. Use the Okta Org2Org app in a hub-and-spoke (target-and-source) configuration with OAuth 2.0 as the authentication scheme for the provisioning connection.
 layout: Guides
 ---
 
-This guide explains how to securely configure Okta hub-and-spoke orgs to synchronize users and groups by using OAuth 2.0 in a [multi-tenant solution](/docs/concepts/multi-tenancy/). The connection between Okta orgs is configured as an OAuth 2.0 [Org2Org app integration](https://help.okta.com/okta_help.htm?type=oie&id=ext-org2org-intg). This connection provides API access to scoped data using the OAuth 2.0 Client Credential flow.
+This guide explains how to securely configure Okta hub-and-spoke orgs to synchronize users and groups using OAuth 2.0 in a [multi-tenant solution](/docs/concepts/multi-tenancy/). In the hub-and-spoke model, the spoke org is also referred to as the source org and the hub org is the target org. The provisioning connection between Okta orgs is configured as an OAuth 2.0 [Org2Org app integration](https://help.okta.com/okta_help.htm?type=oie&id=ext-org2org-intg). This connection provides API access to scoped data using the OAuth 2.0 Client Credential flow.
 
 > **Note**: Currently, only the Okta API can be used to enable OAuth 2.0-based provisioning.
 ---
 
 **Learning outcomes**
 
-* Set up a hub-and-spoke Okta org provisioning to use the OAuth 2.0 Client Credentials grant flow.
+* Set up a hub-and-spoke Okta org provisioning connection to use the OAuth 2.0 Client Credentials grant flow.
 * Configure the hub Okta org with service apps for each spoke Okta org.
 * Configure an Org2Org app on each spoke Okta org.
 * Configure and activate Org2Org provisioning on spoke Okta orgs.
@@ -21,16 +21,15 @@ This guide explains how to securely configure Okta hub-and-spoke orgs to synchro
 
 Multiple Okta orgs for your multi-tenant solution
 
-> **Note:** The Org2Org app integration isn't available in Okta Developer-Edition orgs. If you need to test this feature in your Developer-Edition org, contact your Okta account team.
+> **Note:** The Okta Org2Org app integration isn't available in Okta Developer Edition orgs. If you need to test this feature in your developer org, contact your Okta account team.
 
 ---
 
 ## OAuth 2.0 for secure API connections in multi-tenant solutions
 
-To secure API connections between orgs for a [multi-tenant solution](/docs/concepts/multi-tenancy/) that uses the hub-and-spoke model, use the Okta Org2Org integration as an OAuth 2.0 client.
+To secure API connections between orgs in a hub-and-spoke [multi-tenant solution](/docs/concepts/multi-tenancy/) model, use the Okta Org2Org integration as an OAuth 2.0 client. In this model, the spoke org is referred to as the source org and the hub org is the target org.
 
-Previously, the Org2Org integration only supported token-based access to the Okta API.
-You can now configure the Org2Org integration to access Okta APIs as an OAuth 2.0 client using the OAuth 2.0 Client Credentials flow. The OAuth 2.0 API access enables you to increase security by limiting the scope of resource access and providing a better mechanism to rotate credentials.
+Previously, the Org2Org integration only supported token-based access to the Okta APIs for provisioning requests. You can now configure the Org2Org integration to access Okta APIs as an OAuth 2.0 client using the OAuth 2.0 Client Credentials flow. The OAuth 2.0 API access enables you to increase security by limiting the scope of resource access and providing a better mechanism to rotate credentials.
 
 <div class="half">
 
@@ -50,16 +49,16 @@ In this configuration:
 
 After you configure the OAuth 2.0 connection, test your connection: push user data from the spoke orgs to the hub org. You can also create a [Rotate key](#key-rotation) schedule to update your credentials regularly.
 
-> **Note**: For provisioning in a hub-and-spoke org model that uses API tokens instead of OAuth 2.0, see [Integrate Okta Org2Org with Okta](https://help.okta.com/okta_help.htm?type=oie&id=ext-org2org-intg).
+> **Note**: For provisioning connections that use API tokens instead of OAuth 2.0, see [Integrate Okta Org2Org with Okta](https://help.okta.com/okta_help.htm?type=oie&id=ext-org2org-intg).
 
 ## Hub and spoke connection configuration with OAuth 2.0
 
-You can use OAuth 2.0 to push user and group information from a spoke org to a centralized hub org by performing the following configuration:
+You can push user and group information from a spoke org to a centralized hub org with OAuth 2.0 by performing the following configuration:
 
-1. In each spoke org, [add an instance of the Org2Org app integration](#add-an-org2org-app-integration-in-a-spoke-org) and save the generated JWKS public key.
-2. In the hub org, [create an OAuth 2.0 service app](#create-an-oauth-2-0-service-app-in-the-hub-org) for each spoke org with the corresponding Org2Org app JSON Web Key Set (JWKS) public key. For each hub-org service app (the OAuth 2.0 client), [assign admin roles](#assign-admin-roles-to-the-oauth-2-0-service-app) and [grant allowed scopes](#grant-allowed-scopes-to-the-oauth-2-0-client).
-3. [Set and activate provisioning in the Org2Org apps](#enable-provisioning-in-the-org2org-app) from the Okta API.
-4. [Assign users and groups in the spoke Org2Org apps](#assign-users-and-groups-in-the-org2org-app) to synchronize with the hub org.
+1. In each spoke org, [add an instance of the Org2Org app integration](#add-an-org2org-app-integration-in-a-spoke-org) and save the generated JSON Web Key Set (JWKS) public key.
+2. In the hub org, [create an OAuth 2.0 service app](#create-an-oauth-2-0-service-app-in-the-hub-org) for each spoke org with the corresponding Org2Org app JWKS public key. For each hub-org service app (the OAuth 2.0 client), [assign admin roles](#assign-admin-roles-to-the-oauth-2-0-service-app) and [grant allowed scopes](#grant-allowed-scopes-to-the-oauth-2-0-client).
+3. In each spoke org, [set and activate provisioning in the Org2Org apps](#enable-provisioning-in-the-org2org-app) from the Okta API.
+4. In each spoke org, [assign users and groups in the spoke Org2Org apps](#assign-users-and-groups-in-the-org2org-app) to synchronize with the hub org.
 
 ---
 
@@ -67,8 +66,7 @@ You can use OAuth 2.0 to push user and group information from a spoke org to a c
 
 You use the spoke org to push users and groups to the central hub org. In the spoke org, add an instance of the Org2Org app integration by using the [Okta Apps API](/docs/reference/api/apps/#add-okta-org2org-application). This generates an integration instance with the key certificates required to connect to the hub org.
 
-> **Note:** You can't use an Okta Developer-Edition org as a spoke org since the Org2Org app integration isn't available in developer orgs. If you need to test this feature in your Developer-Edition org, contact your Okta account team.
-
+> **Note:** You can't use an Okta Developer Edition org as a spoke org since the Okta Org2Org app integration isn't available. If you need to test this feature in your developer org, contact your Okta account team.
 
 As an Okta admin, make a `POST /api/v1/apps` request to the spoke org with [Okta Org2Org parameters](/docs/reference/api/apps/#add-okta-org2org-application):
 
@@ -190,39 +188,18 @@ curl -X POST \
 
 ### Assign admin roles to the OAuth 2.0 service app
 
-> **Note:** Use these instructions for:
-> * Preview orgs <br>
->   To automatically assign the super admin role to all custom API service apps that you create, enable the **Public client app admins** org setting. See [Assign admin roles to apps](https://help.okta.com/okta_help.htm?type=oie&id=csh-work-with-admin-assign-admin-role-to-apps).
-> * Production orgs with the **Assign admin roles to public client apps** Early Access feature enabled
-
-<!--
-Before Okta provided the ability to assign admin roles to service apps, the Super Administrator (`SUPER_ADMIN`) role was automatically assigned to all service apps. You can now fine-tune the resources that a service app can access by assigning specific standard or custom admin roles. No role is automatically assigned, so you must assign a role before you use the service app.
-If you have a Production org and want to turn on the **Assign admin roles to public client apps** feature, see [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features).
- -->
-
 Assign admin roles for every OAuth 2.0 service app that you create in the hub org. Service apps with assigned admin roles are constrained to the permissions and resources that are included in the role. This improves security for an org since it ensures that service apps only have access to the resources that are needed to perform their tasks.
 
 You can assign a [standard admin role](https://help.okta.com/okta_help.htm?type=oie&id=ext-administrators-admin-comparison) or a [custom admin role](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-creating-custom-admin-roles) with permissions to specific resource sets.
 
-For the hub-and-spoke OAuth 2.0 Org2Org provisioning connection, Okta recommends that you assign the following [standard admin roles](/docs/concepts/role-assignment/#standard-role-types):
+> **Note:** To temporarily bypass assigning an admin role, enable the **Public client app admins** org setting. This automatically assigns the super admin role to custom API service apps that you create after the scopes are granted. Go to **Settings** > **Account** > **Public client app admins** in the Admin Console to edit this setting. See [Assign admin roles to apps](https://help.okta.com/okta_help.htm?type=oie&id=csh-work-with-admin-assign-admin-role-to-apps). Disable this setting after you incorporate admin role assignments in your workflow.
+
+For the OAuth 2.0 Org2Org provisioning connection, Okta recommends that you assign the following [standard admin roles](/docs/concepts/role-assignment/#standard-role-types):
 
 * `USER_ADMIN` (Group administrator)
 * `GROUP_MEMBERSHIP_ADMIN` (Group membership administrator)
 
-<!-- Consider adding this section when custom roles can be verified by the Integration Platform team at GA
-
-If you're using [custom roles](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-creating-custom-admin-roles) for the OAuth 2.0 Org2Org provisioning connection, you require the following:
-
-* Permissions required:
-  * Manage users
-  * Manage groups
-
-* Resource sets recommended:
-  * All Users
-  * All Groups
-
-> **Note:** You can bind resource sets to many different types of resources, such as user groups, flows, authorization servers, and so on. You don't necessarily have to use the All Groups resource set in this use case. You can specify permissions for a specific subset of users in a custom role. See [Custom role assignment](/docs/concepts/role-assignment/#custom-role-assignment) and the [Custom Role assignment API operations](/docs/reference/api/roles/#custom-role-assignment-operations).
--->
+You can use the Admin Console to assign an admin role to your service app. See [Assign admin roles to apps](https://help.okta.com/okta_help.htm?type=oie&id=csh-work-with-admin-assign-admin-role-to-apps) and go to the **Admin roles** tab from your app integration details. Alternatively, you can assign the admin role to your service app with the Okta API.
 
 As an Okta super admin, make a `POST /oauth2/v1/clients/${yourServiceAppId}/roles` request to the hub org with the following required parameters to assign an admin role:
 
@@ -251,7 +228,7 @@ See [Assign a Role to a client application](/docs/reference/api/roles/#assign-a-
 
 ### Grant allowed scopes to the OAuth 2.0 client
 
-From the response of the previous [POST request](#create-an-oauth-2-0-service-app-in-the-hub-org), use the `client_id` property of the service app instance to grant the [allowed scopes](/docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints) with the [`POST /api/v1/apps/${client_id}/grants`](/docs/reference/api/apps/#grant-consent-to-scope-for-application) request. In the following example, the `${yourServiceAppId}` variable name is used instead of `client_id`.
+From the response of the previous [POST request](#create-an-oauth-2-0-service-app-in-the-hub-org), use the `client_id` property of the hub service app instance to grant the [allowed scopes](/docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints) with the [`POST /api/v1/apps/${client_id}/grants`](/docs/reference/api/apps/#grant-consent-to-scope-for-application) request. In the following example, the `${yourServiceAppId}` variable name is used instead of `client_id`.
 
 > **Note**: Currently, both `okta.users.manage` and `okta.groups.manage` scopes are required for the service app configuration.
 
@@ -283,7 +260,7 @@ curl -X POST \
 
 In each spoke org, set and activate provisioning for the Org2Org app integration by using the [Okta Apps API](/docs/reference/api/apps/#set-default-provisioning-connection-for-application).
 
-> **Note**: Currently, only the Okta API can be used to enable OAuth 2.0-based provisioning.
+> **Note**: Currently, you can only enable OAuth 2.0-based provisioning with the Okta API.
 
 As an Okta admin, make a [`POST /api/v1/apps/${Org2OrgAppId}/connections/default?activate=TRUE`](/docs/reference/api/apps/#set-default-provisioning-connection-for-application) request to set provisioning for the spoke org using the following profile parameters:
 
@@ -307,13 +284,13 @@ curl -X POST \
 }' "https://${yourSpokeOrgDomain}/api/v1/apps/${yourOrg2OrgAppId}/connections/default?activate=TRUE"
 ```
 
-> **Note**: After you enable provisioning, if you want to enable app features or edit Org2Org attribute mappings, use the [App features operation](/docs/reference/api/apps/#list-features-for-application) or the [Profile Mappings API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ProfileMapping/). Alternatively, go to the Org2Org app **Provisioning** > **To App** settings from the Admin Console and edit the **Provisioning To App** or the **Okta Org2Org Attribute Mappings** sections.
+> **Note**: After you enable provisioning, if you want to enable app features or edit Org2Org attribute mappings, use the [App features operation](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationFeatures/) or the [Profile Mappings API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ProfileMapping/). Alternatively, go to the Org2Org app **Provisioning** > **To App** settings from the Admin Console and edit the **Provisioning To App** or the **Okta Org2Org Attribute Mappings** sections.
 
 ### Assign users and groups in the Org2Org app
 
-In each spoke org, assign the users and groups to the Org2Org app integration by using the [Okta Apps API application operations](/docs/reference/api/apps/#application-user-operations):
+In each spoke (source) org, assign the users and groups to the Org2Org app integration by using the [Okta Application Users API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationUsers/#tag/ApplicationUsers/operation/assignUserToApplication):
 
-* [`POST /api/v1/apps/${yourOrg2OrgAppId}/users` (Assign user to an application for SSO and provisioning)](/docs/reference/api/apps/#assign-user-to-application-for-sso-and-provisioning)
+* [`POST /api/v1/apps/${yourOrg2OrgAppId}/users` (Assign user to an application for SSO and provisioning)](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationUsers/#tag/ApplicationUsers/operation/assignUserToApplication)
 * [`POST /api/v1/apps/${yourOrg2OrgAppId}/groups/${groupId}` (Assign group to an application)](/docs/reference/api/apps/#assign-group-to-application)
 
 Alternatively, you can assign users and groups for provisioning using the Okta Admin Console. See [Assign an app integration to a user](https://help.okta.com/okta_help.htm?type=oie&id=ext-lcm-assign-app-user) and [Assign an app integration to a group](https://help.okta.com/okta_help.htm?type=oie&id=ext-lcm-assign-app-groups).

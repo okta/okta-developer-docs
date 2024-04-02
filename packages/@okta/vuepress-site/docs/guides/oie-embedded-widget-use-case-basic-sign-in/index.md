@@ -1,5 +1,5 @@
 ---
-title: Basic sign-in flow using the Widget
+title: Basic sign-in flow with the widget
 layout: Guides
 sections:
  - main

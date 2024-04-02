@@ -2,6 +2,7 @@
 title: Guides overview
 guides:
  - add-an-external-idp
+ - app-provisioning-connection
  - archive-auth-js
  - archive-embedded-siw
  - archive-registration-inline-hook
@@ -34,6 +35,7 @@ guides:
  - customize-tokens-dynamic
  - customize-tokens-static
  - customize-tokens-groups-claim
+ - delete-all-stay-signed-in-sessions
  - device-authorization-grant
  - embedded-siw
  - enable-cors

@@ -17,7 +17,7 @@ Create and test an SSO app integration for OIN submission.
 
 **What you need**
 
-* [Okta Developer-Edition org](https://developer.okta.com/signup/)
+* [Okta Developer Edition org](https://developer.okta.com/signup/)
 * An app to integrate SSO with Okta
 
 ---
@@ -26,7 +26,7 @@ Create and test an SSO app integration for OIN submission.
 
 Single Sign-On (SSO) is an authentication method that enables end users to sign in to multiple applications (apps) with one set of credentials. If you have customers that use Okta as an Identity Provider, you want to publish your SSO app integration to the OIN. By having your integration in the OIN catalog, your customers can easily configure SSO for your app. See [Overview of Single Sign-On in the OIN](/docs/guides/oin-sso-overview) for all the benefits of having your integration in the OIN catalog.
 
-To create an SSO integration for the OIN, first sign up for a free [Okta developer-edition org](https://developer.okta.com/signup/). Next, select the type of SSO protocol that you want to implement. Okta supports two SSO standards for your integration:
+To create an SSO integration for the OIN, first sign up for a free [Okta Developer Edition org](https://developer.okta.com/signup/). Next, select the type of SSO protocol that you want to implement. Okta supports two SSO standards for your integration:
 
 * **OpenID Connect (OIDC)** (preferred)
 * **Security Assertion Markup Language (SAML)**
@@ -91,7 +91,7 @@ Your org users can access your app after SSO is configured.
 
 The following are common use cases for adding a private SSO integration:
 
-* I want to test my SSO integration in my developer-edition org. I have no immediate plans to have it publicly available.
+* I want to test my SSO integration in my Developer Edition org. I have no immediate plans to have it publicly available.
 * I want my SSO integration to only be available in the org I'm using.
 * I have a SAML integration with more than three instance variables and advanced SAML features that aren't included in the OIN Wizard.
 

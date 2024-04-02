@@ -1,5 +1,7 @@
-1. Make sure that you have a recent version of [Python](https://www.python.org/) and [pip](https://pypi.org/project/pip/) installed.
-1. Create a folder `okta-flask-api-quickstart` and `cd` into it.
-1. Create a file inside the folder called `app.py`.
+1. Open a terminal and create a directory `test-api` for your project.
+1. Open the new directory and create a simple starter structure for your project:
 
-> **Note**: This guide uses requests v2.27.1, Flask v2.0.2, flask-cors v3.0.10, python-dotenv v0.19.2, pyOpenSSL v22.0.0, and Flask-Login v0.5.0.
+   * app.py
+   * .okta.env
+
+Use the [sample code](https://github.com/okta-samples/okta-flask-api-sample) to follow along.

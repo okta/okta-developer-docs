@@ -18,7 +18,6 @@ export default {
     $page(to, from) {
       if (from.title !== to.title) {
         this.$nextTick(function() {
-          this.setAnchors(this.getAnchors());
           this.onPageChange();
         });
       }
@@ -30,40 +29,35 @@ export default {
     // changes and does not initialize the listeners and anchors. However, when we refresh the page, the initial
     // readyState is `interactive`. So, when the state changes to `complete` we call the onreadystatechange handler
     // and it initializes the listeners. Hence, we need to check the readyState condition here for the above usecase.
-    if (document.readyState === 'complete') {
-      this.initializeAnchorsAndListeners();
-    }
     document.onreadystatechange = () => {
       if (document.readyState !== "complete") {
         return;
       }
-      this.initializeAnchorsAndListeners();
+      
+      this.$nextTick(function() {
+        this.onPageChange();
+      });
     };
+
+    window.addEventListener("popstate", e => {
+      e.target.location.hash && this.scrollToAnchor(e.target.location.hash);
+    });
   },
   beforeDestroy() {
     window.removeEventListener("popstate", this.scrollToAnchor);
   },
   methods: {
     onPageChange() {
+      this.setAnchors();
+      
       const anchor = window.location.hash;
-
       if (anchor) {
         this.scrollToAnchor(`${anchor}`);
       } else {
         // navigating via back button to no-anchor URL
-        window.scrollTo(0, 0);
+        window.scrollTo({top: 0, behavior: 'instant'});
       }
       this.onClickCaptureAnchors();
-    },
-    initializeAnchorsAndListeners() {
-      this.$nextTick(function() {
-        this.setAnchors(this.getAnchors());
-        this.onPageChange();
-
-        window.addEventListener("popstate", e => {
-          e.target.location.hash && this.scrollToAnchor(e.target.location.hash);
-        });
-      });
     },
     onClickCaptureAnchors() {
       const noneHeadingAnchors = Array.from(
@@ -103,9 +97,6 @@ export default {
         }
       }
     },
-    getAnchors() {
-      return Array.from(document.querySelectorAll(".header-anchor"));
-    }
   }
 };
 </script>

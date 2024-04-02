@@ -3,7 +3,13 @@
 }
 
 .page-body .content--container .stack-selector .selector-control .vs__dropdown-toggle .vs__open-indicator {
-  transform: scale(0.6);
+  transform: scale(1);
+}
+
+@media (max-width: 1439px) {
+  .page-body .content--container .stack-selector .selector-control .vs__dropdown-toggle .vs__open-indicator {
+    transform: scale(0.6);
+  }
 }
 
 .page-body .content--container .stack-selector .selector-control .instructions-label {
@@ -12,4 +18,19 @@
 
 .page-body .content--container .stack-selector .selector-control nav {
   background-color: transparent;
+}
+
+.stack-selector .selector-control .vs__dropdown-menu .vs__dropdown-option--highlight {
+  box-sizing: border-box;
+
+  border: 1px solid var(--c-text-base);
+
+  color: inherit;
+}
+
+.stack-selector .selector-control .vs__dropdown-menu .vs__dropdown-option--highlight:last-child {
+  box-sizing: border-box;
+
+  border: 1px solid var(--c-text-base);
+  border-radius: 0 0 4px 4px;
 }

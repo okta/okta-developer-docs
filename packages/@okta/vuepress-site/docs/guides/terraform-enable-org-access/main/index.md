@@ -138,7 +138,7 @@ Create a Terraform configuration that uses the credentials that you created earl
    * `org_name`: Your Okta org name. For example, `exampleOrgName` from the full domain `https://exampleOrgName.okta.com`.
    * `base_url`: Your Okta org domain
    * `client_id`: The client ID of the service app that you created in an earlier step.
-   * `private_key`: Either the path to the private key file or the private key itself. Okta recommends storing the key in a separate location and using a secrets and encryption management system, such as Hashicorp Vault.
+   * `private_key`: Either the path to the private key file or the private key itself. Okta recommends storing the key in a separate location and using a secrets and encryption management system, such as HashiCorp Vault.
    * `scopes`: A list of scopes required by the Terraform configuration. This example uses the `okta.groups.manage` scope.
 
 For more information on declaring the Okta Provider in your Terraform configuration, see the [Okta Provider documentation](https://registry.terraform.io/providers/okta/okta/latest/docs).

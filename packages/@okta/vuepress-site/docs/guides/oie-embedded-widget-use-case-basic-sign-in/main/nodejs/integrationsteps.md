@@ -1,10 +1,10 @@
 ### Your app displays the sign-in page
 
-Build a sign-in page that captures the user's name and password with the Widget. Ensure that the page completes the steps described in [Load the Widget](/docs/guides/oie-embedded-widget-use-case-load/nodejs/main/) when the page loads.
+Build a sign-in page that captures the user's name and password with the widget. Ensure that the page completes the steps described in [Load the widget](/docs/guides/oie-embedded-widget-use-case-load/nodejs/main/) when the page loads.
 
 ### The user submits their username and password
 
-When the user submits their credentials, the Widget sends an identify request to Identity Engine. Identity Engine returns an interaction code to the sign-in redirect URI that you configured earlier.
+When the user submits their credentials, the widget sends a request to Identity Engine to identify the user. This returns an interaction code to the sign-in redirect URI that you configured earlier.
 
 ### Your app handles an authentication success response
 
