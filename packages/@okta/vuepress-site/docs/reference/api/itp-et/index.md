@@ -113,9 +113,10 @@ This resource contains detailed reference material on event types triggered with
 | **target** (Rule)         | The rule associated with the continuous access evaluation            | Object     |        |
 | type        | The type of target object           | String     | Rule       |
 | **target.DetailEntry** (Rule)       |             |      |        |
-| RuleAction        | The configured action to respond to the risk. Values include none (Logging Mode), `TERMINATE_SESSION`, and `RUN_WORKFLOW`.             | Enum     | `TERMINATE_SESSION`       |
-| SingleLogOutEnabled        | If `true`, a continuous access evaluation violation enforces application logout          | Boolean     | `true`      |
-| SingleLogOutSelectionMode        | The options of the application logout, either all applications, specific applications, or none. Values can be: `NONE`, `ALL`, `SPECIFIED`.           | Enum     | `ALL`       |
+| RuleAction        | The configured action to respond to the risk. Values include `TERMINATE_SESSION` or `RUN_WORKFLOW`.             | Enum     | `TERMINATE_SESSION`       |
+| SingleLogOutEnabled        | For a `RuleAction` of `TERMINATE_SESSION`, and if `true`, a continuous access evaluation violation enforces application logout.          | Boolean     | `true`      |
+| SingleLogOutSelectionMode        | For a `RuleAction` of `TERMINATE_SESSION`, the options of the application logout, either all applications, specific applications, or none. Values can be: `NONE`, `ALL`, or `SPECIFIC`.           | Enum     | `ALL`       |
+| WorkflowId         | The unique identifier of the workflow if the `RuleAction` is `RUN_WORKFLOW`.           | String     | 572749       |
 | DisplayName        | Display the name of the target rule           | String     | Test Rule      |
 | ID        | Unique identifier of the target rule           | String     | `00u8xst93qEWYx65sx1d7`       |
 | **target** (Policy)         |  The continuous access evaluation policy        | Object     |        |
@@ -141,9 +142,10 @@ This resource contains detailed reference material on event types triggered with
 | **target** (Rule)         | The rule associated with the continuous access evaluation           | Object     |        |
 | type       | The type of target object           | String     | Rule       |
 | **target.DetailEntry** (Rule)       |             |      |        |
-| RuleAction        | The configured action to respond to the risk. Values include none (Logging Mode), `TERMINATE_SESSION`, and `RUN_WORKFLOW`.            | Enum     | `TERMINATE_SESSION`       |
-| SingleLogOutEnabled        | If `true`, a continuous access evaluation violation enforces application logout             | Boolean     | `true`      |
-| SingleLogOutSelectionMode        | The options of the application logout, either all applications, specific applications, or none. Values can be: `NONE`, `ALL`, `SPECIFIED`.           | Enum     | `ALL`       |
+| RuleAction        | The configured action to respond to the risk. Values include `TERMINATE_SESSION` or `RUN_WORKFLOW`.            | Enum     | `TERMINATE_SESSION`       |
+| SingleLogOutEnabled        | For a `RuleAction` of `TERMINATE_SESSION`, and if `true`, a continuous access evaluation violation enforces application logout             | Boolean     | `true`      |
+| SingleLogOutSelectionMode        | For a `RuleAction` of `TERMINATE_SESSION`, the options of the application logout, either all applications, specific applications, or none. Values can be: `NONE`, `ALL`, or `SPECIFIC`.           | Enum     | `ALL`       |
+| WorkflowId         | The unique identifier of the workflow if the `RuleAction` is `RUN_WORKFLOW`.           | String     | 572749       |
 | DisplayName        | Displays the name of the rule           | String     | Entity Risk Policy       |
 | ID        | Unique identifier of the rule            | String     | `00u8xst93qEWYx65sx1d7`       |
 | **target** (Policy)         |  The continuous access evaluation policy         | Object      |        |
@@ -151,9 +153,11 @@ This resource contains detailed reference material on event types triggered with
 | **target** (PolicyAction)         | The action associated with the continuous access evaluation           | Object     |        |
 | type        | The type of target object           | String     | PolicyAction       |
 | **target.DetailEntry** (PolicyAction)       |             |      |        |
-| PolicyAction        | The configured action to respond to the risk. Values include none (Logging Mode), `TERMINATE_SESSION`, and `RUN_WORKFLOW`.              | Enum     | `TERMINATE_SESSION`       |
-| PolicySingleLogOutEnabled        |  If `true`, a continuous access evaluation violation enforces application logout             | Boolean     | `true`      |
-| PolicySingleLogOutSelectionMode        | The options of the application logout, either all applications, specific applications, or none. Values can be: `NONE`, `ALL`, `SPECIFIED`.           | Enum     | `ALL`       |
+| PolicyAction        | The configured action to respond to the risk. Values include `TERMINATE_SESSION` or`RUN_WORKFLOW`.              | Enum     | `TERMINATE_SESSION`       |
+| PolicySingleLogOutEnabled        |  For a `PolicyAction` of `TERMINATE_SESSION`, and if `true`, a continuous access evaluation violation enforces application logout             | Boolean     | `true`      |
+| PolicySingleLogOutSelectionMode        | For a `PolicyAction` of `TERMINATE_SESSION`, the options of the application logout, either all applications, specific applications, or none. Values can be: `NONE`, `ALL`, or `SPECIFIC`.           | Enum     | `ALL`       |
+| PolicySingleLogoutAppInstanceIds          | A list of apps that will that will be logged out if the `PolicySingleLogOutMode` mode is `SPECIFIC`.            | Array     | `[ "0oa1gkh63g214r0Hq0g4", "0oa1gjh63g214q0Iq3g3" ]`      |
+| WorkflowId         | The unique identifier of the workflow if the `PolicyAction` is `RUN_WORKFLOW`.           | String     | 572749       |
 | DisplayName        | Displays the name of the action          | String     | `TERMINATE_SESSION`       |
 | ID        | Unique identifier of the continuous access evaluation policy           | String     | `00u8xst93qEWYx65sx1d7`       |
 | **actor**                 |  The target user if synchronous and the system principal if asynchronous                 | Object        |         |
@@ -207,7 +211,7 @@ This resource contains detailed reference material on event types triggered with
 | **target** (Rule)         | The rule of the entity risk policy           |      |        |
 | type        | The type of target object           | String     | Rule       |
 | **target.DetailEntry**        |             |        |        |
-| RuleAction         | The configured action to respond to the risk. Values include `NULL` (Logging Mode), `TERMINATE_ALL_SESSIONS`, and `RUN_WORKFLOW`. If the action is `TERMINATE_ALL_SESSIONS`, no furter properties appear. If the action is `RUN_WORKFLOW`, the `WorkflowId` appears.            | ENUM        | `RUN_WORKFLOW`       |
+| RuleAction         | The configured action to respond to the risk. Values include `TERMINATE_ALL_SESSIONS` or `RUN_WORKFLOW`. If the action is `TERMINATE_ALL_SESSIONS`, no further properties appear. If the action is `RUN_WORKFLOW`, the `WorkflowId` appears.            | ENUM        | `RUN_WORKFLOW`       |
 | WorkflowId         | The unique identifier of the workflow if the `RuleAction` is `RUN_WORKFLOW`.           | String     | 572749       |
 | DisplayName        | The name of the rule        | String     | Test rule     |
 | ID        | Unique identifier of the rule          | String     | `00u8xut93qEWYx5sx1d7`       |
@@ -235,7 +239,7 @@ This resource contains detailed reference material on event types triggered with
 | **target** (Rule)         | The rule of the entity risk policy           | Object     |        |
 | type       | The type of target object              | String     | Rule       |
 | **target.DetailEntry**        |             |      |     |
-| RuleAction         | The configured action to respond to the risk. Values include `NULL` (Logging Mode), `TERMINATE_ALL_SESSIONS`, and `RUN_WORKFLOW`. If the action is `TERMINATE_ALL_SESSIONS`, no further properties appear. If the action is `RUN_WORKFLOW`, the `WorkflowId` appears.            | ENUM        | `RUN_WORKFLOW`       |
+| RuleAction         | The configured action to respond to the risk. Values include `TERMINATE_ALL_SESSIONS` or `RUN_WORKFLOW`. If the action is `TERMINATE_ALL_SESSIONS`, no further properties appear. If the action is `RUN_WORKFLOW`, the `WorkflowId` appears.            | ENUM        | `RUN_WORKFLOW`       |
 | WorkflowId         | The unique identifier of the workflow if the `RuleAction` is `RUN_WORKFLOW`.           | String     | 572749       |
 | DisplayName        | Name of the rule         | String     | Test rule     |
 | ID        | Unique identifier of the rule           | String     | `00u8xut93qEWYx5sx1d7`       |
