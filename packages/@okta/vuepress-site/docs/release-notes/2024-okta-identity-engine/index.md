@@ -12,41 +12,40 @@ title: Okta Identity Engine API Products release notes 2024
 
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
-|  | April 3, 2024 |
-|    | April 3, 2024 |
-|     | April 3, 2024 |
-|  | April 3, 2024 |
-|  | April 3, 2024 |
-|    | April 3, 2024 |
-|    | April 3, 2024 |
-|   | April 3, 2024 |
-| Documentation documentation update in 2024.04.0 | April 3, 2024 |
+| [Permissions for custom admins to manage agents is GA in Preview](#permissions-for-custom-admins-to-manage-agents-is-ga-in-preview) | April 3, 2024 |
+| [Okta now supports the NotonOrAfter property for SLO apps](#okta-now-supports-the-notonorafter-property-for-slo-apps)  | April 3, 2024 |
+| [Identity Threat Protection with Okta AI is EA in Preview](#identity-threat-protection-with-okta-ai-is-ea-in-preview) | April 3, 2024 |
+| [Enhanced app API contracts is GA in Production](#enhanced-app-api-contracts-is-ga-in-production) | April 3, 2024 |
+| [Direct Authentication is GA in Production](#direct-authentication-is-ga-in-production) | March 7, 2024 |
+| [Content Security Policy for custom domains is GA in Production](#content-security-policy-for-custom-domains-is-ga-in-production) | March 7, 2024 |
+| [Developer documentation update in 2024.04.0](#developer-documentation-update-in-2024-04-0) | April 3, 2024 |
 | [Bugs fixed in 2024.04.0](#bugs-fixed-in-2024-04-0) | April 3, 2024 |
 
-#### 
+#### Permissions for custom admins to manage agents is GA in Preview
 
-<!-- OKTA- -->
+Custom admins can now view, register, and manage agents. See [Agent permissions](https://help.okta.com/okta_help.htm?id=).<!-- OKTA-706310 -->
 
-#### 
+#### Okta now supports the NotonOrAfter property for SLO apps
 
+Logout requests from Okta to participating SLO apps now support the NotonOrAfter property. This property sets a timeframe in which the logout request expires. If a recipient receives a logout request that's past the NotonOrAfter timeframe (five minutes), the user can ignore the logout request from Okta.<!-- OKTA-677756 -->
 
-#### 
+#### Identity Threat Protection with Okta AI is EA in Preview
 
+Identity Threat Protection with Okta AI is a powerful risk assessment and response solution that provides post-authentication security to your org. By continuously analyzing risk signals that are native to Okta, risk signals from integrated security partner vendors, and your policy conditions, it safeguards orgs against identity attacks that occur during and outside of a user’s session. When Identity Threat Protection discovers a risk, it can immediately end the user’s sessions, prompt an MFA challenge, or invoke a workflow to restore your org’s security posture. Using intuitive dashboard widgets and reports, you can easily monitor security threats as they happen. See [Identity Thread Protection with Okta AI](https://help.okta.com/okta_help.htm?type=oie&id=ext-itp-overview).<!-- OKTA-683713 -->
 
-#### 
+#### Enhanced app API contracts is GA in Production
 
+Okta has API documentation on creating instances of custom apps. Yet, it doesn’t fully describe the app metadata required for features such as SSO and provisioning for apps installed from the Okta Integration Network (OIN). In an effort to improve the API for apps in the OIN, new app metadata contracts have been added to the Okta management API. Operators and developers can programmatically create instances of popular OIN apps in their ecosystem and set up the provisioning connection.
 
-#### 
+See [OIN app request payloads in the Applications API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/) and the [Set up an app provisioning connection](/docs/guides/app-provisioning-connection/main/) guide.<!-- OKTA-663482 -->
 
+#### Direct Authentication is GA in Production
 
-#### 
+[Direct Authentication](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/OrgAS/#tag/OrgAS/operation/token) offers a new set of OAuth 2.0 grants that give app developers greater control over the authentication process. When redirect authentication isn't an option, you can use direct authentication to allow client apps to authenticate users directly, without relying on HTTP redirection through a web browser. This is beneficial when there's a high degree of trust between the user and the app and when browser-based flows aren't feasible, like with mobile apps. See [Configure Direct Auth grant types](/docs/guides/configure-direct-auth-grants/aotp/main/).
 
+#### Content Security Policy for custom domains is GA in Production
 
-#### 
-
-
-#### 
-
+The Content Security Policy (CSP) feature lets admins control which URLs may be linked to from customized sign-in and error pages in orgs that use custom domains. Admins add trusted URLs to Okta that link to items such as images and add these links to the code in their sign-in and error pages. This feature enhances security by enabling admins to allow only approved content to appear and prevent the introduction of potentially malicious code to these pages. See [Content Security Policy (CSP) for your custom domain](/docs/guides/custom-widget/main/#content-security-policy-csp-for-your-custom-domain). <!-- OKTA-600774 FF CONTENT_SECURITY_POLICY_FOR_CUSTOMIZABLE_SIGN_IN_AND_ERROR_PAGES -->
 
 #### Developer documentation update in 2024.04.0
 
@@ -54,12 +53,9 @@ The [OIN QA SCIM test plan](/docs/guides/scim-provisioning-integration-test/main
 
 #### Bugs fixed in 2024.04.0
 
-* 
+* The password reset prompt wasn't appearing for a user with an expired password. (OKTA-670058)
 
-* 
-
-* 
-
+* Users were able to unselect a saved SSO protocol for an integration submission in the OIN Wizard. (OKTA-710638)
 
 ## March
 
