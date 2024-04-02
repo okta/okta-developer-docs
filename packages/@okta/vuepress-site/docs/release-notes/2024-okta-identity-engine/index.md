@@ -16,6 +16,8 @@ title: Okta Identity Engine API Products release notes 2024
 
 #### Bugs fixed in 2024.03.2
 
+* An admin was able to make a GET Policy request (`/authorizationServers/${authorizationServerId}/policies/${policyId}`) to an authorization server with no policies, using a policy ID from another authorization server with policies, and get that policy information returned. (OKTA-684225)
+
 * Okta sometimes incorrectly returned an Invalid Phone Number error during SMS factor enrollment. (OKTA-705078)
 
 * After an admin deleted a user, an internal server error sometimes occurred when the admin then made a LIST IdP users request (`api/v1/idps/{idpId}/users`). (OKTA-708102)
@@ -35,7 +37,7 @@ title: Okta Identity Engine API Products release notes 2024
 | [Support case management for admins is GA in Preview](#support-case-management-for-admins-is-ga-in-preview)                           | March 7, 2023 |
 | [Realms for Workforce](#realms-for-workforce)                                                                                         | March 7, 2023 |
 | [Enhanced app API contracts](#enhanced-app-api-contracts)                                                                             | March 7, 2024 |
-| [Bug fixed in 2024.03.0](#bugs-fixed-in-2024-03-0)                                                                                    | March 7, 2024 |
+| [Bug fixed in 2024.03.0](#bug-fixed-in-2024-03-0)                                                                                    | March 7, 2024 |
 
 #### Direct Authentication is GA in Preview
 
