@@ -56,7 +56,7 @@ Okta provides the following environments to use with your Aerial account:
 
   `https://aerial-sandbox.okta.com`
 
-- **Production**: Connected to `okta.com` and `okta.preview.com`. Use to explore the Aerial API or test net-new development. Link a preview org to your production instance.
+- **Production**: Connected to `okta.com` and `oktapreview.com`. Use to explore the Aerial API or test net-new development. Link a preview org to your production instance.
 
   `https://aerial-apac.okta.com`
 
