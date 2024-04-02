@@ -21,8 +21,9 @@ There are many possibilities for policy use:
 * Determine the extra levels of authentication that must be performed before a user accesses a specific app.
 * Maintain a list of allowed users and deny access based on multiple conditions.
 * Change the returned scopes of the access token and add claims to it and to the ID token using [inline hooks](/docs/concepts/inline-hooks/).
-* Notify other systems in real time through an API when a user signs in.
+* Notify other systems in real-time through an API when a user signs in.
 * Use token scopes to look up user information in an external database or API, then add that data to the user's profile object.
+* Monitor your org for identity threats like changes in entity risk or session context.
 
 ### Control who can access your app
 
@@ -124,6 +125,16 @@ The [Profile enrollment policy](/docs/reference/api/policy/#profile-enrollment-p
 With self-service registration flows, users register and activate their profiles by clicking a sign-up link in the Sign-In Widget or through a custom-embedded authentication solution.
 
 With progressive enrollment flows, you can capture the minimum user information required to create a profile and then continually build out those user profiles during subsequent sign-in operations. You control what information is collected, validate those input values, and [trigger inline hooks](/docs/guides/registration-inline-hook/nodejs/main/).
+
+### Identity Threat Protection policies
+
+<ApiLifecycle access="ie" /> <ApiLifecycle access="ea" />
+
+Identity Threat Protection with Okta AI is an identity threat solution that combines current security practices with continuous real-time risk assessment. See [Identity Threat Protection with Okta AI](https://help.okta.com/okta_help.htm?type=oie&id=ext-itp-overview). Identity Threat Protection uses the entity risk policy and Continuous Access evaluation for these threat evaluations.
+
+* [Entity risk policy](/docs/reference/api/policy/#entity-risk-policy): The entity risk policy monitors your org for entity risk changes related to identity-based threats. For Admin Console tasks and further information, see [Entity risk policy](https://help.okta.com/okta_help.htm?type=oie&id=csh-entity-risk-policy).
+
+* [Continuous Access evaluation](/docs/reference/api/policy/#continuous-access-evaluation-cae-policy): Continuous Access evaluation monitors user sessions on your org to identify changes in session context. For Admin Console tasks and further information, see [Continuous Access evaluation](https://help.okta.com/okta_help.htm?type=oie&id=csh-continuous-access-evaluation).
 
 ### API access policies
 

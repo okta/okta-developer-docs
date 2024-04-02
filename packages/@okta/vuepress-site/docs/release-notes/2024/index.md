@@ -55,6 +55,8 @@ Users were able to unselect a saved SSO protocol for an integration submission i
 
 #### Bugs fixed in 2024.03.2
 
+* An admin was able to make a GET Policy request (`/authorizationServers/${authorizationServerId}/policies/${policyId}`) to an authorization server with no policies, using a policy ID from another authorization server with policies, and get that policy information returned. (OKTA-684225)
+
 * Client rate limiting configurations for the `/login/login.htm` endpoint were displayed incorrectly in the Rate Limit dashboard and were in an inconsistent state for some orgs. (OKTA-699914)
 
 * Okta sometimes incorrectly returned an Invalid Phone Number error during SMS factor enrollment. (OKTA-705078)
@@ -65,7 +67,7 @@ Users were able to unselect a saved SSO protocol for an integration submission i
 
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
-| [Bug fixed in 2024.03.1](#bugs-fixed-in-2024-03-1) | March 13, 2024 |
+| [Bug fixed in 2024.03.1](#bug-fixed-in-2024-03-1) | March 13, 2024 |
 
 #### Bug fixed in 2024.03.1
 
