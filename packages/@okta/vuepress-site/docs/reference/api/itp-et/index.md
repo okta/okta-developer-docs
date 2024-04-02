@@ -115,7 +115,7 @@ This resource contains detailed reference material on event types triggered with
 | **target.DetailEntry** (Rule)       |             |      |        |
 | RuleAction        | The configured action to respond to the risk. Values include `TERMINATE_SESSION` or `RUN_WORKFLOW`.             | Enum     | `TERMINATE_SESSION`       |
 | SingleLogOutEnabled        | For a `RuleAction` of `TERMINATE_SESSION`, and if `true`, a continuous access evaluation violation enforces application logout.          | Boolean     | `true`      |
-| SingleLogOutSelectionMode        | For a `RuleAction` of `TERMINATE_SESSION`, the options of the application logout, either all applications, specific applications, or none. Values can be: `NONE`, `ALL`, or `SPECIFIC`.           | Enum     | `ALL`       |
+| SingleLogOutSelectionMode        | For a `RuleAction` of `TERMINATE_SESSION`, the options of the application logout, either all applications, specific applications, or none. Values can be: `NONE`, `ALL`, or `SPECIFIED`.           | Enum     | `ALL`       |
 | WorkflowId         | The unique identifier of the workflow if the `RuleAction` is `RUN_WORKFLOW`.           | String     | 572749       |
 | DisplayName        | Display the name of the target rule           | String     | Test Rule      |
 | ID        | Unique identifier of the target rule           | String     | `00u8xst93qEWYx65sx1d7`       |
@@ -144,7 +144,7 @@ This resource contains detailed reference material on event types triggered with
 | **target.DetailEntry** (Rule)       |             |      |        |
 | RuleAction        | The configured action to respond to the risk. Values include `TERMINATE_SESSION` or `RUN_WORKFLOW`.            | Enum     | `TERMINATE_SESSION`       |
 | SingleLogOutEnabled        | For a `RuleAction` of `TERMINATE_SESSION`, and if `true`, a continuous access evaluation violation enforces application logout             | Boolean     | `true`      |
-| SingleLogOutSelectionMode        | For a `RuleAction` of `TERMINATE_SESSION`, the options of the application logout, either all applications, specific applications, or none. Values can be: `NONE`, `ALL`, or `SPECIFIC`.           | Enum     | `ALL`       |
+| SingleLogOutSelectionMode        | For a `RuleAction` of `TERMINATE_SESSION`, the options of the application logout, either all applications, specific applications, or none. Values can be: `NONE`, `ALL`, or `SPECIFIED`.           | Enum     | `ALL`       |
 | WorkflowId         | The unique identifier of the workflow if the `RuleAction` is `RUN_WORKFLOW`.           | String     | 572749       |
 | DisplayName        | Displays the name of the rule           | String     | Entity Risk Policy       |
 | ID        | Unique identifier of the rule            | String     | `00u8xst93qEWYx65sx1d7`       |
@@ -155,8 +155,8 @@ This resource contains detailed reference material on event types triggered with
 | **target.DetailEntry** (PolicyAction)       |             |      |        |
 | PolicyAction        | The configured action to respond to the risk. Values include `TERMINATE_SESSION` or`RUN_WORKFLOW`.              | Enum     | `TERMINATE_SESSION`       |
 | PolicySingleLogOutEnabled        |  For a `PolicyAction` of `TERMINATE_SESSION`, and if `true`, a continuous access evaluation violation enforces application logout             | Boolean     | `true`      |
-| PolicySingleLogOutSelectionMode        | For a `PolicyAction` of `TERMINATE_SESSION`, the options of the application logout, either all applications, specific applications, or none. Values can be: `NONE`, `ALL`, or `SPECIFIC`.           | Enum     | `ALL`       |
-| PolicySingleLogoutAppInstanceIds          | A list of apps that will that will be logged out if the `PolicySingleLogOutMode` mode is `SPECIFIC`.            | Array     | `[ "0oa1gkh63g214r0Hq0g4", "0oa1gjh63g214q0Iq3g3" ]`      |
+| PolicySingleLogOutSelectionMode        | For a `PolicyAction` of `TERMINATE_SESSION`, the options of the application logout, either all applications, specific applications, or none. Values can be: `NONE`, `ALL`, or `SPECIFIED`.           | Enum     | `ALL`       |
+| PolicySingleLogoutAppInstanceIds          | A list of apps that will that will be logged out if the `PolicySingleLogOutMode` mode is `SPECIFIED`.            | Array     | `[ "0oa1gkh63g214r0Hq0g4", "0oa1gjh63g214q0Iq3g3" ]`      |
 | WorkflowId         | The unique identifier of the workflow if the `PolicyAction` is `RUN_WORKFLOW`.           | String     | 572749       |
 | DisplayName        | Displays the name of the action          | String     | `TERMINATE_SESSION`       |
 | ID        | Unique identifier of the continuous access evaluation policy           | String     | `00u8xst93qEWYx65sx1d7`       |
@@ -249,8 +249,8 @@ This resource contains detailed reference material on event types triggered with
 | **target.DetailEntry**         |             | Object    |       |
 | PolicyAction         | The configured action to respond to the risk. Values include `NULL` (Logging Mode), `TERMINATE_ALL_SESSIONS`, and `RUN_WORKFLOW`.             |  ENUM    | `TERMINATE_ALL_SESSIONS`      |
 | PolicySingleLogOutEnabled         | Identifies if single logout is enabled. This property appears if `PolicyAction` is `TERMINATE_SESSION`.          | Boolean    | `true`      |
-| PolicySingleLogOutSelectionMode         | The mode of logout. Values can be `NONE`, `ALL`, or `SPECIFIC`. This property appears if `PolicyAction` is `TERMINATE_SESSION`.           | ENUM    | `ALL`       |
-| PolicySingleLogoutAppInstanceIds          | A list of apps that will that will be logged out if the `PolicySingleLogOutMode` mode is `SPECIFIC`.            | Array     | `[ "0oa1gkh63g214r0Hq0g4", "0oa1gjh63g214q0Iq3g3" ]`      |
+| PolicySingleLogOutSelectionMode         | The mode of logout. Values can be `NONE`, `ALL`, or `SPECIFIED`. This property appears if `PolicyAction` is `TERMINATE_SESSION`.           | ENUM    | `ALL`       |
+| PolicySingleLogoutAppInstanceIds          | A list of apps that will that will be logged out if the `PolicySingleLogOutMode` mode is `SPECIFIED`.            | Array     | `[ "0oa1gkh63g214r0Hq0g4", "0oa1gjh63g214q0Iq3g3" ]`      |
 | PolicyWorkflowId         | The unique identifier of the workflow if the `PolicyAction` is `RUN_WORKFLOW`.           |  String    | 572749      |
 | DisplayName        | Name of the policy action         | String     |`TERMINATE_ALL_SESSIONS`         |
 | ID        | Unique identifier of the entity risk policy            | String     | `00u8xut93qEWYx5sx1d7`       |
