@@ -13,7 +13,7 @@ title: Okta API Products release notes 2024
 | [Customize Okta to use the telecommunications provider of your choice is GA in Production](#customize-okta-to-use-the-telecommunications-provider-of-your-choice-is-ga-in-production) | March 7, 2024 |
 | [Permissions for custom admins to manage agents is GA in Preview](#permissions-for-custom-admins-to-manage-agents-is-ga-in-preview)  | April 3, 2024 |
 | [Enhanced app API contracts is GA in Production](#enhanced-app-api-contracts-is-ga-in-production) | April 3, 2024 |
-| [Content Security Policy for custom domains is GA in Production](#content-security-policy-for-custom-domains-is-ga-in-production) | March 7, 2024 |
+| [Content Security Policy for custom domains is GA in Production](#content-security-policy-for-custom-domains-is-ga-in-production) | January 31, 2024 |
 | [Developer documentation update in 2024.04.0](#developer-documentation-update-in-2024-04-0) | April 3, 2024 |
 | [Bug fixed in 2024.04.0](#bug-fixed-in-2024-04-0) | April 3, 2024 |
 
