@@ -174,7 +174,7 @@ This resource contains detailed reference material on event types triggered with
 | NewIpAddress            | The new IP address for an `ipAddress.change` cause or the new IP address for a device context change.               | String         | `145.126.159.223 `       |
 | PreviousIpAddress              | The previous IP address for an `ipAddress.change` cause or the new IP address for a device context change.                 | String         |  `67.46.211.18 `       |
 | changedDeviceSignals              | The change in device signals for the session.               | key-value pairs       | `{\"device.profile.managed\":{\"oldValue\":true, \"newValue\":false},\"device.provider.wsc.fireWall\":{\"oldValue\":\"GOOD\", \"newValue\":\"NONE\"}} ` |
-| Risk            | Contains the level of risk for a user entity (`LOW`, `MEDIUM`, or `HIGH`) and the reasons that contributed to the risk level. The `detectionName` key defines the risks monitored by Okta. The `level` key defines the current risk. The `issuer` defines the source of the risk detection. See [Detections](https://help.okta.com/okta_help.htm?type=oie&id=csh-detections).               | key-value pairs         |`{reasons=Anomalous Geo-Distance, New Device, New ASN, New IP, New State, New Country, New City, level=HIGH}`          |
+| Risk            | Contains the level of risk for the current request (`LOW`, `MEDIUM`, or `HIGH`) and the reasons that contributed to the risk level. The `detectionName` key defines the risks monitored by Okta. The `level` key defines the current risk. The `issuer` defines the source of the risk detection. See [Detections](https://help.okta.com/okta_help.htm?type=oie&id=csh-detections).               | key-value pairs         |`{reasons=Anomalous Geo-Distance, New Device, New ASN, New IP, New State, New Country, New City, level=HIGH}`          |
 | Source            | The source of the session context change                 | String        | `OKTA`         |
 | ThreatSuspected            | If ThreatInsight is running and detects a request as suspicious, the value for this property is `true`.                   | Boolean         | `false`         |
 | TraceId            |  A unique ID that is used across a single flow of ITP events to easily correlate them all into one System Log query                | String         | `65d55fa6-b5a9-40f9-a6f1-627b9fa71b50`        |
@@ -207,10 +207,11 @@ This resource contains detailed reference material on event types triggered with
 | **target** (Rule)         | The rule of the entity risk policy           |      |        |
 | type        | The type of target object           | String     | Rule       |
 | **target.DetailEntry**        |             |        |        |
-| RuleAction         | The configured action to respond to the risk. Values include none (Logging Mode), `TERMINATE_ALL_SESSIONS`, and `RUN_WORKFLOW`.            | ENUM        | RUN_WORKFLOW       |
-| WorkflowId         | The unique identifier of the workflow            | String     | 572749       |
+| RuleAction         | The configured action to respond to the risk. Values include `NULL` (Logging Mode), `TERMINATE_ALL_SESSIONS`, and `RUN_WORKFLOW`. If the action is `TERMINATE_ALL_SESSIONS`, no furter properties appear. If the action is `RUN_WORKFLOW`, the `WorkflowId` appears.            | ENUM        | `RUN_WORKFLOW`       |
+| WorkflowId         | The unique identifier of the workflow if the `RuleAction` is `RUN_WORKFLOW`.           | String     | 572749       |
 | DisplayName        | The name of the rule        | String     | Test rule     |
 | ID        | Unique identifier of the rule          | String     | `00u8xut93qEWYx5sx1d7`       |
+| Type | The target type | String | `Rule` |
 | **actor**                 |  The target user if synchronous and the system principal if asynchronous                 | Object        |         |
 | type        | The type of actor object           |      |        |
 | **client**                | The client of the actor                | Object      |         |
@@ -234,17 +235,22 @@ This resource contains detailed reference material on event types triggered with
 | **target** (Rule)         | The rule of the entity risk policy           | Object     |        |
 | type       | The type of target object              | String     | Rule       |
 | **target.DetailEntry**        |             |      |     |
-| RuleAction         | The configured action to respond to the risk. Values include none (Logging Mode), `TERMINATE_ALL_SESSIONS`, and `RUN_WORKFLOW`.            | ENUM     | `TERMINATE_ALL_SESSIONS`      |
-| WorkflowAction         | The unique identifier of the workflow            |      | `TERMINATE_ALL_SESSIONS`      |
+| RuleAction         | The configured action to respond to the risk. Values include `NULL` (Logging Mode), `TERMINATE_ALL_SESSIONS`, and `RUN_WORKFLOW`. If the action is `TERMINATE_ALL_SESSIONS`, no further properties appear. If the action is `RUN_WORKFLOW`, the `WorkflowId` appears.            | ENUM        | `RUN_WORKFLOW`       |
+| WorkflowId         | The unique identifier of the workflow if the `RuleAction` is `RUN_WORKFLOW`.           | String     | 572749       |
 | DisplayName        | Name of the rule         | String     | Test rule     |
 | ID        | Unique identifier of the rule           | String     | `00u8xut93qEWYx5sx1d7`       |
+| type        | The type of target object           | String     | Rule       |
 | **target** (PolicyAction)         |            |      |        |
 | type        | The type of target object           | String     | PolicyAction       |
 | **target.DetailEntry**         |             | Object    |       |
-| PolicyAction         | The configured action to respond to the risk. Values include none (Logging Mode), `TERMINATE_ALL_SESSIONS`, and `RUN_WORKFLOW`.             |  ENUM    | `TERMINATE_ALL_SESSIONS`      |
-| PolicyWorkflowId         | The unique identifier of the workflow            |  ENUM    |       |
+| PolicyAction         | The configured action to respond to the risk. Values include `NULL` (Logging Mode), `TERMINATE_ALL_SESSIONS`, and `RUN_WORKFLOW`.             |  ENUM    | `TERMINATE_ALL_SESSIONS`      |
+| PolicySingleLogOutEnabled         | Identifies if single logout is enabled. This property appears if `PolicyAction` is `TERMINATE_SESSION`.          | Boolean    | `true`      |
+| PolicySingleLogOutSelectionMode         | The mode of logout. Values can be `NONE`, `ALL`, or `SPECIFIC`. This property appears if `PolicyAction` is `TERMINATE_SESSION`.           | ENUM    | `ALL`       |
+| PolicySingleLogoutAppInstanceIds          | A list of apps that will that will be logged out if the `PolicySingleLogOutMode` mode is `SPECIFIC`.            | Array     | `[ 0oa1gkh63g214r0Hq0g4, 0oa1gjh63g214q0Iq3g3 ]`      |
+| PolicyWorkflowId         | The unique identifier of the workflow if the `PolicyAction` is `RUN_WORKFLOW`.           |  String    | 572749      |
 | DisplayName        | Name of the policy action         | String     |`TERMINATE_ALL_SESSIONS`         |
 | ID        | Unique identifier of the entity risk policy            | String     | `00u8xut93qEWYx5sx1d7`       |
+| type        | The type of target object           | string     | PolicyAction       |
 | **actor**                 |  The target user if synchronous and the system principal if asynchronous                 | Object        |         |
 | type        | The type of actor object           |      |        |
 | **client**                |  The client of the actor                |       |         |
