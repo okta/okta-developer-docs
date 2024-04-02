@@ -4,6 +4,63 @@ title: Okta API Products release notes 2024
 
 > Help us improve our release notes by filling out this short [survey](https://surveys.okta.com/jfe/form/SV_4VEZcIGOX0TBgkC).
 
+## April
+
+### Monthly release 2024.04.0
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| Customize Okta to use the telecommunications provider of your choice is GA in Production | March 7, 2024 |
+|    | April 3, 2024 |
+|     | April 3, 2024 |
+|  | April 3, 2024 |
+|  | April 3, 2024 |
+|    | April 3, 2024 |
+|    | April 3, 2024 |
+|   | April 3, 2024 |
+| Documentation documentation update in 2024.04.0 | April 3, 2024 |
+| [Bugs fixed in 2024.04.0](#bugs-fixed-in-2024-04-0) | April 3, 2024 |
+
+#### Customize Okta to use the telecommunications provider of your choice
+
+While Okta provides out of the box telephony functionality, many customers need the ability to integrate their existing telecommunications provider with Okta to deliver SMS and Voice messages.
+
+The Telephony Inline Hook allows customers to generate one-time passcodes within Okta and then use their existing telecommunications provider to deliver the messages for MFA enrollment/verification, password reset, and account unlock using SMS or Voice. This allows customers to use their existing telephony solution within Okta, due to the time they've already invested in their existing telephony solution, the need to use a specific regional provider, or simply the desire to maintain flexibility. See [Connect to an external telephony service provider](https://help.okta.com/okta_help.htm?id=ext-telephony-inline-hook).<!-- OKTA-700233 -->
+
+#### 
+
+
+#### 
+
+
+#### 
+
+
+#### 
+
+
+#### 
+
+
+#### 
+
+
+#### 
+
+
+#### Developer documentation update in 2024.04.0
+
+The [OIN QA SCIM test plan](/docs/guides/scim-provisioning-integration-test/main/#run-through-oin-qa-tests) file was updated. The following test cases were modified: C9319, C9320, C9321, C9360, and C9361. <!-- OKTA-704429 --> <!-- OKTA-710941 -->
+
+#### Bugs fixed in 2024.04.0
+
+* 
+
+* 
+
+* 
+
+
 ## March
 
 ### Weekly release 2024.03.2

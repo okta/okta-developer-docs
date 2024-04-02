@@ -6,6 +6,61 @@ title: Okta Identity Engine API Products release notes 2024
 
 > Help us improve our release notes by filling out this short [survey](https://surveys.okta.com/jfe/form/SV_4VEZcIGOX0TBgkC).
 
+## April
+
+### Monthly release 2024.04.0
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+|  | April 3, 2024 |
+|    | April 3, 2024 |
+|     | April 3, 2024 |
+|  | April 3, 2024 |
+|  | April 3, 2024 |
+|    | April 3, 2024 |
+|    | April 3, 2024 |
+|   | April 3, 2024 |
+| Documentation documentation update in 2024.04.0 | April 3, 2024 |
+| [Bugs fixed in 2024.04.0](#bugs-fixed-in-2024-04-0) | April 3, 2024 |
+
+#### 
+
+<!-- OKTA- -->
+
+#### 
+
+
+#### 
+
+
+#### 
+
+
+#### 
+
+
+#### 
+
+
+#### 
+
+
+#### 
+
+
+#### Developer documentation update in 2024.04.0
+
+The [OIN QA SCIM test plan](/docs/guides/scim-provisioning-integration-test/main/#run-through-oin-qa-tests) file was updated. The following test cases were modified: C9319, C9320, C9321, C9360, and C9361. <!-- OKTA-704429 --> <!-- OKTA-710941 -->
+
+#### Bugs fixed in 2024.04.0
+
+* 
+
+* 
+
+* 
+
+
 ## March
 
 ### Weekly release 2024.03.2
