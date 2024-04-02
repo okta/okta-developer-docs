@@ -21,17 +21,17 @@ title: Okta API Products release notes 2024
 
 While Okta provides out of the box telephony functionality, many customers need the ability to integrate their existing telecommunications provider with Okta to deliver SMS and Voice messages.
 
-The Telephony Inline Hook allows customers to generate one-time passcodes within Okta and then use their existing telecommunications provider to deliver the messages for MFA enrollment/verification, password reset, and account unlock using SMS or Voice. This allows customers to use their existing telephony solution within Okta, due to the time they've already invested in their existing telephony solution, the need to use a specific regional provider, or simply the desire to maintain flexibility. See [Connect to an external telephony service provider](https://help.okta.com/okta_help.htm?id=ext-telephony-inline-hook).<!-- OKTA-700233 -->
+The Telephony Inline Hook allows customers to generate one-time passcodes within Okta and then use their existing telecommunications provider to deliver the messages for MFA enrollment/verification, password reset, and account unlock using SMS or Voice. This allows customers to use their existing telephony solution within Okta, due to the time they've already invested in their existing telephony solution, the need to use a specific regional provider, or simply the desire to maintain flexibility. See [Connect to an external telephony service provider](https://help.okta.com/okta_help.htm?id=ext-telephony-inline-hook). <!-- OKTA-700233 INLINE_HOOKS_ASYNC_TELEPHONY_PROVIDER -->
 
 #### Permissions for custom admins to manage agents is GA in Preview
 
-Custom admins can now view, register, and manage agents. See [Agent permissions](https://help.okta.com/okta_help.htm?id=).<!-- OKTA-706310 -->
+Custom admins can now view, register, and manage agents. See [Agent permissions](https://help.okta.com/okta_help.htm?id=). <!-- OKTA-706310 ALLOW_CUSTOM_ADMIN_TO_MANAGE_REGISTER_AGENTS -->
 
 #### Enhanced app API contracts is GA in Production
 
 Okta has API documentation on creating instances of custom apps. Yet, it doesn’t fully describe the app metadata required for features such as SSO and provisioning for apps installed from the Okta Integration Network (OIN). In an effort to improve the API for apps in the OIN, new app metadata contracts have been added to the Okta management API. Operators and developers can programmatically create instances of popular OIN apps in their ecosystem and set up the provisioning connection.
 
-See [OIN app request payloads in the Applications API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/) and the [Set up an app provisioning connection](/docs/guides/app-provisioning-connection/main/) guide.<!-- OKTA-663482 -->
+See [OIN app request payloads in the Applications API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/) and the [Set up an app provisioning connection](/docs/guides/app-provisioning-connection/main/) guide. <!-- OKTA-663482 PROVISIONING_API_EXTENSION -->
 
 #### Content Security Policy for custom domains is GA in Production
 
