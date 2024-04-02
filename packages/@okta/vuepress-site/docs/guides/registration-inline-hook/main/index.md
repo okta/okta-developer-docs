@@ -155,13 +155,13 @@ See the [request properties](/docs/reference/registration-hook/#objects-in-the-r
 
 ## Set up for profile enrollment (SSR) scenario
 
-The simple scenario of profile enrollment (self-service registration) involves new users self-registering from the **Sign up** link with the default three sign-up fields (email, first name, and family name). With this use case, the registration inline hook triggers and evaluates the domain in the Email field. If the domain is from `okta.com`, the user can register. If not, the user is denied registration. To implement this scenario:
+The simple scenario of profile enrollment (self-service registration) involves new users self-registering from the **Sign up** link. New users use the default sign-up fields (email, first name, and family name). With this use case, the registration inline hook triggers and evaluates the domain in the Email field. If the domain is from `okta.com`, the user can register. If not, the user is denied registration. To implement this scenario:
 
 <StackSnippet snippet="introbullets"/>
 
 ### Set up your external service code response for profile enrollment
 
-You need to remix your own version of the Okta sample Glitch project and confirm that it's live.
+Remix your own version of the Okta sample Glitch project and confirm that it's live.
 
 1. Go to the [Okta Registration Inline Hook Example](https://glitch.com/edit/#!/okta-inlinehook-registrationhook-oie).
 1. Click **Remix your own**.
