@@ -47,7 +47,7 @@ This resource contains detailed reference material on event types triggered with
 | Key event properties  | Description                                         | Data type      | Example values |
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
 | **event.system.debugContext.debugData**                |                 |         |         |
-| partnerRiskReportData              | The SSF submission from an event provider. It includes the issuer of the security event, the security event URL, and the security event definition.                   | key-value pairs         | `"{  \"issuer\" : \"https://example.eventprovider.com\",\n  \"https://schemas.openid.net/secevent/caep/event-type/session-revoked\" : {\n    \"subject\" : {\n      \"user\" : {\n        \"format\" : \"email\",\n        \"email\" : \"joe.alex@example.com\"\n      },\n      \"device\" : {\n        \"format\" : \"opaque\",\n        \"sub\" : \"1234ABCD-123A-123B-123C-12345ABCDEFG\"\n      }\n    },\n    \"event_timestamp\" : 1709484521,\n    \"reason_admin\" : {\n      \"en\" : \"Malware detected\"\n    }\n  }\n}"`         |
+| partnerRiskReportData              | The SSF submission from an event provider. It includes the issuer of the security event, the security event URL, and the security event definition.                   | key-value pairs         | `"{  "issuer" : "https://example.eventprovider.com", "https://schemas.openid.net/secevent/caep/event-type/session-revoked" : { "subject" : { "user" : { "format" : "email", "email\" : "joe.alex@example.com" }, "device" : { "format" : "opaque", "sub" : "1234ABCD-123A-123B-123C-12345ABCDEFG" }},    "event_timestamp" : 1709484521, "reason_admin" : {"en" : "Malware detected" }  }}"`         |
 | **target** (User)         |  The user affected by the event           | Object     |        |
 | type        | The type of target object     | String     |       |
 | **actor**                 |  The security events provider                | Object        |         |
@@ -73,7 +73,7 @@ This resource contains detailed reference material on event types triggered with
 | Key event properties  | Description                                         | Data type      | Example values |
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
 | **event.system.debugContext.debugData**                |                 |         |         |
-| Behaviors             | List of behaviors identified for the current event. `POSITIVE` - the specific behavior is identified. `NEGATIVE` - the specific behavior wasn't identified. See [About Behavior Detection](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-behavior-detection).                 | key-value pairs        |  `{New Geo-Location=POSITIVE, New Device=NEGATIVE, New IP=POSITIVE, New State=POSITIVE, New Country=POSITIVE, Velocity=POSITIVE, New City=POSITIVE} `       |
+| Behaviors             | List of behaviors identified for the current event. `POSITIVE` - the specific behavior is identified. `NEGATIVE` - the specific behavior wasn't identified. See [About Behavior Detection](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-behavior-detection).                 | key-value pairs        |  `{ New Geo-Location=POSITIVE, New Device=NEGATIVE, New IP=POSITIVE, New State=POSITIVE, New Country=POSITIVE, Velocity=POSITIVE, New City=POSITIVE } `       |
 | CaeEnforceMode             | The Continuous Access evaluation (CAE) UI setting that determines whether the policy is enforceable. If this is false, Okta logs these events but doesn't take any further action.                  | Boolean         | `true`       |
 | Risk            | Contains the level of risk for a particular request (`LOW`, `MEDIUM`, or `HIGH`) and the `reasons` that contributed to the risk level.               | key-value pairs         | `{reasons=Anomalous Geo-Distance, New Device, New ASN, New IP, New State, New Country, New City, level=HIGH}`        |
 | ServerStatus            |  Describes the current state of the Okta servers. Other values can be `READ_ONLY` and `SAFE_MODE`.                | Enum         | `ACTIVE`         |
@@ -84,7 +84,7 @@ This resource contains detailed reference material on event types triggered with
 | **target** (Policy Evaluation)         | The reevaluated policy         | Object     |        |
 | type        | The type of target object          | String     | Policy Evaluation       |
 | **target.DetailEntry** (Policy Evaluation)       |             |      |        |
-| AppInstanceIds         | The apps affected by a continuous access violation event            | Array     |  `[0oa4mczwb7SfcTQ9N0g7, 0oa4yvb15qhL8RKA30g7]`   |
+| AppInstanceIds         | The apps affected by a continuous access violation event            | Array     |  `["0oa4mczwb7SfcTQ9N0g7", "0oa4yvb15qhL8RKA30g7"]`   |
 | MatchedRuleAction        | The action of the rule that matched the evaluation. Values can be `ALLOW` or `DENY`.           | Enum     | `ALLOW`      |
 | MatchedRuleAssuranceMet        | Whether the matched rule evaluated to passing all authenticator assurances. This value is `null` if the `MatchedRuleAction` is `DENY`.           | Boolean      | `false`       |
 | MatchedRuleDisplayName         | The matched rule's display name            | String     |        |
@@ -169,11 +169,11 @@ This resource contains detailed reference material on event types triggered with
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
 | **event.system.debugContext.debugData**                |                 |         |         |
 | Behaviors             | List of behaviors identified for the current event. `POSITIVE` - the specific behavior is identified. `NEGATIVE` - the specific behavior wasn't identified. See [About Behavior Detection](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-behavior-detection).                 | key-value pairs        |  `{New Geo-Location=POSITIVE, New Device=NEGATIVE, New IP=POSITIVE, New State=POSITIVE, New Country=POSITIVE, Velocity=POSITIVE, New City=POSITIVE} `       |
-| Causes              | The cause of the change in session context. The values can be an `ipAddress.change` or `deviceContext.change`.                 | Array        | `[ipAddress.change]`     |
+| Causes              | The cause of the change in session context. The values can be an `ipAddress.change` or `deviceContext.change`.                 | Array        | `["ipAddress.change"]`     |
 | ExternalSessionId              | The ID of the session that had the context change                 | String         | `idxncn50DUmRpqWcz3doJX18g`       |
 | NewIpAddress            | The new IP address for an `ipAddress.change` cause or the new IP address for a device context change.               | String         | `145.126.159.223 `       |
 | PreviousIpAddress              | The previous IP address for an `ipAddress.change` cause or the new IP address for a device context change.                 | String         |  `67.46.211.18 `       |
-| changedDeviceSignals              | The change in device signals for the session.               | key-value pairs       | `{\"device.profile.managed\":{\"oldValue\":true, \"newValue\":false},\"device.provider.wsc.fireWall\":{\"oldValue\":\"GOOD\", \"newValue\":\"NONE\"}} ` |
+| changedDeviceSignals              | The change in device signals for the session.               | key-value pairs       | `{ "device.profile.managed":{ "oldValue":true, "newValue":false},"device.provider.wsc.fireWall":{"oldValue":"GOOD", "newValue":"NONE"}} ` |
 | Risk            | Contains the level of risk for the current request (`LOW`, `MEDIUM`, or `HIGH`) and the reasons that contributed to the risk level. The `detectionName` key defines the risks monitored by Okta. The `level` key defines the current risk. The `issuer` defines the source of the risk detection. See [Detections](https://help.okta.com/okta_help.htm?type=oie&id=csh-detections).               | key-value pairs         |`{reasons=Anomalous Geo-Distance, New Device, New ASN, New IP, New State, New Country, New City, level=HIGH}`          |
 | Source            | The source of the session context change                 | String        | `OKTA`         |
 | ThreatSuspected            | If ThreatInsight is running and detects a request as suspicious, the value for this property is `true`.                   | Boolean         | `false`         |
@@ -246,7 +246,7 @@ This resource contains detailed reference material on event types triggered with
 | PolicyAction         | The configured action to respond to the risk. Values include `NULL` (Logging Mode), `TERMINATE_ALL_SESSIONS`, and `RUN_WORKFLOW`.             |  ENUM    | `TERMINATE_ALL_SESSIONS`      |
 | PolicySingleLogOutEnabled         | Identifies if single logout is enabled. This property appears if `PolicyAction` is `TERMINATE_SESSION`.          | Boolean    | `true`      |
 | PolicySingleLogOutSelectionMode         | The mode of logout. Values can be `NONE`, `ALL`, or `SPECIFIC`. This property appears if `PolicyAction` is `TERMINATE_SESSION`.           | ENUM    | `ALL`       |
-| PolicySingleLogoutAppInstanceIds          | A list of apps that will that will be logged out if the `PolicySingleLogOutMode` mode is `SPECIFIC`.            | Array     | `[ 0oa1gkh63g214r0Hq0g4, 0oa1gjh63g214q0Iq3g3 ]`      |
+| PolicySingleLogoutAppInstanceIds          | A list of apps that will that will be logged out if the `PolicySingleLogOutMode` mode is `SPECIFIC`.            | Array     | `[ "0oa1gkh63g214r0Hq0g4", "0oa1gjh63g214q0Iq3g3" ]`      |
 | PolicyWorkflowId         | The unique identifier of the workflow if the `PolicyAction` is `RUN_WORKFLOW`.           |  String    | 572749      |
 | DisplayName        | Name of the policy action         | String     |`TERMINATE_ALL_SESSIONS`         |
 | ID        | Unique identifier of the entity risk policy            | String     | `00u8xut93qEWYx5sx1d7`       |
@@ -303,7 +303,7 @@ This resource contains detailed reference material on event types triggered with
 | Key event properties | Description                                         | Data type      | Example values |
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
 | **event.system.debugContext.debugData**                |                 |         |         |
-| AppInstanceIds            |A list of application IDs that Okta triggered for Universal Logout                 | Array of IDs         | [0oa1ysra5y0ESChAr0h8]        |
+| AppInstanceIds            |A list of application IDs that Okta triggered for Universal Logout                 | Array of IDs         | ["0oa1ysra5y0ESChAr0h8"]        |
 | TraceId            | The `TraceId` is used in continuous access evaluation use cases. A request that triggers a CAE evaluation can ultimately trigger things like CAE action events - and those are executed from the async jobs. `TraceId` connects together events triggered both by the original request handler and from the async jobs triggered by this handler. | String         | `94384405-51e3-4e13-b8b0-ba857b585a63`         |
 | **target** (User)         | The user impacted by the universal logout          | Object     |        |
 | type        | The type of target object     | String     | User       |
