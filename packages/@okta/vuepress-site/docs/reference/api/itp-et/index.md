@@ -28,7 +28,7 @@ This resource contains detailed reference material on event types triggered with
 
 ### analytics.feedback.provide
 
-**Description:** This event triggers when an admin provides feedback on a user or session risk detection. This can be used to monitor feedback provided by admins in response to Okta-determined changes in risk.
+**Description:** This event triggers when an admin provides feedback on a user or session risk detection. It can be used to monitor feedback provided by admins in response to Okta-determined changes in risk.
 
 | Key event properties  | Description                                         | Data type      | Example values |
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
