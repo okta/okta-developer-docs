@@ -68,7 +68,7 @@ This resource contains detailed reference material on event types triggered with
 
 ### policy.auth_reevaluate.fail
 
-**Description:** This event is triggered when an authentication policy detects a Continuous Access violation and it results in failure. This event is used to determine the user, apps, and session that were involved in a continuous access violation.
+**Description:** This event is triggered when an authentication policy detects a Continuous Access violation and it results in failure. It's used to determine the user, apps, and session that were involved in a continuous access violation.
 
 | Key event properties  | Description                                         | Data type      | Example values |
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
