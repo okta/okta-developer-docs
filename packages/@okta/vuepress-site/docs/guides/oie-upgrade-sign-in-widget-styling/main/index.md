@@ -4,13 +4,13 @@ title: Updates to widget styling
 
 <ApiLifecycle access="ie" />
 
-This guide covers how you can style an updated Okta Sign-In Widget and make your own customizations to the widget.
+This guide covers how you can style an updated Okta Sign-In Widget and make your own customizations to the Sign-In Widget.
 
 ---
 
 #### Learning outcomes
 
-Find out how to modify and customize the look of the widget.
+Understand how to modify and customize the look of the Sign-In Widget.
 
 #### What you need
 
@@ -20,6 +20,10 @@ Find out how to modify and customize the look of the widget.
 
 ## Modify the style of your sign-in page
 
-After you upgrade your widget to Okta Identity Engine, you can modify the look of the initial sign-in page. See [Style the self-hosted Sign-In Widget](/docs/guides/custom-widget/main/#style-the-self-hosted-sign-in-widget) for examples and information on how to [modify the initial sign-in page](/docs/guides/custom-widget/main/#initial-sign-in-page) and how to make your own customizations to the widget. Widget customizations include updates such as [increasing the widget's width](/docs/guides/custom-widget/main/#widget-positioning-width) and [adding a background color](/docs/guides/custom-widget/main/#background).
+After you upgrade your widget to Identity Engine, modify the look of the initial sign-in page. See [Style the self-hosted Sign-In Widget](/docs/guides/custom-widget/main/#style-the-self-hosted-sign-in-widget) for examples of how to make changes:
 
-> **Note:** If you make widget style customizations that are beyond Okta's supported styles as documented in [Style the self-hosted Sign-In Widget](/docs/guides/custom-widget/main/#style-the-self-hosted-sign-in-widget), be aware that a widget version update could potentially change your customizations. You should consider the risk before you migrate the customizations.
+* [Modify the initial sign-in page](/docs/guides/custom-widget/main/#initial-sign-in-page).
+* [Increase the Sign-In Widget width](/docs/guides/custom-widget/main/#widget-positioning-width).
+* [Add a background color](/docs/guides/custom-widget/main/#background).
+
+> **Note:** Your style customizations beyond the supported styles in [Style the self-hosted Sign-In Widget](/docs/guides/custom-widget/main/#style-the-self-hosted-sign-in-widget) may change. A widget version update could alter your customizations. Consider the risks before you migrate your customizations.

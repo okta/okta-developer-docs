@@ -4,9 +4,9 @@ title: Upgrade your app to the Identity Engine SDK
 
 <ApiLifecycle access="ie" />
 
-Begin upgrading your app to use the Identity Engine SDK methods after you update your project to the latest Okta Identity Engine SDK and have an enabled Identity Engine org.
+Begin upgrading your app to use the Identity Engine SDK methods after you update your project to the latest Identity Engine SDK. Also, make sure you have an enabled Identity Engine org.
 
-Review the following sections. They detail Identity Engine SDK concepts and the differences between how the Okta Classic Engine Authentication SDK and APIs approach authentication compared to the Identity Engine approach. Mappings of Classic Engine Authentication SDK method calls, and back-end APIs, to Identity Engine SDK methods are provided for some sample use cases.
+Review the following sections, which detail Identity Engine SDK concepts. This guide discusses the differences between how the Classic Engine Authentication SDK and APIs approach authentication compared to the Identity Engine approach. Mappings of Classic Engine Authentication SDK method calls, and back-end APIs, to Identity Engine SDK methods are provided for some sample use cases.
 
 ---
 
@@ -14,7 +14,7 @@ Review the following sections. They detail Identity Engine SDK concepts and the 
 
 * Understand why you should upgrade your app to use the Identity Engine SDK.
 * Learn the differences between the Classic Engine Authentication SDK and the Identity Engine SDK.
-* Identify the mappings between Classic Engine Authentication SDK methods and the Identity Engine SDK for your language.
+* Identify the mappings between Classic Engine authentication SDK methods and the Identity Engine SDK for your language.
 * Identify the mappings between Classic Engine Authentication APIs and the Identity Engine SDK for your language.
 
 #### What you need
@@ -24,7 +24,7 @@ Review the following sections. They detail Identity Engine SDK concepts and the 
 * The latest Classic Engine Authentication SDK installed.
 * An app that uses the Classic Engine Authentication SDK or back-end APIs.
 
-**Sample code**
+#### Sample code
 
 <StackSelector snippet="sample" noSelector />
 
@@ -53,7 +53,7 @@ If your app uses direct APIs for an authentication flow, your code may call the 
 
 See the following sample calls and responses for this basic authentication flow:
 
-#### 1. Call /api/v1/authn
+#### Call /api/v1/authn
 
 ```bash
 curl --location --request POST 'https://${yourOktaDomain}/api/v1/authn' \
@@ -70,7 +70,7 @@ curl --location --request POST 'https://${yourOktaDomain}/api/v1/authn' \
 
 ```
 
-#### 2. Receive a successful response with a sessionToken
+#### Receive a successful response with a sessionToken
 
 ```JSON
 {
@@ -103,7 +103,7 @@ curl --location --request POST 'https://${yourOktaDomain}/api/v1/authn' \
 }
 ```
 
-#### 3. Use sessionToken from the response to call api/v1/sessions and create a session
+#### Use the sessionToken from the response to create a session
 
 ```bash
 curl --location --request POST 'https://${yourOktaDomain}/api/v1/sessions' \
@@ -116,7 +116,7 @@ curl --location --request POST 'https://${yourOktaDomain}/api/v1/sessions' \
 }'
 ```
 
-#### 4. Receive a successful authentication response from the call
+#### Receive a successful authentication response from the call
 
 ```JSON
 {
@@ -167,7 +167,7 @@ curl --location --request POST 'https://${yourOktaDomain}/api/v1/sessions' \
 }
 ```
 
-If your app implements these API calls and handles the responses shown, you need to update your code to use Identity Engine SDK methods. These methods encapsulate the authentication flow using recursive calls to Identity Engine, and a successful response returns with access and ID tokens.
+If your app implements these API calls and handles the responses shown, update your code to use Identity Engine SDK methods. These methods encapsulate the authentication flow using recursive calls to Identity Engine. A successful response returns with access and ID tokens.
 
 <StackSelector snippet="oie-auth-flow-link1" noSelector />
 
@@ -177,7 +177,7 @@ The following sections highlight the Classic Engine Authentication SDK method ca
 
 <StackSelector snippet="mfaauth" noSelector />
 
-### Map Classic Engine Authentication APIs to the Identity Engine SDK
+### Map Classic Engine Authn APIs to the Identity Engine SDK
 
 If your app uses direct APIs for a multifactor authentication flow, your code may call the following Okta APIs:
 
@@ -189,7 +189,7 @@ If your app uses direct APIs for a multifactor authentication flow, your code ma
 
 See the following sample calls and responses for the MFA authentication flow using the email factor:
 
-#### 1. Call /api/v1/authn
+#### Call the /api/v1/authn endpoint
 
 ```bash
 curl --location --request POST 'https://${yourOktaDomain}/api/v1/authn' \
@@ -206,7 +206,7 @@ curl --location --request POST 'https://${yourOktaDomain}/api/v1/authn' \
 
 ```
 
-#### 2. Receive a successful response that requires MFA
+#### Receive a successful response that requires MFA
 
 ```JSON
 {
@@ -285,7 +285,7 @@ curl --location --request POST 'https://${yourOktaDomain}/api/v1/authn' \
 }
 ```
 
-#### 3. Send email challenge (/api/v1/authn/factors/${emailFactorId}/verify)
+#### Send email challenge (/api/v1/authn/factors/${emailFactorId}/verify)
 
 ```bash
 curl --location --request POST 'https://${yourOktaDomain}/api/v1/authn/factors/emf276bb2dP3no7Da5d7/verify' \
@@ -297,7 +297,7 @@ curl --location --request POST 'https://${yourOktaDomain}/api/v1/authn/factors/e
 }'
 ```
 
-#### 4. Receive a response to challenge the factor
+#### Receive a response to challenge the factor
 
 ```JSON
 {
@@ -375,7 +375,7 @@ curl --location --request POST 'https://${yourOktaDomain}/api/v1/authn/factors/e
 }
 ```
 
-#### 5. Verify the code from the challenge email (/api/v1/authn/factors/${emailFactorId}/verify)
+#### Verify code from challenge email (/api/v1/authn/factors/${emailFactorId}/verify)
 
 ```bash
 curl --location --request POST 'https://${yourOktaDomain}/api/v1/authn/factors/emf276bb2dP3no7Da5d7/verify' \
@@ -388,7 +388,7 @@ curl --location --request POST 'https://${yourOktaDomain}/api/v1/authn/factors/e
 }'
 ```
 
-#### 6. Receive a successful response after confirming the email code
+#### Receive a success response after confirming the email code
 
 ```JSON
 {
@@ -421,7 +421,7 @@ curl --location --request POST 'https://${yourOktaDomain}/api/v1/authn/factors/e
 }
 ```
 
-If your app implements these API calls and handles the responses shown, you need to update your code to use Identity Engine SDK methods. These methods encapsulate the authentication flow using recursive calls to Identity Engine, and a successful response returns with access and ID tokens.
+If your app implements these API calls and handles the responses shown, update your code to use Identity Engine SDK methods. These methods encapsulate the authentication flow using recursive calls to Identity Engine, and a successful response returns with access and ID tokens.
 
 <StackSelector snippet="oie-auth-flow-link2" noSelector />
 
@@ -441,7 +441,7 @@ If your app uses direct APIs for a password recovery flow, your code may call th
 
 See the following sample calls and responses for the password recovery flow using SMS as a factor:
 
-#### 1. User clicks link to recover password (/api/v1/authn/recovery/password with factorType)
+#### User clicks link to recover password (/api/v1/authn/recovery/password with factorType)
 
 ```bash
 curl --location --request POST 'https://${yourOktaDomain}/api/v1/authn/recovery/password' \
@@ -455,7 +455,7 @@ curl --location --request POST 'https://${yourOktaDomain}/api/v1/authn/recovery/
 }'
 ```
 
-#### 2. The response requires a challenge of the SMS code
+#### The response requires an SMS code challenge
 
 ```JSON
 {
@@ -496,7 +496,7 @@ curl --location --request POST 'https://${yourOktaDomain}/api/v1/authn/recovery/
 }
 ```
 
-#### 3. The user verifies the SMS challenge (/api/v1/authn/recovery/factors/sms/verify)
+#### The user verifies the SMS challenge (/api/v1/authn/recovery/factors/sms/verify)
 
 ```bash
 curl --location --request POST 'https://${yourOktaDomain}/api/v1/authn/recovery/factors/sms/verify' \
@@ -509,7 +509,7 @@ curl --location --request POST 'https://${yourOktaDomain}/api/v1/authn/recovery/
 }'
 ```
 
-#### 4. If successful, the transaction status moves to Password_Reset
+#### If successful, the transaction status moves to Password_Reset
 
 ```JSON
 {
@@ -567,7 +567,7 @@ curl --location --request POST 'https://${yourOktaDomain}/api/v1/authn/recovery/
 }
 ```
 
-#### 5. Prompt user to reset password (/api/v1/authn/credentials/reset_password)
+#### Prompt the user to reset password (/api/v1/authn/credentials/reset_password)
 
 ```bash
 curl --location --request POST 'https://${yourOktaDomain}/api/v1/authn/credentials/reset_password' \
@@ -580,7 +580,7 @@ curl --location --request POST 'https://${yourOktaDomain}/api/v1/authn/credentia
 }'
 ```
 
-#### 6. The app receives a response that the password changed and the user is able to sign in
+#### The app receives the response and the user can sign in
 
 ```JSON
 {
@@ -660,7 +660,9 @@ curl --location --request POST 'https://${yourOktaDomain}/api/v1/authn/credentia
 }
 ```
 
-If your code implements these API calls and handles the responses shown, you need to update your app to use Identity Engine SDK methods. These methods encapsulate the password recovery flow using recursive calls to Identity Engine, and a successful response returns with access and ID tokens.
+If your code implements these API calls and handles the responses shown, you need to update your app to use Identity Engine SDK methods.
+
+These methods encapsulate the password recovery flow using recursive calls to Identity Engine. A success response returns with access and ID tokens.
 
 <StackSelector snippet="oie-auth-flow-link3" noSelector />
 

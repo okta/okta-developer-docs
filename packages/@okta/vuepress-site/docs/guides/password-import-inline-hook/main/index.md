@@ -4,7 +4,7 @@ excerpt: Code the external service for a password import inline hook
 layout: Guides
 ---
 
-This guide provides a working example of an Okta Password Import Hook. It uses the web site [Glitch.com](https://glitch.com) to act as an external service and receive and respond to Password Import Hook calls.
+This guide provides a working example of an Okta Password Import hook. It uses the web site [Glitch.com](https://glitch.com) to act as an external service and receive and respond to Password Import hook calls.
 
 ---
 
@@ -19,9 +19,9 @@ This guide provides a working example of an Okta Password Import Hook. It uses t
 * [Okta Developer Edition organization](https://developer.okta.com/signup/)
 * [Glitch.com](https://glitch.com) project or account
 
-**Sample code**
+#### Sample code
 
-* [Okta Password Import Inline Hook Example](https://glitch.com/~okta-passwordimport-inlinehook)
+[Okta Password Import Inline Hook Example](https://glitch.com/~okta-passwordimport-inlinehook)
 
 ---
 
@@ -37,7 +37,7 @@ At a high level, the following workflow occurs:
 * If the credentials are verified, the external service responds to Okta with a command to import the password and sign in the user.
 * If the credentials aren't verified, the user isn't signed-in and the password isn't imported.
 
-> **Tip:** For another in-depth look at a password import inline hook implementation, see [Migrate user Passwords with Okta's Password Hook](https://developer.okta.com/blog/2020/09/18/password-hook-migration).
+> **Tip:** For another in-depth look at a password import inline hook implementation, see [Migrate user Passwords with the Okta Password hook](https://developer.okta.com/blog/2020/09/18/password-hook-migration).
 
 ## Get submitted credentials
 
@@ -67,7 +67,7 @@ Based on the results of the credential check, you return either a command tellin
 
 ## Activate the password import hook on your Okta org
 
-The password import inline hook must be set up and activated within your Okta Admin Console.
+The password import inline hook must be set up and activated within your Admin Console.
 
 To set up and activate the password import inline hook:
 

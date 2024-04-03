@@ -104,11 +104,11 @@ The description property can be empty.
 
 You can obtain the new Group ID (`id`) from the response to use when you create Users in that Group later. You can also list all Groups in your org and obtain their IDs using a [List Groups](/docs/reference/api/groups/#list-groups) request.
 
-You can also create Groups in your Okta Admin Console. For more information, see [About groups](https://help.okta.com/okta_help.htm?id=Directory_Groups) in the product documentation.
+You can also create Groups in your Admin Console. For more information, see [About groups](https://help.okta.com/okta_help.htm?id=Directory_Groups) in the product documentation.
 
 ## Create users
 
-Once you have created all the necessary Okta Groups, you can create Users including their Group Memberships. As mentioned earlier, this example uses [Create User without Credentials](/docs/reference/api/users/#create-user-without-credentials) to create our sample user.
+Once you’ve created all the necessary Okta Groups, you can create Users including their Group Memberships. As mentioned earlier, this example uses [Create User without Credentials](/docs/reference/api/users/#create-user-without-credentials) to create our sample user.
 In our sample, the user's email address is our unique login and the Group IDs are from the List Groups request in the previous step.
 
 ### Request example with groups
@@ -208,7 +208,7 @@ curl -v -X POST \
 
 ## User status and activation
 
-The user status in the response when you create a User is set to `STAGED`, which essentially means that the user has been created but not activated yet. You can activate users using the API or in your Okta Admin Console. For more information on account states and activation, see:
+The user status in the response when you create a User is set to `STAGED`, which essentially means that the user has been created but not activated yet. You can activate users using the API or in your Admin Console. For more information on account states and activation, see:
 
 * [User status values](/docs/reference/api/users/#user-status) (API reference)
 * [Activate User request](/docs/reference/api/users/#activate-user) (API reference)
@@ -217,7 +217,7 @@ The user status in the response when you create a User is set to `STAGED`, which
 
 ## Rate limits
 
-Remember that [rate limits](/docs/reference/rate-limits/) apply to API requests when doing bulk/batch user migration. Rate limits differ depending on the level of service that you have purchased from Okta. [You can check your rate limits](/docs/reference/rate-limits/#check-your-rate-limits-with-okta-s-rate-limit-headers) in your code using Okta's Rate Limit Headers.
+Remember that [rate limits](/docs/reference/rate-limits/) apply to API requests when doing bulk/batch user migration. Rate limits differ depending on the level of service that you’ve purchased from Okta. [You can check your rate limits](/docs/reference/rate-limits/#check-your-rate-limits-with-okta-s-rate-limit-headers) in your code using the Okta Rate Limit Headers.
 
 ## Next steps
 

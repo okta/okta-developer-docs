@@ -4,7 +4,7 @@ title: User password recovery
 
 <ApiLifecycle access="ie" />
 
-> **Note:** In proxy model architectures, where a server-side application using the Embedded SDK is used as a proxy between client applications and Okta servers, a request context for the client applications is required. The expectation is that security enforcement is based on the client request context's IP address and user agent. However, since these values are currently derived from the server application rather than the client, this enforcement isn't available. As a result, network zones or behaviors that drive their conditions based on these request context values (geolocation, IP Address, or user agent) won't work until a solution to the issue is found.
+> **Note:** In proxy model architectures, where a server-side application using the embedded SDK is used as a proxy between client applications and Okta servers, a request context for the client applications is required. The expectation is that security enforcement is based on the client request context's IP address and user agent. However, since these values are currently derived from the server application rather than the client, this enforcement isn't available. As a result, network zones or behaviors that drive their conditions based on these request context values (geolocation, IP Address, or user agent) won't work until a solution to the issue is found.
 
 This use case describes how to integrate a password recovery flow into your app using an Okta SDK. The flow includes an email factor step that the user needs to verify before updating their password.
 
@@ -17,11 +17,11 @@ This use case describes how to integrate a password recovery flow into your app 
 
 #### What you need
 
-* An app that uses the embedded Okta Identity Engine SDK
+* An app that uses the embedded Identity Engine SDK
 * [Okta org already configured for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/-/main/#set-up-your-okta-org-for-a-multifactor-use-case)
 * [Identity Engine SDK set up for your own app](/docs/guides/oie-embedded-common-download-setup-app/)
 
-**Sample code**
+#### Sample code
 
 <StackSnippet snippet="samplecode" />
 
@@ -37,17 +37,17 @@ The password recovery use case requires the **password** and **email** factors.
 
 </div>
 
-Before you build a password recovery flow with an email factor, ensure that your org is configured for a multifactor use case by completing the steps in [Set up your Okta org for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/-/main/#set-up-your-okta-org-for-a-multifactor-use-case).
+Before you build a password recovery flow with an email factor, ensure that your org is configured for a multifactor use case. To do that, complete the steps in [Set up your Okta org for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/-/main/#set-up-your-okta-org-for-a-multifactor-use-case).
 
 ### Set email as the only factor enabled for password recovery
 
-In addition to configuring your Okta org for the multifactor use case, you need to enable email as the only factor for password recovery for this flow.
+After you configure your Okta org for the multifactor use case, enable email as the only factor for password recovery.
 
 1. In the Admin Console, go to **Security** > **Authenticators**.
 1. From the **Setup** tab, select **Edit** from the **Actions** dropdown menu on the **Password** authenticator row.
 1. On the **Password** page, scroll down to the **Add Rule** section of the **Default Policy** and click
    the edit pencil icon for the **Default Rule**.
-1. In the **Edit Rule** dialog box, ensure that the following values are configured for the **AND Users can initiate recovery with** field:
+1. In the **Edit Rule** dialog, ensure that you configure the following values for **AND Users can initiate recovery with**:
    * **Phone (SMS / Voice call)**: Clear
    * **Email**: Selected
 1. Click **Update Rule** if you change any values.

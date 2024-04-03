@@ -8,7 +8,7 @@ Enable a user to enter a one-time passcode (OTP) in a single step by clicking an
 
 ## Introduction
 
-When using email to prove their identity, a user can copy an OTP from an email into the application they want to use. Email Magic Links (EML) provide a second option, which allows the user to click a hyperlink in the email rather than use the OTP. This results in a quicker, more user-convenient, and still secure experience. However, applications based on the Embedded Sign-In Widget or an Embedded SDK must be adapted to use EML.
+When using email to prove their identity, a user can copy an OTP from an email into the application they want to use. Email Magic Links (EML) provide a second option that allows the user to click a hyperlink in the email rather than use the OTP. This results in a quicker, more user-convenient, and still secure experience. However, you must adapt applications based on the embedded Sign-In Widget or an embedded SDK to use EML.
 
 <div class="three-quarters">
 
@@ -21,7 +21,7 @@ When using email to prove their identity, a user can copy an OTP from an email i
 #### Learning outcomes
 
 * Understand the differences between EML and OTP
-* Integrate EML into applications using the Embedded Sign-In Widget or a supported Embedded SDK.
+* Integrate EML into applications using the embedded Sign-In Widget or a supported embedded SDK.
 
 <StackSnippet snippet="VersionSupportNote" />
 
@@ -42,11 +42,11 @@ If a valid OTP is submitted within a set time, either the user is authenticated 
 
 </div>
 
-The OTP experience involves an extra step for the user&mdash;copying the OTP into the application&mdash;which ensures that they return to the same browser to continue their authentication process. The magic link experience, on the other hand, has fewer steps. Clicking the magic link opens a new tab in the user's browser and their authentication process continues.
+The OTP experience involves an extra step for the user. The user must copy the OTP into the application. This ensures that they return to the same browser to continue their authentication process. The magic link experience, on the other hand, has fewer steps. Clicking the magic link opens a new tab in the user's browser and their authentication process continues.
 
 ### Same device, same browser only
 
-Magic links only work when there's complete assurance that the person who started the request is the same one who clicked the magic link. This requires a user who's signing in to your application in a browser to be in the same browser on the same device when they click the magic link. If either their browser or device is different, the magic link is disabled. They must either return to the original browser to use the magic link or use the OTP instead. The following diagram illustrates this logic.
+Magic links only work when there's complete assurance that the person who started the request is the same one who clicked the magic link. This requires a user who is signing in to your application in a browser to be in the same browser on the same device when they click the magic link. If either their browser or device is different, the magic link is disabled. They must either return to the original browser to use the magic link or use the OTP instead. The following diagram illustrates this logic.
 
 <div class="full">
 
@@ -63,7 +63,7 @@ When you evaluate whether to support magic links in addition to OTPs in the emai
 * A user has a better sign-in experience from magic links than OTP if they sign in from the same browser on the same device.
 * If a user signs in from a different browser or device, the process falls back to using an OTP.
 * A user can only access an application by clicking a magic link on a device that already has access to that application.
-* Support for both OTP and Magic Links is provided by the Okta Embedded Sign-In Widget and Identity Engine SDKs.
+* Support for both OTP and Magic Links is provided by the Okta embedded Sign-In Widget and Identity Engine SDKs.
 
 ## Integrate Magic Links
 
@@ -85,12 +85,12 @@ Create an endpoint for your application that:
 
 1. Retrieves `otp` and `state` values from the query parameters
 2. Matches the state token with the current `state` in your user's browser session
-3. Makes any other checks you deem necessary to ensure that the user is working in the same browser on the same device
+3. Makes any other checks that you deem necessary to ensure that the user is working in the same browser on the same device
 4. Requests that the user enter the `otp` value manually if steps 2 or 3 fail
 5. Sends the `otp` value to Identity Engine for validation if steps 2 and 3 pass
 6. Redirects the user to a page that continues their authentication process
 
-If your application uses the Embedded Sign-In Widget to authenticate the user, pass `otp` and `state` to it as you instantiate it on the page.
+If your application uses the embedded Sign-In Widget to authenticate the user, pass `otp` and `state` to it as you instantiate it on the page.
 
 ```javascript
 var searchParams = new URL(window.location.href).searchParams;
@@ -104,7 +104,7 @@ var signIn = new OktaSignIn({
 });
 ```
 
-> **Important**: In Okta Sign-In Widget version 7 and later, Identity Engine is enabled by default. If you're using an earlier version than 7, you must explicitly enable Identity Engine features by setting `useInteractionCodeFlow: true` in the preceding `OktaSignIn()` constructor call. To use Okta Classic Engine rather than Identity Engine when you're using version 7 or later, specify `useClassicEngine: true` in `OktaSignIn()`.
+> **Important**: In Okta Sign-In Widget version 7 and later, Identity Engine is enabled by default. If you're using an earlier version than 7, you must explicitly enable Identity Engine features by setting `useInteractionCodeFlow: true` in the preceding `OktaSignIn()` constructor call. To use Classic Engine rather than Identity Engine when you're using version 7 or later, specify `useClassicEngine: true` in `OktaSignIn()`.
 
 The code for your endpoint must check that the user is working from the same device and browser. The Sign-In Widget takes care of the rest. The sign in with email only guide covers how to do this.
 
@@ -161,7 +161,7 @@ If your user base is multilingual, consider that the Okta-branded email template
 
 #### Use custom email templates
 
-Creating custom authentication email templates allows you to send a fully-branded email to a user that skips the round trip to Identity Engine and redirects them straight to your endpoint.
+Creating custom authentication email templates allows you to send a fully branded email to a user. This email skips the round trip to Identity Engine and redirects the user straight to your endpoint.
 
 All Okta email templates are written using [Velocity Templating Language (VTL)](https://help.okta.com/okta_help.htm?type=oie&id=ext-velocity-variables) and use predefined variables to insert relevant values into that email. For example, Okta defines three VTL variables specific to the **Email Challenge** template:
 
@@ -177,10 +177,9 @@ To point the magic link directly to the endpoint in your application, you must r
 
 1. In the **Admin Console**, go to **Customizations** > **Emails**.
 2. On the **Emails** page, find the **Other** category on the template menu.
-3. Under **Other**, click **Email Challenge**.
-4. On the **Email Challenge** email template page, click **Edit**.
-5. Under **Default Email**, click **Edit**.
-6. In the Message field, locate the magic link in the field's HTML. The link is in the href attribute of an `<a>` tag with the `id` of `email-authentication-button`. It looks like the following:
+3. Under **Other**, click **Email Challenge**, and then on the **Email Challenge** email template page, click **Edit**.
+4. Under **Default Email**, click **Edit**.
+5. In the Message field, locate the magic link in the field's HTML. The link is in the href attribute of an `<a>` tag with the `id` of `email-authentication-button`. It looks like the following:
 
    ```html
    <a id="email-authentication-button"
@@ -192,7 +191,7 @@ To point the magic link directly to the endpoint in your application, you must r
    </a>
    ```
 
-7. Replace the `${emailAuthenticationLink}` variable with the URL for your endpoint. Append the `${verificationToken}` and `${request.relayState}` variables as query parameter values. For example:
+6. Replace the `${emailAuthenticationLink}` variable with the URL for your endpoint. Append the `${verificationToken}` and `${request.relayState}` variables as query parameter values. For example:
 
    ```html
    <a id="email-authentication-button"
@@ -204,12 +203,12 @@ To point the magic link directly to the endpoint in your application, you must r
    </a>
    ```
 
-8. Click **Save** and close the dialog.
+7. Click **Save** and close the dialog.
 
 You can customize four email templates this way. These are listed in the table that follows.
 
 * All support redirects through EVE and custom templates.
-* All are compatible with applications based on either the Embedded Sign-In Widget or a supported Embedded SDK.
+* All are compatible with applications based on either the embedded Sign-In Widget or a supported embedded SDK.
 * To add `otp` and `state` variables to the magic link, find the template that you're editing in the table, and:
   * Replace the VTL variable in the **magic link variable name** column with your custom endpoint URL.
   * Set your `otp` query string variable to the VTL variable in the **OTP variable name** column for the template.
@@ -227,11 +226,11 @@ When a user clicks the magic link based on a customized email template, their br
 
 <div class="full">
 
-![Flow diagram showing the interaction between application and Identity Engine when using custom email templates](/img/advanced-use-cases/email-magic-links-overview-custom-template-flow.png)
+![Flow diagram showing the interaction between the application and Identity Engine when using custom email templates](/img/advanced-use-cases/email-magic-links-overview-custom-template-flow.png)
 
 </div>
 
-### Comparing the options
+### Compare the options
 
 |   | EVE + Default email templates | EVE + Custom email templates | Custom email templates |
 |---|---|----|----|

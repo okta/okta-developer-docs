@@ -4,14 +4,14 @@ excerpt: Learn how to easily implement a SAML assertion inline hook
 layout: Guides
 ---
 
-This guide provides a working example of an Okta SAML assertion inline hook. It uses the website [Glitch.com](https://glitch.com) to act as an external service to receive and respond to SAML assertion inline hook calls.
+This guide provides a useable example of an Okta SAML assertion inline hook. It uses the website [Glitch.com](https://glitch.com) to act as an external service to receive and respond to SAML assertion inline hook calls.
 
 ---
 
 #### Learning outcomes
 
 * Understand the Okta SAML assertion inline hook calls and responses.
-* Implement a simple working example of a SAML assertion inline hook with a Glitch.com Node.js external service.
+* Implement a simple functional example of a SAML assertion inline hook with a Glitch.com Node.js external service.
 * Preview and test the SAML assertion inline hook.
 
 #### What you need
@@ -20,7 +20,7 @@ This guide provides a working example of an Okta SAML assertion inline hook. It 
 * [Glitch.com](https://glitch.com) project or account
 * A sample application that uses SAML to implement authentication. This guide works with the application in the Sample code section that follows.
 
-**Sample code**
+#### Sample code
 
 * [Okta SAML assertion inline hook example](https://glitch.com/edit/#!/okta-inlinehook-samlhook)
 * [Spring Boot, SAML, and Okta](https://github.com/oktadev/okta-spring-boot-saml-example)
@@ -29,13 +29,13 @@ This guide provides a working example of an Okta SAML assertion inline hook. It 
 
 ## About SAML assertion inline hook implementation
 
-You can use the SAML assertion inline hook to customize the authentication workflow that occurs between an application and the Okta org, which functions as the Identity Provider (IdP).
+Use the SAML assertion inline hook to customize the authentication workflow that occurs between an application and the Okta org. The Okta org functions as the Identity Provider (IdP).
 
 This guide provides an end-to-end scenario that uses a SAML-authenticated application and an Okta org. It includes example code for an external service to respond to calls from a SAML assertion inline hook that's triggered during the authentication workflow.
 
 ### The scenario
 
-Consider a scenario where the external service code parses a request from Okta and evaluates the user name against a simple patient data store. If the user is part of the patient store, the external service responds to Okta with a command to add a patient ID claim to the SAML assertion. Otherwise, if the user name isn't part of the data store, no action is taken.
+Consider a scenario where the external service code parses a request from Okta and evaluates the user name against a simple patient data store. If the user is part of the patient store, the external service responds to Okta with a command to add a patient ID claim to the SAML assertion. Otherwise, if the username isn't part of the data store, no action is taken.
 
 At a high-level, the following workflow occurs:
 
@@ -52,7 +52,7 @@ At a high-level, the following workflow occurs:
 
 ## Set up the sample SAML-authenticated application
 
-The Spring Boot, SAML, and Okta application is designed to implement Single Sign-On (SSO) with Spring Security's SAML and Okta.
+The Spring Boot, SAML, and Okta application is designed to implement SSO with Spring Security's SAML and Okta.
 
 Access the Spring Boot, SAML, and Okta code from the following GitHub repository:
 
@@ -66,7 +66,9 @@ Make sure to have this application running before proceeding with the SAML asser
 
 ## Create the external service code
 
-You can now create the external service code that resides on your third-party site (in this example, the Glitch.com site). The third-party site receives and responds to the SAML assertion inline hook call from Okta. The responses to the SAML assertion inline hook call can customize the SAML assertion in multiple ways, including adding or replacing elements of the assertion. In this example code, a new claim is added to the assertion. For further information on the SAML assertion commands object and how you can modify the assertion, see the [SAML assertion inline hook reference](/docs/reference/saml-hook) documentation.
+You can now create the external service code that resides on your third-party site (in this example, the Glitch.com site). The third-party site receives and responds to the SAML assertion inline hook call from Okta. The responses to the SAML assertion inline hook call can customize the SAML assertion in multiple ways, including adding or replacing elements of the assertion.
+
+In this example code, a new claim is added to the assertion. For further information on the SAML assertion commands object and how you can modify the assertion, see the [SAML assertion inline hook reference](/docs/reference/saml-hook) documentation.
 
 Copy (remix) the Glitch.com project code, [Okta SAML assertion inline hook example](https://glitch.com/edit/#!/okta-inlinehook-samlhook), to run the scenario right away. Skip to the [Activate and enable the SAML assertion inline hook](#activate-and-enable-the-saml-assertion-inline-hook) section to configure the SAML inline hook.
 
@@ -82,7 +84,7 @@ The external service in this scenario requires code to handle the SAML assertion
 
 From the SAML assertion inline hook request, the code retrieves the name of the user who is authenticating from the `data.context.user` object.
 
-The following Node.js code parses the Okta request body for the user name and email address, and stores the email address in the variable `patientName`.
+The following Node.js code parses the Okta request body for the username and email address, and stores the email address in the variable `patientName`.
 
 ```JavaScript
 //Inline SAML Hook POST from Okta (endpoint: SAMLHook)
@@ -106,7 +108,7 @@ In this scenario, a pre-populated static array of patient names and patient IDs 
 
 > **Note:** Modify this data store to make sure it contains one or more users that are assigned to your application in your Okta org.
 
-The following Node.js code checks the user name against the data store:
+The following Node.js code checks the username against the data store:
 
 ```JavaScript
 // Example Patients Data Store
@@ -289,7 +291,7 @@ The SAML assertion inline hook is ready for preview and testing. You now have th
 
 ### Preview the SAML assertion inline hook
 
-1. Navigate to Inline Hooks (**Workflow** > **Inline Hooks**) in your Admin Console.
+1. Go to Inline Hooks (**Workflow** > **Inline Hooks**) in your Admin Console.
 
 1. Click the SAML assertion inline hook name (in this example, "Patient SAML Hook").
 
@@ -315,7 +317,7 @@ The SAML assertion inline hook is ready for preview and testing. You now have th
 
 1. Return to your SAML application and sign in with an Okta user who is NOT in the data store of patients.
 
-      The user should sign in as normal, entering their username and password. After authentication, the first name, last name, email, and group attributes display on the Welcome page. In the Glitch log window, a message appears stating that the user isn't part of the data store.
+      The user should sign in as normal, entering their username and password. After authentication, the first name, family name, email, and group attributes display on the Welcome page. In the Glitch log window, a message appears stating that the user isn't part of the data store.
 
 1. Sign out of the sample application and now sign in with an Okta user who is in the data store of patients.
 

@@ -40,7 +40,7 @@ If you already have Hookdeck installed, move on to [Run Hookdeck](#run-hookdeck)
 
 Some installation notes:
 
-* You don't need to have an account to install and run Hookdeck. However, a free account provides more features in the Hookdeck Dashboard  and API authentication.
+* You don't need to have an account to install and run Hookdeck. However, a free account provides more features in the Hookdeck Dashboard and API authentication.
 * If you choose not to create an account, you'll use the Hookdeck Console rather than the Dashboard.
 
 ### Run Hookdeck
@@ -131,7 +131,7 @@ Create the Okta event hook to work with your local application. Set up and verif
 
 8. Click **Save & Continue**.
 
-9. Complete the one-time verification Okta call by clicking **Verify**. You can also verify the event hook at later time. See [Event hook verification](/docs/guides/event-hook-hookdeck/#event-hook-verification).
+9. Complete the one-time verification Okta call by clicking **Verify**. You can also verify the event hook at a later time. See [Event hook verification](/docs/guides/event-hook-hookdeck/#event-hook-verification).
 
 ### Event hook verification
 
