@@ -55,7 +55,7 @@ This resource contains detailed reference material on event types triggered with
 
 ### device.signals.status.timeout
 
-**Description:** This event is triggered when a registered device that is associated with at least one user session hasn't communicated with Okta within the required time interval. Use this event to investigate a potentially insecure device and compromised user session. This event contains the device unique identifier in the System Log actor object. You can use this information to find other related events.
+**Description:** This event is triggered when a registered device that is associated with at least one user session hasn't communicated with Okta within the required time interval. Use this event to investigate a potentially insecure device and compromised user session. The event contains the device unique identifier in the System Log actor object. You can use this information to find other related events.
 
 | Key event properties  | Description                                         | Data type      | Example values |
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
