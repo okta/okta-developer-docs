@@ -14,7 +14,7 @@ This resource contains detailed reference material on event types triggered with
 
 ### user.risk.change
 
-**Description:** This event type indicates that a user's risk level has changed. This event can be used to monitor risk level changes for users. This event is triggered when Okta determines that a user is associated with a risk context or activity.
+**Description:** This event type indicates that a user's risk level has changed. It can be used to monitor risk level changes for users. The event is triggered when Okta determines that a user is associated with a risk context or activity.
 
 | Key event properties  | Description                                         | Data type            | Example values |
 | --------------------- | --------------------------------------------------- | -------------------- | -------------- |
