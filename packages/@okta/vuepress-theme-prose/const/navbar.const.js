@@ -1023,6 +1023,7 @@ export const reference = [
                { title: "Dynamic Client Registration", path: "/docs/reference/api/oauth-clients/" },
                { title: "Email Domains", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/EmailDomain/" },
                { title: "Event Types", path: "/docs/reference/api/event-types/" },
+               { title: "ITP Event Types", path: "/docs/reference/api/itp-et/", hidden: true },
                { title: "Factors", path: "/docs/reference/api/factors/" },
                { title: "Features", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Feature/" },
                { title: "Groups", path: "/docs/reference/api/groups/" },

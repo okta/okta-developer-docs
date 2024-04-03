@@ -756,12 +756,14 @@ Different Policy types control settings for different operations. All Policy typ
 
 * [Global session policy](#global-session-policy)
 * [Authenticator enrollment policy](#authenticator-enrollment-policy) <ApiLifecycle access="ie" />
-* [Okta MFA Enrollment Policy](#multifactor-mfa-enrollment-policy)
-* [Password Policy](#password-policy)
-* [IdP Discovery Policy](#idp-discovery-policy)
-* [OAuth Authorization Policy](/docs/reference/api/authorization-servers/#policy-object)
-* [Authentication Policy](#authentication-policy) <ApiLifecycle access="ie" /><br>
-* [Profile Enrollment Policy](#profile-enrollment-policy) <ApiLifecycle access="ie" /><br>
+* [Okta MFA Enrollment policy](#multifactor-mfa-enrollment-policy)
+* [Password policy](#password-policy)
+* [IdP Discovery policy](#idp-discovery-policy)
+* [OAuth Authorization policy](/docs/reference/api/authorization-servers/#policy-object)
+* [Authentication policy](#authentication-policy) <ApiLifecycle access="ie" /><br>
+* [Profile enrollment policy](#profile-enrollment-policy) <ApiLifecycle access="ie" /><br>
+* [Entity risk policy](#entity-risk-policy) <ApiLifecycle access="ie" /> <ApiLifecycle access="ea" /><br>
+* [Continuous Access evaluation policy](#continuous-access-evaluation-policy) <ApiLifecycle access="ie" /> <ApiLifecycle access="ea" /><br>
 
 ### Policy priority and defaults
 
@@ -847,7 +849,7 @@ The Policy object defines several attributes:
 | Parameter   | Description                                                                                                                                          | Data Type                                         | Required | Default                |
 | ---------   | -----------                                                                                                                                          | ---------                                         | -------- | -------                |
 | id          | Identifier of the Policy                                                                                                                             | String                                            | No       | Assigned               |
-| type        | Specifies the [type of Policy](#policy-types). Valid values: `OKTA_SIGN_ON`, `PASSWORD`, `MFA_ENROLL`, or `IDP_DISCOVERY`.<br><br> <ApiLifecycle access="ie" /><br>**Note:** The following policy types are available only with the Identity Engine: `ACCESS_POLICY` or `PROFILE_ENROLLMENT`.<br> [Contact support](https://support.okta.com/) for more information on the Identity Engine.  | String                                            | Yes      |                        |
+| type        | Specifies the [type of Policy](#policy-types). Valid values: `OKTA_SIGN_ON`, `PASSWORD`, `MFA_ENROLL`, or `IDP_DISCOVERY`.<br><br> <ApiLifecycle access="ie" /><br>**Note:** The following policy types are available only with the Identity Engine: `ACCESS_POLICY` and `PROFILE_ENROLLMENT`. <br>[Contact support](https://support.okta.com/) for more information on the Identity Engine. <br><br> <ApiLifecycle access="ea" /><br>**Note:** The `CONTINUOUS_ACCESS` and `ENTITY_RISK` policy types are only available with Identity Engine and are EA release features. Contact your Okta account team to enable these features.  | String                                            | Yes      |                        |
 | name        | Name of the Policy                                                                                                                                   | String                                            | Yes      |                        |
 | system      | This is set to `true` on system policies, which cannot be deleted.                                                                                   | Boolean                                           | No       | `false`                |
 | description | Description of the Policy.                                                                                                                           | String                                            | No       | Null                   |
@@ -966,7 +968,7 @@ The Rules object defines several attributes:
 | Parameter     | Description                                                        | Data Type                                      | Required   | Default                |
 | :------------ | :----------------------------------------------------------------- | :--------------------------------------------- | :--------- | :--------------------- |
 | id            | Identifier of the Rule                                             | String                                         | No         | Assigned               |
-| type          | Rule type. Valid values: `SIGN_ON`, `PASSWORD`, `MFA_ENROLL`, `IDP_DISCOVERY`.<br><br> <ApiLifecycle access="ie" /><br>**Note:** The following policy types are available only with the Identity Engine: `ACCESS_POLICY` or `PROFILE_ENROLLMENT`. <br>[Contact support](https://support.okta.com/) for more information on the Identity Engine.| String (Enum)                                  | Yes        |                        |
+| type          | Rule type. Valid values: `SIGN_ON`, `PASSWORD`, `MFA_ENROLL`, and `IDP_DISCOVERY`.<br><br> <ApiLifecycle access="ie" /><br>**Note:** The following policy types are available only with the Identity Engine: `ACCESS_POLICY` and `PROFILE_ENROLLMENT`. <br>[Contact support](https://support.okta.com/) for more information on the Identity Engine. <br><br> <ApiLifecycle access="ea" /><br>**Note:** The `CONTINUOUS_ACCESS` and `ENTITY_RISK` policy types are only available with Identity Engine and are EA release features. Contact your Okta account team to enable these features. | String (Enum)                                 | Yes        |                        |
 | name          | Name of the Rule                                                   | String                                         | Yes        |                        |
 | status        | Status of the Rule: `ACTIVE` or `INACTIVE`                         | String (Enum)                                  | No         | ACTIVE                 |
 | priority      | Priority of the Rule                                               | Integer                                        | No         | Last / Lowest Priority |
@@ -1338,6 +1340,53 @@ See [Okta Expression Language in Identity Engine](/docs/reference/okta-expressio
 }
 ```
 
+#### Entity risk score condition object
+
+<ApiLifecycle access="ie" />
+
+The entity risk score condition object specifies a particular level of risk for the entity risk policy rule. The object is specified as `entityRisk`.
+
+| Parameter | Description              | Data Type | Required |
+| ---       | ---                      | ---       | ---      |
+| `level`    | The risk score level of the entity risk policy rule      | `ANY`, `LOW`, `MEDIUM`, or `HIGH`     | Yes      |
+
+#### Entity risk score condition object example
+
+```json
+"entityRisk": {
+   "level": "MEDIUM"
+}
+```
+
+#### Entity risk detection condition object
+
+<ApiLifecycle access="ie" />
+
+The entity risk detection condition object specifies the detected risk events that determine any further action. The object is specified as `riskDetectionTypes`.
+
+| Parameter | Description                   | Data Type | Required |
+| ---       | ---                           | --------  | -------- |
+| `include` | An array of [detected risk events](#detected-risk-event-values) to include in the entity policy rule      | array  | Yes |
+
+##### Detected risk event values
+
+* `SUSPICIOUS_PASSWORD_RESET`
+* `REPORTED_SUSPICIOUS_ACTIVITY`
+* `USER_SUSPENDED`
+* `SESSION_HIJACK`
+* `MFA_BRUTE_FORCE`
+* `SESSION_HIJACK_SUSPICIOUS_COUNTRY_IMPOSSIBLE_TRAVEL`
+* `SECURITY_PARTNER_REPORT_DEVICE_RISK`
+* `SESSION_HIJACK_SUSPICIOUS_ASN`
+* `SUSPECTED_SESSION_COMPROMISE`
+
+#### Entity detection condition object example
+
+```json
+"riskDetectionTypes": {
+  "include": ["SESSION_HIJACK", "MFA_BRUTE_FORCE"]
+}
+```
 
 ## Type-Specific Policy data structures
 
@@ -2734,3 +2783,149 @@ Policy Rule conditions aren't supported for this policy.
 | `enrollAuthenticators` | Additional authenticator fields that can be used on the first page of user registration (Valid values: `password`) | Array | No | N/A |
 
 > **Note:** The Profile Enrollment Action object can't be modified to set the `access` property to `DENY` after the policy is created.
+
+## Entity risk policy
+
+<ApiLifecycle access="ie" /> <ApiLifecycle access="ea" />
+
+The entity risk policy specifies what action or task to execute in reaction to a risk event. The type is specified as `ENTITY_RISK`.
+
+#### Entity risk policy example
+
+```json
+    {
+        "type": "ENTITY_RISK",
+        "name": "useful example name here",
+        "description": "useful example description here"
+    }
+```
+
+### Policy conditions
+
+Policy conditions aren't supported for this policy.
+
+### Policy rules conditions
+
+You can apply the following conditions to the rules associated with an entity risk policy:
+
+* [People condition](#people-condition-object)
+
+* [Risk score condition](#entity-risk-score-condition-object)
+
+* [Risk detection condition](#entity-risk-detection-condition-object)
+
+### Entity risk object
+
+The Entity risk object indicates the next steps to take in response to a risk event. The object is specified as `entityRisk`.
+
+| Property                | Description              | Data Type                                       | Required                      | Default |
+| ---                     | ---------------          | ---                                             | ---                           | ---     |
+| `actions`               | The action to take based on the risk event.              | Array of [action value objects](#actions-array-object-values)                         | Yes                           | `[]`   |
+
+#### Actions array object values
+
+The `entityRisk` object's `actions` array can be empty or contain one of two `action` object value pairs. This object determines the specific response to a risk event.
+
+| Array value               | Description              | Data Type                                       | Required                     | Default |
+| ---                     | ---------------          | ---                                             | ---                           | ---     |
+| `[]`                 | This action only logs the user risk event.             | object                      |  Yes                      | Yes  |
+| `[ { "action": "TERMINATE_ALL_SESSIONS" } ]`              | This action revokes or terminates all of the user's active sessions.             | object                      |       No   | No
+| `[ { "action": "RUN_WORKFLOW", "workflow": {"id": "123123123"} } ]`               | This action runs a workflow and must include the additional workflow `id` for the `workflow` property.            | object                      | No                       | No   |
+
+#### Entity risk actions default example
+
+```json
+"actions": {
+  "entityRisk": {
+    "actions": []
+  }
+}
+```
+
+#### Entity risk actions workflow example
+
+```json
+"actions": {
+  "entityRisk": {
+    "actions": [ { "action": "RUN_WORKFLOW", "workflow": {"id": "123123123"} } ]
+  }
+}
+```
+
+## Continuous Access evaluation policy
+
+<ApiLifecycle access="ie" /> <ApiLifecycle access="ea" />
+
+Continuous Access evaluation, implemented in the API as a policy, determines the action to take based on changes to an existing user session. After a session event is triggered, the global session policy and all authentication policies are reevaluated and a course of action is undertaken as defined by the Continuous Access evaluation policy. The policy type is specified as `CONTINUOUS_ACCESS`.
+
+#### Continuous Access evaluation example
+
+```json
+    {
+        "type": "CONTINUOUS_ACCESS",
+        "name": "useful example name here",
+        "description": "useful example description here"
+    }
+```
+
+### Policy conditions
+
+Policy conditions aren't supported for this policy.
+
+### Policy rules conditions
+
+You can apply the following conditions to the rules associated with an entity risk policy:
+
+* [People condition](#people-condition-object)
+
+### Continuous Access evaluation object
+
+The `actions` object of the Continuous Access evaluation policy rule indicates the next steps to take in response to a failure of the reevaluated global session policy or authentication policies. The object is specified as `continuousAccess`.
+
+| Property                | Description              | Data Type                                       | Required                      | Default |
+| ---                     | ---------------          | ---                                             | ---                           | ---     |
+| `failureActions`               | The action to take when the Continuous Access evaluation detects a failure.              | Array of [failureAction value objects](#failureactions-array-object-values)                         | Yes                           | `[]`   |
+
+#### failureActions array object values
+
+The `continuousAccess` object's `failureActions` array can be empty or contain one of two `failureAction` object value pairs. This object determines the specific response to a session event.
+
+| Array value               | Description              | Data Type                                       | Required                     | Default |
+| ---                     | ---------------          | ---                                             | ---                           | ---     |
+| `[]`                 | This action only logs the user session event.             | object                      |  Yes                      | Yes  |
+| `[ { "action": "TERMINATE_ALL_SESSION" } ]`              | This action terminates active sessions based on the [Terminate_All_Session failureActions](#terminate-all-session-failureactions-object) object            | object                      |       No   | No |
+| `[ { "action": "RUN_WORKFLOW", "workflow": {"id": "123123123"} } ]`               | This action runs a workflow and must include the additional workflow `id` for the `workflow` property.            | object                      | No |
+
+#### Continuous Access evaluation actions default example
+
+```json
+"actions": {
+    "continuousAccess": {
+      "failureActions": []
+     }
+}
+```
+
+#### Terminate_All_Session failureActions object
+
+This `failureActions` object defines the options for the `TERMINATE_ALL_SESSION` action:
+
+| Property                | Description              | Data Type                                       | Required                      | Default |
+| ---                     | ---------------          | ---                                             | ---                           | ---     |
+| `action`               | The action to take when Continuous Access evaluation detects a failure.              | `"TERMINATE_SESSION"`                       | Yes                           | No   |
+| `slo.appSelectionMode`               | This property defines the session to terminate: everyone, no one, or a specific app instance              | `"SPECIFIC"`, `"NONE"`, or `"ALL"`                       | Yes                           | No   |
+| `slo.InstanceIds`               | This property defines the app instance access to terminate. Only include this property when `slo.appSelectionMode` is set to `"SPECIFIC"`.              | Array of IDs                     | No                          | No   |
+
+#### Continuous Access evaluation actions terminate sessions example
+
+```json
+"actions": {
+    "continuousAccess": {
+      "failureActions": [
+        { "action": "TERMINATE_SESSION",
+          "slo": {
+            "appSelectionMode": "SPECIFIC",
+            "appInstanceIds": ["0oav0y4zt6hd2PSBP0h7"]} } ]
+    }
+}
+```

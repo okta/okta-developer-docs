@@ -4,6 +4,47 @@ title: Okta API Products release notes 2024
 
 > Help us improve our release notes by filling out this short [survey](https://surveys.okta.com/jfe/form/SV_4VEZcIGOX0TBgkC).
 
+## April
+
+### Monthly release 2024.04.0
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Customize Okta to use the telecommunications provider of your choice is GA in Production](#customize-okta-to-use-the-telecommunications-provider-of-your-choice-is-ga-in-production) | March 7, 2024 |
+| [Permissions for custom admins to manage agents is GA in Preview](#permissions-for-custom-admins-to-manage-agents-is-ga-in-preview)  | April 3, 2024 |
+| [Enhanced app API contracts is GA in Production](#enhanced-app-api-contracts-is-ga-in-production) | April 3, 2024 |
+| [Content Security Policy for custom domains is GA in Production](#content-security-policy-for-custom-domains-is-ga-in-production) | January 31, 2024 |
+| [Developer documentation update in 2024.04.0](#developer-documentation-update-in-2024-04-0) | April 3, 2024 |
+| [Bug fixed in 2024.04.0](#bug-fixed-in-2024-04-0) | April 3, 2024 |
+
+#### Customize Okta to use the telecommunications provider of your choice is GA in Production
+
+While Okta provides out of the box telephony functionality, many customers need the ability to integrate their existing telecommunications provider with Okta to deliver SMS and Voice messages.
+
+The Telephony Inline Hook allows customers to generate one-time passcodes within Okta and then use their existing telecommunications provider to deliver the messages for MFA enrollment/verification, password reset, and account unlock using SMS or Voice. This allows customers to use their existing telephony solution within Okta, due to the time they've already invested in their existing telephony solution, the need to use a specific regional provider, or simply the desire to maintain flexibility. See [Connect to an external telephony service provider](https://help.okta.com/okta_help.htm?id=ext-telephony-inline-hook). <!-- OKTA-700233 INLINE_HOOKS_ASYNC_TELEPHONY_PROVIDER -->
+
+#### Permissions for custom admins to manage agents is GA in Preview
+
+Custom admins can now view, register, and manage agents. See [Agent permissions](https://help.okta.com/okta_help.htm?id=ext-about-role-permissions). <!-- OKTA-706310 ALLOW_CUSTOM_ADMIN_TO_MANAGE_REGISTER_AGENTS -->
+
+#### Enhanced app API contracts is GA in Production
+
+Okta has API documentation on creating instances of custom apps. Yet, it doesn’t fully describe the app metadata required for features such as SSO and provisioning for apps installed from the Okta Integration Network (OIN). In an effort to improve the API for apps in the OIN, new app metadata contracts have been added to the Okta management API. Operators and developers can programmatically create instances of popular OIN apps in their ecosystem and set up the provisioning connection.
+
+See [OIN app request payloads in the Applications API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/) and the [Set up an app provisioning connection](/docs/guides/app-provisioning-connection/main/) guide. <!-- OKTA-663482 PROVISIONING_API_EXTENSION -->
+
+#### Content Security Policy for custom domains is GA in Production
+
+The Content Security Policy (CSP) feature lets admins control which URLs may be linked to from customized sign-in and error pages in orgs that use custom domains. Admins add trusted URLs to Okta that link to items such as images and add these links to the code in their sign-in and error pages. This feature enhances security by enabling admins to allow only approved content to appear and prevent the introduction of potentially malicious code to these pages. See [Content Security Policy (CSP) for your custom domain](/docs/guides/custom-widget/main/#content-security-policy-csp-for-your-custom-domain). <!-- OKTA-600774 FF CONTENT_SECURITY_POLICY_FOR_CUSTOMIZABLE_SIGN_IN_AND_ERROR_PAGES -->
+
+#### Developer documentation update in 2024.04.0
+
+The [OIN QA SCIM test plan](/docs/guides/scim-provisioning-integration-test/main/#run-through-oin-qa-tests) file was updated. The following test cases were modified: C9319, C9320, C9321, C9360, and C9361. <!-- OKTA-704429 --> <!-- OKTA-710941 -->
+
+#### Bug fixed in 2024.04.0
+
+Users were able to unselect a saved SSO protocol for an integration submission in the OIN Wizard. (OKTA-710638)
+
 ## March
 
 ### Weekly release 2024.03.2

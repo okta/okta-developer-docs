@@ -5,7 +5,7 @@
 set -o errexit -o pipefail
 
 # Constants
-readonly url=https://bit.ly/339Iik5
+readonly url=https://artifactory.es.atko.services/artifactory/okta-all/com/okta/monolith/core.events.api/%5BRELEASE%5D/core.events.api-%5BRELEASE%5D-metadata.jar
 readonly archive=/tmp/event-types.zip
 readonly file=event-types.json
 readonly dir=packages/@okta/vuepress-site/data
