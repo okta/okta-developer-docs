@@ -318,7 +318,7 @@ This resource contains detailed reference material on event types triggered with
 
 ### workflows.user.delegatedflow.run
 
-**Description:** This event can be used by admins or security team members to monitor the execution of delegated flows in the Workflows platform from the Admin Console. The actor field provides the Okta User ID of the user that ran the flow. The target fields provide context on the Workflows instance and the name and flow ID of the executed flow. This event only indicates if the flow was successfully triggered and doesn't provide information about whether the flow encountered an error.
+**Description:** This event can be used by admins or security team members to monitor the execution of delegated flows in the Workflows platform from the Admin Console. The actor field provides the Okta User ID of the user that ran the flow. The target fields provide context on the Workflows instance and the name and flow ID of the executed flow. The event only indicates if the flow was successfully triggered and doesn't provide information about whether the flow encountered an error.
 
 | Key event properties  | Description                                         | Data type      | Example values |
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
