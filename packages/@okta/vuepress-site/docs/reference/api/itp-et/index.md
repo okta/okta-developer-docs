@@ -42,7 +42,7 @@ This resource contains detailed reference material on event types triggered with
 
 ### security.events.provider.receive_event
 
-**Description:** This event is triggered when an event provider submits a valid Shared Signals Framework (SSF) security event. The event can help org admins debug/monitor partner SSF submissions. The event contains debug context data about the event provider's risk report.
+**Description:** This event is triggered when an event provider submits a valid Shared Signals Framework (SSF) security event. It can help org admins debug/monitor partner SSF submissions. The event contains debug context data about the event provider's risk report.
 
 | Key event properties  | Description                                         | Data type      | Example values |
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
