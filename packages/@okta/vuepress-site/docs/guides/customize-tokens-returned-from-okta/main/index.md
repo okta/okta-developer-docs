@@ -1,6 +1,6 @@
 ---
 title: Customize tokens returned from Okta with custom claims
-excerpt: Define custom claims and Groups claims for tokens returned from Okta.
+excerpt: Define custom claims and groups claims for tokens returned from Okta.
 ---
 
 This guide explains how you can add custom claims to ID tokens and access tokens.
@@ -15,19 +15,19 @@ Create custom claims for tokens.
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
 * [OpenID Connect client application](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-oidc) in Okta with at least [one user assigned to it](https://help.okta.com/okta_help.htm?id=ext-assign-apps)
-* A [Group in Okta](https://help.okta.com/okta_help.htm?id=ext_Directory_Groups) with at least one person assigned to it
+* A [group in Okta](https://help.okta.com/okta_help.htm?id=ext_Directory_Groups) with at least one person assigned to it
 
 ---
 
 ## About tokens with custom claims
 
-Tokens contain claims that are statements about the subject, such as name, role, or email address. Beyond the [default set of claims](/docs/guides/validate-id-tokens/main/#verify-the-claims) that are contained in ID tokens and access tokens, you can define your custom claims. For example, you might want to add a user's email address to an access token and use that to uniquely identify the user, or you may want to add information stored in a user profile to an ID token.
+Tokens contain claims that are statements about the subject, such as name, role, or email address. Beyond the [default set of claims](/docs/guides/validate-id-tokens/main/#verify-the-claims) that are contained in ID tokens and access tokens, you can define your custom claims. For example, you might want to add a user's email address to an access token and use that to uniquely identify the user. You might also want to add information stored in a user profile to an ID token.
 
-You can also [add a Groups claim](/docs/guides/customize-tokens-groups-claim/main/#add-a-groups-claim-for-the-org-authorization-server) to ID tokens for any combination of App Groups and User Groups to perform SSO using the org authorization server. And, you can [add a Groups claim](/docs/guides/customize-tokens-groups-claim/main/#add-a-groups-claim-for-a-custom-authorization-server) to ID tokens and access tokens to perform authentication and authorization using a custom authorization server. See [Authorization servers](/docs/guides/customize-authz-server/) for more information on the types of authorization servers available to you and what you can use them for.
+You can also [add a groups claim](/docs/guides/customize-tokens-groups-claim/main/#add-a-groups-claim-for-the-org-authorization-server) to ID tokens for any combination of App groups and user groups to perform SSO using the org authorization server. And, you can [add a groups claim](/docs/guides/customize-tokens-groups-claim/main/#add-a-groups-claim-for-a-custom-authorization-server) to ID tokens and access tokens to perform authentication and authorization using a custom authorization server. See [Authorization servers](/docs/guides/customize-authz-server/) for more information on the types of authorization servers available to you and what you can use them for.
 
 <ApiAmProdWarning />
 
-Additionally, you can create a [dynamic](/docs/guides/customize-tokens-dynamic/) or [static](/docs/guides/customize-tokens-static/) allowlist when you need to set Group allowlists on a per-app basis using both the org authorization server and a custom authorization server. If you have a large number of Groups but only 20 Groups apply to your app, you don't want to run through all of your Groups every time a Groups claim is created. This process optionally uses Okta's flexible app profile, which accepts any JSON-compliant content, to create an allowlist of Groups that can then easily be referenced.
+Also, you can create a [dynamic](/docs/guides/customize-tokens-dynamic/) or [static](/docs/guides/customize-tokens-static/) allowlist. Do this when you need to set group allowlists on a per-app basis using both the org authorization server and a custom authorization server. If you have many groups but only 20 groups apply to your app, you don't want to run through all of your groups every time a groups claim is created. This process optionally uses the Okta app profile, which accepts any JSON-compliant content, to create an allowlist of groups that can then easily be referenced.
 
 ## Request a token that contains the custom claim
 
@@ -101,7 +101,7 @@ To test the full authentication flow that returns an ID token or an access token
     https://yourRedirectUriHere.com#access_token=eyJraWQiOiIxLVN5M2w2dFl2VTR4MXBSLXR5cVZQWERX[...]YNXrsr1gTzD6C60h0UfLiLUhA&token_type=Bearer&expires_in=3600&scope=openid&state=myState
     ```
 
-5. To check the returned ID token or access token payload, you can copy the value and paste it into any JWT decoder (for example: <https://token.dev>). Using a JWT decoder, confirm that the token contains all of the claims that you are expecting, including the custom one. If you specified a nonce, that is also included.
+5. To check the returned ID token or access token payload, you can copy the value and paste it into any JWT decoder (for example: <https://token.dev>). Using a JWT decoder, confirm that the token contains all of the claims that you’re expecting, including the custom one. If you specified a nonce, that's also included.
 
 ## Add a custom claim to a token
 
@@ -113,22 +113,22 @@ To add a custom claim:
 
 1. In the Admin Console, go to **Security** > **API**.
 
-2. On the **Authorization Servers** tab, select the name of the custom authorization server (or select **default** when you use the `default` custom authorization server) and then click **Claims**. Okta provides a default subject claim. You can edit that mapping or create your own claims. For this example, we are creating a custom claim.
+2. On the **Authorization Servers** tab, select the name of the custom authorization server (or select **default** when you use the `default` custom authorization server) and then click **Claims**. Okta provides a default subject claim. You can edit that mapping or create your own claims. For this example, create a custom claim.
 
 3. Click **Add Claim**, and then configure the claim settings:
 
-    * Enter a **Name** for the claim. In this example, we use **IDTClaim** for the ID token and **ATClaim** for the access token.
-    * **Include in token type** &mdash; if you are creating a claim for an ID token, select **ID Token** (for OpenID Connect). You can then define whether you want the claim included only when requested or always included. For this example, select **Always**.
-    If you are creating a claim for an access token, leave **Access Token** (for OAuth 2.0) selected.
-    * **Value type** &mdash; select whether you want to define the claim by a **Groups** filter or by an **Expression** written in Okta Expression Language. For this example, select **Expression**.
-    * **Value** &mdash; this option appears if you choose **Expression**. Use Okta Expression Language syntax to generate values derived from attributes in Universal Directory and app profiles. For the ID token example, we use `user.preferredLanguage` and for the access token example, we use `user.secondEmail`. These reference an Okta user profile attribute.
+    * Enter a **Name** for the claim. In this example, use **IDTClaim** for the ID token and **ATClaim** for the access token.
+    * **Include in token type**: If you’re creating a claim for an ID token, select **ID Token** (for OpenID Connect). You can then define whether you want the claim included only when requested or always included. For this example, select **Always**.
+    If you’re creating a claim for an access token, leave **Access Token** (for OAuth 2.0) selected.
+    * **Value type**: Select whether you want to define the claim by a **Groups** filter or by an **Expression** written in Okta Expression Language. For this example, select **Expression**.
+    * **Value**: This option appears if you choose **Expression**. Use Okta Expression Language syntax to generate values derived from attributes in Universal Directory and app profiles. For the ID token example, use `user.preferredLanguage` and for the access token example, use `user.secondEmail`. These reference an Okta user profile attribute.
 
       * See [Okta Expression Language](/docs/reference/okta-expression-language).
       * See [Expressions for OAuth 2.0/OIDC custom claims](/docs/reference/okta-expression-language/#expressions-for-oauth-2-0-oidc-custom-claims) for custom claim-specific expressions.
     > **Note:** In this example, the user has a preferred language and a second email defined in their profile.
 
-    * **Disable claim** &mdash; select if you want to temporarily disable the claim for testing or debugging. Leave this clear for this example.
-    * **Include in** &mdash; specify whether the claim is valid for any scope or select the scopes for which the claim is valid. Leave **Any scope** selected for this example.
+    * **Disable claim**: Select if you want to temporarily disable the claim for testing or debugging. Leave this clear for this example.
+    * **Include in**: Specify whether the claim is valid for any scope or select the scopes for which the claim is valid. Leave **Any scope** selected for this example.
 
 4. Click **Create**.
 
@@ -267,19 +267,19 @@ To add a custom claim:
 
     > **Note:** For more information on these fields, see [Add a custom claim to a token](#add-a-custom-claim-to-a-token).
 
-    * **Name** &mdash; enter a name for the claim, such as **applabel**.
+    * **Name**: Enter a name for the claim, such as **applabel**.
 
-    * **Include in token type** &mdash; leave the default of **Access Token**.
+    * **Include in token type**: Leave the default of **Access Token**.
 
-    * **Value type** &mdash; leave the default of **Expression** to define the claim by an Expression written in Okta Expression Language.
+    * **Value type**: Leave the default of **Expression** to define the claim by an Expression written in Okta Expression Language.
 
-    * **Value** &mdash; this option appears if you chose **Expression**. For this example, enter `app.profile.label`, which is referencing the app Profile attribute that you want to include in the claim.
+    * **Value**: This option appears if you chose **Expression**. For this example, enter `app.profile.label`, which is referencing the app Profile attribute that you want to include in the claim.
 
     > **Note:** You can validate that your expression returns the results expected using the **Token Preview** tab.
 
-    * **Disable claim** &mdash; leave this clear for this example.
+    * **Disable claim**: Leave this clear for this example.
 
-    * **Include in** &mdash; leave **Any scope** selected for this example.
+    * **Include in**: Leave **Any scope** selected for this example.
 
 4. Click **Create**.
 
@@ -287,7 +287,7 @@ To add a custom claim:
 
 ### Request a token with the custom claim
 
-In this example, the service application's `token_endpoint_auth_method` was set to `client_secret_post` when we created the app above. Include both the `client_id` and the `client_secret` values as additional parameters in the POST request body to your custom authorization server's `/token` endpoint. For the specific steps on building the request URL, receiving the response, and decoding the JWT, see [Request a token that contains the custom claim](#request-a-token-that-contains-the-custom-claim).
+In this example, the service application's `token_endpoint_auth_method` was set to `client_secret_post` when you created the app. Include both the `client_id` and the `client_secret` values as other parameters in the POST request body to your custom authorization server's `/token` endpoint. For the specific steps on building the request URL, receiving the response, and decoding the JWT, see [Request a token that contains the custom claim](#request-a-token-that-contains-the-custom-claim).
 
 ```bash
 curl -v -X POST \
@@ -309,10 +309,8 @@ If the credentials are valid, the access token is sent in the response:
 
 ## Next steps
 
-You should now understand how to include custom claims in an ID token or an access token and how to include certain app-specific information in a token claim.
+Look at other ways that you can customize claims and tokens:
 
-Next, take a look at other ways that you can customize claims and tokens:
-
-* [Customize tokens with a Groups claim](/docs/guides/customize-tokens-groups-claim/)
+* [Customize tokens with a groups claim](/docs/guides/customize-tokens-groups-claim/)
 * [Customize tokens returned from Okta with a dynamic allowlist](/docs/guides/customize-tokens-dynamic/)
 * [Customize tokens returned from Okta with a static allowlist](/docs/guides/customize-tokens-static/)

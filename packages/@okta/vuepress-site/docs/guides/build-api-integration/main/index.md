@@ -14,9 +14,9 @@ Build, test, and submit an API service integration to the Okta Integration Netwo
 
 * A service app that needs to access Okta APIs for your customer
 
-**Sample code**
+#### Sample code
 
-* See [How to use Client Credentials flow with Spring Security](https://developer.okta.com/blog/2021/05/05/client-credentials-spring-security) blog for an example of a Client Credentials flow using the [Okta Spring Boot Starter](https://github.com/okta/okta-spring-boot) library.
+See [How to use Client Credentials flow with Spring Security](https://developer.okta.com/blog/2021/05/05/client-credentials-spring-security) blog for an example of a Client Credentials flow using the [Okta Spring Boot Starter](https://github.com/okta/okta-spring-boot) library.
 
 ---
 
