@@ -25,11 +25,11 @@ The Telephony Inline Hook allows customers to generate one-time passcodes within
 
 #### Permissions for custom admins to manage agents is GA in Preview
 
-Custom admins can now view, register, and manage agents. See [Agent permissions](https://help.okta.com/okta_help.htm?id=ext-about-role-permissions). <!-- OKTA-706310 ALLOW_CUSTOM_ADMIN_TO_MANAGE_REGISTER_AGENTS -->
+Custom admins can now view, register, and manage agents. See [Permission types](/docs/reference/api/roles/#permission-properties). <!-- OKTA-706310 ALLOW_CUSTOM_ADMIN_TO_MANAGE_REGISTER_AGENTS -->
 
 #### Enhanced app API contracts is GA in Production
 
-Okta has API documentation on creating instances of custom apps. Yet, it doesn’t fully describe the app metadata required for features such as SSO and provisioning for apps installed from the Okta Integration Network (OIN). In an effort to improve the API for apps in the OIN, new app metadata contracts have been added to the Okta management API. Operators and developers can programmatically create instances of popular OIN apps in their ecosystem and set up the provisioning connection.
+Okta has API documentation on creating instances of custom apps. Yet, it doesn't fully describe the app metadata required for features such as SSO and provisioning for apps installed from the Okta Integration Network (OIN). In an effort to improve the API for apps in the OIN, new app metadata contracts have been added to the Okta management API. Operators and developers can programmatically create instances of popular OIN apps in their ecosystem and set up the provisioning connection.
 
 See [OIN app request payloads in the Applications API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/) and the [Set up an app provisioning connection](/docs/guides/app-provisioning-connection/main/) guide. <!-- OKTA-663482 PROVISIONING_API_EXTENSION -->
 
@@ -71,7 +71,7 @@ Users were able to unselect a saved SSO protocol for an integration submission i
 
 #### Bug fixed in 2024.03.1
 
-One-time passcodes (OTPs) that were sent using a telephony inline hook weren’t subject to rate limits. (OKTA-704319)
+One-time passcodes (OTPs) that were sent using a telephony inline hook weren't subject to rate limits. (OKTA-704319)
 
 ### Monthly release 2024.03.0
 
@@ -89,7 +89,7 @@ One-time passcodes (OTPs) that were sent using a telephony inline hook weren’t
 
 #### Permission conditions for profile attributes is GA in Production
 
-You can now apply conditions to the **View users and their details** and **Edit users' profile attributes** custom admin role permissions. Permission conditions help you limit the scope of a role by including or excluding admins' access to individual profile attributes. This gives you more granular control over your custom admin roles and helps meet your org’s unique security needs. See [Permission conditions](https://help.okta.com/okta_help.htm?type=oie&id=ext-permission-conditions). <!-- OKTA-586185 -->
+You can now apply conditions to the **View users and their details** and **Edit users' profile attributes** custom admin role permissions. Permission conditions help you limit the scope of a role by including or excluding admins' access to individual profile attributes. This gives you more granular control over your custom admin roles and helps meet your org's unique security needs. See [Permission conditions](https://help.okta.com/okta_help.htm?type=oie&id=ext-permission-conditions). <!-- OKTA-586185 -->
 
 #### Content Security Policy for custom domains is GA in Preview
 
@@ -109,7 +109,7 @@ Access tokens returned from the org authorization server are now signed using th
 
 #### Support case management for admins is GA in Preview
 
-Super admins can now assign the **View, create, and manage Okta support cases** permission and Support Cases resource to a custom admin role. This allows delegated admins to manage the support cases that they’ve opened. See [About role permissions](https://help.okta.com/okta_help.htm?type=oie&id=csh-about-role-permissions). <!-- OKTA-700229 -->
+Super admins can now assign the **View, create, and manage Okta support cases** permission and Support Cases resource to a custom admin role. This allows delegated admins to manage the support cases that they've opened. See [About role permissions](https://help.okta.com/okta_help.htm?type=oie&id=csh-about-role-permissions). <!-- OKTA-700229 -->
 
 #### Realms for Workforce
 
@@ -117,7 +117,7 @@ Realms allows you to unlock greater flexibility in managing and delegating manag
 
 #### Enhanced app API contracts
 
-Okta has API documentation on creating instances of custom apps. Yet, it doesn’t fully describe the app metadata required for features such as SSO and provisioning for apps installed from the Okta Integration Network (OIN). In an effort to improve the API for apps in the OIN, new app metadata contracts have been added to the Okta management API. Operators and developers can programmatically create instances of popular OIN apps in their ecosystem and set up the provisioning connection. See [Set up an app provisioning connection](/docs/guides/app-provisioning-connection/main/). <!-- OKTA-703567 -->
+Okta has API documentation on creating instances of custom apps. Yet, it doesn't fully describe the app metadata required for features such as SSO and provisioning for apps installed from the Okta Integration Network (OIN). In an effort to improve the API for apps in the OIN, new app metadata contracts have been added to the Okta management API. Operators and developers can programmatically create instances of popular OIN apps in their ecosystem and set up the provisioning connection. See [Set up an app provisioning connection](/docs/guides/app-provisioning-connection/main/). <!-- OKTA-703567 -->
 
 
 #### Bugs fixed in 2024.03.0
