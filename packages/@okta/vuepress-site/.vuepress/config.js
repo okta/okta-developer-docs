@@ -352,6 +352,8 @@ module.exports = ctx => ({
         $page.redir = `/docs/guides/${found.guide}/${found.sections[0]}/`
       }
     }
+    
+    frontmatter.canonicalUrl = `https://developer.okta.com${path}`;
 
     if (path === '/') {
       $page.newsFeedDataJson = null;
