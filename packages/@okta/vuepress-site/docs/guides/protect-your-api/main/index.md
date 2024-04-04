@@ -47,7 +47,7 @@ This quickstart contains the following tasks:
 
 ## Check that API Access Management is enabled
 
-[API Access Management (API AM)](/docs/concepts/api-access-management/) is the feature in your org that allows Okta to secure your APIs. When enabled, API AM allows you to create an authorization server that establishes a security boundary for your APIs. All new developer orgs have API AM enabled by default, but it’s optional for production orgs. Check that it’s enabled in your org as follows:
+[API Access Management (API AM)](/docs/concepts/api-access-management/) is the feature in your org that allows Okta to secure your APIs. When enabled, API AM allows you to create an authorization server that establishes a security boundary for your APIs. All new developer orgs have API AM enabled by default, but it's optional for production orgs. Check that it's enabled in your org as follows:
 
 1. Open the Admin Console for your org.
    1. [Sign in to your Okta organization](https://developer.okta.com/login) with your administrator account.
@@ -55,7 +55,7 @@ This quickstart contains the following tasks:
    1. Click **Admin** in the upper-right corner of the page.
 1. Go to **Security** > **API** to view the API AM area.
 
-If no **Authorization Servers** tab exists, API AM isn’t enabled in your org. Contact your support team to enable this feature in your org or [create a new developer edition org](https://developer.okta.com/signup/).
+If no **Authorization Servers** tab exists, API AM isn't enabled in your org. Contact your support team to enable this feature in your org or [create a new developer edition org](https://developer.okta.com/signup/).
 
 ### Note your authorization server name and audience
 
@@ -177,7 +177,7 @@ Start Postman if it's not open already. First, you request an access token from 
 
 #### Request an access token for the API
 
-Make an HTTP POST request to [/token](http://localhost:8080/docs/reference/api/oidc/#token) using the client ID and secret you noted earlier.
+Make an HTTP POST request to [/token](/docs/reference/api/oidc/#token) using the client ID and secret you noted earlier.
 
 1. Select **+** in the Postman workbench to open a new request tab.
 1. Select **GET** and change it to **POST**.
