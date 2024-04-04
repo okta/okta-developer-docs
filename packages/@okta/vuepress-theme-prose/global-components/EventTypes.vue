@@ -71,7 +71,7 @@
                'workflows.user.delegatedflow.run'].indexOf(eventType.id) !== -1"
       >
         <p class="event-itp-type">
-          See also: <a href="http://localhost:8080/docs/reference/api/itp-et">Identity Threat Protection with Okta AI Event Types</a>
+          See also: <a href="https://developer.okta.com/docs/reference/api/itp-et/">Identity Threat Protection with Okta AI Event Types</a>
         </p>
       </div>
       <div class="event-type-tags">
