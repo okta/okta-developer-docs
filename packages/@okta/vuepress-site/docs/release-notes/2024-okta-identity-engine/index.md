@@ -31,10 +31,9 @@ Logout requests from Okta to participating SLO apps now support the NotonOrAfter
 
 #### Identity Threat Protection with Okta AI is EA in Preview
 
-Identity Threat Protection with Okta AI is a powerful risk assessment and response solution that provides post-authentication security to your org. By continuously analyzing risk signals that are native to Okta, risk signals from integrated security partner vendors, and your policy conditions, it safeguards orgs against identity attacks that occur during and outside of a user's session. When Identity Threat Protection discovers a risk, it can immediately end the user's sessions, prompt an MFA challenge, or invoke a workflow to restore your org's security posture. Using intuitive dashboard widgets and reports, you can easily monitor security threats as they happen.
+Identity Threat Protection with Okta AI is a powerful risk assessment and response solution that provides post-authentication security to your org. By continuously analyzing risk signals that are native to Okta, risk signals from integrated security partner vendors, and your policy conditions, it safeguards orgs against identity attacks that occur during and outside of a user's session. When Identity Threat Protection discovers a risk, it can immediately end the user's sessions, prompt an MFA challenge, or invoke a workflow to restore your org's security posture. Using intuitive dashboard widgets and reports, you can easily monitor security threats as they happen. See [Identity Thread Protection with Okta AI](https://help.okta.com/okta_help.htm?type=oie&id=ext-itp-overview).
 
-See [Identity Thread Protection with Okta AI](https://help.okta.com/okta_help.htm?type=oie&id=ext-itp-overview).
-<!-- See the [Shared Signals Framework (SSF) Receiver](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SSFReceiver/) and [SSF SET](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SSFSecurityEventToken/) APIs. -->
+See the new [Shared Signals Framework (SSF) Receiver](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SSFReceiver/) and [SSF SET](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SSFSecurityEventToken/) APIs.
 
 See also the [Entity risk policy](/docs/reference/api/policy/#entity-risk-policy) and [Continuous Access evaluation policy](/docs/reference/api/policy/#continuous-access-evaluation-policy) API updates. <!-- OKTA-683713 ENABLE_ITP_FEATURES_FOR_EA -->
 
