@@ -40,13 +40,15 @@ You can customize your Okta organization by replacing the Okta domain name with 
 
 For example, you use Okta as a user store for your apps, but you don't want your users to know that the app uses Okta behind the scenes. Okta orgs host pages on subdomains such as `example.okta-dnssec.com` or `example.okta.com`. You can create a [CNAME record](https://datatracker.ietf.org/doc/html/rfc1035#section-3.2.2) for the Okta domain, allowing you to alias it to another subdomain that you own, like `login.example.com`.
 
-> **Note:** Set up a [custom domain](/docs/guides/custom-url-domain/main/) and customize your [CSP](https://content-security-policy.com/) if you also want to customize the [sign-in page](/docs/guides/custom-widget/main/#content-security-policy-csp-for-your-custom-domain) and [error pages](/docs/guides/custom-error-pages/main/#content-security-policy-csp-for-your-custom-domain).
-
 Okta serves pages on your custom domain over HTTPS. To set up this feature, you need to provide a TLS certificate that is valid for your domain. See [Validate your TLS certificate](#validate-your-tls-certificate).
 
 You can also [configure a custom email address](#about-custom-email-addresses) to present a branded experience to your end users.
 
-> **Note:** When you create a custom domain, the Okta domain (for example, `company.okta-dnssec.com` or `company.okta.com`) still works.
+> **Notes:**
+>
+> * Okta-managed certificates aren't compatible with network zones. If your org requires network zones, you need to manage your own certificate renewals. See [Network Zones](https://help.okta.com/okta_help.htm?id=ext-network-zones).
+> * Set up a [custom domain](/docs/guides/custom-url-domain/main/) and customize your [CSP](https://content-security-policy.com/) if you also want to customize the [sign-in page](/docs/guides/custom-widget/main/#content-security-policy-csp-for-your-custom-domain) and [error pages](/docs/guides/custom-error-pages/main/#content-security-policy-csp-for-your-custom-domain).
+> * When you create a custom domain, the Okta domain (for example, `company.okta-dnssec.com` or `company.okta.com`) still works.
 
 ### Multibrand and custom domains
 
