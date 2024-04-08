@@ -2743,6 +2743,7 @@ Policy Rule conditions aren't supported for this policy.
             "profileEnrollment": {
                 "access": "ALLOW",
                 "preRegistrationInlineHooks": null,
+                "allowedIdentifiers": ["login"],
                 "profileAttributes": [
                     {
                         "name": "email",
@@ -2770,7 +2771,7 @@ Policy Rule conditions aren't supported for this policy.
 
 | Property                | Description                                                                                                                                                               | Data Type                                       | Required                      | Default |
 | ---                     | ---                                                                                                                                                                       | ---                                             | ---                           | ---     |
-| `access`                  | `ALLOW` or `DENY`                                                                                                                                                         | `ALLOW` or `DENY`                               | Yes                           | N/A     |
+| `access`                  | `ALLOW` or `DENY`                                                                                                                                                         | `ALLOW` or `DENY`         | Yes                           | N/A     |
 | `activationRequirements`  | Contains a single Boolean property that indicates whether `emailVerification` should occur (`true`) or not (`false`, default)       | Object | Yes |        `false`                                                                                                                                                                                                              |
 | `preRegistrationInlineHooks` | (Optional) The `id` of at most one registration inline hook                                                                       | Array   | No | N/A                                                                                                                                                                                                                        |
 | `allowedIdentifiers` <ApiLifecycle access="ea" /> | A list of attributes to identify an end user. Can be used across Okta sign-in, unlock, and recovery flows. | Array | No | `["login"]` |
