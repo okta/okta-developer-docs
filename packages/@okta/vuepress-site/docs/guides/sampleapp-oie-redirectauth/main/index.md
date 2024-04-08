@@ -227,7 +227,7 @@ Okta gives you the ability to check for what data is required from a user before
 
 When you enrolled your test user, the user was only prompted for first and family name, as well as their email and a password. Now add an additional required property to the profile enrollment policy.
 
-1. In the Admin Console side navigation, select **Security** > **Profile Enrollment**.
+1. In the Admin Console, go to **Security** > **Profile Enrollment**.
    > **Note:** If you enabled Multiple Identifiers, go to **Security** > **User Profile Policies**. See [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features).
 1. Find the profile enrollment policy that you created for self-service enrollment and click the pencil icon in the **Actions** column.
 1. In the **Enrollment Settings** section, click the **Actions** menu icon (&#8942;) and select **Edit**.
