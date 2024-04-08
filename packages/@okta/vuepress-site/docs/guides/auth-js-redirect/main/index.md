@@ -353,7 +353,7 @@ Test the new configurations by signing in to your sample app with a user added t
 1. Start your app. On the Okta sign-in page, add the email address of your test user. Notice that there’s no password field on the page.
 1. Add the email address for your test user and click **Next**.
 1. Click the **Send me an email** link to receive a verification email.
-1. Open the email and use either the verification code or the email link to verify the user. The user is signed in to your sample application without a password.
+1. Open the email and use either the verification code or the email link to verify the user. The user is signed in to your sample app without a password.
 
 <!-- ## Use Cases - Review these headings for future content
 
