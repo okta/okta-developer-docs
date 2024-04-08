@@ -43,7 +43,7 @@ To get started, you need to create an Okta OAuth app to represent the <StackSnip
 <StackSnippet snippet="toolnote" />
 
 1. Sign in to your [Admin Console](https://login.okta.com).
-2. From the side navigation, select **Applications** > **Applications**, and then click **Create App Integration**.
+2. Go to **Applications** > **Applications**, and then click **Create App Integration**.
 3. In the dialog box that appears, select **OIDC - OpenID Connect** as the **Sign-on method**, <StackSnippet snippet="apptype" inline /> as the **Application type**, and then click **Next**.
 4. Fill in the New <StackSnippet snippet="apptypepage" inline /> Integration fields that you need, and then click **Save**:
 
