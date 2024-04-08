@@ -221,7 +221,7 @@ The following specific features are no longer supported, and you can't configure
 
 * `features.smsRecovery`: Recovered the password for users with a configured mobile phone number by using an SMS message. See the [password recovery policy](https://help.okta.com/okta_help.htm?id=ext-add-self-service-password-reset) to enable and configure a possession authenticator (for example, a phone).
 
-* `features.callRecovery`: Recovered the password for users with a configured mobile phone number by using a voice call. See the [password recovery policy](https://help.okta.com/okta_help.htm?id=ext-add-self-service-password-reset) to enable and configure a possession (for example, a phone) authenticator.
+* `features.callRecovery`: Recovered the password for users with a configured mobile phone number by using a voice call. See the [password recovery policy](https://help.okta.com/okta_help.htm?id=ext-add-self-service-password-reset) to enable and configure a possession authenticator (for example, a phone).
 
 * `features.webauthn`: Prevented Sign-In Widget from invoking the legacy Windows Hello factor. See the [sign-on policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-osop) to enable and configure a possession authenticator.
 
