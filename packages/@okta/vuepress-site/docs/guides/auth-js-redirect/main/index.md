@@ -215,7 +215,7 @@ By default, self-service registration isn't enabled for all apps. Use the follow
    > **Note:** If you enabled Multiple Identifiers, go to **Security** > **User Profile Policies**. See [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features).
 1. Notice in the **Profile Enrollment** section, **Denied** is selected for **Self-service registration** by default. This setting removes the self-registration option for all apps assigned to the default policy.
 1. [Test your app](#test-your-app) and note that the **Sign-up** link doesn't appear under the sign-in page.
-1. Return to the Admin Console, and select **Back to all Profile Enrollment Policies** to return to the **Security** > **Profile Enrollment** page.
+1. Return to the Admin Console, and then select **Back to all Profile Enrollment Policies** to return to the **Security** > **Profile Enrollment** page.
    > **Note:** If you enabled Multiple Identifiers, go to **Security** > **User Profile Policies**. See [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features).
 1. Click **Add Profile Enrollment Policy**, and then create a name for the policy (for example, "App self-service registration").
 1. Edit the new policy and note that self-service registration is **Allowed** by default.
