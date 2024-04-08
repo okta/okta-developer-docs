@@ -5547,5 +5547,13 @@ redirects:
     to: https://github.com/okta/okta-sdk-dotnet
   - from: /okta-sdk-dotnet
     to: https://github.com/okta/okta-sdk-dotnet
+  - from: /docs/api/iga/openapi/governance.api/tag/Requests/index.html
+    to: https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v1/tag/Requests/
+  - from: /docs/api/iga/openapi/governance.api/tag/Requests
+    to: https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v1/tag/Requests/
+  - from: /docs/api/iga/openapi/governance.api/tag/Request-Types/index.html
+    to: https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v1/tag/Request-Types/
+  - from: /docs/api/iga/openapi/governance.api/tag/Request-Types
+    to: https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v1/tag/Request-Types/
   - from: /docs/guides/sign-into-mobile-app-redirect/react-native/main/index.html
     to: /docs/guides/sampleapp-oie-redirectauth/reactnativedroid/main/
