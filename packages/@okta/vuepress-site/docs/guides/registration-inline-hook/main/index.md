@@ -155,7 +155,7 @@ See the [request properties](/docs/reference/registration-hook/#objects-in-the-r
 
 ## Set up for profile enrollment (SSR) scenario
 
-The simple scenario of profile enrollment (self-service registration) involves new users self-registering from the **Sign up** link. New users use the default sign-up fields (email, first name, and family name). With this use case, the registration inline hook triggers and evaluates the domain in the Email field. If the domain is from `okta.com`, the user can register. If not, the user is denied registration. To implement this scenario:
+The simple scenario of profile enrollment (self-service registration) involves new users self-registering from the **Sign up** link. New users use the default sign-up fields (email, first name, and family name). With this use case, the registration inline hook triggers and evaluates the domain in the Email field. If the domain is from `okta.com`, the user can register. If not, the user is denied registration. Follow these steps to implement this scenario:
 
 <StackSnippet snippet="introbullets"/>
 
