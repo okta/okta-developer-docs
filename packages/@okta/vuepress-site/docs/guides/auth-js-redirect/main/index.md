@@ -27,7 +27,7 @@ The Okta Auth JS SDK builds on top of the following:
 
 This SDK enables you to create various sign-in experiences.
 
-These experiences include fully branded embedded authentication, as with [Auth JS fundamentals](/docs/guides/auth-js/) and redirect authentication. Auth JS is used by the Okta [Sign-In Widget](https://github.com/okta/okta-signin-widget), which powers the default Okta sign-in page. Your application initializes the SDK, which automatically redirects you to this authentication page hosted by Okta. Then, it enforces the policies you configured for your sign-in experience.
+These experiences include fully branded embedded authentication, as with [Auth JS fundamentals](/docs/guides/auth-js/) and redirect authentication. Auth JS is used by the Okta [Sign-In Widget](https://github.com/okta/okta-signin-widget), which powers the default Okta sign-in page. Your app initializes the SDK, which automatically redirects you to this authentication page hosted by Okta. Then it enforces the policies you configured for your sign-in experience.
 
 Auth JS also powers our other redirect SDKs that provide simple authentication for server-side web apps and single-page JavaScript apps (SPA). See the [Quickstart guides](/docs/guides/quickstart/).
 
