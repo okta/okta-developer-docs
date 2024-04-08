@@ -244,7 +244,7 @@ Progressive profile enrollment builds out a user's profile incrementally during 
    > **Note:** You can also enable profile enrollment (self-service registration) and progressive profile enrollment with the same policy. Select **Allowed** for the **Self-service registration** option of your profile enrollment policy. New users can then enroll with the enhanced profile enrollment form. Existing users use progressive profile enrollment for any new required fields.
 
 1. Clear the **Email verification** checkbox, for ease of testing.
-1. Add the additional user profile fields that you want existing users to provide, in the **Profile enrollment form**. In this example, add the city field:
+1. In the **Profile enrollment** form, add the additional user profile fields that you want existing users to provide. In this example, add the city field:
     1. Click **Add form input** and select the **City (city)** field. If the field is read only, you must change the attribute permission. See [Create a custom profile enrollment form](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-prof-enroll-form).
     {style="list-style-type:lower-alpha"}
     1. Repeat this step for the number of fields that you want to add. At least one of these fields must be set as **Required**.
