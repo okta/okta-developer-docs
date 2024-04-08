@@ -333,7 +333,7 @@ Enable passwordless authentication for your existing users by configuring your O
 1. Go to **Directory** > **Groups** and click **Add group**. Give the group a name, for example, Passwordless Users, and click **Save**.
 1. Select your new group, and click **Assign people** from the **People** tab. Add one or more users to your new group.
 1. Go to **Security** > **Authenticators** and edit or ensure that the **Email** authenticator is set to **Authentication and recovery**.
-1. Click the **Enrollment** tab and then click **Add a policy** to add an enrollment policy targeted at your new group. Configure the following fields and then click **Create Policy**:
+1. Click the **Enrollment** tab, and then click **Add a policy** to add an enrollment policy targeted at your new group. Configure the following fields, and then click **Create Policy**:
     * **Policy name**: Any name for this policy, for example, Passwordless Enrollment
     * **Assign to Groups**: Your new group, Passwordless Users
     * **Email** authenticator: Set to required
