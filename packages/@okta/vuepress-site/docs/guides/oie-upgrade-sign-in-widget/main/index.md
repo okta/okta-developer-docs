@@ -65,7 +65,7 @@ To update the Sign-In Widget:
 
 2. On the **Pages** tab, click **Configure** in the **Sign-in page** section. Go to the **Settings** tab.
 
-    - In the **Sign-In Widget Version** section, check that the **Version** is the highest version available. The sign Widget is always the latest version if you're not using a custom URL domain.
+    - In the **Sign-In Widget Version** section, check that the **Version** is the highest version available. The Sign-In Widget is always the latest version if you're not using a custom URL domain.
     - If you're using the [custom domain feature](/docs/guides/custom-url-domain/) and the version isn't correct, you can pin Sign-In Widget's version. Click **Edit** in the **Sign-In Widget Version** section and then select the **Version** field.
     - If you enabled multibrand customization, you can't customize the Sign-In Widget for the Okta default brand. See [Branding](https://help.okta.com/okta_help.htm?type=oie&id=csh-branding).
 
