@@ -350,7 +350,7 @@ Enable passwordless authentication for your existing users by configuring your O
 
 Test the new configurations by signing in to your sample app with a user added to your Passwordless Users group:
 
-1. Start your app. On the Okta sign-in page, add the email address of your test user. Notice there’s no password field available in the page.
+1. Start your app. On the Okta sign-in page, add the email address of your test user. Notice that there’s no password field on the page.
 1. Add the email address for your test user and click **Next**.
 1. Click the **Send me an email** link to receive a verification email.
 1. Open the email and use either the verification code or the email link to verify the user. The user is signed in to your sample application without a password.
