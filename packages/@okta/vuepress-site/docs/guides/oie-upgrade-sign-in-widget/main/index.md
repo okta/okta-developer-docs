@@ -183,7 +183,7 @@ This is now optional as the Sign-In Widget automatically includes IdPs based on 
 
 ### Bootstrap from a recovery token
 
-If you're initializing Sign-In Widget with a recovery token, the `recoveryToken` setting appears, for example:
+If you're initializing Sign-In Widget with a recovery token, the `recoveryToken` setting appears. For example:
 
 ```JavaScript
 recoveryToken: 'x0whAcR02i0leKtWMZVc'
