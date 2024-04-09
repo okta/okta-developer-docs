@@ -21,7 +21,9 @@ Enable users to sign in using a trusted external Identity Provider.
 * A Terraform configuration that can access your Okta org. See [Enable Terraform access for your Okta org](/docs/guides/terraform-enable-org-access).
 * An account with [Google](https://accounts.google.com/signup).
 * Access to your [Google Admin Console](admin.google.com) for SAML IdP creation.
+
 ---
+
 ## Overview
 
 You can configure trusted Identity Providers (IdPs) in your org to enable users with external accounts to sign in to your Okta org applications. Okta can use an IdP to verify a user’s identity when they sign in. Okta can also create an account automatically when the user first signs in with an IdP.

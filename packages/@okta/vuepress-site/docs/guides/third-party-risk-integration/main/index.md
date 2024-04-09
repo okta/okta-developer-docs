@@ -12,7 +12,7 @@ This guide explains how to configure an Okta org to receive risk events from a t
 
 #### Learning outcomes
 
-* Understand how to set up and test third-party risk events with a sample app from the Postman Risk API collection.
+Understand how to set up and test third-party risk events with a sample app from the Postman Risk API collection.
 
 #### What you need
 
@@ -27,11 +27,11 @@ This guide explains how to configure an Okta org to receive risk events from a t
 
 The Okta Risk Engine evaluates authentication attempts by reviewing the risk score of the sign-in based on context and historical data. Using Okta Risk APIs, third-party risk providers can integrate with the Okta Risk Engine using a standard Okta service application. The third-party risk provider can send risk events that you can use when calculating the authentication risk based on the risk policy configured in the Okta org. The risk events are additionally logged as part of the System Log.
 
->**Note:** Third-party risk events are shared with and received from non-Okta applications. Non-Okta applications include web-based, offline, mobile, or other software application functionality that are provided by you or a third party and interoperate with the Okta Service. You aren't required to receive or use third-party risk events within Okta Risk Engine, but if you configure Okta Risk Engine to use third-party risk events, then you agree on behalf of your organization that Okta may receive and share data with the non-Okta application as necessary to provide this functionality. You may only use these third-party risk events if you are a customer of both Okta and the non-Okta application. Okta can't guarantee continued partnerships or functionality with any non-Okta applications.
+>**Note:** Third-party risk events are shared with and received from non-Okta applications. Non-Okta applications include web-based, offline, mobile, or other software application functionality that are provided by you or a third party and interoperate with the Okta Service. You aren't required to receive or use third-party risk events within Okta Risk Engine, but if you configure Okta Risk Engine to use third-party risk events, then you agree on behalf of your organization that Okta may receive and share data with the non-Okta application as necessary to provide this functionality. You may only use these third-party risk events if you’re a customer of both Okta and the non-Okta application. Okta can't guarantee continued partnerships or functionality with any non-Okta applications.
 
 ### High-level configurations
 
-Creating a third-party risk provider integration follows the general configurations for creating an OAuth service application using the OAuth client credentials grant flow. The service application provides an integration for the default risk provider and the Okta Risk Engine, and Risk Event API calls can test for a successful setup. Follow the high-level steps below to set up an example third-party risk provider integration.
+Creating a third-party risk provider integration follows the general configurations for creating an OAuth service application using the OAuth Client Credentials grant flow. The service application provides an integration for the default risk provider and the Okta Risk Engine, and Risk Event API calls can test for a successful setup. Follow the high-level steps below to set up an example third-party risk provider integration.
 
 1. [Create a self-service application for the risk provider](#create-a-service-app-for-a-third-party-risk-provider)
 2. [Update the default risk provider](#update-the-default-third-party-risk-provider)
@@ -39,7 +39,7 @@ Creating a third-party risk provider integration follows the general configurati
 
 ## Create a service app for a third-party risk provider
 
-Your Okta org requires the set up of an OAuth service application to integrate and consume risk events from a third-party risk provider.
+Your Okta org requires that you set up an OAuth service application to integrate and consume risk events from a third-party risk provider.
 
 Use the following high-level steps to configure this service application:
 
@@ -51,9 +51,9 @@ See [Implement OAuth for Okta with a Service App](/docs/guides/implement-oauth-f
 
 ### Create a public/private key pair
 
-Prior to creating the service application for the third-party risk provider, you need to create a public/private key pair for client authentication. Use a tool such as the [JSON Web Key Generator](https://mkjwk.org/) to generate a public/private key pair for an example setup.
+Before creating the service application for the third-party risk provider, you need to create a public/private key pair for client authentication. Use a tool such as the [JSON Web Key Generator](https://mkjwk.org/) to generate a public/private key pair for an example setup.
 
-1. Navigate to [JSON Web Key Generator](https://mkjwk.org/).
+1. Go to [JSON Web Key Generator](https://mkjwk.org/).
 2. Use the following values when generating the pair:
 
     - **Key Size**: 2048
@@ -86,7 +86,7 @@ Create the service application that integrates with the third-party risk provide
 
 1. Copy the name of your third-party risk provider to your Postman environment's `providerName` variable. In this example, use `Risk Provider Example`. Save the environment.
 
-2. Call the following POST API from the Risk Integration Postman collection: **Admin: API to create OAuth service client (for the provider)** (`https://${yourOktaDomain}/oauth2/v1/clients`).
+2. Call the following POST API from the Risk Integration Postman Collection: **Admin: API to create OAuth service client (for the provider)** (`https://${yourOktaDomain}/oauth2/v1/clients`).
 
 3. Review the response, which includes the `jwks` key pair. The `client_name` value is the same value that you gave as the `providerName` variable. A sample response follows:
 
@@ -125,7 +125,7 @@ Create the service application that integrates with the third-party risk provide
 
 4. From the response, copy the `client_id` value, in this example `0oaaaboyxsbrWdsk81d6`, to your Postman environment's `clientId` variable. Save the environment.
 
-5. Verify that the application is available by making a GET request using the following API from the Risk Integration Postman collection: **Admin: API to get all OAuth service clients** (`https://${yourOktaDomain}/oauth2/v1/clients`).
+5. Verify that the application is available by making a GET request using the following API from the Risk Integration Postman Collection: **Admin: API to get all OAuth service clients** (`https://${yourOktaDomain}/oauth2/v1/clients`).
 
 This call retrieves all service applications from your Okta org, including the new Risk Integration service application.
 
@@ -133,9 +133,9 @@ For background information on this process, see [Create a service app and grant 
 
 ### Add a scope grant to the application
 
-You must now define the allowed Risk scope for use with the third-party risk provider service application.
+Define the allowed Risk scope for use with the third-party risk provider service application.
 
-1. Make a POST request using the following API from the Risk Integration Postman collection: **Admin: API to grant scopes to the OAuth service client** (`/api/v1/apps/${clientId}/grants`).
+1. Make a POST request using the following API from the Risk Integration Postman Collection: **Admin: API to grant scopes to the OAuth service client** (`/api/v1/apps/${clientId}/grants`).
 
     This call adds the `scopeId` to the value of: `okta.riskEvents.manage`.
 
@@ -169,7 +169,7 @@ In this example, use the following two procedures to set up your third-party ris
 
 This procedure retrieves the default risk provider profile and Provider ID.
 
-1. Make a GET request using the following API from the Risk Integration Postman collection: **Admin: API to get all Provider Settings** (`https://${yourOktaDomain}/api/v1/risk/providers`).
+1. Make a GET request using the following API from the Risk Integration Postman Collection: **Admin: API to get all Provider Settings** (`https://${yourOktaDomain}/api/v1/risk/providers`).
 
 2. Review the response that includes the Provider ID, default name, and action properties. A sample response follows:
 
@@ -202,7 +202,7 @@ This procedure retrieves the default risk provider profile and Provider ID.
 
 This procedure updates the default risk provider profile with the service application ID, risk provider name, and the risk provider action.
 
-1. Make a PUT request using the following API from the Risk Integration Postman collection: **Admin: API to Update Provider Settings** (`https://${yourOktaDomain}/api/v1/risk/providers/${providerId}`). This call updates the default risk provider's data. The following data is included in the request body:
+1. Make a PUT request using the following API from the Risk Integration Postman Collection: **Admin: API to Update Provider Settings** (`https://${yourOktaDomain}/api/v1/risk/providers/${providerId}`). This call updates the default risk provider's data. The following data is included in the request body:
 
     ```JSON
     {
@@ -239,7 +239,7 @@ This procedure updates the default risk provider profile with the service applic
 
 With the creation of a service application for the third-party risk provider, and the update of the third-party risk provider profile, you can now test the integration using the Risk Events API.
 
-In practice, this API is used by the third-party provider to send risk events to an Okta org for risk policy evaluation or the system log. The third-party provider requires access to the public/private key pair and the service application ID (`clientId`) created by the Okta administrator in the [Create service application](#create-a-service-app-for-a-third-party-risk-provider) section.
+In practice, this API is used by the third-party provider to send risk events to an Okta org for risk policy evaluation or the System Log. The third-party provider requires access to the public/private key pair and the service application ID (`clientId`) created by the Okta administrator in the [Create service application](#create-a-service-app-for-a-third-party-risk-provider) section.
 
 In this test, the API sends a sample payload risk event to the Okta org that Okta can then consume and use to calculate the risk of the authentication.
 
@@ -250,13 +250,13 @@ Use the following high-level steps to test the risk provider integration:
 1. [Create a client assertion for the access token](#create-a-client-assertion)
 2. [Create an access token](#create-an-access-token)
 3. [Send a risk event to the Okta org](#send-a-risk-event-to-okta)
-4. [Confirm the response and system log](#confirm-the-response)
+4. [Confirm the response and System Log](#confirm-the-response)
 
 ### Create a client assertion
 
 This procedure creates a signed JSON Web Token (JWT) that is used as the client assertion value required in the request for a scoped access token.
 
-1. Navigate to [Generate JWT](https://www.jsonwebtoken.dev/) to create a JWT.
+1. Go to [Generate JWT](https://www.jsonwebtoken.dev/) to create a JWT.
 2. In the **JWK KEY** field, copy the **Public and Private Keypair** that you generate when you create the service application ([Create a public/private key pair](#create-a-public-private-key-pair)).
 3. In the **Payload** field, add the following JSON payload and substitute your service application ID (client ID) and your Okta org URL:
 
@@ -277,8 +277,8 @@ For further background information on this process, see [Create and sign the JWT
 
 This procedure creates an access token using the `clientAssertion` value required for authentication into the risk provider service application.
 
-1. Make a POST request using the following API from the Risk Integration Postman collection: **Partner: API to get the access token** (`https://${yourOktaDomain}/oauth2/v1/token`).
-2. Review the response from the call and copy the `access_token` value to your Postman's `accessToken` environment variable. Don't include the leading and trailing double quotes around the `access_token` value, below, while saving the `accessToken` variable. A sample response follows:
+1. Make a POST request using the following API from the Risk Integration Postman Collection: **Partner: API to get the access token** (`https://${yourOktaDomain}/oauth2/v1/token`).
+2. Review the response from the call and copy the `access_token` value to your Postman's `accessToken` environment variable. Don't include the leading and trailing double quotes around the `access_token` value while saving the `accessToken` variable. A sample response follows:
 
     ```JSON
     {
@@ -296,7 +296,7 @@ For further background information on this process, see [Get an access token](/d
 
 This procedure sends a sample risk event payload to the Okta org.
 
-1. Make a POST request using the following API from the Risk Integration Postman collection: **Partner: API to send RiskEvents (Auth using access token)** (`/api/v1/risk/events/ip`). A sample payload follows, which includes two events:
+1. Make a POST request using the following API from the Risk Integration Postman Collection: **Partner: API to send RiskEvents (Auth using access token)** (`/api/v1/risk/events/ip`). A sample payload follows, which includes two events:
 
     ```JSON
     [
@@ -318,7 +318,7 @@ This procedure sends a sample risk event payload to the Okta org.
     ]
     ```
 
-2. Review the request status of the API call. If the status is `202 Accepted`, the risk events were consumed by the Okta org.
+2. Review the request status of the API call. If the status is `202 Accepted`, the Okta org consumed the risk events.
 
 > **Note:** Rate limits of three calls per minute, per risk provider, apply to the `/api/v1/risk/events/ip` endpoint. Each call can contain multiple risk events.
 
@@ -331,11 +331,11 @@ This procedure reviews the Admin Console's System Log to identify the risk event
 1. Sign in to your Okta org as an administrator.
 2. In the Admin Console, go to **Reports** > **System Log**.
 3. Review the log file or search for the event `security.risk.signal.consume` that is logged when a risk provider sends a risk event to Okta.
-4. With a risk action of `enforce_and_log`, and a risk-based policy set up, the third-party risk provider event is used when calculating the authentication risk. This information is logged in the `user.session.start` event.
+4. With a risk action of `enforce_and_log`, and a risk-based policy configured, the third-party risk provider event is used when calculating the authentication risk. This information is logged in the `user.session.start` event.
 
 ### General troubleshooting tips
-* Save the Postman environment after every change to the environment. Confirm that you are using the correct Postman environment.
-* Postman environment variables are case sensitive. Ensure that there are no typos, no leading/trailing spaces, no leading or trailing double quotes in the environment variables.
+* Save the Postman environment after every change to the environment. Confirm that you’re using the correct Postman environment.
+* Postman environment variables are case-sensitive. Ensure that there are no typos, no leading/trailing spaces, no leading or trailing double quotes in the environment variables.
 * The org URL shouldn't be the admin URL (for example, use `https://demo-org.oktapreview.com` instead of  `https://demo-org-admin.oktapreview.com`). You don't need a trailing `/` at the end of the URL.
 
 ## See also

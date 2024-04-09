@@ -6,7 +6,7 @@ layout: Guides
 
 <ClassicDocOieVersionNotAvailable />
 
-In this guide you will learn how to integrate biometric authentication like Face ID and Touch ID to your mobile apps that use Okta.
+This guide discusses how to integrate biometric authentication like Face ID and Touch ID to your mobile apps that use Okta.
 
 ---
 
@@ -19,7 +19,7 @@ In this guide you will learn how to integrate biometric authentication like Face
 
 An app to update with biometric unlock with Touch ID, Face ID, and Smart Lock. See [Sign users into your mobile app using the redirect model](/docs/guides/sign-into-mobile-app-redirect/) guide.
 
-**Sample code**
+#### Sample code
 
 <StackSelector snippet="samplecode" noSelector/>
 
@@ -35,7 +35,7 @@ By storing the refresh token on the device and encrypting it with a biometric ch
 
 ## Add and configure packages
 
-You need to add the Okta SDK to your application.
+Add the Okta SDK to your application.
 
 <StackSelector snippet="installsdk" noSelector/>
 
@@ -53,7 +53,7 @@ When you need to delete the access token from secure storage (for example, when 
 
 ## Retrieve refresh token
 
-To get a new refresh token, present a biometric challenge to the user.
+Present a biometric challenge to the user to get a new refresh token.
 
 <StackSelector snippet="challenge" noSelector/>
 

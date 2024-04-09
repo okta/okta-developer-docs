@@ -82,17 +82,17 @@ Click **Test Connector Configuration** to confirm that Okta can connect to your 
 
 ## SCIM integration troubleshooting
 
-If you experience any difficulties when creating your SCIM integration in Okta, check out the system log information available in the Okta Admin Console.
+If you experience any difficulties when creating your SCIM integration in Okta, check out the System Log information available in the Admin Console.
 
 1. In the Admin Console, go to **Applications** > **Applications**.
 1. Select your Okta integration to open the integration settings page.
 1. Click **View Logs** to open the System Log.
 
-The system log captures all events in your developer org for the previous seven days. This information is invaluable to troubleshoot any connection or authentication issues between Okta and your application. See [System Log](https://help.okta.com/okta_help.htm?id=ext_Reports_SysLog) in the Okta product documentation.
+The System Log captures all events in your developer org for the previous seven days. This information is invaluable to troubleshoot any connection or authentication issues between Okta and your application. See [System Log](https://help.okta.com/okta_help.htm?id=ext_Reports_SysLog) in the Okta product documentation.
 
 ## Configure your Okta integration
 
-Now that you have created an integration within your Okta org, you need to configure the SCIM options for that integration. These settings tell your Okta integration how to handle provisioning between the users in your downstream SCIM app and their Okta user profiles.
+Now that you’ve created an integration within your Okta org, you need to configure the SCIM options for that integration. These settings tell your Okta integration how to handle provisioning between the users in your downstream SCIM app and their Okta user profiles.
 
 On the **Provisioning** tab of your Okta integration page, there are now three options listed in the **SETTINGS** panel:
 
@@ -106,9 +106,9 @@ This page contains settings for all information that flows from Okta user profil
 
 Click **Edit** to make changes to the following sections.
 
-* **Create Users**: Assigns a new account in your downstream application for each user managed by Okta. Okta doesn't create a new account if it detects that the username specified in Okta already exists in your application. The user's Okta username is assigned by default.
+* **Create Users**: Assigns a new account in your downstream application for each user managed by Okta. Okta doesn't create an account if it detects that the username specified in Okta exists in your application. The user's Okta username is assigned by default.
 
-    In addition to the user profile, Okta sends a random password in its request to create a new user.
+    In addition to the user profile, Okta sends a random password in its request to create a user.
 
 * **Update User Attributes**: Syncs any updates made to the profiles of users assigned to the integration and sends those changes to your downstream application. Profile changes made in your application are overwritten with their respective Okta profile values.
 
@@ -132,15 +132,15 @@ Click **Edit** to make changes to the following sections.
 
     If the Okta username is overridden due to mapping from a provisioning-enabled app, the custom mapping appears in this section.
 
-* **User Creation & Matching**: Sets up matching rules to use when importing users from your application. Establishing matching criteria allows you to specify how an imported user is defined when creating a new user or mapping to an existing Okta user.
+* **User Creation & Matching**: Sets up matching rules to use when importing users from your application. Establishing matching criteria allows you to specify how an imported user is defined when creating a user or mapping to an existing Okta user.
 
-  * **Imported user is an exact match to Okta user if**: Sets the matching criteria to determine when an imported user matches to an existing Okta user. To consider the new imported user an exact match, each option that you select must be true. Note that if you choose the third option, the first and second choices are disabled.
+  * **Imported user is an exact match to Okta user if**: Sets the matching criteria to determine when an imported user matches to an existing Okta user. To consider the new imported user an exact match, each option that you select must be true. If you choose the third option, the first and second choices are disabled.
 
-  * **Allow partial matches**: Permits partial matching when the first and last name of an imported user match those of an existing Okta user, but not the username or email address.
+  * **Allow partial matches**: Permits partial matching when the first and family name of an imported user match those of an existing Okta user, but not the username or email address.
 
   * **Confirm matched users**: Automates the confirmation or activation of existing users. If the option isn't selected, matches are confirmed manually.
 
-  * **Confirm new users**: Automates the confirmation or activation of a newly imported user. If this option is selected, you can clear it during import confirmation. Note that this feature doesn't apply to users who already exist in Okta.
+  * **Confirm new users**: Automates the confirmation or activation of a newly imported user. If this option is selected, you can clear it during import confirmation. This feature doesn't apply to users who exist in Okta.
 
 * **Profile & Lifecycle Sourcing**: Allows your downstream application to be a source for Okta user profiles. If enabled, your application appears in the list of profile sources on the [Profile Sources](https://help.okta.com/okta_help.htm?id=ext_Directory_Profile_Masters) page.
 
@@ -150,9 +150,9 @@ Click **Edit** to make changes to the following sections.
 
     The other options are to deactivate or suspend the Okta user profile if the user is removed from your downstream application.
 
-  * **When a user is reactivated in the app**: Determines if deactivated or suspended Okta user profiles that are assigned to your Okta integration should also be reactivated when they have been reactivated in your downstream application.
+  * **When a user is reactivated in the app**: Determines if deactivated or suspended Okta user profiles that are assigned to your Okta integration should also be reactivated when they’ve been reactivated in your downstream application.
 
-    >**Note** When a user is reactivated in your application, the user profile must be an exact match to the Okta profile for the reactivation to occur in Okta. If any user profile is not an exact match, then after importing the reactivated users, the user profiles appear in **Pending Activation** state.
+    >**Note** When a user is reactivated in your application, the user profile must be an exact match to the Okta profile for the reactivation to occur in Okta. If any user profile isn’t an exact match, then after importing the reactivated users, the user profiles appear in **Pending Activation** state.
 
 * **Import Safeguards**: Defines the maximum percentage of users in your org that can be left unassigned while still allowing the import to proceed. App-level and org-level safeguards are enabled by default and set at 20 percent.
 
@@ -166,9 +166,9 @@ If your API authentication credentials change at any point, this panel allows yo
 
 ## Check the attributes and corresponding mappings
 
-When you add a SCIM template integration to your development org, it comes with base attributes set by default. The user schema in your SCIM application might not support all of these attributes. It is important that you go through the steps below to ensure that the integration you're submitting to Okta for review reflects the attributes supported by your application.
+When you add a SCIM template integration to your development org, it comes with base attributes set by default. The user schema in your SCIM application might not support all of these attributes. It’s important that you go through the steps in the next section to ensure that the integration you're submitting to Okta for review reflects the attributes supported by your application.
 
->**Note:** Confirm your attributes and mappings before you submit your integration for review, or your submission will be returned by the Okta OIN team with a request to update your attributes.
+>**Note:** Confirm your attributes and mappings before you submit your integration for review, or the Okta OIN team returns your submission with a request to update your attributes.
 
 ### Delete attributes
 
@@ -208,7 +208,7 @@ Before you can delete an attribute, you first need to remove the mapping for tha
 
 1. Enter the information for the new attribute that you’re adding and then click **Save**.
 
-    > **Note:** The **Scope** property determines whether the attribute that you are adding can be assigned at a group level or just per user. If you want your admins to be able to assign a value for this attribute at a group level, don't select the **User personal** checkbox.
+    > **Note:** The **Scope** property determines whether the attribute that you’re adding can be assigned at a group level or just per user. If you want your admins to be able to assign a value for this attribute at a group level, don't select the **User personal** checkbox.
 
 1. After adding an attribute, you can add a mapping for that new attribute.
 
@@ -251,11 +251,11 @@ You only want to include the attributes that you support in your current user sc
     1. From your Admin Console, select **Directory** > **People**. The list of Okta users for your org appears.
 
     1. Find the user that you imported and click the user's name.
-    1. After the user account appears, click **Profile**. The Profile screen shows the user's attributes. Verify that the supported attribute values were imported properly.
+    1. After the user account appears, click **Profile**. The Profile page shows the user's attributes. Verify that the supported attribute values were imported properly.
 
         Your Profile Mapping template can always be updated in the future.
 
-        As mentioned in the adding and deleting attributes sections, you can set whether the attribute you are adding is set per user, or for both per user and group. This is set using the Scope attribute. If you want the attribute you are adding to be set strictly  per user, you need to check the **User personal** checkbox for the Scope attribute. If you want to give admins the ability to set the attribute both per user or per group, leave this checkbox empty.
+        As mentioned in the adding and deleting attributes sections, you can set whether the attribute you’re adding is set per user, or for both per user and group. This is set using the Scope attribute. If you want the attribute you’re adding to be set strictly per user, you need to check the **User personal** checkbox for the Scope attribute. If you want to give admins the ability to set the attribute both per user or per group, leave this checkbox empty.
 
 ## Next steps
 

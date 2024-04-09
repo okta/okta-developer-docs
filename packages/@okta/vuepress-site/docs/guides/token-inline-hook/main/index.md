@@ -20,7 +20,7 @@ This guide provides an example of an Okta token inline hook. It uses the website
 * [Glitch.com](https://glitch.com) project or account
 * A Node.js Express framework sample application. This guide works with the application in the following Sample code section.
 
-**Sample code**
+#### Sample code
 
 * [Okta Token Inline Hook Example](https://glitch.com/edit/#!/okta-inlinehook-tokenhook)
 * [Express Sample Applications for Okta](https://github.com/okta/samples-nodejs-express-4)

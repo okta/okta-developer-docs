@@ -13,7 +13,9 @@ Optimize your configuration to reduce the number of API calls that Terraform mak
 * Optimize the number of API calls in your Terraform configuration.
 * Set a maximum rate for Terraform API usage.
 * Set custom rate limits in the Okta service application used by Terraform.
+
 ---
+
 ## Overview
 
 API rate limits in Okta protect the service for all customers by restricting the rate of API calls to your org. Terraform can reach rate limits quickly when it makes many API calls in a short period.

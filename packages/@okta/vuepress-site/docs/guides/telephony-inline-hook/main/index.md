@@ -20,7 +20,7 @@ This guide provides an example of an Okta telephony inline hook. This guide uses
 * [Glitch](https://glitch.com/) project or account
 * [Twilio account](https://www.twilio.com/try-twilio) paid or free trial account
 
-**Sample code**
+#### Sample code
 
 [Okta Telephony Inline Hook Example](https://glitch.com/~okta-inlinehook-telephonyhook)
 

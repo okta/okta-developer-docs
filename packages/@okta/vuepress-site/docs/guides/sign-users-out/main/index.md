@@ -23,7 +23,7 @@ This guide explains an important part of security: minimizing the chances that a
   * [Sign users into your mobile app using the redirect model](/docs/guides/sign-into-mobile-app-redirect/)
   * [Sign users in to your single-page app using the redirect model](/docs/guides/sign-into-spa-redirect/)
 
-**Sample code**
+#### Sample code
 
 <StackSnippet snippet="samplecode" />
 

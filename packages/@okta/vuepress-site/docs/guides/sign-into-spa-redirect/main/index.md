@@ -18,7 +18,7 @@ Add authentication with the Okta [redirect model](https://developer.okta.com/doc
 * Make an HTTP call with the access token.
 * Check the integration by signing in a user.
 
-**Sample code**
+#### Sample code
 
 <StackSnippet snippet="samplecode" />
 

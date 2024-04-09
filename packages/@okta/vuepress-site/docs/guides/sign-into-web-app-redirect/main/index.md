@@ -20,7 +20,7 @@ Add a user sign-in flow to a server-side web application with Okta's [redirect m
 * An [Okta Developer Edition org](https://developer.okta.com/signup/)
 * <StackSnippet snippet="whatyouneed" />
 
-**Sample code**
+#### Sample code
 
 <StackSnippet snippet="samplecode" />
 
