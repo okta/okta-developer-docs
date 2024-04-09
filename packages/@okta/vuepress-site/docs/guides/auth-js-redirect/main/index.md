@@ -9,7 +9,7 @@ The [Okta JavaScript Auth SDK](https://github.com/okta/okta-auth-js) (Auth JS) h
 #### Learning outcomes
 
 * Understand how to implement a simple redirect sign-in using Auth JS.
-* Understand basic installation and code configurations using AuthJS.
+* Understand basic installation and code configurations using Auth JS.
 
 #### What you need
 
@@ -315,7 +315,7 @@ Enable passwordless authentication for your existing users by configuring your O
 
 1. Go to **Directory** > **Groups** and click **Add group**. Give the group a name, for example, Passwordless Users, and click **Save**.
 1. Select your new group, and click **Assign people** from the **People** tab. Add one or more users to your new group.
-1. Go to **Security** > **Authenticators** and edit or ensure the **Email** authenticator is set to **Authentication and recovery**.
+1. Go to **Security** > **Authenticators** and edit or ensure that the **Email** authenticator is set to **Authentication and recovery**.
 1. Click the **Enrollment** tab and then click **Add a policy** to add an enrollment policy targeted at your new group. Configure the following fields and then click **Create Policy**:
     * **Policy name**: Any name for this policy, for example, Passwordless Enrollment
     * **Assign to Groups**: Your new group, Passwordles Users
