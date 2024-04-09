@@ -8,6 +8,21 @@ title: Okta Identity Engine API Products release notes 2024
 
 ## April
 
+### Weekly release 2024.04.1
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Permissions for custom admins to manage agents is GA in Preview](#permissions-for-custom-admins-to-manage-agents-is-ga-in-preview) | April 3, 2024 |
+| [Bug in 2024.04.1](#okta-now-supports-the-notonorafter-property-for-slo-apps)  |
+
+#### Multiple Identifiers is EA in Preview
+
+Today, end users must sign in to Okta with a username or email address only. With the Multiple Identifiers feature, admins can configure identifiers, or user attributes from Universal Directory, that an end user can enter to authenticate. Multiplier identifiers work in sign-in, recovery, self-service registration, and unlock flows. Admins can configure up to three identifiers, including email (which is still a required identifier). See [Configure Multiple Identifiers](/docs/guides/configure-multiple-identifiers/main/).
+
+#### Bug fixed in 2024.04.1
+
+Redirects to applications from the Sign-In Widget were blocked in Android browsers. (OKTA-702402)
+
 ### Monthly release 2024.04.0
 
 | Change | Expected in Preview Orgs |
