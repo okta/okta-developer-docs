@@ -371,6 +371,10 @@ export const guides = [
             guideName: "configure-signon-policy"
           },
           {
+            title: "Configure multiple identifiers",
+            guideName: "configure-multiple-identifers"
+          },
+          {
             title: "Test your access policies",
             guideName: "policy-simulation"
           },
