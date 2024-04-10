@@ -10,13 +10,13 @@ This guide explains authentication fundamentals using Auth JS, known more formal
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Understand how to implement basic sign-in using Auth JS.
 * Understand basic installation and code configurations using AuthJS.
 * Implement the sample SPA use case and sign a user in to the application.
 
-**What you need**
+#### What you need
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup/)
 * [Okta Auth JS SDK Interaction Code reference documentation](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#introduction)
