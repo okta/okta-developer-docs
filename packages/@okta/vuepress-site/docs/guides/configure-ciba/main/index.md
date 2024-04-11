@@ -25,7 +25,7 @@ This guide explains how to build transactional verification using a Client-Initi
 
 > **Note:** See the [Okta Devices Swift SDK](https://github.com/okta/okta-devices-swift) for iOS and the [Okta Mobile Kotlin SDK](https://github.com/okta/okta-mobile-kotlin) for Android for more information on the Okta Devices SDK. This guide uses the [Okta Devices Swift SDK](https://github.com/okta/okta-devices-swift#okta-devices-sdk).
 
-**Sample code**
+#### Sample code
 
 This guide uses the [Okta Authenticator Sample App](https://github.com/okta/okta-devices-swift/tree/master/Examples/PushSampleApp) for iOS to configure the Okta Custom Authenticator to work with CIBA.
 

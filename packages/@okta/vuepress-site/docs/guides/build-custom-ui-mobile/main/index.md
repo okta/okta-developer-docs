@@ -12,11 +12,11 @@ Use this guide to build a customized sign-in experience inside your mobile appli
 
 <EmbeddedBrowserWarning />
 
-> **Note:** If the browser sign-in method works for your application, Okta recommends using that since building a custom sign-in UI takes more effort and development time.
+> **Note:** If the browser sign-in method works for your application, Okta recommends using that because building a custom sign-in UI takes more effort and development time.
 
 ---
 
-#### Learning outcomes
+#### Learning outcome
 
 Customize the sign-in experience with a mobile sign-in UI.
 

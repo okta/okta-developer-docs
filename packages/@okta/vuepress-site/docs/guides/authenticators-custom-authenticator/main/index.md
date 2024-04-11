@@ -7,7 +7,7 @@ title: Custom authenticator integration guide
 Enable a mobile app to verify a user identity for an Okta custom authenticator.
 
 ---
-#### Learning outcomes
+#### Learning outcome
 
 * Create a Custom Authenticator.
 * Use the Devices SDK to turn your mobile app into a push authenticator.
@@ -24,9 +24,9 @@ Enable a mobile app to verify a user identity for an Okta custom authenticator.
   * [MyAccount App authenticators](https://developer.okta.com/docs/api/openapi/okta-myaccount/myaccount/tag/AppAuthenticator/)
   * [Authorization Servers](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServer/#tag/AuthorizationServer/operation/replaceAuthorizationServerPolicyRule)
 
-**Sample code**
+#### Sample code
 
-* <StackSnippet snippet="samplecode" />
+<StackSnippet snippet="samplecode" />
 
 ---
 

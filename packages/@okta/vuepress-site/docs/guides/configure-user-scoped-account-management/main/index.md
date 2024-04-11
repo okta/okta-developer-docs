@@ -17,6 +17,7 @@ This guide explains how to set up end user-driven account management in your org
 <!-- > **Note:** This guide covers a narrow set of use cases that call the MyAccount API. Most use cases are covered by the SDKs. See -->
 
 ---
+
 #### Learning outcomes
 
 * Set up your org with the required scopes to call the MyAccount API.

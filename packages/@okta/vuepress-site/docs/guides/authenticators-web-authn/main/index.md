@@ -17,7 +17,7 @@ This guide shows you how to integrate Web Authentication (WebAuthn) into your ap
 * <StackSnippet snippet="oiesdksetup" />
 * An authenticator such as a fingerprint scanner or hardware security key
 
-**Sample code**
+#### Sample code
 
 <StackSnippet snippet="samplecode" />
 
@@ -83,7 +83,7 @@ First, add the WebAuthn authenticator to your org and enable it.
 
 ### Set your app integration to use the WebAuthn authenticator
 
-New apps are automatically assigned the shared default [authentication policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-asop). This policy has a catch-all rule that allows a user access to the app using either one or two factors, depending on your org setup. In production, it becomes evident when you can share your authentication needs between apps. It's recommended that you create a policy specifically for your app for testing purposes.
+New apps are automatically assigned the shared default [authentication policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-asop). This policy has a catch-all rule that allows a user access to the app using either one or two factors, depending on your org setup. In production, it becomes evident when you can share your authentication needs between apps. You should create a policy specifically for your app for testing purposes.
 
 1. Open the **Admin Console** for your org.
 2. Choose **Security > Authentication Policies** to show the available authentication policies.

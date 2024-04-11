@@ -49,7 +49,7 @@ Use the following steps to create a policy that limits which scopes that a desig
 
 ### Create the policy container
 
-1. Go to **Security** > **API** in the Admin Console.
+1. In the Admin Console, go to **Security** > **API**.
 
 2. Select the name of the authorization server that you want to apply the policy to.
 

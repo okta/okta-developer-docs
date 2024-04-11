@@ -7,6 +7,7 @@ layout: Guides
 This guide explains what an API token is, why you need one, and how to create one.
 
 ---
+
 #### Learning outcomes
 
 * Learn how an Okta API token is used.

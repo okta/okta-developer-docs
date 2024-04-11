@@ -62,7 +62,7 @@ You can only process one Identity Source Session at a time (for a specific Custo
 * An Identity Source Session with the `CREATED` or `TRIGGERED` status is considered active.
 * If there are no API requests in 24 hours for an Identity Source Session that has the `CREATED` status, then the status is set to `EXPIRED` and the session can no longer be used.
 * Okta processes the sessions synchronously (not in parallel) for an identity source. If you trigger multiple sessions for an identity source, then the sessions are queued up for sequential processing.
-* You can't create an Identity Source Session in less than five minutes after triggering an active session associated with the same identity source. If Okta receives a new Identity Source Session request within five minutes of an active Identity Source Session with the `CREATED` or the `TRIGGERED` status, Okta returns a 400 Bad Request response.
+* You can't create an Identity Source Session within five minutes of triggering an active session associated with the same identity source. If Okta receives a new Identity Source Session request within five minutes of an active Identity Source Session with the `CREATED` or the `TRIGGERED` status, Okta returns a 400 Bad Request response.
 
 > **Note:** You can use the [List active Identity Source Sessions](/docs/reference/api/xaas/#list-active-identity-source-sessions) request to return active Identity Source Sessions for an identity source.
 
@@ -95,7 +95,7 @@ Before you start to build your XaaS data synchronization client, you need to set
 
 * Your Okta org domain URL (`${yourOktaDomain}`) for API requests
 * Your Custom Identity Source ID (`${identitySourceId}`): The unique identifier that you obtained from configuring a Custom Identity Source integration in your Okta org. See Create and configure a Custom Identity Source in [Use Anything-as-a-Source](https://help.okta.com/okta_help.htm?type=oie&id=ext-use-xaas).
-* An API token (`${apiKey}`}: Obtain an [API token](/docs/guides/create-an-api-token/main/) from your Okta org to make secure API calls to Okta. Use this API token in the SSWS Authorization header.
+* An API token (`${apiKey}`): Obtain an [API token](/docs/guides/create-an-api-token/main/) from your Okta org to make secure API calls to Okta. Use this API token in the SSWS Authorization header.
 
 Code your XaaS data synchronization client with the following generalized API flow:
 

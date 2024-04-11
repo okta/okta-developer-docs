@@ -14,7 +14,7 @@ This guide explains what global session policies and authentication policies are
 
 ---
 
-#### Learning outcomes
+#### Learning outcome
 
 Know the purpose of a global session policy and authentication policies and be able to configure them.
 

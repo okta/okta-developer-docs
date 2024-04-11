@@ -10,7 +10,8 @@ This guide explains how to customize the text of the SMS messages that Okta send
 
 #### Learning outcomes
 
-Customize SMS messages.
+* Create a custom SMS template.
+* Create a translation for each language to match your custom SMS message.
 
 #### What you need
 

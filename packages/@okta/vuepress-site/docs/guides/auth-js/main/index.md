@@ -22,7 +22,7 @@ This guide explains authentication fundamentals using Auth JS, known more formal
 * [Okta Auth JS SDK Interaction Code reference documentation](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#introduction)
 * Basic knowledge of building front-end JavaScript applications
 
-**Sample code**
+#### Sample code
 
 * [Static-spa sample](https://github.com/okta/okta-auth-js/tree/master/samples/generated/static-spa)
 

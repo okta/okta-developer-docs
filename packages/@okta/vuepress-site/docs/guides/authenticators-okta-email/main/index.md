@@ -18,7 +18,7 @@ Learn how to integrate the Okta Email authenticator into your app with the embed
 <StackSnippet snippet="whatyouneed" />
 <br />
 
-**Sample code**
+#### Sample code
 
 <StackSnippet snippet="samplecode" />
 
@@ -87,13 +87,13 @@ First, add the email authenticator to your org and enable it for both authentica
 
 ### Set your app integration to use the email authenticator
 
-New app integrations are automatically assigned the shared default [authentication policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-asop). This policy has a catch-all rule that allows a user access to the app using either one or two factors, depending on your org setup. In production, multiple app integrations can share the same application policy. In testing however, it's recommended that you create a policy specifically for your test application.
+New app integrations are automatically assigned the shared default [authentication policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-asop). This policy has a catch-all rule that allows a user access to the app using either one or two factors, depending on your org setup. In production, multiple app integrations can share the same application policy. In testing however, you should create a policy specifically for your test application.
 
 1. Open the **Admin Console** for your org and choose **Security > Authentication Policies** to show the available authentication policies.
 2. Click **Add a Policy**, give the policy a name, and then click **Save**.
 3. Locate the Catch-all Rule of the new policy and select **Actions** > **Edit**.
 4. Select **Allowed after successful authentication**, and then set **User must authenticate with** to **Password + Another factor**.
-5. For **Possession factor constraints**:
+5. For **Possession factor constraints**, do the following:
    a. Verify that **Device Bound** isn't selected.
    b. Verify that **Email** is listed in the box under **Additional factor types**. If it isn't listed, verify that the authenticator is enabled using steps 4 and 5 of [Add the email authenticator to your org](#add-the-email-authenticator-to-your-org).
    c. Click **Save**.

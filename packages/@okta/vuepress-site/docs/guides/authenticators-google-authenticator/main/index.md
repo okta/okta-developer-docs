@@ -16,7 +16,7 @@ Understand the Google Authenticator flow
 * <StackSnippet snippet="oiesdksetup" />
 * Google Authenticator installed on a mobile device
 
-**Sample code**
+#### Sample code
 
 <StackSnippet snippet="samplecode" />
 
@@ -24,7 +24,7 @@ Understand the Google Authenticator flow
 
 ## Why choose Google Authenticator
 
-Google Authenticator is an authenticator app developed by Google used to verify the identity of a user. The app is often used with a password to strengthen user accounts from security attacks. This approach is considered more secure than other authenticators such as SMS since it's resistant to SIM swap attacks. It doesn't require a cellular or wireless network to use and setup can be as easy as a snapshot of a QR Code.
+Google Authenticator is an authenticator app developed by Google used to verify the identity of a user. The app is often used with a password to strengthen user accounts from security attacks. This approach is considered more secure than other authenticators such as SMS because it's resistant to SIM swap attacks. It doesn't require a cellular or wireless network to use and setup can be as easy as a snapshot of a QR Code.
 
 ### Authentication flow
 
@@ -62,7 +62,7 @@ First, add Google Authenticator to your org and enable it.
 
 ### Set your app integration to use Google Authenticator
 
-New apps are automatically assigned the shared default [authentication policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-asop). This policy has a catch-all rule that allows a user access to the app using either one or two factors, depending on your org setup. In production, it becomes evident when you can share your authentication needs between apps. It's recommended that you create a policy specifically for your app for testing purposes.
+New apps are automatically assigned the shared default [authentication policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-asop). This policy has a catch-all rule that allows a user access to the app using either one or two factors, depending on your org setup. In production, it becomes evident when you can share your authentication needs between apps. Okta recommends that you create a policy specifically for your app for testing purposes.
 
 1. Open the **Admin Console** for your org.
 2. Choose **Security > Authentication Policies** to show the available authentication policies.
