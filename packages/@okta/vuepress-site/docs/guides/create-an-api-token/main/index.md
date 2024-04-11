@@ -40,21 +40,9 @@ As an alternative to Okta API tokens, you can now interact with Okta APIs using 
 
 ## Create the token
 
-To create an API token, follow these steps:
+See [Create Okta API tokens](https://help.okta.com/okta_help.htm?id=ext-create-api-token) to create an API token and define the network zones that API calls can originate from.
 
-1. Sign in to your Okta organization as a user with [administrator privileges](https://help.okta.com/okta_help.htm?id=ext_Security_Administrators).
-
-     API tokens have the same permissions as the user who creates them, and if the user permissions change, the API token permissions also change.
-
-    See the section above on **Privilege level**, regarding the use of a service account when creating an API token, to specifically control the privilege level associated with the token.
-
-2. In the Admin Console, select **Security** > **API** from the menu and then select the **Tokens** tab.
-
-3. Click **Create Token**.
-
-4. Name your token and click **Create Token**.
-
-5. Record the token value. This is the only opportunity to see it and record it.
+> **Note:** Record the token value. This is the only opportunity to see it and record it.
 
 ## Token rate limits
 
