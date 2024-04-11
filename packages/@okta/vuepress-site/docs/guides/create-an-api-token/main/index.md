@@ -7,7 +7,8 @@ layout: Guides
 This guide explains what an API token is, why you need one, and how to create one.
 
 ---
-**Learning outcomes**
+
+#### Learning outcomes
 
 * Learn how an Okta API token is used.
 * Understand why it's good practice to create a service account for use with an API token.
@@ -15,7 +16,7 @@ This guide explains what an API token is, why you need one, and how to create on
 * Find out when a token expires and what happens when it expires.
 * Find out how API tokens are deactivated.
 
-**What you need**
+#### What you need
 
 [Okta Developer Edition organization](https://developer.okta.com/signup)
 

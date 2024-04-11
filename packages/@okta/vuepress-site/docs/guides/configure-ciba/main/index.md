@@ -10,13 +10,13 @@ This guide explains how to build transactional verification using a Client-Initi
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Understand the OpenID Connect CIBA flow.
 * Set up your OIDC client and an Okta authorization server to use the CIBA grant type.
 * Implement the CIBA grant flow in Okta using an Okta Custom Authenticator.
 
-**What you need**
+#### What you need
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
 * A configured [mobile app that verifies user identities for an Okta Custom Authenticator](/docs/guides/authenticators-custom-authenticator/ios/main/) and [responds to CIBA authorization challenges](https://github.com/okta/okta-devices-swift#enable-using-your-app-for-client-initiated-backchannel-authentication-ciba) sent by Okta in a backchannel request.
@@ -25,7 +25,7 @@ This guide explains how to build transactional verification using a Client-Initi
 
 > **Note:** See the [Okta Devices Swift SDK](https://github.com/okta/okta-devices-swift) for iOS and the [Okta Mobile Kotlin SDK](https://github.com/okta/okta-mobile-kotlin) for Android for more information on the Okta Devices SDK. This guide uses the [Okta Devices Swift SDK](https://github.com/okta/okta-devices-swift#okta-devices-sdk).
 
-**Sample code**
+#### Sample code
 
 This guide uses the [Okta Authenticator Sample App](https://github.com/okta/okta-devices-swift/tree/master/Examples/PushSampleApp) for iOS to configure the Okta Custom Authenticator to work with CIBA.
 
