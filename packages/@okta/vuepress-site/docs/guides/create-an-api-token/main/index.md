@@ -44,6 +44,18 @@ See [Create Okta API tokens](https://help.okta.com/okta_help.htm?id=ext-create-a
 
 > **Note:** Record the token value. This is the only opportunity to see it and record it.
 
+## Token network restrictions
+
+When you create or edit an API token, you can configure network restrictions for it. You can restrict API calls made with the API token by network:
+
+* Allow connections from any IP address or network zone.
+* Allow connections if they come from any network zone defined in your Okta org.
+* Allow connections if they come from network zones that you specify.
+* Allow connections if they don't come from any network zone defined in your Okta org.
+* Allow connections if they don't come from network zones that you specify.
+
+See [Manage Okta API tokens](https://help.okta.com/okta_help.htm?id=ext_API) for steps on creating API tokens and editing network restrictions for an existing API token.
+
 ## Token rate limits
 
 When API tokens are created, the rate limit for each token interaction is set automatically to 50 percent of each API maximum limit. See [API rate limits](/docs/reference/rate-limits/). You can adjust this percentage by editing the **Token rate limits** section. See [Set token rate limits](https://help.okta.com/okta_help.htm?id=ext_API#set-token-rate-limits).
