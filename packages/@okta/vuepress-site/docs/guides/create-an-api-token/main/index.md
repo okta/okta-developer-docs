@@ -46,13 +46,13 @@ See [Create Okta API tokens](https://help.okta.com/okta_help.htm?id=ext-create-a
 
 ## Token network restrictions
 
-When you create or edit an API token, you can configure network restrictions for it. You can restrict API calls made with the API token by network:
+When you create or edit an API token, you can configure network restrictions for it. You can restrict API calls made with the API token by network zone:
 
-* Allow connections from any IP address or network zone.
-* Allow connections if they come from any network zone defined in your Okta org.
-* Allow connections if they come from network zones that you specify.
-* Allow connections if they don't come from any network zone defined in your Okta org.
-* Allow connections if they don't come from network zones that you specify.
+* Any IP address or network zone
+* Any network zone defined in your Okta org
+* Network zones that you specify
+* Network zones that aren't defined in your Okta org
+* Networks zone that you didn't specify
 
 See [Manage Okta API tokens](https://help.okta.com/okta_help.htm?id=ext_API) for steps on creating API tokens and editing network restrictions for an existing API token.
 
