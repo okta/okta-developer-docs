@@ -46,13 +46,7 @@ See [Create Okta API tokens](https://help.okta.com/okta_help.htm?id=ext-create-a
 
 ## Token network restrictions
 
-When you create or edit an API token, you can configure network restrictions for it. You can restrict API calls made with the API token by network zone:
-
-* Any IP address or network zone
-* Any network zone defined in your Okta org
-* Network zones that you specify
-* Network zones that aren't defined in your Okta org
-* Networks zone that you didn't specify
+Administrators can specify a network range for every SSWS API token. The tokens only work if API requests are made from the specified IP or network range. You can specify network zones while you create a new API token. You can also modify an existing token to specify a network range.
 
 See [Manage Okta API tokens](https://help.okta.com/okta_help.htm?id=ext_API) for steps on creating API tokens and editing network restrictions for an existing API token.
 
