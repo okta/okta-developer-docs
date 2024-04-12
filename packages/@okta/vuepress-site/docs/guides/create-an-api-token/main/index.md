@@ -46,7 +46,7 @@ See [Create Okta API tokens](https://help.okta.com/okta_help.htm?id=ext-create-a
 
 ## Token network restrictions
 
-Administrators can specify a network range for every SSWS API token. The tokens only work if API requests are made from the specified IP or network range. You can specify network zones while you create a new API token. You can also modify an existing token to specify a network range.
+You can specify a network range for every SSWS API token. The tokens only work if API requests are made from the specified IP or network range. You can specify network zones while you create a new API token. You can also modify an existing token to specify a network range.
 
 See [Manage Okta API tokens](https://help.okta.com/okta_help.htm?id=ext_API) for steps on creating API tokens and editing network restrictions for an existing API token.
 
@@ -60,7 +60,7 @@ Tokens expire automatically after a certain period and can also be deactivated a
 
 ### Token expiration
 
-Tokens are valid for 30 days from creation or last use, so that the 30 day expiration automatically refreshes with each API call. Tokens that aren't used for 30 days expire. The 30-day period is fixed and can't be changed for your organization.
+Tokens are valid for 30 days from creation or last use, so that the 30 day expiration automatically refreshes with each API call. Tokens that aren't used for 30 days expire. The 30-day period is fixed and can't be changed for your org.
 
 ### Token deactivation
 
