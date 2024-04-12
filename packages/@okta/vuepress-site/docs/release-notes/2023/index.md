@@ -6,6 +6,51 @@ title: Okta Classic Engine API release notes 2023
 
 > Help us improve our release notes by filling out this short [survey](https://surveys.okta.com/jfe/form/SV_4VEZcIGOX0TBgkC).
 
+## December
+
+### Weekly release 2023.12.2
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Bugs fixed in 2023.12.2](#bugs-fixed-in-2023-12-2) | January 4, 2024 |
+
+#### Bugs fixed in 2023.12.2
+
+* Some inbound SSO flows failed when a default app was set for the Sign-In Widget. (OKTA-621160)
+
+* A `next` link header was returned when a list clients (`GET /oauth2/v1/clients`) request was made when there were no further clients to be fetched. (OKTA-658169)
+
+* Some free-trial orgs could send customized email templates. (OKTA-673562)
+
+### Weekly release 2023.12.1
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [DPoP support for Okta management APIs is EA in Preview](#dpop-support-for-okta-management-apis-is-ea-in-preview)| December 13, 2023 |
+
+#### DPoP support for Okta management APIs is EA in Preview
+
+You can now use OAuth 2.0 Demonstrating Proof-of-Possession (DPoP) access tokens to access Okta management APIs. See [Configure OAuth 2.0 Demonstrating Proof-of-Possession](/docs/guides/dpop/oktaresourceserver/main/).<!-- OKTA-673922 OKTA_RESOURCE_SERVER_DPOP_SUPPORT-->
+
+### Monthly release 2023.12.0
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Demonstrating Proof-of-Possession is GA in Production](#demonstrating-proof-of-possession-is-ga-in-production) | March 15, 2023 |
+| [Bugs fixed in 2023.12.0](#bugs-fixed-in-2023-12-0) | December 6, 2023 |
+
+#### Demonstrating Proof-of-Possession is GA in Production
+
+OAuth 2.0 Demonstrating Proof-of-Possession (DPoP) is a security feature that adds an extra layer of protection to OAuth 2.0 access tokens. It enables the client to demonstrate that it possesses a particular key or secret associated with the access token. OAuth 2.0 DPoP can help prevent certain attacks, such as token theft or token replay attacks, where an attacker intercepts a legitimate access token and uses it to gain unauthorized access to a protected resource. See [Configure OAuth 2.0 Demonstrating Proof-of-Possession](/docs/guides/dpop/main/). <!-- OKTA-585491 -->
+
+#### Bugs fixed in 2023.12.0
+
+* DPoP proofs signed using an Elliptic Curve key couldn't be used. (OKTA-669345)
+
+* Okta wasn't validating that DPoP JWTs were minted right before the DPoP proof was used. (OKTA-671124)
+
+* Password requests with an empty `salt` parameter value caused a `saltOrder` validation error. (OKTA-643212)
+
 ## November
 
 ### Weekly release 2023.11.1
@@ -680,7 +725,7 @@ OAuth 2.0 Optional Consent provides an optional property that enables a user to 
 
 #### Splunk edition support for Log Streaming integrations is GA in Preview
 
-The Spunk Cloud Log Streaming integration now supports GCP and GovCloud customers. You can set the Splunk edition parameter (`settings.edition`) to AWS (`aws`), GCP (`gcp`), or AWS GovCloud (`aws_govcloud`) in your Log Streaming integration. See [Splunk Cloud Settings properties](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/LogStream/#tag/LogStream/operation/createLogStream!path=1/settings&t=request). <!--OKTA-544449-->
+The Splunk Cloud Log Streaming integration now supports GCP and GovCloud customers. You can set the Splunk edition parameter (`settings.edition`) to AWS (`aws`), GCP (`gcp`), or AWS GovCloud (`aws_govcloud`) in your Log Streaming integration. See [Splunk Cloud Settings properties](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/LogStream/#tag/LogStream/operation/createLogStream!path=1/settings&t=request). <!--OKTA-544449-->
 
 #### Updated AWS EventBridge supported regions for Log Stream integrations
 

@@ -1,9 +1,10 @@
-1. Add CORS to the `ConfigureServices` method in Startup.cs
+1. Add CORS to the `ConfigureServices` method in `Startup.cs`:
 
    ```csharp
    services.AddCors(options =>
    {
-      // The CORS policy is open for testing purposes. In a production application, you should restrict it to known origins.
+      // The CORS policy is open for testing purposes.
+      // In a production application, you should restrict it to known origins.
       options.AddPolicy(
          "AllowAll",
          builder => builder.AllowAnyOrigin()
@@ -12,7 +13,7 @@
    });
    ```
 
-2. Enable CORS in the the `Configure` method:
+2. Enable CORS in the `Configure` method:
 
    ```csharp
    app.UseCors();

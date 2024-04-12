@@ -17,7 +17,7 @@ This guide explains how to interact with Okta APIs by using scoped OAuth 2.0 acc
 **What you need**
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
-* [Postman client](https://www.getpostman.com/downloads/) to test requests with the access token. See [Get Started with the Okta APIs](https://developer.okta.com/code/rest/) for information on setting up Postman.
+* [Postman client](https://www.getpostman.com/downloads/) to test requests with the access token. See [Get Started with the Okta APIs](https://developer.okta.com/docs/reference/rest/) for information on setting up Postman.
 
 > **Note:** OAuth for Okta works only with the APIs listed on the [OAuth 2.0 Scopes](https://developer.okta.com/docs/api/oauth2/) page.
 
@@ -48,12 +48,11 @@ Create the client application that you want to use with the Okta APIs.
     > **Note:** It's important to choose the appropriate application type for apps that are public clients. Failing to do so may result in Okta API endpoints attempting to verify an app's client secret, which public clients aren't designed to have, and would break the sign-in or sign-out flow.
 
 1. Enter a name for your app integration.
-1. For the **Grant type**, Okta recommends that you always use the Authorization Code grant flow and clear the **Implicit (hybrid)** checkbox.
+1. For the **Grant type**, **Authorization Code** is required. It's selected by default, and you can't clear the checkbox.
 1. In the **Sign-in redirect URIs** box, specify the callback location where Okta returns a browser (along with the token) after the user finishes authenticating. You can use the default URI for this exercise.
-
     > **Note:** You can leave the rest of the default values, as they work with this guide for testing purposes.
 1. In the **Assignments** section, select **Limit access to selected groups** and add a group or **Skip group assignment for now**.
-    > **Note:** It is good practice to create and use groups for testing purposes.
+    > **Note:** It's good practice to create and use groups for testing purposes.
 1. Click **Save**. The settings page for the app integration appears, showing the **General** tab. Make note of the **Client ID** and **Client secret** listed in the **Client Credentials** section. You need this information for the [Get an access token and make a request](#get-an-access-token-and-make-a-request) task.
 1. Click the **Assignments** tab and ensure that the right users are assigned to the app. If you skipped the assignment during the app integration creation, you must add one or more users now. For instructions on how to assign the app integration to individual users and groups, see the [Assign app integrations](https://help.okta.com/okta_help.htm?id=ext_Apps_Apps_Page-assign) topic in the Okta product documentation. For more information about which users have access to which scopes, see the [Scopes and supported endpoints](#scopes-and-supported-endpoints) section.
 1. Optional. Click the **Application rate limits** tab to adjust the rate-limit capacity percentage for this application. By default, each new application sets this percentage at 50%.
@@ -105,12 +104,12 @@ https://${yourOktaDomain}/oauth2/v1/authorize?client_id=0oan47pj9BsB30h7&respons
 
 We recommend that you always use the Authorization Code with PKCE grant flow. See [Implement the Authorization Code with PKCE flow](/docs/guides/implement-grant-type/authcodepkce/main/) for details on this grant type.
 
-> **Note:** If this is your first time working with the Okta APIs, read [Get Started with the Okta REST APIs](/code/rest/) first.
+> **Note:** If this is your first time working with the Okta APIs, read [Get Started with the Okta REST APIs](/docs/reference/rest/) first.
 
 1. In Postman, select the request that you want to make, such as a `GET` request to the `/api/v1/users` endpoint to get back a list of all users.
 2. On the **Header** tab, remove the existing SSWS Authorization API Key.
 3. Click the **Authorization** tab and from the **Type** dropdown list, select **OAuth 2.0**.
-4. On the right pane, go to the  **Configure New Token** section.
+4. On the right pane, go to the **Configure New Token** section.
 5. In the first field, enter a name for the token and select **Authorization Code (With PKCE)** as the grant type.
 6. Define the remaining fields for the token request:
 

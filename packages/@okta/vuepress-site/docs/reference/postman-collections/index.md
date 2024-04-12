@@ -7,6 +7,10 @@ meta:
 
 # Import a Postman Collection
 
+Learn how to [use Postman with the Okta REST APIs](/docs/reference/rest/).
+
+> **Note:** These buttons are also available at the top of each [API reference page](/docs/reference/api/apps/).
+
 Import any Okta API collection for Postman from the following list:
 
 | Collections                       | Click to Run                                                                                                         |
@@ -48,6 +52,3 @@ Import any Okta API collection for Postman from the following list:
 | User Types                        | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/519c04869c17079762f9) |
 | Users                             | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/9daeb4b935a423c39009) |
 
-These buttons are also available at the top of each [API reference page](/docs/reference/api/apps/).
-
-Learn more about how to [use Postman with the Okta REST APIs](/code/rest/).

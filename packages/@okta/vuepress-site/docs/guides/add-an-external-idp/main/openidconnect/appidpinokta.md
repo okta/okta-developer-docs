@@ -39,3 +39,9 @@ In the optional **Authentication Settings** section:
     > **Note:** When you use Okta for B2B or multi-tenancy use cases, select this checkbox. This helps you scope a subset of users in the org and enforce identifier constraints, such as email suffixes.
 
     For example, you could restrict an IdP for use only with users who have `@company.com` as their email address using the following expression: `^[A-Za-z0-9._%+-]+@company\.com`.
+
+* **Account Link Policy**: Specify whether Okta automatically links the user's IdP account with a matching Okta account. See [Account link](#account-link).
+
+   If the account link policy is automatic, when any validated OIDC JWT is provided, Okta searches the Universal Directory for a user's profile to link. The user profile is found when the **IdP username** value (email) passed by the IdP matches the **Match against** value (username). If there's a match, then the user is linked by mapping the required, static `sub` claim provided in the JWT to that user.
+
+   After an account is linked, any validated JWT token with the same `sub` claim (which is mapped to the `idp.externalId` in the Identity Provider profile) is automatically mapped to the same user. This happens regardless of the content of the claims in the JWT or if the values for **IdP username** and **Match against** no longer result in a match.

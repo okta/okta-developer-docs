@@ -2,27 +2,29 @@
 title: Feature Lifecycle Management
 ---
 
-# Feature Lifecycle Management
+# Feature lifecycle management
 
-This page will cover a few key concepts that underpin the [Okta Features API](/docs/reference/api/features/). The Features API allows you to manage self-service features, as well as their feature dependents and dependencies. Special restrictions apply to the behavior of the API with respect to Beta features.
+This page covers a few key concepts that underpin the [Okta Features API](/docs/reference/api/features/). The Features API allows you to manage self-service features, their feature dependents, and their feature dependencies. For Beta features, special restrictions apply to the behavior of the API.
 
-## Self-service Features
+See [Release lifecycle](https://developer.okta.com/docs/api/openapi/okta-management/guides/release-lifecycle/).
 
-Self-service features are features that can be enabled or disabled by an Okta admin directly. Features that are not self-service can only be enabled or disabled by getting in touch with Okta Support. The [Okta Features API](/docs/reference/api/features/) is used to list, enable, and disable self-service features.
+## Self-service features
 
-> **Note:** A Beta feature that is marked as self-service will stay as self-service even if it's closed and temporarily unavailable to be enabled. For example, if an [open Beta](#beta-features) transitions into a closed Beta, the feature will remain self-service. This means that it will appear in the list of available self-service Features, but you will not be able to enable it without contacting Support.
+Self-service features are features that you can directly enable or disable. Contact Okta Support to enable features that aren't self-service. The [Okta Features API](/docs/reference/api/features/) is used to list, enable, and disable self-service features.
 
-Only Beta and Early Access (EA) features are considered self-service. Once a feature transitions from either of these states to Generally Available (GA), it will no longer be listed as an available self-service Feature.
+> **Note:** A Beta feature marked as self-service remains as self-service, even if it's closed and temporarily unavailable. For example, if an [open Beta](#beta-features) transitions into a closed Beta, the feature remains self-service. This means that it appears in the list of available self-service features, but you can't enable it without contacting Support.
 
-## Beta Features
+Only Beta and Early Access (EA) features are considered self-service. After a feature transitions from either of these states to Generally Available (GA), it's no longer listed as an available self-service feature.
 
-Though all available Betas qualify as "self-service features", Betas can be either open or closed. Open Betas can be both enabled or disabled using the API, however closed Betas can only be disabled. If a feature has Feature dependencies that are in Closed Beta, then you will not be able to enable it. If you'd like to enable a closed Beta, you should [contact Support](mailto:support@okta.com). Enabling an Open Beta will trigger an email to the admin who performed the action.
+## Beta features
 
-> **Note:** Beta Features are only available in Preview cells.
+Though all available Beta features qualify as "self-service," Betas are either open or closed. You can enable or disable open Betas using the API. But, you can only disable closed Betas. If a feature has dependencies that are in closed Beta, then you can't enable it. If you want to enable a closed Beta, [contact Support](https://support.okta.com). When you enable an open Beta, it triggers an email to the admin who performed the action.
 
-## Dependencies and Dependents
+> **Note:** Beta features are only available in Preview orgs.
 
-Features may have dependencies and dependents. Dependencies are other features that the feature relies on, whereas dependents are features that rely on the feature.
+## Dependencies and dependents
+
+Features might have dependencies and dependents. Dependencies are other features that the feature relies on, whereas dependents are features that rely on the feature.
 
 Consider the following example:
 
@@ -52,6 +54,6 @@ featA ..> featD
 In this example:
 
 * Feature A has three dependencies: Feature B, Feature C, and Feature D.
-* Feature D has one dependent, which is Feature A
+* Feature D has one dependent: Feature A.
 
-If Feature A has Feature B as a dependency, that means that Feature A cannot be enabled if Feature B is not enabled first. Conversely, Feature B has Feature A as one of its dependents. This means that Feature B cannot be disabled unless you disable Feature A first.
+If Feature A has Feature B as a dependency, then you can't enable Feature A unless you enable Feature B first. Conversely, Feature B has Feature A as one of its dependents. This means that you can't disable Feature B unless you disable Feature A first.

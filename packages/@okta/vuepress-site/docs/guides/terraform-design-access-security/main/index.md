@@ -6,7 +6,7 @@ layout: Guides
 
 Terraform requires permissions to read and manage objects in your org. You can configure these permissions in multiple ways, depending on what you want Terraform to automate.
 
-Be deliberate with Terraform permissions to keep your org secure. Terraform doesn’t need access to your entire org. Instead, limit Terraform to access only the Okta objects that you want Terraform to manage. This is known as *least-privilege* access, which reduces the risk of unintended changes and misuse.
+Be deliberate with Terraform permissions to keep your org secure. Terraform doesn't need access to your entire org. Instead, limit Terraform to access only the Okta objects that you want Terraform to manage. This is known as *least-privilege* access, which reduces the risk of unintended changes and misuse.
 
 ## Select an authorization method to control access
 
@@ -14,7 +14,7 @@ Okta offers multiple ways to authorize Terraform. Okta recommends using the most
 
 ### OAuth 2.0
 
-The OAuth 2.0 protocol provides a high level of security for authorizing Terraform. With OAuth 2.0, you can customize granular access to Okta resources, limit the time of access, and revoke access. These features give you control over your org’s security.
+The OAuth 2.0 protocol provides a high level of security for authorizing Terraform. With OAuth 2.0, you can customize granular access to Okta resources, limit the time of access, and revoke access. These features give you control over your org's security.
 
 See [OAuth 2.0 and OpenID Connect overview](/docs/concepts/oauth-openid/).
 
@@ -43,7 +43,7 @@ With this flow, Terraform uses credentials to request access to your org. The se
 The credentials used for this flow are a public/private key pair. Okta stores the public key in the service app, and Terraform uses the private key in the configuration. You can [generate the key pair](/docs/guides/implement-oauth-for-okta-serviceapp) in the Okta service app or with your own secure internal methods. See [Create access credentials](/docs/guides/terraform-enable-org-access/main/#create-access-credentials).
 
 > **Note:** The Okta Terraform Provider requires the private key to use PKCS#1 encoding.
-Okta recommends storing the private key in a separate and secure location and using a secrets and encryption management system, such as Hashicorp Vault. You can use input variables and environment variables to provide credentials to Terraform.
+Okta recommends storing the private key in a separate and secure location and using a secrets and encryption management system, such as HashiCorp Vault. You can use input variables and environment variables to provide credentials to Terraform.
 
 > **Note:** Don't store credentials as plain text in your Terraform configuration.
 
@@ -74,7 +74,7 @@ With the Client Credentials flow, scopes define what resources are accessible to
 
 A scope defines an action on an object in your org. For example, the `okta.groups.read` scope allows Terraform to read group details, while the `okta.groups.manage` scope allows Terraform to create, change, or remove groups.
 
-Some objects in your org don’t have a corresponding scope. For example, there’s no scope for managing scopes. For a list of scopes and their corresponding access, see [OAuth 2.0 Scopes](https://developer.okta.com/docs/api/oauth2/).
+Some objects in your org don't have a corresponding scope. For example, there's no scope for managing scopes. For a list of scopes and their corresponding access, see [OAuth 2.0 Scopes](https://developer.okta.com/docs/api/oauth2/).
 
 > **Note:** Terraform resources and data sources might require more than one scope.
 
@@ -191,4 +191,4 @@ This configuration uses these scopes for the following actions:
 * `okta.groups.manage`: Reads group information
 * `okta.policies.manage`: Creates global session policies, authentication policies, and authentication enrollment policies
 * `okta.policies.manage`: Reads policy information
-* `okta.users.manage`: Creates a user that doesn’t require a password
+* `okta.users.manage`: Creates a user that doesn't require a password

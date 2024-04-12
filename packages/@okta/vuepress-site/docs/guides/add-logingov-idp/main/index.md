@@ -9,11 +9,11 @@ This document explains how to configure Login.gov as an [external Identity Provi
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 Configure Login.gov as an external Identity Provider so that your users can quickly sign up or sign in to your application using their Login.gov account.
 
-**What you need**
+#### What you need
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
 * An application that you want to add authentication to. You can [create a new app integration using AIW](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard) or use an existing one.
@@ -23,13 +23,13 @@ Configure Login.gov as an external Identity Provider so that your users can quic
 
 ## About the connection to the IdP for your application
 
-Okta manages the connection to the Identity Provider (IdP) for your application. The connection sits between your application and the IdP that authenticates your users. The industry-standard term for this is Inbound Federation. Okta uses the OpenID Connect (OIDC) protocol with private key JWT for inbound federation with Login.gov. When a user signs in, you can link the user's Identity Provider account to an existing Okta user profile or choose to create a new user profile using Just-In-Time (JIT) provisioning.
+Okta manages the connection to the Identity Provider (IdP) for your application. The connection sits between your application and the IdP that authenticates your users. The industry-standard term for this is Inbound Federation. Okta uses the OpenID Connect (OIDC) protocol with private key JWT for inbound federation with Login.gov. When a user signs in, you can link the user's Identity Provider account to an existing Okta user profile or choose to create a user profile using Just-In-Time (JIT) provisioning.
 
-> **Note:** We also support additional services such as directories and credential providers. See the [Okta Integration Network Catalog](https://www.okta.com/okta-integration-network/) to browse all integrations by use case.
+> **Note:** Okta also supports other services, such as directories and credential providers. See the [Okta Integration Network Catalog](https://www.okta.com/okta-integration-network/) to browse all integrations by use case.
 
 ## Create an Identity Provider in Okta
 
-Login.gov requires you to [test your app integration](https://developers.login.gov/testing/) in their identity sandbox before you can enable it in production. As a result, you have to first create a **Login.gov IdP (Sandbox)** configuration in Okta to test your app integration. When you're ready for [Login.gov production deployment](https://developers.login.gov/production/), you then create the production **Login.gov IdP** configuration in Okta.
+Login.gov requires you to [test your app integration](https://developers.login.gov/testing/) in their identity sandbox before you can enable it in production. As a result, you have to first create a **Login.gov IdP (Sandbox)** configuration in Okta to test your app integration. When you're ready for [Login.gov production deployment](https://developers.login.gov/production/), you can then create the production **Login.gov IdP** configuration in Okta.
 
 > **Note:** See the [Identity Providers API](/docs/reference/api/idps/#add-identity-provider) for request and response examples of creating an Identity Provider in Okta using the API.
 
@@ -47,8 +47,8 @@ Login.gov requires you to [test your app integration](https://developers.login.g
 
    * **Scopes**: Leave the defaults (`profile`, `profile:name`, `email`) for IAL1 assurance. These scopes are included when Okta makes an OpenID Connect request to the IdP. See [Login.gov OIDC scopes for required attributes](https://developers.login.gov/attributes/).
 
-   * **Type of Identity Verification**: The maximum level of [identity assurance](https://developers.login.gov/oidc/#ial-values) available for this application. Select **ial/1** for standard MFA-protected email-based sign-in flows.
-   * **AAL value**: Select the [authentication assurance level](https://developers.login.gov/oidc/#aal-values) required.
+   * **Type of Identity Verification**: The [type of service level](https://developers.login.gov/oidc/authorization/#request-parameters) available for this application. Select **ial/1** for standard MFA-protected email-based sign-in flows.
+   * **AAL value**: Select the [authentication assurance level](https://developers.login.gov/oidc/authorization/#request-parameters) required.
       > **Note:** If you leave the default value, the IdP requires a user to be authenticated with a second factor: `urn:gov:gsa:ac:classes:sp:PasswordProtectedTransport:duo`.
 
    In the optional **Authentication Settings** section:
@@ -60,9 +60,7 @@ Login.gov requires you to [test your app integration](https://developers.login.g
       You can enter an expression to reformat the value, if desired. For example, if the IdP username is `john.doe@mycompany.com`, then you could specify the replacement of `mycompany` with `endpointA.mycompany` to make the transformed username `john.doe@endpointA.mycompany.com`. See [Okta Expression Language](/docs/reference/okta-expression-language/).
 
    * **Match against:** Specifies which attributes of existing users in Okta are compared to the IdP username to determine if an account link needs to be established. If an existing account link is found, no comparison is performed.
-   * **Account link policy:** Specifies whether Okta automatically links an incoming IdP user to the matched Okta user. If disabled, Okta doesn't link an incoming IdP user to an existing Okta user and relies solely on manually or previously linked accounts.
-
-      > **Note:** When you are setting up your IdP in Okta, there are a number of settings that allow you to finely control the IdP sign-in behavior. While the provider-specific instructions show one possible configuration, [Account Linking and JIT Provisioning](/docs/concepts/identity-providers/#account-linking-and-just-in-time-provisioning) discusses configuration options in more detail so that you can choose the right configuration for your use case.
+   * **Account link policy:** Specifies whether Okta automatically links an incoming IdP user to the matched Okta user. If disabled, Okta doesn't link an incoming IdP user to an existing Okta user and relies solely on manually or previously linked accounts. See [Account link](#account-link).
 
 1. Click **Finish**. A page appears that displays the IdP's configuration.
 
@@ -78,18 +76,30 @@ Login.gov requires you to [test your app integration](https://developers.login.g
 
 When you create the Login.gov IdP configuration in Okta, the Login.gov attributes are already mapped to Okta user profile attributes. However, these Login.gov attributes aren't mapped: `ial` and `aal`. If you need these attributes in Okta, use the Profile Editor to map them to Okta custom attributes. See App to Okta attribute mapping in [About attribute mappings](https://help.okta.com/okta_help.htm?id=ext-usgp-about-attribute-mappings).
 
+### Account link
+
+You can automatically link external IdP accounts to Okta accounts when the user signs in using the external IdP. If **Account Link Policy** is set to Automatic (`AUTO`), then Okta searches the Universal Directory for a user's profile to link. The user profile is found when the **IdP username** value (email) passed by the IdP matches the **Match against** value (username). See [Account Linking and JIT Provisioning](/docs/concepts/identity-providers/#account-linking-and-just-in-time-provisioning).
+
+To remove an existing account link or validate account linking with every sign-in flow, Okta recommends that you make a `DELETE` call to the `/api/v1/idps/${idpId}/users/${userId}` [endpoint](/docs/reference/api/idps/#unlink-user-from-idp) to remove the link between the Okta user and the IdP user before authentication.
+
+If **Account Link Policy** is disabled, no account linking occurs. You can manually create an account link without a transaction by making a `POST` call to the `/api/v1/idps/${idps}/users/${userId}` [endpoint](/docs/reference/api/idps/#link-a-user-to-a-social-provider-without-a-transaction).
+
+See [Add an Identity Provider](/docs/reference/api/idps/#add-identity-provider) for API examples of account-linking JSON payloads.
+
+For security best practices, consider disabling account linking after all existing users from the external IdP have signed in to your Okta org. At this point, all links have been created. After you disable linking and JIT provisioning is enabled, Okta adds new users that are created in the external IdP.
+
 ## Create an app at the Identity Provider
 
 At Login.gov, you need to first register your app integration in Login.gov's identity sandbox for testing before you can enable it for production. See [Testing your app](https://developers.login.gov/testing/).
 
 1. Sign in to the [Partner Dashboard](https://dashboard.int.identitysandbox.gov/) and register your app for testing.
 
-1. Follow instructions at [Testing your app](https://developers.login.gov/testing/) to create a team and add users to that team.
+1. Follow the instructions at [Testing your app](https://developers.login.gov/testing/) to create a team and add users to that team.
 
 1. Click **Create a new test app** from the **Apps** tab and specify the following attributes specific to the Okta test integration:
 
     * **Production Configuration**: Select **No** for testing.
-    * **App Name**: Specify app name.
+    * **App Name**: Specify the app name.
     * **Friendly name**: Specify a friendly name to display during the sign-in flow.
     * **Team**: Select the previously configured team to test the integration.
     * **Authentication protocol**: Select **OpenID Connect Private Key JWT**.
@@ -137,7 +147,7 @@ If you're using Classic Engine, you still need to configure the [routing rule](h
     config.idpDisplay = "SECONDARY";
 ```
 
-You can find out more about the Okta Sign-In Widget [on GitHub](https://github.com/okta/okta-signin-widget#okta-sign-in-widget). Implementing sign-in flows with an Identity Provider uses the Widget's [OpenID Connect authentication flow](https://github.com/okta/okta-signin-widget#openid-connect).
+You can find out more about the Okta Sign-In Widget [on GitHub](https://github.com/okta/okta-signin-widget#okta-sign-in-widget). Implementing sign-in flows with an Identity Provider uses the widget's [OpenID Connect authentication flow](https://github.com/okta/okta-signin-widget#openid-connect).
 
 > **Note:** For a production environment, use the following Okta Sign-In Widget configuration:
 > ```javascript

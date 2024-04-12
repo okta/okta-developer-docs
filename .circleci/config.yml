@@ -1,10 +1,67 @@
 version: 2.1
 
+parameters:
+  trigger_netlify_manual:
+    type: string
+    default: ""
+
+jobs:
+  node_build_checks:
+      docker:
+        - image: cimg/node:14.21.3-browsers
+      resource_class: xlarge
+      environment:
+        NODE_OPTIONS: '--max_old_space_size=3584'
+      steps:
+        - checkout
+        - run:
+            name: Install dependencies
+            command: yarn install --frozen-lockfile
+        - run:
+            name: Build 
+            command: yarn build
+        - run:
+            name: Run checks
+            command: ./scripts/yarn-checks-ci.sh
+
+  nightly_link_checker:
+    docker:
+      - image: cimg/node:14.21.3-browsers
+    resource_class: xlarge
+    environment:
+      NODE_OPTIONS: '--max_old_space_size=3584'
+    steps:
+      - checkout
+      - run:
+          name: Install dependencies
+          command: yarn install --frozen-lockfile
+      - run:
+          name: Run script and capture logs
+          command: yarn build
+      - run:
+          name: Run link checker
+          command: yarn broken-link-checker:external > output.txt 2>&1 || true
+      - run:
+          name: Extract URLs from log
+          command: |
+            grep -o 'Link: https\?://[^[:space:]]*' output.txt | sed 's/Link: //' > urls.txt
+          when: always
+      - run:
+          name: Remove False Positives
+          command: |
+            comm -23 <(sort urls.txt | uniq) <(sort falsepos.txt | uniq) > broken_external_urls.txt
+      - run:
+          name: Print urls to log
+          command: |
+            cat broken_external_urls.txt
+
 orbs:
   general-platform-helpers: okta/general-platform-helpers@1.8
 
 workflows:
   semgrep:
+    when:
+      not: << pipeline.parameters.trigger_netlify_manual >>
     jobs:
       - general-platform-helpers/job-semgrep-prepare:
           name: semgrep-prepare
@@ -12,3 +69,28 @@ workflows:
           name: "Scan with Semgrep"
           requires:
             - semgrep-prepare
+
+  build_checks:
+    when:
+      not: << pipeline.parameters.trigger_netlify_manual >>
+    jobs:
+      - node_build_checks:
+          name: "Build and Checks"
+  
+  nightly:
+    triggers:
+      - schedule:
+          cron: "1 5 * * *"
+          filters:
+            branches:
+              only:
+                - master
+    jobs:
+      - nightly_link_checker:
+          name: "Nightly Link Checker"
+
+  netlify_manual:
+    when: << pipeline.parameters.trigger_netlify_manual >>
+    jobs:
+      - node_build_checks:
+          name: "TODO:Run Netlify Manual"

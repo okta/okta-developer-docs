@@ -16,19 +16,19 @@ This guide provides examples of an Okta registration inline hook for profile enr
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Understand the Okta inline hook calls and responses for profile enrollment (SSR) and progressive profile enrollment.
 * Implement examples of a registration inline hook with a Glitch.com project.
 * Preview and test a registration inline hook for profile enrollment (SSR) and progressive profile enrollment.
 
-**What you need**
+#### What you need
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup/)
 * [Glitch.com](https://glitch.com) project or account
 * [A profile enrollment policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-profile-enrollment)
 
-**Sample code**
+#### Sample code
 
 [Okta Registration Inline Hook Example](https://glitch.com/edit/#!/okta-inlinehook-registrationhook-oie)
 
@@ -41,7 +41,7 @@ In the following examples, the external service code parses requests from Okta a
 * Whether the end user's email domain is valid and allowed to register (for profile enrollment)
 * Whether the end user's employee number is valid and allowed to be added to their profile (for progressive profile enrollment)
 
-In these examples, you set up your registration inline hook to handle either the simple profile enrollment (SSR) scenario, progressive profile enrollment scenario, or both. You configure a profile enrollment policy to define these scenarios and implement the registration hook. The registration hook customizes how to add new users to your Okta org or update the profiles of existing users.
+In these examples, you set up your registration inline hook to handle either the simple profile enrollment (SSR) scenario, progressive profile enrollment scenario, or both. You can configure a profile enrollment policy to define these scenarios. Then you implement the registration hook. The hook customizes how to add new users to your Okta org or update the profiles of existing users.
 
 The following is a high-level workflow for the profile enrollment (self-service registration) scenario:
 
@@ -155,13 +155,13 @@ See the [request properties](/docs/reference/registration-hook/#objects-in-the-r
 
 ## Set up for profile enrollment (SSR) scenario
 
-The simple scenario of profile enrollment (self-service registration) involves new users self-registering from the **Sign up** link with the default three sign-up fields (Email, First name, and Family name). With this use case, the registration inline hook triggers and evaluates the domain in the Email field. If the domain is from `okta.com`, the user can register. If not, the user is denied registration. To implement this scenario:
+The simple scenario of profile enrollment (self-service registration) involves new users self-registering from the **Sign up** link. New users use the default sign-up fields (email, first name, and family name). With this use case, the registration inline hook triggers and evaluates the domain in the Email field. If the domain is from `okta.com`, the user can register. If not, the user is denied registration. Follow these steps to implement this scenario:
 
 <StackSnippet snippet="introbullets"/>
 
 ### Set up your external service code response for profile enrollment
 
-You need to remix your own version of the Okta sample Glitch project and confirm that it's live.
+Remix your own version of the Okta sample Glitch project and confirm that it's live.
 
 1. Go to the [Okta Registration Inline Hook Example](https://glitch.com/edit/#!/okta-inlinehook-registrationhook-oie).
 1. Click **Remix your own**.
@@ -224,7 +224,7 @@ app.post('/registrationHookSSR', async (request, response) => {
 
 ### Add your registration hook for profile enrollment
 
-Configure your registration inline hook for your Okta org to use the glitch project for profile enrollment (SSR).
+Configure your registration inline hook for your Okta org to use the Glitch project for profile enrollment (SSR).
 
 1. In the Admin Console, go to **Workflow** > **Inline Hooks**.
 1. Click **Add Inline Hook** and select **Registration** from the dropdown menu.
@@ -251,9 +251,10 @@ Configure your registration inline hook for your Okta org to use the glitch proj
 To associate the registration inline hook with a profile enrollment policy:
 
 1. In the Admin Console, go to **Security > Profile Enrollment**.
+   > **Note:** If you enabled Multiple Identifiers, go to **Security** > **User Profile Policies**. See [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features).
 1. Click **Add Profile Enrollment Policy**.
 1. Give your policy a name (in this example, use "Inline Hook"), and then click **Save**.
-1. From the list of Enrollment Policies, find **Inline Hook** and click the pencil icon.
+1. From the list of enrollment policies, find **Inline Hook** and click the pencil icon.
 1. Click **Manage Apps**, and then click **Add Apps to this Policy**.
 1. Locate the **Okta Dashboard**, click **Apply**, and then click **Close**.
 1. Click **Back to Profile Enrollment Policy**.
@@ -270,13 +271,13 @@ Your registration inline hook is configured for profile enrollment (self-service
 
 ## Set up for progressive profile enrollment scenario
 
-The scenario of progressive profile enrollment involves existing users prompted for new information to add to their profile when they sign in. With this use case, the registration inline hook triggers and the external service code evaluates the employee number field. If the value is four digits, the user's profile is updated. To implement this scenario:
+The scenario of progressive profile enrollment involves existing users prompted for new information to add to their profile when they sign in. With this use case, the registration inline hook triggers the employee number field. Then the external service code evaluates the employee number. If the value is four digits, the user's profile is updated. To implement this scenario:
 
 <StackSnippet snippet="introbullets"/>
 
 ### Set up your external service code response for progressive profile enrollment
 
-You need to remix your own version of the Okta sample Glitch project and confirm that it's live.
+Remix your own version of the Okta sample Glitch project and confirm that it's live.
 
 1. Go to the [Okta Registration Inline Hook Example](https://glitch.com/edit/#!/okta-inlinehook-registrationhook-oie).
 1. Click **Remix your own**.
@@ -333,9 +334,9 @@ app.post('/registrationHookPP', async (request, response) => {
 })
 ```
 
-### Add your registration hook for progressive profile
+### Add your registration hook for a progressive profile
 
-Configure your registration inline hook for your Okta org to use the glitch project for progressive profile enrollment.
+Configure your registration inline hook for your Okta org to use the Glitch project for progressive profile enrollment.
 
 1. In the Admin Console, go to **Workflow** > **Inline Hooks**.
 1. Click **Add Inline Hook** and select **Registration** from the dropdown menu.
@@ -370,9 +371,10 @@ Before creating the enrollment policy, ensure the user profile attribute `employ
 To associate the registration inline hook with a profile enrollment policy and add the employee number field:
 
 1. In the Admin Console, go to **Security > Profile Enrollment**.
+    > **Note:** If you enabled Multiple Identifiers, go to **Security** > **User Profile Policies**. See [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features).
 1. Click **Add Profile Enrollment Policy**.
 1. Give your policy a name (in this example, use "Inline Hook"), and then click **Save**.
-1. From the list of Enrollment Policies, find **Inline Hook** and click the pencil icon.
+1. From the list of enrollment policies, find **Inline Hook** and click the pencil icon.
 1. Click **Manage Apps**, and then click **Add Apps to this Policy**.
 1. Locate the **Okta Dashboard**, click **Apply**, and then click **Close**.
 1. Click **Back to Profile Enrollment Policy**.
@@ -392,13 +394,19 @@ Your registration inline hook is configured for progressive profile enrollment. 
 
 ## Set up for profile enrollment (SSR) and progressive profile enrollment scenario
 
-This scenario involves both profile enrollment (self-service registration) and progressive profile enrollment use cases. Existing users are prompted for new information (a four-digit employee number) to add to their profile when they sign in. New users self-registering from the **Sign up** link are required to include the default three sign-up fields (Email, First name, and Family name) and the employee number field. With this use case, the external code updates the profiles of existing users if the employee number is four digits. The external code adds new users if their email domain contains `okta.com` and their employee number is four digits, otherwise their registration is denied. To implement this scenario:
+This scenario involves both profile enrollment (self-service registration) and progressive profile enrollment use cases.
+
+Existing users are prompted for new information (a four-digit employee number) to add to their profile when they sign in. New users self-register from the **Sign up** link. They need to include the three default sign-up fields (email, first name, and family name) and the employee number field.
+
+With this use case, the external code updates the profiles of existing users if the employee number is four digits. The external code adds new users if their email domain contains `okta.com` and their employee number is four digits, otherwise their registration is denied.
+
+Follow these steps to implement this scenario:
 
 <StackSnippet snippet="introbullets"/>
 
 ### Set up your external service code response for profile and progressive profile enrollment
 
-You need to remix your own version of the Okta sample Glitch project and confirm that it's live.
+Remix your own version of the Okta sample Glitch project and confirm that it's live.
 
 1. Go to the [Okta Registration Inline Hook Example](https://glitch.com/edit/#!/okta-inlinehook-registrationhook-oie).
 1. Click **Remix your own**.
@@ -406,7 +414,7 @@ You need to remix your own version of the Okta sample Glitch project and confirm
 1. In the **Live site** field, click the copy icon. This is your external service URL. Make a note of it as you need it later.
 1. Click **Logs**. If you see the following message, "Your app is listening on port {XXXX}", the app is live and ready to receive Okta requests.
 
-Review the following project code with endpoint `/registrationHookSSRandPP`. The external service responds to Okta indicating whether to update the end user's profile with a valid employee number or allow a self-registration of a new user. The response returns a `commands` object in the body of the HTTPS response. This object contains specific syntax that indicates whether the user is allowed or denied self-registration or can update their profile with Okta.
+Review the following project code with endpoint `/registrationHookSSRandPP`. The external service responds indicating to update the end user's profile with a valid employee number or to allow self-registration of a new user. The response returns a `commands` object in the body of the HTTPS response. This object contains specific syntax that indicates whether the user is allowed or denied self-registration or can update their profile with Okta.
 
 <StackSnippet snippet="response-properties"/>
 
@@ -498,7 +506,7 @@ app.post('/registrationHookSSRandPP', async (request, response) => {
 
 ### Add your registration hook for profile and progressive profile enrollment
 
-Configure your registration inline hook for your Okta org to use the glitch project for both profile enrollment (self-service registration) and progressive profile enrollment.
+Configure your registration inline hook for your Okta org to use the Glitch project for both profile enrollment (self-service registration) and progressive profile enrollment.
 
 1. In the Admin Console, go to **Workflow** > **Inline Hooks**.
 1. Click **Add Inline Hook** and select **Registration** from the dropdown menu.
@@ -528,6 +536,7 @@ Before creating the enrollment policy, ensure the user profile attribute `employ
 To associate the registration inline hook with a profile enrollment policy and add the employee number field:
 
 1. In the Admin Console, go to **Security > Profile Enrollment**.
+    > **Note:** If you enabled Multiple Identifiers, go to **Security** > **User Profile Policies**. See [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features).
 1. Click **Add Profile Enrollment Policy**.
 1. Give your policy a name (in this example, use "Inline Hook"), and then click **Save**.
 1. From the list of Enrollment Policies, find **Inline Hook** and click the pencil icon.
@@ -551,7 +560,7 @@ Your registration inline hook is configured for both profile and progressive pro
 
 ## Preview the registration inline hook
 
-Your Okta org is set up to call the sample external service using a registration inline hook, and the external service is ready to receive and respond to an Okta call.
+Your Okta org is set up to call the sample external service using a registration inline hook. The external service is ready to receive and respond to an Okta call.
 
 In your Okta org, you can preview the request and response JSON in the Admin Console.
 
@@ -597,7 +606,13 @@ You can also test the code directly with self-registering or profile-updating en
 
 ### Test the profile enrollment (self-service registration) inline hook
 
-To run a test of your profile enrollment (self-service registration) registration inline hook, go to the Okta sign-in page for your Okta org, click the **Sign Up** link, and attempt to self-register.
+To run a test of your profile enrollment (self-service registration) registration inline hook:
+
+1. Go to the Okta sign-in page for your Okta org.
+1. Click the **Sign Up** link.
+1. Attempt to self-register.
+
+Note the following:
 
 * If you use an allowable email domain, such as `rosario.jones@okta.com`, the end user registration goes through for the profile enrollment scenario.
 * If you use an allowable email domain and employee number, the end user registration goes through for the profile and progressive profile enrollment scenario.
@@ -608,6 +623,8 @@ Review the error message that displays the error summary from the external servi
 ### Test the progressive enrollment inline hook
 
 To run a test of your progressive profile enrollment registration inline hook, [create](https://help.okta.com/okta_help.htm?type=oie&id=ext-usgp-add-users) or use an existing user in your org.
+
+Note the following:
 
 * If you use valid sign-in credentials with an **Employee number** value of four digits, the user's profile is updated.
 * If you enter an employee number in an invalid format, the profile update is denied.

@@ -1,4 +1,4 @@
-* [Basic sign-in flow using the password factor](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/nodejs/main/)
+* [Basic sign-in flow example with the password factor](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/nodejs/main/)
 * [Sign in with password and email factors](/docs/guides/oie-embedded-sdk-use-case-sign-in-pwd-email/nodejs/main/)
 * [Device Context](https://help.okta.com/okta_help.htm?type=oie&id=ext-devcontext-main)
 * [Behavior Detection](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-behavior-detection)

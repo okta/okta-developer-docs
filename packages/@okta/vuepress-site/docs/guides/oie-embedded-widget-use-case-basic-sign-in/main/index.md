@@ -1,24 +1,25 @@
 ---
-title: Basic sign-in flow using the Widget
+title: Basic sign-in flow using the widget
 ---
 
 <ApiLifecycle access="ie" />
 
-This guide covers a basic user sign-in flow that uses the Sign-In Widget. The flow diagram and steps describe the process to sign in to an app with the embedded Sign-In Widget.
+Enable a password-only sign-in flow in your web app using the embedded Sign-In Widget.
 
-<StackSnippet snippet="pwdoptionalusecase" inline />
+> **Note**: Passwords are a security vulnerability because they can be easily stolen and are prone to phishing attacks. Give your users the ability to use other authenticators by replacing password-only sign-in experiences with either a [password-optional](/docs/guides/pwd-optional-overview) or a multifactor experience.
+<StackSnippet snippet="pwdoptionalusecase" />
 
 ---
 
 **Learning outcomes**
 
-Understand the sequence of steps in the basic sign-in flow when you use the Sign-In Widget.
+* Enable Sign-In Widget support in your org and application.
+* Add a sign-in flow to a server-side web app that uses the Sign-In Widget and requires only a password.
 
 **What you need**
 
-* An app that uses the embedded Okta Sign-In Widget and Identity Engine SDK
-* [Okta org already set up for your use case](/docs/guides/oie-embedded-common-org-setup/)
-* [Sign-In Widget and SDK set up for your own app](/docs/guides/oie-embedded-common-download-setup-app/nodejs/main/#set-up-the-sign-in-widget-and-sdk-for-your-own-app)
+<StackSnippet snippet="whatyouneed" />
+<br />
 
 **Sample code**
 
@@ -28,7 +29,7 @@ Understand the sequence of steps in the basic sign-in flow when you use the Sign
 
 ## Configuration updates
 
-Ensure that you've completed the steps to [download and configure the SDK, Sign-In Widget, and sample app](/docs/guides/oie-embedded-common-download-setup-app/aspnet/main/). These steps guide you to the appropriate repository and location of the embedded Sign-In Widget sample app, identify the packages to install, and describe additional changes to the Okta org that are required for the Widget.
+<StackSnippet snippet="configureyourapp" />
 
 ## Summary of steps
 

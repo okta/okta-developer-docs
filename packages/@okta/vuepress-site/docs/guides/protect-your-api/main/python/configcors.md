@@ -1,9 +1,13 @@
-To enable [flask_cors](https://flask-cors.readthedocs.io/en/latest/), import and initialize it into your `app.py`:
+1. Add the following `import` statement to `app.py`:
 
-```python
-from flask_cors import CORS
+    ```python
+    from flask_cors import CORS
+    ```
 
-...
+1. Enable CORS by adding the following line after the call to `app.config.update`:
 
-CORS(app)
-```
+    ```python
+    app = Flask(__name__)
+    app.config.update({'SECRET_KEY': secrets.token_urlsafe()})
+    CORS(app)
+    ```

@@ -18,44 +18,44 @@ export default {
     $page(to, from) {
       if (from.title !== to.title) {
         this.$nextTick(function() {
-          this.setAnchors(this.getAnchors());
           this.onPageChange();
         });
       }
     }
   },
   mounted() {
+    // When ContentPage gets initialized first time after navigating from homepage, the document's readyState is
+    // already `complete`. Hence, it does not go in the `onreadystatechange` event handler because the state never
+    // changes and does not initialize the listeners and anchors. However, when we refresh the page, the initial
+    // readyState is `interactive`. So, when the state changes to `complete` we call the onreadystatechange handler
+    // and it initializes the listeners. Hence, we need to check the readyState condition here for the above usecase.
     document.onreadystatechange = () => {
       if (document.readyState !== "complete") {
         return;
       }
-
+      
       this.$nextTick(function() {
-        this.setAnchors(this.getAnchors());
         this.onPageChange();
-
-        window.addEventListener("popstate", e => {
-          e.target.location.hash && this.scrollToAnchor(e.target.location.hash);
-        });
-        window.addEventListener("scroll", this.setHeadingAnchorToURL);
-        window.addEventListener('resize', this.updateAnchors);
       });
     };
+
+    window.addEventListener("popstate", e => {
+      e.target.location.hash && this.scrollToAnchor(e.target.location.hash);
+    });
   },
   beforeDestroy() {
-    window.removeEventListener("scroll", this.setHeadingAnchorToURL);
     window.removeEventListener("popstate", this.scrollToAnchor);
-    window.removeEventListener('resize', this.updateAnchors);
   },
   methods: {
     onPageChange() {
+      this.setAnchors();
+      
       const anchor = window.location.hash;
-
       if (anchor) {
         this.scrollToAnchor(`${anchor}`);
       } else {
         // navigating via back button to no-anchor URL
-        window.scrollTo(0, 0);
+        window.scrollTo({top: 0, behavior: 'instant'});
       }
       this.onClickCaptureAnchors();
     },
@@ -97,22 +97,6 @@ export default {
         }
       }
     },
-
-    updateAnchors: _.debounce(function () {
-      this.getAnchorsOffset();
-      this.setHeadingAnchorToURL();
-    }, 200),
-
-    setHeadingAnchorToURL: _.debounce(function() {
-      const activeAnchor = this.getActiveAnchor();
-      activeAnchor
-        ? this.historyReplaceAnchor(activeAnchor.hash)
-        : this.historyReplaceAnchor("");
-    }, 200),
-
-    getAnchors() {
-      return Array.from(document.querySelectorAll(".header-anchor"));
-    }
   }
 };
 </script>

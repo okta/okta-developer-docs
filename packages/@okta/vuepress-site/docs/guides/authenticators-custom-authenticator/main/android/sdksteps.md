@@ -115,9 +115,9 @@ Alternatively, you can delete an enrollment by using the [MyAccount App Authenti
 
 #### Delete enrollment from the device
 
-The `deleteFromDevice` function doesn’t call the server, so it doesn’t require authorization. As a result, the function only deletes the enrollment from the device.
+The `deleteFromDevice` function doesn't call the server, so it doesn't require authorization. As a result, the function only deletes the enrollment from the device.
 
-> **Note:** Use `deleteFromDevice` with caution as the user can’t meet factor requirements for sign-in attempts after deletion. The server is unaware the authenticator no longer exists.
+> **Note:** Use `deleteFromDevice` with caution as the user can't meet factor requirements for sign-in attempts after deletion. The server is unaware the authenticator no longer exists.
 
 ```kotlin
 val enrollments: List<PushEnrollment> = authenticator.allEnrollments().getOrThrow()
@@ -217,7 +217,7 @@ To successfully obtain the maintenance token, you must first configure your Okta
 
 ##### Apps API usage sample
 
-Explore the [Configure and Use JWT Bearer Grant](https://god.gw.postman.com/run-collection/26510466-46beb74b-4755-4cf0-9847-845ccac1ccbd?action=collection%2Ffork&collection-url=entityId%3D26510466-46beb74b-4755-4cf0-9847-845ccac1ccbd%26entityType%3Dcollection%26workspaceId%3Daf55a245-1ac6-42d1-8af4-11e21e791e4e) Postman Collection for API examples of how to do the following:
+Explore the [Configure and Use JWT Bearer Grant](https://www.postman.com/okta-eng/workspace/okta-example-collections/collection/26510466-46beb74b-4755-4cf0-9847-845ccac1ccbd) Postman Collection for API examples of how to do the following:
 * Get your OIDC app object properties.
 * Update your OIDC app to include the `urn:ietf:params:oauth:grant-type:jwt-bearer` grant type.
 * Obtain a token with your OIDC app client ID.

@@ -1,76 +1,55 @@
-### 1: The user signs in
+### Your app displays the sign-in page
 
-The user signs in with the Sign-In Widget that was set up in the [Load the Widget](/docs/guides/oie-embedded-widget-use-case-load/nodejs/main/) use case. After the user enters their credentials and clicks **Next**, the Widget sends an identify request to Okta.
+Build a sign-in page that captures the user's name and password with the widget. Ensure that the page completes the steps described in [Load the widget](/docs/guides/oie-embedded-widget-use-case-load/nodejs/main/) when the page loads.
 
-<div class="half">
+### The user submits their username and password
 
-![Screenshot of basic Okta Sign-In Widget](/img/siw/okta-sign-in-javascript.png)
+When the user submits their credentials, the widget sends a request to Identity Engine to identify the user. This returns an interaction code to the sign-in redirect URI that you configured earlier.
 
-</div>
+### Your app handles an authentication success response
 
-### 2: Handle the callback from the Widget
+Handle the callback from Identity Engine to the sign-in redirect URI.
 
-Okta returns the Interaction Code to the **Sign-in redirect URI** specified in the [create new application step](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#create-a-new-application). The Interaction Code is accessed in the sample app from `login.js`.
+1. Check for any errors returned from Identity Engine. If the user correctly supplies their password, there are no errors.
+1. Call `authClient.idx.handleInteractionCodeRedirect` to exchange the code for the user's tokens from the authorization server, and then save the tokens for future use.
+1. Redirect the user to the default page after a successful sign-in attempt.
 
-```JavaScript
+The user has now signed in.
+
+```javascript
 router.get('/login/callback', async (req, res, next) => {
-  const url = req.protocol + '://' + req.get('host') + req.originalUrl;
-  const authClient = getAuthClient(req);
-  try {
-    // Exchange code for tokens
-    await authClient.idx.handleInteractionCodeRedirect(url);
-    // Redirect back to home page
-    res.redirect('/');
-  } catch (err) {
-    if (authClient.isInteractionRequiredError(err) === true) {
-      const { state } = req.query;
-      res.redirect('/login?state=' + state);
-      return;
-    }
+   const parsedUrl =
+      new URL(req.protocol + '://' + req.get('host') + req.originalUrl);
+   const { search, href } = parsedUrl;
+   const { state, otp } = req.query;
+   const authClient = getAuthClient(req);
 
-    next(err);
-  }
+   // error handling elided
+
+   try {
+      // Exchange code for tokens
+      await authClient.idx.handleInteractionCodeRedirect(href);
+
+      // Redirect back to home page
+      res.redirect('/');
+   } catch (err) {
+      next(err);
+   }
 });
 ```
 
-### 3: Request and store the tokens from Okta
+### Get the user profile information
 
-Use the interaction code component of the `login.js` page to request tokens and store them in the SDK.
+After the user signs in successfully, retrieve basic user information from session storage where it was saved in the previous step.
 
-```JavaScript
-  try {
-    // Exchange code for tokens
-    await authClient.idx.handleInteractionCodeRedirect(url);
-    // Redirect back to home page
-    res.redirect('/');
-  } catch (err) {
-    if (authClient.isInteractionRequiredError(err) === true) {
-      const { state } = req.query;
-      res.redirect('/login?state=' + state);
-      return;
-    }
-  }
-```
-
-### 4 (Optional): Get the user profile information
-
-Retrieve the user profile information, stored in the `attributes` variable, from the `home.js` file:
-
-```JavaScript
-const express = require('express');
-
-const router = express.Router();
-
+```javascript
 router.get('/', (req, res) => {
-  const userinfo = req.userContext && req.userContext.userinfo;
-  const attributes = userinfo ? Object.entries(userinfo) : [];
-  res.render('home', {
-    isLoggedIn: !!userinfo,
-    userinfo,
-    attributes
-  });
+   const userinfo = req.userContext && req.userContext.userinfo;
+   const attributes = userinfo ? Object.entries(userinfo) : [];
+   res.render('home', {
+      isLoggedIn: !!userinfo,
+      userinfo,
+      attributes
+   });
 });
-
-module.exports = router;
-
 ```

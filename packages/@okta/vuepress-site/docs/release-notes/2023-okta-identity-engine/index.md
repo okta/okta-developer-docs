@@ -8,6 +8,80 @@ title: Okta Identity Engine API release notes 2023
 
 > Help us improve our release notes by filling out this short [survey](https://surveys.okta.com/jfe/form/SV_4VEZcIGOX0TBgkC).
 
+## December
+
+### Weekly release 2023.12.2
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Bugs fixed in 2023.12.2](#bugs-fixed-in-2023-12-2) | January 4, 2024 |
+
+#### Bugs fixed in 2023.12.2
+
+* When the Single Logout (SLO) feature was enabled for an org, an extra `?` character was appended to sign-out redirect URIs (`post_logout_redirect_uri`). (OKTA-668618)
+
+* A `next` link header was returned when a list clients (`GET /oauth2/v1/clients`) request was made when there were no further clients to be fetched. (OKTA-658169)
+
+* When using [Okta Expression Language in Identity Engine](/docs/reference/okta-expression-language-in-identity-engine/#group-functions), the `EXACT` and `STARTS_WITH` operators couldn't be used with the `group.profile.name` key to return exact matches. (OKTA-636560)
+
+* Some free-trial orgs could send customized email templates. (OKTA-673562)
+
+### Weekly release 2023.12.1
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [DPoP support for Okta management APIs is EA in Preview](#dpop-support-for-okta-management-apis-is-ea-in-preview)| December 13, 2023 |
+
+#### DPoP support for Okta management APIs is EA in Preview
+
+You can now use OAuth 2.0 Demonstrating Proof-of-Possession (DPoP) access tokens to access Okta management APIs. See [Configure OAuth 2.0 Demonstrating Proof-of-Possession](/docs/guides/dpop/oktaresourceserver/main/).<!-- OKTA-673922 OKTA_RESOURCE_SERVER_DPOP_SUPPORT-->
+
+### Monthly release 2023.12.0
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Devices API: new expand query parameter option](#devices-api-new-expand-query-parameter-option) | December 6, 2023 |
+| [Org detail retrieval and user app listing for MyAccount API is GA in Production](#org-detail-retrieval-and-user-app-listing-for-myaccount-api-is-ga-in-production) | November 8, 2023 |
+| [MyAccount Authenticators API is GA in Preview](#myaccount-authenticators-api-is-ga-in-preview) | December 6, 2023 |
+| [Demonstrating Proof-of-Possession is GA in Production](#demonstrating-proof-of-possession-is-ga-in-production) | March 15, 2023 |
+| [New possession constraint property available for Policy API](#new-possession-constraint-property-available-for-policy-api) | December 6, 2023 |
+| [Bugs fixed in 2023.12.0](#bugs-fixed-in-2023012) | December 6, 2023 |
+
+#### Devices API: new expand query parameter option
+
+The Devices API now includes a `userSummary` option for the `expand` query parameter in the [List all Devices](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Device/#tag/Device/operation/listDevices!in=query&path=expand&t=request) endpoint (`GET /api/v1/devices`). This new option returns a summary list of associated users for the device in the `_embedded` property. Previously, only the `user` option was available, which returned a full-detailed list of associated users. This new option allows API users to receive a smaller subset of key information for each user, thus improving performance without compromising functionality.
+<!-- OKTA-666753 -->
+
+#### Org detail retrieval and user app listing for MyAccount API is GA in Production
+
+Two new endpoints for the MyAccount API (`/idp/myaccount/organization` and `/idp/myaccount/okta-applications`) allow customers to retrieve org details and get a full list of the current user's Okta apps. See [MyAccount API](https://developer.okta.com/docs/api/openapi/okta-myaccount/guides/overview/). <!-- OKTA-651405, OKTA-663355, OKTA- -->
+
+#### MyAccount Authenticators API is GA in Preview
+
+With the new MyAccount Authenticators API (`/idp/myaccount/authenticators/`), you can list enrolled and un-enrolled authenticator information. You can also access details of specific authenticators and enrollments. <!-- OKTA-670703 -->
+
+#### Demonstrating Proof-of-Possession is GA in Production
+
+OAuth 2.0 Demonstrating Proof-of-Possession (DPoP) is a security feature that adds an extra layer of protection to OAuth 2.0 access tokens. It enables the client to demonstrate that it possesses a particular key or secret associated with the access token. OAuth 2.0 DPoP can help prevent certain attacks, such as token theft or token replay attacks, where an attacker intercepts a legitimate access token and uses it to gain unauthorized access to a protected resource. See [Configure OAuth 2.0 Demonstrating Proof-of-Possession](/docs/guides/dpop/main/). <!-- OKTA-585491 -->
+
+#### New possession constraint property available for Policy API
+
+A new `userVerification` property is available for the `constraints` object of the [Policy API](/docs/reference/api/policy/#constraints). This setting can ensure the verification of a possession factor through a PIN or biometrics. <!-- OKTA-669846 -->
+
+#### Bugs fixed in 2023.12.0
+
+* DELETE requests to the `/idp/myaccount/emails` endpoint didn't delete verified secondary emails. (OKTA-637160)
+
+* PUT calls to `/policy/{id}` after migration to Okta Identity Engine returned a 400 Bad Request error message that wasn't clear. (OKTA-665573)
+
+* SSO failed when authorization-method references (AMRs) weren't included in SAML assertions. (OKTA-655746)
+
+* DPoP proofs signed using an Elliptic Curve key couldn't be used. (OKTA-669345)
+
+* Okta wasn't validating that DPoP JWTs were minted right before the DPoP proof was used. (OKTA-671124)
+
+* Password requests with an empty `salt` parameter value caused a `saltOrder` validation error. (OKTA-643212)
+
 ## November
 
 ### Weekly release 2023.11.1
@@ -877,7 +951,7 @@ You can add a new Smart Card authenticator that enables PIV to be used in authen
 
 #### Splunk edition support for Log Streaming integrations is GA in Preview
 
-The Spunk Cloud Log Streaming integration now supports GCP and GovCloud customers. You can set the Splunk edition parameter (`settings.edition`) to AWS (`aws`), GCP (`gcp`), or AWS GovCloud (`aws_govcloud`) in your Log Streaming integration. See [Splunk Cloud Settings properties](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/LogStream/#tag/LogStream/operation/createLogStream!path=1/settings&t=request). <!--OKTA-544449-->
+The Splunk Cloud Log Streaming integration now supports GCP and GovCloud customers. You can set the Splunk edition parameter (`settings.edition`) to AWS (`aws`), GCP (`gcp`), or AWS GovCloud (`aws_govcloud`) in your Log Streaming integration. See [Splunk Cloud Settings properties](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/LogStream/#tag/LogStream/operation/createLogStream!path=1/settings&t=request). <!--OKTA-544449-->
 
 #### Updated AWS EventBridge supported regions for Log Stream integrations
 

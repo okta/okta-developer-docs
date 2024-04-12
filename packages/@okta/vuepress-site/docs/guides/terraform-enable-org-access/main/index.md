@@ -18,7 +18,7 @@ Create an Okta application and credentials that Terraform uses to manage the obj
 
 * Familiarity with Terraform terms: configuration, resources, state, and commands. See [Terraform overview](/docs/guides/terraform-overview).
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
-* [Super admin permissions](https://help.okta.com/en-us/Content/Topics/Security/administrators-super-admin.htm?cshid=ext_superadmin)
+* [Super admin permissions](https://help.okta.com/okta_help.htm?id=ext_superadmin)
 * [OpenSSL command line program](https://github.com/openssl/openssl#download). Some operating systems already include `openssl` or `openssl-rsa`.
 * [A Terraform installation](https://www.terraform.io/)
 
@@ -91,6 +91,19 @@ If the key isn't in the right format, convert it to the correct format using the
 
 > **Note:** The file that contains the converted private key must begin with `-----BEGIN RSA PRIVATE KEY-----`. If not, try step two again.
 
+## Assign admin roles
+
+Limit the access of the service app to your org by assigning it one or more admin roles. This increases the security of your org by defining which resources are accessible.
+
+1. In the Admin Console, open the service app and select **Admin roles**.
+2. Click **Edit assignments**.
+3. In the **Complete the assignment** section, for **Role** select **Group Administrator**.
+4. Click **Save Changes**.
+
+> **Note:** The example Terraform configuration in this guide requires only the `Group Administrator` role. Create an appropriate custom role your own service app.
+
+For more information on admin roles, see [Assign admin roles to the OAuth 2.0 service app](/docs/guides/secure-oauth-between-orgs/main/#assign-admin-roles-to-the-oauth-2-0-service-app).
+
 ## Add credentials to Terraform
 
 Create a Terraform configuration that uses the credentials that you created earlier:
@@ -125,7 +138,7 @@ Create a Terraform configuration that uses the credentials that you created earl
    * `org_name`: Your Okta org name. For example, `exampleOrgName` from the full domain `https://exampleOrgName.okta.com`.
    * `base_url`: Your Okta org domain
    * `client_id`: The client ID of the service app that you created in an earlier step.
-   * `private_key`: Either the path to the private key file or the private key itself. Okta recommends storing the key in a separate location and using a secrets and encryption management system, such as Hashicorp Vault.
+   * `private_key`: Either the path to the private key file or the private key itself. Okta recommends storing the key in a separate location and using a secrets and encryption management system, such as HashiCorp Vault.
    * `scopes`: A list of scopes required by the Terraform configuration. This example uses the `okta.groups.manage` scope.
 
 For more information on declaring the Okta Provider in your Terraform configuration, see the [Okta Provider documentation](https://registry.terraform.io/providers/okta/okta/latest/docs).
@@ -145,7 +158,7 @@ Check whether Terraform can manage Okta objects by running a configuration. This
 1. In a terminal, go to the directory that contains `main.tf`.
 1. Run `terraform init` to initialize the Terraform configuration.
 1. Run `terraform plan` to preview the changes to your Okta org.
-1. Run `terraform apply` to apply the changes to your org. Enter “yes” when prompted to confirm.
+1. Run `terraform apply` to apply the changes to your org. Enter "yes" when prompted to confirm.
 1. In your Okta org, check **Directory** > **Groups** to view the group created by Terraform. If the group exists, you successfully authorized Terraform to access your org.
 
 The `terraform.tfstate` file in the Terraform configuration directory stores the group information. Terraform uses this information when you modify and apply your configurations:

@@ -4,9 +4,7 @@ excerpt: Learn how to easily implement a telephony inline hook
 layout: Guides
 ---
 
-<ApiLifecycle access="ie" /><br>
-
-This guide provides an example of an Okta telephony inline hook. This example uses [Glitch](https://glitch.com/) as an external service and uses Twilio as the telephony provider that receives and responds to SMS and voice inline hook calls.
+This guide provides an example of an Okta telephony inline hook. This guide uses [Glitch](https://glitch.com/) as an external service and Twilio as a telephony provider that receives and responds to SMS and voice inline hook calls. While this guide uses Twilio, the process explained in this guide should be similar for any other telephony provider.
 
 ---
 
@@ -30,39 +28,38 @@ This guide provides an example of an Okta telephony inline hook. This example us
 
 ## Before you begin
 
-* Read the information and perform any required steps in the [Common Hook set-up steps](https://developer.okta.com/docs/guides/common-hook-set-up-steps/nodejs/main/) page first. This includes remixing (copying) the Glitch.com project for this guide and understanding how Glitch projects are configured and used with hooks.
+* Review the information and required steps in the [Common Hook set-up steps](https://developer.okta.com/docs/guides/common-hook-set-up-steps/nodejs/main/) page first. This includes remixing (copying) the Glitch.com project used in this guide and understanding how Glitch projects are configured and used with hooks.
 
 > **Note:** You can also use Amazon Web Services Lambda Serverless Framework as an external service. See [Setting Up Serverless Framework With AWS](https://www.serverless.com/framework/docs/getting-started).
 
-* Make sure that you have an active phone number in Twilio with SMS and MMS capabilities.
+* Make sure you have a user in your org with a Phone authenticator enrolled. See [MFA Usage report](https://help.okta.com/okta_help.htm?type=oie&id=ext-mfa-usage).
 
-* Create a [TwiML bin](https://www.twilio.com/docs/runtime/tutorials/twiml-bins#create-a-new-twiml-bin) in your Twilio account for use with Voice (Call) messages. You need the handler URL that is automatically generated to use as a variable. Additionally, place an `otp` tag key in double brackets in the prepopulated XML. This tag key directly references the dynamic `otp` used in this exercise. For example:
+* Make sure you have an active phone number in Twilio with SMS and MMS capabilities.
+
+* Create a [TwiML bin](https://www.twilio.com/docs/runtime/tutorials/twiml-bins#create-a-new-twiml-bin) in your Twilio account for use with voice call messages. You'll use the automatically generated handler URL as a variable. Additionally, include an `otp` tag key within double brackets in the prepopulated XML. This tag key references the dynamic `otp` used later in this exercise. For example:
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
     <Response><Say>Your code is {{otp}}</Say></Response>
     ```
 
-* Make sure that you have a user in your org that already has the [Phone authentication enrolled](https://help.okta.com/okta_help.htm?type=oie&id=ext-mfa-usage) with Okta.
-
 ## About telephony inline hook implementation
 
-You can customize a telephony Service Provider for your org by using an Okta telephony inline hook. A telephony inline hook allows you to integrate your own custom code into Okta flows that send SMS or Voice (Call) messages (except Okta Verify enrollment). You can integrate this hook with enrollment, authentication, and recovery flows that involve the Phone authenticator. While the one-time passcode (OTP) is sent to the requester, Okta calls your external service to deliver the OTP, and the external service responds with commands that indicate success or failure in delivering the OTP.
+The Okta telephony inline hook allows you to integrate your own custom code into Okta flows that send SMS or voice call messages (except Okta Verify enrollment). You can integrate this hook with enrollment, authentication, and recovery flows that involve phone authenticators. Okta uses your external provider to deliver the one-time passcode (OTP) to the Requester. The provider can respond with commands that indicate if the delivery was successful.
 
 > **Note:** An org can have only one active telephony inline hook.
-
-In the following example, the external service code parses requests from Okta and responds to Okta with commands that indicate whether the SMS or Voice (Call) message was sent successfully.
 
 At a high-level, the following workflow occurs:
 
 * A user attempts to sign in to Okta. The Okta org has an authentication requirement of a Phone authenticator. The user selects **Receive a code via SMS** or **Receive a voice call instead**.
-* Okta generates a one-time passcode (OTP) and looks up whether any telephony hooks are configured and active for the org.
-* A telephony inline hook is triggered and sends a request to the provider to have them deliver the OTP.
+* Okta generates a one-time passcode (OTP) and verifies if a telephony hook is configured and active for the org.
+* A telephony inline hook is triggered and sends a request to a provider to deliver the OTP.
 * The external service evaluates the request, and if the request headers are valid, a request is sent to the telephony provider.
+* The external service evaluates the request. If the request headers are valid, a request is sent to a telephony provider.
+* Okta recieves a response that indicates if the OTP was sent successfully.
 
-    > **Note:** Although you can have only one active telephony inline hook in your org at a time, logic in the external web service can direct requests to different providers based on conditions that you specify. For example, you can send the request to different telephony providers based on the country where the request originates.
-
-* The provider-specific response code and transaction ID are mapped to generic response categories, for provider-independent processing.
+### Multiple providers
+Although each org can have only one active telephony inline hook, you aren't limited to a single telephony provider. Orgs sometimes build conditional logic into their web service to control how requests are sent to multiple telephony providers. This might be done to protect against provider failures, or to route messages depending on a user's country or region.
 
 ## Configure your org to use the Phone authenticator
 
@@ -71,10 +68,10 @@ Verify that your org has the Phone authenticator added and enabled for **Authent
 1. In the Admin Console, go to **Security** > **Authenticators**.
 1. On the **Setup** tab, verify that the Phone authenticator is listed and that **Authentication, Recovery** is enabled in the **Used for** column.
 1. Select **Edit** from the **Actions** menu and verify that both **Voice call** and **SMS** are selected as how the verification messages are sent.
-1. Verify that **Authentication and recovery** is selected as how the Phone authenticator is used.
+1. Verify that the **Authentication and recovery** option is selected.
 1. Click **Save** if made any changes.
 
-> **Note:** If the Phone authentication isn't already added, click **Add Authenticator** and then click **Add** on the Phone tile and make sure that you select the options mentioned earlier and click **Add**.
+> **Note:** If a Phone authenticator isn't already added, click **Add Authenticator** and then click **Add** on the Phone tile and make sure that you select the options mentioned earlier and click **Add**.
 
 ## Update an authentication policy
 
@@ -102,7 +99,10 @@ Update the **Okta Dashboard** [preset authentication policy](https://help.okta.c
 
 ## Activate the telephony inline hook in Okta
 
-You must activate the telephony inline hook in your Okta org. Activating the telephony inline hook registers the hook with the Okta org and associates it with your external service.
+You must activate the telephony inline hook in your Okta org. Activating the telephony inline hook registers the hook with the Okta org and associates it with your external service. 
+
+Alternatively, you can use the Inline Hooks Management API to create an inline hook. See [Inline Hooks Management API
+](/docs/reference/api/inline-hooks/#create-inline-hook).
 
 1. Go to the **Workflow** > **Inline Hooks** page.
 1. Click **Add Inline Hook** and select **Telephony** from the dropdown list.
@@ -111,13 +111,11 @@ You must activate the telephony inline hook in your Okta org. Activating the tel
 1. <HookBasicAuthStep/> <HookOAuthNote/>
 1. Click **Save**. The telephony inline hook is now set up with an active status.
 
-> **Note:** You can also set up an inline hook using the API. See [Inline Hooks Management API](/docs/reference/api/inline-hooks/#create-inline-hook).
-
 ## Add Twilio credentials to the external service
 
 Copy the account SID and auth token from your Twilio account and add them as variables in the `.env` file in the Glitch project.
 
-> **Note:** Ensure that you have the required default code and packages in your project. See [Common Hook set-up steps](https://developer.okta.com/docs/guides/common-hook-set-up-steps/nodejs/main/).
+> **Note:** Make sure you have the required default code and packages in your project. See [Common Hook set-up steps](https://developer.okta.com/docs/guides/common-hook-set-up-steps/nodejs/main/).
 
 1. From the left navigation in the Glitch project, click **.env**.
 1. In the first blank variable line that appears, add **ACCOUNT_SID** and then paste your account SID as the value on the right.
@@ -129,7 +127,7 @@ Copy the account SID and auth token from your Twilio account and add them as var
 
 ## Parse the telephony inline hook request
 
-The external service in this scenario requires code to handle the telephony inline hook request from Okta. Use the [Okta Telephony Inline Hook](https://glitch.com/~okta-inlinehook-telephonyhook) Glitch example to either build or copy the code (remix on Glitch) that parses the telephony inline hook call.
+In this example, the external service requires code to handle the telephony inline hook request from Okta. Use the [Okta Telephony Inline Hook](https://glitch.com/~okta-inlinehook-telephonyhook) Glitch example to either build or copy the code (remix on Glitch) that parses the telephony inline hook call.
 
 From the telephony inline hook request, the following code retrieves the value of the user's phone number from the `data.messageProfile` object. The code parses the Okta request body for the value of `phoneNumber` and stores it in the variable `userPhoneNumber`.
 
@@ -141,36 +139,36 @@ The following code retrieves the value of the OTP code sent by Okta from the `da
 
 ## Response sent to the user
 
-The following code is used to send the SMS or Voice (Call) to the user:
+The following code is used to send the SMS or voice call to the user:
 
 <StackSelector snippet="sendsmsmakecall" noSelector/>
 
 ## Send response to Okta
 
-The way to tell Okta that the SMS or Voice (Call) message was successfully sent is by returning a `commands` object in the body of your HTTPS response. The `commands` object is an array that allows you to send multiple commands. The two required properties are `type` and `value`. The`value` property is where you specify the status of your telephony transaction and other relevant transaction metadata. The action type is `com.okta.telephony.action`.
+To tell Okta that the SMS or voice call message was successfully sent, return a `commands` object in the body of your HTTPS response. This object is an array that allows you to send multiple commands. The two required properties are `type` and `value`. The`value` property is where you specify the status of your telephony transaction and other relevant transaction metadata. The action type is `com.okta.telephony.action`.
 
 <StackSelector snippet="responsetookta" noSelector/>
 
 ## Preview and test
 
-The external service example is now ready with code to receive and respond to an Okta call. The Okta org is now set up to call the external service using a telephony inline hook. In your Okta org, you can preview the request and response JSON directly from the Admin Console. You can also test the code directly in your org.
+The external service example is now ready with code to receive and respond to an Okta call. The Okta org is set up to call the external service using a telephony inline hook. In your Okta org, preview the JSON-formatted request and response directly from the Admin Console.
 
 ### Preview
 
 To preview the telephony inline hook:
 
 1. In the Admin Console, go to **Workflow** > **Inline Hooks**.
-1. Select the telephony inline hook name that you just set up (in this example, **Twilio Telephony Hook**).
+1. Select the telephony inline hook you set up (in this example, **Twilio Telephony Hook**).
 1. Select the **Preview** tab.
 1. Define a value for `data.userProfile` by selecting a user in your org from the **data.userProfile** dropdown list.
-1. Define a value for `requestType` by selecting the flow that you want to test. In this example, select **MFA Verification**.
+1. Define a value for `requestType` by selecting a flow to test. In this example, select **MFA Verification**.
 
-    > **Note**: If your user doesn't have a phone number in their profile, change the phone number to one that you want to test in the **Preview example inline hook request** section. Click **Edit** and then add a value for the `phoneNumber` in the `messageProfile` section of the request (for example, `"+15555551212"`).
+    > **Note**: If your user hasn't enrolled a phone authenticator, you can manually specify a phone number in the **Preview example inline hook request** section. Click **Edit** and add a value for the `phoneNumber` in the `messageProfile` section of the request (for example, `"+15555551212"`).
 
-1. From the **Preview example inline hook request** section, click **Generate Request**. You should see the user's request information in JSON format that is sent to the external service.
-1. From the **View Service's Response** section, click **View Response**. You should see the response from your external service in JSON format. Upon a successful response, an SMS code or Voice (Call) message with the code is sent to the specified user. If there's an error, the error message appears in the response.
+1. From the **Preview example inline hook request** section, click **Generate Request**. The request sent to the external service appears in JSON format.
+1. From the **View Service's Response** section, click **View Response**. A response from the external service appears in JSON format. Upon a successful response, an SMS code or voice call message with the code is sent to the associated user. Upon an error, the error message is returned in the response.
 
-    > **Note**: If the external service fails, an OTP is still delivered to the user through the default Okta telephony provider. If the failure happens when previewing the hook, Okta doesn't generate an OTP.
+    > **Note**: If your external service fails, an OTP is still delivered to the user through the default Okta telephony provider. If the failure happens when previewing the hook, Okta doesn't generate an OTP.
 
 ### Test
 

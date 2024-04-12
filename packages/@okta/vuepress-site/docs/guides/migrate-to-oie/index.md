@@ -10,7 +10,7 @@ layout: Guides
 
 ## Enable Okta Identity Engine for your organization
 
-To upgrade to the Identity Engine, contact your account manager. If you do not have an account manager, email <oie@okta.com> for more information.
+To upgrade to the Identity Engine, contact your account manager. If you don’t have an account manager, email <oie@okta.com> for more information.
 
 ## Enable interaction code grant
 
@@ -22,7 +22,7 @@ After the Identity Engine is enabled for your org, it should become active for O
 2. Select an authorization server and click the edit icon.
 3. Click the **Access Policies** tab.
 4. Edit the **Default Policy Rule**.
-5. In the **IF Grant type is** section, click the **Interaction Code** check box.
+5. In the **IF Grant type is** section, click the **Interaction Code** checkbox.
 
 ### Enable interaction code grant on an application
 
@@ -30,7 +30,7 @@ After the Identity Engine is enabled for your org, it should become active for O
 2. Click an application in the list.
 3. Click the **General** tab on the application detail.
 4. Click edit on the **General Settings** panel.
-5. In the **Allowed grant types** section, click the **Interaction Code** check box.
+5. In the **Allowed grant types** section, click the **Interaction Code** checkbox.
 
 ## Web clients
 
@@ -42,14 +42,14 @@ For most authentication flows that involve redirecting to Okta, there should be 
 
 For most users of the [custom domain](/docs/guides/custom-url-domain/) feature, there are no other changes needed. The default template detects and uses the Identity Engine automatically.
 
-However, if you have [modified the template](/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget) in certain ways (such as to perform redirects or set cookies), these modifications may not be compatible with the Identity Engine. In particular, these methods and objects won't work with the Identity Engine:
+[Modifying the template](/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget) in certain ways (such as to perform redirects or set cookies) might not be compatible with the Identity Engine. In particular, these methods and objects don't work with the Identity Engine:
 
 - `setCookieAndRedirect`
 - `sessionToken`
 
-In the default template, the `success` callback from `renderEl` is being handled by `OktaUtil.completeLogin`. This method correctly handles the authentication flow, and we recommend using it.
+In the default template, `OktaUtil.completeLogin` handles the `success` callback from `renderEl`. This method correctly handles the authentication flow, and Okta recommends using it.
 
-For reference, here is the default template:
+For reference, here’s the default template:
 
 ```html
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
@@ -94,11 +94,11 @@ For reference, here is the default template:
 
 ### Embedded Sign-In Widget
 
-> **Note:** "Embedded" means the Sign-In Widget is included directly in your application through npm module or script tag. The `@okta/okta-signin-widget` version 5.2.0 or above is needed to enable the interaction code flow.
+> **Note:** "Embedded" means the Sign-In Widget is included directly in your application through an npm module or script tag. The `@okta/okta-signin-widget` version 5.2.0 or above is needed to enable the interaction code flow.
 
-Set the option `useInteractionCodeFlow` to `true` on the object passed to the Sign-In Widget constructor. This step enables the Identity Engine for the Widget. Both the authorization server and the application must have the [interaction code](#enable-interaction-code-grant) grant type enabled.
+Set the option `useInteractionCodeFlow` to `true` on the object passed to the Sign-In Widget constructor. This step enables the Identity Engine for the widget. Both the authorization server and the application must have the [interaction code](#enable-interaction-code-grant) grant type enabled.
 
-> **Note:** Your code may break if it is calling the `renderEl` method and expects `sessionToken` or `session.setCookieAndRedirect` on the response object. Instead of `renderEl`, we recommend calling the `showSignInToGetTokens` method. This method receives and returns tokens without any browser redirect.
+> **Note:** Your code may break if it’s calling the `renderEl` method and expects `sessionToken` or `session.setCookieAndRedirect` on the response object. Instead of `renderEl`, Okta recommends calling the `showSignInToGetTokens` method. This method receives and returns tokens without any browser redirect.
 
 ```javascript
 var signIn = new OktaSignIn(
@@ -135,7 +135,7 @@ signIn.showSignInToGetTokens({
 
 ### Embedded authentication
 
-Javascript clients that do not wish to use the Sign-in Widget can use the [okta-idx-js](https://github.com/okta/okta-idx-js) and [okta-auth-js](https://github.com/okta/okta-auth-js) SDKs to authenticate using the interaction code flow.
+Javascript clients that don’t want to use the Sign-In Widget can use the [okta-idx-js](https://github.com/okta/okta-idx-js) and [okta-auth-js](https://github.com/okta/okta-auth-js) SDKs to authenticate using the interaction code flow.
 
 ```javascript
 // Get PKCE params

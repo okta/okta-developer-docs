@@ -1,0 +1,1 @@
+This guide describes the steps to build a DPoP token minted by Okta and to build a separate DPoP proof for accessing Okta resources. To build a DPoP token for use when requesting access to other resource servers, select **Non-Okta resource server** from the dropdown menu on the right.

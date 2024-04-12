@@ -5,7 +5,7 @@
 set -o errexit -o pipefail
 
 # Constants
-readonly url=https://artifacts.aue1e.internal/artifactory/okta-all/com/okta/monolith/core.exception-utils.api/%5BRELEASE%5D/core.exception-utils.api-%5BRELEASE%5D-metadata.jar
+readonly url=https://artifactory.es.atko.services/artifactory/okta-all/com/okta/monolith/core.exception-utils.api/%5BRELEASE%5D/core.exception-utils.api-%5BRELEASE%5D-metadata.jar
 readonly archive=/tmp/api-errors.zip
 readonly file=error-codes.json
 readonly dir=packages/@okta/vuepress-site/data

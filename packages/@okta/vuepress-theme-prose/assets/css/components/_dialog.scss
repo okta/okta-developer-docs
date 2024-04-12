@@ -35,7 +35,7 @@
   width: 100%;
   max-width: 1296px;
   height: 95vh;
-  max-height: 697px;
+  max-height: 725px;
   overflow-y: auto;
 
   box-shadow: 0 1px 4px rgb(29 29 33 / 0.08), 0 4px 10px rgb(29 29 33 / 0.08), 0 8px 30px rgb(29 29 33 /  0.1);
@@ -45,6 +45,15 @@
   animation-name: fade-in-down;
   animation-duration: 1s;
   will-change: transform;
+
+  .dont-show-again-checkbox {
+    margin-top: 20px;
+  }
+
+  .dont-show-again-checkbox input,
+  label {
+    cursor: pointer;
+  }
 
   @media (prefers-reduced-motion: reduce) {
     animation: none;

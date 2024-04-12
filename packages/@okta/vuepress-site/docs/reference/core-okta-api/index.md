@@ -127,9 +127,7 @@ We recommend that you use a template like the following to format the `User-Agen
 
 Okta recommends making test [authentication requests](/docs/reference/api/authn/#primary-authentication) and then checking for the related entries in the [System Log](/docs/reference/api/system-log/#useragent-object). Testing helps you ensure that Okta can parse both the `OS` and `Browser` fields from the `User-Agent` header that is passed by your application.
 
-If the `OS` and/or `Browser` fields come back as `Unknown` in the System Log, ensure that certain string values (see below) are present in the `User-Agent` string so that the OS and Browser are detected:
-
-> **Note:** For some Chrome examples, see [User-Agent strings](https://developer.chrome.com/multidevice/user-agent).
+If the `OS` and/or `Browser` fields come back as `Unknown` in the System Log, ensure that certain string values (see below) are present in the `User-Agent` string so that the OS and browser are detected.
 
 ###### Pass a hint about the browser
 
@@ -190,7 +188,7 @@ See [Error Codes](/docs/reference/error-codes/) for a list of API error codes.
 
 Okta APIs support two authentication options:
 
-* [OAuth 2.0 and OpenID Connect](#oauth-20-and-openid-connect-authentication)
+* [OAuth 2.0 and OpenID Connect](#oauth-2-0-and-openid-connect-authentication)
 * [API token](#api-token-authentication)
 
 #### OAuth 2.0 and OpenID Connect authentication
@@ -201,6 +199,8 @@ Refer to the following guides for OAuth 2.0 and OpenID Connect authentication im
 * For user access token requests, see [Implement OAuth for Okta](/docs/guides/implement-oauth-for-okta/).
 * For service access token requests, see [Implement OAuth for Okta with service app](/docs/guides/implement-oauth-for-okta-serviceapp/).
 * For partner service apps in the Okta Integration Network (OIN), see [Build an API service integration](/docs/guides/build-api-integration/main/).
+
+To set up OAuth 2.0 and OpenID Connect authentication for testing purposes, see [Test the Okta REST APIs with Postman](/docs/reference/rest/).
 
 #### API token authentication
 
@@ -364,7 +364,9 @@ X-Okta-Request-Id: reqVy8wsvmBQN27h4soUE3ZEnA
 
 [Cross-Origin Resource Sharing (CORS)](http://en.wikipedia.org/wiki/Cross-Origin_Resource_Sharing) is a mechanism that allows a web page to make an AJAX call by using [XMLHttpRequest (XHR)](http://en.wikipedia.org/wiki/XMLHttpRequest) to a domain that is different from the one where the script was loaded. Such cross-domain requests would otherwise be forbidden by web browsers, in accordance with the [same origin security policy](http://en.wikipedia.org/wiki/Same_origin_policy). CORS defines a [standardized](http://www.w3.org/TR/cors/) way in which the browser and the server can interact to determine whether to allow the cross-origin request.
 
-In Okta, CORS allows JavaScript, which is hosted on your websites, to make an XHR to the Okta API with the Okta session cookie. Every website origin must be explicitly permitted through the Admin Console for CORS. See [Enabling CORS](/docs/guides/enable-cors/) for more information on how to allow your website to make cross-origin requests.
+In Okta, CORS allows JavaScript, which is hosted on your websites, to make an XHR to the Okta API with a token. See [OpenID Connect & OAuth 2.0](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/).
+
+Every website origin must be explicitly permitted through the Admin Console for CORS. See [Enabling CORS](https://developer.okta.com/docs/guides/enable-cors/main/) for more information on how to allow your website to make cross-origin requests.
 
 > **Caution:** Only grant access to specific origins (websites) that you control and trust to access the Okta API.
 

@@ -24,9 +24,6 @@ tiles:
       - name: Node.js
         link: /docs/guides/sign-into-web-app-redirect/node-express/main/
         image: /img/homepage/stackselectors/nodejs.png
-      - name: PHP
-        link: /docs/guides/sign-into-web-app-redirect/php/main/
-        image: /img/homepage/stackselectors/php.png
       - name: Python
         link: /docs/guides/sign-into-web-app-redirect/python/main/
         image: /img/homepage/stackselectors/python.png
@@ -72,9 +69,6 @@ tiles:
       - name: Node.js
         link: /docs/guides/protect-your-api/nodeexpress/main/
         image: /img/homepage/stackselectors/nodejs.png
-      - name: PHP
-        link: /docs/guides/protect-your-api/php/main/
-        image: /img/homepage/stackselectors/php.png
       - name: Python
         link: /docs/guides/protect-your-api/python/main/
         image: /img/homepage/stackselectors/python.png

@@ -1,15 +1,30 @@
-1. Make sure that you have [Go installed](https://go.dev/dl/).
-
-2. Create a new directory to store your project inside, and then `cd` inside it.
-
-3. Initialize your module using `go mod init`, for example:
+1. Open a terminal and create a directory `test-api` for your project.
+1. Initialize your module using `go mod init`.
 
    ```shell
-   go mod init okta/go-quickstart
+   cd test-api
+   go mod init test-api
    ```
 
-4. Create a simple starter structure for your project. Have a look at our [sample structure](https://github.com/okta-samples/okta-go-api-sample).
+1. Create a simple starter structure for your project:
 
-> **Note**: This guide uses Golang version 1.17.6 and Gin 1.7.7.
+   * server > controller.go
+   * server > init.go
+   * server > middleware.go
+   * main.go
+   * .okta.env
 
-> **Note**: If you're using the Okta CLI, you can also run `okta start go-api` to create a sample app. This command creates an OIDC app in Okta, downloads the [okta-go-api-sample](https://github.com/okta-samples/okta-go-api-sample), and configures it to work with the OIDC app.
+1. Add this code to `main.go`:
+
+   ```go
+   package main
+
+   import "test-api/server"
+
+   func main() {
+      // Init app
+      server.Init()
+   }
+   ```
+
+Use the [sample code](https://github.com/okta-samples/okta-go-api-sample) to follow along.

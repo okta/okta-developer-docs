@@ -3,7 +3,9 @@ const overviewPages = require('./scripts/build-overview-pages');
 const findLatestWidgetVersion = require('./scripts/findLatestWidgetVersion');
 const convertReplacementStrings = require('./scripts/convert-replacement-strings');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const Path = require('path')
+const Path = require('path');
+const axios = require('axios');
+const { parseString } = require('xml2js');
 const signInWidgetMajorVersion = 7;
 
 const projectRootDir = Path.resolve(__dirname, '../../../../');
@@ -45,11 +47,12 @@ module.exports = ctx => ({
     ['link', { rel: 'stylesheet', href: 'https://static.cloud.coveo.com/searchui/v2.8959/14/css/CoveoFullSearch.min.css', integrity: 'sha512-DzuDVtX/Dud12HycdAsm2k9D1UQ8DU7WOj7cBRnSsOKQbKfkI94g0VM9hplM0BkQ0VXdDiQYU9GvUzMmw2Khaw==', crossorigin: 'anonymous' }],
     ['script', { class: 'coveo-script', src: 'https://static.cloud.coveo.com/searchui/v2.8959/14/js/CoveoJsSearch.Lazy.min.js', integrity: 'sha512-RV1EooPduQhwl0jz+hmjBw/nAtfeXNm6Dm/hlCe5OR1jAlG4RErUeYfX1jaaM88H8DiyCJDzEWZkOR0Q13DtrA==', crossorigin: 'anonymous', defer: true}],
     ['script', { src: 'https://geoip-js.com/js/apis/geoip2/v2.1/geoip2.js'}],
-    ['link', { rel: 'apple-touch-icon', sizes:'180x180', href: '/favicon/apple-touch-icon.png' }],
-    ['link', { rel: 'icon', type:"image/png", sizes:"32x32",  href: '/favicon/favicon-32x32.png' }],
-    ['link', { rel: 'icon', type:"image/png", sizes:"16x16",  href: '/favicon/favicon-16x16.png' }],
+    ['link', { rel: 'apple-touch-icon', sizes:'180x180', href: '/favicon/favicon.png' }],
+    ['link', { rel: 'icon', type:"image/png", href: '/favicon/favicon.png' }],
+    ['link', { rel: 'icon', type:"image/svg", sizes:"32x32",  href: '/favicon/favicon.svg' }],
+    ['link', { rel: 'icon', type:"image/svg", sizes:"16x16",  href: '/favicon/favicon.svg' }],
     ['link', { rel: 'manifest',  href: '/favicon/manifest.json' }],
-    ['link', { rel: 'mask-icon',  href: '/favicon/safari-pinned-tab.svg' }],
+    ['link', { rel: 'mask-icon',  href: '/favicon/favicon.png' }],
     ['link', { rel: 'preload', href: 'https://use.typekit.net/osg6paw.css', as: 'style', crossorigin: true}],
     ['link', { rel: 'stylesheet', href: 'https://use.typekit.net/osg6paw.css', crossorigin: true}],
     ['meta', { name: 'msapplication-config',  content: '/favicon/browserconfig.xml' }],
@@ -157,6 +160,7 @@ module.exports = ctx => ({
     },
 
     primary_left_nav: [
+      { text: 'Customer Identity Cloud', link: 'https://developer.auth0.com' },
       { text: 'Community',
         children: [
           { text: 'Forum', link: 'https://devforum.okta.com' },
@@ -215,7 +219,8 @@ module.exports = ctx => ({
           { text: 'Integrate with Okta', link: '/okta-integration-network/' },
           { text: 'Pricing', link: 'https://www.okta.com/pricing/#workforce-identity-pricing' },
           { text: '3rd-party notes', link: '/3rd_party_notices/' },
-          { text: 'Customer Identity Cloud', link: 'https://auth0.com/developers' },
+           { text: 'Customer Identity Cloud', link: 'https://auth0.com/developers' },
+          { text: 'Archive', link:'/archive/' },
         ]
       },
       websites: {
@@ -326,7 +331,7 @@ module.exports = ctx => ({
     ...overviewPages()
   ],
 
-  extendPageData ($page) {
+  async extendPageData ($page) {
     const {
       _filePath,           // file's absolute path
       _computed,           // access the client global computed mixins at build time, e.g _computed.$localePath.
@@ -345,6 +350,28 @@ module.exports = ctx => ({
         $page.redir = `/docs/guides/${found.guide}/${found.mainFramework}/${found.sections[0]}/`
       } else {
         $page.redir = `/docs/guides/${found.guide}/${found.sections[0]}/`
+      }
+    }
+    
+    frontmatter.canonicalUrl = `https://developer.okta.com${path}`;
+
+    if (path === '/') {
+      $page.newsFeedDataJson = null;
+      let response;
+      try {
+        response = await axios.get('https://developer.okta.com/feed.xml');     
+      } catch {
+        $page.newsFeedDataJson = null;
+      }
+
+      if (response && response.data) {
+        parseString(response.data, { compact: true, spaces: 4 }, (err, jsonObj) => {
+          if (err) {
+            return;
+          }
+        
+          $page.newsFeedDataJson = jsonObj;
+        });
       }
     }
 

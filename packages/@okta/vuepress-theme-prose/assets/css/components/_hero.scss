@@ -1,3 +1,21 @@
+.hero-container {
+  background: linear-gradient(
+    86.51deg,
+    var(--c-blue-700) -5.67%,
+    var(--c-blue-550) 25.9%,
+    var(--c-lightgray-400) 74.73%
+  );
+}
+
+.dark-theme .hero-container {
+  background: linear-gradient(
+    86.71deg,
+    var(--c-gray-950) -3.57%,
+    var(--c-green-300) 45.07%,
+    var(--c-lightgray-400) 88.9%
+  );
+}
+
 .hero {
   --hero-space-y: 30px;
 
@@ -18,13 +36,9 @@
   @include media(">desktop") {
     --hero-space-y: 52px;
 
-    background: url("/img/hero-bg-blue.svg"), linear-gradient(
-      86.51deg,
-      var(--c-blue-700) -5.67%,
-      var(--c-blue-550) 25.9%,
-      var(--c-lightgray-400) 74.73%
-    );
-    background-position: right center;
+    background: url("/img/hero-bg-blue.svg");
+    background-position: right;
+    background-size: 63%;
     background-repeat: no-repeat;
   }
 }
@@ -37,13 +51,9 @@
   );
 
   @include media(">desktop") {
-    background: url("/img/hero-bg-green.svg"), linear-gradient(
-      86.71deg,
-      var(--c-gray-950) -3.57%,
-      var(--c-green-300) 45.07%,
-      var(--c-lightgray-400) 88.9%
-    );
-    background-position: right center;
+    background: url("/img/hero-bg-green.svg");
+    background-position: right;
+    background-size: 63%;
     background-repeat: no-repeat;
   }
 }

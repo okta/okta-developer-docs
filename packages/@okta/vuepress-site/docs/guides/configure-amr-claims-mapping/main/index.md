@@ -10,16 +10,16 @@ This guide explains how to configure an OpenID Connect Identity Provider to send
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Know the purpose of AMR claims
 * Configure your OpenID Connect Identity Provider (IdP) to send AMR claims during SSO
 
-**What you need**
+#### What you need
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
-* An existing OpenID Connect Identity Provider (IdP) that’s able to send AMR claims to Okta. This can be another Okta org (org2org) or a third party IdP.
-* The IdP AMR Claims Mapping feature enabled for your org. Contact [Okta Support](mailto:support@okta.com) to enable this EA feature.
+* An existing OpenID Connect Identity Provider (IdP) that's able to send AMR claims to Okta. This can be another Okta org (org2org) or a third party IdP.
+* The **IdP AMR Claims Mapping** feature enabled for your org. Contact [Okta Support](https://support.okta.com) to enable this EA feature.
 
 ---
 
@@ -29,11 +29,15 @@ Authentication Method Reference (AMR) claims mapping allows an admin to configur
 
 AMR claims provide important context to Okta during policy evaluation. For example, AMR claims give Okta a better understanding of which factors were used by the external IdP to verify the user's identity. This creates a more seamless and secure user experience, reduces friction, and boosts productivity.
 
+### Okta-to-Okta orgs and AMR claims
+
+When you configure AMR claims in Okta-to-Okta orgs, there are some configuration steps to consider. To enable AMR claims in the Okta org that you connect to the IdP org, you must enable **Use standard AMR value format** in the IdP org to send AMR claim values in the correct format. See the [configuration steps](#okta-to-okta) in this guide.
+
 ## AMR claims mapping flow
 
 <div class="three-quarter">
 
-![Flow diagram that displays the back and forth between the user, user agent, authorization server, and the Identity Provider](/img/auth/amr-claims-mapping-oidc.png)
+![Flow diagram that displays the communication between the user, user agent, authorization server, and the Identity Provider](/img/auth/amr-claims-mapping-oidc.png)
 
 </div>
 
@@ -45,13 +49,13 @@ AMR claims provide important context to Okta during policy evaluation. For examp
 
     > **Note:** The AMR claims are stored in an Okta session and considered during policy evaluation.
 
-6. Okta redirects the user to the browser. The user isn't challenged for MFA if the policy requirements are met by the factors used by the Identity Provider.
+6. Okta redirects the user to the browser. The user isn't challenged for MFA if the factors used by the Identity Provider meet policy requirements.
 7. The browser sends a request to the Okta `/token` endpoint.
 8. Okta responds with the access token and the AMR claims in the ID token.
 
 ## Configure the IdP for AMR claims
 
-Before you configure Okta to accept AMR claims, it’s important to first configure the IdP to send the claims correctly. Every IdP is different. Okta expects the IdP to pass the AMR claims in a specific way, depending on the supported federation protocol.
+Before you configure Okta to accept AMR claims, it's important to first configure the IdP to send the claims correctly. Every IdP is different. Okta expects the IdP to pass the AMR claims in a specific way, depending on the supported federation protocol.
 
 ### OpenID Connect Identity Provider
 
@@ -93,9 +97,43 @@ The `amr` property is a JSON array of strings that are identifiers for [authenti
 }
 ```
 
+### Supported AMR values by authenticator type
+
+The following table describes the AMR values that Okta supports:
+
+* **Authenticator key**: Identifies an authenticator that you can add or remove using the Admin Console (**Security** > **Authenticators**).
+* **Authenticator type**: Describes the type of authenticator. These attributes are especially useful in situations where there are apps and security keys being used together in an authentication flow.
+* **Method type**: Defines the security method used by the authenticator.
+* **AMR value**: Lists the supported AMR values for each authenticator.
+* **Factor class**: Describes the type of authenticator factor.
+
+| Authenticator key            | Authenticator type        | Method type       | AMR value                             | Factor class          |
+| :--------------------------- | :------------------------ | :---------------- | :------------------------------------ | :-------------------- |
+| `okta_password`                | `password`                  | `password`          | `pwd`                                   | Knowledge             |
+| `security_question`            | `security_question`         | `security_question` | `kba`                                   | Knowledge             |
+| `okta_email`                   | `email`                     | `email`             | `email`                                 | Possession            |
+| `phone_number`                 | `phone`                     | `sms`               | `sms`                                   | Possession            |
+|                              |                           | `voice`             | `tel`                                   | Possession            |
+| `duo`                         | `app`                       | `duo`               | `duo`                                   | Possession            |
+| `symantec_vip`                 | `app`                       | `otp`               | `symantec`                              | Possession            |
+| `google_otp`                   | `app`                       | `otp`               | `google_otp`                            | Possession            |
+| `okta_verify`                  | `app`                       | `totp`              | `okta_verify`, `otp`                      | Possession            |
+|                              |                           | `push`              | `okta_verify`, `swk`                      | Possession, Inherence |
+|                              |                           | `signed_nonce`      | `okta_verify`, `phr`                      | Possession, Inherence |
+| `custom_app`                   | `app`                       | `push`              | `swk`                                  | Possession, Inherence |
+| `webauthn`                     | `security_key`              | `webauthn`          | `pop`                                   | Possession, Inherence |
+| `onprem_mfa`                   | `security_key`              | `otp`               | `oauth_otp`                             | Possession            |
+| `rsa_token`                    | `security_key`              |                   | `rsa`                                   | Possession            |
+| `yubikey_token`                | `security_key`              |                   | `yubikey`                               | Possession            |
+| `custom_otp`                   | `security_key`              |                   | `otp`                                   | Possession            |
+| `external_idp`                 | `federated`                 | `idp`               | `fed`                                   | Possession            |
+| `smart_card_idp`               | `federated`                 | `cert`              | `sc` + `swk`, more options: `hwk` (replaces `swk`), `pin`,`mfa`    | Possession, Knowledge |
+
 ### Okta-to-Okta
 
-Okta-to-Okta (org2org), also known as hub and spoke, refers to a deployment model where the IdP and Service Provider (SP) are both Okta orgs. Use the [Add an External Identity Provider guide for Okta-to-Okta](/docs/guides/add-an-external-idp/oktatookta/main/) to configure your Okta-to-Okta orgs for AMR claims mapping.
+Okta-to-Okta (org2org), also known as hub and spoke, refers to a deployment model where the IdP and Service Provider (SP) are both Okta orgs. Use the [Add an External Identity Provider guide for Okta-to-Okta](/docs/guides/add-an-external-idp/oktatookta/main/) to configure Okta-to-Okta orgs for AMR claims mapping.
+
+<AMROktatoOkta/>
 
 ### Custom OpenID Connect apps
 
@@ -118,9 +156,8 @@ An **Access denied** error occurs because of:
 
 * Improper policy configuration
 * Improper attribute/claim format from the IdP
-* Improper IdP configuration (the IdP didn’t challenge a factor that the sign-on policy requires.)
+* Improper IdP configuration (the IdP didn't challenge a factor that the sign-on policy requires.)
 
-## Limitations
+## Limitation
 
-* Okta doesn’t pass auth requirements to the IdP.
-* Okta isn’t able to remediate when the IdP isn’t able to challenge the user for the required factors.
+Okta doesn't pass auth requirements to the IdP.

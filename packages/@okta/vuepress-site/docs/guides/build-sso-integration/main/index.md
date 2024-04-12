@@ -11,13 +11,13 @@ This guide teaches you how to integrate your federated SSO application with Okta
 
 ---
 
-**Learning outcomes**
+#### Learning outcome
 
 Create and test an SSO app integration for OIN submission.
 
-**What you need**
+#### What you need
 
-* [Okta Developer Edition organization](https://developer.okta.com/signup/)
+* [Okta Developer Edition org](https://developer.okta.com/signup/)
 * An app to integrate SSO with Okta
 
 ---
@@ -26,7 +26,7 @@ Create and test an SSO app integration for OIN submission.
 
 Single Sign-On (SSO) is an authentication method that enables end users to sign in to multiple applications (apps) with one set of credentials. If you have customers that use Okta as an Identity Provider, you want to publish your SSO app integration to the OIN. By having your integration in the OIN catalog, your customers can easily configure SSO for your app. See [Overview of Single Sign-On in the OIN](/docs/guides/oin-sso-overview) for all the benefits of having your integration in the OIN catalog.
 
-To create an SSO integration for the OIN, first sign up for a free [Okta developer-edition org](https://developer.okta.com/signup/). Next, select the type of SSO protocol that you want to implement. Okta supports two SSO standards for your integration:
+To create an SSO integration for the OIN, first sign up for a free [Okta Developer Edition org](https://developer.okta.com/signup/). Next, select the type of SSO protocol that you want to implement. Okta supports two SSO standards for your integration:
 
 * **OpenID Connect (OIDC)** (preferred)
 * **Security Assertion Markup Language (SAML)**
@@ -45,68 +45,63 @@ Okta recommends the redirect authentication deployment model if your situation m
 * [Redirect authentication guides](/docs/guides/redirect-authentication/)
 * [Embedded authentication guides](/docs/guides/embedded-authentication/)
 
-## Prepare your integration
+## Build your integration
 
 <StackSnippet snippet="prep" />
 
 ## Create your integration in Okta
 
-This section assumes that you've built the SSO integration in your app.
+> **Note**: This section assumes that you already built the SSO integration in your app.
 
-After you've built your SSO integration, you can use the Application Integration Wizard (AIW) in the Admin Console to create your app integration instance. This instance provides you with client credentials or metadata for you to test your SSO flows.
+Instructions for adding your SSO integration into Okta depend on if you want to provide a public or private integration:
 
-> **Note:** Creating your app integration instance doesn't automatically make it available in the [OIN](https://www.okta.com/integrations/). After you've tested your integration, you need to [submit it](/docs/guides/submit-app-overview/) to the OIN team for verification and publication.
+<div class="three-quarters">
 
-1. Sign in to your [developer-edition Okta org](/login/) as a user with administrative privileges.
-1. Go to **Applications** > **Applications** in the Admin Console.
-1. Click **Create App Integration**.
+![Public or private integration decision](/img/oin/publicOrPrivateIntegration.png)
 
-<StackSnippet snippet="create" />
+</div>
 
-## Specify your integration settings
+<!--
+Source link: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?type=design&node-id=4481-74679&mode=design&t=lnUeadtDVve0T0Nh-0
+-->
 
-This portion of the guide takes you through the steps for configuring your specific SSO integration using the Okta Admin Console.
+### Submit an OIN integration
 
-After you create your integration instance in the [Create your integration in Okta](#create-your-integration-in-okta) section, the main settings page appears for your new integration in the Admin Console. Specify **General Settings** and **Sign On** options, and assign the integration to users in your org. Click **Edit** if you need to change any of the options, and **Save** when you've made your changes.
+If you want to publish your integration in the Okta Integration Network (OIN), follow the instructions in [OIN Wizard: Submit an SSO integration](/docs/guides/submit-oin-app/). This guide shows you how to use the OIN Wizard to:
 
-<StackSnippet snippet="settings" />
+* Add required integration artifacts and metadata.
+* Create an app integration instance for testing.
+* Test your SSO flows.
+* Submit your integration for OIN verification.
 
-## Test your integration
+Having your SSO integration public in the OIN catalog provides you with exposure to all Okta customers.
 
-This portion of the guide takes you through the steps required to test your integration.
+> **Notes:**
+> * Creating an app integration instance doesn't automatically make it available in the [OIN](https://www.okta.com/integrations/). After you test your integration, [submit it](/docs/guides/submit-oin-app/-/main/#submit-your-integration) to the OIN team for verification and publication.
+> * The OIN Wizard doesn't support new SSO integrations with more than three app instance variables or advanced SAML features.
 
-### Assign users
+### Add a private integration
 
-First, you must assign your integration to one or more test users in your org:
+If you want your integration to exist only in your Okta org, follow the instructions in [Add a private SSO integration](/docs/guides/add-private-app/). This guide shows you how to use the Application Integration Wizard (AIW) in the Admin Console to:
 
-1. Click the **Assignments** tab.
-1. Click **Assign** and then select either **Assign to People** or **Assign to Groups**.
-1. Enter the appropriate people or groups that you want to have Single Sign-On into your application, and then click **Assign** for each.
-1. Verify the user-specific attributes for any people that you add, and then select **Save and Go Back**.
-1. Click **Done**.
+* Create your app integration instance.
+* Test your SSO flows.
 
-### Test Single Sign-On
+Your org users can access your app after SSO is configured.
 
-1. Sign out of your Okta org. Click **Sign out** in the upper-right corner of the Admin Console.
-1. Sign in to the Okta End-User Dashboard as the regular user that was assigned the integration.
+The following are common use cases for adding a private SSO integration:
 
-   > **Note:** If you sign in as a non-admin user to your Okta org from a browser, the End-User Dashboard appears. To access the End-User Dashboard from a mobile device, see [Okta End-User-Dashboard](https://help.okta.com/okta_help.htm?type=eu&id=ext_user_dashboard_overview).
-
-1. Click the Okta tile for the integration and confirm that the user is signed in to your app.
-
-<StackSnippet snippet="test" />
+* I want to test my SSO integration in my Developer Edition org. I have no immediate plans to have it publicly available.
+* I want my SSO integration to only be available in the org I'm using.
+* I have a SAML integration with more than three instance variables and advanced SAML features that aren't included in the OIN Wizard.
 
 ## Next steps
 
-After you complete testing your app integration, you can start the submission process to have your app integration included in the [Okta Integration Network](https://www.okta.com/okta-integration-network/) catalog:
-* Review the [OIN submission requirements](/docs/guides/submit-app-prereq/) before starting the submission process.
+If you want to publish your integration, start the submission process to have your SSO integration included in the OIN:
+
 * Review the [Publish an OIN integration](/docs/guides/submit-app-overview/) overview to understand the submission process for publishing an integration.
-* Follow the [Submit an SSO integration](/docs/guides/submit-sso-app/) guide to submit your SSO integration.
+* Follow the [OIN Wizard: Submit an SSO integration](/docs/guides/submit-oin-app/) guide to submit your SSO integration.
 
 ## See also
 
-* [Okta SAML FAQs](/docs/concepts/saml/faqs/)
-* [Okta Developer Forum: OIDC](https://devforum.okta.com/search?q=oidc)
-* [Stack Overflow: Okta OIDC](https://stackoverflow.com/search?q=oidc+okta)
-* [Okta Developer Forum: SAML](https://devforum.okta.com/search?q=saml)
-* [Stack Overflow: Okta SAML](https://stackoverflow.com/search?q=saml+okta)
+<StackSnippet snippet="see-also" />

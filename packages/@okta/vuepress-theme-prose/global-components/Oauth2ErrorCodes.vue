@@ -259,7 +259,7 @@
 
   .error-codes .error-code h4 {
     clear: left;
-    margin: 25px 0 0;
+    margin: 32px 0 0;
     padding: 6px 10px;
     overflow: hidden;
 
@@ -268,6 +268,7 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     color: $link_color;
+    scroll-padding-top: 160px;
   }
 
   .error-codes .error-code h4 .title-error-code {

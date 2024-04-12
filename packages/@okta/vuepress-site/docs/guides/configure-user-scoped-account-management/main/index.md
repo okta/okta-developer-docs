@@ -17,17 +17,18 @@ This guide explains how to set up end user-driven account management in your org
 <!-- > **Note:** This guide covers a narrow set of use cases that call the MyAccount API. Most use cases are covered by the SDKs. See -->
 
 ---
-**Learning outcomes**
+
+#### Learning outcomes
 
 * Set up your org with the required scopes to call the MyAccount API.
 * Allow your end users to call the API to update their profile and enroll another authenticator after they first sign in.
 
-**What you need**
+#### What you need
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
 * Access to the latest version of the MyAccount API: `/idp/myaccount`
 * An existing OpenID Connect client app in Okta for testing in Okta
-* [Postman client](https://www.getpostman.com/downloads/) to test requests. See [Get Started with the Okta APIs](https://developer.okta.com/code/rest/) for information on setting up Postman.
+* [Postman client](https://www.getpostman.com/downloads/) to test requests. See [Get Started with the Okta APIs](https://developer.okta.com/docs/reference/rest/) for information on setting up Postman.
 * The MyAccount API Postman Collection that allows you to test the API calls that are described in this guide. Click **Run in Postman** to add the collection to your Postman workspace.
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/9cb68745dbf85ae3a871)
@@ -52,14 +53,6 @@ A valid API version in the `Accept` header is required to access the API. Curren
 
 ```bash
 Accept: application/json; okta-version=1.0.0
-```
-
-## Access Token assurance
-
-MyAccount operations that create, update, or delete resources require access tokens that are 15 minutes old or younger. API calls with access tokens older than 15 minutes require re-authentication. If you don't reauthenticate the token, the API returns a 403 error with the following content in the header:
-
-```bash
-www-authenticate: Bearer realm="IdpMyAccountAPI", error="insufficient_authentication_context", error_description="The access token requires additional assurance to access the resource", max_age=900
 ```
 
 ## Grant the required scopes

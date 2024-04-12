@@ -4,16 +4,16 @@ excerpt: A list of set-up steps that are common to all hook implementations.
 layout: Guides
 ---
 
-This guide explains common set-up steps when implementing an Okta Event or Inline hook, including using Glitch.com as an example external service, adding authentication to the hook calls, JSON body parsing in the external service code, and troubleshooting steps.
+This guide explains common set-up steps when you implement an Okta event or inline hook. The steps include using Glitch.com as an example external service. This guide also includes adding authentication to the hook calls, JSON body parsing in the external service code, and troubleshooting steps.
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
-* Understand common set up steps for implementing an Okta event or inline hook.
-* Understand how to use these steps when running the example hook code in the accompanying guides.
+* Understand how to implement an Okta event or inline hook.
+* Understand how to use the set-up steps when running the example hook code in the accompanying guides.
 
-**What you need**
+#### What you need
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup/)
 * [Glitch.com](https://glitch.com) project or account
@@ -22,11 +22,11 @@ This guide explains common set-up steps when implementing an Okta Event or Inlin
 
 ## About the common hook set-up steps
 
-Okta event and inline hooks use outbound calls, which are received and parsed by an external service to implement additional custom functionality for your Okta implementation.
+Okta event and inline hooks use outbound calls, which an external service receives and parses to implement more custom functionality for your Okta implementation.
 
-A secure web server and application is a requirement to implement an Okta event or inline hook, and is referred to as the external service in these guides.
+A secure web server and application is a requirement to implement an Okta event or inline hook. The secure web server is referred to as the external service in these guides.
 
-For instructional purposes, the following guides for event hooks and inline hook types use the third-party site [Glitch](https://glitch.com), which functions as an online external service. You can use the example code to quickly implement the hook and preview the functionality.
+For instructional purposes, the following guides for event hooks and inline hook types use the third-party site [Glitch](https://glitch.com). Glitch functions as an online external service. You can use the example code to quickly implement the hook and preview the functionality.
 
 > **Note:** You can also use your own secure web server to implement the sample code.
 
@@ -38,7 +38,7 @@ The event hook and inline hook examples in this section use Glitch projects to c
 
 [Glitch](https://www.glitch.com) is a browser-based development environment that can build a full-stack web application online. You can use their template applications to implement an external service that receives the outbound calls from Okta orgs.
 
-Start with a new Node.js project built on the Express framework or a Node.js SQLite database application and use the code snippets in the following examples to implement the example hooks. Copy (**Remix on Glitch**) the Glitch projects for each hook in the following sections to have a working code sample.
+Start with a new Node.js project built on the Express framework or a Node.js SQLite database application. Then, use the code snippets in the following examples to implement the example hooks. Copy (**Remix on Glitch**) the Glitch projects for each hook in the following sections to have a useable code sample.
 
 <StackSnippet snippet="setup"/>
 
@@ -46,8 +46,8 @@ Start with a new Node.js project built on the Express framework or a Node.js SQL
 
 The Glitch project templates don't have any body-parsing code. To include this content:
 
-* Add the body-parser `npm` package to your Glitch project
-* Add the code snippet below
+* Add the body-parser `npm` package to your Glitch project.
+* Add the code snippet.
 
 If you remix a Glitch inline hook project, the packages and code are already included.
 
@@ -63,13 +63,13 @@ To add the `npm` packages:
 
 ## Add authentication method
 
-Okta inline hooks can use header authentication as well as OAuth 2.0 authentication to secure the calls from Okta to your external service. The inline hook Glitch projects use Basic Authentication. See the following sections to implement Basic Authentication or to use the OAuth 2.0 client secret or the private key method.
+Okta inline hooks can use header authentication and OAuth 2.0 authentication to secure the calls from Okta to your external service. The inline hook Glitch projects use Basic Authentication. See the following sections to implement Basic Authentication or to use the OAuth 2.0 client secret or the private key method.
 
 ### HTTP header: Basic Authentication
 
-The inline hook guides use [HTTP Basic Authentication](/books/api-security/authn/api-authentication-options/#http-basic-authentication) to authenticate the Okta inline hook API calls received by your Glitch external service. In your Okta org, you must encode the Glitch project username and password credentials in Base64 and add them as the **Authentication secret** when you activate the inline hook. Ensure that you add the scheme `Basic ` (including a space) as a prefix to the **Authentication secret** value.
+The inline hook guides use [HTTP Basic Authentication](/books/api-security/authn/api-authentication-options/#http-basic-authentication) to authenticate the Okta inline hook API calls received by your Glitch external service. In your Okta org, you must Base64-encode the Glitch project username and password credentials. Then, add the encoded credentials as the **Authentication secret** when you activate the inline hook. Ensure that you add the scheme `Basic ` (including a space) as a prefix to the **Authentication secret** value.
 
-For example, the credential pair used in the inline hook examples is `admin:supersecret`, which encoded in Base64 is `YWRtaW46c3VwZXJzZWNyZXQ=`. Adding the scheme to this value creates the inline hook **Authentication secret** value: `Basic YWRtaW46c3VwZXJzZWNyZXQ=`.
+For example, the credential pair used in the inline hook examples is `admin:supersecret`, which when Base64-encoded is `YWRtaW46c3VwZXJzZWNyZXQ=`. Adding the scheme to this value creates the inline hook **Authentication secret** value: `Basic YWRtaW46c3VwZXJzZWNyZXQ=`.
 
 To add HTTP Basic Authentication to your external service:
 
@@ -96,7 +96,7 @@ The OAuth 2.0 Client Secret method sends a signed JWT to your external service. 
 
 Before you can implement authorization, you need to register your app in Okta by creating an app integration from the Admin Console.
 
-1. In the Admin Console, navigate to **Applications** > **Applications**.
+1. In the Admin Console, go to **Applications** > **Applications**.
 1. Click **Create App Integration**.
 1. Select **API Services** as the Sign-in method.
 1. Click **Next**.
@@ -184,7 +184,7 @@ The OAuth 2.0 private key method sends a signed JWT to your external service. To
 
 Before you can implement authorization, you need to register your app in Okta by creating an app integration from the Admin Console.
 
-1. In the Admin Console, navigate to **Applications** > **Applications**.
+1. In the Admin Console, go to **Applications** > **Applications**.
 1. Click **Create App Integration**.
 1. Select **API Services** as the Sign-in method.
 1. Click **Next**.
@@ -263,7 +263,7 @@ An [Inline Hook Preview](https://help.okta.com/okta_help.htm?type=oie&id=ext-pre
 * Telephony inline hook
 * Token inline hook
 
-Before enabling the hook, the preview tab can run a sample Okta request call and receive the external service response. Review the request and response formats to make sure responses are accurate.
+Before enabling the hook, the preview tab can run a sample Okta request call and receive the external service response. Review the request and response formats to make sure the responses are accurate.
 
 An [Event Hook Preview](https://help.okta.com/okta_help.htm?id=ext-event-hooks-preview) tab is also available for event hooks and displays the JSON payload for the selected Event Type. The preview tab can confirm a successful delivery of the request.
 

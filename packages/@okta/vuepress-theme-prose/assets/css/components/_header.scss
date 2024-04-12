@@ -51,6 +51,13 @@ header.page-header .header--links {
   justify-content: space-between;
   padding-right: 35px;
   padding-left: 45px;
+
+  ul.menu--items > li.expandable > a:after,
+  ul.menu--items > li.expandable > span:not(.mobile-docs-menu):after {
+    top: 13px;
+
+    background-image: url("/img/icons/chevron-down-white.svg");
+  }
 }
 
 header.page-header .header--links ul.menu--items + ul.menu--items {
@@ -191,8 +198,8 @@ header.page-header .link:focus {
   }
 
   header.page-header .header--logo > img {
-    width: 101px;
-    height: 13px;
+    width: 180px;
+    height: 28px;
   }
 
   header.page-header ul.menu--items > li + li {
@@ -204,8 +211,12 @@ header.page-header .link:focus {
     max-width: 168px;
   }
 
-  header.page-header .search--wrapper .SearchBox .CoveoOmnibox.magic-box .magic-box-input input {
+  header.page-header .menu--slideout.opened .search--wrapper .SearchBox .CoveoOmnibox.magic-box .magic-box-input input {
     padding-left: 30px;
+  }
+
+  header.page-header .search--wrapper .SearchBox .CoveoOmnibox.magic-box .magic-box-input input {
+    padding-left: 40px;
   }
 
   header.page-header .search--wrapper .SearchBox .search--form .CoveoSearchButton {
@@ -229,7 +240,7 @@ header.page-header .link:focus {
   }
 
   header.page-header .link--small {
-    font-size: 12px;
+    font-size: 16px;
   }
 }
 
@@ -254,7 +265,7 @@ header.page-header .link:focus {
 
   header.page-header .menu--slideout {
     position: fixed;
-    top: 70px;
+    top: 90px;
     right: 0;
     bottom: 0;
     left: 0;
@@ -398,6 +409,18 @@ header.page-header .link:focus {
     transform: rotate(90deg);
   }
 
+  header.page-header .menu--slideout .menu--mobile a {
+    font-size: 14px;
+  }
+
+  header.page-header .menu--slideout .menu--mobile .external-link {
+    line-height: 20px;
+
+    .tree-nav-link {
+      color: var(--c-text-darker) !important;
+    }
+  }
+
   header.page-header .sign-up--button {
     margin: 0 32px 0 0;
     padding: 0 16px 0 0;
@@ -431,7 +454,7 @@ header.page-header .link:focus {
   }
 
   header.page-header .menu--slideout {
-    top: 60px;
+    top: 90px;
   }
 
   header.page-header .sign-up--button {

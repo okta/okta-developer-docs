@@ -117,14 +117,18 @@ Host tenants in a single org using Universal Directory (UD)
 
 ### Summary
 
-This configuration hosts all tenants in a single org. Customers have two
-ways to do this:
+This configuration hosts all tenants in a single org. Customers can do this
+by rolling their own custom solution. Since a tenant doesn't exist as a separate
+entity within the org, this method requires abstracting tenants through the use of
+the org’s users and user groups.
+
+<!-- This configuration hosts all tenants in a single org. Customers have one
+way to do this:
 
 * Roll your own custom solution
-* Use the [okta-dac](https://docs.idp.rocks/) project
+* Use the [okta-dac](https://docs.idp.rocks/) project-->
 
-Since a tenant doesn't exist as a separate entity within the org, both methods
-require abstracting tenants through the use of the org’s users and user groups.
+
 
 ### When to choose this configuration
 
@@ -143,7 +147,7 @@ Okta customers should choose this configuration when:
 
 ### How tenants are built
 
-In this configuration there is one org for all tenants. For example, Acme Bank
+In this configuration, there's one org for all tenants. For example, Acme Bank
 configures one org for all of their individual customers, business customers, and
 partners. Regardless of how this configuration is implemented, tenants are
 typically created using groups. A group or collection of groups represent the
@@ -151,7 +155,7 @@ users in a tenant. Groups are assigned to applications that give application
 access to all users within that group.
 
 Acme Bank offers products, website portals, and other wealth management apps
-to their customers and partners. Below is a diagram that lays out
+to their customers and partners. The following diagram lays out
 how these products, users, and groups would be organized within the Okta org.
 
 <div class="three-quarter">
@@ -192,6 +196,15 @@ Admin users manage users of a tenant. Their responsibilities include:
 
 These users can create new tenants and tenant admins. They are used by
 the Okta customer to manage tenants in their org.
+
+<!--
+
+The DAC project site is no longer accessible. DAC will be incorporated
+into the Okta product at a future date. After its incorporation, this
+section will be readded with new content relative to that newly incorporated
+DAC project. This section has been commented out (instead of removed) to give
+guidance on how the content should be structured and formatted when the new DAC
+is ready.
 
 ### The okta-dac project
 
@@ -247,13 +260,13 @@ A dashboard used to access applications and products
 
 #### Admin console
 
-A [console](/docs/concepts/okta-organizations/#admin-console)
+A [console](/docs/concepts/okta-organizations/#admin-console) is
 used to manage user authentication settings and application access.
 Although you can manage users and groups through the Admin Console,
 it isn't recommended when using okta-dac due to the project's specific
 naming conventions and unique organizational constraints.
 
-The diagram below illustrates how these components work together:
+The following diagram illustrates how these components work together:
 
 <div class="three-quarter">
 
@@ -289,6 +302,7 @@ Solution Provider to integrate this code within your existing portal.
 #### More information
 
 See [okta-dac](https://docs.idp.rocks/) for more information.
+-->
 
 ## Configuration 2
 
@@ -307,10 +321,11 @@ Reasons why organizations choose this configuration include:
 isolated when placed into separate orgs. This isolation becomes relevant
 when user data is required to reside in a specific region (for
 example, government regulations).
-* **Strong delegated admin support:** Although there is delegated admin
+* **Strong delegated admin support:**
+ <!-- Although there's delegated admin
 support in [okta-dac](#the-okta-dac-project), the number of delegated
-responsibilities that are supported is limited. Splitting customers and
-partners into separate orgs offer the maximum level of delegated
+responsibilities that are supported is limited.-->
+Splitting customers and partners into separate orgs offers the maximum level of delegated
 responsibility support.
 * **Out-of-the-box duplicate name support:** This configuration offers
 native support for duplicate usernames, since duplicate usernames can exist
@@ -346,14 +361,16 @@ services to spokes in a centralized way. In addition, hubs can route users
 to different spokes for authentication access to other spoke’s specific
 applications.
 
-#### Connecting the spokes to the hubs
+#### Connect the spokes to the hub
 
-Using the Org2Org connector, spokes can add users and give access to shared
+Using the Org2Org app integration, spokes can add users and give access to shared
 applications and services through the hub.
+
+> **Note:** The Org2Org app integration isn't available in Okta Developer-Edition orgs, so you can't use a developer org as a spoke org. If you need to test this feature in your Developer-Edition org, contact your Okta account team.
 
 #### Diagram
 
-A diagram illustrating the hub-and-spoke configuration is shown below:
+The following diagram illustrates the hub-and-spoke configuration:
 
 <div class="three-quarter">
 
@@ -378,7 +395,7 @@ Okta supports a hybrid configuration that mixes the setups described in both the
 first and second configurations. How this configuration is set up varies from
 customer to customer. One example of this hybrid configuration lays out orgs
 in a hub-and-spoke pattern like configuration 2. A spoke on this configuration
-can be composed of single or multiple tenants. See the diagram below for an
+can be composed of single or multiple tenants. See the following diagram for an
 illustrated example of this setup:
 
 <div class="three-quarter">
@@ -403,13 +420,11 @@ Host tenants in a single org not using Universal Directory
 
 In this configuration, the customer assumes responsibility for managing
 users, groups, and application access outside of the Okta org. Okta’s Universal
-Directory (UD) isn't used to store the tenants’ users and groups. See below
-for an illustrated example of this
-configuration.
+Directory (UD) isn't used to store the tenants’ users and groups. See the following illustrated example of this configuration:
 
 <div class="three-quarter">
 
-![Custom centric configuration](/img/multi-tenancy/custom-centric-configuration.png)
+![Custom-centric configuration](/img/multi-tenancy/custom-centric-configuration.png)
 
 </div>
 
@@ -419,25 +434,25 @@ configuration.
 
 Additional multi-tenancy resources are below:
 
-* [The Secret Features of Okta Access Gateway: Part 1: Multi-data Center and Multi-Tenancy](https://www.okta.com/blog/2020/02/the-secret-features-of-okta-access-gateway-part-1-multi-data-center-and-multi-tenancy-1/)
+* [The Secret Features of Okta Access Gateway: Part 1: Multi-data center and multi-tenancy](https://www.okta.com/blog/2020/02/the-secret-features-of-okta-access-gateway-part-1-multi-data-center-and-multi-tenancy-1/)
 
 ### Relevant terminology
 
 #### Org
 
-The Okta identity solution is centered around an org. An org is a private container
+The Okta identity solution is centered on an org. An org is a private container
 of data that holds all the resources necessary to manage user authentication.
-It is comprised of three main objects:
+It's composed of three main objects:
 
 * Applications
 * Groups
 * People (Users)
 
 The Okta org is also a place that stores lists of available Identity Providers
-(IdPs), factors (for MFAs), password policies, and other security related
+(IdPs), factors (for MFAs), password policies, and other security-related
 features.
 
-The diagram below illustrates a simplified view of the Okta org.
+The following diagram illustrates a simplified view of the Okta org.
 
 <div class="half">
 

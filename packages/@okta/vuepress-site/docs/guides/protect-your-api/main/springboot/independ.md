@@ -1,6 +1,6 @@
-The Spring Initializer automatically sets up the required dependencies.
+Spring Initializr automatically sets up the required dependencies.
 
-If you are working on a non-Spring Initializer app, you need to manually add the Okta Spring Boot Starter dependency to your project:
+If you are working on a non-Spring Initializr app, you need to manually add the Okta Spring Boot Starter dependency to your project:
 
 ```xml
 <dependency>

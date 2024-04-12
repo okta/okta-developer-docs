@@ -29,6 +29,39 @@
         </slot>
       </a>
     </router-link>
+    
+    <a
+      v-if="entityType === types.smartLink"
+      :href="link.path"
+      :target="link.target ? link.target : '_blank'"
+      class="tree-nav-link"
+    >
+      <span class="text-holder">
+        {{ link.title }}
+
+        <svg
+          v-if="!link.target || link.target === '_blank'"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
+          focusable="false"
+          x="0px"
+          y="0px"
+          viewBox="0 0 100 100"
+          width="15"
+          height="15"
+          class="icon outbound"
+        >
+          <path 
+            fill="var(--c-sidebar-external-link)"
+            d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"
+          />
+          <polygon
+            fill="var(--c-sidebar-external-link)"
+            points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"
+          />
+        </svg>
+      </span>
+    </a>
 
     <div v-if="entityType === types.blankDivider">
       <div class="blank-divider">
@@ -102,12 +135,13 @@
 </template>
 
 <script>
-import { guideFromPath } from "../util/guides"
+import { guideFromPath } from "../util/guides";
+import _ from 'lodash';
 
 export default {
   name: "SidebarItem",
   components: {
-    SidebarItem: () => import("../components/SidebarItem.vue"),
+    SidebarItem: () => import("../components/SidebarItem.vue")
   },
   inject: ["appContext", "stackSelectorData"],
   props: ["link"],
@@ -118,13 +152,17 @@ export default {
       types: {
         link: 'link',
         parent: 'parent',
-        blankDivider: 'blankDivider'
+        blankDivider: 'blankDivider',
+        smartLink: 'smartLink'
       }
     };
   },
   computed:{
     entityType: function(){
       if (this.link.hasOwnProperty('path')) {
+        if (this.link.path.toLowerCase().startsWith('http') || this.link.path.toLowerCase().startsWith('www.')) {
+          return this.types.smartLink;
+        }
         if (this.link.path == 'empty') {
           return this.types.blankDivider
         }
@@ -192,7 +230,9 @@ export default {
       });
       let lastExpandedSection = document.querySelectorAll('.tree-nav li.subnav-active > .sections');
       if (lastExpandedSection.length) {
-        lastExpandedSection[lastExpandedSection.length - 1].classList.add('bordered');
+        _.forEach(lastExpandedSection, (sec) => {
+          sec.classList.add('bordered');
+        });
       }
     },
     isCurrentPage(link) {

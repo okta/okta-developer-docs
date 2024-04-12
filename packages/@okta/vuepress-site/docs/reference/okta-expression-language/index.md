@@ -9,29 +9,33 @@ meta:
 
 This document details the features and syntax of the Okta Expression Language (EL). You can use this language throughout the Okta Admin Console and API for the Okta Classic Engine and Okta Identity Engine.
 
-> **Note:** If you're using the Okta Expression Language for the [authentication policies](/docs/guides/configure-signon-policy/main/) of the Identity Engine, or for [Access Certification campaigns](https://help.okta.com/okta_help.htm?id=ext-el-eg) or Entitlement Management policies for Okta Identity Governance, use the features and syntax of the [Okta Expression Language in Okta Identity Engine](/docs/reference/okta-expression-language-in-identity-engine/).
+> **Note:** If you're using EL for the [authentication policies](/docs/guides/configure-signon-policy/main/) of the Identity Engine, [Access Certification campaigns](https://help.okta.com/okta_help.htm?id=ext-el-eg), or Entitlement Management policies for Okta Identity Governance, use the features and syntax of the [Okta Expression Language in Okta Identity Engine](/docs/reference/okta-expression-language-in-identity-engine/).
 
 Okta Expression Language is based on [SpEL](http://docs.spring.io/spring/docs/3.0.x/reference/expressions.html) and uses a subset of the functionalities offered by SpEL.
 
-Expressions allow you to reference, transform, and combine attributes before you store them on a User Profile or before passing them to an application for authentication or provisioning. For example, you might use a custom expression to create a username by stripping `@company.com` from an email address. Or, you might combine the `firstName` and `lastName` attributes into a single `displayName` attribute.
+Expressions allow you to reference, transform, and combine attributes before storing them on a user profile or passing them to an app for authentication or provisioning. For example, you might use a custom expression to create a username by stripping `@company.com` from an email address. Or, you might combine the `firstName` and `lastName` attributes into a single `displayName` attribute.
 
 ## Reference user attributes
 
-When you create an Okta expression, you can reference any attribute that lives on an Okta User Profile or Application User Profile.
+When you create an Okta expression, you can reference any attribute that lives on an Okta user profile or app user profile.
 
-### Okta User Profile
+### Okta user profile
 
-Every user has an Okta User Profile. The Okta User Profile is the central source of truth for the core attributes of a User. To reference an Okta User Profile attribute, specify `user.` and the attribute variable name. For a list of core User Profile attributes, see [Default Profile properties](/docs/reference/api/users/#default-profile-properties).
+Every user has an Okta user profile. The Okta user profile is the central source of truth for the core attributes of a user. To reference an Okta user profile attribute, specify `user.` and the attribute variable name. For a list of core user profile attributes, see [Default profile properties](/docs/reference/api/users/#default-profile-properties).
 
 | Syntax            | Definitions                                                                   | examples                                                       |
 | --------          | ----------                                                                    | ------------                                                   |
-| `user.$attribute` | `user` reference to the Okta User<br>`$attribute` the attribute variable name | user.firstName<br>user.lastName<br>user.login<br>user.email |
+| `user.$attribute` | `user` reference to the Okta user<br>`$attribute` the attribute variable name | user.firstName<br>user.lastName<br>user.login<br>user.email |
 
-> **Note:** You can also access the User ID for each user with the following expression: `user.getInternalProperty("id")`.
+> **Note:** You can also access the user ID for each user with the following expression: `user.getInternalProperty("id")`.
 
-### Application User Profile
+### Application user profile
 
-In addition to an Okta User Profile, all Users have a separate Application User Profile for each of their applications. Application User Profiles store application-specific information about Users, such as the application `userName` or user `role`. To reference an Application User Profile attribute, specify the application variable and the attribute variable in the user profile of the application. In specifying the application, you can either name the specific application you're referencing or use an implicit reference to an in-context application.
+In addition to an Okta user profile, all users have a separate app user profile for each of their apps. Application user profiles store app-specific information about users, such as the app `userName` or user `role`.
+
+To reference a profile attribute of an app user, specify the app variable and the attribute variable in the user profile of the app. In specifying the app, you can either name the specific app you're referencing or use an implicit reference to an in-context app.
+
+> **Note:** The app reference is usually the `name` of the app, as distinct from the `label` (display name). See [Application properties](/docs/reference/api/apps/#app-properties). If your organization configures multiple instances of the same app, a randomly assigned suffix differentiates the names of the subsequent instances, for example: `zendesk_9ao1g13`. The name of any specific app instance in the Profile Editor appears in lighter text beneath the label of the app.
 
 | Syntax                | Definitions                                                                                | examples                                                              |
 | --------              | ----------                                                                                 | ------------                                                          |
@@ -39,23 +43,22 @@ In addition to an Okta User Profile, all Users have a separate Application User 
 | `appuser.$attribute`  | `appuser` implicit reference to in-context app<br>`$attribute` the attribute variable name | appuser.firstName                                                     |
 
 > **Note:** Explicit references to apps aren't supported for OAuth 2.0/OIDC custom claims. See [Expressions for OAuth 2.0/OIDC custom claims](/docs/reference/okta-expression-language/#expressions-for-oauth-2-0-oidc-custom-claims).
->
 
-> **Note:** The application reference is usually the `name` of the application, as distinct from the `label` (display name). See [Application properties](/docs/reference/api/apps/#application-properties). If your organization configures multiple instances of the same application, the names of the subsequent instances are differentiated by a randomly assigned suffix, for example: `zendesk_9ao1g13`. You can find the name of any specific app instance in the Profile Editor, where it appears in lighter text beneath the label of the app.
+### IdP user profile
 
-### IdP User Profile
+In addition to an Okta user profile, some users have separate IdP user profiles for their external Identity Provider. These IdP user profiles are used to store IdP-specific information about a user. You can use this data in an EL expression to transform an external user's username into the equivalent Okta username.
 
-In addition to an Okta User Profile, some users have separate IdP User Profiles for their external Identity Provider. These IdP User Profiles are used to store IdP-specific information about a user. You can use this data in an EL expression to transform an external user's username into the equivalent Okta username. To reference an IdP User Profile attribute, specify the IdP variable and the corresponding attribute variable for the IdP User Profile of that Identity Provider. This profile is only available when specifying the username transform used to generate an Okta username for the IdP user.
+To reference an IdP user profile attribute, specify the IdP variable and the corresponding attribute variable for the IdP user profile of that Identity Provider. This profile is only available when specifying the username transform used to generate an Okta username for the IdP user.
 
 | Syntax                 | Definitions                                                                                  | Examples          |
 | ---------------------- | -------------------------------------------------------------------------------------------- | ------------      |
 | `idpuser.$attribute`   | `idpuser` implicit reference to in-context IdP<br>`$attribute` the attribute variable name   | idpuser.firstName |
 
-> **Note:** In the Universal Directory, the base Okta User Profile has about 30 attributes. You can add any number of custom attributes. All Application User Profiles have a username attribute and possibly others depending on the application. To find a full list of Okta User and App User attributes and their variable names, in the Admin Console go to **People** > **Profile Editor**. If you're not using Universal Directory, contact your support or professional services team.
+> **Note:** In the Universal Directory, the base Okta user profile has about 30 attributes. You can add any number of custom attributes. All app user profiles have a username attribute and possibly others depending on the app. To find a full list of Okta user and app user attributes and their variable names, in the Admin Console go to **People** > **Profile Editor**. If you're not using Universal Directory, contact your support or professional services team.
 
-## Reference application and organization properties
+## Reference app and organization properties
 
-In addition to referencing user attributes, you can also reference application properties and the properties of your organization. To reference a particular attribute, specify the appropriate binding and the attribute variable name. The binding for an Application is its name with `_app` appended. The App name can be found as described in the [Application user profile attributes](#application-user-profile). Here are some examples:
+In addition to referencing user attributes, you can also reference app properties and the properties of your org. To reference a particular attribute, specify the appropriate binding and the attribute variable name. The binding for an app is its name with `_app` appended. The app name can be found as described in the [profile attributes of an app user](#app-user-profile).
 
 ### Application properties
 
@@ -80,7 +83,7 @@ In addition to referencing user, app, and organization properties, you can also 
 
 | Syntax            | Definitions                                                 | Evaluation example                                     |
 | ----------------- | ----------------------------------------------------------- | ------------------------------------------------------ |
-| `session.amr`     | `session` reference to a user's session<br> `amr` the attribute name that is resolvable to an array of [Authentication Method References](https://tools.ietf.org/html/rfc8176) | `["pwd"]`&mdash;password used by the user for authentication<br>`["mfa", "pwd", "kba"]`&mdash;password and MFA security question used by the user for authentication<br>`["mfa", "mca", "pwd", "sms"]`&mdash;password and MFA SMS used by the user for authentication |
+| `session.amr`     | `session` reference to a user's session<br> `amr` the attribute name that is resolvable to an array of [Authentication Method References](https://tools.ietf.org/html/rfc8176) | `["pwd"]`&mdash;password used by the user for authentication<br>`["mfa", "pwd", "kba"]`&mdash;password and MFA Security Question used by the user for authentication<br>`["mfa", "mca", "pwd", "sms"]`&mdash;password and MFA SMS used by the user for authentication |
 
 ## Functions
 
@@ -141,7 +144,7 @@ The following <ApiLifecycle access="deprecated" /> functions perform some of the
 
 ### Conversion functions
 
-##### Data conversion functions
+#### Data conversion functions
 
 | Function                | Return type | Example              | Input                  | Output   |
 | --------                | ---------   | ---------            | -------                | -------- |
@@ -152,7 +155,7 @@ The following <ApiLifecycle access="deprecated" /> functions perform some of the
 
 > **Note:** The `Convert.toInt(double)` function rounds the passed numeric value either up or down to the nearest integer. Be sure to consider integer-type range limitations when converting from a number to an integer with this function.
 
-##### Country code conversion functions
+#### Country code conversion functions
 
 These functions convert between ISO 3166-1 2-character country codes (Alpha 2), 3-character country codes (Alpha 3), numeric country codes, and full ISO country names.
 
@@ -188,9 +191,9 @@ Group functions return either an array of groups or **True** or **False**.
 
 > **Note:** The `isMemberOfGroupName`, `isMemberOfGroup`, `isMemberOfAnyGroup`, `isMemberOfGroupNameStartsWith`, `isMemberOfGroupNameContains`, `isMemberOfGroupNameRegex` group functions are designed to retrieve only an Okta user's group memberships. Don't use them to retrieve an app user's group memberships.
 
-> **Note:** When EL group functions (such as `isMemberOfGroup` or `isMemberOfGroupName`) are used for app assignments, app user profile attributes aren't updated or reapplied when the user's group membership changes. Okta only updates app user profile attributes when an app is assigned to a user or when mappings are applied.
+> **Note:** When EL group functions (such as `isMemberOfGroup` or `isMemberOfGroupName`) are used for app assignments, profile attributes of the app user aren't updated or reapplied when the user's group membership changes. Okta only updates app user profile attributes when an app is assigned to a user or when mappings are applied.
 
-For an example of using group functions, and for more information on using group functions for dynamic and static allowlists, see [Customize tokens returned from Okta](/docs/guides/customize-tokens-returned-from-okta/).
+For more information on using group functions for dynamic and static allowlists, see [Customize tokens returned from Okta](/docs/guides/customize-tokens-returned-from-okta/).
 
 > **Important:** When you use `Groups.startsWith`, `Groups.endsWith`, or `Groups.contains`, the `pattern` argument is matched and populated on the `name` attribute rather than the group's email (for example, when using Google workspace). If you're targeting groups that may have duplicate group names (such as Google groups), use the `getFilteredGroups` group function instead.
 >
@@ -202,11 +205,12 @@ For an example of using group functions, and for more information on using group
 
 Use this function to retrieve the user identified with the specified `primary` relationship. You can then access the properties of that user.
 
-* Function: `user.getLinkedObject($primaryName)`
-    * Parameter: (String primaryName)
-    * Return type: User
-    * Example: `user.getLinkedObject("manager").lastName`
-    * Example result: `Gates`
+`user.getLinkedObject($primaryName)`:
+
+* Parameter: (String primaryName)
+* Return type: User
+* Example: `user.getLinkedObject("manager").lastName`
+* Example result: `Gates`
 
 ### Time functions
 
@@ -231,15 +235,15 @@ Okta supports the use of the time zone IDs and aliases listed in [the Time zone 
 | Function                                                           | Description                                                                         | Example                                                       |
 | ---------                                                          | -----------                                                                         | -------                                                       |
 | `getManagerUser(managerSource).$attribute`                         | Gets the manager's Okta user attribute values                                       | `getManagerUser("active_directory").firstName`                |
-| `getManagerAppUser(managerSource, attributeSource).$attribute`     | Gets the manager's app user attribute values for the app user of any appinstance.   | `getManagerAppUser("active_directory", "google").firstName`   |
+| `getManagerAppUser(managerSource, attributeSource).$attribute`     | Gets the manager's app user attribute values for the app user of any app instance.   | `getManagerAppUser("active_directory", "google").firstName`   |
 | `getAssistantUser(assistantSource).$attribute`                     | Gets the assistant's Okta user attribute values.                                    | `getAssistantUser("active_directory").firstName`              |
-| `getAssistantAppUser(assistantSource, attributeSource).$attribute` | Gets the assistant's app user attribute values for the app user of any appinstance. | `getAssistantAppUser("active_directory", "google").firstName` |
+| `getAssistantAppUser(assistantSource, attributeSource).$attribute` | Gets the assistant's app user attribute values for the app user of any app instance. | `getAssistantAppUser("active_directory", "google").firstName` |
 
 The following should be noted about these functions:
 
 * Be sure to pass the correct App name for the `managerSource`, `assistantSource`, and `attributeSource` parameters.
 * Currently, `active_directory` is the only supported value for `managerSource` and `assistantSource`.
-* Calling the `getManagerUser("active_directory")` function doesn't trigger a user profile update after the manager is changed.
+* Calling either of the `getManagerUser()` or `getManagerAppUser()` functions doesn't trigger a user profile update after the manager is changed.
 * The manager and assistant functions aren't supported for user profiles sourced from multiple Active Directory instances.
 * The manager and assistant functions aren't supported for user profile attributes from multiple app instances. That is, the expression `getManagerUser("active_directory", "google").firstName` returns null if your org has two or more instances of a `google` app.
 
@@ -247,12 +251,12 @@ The following should be noted about these functions:
 
 | Function              | Description                                                                                                                                 |
 | --------              | ---------                                                                                                                                   |
-| `hasDirectoryUser()`  | Checks whether the user has an Active Directory assignment and returns a boolean                                                            |
-| `hasWorkdayUser()`    | Checks whether the user has a Workday assignment and returns a boolean                                                                      |
+| `hasDirectoryUser()`  | Checks whether the user has an Active Directory (AD) assignment and returns `true` if the user has a single AD assignment or `false` if the user has either zero or multiple AD assignments  |
+| `hasWorkdayUser()`    | Checks whether the user has a Workday assignment and returns a Boolean                                                                      |
 | `findDirectoryUser()` | Finds the Active Directory App user object and returns that object or null if the user has more than one or no Active Directory assignments |
 | `findWorkdayUser()`   | Finds the Workday App user object and returns that object or null if the user has more than one or no Workday assignments                   |
 
-The previous functions are often used in tandem to check whether a user has an Active Directory or Workday assignment, and if so, return an Active Directory or Workday attribute. See the following 'Popular expressions' table for some examples.
+Use the previous functions together to check if a user has an Active Directory or Workday assignment, and if so, return a corresponding attribute. See the following 'Popular expressions' table for some examples.
 
 ## Constants and operators
 
@@ -265,23 +269,23 @@ The previous functions are often used in tandem to check whether a user has an A
 | Refer to an `Array` element                                                                 | `{1, 2, 3}[0]` or `user.arrayProperty[0]`   |
 | Concatenate two strings                                                                     | `user.firstName + user.lastName`            |
 | Concatenate two strings with space                                                          | `user.firstName + " " + user.lastName`      |
-| Ternary operator example:<br>If group code is 123, assign value of Sales, else assign Other | `user.groupCode == 123 ? 'Sales' : 'Other'` |
+| Ternary operator example:<br>If the group code is 123, assign the value of Sales, else assign Other | `user.groupCode == 123 ? 'Sales' : 'Other'` |
 
 ## Conditional expressions
 
-You can specify IF...THEN...ELSE statements with the Okta EL. The primary use of these expressions is profile mappings and group rules. Group rules don't usually specify an ELSE component.
+You can specify IF/THEN/ELSE statements with the Okta EL. The primary use of these expressions is profile mappings and group rules. Group rules don't usually specify an ELSE component.
 
 The format for conditional expressions is:
 <p><code>[Condition] ? [Value if TRUE] : [Value if FALSE]</code></p>
 
-<br>There are several rules for specifying the condition.
+<br>There are several rules for specifying the condition:
 
 * Expressions must have valid syntax.
-* Expressions must evaluate to Boolean.
+* Expressions must evaluate to a Boolean.
 * Expressions can't contain an assignment operator, such as `=`.
-* User attributes used in expressions can contain only available User or AppUser attributes.
+* User attributes used in expressions can contain only available user or app user attributes.
 
-<br>The following functions are supported in conditions.
+<br>The following functions are supported in these conditions:
 
 * Any Okta Expression Language function
 * The `AND` operator
@@ -294,11 +298,11 @@ The format for conditional expressions is:
 
 The following functions aren't supported in conditions:
 
-* Convert
+* Conversion
 * Array
 * Time
 
-### Samples
+### Conditional samples
 
 For these samples, assume that the *user* has the following attributes in Okta.
 
@@ -316,8 +320,7 @@ For these samples, assume that the *user* has the following attributes in Okta.
 | salary          | Int     |
 | isContractor    | Boolean |
 
-
-##### Samples using profile mapping
+#### Profile mapping samples
 
 The following samples are valid conditional expressions that apply to profile mapping. The attribute `courtesyTitle` is from another system being mapped to Okta.
 
@@ -327,7 +330,7 @@ If the middle initial isn't empty, include it as part of the full name, using ju
 Include the honorific prefix in front of the full name, or use the courtesy title instead if it exists. If both are absent, don't use any title.<br>
 `(courtesyTitle != "" ? (courtesyTitle + " ") : honorificPrefix != "" ? (honorificPrefix + " ") : "") + firstName + " " + (String.len(middleInitial) == 0 ? "" : (String.substring(middleInitial, 0, 1) + ". ")) + lastName`
 
-##### Samples using group rules
+#### Group rules samples
 
 The following samples are valid conditional expressions. The actions in these cases are group assignments.
 
@@ -339,15 +342,15 @@ The following samples are valid conditional expressions. The actions in these ca
 | IF            | !user.isContractor                             | fullTimeEmployees                              |
 | IF            | user.salary > 1000000 AND !user.isContractor   | expensiveFullTimeEmployees                     |
 
-##### Samples checking for null and blank attributes
+#### Check for null and blank attributes
 
 To catch user attributes that are null or blank, use the following valid conditional expression:<br>
 `user.employeeNumber != "" AND user.employeeNumber != null ? user.employeeNumber : user.nonEmployeeNumber`
 
-If a Profile attribute has never been populated, catch it with the following expression:<br>
+If a profile attribute has never been populated, catch it with the following expression:<br>
 `user.employeeNumber == null`
 
-If a Profile attribute was populated in the past but the content is removed, it's no longer `null` but an empty string. To catch these empty strings, use the following expression:<br>
+If a profile attribute was populated in the past but the content is removed, it's no longer `null` but an empty string. To catch these empty strings, use the following expression:<br>
 `user.employeeNumber == ""`
 
 ## Popular expressions
@@ -373,7 +376,6 @@ Sample user data:
 | Workday ID                                                         | `hasWorkdayUser() ? findWorkdayUser().employeeID : null`                                                                                                 | 123456                  | Check if the user has a Workday assignment, and if so, return their Workday employee ID.                                                                                                                                                                                                                                                                                                                   |
 | Active Directory UPN                                               | `hasDirectoryUser() ? findDirectoryUser().managerUpn : null`                                                                                             | bob@okta.com            | Check if the user has an Active Directory assignment, and if so, return their Active Directory manager UPN.                                                                                                                                                                                                                                                                                                |
 
-
 ## Expressions for OAuth 2.0/OIDC custom claims
 
 Okta provides a few expressions that you can only use with OAuth 2.0/OIDC custom claims.
@@ -388,16 +390,16 @@ Okta provides a few expressions that you can only use with OAuth 2.0/OIDC custom
 | `app.$attribute` | `app` refers to the name of the OIDC app.<br>`$attribute` refers to the attribute variable name. | app.id<br>app.clientId<br>app.profile |
 | `access.scope` | `access` refers to the access token that requests the scopes.<br>`scope` refers to the array of granted scopes. | access.scope |
 
-### Samples
+### Samples for OAuth 2.0/OIDC
 
-#### Sample using app attributes
+#### App attributes samples
 
-To include an app Profile label, use the following expression:<br>
+To include an app profile label, use the following expression:<br>
 `app.profile.label`
 
 See [Include app-specific information in a custom claim](/docs/guides/customize-tokens-returned-from-okta/main/#include-app-specific-information-in-a-custom-claim).
 
-#### Sample using access.scope
+#### access.scope samples
 
 In [API Access Management](/docs/concepts/api-access-management/) custom authorization servers, you can name a claim `scope`. Then, you can use the expression `access.scope` to return an array of granted scope strings.
 
