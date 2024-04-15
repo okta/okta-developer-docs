@@ -2,13 +2,13 @@ This guide explains how to implement an OAuth 2.0 Implicit flow for your app wit
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Understand the OAuth 2.0 Implicit flow.
 * Set up your app with the Implicit grant type.
 * Implement the Implicit flow in Okta.
 
-**What you need**
+#### What you need
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
 * An app that you want to implement OAuth 2.0 authorization with Okta

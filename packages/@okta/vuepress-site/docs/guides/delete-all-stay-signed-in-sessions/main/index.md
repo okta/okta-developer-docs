@@ -10,18 +10,18 @@ This guide explains how to delete all sessions of the **Stay signed in** feature
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 - Learn to enable the usePersistentCookie option.
 - Understand how to delete all sessions using the API.
 
-**What you need**
+#### What you need
 
 - An Okta developer org configured for a **Stay signed in** use case
 - Access to the [My Account Sessions API](https://developer.okta.com/docs/api/openapi/okta-myaccount/myaccount/tag/Sessions/)
 - [Postman client](https://www.getpostman.com/downloads/) to set up `userPersistentCookie`. See also [Test the Okta REST APIs with Postman](/docs/reference/rest/).
 
-**Sample code**
+#### Sample code
 
 [Request example](#request-example)
 

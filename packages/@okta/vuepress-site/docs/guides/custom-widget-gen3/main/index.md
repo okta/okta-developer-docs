@@ -8,18 +8,18 @@ This guide explains how to customize the Sign-In Widget (third generation) for r
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Enable the third-generation widget.
 * Learn about design tokens.
 * Call the JS API using design tokens.
 
-**What you need**
+#### What you need
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
 * [Custom URL domain](/docs/guides/custom-url-domain/main/)
 
-**Sample code**
+#### Sample code
 
 [Customization examples](#customization-examples)
 

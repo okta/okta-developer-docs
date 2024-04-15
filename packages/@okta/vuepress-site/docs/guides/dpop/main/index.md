@@ -8,12 +8,12 @@ This guide discusses how to create sender-constrained access tokens that are an 
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Understand the purpose of Demonstrating Proof-of-Possession
 * Understand how to configure OAuth 2.0 Demonstrating Proof-of-Possession (DPoP) for your org and app
 
-**What you need**
+#### What you need
 
 <StackSnippet snippet="whatyouneed" />
 

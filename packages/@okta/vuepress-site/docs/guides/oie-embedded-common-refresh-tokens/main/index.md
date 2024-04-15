@@ -8,12 +8,12 @@ This guide shows you how to refresh access and ID tokens by using either the Ide
 
 ---
 
-**Learning outcomes**
+#### Learning outcome
 
-* Understand refresh tokens.
-* Know how to refresh tokens by using the SDK or the OIDC & OAuth 2.0 API.
+* Understand how access and ID tokens have a limited lifetime.
+* Know how to use refresh tokens when access and ID tokens expire.
 
-**What you need**
+#### What you need
 
 * An [Okta org that is already configured for your use case](/docs/guides/oie-embedded-common-org-setup/)
 * An [Identity Engine SDK that is set up for your own app](/docs/guides/oie-embedded-common-download-setup-app/)
@@ -23,41 +23,29 @@ This guide shows you how to refresh access and ID tokens by using either the Ide
 
 ## Overview
 
-Access tokens often have limited lifetimes. If you allow access
-tokens to expire, their usefulness is limited in the event they are discovered
-by an attacker. In order for your app to continue to use the
-appropriate resources when an access token expires, the app can refresh
-them without user intervention through the use of a refresh token.
+Access tokens often have limited lifetimes. If you allow access tokens to expire, their usefulness is limited in the event an attacker discovers them. For your app to continue to use the appropriate resources when an access token expires, the app can refresh them without user intervention by using a refresh token.
 
-All the SDKs expose functionality that allow you
-to obtain access, ID, and refresh tokens. Depending on the SDK (Swift,
-JavaScript, and so on), you have varying degrees of convenience
-methods and other functionality that provide you with built-in support
-for token refresh, auto-renewal, and storage.  Minimally,
-all the SDKs allow you to obtain the refresh token and call the authorization
-server's token endpoint to renew the access token.
+All the SDKs expose functionality that allows you to obtain access, ID, and refresh tokens. Each SDK (Swift, JavaScript, and so on) has a different set of convenience methods and other functionality that provide you with built-in support for token refresh, auto-renewal, and storage. Minimally, all the SDKs allow you to obtain the refresh token and call the authorization server's token endpoint to renew the access token.
 
-## Option 1: Refresh the tokens with the SDK
+## Refresh the tokens
+
+You can refresh tokens with the SDK or with the OAuth token endpoint.
+
+### Refresh the tokens with the SDK
 
 <StackSnippet snippet="refreshusingthesdk" />
 
-## Option 2: Refresh the tokens with the OAuth token endpoint
+### Refresh the tokens with the OAuth token endpoint
 
-You can refresh access and ID tokens using the
-[`/token`](/docs/reference/api/oidc/#token)
-endpoint with the `grant_type` set to `refresh_token`. Before calling this endpoint,
-obtain the refresh token from the SDK and ensure that you have included
-`offline_access` as a scope in the SDK configurations. For further details on
-access token refresh with this endpoint, see
-[Use a refresh token](/docs/guides/refresh-tokens/main/#use-a-refresh-token).
+You can refresh access and ID tokens using the [`/token`](/docs/reference/api/oidc/#token) endpoint with the `grant_type` set to `refresh_token`. Before calling this endpoint, obtain the refresh token from the SDK and ensure that you have included `offline_access` as a scope in the SDK configurations. For further details on access token refresh with this endpoint, see [Use a refresh token](/docs/guides/refresh-tokens/main/#use-a-refresh-token).
 
 <StackSnippet snippet="refreshendpointrequest" />
 
-### Native and SPA applications
+#### Native and SPA applications
 
 OIDC and OAuth 2.0 requests for native and single-page applications (SPAs) don't include the `Authorization` header with the client ID and secret. Instead, these apps include the `client_id` query parameter in their requests.
 
-#### Request example
+##### Request example
 
 ```http
 POST /oauth2/default/v1/token HTTP/1.1
@@ -71,7 +59,7 @@ refresh_token=03_hBtVj-Hk0Mxo9TPSdl7TLkxQioKqQEzud3ldqHqs
 client_id=0oa94el1z4nUDxx0z5d7
 ```
 
-#### Response example
+##### Response example
 
 ```json
 {
@@ -84,7 +72,7 @@ client_id=0oa94el1z4nUDxx0z5d7
 }
 ```
 
-## Get the token info using the introspect endpoint
+## Use the introspect endpoint to get token info
 
 To get information on a current token, such as if the token is active or has expired, use the [`/introspect`](/docs/reference/api/oidc/#introspect) endpoint.
 
