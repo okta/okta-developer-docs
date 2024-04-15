@@ -8,12 +8,12 @@ This guide explains how to add a groups claim to ID tokens for any combination o
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Add a groups claim to ID tokens and access tokens to perform authentication and authorization.
 * Build a request URL to test the full authentication flow.
 
-**What you need**
+#### What you need
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
 * [OpenID Connect client application](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-oidc) in Okta with at least [one user assigned to it](https://help.okta.com/okta_help.htm?id=ext-assign-apps)
