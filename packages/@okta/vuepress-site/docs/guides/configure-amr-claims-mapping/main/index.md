@@ -135,6 +135,14 @@ Okta-to-Okta (org2org), also known as hub and spoke, refers to a deployment mode
 
 <AMROktatoOkta/>
 
+#### Use an existing org2org app
+
+You can configure Okta-to-Okta orgs for AMR claims mapping with existing org2org apps. If you want to force the IdP Okta org to authenticate, clear the **Disable Force Authentication** checkbox in the existing org2org app:
+
+1. In the Admin Console, go to **Applications** > **Applications** and select the org2org app that you want to configure.
+1. Select the **Sign On** tab and then click **Edit** in the **Settings** section.
+1. Clear the **Disable Force Authentication** checkbox and click **Save**.
+
 ### Custom OpenID Connect apps
 
 If you're using a custom OpenID Connect app in the Okta IdP org, `amr` claims are sent to the SP by default and no additional configuration is required.
