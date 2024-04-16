@@ -56,7 +56,7 @@ Policy settings for a particular [policy type](#policy-types) consist of one or 
 * **Policies** contain groups of resources requiring similar treatment, like apps with the same security characteristics or user groups with the same account setup requirements.
 * **Rules** describe the conditions of policy behavior, such as requests from a geographical location or if the user is on a trusted network.
 
-The combined policy conditions and a rules determine when the policy is applied. As a best practice, place restrictive rules at the top of the priority list. Otherwise, you can create combinations of conditions for different scenarios. There’s no limit to the number of rules your policies can have.
+The combined policy conditions and rules determine when the policy is applied. As a best practice, place restrictive rules at the top of the priority list. Otherwise, you can create combinations of conditions for different scenarios.
 
 Different policy types control the settings for different operations. All policy types share a common framework, message structure, and API, but have different policy settings and rule data. When a policy is retrieved, such as when the user attempts to sign in to Okta, then policy evaluation takes place:
 
@@ -72,7 +72,7 @@ Different policy types control the settings for different operations. All policy
 
 ### Default policies
 
-A default policy is automatically created for each type of policy. This ensures that there’s always a policy to apply to a user in all situations. Default policies are required, and you can't delete them. They’re always the last policy in the priority order, and any added policies of the same type have higher priority.
+A default policy is automatically created for each type of policy. This ensures that there's always a policy to apply to a user in all situations. Default policies are required, and you can't delete them. They're always the last policy in the priority order, and any added policies of the same type have higher priority.
 
 Default policies also always have one default rule that you can't delete, and that rule is always the last rule in the priority order. When you add rules to the default policy, they have a higher priority than the default rule.
 
@@ -84,7 +84,7 @@ You can configure policies for sign-on, passwords, enrollment, and API access. Y
 
 ### Sign-on policies
 
-[Sign-on policies and rules enforce policies and rules so users sign in with the right level of access that you provide. [Global session policies](#global-session-policies) and [authentication policies](#authentication-policies) together determine the level of confidence that the user signing in is also the person who owns the account.
+Sign-on policies and rules enforce policies and rules so users sign in with the right level of access that you provide. [Global session policies](#global-session-policies) and [authentication policies](#authentication-policies) together determine the level of confidence that the user signing in is also the person who owns the account.
 
 #### Global session policies
 
