@@ -10,19 +10,19 @@ This guide provides a functional example of an Okta event hook that uses the ngr
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Understand the Okta event hook calls and responses.
 * Implement Okta event hooks using a local application and the ngrok utility.
 * Preview and test an Okta event hook and review the call details with ngrok.
 
-**What you need**
+#### What you need
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup/)
 * A local application. See [Create a local application](#create-a-local-application) in this guide for a simple example.
 * [ngrok](#install-ngrok)
 
-**Sample code**
+#### Sample code
 
 * See [Create a local application](#create-a-local-application) for this project's sample code.
 

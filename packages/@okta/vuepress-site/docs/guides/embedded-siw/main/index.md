@@ -10,18 +10,18 @@ This guide explains authentication fundamentals using JavaScript and the embedde
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Understand how to implement basic sign-in using JavaScript and the embedded Okta Sign-In Widget.
 * Understand basic installation and code configurations using JavaScript.
 * Implement a simple SPA use case and sign a user in to the application.
 
-**What you need**
+#### What you need
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup/)
 * Basic knowledge of building front-end JavaScript applications
 
-**Sample code**
+#### Sample code
 
 Sample code is provided in the following section: [Sign in and display the user's email](#sign-in-and-display-the-user-s-email)
 

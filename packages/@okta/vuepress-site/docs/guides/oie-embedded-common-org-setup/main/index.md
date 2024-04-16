@@ -8,11 +8,11 @@ This guide covers how to create and set up your Okta org. Then, you can [run the
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 Get a new org set up and ready for various use cases.
 
-**What you need**
+#### What you need
 
 [Okta Developer Edition organization](/signup)
 
@@ -175,7 +175,6 @@ To ensure that only specific app integrations can let users sign up without a pa
 A profile enrollment policy determines the minimum information required from a user to create an account. The policy also determines how the user should verify their identity before creating their account.
 
 1. Go to **Security** > **Profile Enrollment** and click **Add Profile Enrollment Policy**.
-   > **Note:** If you enabled Multiple Identifiers, go to **Security** > **User Profile Policies**. See [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features).
 1. Locate the **Profile Enrollment** section of the policy and click **Edit**.
 1. Set **Self-service registration** to **Allowed**.
 1. Verify that **Required before access is granted** is selected for **Email Verification**.

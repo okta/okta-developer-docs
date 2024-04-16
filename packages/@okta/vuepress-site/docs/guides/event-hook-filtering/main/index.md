@@ -12,18 +12,18 @@ This guide provides a functional example of an Okta event hook filter. It's base
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Understand the Okta event hook calls and responses with a filter implementation.
 * Implement a functional example of an Okta event hook filter with a Glitch.com project.
 * Test the Okta event hook filter.
 
-**What you need**
+#### What you need
 
 * [Okta Developer Edition org](https://developer.okta.com/signup/)
 * [Glitch.com](https://glitch.com) project or account
 
-**Sample code**
+#### Sample code
 
 * [Okta Event Hook with Filtering](https://glitch.com/~okta-event-hook-with-filtering)
 

@@ -10,11 +10,11 @@ This guide explains the custom OAuth 2.0 authorization server in Okta and how to
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 Set up and test your authorization server.
 
-**What you need**
+#### What you need
 
 [Okta Developer Edition organization](https://developer.okta.com/signup)
 
