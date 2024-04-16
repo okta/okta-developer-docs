@@ -18,7 +18,7 @@ Also, being aware of any risks in your plan guides you toward successfully testi
 
 A **one-time migration** moves your users with their credentials over to Okta all at once. It’s expected that the legacy system could (and should) be taken offline after this migration process completes.
 
-A **migration program** is one where, for a period of time, the legacy system and Okta run in parallel to migrate users in a more ad hoc fashion. You can accomplish this using the Okta [Inline Password Hook](/docs/reference/password-hook/) feature.
+A **migration program** is one where, for a period of time, the legacy system and Okta run in parallel to migrate users in a more impromptu fashion. You can accomplish this using the Okta [Inline Password Hook](/docs/reference/password-hook/) feature.
 
 It's important to note that this information is about a migration strategy and not integration.
 
@@ -35,7 +35,7 @@ For some helpful information on this, see:
 
 ## Get ready to create a plan&mdash;gather information
 
-Before being able to create a plan, you must gather information about your environment and decide on specific goals of the migration project. This includes making a list of the types of users you want to migrate and the applications and other resources that they’ll need to access through Okta.
+Before being able to create a plan, you must gather information about your environment and decide on specific goals of the migration project. This includes making a list of the types of users you want to migrate and the apps and other resources that they’ll need to access through Okta.
 
 ### Identify the users to migrate
 
@@ -52,7 +52,7 @@ Also identify any subgroups currently in use for all of your user types. For exa
 
 ### Locate your existing user profile data
 
-Your user data could be in Active Directory, LDAP, or any number of on-premise or cloud-based applications, but most importantly you need to know exactly where the data is and how to access it. This also requires that you have permission to access and use the data. You also need to know which system is the source of truth for each data element. For example, various systems might maintain a primary email address for each of your users.
+Your user data could be in Active Directory, LDAP, or any number of on-premise or cloud-based apps. Most importantly, you need to know exactly where the data is and how to access it. This also requires that you have permission to access and use the data. You also need to know which system is the source of truth for each data element. For example, various systems might maintain a primary email address for each of your users.
 
 Here are the key points to remember:
 
@@ -124,7 +124,7 @@ Once you have a clean set of data, you can create a realistic set of test data t
 
 #### Create a test plan
 
-When creating a test plan, it’s important to prepare:
+When creating a test plan, it’s important to prepare the following:
 
 * Data that was at the "tail end" of a process or calculation. This allows you to see right away if problems occurred in upstream processes.
 * Any externally facing data.

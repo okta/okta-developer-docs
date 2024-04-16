@@ -25,7 +25,7 @@ This guide describes the Device Authorization feature, which allows users to sig
 
 ## About the Device Authorization feature
 
-The Device Authorization feature is an OAuth 2.0 grant type. It allows users to sign in to input-constrained devices, such as smart TVs, digital picture frames, and printers, and devices with no browser. Device Authorization enables you to use a secondary device, such as a laptop or mobile phone, to complete sign-in to applications that run on such devices.
+The Device Authorization feature is an OAuth 2.0 grant type. It allows users to sign in to input-constrained devices, such as smart TVs, digital picture frames, and printers, and devices with no browser. Device Authorization enables you to use a secondary device, such as a laptop or mobile phone, to complete sign-in to apps that run on such devices.
 
 The Device Authorization feature is available for both Classic Engine and Identity Engine orgs.
 
@@ -77,7 +77,7 @@ curl --request POST \
 
 The device authorization request passes the following parameters:
 
-* `client_id`: Matches the Client ID of the OAuth 2.0 application that you created
+* `client_id`: Matches the Client ID of the OAuth 2.0 app that you created.
 * `scope`: Specifies which access privileges are being requested for the access token. See [Scopes](/docs/reference/api/oidc/#scopes) for a list of supported scopes.
 
 **Example response**

@@ -44,7 +44,7 @@ It's a good idea to use sample data that's as close as possible to your real use
 
 ## Create groups
 
-Suppose you have groups in your user data that you want to include when you create your users in Okta. To do this, you must first create Okta Groups that are equivalent to the groups in your user data. You can create an Okta Group for the sample data (in this case, "All Employees") using an [Add Group](/docs/reference/api/groups/#add-group) request:
+Suppose you have groups in your user data that you want to include when you create your users in Okta. To do this, you must first create Okta Groups that are equivalent to the groups in your user data. You can create an Okta group for the sample data (in this case, "All Employees") using an [Add Group](/docs/reference/api/groups/#add-group) request:
 
 ### Request example
 
@@ -104,11 +104,11 @@ The description property can be empty.
 
 You can obtain the new Group ID (`id`) from the response to use when you create Users in that Group later. You can also list all Groups in your org and obtain their IDs using a [List Groups](/docs/reference/api/groups/#list-groups) request.
 
-You can also create Groups in your Admin Console. For more information, see [About groups](https://help.okta.com/okta_help.htm?id=Directory_Groups) in the product documentation.
+You can also create groups in your Admin Console. For more information, see [About groups](https://help.okta.com/okta_help.htm?id=Directory_Groups) in the product documentation.
 
 ## Create users
 
-Once you’ve created all the necessary Okta Groups, you can create Users including their Group Memberships. As mentioned earlier, this example uses [Create User without Credentials](/docs/reference/api/users/#create-user-without-credentials) to create our sample user.
+After you create all the necessary Okta groups, you can create users and include their group memberships. As mentioned earlier, this example uses [Create User without Credentials](/docs/reference/api/users/#create-user-without-credentials) to create our sample user.
 In our sample, the user's email address is our unique login and the Group IDs are from the List Groups request in the previous step.
 
 ### Request example with groups
@@ -208,7 +208,7 @@ curl -v -X POST \
 
 ## User status and activation
 
-The user status in the response when you create a User is set to `STAGED`, which essentially means that the user has been created but not activated yet. You can activate users using the API or in your Admin Console. For more information on account states and activation, see:
+The user status in the response when you create a user is set to `STAGED`, which means that the user has been created but not activated yet. You can activate users using the API or in your Admin Console. For more information on account states and activation, see the following links:
 
 * [User status values](/docs/reference/api/users/#user-status) (API reference)
 * [Activate User request](/docs/reference/api/users/#activate-user) (API reference)

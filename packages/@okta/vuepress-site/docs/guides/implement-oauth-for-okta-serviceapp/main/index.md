@@ -49,9 +49,9 @@ Create an OAuth 2.0 service app integration using the Admin Console.
 
 1. Sign in to your Okta organization as a user with administrative privileges. [Create an org for free](https://developer.okta.com/signup).
 
-2. Go to **Applications** > **Applications** in the Admin Console, and then click **Create App Integration**. The Create a new app integration page appears.
+2. In the Admin Console, go to **Applications** > **Applications**, and then click **Create App Integration**. The **Create a new app integration** page appears.
 
-3. Select **API Services** as the **Sign-in method** and click **Next**.
+3. Select **API Services** as the **Sign-in method**, and then click **Next**.
 
 4. Enter a name for your app integration and click **Save**.
 
@@ -328,7 +328,7 @@ Make a request to the `/users` endpoint using the access token.
 1. If you’re using Postman to test, select the **List Users** `GET` request to the `/api/v1/users` endpoint to get back a list of all users.
 2. On the **Header** tab, remove the existing Okta API token (SSWS Authorization API Key).
 3. Click the **Authorization** tab and from the **Type** dropdown box, select **OAuth 2.0**.
-4. On the right, paste the access token into the **Access Token** box and click **Send**. The response should contain an array of all the users associated with your app. This depends on the user's permissions.
+4. On the right, paste the access token into the **Access Token** box and click **Send**. The response should contain an array of all the users who are associated with your app. This depends on the user's permissions.
 
 **Example Request**
 

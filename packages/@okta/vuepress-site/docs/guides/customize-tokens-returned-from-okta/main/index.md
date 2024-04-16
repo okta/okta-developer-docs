@@ -23,11 +23,11 @@ Create custom claims for tokens.
 
 Tokens contain claims that are statements about the subject, such as name, role, or email address. Beyond the [default set of claims](/docs/guides/validate-id-tokens/main/#verify-the-claims) that are contained in ID tokens and access tokens, you can define your custom claims. For example, you might want to add a user's email address to an access token and use that to uniquely identify the user. You might also want to add information stored in a user profile to an ID token.
 
-You can also [add a groups claim](/docs/guides/customize-tokens-groups-claim/main/#add-a-groups-claim-for-the-org-authorization-server) to ID tokens for any combination of App groups and user groups to perform SSO using the org authorization server. And, you can [add a groups claim](/docs/guides/customize-tokens-groups-claim/main/#add-a-groups-claim-for-a-custom-authorization-server) to ID tokens and access tokens to perform authentication and authorization using a custom authorization server. See [Authorization servers](/docs/guides/customize-authz-server/) for more information on the types of authorization servers available to you and what you can use them for.
+You can also [add a groups claim](/docs/guides/customize-tokens-groups-claim/main/#add-a-groups-claim-for-the-org-authorization-server) to ID tokens for any combination of app groups and user groups to perform SSO using the org authorization server. And, you can [add a groups claim](/docs/guides/customize-tokens-groups-claim/main/#add-a-groups-claim-for-a-custom-authorization-server) to ID tokens and access tokens to perform authentication and authorization using a custom authorization server. See [Authorization servers](/docs/guides/customize-authz-server/) for more information on the types of authorization servers available to you and what you can use them for.
 
 <ApiAmProdWarning />
 
-Also, you can create a [dynamic](/docs/guides/customize-tokens-dynamic/) or [static](/docs/guides/customize-tokens-static/) allowlist. Do this when you need to set group allowlists on a per-app basis using both the org authorization server and a custom authorization server. If you have many groups but only 20 groups apply to your app, you don't want to run through all of your groups every time a groups claim is created. This process optionally uses the Okta app profile, which accepts any JSON-compliant content, to create an allowlist of groups that can then easily be referenced.
+Also, you can create a [dynamic](/docs/guides/customize-tokens-dynamic/) or [static](/docs/guides/customize-tokens-static/) allowlist. Do this when you need to set group allowlists on a per-app basis using both the org authorization server and a custom authorization server. If you have many groups but only 20 groups apply to your app, you don't want to search all of your groups every time a groups claim is created. This process optionally uses the Okta app profile, which accepts any JSON-compliant content, to create an allowlist of groups that can then easily be referenced.
 
 ## Request a token that contains the custom claim
 
@@ -113,7 +113,7 @@ To add a custom claim:
 
 1. In the Admin Console, go to **Security** > **API**.
 
-2. On the **Authorization Servers** tab, select the name of the custom authorization server (or select **default** when you use the `default` custom authorization server) and then click **Claims**. Okta provides a default subject claim. You can edit that mapping or create your own claims. For this example, create a custom claim.
+2. On the **Authorization Servers** tab, select the name of the custom authorization server (or select **default** when you use the `default` custom authorization server), and then click **Claims**. Okta provides a default subject claim. You can edit that mapping or create your own claims. For this example, create a custom claim.
 
 3. Click **Add Claim**, and then configure the claim settings:
 
@@ -287,7 +287,7 @@ To add a custom claim:
 
 ### Request a token with the custom claim
 
-In this example, the service application's `token_endpoint_auth_method` was set to `client_secret_post` when you created the app. Include both the `client_id` and the `client_secret` values as other parameters in the POST request body to your custom authorization server's `/token` endpoint. For the specific steps on building the request URL, receiving the response, and decoding the JWT, see [Request a token that contains the custom claim](#request-a-token-that-contains-the-custom-claim).
+In this example, the service app's `token_endpoint_auth_method` was set to `client_secret_post` when you created the app. Include both the `client_id` and the `client_secret` values as other parameters in the POST request body to your custom authorization server's `/token` endpoint. For the specific steps on building the request URL, receiving the response, and decoding the JWT, see [Request a token that contains the custom claim](#request-a-token-that-contains-the-custom-claim).
 
 ```bash
 curl -v -X POST \

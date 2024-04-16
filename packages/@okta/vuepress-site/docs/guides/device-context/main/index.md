@@ -109,7 +109,7 @@ These rules declare that:
 
 ### Create a new app authentication policy for AMFA
 
-Create an authentication policy for your app that contains two rules that state:
+Create an authentication policy for your app. It must contain two rules that state the following:
 
 1. By default, users authenticate with a username and password only.
 2. If the user is using a new device, require a second authentication factor.

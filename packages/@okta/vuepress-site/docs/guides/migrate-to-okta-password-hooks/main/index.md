@@ -25,14 +25,14 @@ This guide explains how to use password import inline hooks to migrate users int
 
 ## Migration Program Plan
 
-A migration program uses the Okta [password import inline hook](/docs/reference/password-hook/) feature to seamlessly migrate users as they authenticate. The broad strokes look like:
+A migration program uses the Okta [password import inline hook](/docs/reference/password-hook/) feature to seamlessly migrate users as they authenticate:
 
 1. Create all the users from the legacy system in Okta with a provider set to: `IMPORT`. **NOTE:** This can be done in bulk and does NOT require individual user credentials.
-2. Optional: Create groups and applications in Okta. Assign users to groups and assign groups and users to applications.
+2. Optional: Create groups and apps in Okta. Assign users to groups and assign groups and users to apps.
 3. Create an application to service requests from Okta that can validate credentials against the legacy user system.
 4. Register an Inline Password Hook with Okta that connects to the application created in step 3.
 
-Typically, you run a migration program like this for a set period, say 60 days. At the end of that time, you delete the inline password hook. For any users that haven’t completed the migration on their own, you can issue a password reset using the Okta API. Those users receive an email to change their password and can then sign in using Okta.
+Typically, you run a migration program like this for a set period, such as 60 days. At the end of that time, you delete the inline password hook. For any users that haven’t completed the migration on their own, you can issue a password reset using the Okta API. Those users receive an email to change their password and can then sign in using Okta.
 
 ## Create all the users in Okta
 
@@ -103,7 +103,7 @@ For more on creating users for password import, see this [reference section](/do
 
 ## Create an Inline Password Hook Application
 
-Once configured, when a user with `credentials.provider.type=IMPORT` attempts authenticate, Okta will call _your_ application. Among other things, your application receives the username and plaintext password as submitted by the user. It's up to your application to validate the credentials against your legacy system.
+After configured, when a user with `credentials.provider.type=IMPORT` attempts authenticate, Okta will call _your_ application. Among other things, your application receives the username and plaintext password as submitted by the user. It's up to your application to validate the credentials against your legacy system.
 
 If your application determines the credentials are correct against the legacy system, it would return a response that includes a `"credential": "VERIFIED"` value. The full response looks like this:
 
@@ -120,15 +120,15 @@ If your application determines the credentials are correct against the legacy sy
 }
 ```
 
-Okta will then set the supplied password in its backend (properly hashed) and transition the `credentials.provider.type` value from `IMPORT` to `OKTA`. This User is now fully migrated to Okta. From this point forward, when that particular user authenticates, your password hook is no longer called.
+Okta then sets the supplied password in its backend (properly hashed) and transition the `credentials.provider.type` value from `IMPORT` to `OKTA`. This user is now fully migrated to Okta. From this point forward, when that particular user authenticates, your password hook is no longer called.
 
 For more information on the Request from Okta and types of Responses your application can return to Okta, visit the [Password import inline hook reference](/docs/reference/password-hook/).
 
 ## Register the inline password hook application
 
-For Okta to use your application, you must register the external service endpoint.
+For Okta to use your app, you must register the external service endpoint.
 
-> **Note:** The external endpoint must be SSL protected and have a URL that starts with `https://`. Okta does NOT make calls to endpoints that aren’t SSL protected.
+> **Note:** The external endpoint must be SSL protected and have a URL that starts with `https://`. Okta doesn't make calls to endpoints that aren’t SSL protected.
 
 In the Admin Console, go to **Workflow** > **Inline Hooks**. Click **Add Inline Hook**.
 
@@ -136,7 +136,7 @@ You can also accomplish this using the [Inline Hooks Management API](/docs/refer
 
 ## End the migration program
 
-Typically, you leave the inline password hook endpoint in service for a fixed period - for instance, 60 days.
+Typically, you leave the inline password hook endpoint in service for a fixed period, such as 60 days.
 
 During that time, a large percentage of your active users migrate over to Okta without them knowing or being disrupted in their usual workflow.
 

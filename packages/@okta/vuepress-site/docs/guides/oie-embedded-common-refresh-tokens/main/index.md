@@ -37,7 +37,7 @@ You can refresh tokens with the SDK or with the OAuth token endpoint.
 
 ### Refresh the tokens with the OAuth token endpoint
 
-You can refresh access and ID tokens using the [`/token`](/docs/reference/api/oidc/#token) endpoint with the `grant_type` set to `refresh_token`. Before calling this endpoint, obtain the refresh token from the SDK and ensure that you have included `offline_access` as a scope in the SDK configurations. For further details on access token refresh with this endpoint, see [Use a refresh token](/docs/guides/refresh-tokens/main/#use-a-refresh-token).
+You can refresh access and ID tokens using the [`/token`](/docs/reference/api/oidc/#token) endpoint with the `grant_type` set to `refresh_token`. Before calling this endpoint, obtain the refresh token from the SDK and ensure that you've included `offline_access` as a scope in the SDK configurations. For further details on access token refresh with this endpoint, see [Use a refresh token](/docs/guides/refresh-tokens/main/#use-a-refresh-token).
 
 <StackSnippet snippet="refreshendpointrequest" />
 

@@ -25,9 +25,9 @@ This guide explains how to define custom groups claims for tokens that are retur
 
 ## About the static allowlist
 
-You can create a [dynamic](/docs/guides/customize-tokens-dynamic/) or static allowlist when you need to set group allowlists on a per-app basis using both the org authorization server and a custom authorization server. Suppose you have many groups but only 20 groups apply to your app. You don't want to run through all of your groups every time a groups claim is created. This process optionally uses Okta's flexible app profile, which accepts any JSON-compliant content, to create an allowlist of groups that can then easily be referenced.
+You can create a [dynamic](/docs/guides/customize-tokens-dynamic/) or static allowlist when you need to set group allowlists on a per-app basis using both the org authorization server and a custom authorization server. Suppose you have many groups but only 20 groups apply to your app. You don't want to search all of your groups every time a groups claim is created. This process optionally uses Okta's flexible app profile, which accepts any JSON-compliant content, to create an allowlist of groups that can then easily be referenced.
 
-Also, you can [add a groups claim](/docs/guides/customize-tokens-groups-claim) to ID tokens for any combination of App groups and user groups to perform SSO using the org authorization server. You can also [add a groups claim](/docs/guides/customize-tokens-groups-claim/main/#add-a-groups-claim-for-a-custom-authorization-server) to ID tokens and access tokens to perform authentication and authorization using a custom authorization server.
+Also, you can [add a groups claim](/docs/guides/customize-tokens-groups-claim) to ID tokens for any combination of app groups and user groups to perform SSO using the org authorization server. You can also [add a groups claim](/docs/guides/customize-tokens-groups-claim/main/#add-a-groups-claim-for-a-custom-authorization-server) to ID tokens and access tokens to perform authentication and authorization using a custom authorization server.
 
 See [Customize tokens returned from Okta](/docs/guides/customize-tokens-returned-from-okta/main/) when you want to define your own custom claims. For example, you might want to add a user's email address to an access token and use that to uniquely identify the user.You may also want to add information stored in a user profile to an ID token.
 
@@ -89,7 +89,7 @@ To test the full authentication flow that returns an ID token or an access token
 
     > **Note:** The `response_type` for an access token looks like this: `&response_type=token`
 
-4. After you paste the request into your browser, the browser is redirected to the sign-in page for your Okta org. Enter the credentials for a user who is mapped to your OpenID Connect application. The browser is directed to the `redirect_uri` that you specified in the URL and in the OpenID Connect app. The response contains an ID token or an access token, and any state that you defined are included in the response. The following are response examples:
+4. After you paste the request into your browser, the browser is redirected to the sign-in page for your Okta org. Enter the credentials for a user who is mapped to your OpenID Connect app. The browser is directed to the `redirect_uri` that you specified in the URL and in the OpenID Connect app. The response contains an ID token or an access token, and any state that you defined are included in the response. The following are response examples:
 
     **ID token**
 
@@ -169,7 +169,7 @@ curl --location --request GET 'https://${yourOktaDomain}/api/v1/groups' \
 
 ### Add a list of groups to the client App profile
 
-If your allowlist contains many groups, you can store the group IDs as a string array property in the client App's profile. You can add App groups, user groups, or both to the group allowlist specified as an array of IDs. If you only have one or two groups to specify, simply add the group IDs to the first parameter of the `getFilteredGroups` function described in the [next step](#use-a-static-group-allow-list-with-the-org-authorization-server).
+If your allowlist contains many groups, you can store the group IDs as a string array property in the client app's profile. You can add app groups, user groups, or both to the group allowlist specified as an array of IDs. If you only have one or two groups to specify, simply add the group IDs to the first parameter of the `getFilteredGroups` function described in the [next step](#use-a-static-group-allow-list-with-the-org-authorization-server).
 
 The following example names the group allowlist `groupallowlist`, but you can name it anything.
 
@@ -234,7 +234,7 @@ This section discusses the `getFilteredGroups` group function and how it helps y
 
 The Expression Language (EL) function format: `getFilteredGroups(allow list, group_expression, limit)`
 
-You can use this function anywhere to get a list of groups of which the current user is a member. This includes both user groups and App groups that originate from sources outside Okta, such as from Active Directory and Workday. Also, you can use this combined, custom-formatted list for customizable claims into access and ID tokens that drive authorization flows.
+You can use this function anywhere to get a list of groups of which the current user is a member. This includes both user groups and app groups that originate from sources outside Okta, such as Active Directory and Workday. Also, you can use this combined, custom-formatted list for customizable claims into access and ID tokens that drive authorization flows.
 
 > **Important:** When you use `Groups.startsWith`, `Groups.endsWith`, or `Groups.contains`, the `pattern` argument is matched and populated on the `name` attribute rather than the group's email (for example, when using Google Workspace). If you're targeting groups that may have duplicate group names (such as Google Groups), the `getFilteredGroups` group function is the best function for that use case.
 

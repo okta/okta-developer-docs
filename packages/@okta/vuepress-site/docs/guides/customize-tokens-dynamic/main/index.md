@@ -26,7 +26,7 @@ Use a dynamic allowlist with an authorization server to customize Okta tokens.
 
 You can create a dynamic or [static allowlist](/docs/guides/customize-tokens-static/) when you need to set group allowlists on a per-app basis using both the org authorization server and a custom authorization server.
 
-If you have many groups but only 20 groups apply to your app, you don't want to run through all of your groups every time a groups claim is created. This process optionally uses the Okta app profile, which accepts any JSON-compliant content, to create an allowlist of groups that you can then easily reference.
+If you have many groups but only 20 groups apply to your app, you don't want to search all of your groups every time a groups claim is created. This process optionally uses the Okta app profile, which accepts any JSON-compliant content, to create an allowlist of groups that you can then easily reference.
 
 ### Add a groups claim
 
@@ -92,7 +92,7 @@ To test the full authentication flow that returns an ID token or an access token
 
     > **Note:** The `response_type` for an access token looks like this: `&response_type=token`
 
-4. After you paste the request into your browser, the browser is redirected to the sign-in page for your Okta org. Enter the credentials for a user who is mapped to your OpenID Connect application, and then the browser is directed to the `redirect_uri` that you specified in the URL and in the OpenID Connect app. The response contains an ID token or an access token, and any state that you defined.
+4. After you paste the request into your browser, the browser is redirected to the sign-in page for your Okta org. Enter the credentials for a user who is mapped to your OpenID Connect app, and then the browser is directed to the `redirect_uri` that you specified in the URL and in the OpenID Connect app. The response contains an ID token or an access token, and any state that you defined.
 
     **ID token**
 
@@ -112,7 +112,7 @@ To test the full authentication flow that returns an ID token or an access token
 
 You can use Okta Expression Language (EL) group functions with dynamic allowlists. Three group functions help you use dynamic group allowlists: `contains`, `startsWith`, and `endsWith`. These functions return all groups that match the specified criteria without needing to have groups specified in the app.
 
-You can use this function anywhere to get a list of groups of which the current user is a member, including both user groups and App groups that originate from sources outside of Okta, such as from Active Directory and Workday. Also, you can use this combined, custom-formatted list for customizable claims into access and ID tokens that drive authorization flows. All three functions have the same parameters:
+You can use this function anywhere to get a list of groups of which the current user is a member, including both user groups and app groups that originate from sources outside of Okta, such as Active Directory and Workday. Also, you can use this combined, custom-formatted list for customizable claims into access and ID tokens that drive authorization flows. All three functions have the same parameters:
 
 | Parameter          | Description                                   | Nullable       | Example values                        |
 | :----------------- | :-------------------------------------------  | :------------- | :------------------------------------ |
