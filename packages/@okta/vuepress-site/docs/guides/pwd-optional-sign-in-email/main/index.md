@@ -6,19 +6,19 @@ title: Sign in with email only
 
 <ApiLifecycle access="ie" /><br>
 
-Enable an email-only sign-in flow in your application using the embedded SDK.
+Enable an email-only sign-in flow in your app using the embedded SDK.
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Configure your Okta org to enable a user to sign in without a password.
-* Integrate a password-optional sign-in flow into an application based on an embedded SDK.
+* Integrate a password-optional sign-in flow into an app based on an embedded SDK.
 
-**What you need**
+#### What you need
 
 <StackSnippet snippet="whatyouneed" />
 </br>
 
-**Sample code**
+#### Sample code
 
 <StackSnippet snippet="samplecode" />
 
