@@ -4,7 +4,7 @@ function generate_lastname()
     var lower_alphabets = "abcdefghijklmnopqrstuvwxyz";
     var upper_alphabets = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     var digits = "0123456789";
-    
+
     lastname += upper_alphabets.charAt(Math.floor(Math.random() * upper_alphabets.length));
 
     for( var i=0; i < 8; i++ )
@@ -16,19 +16,21 @@ function generate_lastname()
     return lastname;
 }
 
-function generate_firstname()
+function generate_name()
 {
-    var firstname = "Runscope";
+    var name = "Runscope";
     var digits = "0123456789";
     for( var j=0; j < 3; j++ )
-        firstname += digits.charAt(Math.floor(Math.random() * digits.length));
-    return firstname;    
+        name += digits.charAt(Math.floor(Math.random() * digits.length));
+    return name;
 }
 
-var firstname = generate_firstname();
+var firstname = generate_name();
 var lastname = generate_lastname();
 var email = firstname + lastname + "@atko.com";
+var groupName = generate_name();
 
+// Users
 variables.set("randomGivenName", firstname);
 variables.set("randomFamilyName", lastname);
 variables.set("randomEmail", email);
@@ -36,3 +38,5 @@ variables.set("randomUsername", email);
 variables.set("InvalidUserEmail", "abcdefgh@atko.com");
 variables.set("UserIdThatDoesNotExist", "010101001010101011001010101011");
 variables.set("randomUsernameCaps",email.toUpperCase());
+// Groups
+variables.set("randomGroupName",groupName);
