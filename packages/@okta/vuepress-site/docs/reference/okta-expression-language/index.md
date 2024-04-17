@@ -11,7 +11,7 @@ This document details the features and syntax of the Okta Expression Language (E
 
 > **Note:** If you're using EL for the [authentication policies](/docs/guides/configure-signon-policy/main/) of the Identity Engine, [Access Certification campaigns](https://help.okta.com/okta_help.htm?id=ext-el-eg), or Entitlement Management policies for Okta Identity Governance, use the features and syntax of the [Okta Expression Language in Okta Identity Engine](/docs/reference/okta-expression-language-in-identity-engine/).
 
-Okta Expression Language is based on [SpEL](http://docs.spring.io/spring/docs/3.0.x/reference/expressions.html) and uses a subset of the functionalities offered by SpEL.
+Okta Expression Language is based on [SpEL](https://docs.spring.io/spring-framework/reference/core/expressions.html) and uses a subset of the functionalities offered by SpEL.
 
 Expressions allow you to reference, transform, and combine attributes before storing them on a user profile or passing them to an app for authentication or provisioning. For example, you might use a custom expression to create a username by stripping `@company.com` from an email address. Or, you might combine the `firstName` and `lastName` attributes into a single `displayName` attribute.
 

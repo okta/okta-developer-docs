@@ -13,24 +13,24 @@ meta:
 
 This document details the features and syntax of Okta Expression Language used for the [authentication policies](/docs/guides/configure-signon-policy/main/) of the Identity Engine, and for [Access Certification campaigns](https://help.okta.com/okta_help.htm?id=ext-el-eg) and Entitlement Management policies for Okta Identity Governance.
 
-Expressions used outside of these areas should continue using the features and syntax of [the legacy Okta Expression Language](/docs/reference/okta-expression-language/). This document is updated as new capabilities are added to the language. Okta Expression Language is based on a subset of [SpEL functionality](http://docs.spring.io/spring/docs/3.0.x/reference/expressions.html).
+Expressions used outside of these areas should continue using the features and syntax of [the legacy Okta Expression Language](https://docs.spring.io/spring-framework/reference/core/expressions.html). This document is updated as new capabilities are added to the language. Okta Expression Language is based on a subset of [SpEL functionality](http://docs.spring.io/spring/docs/3.0.x/reference/expressions.html).
 
 ## Unsupported features
 
 The following operators and functionality offered by SpEL aren't supported in Okta Expression Language:
 
-- [Decrement operator](https://www.javadoc.io/static/org.springframework/spring-expression/4.0.2.RELEASE/org/springframework/expression/spel/ast/OpDec.html)
-- [Increment operator](https://www.javadoc.io/static/org.springframework/spring-expression/4.0.2.RELEASE/org/springframework/expression/spel/ast/OpInc.html)
-- [Instanceof operator](https://www.javadoc.io/static/org.springframework/spring-expression/4.0.2.RELEASE/org/springframework/expression/spel/ast/OperatorInstanceof.html)
-- [Between operator](https://www.javadoc.io/static/org.springframework/spring-expression/4.0.2.RELEASE/org/springframework/expression/spel/ast/OperatorBetween.html)
-- [Assign](https://www.javadoc.io/static/org.springframework/spring-expression/4.0.2.RELEASE/org/springframework/expression/spel/ast/Assign.html)
-- [Bean reference](https://www.javadoc.io/static/org.springframework/spring-expression/4.0.2.RELEASE/org/springframework/expression/spel/ast/BeanReference.html)
-- [Constructor reference](https://www.javadoc.io/static/org.springframework/spring-expression/4.0.2.RELEASE/org/springframework/expression/spel/ast/ConstructorReference.html)
-- [Function reference](https://www.javadoc.io/static/org.springframework/spring-expression/4.0.2.RELEASE/org/springframework/expression/spel/ast/FunctionReference.html)
-- [Type reference](https://www.javadoc.io/static/org.springframework/spring-expression/4.0.2.RELEASE/org/springframework/expression/spel/ast/TypeReference.html)
-- [Variable reference](https://www.javadoc.io/static/org.springframework/spring-expression/4.0.2.RELEASE/org/springframework/expression/spel/ast/VariableReference.html)
-- [Projection](https://www.javadoc.io/static/org.springframework/spring-expression/4.0.2.RELEASE/org/springframework/expression/spel/ast/Projection.html)
-- [Qualified identifier](https://www.javadoc.io/static/org.springframework/spring-expression/4.0.2.RELEASE/org/springframework/expression/spel/ast/QualifiedIdentifier.html)
+- [Decrement operator](https://www.javadoc.io/doc/org.springframework/spring-expression/latest/org/springframework/expression/spel/ast/OpDec.html)
+- [Increment operator](https://www.javadoc.io/doc/org.springframework/spring-expression/latest/org/springframework/expression/spel/ast/OpInc.html)
+- [Instanceof operator](https://www.javadoc.io/doc/org.springframework/spring-expression/latest/org/springframework/expression/spel/ast/OperatorInstanceof.html)
+- [Between operator](https://www.javadoc.io/doc/org.springframework/spring-expression/latest/org/springframework/expression/spel/ast/OperatorBetween.html)
+- [Assign](https://www.javadoc.io/doc/org.springframework/spring-expression/latest/org/springframework/expression/spel/ast/Assign.html)
+- [Bean reference](https://www.javadoc.io/doc/org.springframework/spring-expression/latest/org/springframework/expression/spel/ast/BeanReference.html)
+- [Constructor reference](https://www.javadoc.io/doc/org.springframework/spring-expression/latest/org/springframework/expression/spel/ast/ConstructorReference.html)
+- [Function reference](https://www.javadoc.io/doc/org.springframework/spring-expression/latest/org/springframework/expression/spel/ast/FunctionReference.html)
+- [Type reference](https://www.javadoc.io/doc/org.springframework/spring-expression/latest/org/springframework/expression/spel/ast/TypeReference.html)
+- [Variable reference](https://www.javadoc.io/doc/org.springframework/spring-expression/latest/org/springframework/expression/spel/ast/VariableReference.html)
+- [Projection](https://www.javadoc.io/doc/org.springframework/spring-expression/latest/org/springframework/expression/spel/ast/Projection.html)
+- [Qualified identifier](https://www.javadoc.io/doc/org.springframework/spring-expression/latest/org/springframework/expression/spel/ast/QualifiedIdentifier.html)
 
 ## Referencing attributes
 
