@@ -1362,11 +1362,12 @@ The entity risk score condition object specifies a particular level of risk for 
 
 <ApiLifecycle access="ie" />
 
-The entity risk detection condition object specifies the detected risk events that determine any further action. The object is specified as `riskDetectionTypes`.
+The entity risk detection conditions object specifies the detected risk events that determine any further action. The object is specified as `riskDetectionTypes`. This object can have an `include` parameter or an `exclude` parameter, but not both.
 
 | Parameter | Description                   | Data Type | Required |
 | ---       | ---                           | --------  | -------- |
 | `include` | An array of [detected risk events](#detected-risk-event-values) to include in the entity policy rule      | array  | Yes |
+| `exclude` | An array of [detected risk events](#detected-risk-event-values) to exclude in the entity policy rule      | array  | Yes |
 
 ##### Detected risk event values
 
@@ -2795,11 +2796,38 @@ The entity risk policy specifies what action or task to execute in reaction to a
 #### Entity risk policy example
 
 ```json
-    {
-        "type": "ENTITY_RISK",
-        "name": "useful example name here",
-        "description": "useful example description here"
-    }
+   {
+        "id": "rst4md033zyMXdWAR0g6",
+        "status": "ACTIVE",
+        "name": "Entity Risk Policy",
+        "description": "Enables entity risk policy evaluation for the org.",
+        "priority": 1,
+        "system": true,
+        "conditions": null,
+        "created": "2023-10-17T23:43:07.000Z",
+        "lastUpdated": "2023-10-17T23:43:07.000Z",
+        "_links": {
+            "self": {
+                "href": "https://example.com/api/v1/policies/rst4md033zyMXdWAR0g6",
+                "hints": {
+                    "allow": [
+                        "GET",
+                        "PUT"
+                    ]
+                }
+            },
+            "rules": {
+                "href": "https://example.com/api/v1/policies/rst4md033zyMXdWAR0g6/rules",
+                "hints": {
+                    "allow": [
+                        "GET",
+                        "POST"
+                    ]
+                }
+            }
+        },
+        "type": "ENTITY_RISK"
+   }
 ```
 
 ### Policy conditions
@@ -2858,16 +2886,43 @@ The `entityRisk` object's `actions` array can be empty or contain one of two `ac
 
 <ApiLifecycle access="ie" /> <ApiLifecycle access="ea" />
 
-Continuous Access evaluation, implemented in the API as a policy, determines the action to take based on changes to an existing user session. After a session event is triggered, the global session policy and all authentication policies are reevaluated and a course of action is undertaken as defined by the Continuous Access evaluation policy. The policy type is specified as `CONTINUOUS_ACCESS`.
+Continuous Access evaluation, implemented in the API as a policy type, determines the action to take based on changes to an existing user session. After a session event is triggered, the global session policy and all authentication policies are reevaluated and a course of action is undertaken as defined by the Continuous Access evaluation policy. The policy type is specified as `CONTINUOUS_ACCESS`.
 
 #### Continuous Access evaluation example
 
 ```json
-    {
-        "type": "CONTINUOUS_ACCESS",
-        "name": "useful example name here",
-        "description": "useful example description here"
-    }
+       {
+        "id": "rst4md03phZeFwacvE0g6",
+        "status": "ACTIVE",
+        "name": "Continuous Access Policy",
+        "description": "Enables continuous access policy evaluation for the org.",
+        "priority": 1,
+        "system": true,
+        "conditions": null,
+        "created": "2023-10-17T23:41:25.000Z",
+        "lastUpdated": "2023-10-17T23:41:25.000Z",
+        "_links": {
+            "self": {
+                "href": "https://example.com/api/v1/policies/rst4md03phZeFwacvE0g6",
+                "hints": {
+                    "allow": [
+                        "GET",
+                        "PUT"
+                    ]
+                }
+            },
+            "rules": {
+                "href": "https://example.com/api/v1/policies/rst4md03phZeFwacvE0g6/rules",
+                "hints": {
+                    "allow": [
+                        "GET",
+                        "POST"
+                    ]
+                }
+            }
+        },
+        "type": "CONTINUOUS_ACCESS"
+       }
 ```
 
 ### Policy conditions
@@ -2882,7 +2937,7 @@ You can apply the following conditions to the rules associated with an entity ri
 
 ### Continuous Access evaluation object
 
-The `actions` object of the Continuous Access evaluation policy rule indicates the next steps to take in response to a failure of the reevaluated global session policy or authentication policies. The object is specified as `continuousAccess`.
+The `actions` object of the Continuous Access evaluation policy rule indicates the next steps to take in response to a failure of the reevaluated global session policy or authentication policies. The `continuousAccess` object further defines the action.
 
 | Property                | Description              | Data Type                                       | Required                      | Default |
 | ---                     | ---------------          | ---                                             | ---                           | ---     |
@@ -2895,28 +2950,34 @@ The `continuousAccess` object's `failureActions` array can be empty or contain o
 | Array value               | Description              | Data Type                                       | Required                     | Default |
 | ---                     | ---------------          | ---                                             | ---                           | ---     |
 | `[]`                 | This action only logs the user session event.             | object                      |  Yes                      | Yes  |
-| `[ { "action": "TERMINATE_ALL_SESSION" } ]`              | This action terminates active sessions based on the [Terminate_All_Session failureActions](#terminate-all-session-failureactions-object) object            | object                      |       No   | No |
+| `[ { "action": "TERMINATE_SESSION" } ]`              | This action terminates active sessions based on the [Terminate_Session failureActions](#terminate_session-failureactions-object) object.            | object                      |       No   | No |
 | `[ { "action": "RUN_WORKFLOW", "workflow": {"id": "123123123"} } ]`               | This action runs a workflow and must include the additional workflow `id` for the `workflow` property.            | object                      | No |
 
-#### Continuous Access evaluation actions default example
+#### Continuous Access evaluation actions example
 
 ```json
 "actions": {
     "continuousAccess": {
-      "failureActions": []
+      "failureActions": [{
+                    "action": "TERMINATE_SESSION",
+                    "slo": {
+                        "appSelectionMode": "ALL",
+                        "appInstanceIds": null
+                    }
+                    }]
      }
 }
 ```
 
-#### Terminate_All_Session failureActions object
+#### Terminate_Session failureActions object
 
-This `failureActions` object defines the options for the `TERMINATE_ALL_SESSION` action:
+This `failureActions` object defines the options for the `TERMINATE_SESSION` action:
 
 | Property                | Description              | Data Type                                       | Required                      | Default |
 | ---                     | ---------------          | ---                                             | ---                           | ---     |
 | `action`               | The action to take when Continuous Access evaluation detects a failure.              | `"TERMINATE_SESSION"`                       | Yes                           | No   |
-| `slo.appSelectionMode`               | This property defines the session to terminate: everyone, no one, or a specific app instance              | `"SPECIFIC"`, `"NONE"`, or `"ALL"`                       | Yes                           | No   |
-| `slo.InstanceIds`               | This property defines the app instance access to terminate. Only include this property when `slo.appSelectionMode` is set to `"SPECIFIC"`.              | Array of IDs                     | No                          | No   |
+| `slo.appSelectionMode`               | This property defines the session to terminate: everyone, no one, or a specific app instance. This property must have a value.              | `"SPECIFIC"`, `"NONE"`, or `"ALL"`                       | Yes                           | No   |
+| `slo.appInstanceIds`               | This property defines the app instance access to terminate. Only include this property when `slo.appSelectionMode` is set to `"SPECIFIC"`.              | Array of IDs                     | No                          | No   |
 
 #### Continuous Access evaluation actions terminate sessions example
 
