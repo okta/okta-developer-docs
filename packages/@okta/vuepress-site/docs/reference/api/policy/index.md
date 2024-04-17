@@ -2950,15 +2950,21 @@ The `continuousAccess` object's `failureActions` array can be empty or contain o
 | Array value               | Description              | Data Type                                       | Required                     | Default |
 | ---                     | ---------------          | ---                                             | ---                           | ---     |
 | `[]`                 | This action only logs the user session event.             | object                      |  Yes                      | Yes  |
-| `[ { "action": "TERMINATE_SESSION" } ]`              | This action terminates active sessions based on the [Terminate_Session failureActions](#terminate_session-failureactions-object) object            | object                      |       No   | No |
+| `[ { "action": "TERMINATE_SESSION" } ]`              | This action terminates active sessions based on the [Terminate_Session failureActions](#terminate_session-failureactions-object) object.            | object                      |       No   | No |
 | `[ { "action": "RUN_WORKFLOW", "workflow": {"id": "123123123"} } ]`               | This action runs a workflow and must include the additional workflow `id` for the `workflow` property.            | object                      | No |
 
-#### Continuous Access evaluation actions default example
+#### Continuous Access evaluation actions example
 
 ```json
 "actions": {
     "continuousAccess": {
-      "failureActions": []
+      "failureActions": [{
+                    "action": "TERMINATE_SESSION",
+                    "slo": {
+                        "appSelectionMode": "ALL",
+                        "appInstanceIds": null
+                    }
+                    }]
      }
 }
 ```
@@ -2970,7 +2976,7 @@ This `failureActions` object defines the options for the `TERMINATE_SESSION` act
 | Property                | Description              | Data Type                                       | Required                      | Default |
 | ---                     | ---------------          | ---                                             | ---                           | ---     |
 | `action`               | The action to take when Continuous Access evaluation detects a failure.              | `"TERMINATE_SESSION"`                       | Yes                           | No   |
-| `slo.appSelectionMode`               | This property defines the session to terminate: everyone, no one, or a specific app instance              | `"SPECIFIC"`, `"NONE"`, or `"ALL"`                       | Yes                           | No   |
+| `slo.appSelectionMode`               | This property defines the session to terminate: everyone, no one, or a specific app instance. This property must have a value.              | `"SPECIFIC"`, `"NONE"`, or `"ALL"`                       | Yes                           | No   |
 | `slo.appInstanceIds`               | This property defines the app instance access to terminate. Only include this property when `slo.appSelectionMode` is set to `"SPECIFIC"`.              | Array of IDs                     | No                          | No   |
 
 #### Continuous Access evaluation actions terminate sessions example
