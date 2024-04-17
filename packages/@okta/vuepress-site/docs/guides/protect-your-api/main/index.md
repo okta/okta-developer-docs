@@ -1,6 +1,6 @@
 ---
 title: Protect your API endpoints
-excerpt: Configure your Okta org and your server-side application to secure your API endpoints.
+excerpt: Configure your Okta org and your server-side app to secure your API endpoints.
 layout: Guides
 ---
 
@@ -8,20 +8,20 @@ Add a layer of authorization to your web services with [Okta API Access Manageme
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Configure a web API to use Okta
 * Define which endpoints require authorization and which don't
 * Enable Cross-Origin Resource Sharing (CORS) for the API
 * Test the API is secure
 
-**What you need**
+#### What you need
 
 * An [Okta Developer Edition org](https://developer.okta.com/signup/)
 * [Postman](https://www.getpostman.com/apps) to test the API
 * <StackSnippet snippet="whatyouneed" />
 
-**Sample code**
+#### Sample code
 
 <StackSnippet snippet="samplecode" />
 
@@ -31,7 +31,7 @@ Add a layer of authorization to your web services with [Okta API Access Manageme
 
 ## Overview
 
-Background services and third-party APIs accessing your own APIs require the same level of [authentication and authorization](https://www.okta.com/identity-101/authentication-vs-authorization/) as users accessing your web applications. However, a machine-to-machine sign-in flow should be silent and require no human user interaction. Use Okta to grant the correct level of access to your APIs on your behalf.
+Background services and third-party APIs accessing your own APIs require the same level of [authentication and authorization](https://www.okta.com/identity-101/authentication-vs-authorization/) as users accessing your web apps. However, a machine-to-machine sign-in flow should be silent and require no human user interaction. Use Okta to grant the correct level of access to your APIs on your behalf.
 
 This quickstart contains the following tasks:
 
@@ -47,7 +47,7 @@ This quickstart contains the following tasks:
 
 ## Check that API Access Management is enabled
 
-[API Access Management (API AM)](/docs/concepts/api-access-management/) is the feature in your org that allows Okta to secure your APIs. When enabled, API AM allows you to create an authorization server that establishes a security boundary for your APIs. All new developer orgs have API AM enabled by default, but it's optional for production orgs. Check that it's enabled in your org as follows:
+[API Access Management (API AM)](/docs/concepts/api-access-management/) is the feature in your org that allows Okta to secure your APIs. When enabled, API AM allows you to create an authorization server that establishes a security boundary for your APIs. All new developer orgs have API AM enabled by default, but it’s optional for production orgs. Check that it’s enabled in your org as follows:
 
 1. Open the Admin Console for your org.
    1. [Sign in to your Okta organization](https://developer.okta.com/login) with your administrator account.
@@ -55,7 +55,7 @@ This quickstart contains the following tasks:
    1. Click **Admin** in the upper-right corner of the page.
 1. Go to **Security** > **API** to view the API AM area.
 
-If no **Authorization Servers** tab exists, API AM isn't enabled in your org. Contact your support team to enable this feature in your org or [create a new developer edition org](https://developer.okta.com/signup/).
+If no **Authorization Servers** tab exists, API AM isn’t enabled in your org. Contact your support team to enable this feature in your org or [create a new developer edition org](https://developer.okta.com/signup/).
 
 ### Note your authorization server name and audience
 
@@ -118,7 +118,7 @@ Configure access on a per-route basis to allow a mix of protected and anonymous 
 
 ### Enable CORS for your API
 
-Enable [Cross-Origin Resource Sharing  (CORS)](https://fetch.spec.whatwg.org/#http-cors-protocol) only if the API is being called from an application or API hosted on a different domain. For example, if your API is hosted on `api.example.com` while your application is accessing it from `example.com`, you must enable CORS.
+Enable [Cross-Origin Resource Sharing  (CORS)](https://fetch.spec.whatwg.org/#http-cors-protocol) only if the API is being called from an app or API hosted on a different domain. For example, if your API is hosted on `api.example.com` while your app is accessing it from `example.com`, you must enable CORS.
 
 <StackSnippet snippet="configcors" />
 
@@ -153,7 +153,7 @@ Moving on, where you see `${yourClientId}` and `${yourClientSecret}` in this gui
 
 ### Create a custom scope for the API
 
-Scope is a way to limit an application's access to your API. An access token must include a list of the scopes an app integration can perform. Create a custom scope - effectively, "you can query both endpoints" - for the API.
+Scope is a way to limit an app's access to your API. An access token must include a list of the scopes an app integration can perform. Create a custom scope to query both endpoints for the API.
 
 1. Go to **Security** > **API** to view the API AM area.
 1. Select the **Authorization Servers** tab.
@@ -177,7 +177,7 @@ Start Postman if it's not open already. First, you request an access token from 
 
 #### Request an access token for the API
 
-Make an HTTP POST request to [/token](/docs/reference/api/oidc/#token) using the client ID and secret you noted earlier.
+Make an HTTP POST request to [/token](http://localhost:8080/docs/reference/api/oidc/#token) using the client ID and secret you noted earlier.
 
 1. Select **+** in the Postman workbench to open a new request tab.
 1. Select **GET** and change it to **POST**.

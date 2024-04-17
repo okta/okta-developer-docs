@@ -8,7 +8,7 @@ This guide explains how to refresh access tokens with Okta.
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Understand how to set up refresh token rotation
 * Refresh access tokens
@@ -31,15 +31,15 @@ With persistent refresh token behavior, the same refresh token is returned each 
 
 ### Persistent token risk
 
-Public clients such as browser-based applications have a higher risk of a refresh token being compromised when a persistent refresh token is used. With clients such as single-page applications (SPAs), long-lived refresh tokens aren't suitable, because there isn't a way to safely store a persistent refresh token in a browser and assure access by only the intended app.
+Public clients such as browser-based apps have a higher risk of a refresh token being compromised when a persistent refresh token is used. With clients such as single-page apps (SPAs), long-lived refresh tokens aren't suitable, because there isn't a way to safely store a persistent refresh token in a browser and assure access by only the intended app.
 
 These threats are greatly reduced by rotating refresh tokens. [Refresh token rotation](#refresh-token-rotation) helps a public client to securely rotate refresh tokens after each use. With refresh token rotation behavior, a new refresh token is returned each time the client makes a request to exchange a refresh token for a new access token. Refresh token rotation works with SPAs, mobile apps, and web apps in Okta.
 
-## Set up your application
+## Set up your app
 
-Refresh tokens are available for a subset of Okta OAuth 2.0 client applications, specifically web, single-page, and mobile applications. See our [OAuth 2.0 and OIDC overview](/docs/concepts/oauth-openid/#recommended-flow-by-application-type) for more about creating an OpenID Connect application.
+Refresh tokens are available for a subset of Okta OAuth 2.0 client apps, specifically web, single-page, and mobile apps. See our [OAuth 2.0 and OIDC overview](/docs/concepts/oauth-openid/#recommended-flow-by-application-type) for more about creating an OpenID Connect app.
 
-Be sure to specify `refresh_token` as a `data_type` value for the `grant_type` parameter when adding an [OAuth client app](/docs/reference/api/apps/#add-oauth-2-0-client-application) using the `/apps` API. After you set up an application, you can also select **Refresh Token** as a **Grant type** on the **General Settings** tab in the Admin Console.
+Be sure to specify `refresh_token` as a `data_type` value for the `grant_type` parameter when adding an [OAuth client app](/docs/reference/api/apps/#add-oauth-2-0-client-application) using the `/apps` API. After you set up an app, you can also select **Refresh Token** as a **Grant type** on the **General Settings** tab in the Admin Console.
 
 ## Refresh token rotation
 
@@ -49,7 +49,7 @@ Refresh token rotation helps a public client to securely rotate refresh tokens a
 
 When a client wants to renew an access token, it sends the refresh token with the access token request to the `/token` endpoint. Okta validates the incoming refresh token and issues a new set of tokens. When the new tokens are issued, Okta invalidates the refresh token that was passed with the initial request to the `/token` endpoint.
 
-If a previously used refresh token is used again with the token request, the authorization server automatically detects the attempted reuse of the refresh token. As a result, Okta immediately invalidates the most recently issued refresh token and all access tokens issued since the user authenticated. This protects your application from token compromise and replay attacks.
+If a previously used refresh token is used again with the token request, the authorization server automatically detects the attempted reuse of the refresh token. As a result, Okta immediately invalidates the most recently issued refresh token and all access tokens issued since the user authenticated. This protects your app from token compromise and replay attacks.
 
 #### System Log events
 
@@ -68,7 +68,7 @@ Okta offers a grace period when you [configure refresh token rotation](#enable-r
 
 Rotating refresh token behavior is the default for SPAs. When you create an SPA, or when you update an existing SPA, and select **Refresh Token** as the allowed grant type, rotating the refresh token is set as the default.
 
-To update existing OpenID Connect applications to use refresh token rotation:
+To update existing OpenID Connect apps to use refresh token rotation:
 
 1. Sign in to your Okta organization with your administrator account.
 1. In the Admin Console, go to **Applications** > **Applications**.
@@ -129,7 +129,7 @@ The only flows that support refresh tokens are the Authorization Code flow and t
 
 > **Notes:** The Authorization Code flow is unique in that the `offline_access` scope must be requested as part of the code request to the `/authorize` endpoint and not the request sent to the `/token` endpoint.
 >
-> Whether persistent refresh token or rotating refresh token behavior is enabled depends on what type of application that you're using. When you select **Refresh Token** as an allowed grant type, [SPAs use refresh token rotation](#renew-access-and-id-tokens-with-spas) as the default behavior. Mobile apps and web apps use persistent refresh token behavior as the default. See [Refresh token rotation](#refresh-token-rotation).
+> Whether persistent refresh token or rotating refresh token behavior is enabled depends on what type of app that you're using. When you select **Refresh Token** as an allowed grant type, [SPAs use refresh token rotation](#renew-access-and-id-tokens-with-spas) as the default behavior. Mobile apps and web apps use persistent refresh token behavior as the default. See [Refresh token rotation](#refresh-token-rotation).
 
 ### Get a refresh token with the code flow
 
@@ -250,13 +250,13 @@ You would then get back an ID token and your access and refresh tokens. See the 
 
 With a SPA, it's undesirable to redirect the user to a sign-in page during normal navigation. To avoid this disruptive redirection, the `/authorize` endpoint allows the use of a request parameter called `prompt`.
 
-If the value of the `prompt` parameter is `none`, this guarantees that the user isn't prompted to sign in, regardless of whether they have an active session. Instead, your application either silently obtains the requested tokens or an OAuth error response occurs. Before [refresh token rotation](#refresh-token-rotation) was available, the `prompt` parameter was the only way for a SPA to maintain user sessions without prompting the user to sign in multiple times.
+If the value of the `prompt` parameter is `none`, this guarantees that the user isn't prompted to sign in, regardless of whether they have an active session. Instead, your app either silently obtains the requested tokens or an OAuth error response occurs. Before [refresh token rotation](#refresh-token-rotation) was available, the `prompt` parameter was the only way for a SPA to maintain user sessions without prompting the user to sign in multiple times.
 
 The introduction of browser privacy controls such as Intelligent Tracking Prevention (ITP) and Enhanced Tracking Prevention (ETP) affect how browsers handle third-party cookies. These browser privacy controls prevent the use of an Okta session cookie to silently renew user sessions, which force users to reauthenticate and take away the seamless user experience.
 
 Refresh token rotation provides a solution for SPAs to maintain user sessions in an ITP browser world. Because refresh tokens are independent of any cookies, you don't have to rely on an Okta session cookie to renew access and ID tokens.
 
-> **Note:** You can still use the Okta session cookie and silently renew the tokens as long as the application and Okta are in the same domain.
+> **Note:** You can still use the Okta session cookie and silently renew the tokens as long as the app and Okta are in the same domain.
 
 ## Use a refresh token
 

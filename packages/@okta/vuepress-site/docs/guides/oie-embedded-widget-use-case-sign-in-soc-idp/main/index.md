@@ -8,17 +8,17 @@ This guide describes how to allow users to sign in with the Facebook social Iden
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 Set up your app to support the sign-in flow with Facebook IdP use cases by using the Sign-In Widget.
 
-**What you need**
+#### What you need
 
 * An app that uses the embedded Okta Sign-In Widget and Identity Engine SDK
 * An [Okta org already set up for a social IdP use case](/docs/guides/oie-embedded-common-org-setup/-/main/#set-up-your-okta-org-for-a-social-idp-use-case)
 * A [Sign-In Widget and SDK set up for your own app](/docs/guides/oie-embedded-common-download-setup-app/nodejs/main/#set-up-the-sign-in-widget-and-sdk-for-your-own-app)
 
-**Sample code**
+#### Sample code
 
 <StackSnippet snippet="samplecode" />
 

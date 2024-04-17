@@ -4,25 +4,25 @@ title: Self-service registration
 
 <ApiLifecycle access="ie" />
 
-> **Note:** A request context for the browser client is required when a server-side web application uses an embedded SDK as a proxy between itself and Okta. This context contains values (geolocation, IP address, and user agent) that inform a secure response. However, these values are currently taken from the server rather than the client. As a result, network zones and behaviors that drive their conditions based on these request context values don’t currently work.
+> **Note:** A request context for the browser client is required when a server-side web app uses an embedded SDK as a proxy between itself and Okta. This context contains values (geolocation, IP address, and user agent) that inform a secure response. However, these values are currently taken from the server rather than the client. As a result, network zones and behaviors that drive their conditions based on these request context values don’t currently work.
 
-Enable a self-registration flow in your application using the embedded SDK.
+Enable a self-registration flow in your app using the embedded SDK.
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Configure your Okta org for self-service registration.
 * Set up the password, email, and/or phone authentication factors.
 * Set up and send a verification email during new user registration.
 
-**What you need**
+#### What you need
 
 * An app that uses the embedded Identity Engine SDK
 * [Okta org already configured for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/-/main/#set-up-your-okta-org-for-a-multifactor-use-case)
 * [Identity Engine SDK set up for your own app](/docs/guides/oie-embedded-common-download-setup-app/)
 
-**Sample code**
+#### Sample code
 
 <StackSnippet snippet="samplecode" />
 
@@ -30,7 +30,7 @@ Enable a self-registration flow in your application using the embedded SDK.
 
 ## Overview
 
-Self-service registration allows users to sign up to an application by themselves. In this use case, the user must register with a password, email, and/or phone factors. Enable self-service registration for the app in your Okta org and then build the self-service registration flow in your app.
+Self-service registration allows users to sign up to an app by themselves. In this use case, the user must register with a password, email, and/or phone factors. Enable self-service registration for the app in your Okta org and then build the self-service registration flow in your app.
 
 <div class="half">
 
@@ -54,7 +54,6 @@ Create a policy for self-registration:
 
 1. Open the Admin Console for your org.
 1. Go to **Security** > **Profile Enrollment**, and click **Add Profile Enrollment Policy**.
-   > **Note:** If you enabled Multiple Identifiers, go to **Security** > **User Profile Policies**. See [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features).
 1. Enter a policy **Name**, and click **Save**.
 1. Click the pencil icon next to your new policy.
 1. Ensure that **Self-service registration** is set to **Allowed**.
@@ -85,7 +84,7 @@ Create a policy for self-registration:
 
 ## Send a confirmation email even if the email authenticator is disabled
 
-Even when only the password factor is required for an Okta application, you can still send a confirmation email.
+Even when only the password factor is required for an Okta app, you can still send a confirmation email.
 
 To replicate this scenario:
 
@@ -103,7 +102,6 @@ To replicate this scenario:
    1. Set **Initiate login URI** to your **Sign-in Redirect URI**, and click **Save**.
 1. Make email verification mandatory in your default profile enrollment policy.
    1. Go to **Security** > **Profile Enrollment**.
-      > **Note:** If you enabled Multiple Identifiers, go to **Security** > **User Profile Policies**. See [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features).
    {style="list-style-type:lower-alpha"}
    1. Click the pencil icon next to the **Default policy**.
    1. Ensure that **Required before access is granted** is selected for **Email Verification**.

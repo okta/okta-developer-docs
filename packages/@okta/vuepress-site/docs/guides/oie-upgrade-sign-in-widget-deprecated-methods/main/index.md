@@ -8,15 +8,15 @@ This guide covers the JavaScript method that is deprecated from the Okta Sign-In
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 Understand the `showSignIn` methods that are used in the widget so that you can set the redirect URI based on the sign-in policies that the administrator defines.
 
-**What you need**
+#### What you need
 
 [Widget that is updated to the latest available release](/docs/guides/oie-upgrade-sign-in-widget/main/)
 
-**Sample code**
+#### Sample code
 
 [Code samples using showSignIn](#code-samples-using-showsignin)
 
@@ -56,7 +56,7 @@ var signIn = new OktaSignIn({
    }
 });
 
-// Search for URL Parameters to see if a user is being routed to the application to recover password
+// Search for URL Parameters to see if a user is being routed to the app to recover password
 var searchParams = new URL(window.location.href).searchParams;
 oktaSignIn.otp = searchParams.get('otp');
 oktaSignIn.state = searchParams.get('state');
