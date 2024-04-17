@@ -159,7 +159,7 @@ See the [request properties](/docs/reference/registration-hook/#objects-in-the-r
 
 ## Set up for profile enrollment (SSR) scenario
 
-This profile enrollment scenario (self-service registration) involves new users self-registering from the **Sign up** link. The users sign up with the default three sign-up fields (Email, First name, and Last name). With this use case, the registration inline hook triggers and evaluates the domain in the Email field. If the domain is from `okta.com`, the user can register. If not, the user is denied registration. Follow these steps to implement this scenario:
+This profile enrollment scenario (self-service registration) involves new users self-registering from the **Sign up** link. The users sign up with the default three sign-up fields (**Email**, **First name**, and **Last name**). With this use case, the registration inline hook triggers and evaluates the domain in the Email field. If the domain is from `okta.com`, the user can register. If not, the user is denied registration. Follow these steps to implement this scenario:
 
 <StackSnippet snippet="introbullets"/>
 
@@ -371,7 +371,7 @@ To associate the registration inline hook with a profile enrollment policy and a
 1. In the Admin Console, go to **Security > Profile Enrollment**.
 1. Click **Add Profile Enrollment Policy**.
 1. Give your policy a name (in this example, use "Inline Hook"), and then click **Save**.
-1. From the list of Enrollment Policies, find **Inline Hook**, and then click the pencil icon.
+1. From the list of policies, find **Inline Hook**, and then click the pencil icon.
 1. Click **Manage Apps**, and then click **Add Apps to this Policy**.
 1. Locate the **Okta Dashboard**, click **Apply**, and then click **Close**.
 1. Click **Back to Profile Enrollment Policy**.
@@ -391,7 +391,7 @@ Your registration inline hook is configured for progressive profile enrollment. 
 
 ## Set up for profile enrollment (SSR) and progressive profile enrollment scenario
 
-This scenario involves both profile enrollment (self-service registration) and progressive profile enrollment use cases. Existing users are prompted for new information (a four-digit employee number) to add to their profile when they sign in. New users self-registering from the **Sign up** link are required to include the default three sign-up fields (Email, First name, and FamLastily name) and the employee number field. With this use case, the external code updates the profiles of existing users if the employee number is four digits. The external code adds new users if their email domain contains `okta.com` and their employee number is four digits, otherwise their registration is denied. Follow these steps to implement this scenario:
+This scenario involves both profile enrollment (self-service registration) and progressive profile enrollment use cases. Existing users are prompted for new information (a four-digit employee number) to add to their profile when they sign in. New users self-registering from the **Sign up** link are required to include the default three sign-up fields (**Email**, **First name**, and **Last name**) and the employee number field. With this use case, the external code updates the profiles of existing users if the employee number is four digits. The external code adds new users if their email domain contains `okta.com` and their employee number is four digits, otherwise their registration is denied. Follow these steps to implement this scenario:
 
 <StackSnippet snippet="introbullets"/>
 
@@ -569,7 +569,7 @@ The response from your external service in JSON format appears, which indicates 
 To preview a progressive profile enrollment request and response:
 
 1. In the Admin Console, go to **Workflow** > **Inline Hooks**.
-1. Select the registration inline hook name that you created and click **Preview**.
+1. Select the registration inline hook name that you created, and then click **Preview**.
 1. In the **Configure Inline Hook request** block, select an end user from your org in the **data.userProfile** field. That is, select a value from your `data.user.profile` object.
 1. Under **requestType**, select **Progressive Profile**.
 1. From the **Preview example Inline Hook request** block, select **Generate Request**.
