@@ -30,7 +30,7 @@ When you start an IdP-initiated flow or SP-initiated flow while SAML-tracer is e
 
 To install SAML-tracer, visit [https://addons.mozilla.org/en-US/firefox/addon/saml-tracer/](https://addons.mozilla.org/en-US/firefox/addon/saml-tracer/) and follow the instructions.
 
-After you install SAML-tracer, open it by clicking its icon or click **Extensions** > **SAML-tracer** on your browser bar.
+After you install SAML-tracer, open it by clicking its icon or select **Extensions** > **SAML-tracer** on your browser bar.
 
 >Similar tools exist for other browsers, such as [SAML DevTools](https://chrome.google.com/webstore/detail/saml-devtools-extension/jndllhgbinhiiddokbeoeepbppdnhhio)
 and [SAML Chrome Panel](https://chrome.google.com/webstore/detail/saml-devtools-extension/jndllhgbinhiiddokbeoeepbppdnhhio) for Chrome.
@@ -88,7 +88,7 @@ As you can see from the examples, the app can read attributes passed from Okta a
 
 ## Example SAML response
 
-SAML responses are signed. This example contains the profile attributes of the person who requested access to the app, as set in the General tab of the administrator UI.
+SAML responses are signed. This example contains the profile attributes of the person who requested access to the app, as set on the **Applications** > **General** tab.
 
 ```xml
 <saml2p:Response xmlns:saml2p="urn:oasis:names:tc:SAML:2.0:protocol"

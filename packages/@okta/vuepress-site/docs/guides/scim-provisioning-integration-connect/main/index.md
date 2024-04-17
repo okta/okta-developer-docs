@@ -36,7 +36,7 @@ Begin by signing in to your Okta Developer Edition org. If you don't have one, s
 1. Click **Browse App Catalog**.
 1. Search for either "SCIM 2.0" or "SCIM 1.1" depending on the version of SCIM supported by your server. After searching you see template apps for each of the three authentication methods used to connect to your SCIM implementation: Basic Auth, Header Auth, or OAuth Bearer Token.
 1. Click **Add Integration** on the desired template app for your integration and finish adding the template app.
-1. On the **General Settings** page: Set the name of your app, choose if it's hidden from general and mobile users, and choose if users' are automatically signed in from the landing page. Click **Next**.
+1. On the **General Settings** page, set the name of your app. Choose if it's hidden from general and mobile users, and choose if users' are automatically signed in from the landing page. Click **Next**.
 1. Choose the sign-in method for your integration on the **Sign-On Options** page. Select either SAML or SWA. For guidance on choosing the access method, see [App integrations](https://help.okta.com/okta_help.htm?id=ext_Apps_Apps). Click **Done** to create the integration.
 1. Click the **Provisioning** tab, then in the main panel click **Configure API Integration**. Select the **Enable API Integration** checkbox.
   Enter the base URL for your SCIM server.
@@ -136,7 +136,7 @@ Click **Edit** to make changes to the following sections.
 
   * **Imported user is an exact match to Okta user if**: Sets the matching criteria to determine when an imported user matches to an existing Okta user. To consider the new imported user an exact match, each option that you select must be true. If you choose the third option, the first and second choices are disabled.
 
-  * **Allow partial matches**: Permits partial matching when the first and family name of an imported user match those of an existing Okta user, but not the username or email address.
+  * **Allow partial matches**: Permits partial matching when the first and last name of an imported user match those of an existing Okta user, but not the username or email address.
 
   * **Confirm matched users**: Automates the confirmation or activation of existing users. If the option isn't selected, matches are confirmed manually.
 
@@ -230,7 +230,7 @@ Before you can delete an attribute, you first need to remove the mapping for tha
 
 1. Repeat steps 3 and 4 for all other SCIM attributes that you want to map (from Okta to your app).
 
-1. After you update the mappings from Okta to your app, click **To Okta** under the **Settings** section.
+1. After you update the mappings from Okta to your app, click **To Okta** in the **Settings** section.
 
 1. Scroll to the **Attribute Mappings** section. Look for the attribute that you want to update and click **Edit**.
 
@@ -246,9 +246,9 @@ You only want to include the attributes that you support in your current user sc
 
 1. After the user is pushed to your SCIM app, check that all attributes are populated in your SCIM repository.
 
-1. If your integration supports User Imports, try importing one user from your app. Check the imported user and ensure that the values for supported attributes are reflected in that imported user's account in Okta.
+1. If your integration supports user imports, try importing one user from your app. Check the imported user and ensure that the values for supported attributes are reflected in that imported user's account in Okta.
 
-    1. From your Admin Console, select **Directory** > **People**. The list of Okta users for your org appears.
+    1. From the Admin Console, select **Directory** > **People**. The list of Okta users for your org appears.
 
     1. Find the user that you imported and click the user's name.
     1. After the user account appears, click **Profile**. The Profile page shows the user's attributes. Verify that the supported attribute values were imported properly.

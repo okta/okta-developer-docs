@@ -159,7 +159,7 @@ See the [request properties](/docs/reference/registration-hook/#objects-in-the-r
 
 ## Set up for profile enrollment (SSR) scenario
 
-This profile enrollment scenario (self-service registration) involves new users self-registering from the **Sign up** link. The users sign up with the default three sign-up fields (Email, First name, and Family name). With this use case, the registration inline hook triggers and evaluates the domain in the Email field. If the domain is from `okta.com`, the user can register. If not, the user is denied registration. To implement this scenario:
+This profile enrollment scenario (self-service registration) involves new users self-registering from the **Sign up** link. The users sign up with the default three sign-up fields (Email, First name, and Last name). With this use case, the registration inline hook triggers and evaluates the domain in the Email field. If the domain is from `okta.com`, the user can register. If not, the user is denied registration. Follow these steps to implement this scenario:
 
 <StackSnippet snippet="introbullets"/>
 
@@ -227,7 +227,7 @@ app.post('/registrationHookSSR', async (request, response) => {
 
 ### Add your registration hook for profile enrollment
 
-Configure your registration inline hook for your Okta org to use the glitch project for profile enrollment (SSR).
+Configure your registration inline hook for your Okta org to use the Glitch project for profile enrollment (SSR).
 
 1. In the Admin Console, go to **Workflow** > **Inline Hooks**.
 1. Click **Add Inline Hook** and select **Registration** from the dropdown menu.
@@ -253,7 +253,7 @@ Configure your registration inline hook for your Okta org to use the glitch proj
 
 To associate the registration inline hook with a profile enrollment policy:
 
-1. Go to **Security** > **Profile Enrollment** in the Admin Console.
+1. In the Admin Console, go to **Security** > **Profile Enrollment**.
 1. Click **Add Profile Enrollment Policy**, give your policy a name (in this example, use "Inline Hook"), and then click **Save**.
 1. Find **Inline Hook** from the list of Enrollment Policies, and then click the pencil icon.
 1. Click **Manage Apps**, and then click **Add Apps to this Policy**.
@@ -270,7 +270,7 @@ Your registration inline hook is configured for profile enrollment (self-service
 
 ## Set up for progressive profile enrollment scenario
 
-The scenario of progressive profile enrollment involves existing users prompted for new information to add to their profile when they sign in. With this use case, the registration inline hook triggers and the external service code evaluates the employee number field. If the value is four digits, the user's profile is updated. To implement this scenario:
+The scenario of progressive profile enrollment involves existing users prompted for new information to add to their profile when they sign in. With this use case, the registration inline hook triggers and the external service code evaluates the employee number field. If the value is four digits, the user's profile is updated. Follow these steps to implement this scenario:
 
 <StackSnippet snippet="introbullets"/>
 
@@ -334,7 +334,7 @@ app.post('/registrationHookPP', async (request, response) => {
 
 ### Add your registration hook for a progressive profile
 
-Configure your registration inline hook for your Okta org to use the glitch project for progressive profile enrollment.
+Configure your registration inline hook for your Okta org to use the Glitch project for progressive profile enrollment.
 
 1. In the Admin Console, go to **Workflow** > **Inline Hooks**.
 1. Click **Add Inline Hook** and select **Registration** from the dropdown menu.
@@ -371,7 +371,7 @@ To associate the registration inline hook with a profile enrollment policy and a
 1. In the Admin Console, go to **Security > Profile Enrollment**.
 1. Click **Add Profile Enrollment Policy**.
 1. Give your policy a name (in this example, use "Inline Hook"), and then click **Save**.
-1. From the list of Enrollment Policies, find **Inline Hook** and click the pencil icon.
+1. From the list of Enrollment Policies, find **Inline Hook**, and then click the pencil icon.
 1. Click **Manage Apps**, and then click **Add Apps to this Policy**.
 1. Locate the **Okta Dashboard**, click **Apply**, and then click **Close**.
 1. Click **Back to Profile Enrollment Policy**.
@@ -391,7 +391,7 @@ Your registration inline hook is configured for progressive profile enrollment. 
 
 ## Set up for profile enrollment (SSR) and progressive profile enrollment scenario
 
-This scenario involves both profile enrollment (self-service registration) and progressive profile enrollment use cases. Existing users are prompted for new information (a four-digit employee number) to add to their profile when they sign in. New users self-registering from the **Sign up** link are required to include the default three sign-up fields (Email, First name, and Family name) and the employee number field. With this use case, the external code updates the profiles of existing users if the employee number is four digits. The external code adds new users if their email domain contains `okta.com` and their employee number is four digits, otherwise their registration is denied. To implement this scenario:
+This scenario involves both profile enrollment (self-service registration) and progressive profile enrollment use cases. Existing users are prompted for new information (a four-digit employee number) to add to their profile when they sign in. New users self-registering from the **Sign up** link are required to include the default three sign-up fields (Email, First name, and FamLastily name) and the employee number field. With this use case, the external code updates the profiles of existing users if the employee number is four digits. The external code adds new users if their email domain contains `okta.com` and their employee number is four digits, otherwise their registration is denied. Follow these steps to implement this scenario:
 
 <StackSnippet snippet="introbullets"/>
 
@@ -498,7 +498,7 @@ app.post('/registrationHookSSRandPP', async (request, response) => {
 
 Configure your registration inline hook for your Okta org to use the glitch project for both profile enrollment (self-service registration) and progressive profile enrollment.
 
-1. Go to **Workflow** > **Inline Hooks** in the Admin Console.
+1. In the Admin Console, go to **Workflow** > **Inline Hooks**.
 1. Click **Add Inline Hook** and select **Registration** from the dropdown menu.
 1. Add a name for the hook (in this example, use "Profile and Progressive Profile Enrollment").
 1. Add your external service URL (see [Set up your Glitch project](#set-up-your-glitch-project)), and append it with the endpoint. For example, use your Glitch project name with the endpoint (`registrationHookSSRandPP`):
@@ -517,10 +517,10 @@ Configure your registration inline hook for your Okta org to use the glitch proj
 
 Before creating the enrollment policy, ensure the user profile attribute `employeeNumber` is set to a status of read-write. The `employeeNumber` attribute is read-only by default.
 
-1. Go to **Directory** > **Profile Editor** in the Admin Console.
+1. In the Admin Console, go to **Directory** > **Profile Editor**.
 1. Select **User (default)**.
-1. Find **Employee Number** under **Attributes** and click the information icon. The **Employee Number** dialog appears.
-1. Select **Read-Write** under **User permission**.
+1. Find **Employee Number** under **Attributes**, and then click the information icon. The **Employee Number** dialog appears.
+1. Select **Read-Write** in the **User permission** section.
 1. Click **Save Attribute**.
 
 To associate the registration inline hook with a profile enrollment policy and add the employee number field:
@@ -556,7 +556,7 @@ In your Okta org, you can preview the request and response JSON in the Admin Con
 To preview a profile enrollment (self-service registration) request and response:
 
 1. In the Admin Console, go to **Workflow** > **Inline Hooks**.
-1. Select the registration inline hook name that you created and click **Preview**.
+1. Select the registration inline hook name that you created, and then click **Preview**.
 1. In the **Configure Inline Hook request** block, select an end user from your org in the **data.userProfile** field. That is, select a value from your `data.user.profile` object.
 1. Under **requestType**, select **Self-Service Registration**.
 1. From the **Preview example Inline Hook request** block, select **Generate Request**.

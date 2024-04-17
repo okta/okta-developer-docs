@@ -315,13 +315,13 @@ The SAML assertion inline hook is ready for preview and testing. You now have th
 
 1. Go to your Glitch.com project and make sure that it's listening for requests by opening the Console Logs window (**Tools** > **Logs**).
 
-1. Return to your SAML app and sign in with an Okta user who is NOT in the data store of patients.
+1. Return to your SAML app and sign in with an Okta user who isn't in the data store of patients.
 
-      The user should sign in as normal, entering their username and password. After authentication, the first name, family name, email, and group attributes display on the Welcome page. In the Glitch log window, a message appears stating that the user isn't part of the data store.
+      The user should sign in with their username and password. After authentication, the first name, last name, email, and group attributes display on the Welcome page. In the Glitch log window, a message appears stating that the user isn't part of the data store.
 
 1. Sign out of the sample app and now sign in with an Okta user who is in the data store of patients.
 
-      The user should sign in as normal, entering their username and password. After authentication, the user's attributes display on the Welcome page, as before, and now include the patient ID attribute. In the Glitch log window, a message appears stating that the patient ID number was added to the SAML assertion.
+      The user should sign in with their username and password. After authentication, the user's attributes display on the Welcome page, as before, and now include the patient ID attribute. In the Glitch log window, a message appears stating that the patient ID number was added to the SAML assertion.
 
 ## Next steps
 

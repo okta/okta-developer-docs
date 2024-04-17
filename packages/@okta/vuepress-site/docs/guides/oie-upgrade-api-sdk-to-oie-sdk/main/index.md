@@ -4,7 +4,7 @@ title: Upgrade your app to the Identity Engine SDK
 
 <ApiLifecycle access="ie" />
 
-Begin upgrading your app to use the Identity Engine SDK methods after you update your project to the latest Identity Engine SDK. Also, make sure you have an enabled Identity Engine org.
+Begin upgrading your app to use the Identity Engine SDK methods after you update your project to the latest Identity Engine SDK. Also, make sure you have an Identity Engine org.
 
 Review the following sections, which detail Identity Engine SDK concepts. This guide discusses the differences between how the Classic Engine Authentication SDK and APIs approach authentication compared to the Identity Engine approach. Mappings of Classic Engine Authentication SDK method calls, and back-end APIs, to Identity Engine SDK methods are provided for some sample use cases.
 
@@ -19,7 +19,7 @@ Review the following sections, which detail Identity Engine SDK concepts. This g
 
 #### What you need
 
-* An Identity Engine enabled Okta org.
+* An Identity Engine org.
 * The Interaction Code grant enabled.
 * The latest Classic Engine Authentication SDK installed.
 * An app that uses the Classic Engine Authentication SDK or back-end APIs.

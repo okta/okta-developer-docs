@@ -153,7 +153,7 @@ Moving on, where you see `${yourClientId}` and `${yourClientSecret}` in this gui
 
 ### Create a custom scope for the API
 
-Scope is a way to limit an app's access to your API. An access token must include a list of the scopes an app integration can perform. Create a custom scope - effectively, "you can query both endpoints" - for the API.
+Scope is a way to limit an app's access to your API. An access token must include a list of the scopes an app integration can perform. Create a custom scope to query both endpoints for the API.
 
 1. Go to **Security** > **API** to view the API AM area.
 1. Select the **Authorization Servers** tab.

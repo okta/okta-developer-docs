@@ -4,7 +4,7 @@ title: Custom password recovery
 
 <ApiLifecycle access="ie" />
 
-This guide shows you how to integrate [Email Magic Links (EML)](/docs/guides/email-magic-links-overview/main/) into the self-service password recovery flow of your apps using the Okta embedded solutions.
+This guide shows you how to integrate [Email Magic Links (EML)](/docs/guides/email-magic-links-overview/main/) into the self-service password recovery flow of your apps using the Okta-embedded solutions.
 
 ---
 
@@ -26,7 +26,7 @@ This guide shows you how to integrate [Email Magic Links (EML)](/docs/guides/ema
 
 ## Overview
 
-The Okta embedded solutions allow you to customize your authentication use cases with full support for theming, branding, and extensive ways to control the user experience. This guide covers customizations for one particular use case, self-service password recovery, where an email authenticator is used to verify the user before they can reset their password.
+The Okta-embedded solutions allow you to customize your authentication use cases with full support for theming, branding, and extensive ways to control the user experience. This guide covers customizations for one particular use case, self-service password recovery, where an email authenticator is used to verify the user before they can reset their password.
 
 > **Note**: The [Email Magic Links overview](/docs/guides/email-magic-links-overview/main/) explains the difference in user experience between using one-time passcodes and magic links.
 
@@ -52,7 +52,7 @@ Confirm that you have the email authenticator set up for password recovery by pe
 
 1. In the Admin Console, go to **Security > Authenticators**.
 1. On the **Authenticators** page, confirm you have the **Email** authenticator added to your org. If not present, add it by clicking **Add Authenticator** and locating **Email**.
-1. Find the **Password** authenticator, click its **Actions** link, and select **Edit** in the dropdown.
+1. Find the **Password** authenticator, click its **Actions** link, and then select **Edit** from the dropdown list.
 1. On the **Password** page, scroll down to the rules section. Edit the **Default Rule** (or currently active rule) by clicking its pencil icon.
 1. On the **Edit Rule** page, confirm that **Email** is checked for the **Users can initiate recovery with** field.
 1. If changes were made, click **Update Rule**.

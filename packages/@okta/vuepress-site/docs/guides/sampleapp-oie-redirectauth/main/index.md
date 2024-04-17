@@ -43,8 +43,8 @@ To get started, you need to create an Okta OAuth app to represent the <StackSnip
 <StackSnippet snippet="toolnote" />
 
 1. Sign in to your [Admin Console](https://login.okta.com).
-2. From the side navigation, select **Applications** > **Applications**, and then click **Create App Integration**.
-3. In the dialog box that appears, select **OIDC - OpenID Connect** as the **Sign-on method**, <StackSnippet snippet="apptype" inline /> as the **Application type**, and then click **Next**.
+2. Go to **Applications** > **Applications**, and then click **Create App Integration**.
+3. In the dialog that appears, select **OIDC - OpenID Connect** as the **Sign-on method**, <StackSnippet snippet="apptype" inline /> as the **Application type**, and then click **Next**.
 4. Fill in the New <StackSnippet snippet="apptypepage" inline /> Integration fields that you need, and then click **Save**:
 
    * Be sure to add the following values (or leave the defaults if they match):
@@ -105,9 +105,9 @@ This section walks you through the self-service enrollment steps for a new user.
 
 <StackSnippet snippet="tryenrollin" />
 
-3. In the Okta Sign-In Widget, click **Sign up** just below the **Forgot password?** link.
+3. In the Okta Sign-In Widget, click **Sign up** that follows the **Forgot password?** link.
 4. Enter the requested information, and then click **Sign Up**.
-5. Set up the Email and Password authenticators. Don't set up any other authenticators.
+5. Set up the email and password authenticators. Don't set up any other authenticators.
 
     > **Note:** Be sure to copy the code from the email and paste it into the Sign-In Widget. This allows you to manually verify the email address rather than using the **Verify Email Address** button.
 
@@ -131,13 +131,13 @@ To enable self-service password-optional enrollments in the Sign-In Widget, <Sta
 
 ## Add MFA with a mandatory second factor
 
-You can modify the app's authentication policy to require the user to have a second factor enabled for authentication. In this example, use the Phone authenticator.
+You can modify the app's authentication policy to require the user to have a second factor enabled for authentication. In this example, use the phone authenticator.
 
 > **Note:** Your Okta org may have different authenticators enabled by default.
 
 ### Enable multifactor authentication
 
-1. Ensure that your org has the Phone authenticator enabled by going to **Security** > **Authenticators** and checking that **Phone** is listed.
+1. Ensure that your org has the phone authenticator enabled by going to **Security** > **Authenticators** and checking that **Phone** is listed.
 
     If it isn't listed, add it:
     * Click **Add Authenticator**, and then click **Add** in the **Phone** authentication box.
@@ -152,7 +152,7 @@ You can modify the app's authentication policy to require the user to have a sec
 
 <StackSnippet snippet="tryenrollin" />
 
-3. Enter the credentials of the user that you enrolled with earlier. The Set up security methods page appears, prompting you to set up either the Okta Verify app or the Phone authenticator.
+3. Enter the credentials of the user that you enrolled with earlier. The Set up security methods page appears, prompting you to set up either the Okta Verify app or the phone authenticator.
 4. Under **Phone**, click **Set up**.
 5. Fill out the requested phone authentication information and verify your phone with a code.
 6. Under **Set up optional**, click **Set up later**. You're redirected to the <StackSnippet snippet="applang" inline /> welcome page.
@@ -193,7 +193,7 @@ Try out the email password recovery flow:
 
 1. Select **Forgot password?** in the Sign-In Widget.
 1. Enter your email or username when prompted and click **Next**.
-1. Click **Select** for the Email authenticator. An OTP code is sent to your email address. Manually copy the code from the email.
+1. Click **Select** for the email authenticator. An OTP code is sent to your email address. Manually copy the code from the email.
 1. In the Sign-In Widget, click **Enter a code from the email instead**, paste the code, and click **Verify**.
 1. Enter a new password.
 1. After you enter the new password successfully, you're prompted for the additional phone authentication that you set up in [Enable multifactor authentication](#enable-multifactor-authentication). You’re then redirected to the <StackSnippet snippet="applang" inline /> welcome page.
@@ -204,8 +204,8 @@ Try out the email password recovery flow:
 In addition to recovering your password with an email, you can add Okta Verify as a recovery option.
 
 1. Go to **Security** > **Authenticators**.
-2. Click **Actions** beside the Password authenticator, and then click **Edit**.
-3. In the **Add Rule** section at the bottom of the page, click the pencil icon for the Default Rule.
+2. Click **Actions** beside the password authenticator, and then click **Edit**.
+3. In the **Add Rule** section, click the pencil icon for the Default Rule.
 4. In the **Recovery authenticators** section, locate **AND Users can initiate recovery with**.
 5. Select **Okta Verify (Push notification only)** and click **Update Rule**.
 6. [Enroll a new user](#try-enrollment), ensuring that this time you also enroll Okta Verify.
@@ -226,10 +226,10 @@ Okta gives you the ability to check for what data is required from a user before
 
 When you enrolled your test user, the user was only prompted for first and family name, as well as their email and a password. Now add an additional required property to the profile enrollment policy.
 
-1. In the Admin Console side navigation, select **Security** > **Profile Enrollment**.
+1. In the Admin Console, select **Security** > **Profile Enrollment**.
 1. Find the profile enrollment policy that you created for self-service enrollment and click the pencil icon in the **Actions** column.
-1. In the **Enrollment Settings** section, click the **Actions** menu icon (&#8942;) and select **Edit**.
-1. For **Progressive Profiling** select **Enabled**.
+1. In the **Enrollment Settings** section, click the **Actions** menu icon (&#8942;), and then select **Edit**.
+1. For **Progressive Profiling**, select **Enabled**.
 1. From the side navigation, select **Directory** > **Profile Editor**.
 1. Under **Filters**, select **Okta**, and then click the **User (default)** profile.
 1. Under **Attributes**, click **Add Attribute**, and then fill out the dialog box that appears with the following values. The other fields are optional and can be left blank. Click **Save** when you finish.

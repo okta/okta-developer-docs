@@ -155,7 +155,7 @@ After the user submits the email authenticator for enrollment, Okta sends an ema
 
 #### Open email and submit OTP in your app
 
-Next, the user copies the OTP from their email and submits it in your app. Depending on how your org's configuration, they may be required to complete more steps (including enrolling in any additional authenticators) before completing the registration. This flow is described in detail in <StackSnippet snippet="emailenrollmentotp" inline /> under the Okta email guide.
+Next, the user copies the OTP from their email and submits it in your app. Depending on your org's configuration, they may be required to complete more steps (including enrolling in any additional authenticators) before completing the registration. This flow is described in detail in <StackSnippet snippet="emailenrollmentotp" inline /> under the Okta email guide.
 
 #### Complete registration and activation completion
 
