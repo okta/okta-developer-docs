@@ -335,6 +335,7 @@ Review the following guides to implement other inline or event hook examples:
 * [Password import inline hook](/docs/guides/password-import-inline-hook/)
 * [Token inline hook](/docs/guides/token-inline-hook)
 * [Telephony inline hook](/docs/guides/telephony-inline-hook)
+* [Registration inline hook](/docs/guides/registration-inline-hook)
 
 ## See also
 
