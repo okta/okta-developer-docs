@@ -85,7 +85,7 @@ Common resource types include the following:
 - Entitlements
 - Roles
 
-Okta doesn't offer custom handling for Groups.
+Okta doesn't offer custom handling for groups.
 
 To expose Entitlements and Roles, you must create a corresponding `ResourceType` for each of these entities. See [ResourceTypes](#resourcetype) for an implementation example.
 
