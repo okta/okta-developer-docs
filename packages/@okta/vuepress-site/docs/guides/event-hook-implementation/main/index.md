@@ -46,13 +46,15 @@ This guide uses the website [Glitch.com](https://glitch.com) to act as an extern
 
 Review the following sections to understand how to receive and parse the event hook call. Or use the code snippets to create the project on your own. If you copy the project, you can go directly to the section [Enable and verify the event hook](#enable-and-verify-the-event-hook), which completes the setup.
 
+<HookBasicAuthValuesNote/>
+
 ### Configure initial event hook verification
 
 Okta event hooks require an initial verification of the external service endpoint before the ongoing triggering of the hook. For more information on this request, see [One-Time Verification Request](/docs/concepts/event-hooks/#one-time-verification-request).
 
 Add the following code to your external service to receive and respond to this one-time verification request.
 
-> **Note:** Also, make sure to have the required default code and packages in your project. See [Overview and considerations](/docs/guides/common-hook-set-up-steps/main) for further information.
+> **Note:** Also, make sure to have the required default code and packages in your project. See [Common hook set-up steps](/docs/guides/common-hook-set-up-steps/main) for further information.
 
 <StackSelector snippet="verification" noSelector/>
 

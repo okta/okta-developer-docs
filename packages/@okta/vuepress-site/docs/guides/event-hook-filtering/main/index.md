@@ -39,6 +39,8 @@ This guide uses the website [Glitch.com](https://glitch.com) to act as an extern
 
 Review [Event hook implementation](/docs/guides/event-hook-implementation) to understand how to receive and parse the event hook call in your code. After copying the project, go to the following section to create an event hook with a filter.
 
+<HookBasicAuthValuesNote/>
+
 ## Create an event hook with a filter
 
 The Glitch event hook example uses the Okta event triggered when a user is added to a group. This event hook triggers for every instance of a group addition. With event hook filters, you can create business logic, using the Okta Expression Language, to isolate only certain group additions that trigger the event hook. In this example, only users added to the Sales group trigger the event hook.

@@ -161,7 +161,11 @@ See the [request properties](/docs/reference/registration-hook/#objects-in-the-r
 
 This profile enrollment scenario (self-service registration) involves new users self-registering from the **Sign up** link. The users sign up with the default three sign-up fields (**Email**, **First name**, and **Last name**). With this use case, the registration inline hook triggers and evaluates the domain in the Email field. If the domain is from `okta.com`, the user can register. If not, the user is denied registration. Follow these steps to implement this scenario:
 
-<StackSnippet snippet="introbullets"/>
+<StackSnippet snippet="introbullets"/><br>
+
+<HookCommonSetupNote/>
+
+<HookBasicAuthValuesNote/>
 
 ### Set up your external service code response for profile enrollment
 
@@ -254,8 +258,8 @@ Configure your registration inline hook for your Okta org to use the Glitch proj
 To associate the registration inline hook with a profile enrollment policy:
 
 1. In the Admin Console, go to **Security** > **Profile Enrollment**.
-1. Click **Add Profile Enrollment Policy**, give your policy a name (in this example, use "Inline Hook"), and then click **Save**.
-1. Find **Inline Hook** from the list of Enrollment Policies, and then click the pencil icon.
+1. Click **Add Profile Enrollment Policy**, give your policy a name (in this example, use "SSR Inline Hook"), and then click **Save**.
+1. Find your inline hook, "SSR Inline Hook", from the list of enrollment policies, and then click the pencil icon.
 1. Click **Manage Apps**, and then click **Add Apps to this Policy**.
 1. Locate the **Okta Dashboard**, click **Apply**, and then click **Close**.
 1. Click **Back to Profile Enrollment Policy**, and then click **Edit** in **Profile Enrollment**.
@@ -272,7 +276,11 @@ Your registration inline hook is configured for profile enrollment (self-service
 
 The scenario of progressive profile enrollment involves existing users prompted for new information to add to their profile when they sign in. With this use case, the registration inline hook triggers and the external service code evaluates the employee number field. If the value is four digits, the user's profile is updated. Follow these steps to implement this scenario:
 
-<StackSnippet snippet="introbullets"/>
+<StackSnippet snippet="introbullets"/><br>
+
+<HookCommonSetupNote/>
+
+<HookBasicAuthValuesNote/>
 
 ### Set up your external service code response for progressive profile enrollment
 
@@ -370,8 +378,8 @@ To associate the registration inline hook with a profile enrollment policy and a
 
 1. In the Admin Console, go to **Security > Profile Enrollment**.
 1. Click **Add Profile Enrollment Policy**.
-1. Give your policy a name (in this example, use "Inline Hook"), and then click **Save**.
-1. From the list of policies, find **Inline Hook**, and then click the pencil icon.
+1. Give your policy a name (in this example, use "Progressive Inline Hook"), and then click **Save**.
+1. Find your inline hook, "Progressive Inline Hook", from the list of enrollment policies, and then click the pencil icon.
 1. Click **Manage Apps**, and then click **Add Apps to this Policy**.
 1. Locate the **Okta Dashboard**, click **Apply**, and then click **Close**.
 1. Click **Back to Profile Enrollment Policy**.
@@ -393,7 +401,11 @@ Your registration inline hook is configured for progressive profile enrollment. 
 
 This scenario involves both profile enrollment (self-service registration) and progressive profile enrollment use cases. Existing users are prompted for new information (a four-digit employee number) to add to their profile when they sign in. New users self-registering from the **Sign up** link are required to include the default three sign-up fields (**Email**, **First name**, and **Last name**) and the employee number field. With this use case, the external code updates the profiles of existing users if the employee number is four digits. The external code adds new users if their email domain contains `okta.com` and their employee number is four digits, otherwise their registration is denied. Follow these steps to implement this scenario:
 
-<StackSnippet snippet="introbullets"/>
+<StackSnippet snippet="introbullets"/><br>
+
+<HookCommonSetupNote/>
+
+<HookBasicAuthValuesNote/>
 
 ### Set up your external service code response for profile and progressive profile enrollment
 
@@ -527,8 +539,8 @@ To associate the registration inline hook with a profile enrollment policy and a
 
 1. In the Admin Console, go to **Security > Profile Enrollment**.
 1. Click **Add Profile Enrollment Policy**.
-1. Give your policy a name (in this example, use "Inline Hook"), and then click **Save**.
-1. From the list of Enrollment Policies, find **Inline Hook** and click the pencil icon.
+1. Give your policy a name (in this example, use "SSR + PP Inline Hook"), and then click **Save**.
+1. Find your inline hook, "SSR + PP Inline Hook", from the list of enrollment policies, and then click the pencil icon.
 1. Click **Manage Apps**, and then click **Add Apps to this Policy**.
 1. Locate the **Okta Dashboard**, click **Apply**, and then click **Close**.
 1. Click **Back to Profile Enrollment Policy**.

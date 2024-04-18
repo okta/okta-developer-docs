@@ -153,6 +153,8 @@ To tell Okta that the SMS or voice call message was successfully sent, return a 
 
 The external service example is now ready with code to receive and respond to an Okta call. The Okta org is set up to call the external service using a telephony inline hook. In your Okta org, preview the JSON-formatted request and response directly from the Admin Console.
 
+<HookBasicAuthValuesNote/>
+
 ### Preview
 
 To preview the telephony inline hook:
@@ -182,6 +184,8 @@ Review the following guides to implement other inline or event hook examples:
 * [Event hook](/docs/guides/event-hook-implementation/)
 * [Password import inline hook](/docs/guides/password-import-inline-hook/nodejs/main/)
 * [Token inline hook](/docs/guides/token-inline-hook/nodejs/main/)
+* [SAML assertion inline hook](/docs/guides/saml-inline-hook/nodejs/main)
+* [Registration inline hook](/docs/guides/registration-inline-hook/nodejs/main)
 
 ## See also
 
