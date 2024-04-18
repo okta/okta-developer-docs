@@ -54,7 +54,7 @@ Okta event hooks require an initial verification of the external service endpoin
 
 Add the following code to your external service to receive and respond to this one-time verification request.
 
-> **Note:** Also, make sure to have the required default code and packages in your project. See [Overview and considerations](/docs/guides/common-hook-set-up-steps/main) for further information.
+> **Note:** Also, make sure to have the required default code and packages in your project. See [Common hook set-up steps](/docs/guides/common-hook-set-up-steps/main) for further information.
 
 <StackSelector snippet="verification" noSelector/>
 

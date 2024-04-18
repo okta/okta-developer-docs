@@ -43,7 +43,9 @@ At a high level, the following workflow occurs:
 
 In your external service code, you need to get the values of `data.credential.username` and `data.credential.password` from the body of the password import inline hook request received from Okta. These properties contain the credentials submitted by the end user who is trying to sign in.
 
-> **Note:** Make sure to have the required default code and packages in your project. See [Overview and considerations](/docs/guides/common-hook-set-up-steps).
+<HookCommonSetupNote/>
+
+<HookBasicAuthValuesNote/>
 
 <StackSelector snippet="request"/>
 
@@ -113,6 +115,8 @@ Review the following guides to implement other inline or event hook examples:
 * [Event hook](/docs/guides/event-hook-implementation/)
 * [Registration inline hook](/docs/guides/registration-inline-hook/)
 * [Token inline hook](/docs/guides/token-inline-hook/)
+* [SAML assertion inline hook](/docs/guides/saml-inline-hook)
+* [Telephony inline hook](/docs/guides/telephony-inline-hook)
 
 ## See also
 

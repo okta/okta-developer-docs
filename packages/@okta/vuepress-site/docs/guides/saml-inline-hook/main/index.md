@@ -72,9 +72,13 @@ In this example code, a new claim is added to the assertion. For further informa
 
 Copy (remix) the Glitch.com project code, [Okta SAML assertion inline hook example](https://glitch.com/edit/#!/okta-inlinehook-samlhook), to run the scenario right away. Skip to the [Activate and enable the SAML assertion inline hook](#activate-and-enable-the-saml-assertion-inline-hook) section to configure the SAML inline hook.
 
->**Note:** Ensure that you modify the project code's data store with a user that belongs to your org.
+<HookCommonSetupNote/>
+
+<HookBasicAuthValuesNote/>
 
 You might want to create the external service yourself. If so, use the following sections that detail a portion of the code that parses the SAML assertion inline hook call, checks the data store, and then responds to Okta.
+
+>**Note:** Ensure that you modify the project code's data store with a user that belongs to your org.
 
 ### Parse the SAML assertion inline hook
 
