@@ -259,7 +259,7 @@ To associate the registration inline hook with a profile enrollment policy:
 
 1. In the Admin Console, go to **Security** > **Profile Enrollment**.
 1. Click **Add Profile Enrollment Policy**, give your policy a name (in this example, use "SSR Inline Hook"), and then click **Save**.
-1. Find your inline hook, "SSR Inline Hook", from the list of Enrollment Policies, and then click the pencil icon.
+1. Find your inline hook, "SSR Inline Hook", from the list of enrollment policies, and then click the pencil icon.
 1. Click **Manage Apps**, and then click **Add Apps to this Policy**.
 1. Locate the **Okta Dashboard**, click **Apply**, and then click **Close**.
 1. Click **Back to Profile Enrollment Policy**, and then click **Edit** in **Profile Enrollment**.
@@ -379,7 +379,7 @@ To associate the registration inline hook with a profile enrollment policy and a
 1. In the Admin Console, go to **Security > Profile Enrollment**.
 1. Click **Add Profile Enrollment Policy**.
 1. Give your policy a name (in this example, use "Progressive Inline Hook"), and then click **Save**.
-1. Find your inline hook, "Progressive Inline Hook", from the list of Enrollment Policies, and then click the pencil icon.
+1. Find your inline hook, "Progressive Inline Hook", from the list of enrollment policies, and then click the pencil icon.
 1. Click **Manage Apps**, and then click **Add Apps to this Policy**.
 1. Locate the **Okta Dashboard**, click **Apply**, and then click **Close**.
 1. Click **Back to Profile Enrollment Policy**.
@@ -540,7 +540,7 @@ To associate the registration inline hook with a profile enrollment policy and a
 1. In the Admin Console, go to **Security > Profile Enrollment**.
 1. Click **Add Profile Enrollment Policy**.
 1. Give your policy a name (in this example, use "SSR + PP Inline Hook"), and then click **Save**.
-1. Find your inline hook, "SSR + PP Inline Hook", from the list of Enrollment Policies, and then click the pencil icon.
+1. Find your inline hook, "SSR + PP Inline Hook", from the list of enrollment policies, and then click the pencil icon.
 1. Click **Manage Apps**, and then click **Add Apps to this Policy**.
 1. Locate the **Okta Dashboard**, click **Apply**, and then click **Close**.
 1. Click **Back to Profile Enrollment Policy**.
