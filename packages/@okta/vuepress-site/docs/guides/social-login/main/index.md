@@ -111,7 +111,7 @@ If something is configured incorrectly, the authorization response contains erro
 ### Add the Identity Provider to the embedded Okta Sign-In Widget
 
 > **Note:** This section only applies to Classic Engine. <br>
-> If you're using Identity Engine, the **Sign in with IdP** option is available on the widget after you [create the Identity Provider in your Okta org](#create-the-identity-provider-in-okta) and configure the [routing rule](https://help.okta.com/okta_help.htm?id=ext-cfg-routing-rules). No additional code is required. See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version and [Upgrade your widget](/docs/guides/oie-upgrade-sign-in-widget/main/#idp-discovery) for upgrade considerations to Identity Engine.
+> If you're using Identity Engine, the **Sign in with IdP** option is available on the widget after you [create the Identity Provider in your Okta org](#create-the-identity-provider-in-okta) and configure the [routing rule](https://help.okta.com/okta_help.htm?id=ext-cfg-routing-rules). No additional code is required. See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version and [Upgrade your widget](/docs/guides/oie-upgrade-sign-in-widget/main/#idp-discovery) for Identity Engine upgrade considerations.
 
 The [Okta Sign-In Widget](https://github.com/okta/okta-signin-widget) is an embeddable JavaScript widget that reproduces the look and behavior of the standard Okta sign-in page. You can add a **Sign in with <StackSnippet snippet="idp" inline />** button to the widget by adding the following code to your Okta Sign-In Widget configuration.
 

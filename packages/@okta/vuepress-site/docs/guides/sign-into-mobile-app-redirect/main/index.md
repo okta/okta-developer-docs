@@ -33,8 +33,8 @@ Set up your [Okta org](/docs/concepts/okta-organizations/). The Okta command-lin
 1. If you don't already have a free Okta developer account:
    1. Open your terminal.
    {style="list-style-type:lower-alpha"}
-   1. Run `okta register`, and enter your first name, family name, email address, and country.
-   1. Click or tap **Activate** in the account activation email that is sent to the email address that you gave.
+   1. Run `okta register`, and enter your first name, last name, email address, and country.
+   1. Tap **Activate** in the account activation email that is sent to the email address that you gave.
 
       > **Tip**: If you don't receive the confirmation email sent as part of the creation process, check your spam filters for an email from `noreply@okta.com`
 
@@ -67,7 +67,7 @@ Set up your [Okta org](/docs/concepts/okta-organizations/). The Okta command-lin
 
 ## Create an Okta integration for your app
 
-An app integration represents your app in your Okta org. The integration configures how your app integrates with the Okta services including: which users and groups have access, authentication policies, token refresh requirements, redirect URLs, and more. The integration includes configuration information required by the app to access Okta.
+An app integration represents your app in your Okta org. The integration configures how your app integrates with the Okta services. This includes which users and groups have access, authentication policies, token refresh requirements, redirect URLs, and more. The integration includes configuration information required by the app to access Okta.
 
 To create your app integration in Okta using the CLI:
 
@@ -82,9 +82,11 @@ To create your app integration in Okta using the CLI:
 2. Enter **Quickstart** when prompted for the app name.
 3. Specify the required redirect URI values:
 <StackSnippet snippet="redirectvalues" />
-4. Make note of the Redirect URI, Post Logout Redirect URI, and the app configuration printed to the terminal. You'll need these to configure your mobile app.
+4. Make note of the redirect URI, post logout redirect URI, and the app configuration printed to the terminal. You'll need these to configure your mobile app.
 
-At this point, you can move to the next step: [Creating your app](#create-app). If you want to set up the integration manually or find out what the CLI just did for you, read on.
+At this point, you can move to the next step: [Creating your app](#create-app). If you want to set up the integration manually, complete the following steps:
+
+> **Note:** These steps are the steps that the CLI performs when you create your app integration in Okta using the CLI.
 
 1. [Sign in to your Okta organization](https://developer.okta.com/login) with your administrator account.
 1. Click the **Admin** button on the top right of the page.

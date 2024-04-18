@@ -79,12 +79,13 @@ Create, update, and import User operations are handled using [SCIM User operatio
 Okta calls this endpoint to gather a list of available resources with any associated schemas and schema extension URNs. 
 
 Common resource types include the following:
+
 - Users
 - Groups
 - Entitlements
 - Roles
 
-Okta doesn't offer custom handling for Groups. 
+Okta doesn't offer custom handling for Groups.
 
 To expose Entitlements and Roles, you must create a corresponding `ResourceType` for each of these entities. See [ResourceTypes](#resourcetype) for an implementation example.
 
@@ -92,7 +93,8 @@ To expose Entitlements and Roles, you must create a corresponding `ResourceType`
 
 For any required custom schema extensions, implement the `/Schemas` endpoint. See [Schemas](#schemas) for an implementation example.
 
-> **Note**: You don't need a `/Schemas` endpoint for apps that don't use custom schema extensions. Okta handles the base definitions for the following resources and objects:
+You don't need a `/Schemas` endpoint for apps that don't use custom schema extensions. Okta handles the base definitions for the following resources and objects:
+
 - Entitlements
 - Roles
 - User:Core
@@ -114,12 +116,13 @@ Each resource includes the following fields:
     - Role: `urn:okta:scim:schemas:core:1.0:Role`
     - Entitlement: `urn:okta:scim:schemas:core:1.0:Entitlement`
     - The schema for users is the standard: `urn:ietf:params:scim:schemas:core:2.0:User`
-* Schema extensions: List any extensions required for other properties. Generally, Entitlements and Roles don't need to have extensions, while it's common for Users to have highly customized extensions. For example, a User might have a schema extension to store a custom attribute for a particular app.
+* Schema extensions: List any extensions required for other properties. Generally, entitlements and roles don't need to have extensions, while it's common for Users to have highly customized extensions. For example, a user might have a schema extension to store a custom attribute for a particular app.
 
 The default location for ResourceTypes definitions is `BaseURL/scim/v2/ResourceTypes`. For example, if your server is hosted on [https://example.com](https://example.com) then the available ResourceTypes can be retrieved from `https://example.com/scim/v2/ResourceTypes`.
 
 The following ResourceTypes example includes a sample Role resource with no extensions, an Entitlement resource, and a Profile resource that includes extensions.
-~~~
+
+```JSON
 {
     "schemas": [
       "urn:ietf:params:scim:api:messages:2.0:ListResponse"
@@ -180,15 +183,15 @@ The following ResourceTypes example includes a sample Role resource with no exte
         }
     ]
 }
-~~~
+```
 
 #### Schemas
 
 The following sample demonstrates a schema for an Entitlement property schema extension, where a custom profile property is defined for the Profile resourceType.
 
-> **Note**: `isvname` is used as a placeholder in this schema. To ensure the uniqueness of your URNs and locations, replace it with the name of your organization or similar. 
+> **Note**: `isvname` is used as a placeholder in this schema. To ensure the uniqueness of your URNs and locations, replace it with the name of your org or similar.
 
-~~~
+```JSON
 {
     "schemas": [
       "urn:ietf:params:scim:api:messages:2.0:ListResponse"
@@ -221,13 +224,13 @@ The following sample demonstrates a schema for an Entitlement property schema ex
         }
     ]
 }
-~~~
+```
 
 #### Custom Entitlement with extensions
 
 The following example demonstrates what the SCIM server might include in the response to a call to `/Licenses`. In this hypothetical example, two License resources are returned, where each License includes a Profile and a custom profile property.
 
-~~~
+```JSON
 
 {
     "schemas": [
@@ -263,7 +266,7 @@ The following example demonstrates what the SCIM server might include in the res
         }
     ]
 }
-~~~
+```
 
 ### Role example
 

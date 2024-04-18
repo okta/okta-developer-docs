@@ -57,7 +57,7 @@ The following sections explain the setup for an example token exchange flow usin
 1. Click **Create App Integration**.
 1. Select **OIDC - OpenID Connect**, and then **Native Application**.
 1. Name your app, and then select **Allow everyone in your organization to access**.
-1. Click **Save** and at the top of the page click **Back to Applications**.
+1. Click **Save**, and then click **Back to Applications**.
 
 > **Note:** Okta recommends that native apps use the Authorization Code with Proof Key for Code Exchange (PKCE) authentication flow. See [Implement authorization by grant type](/docs/guides/implement-grant-type/authcodepkce/main/#create-the-proof-key-for-code-exchange) for more information on creating PKCE for your native app.
 

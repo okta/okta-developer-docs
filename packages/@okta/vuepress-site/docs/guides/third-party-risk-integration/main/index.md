@@ -10,7 +10,7 @@ This guide explains how to configure an Okta org to receive risk events from a t
 
 ---
 
-#### Learning outcomes
+#### Learning outcome
 
 Understand how to set up and test third-party risk events with a sample app from the Postman Risk API collection.
 

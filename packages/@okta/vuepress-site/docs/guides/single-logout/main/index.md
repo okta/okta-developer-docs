@@ -11,7 +11,7 @@ This guide discusses how to configure Single Logout (SLO) for your apps.
 
 ---
 
-#### Learning outcomes
+#### Learning outcome
 
 Understand the purpose of Single Logout (SLO) and set it up for your app.
 
@@ -33,7 +33,7 @@ The multiple device SLO feature supports outbound logout requests (IdP-initiated
 
 SLO is especially useful in scenarios where users share computers or use public kiosks. A user may sign in to a computer portal, and then open multiple apps. The user sign-in process for each app happens behind the scenes.
 
-In a perfect world, when the user wants to sign out, they should sign out of every app to keep the next user from accessing their information. But, most users don’t do that. SLO logs the user out of everything at once.
+Ideally, when the user wants to sign out, they should sign out of every app to keep the next user from accessing their information. But, most users don’t do that. SLO logs the user out of everything at once.
 
 ### Single Logout diagram
 

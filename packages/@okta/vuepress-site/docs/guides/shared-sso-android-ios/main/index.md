@@ -21,7 +21,7 @@ This guide uses sample apps to demonstrate how to share a Single Sign-On (SSO) s
 
 #### What you need
 
-* An Okta Developer Edition organization. Don't have one? [Create one for free](https://developer.okta.com/signup).
+* An Okta Developer Edition org. Don't have one? [Create one for free](https://developer.okta.com/signup).
 * Android Studio with an emulator for Android testing.
 * Xcode with a simulator for iOS testing.
 
@@ -53,7 +53,7 @@ Within the same org, you need to set up two Native OpenID Connect (OIDC) client 
 1. In the Admin Console, go to **Applications** > **Applications**.
 1. Click **Create App Integration**.
 1. Select **OIDC - OpenID Connect** as the **Sign-in method**.
-1. Select **Native Application** as the **Application type** and click **Next**.
+1. Select **Native Application** as the **Application type**, and then click **Next**.
 1. Give the app integration a name, and then enter `com.first.sample:/callback` in the **Sign-in redirect URIs** box for the first app.
     > **Note:** When you create the second app, enter `com.second.sample:/callback`.
 1. Ensure that **Authorization Code** and **Refresh Token** are selected in the **Grant Type Allowed** section.
@@ -63,7 +63,7 @@ Within the same org, you need to set up two Native OpenID Connect (OIDC) client 
 1. In the **Login** section, click **Add URI** next to **Sign-out Redirect URIs**.
 1. Enter `com.first.sample:/logout` for the first app.
     > **Note:** When you create the second app, enter `com.second.sample:/logout`.
-1. Scroll to the **Client Credentials** section. Copy the Client IDs for both the first and second app for use in a later step.
+1. Scroll to the **Client Credentials** section. Copy the client IDs for both the first and second app for use in a later step.
 
 Next, set up the mobile apps using the configuration from these native apps that you created.
 
@@ -71,7 +71,7 @@ Next, set up the mobile apps using the configuration from these native apps that
 
 In this section, you configure settings for the first mobile app.
 
-> Note: This section assumes that you have already downloaded the appropriate sample apps-see the sample links at the top of the article.
+> Note: This section assumes that you have already downloaded the appropriate sample apps. See the sample links at the top of the article.
 
 <StackSelector snippet="configfile" noSelector />
 

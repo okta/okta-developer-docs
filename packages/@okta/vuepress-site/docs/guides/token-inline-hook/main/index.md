@@ -39,7 +39,7 @@ In the following token inline hook scenario, the external service code parses a 
 
 At a high-level, the following workflow occurs:
 
-* A user sign in to an Okta-hosted Login sample app.
+* A user signs in to an Okta-hosted Login sample app.
 * The Okta org authenticates a user and mints an authentication token.
 * The Okta token inline hook triggers and sends a request to an external service.
 * The external service evaluates the request, and if the user is a patient, adds a patient ID claim to the token.

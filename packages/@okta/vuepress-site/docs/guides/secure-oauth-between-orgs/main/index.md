@@ -210,7 +210,7 @@ As an Okta super admin, make a `POST /oauth2/v1/clients/${yourServiceAppId}/role
 
 See [Assign a Role to a client app](/docs/reference/api/roles/#assign-a-role-to-a-client-application) in the Role Assignment API reference.
 
-> **Note:** Only Okta org [super admins](https://help.okta.com/okta_help.htm?type=oie&id=ext_superadmin) can assign roles.
+> **Note:** Only Okta [super admins](https://help.okta.com/okta_help.htm?type=oie&id=ext_superadmin) can assign roles.
 
 ##### Request example
 
@@ -309,7 +309,7 @@ An advantage to using the OAuth 2.0 connection is that you can [rotate keys](/do
 
 ### Generate a new key for the Org2Org app
 
-From your spoke org, make a request to [generate a new app key credential](/docs/reference/api/apps/#generate-new-application-key-credential) as an Okta admin user.
+From your spoke org, make a request to [generate a new app key credential](/docs/reference/api/apps/#generate-new-application-key-credential) as an Okta admin.
 
 ##### Request example
 
