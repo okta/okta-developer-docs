@@ -14,18 +14,18 @@ This guide uses sample apps to demonstrate how to share a Single Sign-On (SSO) s
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
-* Persist a session between multiple OIDC mobile apps
-* Clear the session when appropriate
+* Persist a session between multiple OpenID Connect (OIDC) mobile apps.
+* Clear the session when appropriate.
 
-**What you need**
+#### What you need
 
-* An Okta Developer Edition organization. Don't have one? [Create one for free](https://developer.okta.com/signup)
-* Android Studio with an emulator for Android testing
-* Xcode with a simulator for iOS testing
+* An Okta Developer Edition organization. Don't have one? [Create one for free](https://developer.okta.com/signup).
+* Android Studio with an emulator for Android testing.
+* Xcode with a simulator for iOS testing.
 
-**Sample code**
+#### Sample code
 
 <StackSelector snippet="samplecode" noSelector />
 
@@ -33,16 +33,16 @@ This guide uses sample apps to demonstrate how to share a Single Sign-On (SSO) s
 
 ## Overview
 
-In OAuth, the authentication flow for web apps uses URIs to initiate the authorization request and to return the response to the web app. The flow is similar for mobile apps. The mobile app uses an external user-agent (the device's browser) to perform authentication. Since the authorization request from a mobile app is initiated from the device's browser, you can apply sign-in principles that are similar to web apps in order to share a sign-in session between mobile apps on a device.
+In OAuth, the authentication flow for web apps uses URIs to initiate the authorization request and to return the response to the web app. The flow is similar for mobile apps. The mobile app uses an external user-agent (the device's browser) to perform authentication. Since the authorization request from a mobile app is initiated from the device's browser, you can apply sign-in principles that are similar to web apps to share a sign-in session between mobile apps on a device.
 
-## Session and persistent Single Sign-On
+## Session and persistent SSO
 
-Single Sign-On (SSO) allows users to authenticate once and access multiple resources without being prompted for additional credentials. Okta supports both session and persistent SSO:
+SSO allows users to authenticate once and access multiple resources without being prompted for more credentials. Okta supports both session and persistent SSO:
 
-* **Session SSO**: Session SSO cookies are written for the authenticated user, which eliminates further prompts when the user switches applications during a particular session. However, if a particular session ends, the user is prompted for their credentials again.
-* **Persistent SSO**: Persistent SSO cookies are written for the authenticated user, which eliminates further prompts when the user switches applications for as long as the persistent SSO cookie is valid.
+* **Session SSO**: Session SSO cookies are written for the authenticated user, which eliminates further prompts when the user switches apps during a particular session. However, if a particular session ends, the user is prompted for their credentials again.
+* **Persistent SSO**: Persistent SSO cookies are written for the authenticated user, which eliminates further prompts when the user switches apps for as long as the persistent SSO cookie is valid.
 
-The difference between persistent SSO and session SSO is you can be maintain persistent SSO across different sessions. Persistent SSO is disabled by default in Okta. To share a sign-in session with native mobile apps, you need to enable persistent SSO.
+The difference between persistent SSO and session SSO is that you maintain persistent SSO across different sessions. Persistent SSO is disabled by default in Okta. To share a sign-in session with native mobile apps, you need to enable persistent SSO.
 
 <StackSelector snippet="enablesso" noSelector />
 
@@ -50,7 +50,7 @@ The difference between persistent SSO and session SSO is you can be maintain per
 
 Within the same org, you need to set up two Native OpenID Connect (OIDC) client apps.
 
-1. In the Admin console, go to **Applications** > **Applications**.
+1. In the Admin Console, go to **Applications** > **Applications**.
 1. Click **Create App Integration**.
 1. Select **OIDC - OpenID Connect** as the **Sign-in method**.
 1. Select **Native Application** as the **Application type** and click **Next**.
@@ -65,19 +65,19 @@ Within the same org, you need to set up two Native OpenID Connect (OIDC) client 
     > **Note:** When you create the second app, enter `com.second.sample:/logout`.
 1. Scroll to the **Client Credentials** section. Copy the Client IDs for both the first and second app for use in a later step.
 
-Next, you set up the mobile applications using the configuration from these native apps that you just created.
+Next, set up the mobile apps using the configuration from these native apps that you created.
 
 ## Set up the first mobile app
 
 In this section, you configure settings for the first mobile app.
 
-> Note: This section assumes that you have already downloaded the appropriate sample apps — see the sample links at the top of the article.
+> Note: This section assumes that you have already downloaded the appropriate sample apps-see the sample links at the top of the article.
 
 <StackSelector snippet="configfile" noSelector />
 
 ### Add the redirect scheme
 
-To redirect back to your application from a web browser, specify a unique URI to your app.
+To redirect back to your app from a web browser, specify a unique URI to your app.
 
 <StackSelector snippet="addredirectscheme" noSelector />
 
@@ -89,18 +89,19 @@ You need a second mobile app to test with.
 
 ## Optional settings
 
-There are a few additional settings that you can play with while testing shared SSO that involve the use of the `prompt` parameter. See [Parameter details](https://developer.okta.com/docs/reference/api/oidc/#parameter-details) for more information on using the `prompt` parameter.
+There are a few other settings that you can play with while testing shared SSO that involve the use of the `prompt` parameter. See [Parameter details](https://developer.okta.com/docs/reference/api/oidc/#parameter-details) for more information on using the `prompt` parameter.
 
-### Always prompt for sign in regardless of session
-If you are using the same Okta domain for both of your apps, the default behavior when a session already exists is that the user is silently authenticated without a sign-in prompt. If your second application requires a prompt for sign-in regardless of session, you can configure this by passing in the `prompt=login` parameter.
+### Always prompt the user regardless of session
+
+If you’re using the same Okta domain for both of your apps, the default behavior when a session exists is that the user is silently authenticated without a sign-in prompt. If your second app requires a prompt for sign-in regardless of session, you can configure this by passing in the `prompt=login` parameter.
 
 <StackSelector snippet="promptsignin" noSelector />
 
 ### Check for a valid session
 
-You can also check if the browser has a valid session by using the `prompt=none` parameter. The `prompt=none` parameter guarantees that the user isn't prompted for credentials. Either the requested tokens are obtained or if the session is invalid or doesn't exist, the application receives an OAuth error response. See [Parameter details](https://developer.okta.com/docs/reference/api/oidc/#parameter-details) for more information on using the `prompt` parameter.
+You can also check if the browser has a valid session by using the `prompt=none` parameter. The `prompt=none` parameter guarantees that the user isn't prompted for credentials. Either the requested tokens are obtained or if the session is invalid or doesn't exist, the app receives an OAuth error response. See [Parameter details](https://developer.okta.com/docs/reference/api/oidc/#parameter-details) for more information on using the `prompt` parameter.
 
-If your application requires that the user signs in to the first app first, then you can use the `prompt=none` parameter in the second app to check whether the user is already signed in to the first app.
+If your app requires that the user signs in to the first app first, then you can use the `prompt=none` parameter in the second app. This enables you to check whether the user is already signed in to the first app.
 
 <StackSelector snippet="checkvalidsession" noSelector />
 
@@ -118,8 +119,8 @@ To learn more about our Mobile OpenID Connect (OIDC) SDKs and sample apps:
 
 Android:
 - [Okta Mobile SDK for Kotlin](https://github.com/okta/okta-mobile-kotlin).
-- [Okta Classic Engine Android Sign-In Kotlin Sample App](https://github.com/okta/samples-android/tree/legacy-samples/sign-in-kotlin).
+- [Classic Engine Android Sign-In Kotlin Sample App](https://github.com/okta/samples-android/tree/legacy-samples/sign-in-kotlin).
 
 iOS:
 - [Okta Mobile SDK for Swift](https://github.com/okta/okta-mobile-swift).
-- [Okta Classic Engine iOS Browser Sign-In Sample App](https://github.com/okta/samples-ios/tree/legacy-samples/browser-sign-in).
+- [Classic Engine iOS Browser Sign-In Sample App](https://github.com/okta/samples-ios/tree/legacy-samples/browser-sign-in).

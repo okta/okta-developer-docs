@@ -8,12 +8,14 @@ Optimize your configuration to reduce the number of API calls that Terraform mak
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Optimize the number of API calls in your Terraform configuration.
 * Set a maximum rate for Terraform API usage.
-* Set custom rate limits in the Okta service application used by Terraform.
+* Set custom rate limits in the Okta service app used by Terraform.
+
 ---
+
 ## Overview
 
 API rate limits in Okta protect the service for all customers by restricting the rate of API calls to your org. Terraform can reach rate limits quickly when it makes many API calls in a short period.
@@ -73,7 +75,7 @@ Although refreshing the state file is important for Terraform automation, it mig
 
 Run your configuration with a saved plan to refresh the state file only once. When you save a plan, Terraform refreshes the state file. When you run the saved plan, Terraform uses that refreshed state file and doesn't make more refresh requests.
 
-> **Note:** If admins and other applications manage your org, apply the saved plan shortly after creating it. This reduces errors by minimizing configuration drift.
+> **Note:** If admins and other apps manage your org, apply the saved plan shortly after creating it. This reduces errors by minimizing configuration drift.
 
 To save a Terraform plan:
 
@@ -89,7 +91,7 @@ To save a Terraform plan:
 
 The `terraform plan` and `terraform apply` commands have a `refresh=false` option that runs the commands without refresh requests. When this option is used, the commands run using the existing state file.
 
-> **Note:** Run your configuration without refreshing only if admins and other applications aren't managing your org. Otherwise, configuration drift can occur and cause errors.
+> **Note:** Run your configuration without refreshing only if admins and other apps aren't managing your org. Otherwise, configuration drift can occur and cause errors.
 
 Use the `refresh=false` option to apply a Terraform configuration:
 
@@ -125,19 +127,19 @@ The value of `max_api_capacity` is a percentage of your org's total rate limits.
 
 Test the `max_api_capacity` value in a development environment to find a balance between Terraform running at a reasonable speed and not interrupting other requests to your org.
 
-### Set a custom rate limit in the Okta service application
+### Set a custom rate limit in the Okta service app
 
-Terminate Terraform execution when it reaches a custom rate limit. Use the **Application Rate Limits** tab in the OAuth 2.0 service app to set custom rate limits. If Terraform reaches one of the application rate limits, Okta returns an `HTTP 429` error and Terraform stops running.
+Terminate Terraform execution when it reaches a custom rate limit. Use the **Application Rate Limits** tab in the OAuth 2.0 service app to set custom rate limits. If Terraform reaches one of the app rate limits, Okta returns an `HTTP 429` error, and Terraform stops running.
 
-> **Note**: All client applications that the service app authorizes, including Terraform, share the application rate limit.
+> **Note**: All client apps that the service app authorizes, including Terraform, share the app rate limit.
 
-To set application rate limits for your service app:
+To set app rate limits for your service app:
 
 1. In the Admin Console, go to **Applications** > **Applications**.
-1. Select the application that authorizes Terraform.
+1. Select the app that authorizes Terraform.
 1. Click the **Application Rate Limits** tab.
 1. Click **Edit**.
-1. Use the slider to set custom application rate limits. This value is a percentage of your org's total rate limits.
+1. Use the slider to set custom app rate limits. This value is a percentage of your org's total rate limits.
 1. Click **Save**.
 
 ## Request rate limit increases

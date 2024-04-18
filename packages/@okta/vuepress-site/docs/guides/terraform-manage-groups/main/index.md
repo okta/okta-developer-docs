@@ -1,30 +1,32 @@
 ---
 title: Manage groups with Terraform
-excerpt: Configure access to Okta applications and manage sign-in flows for groups of users.
+excerpt: Configure access to Okta apps and manage sign-in flows for groups of users.
 layout: Guides
 ---
 
-Use Terraform to configure access to Okta applications and manage sign-in flows for groups of users.
+Use Terraform to configure access to Okta apps and manage sign-in flows for groups of users.
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Configure automatic group assignment for users in your org.
-* Use groups to manage user access to Okta applications.
+* Use groups to manage user access to Okta apps.
 * Use groups to manage user sign-in flows.
 
-**What you need**
+#### What you need
 
 * Familiarity with the Terraform terms: configuration, resources, state, and commands. See [Terraform overview](/docs/guides/terraform-overview).
 * An [Okta Developer Edition organization](https://developer.okta.com/signup) or an Okta Identity Engine organization
 * A Terraform configuration that can access your Okta org. See [Enable Terraform access for your Okta org](/docs/guides/terraform-enable-org-access).
+
 ---
+
 ## Overview
 
-Groups enable you to manage access to Okta applications for many users. Group settings automatically apply changes to all users within that group, which simplifies managing large numbers of users.
+Groups enable you to manage access to Okta apps for many users. Group settings automatically apply changes to all users within that group, which simplifies managing large numbers of users.
 
-Use groups by assigning users, applications, and policies to them. Users who are assigned to a group can access the applications by following the sign-in flows that the policies control. Assigned applications appear on the Okta End-User Dashboard for all users in the group.
+Use groups by assigning users, apps, and policies to them. Users who are assigned to a group can access the apps by following the sign-in flows that the policies control. Assigned apps appear on the Okta End-User Dashboard for all users in the group.
 
 ## Automatically assign users to groups
 
@@ -166,7 +168,7 @@ Run the Terraform configuration to create the resources:
 1. Check your Admin Console to confirm that Terraform created the resources.
 1. Go to **Directory** > **Groups** in the Admin Console to confirm that Terraform created the resources.
 1. Select the **Business Technology** group, and then select **Applications**.
-1. Check that your application is in the list of assigned applications.
+1. Check that your app is in the list of assigned apps.
 
 ## Assign policies to groups
 

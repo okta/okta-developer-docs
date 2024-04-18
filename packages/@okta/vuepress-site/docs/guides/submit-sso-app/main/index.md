@@ -16,12 +16,12 @@ Use this guide to understand the process of submitting a Single Sign-On (SSO) OI
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Understand how to submit a new SSO integration to the OIN
 * Understand how to update or delete a previously published OIN SSO integration
 
-**What you need**
+#### What you need
 
 * A functional SSO integration created and tested in accordance with the [Build a Single Sign-On integration](/docs/guides/build-sso-integration/) guide
 
@@ -95,7 +95,7 @@ On the **General Settings** tab, fill in the basic information about your integr
 
 * **Use case(s)**: Specify one or more use cases for Okta to categorize your integration in the OIN catalog. Click **+ Add Another** to choose up to five use cases. See [Use case guidelines](/docs/guides/submit-app-prereq/main/#use-case-guidelines).
 
-* **App description**: Give a general description of your application and what the Okta integration does. See [App description guidelines](/docs/guides/submit-app-prereq/main/#app-description-guidelines).
+* **App description**: Give a general description of your app and what the Okta integration does. See [App description guidelines](/docs/guides/submit-app-prereq/main/#app-description-guidelines).
 
 * **App icon**: Upload a PNG, JPG, or GIF file of a logo to accompany your integration in the catalog. The logo file must be less than one MB. See [Logo guidelines](/docs/guides/submit-app-prereq/main/#logo-guidelines).
 
@@ -109,19 +109,19 @@ See [Customer support contact guidelines](/docs/guides/submit-app-prereq/main/#c
 
 #### Test account
 
-The Okta OIN team requires a dedicated account on your application to run their tests. Ensure that this test account is active beyond the submission period in case Okta needs to update or troubleshoot your app integration. See [Test account guidelines](/docs/guides/submit-app-prereq/main/#test-account-guidelines).
+The Okta OIN team requires a dedicated account on your app to run their tests. Ensure that this test account is active beyond the submission period in case Okta needs to update or troubleshoot your app integration. See [Test account guidelines](/docs/guides/submit-app-prereq/main/#test-account-guidelines).
 
-* **Test account URL**: This is a static URL to sign in to your application. An Okta OIN team member goes to this URL and uses the account credentials you provide in the subsequent fields to sign in to your application.
+* **Test account URL**: This is a static URL to sign in to your app. An Okta OIN team member goes to this URL and uses the account credentials that you provide in the subsequent fields to sign in to your app.
 
-* **Test account username or email**: The username for your application test account. The Okta OIN team signs in with this username to run tests. The preferred account username is `isvtest@okta.com`.
+* **Test account username or email**: The username for your app test account. The Okta OIN team signs in with this username to run tests. The preferred account username is `isvtest@okta.com`.
 
-* **Test account password**: The password for your application test account.
+* **Test account password**: The password for your app test account
 
 * **Additional instructions**: Include any other information that you think the Okta OIN team needs to know about your integration, the test account, or the testing configuration.
 
 ### Configure protocol-specific settings
 
-You can submit protocol support details all together or asynchronously. For example, if your application currently only supports SAML, you can create the submission with the SAML protocol details. Later, when you add Workflows Connector capabilities to your application, you can return to your integration submission to include Workflows Connector support.
+You can submit protocol support details all together or asynchronously. For example, if your app currently only supports SAML, you can create the submission with the SAML protocol details. Later, when you add Workflows Connector capabilities to your app, you can return to your integration submission to include Workflows Connector support.
 
 >**Note:** If you don't see the protocol-specific settings that you want in this section, select the **Instructions for** dropdown menu on this page.
 
@@ -139,7 +139,7 @@ Include all required information before you click **Submit for Review** to move 
 
 If you need to make protocol changes to your published integration, use the [OIN Manager](https://oinmanager.okta.com/) to create an updated version of the integration.
 
-Similarly, when you enable a new capability in your application, you don't need to create an entirely new submission. For example, you can add SCIM provisioning to an existing published SAML application. You can update your existing submission to enable and specify the settings for that protocol, then submit the updated integration.
+Similarly, when you enable a new capability in your app, you don't need to create an entirely new submission. For example, you can add SCIM provisioning to an existing published SAML app. You can update your existing submission to enable and specify the settings for that protocol, then submit the updated integration.
 
 1. Sign in to the OIN Manager using the credentials for your original dev org.
 
@@ -189,7 +189,7 @@ If you want to remove an app integration that's already published in the OIN cat
 
 Removing an app integration from the OIN doesn't prohibit existing users from accessing it. The app integration isn't removed from end-user dashboards until an admin for the customer's org removes the app integration from their org.
 
-Finally, if you intend to remove your back-end application support for your Okta integration, alert your customer admins about the change. Inform your customers if you're deploying a replacement solution.
+Finally, if you intend to remove your back-end app support for your Okta integration, alert your customer admins about the change. Inform your customers if you're deploying a replacement solution.
 
 ## See also
 

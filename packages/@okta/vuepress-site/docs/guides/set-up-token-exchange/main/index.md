@@ -8,11 +8,11 @@ This guide discusses how to retain user context in requests to downstream servic
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 Understand the purpose of OAuth 2.0 On-Behalf-Of Token Exchange.
 
-**What you need**
+#### What you need
 
 * [Okta Developer Edition org](https://developer.okta.com/signup)
 * Two custom authorization servers. See [Create an authorization server](/docs/guides/customize-authz-server/main/#create-an-authorization-server) if you need to add them for use with this guide.
@@ -56,7 +56,7 @@ The following sections explain the setup for an example token exchange flow usin
 1. Go to **Applications** > **Applications** in the Admin Console.
 1. Click **Create App Integration**.
 1. Select **OIDC - OpenID Connect**, and then **Native Application**.
-1. Name your application and at the bottom of the page select **Allow everyone in your organization to access**.
+1. Name your app, and then select **Allow everyone in your organization to access**.
 1. Click **Save** and at the top of the page click **Back to Applications**.
 
 > **Note:** Okta recommends that native apps use the Authorization Code with Proof Key for Code Exchange (PKCE) authentication flow. See [Implement authorization by grant type](/docs/guides/implement-grant-type/authcodepkce/main/#create-the-proof-key-for-code-exchange) for more information on creating PKCE for your native app.
@@ -67,7 +67,7 @@ In token exchange use cases, an API microservice can act both as a resource serv
 
 1. Click **Create App Integration** on the **Applications** page.
 1. Select **API Services**, and then click **Next**.
-1. Name your application. For this example, enter **API1**, and then click **Save**.
+1. Name your app. For this example, enter **API1**, and then click **Save**.
 1. Click **Edit** in the **General Settings** section of the **General** tab.
 1. Click **Advanced** in the **Grant type** section, select **Token Exchange**, and click **Save**.
     > **Note**: If you're using Classic Engine, select **Token Exchange** in the **Grant type** section.
@@ -137,7 +137,7 @@ Go to the `/authorize` endpoint using a request URL with the appropriate paramet
 
 Note the parameters that are being passed:
 
-* `client_id`: Matches the client ID of your application that you created in the [Create a native app integration](#create-a-native-app-integration) section.
+* `client_id`: Matches the client ID of your app that you created in the [Create a native app integration](#create-a-native-app-integration) section.
 * `response_type` is `code`: Indicates that you are using the Authorization Code grant type.
 * `scope` is `openid`: Means that the `/token` endpoint returns an ID token. See the **Create Scopes** section of the [Create an authorization server](/docs/guides/customize-authz-server/main/#create-scopes) guide.
 * `redirect_uri`: The callback location where the user agent is directed to along with the code. This must match one of the **Sign-in redirect URIs** that you specified when you created your native app.
@@ -249,7 +249,7 @@ To check the returned access token payload, you can copy the value and paste it 
 
 You can perform token exchange within a single authorization server or between other authorization servers under the same Okta tenant. The previous example discussed a token exchange within a single custom authorization server. To perform token exchange between authorization servers within the same tenant, make the authorization server that issued the subject token trusted under the authorization server against which the token exchange request is made.
 
-A trusted server handles authenticated requests after the application obtains an access token. The incoming subject token (access token) is used to evaluate a subject.
+A trusted server handles authenticated requests after the app obtains an access token. The incoming subject token (access token) is used to evaluate a subject.
 
 The following sections explain how to set up a trusted server, access policy, and rule. Then, you can make the token exchange request with the trusted server.
 

@@ -10,13 +10,13 @@ Use this guide to learn how to submit a Single Sign-On (SSO) integration to the 
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Learn how to submit an SSO integration using the OIN Wizard.
 * Learn how to create an integration instance for testing from the OIN Wizard.
 * Understand the basic test cases required for your SSO features.
 
-**What you need**
+#### What you need
 
 * An [Okta Developer Edition org](https://developer.okta.com/signup/). The OIN Wizard is only available in Developer Edition orgs.
 * An admin user in the Developer Edition org with either the Super Administrator or the Application Administrator role
@@ -38,7 +38,7 @@ The OIN Wizard is a full-service tool in the Okta Admin Console for you to:
 
 The OIN team verifies your submitted integration before they publish it in the [OIN catalog](https://www.okta.com/integrations/).
 
-> **Note:** Only cloud-based SaaS apps (either traditional web applications with a back-end or a modern browser-based SPA) are published in the OIN catalog.
+> **Note:** Only cloud-based SaaS apps (either traditional web apps with a back-end or a modern browser-based SPA) are published in the OIN catalog.
 
 ### Protocols supported
 
@@ -88,7 +88,7 @@ Continue with the OIN Wizard and configure your integration:
     | <div style="width:150px">Property</div>| Description  |
     | ----------------- | ------------ |
     | **Display name** `*` | Provide a name for your integration. This is the main title used for your integration in the OIN.<br>The maximum field length is 64 characters. |
-    | **Description** `*` | Give a general description of your application and the benefits of this integration to your customers. See [App description guidelines](/docs/guides/submit-app-prereq/main/#app-description-guidelines). |
+    | **Description** `*` | Give a general description of your app and the benefits of this integration to your customers. See [App description guidelines](/docs/guides/submit-app-prereq/main/#app-description-guidelines). |
     | **Logo** `*` | Upload a PNG, JPG, or GIF file of a logo to accompany your integration in the catalog. The logo file must be less than one MB. See [Logo guidelines](/docs/guides/submit-app-prereq/main/#logo-guidelines). |
 
     `*` Required properties
@@ -105,7 +105,7 @@ Configure integration variables if your URLs are dynamic for each tenant. The va
     | <div style="width:100px">Property</div> | Description  |
     | --------------- | ------------ |
     | **Label** `*`  | A descriptive name for the dynamic variable that admins see when they install your app integration |
-     | **Name** `*`  | Specify the variable name. This variable name is used to construct the dynamic URL. It's hidden from admins and is only passed to your external application.<br>String is the only variable type supported.<br>The maximum field length is 1024 characters. |
+     | **Name** `*`  | Specify the variable name. This variable name is used to construct the dynamic URL. It's hidden from admins and is only passed to your external app.<br>String is the only variable type supported.<br>The maximum field length is 1024 characters. |
 
      `*` This section is optional, but if you specify a variable, both `Label` and `Name` properties are required.
 
@@ -212,7 +212,7 @@ To assign test users to your integration:
 1. Continue as the customer admin persona from the OIN Wizard > **Generate instance** pages. Alternatively, if you aren't in the OIN Wizard, go to **Applications** > **Applications** > your app integration instance in the Admin Console.
 1. From your app integration instance page, click the **Assignments** tab.
 1. Click **Assign** and then select either **Assign to People** or **Assign to Groups**.
-1. Enter the appropriate people or groups that you want to have SSO into your application, and then click **Assign** for each.
+1. Enter the appropriate people or groups that you want to have SSO into your app, and then click **Assign** for each.
 1. Verify the user-specific attributes for any people that you add, and then select **Save and Go Back**.
 1. Click **Done**.
 1. If you want to go back to the OIN Wizard, click **Begin testing** (upper-right corner). The **Test your integration experience** page appears. Testing guidance is provided on this page, and you can submit your integration after you've successfully completed testing.

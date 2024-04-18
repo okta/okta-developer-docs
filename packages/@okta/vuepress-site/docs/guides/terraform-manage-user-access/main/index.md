@@ -1,30 +1,32 @@
 ---
 title: Manage user access with Terraform
-excerpt: Automate the policies that control how end users authenticate to and access Okta applications.
+excerpt: Automate the policies that control how end users authenticate to and access Okta apps.
 layout: Guides
 ---
 
-Automate the policies that control how end users authenticate to and access Okta applications.
+Automate the policies that control how end users authenticate to and access Okta apps.
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Configure a passwordless sign-in flow using the Okta Terraform Provider
 * Configure multifactor authentication (MFA) with Okta Verify using the Okta Terraform Provider
 * Enforce priority order for policies and rules
 
-**What you need**
+#### What you need
 
 * Familiarity with the Terraform terms: configuration, resources, state, and commands. See the [Terraform overview](/docs/guides/terraform-overview).
 * [Okta Developer Edition organization](https://developer.okta.com/signup) or an Okta Identity Engine organization
 * A Terraform configuration that can access your Okta org. See [Enable Terraform access for your Okta org](/docs/guides/terraform-enable-org-access).
+
 ---
+
 ## Overview
 
-Users must sign in to access Okta applications. The requirements for signing in are specified using policies. Okta uses several [policy types](https://developer.okta.com/docs/concepts/policies/#policy-types) for controlling user access. Policies apply to Okta groups and applications, depending on the policy type. You can use Terraform to manage these policies by adding them to your configuration.
+Users must sign in to access Okta apps. The requirements for signing in are specified using policies. Okta uses several [policy types](https://developer.okta.com/docs/concepts/policies/#policy-types) for controlling user access. Policies apply to Okta groups and apps, depending on the policy type. You can use Terraform to manage these policies by adding them to your configuration.
 
-Policies contain rules that specify a set of conditions and the resulting actions if those conditions are met. For example, you can create a rule for an authentication policy that requires users from a certain country to use two authentication factors when signing in to an Okta application. You can also create a second rule that requires only one authentication factor for known devices.
+Policies contain rules that specify a set of conditions and the resulting actions if those conditions are met. For example, you can create a rule for an authentication policy that requires users from a certain country to use two authentication factors when signing in to an Okta app. You can also create a second rule that requires only one authentication factor for known devices.
 
 Many policies and their rules have priority orders that determine the order in which Okta applies them. When a user signs in to your org, Okta checks policies in order of priority and applies the first policy that matches the user. After applying a policy, Okta then checks the rules for that policy in order of priority and applies the first rule that matches the user.
 
@@ -48,9 +50,9 @@ For more information on global session policies, see [Sign-on policies](/docs/co
 
 ### Authentication policies
 
-Use authentication policies to specify the requirements for accessing applications after a user has established an Okta session. With authentication policies, you customize the required authentication factors used for each application in your org. Use the [`okta_app_signon_policy`](https://registry.terraform.io/providers/okta/okta/latest/docs/resources/app_signon_policy) and [`okta_app_signon_policy_rule`](https://registry.terraform.io/providers/okta/okta/latest/docs/resources/app_signon_policy_rule) resources to manage authentication policies with Terraform.
+Use authentication policies to specify the requirements for accessing apps after a user has established an Okta session. With authentication policies, you customize the required authentication factors used for each app in your org. Use the [`okta_app_signon_policy`](https://registry.terraform.io/providers/okta/okta/latest/docs/resources/app_signon_policy) and [`okta_app_signon_policy_rule`](https://registry.terraform.io/providers/okta/okta/latest/docs/resources/app_signon_policy_rule) resources to manage authentication policies with Terraform.
 
-Authentication policies have no priority order, because every application in your org uses exactly one authentication policy. Multiple apps can use the same authentication policy. Okta provides some preset policies with standard sign-in requirements, including a default policy automatically assigned to new apps.
+Authentication policies have no priority order, because every app in your org uses exactly one authentication policy. Multiple apps can use the same authentication policy. Okta provides some preset policies with standard sign-in requirements, including a default policy automatically assigned to new apps.
 
 Rules within an authentication policy have a priority order. Each authentication policy has a default, catch-all rule that applies to all users. This default rule has the lowest priority.
 
@@ -124,7 +126,7 @@ Configure the email authenticator and then create a group, global session policy
    1. Set the `policy_id` to the global session policy ID that you created in the previous step.
    1. Set `status` to `ACTIVE`.
    1. Set `access` to `ALLOW`.
-   1. Set the `primary_factor` argument to `PASSWORD_IDP_ANY_FACTOR`. This allows users to establish a session with any factor that satisfies the authentication policy for the application they’re accessing.
+   1. Set the `primary_factor` argument to `PASSWORD_IDP_ANY_FACTOR`. This allows users to establish a session with any factor that satisfies the authentication policy for the app they’re accessing.
 
     ```hcl
     resource "okta_policy_rule_signon" "passwordless_global_session_policy_rule" {
@@ -193,13 +195,13 @@ Configure the email authenticator and then create a group, global session policy
     }
     ```
 
-Now that you’ve created policies that control access to your org, create an authentication policy that controls access to Okta apps. This example creates an authentication policy for the Okta End-User Dashboard, an application built into your Okta org that displays Okta apps to end users.
+Now that you’ve created policies that control access to your org, create an authentication policy that controls access to Okta apps. This example creates an authentication policy for the Okta End-User Dashboard, an app built into your Okta org that displays Okta apps to end users.
 
-Built-in Okta applications require a special technique to assign authentication policies using Terraform. You add rules to an existing authentication policy that’s assigned to the app, instead of controlling the app settings directly.
+Built-in Okta apps require a special technique to assign authentication policies using Terraform. You add rules to an existing authentication policy that’s assigned to the app, instead of controlling the app settings directly.
 
-> **Note:** For applications that aren’t built into Okta, add an authentication policy using the  `okta_app_signon_policy` resource and assign the policy to an app using the appropriate app resource for your app type. For example, use the `okta_app_oauth` resource for an OAuth app.
+> **Note:** For apps that aren’t built into Okta, add an authentication policy using the `okta_app_signon_policy` resource and assign the policy to an app using the appropriate app resource for your app type. For example, use the `okta_app_oauth` resource for an OAuth app.
 
-This next example adds a rule to the authentication policy that’s already assigned to the End-User Dashboard. Before you run your Terraform configuration, check to see if other applications use this authentication policy. This new rule affects those applications.
+This next example adds a rule to the authentication policy that’s already assigned to the End-User Dashboard. Before you run your Terraform configuration, check to see if other apps use this authentication policy. This new rule affects those apps.
 
 Configure a passwordless sign-in flow for the End-User Dashboard app:
 
