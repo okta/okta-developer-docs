@@ -9,7 +9,7 @@ This guide explains how to securely configure Okta hub-and-spoke orgs to synchro
 > **Note**: Currently, only the Okta API can be used to enable OAuth 2.0-based provisioning.
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Set up a hub-and-spoke Okta org provisioning connection to use the OAuth 2.0 Client Credentials grant flow.
 * Configure the hub Okta org with service apps for each spoke Okta org.
@@ -17,7 +17,7 @@ This guide explains how to securely configure Okta hub-and-spoke orgs to synchro
 * Configure and activate Org2Org provisioning on spoke Okta orgs.
 * Rotate keys for the OAuth 2.0 connection.
 
-**What you need**
+#### What you need
 
 Multiple Okta orgs for your multi-tenant solution
 
@@ -208,9 +208,9 @@ As an Okta super admin, make a `POST /oauth2/v1/clients/${yourServiceAppId}/role
 | `yourServiceAppId`  |  Specify the `client_id` value from the previous response when the service app was created. In the following role assignment example, the `${yourServiceAppId}` variable name is used instead of `client_id`.|
 | `type`  |  Specify the admin role to assign to the service app. Use the recommended standard admin roles (`USER_ADMIN`, `GROUP_MEMBERSHIP_ADMIN`). |
 
-See [Assign a Role to a client application](/docs/reference/api/roles/#assign-a-role-to-a-client-application) in the Role Assignment API reference.
+See [Assign a Role to a client app](/docs/reference/api/roles/#assign-a-role-to-a-client-application) in the Role Assignment API reference.
 
-> **Note:** Only Okta org [super admins](https://help.okta.com/okta_help.htm?type=oie&id=ext_superadmin) can assign roles.
+> **Note:** Only Okta [super admins](https://help.okta.com/okta_help.htm?type=oie&id=ext_superadmin) can assign roles.
 
 ##### Request example
 
@@ -290,8 +290,8 @@ curl -X POST \
 
 In each spoke (source) org, assign the users and groups to the Org2Org app integration by using the [Okta Application Users API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationUsers/#tag/ApplicationUsers/operation/assignUserToApplication):
 
-* [`POST /api/v1/apps/${yourOrg2OrgAppId}/users` (Assign user to an application for SSO and provisioning)](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationUsers/#tag/ApplicationUsers/operation/assignUserToApplication)
-* [`POST /api/v1/apps/${yourOrg2OrgAppId}/groups/${groupId}` (Assign group to an application)](/docs/reference/api/apps/#assign-group-to-application)
+* [`POST /api/v1/apps/${yourOrg2OrgAppId}/users` (Assign user to an app for SSO and provisioning)](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationUsers/#tag/ApplicationUsers/operation/assignUserToApplication)
+* [`POST /api/v1/apps/${yourOrg2OrgAppId}/groups/${groupId}` (Assign group to an app)](/docs/reference/api/apps/#assign-group-to-application)
 
 Alternatively, you can assign users and groups for provisioning using the Okta Admin Console. See [Assign an app integration to a user](https://help.okta.com/okta_help.htm?type=oie&id=ext-lcm-assign-app-user) and [Assign an app integration to a group](https://help.okta.com/okta_help.htm?type=oie&id=ext-lcm-assign-app-groups).
 
@@ -309,7 +309,7 @@ An advantage to using the OAuth 2.0 connection is that you can [rotate keys](/do
 
 ### Generate a new key for the Org2Org app
 
-From your spoke org, make a request to [generate a new application key credential](/docs/reference/api/apps/#generate-new-application-key-credential) as an Okta admin user.
+From your spoke org, make a request to [generate a new app key credential](/docs/reference/api/apps/#generate-new-application-key-credential) as an Okta admin.
 
 ##### Request example
 

@@ -4,16 +4,16 @@ excerpt: How to share application key credentials between Apps
 layout: Guides
 ---
 
-This guide explains how to share application key credentials across multiple applications so that they can be authorized by using the same Identity Provider.
+This guide explains how to share application key credentials across multiple apps so that the same Identity Provider can authorized the apps.
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
-* Create a new application key credential for your source app and update it to use the new certificate.
+* Create a new app key credential for your source app and update it to use the new certificate.
 * Share this credential with, and use it in, the target app.
 
-**What you need**
+#### What you need
 
 A couple of existing Okta apps already set up so that application key credentials can be shared between the apps, for example, [a web app](/docs/guides/sign-into-web-app-redirect/asp-net-core-3/main/).
 
@@ -141,7 +141,7 @@ Response:
 
 ## Share the source app's key credential ID with the target app
 
-Share the source app's key ID `kid` with the target app. This clones the X.509 certificate of the application key credential from the source application to the target application. The `targetAid`is the target app's ID.
+Share the source app's key ID `kid` with the target app. This clones the X.509 certificate of the application key credential from the source app to the target app. The `targetAid`is the target app's ID.
 
 Request:
 
@@ -241,7 +241,7 @@ Response:
 
 > **Note:** The response is truncated for clarity.
 
-## See also 
+## See also
 
 Read more about sharing application key credentials between apps in our API Reference docs:
 

@@ -8,7 +8,7 @@ Add authentication with the Okta [redirect model](https://developer.okta.com/doc
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Create an integration that represents your app in your Okta org.
 * Add dependencies and configure your app to use Okta redirect authentication.
@@ -18,7 +18,7 @@ Add authentication with the Okta [redirect model](https://developer.okta.com/doc
 * Make an HTTP call with the access token.
 * Check the integration by signing in a user.
 
-**Sample code**
+#### Sample code
 
 <StackSnippet snippet="samplecode" />
 
@@ -60,7 +60,7 @@ Set up your [Okta org](/docs/concepts/okta-organizations/). The Okta command-lin
 
 ## Create an Okta integration for your app
 
-An application integration represents your app in your Okta org. The integration configures how your app integrates with the Okta services including: which users and groups have access, authentication policies, token refresh requirements, redirect URLs, and more. The integration includes configuration information required by the app to access Okta.
+An app integration represents your app in your Okta org. The integration configures how your app integrates with the Okta services. This includes which users and groups have access, authentication policies, token refresh requirements, redirect URLs, and more. The integration includes configuration information required by the app to access Okta.
 
 To create your app integration in Okta using the CLI:
 
@@ -75,7 +75,7 @@ To create your app integration in Okta using the CLI:
 2. Enter **Quickstart** when prompted for the app name.
 3. Specify the required redirect URI values:
 <StackSnippet snippet="redirectvalues" />
-4. Make note of the application configuration printed to the terminal as you use the Client ID and Issuer to configure your SPA.
+4. Make note of the app configuration printed to the terminal as you use the Client ID and Issuer to configure your SPA.
 
 At this point, you can move to the next step: [Creating your app](#create-an-app). If you want to set up the integration manually, or find out what the CLI just did for you, read on.
 
@@ -85,9 +85,9 @@ At this point, you can move to the next step: [Creating your app](#create-an-app
 1. Click **Create App Integration**.
 1. Select a **Sign-in method** of **OIDC - OpenID Connect**.
 1. Select an **Application type** of **Single-Page Application**, then click **Next**.
-   > **Note:** If you choose an inappropriate application type, it can break the sign-in or sign-out flows by requiring the verification of a client secret, which is something that public clients don't have.
+   > **Note:** If you choose an inappropriate app type, it can break the sign-in or sign-out flows by requiring the verification of a client secret, which is something that public clients don't have.
 1. Enter an **App integration name**.
-1. Select **Authorization Code** and **Refresh Token** as the **Grant type**. This enables the Authorization Code flow with PKCE for your application and the ability to refresh the access token when it expires without prompting the user to reauthenticate.
+1. Select **Authorization Code** and **Refresh Token** as the **Grant type**. This enables the Authorization Code flow with PKCE for your app and the ability to refresh the access token when it expires without prompting the user to reauthenticate.
 1. Enter the **Sign-in redirect URIs** for both local development, such as `http://localhost:xxxx/login/callback`, and for production, such as `https://app.example.com/login/callback`.
 1. Select the type of **Controlled access** for your app in the **Assignments** section. You can allow all users to have access or limit access to individuals and groups. See the [Assign app integrations](https://help.okta.com/okta_help.htm?type=oie&id=ext-lcm-user-app-assign) topic in the Okta product documentation.
 1. Click **Save** to create the app integration and open its configuration page. Keep this page open as you need to copy some values in later steps when configuring your app.
@@ -140,13 +140,13 @@ To sign a user in, your web app redirects the browser to the Okta-hosted sign-in
 
 <StackSnippet snippet="loginredirect" />
 
-During the sign-in flow, the user is redirected to the hosted sign-in page where they authenticate. After successful authentication, the browser is redirected back to your application along with [information about the user](#get-info-about-the-user).
+During the sign-in flow, the user is redirected to the hosted sign-in page where they authenticate. After successful authentication, the browser is redirected back to your app along with [information about the user](#get-info-about-the-user).
 
 > **Note:** To customize the hosted sign-in page, see [Style the Okta-hosted Sign-In Widget](/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget).
 
 ### Handle the callback from Okta
 
-After Okta authenticates a user, they're redirected back to your application through the callback route that you define. When Okta redirects back, the URL query string contains a short-lived code that is exchanged for a token. The SDK does this for you with its callback component.
+After Okta authenticates a user, they're redirected back to your app through the callback route that you define. When Okta redirects back, the URL query string contains a short-lived code that is exchanged for a token. The SDK does this for you with its callback component.
 
 <StackSnippet snippet="handlecallback" />
 
@@ -186,7 +186,7 @@ Your website may enable users to find some initial information but require a use
 
 SPAs need to send requests to one or more APIs to perform actions and retrieve information.
 
-After a user signs in, your application stores an access token issued by Okta. By attaching this token to outgoing requests, your APIs can authenticate them (ensure that the user is signed in to perform an action) and authorize them (ensure that the user is allowed to do an action).
+After a user signs in, your app stores an access token issued by Okta. By attaching this token to outgoing requests, your APIs can authenticate and authorize them. Authentication ensures that the user is signed in to perform an action. Authorization ensures that the user is allowed to do an action.
 
 On your front end (this SPA), make sure that you place the access token in the HTTP `Authorization` header of outgoing requests using this format:
 

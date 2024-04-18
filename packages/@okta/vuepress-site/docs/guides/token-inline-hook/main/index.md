@@ -8,19 +8,19 @@ This guide provides an example of an Okta token inline hook. It uses the website
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Understand the Okta token inline hook calls and responses.
 * Implement a simple example of a token inline hook with a Glitch.com external service.
 * Test the token inline hook.
 
-**What you need**
+#### What you need
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup/)
 * [Glitch.com](https://glitch.com) project or account
-* A Node.js Express framework sample application. This guide works with the application in the following Sample code section.
+* A Node.js Express framework sample app. This guide works with the app in the following Sample code section.
 
-**Sample code**
+#### Sample code
 
 * [Okta Token Inline Hook Example](https://glitch.com/edit/#!/okta-inlinehook-tokenhook)
 * [Express Sample Applications for Okta](https://github.com/okta/samples-nodejs-express-4)
@@ -29,37 +29,37 @@ This guide provides an example of an Okta token inline hook. It uses the website
 
 ## About token inline hook implementation
 
-The token inline hook can be used to customize the Authorization Code flow that occurs between an application and the Okta org used for authentication.
+The token inline hook can be used to customize the Authorization Code flow that occurs between an app and the Okta org used for authentication.
 
-This guide provides example code for an external service to respond to calls from a token inline hook. It provides an end-to-end scenario using a local application, an Okta org, and an external service.
+This guide provides example code for an external service to respond to calls from a token inline hook. It provides an end-to-end scenario using a local app, an Okta org, and an external service.
 
 ### The Scenario
 
-In the following token inline hook scenario, the external service code parses a request from Okta, evaluates the username against a data store, and responds to Okta with a command to add a claim to the token. If the user isn't part of the data store, no action is taken. The token is returned to the local application for authentication.
+In the following token inline hook scenario, the external service code parses a request from Okta, evaluates the username against a data store, and responds to Okta with a command to add a claim to the token. If the user isn't part of the data store, no action is taken. The token is returned to the local app for authentication.
 
 At a high-level, the following workflow occurs:
 
-* A user logs into an Okta-hosted Login sample application.
+* A user signs in to an Okta-hosted Login sample app.
 * The Okta org authenticates a user and mints an authentication token.
 * The Okta token inline hook triggers and sends a request to an external service.
 * The external service evaluates the request, and if the user is a patient, adds a patient ID claim to the token.
-* The authentication token is directed back to the Okta-hosted Login application where the user is signed in.
+* The authentication token is directed back to the Okta-hosted Login app where the user is signed in.
 
 > **Tip:** For another in-depth look at a token inline hook implementation, see the following developer experience blog example by Micah Silverman, [Use Okta Token Hooks to Supercharge OpenID Connect](https://developer.okta.com/blog/2019/12/23/extend-oidc-okta-token-hooks).
 
-## Set up the sample Express application
+## Set up the sample Express app
 
-The sample Node.js Express application is designed to demonstrate the [Authorization Code flow](/docs/guides/implement-grant-type/authcode/main/), and includes an Okta-hosted Login sample used in this token inline hook guide. Access the code from the following GitHub repository and use the following instructions to set up your sample application.
+The sample Node.js Express app is designed to demonstrate the [Authorization Code flow](/docs/guides/implement-grant-type/authcode/main/), and includes an Okta-hosted Login sample used in this token inline hook guide. Access the code from the following GitHub repository and use the following instructions to set up your sample app.
 
 * [Express Sample Applications for Okta](https://github.com/okta/samples-nodejs-express-4)
 
 <!-- Follow the [README.md](https://github.com/okta/samples-nodejs-express-4/tree/master/okta-hosted-login) instructions to install and run the Okta-Hosted Login sample application with your Okta org. Make sure to have this application running before proceeding with the token inline hook setup. -->
 
-### Install the application locally
+### Install the app locally
 
 1. Clone the repo locally: `git clone https://github.com/okta/samples-nodejs-express-4.git`
 
-1. Change to the application folder: `cd samples-nodejs-express-4/`
+1. Change to the app folder: `cd samples-nodejs-express-4/`
 
 1. Install the dependencies: `npm install`
 
@@ -81,10 +81,10 @@ An Okta app integration represents your app in your Okta org. The integration co
 1. Clear the **Enable immediate access with Federation Broker Mode** checkbox.
 1. Click **Save** to create the app integration. The **General** tab for your integration opens after it's saved. Keep this pane open as you need to copy the **Client ID**, **Client Secret**, and your org domain name when configuring your app.
 
-### Add the integration credentials to your local application
+### Add the integration credentials to your local app
 
-1. Open the Express sample application in your editor of choice.
-1. In the root folder of your local application (`samples-nodejs-express-4`), add an environment variable file called `dotenv`. There's no extension to this file.
+1. Open the Express sample app in your editor of choice.
+1. In the root folder of your local app (`samples-nodejs-express-4`), add an environment variable file called `dotenv`. There's no extension to this file.
 1. Add the following variables and values to the `dotenv` file. The `CLIENT_ID` and `CLIENT_SECRET` values are available on the **General** tab of your app integration.
 
     * **ISSUER**=`https://${yourOktaDomain.com}/oauth2/default`
@@ -99,11 +99,11 @@ CLIENT_ID=0oaens...4RMAYl3I5d7
 CLIENT_SECRET=BrPT0k1bCPgdQpiFU7LX...O6ANpoxm-MvwsY29_G-uzxLwGRbL3yhHFEaK9kn_IX
 ```
 
-### Run your local application
+### Run your local app
 
 1. To start your local application web server: `npm run okta-hosted-login-server`
 
-1. Go to the page `http://localhost:8080` in your browser. If you see a home page that prompts you to sign in, the application is working. Click **Log in** to redirect to the Okta hosted sign-in page and to authenticate a user.
+1. Go to the page `http://localhost:8080` in your browser. If you see a home page that prompts you to sign in, the app is working. Click **Log in** to redirect to the Okta hosted sign-in page and to authenticate a user.
 
 ## Create the external service code
 
@@ -129,7 +129,7 @@ From the token inline hook request, the following code retrieves the value of th
 
 In this scenario, a pre-populated static array of patient names and patient IDs (`patients`) is used to simulate a real-world data store. The username included with the Okta request is checked against this array. If the username in the request matches a value in the `patients` array, the associated patient ID is stored as a variable, `patientID`.
 
-> **Note:** Modify this data store to make sure it contains one or more usernames that are assigned to your application in your Okta org. See [Customize the external service for your org](#customize-the-external-service-for-your-org).
+> **Note:** Modify this data store to make sure it contains one or more usernames that are assigned to your app in your Okta org. See [Customize the external service for your org](#customize-the-external-service-for-your-org).
 
 <StackSelector snippet="check-patients" noSelector/>
 
@@ -150,7 +150,7 @@ The variable, `patientID`, can now be returned to Okta as an additional token cl
     }
     ```
 
-1. Click the `.env` file in the left-hand panel, to update the external application's environment variables to the following values:
+1. Click the `.env` file in the left-hand panel, to update the external app's environment variables to the following values:
 
     * **USER**=`admin`
     * **PASSWORD**=`supersecret`
@@ -162,7 +162,7 @@ These are the HTTP Basic Authentication credentials that validate the inline tok
 The token inline hook must be activated and enabled within your Admin Console.
 
 * Activating the token inline hook registers the hook with the Okta org and associates it with your external service.
-* Enabling the token inline hook associates the hook with your Okta custom authorization server, which authenticates the Okta-hosted Login sample application.
+* Enabling the token inline hook associates the hook with your Okta custom authorization server, which authenticates the Okta-hosted Login sample app.
 
 <ApiAmProdWarning />
 
@@ -196,11 +196,11 @@ The token inline hook is now set up with a status of active.
 
 The token inline hook is now ready for triggering when the default policy rule is invoked from an authentication request.
 
-## Extend the sample Express application
+## Extend the sample Express app
 
-The following code extends the local sample Node.js Express application to display the results of the token inline hook claim addition. This step is optional. The token inline hook is functional and the results of the implementation are shown in the external service logs, and in the System Logs on your Okta org. But this extension is nice way to display the added claim.
+The following code extends the local sample Node.js Express app to display the results of the token inline hook claim addition. This step is optional. The token inline hook is functional. The implementation results appear in the external service logs and in the System Logs on your Okta org. But this extension is a nice way to display the added claim.
 
-To extend the local sample Node.js Express application, you need to update the `sample-web-server.js` file.
+To extend the local sample Node.js Express app, you need to update the `sample-web-server.js` file.
 
 ### Update the web server page
 
@@ -214,13 +214,13 @@ This extension renders the [ID token](/docs/reference/api/oidc/#id-token), and i
 
 ## Preview and test the token inline hook
 
-The token inline hook is ready for preview and testing. You now have the following applications configured:
+The token inline hook is ready for preview and testing. You now have the following apps configured:
 
-* The Okta-Hosted-Login sample application (`samples-nodejs-express-4`) is ready to authenticate users from your Okta org.
+* The Okta-Hosted Login sample app (`samples-nodejs-express-4`) is ready to authenticate users from your Okta org.
 * The external service (Glitch.com project) is ready with code to receive and respond to an Okta token inline hook call.
-* The Okta org is set up to call the external service when an application sign in triggers the token inline hook.
+* The Okta org is set up to call the external service when an app sign in triggers the token inline hook.
 
->**Note:** Make sure you have users assigned to your application and at least one user is part of the [Patients data store](/docs/guides/token-inline-hook/#check-against-the-data-store) in your Glitch application.
+>**Note:** Make sure that you have users assigned to your app and at least one user is part of the [Patients data store](/docs/guides/token-inline-hook/#check-against-the-data-store) in your Glitch app.
 
 ### Preview the token inline hook
 
@@ -232,10 +232,10 @@ The token inline hook is ready for preview and testing. You now have the followi
 
 1. From the **Configure Inline Hook request** block, complete the following fields:
 
-    * **Select a user**: A user in your org associated with your application.
-    * **Select an application**: Your OIDC sample application name.
+    * **Select a user**: A user in your org associated with your app.
+    * **Select an application**: Your OIDC sample app name.
     * **Select an authorization server**: Your authorization server name. In this example, use `default`.
-    * **Select a grant type**: Your application's grant type. In this example, use `Authorization Code`.
+    * **Select a grant type**: Your app's grant type. In this example, use `Authorization Code`.
     * **Select scopes**: The granted scopes. This example didn't require a scope. Add any scope to move to the next step, for example, `okta.myAccount.read`.
 
     >**Note:** Based on your grant type selection, preview fields may vary.
@@ -255,23 +255,23 @@ The token inline hook is ready for preview and testing. You now have the followi
 
 ### Test your hook
 
-1. Go to your sample application project folder (`samples-nodejs-express-4`).
+1. Go to your sample app project folder (`samples-nodejs-express-4`).
 
 2. Start your Okta-Hosted-Login server (`npm run okta-hosted-login-server`).
 
-3. Go to your sample application (`http://localhost:8080`).
+3. Go to your sample app (`http://localhost:8080`).
 
 4. Go to your Glitch.com project and open the console **Logs** window (**Tools** > **Logs**).
 
-5. Return to your sample application and sign in with an Okta user who is NOT in the patients' data store.
+5. Return to your sample app and sign in with an Okta user who isn't in the patients' data store.
 
     * The user signs in as normal. Only the username displays in the Glitch log window.
-    * If you extended the sample application, click `My Profile` in the left-hand navigation pane. The user info claims are included in the table.
+    * If you extended the sample app, click `My Profile` in the left-hand navigation pane. The user info claims are included in the table.
 
-6. Sign out of the sample application, and now sign in with an Okta user who is in the patients' data store.
+6. Sign out of the sample app, and then sign in with an Okta user who is in the patients' data store.
 
     * The user signs in as normal, but now has a patient ID displayed in the Glitch console output. A successful implementation record of the token inline hook is also available for review in your Okta org System Log (**Reports** > **System Log**).
-    * If you extended the sample application, click `My Profile` in the left-hand navigation pane. The patient ID is added as part of the claims table.
+    * If you extended the sample app, click `My Profile` in the left-hand navigation pane. The patient ID is added as part of the claims table.
 
 > **Note:** Review the [Token inline hooks troubleshooting](/docs/reference/token-hook/#troubleshooting) content or the [Troubleshooting hook implementations](/docs/guides/common-hook-set-up-steps/nodejs/main/#troubleshoot-hook-implementations) section for information on any difficulties.
 

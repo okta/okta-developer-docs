@@ -8,19 +8,19 @@ This guide provides an example of an Okta telephony inline hook. This guide uses
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Understand the Okta telephony inline hook calls and responses.
 * Implement a simple example of a telephony inline hook using a Glitch.com project.
 * Preview and test the telephony inline hook.
 
-**What you need**
+#### What you need
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup/)
 * [Glitch](https://glitch.com/) project or account
 * [Twilio account](https://www.twilio.com/try-twilio) paid or free trial account
 
-**Sample code**
+#### Sample code
 
 [Okta Telephony Inline Hook Example](https://glitch.com/~okta-inlinehook-telephonyhook)
 
