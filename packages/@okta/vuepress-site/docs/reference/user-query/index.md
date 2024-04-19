@@ -33,6 +33,8 @@ The search query parameter uses standard Okta API filtering semantics to create 
 
 This query parameter supports using the `co` operator with the `profile.firstName`, `profile.lastNameExpressions`, `profile.email`, and `profile.login` attributes.
 
+This query parameter supports using the `co` operator with the `profile.firstName`, `profile.lastNameExpressions`, `profile.email`, and `profile.login` attributes.
+
 ### URL encoding
 
 The search parameter requires URL encoding for expressions that include characters such as spaces and double quotes used for strings. See [URL encoding](http://en.wikipedia.org/wiki/Percent-encoding). For example:
