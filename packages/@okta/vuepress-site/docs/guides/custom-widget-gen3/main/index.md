@@ -77,6 +77,31 @@ See [Customization examples](#customization-examples) for snippets that you can 
 
    > **Note:** To discard your changes without publishing them, click **Revert changes** or click the **Code editor** toggle again. Turning off the code editor restores the default JavaScript code.
 
+### Use afterRender with the third generation
+
+Triggered when the widget transitions to a new page.
+
+https://github.com/okta/okta-signin-widget?tab=readme-ov-file#afterrender
+
+Use cases:
+
+* Change label text
+* Change input labels on page
+
+Gen 3 built on React, which interprets `afterRender` in a way that's incompatible with Gen 3.
+
+CSS can't be used b/c Odyssey and design tokens (see link) don't need them.
+
+Sample DOM manipulations:
+
+#### DOM manipulation 1
+
+
+#### DOM manipulation 2
+
+
+
+
 ## Use design tokens
 
 Design tokens make the Sign-In Widget's visual style consistent and easier to update. Tokens replace static values to customize the following:
