@@ -1157,20 +1157,20 @@ export const releaseNotes = [
       path: "/docs/release-notes/",
       subLinks: [
          {
-            title: "2024 - Identity Engine",
+            title: "Okta Classic Engine API release notes 2024",
             path: "/docs/release-notes/2024/"
          },
          {
-            title: "2024 - Classic Engine",
+            title: "Okta Identity Engine API release notes 2024",
             path: "/docs/release-notes/2024-okta-identity-engine/",
          },
          {
-            title: "2023 - Identity Engine",
-            path: "/docs/release-notes/2023-okta-identity-engine/",
+          title: "Okta Classic Engine API release notes 2023",
+          path: "/docs/release-notes/2023/"
          },
          {
-            title: "2023 - Classic Engine",
-            path: "/docs/release-notes/2023/"
+            title: "Okta Identity Engine API release notes 2023",
+            path: "/docs/release-notes/2023-okta-identity-engine/",
          },
         ],
    },

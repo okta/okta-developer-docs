@@ -1,5 +1,5 @@
 ---
-title: Okta API Products release notes 2024
+title: Okta Classic Engine API release notes 2024
 ---
 
 # Okta Classic Engine API release notes (2024)
