@@ -61,6 +61,8 @@ Create an OAuth 2.0 service app integration using the Admin Console.
 
 Assign admin roles for every OAuth 2.0 service app that you create. Service apps with assigned admin roles are constrained to the permissions and resources that are included in the role. This improves security for an org since it ensures that service apps only have access to the resources that are needed to perform their tasks. You can assign the [standard admin roles](https://help.okta.com/okta_help.htm?type=oie&id=ext-administrators-admin-comparison) or a [custom admin role](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-creating-custom-admin-roles) with permissions to specific resource sets.
 
+> **Note:** To temporarily bypass assigning an admin role, enable the **Public client app admins** org setting. This automatically assigns the super admin role to custom API service apps that you create after the scopes are granted. Go to **Settings** > **Account** > **Public client app admins** in the Admin Console to edit this setting. See [Assign admin roles to apps](https://help.okta.com/okta_help.htm?type=oie&id=csh-work-with-admin-assign-admin-role-to-apps). Disable this setting after you incorporate admin role assignments in your workflow.
+
 As an [Okta super administrator](https://help.okta.com/okta_help.htm?type=oie&id=ext_superadmin), make a `POST /oauth2/v1/clients/${yourServiceAppId}/roles` request to your org with the following parameters to assign an admin role:
 
 | Parameter |  Description/Value   |
@@ -70,6 +72,7 @@ As an [Okta super administrator](https://help.okta.com/okta_help.htm?type=oie&id
 | `resource-set`  |  Custom role only. Specify the resource set ID. See [Resource set object](/docs/reference/api/roles/#resource-set-object). |
 | `role`  |  Custom role only. Specify the custom role ID. See [Custom role object](/docs/reference/api/roles/#custom-role-object). |
 
+> **Note:** The admin roles determine which resources the admin can perform the actions on (such as a specific group of users or a specific set of apps), while scopes determine the action that the admin can perform (such as manage users, read apps, and so on). Therefore, the admin roles need to have enough permissions for the scopes provided.
 
 See [Assign a Role to a client application](/docs/reference/api/roles/#assign-a-role-to-a-client-application) in the Role Assignment API reference.
 
@@ -98,8 +101,6 @@ curl -i -X POST \
     "resource-set": "${resource-set}"
   }'
 ```
-
-> **Note:** The admin roles determine which resources the admin can perform the actions on (such as a specific group of users or a specific set of apps), while scopes determine the action that the admin can perform (such as manage users, read apps, and so on). Therefore, the admin roles need to have enough permissions for the scopes provided.
 
 ## Generate the JWK using the API
 
