@@ -36,16 +36,13 @@ The actual endpoint URL is up to the discretion of the app developer building th
 
 ### Endpoint authentication
 
-The request to the Universal Logout endpoint requires authentication so that your app knows the request is coming from Okta. Okta should be able to support your existing API authentication scheme, especially if it's one of the following:
-
-* OAuth 2.0 Bearer token, for example: `Authorization: Bearer X1234`
-* API key sent in a custom HTTP header
+The request to the Universal Logout endpoint requires authentication so that your app knows the request is coming from Okta. Okta supports the [JWT with private key](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/client-auth/#jwt-with-private-key)(`private_key_jwt`) client authentication method.
 
 ### Logout request
 
 When a user should be logged out of the app, Okta makes a POST request to the Universal Logout endpoint. The request includes a JSON object in the request body that describes the user to be logged out.
 
-By default, the user's email address identifies them. If an app supports provisioning with Okta, then the user identifier within the app identifies them. The user identifier is sent in the format defined by [Subject Identifiers for Security Event Tokens](https://datatracker.ietf.org/doc/html/draft-ietf-secevent-subject-identifiers-18) as either an `EmailSubject` or `Opaque` identifier.
+By default, the user's email address identifies them. If an app supports provisioning with Okta, then the user identifier within the app identifies them. The user identifier is sent in the format defined by [Subject Identifiers for Security Event Tokens](https://datatracker.ietf.org/doc/html/draft-ietf-secevent-subject-identifiers-18) as either an `email` or `iss_sub` identifier.
 
 Email address:
 
@@ -58,13 +55,14 @@ Email address:
 }
 ```
 
-User identifier within the app:
+Issuer and subject identifier within the app:
 
 ```JSON
 {
   "subject": {
-    "format": "opaque",
-    "id": "d563aec52"
+    "format": "iss_sub",
+    "iss": "https://issuer.example.com/",
+    "sub": "145234573"
   }
 }
 ```
