@@ -6,8 +6,6 @@ title: Okta Identity Engine API release notes 2023
 
 # Okta Identity Engine API release notes (2023)
 
-> Help us improve our release notes by filling out this short [survey](https://surveys.okta.com/jfe/form/SV_4VEZcIGOX0TBgkC).
-
 ## December
 
 ### Weekly release 2023.12.2

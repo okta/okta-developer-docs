@@ -7,17 +7,15 @@ meta:
 
 # Okta API Release Notes
 
-> Help us improve our release notes by filling out this short [survey](https://surveys.okta.com/jfe/form/SV_4VEZcIGOX0TBgkC).
-
 Each month, Okta releases API-specific features, enhancements, bug fixes, and Okta Integration Network updates. The monthly release includes Generally Available (GA) and Early Access (EA) features. Following the monthly release, bug fixes and stability improvements are deployed weekly for the remainder of the month.
 
 You can identify your product type and release version from the Admin Console. The page footer contains the cell number for your org, your org type (Preview or Production), your product type (C - Classic Engine, E - Identity Engine), and the release version.
 
-[Identity Engine 2023](/docs/release-notes/2023-okta-identity-engine/)
+[Identity Engine 2024](/docs/release-notes/2024-okta-identity-engine/)
 
 Learn about features and fixes deployed to Okta Identity Engine.
 
-[Classic Engine 2023](/docs/release-notes/2023/)
+[Classic Engine 2024](/docs/release-notes/2024/)
 
 Learn about features and fixes deployed to Okta Classic Engine.
 

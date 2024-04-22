@@ -6,8 +6,6 @@ title: Okta Identity Engine API Products release notes 2024
 
 # Okta Identity Engine API release notes (2024)
 
-> Help us improve our release notes by filling out this short [survey](https://surveys.okta.com/jfe/form/SV_4VEZcIGOX0TBgkC).
-
 ## April
 
 ### Weekly release 2024.04.1
