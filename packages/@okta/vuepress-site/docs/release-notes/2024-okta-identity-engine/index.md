@@ -3,7 +3,6 @@ title: Okta Identity Engine API release notes 2024
 ---
 
 <ApiLifecycle access="ie" />
-
 # Okta Identity Engine API release notes (2024)
 
 ## April
