@@ -8,11 +8,11 @@ This guide provides examples for programmatically retrieving and setting a sessi
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 Retrieve a session cookie and initiate SSO.
 
-**What you need**
+#### What you need
 
 [Okta Developer Edition organization](https://developer.okta.com/signup)
 
@@ -22,7 +22,7 @@ Retrieve a session cookie and initiate SSO.
 
 Okta uses an HTTP session cookie to provide access to your Okta org and apps across web requests for interactive user-agents such as a browser.
 
-> **Note:** Some browsers have begun blocking third-party cookies by default, which disrupts Okta functionality in certain flows. See [FAQ: How Blocking Third Party Cookies Can Potentially Impact Your Okta Environment](https://support.okta.com/help/s/article/FAQ-How-Blocking-Third-Party-Cookies-Can-Potentially-Impact-Your-Okta-Environment).
+> **Note:** Some browsers block third-party cookies by default, which disrupts Okta functionality in certain flows. See [Mitigate the impact of third-party cookie deprecation](https://help.okta.com/okta_help.htm?type=oie&id=ext-third-party-cookies).
 
 Okta sessions are created and managed with the [Session API](/docs/reference/api/sessions/). A session token is sent as part of a request, contained in a `sessionToken` parameter. If the request is successful, the session cookie is set with a `Set-Cookie` header in the response.
 
@@ -103,7 +103,7 @@ Set-Cookie: sid=000aC_z7AZKTpSqtHFc0Ak6Vg; Path=/
 Location: https://your-app.example.com
 ```
 
-## Retrieve a session cookie by visiting an application embed link
+## Retrieve a session cookie by visiting an app embed link
 
 This scenario is ideal for deployment scenarios where you have a custom sign-in page but immediately want to launch an Okta app after a user signs in without returning to a landing page. The sign-in page typically collects the user's credentials through an HTML form submit or POST and validates the credentials against your Okta org by calling the [Authentication API](/docs/reference/api/authn/) to obtain a session token.
 

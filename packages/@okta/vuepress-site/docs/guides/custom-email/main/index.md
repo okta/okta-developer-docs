@@ -8,16 +8,17 @@ This guide explains how to customize and style the default Okta email notificati
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
-Customize email notifications.
+* Use the Brands API to style notifications.
+* Edit templates to customize notifications.
 
-**What you need**
+#### What you need
 
-- [Okta Developer Edition organization](https://developer.okta.com/signup)
-- Access to email template customization. Contact [Okta support](https://support.okta.com/help) for help.
+* [Okta Developer Edition organization](https://developer.okta.com/signup)
+* Access to email template customization. Contact [Okta support](https://support.okta.com/help) for help.
 
-**Sample code**
+#### Sample code
 
 [Customization example](#customization-example)
 

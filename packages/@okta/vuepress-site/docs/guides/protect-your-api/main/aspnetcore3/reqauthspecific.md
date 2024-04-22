@@ -1,4 +1,4 @@
-Add the `[Authorize]` and `[AllowAnonymous]` attributes to the REST endpoints [created earlier](#create-your-rest-endpoints).
+Add the `[Authorize]` and `[AllowAnonymous]` attributes to the REST endpoints [created earlier](#create-two-endpoints-to-secure).
 
 ```csharp
 // GET: api/whoami with authorization required

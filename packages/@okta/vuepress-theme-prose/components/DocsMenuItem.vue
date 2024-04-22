@@ -89,7 +89,7 @@ export default {
   props: ["link", "isOpened"],
   computed: {
     isExternalLink() {
-      return this.link.path.toLowerCase().startsWith('http') || this.link.path.toLowerCase().startsWith('www.')
+      return this.link.path?.toLowerCase().startsWith('http') || this.link.path?.toLowerCase().startsWith('www.')
     }
   },
   methods: {

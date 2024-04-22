@@ -8,25 +8,25 @@ This guide explains how to test your access policies by using the `/simulate` en
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Understand how to configure and send policy simulation tests using the Policy API.
 * Send and receive an example simulation call.
 
-**What you need**
+#### What you need
 
 * [Okta Preview organization](https://developer.okta.com/login)
 * An app to test your access policies
 
-**Sample code**
+#### Sample code
 
-If you need a simple application for testing, see [Sign users in to your SPA using the redirect model and AuthJS](/docs/guides/auth-js-redirect/main/).
+If you need a simple app for testing, see [Sign users in to your SPA using the redirect model and AuthJS](/docs/guides/auth-js-redirect/main/).
 
 ---
 
 ## About Policy Simulation
 
-You can use the Policy API to simulate real-world user requests to access an application. In the Admin Console, these simulations are run using the Access Testing Tool available from **Reports** > **Access testing tool**. See [Access Testing Tool](https://help.okta.com/okta_help.htm?type=oie&id=ext-access-test-tool). The API endpoint that underpins this tool is also available for developers to simulate policy configurations and to test application access. For full details on the API endpoint, see the [Policy API reference](/docs/reference/api/policy/#access-simulation).
+You can use the Policy API to simulate real-world user requests to access an app. In the Admin Console, these simulations are run using the Access Testing Tool available from **Reports** > **Access testing tool**. See [Access Testing Tool](https://help.okta.com/okta_help.htm?type=oie&id=ext-access-test-tool). The API endpoint that underpins this tool is also available for developers to simulate policy configurations and to test app access. For full details on the API endpoint, see the [Policy API reference](/docs/reference/api/policy/#access-simulation).
 
 The policy simulations run access tests based on existing policy configurations and which rules and settings are matched to create the authentication and enrollment requirements. Results of the tests determine individual or group access to an app. You can simulate matches for the following types of policies and rules:
 
@@ -43,17 +43,17 @@ The sample use case creates a scenario based on group access to your sample app.
 
 To configure this set up, create a group called Sales and ensure that only this group is assigned to your sample app. See [Manage Groups](https://help.okta.com/okta_help.htm?type=oie&id=ext_Directory_Groups).
 
-In this use case, the app only allows users of the Sales group to access your sample application. Use the following calls to test this scenario.
+In this use case, the app only allows users of the Sales group to access your sample app. Use the following calls to test this scenario.
 
 ## Create a Post call for Sales
 
-For this call, you need the `id` for your application and the `id` for the Sales group.
+For this call, you need the `id` for your app and the `id` for the Sales group.
 
 To find these values:
 
 1. Call the [Groups API](/docs/reference/api/groups/#find-groups) with the query parameter as follows: `https://${yourOktaDomain}/api/v1/groups?q=Sales`. Save the `id` value from the response.
 
-1. Call the [Apps API](/docs/reference/api/apps/#list-applications) with the query parameter as follows: `https://${yourOktaDomain}/api/v1/apps?q={YourAppName}`. Save the `id` value from the response. Alternatively, the client ID available in the Admin Console is the `id` of your application.
+1. Call the [Apps API](/docs/reference/api/apps/#list-applications) with the query parameter as follows: `https://${yourOktaDomain}/api/v1/apps?q={YourAppName}`. Save the `id` value from the response. Alternatively, the client ID available in the Admin Console is the `id` of your app.
 
 To simulate the first scenario, use the following call but replace the following values:
 

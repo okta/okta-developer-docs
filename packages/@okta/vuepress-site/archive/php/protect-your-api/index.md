@@ -53,7 +53,7 @@ Use this quickstart to learn how to perform these tasks:
 
 ## Check that API Access Management is enabled
 
-[API Access Management (API AM)](/docs/concepts/api-access-management/) is the feature in your org that allows Okta to secure your APIs. When enabled, API AM allows you to create an authorization server that establishes a security boundary for your APIs. All new developer orgs have API AM enabled by default, but it’s optional for production orgs. Check that it’s enabled in your org as follows:
+[API Access Management (API AM)](/docs/concepts/api-access-management/) is the feature in your org that allows Okta to secure your APIs. When enabled, API AM allows you to create an authorization server that establishes a security boundary for your APIs. All new developer orgs have API AM enabled by default, but it's optional for production orgs. Check that it's enabled in your org as follows:
 
 1. Open the Admin Console for your org.
    1. [Sign in to your Okta organization](https://developer.okta.com/login) with your administrator account.
@@ -61,7 +61,7 @@ Use this quickstart to learn how to perform these tasks:
    1. Click **Admin** in the upper-right corner of the page.
 1. Go to **Security** > **API** to view the API AM area.
 
-If no **Authorization Servers** tab exists, API AM isn’t enabled in your org. Contact your support team to enable this feature in your org or [create a new developer edition org](https://developer.okta.com/signup/).
+If no **Authorization Servers** tab exists, API AM isn't enabled in your org. Contact your support team to enable this feature in your org or [create a new developer edition org](https://developer.okta.com/signup/).
 
 ### Note your authorization server name and audience
 
@@ -287,7 +287,7 @@ Configure access on a per-route basis to allow a mix of protected and anonymous 
 
 Enable [Cross-Origin Resource Sharing  (CORS)](https://fetch.spec.whatwg.org/#http-cors-protocol) only if the API is being called from an application or API hosted on a different domain. For example, if your API is hosted on `api.example.com` while your application is accessing it from `example.com`, you must enable CORS.
 
-If you’re using a PHP framework like [Laravel](https://laravel.com/docs/9.x/routing#cors) or [Symfony](https://symfony.com/doc/current/frontend/encore/dev-server.html#cors-issues), check the documentation for how to enable CORS in the framework. For this quickstart, you can send back the required HTTP headers by adding the following code above the `switch` statement in `index.php`:
+If you're using a PHP framework like [Laravel](https://laravel.com/docs/9.x/routing#cors) or [Symfony](https://symfony.com/doc/current/frontend/encore/dev-server.html#cors-issues), check the documentation for how to enable CORS in the framework. For this quickstart, you can send back the required HTTP headers by adding the following code above the `switch` statement in `index.php`:
 
 ```php
 header('Access-Control-Allow-Origin: *');
@@ -350,7 +350,7 @@ Start Postman if it's not open already. First, you request an access token from 
 
 #### Request an access token for the API
 
-Make an HTTP POST request to [/token](http://localhost:8080/docs/reference/api/oidc/#token) using the client ID and secret you noted earlier.
+Make an HTTP POST request to [/token](/docs/reference/api/oidc/#token) using the client ID and secret you noted earlier.
 
 1. Select **+** in the Postman workbench to open a new request tab.
 1. Select **GET** and change it to **POST**.
@@ -406,7 +406,7 @@ Learn more about concepts introduced in this guide:
 * [API Access Management](/docs/concepts/api-access-management/)
 * [Authorization servers](/docs/concepts/auth-servers/)
 * [oAuth 2.0 Credit Credentials flow](/docs/guides/implement-grant-type/clientcreds/main/)
-* [Test the Okta REST APIs using Postman](/code/rest/)
+* [Test the Okta REST APIs using Postman](/docs/reference/rest/)
 * Define your own custom OAuth 2.0 [scopes](/docs/guides/customize-authz-server/main/#create-scopes), [claims](/docs/guides/customize-authz-server/main/#create-claims), and [access policies](/docs/guides/customize-authz-server/main/#create-access-policies) to support authorization for your APIs.
 * [Customize tokens returned from Okta from custom claims](/docs/guides/customize-tokens-returned-from-okta/main/)
 

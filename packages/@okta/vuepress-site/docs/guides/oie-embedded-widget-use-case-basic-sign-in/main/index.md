@@ -1,5 +1,5 @@
 ---
-title: Basic sign-in flow using the Widget
+title: Basic sign-in flow using the widget
 ---
 
 <ApiLifecycle access="ie" />
@@ -11,17 +11,17 @@ Enable a password-only sign-in flow in your web app using the embedded Sign-In W
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
-* Enable Sign-In Widget support in your org and application.
+* Enable Sign-In Widget support in your org and app.
 * Add a sign-in flow to a server-side web app that uses the Sign-In Widget and requires only a password.
 
-**What you need**
+#### What you need
 
 <StackSnippet snippet="whatyouneed" />
 <br />
 
-**Sample code**
+#### Sample code
 
 <StackSnippet snippet="samplecode" />
 

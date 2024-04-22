@@ -20,72 +20,103 @@
             Blog
           </p>
           <h3 class="news__article-title dont-break-out">
-            How Authentication and Authorization Work for SPAs
+            {{ blogPosts[0].title }}
           </h3>
           <a
             class="news__article-link dont-break-out"
-            href="https://developer.okta.com/blog/2023/04/04/spa-auth-tokens"
+            :href="blogPosts[0].link"
           >
             Read the blog post
           </a>
         </div>
       </article>
-      <article class="news__article">
+      <article
+        v-for="(blog, index) in blogPosts.slice(1)"
+        :key="index"
+        class="news__article"
+      >
         <p class="news__text dont-break-out">
-          Video
+          {{ blog.type }}
         </p>
         <h3 class="news__article-title dont-break-out">
-          Podcast: Phishing-Resistant Authenticators with Megha Rastogi
+          {{ blog.title }}
         </h3>
         <a
           class="news__article-link dont-break-out"
-          href="https://www.youtube.com/watch?v=PiY5HDp0ABI"
+          :href="blog.link"
         >
-          Watch the video
-        </a>
-      </article>
-      <article class="news__article">
-        <p class="news__text dont-break-out">
-          Blog
-        </p>
-        <h3 class="news__article-title dont-break-out">
-          Step-up Authentication in Modern Applications
-        </h3>
-        <a
-          class="news__article-link dont-break-out"
-          href="https://developer.okta.com/blog/2023/03/08/step-up-auth"
-        >
-          Read the blog post
-        </a>
-      </article>
-      <article class="news__article">
-        <p class="news__text dont-break-out">
-          Blog
-        </p>
-        <h3 class="news__article-title dont-break-out">
-          A Secure and Themed Sign-in Page
-        </h3>
-        <a
-          class="news__article-link dont-break-out"
-          href="https://developer.okta.com/blog/2023/01/12/signin-custom-domain"
-        >
-          Read the blog post
-        </a>
-      </article>
-      <article class="news__article">
-        <p class="news__text dont-break-out">
-          Blog
-        </p>
-        <h3 class="news__article-title dont-break-out">
-          Streamline Your Okta Configuration in Angular Apps
-        </h3>
-        <a
-          class="news__article-link dont-break-out"
-          href="https://developer.okta.com/blog/2023/03/07/angular-forroot"
-        >
-          Read the blog post
+          {{ blog.type === BLOG_TYPES.BLOG ? 'Read the blog post' : 'Watch the video' }}
         </a>
       </article>
     </div>
   </section>
 </template>
+
+<script>
+const BLOG_TYPES = {
+  BLOG: 'Blog',
+  VIDEO: 'Video'
+};
+
+const initialBlogPosts = [
+  {
+    type: BLOG_TYPES.BLOG,
+    link: 'https://developer.okta.com/blog/2023/04/04/spa-auth-tokens',
+    title: 'How Authentication and Authorization Work for SPAs'
+  },
+  {
+    type: BLOG_TYPES.VIDEO,
+    link: 'https://www.youtube.com/watch?v=PiY5HDp0ABI',
+    title: 'Podcast: Phishing-Resistant Authenticators with Megha Rastogi'
+  },
+  {
+    type: BLOG_TYPES.BLOG,
+    link: 'https://developer.okta.com/blog/2023/03/08/step-up-auth',
+    title: 'Step-up Authentication in Modern Applications'
+  },
+  {
+    type: BLOG_TYPES.BLOG,
+    link: 'https://developer.okta.com/blog/2023/01/12/signin-custom-domain',
+    title: 'A Secure and Themed Sign-in Page'
+  },
+  {
+    type: BLOG_TYPES.BLOG,
+    link: 'https://developer.okta.com/blog/2023/03/07/angular-forroot',
+    title: 'Streamline Your Okta Configuration in Angular Apps'
+  }
+]
+
+export default {
+  name: 'News',
+  data() {
+    return {
+      blogPosts: initialBlogPosts
+    }
+  },
+  created() {
+    this.BLOG_TYPES = BLOG_TYPES;
+  },
+  mounted() {
+    this.getBlogPosts();
+  },
+  methods: {
+    getBlogPosts() {
+      const blogsObj = this.$page.newsFeedDataJson;
+      const length = blogsObj?.rss?.channel[0]?.item?.length;
+      if (!length || length < 5) {
+        return;
+      }
+
+      this.blogPosts = [];
+
+      for (let i = 0; i < 5; i++) {
+        this.blogPosts[i] = {
+          type: BLOG_TYPES.BLOG,
+          link: blogsObj.rss.channel[0].item[i].link[0],
+          title: blogsObj.rss.channel[0].item[i].title[0]
+        };
+      }
+    }
+  }
+}
+</script>

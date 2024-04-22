@@ -1,5 +1,5 @@
 ---
-title: Migrate to Okta — Prerequisites
+title: Migrate to Okta - Prerequisites
 meta:
   - name: description
     content: Create a plan for migrating existing users to Okta.
@@ -8,29 +8,21 @@ layout: Guides
 
 This guide provides you with information to create a plan for migrating existing users to Okta.
 
----
+## Prepare and plan for the migration
 
-**Learning outcomes**
+Migrating users from one system to another takes careful preparation and planning. A thorough understanding of your current environment and having clear migration goals provides the basis of a solid plan.
 
-Create a plan for migrating existing users to Okta.
+Also, being aware of any risks in your plan guides you toward successfully testing and deploying your migration.
 
----
+## Migration types
 
-## Prepare and Plan for the migration
+A **one-time migration** moves your users with their credentials over to Okta all at once. It’s expected that the legacy system could (and should) be taken offline after this migration process completes.
 
-Migrating users from one system to another takes careful preparation and planning. A thorough understanding of your current environment and having clear migration goals will provide the basis of a solid plan.
-
-Additionally, being aware of any risks in your plan will guide you toward successfully testing and deploying your migration.
-
-## Migration Types
-
-A **one-time migration** moves your users with their credentials over to Okta all at once. It is expected that the legacy system could (and should) be taken offline after this migration process completes.
-
-A **migration program** is one where, for a period of time, the legacy system and Okta run in parallel to migrate users in a more ad-hoc fashion. This can be accomplished using Okta's [Inline Password Hook](/docs/reference/password-hook/) feature.
+A **migration program** is one where, for a period of time, the legacy system and Okta run in parallel to migrate users in a more impromptu fashion. You can accomplish this using the Okta [Inline Password Hook](/docs/reference/password-hook/) feature.
 
 It's important to note that this information is about a migration strategy and not integration.
 
-> **Note**: Migration is a move of your users to Okta, but an _integration_ is an ongoing process where one or more of your legacy systems continues to be the source of truth for some or all of your user information.
+> **Note**: Migration is a move of your users to Okta, but an _integration_ is an ongoing process where one or more of your legacy systems remains the source of truth for some or all of your user information.
 
 ## Private data and other sensitive information
 
@@ -41,26 +33,26 @@ For some helpful information on this, see:
 * [How to Keep PII Secure while Migrating Users to the Cloud](https://www.okta.com/gdpr/) (Okta security blog post)
 * [Prepare your organization for the GDPR](https://www.okta.com/gdpr/) (Okta data security page)
 
-## Get ready to create a plan &mdash; Gather information
+## Get ready to create a plan&mdash;gather information
 
-Before being able to create a plan, you must gather information about your environment and decide on specific goals of the migration project. This includes making a list of the types of users you want to migrate and the applications and other resources that they will need to access through Okta.
+Before being able to create a plan, you must gather information about your environment and decide on specific goals of the migration project. This includes making a list of the types of users you want to migrate and the apps and other resources that they’ll need to access through Okta.
 
 ### Identify the users to migrate
 
-Start by identifying the types of users you have, based on the broad kinds of access they will need. For example:
+Start by identifying the types of users you have based on the broad kinds of access they need. For example:
 
-* Full and part time employees of your company
+* Full and part-time employees of your company
 * Customers
 * Partners
 * Contractors
 
-How many of each type of user do you have? Understanding this will help estimate the amount of time you'll need when implementing your migration.
+How many of each type of user do you have? Understanding this helps estimate the amount of time you need when implementing your migration.
 
-Also identify any sub-groups currently in use for all of your user types. For example, are your employees grouped into sales, marketing, and accounting groups? What about your customers?
+Also identify any subgroups currently in use for all of your user types. For example, are your employees grouped into sales, marketing, and accounting groups? What about your customers?
 
 ### Locate your existing user profile data
 
-Your user data could be in Active Directory, LDAP, or any number of on-premise or cloud-based applications, but most importantly you need to know exactly where the data is and how to access it. This also requires that you have permission to access and use the data. You'll also need to know which system is the source of truth for each data element. For example, various systems might maintain a primary email address for each of your users.
+Your user data could be in Active Directory, LDAP, or any number of on-premise or cloud-based apps. Most importantly, you need to know exactly where the data is and how to access it. This also requires that you have permission to access and use the data. You also need to know which system is the source of truth for each data element. For example, various systems might maintain a primary email address for each of your users.
 
 Here are the key points to remember:
 
@@ -71,7 +63,7 @@ Here are the key points to remember:
 * Identify which user attributes are personally identifiable information (PII).
 * Define all user attributes that will be migrated to Okta, and the source of truth for each one.
 
-**Note:** The source of truth for attributes at this stage of the migration process means only that we want to clearly define where the user data is coming from for the migration itself, not where it will be managed after the migration. After migration, Okta is the default [profile source](https://help.okta.com/okta_help.htm?id=ext_Directory_Profile_Masters), but this can be modified.
+**Note:** The source of truth for attributes at this stage of the migration process means only that Okta wants to clearly define where the user data is coming from for the migration itself, not where it will be managed after the migration. After migration, Okta is the default [profile source](https://help.okta.com/okta_help.htm?id=ext_Directory_Profile_Masters), but this can be modified.
 
 ### User applications
 
@@ -83,14 +75,14 @@ Identify the applications that each user type can access. Here are some question
 
 ### Create a migration plan
 
-After you've gathered the necessary information, it's time to create a migration plan with clear goals in mind. These will provide direction for your plan, as well as offering a way to measure success. Ask yourself these questions:
+After you've gathered the necessary information, it's time to create a migration plan with clear goals in mind. These provide direction for your plan, and offering a way to measure success. Ask yourself these questions:
 
 * How do you want your users to experience the migration?
 * How much and what kind of user impact is acceptable?
 * Will you archive your legacy data?
-* Are there any company policies or standards that you have to take into consideration?
+* Are there any company policies or standards that you have to consider?
 * Is it acceptable to perform a "one-shot" migration? Using this strategy means short-term downtime, but it could lessen the complexity of the plan.
-* Is it preferable to perform the migration in stages? Depending on the method you use, it could increase complexity of the plan, but service interruptions would be minimized.
+* Is it preferable to perform the migration in stages? Depending on the method you use, it could increase the complexity of the plan, but service interruptions would be minimized.
 
 ### Define attribute mappings
 
@@ -110,7 +102,7 @@ Using the information you gathered earlier, create a matrix that maps your sourc
 
 ### Validate data quality
 
-Extract the user data from the source (or sources) into an intermediate staging area. Then you'll need to clean up that data so that it's consistent and contains only valid information. Careful review of the data in each field will also help avoid errors when migrating to Okta.
+Extract the user data from the source (or sources) into an intermediate staging area. Then you need to clean up that data so that it's consistent and contains only valid information. Careful review of the data in each field also helps avoid errors when migrating to Okta.
 
 For example, verify that the data meets any constraint requirements:
 
@@ -128,13 +120,13 @@ If you discover any issues, use a consistent strategy to remedy for every issue 
 
 ### Test your migration plan
 
-Once you have a clean set of data, you can create a realistic set of test data that can be used to test your migration method. Testing will uncover issues with your data or the migration method so that issues can be addressed before going to production.
+Once you have a clean set of data, you can create a realistic set of test data that can be used to test your migration method. Testing uncovers issues with your data or the migration method so that issues can be addressed before going to production.
 
 #### Create a test plan
 
-When creating a test plan, it is important to prepare:
+When creating a test plan, it’s important to prepare the following:
 
-* Data that was at the "tail end" of a process or calculation. This will allow you to see right away if problems occurred in upstream processes.
+* Data that was at the "tail end" of a process or calculation. This allows you to see right away if problems occurred in upstream processes.
 * Any externally facing data.
 * Data that is under regulation/privacy standards.
 * Any data that kicks off significant revenue/productivity impacting processes downstream.
@@ -144,7 +136,7 @@ When creating a test plan, it is important to prepare:
 Create test data sets that keep these points in mind:
 
 * Create multiple batches of test data so that you have a varied set of conditions to test against.
-* Plan more loads as big configuration and development changes are made.
+* Plan more loads as significant configuration and development changes are made.
 * Plan progressively larger loads for performance indicators.
 
 #### Run your tests
@@ -163,13 +155,13 @@ Finally, when running your tests, ensure you execute all test cases and capture 
 
 ### Create a rollback plan
 
-Identify users to roll back by assigning them to an Okta group that identifies the source. Do the users already exist in Okta? If so, an export of the current user data, or a valid data source will be needed.
+Identify users to roll back by assigning them to an Okta group that identifies the source. Do the users exist in Okta? If so, an export of the current user data, or a valid data source is needed.
 
-Note that data migration rollback is for users only. Other items (for example, application assignment) should have their own plan. Isolate these other items by temporarily disabling those features during data migration.
+Data migration rollback is for users only. Other items (for example, application assignment) should have their own plan. Isolate these other items by temporarily disabling those features during data migration.
 
 ### Next steps
 
-With a plan in place, you're ready to move on to implementation, which differs according to where your data is coming from and what method you chose to use. For the purpose of this document, we've chosen to use the [Okta API](/docs/reference/) and we'll cover those steps in the next section.
+With a plan in place, you're ready to move on to implementation, which differs according to where your data is coming from and what method you chose to use. In this document, use the [Okta API](/docs/reference/). Those steps are covered in the next section.
 
 Have a look at our migration guides:
 

@@ -8,11 +8,11 @@ This guide explains how to configure an Okta-hosted user consent dialog for OAut
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 Implement an Okta-hosted user consent dialog.
 
-**What you need**
+#### What you need
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
 * [OpenID Connect client application](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-oidc) created in your Okta org with at least [one user assigned to it](https://help.okta.com/okta_help.htm?id=ext-assign-apps)
@@ -21,22 +21,22 @@ Implement an Okta-hosted user consent dialog.
 
 ## About the user consent dialog
 
-When configured, the Okta-hosted user consent dialog for OAuth 2.0 or OpenID Connect authentication flows allows users to acknowledge and accept that they are giving an app access to some of their data. With the correct configuration, Okta displays a consent dialog that shows which app is asking for access to what data. The dialog displays the app logo that you specify and also provides details about what data is shared if the user consents.
+When configured, the Okta-hosted user consent dialog for OAuth 2.0 or OpenID Connect authentication flows enables users to acknowledge and accept that they’re giving an app access to some of their data. With the correct configuration, Okta displays a consent dialog that shows which app is asking for access to what data. The dialog displays the app logo that you specify and also provides details about what data is shared if the user consents.
 
 ## User consent and tokens
 
-User consent represents a user's explicit permission to allow an application to access resources protected by scopes. Consent grants are different from tokens because a consent can outlast a token, and there can be multiple tokens with varying sets of scopes derived from a single consent.
+User consent represents a user's explicit permission to allow an app to access resources protected by scopes. Consent grants are different from tokens. This is because a consent can outlast a token. There can also be multiple tokens with varying sets of scopes derived from a single consent.
 
 You can configure which scopes aren't required, which are optional, and which are required.
 
-When an application needs to get a new access token from an authorization server, the user isn't prompted for consent if they already consented to the specified scopes. Consent grants remain valid until the user or admin manually revokes them, or until the user, application, authorization server, or scope is deactivated or deleted.
+When an app needs to get a new access token from an authorization server, the user isn't prompted for consent if they already consented to the specified scopes. Consent grants remain valid until the user or admin manually revokes them, or until the user, app, authorization server, or scope is deactivated or deleted.
 
 > **Note:** The user only has to grant consent once for a scope per authorization server.
 
 When a consent dialog appears depends on the values of three elements:
 
 * `prompt`: a query [parameter](/docs/reference/api/oidc/#parameter-details) that is used in requests to `/oauth2/${authorizationServerId}/v1/authorize` (custom authorization server)
-* `consent_method`: an application property listed in the **Settings** [table](/docs/reference/api/apps/#settings-10) in the Apps API doc. This property allows you to determine whether a client is fully trusted (for example, a first-party application) or requires consent (for example, a third-party application).
+* `consent_method`: an app property listed in the **Settings** [table](/docs/reference/api/apps/#settings-10) in the Apps API doc. This property allows you to determine whether a client is fully trusted (for example, a first-party app) or requires consent (for example, a third-party app).
 * `consent`: a scope property listed in the **Parameter details** [section](/docs/reference/api/oidc/#parameter-details) for the `/authorize` endpoint. This property allows you to enable or disable user consent for an individual scope.
 
 ## Enable consent for scopes
@@ -50,7 +50,9 @@ Use the following steps to display the user consent dialog as part of an OpenID 
 1. In the Admin Console, go to **Applications** > **Applications**.
 1. Select the OpenID Connect app that you want to require user consent for.
 1. On the **General** tab, scroll down to the **User Consent** section and verify that the **Require consent** checkbox is selected. If it isn't, click **Edit** and select **Require consent**.
-1. In this example, we use the **Implicit** flow for testing purposes. In the **Application** section, select **Implicit** flow and then both **Allow ID Token with implicit grant type** and **Allow Access Token with implicit grant type**.
+1. For this use case, use the **Implicit** flow for testing purposes. In the **Grant type** section, click **Advanced**, select **Implicit**, and then select both **Allow ID Token with implicit grant type** and **Allow Access Token with implicit grant type**.
+
+    **Note:** If you're using Classic Engine, select **Implicit (hybrid)** in the **Grant type** section.
 
     For the [Authorization Code flow](/docs/concepts/oauth-openid/#authorization-code-flow), the response type is `code`. You can exchange an authorization code for an ID token and/or an access token using the `/token` endpoint.
 
@@ -191,7 +193,7 @@ To update scope consent to `OPTIONAL`, set `consent` to `REQUIRED` and include t
 
 After you define the scopes that you want to require consent for, prepare an authentication or authorization request with the correct values.
 
-1. Obtain the following values from your OpenID Connect application, both of which you can find on the application's **General** tab:
+1. Obtain the following values from your OpenID Connect app, both of which you can find on the app's **General** tab:
 
     * Client ID
     * Redirect URI
@@ -202,7 +204,7 @@ After you define the scopes that you want to require consent for, prepare an aut
 
 3. Add the following query parameters to the URL:
 
-    * Your OpenID Connect application's `client_id` and `redirect_uri`
+    * Your OpenID Connect app's `client_id` and `redirect_uri`
     * The `openid` scope and the scopes that you want to require consent for. In this example, we configured the `phone` scope in the previous section.
     * The response type, which for an ID token is `id_token` and an access token is `token`
 

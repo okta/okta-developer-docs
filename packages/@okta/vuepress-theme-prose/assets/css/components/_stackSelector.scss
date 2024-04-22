@@ -88,6 +88,8 @@ $small-spacing: 0.75rem;
 .stack-selector .selector-control .vs__search {
   margin-top: 0;
   margin-left: 1.7rem;
+
+  color: var(--c-text-darker);
 }
 
 .stack-selector .selector-control .vs__dropdown-toggle {
@@ -130,6 +132,12 @@ $small-spacing: 0.75rem;
   fill: cv("text", "darker");
 }
 
+@media (max-width: 1439px) {
+  .stack-selector .selector-control .vs__dropdown-toggle .vs__open-indicator {
+    transform: scale(0.6);
+  }
+}
+
 .stack-selector .selector-control .vs__dropdown-menu {
   z-index: 50;
 
@@ -144,12 +152,8 @@ $small-spacing: 0.75rem;
   padding: 0.7rem 1rem;
   width: 100%;
 
-  border: none;
+  border: 1px solid transparent;
   border-bottom: 1px solid cv("gray", "100");
-}
-
-.stack-selector .selector-control .vs__dropdown-menu .vs__dropdown-option:last-child {
-  border-bottom: none;
 }
 
 .stack-selector .selector-control .vs__dropdown-menu .vs__dropdown-option--highlight {

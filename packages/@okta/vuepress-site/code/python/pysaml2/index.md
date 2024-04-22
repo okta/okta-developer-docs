@@ -16,7 +16,7 @@ This guide describes how to install and configure an example application that de
 
 > **Note:** The library isn't Okta's and isn't supported by Okta.
 
-This guide assumes that you are familiar with the basics of Python software development: using the command line, editing text files, using [virtualenv](https://virtualenv.pypa.io/en/latest/), and using [pip](https://en.wikipedia.org/wiki/Pip_%28package_manager%29).
+This guide assumes that you are familiar with the basics of Python software development: using the command line, editing text files, using [virtualenv](https://virtualenv.pypa.io/en/latest/), and using [`pip`](https://en.wikipedia.org/wiki/Pip_%28package_manager%29).
 
 If you're already familiar with Okta, you can skip to the section titled "Configuring PySAML2 to work with Okta."
 
@@ -81,7 +81,7 @@ Now that you have configured the PySAML2 Example application icon in your Okta o
     $ $EDITOR app.py
     ```
 
-5. After opening the `app.py` file, modify the contents of the `metadata_url_for` dictionary as shown below.
+5. In the `app.py` file, modify the contents of the `metadata_url_for` dictionary as shown below.
 
     ``` python
     metadata_url_for = {
@@ -89,7 +89,7 @@ Now that you have configured the PySAML2 Example application icon in your Okta o
     }
     ```
 
-6. Be sure to replace the contents of `${metadataUrl}` with the link that you copied in step \#10 of the [Setting up a SAML application in Okta](/docs/guides/customize-authz-server/) instructions that you followed above.
+6. Replace the contents of `${metadataUrl}` with the link that you copied in step \#10 of the [Setting up a SAML application in Okta](/docs/guides/customize-authz-server/) instructions.
 
     > **Note:** The contents of `${metadataUrl}` should look similar to: `https://${yourOktaDomain}/app/a0b1c2deFGHIJKLMNOPQ/sso/saml/metadata`
 
@@ -123,10 +123,10 @@ Use both methods to test your application. In each case, you know if the test wo
 
     -  Start the example application from the command line:
 
-    	```bash
-    	$ source venv/bin/activate
-	$ python app.py
-	```
+        ```bash
+        $ source venv/bin/activate
+    $ python app.py
+    ```
 
     -   Open the example application in your browser:
         `http://localhost:5000/`
@@ -139,15 +139,15 @@ Use both methods to test your application. In each case, you know if the test wo
     -  Start the example application from the command line:
 
     ```bash
-    	$ source venv/bin/activate
-	$ python app.py
-	```
+        $ source venv/bin/activate
+    $ python app.py
+    ```
 
     -  Sign in to your Okta organization.
 
     -  Click the button for the application that you created earlier in the "Configuring Okta to work with PySAML2" section above: ![PySAML2 Example](/img/pysaml2-example-okta-chiclet.png "PySAML2 Example")
 
-If you can to get to the "Logged in" page using both of the methods above, the test are successful.
+If you can to get to the "Logged in" page using both of the methods above, the tests are successful.
 
 Congratulations on getting Okta working with PySAML2!
 
@@ -155,6 +155,6 @@ Congratulations on getting Okta working with PySAML2!
 
 At this point, you should be familiar with setting up a SAML enabled application to work with an Okta organization and how to configure PySAML2 to work with Okta.
 
-After you have your Okta organization working with the example Python application, the next step is to take the example code and move it to your production application. The specifics of how this works is different depending on how your application is set up. Pay special attention to the notes in the `app.py` file. For example, on a production system, you can't hard code the contents of the `metadata_url_for` dictionary. They shoulc come from a dynamic datastore.
+After you have your Okta organization working with the example Python application, the next step is to take the example code and move it to your production application. The specifics of how this works is different depending on how your application is set up. Pay special attention to the notes in the `app.py` file. For example, on a production system, you can't hard code the contents of the `metadata_url_for` dictionary. They should come from a dynamic datastore.
 
 If you want to learn more about SAML and what to consider when writing a SAML implementation, Okta's in-depth [SAML guidance](https://www.okta.com/integrate/documentation/saml/) is a great place to learn more.

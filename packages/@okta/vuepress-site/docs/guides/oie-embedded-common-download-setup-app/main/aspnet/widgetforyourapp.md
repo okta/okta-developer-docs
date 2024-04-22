@@ -1,9 +1,9 @@
-> **Note:** [Run the embedded Widget sample app](/docs/guides/oie-embedded-common-run-samples/aspnet/main/#run-the-embedded-widget-sample-app) and explore the available [embedded Widget use cases](/docs/guides/oie-embedded-widget-use-case-basic-sign-in/aspnet/main/) to get familiar with the Identity Engine and Sign-In Widget flow.
+> **Note:** [Run the embedded widget sample app](/docs/guides/oie-embedded-common-run-samples/aspnet/main/#run-the-embedded-widget-sample-app) and explore the available [embedded widget use cases](/docs/guides/oie-embedded-widget-use-case-basic-sign-in/aspnet/main/) to get familiar with the Identity Engine and Sign-In Widget flow.
 
 Begin to integrate the Sign-In Widget into your own embedded app by following these steps:
 
 1. [Set up your app for .Net 4.8 or greater](#_1-set-up-your-app-for-net-4-8-or-greater), similar to the SDK embedded app.
-1. [Add the Okta SDK Nuget packages](#_2-add-the-okta-sdk-nuget-packages), similar to the SDK embedded app.
+1. [Add the Okta SDK NuGet packages](#_2-add-the-okta-sdk-nuget-packages), similar to the SDK embedded app.
 1. Ensure that you're using the [latest release of the Sign-In Widget](https://github.com/okta/okta-signin-widget/releases/).
 1. [Source the Sign-In Widget from the Okta CDN](#source-the-sign-in-widget-from-the-okta-cdn).
 1. [Configure and initialize the Sign-In Widget](#configure-and-initialize-the-sign-in-widget).
@@ -50,9 +50,9 @@ The following JSON sample shows you a set of Sign-In Widget configurations for i
 }
 ```
 
-> **Important**: In Okta Sign-In Widget version 7+, Identity Engine is enabled by default. If you are using an earlier version than 7, you must explicitly enable Identity Engine features by setting `"useInteractionCodeFlow": true` in the configuration settings shown above. If you are using version 7+ and you want to use Okta Classic Engine rather than Identity Engine, specify `"useClassicEngine": true` in the configuration settings.
+> **Important**: In Okta Sign-In Widget version 7+, Identity Engine is enabled by default. If you’re using an earlier version than 7, you must explicitly enable Identity Engine features by setting `"useInteractionCodeFlow": true` in the configuration settings shown in the previous example. If you’re using version 7+ and you want to use Okta Classic Engine rather than Identity Engine, specify `"useClassicEngine": true` in the configuration settings.
 
-Initialize the Sign-In Widget with `OktaSignIn()` and the required Widget configurations (shown as `widgetConfig` in the following sample). Call `showSignInAndRedirect()` to render the Widget on the sign-in page.
+Initialize the Sign-In Widget with `OktaSignIn()` and the required Widget configurations (shown as `widgetConfig` in the following sample). Call `showSignInAndRedirect()` to render the widget on the sign-in page.
 
 ```csharp
 <div id="okta-signin-widget-container"></div>
@@ -77,4 +77,4 @@ Initialize the Sign-In Widget with `OktaSignIn()` and the required Widget config
 </script>
 ```
 
-See [Load the Widget](/docs/guides/oie-embedded-widget-use-case-load/aspnet/main) for further details on integrating the Sign-In Widget into your app.
+See [Load the widget](/docs/guides/oie-embedded-widget-use-case-load/aspnet/main) for further details on integrating the Sign-In Widget into your app.

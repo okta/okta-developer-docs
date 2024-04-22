@@ -133,7 +133,7 @@ const HIDE_INTRO_MODAL_KEY = 'hide_intro_modal';
       });
       const ESC_KEY = 27;
       window.addEventListener("keydown", (event) => {
-        if (event.keyCode === ESC_KEY) {
+        if (event.keyCode === ESC_KEY && !this.dialogHidden) {
           if (this.isDontShowModalChecked) {
             storage.setItem(HIDE_INTRO_MODAL_KEY, "true");
           }

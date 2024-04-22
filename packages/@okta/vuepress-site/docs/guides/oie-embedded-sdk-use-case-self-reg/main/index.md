@@ -4,25 +4,25 @@ title: Self-service registration
 
 <ApiLifecycle access="ie" />
 
-> **Note:** A request context for the browser client is required when a server-side web application uses an embedded SDK as a proxy between itself and Okta. This context contains values (geolocation, IP address, and user agent) that inform a secure response. However, these values are currently taken from the server rather than the client. As a result, network zones and behaviors that drive their conditions based on these request context values don’t currently work.
+> **Note:** A request context for the browser client is required when a server-side web app uses an embedded SDK as a proxy between itself and Okta. This context contains values (geolocation, IP address, and user agent) that inform a secure response. However, these values are currently taken from the server rather than the client. As a result, network zones and behaviors that drive their conditions based on these request context values don’t currently work.
 
-Enable a self-registration flow in your application using the embedded SDK.
+Enable a self-registration flow in your app using the embedded SDK.
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Configure your Okta org for self-service registration.
 * Set up the password, email, and/or phone authentication factors.
 * Set up and send a verification email during new user registration.
 
-**What you need**
+#### What you need
 
 * An app that uses the embedded Identity Engine SDK
 * [Okta org already configured for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/-/main/#set-up-your-okta-org-for-a-multifactor-use-case)
 * [Identity Engine SDK set up for your own app](/docs/guides/oie-embedded-common-download-setup-app/)
 
-**Sample code**
+#### Sample code
 
 <StackSnippet snippet="samplecode" />
 
@@ -30,7 +30,7 @@ Enable a self-registration flow in your application using the embedded SDK.
 
 ## Overview
 
-Self-service registration allows users to sign up to an application by themselves. In this use case, the user must register with a password, email, and/or phone factors. Enable self-service registration for the app in your Okta org and then build the self-service registration flow in your app.
+Self-service registration allows users to sign up to an app by themselves. In this use case, the user must register with a password, email, and/or phone factors. Enable self-service registration for the app in your Okta org and then build the self-service registration flow in your app.
 
 <div class="half">
 
@@ -84,7 +84,7 @@ Create a policy for self-registration:
 
 ## Send a confirmation email even if the email authenticator is disabled
 
-Even when only the password factor is required for an Okta application, you can still send a confirmation email.
+Even when only the password factor is required for an Okta app, you can still send a confirmation email.
 
 To replicate this scenario:
 

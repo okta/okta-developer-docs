@@ -4,44 +4,44 @@ excerpt: Learn how to use the `acr_values` parameter in authorization requests t
 layout: Guides
 ---
 
-This guide explains how to include the `acr_values` parameter in your authorization requests to increase the level of end-user assurance.
+This guide explains how to include the `acr_values` parameter in your authorization requests to increase the level of end user assurance.
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Know the purpose of the `acr_values` parameter.
 * Learn about the different types of `acr_values` that are supported out of the box.
 * Use an `acr_values` parameter in your authorization request.
 
-**What you need**
+#### What you need
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
-* An application that you want to configure `acr_values` for. You can [create a new app integration using AIW](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard) or use an existing one.
+* An app that you want to configure `acr_values` for. You can [create an app integration using AIW](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard) or use an existing one.
 
 ---
 
 ## Overview
 
-Users want seamless access to certain resources, but organizations want to increase the user’s level of assurance before they access anything sensitive. It’s difficult to strike a balance between implementing stronger security controls and offering a frictionless experience for your users to easily interact with the application. Using the `acr_values` parameter provides easy access to one layer of resources and secure access to another layer of resources.
+Users want seamless access to certain resources, but organizations want to increase the user’s level of assurance before they access anything sensitive. It’s difficult to strike a balance between implementing stronger security controls and offering a frictionless experience for your users to easily interact with the app. Using the `acr_values` parameter provides easy access to one layer of resources and secure access to another layer of resources.
 
 The `acr_values` parameter refers to authentication context class reference. Each value defines a specific set of assurance level requirements that the protected resource requires from the authentication event associated with the access and ID tokens.
 
-Today an authorization server relies on [authentication policies](/docs/reference/api/policy/#authentication-policy) to authenticate the user. After the user is authenticated, the authorization server evaluates the scopes and the grant types defined for the application, and then issues the tokens. Although this approach works in many situations, there are several circumstances where more is needed. Resource servers (your protected APIs) can require different authentication strengths or elapsed time frames for different use cases. For example, an eCommerce application requires different authentication strengths depending on whether the item being purchased exceeds a certain threshold. Another example is an application that requires a higher level of assurance before making changes to sensitive information.
+Today an authorization server relies on [authentication policies](/docs/reference/api/policy/#authentication-policy) to authenticate the user. After the user is authenticated, the authorization server evaluates the scopes and the grant types defined for the app, and then issues the tokens. Although this approach works in many situations, there are several circumstances where more is needed. Resource servers (your protected APIs) can require different authentication strengths or elapsed time frames for different use cases. For example, an eCommerce app requires different authentication strengths depending on whether the item being purchased exceeds a certain threshold. Another example is an app that requires a higher level of assurance before making changes to sensitive information.
 
 Okta has created predefined `acr_values` that are described in the [Predefined parameter values](#predefined-parameter-values) section. You can include one of these values, based on your use case, in the client authorization request to request a different authentication assurance. The authorization server returns an access token and/or an ID token that contains the `acr` claim. This claim conveys information about the level of assurance that the user verified at the time of authentication. The resource server can then validate these parameters to ensure that the user verified the required level of assurance.
 
-> **Note:** You can specify a `max_age` parameter value to require an elapsed time frame. Additionally, if you want to ignore the existing session and reauthenticate the user each time, pass `max_age=0` in the request. For Classic Engine, pass `max_age=1`. See the [Request parameters table](/docs/reference/api/oidc/#request-parameters) for the `/authorize` endpoint for more information on `max_age`.
+> **Note:** You can specify a `max_age` parameter value to require an elapsed time frame. Also, if you want to ignore the existing session and reauthenticate the user each time, pass `max_age=0` in the request. For Classic Engine, pass `max_age=1`. See the [Request parameters table](/docs/reference/api/oidc/#request-parameters) for the `/authorize` endpoint for more information on `max_age`.
 
-Okta's [redirect and embedded](/docs/concepts/redirect-vs-embedded/) deployment models support the use of the `acr_values` parameter. The parameter works with any OpenID Connect application, such as web, native, or SPA, and it’s supported by both the [org authorization server and custom authorization servers](/docs/concepts/auth-servers/).
+The Okta [redirect and embedded](/docs/concepts/redirect-vs-embedded/) deployment models support the use of the `acr_values` parameter. The parameter works with any OpenID Connect app, such as web, native, or SPA, and both the [org authorization server and custom authorization servers](/docs/concepts/auth-servers/) support it.
 
 ### Evaluation flow
 
-In Okta Identity Engine, assurances from policies are always evaluated in order of factor verification, constraints, and re-authentication. The [global session policy](/docs/concepts/policies/#sign-on-policies) is evaluated first, then the authentication policy, and then the `acr_values` parameter in the request. The authentication policy is always evaluated before the `acr_values` parameter.
+In Identity Engine, assurances from policies are always evaluated in order of factor verification, constraints, and re-authentication. The [global session policy](/docs/concepts/policies/#sign-on-policies) is evaluated first, then the authentication policy, and then the `acr_values` parameter in the request. The authentication policy is always evaluated before the `acr_values` parameter.
 
-In Okta Classic Engine when a user doesn't have a session, the more restrictive policy is evaluated first, such as the Okta sign-on policy or the application sign-on policy. Additionally, if an assurance requirement is more restrictive, such as an `acr_values` parameter, that is evaluated first. The second most restrictive policy or assurance requirement is then evaluated and so on. When a user already has a session, the application sign-on policy is always evaluated first. Then, the `acr_values` parameter in the request.
+In Classic Engine when a user doesn't have a session, the more restrictive policy is evaluated first, such as the Okta sign-on policy or the app sign-on policy. Also, if an assurance requirement is more restrictive, such as an `acr_values` parameter, that's evaluated first. The second most restrictive policy or assurance requirement is then evaluated and so on. When a user already has a session, the app sign-on policy is always evaluated first. Then, the `acr_values` parameter in the request.
 
-In both Identity Engine and Classic Engine, if the user has a session, the previously satisfied authenticators are considered before prompting for factors that are required by the `acr_values` parameter in the request. Additionally, if the user is unable to satisfy the level of assurance, Okta returns an [error](https://openid.net/specs/openid-connect-unmet-authentication-requirements-1_0.html) (`error=unmet_authentication_requirements`) to the callback endpoint.
+In both Identity Engine and Classic Engine, if the user has a session, the previously satisfied authenticators are considered before prompting for factors that the `acr_values` parameter requires in the request. Also, if the user is unable to satisfy the level of assurance, Okta returns an [error](https://openid.net/specs/openid-connect-unmet-authentication-requirements-1_0.html) (`error=unmet_authentication_requirements`) to the callback endpoint.
 
 ### Factor enrollment
 
@@ -163,7 +163,7 @@ When you use the refresh token to refresh access and ID tokens, the tokens refle
 
 ## Next steps
 
-* Read more about Okta's access tokens in the [OIDC & OAuth 2.0 API Reference](/docs/reference/api/oidc/#id-token).
+* Read more about Okta access tokens in the [OIDC & OAuth 2.0 API Reference](/docs/reference/api/oidc/#id-token).
 
 * Read more about policies on the [Policies](/docs/concepts/policies/) concept page.
 

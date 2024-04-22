@@ -8,7 +8,7 @@ This guide explains Cross-Origin Resource Sharing (CORS), why it’s useful, how
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Grant cross-origin access to the Okta API from your web apps.
 * Test your Okta CORS configuration.

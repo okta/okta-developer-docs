@@ -4,16 +4,16 @@ title: Download and set up the SDK, Sign-In Widget, and sample apps
 
 <ApiLifecycle access="ie" />
 
-This guide shows you how to download and configure the Identity Engine SDKs, Sign-In Widget, and accompanying sample apps after you [create and set up your Okta org](/docs/guides/oie-embedded-common-org-setup).
+This guide shows you how to download and configure the Identity Engine SDKs, Sign-In Widget, and accompanying samples after you [create and set up your Okta org](/docs/guides/oie-embedded-common-org-setup).
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Download the SDK, Sign-In Widget, sample apps, and prerequisites required for your language.
 * Configure the settings that you require for the SDK and the Sign-In Widget.
 
-**What you need**
+#### What you need
 
 * [Okta Developer Edition organization](/signup)
 * <StackSnippet snippet="samplecode" inline />
@@ -22,7 +22,7 @@ This guide shows you how to download and configure the Identity Engine SDKs, Sig
 
 ## Software requirements
 
-Before you download the SDK, Widget, and sample apps, you need the following:
+Before you download the SDK, widget, and sample apps, you need the following:
 
 <StackSnippet snippet="softwarerequirements" />
 
@@ -32,7 +32,7 @@ Before you download the SDK, Widget, and sample apps, you need the following:
 
 ## Configure the SDK, Sign-In Widget, and sample app
 
-Before you integrate either the SDK or the Widget into your app, you need to understand the configuration settings that are required to initialize the SDK and/or the Sign-In Widget.
+Before you integrate the SDK or widget into your app, you must understand the configuration settings required to initialize the SDK and/or the Sign-In Widget.
 
 ### Configuration settings
 
@@ -42,14 +42,14 @@ There are two main types of authorization servers in Okta: [Org](/docs/concepts/
 
 <ApiAmProdWarning />
 
-The Issuer URI format depends on which authorization server that you decide to use:
+The issuer URI format depends on which authorization server that you decide to use:
 
-* Org &mdash; If you use the org authorization server, the Issuer URI format is `https://${yourOktaDomain}` (for example, `https://dev-example.okta.com`).
-* Custom &mdash; You can either use the default custom authorization server or create your own.
-  * If you use the default custom authorization server, the Issuer URI format is `https://${yourOktaDomain}/oauth2/default`.
-  * If you use your own custom authorization server, the Issuer URI format is `https://${yourOktaDomain}/oauth2/${authServerId}`, where `${authServerId}` is your custom authorization server's unique ID.
+* Org&mdash;If you use the org authorization server, the issuer URI format is `https://${yourOktaDomain}` (for example, `https://dev-example.okta.com`).
+* Custom&mdash;You can either use the default custom authorization server or create your own.
+  * If you use the default custom authorization server, the issuer URI format is `https://${yourOktaDomain}/oauth2/default`.
+  * If you use your own custom authorization server, the issuer URI format is `https://${yourOktaDomain}/oauth2/${authServerId}`, where `${authServerId}` is your custom authorization server's unique ID.
 
-If you're getting started with your first app or if you're running an Okta sample app, use the Issuer URI of your default custom authorization server. To find this value:
+If you're getting started with your first app or if you're running an Okta sample app, use the issuer URI of your default custom authorization server. To find this value:
 
 1. In the Admin Console, go to **Security** > **API**.
 2. On the **Authorization Servers** tab, use the **Issuer URI** value from the **default** custom authorization server row (for example, `https://${yourOktaDomain}/oauth2/default`).

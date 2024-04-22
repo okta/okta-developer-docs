@@ -5543,5 +5543,9 @@ redirects:
     to: /docs/guides/sign-into-web-app-redirect/asp-net-core-3/main/
   - from: /docs/guides/sign-into-mobile-app-redirect/react-native/main
     to: /docs/guides/sampleapp-oie-redirectauth/reactnativedroid/main/
+  - from: /okta-sdk-dotnet/index.html
+    to: https://github.com/okta/okta-sdk-dotnet
+  - from: /okta-sdk-dotnet
+    to: https://github.com/okta/okta-sdk-dotnet
   - from: /docs/guides/sign-into-mobile-app-redirect/react-native/main/index.html
     to: /docs/guides/sampleapp-oie-redirectauth/reactnativedroid/main/

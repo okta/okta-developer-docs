@@ -230,7 +230,7 @@ curl -v -X POST \
 
 Adds a new Okta Org2Org application to your organization
 
-> **Note:** You can't send this request to Okta Developer-Edition orgs because the Org2Org app integration isn't available in developer orgs. If you need to test this feature in your Developer-Edition org, contact your Okta account team.
+> **Note:** You can't send this request to Okta Developer Edition orgs because the Org2Org app integration isn't available. If you need to test this feature in your Developer Edition org, contact your Okta account team.
 
 
 ##### Settings
@@ -2598,7 +2598,9 @@ Updates an application in your organization
 | app           | Updated app              | Body       | [Application](#application-object) | FALSE    |         |
 | applicationId | `id` of an app to update | URL        | String                            | TRUE     |         |
 
-> **Note:** All properties must be specified when updating an app. **Delta updates are not supported.**
+> **Notes:**
+> * All properties must be specified when updating an app. **Delta updates are not supported.**
+> * You can't modify system-assigned properties, such as `id`, `name`, `status`, `created`, and `lastUpdated`. The values for these properties in the PUT request body are ignored.
 
 ##### Response parameters
 

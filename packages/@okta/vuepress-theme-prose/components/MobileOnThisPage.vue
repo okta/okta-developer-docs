@@ -27,6 +27,8 @@
 </template>
 
 <script>
+  import { LAYOUT_CONSTANTS } from "../layouts/Layout";
+
   export default {
     name: 'MobileOnThisPage',
     data: ()=>({ 
@@ -46,8 +48,9 @@
     },
     methods: {
       inputChanged: function(value) {
-        this.selectedOption = value
-        window.scrollTo(0, document.querySelector('#'+value.code).offsetTop - document.querySelector('.fixed-header').clientHeight - 45);
+        this.$nextTick(() => {
+          window.location.hash = '#'+value.code;
+        })
       }
     }
   }

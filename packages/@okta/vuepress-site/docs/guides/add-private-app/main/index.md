@@ -10,15 +10,15 @@ Use this guide to add a private, custom Single Sign-On (SSO) OpenID Connect (OID
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Learn how to add a private SSO integration to your Okta org
 * Learn how to test your SSO integration in your Okta org
 
-**What you need**
+#### What you need
 
 * A functional SSO integration created in accordance with the [Build a Single Sign-On integration](/docs/guides/build-sso-integration/) guide
-* An Okta org (such as an [Okta Developer-Edition org](https://developer.okta.com/signup))
+* An Okta org (such as an [Okta Developer Edition org](https://developer.okta.com/signup))
 
 ---
 
@@ -43,7 +43,7 @@ After you build your app SSO integration, use the Application Integration Wizard
 
 > **Note:** As a best practice, create two or three extra admin users in your Okta org to manage the integration. This ensures that your team can access the integration for updates in the future.
 
-1. Sign in to your developer-edition [Okta org](/login/) as a user with administrative privileges.
+1. Sign in to your [Developer Edition org](/login/) as a user with administrative privileges.
 1. Go to **Applications** > **Applications** in the Admin Console.
 1. Click **Create App Integration**.
 
