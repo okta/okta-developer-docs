@@ -13,9 +13,9 @@ To apply the power of [Okta Identity Engine](/docs/concepts/oie-intro/) and to e
 
 ## Plan your upgrade
 
-**IAM administrators** can generate a list of action items. These action items are acknowledgments or configurations that you must complete before you can schedule your upgrade to Identity Engine. To view action items for your org, go to the **OIE Upgrade Hub** in the Admin Console or click **Upgrade to OIE** on your Admin Dashboard.
+IAM administrators can generate a list of action items. These action items are acknowledgments or configurations that you must complete before you can schedule your upgrade to Identity Engine. To view action items for your org, go to the **OIE Upgrade Hub** in the Admin Console or click **Upgrade to OIE** on your Admin Dashboard. The **OIE Upgrade Hub** lists the items that you need to address. It also identifies any customizations and testing that you need to do before your upgrade.
 
-**As the developer**, identify the integrations that have been applied to the following use cases. Make sure to test the end-to-end flow before and after the upgrade.
+As the developer, identify the integrations that have been applied to the following use cases. Make sure that you test the end-to-end flow before and after the upgrade.
 
 * Account creation & activation (including self-service registration)
 * User authentication and user sign-in flows
@@ -23,24 +23,22 @@ To apply the power of [Okta Identity Engine](/docs/concepts/oie-intro/) and to e
 * Session management
   > **Caution:** Custom integrations using the Sessions API use `v1/sessions/{sessionid}` for back-channel session management.
 
-> **Note:** A critical conflicting configuration or use method would be listed in the output of the “admin prework.” (??have a question out for this)
-
 ### Helpful upgrade links
 
-* [Prepare your customizations for upgrade](https://help.okta.com/oie/en-us/content/topics/identity-engine-upgrade/self-service/custom-sign-in-page.htm). (??need alias)
+* [Prepare your customizations for upgrade](https://help.okta.com/okta_help.htm?type=oie&id=ext-custom-sign-in-page).
 * [Identify how Okta is implemented](https://www.youtube.com/watch?v=gUqZUSeL_oM&list=PLIid085fSVduvUaN-gBdN1cudndqR9IH8&index=3).
 * [Review the comprehensive list of Identity Engine feature changes](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-features) to identify any potential impact to your upgrade process.
 
 ## Org upgrade process
 
-Access the **OIE Upgrade Hub** in the Admin Console and review any outstanding tasks. Then, schedule those tasks to be addressed. If there are any significant remediations required, the services needed appear in the **OIE Upgrade Hub**. If there are no remediations required, then your upgrade is simple.
+Access the **OIE Upgrade Hub** in the Admin Console and review any outstanding tasks. If there are any remediation tasks required, those remediation guides appear in the **OIE Upgrade Hub**. If there are no remediations required, then your upgrade is more simple.
 
-> **Note**: For more detailed org upgrade instructions, see [Upgrade from Classic Engine](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-upgrade-eligibility).
+For detailed org upgrade instructions, see the [Self-service upgrade process](https://help.okta.com/okta_help.htm?type=oie&id=ext-post-upgrade-validation-tests)
 
 Keep in mind the following considerations:
 
 * After upgrading to Okta Identity Engine, your auth experience may continue to mimic Classic Engine. However, your admin experience changes and all Okta objects from Classic Engine are now compatible with Identity Engine.
-* After you upgrade your org, the existing Okta-domain-hosted Sign-In Widget works as-is.
+* After you upgrade, the existing Okta-hosted Sign-In Widget works as-is.
 
 The rest of the upgrade process is defined in the next section. Which steps that you take are related to your deployment model. Okta has carefully considered how you can break up the upgrade steps to ensure that you maintain the best user experience across your applications.
 
@@ -77,9 +75,9 @@ For a more detailed look at the upgrade steps, see the [Plan embedded auth appli
 
     **Are you embedding your authentication with an Okta SDK?**
 
-    * Upgrade to the latest version of the Identity Engine SDK. See [Upgrade your app to the Identity Engine SDK](https://developer.okta.com/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/nodejs/main/) for detailed steps by language.
+    * Upgrade to the latest version of the Identity Engine SDK. See [Upgrade your app to the Identity Engine SDK](/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/nodejs/main/) for detailed steps by language.
 
-    * Add the appropriate Identity Engine SDK to your application code. See [Add the latest Auth SDKs to your applications](/docs/guides/oie-upgrade-add-sdk-to-your-app/nodejs/main/) for detailed steps by language. <!-- (/docs/guides/oie-upgrade-add-sdk-to-your-app/-/main/) -->
+    * Add the appropriate Identity Engine SDK to your application code. See [Add the latest Auth SDKs to your applications](/docs/guides/oie-upgrade-add-sdk-to-your-app/nodejs/main/) for detailed steps by language.
 
 3. Test all of your user experiences.
 
@@ -91,10 +89,10 @@ For a more detailed look at the upgrade steps, see the [Plan embedded auth appli
 
     * **Self-service registration:** Make sure that users can sign up (including Factor enrollment if you support that) and that there are no interruptions during that process.
 
-    * **Session Management:** If you’re using the Sessions API (?? waiting on response from Dan)
+    * **Session Management:** If you’re using the Sessions API, some [methods for the Sessions API aren't supported in Identity Engine](https://support.okta.com/help/s/article/v1sessionssessionid-API?language=en_US).
 
 ## More Resources
 
 * [Identity Engine on Okta TV](https://www.youtube.com/playlist?list=PLIid085fSVduvUaN-gBdN1cudndqR9IH8)
-* [Test plan template](https://help.okta.com/oie/en-us/content/topics/identity-engine-upgrade/self-service/test-upgrade.htm) (??need alias)
-* [Upgrade FAQs](https://help.okta.com/oie/en-us/content/topics/identity-engine-upgrade/faq.htm) (??need alias)
+* [Test plan template](https://help.okta.com/okta_help.htm?type=oie&id=ext-test-upgrade)
+* [Upgrade FAQs](https://help.okta.com/okta_help.htm?type=oie&id=ext-upgrade-faq)
