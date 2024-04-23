@@ -160,7 +160,6 @@ module.exports = ctx => ({
     },
 
     primary_left_nav: [
-      { text: 'Customer Identity Cloud', link: 'https://developer.auth0.com' },
       { text: 'Community',
         children: [
           { text: 'Forum', link: 'https://devforum.okta.com' },
@@ -219,7 +218,7 @@ module.exports = ctx => ({
           { text: 'Integrate with Okta', link: '/okta-integration-network/' },
           { text: 'Pricing', link: 'https://www.okta.com/pricing/#workforce-identity-pricing' },
           { text: '3rd-party notes', link: '/3rd_party_notices/' },
-           { text: 'Customer Identity Cloud', link: 'https://auth0.com/developers' },
+           { text: 'Customer Identity Cloud', link: 'https://developer.auth0.com/' },
           { text: 'Archive', link:'/archive/' },
         ]
       },
