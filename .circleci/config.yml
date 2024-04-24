@@ -93,6 +93,10 @@ jobs:
           command: |
             npm install netlify-cli -g
       - run:
+          name: Link site
+          command: |
+            netlify link
+      - run:
           name: Deploy preview to Netlify
           command: |
             netlify deploy --filter packages/@okta/vuepress-site --context deploy-preview
