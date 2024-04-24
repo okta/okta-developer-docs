@@ -79,6 +79,7 @@ jobs:
               curl -X POST https://circleci.com/api/v2/workflow/${CIRCLE_WORKFLOW_ID}/cancel -H "Circle-Token: ${CIRCLE_API_TOKEN}"
             fi
           when: on_fail
+      - checkout
       - run:
           name: Install netlify CLI
           command: |
