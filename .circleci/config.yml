@@ -84,14 +84,25 @@ jobs:
           name: Install dependencies
           command: |
             yarn install --frozen-lockfile
-      - run:
-          name: Build preview
-          command: |
-            yarn build
+      # - run:
+      #     name: Build preview
+      #     command: |
+      #       yarn build
       - run:
           name: Install Netlify
           command: |
             npm install netlify-cli -g
+      - run:
+          name: Deploy preview to Netlify before
+          command: |
+            expect <<EOF
+            spawn netlify deploy --context deploy-preview
+            expect "Select the site you want to work with"
+            send "\r"  # Select the default option (usually the first one)
+            expect "@okta/vuepress-site"  # Wait for the desired option
+            send "\r"  # Select the desired option
+            expect eof
+            EOF
       - run:
           name: Deploy preview to Netlify
           command: |
