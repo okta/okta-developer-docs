@@ -64,7 +64,7 @@ jobs:
       NETLIFY_SITE_ID: ${NETLIFY_SITE_ID}
       NODE_OPTIONS: '--max_old_space_size=3584'
     steps:
-    - run:
+      - run:
           name: Has secrets1?
           command: |
             echo "auth token ${NETLIFY_SITE_ID}"
