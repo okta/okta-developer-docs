@@ -57,7 +57,7 @@ jobs:
   
   netlify_manual:
     docker:
-      - image: cimg/node:18.20.2-browsers
+      - image: cimg/node:14.21.3-browsers
     resource_class: xlarge
     environment:
       NETLIFY_AUTH_TOKEN: ${NETLIFY_AUTH_TOKEN}
