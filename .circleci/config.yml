@@ -95,7 +95,7 @@ jobs:
       - run:
           name: Deploy preview to Netlify before
           command: |
-            netlify deploy --context deploy-preview <<< $'@okta/vuepress-site  packages/@okta/vuepress-site  --filter @okta/vuepress-site\n'
+            netlify deploy --context deploy-preview \<\<\< $'@okta/vuepress-site  packages/@okta/vuepress-site  --filter @okta/vuepress-site\n'
       - run:
           name: Deploy preview to Netlify
           command: |
