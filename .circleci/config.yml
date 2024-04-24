@@ -99,7 +99,7 @@ jobs:
       - run:
           name: Deploy preview to Netlify
           command: |
-            netlify deploy --filter packages/@okta/vuepress-site --context deploy-preview
+            netlify deploy --filter @okta/vuepress-site --context deploy-preview
 
 orbs:
   general-platform-helpers: okta/general-platform-helpers@1.8
