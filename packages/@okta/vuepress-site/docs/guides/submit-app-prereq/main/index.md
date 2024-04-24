@@ -399,6 +399,8 @@ You can't publish integrations with the following Okta features in the OIN catal
 
    The OIN team maintains existing SAML integrations with these advanced features. If you need to update your existing advanced SAML integration, contact the OIN team at <oin@okta.com>.
 
+* **SPA apps:** You can only submit cloud-based SaaS apps (web apps with a back-end) in the [OIN Wizard](/docs/guides/submit-oin-app/openidconnect/main/). SPA apps aren't accepted in the OIN Wizard.
+
 * **Custom authorization server:** An OIDC or API service integration can't use a [custom authorization server](/docs/concepts/auth-servers/#custom-authorization-server), including the `default` server. You can only use the [org authorization server](/docs/concepts/auth-servers/#org-authorization-server).
 
 * **Okta SDKs and validating access tokens:** You can't use the Okta SDKs to validate access tokens with the [org authorization server](/docs/concepts/auth-servers/#org-authorization-server).
