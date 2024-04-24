@@ -60,46 +60,41 @@ jobs:
       - image: cimg/node:14.21.3-browsers
     resource_class: xlarge
     environment:
-      # NETLIFY_AUTH_TOKEN: << parameters.NETLIFY_AUTH_TOKEN >>
-      # NETLIFY_SITE_ID: << parameters.NETLIFY_SITE_ID >>
+      NETLIFY_AUTH_TOKEN: ${NETLIFY_AUTH_TOKEN}
+      NETLIFY_SITE_ID: ${NETLIFY_SITE_ID}
       NODE_OPTIONS: '--max_old_space_size=3584'
     steps:
       - run:
+          name: Has secrets?
+          command: |
+            if [ -z "$NETLIFY_AUTH_TOKEN" ] || [ -z "$NETLIFY_SITE_ID" ]; then
+              echo "Missing required secrets."
+              exit 1
+            fi
+      # Step to cancel workflow
+      - run:
+          name: Cancel workflow if failure
+          command: |
+            if [ "$CIRCLE_JOB" != "netlify_manual" ]; then
+              curl -X POST https://circleci.com/api/v2/workflow/${CIRCLE_WORKFLOW_ID}/cancel -H "Circle-Token: ${CIRCLE_API_TOKEN}"
+            fi
+          when: on_fail
+      - run:
+          name: Install netlify CLI
+          command: |
+            npm install netlify-cli --save-dev
+      - run:
           name: Install dependencies
           command: |
-            echo "auth token ${NETLIFY_AUTH_TOKEN}"
-            echo "site id ${NETLIFY_SITE_ID}"
-      # - run:
-      #     name: Has secrets?
-      #     command: |
-      #       if [ -z "$NETLIFY_AUTH_TOKEN" ] || [ -z "$NETLIFY_SITE_ID" ]; then
-      #         echo "Missing required secrets."
-      #         exit 1
-      #       fi
-      # # Step to cancel workflow
-      # - run:
-      #     name: Cancel workflow if failure
-      #     command: |
-      #       if [ "$CIRCLE_JOB" != "netlify_manual" ]; then
-      #         curl -X POST https://circleci.com/api/v2/workflow/${CIRCLE_WORKFLOW_ID}/cancel -H "Circle-Token: ${CIRCLE_API_TOKEN}"
-      #       fi
-      #     when: on_fail
-      # - run:
-      #     name: Install netlify CLI
-      #     command: |
-      #       npm install netlify-cli --save-dev
-      # - run:
-      #     name: Install dependencies
-      #     command: |
-      #       yarn install --frozen-lockfile
-      # - run:
-      #     name: Build preview
-      #     command: |
-      #       yarn build
-      # - run:
-      #     name: Deploy preview to Netlify
-      #     command: |
-      #       npx netlify-cli deploy --prod --dir=packages/@okta/vuepress-site/dist --message="Deploy from CircleCI"
+            yarn install --frozen-lockfile
+      - run:
+          name: Build preview
+          command: |
+            yarn build
+      - run:
+          name: Deploy preview to Netlify
+          command: |
+            npx netlify-cli deploy --prod --dir=packages/@okta/vuepress-site/dist --message="Deploy from CircleCI"
 
 orbs:
   general-platform-helpers: okta/general-platform-helpers@1.8
