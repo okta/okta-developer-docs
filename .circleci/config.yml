@@ -91,7 +91,8 @@ jobs:
       - run:
           name: Deploy preview to Netlify
           command: |
-            npx netlify-cli deploy --prod --dir=packages/@okta/vuepress-site/dist --message="Deploy from CircleCI"
+            npm install netlify-cli --save-dev
+            netlify deploy --dir=packages/@okta/vuepress-site/dist --context deploy-preview
 
 orbs:
   general-platform-helpers: okta/general-platform-helpers@1.8
