@@ -62,7 +62,6 @@ jobs:
     environment:
       NETLIFY_AUTH_TOKEN: << parameters.NETLIFY_AUTH_TOKEN >>
       NETLIFY_SITE_ID: << parameters.NETLIFY_SITE_ID >>
-    environment:
       NODE_OPTIONS: '--max_old_space_size=3584'
     steps:
       - run:
