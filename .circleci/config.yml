@@ -91,7 +91,7 @@ jobs:
       - run:
           name: Install Netlify
           command: |
-            npm install netlify-cli
+            npm install netlify-cli -g
       - run:
           name: Deploy preview to Netlify
           command: |
