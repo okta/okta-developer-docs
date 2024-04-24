@@ -63,9 +63,9 @@ jobs:
       NODE_OPTIONS: '--max_old_space_size=3584'
     steps:
       - run:
-        name: Install dependencies
-        command: |
-          echo "auth token"
+          name: Install dependencies
+          command: |
+            echo 'auth token'
 
 orbs:
   general-platform-helpers: okta/general-platform-helpers@1.8
