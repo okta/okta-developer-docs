@@ -95,8 +95,8 @@ jobs:
       - run:
           name: Deploy preview to Netlify
           command: |
-            echo 'siteid: ${NETLIFY_SITE_ID}'
-            netlify deploy --site ${NETLIFY_SITE_ID} --context deploy-preview
+            echo 'siteid: ${NETLIFY_SITE_ID} $NETLIFY_SITE_ID'
+            netlify deploy --site $NETLIFY_SITE_ID --context deploy-preview
 
 orbs:
   general-platform-helpers: okta/general-platform-helpers@1.8
