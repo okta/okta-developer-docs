@@ -64,6 +64,16 @@
         No Description
       </p>
 
+      <div
+        v-if="['user.risk.change', 'analytics.feedback.provide', 'security.events.provider.receive_event', 'device.signals.status.timeout', 
+               'policy.auth.reevaluate.fail', 'policy.continuous_access.evaluate', 'policy.continuous_access.action', 'user.session.context.changed', 
+               'policy.entity_risk.evaluate', 'policy.entity_risk.action', 'user.session.end', 'user.session.clear', 'user.authentication.universal_logout', 
+               'workflows.user.delegatedflow.run'].indexOf(eventType.id) !== -1"
+      >
+        <p class="event-itp-type">
+          See also: <a href="https://developer.okta.com/docs/reference/api/itp-et/">Identity Threat Protection with Okta AI Event Types</a>
+        </p>
+      </div>
       <div class="event-type-tags">
         <code
           v-for="tag in eventType.tags"
@@ -238,6 +248,11 @@
   .event-types .event-type .event-type-description {
     margin-top: 10px;
     margin-bottom: 5px;
+  }
+
+  .event-types .event-type .event-itp-type {
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
 
   .event-types .event-type .event-type-tag::before {

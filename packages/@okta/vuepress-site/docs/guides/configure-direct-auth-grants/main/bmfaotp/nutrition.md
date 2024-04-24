@@ -4,13 +4,13 @@ Use this guide to implement a direct authentication multifactor one-time-passcod
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Understand the OAuth 2.0 direct authentication MFA OTP flow.
 * Set up your app with the MFA OTP grant type.
 * Implement the MFA OTP flow in Okta.
 
-**What you need**
+#### What you need
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
 * An app that you want to implement OAuth 2.0 direct authentication MFA OTP with Okta

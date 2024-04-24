@@ -12,7 +12,7 @@ This guide explains how to upgrade the Okta Sign-In Widget. The upgrade depends 
 
 Update your widget based on your user deployment model.
 
-**What you need**
+#### What you need
 
 * An [Identity Engine-upgraded Okta org](/docs/guides/oie-upgrade-overview/)
 * An existing app that uses the Sign-In Widget
@@ -49,7 +49,7 @@ The specific steps to upgrade your widget depend on your [user authentication de
 
 * [Redirect authentication](#upgrade-process-for-a-redirect-sign-in-flow): Okta-hosted with no custom URL domain
 * [Redirect authentication](#upgrade-process-for-a-redirect-sign-in-flow): Okta-hosted with custom URL domain
-* [Embedded authentication](#upgrade-process-for-an-embedded-widget): Self-hosted. The embedded widget is able to perform the OIDC flow and return OAuth tokens directly within the application.
+* [Embedded authentication](#upgrade-process-for-an-embedded-widget): Self-hosted. The embedded widget is able to perform the OIDC flow and return OAuth tokens directly within the app.
 
 ## Upgrade process for a redirect sign-in flow
 
@@ -66,7 +66,7 @@ To update the widget:
 2. On the **Pages** tab, click **Configure** in the **Sign-in page** section. Go to the **Settings** tab.
 
     - In the **Sign-In Widget Version** section, check that the **Version** is the highest version available. The widget is always the latest version if you're not using a custom URL domain.
-    - If you're using the [custom domain feature](/docs/guides/custom-url-domain/) and the version isn't correct, you can pin the widget's version. Click **Edit** in the **Sign-In Widget Version** section and then select the **Version** field.
+    - If you're using the [custom domain feature](/docs/guides/custom-url-domain/) and the version isn't correct, you can pin the widget's version. Click **Edit** in the **Sign-In Widget Version** section, and then select the **Version** field.
     - If you enabled multibrand customization, you can't customize the Sign-In Widget for the Okta default brand. See [Branding](https://help.okta.com/okta_help.htm?type=oie&id=csh-branding).
 
     > **Note:** When the third generation of the Sign-In Widget is enabled, the pinned version is ignored.
@@ -128,7 +128,7 @@ var config = {
 
 ### Registration
 
-You no longer need the [registration](https://github.com/okta/okta-signin-widget#registration) JavaScript objects in the widget. You can add registration into your application by configuring your Okta admin settings for [profile enrollment](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-profile-enrollment). This process allows users to self-register into your application.
+You no longer need the [registration](https://github.com/okta/okta-signin-widget#registration) JavaScript objects in the widget. You can add registration into your app by configuring your Okta admin settings for [profile enrollment](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-profile-enrollment). This process allows users to self-register into your app.
 
 Remove the `registration` object and `features.registration` property that are shown in the following snippet:
 
@@ -157,7 +157,7 @@ var signIn = new OktaSignIn({
 
 ### IdP Discovery
 
-IdP Discovery enables you to route users to different third-party IdPs that are connected to your Okta org. Users can federate back into the primary org after authenticating at the IdP. This feature still functions, but you no longer need to enable the link for users to initialize the route. Instead, you can configure a routing rule with the application context.
+IdP Discovery enables you to route users to different third-party IdPs that are connected to your Okta org. Users can federate back into the primary org after authenticating at the IdP. This feature still functions, but you no longer need to enable the link for users to initialize the route. Instead, you can configure a routing rule with the app context.
 
 Remove the `idpDiscovery` property:
 
@@ -260,7 +260,7 @@ Developers can't subscribe to the `processCreds` hook in the widget.
 
 ### Registration inline hooks
 
-Existing registration inline hooks may experience compatibility issues after migrating to Identity Engine due to changes in the Okta registration inline hook request. Your application may require code updates to consume the new request format properly.
+Existing registration inline hooks may experience compatibility issues after migrating to Identity Engine due to changes in the Okta registration inline hook request. Your app may require code updates to consume the new request format properly.
 
 In the Admin Console, where you enable a registration inline hook has changed. Enable the hook from the Profile Enrollment Rules page (**Security** > **Profile Enrollment**) instead of the Self-Service Registration page (**Self-service Directory** > **Self-Service Registration**). The creation of the registration inline hook remains the same. You can use either the Admin Console or Inline Hook Management APIs.
 

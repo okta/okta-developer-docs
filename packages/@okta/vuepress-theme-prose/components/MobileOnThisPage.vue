@@ -48,12 +48,9 @@
     },
     methods: {
       inputChanged: function(value) {
-        this.selectedOption = value
-        const target = document.querySelector('#'+value.code)
-
-        const scrollToPosition = target.offsetTop - LAYOUT_CONSTANTS.ANCHOR_TOP_MARGIN;
-
-        window.scrollTo({top: scrollToPosition, behavior: 'smooth'})
+        this.$nextTick(() => {
+          window.location.hash = '#'+value.code;
+        })
       }
     }
   }

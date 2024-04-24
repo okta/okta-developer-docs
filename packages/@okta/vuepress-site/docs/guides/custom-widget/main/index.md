@@ -8,18 +8,18 @@ This guide explains how to customize the sign-in page for both redirect and embe
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Add style sheets and custom JavaScript.
 * (Redirect authentication): Modify strings and customize localization content.
 
-**What you need**
+#### What you need
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
 * (Redirect authentication): [Custom URL domain](/docs/guides/custom-url-domain/main/)
 * (Embedded authentication): [Okta Sign-In Widget](https://github.com/okta/okta-signin-widget#embedded-self-hosted) installed into your project with configured authentication scenarios
 
-**Sample code**
+#### Sample code
 
 * [Redirect authentication](#use-variables-and-request-context)
 * [Embedded authentication](#style-for-embedded-authentication)

@@ -1,6 +1,6 @@
 ---
 title: Protect your API endpoints
-excerpt: Configure your Okta org and your server-side application to secure your API endpoints.
+excerpt: Configure your Okta org and your server-side app to secure your API endpoints.
 layout: Guides
 ---
 
@@ -8,20 +8,20 @@ Add a layer of authorization to your web services with [Okta API Access Manageme
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Configure a web API to use Okta
 * Define which endpoints require authorization and which don't
 * Enable Cross-Origin Resource Sharing (CORS) for the API
 * Test the API is secure
 
-**What you need**
+#### What you need
 
 * An [Okta Developer Edition org](https://developer.okta.com/signup/)
 * [Postman](https://www.getpostman.com/apps) to test the API
 * <StackSnippet snippet="whatyouneed" />
 
-**Sample code**
+#### Sample code
 
 <StackSnippet snippet="samplecode" />
 
@@ -31,7 +31,7 @@ Add a layer of authorization to your web services with [Okta API Access Manageme
 
 ## Overview
 
-Background services and third-party APIs accessing your own APIs require the same level of [authentication and authorization](https://www.okta.com/identity-101/authentication-vs-authorization/) as users accessing your web applications. However, a machine-to-machine sign-in flow should be silent and require no human user interaction. Use Okta to grant the correct level of access to your APIs on your behalf.
+Background services and third-party APIs accessing your own APIs require the same level of [authentication and authorization](https://www.okta.com/identity-101/authentication-vs-authorization/) as users accessing your web apps. However, a machine-to-machine sign-in flow should be silent and require no human user interaction. Use Okta to grant the correct level of access to your APIs on your behalf.
 
 This quickstart contains the following tasks:
 
@@ -118,7 +118,7 @@ Configure access on a per-route basis to allow a mix of protected and anonymous 
 
 ### Enable CORS for your API
 
-Enable [Cross-Origin Resource Sharing  (CORS)](https://fetch.spec.whatwg.org/#http-cors-protocol) only if the API is being called from an application or API hosted on a different domain. For example, if your API is hosted on `api.example.com` while your application is accessing it from `example.com`, you must enable CORS.
+Enable [Cross-Origin Resource Sharing  (CORS)](https://fetch.spec.whatwg.org/#http-cors-protocol) only if the API is being called from an app or API hosted on a different domain. For example, if your API is hosted on `api.example.com` while your app is accessing it from `example.com`, you must enable CORS.
 
 <StackSnippet snippet="configcors" />
 
@@ -153,7 +153,7 @@ Moving on, where you see `${yourClientId}` and `${yourClientSecret}` in this gui
 
 ### Create a custom scope for the API
 
-Scope is a way to limit an application's access to your API. An access token must include a list of the scopes an app integration can perform. Create a custom scope - effectively, "you can query both endpoints" - for the API.
+Scope is a way to limit an app's access to your API. An access token must include a list of the scopes an app integration can perform. Create a custom scope to query both endpoints for the API.
 
 1. Go to **Security** > **API** to view the API AM area.
 1. Select the **Authorization Servers** tab.

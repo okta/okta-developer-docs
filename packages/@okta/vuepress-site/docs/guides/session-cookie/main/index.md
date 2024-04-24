@@ -8,11 +8,11 @@ This guide provides examples for programmatically retrieving and setting a sessi
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 Retrieve a session cookie and initiate SSO.
 
-**What you need**
+#### What you need
 
 [Okta Developer Edition organization](https://developer.okta.com/signup)
 
@@ -103,7 +103,7 @@ Set-Cookie: sid=000aC_z7AZKTpSqtHFc0Ak6Vg; Path=/
 Location: https://your-app.example.com
 ```
 
-## Retrieve a session cookie by visiting an application embed link
+## Retrieve a session cookie by visiting an app embed link
 
 This scenario is ideal for deployment scenarios where you have a custom sign-in page but immediately want to launch an Okta app after a user signs in without returning to a landing page. The sign-in page typically collects the user's credentials through an HTML form submit or POST and validates the credentials against your Okta org by calling the [Authentication API](/docs/reference/api/authn/) to obtain a session token.
 

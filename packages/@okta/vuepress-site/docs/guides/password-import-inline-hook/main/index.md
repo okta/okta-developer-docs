@@ -4,24 +4,24 @@ excerpt: Code the external service for a password import inline hook
 layout: Guides
 ---
 
-This guide provides a working example of an Okta Password Import Hook. It uses the web site [Glitch.com](https://glitch.com) to act as an external service and receive and respond to Password Import Hook calls.
+This guide provides a working example of an Okta Password Import hook. It uses the web site [Glitch.com](https://glitch.com) to act as an external service and receive and respond to Password Import hook calls.
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Understand the Okta password import inline hook calls and responses.
 * Implement a simple working example of a password import inline hook with a Glitch.com project.
 * Preview and test a password import inline hook.
 
-**What you need**
+#### What you need
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup/)
 * [Glitch.com](https://glitch.com) project or account
 
-**Sample code**
+#### Sample code
 
-* [Okta Password Import Inline Hook Example](https://glitch.com/~okta-passwordimport-inlinehook)
+[Okta Password Import Inline Hook Example](https://glitch.com/~okta-passwordimport-inlinehook)
 
 ---
 
@@ -32,28 +32,30 @@ In the following example, the external service code parses requests from Okta an
 At a high level, the following workflow occurs:
 
 * User profiles are imported into an Okta org that use the password import inline hook.
-* The password import inline hook triggers on first sign-in request by a user.
+* The password import inline hook triggers on the first sign-in request by a user.
 * The external service evaluates the user credentials from the password import inline hook request against the data store.
 * If the credentials are verified, the external service responds to Okta with a command to import the password and sign in the user.
-* If the credentials are not verified, the user is not signed-in and the password does not import.
+* If the credentials aren't verified, the user isn't signed-in and the password isn't imported.
 
-> **Tip:** For another in-depth look at a password import inline hook implementation, see the following Developer Experience blog example by Heather Wallander, [Migrate user Passwords with Okta's Password Hook](https://developer.okta.com/blog/2020/09/18/password-hook-migration).
+> **Tip:** For another in-depth look at a password import inline hook implementation, see [Migrate user Passwords with the Okta Password hook](https://developer.okta.com/blog/2020/09/18/password-hook-migration).
 
 ## Get submitted credentials
 
-In your external service code, you need to get the values of `data.credential.username` and `data.credential.password` from within the body of the password import inline hook request received from Okta. These properties contain the credentials submitted by the end user who is trying to sign in.
+In your external service code, you need to get the values of `data.credential.username` and `data.credential.password` from the body of the password import inline hook request received from Okta. These properties contain the credentials submitted by the end user who is trying to sign in.
 
-> **Note:** Make sure to have the required default code and packages in your project. See [Overview and considerations](/docs/guides/common-hook-set-up-steps).
+<HookCommonSetupNote/>
+
+<HookBasicAuthValuesNote/>
 
 <StackSelector snippet="request"/>
 
 ## Check credentials against user store
 
-In this example, your external service code looks up the user name in a prepopulated static array of usernames and passwords, and checks if the password supplied matches the password that exists for that user name in the array. This example is a simplification of the process of looking up the credentials in a real-world user store.
+In this example, your external service code looks up the username in a prepopulated static array of usernames and passwords. It then checks if the supplied password matches the password that exists for that username in the array. This example is a simplification of the process of looking up the credentials in a real-world user store.
 
 <StackSelector snippet="check-against-user-store" noSelector/>
 
-## Send response
+## Send a response
 
 The way to specify to Okta whether to accept the credentials as valid or not is by returning a `commands` object in the body of your HTTPS response, using a specified syntax within the object to indicate to Okta that the credentials should either be denied or accepted.
 
@@ -63,11 +65,11 @@ Based on the results of the credential check, you return either a command tellin
 
 <StackSelector snippet="send-response" noSelector/>
 
->**Note:** Using an empty response to reject the credentials is based on the assumption that Okta is set to do that as the default action. In the request from Okta, the property `data.action.credential` specifies the default action. It is currently always set to `UNVERIFIED`, meaning that the default is to reject.
+>**Note:** Using an empty response to reject the credentials is based on the assumption that Okta is set to do that as the default action. In the request from Okta, the property `data.action.credential` specifies the default action. It's currently always set to `UNVERIFIED`, meaning that the default is to reject.
 
 ## Activate the password import hook on your Okta org
 
-The password import inline hook must be set up and activated within your Okta Admin Console.
+The password import inline hook must be set up and activated within your Admin Console.
 
 To set up and activate the password import inline hook:
 
@@ -86,7 +88,7 @@ The password import inline hook is now set up with a status of "Active".
 
 Upload some users into your Okta org using the [Password import inline hook API](/docs/reference/api/users/#create-user-with-password-import-inline-hook). These users provide data to test your inline hook.
 
-The example below uses sample data from the data store in the `users.js` file of your project.
+The following example uses sample data from the data store in the `users.js` file of your project.
 
 <StackSelector snippet="password-import-api" noSelector/>
 
@@ -113,6 +115,8 @@ Review the following guides to implement other inline or event hook examples:
 * [Event hook](/docs/guides/event-hook-implementation/)
 * [Registration inline hook](/docs/guides/registration-inline-hook/)
 * [Token inline hook](/docs/guides/token-inline-hook/)
+* [SAML assertion inline hook](/docs/guides/saml-inline-hook)
+* [Telephony inline hook](/docs/guides/telephony-inline-hook)
 
 ## See also
 

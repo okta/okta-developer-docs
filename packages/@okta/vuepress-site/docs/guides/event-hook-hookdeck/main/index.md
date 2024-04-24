@@ -8,19 +8,19 @@ This guide provides a functional example of an Okta event hook that uses the Hoo
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Understand the Okta event hook calls and responses.
 * Implement Okta event hooks using a local application and the Hookdeck utility.
 * Preview and test an Okta event hook and review the call details with Hookdeck.
 
-**What you need**
+#### What you need
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup/)
 * A local application. See [Create a local application](#create-a-local-application) in this guide to install a sample code application.
 * [Hookdeck](#install-hookdeck)
 
-**Sample code**
+#### Sample code
 
 * [Nodejs-webhook-server-example](https://github.com/hookdeck/nodejs-webhook-server-example). Installation instructions are available in [Create a local application](#create-a-local-application).
 
@@ -40,7 +40,7 @@ If you already have Hookdeck installed, move on to [Run Hookdeck](#run-hookdeck)
 
 Some installation notes:
 
-* You don't need to have an account to install and run Hookdeck. However, a free account provides more features in the Hookdeck Dashboard  and API authentication.
+* You don't need to have an account to install and run Hookdeck. However, a free account provides more features in the Hookdeck Dashboard and API authentication.
 * If you choose not to create an account, you'll use the Hookdeck Console rather than the Dashboard.
 
 ### Run Hookdeck
@@ -131,7 +131,7 @@ Create the Okta event hook to work with your local application. Set up and verif
 
 8. Click **Save & Continue**.
 
-9. Complete the one-time verification Okta call by clicking **Verify**. You can also verify the event hook at later time. See [Event hook verification](/docs/guides/event-hook-hookdeck/#event-hook-verification).
+9. Complete the one-time verification Okta call by clicking **Verify**. You can also verify the event hook at a later time. See [Event hook verification](/docs/guides/event-hook-hookdeck/#event-hook-verification).
 
 ### Event hook verification
 

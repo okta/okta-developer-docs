@@ -8,7 +8,7 @@ This guide describes the Device Authorization feature, which allows users to sig
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Create and configure a native OpenID Connect application to support Device Authorization.
 * Enable Device Authorization at the policy rule level.
@@ -16,7 +16,7 @@ This guide describes the Device Authorization feature, which allows users to sig
 * Retrieve tokens for the user.
 * Revoke the tokens.
 
-**What you need**
+#### What you need
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
 * [Device Authorization feature enabled for your org](#before-you-begin)
@@ -25,9 +25,9 @@ This guide describes the Device Authorization feature, which allows users to sig
 
 ## About the Device Authorization feature
 
-The Device Authorization feature is an OAuth 2.0 grant type. It allows users to sign in to input-constrained devices, such as smart TVs, digital picture frames, and printers, as well as devices with no browser. Device Authorization enables you to use a secondary device, such as a laptop or mobile phone, to complete sign-in to applications that run on such devices.
+The Device Authorization feature is an OAuth 2.0 grant type. It allows users to sign in to input-constrained devices, such as smart TVs, digital picture frames, and printers, and devices with no browser. Device Authorization enables you to use a secondary device, such as a laptop or mobile phone, to complete sign-in to apps that run on such devices.
 
-The Device Authorization feature is available for both Okta Classic Engine and Okta Identity Engine orgs.
+The Device Authorization feature is available for both Classic Engine and Identity Engine orgs.
 
 ## Before you begin
 
@@ -77,8 +77,8 @@ curl --request POST \
 
 The device authorization request passes the following parameters:
 
-* `client_id` &mdash; matches the Client ID of the OAuth 2.0 application that you created
-* `scope` &mdash; specifies which access privileges are being requested for the access token. See [Scopes](/docs/reference/api/oidc/#scopes) for a list of supported scopes.
+* `client_id`: Matches the Client ID of the OAuth 2.0 app that you created.
+* `scope`: Specifies which access privileges are being requested for the access token. See [Scopes](/docs/reference/api/oidc/#scopes) for a list of supported scopes.
 
 **Example response**
 
@@ -102,7 +102,7 @@ The properties in the response are:
 * `expires_in`: The number of seconds that this set of values is valid. After the device code and user code expire, the user has to start the device verification process over.
 * `interval`: The number of seconds that the device should wait between polling to see if the user has finished signing in.
 
-The `user_code` and `verification_uri` must appear on the smart device for the user. To display the QR code, the client generates the code by using the `verification_uri_complete` value that was returned in the response and displays it on the device for the user to scan.
+The `user_code` and `verification_uri` must appear on the smart device for the user. To display the QR Code, the client generates the code by using the `verification_uri_complete` value that was returned in the response and displays it on the device for the user to scan.
 
 #### Example of the display on a smart device
 

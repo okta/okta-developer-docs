@@ -11,13 +11,13 @@ This guide series teaches you the steps required to build an Okta integration th
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Prepare a SCIM API service.
-* Connect the SCIM API service to Okta via an integration.
-* Test your integration to make sure everything is working correctly.
+* Connect the SCIM API service to Okta through an integration.
+* Test your integration to make sure everything is functional.
 
-**What you need**
+#### What you need
 
 * An Okta Developer Edition organization. Don't have one? [Create one for free](https://developer.okta.com/signup).
 * A SCIM Version 2.0 API design that supports the [minimum feature set](/docs/guides/scim-provisioning-integration-prepare/main/#features).
@@ -27,25 +27,25 @@ This guide series teaches you the steps required to build an Okta integration th
 
 ## Overview
 
-Whether you are an independent software vendor (ISV), an existing Okta customer, an IT systems administrator, or a developer new to Okta, you need to know how to set up and test your cloud-based application and API endpoints to successfully deploy an Okta integration using SCIM provisioning.
+It's important to know how to set up and test your cloud-based app and API endpoints to successfully deploy an Okta integration using SCIM provisioning.
 
 If you need more detail on the concepts behind lifecycle management with SCIM and Okta, see [Understanding SCIM](/docs/concepts/scim/).
 
 While many ISVs have custom APIs for managing user accounts, this guide assumes that you use the [System for Cross-domain Identity Management](https://scim.cloud) (SCIM) protocol, an industry standard that supports all of the needed features for lifecycle provisioning. For more technical details on how you can take advantage of the SCIM API with Okta, see our [SCIM Protocol reference](/docs/reference/scim/).
 
-Your Okta integration should use Single Sign-On (SSO) to initiate end-user authentication. Learn how to set up your integration with SSO in our [Build a Single Sign-On (SSO) integration](/docs/guides/build-sso-integration/) guide.
+Your Okta integration should use Single Sign-On (SSO) to initiate end user authentication. Learn how to set up your integration with SSO in our [Build a Single Sign-On (SSO) integration](/docs/guides/build-sso-integration/) guide.
 
 ## Guides
 
 This guide series contains the following parts:
 
-* [Prepare your SCIM API service](/docs/guides/scim-provisioning-integration-prepare/): Prepare a SCIM-compliant API server to host your SCIM service, and test it to make sure it is working correctly.
+* [Prepare your SCIM API service](/docs/guides/scim-provisioning-integration-prepare/): Prepare a SCIM-compliant API server to host your SCIM service, and test it to make sure it’s functional.
 * [Configure Okta to your SCIM API service](/docs/guides/scim-provisioning-integration-connect/): Use Okta to make SCIM requests to your SCIM API service by creating and configuring an Okta SCIM integration from the Admin Console.
-* [Test your Okta SCIM integration](/docs/guides/scim-provisioning-integration-test/): Test that your SCIM application can handle actual requests to create, read, update, and delete (CRUD) user profile information, and run through our Okta Integration Network (OIN) quality assurance test cases.
+* [Test your Okta SCIM integration](/docs/guides/scim-provisioning-integration-test/): Test that your SCIM app can handle requests to create, read, update, and delete (CRUD) user profile information. Also test that your app can run through our Okta Integration Network (OIN) quality assurance test cases.
 
 ## See also
 
-After working through these guides, and preparing and testing your SCIM integration, you may want to make it public. To do so, follow the steps in our [Submit an app integration](/docs/guides/submit-app) guide to have it published in the [Okta Integration Network (OIN) catalog](https://www.okta.com/integrations/).
+After using these guides, and preparing and testing your SCIM integration, you may want to make it public. To do so, follow the steps in our [Submit an app integration](/docs/guides/submit-app) guide to have it published in the [Okta Integration Network (OIN) catalog](https://www.okta.com/integrations/).
 
 ## Next steps
 

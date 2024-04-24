@@ -8,11 +8,11 @@ This guide covers how to create and set up your Okta org. Then, you can [run the
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 Get a new org set up and ready for various use cases.
 
-**What you need**
+#### What you need
 
 [Okta Developer Edition organization](/signup)
 

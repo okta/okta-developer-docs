@@ -8,19 +8,19 @@ This guide provides an example of an Okta telephony inline hook. This guide uses
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Understand the Okta telephony inline hook calls and responses.
 * Implement a simple example of a telephony inline hook using a Glitch.com project.
 * Preview and test the telephony inline hook.
 
-**What you need**
+#### What you need
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup/)
 * [Glitch](https://glitch.com/) project or account
 * [Twilio account](https://www.twilio.com/try-twilio) paid or free trial account
 
-**Sample code**
+#### Sample code
 
 [Okta Telephony Inline Hook Example](https://glitch.com/~okta-inlinehook-telephonyhook)
 
@@ -153,6 +153,8 @@ To tell Okta that the SMS or voice call message was successfully sent, return a 
 
 The external service example is now ready with code to receive and respond to an Okta call. The Okta org is set up to call the external service using a telephony inline hook. In your Okta org, preview the JSON-formatted request and response directly from the Admin Console.
 
+<HookBasicAuthValuesNote/>
+
 ### Preview
 
 To preview the telephony inline hook:
@@ -182,6 +184,8 @@ Review the following guides to implement other inline or event hook examples:
 * [Event hook](/docs/guides/event-hook-implementation/)
 * [Password import inline hook](/docs/guides/password-import-inline-hook/nodejs/main/)
 * [Token inline hook](/docs/guides/token-inline-hook/nodejs/main/)
+* [SAML assertion inline hook](/docs/guides/saml-inline-hook/nodejs/main)
+* [Registration inline hook](/docs/guides/registration-inline-hook/nodejs/main)
 
 ## See also
 

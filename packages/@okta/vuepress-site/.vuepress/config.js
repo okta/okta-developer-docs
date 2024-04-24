@@ -160,7 +160,6 @@ module.exports = ctx => ({
     },
 
     primary_left_nav: [
-      { text: 'Customer Identity Cloud', link: 'https://developer.auth0.com' },
       { text: 'Community',
         children: [
           { text: 'Forum', link: 'https://devforum.okta.com' },
@@ -219,7 +218,7 @@ module.exports = ctx => ({
           { text: 'Integrate with Okta', link: '/okta-integration-network/' },
           { text: 'Pricing', link: 'https://www.okta.com/pricing/#workforce-identity-pricing' },
           { text: '3rd-party notes', link: '/3rd_party_notices/' },
-           { text: 'Customer Identity Cloud', link: 'https://auth0.com/developers' },
+           { text: 'Customer Identity Cloud', link: 'https://developer.auth0.com/' },
           { text: 'Archive', link:'/archive/' },
         ]
       },
@@ -299,6 +298,15 @@ module.exports = ctx => ({
               //'/docs/reference/api/risk-events/',
               '/docs/guides/migrate-to-oie/',
               '/docs/guides/manage-orgs-okta-aerial/',
+              '/docs/release-notes/2016',
+              '/docs/release-notes/2017',
+              '/docs/release-notes/2018',
+              '/docs/release-notes/2019',
+              '/docs/release-notes/2020',
+              '/docs/release-notes/2021',
+              '/docs/release-notes/2021-okta-identity-engine',
+              '/docs/release-notes/2022',
+              '/docs/release-notes/2022-okta-identity-engine',
               //'/docs/guides/oie-upgrade-add-sdk-to-your-app/-/main/',
               //'/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/-/main/',
               //'/docs/guides/oie-upgrade-add-sdk-to-your-app/',
@@ -352,6 +360,8 @@ module.exports = ctx => ({
         $page.redir = `/docs/guides/${found.guide}/${found.sections[0]}/`
       }
     }
+    
+    frontmatter.canonicalUrl = `https://developer.okta.com${path}`;
 
     if (path === '/') {
       $page.newsFeedDataJson = null;

@@ -1023,6 +1023,7 @@ export const reference = [
                { title: "Dynamic Client Registration", path: "/docs/reference/api/oauth-clients/" },
                { title: "Email Domains", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/EmailDomain/" },
                { title: "Event Types", path: "/docs/reference/api/event-types/" },
+               { title: "ITP Event Types", path: "/docs/reference/api/itp-et/", hidden: true },
                { title: "Factors", path: "/docs/reference/api/factors/" },
                { title: "Features", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Feature/" },
                { title: "Groups", path: "/docs/reference/api/groups/" },
@@ -1041,8 +1042,10 @@ export const reference = [
                { title: "Rate Limit Settings", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RateLimitSettings/" },
                { title: "Realms", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Realm/" },
                { title: "Realm Assignments", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RealmAssignment/" },
-               { title: "Risk Events", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RiskEvent/#tag/RiskEvent" },
-               { title: "Risk Providers", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RiskProvider/#tag/RiskProvider" },
+               { title: "Risk Events", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RiskEvent/" },
+               { title: "Risk Providers", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RiskProvider/" },
+               { title: "SSF Receiver", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SSFReceiver/" },
+               { title: "SSF Security Event Tokens", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SSFSecurityEventToken/" },
                { title: "Schemas", path: "/docs/reference/api/schemas/" },
                { title: "Sessions", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Session/" },
                { title: "SMS Templates", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Template/" },
@@ -1153,31 +1156,22 @@ export const releaseNotes = [
       title: "Release Notes",
       path: "/docs/release-notes/",
       subLinks: [
-         { title: "2024", path: "/docs/release-notes/2024/" },
          {
-            title: "2024 - Okta Identity Engine",
+            title: "2024 - Classic Engine",
+            path: "/docs/release-notes/2024/"
+         },
+         {
+            title: "2024 - Identity Engine",
             path: "/docs/release-notes/2024-okta-identity-engine/",
          },
-         { title: "2023", path: "/docs/release-notes/2023/" },
          {
-            title: "2023 - Okta Identity Engine",
+          title: "2023 - Classic Engine",
+          path: "/docs/release-notes/2023/"
+         },
+         {
+            title: "2023 - Identity Engine",
             path: "/docs/release-notes/2023-okta-identity-engine/",
          },
-         { title: "2022", path: "/docs/release-notes/2022/" },
-         {
-            title: "2022 - Okta Identity Engine",
-            path: "/docs/release-notes/2022-okta-identity-engine/",
-         },
-         { title: "2021", path: "/docs/release-notes/2021/" },
-         {
-            title: "2021 - Okta Identity Engine",
-            path: "/docs/release-notes/2021-okta-identity-engine/",
-         },
-         { title: "2020", path: "/docs/release-notes/2020/" },
-         { title: "2019", path: "/docs/release-notes/2019/" },
-         { title: "2018", path: "/docs/release-notes/2018/" },
-         { title: "2017", path: "/docs/release-notes/2017/" },
-         { title: "2016", path: "/docs/release-notes/2016/" },
-      ],
+        ],
    },
 ];

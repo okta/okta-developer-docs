@@ -8,14 +8,14 @@ This guide explains how to interact with Okta APIs by using scoped OAuth 2.0 acc
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Create a public/private key pair.
 * Create a service app with grant scopes.
 * Create and sign the JSON Web Token (JWT).
 * Get an access token to make an API request.
 
-**What you need**
+#### What you need
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
 * [Postman client](https://www.getpostman.com/downloads/) to test requests with the access token. See [Get Started with the Okta APIs](https://developer.okta.com/docs/reference/rest/) for information on setting up Postman.
@@ -24,7 +24,7 @@ This guide explains how to interact with Okta APIs by using scoped OAuth 2.0 acc
 
 ## About scoped OAuth 2.0 access tokens
 
-Most Okta API endpoints require that you include an API token with your request. Currently, this API token takes the form of an SSWS token that you generate in the Admin Console. With OAuth for Okta, you are able to interact with Okta APIs using scoped OAuth 2.0 access tokens. Each access token enables the bearer to perform specific actions on specific Okta endpoints, with that ability controlled by which scopes the access token contains.
+Most Okta API endpoints require that you include an API token with your request. Currently, this API token takes the form of an SSWS token that you generate in the Admin Console. With OAuth for Okta, you’re able to interact with Okta APIs using scoped OAuth 2.0 access tokens. Each access token enables the bearer to perform specific actions on specific Okta endpoints, with that ability controlled by which scopes the access token contains.
 
 ## Use the Client Credentials grant flow
 
@@ -43,15 +43,15 @@ The following are the high-level steps required to perform the Client Credential
 
 Create an OAuth 2.0 service app integration using the Admin Console.
 
-  > **Note:** You can also use the `/oauth2/v1/clients` endpoint to [create your service app using the API](/docs/reference/api/oauth-clients/#request-example-create-a-service-app-with-a-jwks). If you use the API, follow the [Generate the JWK using the API](#generate-the-jwk-using-the-api) section below first, as you need the `JWKS` parameter value when you create the client using the API.
+  > **Note:** You can also use the `/oauth2/v1/clients` endpoint to [create your service app using the API](/docs/reference/api/oauth-clients/#request-example-create-a-service-app-with-a-jwks). If you use the API, follow the [Generate the JWK using the API](#generate-the-jwk-using-the-api) section first, as you need the `JWKS` parameter value when you create the client using the API.
   >
-  >You can also add additional JWKS to the app later using the [Add a new JSON Web Key](https://developer.okta.com/docs/reference/api/apps/#add-new-json-web-key) API.
+  >You can also add more JWKS to the app later using the [Add a new JSON Web Key](https://developer.okta.com/docs/reference/api/apps/#add-new-json-web-key) API.
 
 1. Sign in to your Okta organization as a user with administrative privileges. [Create an org for free](https://developer.okta.com/signup).
 
-2. In the Admin Console, go to **Applications** > **Applications**, and then click **Create App Integration**.
+2. In the Admin Console, go to **Applications** > **Applications**, and then click **Create App Integration**. The **Create a new app integration** page appears.
 
-3. On the Create a new app integration page, select **API Services** as the **Sign-in method** and click **Next**.
+3. Select **API Services** as the **Sign-in method**, and then click **Next**.
 
 4. Enter a name for your app integration and click **Save**.
 
@@ -59,18 +59,9 @@ Create an OAuth 2.0 service app integration using the Admin Console.
 
 ### Assign admin roles to the OAuth 2.0 service app
 
-> **Note:** Use these instructions for:
-> * Preview orgs <br>
->   To automatically assign the super admin role to all custom API service apps that you create, enable the **Public client app admins** org setting. See [Assign admin roles to apps](https://help.okta.com/okta_help.htm?type=oie&id=csh-work-with-admin-assign-admin-role-to-apps).
-> * Production orgs with the **Assign admin roles to public client apps** early access feature enabled
-
-<!--
-**Note:** These instructions are for Production orgs with the **Assign admin roles to public client apps** feature enabled as well as Preview orgs.<br><br>
-> Before Okta provided the ability to assign admin roles to service apps, the Super Administrator (`SUPER_ADMIN`) role was automatically assigned to all service apps. You can now fine-tune the resources that a service app can access by assigning specific standard or custom admin roles. No role is automatically assigned, so you must assign a role before you use the service app.
-> If you have a Production org and want to turn on the **Assign admin roles to public client apps** feature, see [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features).
--->
-
 Assign admin roles for every OAuth 2.0 service app that you create. Service apps with assigned admin roles are constrained to the permissions and resources that are included in the role. This improves security for an org since it ensures that service apps only have access to the resources that are needed to perform their tasks. You can assign the [standard admin roles](https://help.okta.com/okta_help.htm?type=oie&id=ext-administrators-admin-comparison) or a [custom admin role](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-creating-custom-admin-roles) with permissions to specific resource sets.
+
+> **Note:** To temporarily bypass assigning an admin role, enable the **Public client app admins** org setting. This automatically assigns the super admin role to custom API service apps that you create after the scopes are granted. Go to **Settings** > **Account** > **Public client app admins** in the Admin Console to edit this setting. See [Assign admin roles to apps](https://help.okta.com/okta_help.htm?type=oie&id=csh-work-with-admin-assign-admin-role-to-apps). Disable this setting after you incorporate admin role assignments in your workflow.
 
 As an [Okta super administrator](https://help.okta.com/okta_help.htm?type=oie&id=ext_superadmin), make a `POST /oauth2/v1/clients/${yourServiceAppId}/roles` request to your org with the following parameters to assign an admin role:
 
@@ -81,6 +72,7 @@ As an [Okta super administrator](https://help.okta.com/okta_help.htm?type=oie&id
 | `resource-set`  |  Custom role only. Specify the resource set ID. See [Resource set object](/docs/reference/api/roles/#resource-set-object). |
 | `role`  |  Custom role only. Specify the custom role ID. See [Custom role object](/docs/reference/api/roles/#custom-role-object). |
 
+> **Note:** The admin roles determine which resources the admin can perform the actions on (such as a specific group of users or a specific set of apps), while scopes determine the action that the admin can perform (such as manage users, read apps, and so on). Therefore, the admin roles need to have enough permissions for the scopes provided.
 
 See [Assign a Role to a client application](/docs/reference/api/roles/#assign-a-role-to-a-client-application) in the Role Assignment API reference.
 
@@ -110,15 +102,13 @@ curl -i -X POST \
   }'
 ```
 
-> **Note:** The admin roles determine which resources the admin can perform the actions on (such as a specific group of users or a specific set of apps), while scopes determine the action that the admin can perform (such as manage users, read apps, and so on). Therefore, the admin roles need to have enough permissions for the scopes provided.
-
 ## Generate the JWK using the API
 
 The `private_key_jwt` client authentication method is the only supported method for OAuth service apps that want to get access tokens with Okta scopes.
 
-The private key that you use to sign the JWT must have the corresponding public key registered in the [JWKSet](/docs/reference/api/oauth-clients/#json-web-key-set) of the OAuth service app. We recommend generating the public/private key pair first before creating the OAuth service app.
+The private key that you use to sign the JWT must have the corresponding public key registered in the [JWKSet](/docs/reference/api/oauth-clients/#json-web-key-set) of the OAuth service app. Okta recommends generating the public/private key pair first before creating the OAuth service app.
 
-1. Use a tool such as this [JSON Web Key Generator](https://mkjwk.org/) to generate a JWKS public/private key pair for testing. Okta supports both RSA and Elliptic Curve (EC) keys. In this example, we are selecting **RSA** as the encryption algorithm. Select the following values:
+1. Use a tool such as this [JSON Web Key Generator](https://mkjwk.org/) to generate a JWKS public/private key pair for testing. Okta supports both RSA and Elliptic Curve (EC) keys. In this example, select **RSA** as the encryption algorithm. Select the following values:
 
     * Key size: 2048
     * Key use: signature
@@ -129,7 +119,7 @@ The private key that you use to sign the JWT must have the corresponding public 
 
 2. The JSON Web Key Generator tool extracts the public key from the key pair automatically. For testing purposes, copy the Public Key that is provided.
 
-> **Note:** Some Okta SDKs require that keys be in Privacy Enhanced Mail (PEM) format. If you are working with an Okta SDK that requires that the key be in PEM format, after you have generated the key pair, copy the public/private key pair into a [JWK to PEM Convertor tool](https://8gwifi.org/jwkconvertfunctions.jsp) and copy the private key to use when signing the JWT.
+> **Note:** Some Okta SDKs require that keys be in Privacy Enhanced Mail (PEM) format. If you’re working with an Okta SDK that requires that the key be in PEM format, after you’ve generated the key pair, copy the public/private key pair into a [JWK to PEM Convertor tool](https://8gwifi.org/jwkconvertfunctions.jsp) and copy the private key to use when signing the JWT.
 
 The JWKS should look something like this:
 
@@ -164,16 +154,16 @@ Generate a public/private key pair using the Admin Console. Since this is an Ear
 
 ### Save keys in Okta
 
-This option allows you to bring your own keys or use the Okta key generator. There is no limit to the number of JWKs that you can add for an app.
+This option allows you to bring your own keys or use the Okta key generator. There’s no limit to the number of JWKs that you can add for an app.
 
 1. Leave the default of **Save keys in Okta**, and then click **Add key**.
-1. Click **Add** and in the **Add a public key** dialog, either paste your own public key or click **Generate new key** to auto-generate a new 2048 bit RSA key:
+1. Click **Add** and in the **Add a public key** dialog, either paste your own public key or click **Generate new key** to auto-generate a new 2048-bit RSA key:
 
     * Paste your own public key into the box. Be sure to include a `kid` as all keys in the JWKS must have a unique ID.<br><br>
     **OR**<br>
     * Click **Generate new key** and the public and private keys appear in JWK format.
 
-        Some Okta SDKs require that keys be in Privacy Enhanced Mail (PEM) format. If you are working with an Okta SDK that requires this format, click **PEM**. The private key appears in PEM format.
+        Some Okta SDKs require that keys be in Privacy Enhanced Mail (PEM) format. If you’re working with an Okta SDK that requires this format, click **PEM**. The private key appears in PEM format.
 
         This is your only opportunity to save the private key. Click **Copy to clipboard** to copy the private key and store it somewhere safe.
 
@@ -240,7 +230,7 @@ Now that you've created the service app and registered the public key with that 
 
 ## Create and sign the JWT
 
-> **Note:** Okta SDKs support creating and signing the JWT and requesting an access token. If you are using an Okta SDK, you can skip this section and the [Get an access token](#get-an-access-token) section.
+> **Note:** Okta SDKs support creating and signing the JWT and requesting an access token. If you’re using an Okta SDK, you can skip this section and the [Get an access token](#get-an-access-token) section.
 
 Create and sign the JWT with your private key for use as a JWT assertion in the request for a scoped access token. You can create this `client_credentials` JWT in several ways.
 
@@ -290,7 +280,7 @@ Include the following parameters:
 
 * `scope`: Include the scopes that allow you to perform the actions on the endpoint that you want to access. The scopes requested for the access token must already be in the [application's grants collection](#grant-allowed-scopes). See [Scopes and supported endpoints](/docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints).
 
-    In this example, we only request access for one scope. When you request an access token for multiple scopes, the format for the scope value looks like this: `scope=okta.users.read okta.apps.read`
+    In this example, request access for only one scope. When you request an access token for multiple scopes, the format for the scope value looks like this: `scope=okta.users.read okta.apps.read`
 
 * `client_assertion_type`: Specifies the type of assertion, in this case a JWT token:  `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`
 
@@ -325,10 +315,10 @@ The response should look something like this (the token is truncated for brevity
 
 Make a request to the `/users` endpoint using the access token.
 
-1. If you are using Postman to test, select the **List Users** `GET` request to the `/api/v1/users` endpoint to get back a list of all users.
+1. If you’re using Postman to test, select the **List Users** `GET` request to the `/api/v1/users` endpoint to get back a list of all users.
 2. On the **Header** tab, remove the existing Okta API token (SSWS Authorization API Key).
-3. Click the **Authorization** tab and from the **Type** drop-down box, select **OAuth 2.0**.
-4. On the right, paste the access token into the **Access Token** box and click **Send**. The response should contain an array of all the users associated with your app. This is dependent on the user's permissions.
+3. Click the **Authorization** tab and from the **Type** dropdown box, select **OAuth 2.0**.
+4. On the right, paste the access token into the **Access Token** box and click **Send**. The response should contain an array of all the users who are associated with your app. This depends on the user's permissions.
 
 **Example Request**
 

@@ -8,23 +8,25 @@ Enable users to sign in using a trusted external Identity Provider.
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Configure an Identity Provider object to connect an external authentication service to your org.
 * Specify which users can sign in to Okta with an external account.
 * Configure automatic creation of an Okta account the first time a user signs in using an external account.
 
-**What you need**
+#### What you need
 
 * Familiarity with the Terraform terms: configuration, resources, state, and commands. See the [Terraform overview](/docs/guides/terraform-overview).
 * An [Okta Developer Edition organization](https://developer.okta.com/signup) or an Okta Identity Engine organization.
 * A Terraform configuration that can access your Okta org. See [Enable Terraform access for your Okta org](/docs/guides/terraform-enable-org-access).
 * An account with [Google](https://accounts.google.com/signup).
 * Access to your [Google Admin Console](admin.google.com) for SAML IdP creation.
+
 ---
+
 ## Overview
 
-You can configure trusted Identity Providers (IdPs) in your org to enable users with external accounts to sign in to your Okta org applications. Okta can use an IdP to verify a user’s identity when they sign in. Okta can also create an account automatically when the user first signs in with an IdP.
+You can configure trusted Identity Providers (IdPs) in your org to enable users with external accounts to sign in to your Okta org apps. Okta can use an IdP to verify a user’s identity when they sign in. Okta can also create an account automatically when the user first signs in with an IdP.
 
 For more information on the functionality of an IdP, see [External Identity Providers](/docs/concepts/identity-providers/).
 
@@ -275,7 +277,7 @@ Create routing rules in your org to enable external users to sign in with the Go
 
 ## Control use of external authentication services
 
-Create rules that control the external IdP that a user can use to sign in to an Okta application. You can set rules based on the users' location, their device, their Okta attributes, and the application that they’re accessing. The rules are added to the single IdP Discovery policy in your Okta org.
+Create rules that control the external IdP that a user can use to sign in to an Okta app. You can set rules based on the users' location, their device, their Okta attributes, and the app that they’re accessing. The rules are added to the single IdP Discovery policy in your Okta org.
 
 When a user attempts to sign in, the active rules are evaluated in order of priority, and the first one that the user matches is applied. See [Manage priority order with Terraform](/docs/guides/terraform-manage-user-access#manage-priority-order-with-terraform) in [Manage user access with Terraform](/docs/guides/terraform-manage-user-access).
 
