@@ -95,14 +95,7 @@ jobs:
       - run:
           name: Deploy preview to Netlify before
           command: |
-            expect -c '
-            spawn netlify deploy --context deploy-preview
-            expect "Select the site you want to work with"
-            send "\r"  # Select the default option (usually the first one)
-            expect "@okta/vuepress-site"  # Wait for the desired option
-            send "\r"  # Select the desired option
-            expect eof
-            '
+            netlify deploy --context deploy-preview <<< $'@okta/vuepress-site  packages/@okta/vuepress-site  --filter @okta/vuepress-site\n'
       - run:
           name: Deploy preview to Netlify
           command: |
