@@ -59,19 +59,10 @@ jobs:
     docker:
       - image: cimg/node:14.21.3-browsers
     resource_class: xlarge
-    environment:
-      # NETLIFY_AUTH_TOKEN: ${NETLIFY_AUTH_TOKEN}
-      # NETLIFY_SITE_ID: ${NETLIFY_SITE_ID}
-      # NODE_OPTIONS: '--max_old_space_size=3584'
     steps:
-      - run:
-          name: Has secrets1?
-          command: |
-            echo "auth token ${NETLIFY_SITE_ID}"
       - run:
           name: Has secrets?
           command: |
-            echo "auth token ${NETLIFY_SITE_ID}"
             if [ -z "$NETLIFY_AUTH_TOKEN" ] || [ -z "$NETLIFY_SITE_ID" ]; then
               echo "Missing required secrets."
               exit 1
@@ -94,13 +85,12 @@ jobs:
           command: |
             yarn build
       - run:
-          name: Install Netlify
+          name: Install Netlify CLI
           command: |
             npm install netlify-cli -g
       - run:
           name: Deploy preview to Netlify
           command: |
-            echo "siteid: ${NETLIFY_SITE_ID}"
             netlify deploy --filter @okta/vuepress-site
 
 orbs:
@@ -118,28 +108,27 @@ workflows:
           requires:
             - semgrep-prepare
 
-  # build_checks:
-  #   when:
-  #     not: << pipeline.parameters.trigger_netlify_manual >>
-  #   jobs:
-  #     - node_build_checks:
-  #         name: "Build and Checks"
+  build_checks:
+    when:
+      not: << pipeline.parameters.trigger_netlify_manual >>
+    jobs:
+      - node_build_checks:
+          name: "Build and Checks"
   
-  # nightly:
-  #   triggers:
-  #     - schedule:
-  #         cron: "1 5 * * *"
-  #         filters:
-  #           branches:
-  #             only:
-  #               - master
-  #   jobs:
-  #     - nightly_link_checker:
-  #         name: "Nightly Link Checker"
+  nightly:
+    triggers:
+      - schedule:
+          cron: "1 5 * * *"
+          filters:
+            branches:
+              only:
+                - master
+    jobs:
+      - nightly_link_checker:
+          name: "Nightly Link Checker"
 
   netlify_manual:
-    when: 
-      not: << pipeline.parameters.trigger_netlify_manual >>
+    when: << pipeline.parameters.trigger_netlify_manual >>
     jobs:
       - netlify_manual:
           name: "Netlify Manual"
