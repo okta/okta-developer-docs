@@ -93,9 +93,12 @@ jobs:
           command: |
             npm install netlify-cli -g
       - run:
+          name: Navigate to site directory
+          command: cd packages/@okta/vuepress-site/dist
+      - run:
           name: Deploy preview to Netlify
           command: |
-            netlify deploy --dir=packages/@okta/vuepress-site/dist --site $NETLIFY_SITE_ID --context deploy-preview
+            netlify deploy --site $NETLIFY_SITE_ID --context deploy-preview
 
 orbs:
   general-platform-helpers: okta/general-platform-helpers@1.8
