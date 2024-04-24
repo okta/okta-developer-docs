@@ -89,10 +89,10 @@ jobs:
           name: Install dependencies
           command: |
             yarn install --frozen-lockfile
-      # - run:
-      #     name: Build preview
-      #     command: |
-      #       yarn build
+      - run:
+          name: Build preview
+          command: |
+            yarn build
       - run:
           name: Install Netlify
           command: |
@@ -101,7 +101,7 @@ jobs:
           name: Deploy preview to Netlify
           command: |
             echo "siteid: ${NETLIFY_SITE_ID}"
-            netlify deploy --filter @okta/vuepress-site --scope builds --context deploy-preview
+            netlify deploy --filter @okta/vuepress-site
 
 orbs:
   general-platform-helpers: okta/general-platform-helpers@1.8
