@@ -57,7 +57,7 @@ jobs:
   
   netlify_manual:
     docker:
-      - image: cimg/node:14.21.3-browsers
+      - image: cimg/node:18.20.2-browsers
     resource_class: xlarge
     environment:
       NETLIFY_AUTH_TOKEN: ${NETLIFY_AUTH_TOKEN}
@@ -89,9 +89,12 @@ jobs:
           command: |
             yarn build
       - run:
-          name: Deploy preview to Netlify
+          name: Install Netlify
           command: |
             npm install netlify-cli --save-dev
+      - run:
+          name: Deploy preview to Netlify
+          command: |
             netlify deploy --dir=packages/@okta/vuepress-site/dist --context deploy-preview
 
 orbs:
