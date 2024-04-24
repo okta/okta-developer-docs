@@ -67,8 +67,7 @@ jobs:
       - run:
         name: Install dependencies
         command: |
-          echo "auth token << parameters.NETLIFY_AUTH_TOKEN >>"
-          echo "site id << parameters.NETLIFY_SITE_ID >>"
+          echo "auth token"
       # - run:
       #     name: Has secrets?
       #     command: |
