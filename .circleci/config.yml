@@ -55,7 +55,7 @@ jobs:
           command: |
             cat broken_external_urls.txt
   
-  netlify-manual:
+  netlify_manual:
     docker:
       - image: cimg/node:14.21.3-browsers
     resource_class: xlarge
@@ -134,5 +134,5 @@ workflows:
   netlify_manual:
     when: << pipeline.parameters.trigger_netlify_manual >>
     jobs:
-      - netlify-manual:
+      - netlify_manual:
           name: "Netlify Manual"
