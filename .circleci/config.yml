@@ -67,6 +67,7 @@ jobs:
       - run:
           name: Has secrets?
           command: |
+            echo "siteid: ${NETLIFY_SITE_ID} $NETLIFY_SITE_ID ${env.NETLIFY_AUTH_TOKEN}"
             if [ -z "$NETLIFY_AUTH_TOKEN" ] || [ -z "$NETLIFY_SITE_ID" ]; then
               echo "Missing required secrets."
               exit 1
@@ -95,7 +96,7 @@ jobs:
       - run:
           name: Deploy preview to Netlify
           command: |
-            echo 'siteid: ${NETLIFY_SITE_ID} $NETLIFY_SITE_ID'
+            echo 'siteid: ${NETLIFY_SITE_ID} $NETLIFY_SITE_ID ${env.NETLIFY_AUTH_TOKEN}'
             netlify deploy --site $NETLIFY_SITE_ID --context deploy-preview
 
 orbs:
