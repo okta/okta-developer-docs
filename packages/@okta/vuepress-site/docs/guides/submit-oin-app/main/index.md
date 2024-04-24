@@ -38,7 +38,7 @@ The OIN Wizard is a full-service tool in the Okta Admin Console for you to:
 
 The OIN team verifies your submitted integration before they publish it in the [OIN catalog](https://www.okta.com/integrations/).
 
-> **Note:** Only cloud-based SaaS apps (either traditional web apps with a back-end or a modern browser-based SPA) are published in the OIN catalog.
+> **Note:** You can only submit cloud-based SaaS apps (web apps with a back-end) in the OIN Wizard.
 
 ### Protocols supported
 
