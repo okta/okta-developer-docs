@@ -54,43 +54,85 @@ jobs:
           name: Print urls to log
           command: |
             cat broken_external_urls.txt
+  
+  netlify-manual:
+    docker:
+      - image: cimg/node:14.21.3-browsers
+    resource_class: xlarge
+    environment:
+      NETLIFY_AUTH_TOKEN: << parameters.NETLIFY_AUTH_TOKEN >>
+      NETLIFY_SITE_ID: << parameters.NETLIFY_SITE_ID >>
+    environment:
+      NODE_OPTIONS: '--max_old_space_size=3584'
+    steps:
+      - run:
+          name: Has secrets?
+          command: |
+            if [ -z "$NETLIFY_AUTH_TOKEN" ] || [ -z "$NETLIFY_SITE_ID" ]; then
+              echo "Missing required secrets."
+              exit 1
+            fi
+      # Step to cancel workflow
+      - run:
+          name: Cancel workflow if failure
+          command: |
+            if [ "$CIRCLE_JOB" != "netlify-manual" ]; then
+              curl -X POST https://circleci.com/api/v2/workflow/${CIRCLE_WORKFLOW_ID}/cancel -H "Circle-Token: ${CIRCLE_API_TOKEN}"
+            fi
+          when: on_fail
+      - run:
+          name: Install netlify CLI
+          command: |
+            npm install netlify-cli --save-dev
+      - run:
+          name: Install dependencies
+          command: |
+            yarn install --frozen-lockfile
+      - run:
+          name: Build preview
+          command: |
+            yarn build
+      - run:
+          name: Deploy preview to Netlify
+          command: |
+            npx netlify-cli deploy --prod --dir=packages/@okta/vuepress-site/dist --message="Deploy from CircleCI"
 
 orbs:
   general-platform-helpers: okta/general-platform-helpers@1.8
 
 workflows:
-  semgrep:
-    when:
-      not: << pipeline.parameters.trigger_netlify_manual >>
-    jobs:
-      - general-platform-helpers/job-semgrep-prepare:
-          name: semgrep-prepare
-      - general-platform-helpers/job-semgrep-scan:
-          name: "Scan with Semgrep"
-          requires:
-            - semgrep-prepare
+  # semgrep:
+  #   when:
+  #     not: << pipeline.parameters.trigger_netlify_manual >>
+  #   jobs:
+  #     - general-platform-helpers/job-semgrep-prepare:
+  #         name: semgrep-prepare
+  #     - general-platform-helpers/job-semgrep-scan:
+  #         name: "Scan with Semgrep"
+  #         requires:
+  #           - semgrep-prepare
 
-  build_checks:
-    when:
-      not: << pipeline.parameters.trigger_netlify_manual >>
-    jobs:
-      - node_build_checks:
-          name: "Build and Checks"
+  # build_checks:
+  #   when:
+  #     not: << pipeline.parameters.trigger_netlify_manual >>
+  #   jobs:
+  #     - node_build_checks:
+  #         name: "Build and Checks"
   
-  nightly:
-    triggers:
-      - schedule:
-          cron: "1 5 * * *"
-          filters:
-            branches:
-              only:
-                - master
-    jobs:
-      - nightly_link_checker:
-          name: "Nightly Link Checker"
+  # nightly:
+  #   triggers:
+  #     - schedule:
+  #         cron: "1 5 * * *"
+  #         filters:
+  #           branches:
+  #             only:
+  #               - master
+  #   jobs:
+  #     - nightly_link_checker:
+  #         name: "Nightly Link Checker"
 
   netlify_manual:
     when: << pipeline.parameters.trigger_netlify_manual >>
     jobs:
-      - node_build_checks:
-          name: "TODO:Run Netlify Manual"
+      - netlify-manual:
+          name: "Netlify Manual"
