@@ -60,8 +60,8 @@ jobs:
       - image: cimg/node:14.21.3-browsers
     resource_class: xlarge
     environment:
-      NETLIFY_AUTH_TOKEN: << parameters.NETLIFY_AUTH_TOKEN >>
-      NETLIFY_SITE_ID: << parameters.NETLIFY_SITE_ID >>
+      NETLIFY_AUTH_TOKEN: << parameters.NETLIFY_AUTH_TOKEN1 >>
+      NETLIFY_SITE_ID: << parameters.NETLIFY_SITE_ID1 >>
       NODE_OPTIONS: '--max_old_space_size=3584'
     steps:
       - run:
@@ -100,16 +100,16 @@ orbs:
   general-platform-helpers: okta/general-platform-helpers@1.8
 
 workflows:
-  # semgrep:
-  #   when:
-  #     not: << pipeline.parameters.trigger_netlify_manual >>
-  #   jobs:
-  #     - general-platform-helpers/job-semgrep-prepare:
-  #         name: semgrep-prepare
-  #     - general-platform-helpers/job-semgrep-scan:
-  #         name: "Scan with Semgrep"
-  #         requires:
-  #           - semgrep-prepare
+  semgrep:
+    when:
+      not: << pipeline.parameters.trigger_netlify_manual >>
+    jobs:
+      - general-platform-helpers/job-semgrep-prepare:
+          name: semgrep-prepare
+      - general-platform-helpers/job-semgrep-scan:
+          name: "Scan with Semgrep"
+          requires:
+            - semgrep-prepare
 
   # build_checks:
   #   when:
