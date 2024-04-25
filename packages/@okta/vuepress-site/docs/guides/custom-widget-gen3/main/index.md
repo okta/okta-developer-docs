@@ -79,13 +79,13 @@ See [Customization examples](#customization-examples) for snippets that you can 
 
 ### Use afterRender with the third generation
 
-The third generation of the Sign-In Widget is built on React.js. It inteprets the `afterRender` function in a way that's incompatible with customizations. The widget reverts your customizations to Okta default settings.
+The third generation of the Sign-In Widget is built on React.js. It interprets the `afterRender` function in a way that's incompatible with customizations. Sign-In Widget reverts your customizations to Okta default settings.
 
-Typically, with the second generation of the widget, you can use `afterRender` to change label text or input labels on a page. The widget triggers `afterRender` when transitioning to a new page and animations have finished. See [afterRender](https://github.com/okta/okta-signin-widget?tab=readme-ov-file#afterrender).
+Typically, with the second generation of Sign-In Widget, you can use `afterRender` to change label text or input labels on a page. The Sign-In Widget triggers `afterRender` when transitioning to a new page and animations have finished. See [afterRender](https://github.com/okta/okta-signin-widget?tab=readme-ov-file#afterrender).
 
 #### Resolve the afterRender revert
 
-To keep the third generation of the widget from reverting your customizations, use the DOM `MutationObserver()` function. See [MutationObserver](https://dom.spec.whatwg.org/#ref-for-dom-mutationobserver-mutationobserver).
+To keep the third generation of the Sign-In Widget from reverting your customizations, use the DOM `MutationObserver()` function. See [MutationObserver](https://dom.spec.whatwg.org/#ref-for-dom-mutationobserver-mutationobserver).
 
 > **Note:** Use the `MutationObserver` with caution. The following solutions are only for developers with experience using this function.
 
@@ -96,43 +96,43 @@ To update UI elements, consider the following example:
     var config = OktaUtil.getSignInWidgetConfig();
 
     var oktaSiwRoot = document.querySelector('#okta-login-container');
-    // this will allow us to reference the context from each render 
+    // The following allows you to reference the context from each render
     let contextObj = {};
     function cb(mutations, observer) {
-      // for the primary auth form, update the button label
+      // For the primary auth form, updates the button label
       if (contextObj.formName === 'identify') {
         const el = document.querySelector('[data-type="save"]');
         if (el) { el.textContent = 'Some new label'; }
       }
-      // for the reset-authenticator view, update button label
+      // For the reset-authenticator view, updates the button label
       if (contextObj.formName === 'reset-authenticator') {
         const el = document.querySelector('[data-type="save"]');
         if (el) { el.textContent = 'A different label'; }
       }
     }
-    // initializes the mutation observer object
+    // Initializes the mutation observer object
     var observer = new MutationObserver(cb);
 
-    // Render the Okta Sign-In Widget
+    // Renders the Okta Sign-In Widget
     var oktaSignIn = new OktaSignIn(config);
 
-    // The below will vary based on your own configuration
+    // The following varies based on your configuration
     oktaSignIn.renderEl({ el: '#okta-login-container' }, OktaUtil.completeLogin, function (error) {
        console.log(error.message, error);
     });
 
-    oktaSignIn.on('afterRender', function (ctx) { // ← restore the context
-      // reset the global context object for reference by the callback function
+    oktaSignIn.on('afterRender', function (ctx) { // ← Restores the context
+      // Resets the global context object for reference using the callback function
       contextObj = context;
-      // this condition is to only execute this observer for specific views/forms
+      // The following condition only executes the observer for specific views/forms
       if (context.formName === 'identify' || context.formName === 'reset-authenticator') {
-        // pause
+        // Pauses
         observer.disconnect();
 
-        // call once after initial render
+        // Calls once after initial render
         cb();
 
-        // observe for re-renders
+        // Observes for re-renders
         observer.observe(oktaSiwRoot, {
           subtree: true,
           childList: true,
@@ -151,17 +151,17 @@ To update UI elements, consider the following example:
  <script type="text/javascript" nonce="{{nonceValue}}">
     var config = OktaUtil.getSignInWidgetConfig();
 
-    // Render the Okta Sign-In Widget
+    // Renders the Okta Sign-In Widget
     var oktaSignIn = new OktaSignIn(config);
 
-    // The below will vary based on your own configuration
+    // The following varies based on your own configuration
     oktaSignIn.renderEl({ el: '#okta-login-container' }, OktaUtil.completeLogin, function (error) {
        console.log(error.message, error);
     });
 
     oktaSignIn.on('afterRender', (context) => {
        if (context.formName === 'identify') {
-          // send a log to your external logging service indicating a customer landed on this view
+          // Sends a log to your external logging service indicating a customer landed on this view
           someExternalLoggingService.log('Rendered Primary auth form'); 
        }
     });
