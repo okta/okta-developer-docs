@@ -1,7 +1,7 @@
 version: 2.1
 
 parameters:
-  trigger_netlify_manual:
+  preview:
     type: string
     default: ""
 
@@ -99,7 +99,7 @@ orbs:
 workflows:
   semgrep:
     when:
-      not: << pipeline.parameters.trigger_netlify_manual >>
+      not: << pipeline.parameters.preview >>
     jobs:
       - general-platform-helpers/job-semgrep-prepare:
           name: semgrep-prepare
@@ -110,7 +110,7 @@ workflows:
 
   build_checks:
     when:
-      not: << pipeline.parameters.trigger_netlify_manual >>
+      not: << pipeline.parameters.preview >>
     jobs:
       - node_build_checks:
           name: "Build and Checks"
@@ -128,7 +128,7 @@ workflows:
           name: "Nightly Link Checker"
 
   netlify_manual:
-    when: << pipeline.parameters.trigger_netlify_manual >>
+    when: << pipeline.parameters.preview >>
     jobs:
       - netlify_manual:
           name: "Netlify Manual"
