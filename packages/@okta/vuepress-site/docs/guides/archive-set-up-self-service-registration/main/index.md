@@ -2,9 +2,11 @@
 title: Set up self-service registration
 ---
 
-> **Note:** This document is only for Classic Engine. If you’re using Okta Identity Engine, see [Self-service registration](/docs/guides/oie-embedded-sdk-use-case-self-reg/android/main/). See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.
-
 This guide explains how to set up Okta's self-service registration (SSR) functionality with Classic Engine so that you can configure a custom app or the Okta page that allow users to self-register.
+
+> **Notes:**
+> * This document is only for existing orgs in Okta Classic Engine with self-service registration already enabled. New orgs in Classic Engine can't enable this feature.
+> * If you’re using Okta Identity Engine, see [Self-service registration](/docs/guides/oie-embedded-sdk-use-case-self-reg/android/main/). See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.
 
 ---
 
@@ -49,7 +51,9 @@ When you enable a self-service registration policy, Okta enforces uniqueness for
 1. In the **ACCOUNT** section, you can add a sign-up link and assign the user to an existing group automatically:
 
    * **Add to Sign-In Widget:** Optional. Select this option if you want to add a sign-up link to your Okta-hosted sign-in page. By adding a sign-up link to Okta Sign-In Widget, you eliminate the need to configure a link that uses JavaScript in the Customize Sign-In Page editor.
-   * **Assign to group:** Optional. Enter the existing group name that users are automatically added to when they self-register. Group membership determines which password policy is applied during registration. If no group is specified, Okta applies the Default password policy.
+   * **Assign to group:** Optional. Enter the group name that users are automatically added to when they self-register. Group membership determines which password policy is applied during registration. If no group is specified, Okta applies the default password policy even if that policy is applied for non-Okta mastered users.
+
+   > **Note:** If you're using Identity Engine, Okta doesn't apply the default password policy to non-Okta mastered users. See [Self-service registration](/docs/guides/oie-embedded-sdk-use-case-self-reg/android/main/).
 
 1. In the **REGISTRATION FORM** section, you can add a customized label for the **Email** and **Password** fields and define which fields are required. The fields in this section are what the user sees when they register.
 
