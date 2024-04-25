@@ -85,7 +85,7 @@ Typically, with the second generation of Sign-In Widget, you can use `afterRende
 
 #### Resolve the afterRender revert
 
-To keep the third generation of the Sign-In Widget from reverting your customizations, use the DOM `MutationObserver()` function. See [MutationObserver](https://dom.spec.whatwg.org/#ref-for-dom-mutationobserver-mutationobserver).
+To keep the third generation of the Sign-In Widget from reverting your `afterRender` customizations, use the DOM `MutationObserver()` function. See [MutationObserver](https://dom.spec.whatwg.org/#ref-for-dom-mutationobserver-mutationobserver).
 
 > **Note:** Use the `MutationObserver` with caution. The following solutions are only for developers with experience using this function.
 
