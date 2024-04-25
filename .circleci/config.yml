@@ -67,14 +67,6 @@ jobs:
               echo "Missing required secrets."
               exit 1
             fi
-      # Step to cancel workflow
-      - run:
-          name: Cancel workflow if failure
-          command: |
-            if [ "$CIRCLE_JOB" != "netlify_manual" ]; then
-              curl -X POST https://circleci.com/api/v2/workflow/${CIRCLE_WORKFLOW_ID}/cancel -H "Circle-Token: ${CIRCLE_API_TOKEN}"
-            fi
-          when: on_fail
       - checkout
       - run:
           name: Install dependencies
