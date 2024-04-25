@@ -1,7 +1,7 @@
 version: 2.1
 
 parameters:
-  trigger_netlify_manual:
+  preview:
     type: string
     default: ""
 
@@ -54,6 +54,36 @@ jobs:
           name: Print urls to log
           command: |
             cat broken_external_urls.txt
+  
+  netlify_manual:
+    docker:
+      - image: cimg/node:14.21.3-browsers
+    resource_class: xlarge
+    steps:
+      - run:
+          name: Has secrets?
+          command: |
+            if [ -z "$NETLIFY_AUTH_TOKEN" ] || [ -z "$NETLIFY_SITE_ID" ]; then
+              echo "Missing required secrets."
+              exit 1
+            fi
+      - checkout
+      - run:
+          name: Install dependencies
+          command: |
+            yarn install --frozen-lockfile
+      - run:
+          name: Build preview
+          command: |
+            yarn build
+      - run:
+          name: Install Netlify CLI
+          command: |
+            npm install netlify-cli -g
+      - run:
+          name: Deploy preview to Netlify
+          command: |
+            netlify deploy --filter @okta/vuepress-site
 
 orbs:
   general-platform-helpers: okta/general-platform-helpers@1.8
@@ -61,7 +91,7 @@ orbs:
 workflows:
   semgrep:
     when:
-      not: << pipeline.parameters.trigger_netlify_manual >>
+      not: << pipeline.parameters.preview >>
     jobs:
       - general-platform-helpers/job-semgrep-prepare:
           name: semgrep-prepare
@@ -72,7 +102,7 @@ workflows:
 
   build_checks:
     when:
-      not: << pipeline.parameters.trigger_netlify_manual >>
+      not: << pipeline.parameters.preview >>
     jobs:
       - node_build_checks:
           name: "Build and Checks"
@@ -90,7 +120,7 @@ workflows:
           name: "Nightly Link Checker"
 
   netlify_manual:
-    when: << pipeline.parameters.trigger_netlify_manual >>
+    when: << pipeline.parameters.preview >>
     jobs:
-      - node_build_checks:
-          name: "TODO:Run Netlify Manual"
+      - netlify_manual:
+          name: "Netlify Manual"
