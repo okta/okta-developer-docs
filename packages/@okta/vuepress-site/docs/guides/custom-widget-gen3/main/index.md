@@ -79,7 +79,7 @@ See [Customization examples](#customization-examples) for snippets that you can 
 
 ### Use afterRender with the third generation
 
-The third generation of the Sign-In Widget is built on React.js. It interprets the `afterRender` function in a way that's incompatible with customizations. Sign-In Widget reverts your customizations to Okta default settings.
+The third generation of the Sign-In Widget is built on React.js. It interprets the `afterRender` function in a way that's incompatible with customizations. The Sign-In Widget reverts your customizations to Okta default settings.
 
 Typically, with the second generation of Sign-In Widget, you can use `afterRender` to change label text or input labels on a page. The Sign-In Widget triggers `afterRender` when transitioning to a new page and animations have finished. See [afterRender](https://github.com/okta/okta-signin-widget?tab=readme-ov-file#afterrender).
 
