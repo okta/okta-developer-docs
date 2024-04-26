@@ -41,7 +41,7 @@ Self-service registration supports these registration workflows:
 
 ## Enable and configure a self-service registration policy
 
-Use a self-service registration policy to let users self-register for application access. When you create the policy, you can choose the fields that you want to include on the Create Account registration form. You can also specify the order of the fields, and the fields that are required.
+Use a self-service registration policy to let users self-register for app access. When you create the policy, you can choose the fields that you want to include on the Create Account registration form. You can also specify the order of the fields, and the fields that are required.
 
 When you enable a self-service registration policy, Okta enforces uniqueness for all primary email addresses. When registering, users need to provide their email address. Okta automatically uses the email address for the username and primary email address.
 
