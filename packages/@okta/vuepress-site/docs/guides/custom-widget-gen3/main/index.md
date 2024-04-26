@@ -45,6 +45,11 @@ The third generation of the Sign-In Widget offers the same user experience as th
 
 See [Sign-In Widget, third generation](https://help.okta.com/okta_help.htm?type=oie&id=ext-compare-siw) to verify if the third generation is right for your org.
 
+### Palette generation and accessibility
+
+The third generation uses a package that ensures that the primary color and the rest of the palette adhere to accessibility contrast ratios. See [Odyssey]
+
+
 ## Upgrade to the third generation
 
 > **Note:** If you have a new Okta Identity Engine org, the third generation Sign-In Widget isn't enabled by default.
