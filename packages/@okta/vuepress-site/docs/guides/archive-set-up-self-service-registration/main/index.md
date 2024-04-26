@@ -54,7 +54,7 @@ When you enable a self-service registration policy, Okta enforces uniqueness for
    * **Add to Sign-In Widget:** Optional. Select this option if you want to add a sign-up link to your Okta-hosted sign-in page. By adding a sign-up link to the Okta Sign-In Widget, you don't need to configure a link that uses JavaScript in the editor.
    * **Assign to group:** Optional. Enter the group name that users are automatically added to when they self-register. Group membership determines which password policy is applied during registration. If no group is specified, Okta applies the default password policy even if that policy is applied for non-Okta-sourced users.
 
-   > **Note:** If you're using Identity Engine, Okta doesn't apply the default password policy to non-Okta sourced users. See [Self-service registration](/docs/guides/oie-embedded-sdk-use-case-self-reg/android/main/).
+   > **Note:** If you're using Identity Engine, Okta doesn't apply the default password policy to non-Okta-sourced users. See [Self-service registration](/docs/guides/oie-embedded-sdk-use-case-self-reg/android/main/).
 
 1. In the **REGISTRATION FORM** section, you can add a customized label for the **Email** and **Password** fields and define which fields are required. The fields in this section are what the user sees when they register.
 
