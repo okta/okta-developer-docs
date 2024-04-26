@@ -86,7 +86,7 @@ The third generation of the Sign-In Widget is built on [Preact](https://preactjs
 
 To keep the third generation of the Sign-In Widget from reverting your `afterRender` customizations, use the DOM `MutationObserver()` function. See [MutationObserver](https://dom.spec.whatwg.org/#ref-for-dom-mutationobserver-mutationobserver).
 
-> **Note:** Use the `MutationObserver` with caution. The following solutions are only for developers with experience using this function.
+> **Note:** Use `MutationObserver` with caution. The following solutions are only for developers with experience using this function.
 
 To update UI elements, consider the following example:
 
