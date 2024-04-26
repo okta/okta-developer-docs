@@ -78,13 +78,9 @@ See [Customization examples](#customization-examples) for snippets that you can 
 
    > **Note:** To discard your changes without publishing them, click **Revert changes** or click the **Code editor** toggle again. Turning off the code editor restores the default JavaScript code.
 
-### Use afterRender with the third generation
+### About the afterRender function
 
-The third generation of the Sign-In Widget is built on [Preact](https://preactjs.com/), a lightweight React alternative. This means that the `afterRender` function doesn't work when used to make DOM manipulations in the third generation.
-
-With the second generation of the Sign-In Widget, you can use [`afterRender`] (https://github.com/okta/okta-signin-widget?tab=readme-ov-file#afterrender)to change label text or input labels on a page.
-
-With the third generation, `afterRender` is incompatible with customizations that make DOM manipulations and other render-related side-effects (see [Components and Hooks must be pure](https://react.dev/reference/rules/components-and-hooks-must-be-pure)).
+The third generation of the Sign-In Widget is built on [Preact](https://preactjs.com/), a lightweight React alternative. This means that the [`afterRender`] (https://github.com/okta/okta-signin-widget?tab=readme-ov-file#afterrender) function doesn't work when used to make DOM manipulations and other render-related side-effects. See [Components and Hooks must be pure](https://react.dev/reference/rules/components-and-hooks-must-be-pure).
 
 #### Resolve the afterRender revert
 
