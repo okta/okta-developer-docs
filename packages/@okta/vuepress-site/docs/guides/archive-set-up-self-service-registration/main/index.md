@@ -2,43 +2,46 @@
 title: Set up self-service registration
 ---
 
-> **Note:** This document is only for Classic Engine. If you’re using Okta Identity Engine, see [Self-service registration](/docs/guides/oie-embedded-sdk-use-case-self-reg/android/main/). See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.
+This guide explains how to set up the self-service registration (SSR) feature with Okta Classic Engine. You can configure a custom app or the Okta page that allow users to self-register.
 
-This guide explains how to set up Okta's self-service registration (SSR) functionality with Classic Engine so that you can configure a custom app or the Okta page that allow users to self-register.
+> **Notes:**
+> * If you have an existing org in Classic Engine with SSR already enabled, you can use this guide.
+> * If you have a new org in Classic Engine, you can't enable this feature.
+> * If you have an org in Okta Identity Engine, see [Self-service registration](/docs/guides/oie-embedded-sdk-use-case-self-reg/android/main/). See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Use policies to govern SSR behavior.
 * Enable and disable SSR recovery options.
 * Configure SSR options in the Okta Sign-In Widget.
 
-**What you need**
+#### What you need
 
-* SSR enabled in your Okta org.
+* SSR enabled in your Okta org
 * [Super admin permissions](https://help.okta.com/okta_help.htm?id=ext_superadmin) (required to enable SSR)
-* Sign-In Widget version 2.9 or later if you’re hosting a customized [widget](/docs/guides/archive-embedded-siw/)
+* Okta Sign-In Widget version 2.9 or later if you’re hosting a customized [widget](/docs/guides/archive-embedded-siw/)
 
 ---
 
-## About Okta's self-service registration
+## About self-service registration (SSR)
 
-A new user's first impression starts with the registration process, which makes it critical to get right. Since you're asking a user to provide information for the first time, you need to personalize and streamline the experience.
+A new user's first impression starts with registration. Since you're asking a user to provide information for the first time, you need to personalize and streamline the experience.
 
-Okta's self-service registration lets you configure a custom app or the Okta homepage for use when users self-register. After you configure and enable your self-service registration policy, a sign-up link appears in the [Okta Sign-In Widget](/docs/guides/archive-embedded-siw/). Users who click this link are directed to a Create Account registration form that is based on your registration policy.
+SSR lets you configure a custom app or the Okta homepage to let new users register. After you configure and enable your SSR policy, a sign-up link appears in the [Okta Sign-In Widget](/docs/guides/archive-embedded-siw/). Users who click this link go to a Create Account registration form. The form is based on your registration policy.
 
 Self-service registration supports these registration workflows:
 
 * **Make email verification mandatory.** Users are sent an email to verify their email address immediately after registering their information. They must click the link in the email to complete the registration process. They’re then redirected to their app or to their org's Okta homepage.
 
-   > **Note:** The lifetime of the emailed link is set by the **Activation emails are valid for** setting on the **Security** > **General** page of the Admin Console.
+   > **Note:** The **Activation emails are valid for** element sets the lifetime of the emailed link. Find it on the **Security** > **General** page of the Admin Console.
 
 * **Make email verification optional.** After registration, users are immediately redirected to their custom app/portal or to their org's Okta homepage. Okta then sends the user an email to request verification of their email address.
 
 ## Enable and configure a self-service registration policy
 
-Use a self-service registration policy to let users self-register for application access. When you create the policy, you can choose the fields that you want to include on the Create Account registration form. You can also specify how those fields are ordered, and mark which of the fields are required.
+Use a self-service registration policy to let users self-register for app access. When you create the policy, you can choose the fields that you want to include on the Create Account registration form. You can also specify the order of the fields, and the fields that are required.
 
 When you enable a self-service registration policy, Okta enforces uniqueness for all primary email addresses. When registering, users need to provide their email address. Okta automatically uses the email address for the username and primary email address.
 
@@ -48,8 +51,10 @@ When you enable a self-service registration policy, Okta enforces uniqueness for
 1. If this is your first time on this page, click **Enable Registration**. Otherwise, click **Edit**.
 1. In the **ACCOUNT** section, you can add a sign-up link and assign the user to an existing group automatically:
 
-   * **Add to Sign-In Widget:** Optional. Select this option if you want to add a sign-up link to your Okta-hosted sign-in page. By adding a sign-up link to Okta Sign-In Widget, you eliminate the need to configure a link that uses JavaScript in the Customize Sign-In Page editor.
-   * **Assign to group:** Optional. Enter the existing group name that users are automatically added to when they self-register. Group membership determines which password policy is applied during registration. If no group is specified, Okta applies the Default password policy.
+   * **Add to Sign-In Widget:** Optional. Select this option if you want to add a sign-up link to your Okta-hosted sign-in page. By adding a sign-up link to the Okta Sign-In Widget, you don't need to configure a link that uses JavaScript in the editor.
+   * **Assign to group:** Optional. Enter the group name that users are automatically added to when they self-register. Group membership determines which password policy is applied during registration. If no group is specified, Okta applies the default password policy even if that policy is applied for non-Okta-sourced users.
+
+   > **Note:** If you're using Identity Engine, Okta doesn't apply the default password policy to non-Okta-sourced users. See [Self-service registration](/docs/guides/oie-embedded-sdk-use-case-self-reg/android/main/).
 
 1. In the **REGISTRATION FORM** section, you can add a customized label for the **Email** and **Password** fields and define which fields are required. The fields in this section are what the user sees when they register.
 
@@ -76,7 +81,9 @@ When you enable a self-service registration policy, Okta enforces uniqueness for
 
 1. In the **POST REGISTRATION** section, complete these fields:
 
-    * **Activation requirements:** Optional. Select the checkbox to automatically send users a register activation email. If you don't select the checkbox, and users aren't required to verify their email address for activation, a Registration Verification email that uses the Okta email template is sent.
+    * **Activation requirements:** Optional. Select the checkbox to automatically send users a register activation email. A registration verification email is sent, using the Okta email template, given the following:
+      * You don't select the checkbox
+      * Users aren't required to verify their email address for activation
 
     * **Default redirect:** After registration, users are redirected to the app that sent them to the registration form. If no app context is provided, they’re redirected to the location that you select here.
 
@@ -86,23 +93,37 @@ When you enable a self-service registration policy, Okta enforces uniqueness for
    > **Note:** Ensure that the domain for the custom URL that you've configured for the **Default redirect** is added as a [Trusted Origin](/docs/guides/enable-cors/) for redirects.
 
 1. Click **Save**.
-1. Optional. If you added more fields (existing Okta user profile attributes) from the attribute list to the registration form during step 4, and you want to allow your users to modify those fields after registration on their **Settings** page:
+1. Optional. Follow these steps given the following:
 
-    * Go to **Directory** and then **Profile Editor**.
-    * Click **Profile** for the **Okta User (default)** profile.
-    * Find the attribute that you added, and then click its information icon.
-    * Change the **User permission** dropdown menu to **Read - Write**.
-    * Click **Save Attribute**.
+  * You can add more fields (existing Okta user profile attributes) from the attribute list to the registration form
+  * You want to allow users to modify those fields after registration on their **Settings** page
 
-## Disable the security image and additional self-service recovery options
+    1. Go to **Directory** > **Profile Editor**.
+    1. Click **Profile** for the **Okta User (default)** profile.
+    1. Find the attribute that you added, and then click its information icon.
+    1. Change the **User permission** dropdown menu to **Read - Write**.
+    1. Click **Save Attribute**.
+    {style="list-style-type:lower-alpha"}
 
-New users are prompted to choose a security image and optionally an additional security question prompt when they first sign in. To provide your users with a seamless and smooth sign-in experience, you may need to disable these options.
+## Disable the security image and other self-service recovery options
+
+When new users first sign in, they’re prompted with the following:
+
+* Choose a security image
+* Choose an additional security question (optional)
+
+To disable these options:
 
 1. In the Admin Console, go to **Settings** > **Customization**.
 1. In the **Optional User Account Fields** section, click **Edit**.
-1. Select **Disabled** from the **Security image** dropdown menu, and then click **Save**.
+1. From the **Security image** dropdown menu, select **Disabled**, and then click **Save**.
 
-If you don't have any policies configured or your org doesn't allow you to disable additional self-service recovery options, you can skip the following steps. Disabling additional self-service recovery options is an Early Access feature. To enable it, contact [Okta Support](https://support.okta.com/help/s/?_ga=2.17747641.1660906902.1597076228-1076744453.1575496867).
+You can skip the steps to disable other self-service recovery options given the following:
+
+* Your org doesn't have any configured policies
+* Your org doesn't allow you to disable other self-service recovery options
+
+To disable other self-service recovery options:
 
 1. Go to **Security** > **Authentication**.
 1. Select a policy from the left, click **Edit**, and scroll down to **ACCOUNT RECOVERY**.
@@ -110,11 +131,11 @@ If you don't have any policies configured or your org doesn't allow you to disab
 1. Click **Update Policy**.
 1. Repeat steps 3–4 for any other policies that you configure.
 
-## Configure registration in the Okta Sign-In Widget
+## Configure SSR in the Okta Sign-In Widget
 
-### Configure registration in a custom sign-in page in the Okta-hosted widget
+### Configure SSR in the Okta-hosted widget
 
-If you left the [**Add to Sign-In Widget**](#enable-and-configure-a-self-service-registration-policy) checkbox clear when you configured the registration policy, then you need to configure a link using JavaScript in the **Customize Sign-In Page** HTML editor.
+You can leave the [**Add to Sign-In Widget**](#enable-and-configure-a-self-service-registration-policy) checkbox clear when you configure the registration policy. However, you need to configure a link using JavaScript in the **Customize Sign-In Page** HTML editor.
 
 > **Note:** To enable the Custom Sign-In Page HTML editor, you must have a [custom domain](/docs/guides/custom-url-domain/) configured.
 
@@ -129,9 +150,9 @@ If you left the [**Add to Sign-In Widget**](#enable-and-configure-a-self-service
 
 1. Click **Save and Publish**.
 
-### Configure self-service registration in an embedded or self-hosted widget
+### Configure SSR in an embedded or self-hosted widget
 
-Before you can configure self-service registration in your embedded or self-hosted widget, ensure that you first enable [self-service registration](#enable-and-configure-a-self-service-registration-policy). Then you can set `feature.registration` in the widget to `true`.
+Before you can configure self-service registration in your embedded or self-hosted widget, ensure that you first enable [self-service registration](#enable-and-configure-a-self-service-registration-policy). Then you can set `feature.registration` in Sign-In Widget to `true`.
 
 ```json
       features: {
@@ -139,11 +160,9 @@ Before you can configure self-service registration in your embedded or self-host
       }
 ```
 
-> **Note**: This [feature flag](https://github.com/okta/okta-signin-widget#feature-flags) is used to enable the registration feature on the widget.
+> **Note**: This [feature flag](https://github.com/okta/okta-signin-widget#feature-flags) is used to enable the registration feature on the Sign-In Widget.
 
 ## Next steps
-
-Now that you understand how to set up self-service registration, you can learn how to implement various [OAuth 2.0 and OpenID Connect](/docs/concepts/oauth-openid/) flows, configure policies for role-based access, and use tokens to provide API authorization.
 
 * [Implement the Authorization Code flow](/docs/guides/implement-grant-type/authcode/main/)
 * [Implement the Authorization Code flow with PKCE](/docs/guides/implement-grant-type/authcodepkce/main/)
