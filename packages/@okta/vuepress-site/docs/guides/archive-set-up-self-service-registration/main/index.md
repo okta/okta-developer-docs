@@ -81,7 +81,7 @@ When you enable a self-service registration policy, Okta enforces uniqueness for
 
 1. In the **POST REGISTRATION** section, complete these fields:
 
-    * **Activation requirements:** Optional. Select the checkbox to automatically send users a register activation email. A Registration Verification email is sent, using the Okta email template, given the following:
+    * **Activation requirements:** Optional. Select the checkbox to automatically send users a register activation email. A registration verification email is sent, using the Okta email template, given the following:
       * You don't select the checkbox
       * Users aren't required to verify their email address for activation
 
