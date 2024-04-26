@@ -79,7 +79,7 @@ See [Customization examples](#customization-examples) for snippets that you can 
 
 ### Use afterRender with the third generation
 
-The third generation of the Sign-In Widget is built on [Preact](https://preactjs.com/), a lightweight React alternative. This means that the `afterRender` function doesn't work with the third generation.
+The third generation of the Sign-In Widget is built on [Preact](https://preactjs.com/), a lightweight React alternative. This means that the `afterRender` function doesn't work when used to make DOM manipulations in the third generation.
 
 With the second generation of the Sign-In Widget, you can use [`afterRender`] (https://github.com/okta/okta-signin-widget?tab=readme-ov-file#afterrender)to change label text or input labels on a page.
 
