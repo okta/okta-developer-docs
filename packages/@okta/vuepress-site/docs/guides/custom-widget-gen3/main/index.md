@@ -3,6 +3,7 @@ title: Style the Sign-In Widget (third generation)
 excerpt: Learn how to customize the Sign-In Widget (third generation)
 layout: Guides
 ---
+<ApiLifecycle access="ie" />
 
 This guide explains how to customize the Sign-In Widget (third generation) for redirect authentication.
 
@@ -147,7 +148,7 @@ To update UI elements, consider the following example:
  </script>
  ```
 
- The third generation can use the `afterRender` function for non-DOM manipulations without additional logic. The following example doesn't update the UI, but instead sends a log to your external logging service:
+ The third generation can use the `afterRender` function for non-DOM manipulations without extra logic. The following example doesn't update the UI, but instead sends a log to your external logging service:
 
  ```javascript
  <script type="text/javascript" nonce="{{nonceValue}}">
