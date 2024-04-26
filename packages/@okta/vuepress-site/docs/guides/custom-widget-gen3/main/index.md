@@ -80,7 +80,7 @@ See [Customization examples](#customization-examples) for snippets that you can 
 
 ### About the afterRender function
 
-The third generation of the Sign-In Widget is built on [Preact](https://preactjs.com/), a lightweight React alternative. This means that the [`afterRender`] (https://github.com/okta/okta-signin-widget?tab=readme-ov-file#afterrender) function doesn't work when used to make DOM manipulations and other render-related side-effects. See [Components and Hooks must be pure](https://react.dev/reference/rules/components-and-hooks-must-be-pure).
+The third generation of the Sign-In Widget is built on [Preact](https://preactjs.com/), a lightweight React alternative. This means that the [`afterRender`] (https://github.com/okta/okta-signin-widget?tab=readme-ov-file#afterrender) function doesn't work when used to make DOM manipulations and other render-related side-effects. The Okta Sign-In Widget reverts your customizations to default settings. See [Components and Hooks must be pure](https://react.dev/reference/rules/components-and-hooks-must-be-pure).
 
 #### Resolve the afterRender revert
 
