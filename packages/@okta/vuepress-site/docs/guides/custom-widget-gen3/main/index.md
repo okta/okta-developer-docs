@@ -105,7 +105,7 @@ To update UI elements, consider the following example:
       }
       // For the reset-authenticator view, updates the button label
       if (contextObj.formName === 'reset-authenticator') {
-        const el = document.querySelector('[data-type="save"]');
+        var el = document.querySelector('[data-type="save"]');
         if (el) { el.textContent = 'A different label'; }
       }
     }
