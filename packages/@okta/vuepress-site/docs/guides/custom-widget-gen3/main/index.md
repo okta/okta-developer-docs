@@ -96,7 +96,7 @@ To update UI elements, consider the following example:
 
     var oktaSiwRoot = document.querySelector('#okta-login-container');
     // The following allows you to reference the context from each render
-    let contextObj = {};
+    var contextObj = {};
     function cb(mutations, observer) {
       // For the primary auth form, updates the button label
       if (contextObj.formName === 'identify') {
