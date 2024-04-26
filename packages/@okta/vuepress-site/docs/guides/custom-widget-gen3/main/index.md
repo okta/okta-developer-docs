@@ -79,9 +79,11 @@ See [Customization examples](#customization-examples) for snippets that you can 
 
 ### Use afterRender with the third generation
 
-The third generation of the Sign-In Widget is built on [Preact](https://preactjs.com/) -- a lightweight React alternative. This means the `afterRender` function incompatible with customizations that make DOM manipulations and other render-related side-effects (see [Components and Hooks must be pure](https://react.dev/reference/rules/components-and-hooks-must-be-pure)).
+The third generation of the Sign-In Widget is built on [Preact](https://preactjs.com/), a lightweight React alternative. This means that the `afterRender` function doesn't work with the third generation.
 
-With the second generation of Sign-In Widget, you can use `afterRender` to change label text or input labels on a page. The Sign-In Widget triggers `afterRender` when transitioning to a new page and animations have finished. See [afterRender](https://github.com/okta/okta-signin-widget?tab=readme-ov-file#afterrender). This will not work in the third generation of Sign-in Widget.
+With the second generation of the Sign-In Widget, you can use [`afterRender`] (https://github.com/okta/okta-signin-widget?tab=readme-ov-file#afterrender)to change label text or input labels on a page.
+
+With the third generation, `afterRender` is incompatible with customizations that make DOM manipulations and other render-related side-effects (see [Components and Hooks must be pure](https://react.dev/reference/rules/components-and-hooks-must-be-pure)).
 
 #### Resolve the afterRender revert
 
@@ -145,7 +147,7 @@ To update UI elements, consider the following example:
  </script>
  ```
 
- The following example doesn't update the UI, but instead sends a log to your external logging service:
+ The third generation can use the `afterRender` function for non-DOM manipulations without additional logic. The following example doesn't update the UI, but instead sends a log to your external logging service:
 
  ```javascript
  <script type="text/javascript" nonce="{{nonceValue}}">
