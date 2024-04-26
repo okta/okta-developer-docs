@@ -158,7 +158,7 @@ To update UI elements, consider the following example:
        console.log(error.message, error);
     });
 
-    oktaSignIn.on('afterRender', (context) => {
+    oktaSignIn.on('afterRender', function (context) {
        if (context.formName === 'identify') {
           // Sends a log to your external logging service indicating a customer landed on this view
           someExternalLoggingService.log('Rendered Primary auth form'); 
