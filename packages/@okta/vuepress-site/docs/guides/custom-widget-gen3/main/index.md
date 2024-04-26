@@ -82,7 +82,10 @@ See [Customization examples](#customization-examples) for snippets that you can 
 
 The third generation of the Sign-In Widget is built on [Preact](https://preactjs.com/), a lightweight React alternative. This means that the [`afterRender`] (https://github.com/okta/okta-signin-widget?tab=readme-ov-file#afterrender) function doesn't work when used to make DOM manipulations and other render-related side-effects. The Okta Sign-In Widget reverts your customizations to default settings. See [Components and Hooks must be pure](https://react.dev/reference/rules/components-and-hooks-must-be-pure).
 
-#### Resolve the afterRender revert
+* To use `afterRender` for DOM manipulations, include the `MutationObserver()` function.
+* To use `afterRender` for non-DOM manipulations, you don't need the `MutationObserver()` function.
+
+#### Use MutationObserver for DOM manipulations
 
 To keep the third generation of the Sign-In Widget from reverting your `afterRender` customizations, use the DOM `MutationObserver()` function. See [MutationObserver](https://dom.spec.whatwg.org/#ref-for-dom-mutationobserver-mutationobserver).
 
@@ -144,7 +147,9 @@ To update UI elements, consider the following example:
  </script>
  ```
 
- The third generation can use the `afterRender` function for non-DOM manipulations without extra logic. The following example doesn't update the UI, but instead sends a log to your external logging service:
+#### User afterRender for non-Dom manipulations
+
+ The third generation can use the `afterRender` function for non-DOM manipulations without extra logic. The following example doesn't update the UI, so it doesn't need the `MutationObserver`. Instead, it sends a log to your external logging service:
 
  ```javascript
  <script type="text/javascript" nonce="{{nonceValue}}">
