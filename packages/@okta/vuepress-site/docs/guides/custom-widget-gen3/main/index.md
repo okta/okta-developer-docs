@@ -100,7 +100,7 @@ To update UI elements, consider the following example:
     function cb(mutations, observer) {
       // For the primary auth form, updates the button label
       if (contextObj.formName === 'identify') {
-        const el = document.querySelector('[data-type="save"]');
+        var el = document.querySelector('[data-type="save"]');
         if (el) { el.textContent = 'Some new label'; }
       }
       // For the reset-authenticator view, updates the button label
