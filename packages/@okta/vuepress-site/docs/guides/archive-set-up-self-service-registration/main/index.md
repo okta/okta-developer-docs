@@ -98,7 +98,7 @@ When you enable a self-service registration policy, Okta enforces uniqueness for
   * You can add more fields (existing Okta user profile attributes) from the attribute list to the registration form
   * You want to allow users to modify those fields after registration on their **Settings** page
 
-    1. Go to **Directory** and then **Profile Editor**.
+    1. Go to **Directory** > **Profile Editor**.
     1. Click **Profile** for the **Okta User (default)** profile.
     1. Find the attribute that you added, and then click its information icon.
     1. Change the **User permission** dropdown menu to **Read - Write**.
