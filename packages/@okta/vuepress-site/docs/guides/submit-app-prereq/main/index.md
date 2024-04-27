@@ -35,6 +35,8 @@ Review the following submission artifact guidelines:
 
 Before you submit your integration, ensure that your integration uses features that are supported in the OIN. See [OIN multi-tenancy](#oin-multi-tenancy) and [OIN limitations](#oin-limitations).
 
+See [OIN Wizard requirements](#oin-wizard-requirements) for pubishing SSO integrations.
+
 ## OIN multi-tenancy
 
 Your app integration must support multi-tenancy to be listed in the public OIN catalog.
@@ -62,6 +64,47 @@ The following multi-tenant example assumes that your Okta app integration suppor
 * Customer A instantiates an OIDC integration for your app in their Okta org and obtains the integration client ID and secret. They then sign in to your app platform portal and set up SSO configuration with their client ID, client secret, and Okta domain. Customer A enables SSO to your app for their users, and doesn't require any external assistance.
 * Similarly, customer B instantiates your OIDC app integration in their Okta org and obtains their unique client ID and secret. They then sign in to their account on your app platform. They use their client ID, client secret, and Okta domain (for the issuer URL) to enable SSO without any assistance from you.
 * Each customer enables SSO to your app for their users in a separate credential system with their Okta org. Because you've created a self-service portal that allows your customers to enable SSO by themselves, you save resources and provide autonomy to your customers.
+
+## OIN Wizard requirements
+
+The OIN Wizard is only available in Okta Developer Edition orgs. To access the OIN Wizard and the **Your OIN Integrations** dashboard in your org, you must have either the Super Administrator or the Application Administrator role assigned to you.
+
+> **Note:** For backwards-compatibility testing in the OIN Wizard, you must have the Super Administrator role assigned.
+
+Part of your OIN Wizard journey includes using the OIN Submission Tester to verify that your integration works before you can submit your integration. The OIN Submission Tester requires the following:
+
+* Google Chrome browser
+* [Okta Browser Plugin](https://help.okta.com/okta_help.htm?type=eu&id=csh-user-plugin-overview) installed with **Allow in Incognito** enabled
+* A password-only authentication policy for the OIN Submission Tester app
+
+See [Install the Okta Browser Plugin with Chrome](https://help.okta.com/okta_help.htm?type=eu&id=ext_plugin_installation).
+
+> **Note:** The OIN Submission Tester requires Okta Browser Plugin version 6.30.0 or later. If you already have the plugin installed, it's automatically updated after each Okta release.
+
+After you installed the Okta Browser Plugin in your Chrome browser, set **Allow in Incognito** mode:
+
+1. In Chrome settings, click **Extensions**.
+1. From the Okta Browser Plugin tile, click **Details**.
+1. Enable the **Allow in Incognito** option.
+1. Close the **Extensions** and **Settings** tabs.
+1. Refresh your OIN Wizard browser tab.
+
+The OIN Submission Tester is an Okta app installed in your Developer Edition org. This app requires a password-only authentication policy to run properly.
+
+For Developer Edition orgs, the default authentication policy is initially password only. Create a separate authentication policy for the OIN Submission Tester if you modify the default authentication policy to use multifactor authentication.
+
+To create a password-only authentication policy for the OIN Submission Tester app, follow these steps:
+1. In the Admin Console, go to **Security** > Authentication Policies.
+1. Click **Add a policy**.
+1. Enter a policy **Name** and **Description**, such as "OIN Submission Tester policy" and "Password-only policy for the OIN Submission Tester".
+1. Click **Save**. The **Rules** tab appears for the new policy.
+1. Select **Actions** > **Edit** next to the **Catch-all Rule** entry.
+1. In the **THEN** section, select **Password** next to the **AND User must authenticate with** property.
+1. In the same **THEN** section, select **When an Okta global session doesn't exist** next to **AND Prompt for authentication** property.
+1. Click **Save**.
+1. In the **Applications** tab, click **Add app**.
+1. Click **Add** next to the **Okta OIN Submission Tester** app. A warning dialog appears.
+1. Click **Add anyway**. Click **Done** in the **Add Apps to this Policy** dialog.
 
 ## Logo guidelines
 
