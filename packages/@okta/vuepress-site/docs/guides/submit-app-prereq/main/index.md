@@ -67,9 +67,9 @@ The following multi-tenant example assumes that your Okta app integration suppor
 
 ## OIN Wizard requirements
 
-The OIN Wizard is only available in Okta Developer Edition orgs. To access the OIN Wizard and the **Your OIN Integrations** dashboard in your org, you must have either the Super admin or the App admin role assigned to you.
+The OIN Wizard is only available in Okta Developer Edition orgs. To access the OIN Wizard and the **Your OIN Integrations** dashboard in your org, you must have either the super admin or the app admin role assigned to you.
 
-> **Note:** For backwards-compatibility testing in the OIN Wizard, you must have the Super admin role assigned.
+> **Note:** For backwards-compatibility testing in the OIN Wizard, you must have the super admin role assigned.
 
 Part of your OIN Wizard journey includes using the OIN Submission Tester to verify that your integration works before you can submit your integration. The OIN Submission Tester requires the following:
 
@@ -94,7 +94,7 @@ The OIN Submission Tester is an Okta app installed in your Developer Edition org
 For Developer Edition orgs, the default authentication policy is initially password only. Create a separate authentication policy for the OIN Submission Tester if you modify the default authentication policy to use multifactor authentication.
 
 To create a password-only authentication policy for the OIN Submission Tester app, follow these steps:
-1. In the Admin Console, go to **Security** > Authentication Policies.
+1. In the Admin Console, go to **Security** > **Authentication Policies**.
 1. Click **Add a policy**.
 1. Enter a policy **Name** and **Description**, such as "OIN Submission Tester policy" and "Password-only policy for the OIN Submission Tester".
 1. Click **Save**. The **Rules** tab appears for the new policy.
