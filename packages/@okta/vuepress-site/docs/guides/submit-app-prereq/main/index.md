@@ -67,9 +67,9 @@ The following multi-tenant example assumes that your Okta app integration suppor
 
 ## OIN Wizard requirements
 
-The OIN Wizard is only available in Okta Developer Edition orgs. To access the OIN Wizard and the **Your OIN Integrations** dashboard in your org, you must have either the Super Administrator or the Application Administrator role assigned to you.
+The OIN Wizard is only available in Okta Developer Edition orgs. To access the OIN Wizard and the **Your OIN Integrations** dashboard in your org, you must have either the Super admin or the App admin role assigned to you.
 
-> **Note:** For backwards-compatibility testing in the OIN Wizard, you must have the Super Administrator role assigned.
+> **Note:** For backwards-compatibility testing in the OIN Wizard, you must have the Super admin role assigned.
 
 Part of your OIN Wizard journey includes using the OIN Submission Tester to verify that your integration works before you can submit your integration. The OIN Submission Tester requires the following:
 
