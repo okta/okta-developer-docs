@@ -17,7 +17,7 @@ Use this guide to learn how to submit an SSO integration to the Okta Integration
 
 #### What you need
 
-* An [Okta Developer Edition org](https://developer.okta.com/signup/). The OIN Wizard is only available in Developer Edition orgs.
+* An [Okta Developer Edition org](https://developer.okta.com/signup/). The OIN Wizard is only available in Okta Developer Edition orgs.
 * An admin user in the Okta Developer Edition org with either the super admin or the app admin role
 * A functional SSO integration based on the [Build a Single Sign-On integration](/docs/guides/build-sso-integration/) guide
 * Google Chrome browser with the Okta Browser Plugin installed (see [OIN Wizard requirements](/docs/guides/submit-app-prereq/main/#oin-wizard-requirements))
@@ -63,7 +63,7 @@ This guide covers submissions that use the following protocols:
 
 Review the [OIN submission requirements](/docs/guides/submit-app-prereq) before you start your submission. There are artifacts and technical details that you need to provide during the submission process.
 
-> **Note:** As a best practice, add two or three extra admin users in your Okta org to manage the integration. This ensures that your team can access the integration for updates in the future. See [Add users manually](https://help.okta.com/okta_help.htm?type=oie&id=ext-usgp-add-users) and ensure that the super admin or the app admin role is assigned.
+> **Note:** As a best practice, add two or three extra admin users in your Okta org to manage the integration. This ensures that your team can access the integration for updates in the future. See [Add users manually](https://help.okta.com/okta_help.htm?type=oie&id=ext-usgp-add-users) and ensure that the super admin or the app admin role is assigned to the admin users.
 
 Start your integration submission for OIN publication:
 
@@ -174,7 +174,7 @@ The OIN Wizard journey includes the **Test your integration experience** page to
 
 ### Generate instances for testing
 
-Generate instances for testing in your Developer Edition org directly from the OIN Wizard. The wizard takes the configuration and test information from your OIN submission and allows you to configure a specific integration instance to your test app. The generated instance allows you to test your customer admin experience and end-user sign-in experience. Generate an instance for each SSO protocol that your integration supports.
+Generate instances for testing in your Developer Edition org directly from the OIN Wizard. The wizard takes the configuration and test information from your OIN submission and allows you to configure a specific integration instance to your test app. The generated instance allows you to test your customer admin experience and end user sign-in experience. Generate an instance for each SSO protocol that your integration supports.
 
 To generate an integration instance:
 
@@ -186,7 +186,7 @@ To generate an integration instance:
 
     If you need to change any labels or properties, go back to edit your submission.
 
-    > **Note:** There's a limit of five app instances in a Developer Edition org. The **Generate instance** button is deactivated when you reach this limit. Deactivate unused instances to make room for new instances in your org. See [Deactivate app instances in your org](#deactivate-an-app-instance-in-your-org).
+    > **Note:** There's a limit of five app instances in a Developer Edition org. **Generate instance** is deactivated when you reach this limit. Deactivate unused instances to make room for new instances in your org. See [Deactivate app instances in your org](#deactivate-an-app-instance-in-your-org).
 
 <StackSnippet snippet="test-instance" />
 
@@ -207,10 +207,10 @@ To assign test users to your integration:
 
 ### Required app instances
 
-The **Required app instances** box shows you the instances detected in your org that are available to test your integration. It also shows you the test instances required for the OIN Submission Tester based on your selected protocols and the features your integration supports:
+The **Required app instances** box shows you the instances detected in your org that are available to test your integration. It also shows you the test instances required for the OIN Submission Tester based on your selected protocols:
 
-* You need an instance for each SSO protocol that your integration supports. The **CURRENT VERSION** status indicates this requirement.
-* If you edit a previously published integration, you need an additional instance per protocol to test backwards compatibility. The **PUBLISHED VERSION** status indicates this requirement. See [Update your integration](#update-your-integration).
+* The **CURRENT VERSION** status indicates the instances that you need to test your current integration submission.
+* The **PUBLISHED VERSION** status indicates the instances that you need to test backwards compatibility if you edit a previously published integration. See [Update your integration](#update-your-integration).
 
 ### Application instances for testing
 
@@ -228,7 +228,7 @@ There's a maximum of five active instances allowed in a Developer Edition org, s
 
 Click **Add to Tester** next to the instance from the **Application instances for testing** list to include it for testing with the OIN Submission Tester. The **Add to Tester** option only appears for instances that are active and eligible for testing. Add a test instance for each SSO protocol that your integration supports.
 
-After you click **Add to Tester** for the instance, the corresponding test cases are populated with the instance name, and the **Run test** options are enabled in the OIN Submission Tester.
+After you click **Add to Tester** for the instance, the corresponding test cases are populated with the instance name and the **Run test** option is enabled in the OIN Submission Tester.
 
 Click **Remove from Tester** to disable the test cases associated with the instance from the OIN Submission Tester.
 
@@ -249,8 +249,8 @@ Alternatively, to deactivate an app instance without the OIN Wizard, see [Deacti
 If you need to edit the app instance from the OIN Wizard:
 
 1. Go to **Test your integration experience** > **Application instances for testing**.
-1. Click **Clear filters** to see all instances in your org if you don’t see the instance you want to edit.
-1. Select **Update instance details** from the more icon (![three-dot more icon](/img/icons/more-odys.svg)) next to the app instance you want to update. The app integration instance details page appears.
+1. Click **Clear filters** to see all instances in your org if you don't see the instance that you want to edit.
+1. Select **Update instance details** from the more icon (![three-dot more icon](/img/icons/more-odys.svg)) next to the app instance you want to update. The instance details page appears.
 1. Edit the app instance. You can edit app instance settings or [assign users to your app instance](https://help.okta.com/okta_help.htm?type=oie&id=ext_Apps_Apps_Page-assign).
 1. Return to the OIN Wizard:
     * Click **Begin testing** (upper-right corner) for the current submission instance.
@@ -266,7 +266,7 @@ The **Test your integration experience** page includes the OIN Submission Tester
 
 > **Notes:**
 > * If you're using multiple Okta orgs, the OIN Submission Tester requires you to trust the current Developer Edition org.
-> * The first time you use the OIN Submission Tester, click **Initialize Tester** to start the test session.
+> * If it's the first time you use the OIN Submission Tester, click **Initialize Tester** to start the test session.
 > * If the OIN Submission Tester session expired, click **Refresh Tester session** for a new test session.
 
 The OIN Submission Tester includes the mechanism to test the following flows:
@@ -295,16 +295,20 @@ The **Run test** option is enabled for test cases with an eligible test instance
 To run the IdP flow test:
 
 1. Click **Run test** next to the **IdP flow** test case.
-1. A new Chrome browser in incognito mode appears for you to sign in.
+
+   A new Chrome browser in incognito mode appears for you to sign in.
+
 1. Sign in to Okta as an end user that was assigned to your test app instance.
 
     * Your app tile appears on the Okta End-User Dashboard.
-    * Your app tile is automatically selected by the Tester and you're signed in to your app.
+    * The Tester selects your app tile and you're signed in to your app.
+
 1. Verify that the test end user signed in to your app with the correct profile.
-1. In the upper-right **Test in progress** dialog, select **The user successfully signed in to your app** to confirm that the IdP flow test passed.
+1. Select **The user successfully signed in to your app** in the upper-right **Test in progress** dialog to confirm that the IdP flow test passed.
 1. Click **Continue** from the **Test in progress** dialog to sign out of your app.
 
     The incognito browser closes and you're redirected back to the OIN Submission Tester. The OIN Submission Tester records the test run result and timestamp.
+
 1. Click the **IdP flow** expand icon (![chevron-down expand icon](/img/icons/chevron-down-odys.svg)) to view the test steps and network traffic details for the test run.
 
     If your test run wasn't successful, this is a useful tool to troubleshoot the issues and correct your integration, instance, or submission details.
@@ -319,7 +323,7 @@ To run the SP flow test:
 
 1. Sign in to your app as the test end user that was assigned to your app instance.
 1. Verify that the test end user signed in to your app with the correct profile.
-1. In the upper-right **Test in progress** dialog, select **The user successfully signed in to your app** to confirm that the SP flow test passed.
+1. Select **The user successfully signed in to your app** in the upper-right **Test in progress** dialog to confirm that the SP flow test passed.
 1. Click **Continue** from the **Test in progress** dialog to sign out of your app.
 
     The incognito browser closes and you’re redirected back to the OIN Submission Tester. The OIN Submission Tester records the test run result and timestamp.
@@ -337,22 +341,22 @@ To run the JIT provisioning with IdP flow test:
 1. Click **Run test** next to the **JIT provisioning (w/ IdP flow)** test case.
 
     The OIN Submission Tester executes the following steps for the JIT provisioning test case:
-    1. Creates a new user in Okta and assigns them to the test app instance.
+    1. Creates a user in Okta and assigns them to the test app instance.
     {style="list-style-type:lower-alpha"}
-    1. Open an incognito test browser window to sign in to Okta.
+    1. Open an incognito browser window to sign in to Okta.
     1. Sign in to Okta as the test user.
     1. Select the app tile.
     1. Wait for confirmation that the new test user signed in and was provisioned in your app (you're responsible to verify this step).
 
 1. Verify that the test user signed in to your app with the correct first name, last name, and email attributes.
 
-    > **Note:** You can go back to the OIN Submission Tester window and expand the test case to view network traffic details for this test run. The NETWORK TRAFFIC tab contains API calls to Okta with the test user account details in the request payload.
+    > **Note:** You can go back to the OIN Submission Tester window and expand the test case to view network traffic details for this test run. The **NETWORK TRAFFIC** tab contains API calls to Okta with the test user details in the request payload.
 
-1. In the upper-right **Test in progress** dialog, select **The user successfully signed in to your app** to confirm that the JIT provisioning IdP flow test passed.
+1. Select **The user successfully signed in to your app** in the upper-right **Test in progress** dialog to confirm that the JIT provisioning IdP flow test passed.
 1. Click **Continue** from the **Test in progres**s dialog to sign out of your app.
 
     The OIN Submission Tester executes the following steps after you click **Continue**:
-    1. Sign out of the app and close the test incognito browser window.
+    1. Sign out of the app and close the incognito browser window.
     {style="list-style-type:lower-alpha"}
     1. Unassign the test user from the app instance in Okta.
     1. Deletes the test user from Okta.
@@ -365,7 +369,7 @@ To run the JIT provisioning with IdP flow test:
 
 ##### Run the JIT provisioning with SP flow test
 
-You're only required to pass one JIT provisioning test case in order to submit your integration. The OIN Submission Tester includes the JIT provisioning with SP flow test case if you support JIT and only the SP flow. If your integration supports JIT, IdP, and SP flows, then a successful JIT provisioning (with IdP flow) test is sufficient for submission.
+You're only required to pass one JIT provisioning test case to submit your integration. The OIN Submission Tester includes the JIT provisioning with SP flow test case if you support JIT and only the SP flow. If your integration supports JIT, IdP, and SP flows, then a successful JIT provisioning (with IdP flow) test is sufficient for submission.
 
 To run the JIT provisioning with SP flow test, follow the same steps in [Run the JIT provisioning with IdP flow test](#run-the-jit-provisioning-with-idp-flow-test).
 
@@ -373,9 +377,9 @@ To run the JIT provisioning with SP flow test, follow the same steps in [Run the
 
 If any of your test cases fail, investigate and resolve the failure before you submit your integration. You can only submit integrations that have successfully passed all the required tests in the OIN Submission Tester.
 
-If you have to update SSO or test detail properties in your submission to resolve your failed test cases, then [generate a new app integration instance for testing](#generate-instances-for-testing). [Assign test users to your new integration instance](#assign-test-users-to-your-integration-instance) before executing all your SSO test cases again.
+If you have to update SSO or test detail properties in your submission to resolve your failed test cases, then [generate a new app integration instance for testing](#generate-instances-for-testing). [Assign test users to your new integration instance](#assign-test-users-to-your-integration-instance) before you execute all your SSO test cases again.
 
-> **Note:** You don't have to generate a new app instance for every failed test scenario. If you have an environment issue or if you forgot to assign a user, you can fix your configuration and run the tests again. Generate a new instance only if you need to modify an SSO property, such as an integration variable, a redirect URI, or an ACS URL.
+> **Note:** You don't have to generate a new app instance for every failed test scenario. If you have an environment issue or if you forgot to assign a user, you can fix your configuration and run the tests again. Generate a new instance if you need to modify an SSO property, such as an integration variable, a redirect URI, or an ACS URL.
 
 It's good practice to deactivate your test instances that aren't in use. You can later delete the instance to clean your app integration list.
 
@@ -387,35 +391,37 @@ All required tests in the OIN Submission Tester must have passed within 48 hours
 
 ## Update your integration
 
-You can modify your published OIN integration from the OIN Wizard. When you edit a published OIN integration, you need to test the SSO flow for the updated version and the published version for backwards compatibility. Testing the published version for backwards compatibility ensures that SSO to your app still works for customers who have already installed your published OIN integration. After you successfully test the updated and published versions of your integration, resubmit it to the OIN team.
+You can modify your published SSO integration from the OIN Wizard and resubmit a new version to the OIN.
+
+When you edit a published OIN integration, you need to test the SSO flow for the updated version and the published version for backwards compatibility. Testing the published version for backwards compatibility ensures that SSO to your app still works for customers who have already installed your published OIN integration. After you successfully test the updated and published versions of your integration, resubmit it to the OIN team.
 
 > **Note:** When you edit your published OIN integration, your previous PUBLISHED status and date are overwritten with the DRAFT status and current date.
 
 To update a previously published OIN integration:
 
-1. Sign in to your Okta Developer Edition org as a user with either App admin or Super admin roles.
+1. Sign in to your Okta Developer Edition org as a user with either app admin or super admin roles.
 1. Go to **Applications** > **Your OIN Integrations** in the Admin Console.
 1. Click your published integration to update from the dashboard. Your published OIN submission appears in read-only mode.
 1. From the **This integration is read-only** information box, click **Edit integration**.
-    > **Note:** If you open a submission in DRAFT status, it won't be in read-only mode and the **Edit integration** option isn't available. Continue to edit your draft submission like to a new submission. See [Start a submission](#start-a-submission).
-1. If the OIN Wizard doesn't detect an instance to test your published integration in the org, then an **Application instance not detected** dialog appears. Click **Generate instance** to create an app instance based on your published OIN integration. See [Generate an instance for testing](#generate-instances-for-testing) to create an instance for backwards-compatibility testing.
-    > **Note:** The **Generate instance** button is disabled if you have five active instances in your org. [Deactivate instances](#deactivate-an-app-instance-in-your-org) that you're not using.
+    > **Note:** If you open a submission in DRAFT status, it's not in read-only mode and the **Edit integration** option isn't available. Continue to edit your draft submission like to a new submission. See [Start a submission](#start-a-submission).
+1. If the OIN Wizard doesn't detect an instance to test your published integration in the org, then an **Application instance not detected** dialog appears. Click **Generate instance** to create an app instance based on your published OIN integration. See [Add existing app integrations](https://help.okta.com/okta_help.htm?type=oie&id=csh-apps-add-app) to create an instance for backwards-compatibility testing.
+    > **Note:** **Generate instance** is disabled if you have five active instances in your org. [Deactivate instances](#deactivate-an-app-instance-in-your-org) that you're not using.
 
     If the OIN Wizard detects an instance based on your published integration, the dialog doesn't appear. This is usually the case if you tested and submitted your published integration from the same org.
 
 1. Continue to update your integration in the **Select your protocol**, **Configure your integration**, and **Test your integration experience** > **Testing information** pages. See [Update integration considerations](#update-integration-considerations) for backwards compatibility with integration variables.
 1. Click **Test your integration** to open the **Test your integration experience** > OIN Submission Tester.
 
-    The **Required app instances** status box contains:
-    * The number of instances you need to test the **PUBLISHED VERSION** of your OIN integration. An instance is required for each SSO protocol your published integration supports.
-    * The number of instances you need to test the **CURRENT VERSION** of your integration submission. An instance is required for each SSO protocol your current integration supports.
+    The **Required app instances** box contains:
+    * The instances you need to test the **PUBLISHED VERSION** of your OIN integration.
+    * The instances you need to test the **CURRENT VERSION** of your integration submission.
 
     See [Required app instances](#required-app-instances).
     > **Note:** If the OIN Submission Tester session expired, click **Refresh tester session** for a new test session.
 
-    The **Application instances for testing** list displays your backward-compatible test instances that were generated from your published integration.
+    The **Application instances for testing** list displays your backwards-compatible test instances that were generated from your published integration.
 
-1. Click **Generate Instance** to create an instance for each instance required for the CURRENT VERSION from the **Required app instances** status box.
+1. Click **Generate Instance** to create an instance required for the CURRENT VERSION from the **Required app instances** status box.
 
     See [Generate an instance for testing](#generate-instances-for-testing) to create instances for your current submission.
     > **Note:** There is a maximum of five active app instances allowed in a Developer Edition org. Deactivate any instances you don't need for testing.
