@@ -31,16 +31,16 @@ As the developer, identify the integrations that have been applied to the follow
 
 ## Org upgrade process
 
-Access the **OIE Upgrade Hub** in the Admin Console and review any outstanding tasks. If there are any remediation tasks required, those remediation guides appear in the **OIE Upgrade Hub**. If there are no remediations required, then your upgrade is more simple.
+Access the **OIE Upgrade Hub** in the Admin Console and review any outstanding tasks. If there are any remediation tasks required, those remediation guides appear in the **OIE Upgrade Hub**. If there are no remediations required, then your upgrade is easier.
 
 For detailed org upgrade instructions, see the [Self-service upgrade process](https://help.okta.com/okta_help.htm?type=oie&id=ext-post-upgrade-validation-tests)
 
-Keep in mind the following considerations:
+Consider the following:
 
 * After upgrading to Okta Identity Engine, your auth experience may continue to mimic Classic Engine. However, your admin experience changes and all Okta objects from Classic Engine are now compatible with Identity Engine.
 * After you upgrade, the existing Okta-hosted Sign-In Widget works as-is.
 
-The rest of the upgrade process is defined in the next section. Which steps that you take are related to your deployment model. Okta has carefully considered how you can break up the upgrade steps to ensure that you maintain the best user experience across your applications.
+The rest of the upgrade process is defined in the next section. The steps that you take are related to your deployment model. Okta has carefully considered how you can break up the upgrade steps to ensure that you maintain the best user experience across your applications.
 
 Okta doesn't recommend doing this upgrade all at once, but rather in sections with breaks for testing. This process is designed to be non-disruptive and iterative over time. Make the upgrade steps part of your normal product development process.
 
@@ -83,13 +83,13 @@ For a more detailed look at the upgrade steps, see the [Plan embedded auth appli
 
     * **Authentication:** Make sure that your users can sign in and sign out for the workflows that you support.
 
-    * **Self-service & Admin-initiated Password Recovery:** Make sure that users can recover their factors with no impact to the user experience.
+    * **Self-service & admin-initiated password recovery:** Make sure that users can recover their factors with no impact to the user experience.
 
-    * **New Account Activation:** Make sure that the account onboarding experience works as expected end-to-end to ensure that users have a smooth start.
+    * **New account activation:** Make sure that the account onboarding experience works as expected end-to-end to ensure that users have a smooth start.
 
     * **Self-service registration:** Make sure that users can sign up (including Factor enrollment if you support that) and that there are no interruptions during that process.
 
-    * **Session Management:** If you’re using the Sessions API, some [methods for the Sessions API aren't supported in Identity Engine](https://support.okta.com/help/s/article/v1sessionssessionid-API?language=en_US).
+    * **Session management:** If you’re using the Sessions API, some [methods for the Sessions API aren't supported in Identity Engine](https://support.okta.com/help/s/article/v1sessionssessionid-API?language=en_US).
 
 ## More Resources
 
