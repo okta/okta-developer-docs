@@ -266,7 +266,7 @@ The entity that an actor performs an action on. Targets can be anything, such as
 
 #### changeDetails property
 
-The `changeDetails` property of the `target` object defines the change of state of an entity within Okta. Each `changeDetails` property contains a `to` and `from` object that defines the state change. Not all event types support the `changeDetails` property, and not all `target` objects contain the `changeDetails` property.
+The `changeDetails` property of the `target` object defines the change of state of an entity within Okta. Each `changeDetails` property contains a `to` and `from` object that defines the change. Not all event types support the `changeDetails` property, and not all `target` objects contain the `changeDetails` property.
 
 ```json
 "target": [
