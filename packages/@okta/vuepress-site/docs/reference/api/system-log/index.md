@@ -137,6 +137,12 @@ Each LogEvent object describes a single logged action or "event" that is perform
                "detailEntry" = {
                     String -> String/Resource Map
                }
+              "changeDetails" = {
+                  "from:": {String -> String/Resource Map
+                  }
+                  "to:": {String -> String/Resource Map
+                  }
+              }
      }
 ],
 "transaction": { Object, Optional
@@ -242,10 +248,11 @@ The entity that an actor performs an action on. Targets can be anything, such as
 | Property    | Description                                                  | DataType            | Nullable |
 | ----------- | ------------------------------------------------------------ | ---------------     | -------- |
 | id          | ID of a target                                               | String              | FALSE    |
-| type        | Type of a target                                             | String              | FALSE    |
+| type        | Type of target                                               | String              | FALSE    |
 | alternateId | Alternative ID of a target                                   | String              | TRUE     |
 | displayName | Display name of a target                                     | String              | TRUE     |
-| detailEntry | Details on a target                                         | Map[String->Object] | TRUE     |
+| detailEntry | Details on a target                                          | Map[String->Object] | TRUE     |
+| changeDetails | Details on what's changed on a target                      | Map[String->Object] | TRUE     |
 
 ```json
 {
@@ -256,6 +263,43 @@ The entity that an actor performs an action on. Targets can be anything, such as
     "type": "User"
 }
 ```
+
+#### changeDetails property
+
+The `changeDetails` property of the `target` object defines the change of state of an entity within Okta. Each `changeDetails` property contains a `to` and `from` object that defines the state change. Not all event types support the `changeDetails` property, and not all `target` objects contain the `changeDetails` property.
+
+```json
+"target": [
+  {
+    "id": "0oaabcd1234",
+    "type": "AppInstance",
+    "alternateId": "Workday",
+    "displayName": "Workday",
+    "detailEntry": null,
+    "changeDetails": {
+      "from": {
+        "vpnLocationOptions": "DISABLED",
+        "vpnSettingsZones": {
+          "include": [],
+          "exclude": []
+        }
+      },
+      "to": {
+        "message": "You must a use VPN to connect to this application",
+        "vpnLocationOptions": "ZONE",
+        "vpnSettingsZones": {
+          "include": [
+            "ALL_ZONES"
+          ],
+          "exclude": []
+        }
+      }
+    }
+  }
+]
+```
+
+>**Note**: When querying the `changeDetails` property, you can't search on the `to` or `from` objects. You must include a property within the object.
 
 ### Client object
 
