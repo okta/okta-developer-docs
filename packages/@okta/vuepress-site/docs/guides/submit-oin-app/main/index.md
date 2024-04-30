@@ -326,7 +326,7 @@ To run the SP flow test:
 1. Select **The user successfully signed in to your app** in the upper-right **Test in progress** dialog to confirm that the SP flow test passed.
 1. Click **Continue** from the **Test in progress** dialog to sign out of your app.
 
-    The incognito browser closes and you’re redirected back to the OIN Submission Tester. The OIN Submission Tester records the test run result and timestamp.
+    The incognito browser closes and you're redirected back to the OIN Submission Tester. The OIN Submission Tester records the test run result and timestamp.
 
 1. Click the **SP flow** expand icon (![chevron-down expand icon](/img/icons/chevron-down-odys.svg)) to view the test steps and network traffic details for the test run.
 
@@ -365,7 +365,7 @@ To run the JIT provisioning with IdP flow test:
 
 1. Click the **JIT provisioning (w/ IdP flow)** expand icon (![chevron-down expand icon](/img/icons/chevron-down-odys.svg)) to view the test steps and network traffic details for the test run.
 
-> **Note:** The test user account created in your app from JIT provisioning persists after the JIT provisioning test. The OIN Submission Tester only removes the temporary test user account from your Okta org. It’s your responsibility to manage the JIT test user accounts in your app.
+> **Note:** The test user account created in your app from JIT provisioning persists after the JIT provisioning test. The OIN Submission Tester only removes the temporary test user account from your Okta org. It's your responsibility to manage the JIT test user accounts in your app.
 
 ##### Run the JIT provisioning with SP flow test
 
