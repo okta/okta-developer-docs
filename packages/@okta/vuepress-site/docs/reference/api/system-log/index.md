@@ -135,9 +135,9 @@ Each LogEvent object describes a single logged action or "event" that is perform
                "alternateId": String, Optional
                "displayName": String, Optional
                "detailEntry" = {
-                    String -> String/Resource Map
+                  String -> String/Resource Map
                }
-              "changeDetails" = {
+               "changeDetails" = {
                   "from:": {String -> String/Resource Map
                   }
                   "to:": {String -> String/Resource Map
