@@ -337,7 +337,10 @@ To run the SP flow test:
 
 For the JIT provisioning test, the OIN Submission Tester creates a temporary Okta test user account for you to verify that JIT provisioning was successful. The Tester then removes the test user account from Okta to complete the test.
 
-> **Note:** Ensure that your app integration supports JIT provisioning before you run the JIT provisioning test. The JIT provisioning test case appears only if you select **Supports Just-In-Time provisioning** in your submission.
+> **Notes:**
+> * Ensure that your app integration supports JIT provisioning before you run the JIT provisioning test.
+> * If you don't have the super admin role, then you must have both the app admin and the org admin roles assigned to you for JIT provisioning testing.
+> * The JIT provisioning test case appears only if you select **Supports Just-In-Time provisioning** in your submission.
 
 To run the JIT provisioning with IdP flow test:
 
