@@ -252,7 +252,7 @@ The entity that an actor performs an action on. Targets can be anything, such as
 | alternateId | Alternative ID of a target                                   | String              | TRUE     |
 | displayName | Display name of a target                                     | String              | TRUE     |
 | detailEntry | Details on a target                                          | Map[String->Object] | TRUE     |
-| changeDetails | Details on what's changed on a target                      | Map[String->Object] | TRUE     |
+| changeDetails | Details on the target's changes                   | Map[String->Object] | TRUE     |
 
 ```json
 {
@@ -299,7 +299,7 @@ The `changeDetails` property of the `target` object defines the change of state 
 ]
 ```
 
->**Note**: When querying the `changeDetails` property, you can't search on the `to` or `from` objects. You must include a property within the object.
+>**Note**: When querying the `changeDetails` property, you can't search on the `to` or `from` objects alone. You must include a property within the object.
 
 ### Client object
 
