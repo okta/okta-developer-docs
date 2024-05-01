@@ -24,6 +24,8 @@ title: Okta Classic Engine API release notes 2024
 
 * The `/introspect` endpoint response was incorrect for an access token returned by the On-Behalf-Of Token Exchange flow. (OKTA-712602)
 
+* Admins could import and view the user attributes that were excluded from their role through permission conditions. (OKTA-714916)
+
 ### Monthly release 2024.04.0
 
 | Change | Expected in Preview Orgs |
