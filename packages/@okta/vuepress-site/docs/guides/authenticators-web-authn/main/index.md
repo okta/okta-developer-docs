@@ -71,16 +71,19 @@ First, add the WebAuthn authenticator to your org and enable it.
    3. Verify that **User verification** is set to **Discouraged**.
    4. Click **Add**.
     {style="list-style-type:lower-alpha"}
+
    If **FIDO2 (WebAuthn)** is in the list:
    1. Select **Actions > Edit** for **FIDO2 (WebAuthn)**.
    2. Verify that **User verification** is set to **Discouraged**. If not, click **Edit** and set **User verification** to **Discouraged**.
    3. Click **Save**.
     {style="list-style-type:lower-alpha"}
+
 4. Select the **Enrollment** tab.
 5. Check that **FIDO2 (WebAuthn)** is set to either **Optional** or **Required** in the **Eligible Authenticators** section of the default policy.
    1. If **FIDO2 (WebAuthn)** is set to **Disabled**, click **Edit** for the default policy
    2. Select **Optional** from the dropdown box for **FIDO2 (WebAuthn)**, and then click **Update Policy**.
     {style="list-style-type:lower-alpha"}
+
 ### Set your app integration to use the WebAuthn authenticator
 
 New apps are automatically assigned the shared default [authentication policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-asop). This policy has a catch-all rule that allows a user access to the app using either one or two factors, depending on your org setup. In production, it becomes evident when you can share your authentication needs between apps. You should create a policy specifically for your app for testing purposes.
@@ -97,6 +100,7 @@ New apps are automatically assigned the shared default [authentication policy](h
    2. Verify that **FIDO2 (WebAuthn)** is listed in the box under **Additional factor types**. If it isn't listed, check that the authenticator has been enabled using steps 4 and 5 of [Add WebAuthn to your org](#add-webauthn-to-your-org).
    3. Click **Save**.
     {style="list-style-type:lower-alpha"}
+
 9. Select the **Applications** tab for your newly created policy, and then click **Add App**.
 10. Find your app in the list and click **Add** next to it.
 11. Click **Close**.
