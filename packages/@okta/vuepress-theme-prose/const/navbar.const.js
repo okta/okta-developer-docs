@@ -725,7 +725,7 @@ export const guides = [
         subLinks: [
           {
             title: "Manage orgs with Okta Aerial",
-            guideName: "manage-orgs-okta-aerial",
+            path: "/docs/guides/manage-orgs-okta-aerial/",
             hidden: true
           }
         ],
