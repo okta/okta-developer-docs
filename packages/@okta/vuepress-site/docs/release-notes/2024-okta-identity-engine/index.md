@@ -27,8 +27,6 @@ title: Okta Identity Engine API release notes 2024
 
 * The `/authorize` endpoint didn't accept the `sessionToken` when **Stay signed in** was set to **Before and after users sign in** in the Admin Console. (OKTA-713055)
 
-* Admins could import and view the user attributes that were excluded from their role through permission conditions. (OKTA-714916)
-
 * The aud claim value must now be the org’s URL in SSF messages. (OKTA-720203)
 
 ### Weekly release 2024.04.1
