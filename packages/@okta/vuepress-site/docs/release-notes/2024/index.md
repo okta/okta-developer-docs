@@ -6,8 +6,6 @@ title: Okta Classic Engine API release notes 2024
 
 ## April
 
-CLASSIC
-
 ### Weekly release 2024.04.3
 
 | Change | Expected in Preview Orgs |
