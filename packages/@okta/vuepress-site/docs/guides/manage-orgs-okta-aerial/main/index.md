@@ -79,9 +79,6 @@ You can also [Deactivate an org](#deactivate-an-org).
 
 ![Okta Aerial - summary of steps](/img/aerial-full-flow.png)
 
-<!--
-Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?type=design&node-id=4402-33036&mode=design&t=mlPc1k2amETXHteN-4  aerial-full-flow
--->
 
 </div>
 
@@ -139,7 +136,6 @@ Authorization: Bearer ${access_token}
 ```
 
 
-<!-- our OAuth docs for service apps rely on Postman for this step. need something in the interim until Postman is ready -->
 
 ## Create a child org
 
@@ -186,9 +182,6 @@ Authorization: Bearer ${access_token}
 
 ### Response example
 
-<!-- We have this note in the Google doc. What to do?
-
-Note: This API is still in development. We update the documentation with more accurate examples as we progress in development. -->
 
 The ID of this record is the `orgId`. Use it in the URL for enabling products:
 
@@ -220,14 +213,6 @@ Any already-enabled products not found in the array of product IDs are disabled 
 
 ![Enable a product in an org](/img/aerial-enable-product.png)
 
-<!--
-Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?type=design&node-id=4410-2869&mode=design&t=mlPc1k2amETXHteN-11  aerial-enable-product
--->
-
-<!--
-Though not used in this doc, we have an image for disabling products in the org
-Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?type=design&node-id=4410-2937&mode=design&t=mlPc1k2amETXHteN-11  aerial-remove-product
--->
 
 </div>
 
@@ -293,9 +278,6 @@ Deactivate an org by calling the `/status` endpoint. Deactivated orgs don’t co
 
 ![Deactivate an org](/img/aerial-change-status.png)
 
-<!--
-Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?type=design&node-id=4410-2193&mode=design&t=mlPc1k2amETXHteN-11  aerial-change-status
--->
 
 </div>
 
