@@ -403,7 +403,7 @@ If you have to update SSO or test detail properties in your submission to resolv
 
 It's good practice to deactivate your test instances that aren't in use. You can later delete the instance to clean your app integration list.
 
-If you have questions or need more support, email [Okta developer support](developer@okta.com) and include your test results. To obtain your test results:
+If you have questions or need more support, email Okta developer support at <developers@okta.com> and include your test results. To obtain your test results:
 
 1. From the OIN Submission Tester, click **Export results** (upper-right corner) to download a JSON-formatted file of all your test results.
 
