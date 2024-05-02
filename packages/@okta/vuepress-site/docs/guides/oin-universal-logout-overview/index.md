@@ -36,7 +36,44 @@ The actual endpoint URL is up to the discretion of the app developer building th
 
 ### Endpoint authentication
 
-The request to the Universal Logout endpoint requires authentication so that your app knows the request is coming from Okta. Okta supports the [JWT with private key](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/client-auth/#jwt-with-private-key)(`private_key_jwt`) client authentication method.
+The request to the Universal Logout endpoint requires authentication so that your app knows the request is coming from Okta. Okta sends a signed JWT to authenticate to your API. The JWT follows a similar format to the [`private_key_jwt`](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/client-auth/#jwt-with-private-key) format used as OAuth client authentication. The details of the JWT claims are described below, `<>` are used to indicate placeholder values and are not included in the values.
+
+The JWT is sent using the `Bearer` HTTP Authorization scheme:
+
+```
+Authorization: Bearer <JWT>
+```
+
+The claims of the JWT will be the following:
+
+```
+// Header
+{
+  "typ": "global-token-revocation+jwt",
+  "alg": "<algorithm used for signing SSO token>"
+}
+// Payload
+{
+  "jti": "<unique identifier>",
+  "iss": "<orgDomainBaseUrl / customDomainBaseUrl>",
+  "sub": "<client_id of OIDC app / appInstanceId of SAML 2.0 app>",
+  "aud": "<url of the revocation endpoint>",
+  "exp": "<5 min into future>",
+  "nbf": "<5 min ago>",
+  "iat": "<current timestamp>"
+}
+```
+
+* `jti` - A unique identifier for this JWT
+* `iss` - The same issuer URL that you would receive in an OpenID Connect ID token
+* `sub` - Identifies the "subject" of this token, which in this case is your application. For OpenID Connect clients this will be the `client_id`, and for SAML integrations, this will be the `appInstanceId`
+* `aud` - Identifies the "audience" of this token, the URL of your Global Token Revocation endpoint. The URL will not include query string parameters or a URL fragment.
+* `exp` - The expiration timestamp of the token, which will be 5 minutes in the future.
+* `nbf` - A timestamp 5 minutes in the past.
+* `iat` - The current timestamp at which the token was created.
+
+Your API endpoint should validate the signature of the JWT as well as these claims to confirm the revocation request is coming from Okta. The token will be signed with the same key used for signing ID tokens or SAML assertions for single sign-on.
+
 
 ### Logout request
 
