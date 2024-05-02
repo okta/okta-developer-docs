@@ -1,27 +1,26 @@
 ---
 title: Manage orgs with Okta Aerial
-layout: Guides
 ---
 
 This guide explains how to add orgs to your Okta Aerial account and manage Aerial org settings.
 
-> **Note**: Access to Okta Aerial requires an additional product to be present. Ensure that your Okta account team gives you access to the Okta Aerial API.
+> **Note:** Access to Okta Aerial requires an additional product to be present. Ensure that your Okta account team gives you access to the Okta Aerial API.
 
 ---
 
 #### Learning outcomes
 
-* Authenticate an Aerial API client with Okta Aerial.
-* Add an org to your Aerial account.
-* Enable products in the Aerial linked org.
-* Configure the Aerial org.
+- Authenticate an Aerial API client with Okta Aerial.
+- Add an org to your Aerial account.
+- Enable products in the Aerial linked org.
+- Configure the Aerial org.
 
 #### What you need
 
-* An Okta Aerial account
-* A parent org
-* Access to the Org creator API
-* Access to the Okta Aerial API
+- An Okta Aerial account
+- A parent org
+- Access to the Org creator API
+- Access to the Okta Aerial API
 
 #### Sample code
 
@@ -33,12 +32,12 @@ Use the [Okta Aerial API](https://developer.okta.com/docs/api/openapi/aerial/gui
 
 Okta Aerial is an administration service that enables multi-org management. Use the Aerial API to:
 
-* Add orgs to the Aerial account.
-* Activate and deactivate orgs.
-* View subscribed products.
-* Enable products in specific orgs.
+- Add orgs to the Aerial account.
+- Activate and deactivate orgs.
+- View subscribed products.
+- Enable products in specific orgs.
 
-## Key terms
+### Key terms
 
 Okta Aerial introduces a few terms to the Okta ecosystem:
 
@@ -49,7 +48,7 @@ Okta Aerial introduces a few terms to the Okta ecosystem:
 | Products       | Okta-determined sets of features. With the Okta Aerial API, you can view subscribed products for an Aerial account and enable a subset of products to orgs. |
 | Features | Distinct pieces of functionality. Features are bundled within products but may also be offered separately, for example, Early Access features. |
 
-## Aerial sandbox and production environments
+### Aerial sandbox and production environments
 
 Okta provides the following environments to use with your Aerial account:
 
@@ -63,7 +62,7 @@ Okta provides the following environments to use with your Aerial account:
 
 See [Link the org to the Aerial account](#link-the-org-to-the-aerial-account).
 
-## Summary of steps
+### Summary of steps
 
 Follow these steps to create and configure new orgs in your Aerial account:
 
@@ -78,6 +77,10 @@ You can also [Deactivate an org](#deactivate-an-org).
 <div class="full">
 
 ![Okta Aerial - summary of steps](/img/aerial-full-flow.png)
+
+<!--
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?type=design&node-id=4402-33036&mode=design&t=mlPc1k2amETXHteN-4  aerial-full-flow
+-->
 
 </div>
 
@@ -112,7 +115,7 @@ Grant scopes to the client:
 
 To authenticate with Okta Aerial, a client obtains an access token from the Aerial org. See [Implement OAuth for Okta with a service app](/docs/guides/implement-oauth-for-okta-serviceapp/main/#get-an-access-token).
 
-> **Note**: [Demonstrating Proof-of-Possession (DPoP)](https://datatracker.ietf.org/doc/html/rfc9449) is supported but not required. See [Configure OAuth 2.0 Demonstrating Proof-of-Possession](https://developer.okta.com/docs/guides/dpop/main/).
+> **Note:** [Demonstrating Proof-of-Possession (DPoP)](https://datatracker.ietf.org/doc/html/rfc9449) is supported but not required. See [Configure OAuth 2.0 Demonstrating Proof-of-Possession](https://developer.okta.com/docs/guides/dpop/main/).
 
 Create a [JWT assertion](/docs/guides/implement-oauth-for-okta-serviceapp/main/#create-and-sign-the-jwt) and use it to make a [token request](/docs/guides/implement-oauth-for-okta-serviceapp/main/#create-and-sign-the-jwt) to the Aerial org.
 
@@ -135,12 +138,13 @@ Authorization: Bearer ${access_token}
 ```
 
 
+<!-- our OAuth docs for service apps rely on Postman for this step. need something in the interim until Postman is ready -->
 
 ## Create a child org
 
 Create a child org of the parent org using the Org creator API. This creates a child org with features synced from the parent org. In the API response, you receive an API token tied to the super admin. Use the token to provision more resources on the child org like policies, apps, or groups.
 
-This isn't the token that's used for Okta Aerial. The API token that the Org creator API creates has the same automatic expiration and deactivation as API tokens created using the [Admin Console](/docs/guides/create-an-api-token/main/#token-expiration-and-deactivation).
+This isn't the token that's used for Okta Aerial. <!-- See the [Org creator API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgCreation/). --> The API token that the Org creator API creates has the same automatic expiration and deactivation as API tokens created using the [Admin Console](/docs/guides/create-an-api-token/main/#token-expiration-and-deactivation).
 
 However, the Org creator API token doesn’t appear in the Admin Console. You can’t use the Admin Console to revoke the token. If you deactivate the super admin (the first admin created during org creation), the token is deactivated.
 
@@ -153,7 +157,7 @@ To enable products in an org, add the org to your Aerial account. You can only a
 
 Link the org to Okta Aerial by sending a `POST` request to the `/api/va/orgs` endpoint of the Aerial API. The response contains the Org object including the `orgId`. Use the `orgId` to enable products.
 
-## Use `orgId`
+### Use `orgId`
 
 <ApiOperation method="post" url="https://aerial-{region}/{accountId}/api/v1/orgs" />
 
@@ -166,7 +170,7 @@ Authorization: Bearer ${access_token}
 }
 ```
 
-## Use `domain`
+### Use `domain`
 
 <ApiOperation method="post" url="https://aerial-{region}/{accountId}/api/v1/orgs" />
 
@@ -179,8 +183,11 @@ Authorization: Bearer ${access_token}
 }
 ```
 
-## Response example
+### Response example
 
+<!-- We have this note in the Google doc. What to do?
+
+Note: This API is still in development. We update the documentation with more accurate examples as we progress in development. -->
 
 The ID of this record is the `orgId`. Use it in the URL for enabling products:
 
@@ -206,16 +213,24 @@ Include the products that you want to enable in an array in the request body.
 
 Any already-enabled products not found in the array of product IDs are disabled from the org. See [List all enabled Products for an Org](https://developer.okta.com/docs/api/openapi/aerial/aerial/tag/Orgs/#tag/Orgs/operation/getEnabledProducts).
 
-> **Note**: Since Okta ignores the `name` property, you can include it to simplify the client implementation.
+> **Note:** Since Okta ignores the `name` property, you can include it to simplify the client implementation.
 
 <div class="three-quarter">
 
 ![Enable a product in an org](/img/aerial-enable-product.png)
 
+<!--
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?type=design&node-id=4410-2869&mode=design&t=mlPc1k2amETXHteN-11  aerial-enable-product
+-->
+
+<!--
+Though not used in this doc, we have an image for disabling products in the org
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?type=design&node-id=4410-2937&mode=design&t=mlPc1k2amETXHteN-11  aerial-remove-product
+-->
 
 </div>
 
-## Request and response examples
+### Request and response examples
 
 The request and response are the same:
 
@@ -245,7 +260,7 @@ To pre-configure groups, apps, and policies in each org, the API client needs th
 
 You can also use OAuth 2.0 to interact with Okta APIs. See [Implement OAuth for Okta](https://developer.okta.com/docs/guides/implement-oauth-for-okta/main/).
 
-## Request example
+#### Request example
 
 The following example calls the [Apps API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication). See [Okta Admin Management](https://developer.okta.com/docs/api/openapi/okta-management/guides/overview/) for more Okta APIs.
 
@@ -277,9 +292,13 @@ Deactivate an org by calling the `/status` endpoint. Deactivated orgs don’t co
 
 ![Deactivate an org](/img/aerial-change-status.png)
 
+<!--
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?type=design&node-id=4410-2193&mode=design&t=mlPc1k2amETXHteN-11  aerial-change-status
+-->
+
 </div>
 
-## Request example
+### Request example
 
 ```bash
 {
@@ -287,7 +306,7 @@ Deactivate an org by calling the `/status` endpoint. Deactivated orgs don’t co
 }
 ```
 
-## Response example
+### Response example
 
 ```bash
 {
@@ -299,6 +318,6 @@ Deactivate an org by calling the `/status` endpoint. Deactivated orgs don’t co
 
 ## See also
 
-* [Okta Aerial API documentation](https://developer.okta.com/docs/api/openapi/aerial/guides/overview/)
-
-* [Create an API token](/docs/guides/create-an-api-token/main/)
+- [Okta Aerial API documentation](https://developer.okta.com/docs/api/openapi/aerial/guides/overview/)
+<!-- - [Org creation API documentation]() -->
+- [Create an API token](/docs/guides/create-an-api-token/main/)
