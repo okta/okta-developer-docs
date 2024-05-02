@@ -320,5 +320,4 @@ Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 ## See also
 
 - [Okta Aerial API documentation](https://developer.okta.com/docs/api/openapi/aerial/guides/overview/)
-<!-- - [Org creation API documentation]() -->
 - [Create an API token](/docs/guides/create-an-api-token/main/)
