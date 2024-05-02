@@ -38,7 +38,7 @@ Okta Aerial is an administration service that enables multi-org management. Use 
 * View subscribed products.
 * Enable products in specific orgs.
 
-### Key terms
+## Key terms
 
 Okta Aerial introduces a few terms to the Okta ecosystem:
 
@@ -49,7 +49,7 @@ Okta Aerial introduces a few terms to the Okta ecosystem:
 | Products       | Okta-determined sets of features. With the Okta Aerial API, you can view subscribed products for an Aerial account and enable a subset of products to orgs. |
 | Features | Distinct pieces of functionality. Features are bundled within products but may also be offered separately, for example, Early Access features. |
 
-### Aerial sandbox and production environments
+## Aerial sandbox and production environments
 
 Okta provides the following environments to use with your Aerial account:
 
@@ -63,7 +63,7 @@ Okta provides the following environments to use with your Aerial account:
 
 See [Link the org to the Aerial account](#link-the-org-to-the-aerial-account).
 
-### Summary of steps
+## Summary of steps
 
 Follow these steps to create and configure new orgs in your Aerial account:
 
@@ -153,7 +153,7 @@ To enable products in an org, add the org to your Aerial account. You can only a
 
 Link the org to Okta Aerial by sending a `POST` request to the `/api/va/orgs` endpoint of the Aerial API. The response contains the Org object including the `orgId`. Use the `orgId` to enable products.
 
-### Use `orgId`
+## Use `orgId`
 
 <ApiOperation method="post" url="https://aerial-{region}/{accountId}/api/v1/orgs" />
 
@@ -166,7 +166,7 @@ Authorization: Bearer ${access_token}
 }
 ```
 
-### Use `domain`
+## Use `domain`
 
 <ApiOperation method="post" url="https://aerial-{region}/{accountId}/api/v1/orgs" />
 
@@ -179,7 +179,7 @@ Authorization: Bearer ${access_token}
 }
 ```
 
-### Response example
+## Response example
 
 
 The ID of this record is the `orgId`. Use it in the URL for enabling products:
@@ -215,7 +215,7 @@ Any already-enabled products not found in the array of product IDs are disabled 
 
 </div>
 
-### Request and response examples
+## Request and response examples
 
 The request and response are the same:
 
@@ -245,7 +245,7 @@ To pre-configure groups, apps, and policies in each org, the API client needs th
 
 You can also use OAuth 2.0 to interact with Okta APIs. See [Implement OAuth for Okta](https://developer.okta.com/docs/guides/implement-oauth-for-okta/main/).
 
-#### Request example
+## Request example
 
 The following example calls the [Apps API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication). See [Okta Admin Management](https://developer.okta.com/docs/api/openapi/okta-management/guides/overview/) for more Okta APIs.
 
@@ -279,7 +279,7 @@ Deactivate an org by calling the `/status` endpoint. Deactivated orgs don’t co
 
 </div>
 
-### Request example
+## Request example
 
 ```bash
 {
@@ -287,7 +287,7 @@ Deactivate an org by calling the `/status` endpoint. Deactivated orgs don’t co
 }
 ```
 
-### Response example
+## Response example
 
 ```bash
 {
