@@ -1,5 +1,6 @@
 ---
 title: Manage orgs with Okta Aerial
+layout: Guides
 ---
 
 This guide explains how to add orgs to your Okta Aerial account and manage Aerial org settings.
