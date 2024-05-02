@@ -5,23 +5,23 @@ layout: Guides
 
 This guide explains how to add orgs to your Okta Aerial account and manage Aerial org settings.
 
-> **Note:** Access to Okta Aerial requires an additional product to be present. Ensure that your Okta account team gives you access to the Okta Aerial API.
+> **Note**: Access to Okta Aerial requires an additional product to be present. Ensure that your Okta account team gives you access to the Okta Aerial API.
 
 ---
 
 #### Learning outcomes
 
-- Authenticate an Aerial API client with Okta Aerial.
-- Add an org to your Aerial account.
-- Enable products in the Aerial linked org.
-- Configure the Aerial org.
+* Authenticate an Aerial API client with Okta Aerial.
+* Add an org to your Aerial account.
+* Enable products in the Aerial linked org.
+* Configure the Aerial org.
 
 #### What you need
 
-- An Okta Aerial account
-- A parent org
-- Access to the Org creator API
-- Access to the Okta Aerial API
+* An Okta Aerial account
+* A parent org
+* Access to the Org creator API
+* Access to the Okta Aerial API
 
 #### Sample code
 
