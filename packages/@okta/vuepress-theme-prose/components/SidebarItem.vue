@@ -2,8 +2,7 @@
   <li
     :class="{
       'link-wrap': true,
-      'subnav-active': link.iHaveChildrenActive,
-      hidden: hidden }"
+      'subnav-active': link.iHaveChildrenActive }"
   >
     <router-link
       v-if="entityType === types.link"
