@@ -69,9 +69,9 @@ The following multi-tenant example assumes that your Okta app integration suppor
 
 The OIN Wizard is only available in Okta Developer Edition orgs. To access the OIN Wizard and the **Your OIN Integrations** dashboard in your org, you must have either the super admin or the app and org admin [roles](https://help.okta.com/okta_help.htm?type=oie&id=ext-administrators-admin-comparison) assigned to you.
 
-> **Note:** The app admin role allows you to view and edit details in the OIN Wizard. For testing in the OIN Wizard, if you don't have the super admin role, then you must have both the app admin and the org admin roles assigned
+> **Note:** The app admin role enables you to view and edit details in the OIN Wizard. To test in the OIN Wizard, if you don't have the super admin role, then you must have both the app admin and the org admin roles assigned to you.
 
-Part of your OIN Wizard journey includes using the OIN Submission Tester to verify that your integration works before you can submit your integration. The OIN Submission Tester requires the following:
+Part of your OIN Wizard journey includes using the OIN Submission Tester to verify that your integration works before you submit it. The OIN Submission Tester requires the following:
 
 * Google Chrome browser
 * [Okta Browser Plugin](https://help.okta.com/okta_help.htm?type=eu&id=csh-user-plugin-overview) installed with **Allow in Incognito** enabled
