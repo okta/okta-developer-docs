@@ -207,7 +207,7 @@ To assign test users to your integration:
 1. Enter the appropriate people or groups that you want to have SSO into your app, and then click **Assign** for each.
 1. Verify the user-specific attributes for any people that you add, and then select **Save and Go Back**.
 1. Click **Done**.
-1. Click **Begin testing** (upper-right corner) from the OIN Wizard. The **Test your integration experience** page appears. If you're not in the OIN Wizard, go to **Your OIN Integration** > **Select your protocol**  > **Configure your integration** > **Test your integration experience**. Continue to the [Application instances for testing] section to include your instance for testing in the OIN Submission Tester.
+1. Click **Begin testing** (upper-right corner) from the OIN Wizard. The **Test your integration experience** page appears. If you're not in the OIN Wizard, go to **Your OIN Integration** > **Select your protocol**  > **Configure your integration** > **Test your integration experience**. Continue to the [Application instances for testing](#application-instances-for-testing) section to include your instance for testing in the OIN Submission Tester.
 
 ### Required app instances
 
@@ -293,7 +293,7 @@ The OIN Submission Tester includes the mechanism to test the following flows:
 
 The test cases for these flows appear in the **Test integration using the OIN Submission Tester** section depending on your OIN Wizard [test information](#test-information).
 
-See [Run test](#run-tests) to run each of the test cases.
+> **Note:** See [Run test](#run-tests) for the steps on how to run each test case.
 
 Your test results in the OIN Submission Tester are valid for 48 hours after the test run. Rerun all your test cases in the OIN Submission Tester if they expired.
 
@@ -391,7 +391,7 @@ You're only required to pass one JIT provisioning test case to submit your integ
 
 Similar to the [JIT provisioning with IdP flow test](#run-the-jit-provisioning-with-idp-flow-test), the OIN Submission Tester creates a temporary Okta test user account for you to verify that JIT provisioning was successful. The Tester then removes the test user account from Okta to complete the test.
 
-To run the JIT provisioning with SP flow test, follow the same steps in [Run the JIT provisioning with IdP flow test](#run-the-jit-provisioning-with-idp-flow-test). The difference between the JIT provisioning with SP and IdP is that the OIN Submission Tester opens an incognito browser window to sign in to your app first instead of to Okta.
+To run the JIT provisioning with SP flow test, follow the same steps in [Run the JIT provisioning with IdP flow test](#run-the-jit-provisioning-with-idp-flow-test). The difference between the JIT provisioning with SP and IdP tests is that the OIN Submission Tester opens an incognito browser window to sign in to your app first instead of to sign in to Okta.
 
 #### Failed tests
 
