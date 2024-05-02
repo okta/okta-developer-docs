@@ -7,6 +7,28 @@ title: Okta Identity Engine API release notes 2024
 
 ## April
 
+### Weekly release 2024.04.3
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Bugs fixed in 2024.04.3](#bugs-fixed-in-202403)  | May 01, 2024 |
+
+#### Bugs fixed in 2024.04.3
+
+* GET policy rules (`/v1/policies/{policyId}/rules`) and GET a policy rule  (`/v1/policies/{policyId}/rules/{ruleId}`) requests returned a rule with a null value for the `created` property. (OKTA-542919)
+
+* The Factors API didn’t correctly return all `profile.keys` parameters for Okta Verify enrollments. (OKTA-694655)
+
+* Apps API users were able to add duplicate SAML `attributeStatements` when they created or updated a custom SAML 2.0 app. (OKTA-706474)
+
+* GET calls to `/iam/roles` sometimes didn't return link headers. (OKTA-712212)
+
+* The `/introspect` endpoint response was incorrect for an access token returned by the On-Behalf-Of Token Exchange flow. (OKTA-712602)
+
+* The `/authorize` endpoint didn't accept the `sessionToken` when **Stay signed in** was set to **Before and after users sign in** in the Admin Console. (OKTA-713055)
+
+* The `aud` claim value must now be the org’s URL in SSF messages. (OKTA-720203)
+
 ### Weekly release 2024.04.1
 
 | Change | Expected in Preview Orgs |
