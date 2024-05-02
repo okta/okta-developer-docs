@@ -1,6 +1,5 @@
 ---
 title: Manage orgs with Okta Aerial
-layout: Guides
 ---
 
 This guide explains how to add orgs to your Okta Aerial account and manage Aerial org settings.
@@ -68,10 +67,10 @@ See [Link the org to the Aerial account](#link-the-org-to-the-aerial-account).
 Follow these steps to create and configure new orgs in your Aerial account:
 
 1. [Authenticate with Okta Aerial](#authenticate-with-okta-aerial): Configure an API client in the Aerial org to call the Okta Aerial API.
-2. [Create and configure a child org](#create-a-child-org): Create a child org based on the parent org using the Org creator API.
-3. [Add the org to the Aerial account](#add-the-org-to-the-aerial-account): Link the org to the Aerial account using the Aerial API.
-4. [Enable products in the org](#enable-products-in-the-org): Enable products in the Org using the Aerial API.
-5. [Configure the org](#configure-the-org): Configure the org using Okta objects.
+1. [Create and configure a child org](#create-a-child-org): Create a child org based on the parent org using the Org creator API.
+1. [Add the org to the Aerial account](#add-the-org-to-the-aerial-account): Link the org to the Aerial account using the Aerial API.
+1. [Enable products in the org](#enable-products-in-the-org): Enable products in the Org using the Aerial API.
+1. [Configure the org](#configure-the-org): Configure the org using Okta objects.
 
 You can also [Deactivate an org](#deactivate-an-org).
 
@@ -79,6 +78,9 @@ You can also [Deactivate an org](#deactivate-an-org).
 
 ![Okta Aerial - summary of steps](/img/aerial-full-flow.png)
 
+<!--
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?type=design&node-id=4402-33036&mode=design&t=mlPc1k2amETXHteN-4  aerial-full-flow
+-->
 
 </div>
 
@@ -91,21 +93,21 @@ Only a super admin in your Aerial org can grant scopes to the client. Configure 
 In your Aerial org, create an API client:
 
 1. In the **Admin Console**, go to **Applications** > **Applications**, and then click **Create App Integration**.
-2. Select **API Services** as the sign-in method, and click **Next**.
-3. Enter a name for your client and click **Save**.
+1. Select **API Services** as the sign-in method, and click **Next**.
+1. Enter a name for your client and click **Save**.
 
 Configure the signing keys for the client:
 
 1. In the **Client Credentials** section of the **General** tab, click **Edit** to change the client authentication method.
-2. Select **Public key/Private key** as the client authentication method.
-3. Choose either **Save keys in Okta** or **Use a URL to fetch keys dynamically**:
+1. Select **Public key/Private key** as the client authentication method.
+1. Choose either **Save keys in Okta** or **Use a URL to fetch keys dynamically**:
    - If you want to save keys in Okta, click **Add key**.
    - If you want to use a URL to fetch keys dynamically, you need to provide a URL that returns the JWKS documents. See [Client secret rotation and key management](/docs/guides/client-secret-rotation-key/main/).
 
 Grant scopes to the client:
 
 1. Select the **Okta API Scopes** tab.
-2. To access Okta Aerial, click **Grant** on the following scopes:
+1. To access Okta Aerial, click **Grant** on the following scopes:
   - `okta.accounts.manage`: read/write operations
   - `okta.accounts.read`: read-only operations
 
@@ -136,12 +138,13 @@ Authorization: Bearer ${access_token}
 ```
 
 
+<!-- our OAuth docs for service apps rely on Postman for this step. need something in the interim until Postman is ready -->
 
 ## Create a child org
 
 Create a child org of the parent org using the Org creator API. This creates a child org with features synced from the parent org. In the API response, you receive an API token tied to the super admin. Use the token to provision more resources on the child org like policies, apps, or groups.
 
-This isn't the token that's used for Okta Aerial. The API token that the Org creator API creates has the same automatic expiration and deactivation as API tokens created using the [Admin Console](/docs/guides/create-an-api-token/main/#token-expiration-and-deactivation).
+This isn't the token that's used for Okta Aerial. <!-- See the [Org creator API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgCreation/). --> The API token that the Org creator API creates has the same automatic expiration and deactivation as API tokens created using the [Admin Console](/docs/guides/create-an-api-token/main/#token-expiration-and-deactivation).
 
 However, the Org creator API token doesn’t appear in the Admin Console. You can’t use the Admin Console to revoke the token. If you deactivate the super admin (the first admin created during org creation), the token is deactivated.
 
@@ -182,6 +185,9 @@ Authorization: Bearer ${access_token}
 
 ### Response example
 
+<!-- We have this note in the Google doc. What to do?
+
+Note: This API is still in development. We update the documentation with more accurate examples as we progress in development. -->
 
 The ID of this record is the `orgId`. Use it in the URL for enabling products:
 
@@ -213,6 +219,14 @@ Any already-enabled products not found in the array of product IDs are disabled 
 
 ![Enable a product in an org](/img/aerial-enable-product.png)
 
+<!--
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?type=design&node-id=4410-2869&mode=design&t=mlPc1k2amETXHteN-11  aerial-enable-product
+-->
+
+<!--
+Though not used in this doc, we have an image for disabling products in the org
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?type=design&node-id=4410-2937&mode=design&t=mlPc1k2amETXHteN-11  aerial-remove-product
+-->
 
 </div>
 
@@ -278,6 +292,9 @@ Deactivate an org by calling the `/status` endpoint. Deactivated orgs don’t co
 
 ![Deactivate an org](/img/aerial-change-status.png)
 
+<!--
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?type=design&node-id=4410-2193&mode=design&t=mlPc1k2amETXHteN-11  aerial-change-status
+-->
 
 </div>
 
@@ -302,4 +319,5 @@ Deactivate an org by calling the `/status` endpoint. Deactivated orgs don’t co
 ## See also
 
 - [Okta Aerial API documentation](https://developer.okta.com/docs/api/openapi/aerial/guides/overview/)
+<!-- - [Org creation API documentation]() -->
 - [Create an API token](/docs/guides/create-an-api-token/main/)
