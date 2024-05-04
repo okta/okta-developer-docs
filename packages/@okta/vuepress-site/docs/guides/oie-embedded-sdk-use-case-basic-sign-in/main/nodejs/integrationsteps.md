@@ -28,7 +28,7 @@ const transaction = await authClient.idx.authenticate({ username, password });
 
 #### Success status
 
-When the user correctly supplies their password, `IdxStatus` equals `IdxStatus.SUCCESS`. Call `tokenManager.setTokens()` to save the tokens retrieved from the response for future requests, and then redirect the user back to the home page. The user is now signed in.
+When the user enters their `password` correctly, `IdxStatus` is set to `IdxStatus.SUCCESS`. Call `tokenManager.setTokens()` to save the tokens retrieved from the response for future requests, and then redirect the user back to the home page. The user is now signed in.
 
 ```js
   const { nextStep, tokens, status, error, } = transaction;
