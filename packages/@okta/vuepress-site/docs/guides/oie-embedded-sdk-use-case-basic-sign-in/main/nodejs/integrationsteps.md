@@ -15,7 +15,7 @@ Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 
 ### The user submits their username and password
 
-When the user submits their `username` and `password`, pass them as parameters to [`OktaAuth.idx.authenticate()`](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#idxauthenticate).
+Once the user submits their `username` and `password`, pass them as parameters to [`OktaAuth.idx.authenticate()`](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#idxauthenticate).
 
 ```javascript
 const authClient = getAuthClient(req);
@@ -24,11 +24,11 @@ const transaction = await authClient.idx.authenticate({ username, password });
 
 ### Your app handles an authentication success response
 
-`authenticate()` returns a `transaction` object with a `status` property indicating the current state of the sign-in flow. Handle the returned `IdxStatus` value accordingly:
+`authenticate()` returns a `transaction` object with a `status` property, indicating the current state of the sign-in flow. Handle the returned `IdxStatus` value accordingly:
 
 #### Success status
 
-When the user enters their `password` correctly, `IdxStatus` is set to `IdxStatus.SUCCESS`. Call `tokenManager.setTokens()` to save the tokens retrieved from the response for future requests, and then redirect the user back to the home page. The user is now signed in.
+Once the user correctly enters their `password`, `IdxStatus` is set to `IdxStatus.SUCCESS`. Call `tokenManager.setTokens()` to save the tokens retrieved from the response for future requests, and then redirect the user back to the home page. The user is now signed in.
 
 ```js
   const { nextStep, tokens, status, error, } = transaction;
