@@ -1,5 +1,7 @@
 ---
 title: Basic sign-in flow with the password factor
+excerpt: Learn how to enable a password-only sign-in flow in your app using the embedded SDK.
+layout: Guides
 ---
 
 <ApiLifecycle access="ie" />
