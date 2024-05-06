@@ -80,7 +80,7 @@ See [Customization examples](#customization-examples) for snippets that you can 
 
 ### About the afterRender function
 
-The third generation of the Sign-In Widget is built on [Preact](https://preactjs.com/), a lightweight React alternative. This means that the [`afterRender`] (https://github.com/okta/okta-signin-widget?tab=readme-ov-file#afterrender) function doesn't work when used to make DOM manipulations and other render-related side effects. If you use `afterRender` for DOM manipulations, the Okta Sign-In Widget reverts any customizations to default settings. See [Components and Hooks must be pure](https://react.dev/reference/rules/components-and-hooks-must-be-pure).
+The third generation of the Sign-In Widget is built on [Preact](https://preactjs.com/), a lightweight React alternative. This means that the [`afterRender`](https://github.com/okta/okta-signin-widget?tab=readme-ov-file#afterrender) function doesn't work when used to make DOM manipulations and other render-related side effects. If you use `afterRender` for DOM manipulations, the Okta Sign-In Widget reverts any customizations to default settings. See [Components and Hooks must be pure](https://react.dev/reference/rules/components-and-hooks-must-be-pure).
 
 * To use `afterRender` for DOM manipulations, consider using the `MutationObserver` function.
 * To use `afterRender` for non-DOM manipulations, you don't need the `MutationObserver` function.
