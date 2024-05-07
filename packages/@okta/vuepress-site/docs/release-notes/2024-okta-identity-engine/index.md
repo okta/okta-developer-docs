@@ -11,14 +11,15 @@ title: Okta Identity Engine API release notes 2024
 
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
-| [SSF Transmitter API is self-service EA in Preview](ssf-transmitter-api-is-self-service-ea-in-preview) | May 8, 2024 |
-| [Seamless ISV experience with integrated testing is GA in Preview](seamless-isv-experience-with-integrated-testing-is-ga-in-preview) | May 8, 2024 |
-| [PUT requests for an API token network condition](put-requests-for-an-api-token-network-condition) | May 8, 2024 |
-| [Permissions for custom admins to manage agents](permissions-for-custom-admins-to-manage-agents) | May 8, 2024 |
-| [Username supported as optional request query parameter](username-supported-as-optional-request-query-parameter) | May 8, 2024 |
-| [Version pinning for Sign-In Widget (third generation) is GA in Production](version-pinning-for-sign-in-widget-(third-generation)-is-ga-in-production) | May 8, 2024 |
-| [Developer documentation update in 2024.05.0](#developer-documentation-update-in-2025-04-0) | May 8, 2024 |
-| [Bugs fixed in 2024.05.0](#bug-fixed-in-2024-05-0) | May 8, 2024 |
+| [SSF Transmitter API is self-service EA in Preview](#ssf-transmitter-api-is-self-service-ea-in-preview) | May 8, 2024 |
+| [Seamless ISV experience with integrated testing is GA in Preview](#seamless-isv-experience-with-integrated-testing-is-ga-in-preview) | May 8, 2024 |
+| [PUT requests for an API token network condition](#put-requests-for-an-api-token-network-condition) | May 8, 2024 |
+| [Permissions for custom admins to manage agents](#permissions-for-custom-admins-to-manage-agents) | May 8, 2024 |
+| [Username supported as optional request query parameter](#username-supported-as-optional-request-query-parameter) | May 8, 2024 |
+| [Version pinning for Sign-In Widget (third generation) is GA in Production](#version-pinning-for-sign-in-widget-(third-generation)-is-ga-in-production) | May 8, 2024 |
+| [Multiple Identifiers is EA in Preview](#multiple-identifiers-is-ea-in-preview) | April 10, 2024 |
+| [Developer documentation update in 2024.05.0](#developer-documentation-update-in-2025-05-0) | May 8, 2024 |
+| [Bugs fixed in 2024.05.0](#bugs-fixed-in-2024-05-0) | May 8, 2024 |
 
 #### SSF Transmitter API is self-service EA in Preview
 
@@ -43,6 +44,10 @@ SAML and WS-Fed template applications now support username as an optional reques
 #### Version pinning for Sign-In Widget (third generation) is GA in Production
 
 You can now pin the Sign-In Widget version (third generation) when updating a customized sign-in page (`PUT /brands/{brandId}/pages/sign-in/customized`) or a preview sign-in page (`PUT /brands/{brandId}/pages/sign-in/preview`). The value of `widgetVersion` must be `7.8` or later if `widgetCustomizations.widgetGeneration` is set to `G3`. A value of `7.7` or earlier results in an invalid request. See [Replace the Customized Error Page](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Customization/#tag/Customization/operation/replaceCustomizedErrorPage). <!-- OKTA-713942 -->
+
+#### Multiple Identifiers is EA in Preview
+
+Today, end users must sign in to Okta with a username or email address only. With the Multiple Identifiers feature, admins can configure identifiers, or user attributes from Universal Directory, that an end user can enter to authenticate. Multiplier identifiers work in sign-in, recovery, self-service registration, and unlock flows. Admins can configure up to three identifiers, including email (which is still a required identifier). See [Profile enrollment policy](/docs/reference/api/policy/#profile-enrollment-policy). <!-- OKTA-687191 FF: MULTIPLE_IDENTIFIERS -->
 
 #### Developer documentation update in 2024.05.0
 
@@ -106,7 +111,6 @@ Redirects to applications from the Sign-In Widget were blocked in Android browse
 | [Enhanced app API contracts is GA in Production](#enhanced-app-api-contracts-is-ga-in-production) | April 3, 2024 |
 | [Direct Authentication is GA in Production](#direct-authentication-is-ga-in-production) | March 7, 2024 |
 | [Content Security Policy for custom domains is GA in Production](#content-security-policy-for-custom-domains-is-ga-in-production) | January 31, 2024 |
-| [Multiple Identifiers in EA in Preview](#multiple-identifiers-in-ea-in-preview) | April 10, 2024 |
 | [Developer documentation update in 2024.04.0](#developer-documentation-update-in-2024-04-0) | April 3, 2024 |
 | [Bugs fixed in 2024.04.0](#bugs-fixed-in-2024-04-0) | April 3, 2024 |
 
@@ -139,11 +143,6 @@ See [OIN app request payloads in the Applications API](https://developer.okta.co
 #### Content Security Policy for custom domains is GA in Production
 
 The Content Security Policy (CSP) feature lets admins control which URLs may be linked to from customized sign-in and error pages in orgs that use custom domains. Admins add trusted URLs to Okta that link to items such as images and add these links to the code in their sign-in and error pages. This feature enhances security by enabling admins to allow only approved content to appear and prevent the introduction of potentially malicious code to these pages. See [Content Security Policy (CSP) for your custom domain](/docs/guides/custom-widget/main/#content-security-policy-csp-for-your-custom-domain). <!-- OKTA-600774 FF CONTENT_SECURITY_POLICY_FOR_CUSTOMIZABLE_SIGN_IN_AND_ERROR_PAGES -->
-
-
-#### Multiple Identifiers
-
-Today, end users must sign in to Okta with a username or email address only. With the Multiple Identifiers feature, admins can configure identifiers, or user attributes from Universal Directory, that an end user can enter to authenticate. Multiplier identifiers work in sign-in, recovery, self-service registration, and unlock flows. Admins can configure up to three identifiers, including email (which is still a required identifier). See [Profile enrollment policy](/docs/reference/api/policy/#profile-enrollment-policy). <!-- OKTA-687191 FF: MULTIPLE_IDENTIFIERS -->
 
 #### Developer documentation update in 2024.04.0
 
