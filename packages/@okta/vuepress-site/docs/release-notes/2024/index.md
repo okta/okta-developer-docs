@@ -4,6 +4,57 @@ title: Okta Classic Engine API release notes 2024
 
 # Okta Classic Engine API release notes (2024)
 
+## May
+
+### Monthly release 2024.05.0
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Seamless ISV experience with integrated testing is GA in Preview](seamless-isv-experience-with-integrated-testing-is-ga-in-preview) | May 8, 2024 |
+| [PUT requests for an API token network condition](put-requests-for-an-api-token-network-condition) | May 8, 2024 |
+| [Permissions for custom admins to manage agents](permissions-for-custom-admins-to-manage-agents) | May 8, 2024 |
+| [Username supported as optional request query parameter](username-supported-as-optional-request-query-parameter) | May 8, 2024 |
+| [Developer documentation update in 2024.05.0](#developer-documentation-update-in-2025-04-0) | May 8, 2024 |
+| [Bugs fixed in 2024.05.0](#bug-fixed-in-2024-05-0) | May 8, 2024 |
+
+#### Developer documentation update in 2024.05.0
+
+The [Style the Sign-In Widget (third generation) guide](/docs/guides/custom-widget-gen3/main/#about-the-afterrender-function) has been updated to describe how the `afterRender` function works with the third generation. <!-- OKTA-686866 -->
+
+#### Seamless ISV experience with integrated testing is GA in Preview
+
+Okta now provides a seamless ISV experience to optimize the [Okta Integration Network (OIN)](https://www.okta.com/integrations/) submission experience for SAML and OIDC integrations. This new experience enables independent software vendors (ISVs) to build and automatically test their integration metadata before submission. This reduces the time needed for the OIN team to review and validate that the integration functions as intended, which shortens the time to publish in the OIN. This experience also incorporates communication processes in Salesforce, enabling improved collaboration internally within Okta teams and externally with ISVs. See [Publish an OIN integration](/docs/guides/submit-app-overview/) overview and [Submit an SSO integration with the OIN Wizard](/docs/guides/submit-oin-app/openidconnect/main/) guide. <!-- OKTA-686228 -->
+
+#### PUT requests for an API token network condition
+
+You can now make PUT requests to the `/api-tokens/{apiTokenId}` endpoint to update the network condition of an API token. <!-- OKTA-704387 -->
+
+#### Permissions for custom admins to manage agents
+
+Custom admins can now view, register, and manage agents. See [Permission types](/docs/reference/api/roles/#permission-properties). <!-- OKTA-706310 -->
+
+#### Version pinning for Sign-In Widget (third generation) is GA in Production
+
+<!-- OKTA-713942 -->
+
+#### Developer documentation update in 2024.05.0
+
+The [Style the Sign-In Widget (third generation) guide](/docs/guides/custom-widget-gen3/main/#about-the-afterrender-function) has been updated to describe how the `afterRender` function works with the third generation. <!-- OKTA-686866 -->
+
+#### Bugs fixed in 2024.05.0
+
+* When a large number of users were linked to an Identity Provider, requests to the `/idps/{IdP_ID}/users` endpoint timed out. (OKTA-710934)
+
+* POST requests to the `/sessions/me/lifecycle/refresh` endpoint didn't return a `sid` cookie. (OKTA-716839)
+
+* If a [login pattern](https://developer.okta.com/docs/reference/api/schemas/#login-pattern-validation) failed validation when making a request with the Schemas API, the call dropped the pattern and continued the request. (OKTA-723332)
+
+* The Apps API accepted `0` as a value for the `samlAssertionLifetimeSeconds` parameter. (OKTA-723982)
+
+#### Bug fixed in 2024.05.0
+
+TBD (OKTA-TBD)
+
 ## April
 
 ### Weekly release 2024.04.3
@@ -16,7 +67,7 @@ title: Okta Classic Engine API release notes 2024
 
 * GET policy rules (`/v1/policies/{policyId}/rules`) and GET a policy rule  (`/v1/policies/{policyId}/rules/{ruleId}`) requests returned a rule with a null value for the `created` property. (OKTA-542919)
 
-* The Factors API didn’t correctly return all `profile.keys` parameters for Okta Verify enrollments. (OKTA-694655)
+* The Factors API didn't correctly return all `profile.keys` parameters for Okta Verify enrollments. (OKTA-694655)
 
 * Apps API users were able to add duplicate SAML `attributeStatements` when they created or updated a custom SAML 2.0 app. (OKTA-706474)
 
