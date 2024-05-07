@@ -46,7 +46,7 @@ You can now pin the Sign-In Widget version (third generation) when updating a cu
 
 #### Developer documentation update in 2024.05.0
 
-The [Style the Sign-In Widget (third generation) guide](/docs/guides/custom-widget-gen3/main/#about-the-afterrender-function) has been updated to describe how the `afterRender` function works with the third generation. <!-- OKTA-686866 -->
+The [Style the Sign-In Widget (third generation) guide](/docs/guides/custom-widget-gen3/main/#about-the-afterrender-function) has been updated to describe how the `afterRender` function works. <!-- OKTA-686866 -->
 
 #### Bugs fixed in 2024.05.0
 

@@ -19,7 +19,7 @@ title: Okta Classic Engine API release notes 2024
 
 #### Developer documentation update in 2024.05.0
 
-The [Style the Sign-In Widget (third generation) guide](/docs/guides/custom-widget-gen3/main/#about-the-afterrender-function) has been updated to describe how the `afterRender` function works with the third generation. <!-- OKTA-686866 -->
+The [Style the Sign-In Widget (third generation) guide](/docs/guides/custom-widget-gen3/main/#about-the-afterrender-function) has been updated to describe how the `afterRender` function works. <!-- OKTA-686866 -->
 
 #### Seamless ISV experience with integrated testing is GA in Preview
 
@@ -50,10 +50,6 @@ The [Style the Sign-In Widget (third generation) guide](/docs/guides/custom-widg
 * If a [login pattern](https://developer.okta.com/docs/reference/api/schemas/#login-pattern-validation) failed validation when making a request with the Schemas API, the call dropped the pattern and continued the request. (OKTA-723332)
 
 * The Apps API accepted `0` as a value for the `samlAssertionLifetimeSeconds` parameter. (OKTA-723982)
-
-#### Bug fixed in 2024.05.0
-
-TBD (OKTA-TBD)
 
 ## April
 
