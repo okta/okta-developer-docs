@@ -106,6 +106,7 @@ Redirects to applications from the Sign-In Widget were blocked in Android browse
 | [Enhanced app API contracts is GA in Production](#enhanced-app-api-contracts-is-ga-in-production) | April 3, 2024 |
 | [Direct Authentication is GA in Production](#direct-authentication-is-ga-in-production) | March 7, 2024 |
 | [Content Security Policy for custom domains is GA in Production](#content-security-policy-for-custom-domains-is-ga-in-production) | January 31, 2024 |
+| [Multiple Identifiers in EA in Preview](#multiple-identifiers-in-ea-in-preview) | April 10, 2024 |
 | [Developer documentation update in 2024.04.0](#developer-documentation-update-in-2024-04-0) | April 3, 2024 |
 | [Bugs fixed in 2024.04.0](#bugs-fixed-in-2024-04-0) | April 3, 2024 |
 
@@ -138,6 +139,11 @@ See [OIN app request payloads in the Applications API](https://developer.okta.co
 #### Content Security Policy for custom domains is GA in Production
 
 The Content Security Policy (CSP) feature lets admins control which URLs may be linked to from customized sign-in and error pages in orgs that use custom domains. Admins add trusted URLs to Okta that link to items such as images and add these links to the code in their sign-in and error pages. This feature enhances security by enabling admins to allow only approved content to appear and prevent the introduction of potentially malicious code to these pages. See [Content Security Policy (CSP) for your custom domain](/docs/guides/custom-widget/main/#content-security-policy-csp-for-your-custom-domain). <!-- OKTA-600774 FF CONTENT_SECURITY_POLICY_FOR_CUSTOMIZABLE_SIGN_IN_AND_ERROR_PAGES -->
+
+
+#### Multiple Identifiers
+
+Today, end users must sign in to Okta with a username or email address only. With the Multiple Identifiers feature, admins can configure identifiers, or user attributes from Universal Directory, that an end user can enter to authenticate. Multiplier identifiers work in sign-in, recovery, self-service registration, and unlock flows. Admins can configure up to three identifiers, including email (which is still a required identifier). See [Profile enrollment policy](/docs/reference/api/policy/#profile-enrollment-policy).
 
 #### Developer documentation update in 2024.04.0
 
