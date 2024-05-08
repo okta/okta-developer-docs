@@ -100,13 +100,15 @@ workflows:
       #     name: "Scan with Semgrep"
       #     requires:
       #       - semgrep-prepare
-      # Link to the job - <a href="https://app.circleci.com/pipelines/github/okta/okta-developer-docs/$CIRCLE_PIPELINE_ID/workflows/$CIRCLE_WORKFLOW_ID/jobs/$CIRCLE_WORKFLOW_JOB_ID"> Link </a>
+
+  semgrep_send_failed_email:
+    when:
+      on_fail: semgrep
+    jobs:
       - email/send:
           body: Nightly link checker job ran successfully. Link to the job - https://app.circleci.com/pipelines/github/okta/okta-developer-docs/<< pipeline.number >>
           subject: Dev Docs Nightly Success
           to: test-circleci-notif-aaaam4adaseamnmgdfiwsb4h3i@okta.org.slack.com
-          when:
-            on_fail: semgrep
 
   # build_checks:
   #   when:
