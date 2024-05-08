@@ -105,6 +105,8 @@ workflows:
           body: Nightly link checker job ran successfully. Link to the job - https://app.circleci.com/pipelines/github/okta/okta-developer-docs/<< pipeline.number >>
           subject: Dev Docs Nightly Success
           to: test-circleci-notif-aaaam4adaseamnmgdfiwsb4h3i@okta.org.slack.com
+          when:
+            on_fail: semgrep
 
   # build_checks:
   #   when:
