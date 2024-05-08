@@ -14,10 +14,12 @@ jobs:
         NODE_OPTIONS: '--max_old_space_size=3584'
       steps:
         - checkout
-        - email/send:
-            body: Nightly link checker job ran successfully. Link to the job - https://app.circleci.com/pipelines/github/okta/okta-developer-docs/<< pipeline.number >>
-            subject: Dev Docs Nightly Success
-            to: test-circleci-notif-aaaam4adaseamnmgdfiwsb4h3i@okta.org.slack.com
+        - when: on_success
+            steps:
+              - email/send:
+                  body: Nightly link checker job ran successfully. Link to the job - https://app.circleci.com/pipelines/github/okta/okta-developer-docs/<< pipeline.number >>
+                  subject: Dev Docs Nightly Success
+                  to: test-circleci-notif-aaaam4adaseamnmgdfiwsb4h3i@okta.org.slack.com
         # - run:
         #     name: Install dependencies
         #     command: yarn install --frozen-lockfile
