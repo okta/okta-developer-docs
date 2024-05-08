@@ -13,6 +13,7 @@ title: Okta Classic Engine API release notes 2024
 | [Seamless ISV experience with integrated testing is GA in Preview](#seamless-isv-experience-with-integrated-testing-is-ga-in-preview) | May 8, 2024 |
 | [PUT requests for an API token network condition](#put-requests-for-an-api-token-network-condition) | May 8, 2024 |
 | [Permissions for custom admins to manage agents](#permissions-for-custom-admins-to-manage-agents) | May 8, 2024 |
+| [New System Log API property for target object](#new-system-log-api-property-for-target-object) | May 8, 2024 |
 | [Developer documentation update in 2024.05.0](#developer-documentation-update-in-2024-05-0) | May 8, 2024 |
 | [Bugs fixed in 2024.05.0](#bugs-fixed-in-2024-05-0) | May 8, 2024 |
 
@@ -27,6 +28,10 @@ You can now make PUT requests to the `/api-tokens/{apiTokenId}` endpoint to upda
 #### Permissions for custom admins to manage agents
 
 Custom admins can now view, register, and manage agents. See [Permission types](/docs/reference/api/roles/#permission-properties). <!-- OKTA-706310 -->
+
+#### New System Log API property for target object
+
+Certain system log events now contain a new property called `changeDetails` in the `target` object. When this property is populated, it reflects new, changed, or removed attributes of the target resource that has been modified. See [changeDetails property](/docs/reference/api/system-log/#changedetails-property). <!-- OKTA-724000 -->
 
 #### Developer documentation update in 2024.05.0
 
