@@ -18,6 +18,7 @@ title: Okta Identity Engine API release notes 2024
 | [Username supported as optional request query parameter](#username-supported-as-optional-request-query-parameter) | May 8, 2024 |
 | [Version pinning for Sign-In Widget (third generation) is GA in Production](#version-pinning-for-sign-in-widget-third-generation-is-ga-in-production) | May 8, 2024 |
 | [New System Log API property for target object](#new-system-log-api-property-for-target-object) | May 8, 2024 |
+
 | [Multiple Identifiers is EA in Preview](#multiple-identifiers-is-ea-in-preview) | April 10, 2024 |
 | [Developer documentation update in 2024.05.0](#developer-documentation-update-in-2024-05-0) | May 8, 2024 |
 | [Bugs fixed in 2024.05.0](#bugs-fixed-in-2024-05-0) | May 8, 2024 |
