@@ -12,7 +12,7 @@ title: Okta Classic Engine API release notes 2024
 |--------|--------------------------|
 | [Seamless ISV experience with integrated testing is GA in Preview](#seamless-isv-experience-with-integrated-testing-is-ga-in-preview) | May 8, 2024 |
 | [PUT requests for an API token network condition](#put-requests-for-an-api-token-network-condition) | May 8, 2024 |
-| [Permissions for custom admins to manage agents](#permissions-for-custom-admins-to-manage-agents-is-ga-in-production) | May 8, 2024 |
+| [Permissions for custom admins to manage agents is GA in Production](#permissions-for-custom-admins-to-manage-agents-is-ga-in-production) | May 8, 2024 |
 | [New System Log API property for target object](#new-system-log-api-property-for-target-object) | May 8, 2024 |
 | [Developer documentation update in 2024.05.0](#developer-documentation-update-in-2024-05-0) | May 8, 2024 |
 | [Bugs fixed in 2024.05.0](#bugs-fixed-in-2024-05-0) | May 8, 2024 |
