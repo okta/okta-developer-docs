@@ -14,24 +14,15 @@ jobs:
         NODE_OPTIONS: '--max_old_space_size=3584'
       steps:
         - checkout
-        -  run:
-            name: Install libnss3
-            command: sudo apt-get update && sudo apt-get install -y libnsasdasd 
         - run:
-            name: Send email
-            when: on_fail
-            command: |
-                curl --location --request POST 'https://www.cinotify.cc/api/notify' \
-                            -d "to=test-circleci-notif-aaaam4adaseamnmgdfiwsb4h3i@okta.org.slack.com&subject=Dev Docs Nightly Success&body=Nightly link checker job ran successfully. Link to the job - https://app.circleci.com/pipelines/github/okta/okta-developer-docs/<< pipeline.number >>"
-        # - run:
-        #     name: Install dependencies
-        #     command: yarn install --frozen-lockfile
-        # - run:
-        #     name: Build 
-        #     command: yarn build
-        # - run:
-        #     name: Run checks
-        #     command: ./scripts/yarn-checks-ci.sh
+            name: Install dependencies
+            command: yarn install --frozen-lockfile
+        - run:
+            name: Build 
+            command: yarn build
+        - run:
+            name: Run checks
+            command: ./scripts/yarn-checks-ci.sh
 
   nightly_link_checker:
     docker:
@@ -63,6 +54,12 @@ jobs:
           name: Print urls to log
           command: |
             cat broken_external_urls.txt
+      - run:
+          name: Send failure email
+          when: on_fail
+          command: |
+            curl --location --request POST 'https://www.cinotify.cc/api/notify' \
+                      -d "type=text/html&to=infodev-notifications-aaaah2vvvkkwm2lylqaqwal5z4@okta.org.slack.com&subject=FAILED: Dev Docs Nightly Job&body=Nightly link checker job failed. <a href='https://app.circleci.com/pipelines/github/okta/okta-developer-docs/<< pipeline.number >>'> Click here </a>to see job details."
   
   netlify_manual:
     docker:
@@ -117,29 +114,20 @@ workflows:
       - node_build_checks:
           name: "Build and Checks"
 
-  # send_failed_email:
-  #   when:
-  #     on_success: build_checks
-  #   jobs:
-  #     - email/send:
-  #         body: Nightly link checker job ran successfully. Link to the job - https://app.circleci.com/pipelines/github/okta/okta-developer-docs/<< pipeline.number >>
-  #         subject: Dev Docs Nightly Success
-  #         to: test-circleci-notif-aaaam4adaseamnmgdfiwsb4h3i@okta.org.slack.com
-  
-  # nightly:
-  #   triggers:
-  #     - schedule:
-  #         cron: "1 5 * * *"
-  #         filters:
-  #           branches:
-  #             only:
-  #               - master
-  #   jobs:
-  #     - nightly_link_checker:
-  #         name: "Nightly Link Checker"
+  nightly:
+    triggers:
+      - schedule:
+          cron: "1 5 * * *"
+          filters:
+            branches:
+              only:
+                - master
+    jobs:
+      - nightly_link_checker:
+          name: "Nightly Link Checker"
 
-  # netlify_manual:
-  #   when: << pipeline.parameters.preview >>
-  #   jobs:
-  #     - netlify_manual:
-  #         name: "Netlify Manual"
+  netlify_manual:
+    when: << pipeline.parameters.preview >>
+    jobs:
+      - netlify_manual:
+          name: "Netlify Manual"
