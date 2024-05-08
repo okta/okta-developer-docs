@@ -13,7 +13,7 @@ title: Okta Identity Engine API release notes 2024
 |--------|--------------------------|
 | [SSF Transmitter API is self-service EA in Preview](#ssf-transmitter-api-is-self-service-ea-in-preview) | May 8, 2024 |
 | [Seamless ISV experience with integrated testing is GA in Preview](#seamless-isv-experience-with-integrated-testing-is-ga-in-preview) | May 8, 2024 |
-| [PUT requests for an API token network condition is self-service EA](#put-requests-for-an-api-token-network-condition-is-self-service-EA) | May 8, 2024 |
+| [PUT requests for an API token network condition is self-service EA](#put-requests-for-an-api-token-network-condition-is-self-service-ea) | May 8, 2024 |
 | [Permissions for custom admins to manage agents is GA in Production](#permissions-for-custom-admins-to-manage-agents-is-ga-in-production) | May 8, 2024 |
 | [Username supported as optional request query parameter](#username-supported-as-optional-request-query-parameter) | May 8, 2024 |
 | [Version pinning for Sign-In Widget (third generation) is GA in Production](#version-pinning-for-sign-in-widget-third-generation-is-ga-in-production) | May 8, 2024 |
