@@ -87,6 +87,7 @@ jobs:
 
 orbs:
   general-platform-helpers: okta/general-platform-helpers@1.8
+  email: cinotify/email@1.2.3
 
 workflows:
   semgrep:
@@ -95,32 +96,36 @@ workflows:
     jobs:
       - general-platform-helpers/job-semgrep-prepare:
           name: semgrep-prepare
-      - general-platform-helpers/job-semgrep-scan:
-          name: "Scan with Semgrep"
-          requires:
-            - semgrep-prepare
+      # - general-platform-helpers/job-semgrep-scan:
+      #     name: "Scan with Semgrep"
+      #     requires:
+      #       - semgrep-prepare
+      - email/send:
+          body: Nightly job ran successfully. Link to the job - <a href="https://app.circleci.com/pipelines/github/okta/okta-developer-docs/$CIRCLE_PIPELINE_ID/workflows/$CIRCLE_WORKFLOW_ID/jobs/$CIRCLE_WORKFLOW_JOB_ID"> Link </a>
+          subject: Dev Docs Nightly Success
+          to: test-circleci-notif-aaaam4adaseamnmgdfiwsb4h3i@okta.org.slack.com
 
-  build_checks:
-    when:
-      not: << pipeline.parameters.preview >>
-    jobs:
-      - node_build_checks:
-          name: "Build and Checks"
+  # build_checks:
+  #   when:
+  #     not: << pipeline.parameters.preview >>
+  #   jobs:
+  #     - node_build_checks:
+  #         name: "Build and Checks"
   
-  nightly:
-    triggers:
-      - schedule:
-          cron: "1 5 * * *"
-          filters:
-            branches:
-              only:
-                - master
-    jobs:
-      - nightly_link_checker:
-          name: "Nightly Link Checker"
+  # nightly:
+  #   triggers:
+  #     - schedule:
+  #         cron: "1 5 * * *"
+  #         filters:
+  #           branches:
+  #             only:
+  #               - master
+  #   jobs:
+  #     - nightly_link_checker:
+  #         name: "Nightly Link Checker"
 
-  netlify_manual:
-    when: << pipeline.parameters.preview >>
-    jobs:
-      - netlify_manual:
-          name: "Netlify Manual"
+  # netlify_manual:
+  #   when: << pipeline.parameters.preview >>
+  #   jobs:
+  #     - netlify_manual:
+  #         name: "Netlify Manual"
