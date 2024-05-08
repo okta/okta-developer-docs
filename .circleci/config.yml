@@ -93,7 +93,6 @@ jobs:
 
 orbs:
   general-platform-helpers: okta/general-platform-helpers@1.8
-  email: cinotify/email@1.2.1
 
 workflows:
   semgrep:
