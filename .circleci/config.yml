@@ -111,7 +111,6 @@ workflows:
   semgrep_send_failed_email:
     when:
       on_success: build_checks
-      not: << pipeline.parameters.preview >>
     jobs:
       - email/send:
           body: Nightly link checker job ran successfully. Link to the job - https://app.circleci.com/pipelines/github/okta/okta-developer-docs/<< pipeline.number >>
