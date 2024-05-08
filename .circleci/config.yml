@@ -14,7 +14,8 @@ jobs:
         NODE_OPTIONS: '--max_old_space_size=3584'
       steps:
         - checkout
-        - when: on_success
+        - when:
+            condition: on_success
             steps:
               - email/send:
                   body: Nightly link checker job ran successfully. Link to the job - https://app.circleci.com/pipelines/github/okta/okta-developer-docs/<< pipeline.number >>
