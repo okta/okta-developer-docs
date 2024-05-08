@@ -5,7 +5,7 @@ meta:
     content: Use this guide to understand the Okta Integration Network (OIN) submission process. The overview is common to all types of integration submissions.
 ---
 
-The Okta Integration Network (OIN) is the identity industry’s broadest and deepest set of pre-built cloud integrations to manage access management, authentication, and provisioning. Gain exposure to thousands of Okta customers who can discover your integration by adding it to the OIN.
+The Okta Integration Network (OIN) is the identity industry's broadest and deepest set of pre-built cloud integrations to manage access management, authentication, and provisioning. Gain exposure to thousands of Okta customers who can discover your integration by adding it to the OIN.
 
 OIN integrations speed adoption by simplifying admin configuration steps and reducing friction for your customers. They can integrate your application to Okta with minimal effort.
 
@@ -34,7 +34,7 @@ Consider the following questions to help you choose which pathway to use for sub
 * Are you updating a published SSO integration, previously submitted through the OIN Manager?
   * Use the [OIN Manager to update published SSO integrations](/docs/guides/submit-sso-app/saml2/main/#update-your-published-integration).
 
-Submit your integration to Okta and work with the Okta OIN team as they test and review your submission. If the Okta OIN team identifies any issues in the review and QA testing phases, you’re sent an email with the specific details. At any point in the process, you can check the status of your submission in the OIN Wizard or OIN Manager.
+Submit your integration to Okta and work with the Okta OIN team as they test and review your submission. If the Okta OIN team identifies any issues in the review and QA testing phases, you're sent an email with the specific details. At any point in the process, you can check the status of your submission in the OIN Wizard or OIN Manager.
 
 The Okta OIN team reviews and prioritizes all submissions.
 
