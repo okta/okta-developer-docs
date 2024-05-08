@@ -127,7 +127,7 @@
         <SidebarItem
           v-for="sublink in link.subLinks"
           :key="sublink.title"
-          :link="sublink"
+          :link="sublink" 
         />
       </ul>
     </transition>
