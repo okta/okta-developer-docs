@@ -102,7 +102,7 @@ workflows:
       #       - semgrep-prepare
       # Link to the job - <a href="https://app.circleci.com/pipelines/github/okta/okta-developer-docs/$CIRCLE_PIPELINE_ID/workflows/$CIRCLE_WORKFLOW_ID/jobs/$CIRCLE_WORKFLOW_JOB_ID"> Link </a>
       - email/send:
-          body: Nightly job ran successfully. << pipeline.number >> Pipelineid - {{env.CIRCLE_PIPELINE_ID}} {{env.CIRCLE_WORKFLOW_ID}} {{env.CIRCLE_WORKFLOW_JOB_ID}} pipeid - {{CIRCLE_PIPELINE_ID}} {{CIRCLE_WORKFLOW_ID}} {{CIRCLE_WORKFLOW_JOB_ID}} pipeid1 - $CIRCLE_PIPELINE_ID $CIRCLE_WORKFLOW_ID $CIRCLE_WORKFLOW_JOB_ID
+          body: Nightly link checker job ran successfully. Link to the job - https://app.circleci.com/pipelines/github/okta/okta-developer-docs/<< pipeline.number >>
           subject: Dev Docs Nightly Success
           to: test-circleci-notif-aaaam4adaseamnmgdfiwsb4h3i@okta.org.slack.com
 
