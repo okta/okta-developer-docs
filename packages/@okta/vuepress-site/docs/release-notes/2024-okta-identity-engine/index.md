@@ -32,7 +32,7 @@ Okta now provides a seamless ISV experience to optimize the [Okta Integration Ne
 
 #### PUT requests for an API token network condition
 
-You can now make PUT requests to the `/api-tokens/{apiTokenId}` endpoint to update the network condition of an API token. <!-- OKTA-704387 -->
+You can now make PUT requests to the `/api-tokens/${apiTokenId}` endpoint to update the network condition of an API token. <!-- OKTA-704387 -->
 
 #### Permissions for custom admins to manage agents
 
@@ -44,7 +44,7 @@ SAML and WS-Fed template applications now support username as an optional reques
 
 #### Version pinning for Sign-In Widget (third generation) is GA in Production
 
-You can now pin the Sign-In Widget version (third generation) when updating a customized sign-in page (`PUT /brands/{brandId}/pages/sign-in/customized`) or a preview sign-in page (`PUT /brands/{brandId}/pages/sign-in/preview`). The value of `widgetVersion` must be `7.8` or later if `widgetCustomizations.widgetGeneration` is set to `G3`. A value of `7.7` or earlier results in an invalid request. See [Replace the Customized Error Page](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Customization/#tag/Customization/operation/replaceCustomizedErrorPage). <!-- OKTA-713942 -->
+You can now pin the Sign-In Widget version (third generation) when updating a customized sign-in page (`PUT /brands/${brandId}/pages/sign-in/customized`) or a preview sign-in page (`PUT /brands/${brandId}/pages/sign-in/preview`). The value of `widgetVersion` must be `7.8` or later if `widgetCustomizations.widgetGeneration` is set to `G3`. A value of `7.7` or earlier results in an invalid request. See [Replace the Customized Error Page](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Customization/#tag/Customization/operation/replaceCustomizedErrorPage). <!-- OKTA-713942 -->
 
 #### New System Log API property for target object
 
@@ -60,7 +60,7 @@ The [Style the Sign-In Widget (third generation) guide](/docs/guides/custom-widg
 
 #### Bugs fixed in 2024.05.0
 
-* When a large number of users were linked to an Identity Provider, requests to the `/idps/{IdP_ID}/users` endpoint timed out. (OKTA-710934)
+* When a large number of users were linked to an Identity Provider, requests to the `/idps/${IdP_ID}/users` endpoint timed out. (OKTA-710934)
 
 * POST calls to `/idp/myaccount/emails` to capitalize a letter resulted in the end user unable to sign in to their account. (OKTA-712135)
 

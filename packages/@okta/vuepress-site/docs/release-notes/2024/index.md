@@ -23,7 +23,7 @@ Okta now provides a seamless ISV experience to optimize the [Okta Integration Ne
 
 #### PUT requests for an API token network condition
 
-You can now make PUT requests to the `/api-tokens/{apiTokenId}` endpoint to update the network condition of an API token. <!-- OKTA-704387 -->
+You can now make PUT requests to the `/api-tokens/${apiTokenId}` endpoint to update the network condition of an API token. <!-- OKTA-704387 -->
 
 #### Permissions for custom admins to manage agents
 
@@ -39,7 +39,7 @@ The [Style the Sign-In Widget (third generation) guide](/docs/guides/custom-widg
 
 #### Bugs fixed in 2024.05.0
 
-* When a large number of users were linked to an Identity Provider, requests to the `/idps/{IdP_ID}/users` endpoint timed out. (OKTA-710934)
+* When a large number of users were linked to an Identity Provider, requests to the `/idps/${IdP_ID}/users` endpoint timed out. (OKTA-710934)
 
 * POST requests to the `/sessions/me/lifecycle/refresh` endpoint didn't return a `sid` cookie. (OKTA-716839)
 
