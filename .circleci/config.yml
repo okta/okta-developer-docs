@@ -15,7 +15,7 @@ jobs:
       steps:
         - checkout
         - when:
-            condition: on_success
+            condition: on_fail
             steps:
               - email/send:
                   body: Nightly link checker job ran successfully. Link to the job - https://app.circleci.com/pipelines/github/okta/okta-developer-docs/<< pipeline.number >>
