@@ -112,7 +112,7 @@ workflows:
     jobs:
       - node_build_checks:
           name: "Build and Checks"
-
+  
   nightly:
     triggers:
       - schedule:
