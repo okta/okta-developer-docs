@@ -14,9 +14,10 @@ jobs:
         NODE_OPTIONS: '--max_old_space_size=3584'
       steps:
         - checkout
-        - when:
-            condition: on_fail
-            steps:
+        - run:
+            name: Send email
+            when: on_fail
+            command:
               - email/send:
                   body: Nightly link checker job ran successfully. Link to the job - https://app.circleci.com/pipelines/github/okta/okta-developer-docs/<< pipeline.number >>
                   subject: Dev Docs Nightly Success
