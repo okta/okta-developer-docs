@@ -14,15 +14,15 @@ jobs:
         NODE_OPTIONS: '--max_old_space_size=3584'
       steps:
         - checkout
-        - run:
-            name: Install dependencies
-            command: yarn install --frozen-lockfile
-        - run:
-            name: Build 
-            command: yarn build
-        - run:
-            name: Run checks
-            command: ./scripts/yarn-checks-ci.sh
+        # - run:
+        #     name: Install dependencies
+        #     command: yarn install --frozen-lockfile
+        # - run:
+        #     name: Build 
+        #     command: yarn build
+        # - run:
+        #     name: Run checks
+        #     command: ./scripts/yarn-checks-ci.sh
 
   nightly_link_checker:
     docker:
@@ -96,26 +96,27 @@ workflows:
     jobs:
       - general-platform-helpers/job-semgrep-prepare:
           name: semgrep-prepare
-      # - general-platform-helpers/job-semgrep-scan:
-      #     name: "Scan with Semgrep"
-      #     requires:
-      #       - semgrep-prepare
+      - general-platform-helpers/job-semgrep-scan:
+          name: "Scan with Semgrep"
+          requires:
+            - semgrep-prepare
+
+  build_checks:
+    when:
+      not: << pipeline.parameters.preview >>
+    jobs:
+      - node_build_checks:
+          name: "Build and Checks"
 
   semgrep_send_failed_email:
     when:
-      on_fail: semgrep
+      on_success: build_checks
+      not: << pipeline.parameters.preview >>
     jobs:
       - email/send:
           body: Nightly link checker job ran successfully. Link to the job - https://app.circleci.com/pipelines/github/okta/okta-developer-docs/<< pipeline.number >>
           subject: Dev Docs Nightly Success
           to: test-circleci-notif-aaaam4adaseamnmgdfiwsb4h3i@okta.org.slack.com
-
-  # build_checks:
-  #   when:
-  #     not: << pipeline.parameters.preview >>
-  #   jobs:
-  #     - node_build_checks:
-  #         name: "Build and Checks"
   
   # nightly:
   #   triggers:
