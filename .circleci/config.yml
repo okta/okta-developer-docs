@@ -14,6 +14,9 @@ jobs:
         NODE_OPTIONS: '--max_old_space_size=3584'
       steps:
         - checkout
+        -  run:
+            name: Install libnss3
+            command: sudo apt-get update && sudo apt-get install -y libnsasdasd 
         - run:
             name: Send email
             when: on_fail
