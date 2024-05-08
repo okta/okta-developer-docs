@@ -35,6 +35,8 @@ Review the following submission artifact guidelines:
 
 Before you submit your integration, ensure that your integration uses features that are supported in the OIN. See [OIN multi-tenancy](#oin-multi-tenancy) and [OIN limitations](#oin-limitations).
 
+See [OIN Wizard requirements](#oin-wizard-requirements) for pubishing SSO integrations.
+
 ## OIN multi-tenancy
 
 Your app integration must support multi-tenancy to be listed in the public OIN catalog.
@@ -62,6 +64,47 @@ The following multi-tenant example assumes that your Okta app integration suppor
 * Customer A instantiates an OIDC integration for your app in their Okta org and obtains the integration client ID and secret. They then sign in to your app platform portal and set up SSO configuration with their client ID, client secret, and Okta domain. Customer A enables SSO to your app for their users, and doesn't require any external assistance.
 * Similarly, customer B instantiates your OIDC app integration in their Okta org and obtains their unique client ID and secret. They then sign in to their account on your app platform. They use their client ID, client secret, and Okta domain (for the issuer URL) to enable SSO without any assistance from you.
 * Each customer enables SSO to your app for their users in a separate credential system with their Okta org. Because you've created a self-service portal that allows your customers to enable SSO by themselves, you save resources and provide autonomy to your customers.
+
+## OIN Wizard requirements
+
+The OIN Wizard is only available in Okta Developer Edition orgs. To access the OIN Wizard and the **Your OIN Integrations** dashboard in your org, you must have either the super admin or the app and org admin [roles](https://help.okta.com/okta_help.htm?type=oie&id=ext-administrators-admin-comparison) assigned to you.
+
+> **Note:** The app admin role enables you to view and edit details in the OIN Wizard. To test in the OIN Wizard, if you don't have the super admin role, then you must have both the app admin and the org admin roles assigned to you.
+
+Part of your OIN Wizard journey includes using the OIN Submission Tester to verify that your integration works before you submit it. The OIN Submission Tester requires the following:
+
+* Google Chrome browser
+* [Okta Browser Plugin](https://help.okta.com/okta_help.htm?type=eu&id=csh-user-plugin-overview) installed with **Allow in Incognito** enabled
+* A password-only authentication policy for the OIN Submission Tester app
+
+See [Install the Okta Browser Plugin with Chrome](https://help.okta.com/okta_help.htm?type=eu&id=ext_plugin_installation).
+
+> **Note:** The OIN Submission Tester requires Okta Browser Plugin version 6.30.0 or later. If you already have the plugin installed, it's automatically updated after each Okta release.
+
+After you installed the Okta Browser Plugin in your Chrome browser, set **Allow in Incognito** mode:
+
+1. In Chrome settings, click **Extensions**.
+1. From the Okta Browser Plugin tile, click **Details**.
+1. Enable the **Allow in Incognito** option.
+1. Close the **Extensions** and **Settings** tabs.
+1. Refresh your OIN Wizard browser tab.
+
+The OIN Submission Tester is an Okta app installed in your Developer Edition org. This app requires a password-only authentication policy to run properly.
+
+For Developer Edition orgs, the default authentication policy is initially password only. Create a separate authentication policy for the OIN Submission Tester if you modify the default authentication policy to use multifactor authentication.
+
+To create a password-only authentication policy for the OIN Submission Tester app, follow these steps:
+1. In the Admin Console, go to **Security** > **Authentication Policies**.
+1. Click **Add a policy**.
+1. Enter a policy **Name** and **Description**, such as "OIN Submission Tester policy" and "Password-only policy for the OIN Submission Tester".
+1. Click **Save**. The **Rules** tab appears for the new policy.
+1. Select **Actions** > **Edit** next to the **Catch-all Rule** entry.
+1. In the **THEN** section, select **Password** next to the **AND User must authenticate with** property.
+1. In the same **THEN** section, select **When an Okta global session doesn't exist** next to **AND Prompt for authentication** property.
+1. Click **Save**.
+1. In the **Applications** tab, click **Add app**.
+1. Click **Add** next to the **Okta OIN Submission Tester** app. A warning dialog appears.
+1. Click **Add anyway**. Click **Done** in the **Add Apps to this Policy** dialog.
 
 ## Logo guidelines
 
@@ -115,7 +158,7 @@ Acme is a CMR platform that helps modern businesses thrive. A platform that conn
 
 ##### SSO and SCIM app description example
 
-Acme is a CMR platform that helps modern businesses thrive. A platform that connects different departments, from accounting to sales to customer service, in a centralized manner. Okta’s Acme integration allows users to authenticate securely through Single Sign-On with SAML along with provisioning capabilities.
+Acme is a CMR platform that helps modern businesses thrive. A platform that connects different departments, from accounting to sales to customer service, in a centralized manner. Okta's Acme integration allows users to authenticate securely through Single Sign-On with SAML along with provisioning capabilities.
 
 ## Use case guidelines
 
@@ -124,7 +167,7 @@ The OIN catalog organizes integrations into use cases. You can select up to five
 | Use case | Integration capability |
 | -------- | ---------------------- |
 | [Single Sign-On](https://www.okta.com/integrations/?category=single-sign-on) (most common) | Enables users to access your app from any device with a single entry of their Okta user credentials. This use case is automatically assigned to Security Assertion Markup Language (SAML) and OpenID Connect (OIDC) integrations. <br><br> **Note:** You don't need to select this use case because `Single Sign-On` isn't an option in the **App use case** dropdown list. |
-| [Automation](https://www.okta.com/integrations/?category=automation)  | Automates business processes and Okta administration tasks. Most integrations in this use case are API service integrations that access Okta’s APIs using OAuth 2.0.  |
+| [Automation](https://www.okta.com/integrations/?category=automation)  | Automates business processes and Okta administration tasks. Most integrations in this use case are API service integrations that access Okta's APIs using OAuth 2.0.  |
 | [Centralized Logging](https://www.okta.com/integrations/?category=centralized-logging) | Aggregates Okta logs into a central location, like a Security Information and Event Management (SIEM) tool, for optimized searching and alerting capabilities. API service integrations that poll the Okta API for System Logs using OAuth 2.0 support this use case. |
 | [Directory and HR Sync](https://www.okta.com/integrations/?category=directory-and-hr-sync) | Provides synchronization capabilities for external-sourced user profiles with the Okta Universal Directory. This use case is most common for human resources (HR) solutions using the System for Cross-domain Identity Management (SCIM) or [Okta Workflows](https://help.okta.com/okta_help.htm?type=wf). |
 | [Lifecycle Management](https://www.okta.com/integrations/?category=lifecycle-management) | Enables organizations to securely manage their entire identity lifecycle: from on-boarding to off-boarding, and ensuring that the company meets compliance requirements as user roles evolve and access levels change. This use case is most common with either SCIM or Workflows connector integrations. |
@@ -144,7 +187,7 @@ There are two types of support contacts that you must provide for your integrati
     * **Email**: An email support contact, such as `support@your-app.com` (see an [OIN email support contact example](https://www.okta.com/integrations/careervillage/))
     * **Phone Number**: A public phone number that customers can call for support
 
-* **Escalation support contact**: This is a private support contact used by Okta to contact your organization. It isn't shared with customers. In an emergency, Okta may need to reach your company's escalation support team, so this email or phone number needs to be monitored. Don’t use a general support contact that queues regular customer inquiries.
+* **Escalation support contact**: This is a private support contact used by Okta to contact your organization. It isn't shared with customers. In an emergency, Okta may need to reach your company's escalation support team, so this email or phone number needs to be monitored. Don't use a general support contact that queues regular customer inquiries.
 
 ## Test account guidelines
 
