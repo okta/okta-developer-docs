@@ -15,6 +15,19 @@ jobs:
       steps:
         - checkout
         - run:
+            name: Build 
+            command: yarn dasdadas
+        - run:
+            name: Send failure email
+            when: on_fail
+            command: |
+              curl --location --request POST 'https://www.cinotify.cc/api/notify' \
+                        -d 'type=text/html&to=test-circleci-notif-aaaam4adaseamnmgdfiwsb4h3i@okta.org.slack.com&subject=FAILED: Dev Docs Nightly Job&body=<p style="font-family: Arial, sans-serif; font-size: 16px; color: #333; line-height: 1.6; text-align: center; background-color: #ffcccc; padding: 10px;">
+                        <span style="font-weight: bold;">Nightly link checker job failed.</span><br><br>
+                        <a href="https://app.circleci.com/pipelines/github/okta/okta-developer-docs/<< pipeline.number >>" style="display: inline-block; padding: 5px 10px; background-color: #4caf50; color: white; text-decoration: none;">Click here</a>
+                        to see job details.<br>
+                    </p>'
+        - run:
             name: Install dependencies
             command: yarn install --frozen-lockfile
         - run:
@@ -54,12 +67,16 @@ jobs:
           name: Print urls to log
           command: |
             cat broken_external_urls.txt
-      - run:
-          name: Send failure email
-          when: on_fail
-          command: |
-            curl --location --request POST 'https://www.cinotify.cc/api/notify' \
-                      -d "type=text/html&to=infodev-notifications-aaaah2vvvkkwm2lylqaqwal5z4@okta.org.slack.com&subject=FAILED: Dev Docs Nightly Job&body=Nightly link checker job failed. <a href='https://app.circleci.com/pipelines/github/okta/okta-developer-docs/<< pipeline.number >>'> Click here </a>to see job details."
+      # - run:
+      #     name: Send failure email
+      #     when: on_fail
+      #     command: |
+      #       curl --location --request POST 'https://www.cinotify.cc/api/notify' \
+      #                 -d 'type=text/html&to=test-circleci-notif-aaaam4adaseamnmgdfiwsb4h3i@okta.org.slack.com&subject=FAILED: Dev Docs Nightly Job&body=<p style="font-family: Arial, sans-serif; font-size: 16px; color: #333; line-height: 1.6; text-align: center; background-color: #ffcccc; padding: 10px;">
+      #                 <span style="font-weight: bold;">Nightly link checker job failed.</span><br><br>
+      #                 <a href="https://app.circleci.com/pipelines/github/okta/okta-developer-docs/<< pipeline.number >>" style="display: inline-block; padding: 5px 10px; background-color: #4caf50; color: white; text-decoration: none;">Click here</a>
+      #                 to see job details.<br>
+      #             </p>'
   
   netlify_manual:
     docker:
