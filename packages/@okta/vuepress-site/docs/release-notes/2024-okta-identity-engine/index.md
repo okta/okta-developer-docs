@@ -24,7 +24,7 @@ title: Okta Identity Engine API release notes 2024
 
 #### SSF Transmitter API is self-service EA in Preview
 
-Okta uses [CAEP](https://openid.net/specs/openid-caep-specification-1_0.html) to send security-related events and other data-subject signals to Apple, known as the Shared Signal Framework (SSF) receiver. After an SSF stream is configured, Okta sends signals as [Security Event Tokens (SETs)](https://datatracker.ietf.org/doc/html/rfc8417) to Apple. Use the SSF Transmitter API <!--[SSF Transmitter API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SSFTransmitter/)--> to manage SSF stream configurations between the SSF receiver and Okta. <!-- OKTA-660502 -->
+Okta uses [CAEP](https://openid.net/specs/openid-caep-specification-1_0.html) to send security-related events and other data-subject signals to Apple, known as the Shared Signal Framework (SSF) receiver. After an SSF stream is configured, Okta sends signals as [Security Event Tokens (SETs)](https://datatracker.ietf.org/doc/html/rfc8417) to Apple. Use the SSF Transmitter API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SSFTransmitter/) to manage SSF stream configurations between the SSF receiver and Okta. <!-- OKTA-660502 -->
 
 #### Seamless ISV experience with integrated testing is GA in Preview
 
