@@ -15,27 +15,51 @@ jobs:
       steps:
         - checkout
         - run:
-            name: Build 
-            command: yarn dasdadas
-        - run:
-            name: Send failure email
-            when: on_fail
-            command: |
-              curl --location --request POST 'https://www.cinotify.cc/api/notify' \
-                        -d 'type=text/html&to=test-circleci-notif-aaaam4adaseamnmgdfiwsb4h3i@okta.org.slack.com&subject=FAILED: Dev Docs Nightly Job&body=<p style="font-family: Arial, sans-serif; font-size: 16px; color: #333; line-height: 1.6; text-align: center; background-color: #ffcccc; padding: 10px;">
-                        <span style="font-weight: bold;">Nightly link checker job failed.</span><br><br>
-                        <a href="https://app.circleci.com/pipelines/github/okta/okta-developer-docs/<< pipeline.number >>" style="display: inline-block; padding: 5px 10px; background-color: #4caf50; color: white; text-decoration: none;">Click here</a>
-                        to see job details.<br>
-                    </p>'
-        - run:
             name: Install dependencies
             command: yarn install --frozen-lockfile
         - run:
             name: Build 
             command: yarn build
         - run:
-            name: Run checks
-            command: ./scripts/yarn-checks-ci.sh
+            name: Run link checker
+            command: yarn broken-link-checker:external > output.txt 2>&1 || true
+        - run:
+            name: Extract URLs from log
+            command: |
+              grep -o 'Link: https\?://[^[:space:]]*' output.txt | sed 's/Link: //' > urls.txt
+            when: always
+        - run:
+            name: Remove False Positives
+            command: |
+              comm -23 <(sort urls.txt | uniq) <(sort falsepos.txt | uniq) > broken_external_urls.txt
+        - run:
+            name: Print urls to log
+            command: |
+              cat broken_external_urls.txt
+        - run:
+            name: Base64 encode file
+            command: |
+              base64encodedfile=$(base64 -i broken_external_urls.txt)
+        - run:
+            name: Send success email
+            when: on_success
+            command: |
+              curl --location --request POST 'https://www.cinotify.cc/api/notify' \
+                        -d 'type=test-circleci-notif-aaaam4adaseamnmgdfiwsb4h3i@okta.org.slack.com&subject=SUCCESS: Dev Docs Nightly Job&body=<p style="font-family: Arial, sans-serif; font-size: 16px; color: #333; line-height: 1.6; text-align: center; background-color: #ccffe0; padding: 10px;">
+                        <span style="font-weight: bold;">Nightly link checker job success.</span><br><br>
+                        <a href="https://app.circleci.com/pipelines/github/okta/okta-developer-docs/<< pipeline.number >>" style="display: inline-block; padding: 5px 10px; background-color: #4caf50; color: white; text-decoration: none;">Click here</a>
+                        to see job details.<br>
+                    </p>'
+          - run:
+              name: Send failure email
+              when: on_fail
+              command: |
+                curl --location --request POST 'https://www.cinotify.cc/api/notify' \
+                          -d 'type=test-circleci-notif-aaaam4adaseamnmgdfiwsb4h3i@okta.org.slack.com&subject=FAILED: Dev Docs Nightly Job&body=<p style="font-family: Arial, sans-serif; font-size: 16px; color: #333; line-height: 1.6; text-align: center; background-color: #ffcccc; padding: 10px;">
+                          <span style="font-weight: bold;">Nightly link checker job failed.</span><br><br>
+                          <a href="https://app.circleci.com/pipelines/github/okta/okta-developer-docs/<< pipeline.number >>" style="display: inline-block; padding: 5px 10px; background-color: #4caf50; color: white; text-decoration: none;">Click here</a>
+                          to see job details.<br>
+                      </p>'
 
   nightly_link_checker:
     docker:
@@ -68,11 +92,25 @@ jobs:
           command: |
             cat broken_external_urls.txt
       # - run:
+      #     name: Base64 encode file
+      #     command: |
+      #       base64encodedfile=$(base64 -i broken_external_urls.txt)
+      # - run:
+      #     name: Send success email
+      #     when: on_success
+      #     command: |
+      #       curl --location --request POST 'https://www.cinotify.cc/api/notify' \
+      #                 -d 'type=test-circleci-notif-aaaam4adaseamnmgdfiwsb4h3i@okta.org.slack.com&subject=SUCCESS: Dev Docs Nightly Job&body=<p style="font-family: Arial, sans-serif; font-size: 16px; color: #333; line-height: 1.6; text-align: center; background-color: #ccffe0; padding: 10px;">
+      #                 <span style="font-weight: bold;">Nightly link checker job success.</span><br><br>
+      #                 <a href="https://app.circleci.com/pipelines/github/okta/okta-developer-docs/<< pipeline.number >>" style="display: inline-block; padding: 5px 10px; background-color: #4caf50; color: white; text-decoration: none;">Click here</a>
+      #                 to see job details.<br>
+      #             </p>'
+      # - run:
       #     name: Send failure email
       #     when: on_fail
       #     command: |
       #       curl --location --request POST 'https://www.cinotify.cc/api/notify' \
-      #                 -d 'type=text/html&to=test-circleci-notif-aaaam4adaseamnmgdfiwsb4h3i@okta.org.slack.com&subject=FAILED: Dev Docs Nightly Job&body=<p style="font-family: Arial, sans-serif; font-size: 16px; color: #333; line-height: 1.6; text-align: center; background-color: #ffcccc; padding: 10px;">
+      #                 -d 'type=test-circleci-notif-aaaam4adaseamnmgdfiwsb4h3i@okta.org.slack.com&subject=FAILED: Dev Docs Nightly Job&body=<p style="font-family: Arial, sans-serif; font-size: 16px; color: #333; line-height: 1.6; text-align: center; background-color: #ffcccc; padding: 10px;">
       #                 <span style="font-weight: bold;">Nightly link checker job failed.</span><br><br>
       #                 <a href="https://app.circleci.com/pipelines/github/okta/okta-developer-docs/<< pipeline.number >>" style="display: inline-block; padding: 5px 10px; background-color: #4caf50; color: white; text-decoration: none;">Click here</a>
       #                 to see job details.<br>
