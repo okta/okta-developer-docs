@@ -37,20 +37,18 @@ jobs:
             command: |
               cat broken_external_urls.txt
         - run:
-            name: Base64 encode file
-            command: |
-              base64encodedfile=$(base64 -i broken_external_urls.txt)
-              echo $base64encodedfile
-        - run:
             name: Send success email
             when: on_success
             command: |
+              base64encodedfile=$(base64 -i broken_external_urls.txt)
+              encoded_content="$base64encodedfile"
+              echo encoded_content
               curl --location --request POST 'https://www.cinotify.cc/api/notify' \
                         -d "to=test-circleci-notif-aaaam4adaseamnmgdfiwsb4h3i@okta.org.slack.com&subject=SUCCESS: Dev Docs Nightly Job&body=<p style='font-family: Arial, sans-serif; font-size: 16px; color: #333; line-height: 1.6; text-align: center; background-color: #ccffe0; padding: 10px;'>
                         <span style='font-weight: bold;'>Nightly link checker job success.</span><br><br>
                         <a href='https://app.circleci.com/pipelines/github/okta/okta-developer-docs/<< pipeline.number >>' style='display: inline-block; padding: 5px 10px; background-color: #4caf50; color: white; text-decoration: none;'>Click here</a>
                         to see job details.<br>
-                    </p>&attachments[][type]=text/plain&attachments[][content]=$base64encodedfile&attachments[][filename]=broken_external_urls.txt&type=text/html"
+                    </p>&attachments[][type]=text/plain&attachments[][content]=$encoded_content&attachments[][filename]=broken_external_urls.txt&type=text/html"
         - run:
             name: Send failure email
             when: on_fail
