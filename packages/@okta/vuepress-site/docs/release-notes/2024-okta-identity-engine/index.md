@@ -5,6 +5,73 @@ title: Okta Identity Engine API release notes 2024
 <ApiLifecycle access="ie" />
 # Okta Identity Engine API release notes (2024)
 
+## May
+
+### Monthly release 2024.05.0
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [SSF Transmitter API is self-service EA in Preview](#ssf-transmitter-api-is-self-service-ea-in-preview) | May 8, 2024 |
+| [Seamless ISV experience with integrated testing is GA in Preview](#seamless-isv-experience-with-integrated-testing-is-ga-in-preview) | May 8, 2024 |
+| [PUT requests for an API token network condition is self-service EA](#put-requests-for-an-api-token-network-condition-is-self-service-ea) | May 8, 2024 |
+| [Permissions for custom admins to manage agents is GA in Production](#permissions-for-custom-admins-to-manage-agents-is-ga-in-production) | May 8, 2024 |
+| [Username supported as optional request query parameter](#username-supported-as-optional-request-query-parameter) | May 8, 2024 |
+| [Version pinning for Sign-In Widget (third generation) is GA in Production](#version-pinning-for-sign-in-widget-third-generation-is-ga-in-production) | May 8, 2024 |
+| [New System Log API property for target object](#new-system-log-api-property-for-target-object) | May 8, 2024 |
+| [Multiple Identifiers is EA in Preview](#multiple-identifiers-is-ea-in-preview) | April 10, 2024 |
+| [Developer documentation update in 2024.05.0](#developer-documentation-update-in-2024-05-0) | May 8, 2024 |
+| [Bugs fixed in 2024.05.0](#bugs-fixed-in-2024-05-0) | May 8, 2024 |
+
+#### SSF Transmitter API is self-service EA in Preview
+
+Okta uses [CAEP](https://openid.net/specs/openid-caep-specification-1_0.html) to send security-related events and other data-subject signals to Apple, known as the Shared Signal Framework (SSF) receiver. After an SSF stream is configured, Okta sends signals as [Security Event Tokens (SETs)](https://datatracker.ietf.org/doc/html/rfc8417) to Apple. Use the SSF Transmitter API <!--[SSF Transmitter API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SSFTransmitter/)--> to manage SSF stream configurations between the SSF receiver and Okta. <!-- OKTA-660502 -->
+
+#### Seamless ISV experience with integrated testing is GA in Preview
+
+Okta now provides a seamless ISV experience to optimize the [Okta Integration Network (OIN)](https://www.okta.com/integrations/) submission experience for SAML and OIDC integrations. This new experience enables independent software vendors (ISVs) to build and automatically test their integration metadata before submission. This reduces the time needed for the OIN team to review and validate that the integration functions as intended, which shortens the time to publish in the OIN. This experience also incorporates communication processes in Salesforce, enabling improved collaboration internally within Okta teams and externally with ISVs. See [Publish an OIN integration](/docs/guides/submit-app-overview/) overview and [Submit an SSO integration with the OIN Wizard](/docs/guides/submit-oin-app/openidconnect/main/) guide. <!-- OKTA-686228 -->
+
+#### PUT requests for an API token network condition is self-service EA
+
+You can now make PUT requests to the `/api-tokens/{apiTokenId}` endpoint to update the network condition of an API token. <!-- OKTA-704387 -->
+
+#### Permissions for custom admins to manage agents is GA in Production
+
+Custom admins can now view, register, and manage agents. See [Permission types](/docs/reference/api/roles/#permission-properties). <!-- OKTA-706310 -->
+
+#### Username supported as optional request query parameter
+
+SAML and WS-Fed template applications now support username as an optional request query parameter for supplying a login hint. <!-- OKTA-711401 -->
+
+#### Version pinning for Sign-In Widget (third generation) is GA in Production
+
+You can now pin the Sign-In Widget version (third generation) when updating a customized sign-in page (`PUT /brands/{brandId}/pages/sign-in/customized`) or a preview sign-in page (`PUT /brands/{brandId}/pages/sign-in/preview`). The value of `widgetVersion` must be `7.8` or later if `widgetCustomizations.widgetGeneration` is set to `G3`. A value of `7.7` or earlier results in an invalid request. See [Replace the Customized Error Page](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Customization/#tag/Customization/operation/replaceCustomizedErrorPage). <!-- OKTA-713942 -->
+
+#### New System Log API property for target object
+
+Certain system log events now contain a new property called `changeDetails` in the `target` object. When this property is populated, it reflects new, changed, or removed attributes of the target resource that has been modified. See [changeDetails property](/docs/reference/api/system-log/#changedetails-property). <!-- OKTA-724000 -->
+
+#### Multiple Identifiers is EA in Preview
+
+Today, end users must sign in to Okta with a username or email address only. With the Multiple Identifiers feature, admins can configure identifiers, or user attributes from Universal Directory, that an end user can enter to authenticate. Multiplier identifiers work in sign-in, recovery, self-service registration, and unlock flows. Admins can configure up to three identifiers, including email (which is still a required identifier). See [Profile enrollment policy](/docs/reference/api/policy/#profile-enrollment-policy). <!-- OKTA-687191 FF: MULTIPLE_IDENTIFIERS -->
+
+#### Developer documentation update in 2024.05.0
+
+The [Style the Sign-In Widget (third generation) guide](/docs/guides/custom-widget-gen3/main/#about-the-afterrender-function) has been updated to describe how the `afterRender` function works. <!-- OKTA-686866 -->
+
+#### Bugs fixed in 2024.05.0
+
+* When a large number of users were linked to an Identity Provider, requests to the `/idps/{IdP_ID}/users` endpoint timed out. (OKTA-710934)
+
+* POST calls to `/idp/myaccount/emails` to capitalize a letter resulted in the end user unable to sign in to their account. (OKTA-712135)
+
+* Users who entered an invalid username into a password-first sign-in flow saw a misleading error message. This behavior occurred only in orgs that enabled the Multiple Identifiers feature and disabled User Enumeration Prevention. (OKTA-713096)
+
+* Super admins with roles assigned through group assignment couldn't enable Direct Authentication grant types in an OIDC app. (OKTA-719756)
+
+* If a [login pattern](https://developer.okta.com/docs/reference/api/schemas/#login-pattern-validation) failed validation when making a request with the Schemas API, the call dropped the pattern and continued the request. (OKTA-723332)
+
+* The Apps API accepted `0` as a value for the `samlAssertionLifetimeSeconds` parameter. (OKTA-723982)
+
 ## April
 
 ### Weekly release 2024.04.3
@@ -17,7 +84,7 @@ title: Okta Identity Engine API release notes 2024
 
 * GET policy rules (`/v1/policies/{policyId}/rules`) and GET a policy rule  (`/v1/policies/{policyId}/rules/{ruleId}`) requests returned a rule with a null value for the `created` property. (OKTA-542919)
 
-* The Factors API didn’t correctly return all `profile.keys` parameters for Okta Verify enrollments. (OKTA-694655)
+* The Factors API didn't correctly return all `profile.keys` parameters for Okta Verify enrollments. (OKTA-694655)
 
 * Apps API users were able to add duplicate SAML `attributeStatements` when they created or updated a custom SAML 2.0 app. (OKTA-706474)
 
@@ -27,7 +94,7 @@ title: Okta Identity Engine API release notes 2024
 
 * The `/authorize` endpoint didn't accept the `sessionToken` when **Stay signed in** was set to **Before and after users sign in** in the Admin Console. (OKTA-713055)
 
-* The `aud` claim value must now be the org’s URL in SSF messages. (OKTA-720203)
+* The `aud` claim value must now be the org's URL in SSF messages. (OKTA-720203)
 
 ### Weekly release 2024.04.1
 
