@@ -42,7 +42,7 @@ jobs:
             command: |
               base64encodedfile=$(base64 -i broken_external_urls.txt)
               encoded_content="$base64encodedfile"
-              echo encoded_content
+              echo $encoded_content
               curl --location --request POST 'https://www.cinotify.cc/api/notify' \
                         -d "to=test-circleci-notif-aaaam4adaseamnmgdfiwsb4h3i@okta.org.slack.com&subject=SUCCESS: Dev Docs Nightly Job&body=<p style='font-family: Arial, sans-serif; font-size: 16px; color: #333; line-height: 1.6; text-align: center; background-color: #ccffe0; padding: 10px;'>
                         <span style='font-weight: bold;'>Nightly link checker job success.</span><br><br>
