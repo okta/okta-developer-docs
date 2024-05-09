@@ -65,6 +65,8 @@ The [Style the Sign-In Widget (third generation) guide](/docs/guides/custom-widg
 
 * GET calls to `/iam/roles` sometimes didn't return link headers. (OKTA-712212)
 
+* When the **First name** and **Last name** values in a user's profile contained dots, they were clickable in emails. (OKTA-712504)
+
 * The `/introspect` endpoint response was incorrect for an access token returned by the On-Behalf-Of Token Exchange flow. (OKTA-712602)
 
 ### Monthly release 2024.04.0
