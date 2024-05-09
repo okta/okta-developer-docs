@@ -45,7 +45,7 @@ jobs:
             when: on_success
             command: |
               curl --location --request POST 'https://www.cinotify.cc/api/notify' \
-                        -d 'type=test-circleci-notif-aaaam4adaseamnmgdfiwsb4h3i@okta.org.slack.com&subject=SUCCESS: Dev Docs Nightly Job&body=<p style="font-family: Arial, sans-serif; font-size: 16px; color: #333; line-height: 1.6; text-align: center; background-color: #ccffe0; padding: 10px;">
+                        -d 'attachments[][type]=text/plain&attachments[][content]=$base64encodedfile&attachments[][filename]=broken_external_urls.txt&type=test-circleci-notif-aaaam4adaseamnmgdfiwsb4h3i@okta.org.slack.com&subject=SUCCESS: Dev Docs Nightly Job&body=<p style="font-family: Arial, sans-serif; font-size: 16px; color: #333; line-height: 1.6; text-align: center; background-color: #ccffe0; padding: 10px;">
                         <span style="font-weight: bold;">Nightly link checker job success.</span><br><br>
                         <a href="https://app.circleci.com/pipelines/github/okta/okta-developer-docs/<< pipeline.number >>" style="display: inline-block; padding: 5px 10px; background-color: #4caf50; color: white; text-decoration: none;">Click here</a>
                         to see job details.<br>
