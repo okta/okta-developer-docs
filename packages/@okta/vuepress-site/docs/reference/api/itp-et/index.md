@@ -236,7 +236,7 @@ This resource contains detailed reference material on event types triggered with
 
 ### user.authentication.universal_logout.start
 
-**Description:** This event triggers when Okta or an admin invokes Universal Logout against an app instance. It contains the app instance details for which the Universal Logout API was triggered. The event indicates when apps have had Universal Logout triggered for audit or debugging purposes. This event is only triggered once. It's only triggered for apps that have been configured for Universal Logout. You can configure it in an Entity risk policy or Continuous Access, or invoke it manually from the user profile.
+**Description:** This event triggers only when an admin manually triggers the Universal Logout against an app instance. It contains the location of the admin and the context of the universal logout, that is, from where and how the Universal Logout API was triggered. This event is only triggered once. You can co-relate this event with the `user.authentication.universal_logout` event using the `traceID` found under `DebugData` for both events.
 
 | Key event properties | Description                                         | Data type      | Example values |
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
@@ -248,7 +248,21 @@ This resource contains detailed reference material on event types triggered with
 | **actor**                 |  The admin or system principal that triggers universal logout                 | Object        |         |
 | type        | The type of actor object           |      |        |
 | **client**                |  The client of the system principal actor for continuous access evaluation and entity risk policy actions, or the client of the admin triggering the clear user sessions action.                 | Object      |         |
-| IPAddress              | IP address                |       |         |
+| Device           | This property contains information about what type of device the admin was using when the Universal Logout event was triggered.                 |  String     | Computer        |
+| GeographicalContext.City         | This property contains information about the city where the Universal Logout event was triggered. | String         | San Francisco       |
+| GeographicalContext.Country/region        | This property contains information about the country/region where the Universal Logout event was triggered. | String         | United States       |
+| GeographicalContext.Geolocation.Lat        | This property contains the latitude where the Universal Logout event was triggered. | Numeric        | 37.7852
+     |
+| GeographicalContext.Geolocation.Lon        | This property contains the longitude where the Universal Logout event was triggered. | Numeric        | 122.3874
+Francisco       |
+| GeographicalContext.PostalCode         | This property contains information about the postal code where the Universal Logout event was triggered. | String         | 94105      |
+| GeographicalContext.State        | This property contains information about the state where the Universal Logout event was triggered. | String         | California      |
+| IPAddress          | This property contains information about the IP address of the admin when the Universal Logout event was triggered.           |
+Numeric   | 8.35.185.250  |
+| UserAgent.Browser         | This property contains information about the type of browser the admin was using when the Universal Logout event was triggered.           |
+String   | Chrome  |
+| UserAgent.OS       | This property contains information about the type of OS the admin was using when the Universal Logout event was triggered.           |
+String   | Mac OS 14.3.0 (Sonoma)  |
 
 ### user.risk.change
 
