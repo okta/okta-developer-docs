@@ -251,18 +251,13 @@ This resource contains detailed reference material on event types triggered with
 | Device           | This property contains information about what type of device the admin was using when the Universal Logout event was triggered.                 |  String     | Computer        |
 | GeographicalContext.City         | This property contains information about the city where the Universal Logout event was triggered. | String         | San Francisco       |
 | GeographicalContext.Country/region        | This property contains information about the country/region where the Universal Logout event was triggered. | String         | United States       |
-| GeographicalContext.Geolocation.Lat        | This property contains the latitude where the Universal Logout event was triggered. | Numeric        | 37.7852
-     |
-| GeographicalContext.Geolocation.Lon        | This property contains the longitude where the Universal Logout event was triggered. | Numeric        | 122.3874
-Francisco       |
+| GeographicalContext.Geolocation.Lat        | This property contains the latitude where the Universal Logout event was triggered. | Numeric        | 37.7852 |
+| GeographicalContext.Geolocation.Lon        | This property contains the longitude where the Universal Logout event was triggered. | Numeric        | 122.3874 |
 | GeographicalContext.PostalCode         | This property contains information about the postal code where the Universal Logout event was triggered. | String         | 94105      |
 | GeographicalContext.State        | This property contains information about the state where the Universal Logout event was triggered. | String         | California      |
-| IPAddress          | This property contains information about the IP address of the admin when the Universal Logout event was triggered.           |
-Numeric   | 8.35.185.250  |
-| UserAgent.Browser         | This property contains information about the type of browser the admin was using when the Universal Logout event was triggered.           |
-String   | Chrome  |
-| UserAgent.OS       | This property contains information about the type of OS the admin was using when the Universal Logout event was triggered.           |
-String   | Mac OS 14.3.0 (Sonoma)  |
+| IPAddress          | This property contains information about the IP address of the admin when the Universal Logout event was triggered.           | Numeric   | 8.35.185.250  |
+| UserAgent.Browser         | This property contains information about the type of browser the admin was using when the Universal Logout event was triggered.           | String   | Chrome  |
+| UserAgent.OS       | This property contains information about the type of OS the admin was using when the Universal Logout event was triggered.           | String   | Mac OS 14.3.0 (Sonoma)  |
 
 ### user.risk.change
 
