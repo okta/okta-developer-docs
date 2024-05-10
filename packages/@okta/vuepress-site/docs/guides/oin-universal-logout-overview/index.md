@@ -44,7 +44,7 @@ The JWT is sent using the `Bearer` HTTP Authorization scheme:
 Authorization: Bearer <JWT>
 ```
 
-The claims of the JWT will be the following:
+The claims of the JWT are the following:
 
 ```
 // Header
