@@ -70,7 +70,7 @@ The claims of the JWT are the following:
 * `aud` - Identifies the "audience" of this token, which is the URL of your Global Token Revocation endpoint. The URL doesn't include query string parameters or a URL fragment.
 * `exp` - The expiration timestamp of the token, which is 5 minutes.
 * `nbf` - A timestamp of 5 minutes in the past.
-* `iat` - The current timestamp at which the token was created.
+* `iat` - The current timestamp of when the token was created.
 
 Your API endpoint should validate the signature of the JWT as well as these claims to confirm the revocation request is coming from Okta. The token will be signed with the same key used for signing ID tokens or SAML assertions for single sign-on.
 
