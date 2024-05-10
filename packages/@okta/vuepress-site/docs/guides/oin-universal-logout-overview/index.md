@@ -68,7 +68,7 @@ The claims of the JWT are the following:
 * `iss` - The same issuer URL that you would receive in an OpenID Connect ID token
 * `sub` - Identifies the "subject" of this token, which in this case is your application. For OpenID Connect clients this will be the `client_id`, and for SAML integrations, this will be the `appInstanceId`
 * `aud` - Identifies the "audience" of this token, which is the URL of your Global Token Revocation endpoint. The URL doesn't include query string parameters or a URL fragment.
-* `exp` - The expiration timestamp of the token, which will be 5 minutes in the future.
+* `exp` - The expiration timestamp of the token, which is 5 minutes.
 * `nbf` - A timestamp 5 minutes in the past.
 * `iat` - The current timestamp at which the token was created.
 
