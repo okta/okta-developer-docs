@@ -57,7 +57,7 @@ The claims of the JWT are the following:
   "jti": "<unique identifier>",
   "iss": "<orgDomainBaseUrl/customDomainBaseUrl>",
   "sub": "<client_id of OIDC app/appInstanceId of SAML 2.0 app>",
-  "aud": "<url of the revocation endpoint>",
+  "aud": "<revocation endpoint URL>",
   "exp": "<5 min into future>",
   "nbf": "<5 min ago>",
   "iat": "<current timestamp>"
