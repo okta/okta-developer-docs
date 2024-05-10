@@ -36,7 +36,7 @@ The actual endpoint URL is up to the discretion of the app developer building th
 
 ### Endpoint authentication
 
-The request to the Universal Logout endpoint requires authentication so that your app knows the request is coming from Okta. Okta sends a signed JWT to authenticate to your API. The JWT follows a similar format to the [`private_key_jwt`](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/client-auth/#jwt-with-private-key) format used as OAuth client authentication. The details of the JWT claims are described below, `<>` are used to indicate placeholder values and are not included in the values.
+The request to the Universal Logout endpoint requires authentication so that your app knows the request is coming from Okta. Okta sends a signed JWT to authenticate to your API. The JWT follows a similar format to the [`private_key_jwt`](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/client-auth/#jwt-with-private-key) format used as OAuth 2.0 client authentication. The details of the JWT claims are described below. The format `<>` indicates a placeholder value and isn't included as part of a value.
 
 The JWT is sent using the `Bearer` HTTP Authorization scheme:
 
