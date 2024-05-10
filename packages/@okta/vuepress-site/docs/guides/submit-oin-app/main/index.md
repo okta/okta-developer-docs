@@ -111,7 +111,7 @@ Configure integration variables if your URLs are dynamic for each tenant. The va
 
 1. Click **+ Add another** to add another variable. You can add up to three variables.
 
-1. If you need to delete a variable, click the delete icon (![trash can; delete icon](/img/icons/delete-odys.svg)) next to it.
+1. If you need to delete a variable, click the delete icon (![trash can; delete icon](/img/icons/odyssey/delete-odys.svg)) next to it.
 <!--Odyssey icons sourced from: https://github.com/okta/odyssey/blob/main/packages/odyssey-icons/src/figma.generated/ -->
 
 #### <StackSnippet snippet="protocol-name" inline/> properties
@@ -222,7 +222,7 @@ The **Required app instances** box shows you the instances detected in your org 
 
 The **Application instances for testing** section displays, by default, the instances available in your org that are eligible for submission testing.
 
-> **Note:** The filter (![filter icon](/img/icons/filter-odys.svg)) is automatically set to only show eligible instances.
+> **Note:** The filter (![filter icon](/img/icons/odyssey/filter-odys.svg)) is automatically set to only show eligible instances.
 
 An instance is eligible if it was generated from the latest version of the integration submission in the OIN Wizard. An instance is ineligible if it was generated from a previous version of the integration submission and you subsequently made edits to the submission. This is to ensure that you test your integration based on the latest submission details.
 
@@ -258,7 +258,7 @@ To edit the app instance from the OIN Wizard, follow these steps:
 
 1. Go to **Test your integration experience** > **Application instances for testing**.
 1. Click **Clear filters** to see all instances in your org if you don't see the instance that you want to edit.
-1. Select **Update instance details** from the more icon (![three-dot more icon](/img/icons/more-odys.svg)) next to the app instance you want to update. The instance details page appears.
+1. Select **Update instance details** from the more icon (![three-dot more icon](/img/icons/odyssey/more-odys.svg)) next to the app instance you want to update. The instance details page appears.
 1. Edit the app instance. You can edit app instance settings or [assign users to your app instance](https://help.okta.com/okta_help.htm?type=oie&id=ext_Apps_Apps_Page-assign).
 1. Return to the OIN Wizard:
 
@@ -326,7 +326,7 @@ To run the IdP flow test:
 
     The incognito browser closes and you're redirected back to the OIN Submission Tester. The OIN Submission Tester records the test run result and timestamp.
 
-1. Click the **IdP flow** expand icon (![chevron-down expand icon](/img/icons/chevron-down-odys.svg)) to view the test steps and network traffic details for the test run.
+1. Click the **IdP flow** expand icon (![chevron-down expand icon](/img/icons/odyssey/chevron-down-odys.svg)) to view the test steps and network traffic details for the test run.
 
     If your test run wasn't successful, this is a useful tool to troubleshoot the issues and correct your integration, instance, or submission details.
 
@@ -345,7 +345,7 @@ To run the SP flow test:
 
     The incognito browser closes and you're redirected back to the OIN Submission Tester. The OIN Submission Tester records the test run result and timestamp.
 
-1. Click the **SP flow** expand icon (![chevron-down expand icon](/img/icons/chevron-down-odys.svg)) to view the test steps and network traffic details for the test run.
+1. Click the **SP flow** expand icon (![chevron-down expand icon](/img/icons/odyssey/chevron-down-odys.svg)) to view the test steps and network traffic details for the test run.
 
 ##### Run the JIT provisioning with IdP flow test
 
@@ -383,7 +383,7 @@ To run the JIT provisioning with IdP flow test:
     1. Records the test run result and timestamp in the OIN Submission Tester.
     1. Redirects you back to the OIN Submission Tester.
 
-1. Click the **JIT provisioning (w/ IdP flow)** expand icon (![chevron-down expand icon](/img/icons/chevron-down-odys.svg)) to view the test steps and network traffic details for the test run.
+1. Click the **JIT provisioning (w/ IdP flow)** expand icon (![chevron-down expand icon](/img/icons/odyssey/chevron-down-odys.svg)) to view the test steps and network traffic details for the test run.
 
 > **Note:** The test user account created in your app from JIT provisioning persists after the JIT provisioning test. The OIN Submission Tester only removes the temporary test user account from your Okta org. It's your responsibility to manage the JIT test user accounts in your app.
 
