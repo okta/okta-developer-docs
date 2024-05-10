@@ -76,7 +76,7 @@ Your API endpoint should validate the signature of the JWT and these claims to c
 
 ### Logout request
 
-When a user should be signed out of the app, Okta makes a POST request to the Universal Logout endpoint. The request includes a JSON object in the request body that describes the user to be logged out.
+When a user should be signed out of the app, Okta makes a POST request to the Universal Logout endpoint. The request includes a JSON object in the request body that describes the user.
 
 By default, the user's email address identifies them. If an app supports provisioning with Okta, then the user identifier within the app identifies them. The user identifier is sent in the format defined by [Subject Identifiers for Security Event Tokens](https://datatracker.ietf.org/doc/html/draft-ietf-secevent-subject-identifiers-18) as either an `email` or `iss_sub` identifier.
 
