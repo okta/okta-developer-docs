@@ -9,7 +9,7 @@ meta:
 
 When an Identity Provider (IdP) like Okta detects identity threats or responds to employee termination events, it can prevent the user from signing in to apps in the future by suspending, deactivating, or deleting the user at the IdP. However, this doesn't affect a user's existing sessions or tokens within an app.
 
-Universal Logout enables an IdP, or a security incident management tool, to send a request to an app indicating that it should revoke the user's existing sessions and log the user out.
+Universal Logout enables an IdP, or a security incident management tool, to send a request to an app. The request indicates that it should revoke the user's existing sessions and sign the user out.
 
 A Universal Logout endpoint must be built for the app to handle logout requests. This endpoint receives a request to log a user out and then attempts to revoke all sessions and tokens for the user. The endpoint then returns a result indicating success or failure.
 
@@ -40,13 +40,13 @@ The request to the Universal Logout endpoint requires authentication so that you
 
 The JWT is sent using the `Bearer` HTTP Authorization scheme:
 
-```
+```BASH
 Authorization: Bearer <JWT>
 ```
 
 The claims of the JWT are the following:
 
-```
+```JSON
 // Header
 {
   "typ": "global-token-revocation+jwt",
@@ -64,20 +64,19 @@ The claims of the JWT are the following:
 }
 ```
 
-* `jti` - A unique identifier for this JWT
-* `iss` - The same issuer URL that you would receive in an OpenID Connect ID token
-* `sub` - Identifies the "subject" of this token, which in this case is your application. For OpenID Connect clients this will be the `client_id`, and for SAML integrations, this will be the `appInstanceId`
-* `aud` - Identifies the "audience" of this token, which is the URL of your Global Token Revocation endpoint. The URL doesn't include query string parameters or a URL fragment.
-* `exp` - The expiration timestamp of the token, which is 5 minutes.
-* `nbf` - A timestamp of 5 minutes in the past.
-* `iat` - The current timestamp of when the token was created.
+* `jti`: A unique identifier for this JWT
+* `iss`: The same issuer URL that you receive in an OpenID Connect ID token
+* `sub`: Identifies the "subject" of this token, which in this case is your application. For OpenID Connect clients this is the `client_id`, and for SAML integrations, it's the `appInstanceId`.
+* `aud`: Identifies the "audience" of this token, which is the URL of your Global Token Revocation endpoint. The URL doesn't include query string parameters or a URL fragment.
+* `exp`: The expiration timestamp of the token, which is 5 minutes.
+* `nbf`: A timestamp of 5 minutes in the past.
+* `iat`: The current timestamp of when the token was created.
 
-Your API endpoint should validate the signature of the JWT as well as these claims to confirm the revocation request is coming from Okta. The token is signed with the same key used for signing ID tokens or SAML assertions for single sign-on.
-
+Your API endpoint should validate the signature of the JWT and these claims to confirm the revocation request is coming from Okta. The token is signed with the same key used for signing ID tokens or SAML assertions for SSO.
 
 ### Logout request
 
-When a user should be logged out of the app, Okta makes a POST request to the Universal Logout endpoint. The request includes a JSON object in the request body that describes the user to be logged out.
+When a user should be signed out of the app, Okta makes a POST request to the Universal Logout endpoint. The request includes a JSON object in the request body that describes the user to be logged out.
 
 By default, the user's email address identifies them. If an app supports provisioning with Okta, then the user identifier within the app identifies them. The user identifier is sent in the format defined by [Subject Identifiers for Security Event Tokens](https://datatracker.ietf.org/doc/html/draft-ietf-secevent-subject-identifiers-18) as either an `email` or `iss_sub` identifier.
 
