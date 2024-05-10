@@ -72,7 +72,7 @@ The claims of the JWT are the following:
 * `nbf` - A timestamp of 5 minutes in the past.
 * `iat` - The current timestamp of when the token was created.
 
-Your API endpoint should validate the signature of the JWT as well as these claims to confirm the revocation request is coming from Okta. The token will be signed with the same key used for signing ID tokens or SAML assertions for single sign-on.
+Your API endpoint should validate the signature of the JWT as well as these claims to confirm the revocation request is coming from Okta. The token is signed with the same key used for signing ID tokens or SAML assertions for single sign-on.
 
 
 ### Logout request
