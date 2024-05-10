@@ -543,6 +543,8 @@ redirects:
     to: /docs/guides/social-login/linkedin/main/
   - from: /authentication-guide/social-login/microsoft/index.html
     to: /docs/guides/social-login/microsoft/main/
+  - from: /docs/guides/dpop/main/
+    to: /docs/guides/dpop/nonoktaresourceserver/main/
   - from: /docs/guides/implement-auth-code
     to: /docs/guides/implement-grant-type/authcode/main/
   - from: /docs/guides/implement-auth-code/index.html
@@ -717,8 +719,6 @@ redirects:
     to: /docs/guides/configure-direct-auth-grants/bmfaotp/main/index.html
   - from: /docs/guides/implement-grant-type/mfaotp/main
     to: /docs/guides/configure-direct-auth-grants/bmfaotp/main
-  - from: https://developer.okta.com/docs/guides/dpop/main/index.html
-    to: https://developer.okta.com/docs/guides/dpop/nonoktaresourceserver/main/
   - from: /docs/api/resources/users.html
     to: /docs/reference/api/users/
   - from: /docs/api/resources/sessions.html
