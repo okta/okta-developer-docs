@@ -55,7 +55,7 @@ The claims of the JWT will be the following:
 // Payload
 {
   "jti": "<unique identifier>",
-  "iss": "<orgDomainBaseUrl / customDomainBaseUrl>",
+  "iss": "<orgDomainBaseUrl/customDomainBaseUrl>",
   "sub": "<client_id of OIDC app / appInstanceId of SAML 2.0 app>",
   "aud": "<url of the revocation endpoint>",
   "exp": "<5 min into future>",
