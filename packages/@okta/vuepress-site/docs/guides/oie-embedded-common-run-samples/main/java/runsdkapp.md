@@ -26,4 +26,4 @@
 
 ### Work with the use cases
 
-After you run the sample app, build an integration using the sample app. Explore use cases that are available with the SDK. Start with the [Basic sign-in flow example with the password factor](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/java/main/).
+After you run the sample app, build an integration using the sample app. Explore use cases that are available with the SDK. Start with the [Sign-in flow with password](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/java/main/).

@@ -14,7 +14,7 @@ if err != nil {
 }
 ```
 
-Display a sign-in page that captures the user's name and password.
+Display a sign-in page where users input their username and password.
 
 <div class="half wireframe-border">
 

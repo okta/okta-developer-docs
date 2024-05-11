@@ -1,6 +1,6 @@
 ### Your app displays the sign-in page
 
-Build a sign-in page where users input their username and password.
+Display a sign-in page where users input their username and password.
 
 <div class="half wireframe-border">
 

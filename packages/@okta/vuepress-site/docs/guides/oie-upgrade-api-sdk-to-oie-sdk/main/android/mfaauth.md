@@ -77,4 +77,4 @@ AuthenticationResponse authenticationResponse =
 
 The number of required/optional authenticators for MFA are configured in the Admin Console and in the authentication policies. The Identity Engine-enabled app is structured in a way that enables the MFA challenges to differ based on user, group, context, and available factors since the MFA process is driven by policies set in Okta and not hard-coded into the app.
 
-For further details on how this use case is implemented with the Java Identity Engine SDK, see [Sign in with password and email factors](/docs/guides/oie-embedded-sdk-use-case-sign-in-pwd-email/android/main/).
+For further details on how this use case is implemented with the Java Identity Engine SDK, see [Sign-in flow with password and email](/docs/guides/oie-embedded-sdk-use-case-sign-in-pwd-email/android/main/).

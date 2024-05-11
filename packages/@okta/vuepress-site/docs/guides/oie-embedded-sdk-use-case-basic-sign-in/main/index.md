@@ -1,5 +1,5 @@
 ---
-title: Sign-in flow with password (single factor)
+title: Sign-in flow with password
 ---
 
 <ApiLifecycle access="ie" />
@@ -28,7 +28,7 @@ Add a sign-in flow to a server-side web app where the only authentication requir
 
 ## Configuration updates
 
-Your app must be configured to support password factor-only use cases. For more information, see <StackSnippet snippet="configureyourapp" inline />.
+Your app must be configured to support password as single factor authentication. For more information, see <StackSnippet snippet="configureyourapp" inline />.
 
 ## Summary of steps
 

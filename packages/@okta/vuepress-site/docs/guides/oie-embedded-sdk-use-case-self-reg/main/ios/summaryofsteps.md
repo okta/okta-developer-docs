@@ -22,4 +22,4 @@ Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 
 </div>
 
-The above sequence diagram follows a path where the user skips the optional phone authenticator. To understand the authentication flow when the user selects the phone authenticator, see the [Sign in with password and phone factors](/docs/guides/oie-embedded-sdk-use-case-sign-in-pwd-phone/ios/main/).
+The above sequence diagram follows a path where the user skips the optional phone authenticator. To understand the authentication flow when the user selects the phone authenticator, see the [Sign-in flow with password and phone](/docs/guides/oie-embedded-sdk-use-case-sign-in-pwd-phone/ios/main/).

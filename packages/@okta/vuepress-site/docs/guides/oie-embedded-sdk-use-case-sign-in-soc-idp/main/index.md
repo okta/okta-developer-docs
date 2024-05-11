@@ -1,5 +1,5 @@
 ---
-title: Sign in with Facebook
+title: Sign-in flow with Facebook
 ---
 
 <ApiLifecycle access="ie" />
