@@ -244,11 +244,11 @@ export const guides = [
                 title: "Embedded SDK use cases",
                 subLinks: [
                   {
-                    title: "Sign-in flow with password",
+                    title: "Sign-in flow: password-only",
                     guideName: "oie-embedded-sdk-use-case-basic-sign-in",
                   },
                   {
-                    title: "Sign-in flow with Facebook",
+                    title: "Sign-in flow: Facebook",
                     guideName: "oie-embedded-sdk-use-case-sign-in-soc-idp",
                   },
                   {
@@ -264,11 +264,11 @@ export const guides = [
                     guideName: "oie-embedded-sdk-use-case-new-user-activation",
                   },
                   {
-                    title: "Sign-in flow with password and email",
+                    title: "Sign-in flow: password and email",
                     guideName: "oie-embedded-sdk-use-case-sign-in-pwd-email",
                   },
                   {
-                    title: "Sign-in flow with password and phone",
+                    title: "Sign-in flow: password and phone",
                     guideName: "oie-embedded-sdk-use-case-sign-in-pwd-phone",
                   },
                   {

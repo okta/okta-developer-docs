@@ -9,4 +9,4 @@
 
 ### Work with the use cases
 
-After you run the sample app, you can build your own integration using the sample app. Explore available use cases for the SDK. See the [Sign-in flow with password](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/ios/main/).
+After you run the sample app, you can build your own integration using the sample app. Explore available use cases for the SDK. See the [Sign-in flow: password-only](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/ios/main/).

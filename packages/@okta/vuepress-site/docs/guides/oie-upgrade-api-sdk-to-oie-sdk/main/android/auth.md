@@ -52,6 +52,6 @@ AuthenticationResponse authenticationResponse =
      idxAuthenticationWrapper.authenticate(new AuthenticationOptions(username, password.toCharArray()), proceedContext);
 ```
 
-See [Sign-in flow with password](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/android/main/) for further details on the Identity Engine password authentication flow.
+See [Sign-in flow: password-only](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/android/main/) for further details on the Identity Engine password authentication flow.
 
 

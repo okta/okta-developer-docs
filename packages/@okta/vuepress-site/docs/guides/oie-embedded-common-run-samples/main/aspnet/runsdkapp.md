@@ -10,4 +10,4 @@
 
 ### Work with the use cases
 
-After you successfully run the sample app, you can build your own integration by using the sample app as your guide. Explore use cases that are available with the SDK, starting with the [Sign-in flow with password](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/aspnet/main/) use case.
+After you successfully run the sample app, you can build your own integration by using the sample app as your guide. Explore use cases that are available with the SDK, starting with the [Sign-in flow: password-only](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/aspnet/main/) use case.

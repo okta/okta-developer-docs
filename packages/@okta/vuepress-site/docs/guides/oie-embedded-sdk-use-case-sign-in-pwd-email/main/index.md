@@ -1,5 +1,5 @@
 ---
-title: Sign-in flow with password and email
+title: "Sign-in flow: password and email"
 ---
 
 <ApiLifecycle access="ie" />

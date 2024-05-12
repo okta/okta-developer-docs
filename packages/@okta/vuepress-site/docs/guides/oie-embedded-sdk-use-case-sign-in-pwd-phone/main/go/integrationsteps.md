@@ -33,7 +33,7 @@ Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 During page load, call the `Client` object's `InitLogin` method. This method returns an object of type
 `LoginResponse` that is used to initate the sign-in process with Okta.  The object
 also contains a list of available social Identity Providers (IdPs) that is discussed in more detail in the
-[Sign-in flow with Facebook](/docs/guides/oie-embedded-sdk-use-case-sign-in-soc-idp/go/main)
+[Sign-in flow: Facebook](/docs/guides/oie-embedded-sdk-use-case-sign-in-soc-idp/go/main)
 use case.
 
 ```go
