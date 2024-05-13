@@ -1,6 +1,6 @@
 ### 4: Get the user profile information
 
-   After the user signs in successfully, request basic user information from the authorization server using the tokens that were returned in the previous step.
+   Upon successful user sign-in, fetch basic user information from the authorization server using the tokens obtained in the previous step.
 
    ```javascript
 module.exports = async function userContext(req, res, next) {
