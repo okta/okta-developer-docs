@@ -12,8 +12,6 @@ https://toolkit.okta.com/apps/scimify/
 https://www.nuget.org/packages/Okta.AspNet/
 https://www.nuget.org/packages/Microsoft.IdentityModel.Protocols.OpenIdConnect/
 https://www.nuget.org/packages/System.IdentityModel.Tokens.Jwt/
-https://reactjs.org/tutorial/
-https://json-schema.org/specification.html
 https://developer.spotify.com/documentation/general/guides/authorization/app-settings/
 https://developer.spotify.com/documentation/general/guides/authorization/scopes/
 https://regionalevents.okta.com/enterprisereadyworkshops/
