@@ -24,11 +24,11 @@
 
 ### 3: Your app handles an authentication response
 
-   `authenticate()` returns a `transaction` object with a `status` property indicating the current state of the sign-in flow. Handle the returned `IdxStatus` value accordingly:
+   Use `authenticate()` to get a `transaction` object containing the current sign-in flow status. Handle the `IdxStatus` value returned accordingly:
 
    #### Success status
 
-   When the user correctly supplies their password, `IdxStatus` equals `IdxStatus.SUCCESS`. Call `tokenManager.setTokens()` to save the tokens retrieved from the response for future requests, and then redirect the user back to the home page. The user is now signed in.
+   When the user correctly inputs their password, `IdxStatus` equals `IdxStatus.SUCCESS`. Call `tokenManager.setTokens()` to save the tokens retrieved from the response for future requests, then redirect the user back to the homepage. The user is now signed in.
 
    ```js
   const { nextStep, tokens, status, error, } = transaction;
@@ -49,7 +49,7 @@
 
    #### Other authentication statuses
 
-   Handle other returned `IdxStatus` cases if the user didn't sign in successfully or there are other factors to verify. For example:
+   Handle other `IdxStatus` cases as follows:
 
    ```js
 switch (status) {
