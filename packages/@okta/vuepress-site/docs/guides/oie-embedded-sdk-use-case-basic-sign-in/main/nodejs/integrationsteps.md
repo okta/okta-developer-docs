@@ -1,6 +1,6 @@
 ### 1: Your app displays the sign-in page
 
-Build a sign-in page that captures both the user's name and password.
+Build a sign-in page that captures both the user's username and password.
 
 <div class="half wireframe-border">
 
