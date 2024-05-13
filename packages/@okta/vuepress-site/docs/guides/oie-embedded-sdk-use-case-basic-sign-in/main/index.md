@@ -28,7 +28,7 @@ Add a sign-in flow to a server-side web app that requires only a password.
 
 ## Configuration updates
 
-To configure your app so it requires only a password, see <StackSnippet snippet="configureyourapp" inline />.
+<StackSnippet snippet="configureyourapp" />.
 
 ## Summary of steps
 
