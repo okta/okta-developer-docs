@@ -30,7 +30,6 @@ https://app.getpostman.com/run-collection/c85985861f9b277913ae/
 https://app.getpostman.com/run-collection/f443644517abb15117af/
 https://csrc.nist.gov/pubs/sp/800/63/b/upd2/final/
 https://accounts.google.com/signup/
-https://www.javadoc.io/doc/org.springframework/spring-expression/latest/org/springframework/expression/spel/ast/Assign.html
 https://www.javadoc.io/doc/org.springframework/spring-expression/latest/org/springframework/expression/spel/ast/BeanReference.html
 https://www.javadoc.io/doc/org.springframework/spring-expression/latest/org/springframework/expression/spel/ast/ConstructorReference.html
 https://www.javadoc.io/doc/org.springframework/spring-expression/latest/org/springframework/expression/spel/ast/FunctionReference.html
