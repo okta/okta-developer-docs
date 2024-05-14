@@ -5549,3 +5549,5 @@ redirects:
     to: https://github.com/okta/okta-sdk-dotnet
   - from: /docs/guides/sign-into-mobile-app-redirect/react-native/main/index.html
     to: /docs/guides/sampleapp-oie-redirectauth/reactnativedroid/main/
+  - from: /docs/guides/dpop/main/
+    to: /docs/guides/dpop/-/main
