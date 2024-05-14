@@ -11,7 +11,7 @@ title: Okta Identity Engine API release notes 2024
 
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
-| [Enhanced Dynamic Network Zones is self-service EA](#enhanced-dynamic-network-zones-is-self-service-ea) | May 015, 2024 |
+| [Enhanced Dynamic Network Zones is self-service EA](#enhanced-dynamic-network-zones-is-self-service-ea) | May 15, 2024 |
 | [Bugs fixed in 2024.05.1](#bugs-fixed-in-2024-05-1)  | May 15, 2024 |
 
 #### Enhanced Dynamic Network Zones is self-service EA
