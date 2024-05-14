@@ -30,3 +30,16 @@ https://app.getpostman.com/run-collection/c85985861f9b277913ae/
 https://app.getpostman.com/run-collection/f443644517abb15117af/
 https://csrc.nist.gov/pubs/sp/800/63/b/upd2/final/
 https://accounts.google.com/signup/
+https://www.javadoc.io/doc/org.springframework/spring-expression/latest/org/springframework/expression/spel/ast/Assign.html
+https://www.javadoc.io/doc/org.springframework/spring-expression/latest/org/springframework/expression/spel/ast/BeanReference.html
+https://www.javadoc.io/doc/org.springframework/spring-expression/latest/org/springframework/expression/spel/ast/ConstructorReference.html
+https://www.javadoc.io/doc/org.springframework/spring-expression/latest/org/springframework/expression/spel/ast/FunctionReference.html
+https://www.javadoc.io/doc/org.springframework/spring-expression/latest/org/springframework/expression/spel/ast/OpDec.html
+https://www.javadoc.io/doc/org.springframework/spring-expression/latest/org/springframework/expression/spel/ast/OpInc.html
+https://www.javadoc.io/doc/org.springframework/spring-expression/latest/org/springframework/expression/spel/ast/OperatorBetween.html
+https://www.javadoc.io/doc/org.springframework/spring-expression/latest/org/springframework/expression/spel/ast/OperatorInstanceof.html
+https://www.javadoc.io/doc/org.springframework/spring-expression/latest/org/springframework/expression/spel/ast/Projection.html
+https://www.javadoc.io/doc/org.springframework/spring-expression/latest/org/springframework/expression/spel/ast/QualifiedIdentifier.html
+https://www.javadoc.io/doc/org.springframework/spring-expression/latest/org/springframework/expression/spel/ast/TypeReference.html
+https://www.javadoc.io/doc/org.springframework/spring-expression/latest/org/springframework/expression/spel/ast/VariableReference.html
+https://app.getpostman.com/run-collection/15901964-61517094-f0ed-45e9-982a-f7a6a2db1bab?action=collection%2Ffork&collection-url=entityId%3D15901964-61517094-f0ed-45e9-982a-f7a6a2db1bab%26entityType%3Dcollection%26workspaceId%3D9f1d6c8f-d027-4107-a5c5-20d963c2c9d8/
