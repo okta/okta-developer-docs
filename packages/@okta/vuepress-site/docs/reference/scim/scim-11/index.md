@@ -584,7 +584,7 @@ Okta checks that the Group object exists on the SCIM server through a GET method
 The following is an example of a request to the SCIM server:
 
 ```http
-GET /scim/v1/Groups?filter=displayName%20eq%20%22Test%20SCIMv2%22&startIndex=1&count=100 HTTP/1.1
+GET /scim/v1/Groups?filter=displayName%20eq%20%22Test%20SCIMv1%22&startIndex=1&count=100 HTTP/1.1
 User-Agent: Okta SCIM Client 1.0.0
 Authorization: <Authorization credentials>
 ```
@@ -596,7 +596,7 @@ HTTP/1.1 200 OK
 Date: Tue, 10 Sep 2019 02:15:25 GMT
 Content-Type: text/json;charset=UTF-8
 {
-    "schemas": ["urn:ietf:params:scim:api:messages:2.0:ListResponse"],
+    "schemas": ["urn:scim:schemas:core:1.0"],
     "totalResults": 0,
     "startIndex": 1,
     "itemsPerPage": 0,
