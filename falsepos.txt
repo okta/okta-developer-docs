@@ -16,8 +16,6 @@ https://reactjs.org/tutorial/
 https://json-schema.org/specification.html
 https://8gwifi.org/jwkconvertfunctions.jsp
 https://okta.com/free-trial/workforce-identity/
-https://partners.parmonic.com/okta/
-https://www.jsonwebtoken.dev/
 https://developer.spotify.com/documentation/general/guides/authorization/app-settings/
 https://developer.spotify.com/documentation/general/guides/authorization/scopes/
 https://regionalevents.okta.com/enterprisereadyworkshops/
