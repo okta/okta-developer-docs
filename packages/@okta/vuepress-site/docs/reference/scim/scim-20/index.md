@@ -582,19 +582,6 @@ Content-Type: text/json;charset=UTF-8
 }
 ```
 
-Another acceptable response from the SCIM server is an error response if no Group objects match the filter criteria:
-
-```http
-HTTP/1.1 404 Not Found
-Date: Tue, 10 Sep 2019 01:58:03 GMT
-Content-Type: text/html; charset=UTF-8
-{
-    "schemas": ["urn:ietf:params:scim:api:messages:2.0:Error"],
-    "detail": "Group not found",
-    "status": 404
-}
-```
-
 #### Create the Group
 
 **POST** /Groups
