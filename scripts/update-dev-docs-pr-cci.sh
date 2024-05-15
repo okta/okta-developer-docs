@@ -11,7 +11,6 @@ TARGET_NAME=""
 
 if [ "${URL}" != "null" ]; then
     TARGET_NAME="https://preview-${PR_NUMBER}--reverent-murdock-829d24.netlify.app"
-    echo Added preview link to PR
     ALL_COMMENTS=$(curl -L \
         -H "Accept: application/vnd.github+json" \
         -H "Authorization: Bearer ${OKTA_GH_TOKEN}" \
@@ -22,16 +21,13 @@ if [ "${URL}" != "null" ]; then
 ${ALL_COMMENTS}
 EOF
 )
+    # Filter comments by github okta bot on the PR.
+    okta_gh_bot_comments=$(echo "$ALL_COMMENTS_JSON" | jq '[.[] | select(.user.id == 164419112)]')
+    count_of_okta_gh_bot_comments=$(echo "$okta_gh_bot_comments" | jq 'length')
 
-    filtered_comments=$(echo "$ALL_COMMENTS_JSON" | jq '[.[] | select(.user.id == 164419112)]')
-
-    echo filtered_comments ${filtered_comments}
-
-    count=$(echo "$filtered_comments" | jq 'length')
-
-    echo count ${count}
-
-    if [[ "$count" -eq 0 ]]; then
+    # Add the preview link only if there are no previous comments by the gh bot on the PR since the preview URL will remain the same everytime.
+    if [[ "$count_of_okta_gh_bot_comments" -eq 0 ]]; then
+        echo Added preview link to PR
         curl -L -s \
             -X POST \
             -H "Accept: application/vnd.github+json" \

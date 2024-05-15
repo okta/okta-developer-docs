@@ -60,35 +60,35 @@ jobs:
       - image: cimg/node:14.21.3-browsers
     resource_class: xlarge
     steps:
-      # - run:
-      #     name: Has secrets?
-      #     command: |
-      #       if [ -z "$NETLIFY_AUTH_TOKEN" ] || [ -z "$NETLIFY_SITE_ID" ]; then
-      #         echo "Missing required secrets."
-      #         exit 1
-      #       fi
+      - run:
+          name: Has secrets?
+          command: |
+            if [ -z "$NETLIFY_AUTH_TOKEN" ] || [ -z "$NETLIFY_SITE_ID" ]; then
+              echo "Missing required secrets."
+              exit 1
+            fi
       - checkout
-      # - run:
-      #     name: Install dependencies
-      #     command: |
-      #       yarn install --frozen-lockfile
-      # - run:
-      #     name: Build preview
-      #     command: |
-      #       yarn build
-      # - run:
-      #     name: Install Netlify CLI
-      #     command: |
-      #       npm install netlify-cli -g
-      # - run:
-      #     name: Deploy preview to Netlify
-      #     command: |
-      #       netlify deploy --alias=preview-${CIRCLE_PULL_REQUEST##*/} --filter @okta/vuepress-site
+      - run:
+          name: Install dependencies
+          command: |
+            yarn install --frozen-lockfile
+      - run:
+          name: Build preview
+          command: |
+            yarn build
+      - run:
+          name: Install Netlify CLI
+          command: |
+            npm install netlify-cli -g
+      - run:
+          name: Deploy preview to Netlify
+          command: |
+            netlify deploy --alias=preview-${CIRCLE_PULL_REQUEST##*/} --filter @okta/vuepress-site
       - run:
           name: Update PR with preview link
           command: |
-            chmod +x ./scripts/update-infodev-pr-cci.sh
-            ./scripts/update-infodev-pr-cci.sh
+            chmod +x ./scripts/update-dev-docs-pr-cci.sh
+            ./scripts/update-dev-docs-pr-cci.sh
 
 orbs:
   general-platform-helpers: okta/general-platform-helpers@1.8
