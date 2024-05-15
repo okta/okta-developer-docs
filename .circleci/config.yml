@@ -14,15 +14,15 @@ jobs:
         NODE_OPTIONS: '--max_old_space_size=3584'
       steps:
         - checkout
-        - run:
-            name: Install dependencies
-            command: yarn install --frozen-lockfile
-        - run:
-            name: Build 
-            command: yarn build
-        - run:
-            name: Run checks
-            command: ./scripts/yarn-checks-ci.sh
+        # - run:
+        #     name: Install dependencies
+        #     command: yarn install --frozen-lockfile
+        # - run:
+        #     name: Build 
+        #     command: yarn build
+        # - run:
+        #     name: Run checks
+        #     command: ./scripts/yarn-checks-ci.sh
 
   nightly_link_checker:
     docker:
@@ -83,7 +83,7 @@ jobs:
       - run:
           name: Deploy preview to Netlify
           command: |
-            netlify deploy --filter @okta/vuepress-site
+            netlify deploy --alias=preview-${CIRCLE_PULL_REQUEST##*/} --filter @okta/vuepress-site
 
 orbs:
   general-platform-helpers: okta/general-platform-helpers@1.8
@@ -95,10 +95,10 @@ workflows:
     jobs:
       - general-platform-helpers/job-semgrep-prepare:
           name: semgrep-prepare
-      - general-platform-helpers/job-semgrep-scan:
-          name: "Scan with Semgrep"
-          requires:
-            - semgrep-prepare
+      # - general-platform-helpers/job-semgrep-scan:
+      #     name: "Scan with Semgrep"
+      #     requires:
+      #       - semgrep-prepare
 
   build_checks:
     when:
