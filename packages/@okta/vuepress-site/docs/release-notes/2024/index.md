@@ -6,6 +6,23 @@ title: Okta Classic Engine API release notes 2024
 
 ## May
 
+### Weekly release 2024.05.1
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Enhanced Dynamic Network Zones is self-service EA](#enhanced-dynamic-network-zones-is-self-service-ea) | May 15, 2024 |
+| [Bugs fixed in 2024.05.1](#bugs-fixed-in-2024-05-1)  | May 15, 2024 |
+
+#### Enhanced Dynamic Network Zones is self-service EA
+
+Use Enhanced Dynamic Network Zones to define IP service categories (proxies, VPNs), locations, and Autonomous System Numbers (ASNs) that are allowed or blocked in a zone. See [Network Zones API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/NetworkZone/). <!--ENHANCED_DYNAMIC_NETWORK_ZONE OKTA-727934-->
+
+#### Bugs fixed in 2024.05.1
+
+* If an API request contained any malformed syntax within the query string, the request was still processed. (OKTA-728810)
+
+* Sometimes the SAML assertion lifetime couldn't be unset when the SAML Assertion Lifetime API feature was enabled. (OKTA-728316)
+
 ### Monthly release 2024.05.0
 
 | Change | Expected in Preview Orgs |
