@@ -19,8 +19,9 @@ if [ "${URL}" != "null" ]; then
         https://api.github.com/repos/okta/okta-developer-docs/issues/${PR_NUMBER}/comments)
     
     echo ${ISSUE_COMMENTS_BY_BOT}
+    count=$(echo "$ISSUE_COMMENTS_BY_BOT" | jq '[.[] | select(.user.id == 164419112 and .body | contains("Preview URL for the changes:"))] | length')
 
-    if [[ ! $(echo "$ISSUE_COMMENTS_BY_BOT" | jq '.[] | select(.user.id == 164419112 and .body | contains("Preview URL for the changes:"))') ]]; then
+    if [[ "$count" -eq 0 ]]; then
         curl -L -s \
             -X POST \
             -H "Accept: application/vnd.github+json" \
