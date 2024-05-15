@@ -12,14 +12,18 @@ TARGET_NAME=""
 if [ "${URL}" != "null" ]; then
     TARGET_NAME="https://preview-${PR_NUMBER}--reverent-murdock-829d24.netlify.app"
     echo Added preview link to PR
-    ISSUE_COMMENTS_BY_BOT=$(curl -L \
+    ALL_COMMENTS=$(curl -L \
         -H "Accept: application/vnd.github+json" \
         -H "Authorization: Bearer ${OKTA_GH_TOKEN}" \
         -H "X-GitHub-Api-Version: 2022-11-28" \
         https://api.github.com/repos/okta/okta-developer-docs/issues/${PR_NUMBER}/comments)
     
-    echo ${ISSUE_COMMENTS_BY_BOT}
-    filtered_comments=$(echo "$ISSUE_COMMENTS_BY_BOT" | jq '[.[] | select(.user.id == 134 and .body | contains("Preview URL for the changes:"))]')
+    ALL_COMMENTS_JSON=$(cat <<EOF
+    ${ALL_COMMENTS}
+    EOF
+    )
+
+    filtered_comments=$(echo "$ALL_COMMENTS_JSON" | jq '[.[] | select(.user.id == 164419112)]')
 
     echo filtered_comments ${filtered_comments}
 
@@ -40,4 +44,4 @@ else
     echo There is no PR associated with ${CIRCLE_BRANCH}
 fi
 
-# echo Preview Link: ${TARGET_NAME}
+echo Preview Link: ${TARGET_NAME}
