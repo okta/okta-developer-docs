@@ -81,9 +81,10 @@ jobs:
           command: |
             npm install netlify-cli -g
       - run:
-          name: Deploy preview to Netlify
+          name: Deploy preview to Netlify and update PR with preview link
           command: |
-            netlify deploy --alias=preview-${CIRCLE_PULL_REQUEST##*/} --filter @okta/vuepress-site
+            chmod +x ./scripts/update-infodev-pr-cci.sh
+            ./scripts/update-infodev-pr-cci.sh
 
 orbs:
   general-platform-helpers: okta/general-platform-helpers@1.8
