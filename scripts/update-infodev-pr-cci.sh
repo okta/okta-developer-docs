@@ -19,9 +19,9 @@ if [ "${URL}" != "null" ]; then
         https://api.github.com/repos/okta/okta-developer-docs/issues/${PR_NUMBER}/comments)
     
     ALL_COMMENTS_JSON=$(cat <<EOF
-    ${ALL_COMMENTS}
-    EOF
-    )
+${ALL_COMMENTS}
+EOF
+)
 
     filtered_comments=$(echo "$ALL_COMMENTS_JSON" | jq '[.[] | select(.user.id == 164419112)]')
 
