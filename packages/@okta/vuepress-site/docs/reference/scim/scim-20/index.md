@@ -567,20 +567,51 @@ User-Agent: Okta SCIM Client 1.0.0
 Authorization: <Authorization credentials>
 ```
 
-The SCIM server checks the filter provided and returns an empty response if no Groups match the filter criteria. For example:
+The SCIM server processes the request and responds with:
 
-```http
-HTTP/1.1 200 OK
-Date: Tue, 10 Sep 2019 02:15:25 GMT
-Content-Type: text/json;charset=UTF-8
-{
-    "schemas": ["urn:ietf:params:scim:api:messages:2.0:ListResponse"],
-    "totalResults": 0,
-    "startIndex": 1,
-    "itemsPerPage": 0,
-    "Resources": []
-}
-```
+* A list of Groups if they match the filter criteria. For example:
+
+    ```http
+    HTTP/1.1 200 OK
+    Date: Wed, 15 May 2024 10:02:45 GMT
+    Content-Type: text/json;charset=UTF-8
+
+    {
+        "schemas": [
+            "urn:ietf:params:scim:api:messages:2.0:ListResponse"
+        ],
+        "totalResults": 1,
+        "startIndex": 1,
+        "itemsPerPage": 1,
+        "Resources": [
+            {
+            "id": "e7d09e9b3faa4888b65cf9e9316cba1c",
+            "meta": {
+                "created": "2024-05-15T09:21:23",
+                "lastModified": "2024-05-15T09:21:23",
+                "version": "v1.0"
+            },
+            "displayName": "Test SCIMv1"
+           },
+        ]
+    }
+    ```
+
+* An empty response if no Groups match the filter criteria. For example:
+
+    ```http
+    HTTP/1.1 200 OK
+    Date: Wed, 15 May 2024 11:02:14 GMT
+    Content-Type: text/json;charset=UTF-8
+
+    {
+        "schemas": ["urn:ietf:params:scim:api:messages:2.0:ListResponse"],
+        "totalResults": 0,
+        "startIndex": 1,
+        "itemsPerPage": 0,
+        "Resources": []
+    }
+    ```
 
 #### Create the Group
 
