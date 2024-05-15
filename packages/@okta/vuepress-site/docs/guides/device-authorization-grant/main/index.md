@@ -18,32 +18,28 @@ This guide describes the Device Authorization feature, which allows users to sig
 
 #### What you need
 
-* [Okta Developer Edition organization](https://developer.okta.com/signup)
-* [Device Authorization feature enabled for your org](#before-you-begin)
+[Okta Developer Edition organization](https://developer.okta.com/signup)
 
 ---
 
-## About the Device Authorization feature
+## Overview
 
 The Device Authorization feature is an OAuth 2.0 grant type. It allows users to sign in to input-constrained devices, such as smart TVs, digital picture frames, and printers, and devices with no browser. Device Authorization enables you to use a secondary device, such as a laptop or mobile phone, to complete sign-in to apps that run on such devices.
 
 The Device Authorization feature is available for both Classic Engine and Identity Engine orgs.
 
-## Before you begin
-
-This guide assumes that you:
-
-* Have an Okta Developer Edition organization. Don't have one? [Create one for free](https://developer.okta.com/signup).
-* Have the Device Authorization feature enabled for your org. From the left navigation pane in the Admin Console, go to **Settings** > **Features**, locate the Device Authorization Grant slider, and slide to enable.
-
 ## Configure an application to use the Device Authorization Grant
 
-To create a Native OpenID Connect application and then configure it to support Device Authorization:
+Create a Native OpenID Connect application and then configure it to support Device Authorization:
 
-1. In the left navigation pane of the Admin Console, go to **Applications** > **Applications**.
+1. Open the **Admin Console** for your org.
+1. Select **Applications** > **Applications** to view the current app integrations.
 1. Click **Create App Integration**.
-1. On the Create a new app integration page, select **OIDC - OpenID Connect** as the **Sign-in method**, and then pick **Native Application**.
-1. On your native application page, fill in the application settings. Ensure that you select **Device Authorization** as the allowed **Grant type** in the General Settings.
+1. Select **OIDC - OpenID Connect**  as the **Sign-in method**, and then **Native Application** as the **Application type**.
+1. Click **Next**.
+1. Specify the **App integration name**.
+1. Select **Device Authorization** as the **Grant type**.
+1. Select **Allow everyone in your organization to access** in the **Assignments** section, then click **Save**.
 
 > **Note:** Device Authorization is only supported for use with a native application.
 
