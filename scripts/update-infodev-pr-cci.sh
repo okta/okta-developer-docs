@@ -19,7 +19,13 @@ if [ "${URL}" != "null" ]; then
         https://api.github.com/repos/okta/okta-developer-docs/issues/${PR_NUMBER}/comments)
     
     echo ${ISSUE_COMMENTS_BY_BOT}
-    count=$(echo "$ISSUE_COMMENTS_BY_BOT" | jq '[.[] | select(.user.id == 164419112 and .body | contains("Preview URL for the changes:"))] | length')
+    filtered_comments=$(echo "$ISSUE_COMMENTS_BY_BOT" | jq '[.[] | select(.user.id == 134 and .body | contains("Preview URL for the changes:"))]')
+
+    echo filtered_comments ${filtered_comments}
+
+    count=$(echo "$filtered_comments" | jq 'length')
+
+    echo count ${count}
 
     if [[ "$count" -eq 0 ]]; then
         curl -L -s \
