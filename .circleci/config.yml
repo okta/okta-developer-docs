@@ -67,7 +67,7 @@ jobs:
       #         echo "Missing required secrets."
       #         exit 1
       #       fi
-      # - checkout
+      - checkout
       # - run:
       #     name: Install dependencies
       #     command: |
