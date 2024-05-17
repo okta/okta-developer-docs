@@ -8,7 +8,7 @@
 # # Use awk to format each URL into an HTML anchor tag with line break
 # formatted_broken_urls=$(echo "$broken_urls" | awk '{printf "<a href=\"%s\">%s</a><br/>\n", $0, $0}')
 
-PIPELINE_NUMBER=${pipeline.number} 
+PIPELINE_NUMBER="<< pipeline.number >>"
 
 # if [ -n "$formatted_broken_urls" ]; then
 curl --location --request POST 'https://www.cinotify.cc/api/notify' \
