@@ -538,6 +538,8 @@ For a detailed explanation on deleting users, see [Delete (Deprovision)](/docs/c
 
 ### Create Groups
 
+**POST** /Groups
+
 To create a Group object on the SCIM server, you first need to enable provisioning with the Group Push feature in the Admin Console:
 
 1. Select your SCIM integration from the list of integrations in your Okta org.
@@ -545,18 +547,61 @@ To create a Group object on the SCIM server, you first need to enable provisioni
 
 You can select which existing Okta group to push, either by specifying a name or a rule. If a group doesn't exist, create a new group in Okta and then push it to the SCIM server. For more information, see [About Group push](https://help.okta.com/okta_help.htm?id=ext_Directory_Using_Group_Push) in the Okta Help Center.
 
-After you complete this step, the following requests are made against the SCIM server:
+After the group is selected, Okta makes a POST method request to the Service Provider:
 
-* Determine if the Group object already exists. Okta runs a query against the `displayName` values stored on the SCIM server.
+```http
+POST /scim/v2/Groups HTTP/1.1
+User-Agent: Okta SCIM Client 1.0.0
+Authorization: <Authorization credentials>
 
-* If the Group isn't found on the SCIM server, create a new group on the SCIM server (`POST /Groups`)
+{
+    "schemas": ["urn:ietf:params:scim:schemas:core:2.0:Group"],
+    "displayName": "Test SCIMv2",
+    "members": []
+}
+```
 
-* If the Group is found on the SCIM server, the **Push Groups** operation fails.
+When it receives this request, the SCIM server responds with the Group object as it would for a GET method request to the `/Groups/${groupID}/`:
 
-#### Determine if the Group already exists
+```http
+HTTP/1.1 201 Created
+Date: Tue, 10 Sep 2019 04:54:18 GMT
+Content-Type: text/json;charset=UTF-8
+
+{
+    "schemas": ["urn:ietf:params:scim:schemas:core:2.0:Group"],
+    "id": "abf4dd94-a4c0-4f67-89c9-76b03340cb9b",
+    "displayName": "Test SCIMv2",
+    "members": [],
+    "meta": {
+        "resourceType": "Group"
+    }
+}
+```
+
+### Retrieve Groups
 
 **GET** /Groups
 
+When importing Group objects from the SCIM server, Okta accesses the `/Groups` endpoint and processes them page by page, using the `startIndex`, `count`, and `totalResults` values for reference. Similarly, when returning large lists of resources, your SCIM implementation must support pagination. Using a limit of `count` results and an offset of `startIndex` returns smaller groupings of resources in a request.
+
+> **Note:** The `itemsPerPage`, `startIndex`, and `totalResults` values need to be exchanged as integers, not as strings.
+
+Okta uses `count=100` as the pagination reference to return up to 100 elements. If the value of `totalResults` is higher than 100, then after Okta finishes retrieving the first 100 resources, the `startIndex` becomes `startIndex+100` and is passed as a query parameter along with `count` in a new request to the `/Groups` endpoint. This pagination operation repeats until all pages are viewed.
+
+The SCIM server must consistently return the same ordering of results for the requests, regardless of which values are provided for the `count` and `startIndex` pagination references.
+
+A sample request from Okta to retrieve the Group objects from the SCIM application:
+
+```http
+GET /scim/v2/Groups?startIndex=1&count=100 HTTP/1.1
+User-Agent: Okta SCIM Client 1.0.0
+Authorization: <Authorization credentials>
+```
+
+The response to this request is a JSON list of all the Group objects found in the SCIM application.
+
+You must also implement filtering results with the `eq` (equals) operator on SCIM server.
 Okta checks that the Group object exists on the SCIM server through a GET method request with the `filter=displayName eq "${groupName}"` path parameter. This check is performed using the `eq` (equal) operator against the group name on the target app.
 
 The following is an example of a request to the SCIM server:
@@ -612,64 +657,6 @@ The SCIM server processes the request and responds with:
         "Resources": []
     }
     ```
-
-#### Create the Group
-
-**POST** /Groups
-
-After Okta determines that the group doesn't exists in the SCIM application (from the `GET /Groups` operation), Okta makes a POST method request to the SCIM server:
-
-```http
-POST /scim/v2/Groups HTTP/1.1
-User-Agent: Okta SCIM Client 1.0.0
-Authorization: <Authorization credentials>
-
-{
-    "schemas": ["urn:ietf:params:scim:schemas:core:2.0:Group"],
-    "displayName": "Test SCIMv2",
-    "members": []
-}
-```
-
-When it receives this request, the SCIM server responds with the Group object as it would for a GET method request to the `/Groups/${groupID}/`:
-
-```http
-HTTP/1.1 201 Created
-Date: Tue, 10 Sep 2019 04:54:18 GMT
-Content-Type: text/json;charset=UTF-8
-
-{
-    "schemas": ["urn:ietf:params:scim:schemas:core:2.0:Group"],
-    "id": "abf4dd94-a4c0-4f67-89c9-76b03340cb9b",
-    "displayName": "Test SCIMv2",
-    "members": [],
-    "meta": {
-        "resourceType": "Group"
-    }
-}
-```
-
-### Retrieve Groups
-
-**GET** /Groups
-
-When importing Group objects from the SCIM server, Okta accesses the `/Groups` endpoint and processes them page by page, using the `startIndex`, `count`, and `totalResults` values for reference. Similarly, when returning large lists of resources, your SCIM implementation must support pagination. Using a limit of `count` results and an offset of `startIndex` returns smaller groupings of resources in a request.
-
-> **Note:** The `itemsPerPage`, `startIndex`, and `totalResults` values need to be exchanged as integers, not as strings.
-
-Okta uses `count=100` as the pagination reference to return up to 100 elements. If the value of `totalResults` is higher than 100, then after Okta finishes retrieving the first 100 resources, the `startIndex` becomes `startIndex+100` and is passed as a query parameter along with `count` in a new request to the `/Groups` endpoint. This pagination operation repeats until all pages are viewed.
-
-The SCIM server must consistently return the same ordering of results for the requests, regardless of which values are provided for the `count` and `startIndex` pagination references.
-
-A sample request from Okta to retrieve the Group objects from the SCIM application:
-
-```http
-GET /scim/v2/Groups?startIndex=1&count=100 HTTP/1.1
-User-Agent: Okta SCIM Client 1.0.0
-Authorization: <Authorization credentials>
-```
-
-The response to this request is a JSON list of all the Group objects found in the SCIM application.
 
 ### Retrieve specific Groups
 

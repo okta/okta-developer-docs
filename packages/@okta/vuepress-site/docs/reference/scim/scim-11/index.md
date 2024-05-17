@@ -560,6 +560,8 @@ For a detailed explanation on deleting users, see [Delete (Deprovision)](/docs/c
 
 ### Create Groups
 
+**POST** /Groups
+
 To create a Group object on the SCIM server, you first need to enable provisioning with the Group Push feature in the Admin Console:
 
 1. Select your SCIM integration from the list of integrations in your Okta org.
@@ -567,79 +569,7 @@ To create a Group object on the SCIM server, you first need to enable provisioni
 
 You can select which existing Okta group to push, either by specifying a name or a rule. If a group doesn't exist, create a new group in Okta and then push it to the SCIM server. For more information, see [About Group push](https://help.okta.com/okta_help.htm?id=ext_Directory_Using_Group_Push) in the Okta Help Center.
 
-After you complete this step, the following requests are made against the SCIM server:
-
-* Determine if the Group object already exists. Okta runs a query against the `displayName` values stored on the SCIM server.
-
-* If the Group isn't found on the SCIM server, create a new group on the SCIM server (`POST /Groups`)
-
-* If the Group is found on the SCIM server, the **Push Groups** operation fails.
-
-#### Determine if the Group already exists
-
-**GET** /Groups
-
-Okta checks that the Group object exists on the SCIM server through a GET method request with the `filter=displayName eq "${groupName}"` path parameter. This check is performed using the `eq` (equal) operator against the group name on the target app.
-
-The following is an example of a request to the SCIM server:
-
-```http
-GET /scim/v1/Groups?filter=displayName%20eq%20%22Test%20SCIMv1%22&startIndex=1&count=100 HTTP/1.1
-User-Agent: Okta SCIM Client 1.0.0
-Authorization: <Authorization credentials>
-```
-
-The SCIM server processes the request and responds with:
-
-* A list of Groups if they match the filter criteria. For example:
-
-    ```http
-    HTTP/1.1 200 OK
-    Date: Wed, 15 May 2024 10:02:45 GMT
-    Content-Type: text/json;charset=UTF-8
-
-    {
-        "schemas": [
-            "urn:scim:schemas:core:1.0"
-        ],
-        "totalResults": 1,
-        "startIndex": 1,
-        "itemsPerPage": 1,
-        "Resources": [
-            {
-            "id": "e7d09e9b3faa4888b65cf9e9316cba1c",
-            "meta": {
-                "created": "2024-05-15T09:21:23",
-                "lastModified": "2024-05-15T09:21:23",
-                "version": "v1.0"
-            },
-            "displayName": "Test SCIMv1"
-           },
-        ]
-    }
-    ```
-
-* An empty response if no Groups match the filter criteria. For example:
-
-    ```http
-    HTTP/1.1 200 OK
-    Date: Wed, 15 May 2024 11:02:14 GMT
-    Content-Type: text/json;charset=UTF-8
-
-    {
-        "schemas": ["urn:scim:schemas:core:1.0"],
-        "totalResults": 0,
-        "startIndex": 1,
-        "itemsPerPage": 0,
-        "Resources": []
-    }
-    ```
-
-#### Create the Group
-
-**POST** /Groups
-
-After Okta determines that the group doesn't exists in the SCIM application (from the `GET /Groups` operation), Okta makes a POST method request to the SCIM server:
+After the group is selected, Okta makes a POST method request to the Service Provider:
 
 ```http
 POST /scim/v1/Groups HTTP/1.1
@@ -707,6 +637,63 @@ Authorization: <Authorization credentials>
 ```
 
 The response to this request is a JSON list of all the Group objects found in the SCIM application.
+
+You must also implement filtering results with the `eq` (equals) operator on SCIM server.
+Okta checks that the Group object exists on the SCIM server through a GET method request with the `filter=displayName eq "${groupName}"` path parameter. This check is performed using the `eq` (equal) operator against the group name on the target app.
+
+The following is an example of a request to the SCIM server:
+
+```http
+GET /scim/v1/Groups?filter=displayName%20eq%20%22Test%20SCIMv1%22&startIndex=1&count=100 HTTP/1.1
+User-Agent: Okta SCIM Client 1.0.0
+Authorization: <Authorization credentials>
+```
+
+The SCIM server processes the request and responds with:
+
+* A list of Groups if they match the filter criteria. For example:
+
+    ```http
+    HTTP/1.1 200 OK
+    Date: Wed, 15 May 2024 10:02:45 GMT
+    Content-Type: text/json;charset=UTF-8
+
+    {
+        "schemas": [
+            "urn:scim:schemas:core:1.0"
+        ],
+        "totalResults": 1,
+        "startIndex": 1,
+        "itemsPerPage": 1,
+        "Resources": [
+            {
+            "id": "e7d09e9b3faa4888b65cf9e9316cba1c",
+            "meta": {
+                "created": "2024-05-15T09:21:23",
+                "lastModified": "2024-05-15T09:21:23",
+                "version": "v1.0"
+            },
+            "displayName": "Test SCIMv1"
+           },
+        ]
+    }
+    ```
+
+* An empty response if no Groups match the filter criteria. For example:
+
+    ```http
+    HTTP/1.1 200 OK
+    Date: Wed, 15 May 2024 11:02:14 GMT
+    Content-Type: text/json;charset=UTF-8
+
+    {
+        "schemas": ["urn:scim:schemas:core:1.0"],
+        "totalResults": 0,
+        "startIndex": 1,
+        "itemsPerPage": 0,
+        "Resources": []
+    }
+    ```
 
 ### Retrieve specific Groups
 
