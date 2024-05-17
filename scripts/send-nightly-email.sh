@@ -1,12 +1,11 @@
 #!/bin/bash
 
 broken_urls=($(comm -23 <(sort urls.txt | uniq) <(sort falsepos.txt | uniq)))
-urls=$(echo "$broken_urls" | tr ' ' '\n')
-hyperlinks=""
-while IFS= read -r url; do
-    hyperlinks+="<a href=\"$url\">$url</a><br/>"
-done <<< "$urls"
-
+echo $broken_urls
+for ((i=0; i<${#broken_urls[@]}; i++)); do
+    broken_urls[$i]="<a href=\"${broken_urls[$i]}\">${broken_urls[$i]}</a><br/>"
+done
+echo $broken_urls
 if [ -n "$broken_urls" ]; then
     curl --location --request POST 'https://www.cinotify.cc/api/notify' \
             -d "to=${NOTIFY_EMAIL}&subject=FAILED: Dev Docs Nightly Job&type=text/html&body=<p style='font-family: Arial, sans-serif; font-size: 16px; color: #333; line-height: 1.6; text-align: center; background-color: #ffcccc; padding: 10px;'>
