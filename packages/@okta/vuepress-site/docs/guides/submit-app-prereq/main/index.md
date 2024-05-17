@@ -67,7 +67,12 @@ The following multi-tenant example assumes that your Okta app integration suppor
 
 ## OIN Wizard requirements
 
-The OIN Wizard is only available in Okta Developer Edition orgs. To access the OIN Wizard and the **Your OIN Integrations** dashboard in your org, you must have either the super admin or the app and org admin [roles](https://help.okta.com/okta_help.htm?type=oie&id=ext-administrators-admin-comparison) assigned to you.
+The OIN Wizard is only available in Okta Developer Edition orgs.
+
+To access the OIN Wizard and the **Your OIN Integrations** dashboard in your org, you must:
+
+* have either the super admin or the app and org admin [roles](https://help.okta.com/okta_help.htm?type=oie&id=ext-administrators-admin-comparison) assigned to you
+* use your company domain email as your username for your Okta admin account (you can't use an account with a personal email address to submit integrations)
 
 > **Note:** The app admin role enables you to view and edit details in the OIN Wizard. To test in the OIN Wizard, if you don't have the super admin role, then you must have both the app admin and the org admin roles assigned to you.
 

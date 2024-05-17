@@ -68,6 +68,9 @@ Review the [OIN submission requirements](/docs/guides/submit-app-prereq) before 
 Start your integration submission for OIN publication:
 
 1. Sign in to your [Developer Edition org](/login/) as a user with either the super admin role, or the app and org admin roles.
+
+    The Okta admin account you use to submit your integration must have your company domain in the email address. You can't use an account with a personal email address.
+
 1. Go to **Applications** > **Your OIN Integrations** in the Admin Console.
 1. Click **Build new OIN integration**. The OIN Wizard appears.
 1. Select **<StackSnippet snippet="protocol-fullname" inline/>** from the **Select your protocol** section.
@@ -422,6 +425,7 @@ When you edit a published OIN integration, you need to test the SSO flow for the
 To update a previously published OIN integration:
 
 1. Sign in to your Okta Developer Edition org as a user with either app admin or super admin roles.
+   > **Note:** The Okta admin account you use to edit your integration must have your company domain in the email address. You can't use an account with a personal email address.
 1. Go to **Applications** > **Your OIN Integrations** in the Admin Console.
 1. Click your published integration to update from the dashboard. Your published OIN submission appears in read-only mode.
 1. From the **This integration is read-only** information box, click **Edit integration**.
