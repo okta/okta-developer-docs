@@ -23,25 +23,25 @@ jobs:
         # - run:
         #     name: Run checks
         #     command: ./scripts/yarn-checks-ci.sh
-        # - run:
-        #     name: Run script and capture logs
-        #     command: yarn build
-        # - run:
-        #     name: Run link checker
-        #     command: yarn broken-link-checker:external > output.txt 2>&1 || true
-        # - run:
-        #     name: Extract URLs from log
-        #     command: |
-        #       grep -o 'Link: https\?://[^[:space:]]*' output.txt | sed 's/Link: //' > urls.txt
-        #     when: always
-        # - run:
-        #     name: Remove False Positives
-        #     command: |
-        #       comm -23 <(sort urls.txt | uniq) <(sort falsepos.txt | uniq) > broken_external_urls.txt
-        # - run:
-        #     name: Print urls to log
-        #     command: |
-        #       cat broken_external_urls.txt
+        - run:
+            name: Run script and capture logs
+            command: yarn build
+        - run:
+            name: Run link checker
+            command: yarn broken-link-checker:external > output.txt 2>&1 || true
+        - run:
+            name: Extract URLs from log
+            command: |
+              grep -o 'Link: https\?://[^[:space:]]*' output.txt | sed 's/Link: //' > urls.txt
+            when: always
+        - run:
+            name: Remove False Positives
+            command: |
+              comm -23 <(sort urls.txt | uniq) <(sort falsepos.txt | uniq) > broken_external_urls.txt
+        - run:
+            name: Print urls to log
+            command: |
+              cat broken_external_urls.txt
         - run:
             name: Send failure email if broken URLs found
             when: on_success
@@ -50,7 +50,7 @@ jobs:
               broken_urls=$(echo "$broken_urls" | sed 's/ /\n/g')
               formatted_broken_urls=$(echo "$broken_urls" | awk '{printf "<a href=\"%s\">%s</a><br/>\n", $0, $0}')
               
-              if [ -n "$formatted_broken_urls" ]; then
+              if [ -n "$broken_urls" ]; then
                   curl --location --request POST 'https://www.cinotify.cc/api/notify' \
                           -d "to=${NOTIFY_EMAIL}&subject=FAILED: Dev Docs Nightly Job&type=text/html&body=<p style='font-family: Arial, sans-serif; font-size: 16px; color: #333; line-height: 1.6; text-align: center; background-color: #ffcccc; padding: 10px;'>
                           <span style='font-weight: bold;'>Nightly link checker job failed. See the list of broken URLs below.</span><br><br>
