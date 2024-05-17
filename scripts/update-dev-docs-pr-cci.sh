@@ -25,7 +25,7 @@ EOF
     okta_gh_bot_comments=$(echo "$ALL_COMMENTS_JSON" | jq '[.[] | select(.user.id == 164419112)]')
     count_of_okta_gh_bot_comments=$(echo "$okta_gh_bot_comments" | jq 'length')
     echo count123 $count_of_okta_gh_bot_comments
-    preview_urls_filtered_comments=$(echo "$okta_gh_bot_comments" | jq '.[] | select(.body | contains("Preview URL for the changes:"))')
+    preview_urls_filtered_comments=$(echo "$okta_gh_bot_comments" | jq '.[] | select(.body | contains("Preview URL for the changes::"))')
     echo $preview_urls_filtered_comments
     preview_comments_keys_length=$(echo "$preview_urls_filtered_comments" | jq 'length')
     echo $preview_comments_keys_length
