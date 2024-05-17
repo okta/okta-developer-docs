@@ -12,7 +12,7 @@ This guide explains how to customize your Okta org with your custom domain. It a
 
 #### Learning outcomes
 
-* Customize the Okta subdomain (using an Okta-managed certificate or using your own TLS certificate).
+* Customize the Okta subdomain (using an Okta-managed certificate or using your own Transport Layer Security (TLS) certificate).
 * Configure a custom email address.
 
 #### What you need
@@ -80,6 +80,8 @@ The third generation of the Okta Sign-In Widget doesn’t guarantee the stabilit
 
   * If you have an Okta-managed certificate and you later get a CAA record, Okta can't renew your certificate. You must either add `letsencrypt.org` to the issuers list or remove the CAA record.
 
+* If you use an Okta-managed certificate, you need to remove [network zones](https://help.okta.com/okta_help.htm?id=ext-network-zones) from your org. If you can't remove network zones, you can create a custom domain using your own TLS certificate. See [Use your own TLS certificate](#use-your-own-tls-certificate).
+
 * You can't sign in to [Okta Workflows](https://help.okta.com/okta_help.htm?type=wf&id=ext-Okta-workflows) through a custom domain (Okta-managed or using your own Transport Layer Security (TLS) certificate). Sign in through your default [Okta domain](/docs/guides/find-your-domain/main/).
 
 * If you use your own TLS certificate, consider the following:
@@ -99,7 +101,6 @@ The third generation of the Okta Sign-In Widget doesn’t guarantee the stabilit
   * The public key must use the RSA algorithm.
 
   * The public key isn't from a certificate authority (CA).
-
 
 * Any DNS text (`TXT`) and `CNAME` record names and values included in your domain configuration must be resolvable and contain the values provided by Okta. You can validate these names and values with a DNS query tool, such as [dig](https://bind9.readthedocs.io/en/latest/manpages.html?highlight=#dig-dns-lookup-utility).
 
