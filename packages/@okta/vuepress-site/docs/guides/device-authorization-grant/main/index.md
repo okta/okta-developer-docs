@@ -24,21 +24,18 @@ This guide describes the Device Authorization feature, which allows users to sig
 
 ## Overview
 
-The Device Authorization feature is an OAuth 2.0 grant type. It allows users to sign in to input-constrained devices, such as smart TVs, digital picture frames, and printers, and devices with no browser. Device Authorization enables you to use a secondary device, such as a laptop or mobile phone, to complete sign-in to apps that run on such devices.
-
-The Device Authorization feature is available for both Classic Engine and Identity Engine orgs.
+The Device Authorization feature is an OAuth 2.0 grant type. It allows users to sign in to input-constrained devices, such as smart TVs, digital picture frames, and printers, and devices with no browser. Device Authorization enables you to use a secondary device, such as a laptop or mobile phone, to complete the sign-in flow to apps that run on such devices.
 
 ## Configure an application to use the Device Authorization Grant
 
 Create a Native OpenID Connect application and then configure it to support Device Authorization:
 
 1. Open the **Admin Console** for your org.
-1. Select **Applications** > **Applications** to view the current app integrations.
+1. Go to **Applications** > **Applications** to view the current app integrations.
 1. Click **Create App Integration**.
 1. Select **OIDC - OpenID Connect**  as the **Sign-in method**, and then **Native Application** as the **Application type**.
-1. Click **Next**.
-1. Specify the **App integration name**.
-1. Select **Device Authorization** as the **Grant type**.
+1. Click **Next** and specify the **App integration name**.
+1. Select **Device Authorization** and **Refresh Token** as the grant types.
 1. Select **Allow everyone in your organization to access** in the **Assignments** section, then click **Save**.
 
 > **Note:** Device Authorization is only supported for use with a native application.
@@ -49,10 +46,10 @@ Both org and custom authorization servers support Device Authorization. Ensure t
 
 To check that Device Authorization is enabled:
 
-1. In the left navigation pane of the Admin Console, go to **Security** > **API** and select the "default" custom authorization server.
+1. In Admin Console, go to **Security** > **API** and select the "default" custom authorization server.
 1. On the **Access Policies** tab, select the access policy that you want to configure Device Authorization for.
 1. Click the pencil icon for the Default Policy Rule.
-1. In the Edit Rule dialog box, select **Device Authorization** for the grant type and click **Update Rule**.
+1. In the Edit Rule dialog, select **Device Authorization** for the grant type and click **Update Rule**.
 
 ## Configure the smart device
 
@@ -64,10 +61,10 @@ The smart device first needs to call the `/device/authorize` endpoint to obtain 
 
 ```bash
 curl --request POST \
-  --url https://${yourOktaDomain}/oauth2/default/v1/device/authorize \
+  --url https://{yourOktaDomain}/oauth2/default/v1/device/authorize \
   --header 'Accept: application/json' \
   --header 'Content-Type: application/x-www-form-urlencoded' \
-  --data-urlencode 'client_id=${clientId}' \
+  --data-urlencode 'client_id={clientId}' \
   --data-urlencode 'scope=openid profile offline_access'
 ```
 
@@ -92,7 +89,7 @@ The device authorization request passes the following parameters:
 The properties in the response are:
 
 * `device_code`: The long string that the device uses to exchange for an access token.
-* `user_code`: The text that you enter at the URL that is listed as the value for `verification_uri`.
+* `user_code`: The text that you enter at the URL that's listed as the value for `verification_uri`.
 * `verification_uri`: The URL that the user needs to access from their device to start the sign-in process.
 * `verification_uri_complete`: The URL that the client uses to generate the QR Code for the user to scan.
 * `expires_in`: The number of seconds that this set of values is valid. After the device code and user code expire, the user has to start the device verification process over.
