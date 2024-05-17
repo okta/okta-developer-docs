@@ -14,9 +14,9 @@ jobs:
         NODE_OPTIONS: '--max_old_space_size=3584'
       steps:
         - checkout
-        # - run:
-        #     name: Install dependencies
-        #     command: yarn install --frozen-lockfile
+        - run:
+            name: Install dependencies
+            command: yarn install --frozen-lockfile
         # - run:
         #     name: Build 
         #     command: yarn build
