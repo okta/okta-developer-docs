@@ -17,12 +17,49 @@ jobs:
         - run:
             name: Install dependencies
             command: yarn install --frozen-lockfile
+        # - run:
+        #     name: Build 
+        #     command: yarn build
+        # - run:
+        #     name: Run checks
+        #     command: ./scripts/yarn-checks-ci.sh
         - run:
-            name: Build 
+            name: Run script and capture logs
             command: yarn build
         - run:
-            name: Run checks
-            command: ./scripts/yarn-checks-ci.sh
+            name: Run link checker
+            command: yarn broken-link-checker:external > output.txt 2>&1 || true
+        - run:
+            name: Extract URLs from log
+            command: |
+              grep -o 'Link: https\?://[^[:space:]]*' output.txt | sed 's/Link: //' > urls.txt
+            when: always
+        - run:
+            name: Remove False Positives
+            command: |
+              comm -23 <(sort urls.txt | uniq) <(sort falsepos.txt | uniq) > broken_external_urls.txt
+        - run:
+            name: Print urls to log
+            command: |
+              cat broken_external_urls.txt
+        - run:
+            name: Send failure email if broken URLs found
+            when: on_success
+            command: |
+              broken_urls=($(comm -23 <(sort urls.txt | uniq) <(sort falsepos.txt | uniq)))
+              urls=$(echo "$broken_urls" | tr ' ' '\n')
+              hyperlinks=""
+              while IFS= read -r url; do               
+                  hyperlinks+="<a href=\"$url\">$url</a><br/>"
+              done <<< "$urls"
+              if [ -n "$broken_urls" ]; then
+                curl --location --request POST 'https://www.cinotify.cc/api/notify' \
+                          -d "to=${NOTIFY_EMAIL}&subject=FAILED: Dev Docs Nightly Job&type=text/html&body=<p style='font-family: Arial, sans-serif; font-size: 16px; color: #333; line-height: 1.6; text-align: center; background-color: #ffcccc; padding: 10px;'>
+                          <span style='font-weight: bold;'>Nightly link checker job failed. See the list of broken URLs below.</span><br><br>
+                          <a href='https://app.circleci.com/pipelines/github/okta/okta-developer-docs/<< pipeline.number >>' style='display: inline-block; padding: 5px 10px; background-color: #4caf50; color: white; text-decoration: none;'>Click here</a>
+                          to see job details.<br>
+                      </p><h2 style='font-family: Arial, sans-serif; font-size: 16px; color: #333; line-height: 1.6; text-align: center;'>List of broken URLs:</h2>$hyperlinks"
+              fi
 
   nightly_link_checker:
     docker:
@@ -59,14 +96,18 @@ jobs:
           when: on_success
           command: |
             broken_urls=($(comm -23 <(sort urls.txt | uniq) <(sort falsepos.txt | uniq)))
-            broken_urls=("${broken_urls[@]/%/<br/>}")
+            urls=$(echo "$broken_urls" | tr ' ' '\n')
+            hyperlinks=""
+            while IFS= read -r url; do               
+                hyperlinks+="<a href=\"$url\">$url</a><br/>"
+            done <<< "$urls"
             if [ -n "$broken_urls" ]; then
               curl --location --request POST 'https://www.cinotify.cc/api/notify' \
-                        -d "to=test-circleci-notif-aaaam4adaseamnmgdfiwsb4h3i@okta.org.slack.com&subject=FAILED: Dev Docs Nightly Job&type=text/html&body=<p style='font-family: Arial, sans-serif; font-size: 16px; color: #333; line-height: 1.6; text-align: center; background-color: #ffcccc; padding: 10px;'>
+                        -d "to=${NOTIFY_EMAIL}&subject=FAILED: Dev Docs Nightly Job&type=text/html&body=<p style='font-family: Arial, sans-serif; font-size: 16px; color: #333; line-height: 1.6; text-align: center; background-color: #ffcccc; padding: 10px;'>
                         <span style='font-weight: bold;'>Nightly link checker job failed. See the list of broken URLs below.</span><br><br>
                         <a href='https://app.circleci.com/pipelines/github/okta/okta-developer-docs/<< pipeline.number >>' style='display: inline-block; padding: 5px 10px; background-color: #4caf50; color: white; text-decoration: none;'>Click here</a>
                         to see job details.<br>
-                    </p><h2 style='font-family: Arial, sans-serif; font-size: 16px; color: #333; line-height: 1.6; text-align: center;'>List of broken URLs:</h2>$broken_urls"
+                    </p><h2 style='font-family: Arial, sans-serif; font-size: 16px; color: #333; line-height: 1.6; text-align: center;'>List of broken URLs:</h2>$hyperlinks"
             fi
   
   netlify_manual:
