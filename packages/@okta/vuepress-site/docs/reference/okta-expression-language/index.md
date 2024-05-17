@@ -107,7 +107,7 @@ Okta offers various functions to manipulate attributes or properties to generate
 |                          |                                                               |             | `String.stringSwitch("This is a test", "default", "test", "value1")`                                          | value1         |
 |                          |                                                               |             | `String.stringSwitch("First match wins", "default", "absent", "value1", "wins", "value2", "match", "value3")` | value2         |
 |                          |                                                               |             | `String.stringSwitch("Substrings count", "default", "ring", "value1")`                                        | value1         |
-| `String.substring `      | (String input, int startIndex, int endIndex)                  | String      | `String.substring("This is a test", 2, 9)`                                                                    | is is a        |
+| `String.substring`      | (String input, int startIndex, int endIndex)                  | String      | `String.substring("This is a test", 2, 9)`                                                                    | is is a        |
 | `String.substringAfter`  | (String input, String searchString)                           | String      | `String.substringAfter("abc@okta.com", "@")`                                                                  | okta.com       |
 | `String.substringBefore` | (String input, String searchString)                           | String      | `String.substringBefore("abc@okta.com", "@")`                                                                 | abc            |
 | `String.toUpperCase`     | (String input)                                                | String      | `String.toUpperCase("This")`                                                                                  | THIS           |
@@ -119,17 +119,17 @@ The following <ApiLifecycle access="deprecated" /> functions perform some of the
 | --------                          | ---------                           | -------       | --------  |
 | `toUpperCase(string)`             | `toUpperCase(source.firstName)`     | Alexander     | ALEXANDER |
 | `toLowerCase(string)`             | `toLowerCase(source.firstName)`     | AlexANDER     | alexander |
-| `substringBefore(string, string)` | `substringBefore(user.email, '@')`  | alex@okta.com | alex      |
-| `substringAfter(string, string)`  | `substringAfter(user.email, '@')`   | alex@okta.com | okta.com  |
+| `substringBefore(string, string)` | `substringBefore(user.email, '@')`  | <alex@okta.com> | alex      |
+| `substringAfter(string, string)`  | `substringAfter(user.email, '@')`   | <alex@okta.com> | okta.com  |
 | `substring(string, int, int)`     | `substring(source.firstName, 1, 4)` | Alexander     | lex       |
 
 ### Array functions
 
 | Function                         | Return type                         | Example                                             | Output             |
 | --------                         | ---------                           | ---------                                           | --------           |
-| `Arrays.add(array, value)`       | Array                               | `Arrays.add({10, 20, 30}, 40)`                      | `{10, 20, 30, 40}` |
-| `Arrays.remove(array, value)`    | Array                               | `Arrays.remove({10, 20, 30}, 20)`                   | `{10, 30}`         |
-| `Arrays.clear(array)`            | Array                               | `Arrays.clear({10, 20, 30})`                        | `{ }`              |
+| `Arrays.add(array, value)`       | Array                               | `Arrays.add(user.arrayAttribute, 40)`               | `{10, 20, 30, 40}` |
+| `Arrays.remove(array, value)`    | Array                               | `Arrays.remove(user.arrayAttribute, 20)`            | `{10, 30}`         |
+| `Arrays.clear(array)`            | Array                               | `Arrays.clear(user.arrayAttribute)`                 | `{ }`              |
 | `Arrays.get(array, position)`    | -                                   | `Arrays.get({0, 1, 2}, 0)`                          | 0                  |
 | `Arrays.flatten(list of values)` | Array                               | `Arrays.flatten(10, {20, 30}, 40)` <br>  `Arrays.flatten('10, 20, 30, 40')`               | `{10, 20, 30, 40}` |
 | `Arrays.contains(array, value)`  | Boolean                             | `Arrays.contains({10, 20, 30}, 10)`                 | true               |
@@ -359,8 +359,8 @@ Sample user data:
 
 * Firstname = Winston
 * Lastname = Churchill
-* Email = winston.churchill@gmail.com
-* Login = winston.churchill@gmail.com
+* Email = <winston.churchill@gmail.com>
+* Login = <winston.churchill@gmail.com>
 
 | Value to obtain                                                    | Expression                                                                                                                                               | Example output          | Explanation                                                                                                                                                                                                                                                                                                                                                                                            |
 | ----------                                                         | ----                                                                                                                                                     | -----                   | ---------------                                                                                                                                                                                                                                                                                                                                                                                        |
@@ -374,7 +374,7 @@ Sample user data:
 | Email Domain + Lowercase First Initial and Lastname with Separator | `toUpperCase(substringBefore( substringAfter(user.email, "@"), ".")) + "\" + toLowerCase(substring( user.firstName, 0, 1)) + toLowerCase(user.lastName)` | GMAIL\wchurchill        | Obtain Email value. From the result, parse everything after the "@ character". From the result, parse everything before the "." character. Convert to uppercase. Append a backslash "\" character. Obtain the Firstname value. From the result, retrieve characters greater than position 0 through position 1, including position 1. Convert it to lowercase. Obtain the Lastname value and convert it to lowercase. |
 | Static Domain + Email Prefix with Separator                        | `"XDOMAIN\" + toLowerCase(substring( user.firstName, 0, 1)) + toLowerCase(user.lastName)`                                                                | XDOMAIN\wchurchill      | Add the `XDOMAIN` string. Append a backslash "\" character. Obtain the Firstname value. From the result, retrieve characters greater than position 0 through position 1, including position 1. Convert it to lowercase. Obtain the Lastname value. Convert it to lowercase.                                                                                                                                       |
 | Workday ID                                                         | `hasWorkdayUser() ? findWorkdayUser().employeeID : null`                                                                                                 | 123456                  | Check if the user has a Workday assignment, and if so, return their Workday employee ID.                                                                                                                                                                                                                                                                                                                   |
-| Active Directory UPN                                               | `hasDirectoryUser() ? findDirectoryUser().managerUpn : null`                                                                                             | bob@okta.com            | Check if the user has an Active Directory assignment, and if so, return their Active Directory manager UPN.                                                                                                                                                                                                                                                                                                |
+| Active Directory UPN                                               | `hasDirectoryUser() ? findDirectoryUser().managerUpn : null`                                                                                             | <bob@okta.com>            | Check if the user has an Active Directory assignment, and if so, return their Active Directory manager UPN.                                                                                                                                                                                                                                                                                                |
 
 ## Expressions for OAuth 2.0/OIDC custom claims
 
