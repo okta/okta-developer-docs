@@ -24,9 +24,14 @@ EOF
     # Filter comments by github okta bot on the PR.
     okta_gh_bot_comments=$(echo "$ALL_COMMENTS_JSON" | jq '[.[] | select(.user.id == 164419112)]')
     count_of_okta_gh_bot_comments=$(echo "$okta_gh_bot_comments" | jq 'length')
+    echo count123 $count_of_okta_gh_bot_comments
+    preview_urls_filtered_comments=$(echo "$okta_gh_bot_comments" | jq '.[] | select(.body | contains("Preview URL for the changes"))')
+    echo $preview_urls_filtered_comments
+    count_of_okta_gh_bot_comments_with_preview_urls=$(echo "$preview_urls_filtered_comments" | jq 'length')
+    echo $count_of_okta_gh_bot_comments_with_preview_urls
 
     # Add the preview link only if there are no previous comments by the gh bot on the PR since the preview URL will remain the same everytime.
-    if [[ "$count_of_okta_gh_bot_comments" -eq 0 ]]; then
+    if [[ "$count_of_okta_gh_bot_comments_with_preview_urls" -eq 0 ]]; then
         echo Added preview link to PR
         curl -L -s \
             -X POST \
