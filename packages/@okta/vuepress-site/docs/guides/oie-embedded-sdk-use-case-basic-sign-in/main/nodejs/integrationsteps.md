@@ -1,4 +1,4 @@
-### 1. Your app displays the sign-in page
+### Your app displays the sign-in page
 
 Build a sign-in page that captures both the username and password of the user. See the following image for an example of the sign-in page.
 
@@ -13,7 +13,7 @@ Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 
 </div>
 
-### 2. The user submits their username and password
+### The user submits their username and password
 
 When the user enters their `username` and `password`, pass them as parameters to [`OktaAuth.idx.authenticate()`](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#idxauthenticate).
 
@@ -22,7 +22,7 @@ const authClient = getAuthClient(req);
 const transaction = await authClient.idx.authenticate({ username, password });
 ```
 
-### 3. Your app handles the authentication response
+### Your app handles the authentication response
 
 `authenticate()` returns a `transaction` object with a `status` property. The `status` property displays the current state of the sign-in flow. 
 

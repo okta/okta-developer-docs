@@ -1,4 +1,4 @@
-### 4. Get the user profile information
+### Get the user profile information
 
 After the user signs in successfully, request basic user information from the authorization server using the tokens that were returned in [step three](#handle-a-success-status).
 
