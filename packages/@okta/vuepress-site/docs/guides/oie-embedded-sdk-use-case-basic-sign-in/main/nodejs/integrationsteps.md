@@ -1,6 +1,6 @@
 ### Your app displays the sign-in page
 
-Build a sign-in page that captures both the username and password of the user. See the following image for an example of the sign-in page.
+Build a sign-in page that captures both the username and password of the user. See the following image for an example of a sign-in page.
 
 <div class="half wireframe-border">
 
@@ -13,7 +13,7 @@ Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 
 </div>
 
-### The user submits their username and password
+### The user enters their username and password
 
 When the user enters their `username` and `password`, pass them as parameters to [`OktaAuth.idx.authenticate()`](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#idxauthenticate).
 

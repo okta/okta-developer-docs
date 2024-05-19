@@ -15,7 +15,7 @@ Enable a password-only sign-in flow in your web app using the embedded SDK.
 
 #### Learning outcomes
 
-Add a sign-in flow to a server-side web app that requires only a password.
+Add a password-only sign-in flow to a server-side web app.
 
 #### What you need
 
@@ -29,7 +29,7 @@ Add a sign-in flow to a server-side web app that requires only a password.
 
 ## Configuration updates
 
-To configure your app so it requires only a password, see <StackSnippet snippet="configureyourapp" inline />.
+To configure your app so that it requires only a password, see <StackSnippet snippet="configureyourapp" inline />.
 
 ## Summary of steps
 
