@@ -45,9 +45,6 @@ Create an Okta service app that authorizes Terraform to make changes to your org
 1. Click **Next**.
 1. Enter a name for the app, and then click **Save**.
 1. Click on your application in the list.
-1. In the **General** tab, check if the option **Require Demonstrating Proof of Possession (DPoP) header in token requests** is selected. If it's selected, _unselect it_ and click **Save**. 
-
-   > **Note:** The Okta Terraform provider does not support DPoP. Starting in February 2024, some new orgs have it enabled by default.
 
 ## Assign admin roles, which are groups of admin permissions
 
