@@ -51,7 +51,7 @@ When the user enters the correct password, `IdxStatus` equals `IdxStatus.SUCCESS
 
 #### Handle other authentication statuses
 
-When the user does not sign in sucessfully, handle other returned `IdxStatus` cases. For example, if the user does not enter their password correctly or if there are other factors to verify. 
+When the user does not sign in successfully, handle other returned `IdxStatus` cases. For example, if the user does not enter their password correctly or if there are other factors to verify. 
 
 ```js
 switch (status) {
