@@ -99,7 +99,12 @@ jobs:
       - run:
           name: Deploy preview to Netlify
           command: |
-            netlify deploy --filter @okta/vuepress-site
+            netlify deploy --alias=preview-${CIRCLE_PULL_REQUEST##*/} --filter @okta/vuepress-site
+      - run:
+          name: Update PR with preview link
+          command: |
+            chmod +x ./scripts/update-dev-docs-pr-cci.sh
+            ./scripts/update-dev-docs-pr-cci.sh
 
 orbs:
   general-platform-helpers: okta/general-platform-helpers@1.8
