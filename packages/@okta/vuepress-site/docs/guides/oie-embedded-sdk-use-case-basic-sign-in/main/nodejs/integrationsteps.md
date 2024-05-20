@@ -24,7 +24,7 @@ const transaction = await authClient.idx.authenticate({ username, password });
 
 ### Your app handles the authentication response
 
-`authenticate()` returns a `transaction` object with a `status` property. The `status` property displays the current state of the sign-in flow. 
+`authenticate()` returns a `transaction` object with a `status` property. The `status` property indicates the current state of the sign-in flow. 
 
 Handle the returned `IdxStatus` value in the following ways.
 
