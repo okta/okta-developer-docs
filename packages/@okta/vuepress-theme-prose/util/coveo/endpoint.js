@@ -17,15 +17,22 @@ const _getToken = () => {
   // Strip " if present (breaks coveo)
   token = token.replace('"', "");
 
+  try {
   // Invalidate token if about to expire
-  const decoded = jwt_decode(token);
-  const now = DateTime.now();
-  const expWithBuffer = DateTime.fromSeconds(decoded.exp).minus({ minutes: 5 });
-  if (now > expWithBuffer) {
+    const decoded = jwt_decode(token);
+    const now = DateTime.now();
+    const expWithBuffer = DateTime.fromSeconds(decoded.exp).minus({ minutes: 5 });
+    if (now > expWithBuffer) {
+      storage.removeItem(COVEO_KEY);
+      return;
+    } else {
+      return token;
+    }
+  } catch (error) {
+    console.error("Error decoding or verifying JWT token:", error);
+    // Handle error appropriately, such as clearing invalid token from storage
     storage.removeItem(COVEO_KEY);
     return;
-  } else {
-    return token;
   }
 };
 
