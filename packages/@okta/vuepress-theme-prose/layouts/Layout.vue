@@ -179,7 +179,7 @@ export default {
     });
     setTimeout(() => {
       this.updateHeaderHeight();
-    }, 100)
+    }, 200)
     this.onResize();
     window.addEventListener("resize", this.onResize);
     this.redirIfRequired();
