@@ -1,53 +1,43 @@
 <template>
   <div class="layout">
-    <div class="fixed-header">
+    <div class="fixed-header" ref="header">
+      <HeaderBanner bannerId="v1" @updateHeight="updateHeaderHeight">
+        <p>
+          Is it easy or difficult to use our developer documentation?
+          <a href="https://surveys.okta.com/jfe/form/SV_6XTKmUbd22BlYFg" target="_blank">
+            Let us know in this short survey ↗
+          </a>
+        </p>
+      </HeaderBanner>
       <Header />
       <HeaderNav />
     </div>
-    <div
-      :class="{
+    <div :class="{
         'page-body': true,
-      }"
-    >
-      <div
-        v-if="$page.frontmatter.component"
-        class="content"
-      >
+      }" ref="mainContent">
+      <div v-if="$page.frontmatter.component" class="content">
         <component :is="$page.frontmatter.component" />
       </div>
 
-      <div
-        v-else-if="$page.frontmatter.customLandingPage"
-        class="content"
-      >
-        <div
-          :class="{
+      <div v-else-if="$page.frontmatter.customLandingPage" class="content">
+        <div :class="{
             'content--container': true,
             'navigation-only': appContext.isTreeNavMobileOpen
-          }"
-        >
+          }">
           <Sidebar />
           <div class="content-area content-area-full col-xl-10 col-lg-10 col-md-12 col-sm-12">
             <div class="content-custom">
-              <component
-                :is="currentCustomLanding"
-                v-if="currentCustomLanding"
-              />
+              <component :is="currentCustomLanding" v-if="currentCustomLanding" />
             </div>
           </div>
         </div>
       </div>
 
-      <div
-        v-else
-        class="content"
-      >
-        <div
-          :class="{
+      <div v-else class="content">
+        <div :class="{
             'content--container': true,
             'navigation-only': appContext.isTreeNavMobileOpen
-          }"
-        >
+          }">
           <Sidebar />
           <div class="content-area col-xl-10 col-lg-10 col-md-12 col-sm-12">
             <Breadcrumb />
@@ -56,20 +46,11 @@
             <PageTitle />
             <ContentPage />
             <GeneratedContent v-if="$page.frontmatter.generated" />
-            <div
-              v-if="!$page.frontmatter.generated"
-              class="edit-on-github"
-            >
+            <div v-if="!$page.frontmatter.generated" class="edit-on-github">
               <span class="fa fa-github" />
               <span>
-                <a
-                  v-if="editLink"
-                  id="edit-link"
-                  :href="editLink"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  data-proofer-ignore
-                >{{ editLinkText }}</a>
+                <a v-if="editLink" id="edit-link" :href="editLink" target="_blank" rel="noopener noreferrer"
+                  data-proofer-ignore>{{ editLinkText }}</a>
               </span>
             </div>
           </div>
@@ -116,6 +97,7 @@ export default {
     Terms: () => import("../components/Terms.vue"),
     Errors: () => import("../components/Errors.vue"),
     Copyright: () => import("../components/Copyright.vue"),
+    HeaderBanner: () => import("../components/HeaderBanner.vue"),
   },
   mixins: [SidebarItems],
   provide() {
@@ -195,6 +177,9 @@ export default {
     this.$on("toggle-tree-nav", event => {
       that.appContext.isTreeNavMobileOpen = event.treeNavOpen;
     });
+    setTimeout(() => {
+      this.updateHeaderHeight();
+    }, 100)
     this.onResize();
     window.addEventListener("resize", this.onResize);
     this.redirIfRequired();
@@ -219,6 +204,7 @@ export default {
       }
     },
     onResize() {
+      this.updateHeaderHeight();
       this.appContext.isInMobileViewport =
         window.innerWidth <= TABLET_BREAKPOINT;
     },
@@ -236,6 +222,14 @@ export default {
       this.appContext.treeNavDocs = this.appContext.treeNavDocs.length > 0 ? this.appContext.treeNavDocs : this.getNavigationData();
       return this.appContext.treeNavDocs;
     },
+    updateHeaderHeight() {
+      this.$nextTick(() => {
+        const headerHeight = this.$refs.header.offsetHeight;
+        if(headerHeight) {
+          this.$refs.mainContent.style.paddingTop = `${headerHeight}px`;
+        }
+      })
+    }
   }
 };
 </script>
