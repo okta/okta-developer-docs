@@ -27,7 +27,7 @@ To enable user provisioning, you must configure the provisioning options in the 
 
 1. Select your SCIM integration from the list of integrations in your Okta org.
 1. Click **To App** and **Edit** under the **Provisioning** tab.
-1. Click **Enable** and then **Save** in the **Create User** option.
+1. Click **Enable** and then **Save** in the **Create User** section.
 
 For more information on enabling the provisioning features of your SCIM integration, see [Configure provisioning for an app integration](https://help.okta.com/okta_help.htm?id=ext_prov_lcm_prov_app).
 
@@ -346,7 +346,7 @@ To update a User object, you need to enable the functionality in the Admin Conso
 
 1. Select your SCIM integration from the list of integrations in your Okta org.
 1. Click **To App**, under the **Provisioning** tab.
-1. Click **Enable** and then **Save**, in the **Update User Attributes** option.
+1. Click **Enable** and then **Save** in the **Update User Attributes** section.
 
 #### Retrieve the User
 
@@ -490,7 +490,7 @@ To deactivate users, you need to enable the functionality in the Admin Console:
 
 1. Select your SCIM integration from the list of integrations in your Okta org.
 1. Click **To App** and **Edit** under the **Provisioning** tab.
-1. Click **Enable** and then **Save** in the **Deactivate Users** option.
+1. Click **Enable** and then **Save** in the **Deactivate Users** section.
 
 When a user is deactivated, Okta sends this request:
 
@@ -539,7 +539,7 @@ Content-Type: text/json;charset=UTF-8
 }
 ```
 
-> **Note:** The SCIM server response to PATCH method requests can also be an HTTP 204 response, with no body returned.
+> **Note:** The SCIM server response to PATCH method requests can also be an HTTP 204 response with no body returned.
 
 ### Delete Users
 
@@ -567,7 +567,7 @@ To create a Group object on the SCIM server, you first need to enable provisioni
 1. Select your SCIM integration from the list of integrations in your Okta org.
 2. On the **Push Groups** tab, click **Push Groups**.
 
-You can select which existing Okta group to push, either by specifying a name or a rule. If a group doesn't exist, create a group in Okta and then push it to the SCIM server. For more information, see [About Group push](https://help.okta.com/okta_help.htm?id=ext_Directory_Using_Group_Push) in the Okta Help Center.
+You can select which existing Okta group to push, either by specifying a name or a rule. If a group doesn't exist, create a group in Okta and then push it to the SCIM server. See [About Group push](https://help.okta.com/okta_help.htm?id=ext_Directory_Using_Group_Push) in the Okta Help Center.
 
 After the group is selected, Okta makes a POST method request to the Service Provider:
 

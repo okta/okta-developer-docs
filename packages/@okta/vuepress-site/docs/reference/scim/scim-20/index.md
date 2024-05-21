@@ -33,11 +33,11 @@ To better understand SCIM and the specific implementation of SCIM using Okta, se
 
 The User creation operation brings the user's application profile from Okta over to the Service Provider as a User object. A user's application profile represents the key-value attributes defined on the **Profile** tab when a User object is added.
 
-To enable user provisioning, you must configure the provisioning options in the Admin Console. In the Admin Console:
+To enable user provisioning, you must configure the provisioning options in the Admin Console:
 
 1. Select your SCIM integration from the list of integrations in your Okta org.
 1. Click **To App** and **Edit** under the **Provisioning** tab.
-1. Click **Enable** and then **Save** in the **Create User** option.
+1. Click **Enable** and then **Save** in the **Create User** section.
 
 For more information on enabling the provisioning features of your SCIM integration, see [Configure provisioning for an app integration](https://help.okta.com/okta_help.htm?id=ext_prov_lcm_prov_app).
 
@@ -463,7 +463,7 @@ To deactivate users, you need to enable the functionality in the Admin Console:
 
 1. Select your SCIM integration from the list of integrations in your Okta org.
 1. Click **To App** and **Edit** under the **Provisioning** tab.
-1. Click **Enable** and then **Save** in the **Deactivate Users** option.
+1. Click **Enable** and then **Save** in the **Deactivate Users** section.
 
 When a user is deactivated, Okta sends this request:
 
