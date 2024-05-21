@@ -214,9 +214,12 @@ export default {
     this.$on("toggle-tree-nav", event => {
       that.appContext.isTreeNavMobileOpen = event.treeNavOpen;
     });
+
+    // Delay height adjustment on mount to ensure all header elements are fully rendered.
     setTimeout(() => {
       this.updateHeaderHeight();
-    }, 200)
+    }, 400)
+
     this.onResize();
     window.addEventListener("resize", this.onResize);
     this.redirIfRequired();
