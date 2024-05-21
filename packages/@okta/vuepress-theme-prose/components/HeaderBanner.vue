@@ -1,6 +1,7 @@
 <template>
   <div 
     v-if="!isDismissed" 
+    ref="headerBanner"
     class="header-banner"
   >
     <div class="header-banner-content">
@@ -42,7 +43,10 @@ export default {
   },
   mounted() {
     this.checkDismissal();
-    this.updateHeaderHeight();
+    // Delay height adjustment on mount to ensure the banner element is fully rendered.
+    setTimeout(() => {
+      this.updateHeaderHeight();
+    }, 150)
   },
   methods: {
     dismissBanner() {
@@ -58,7 +62,8 @@ export default {
     },
     updateHeaderHeight() {
       this.$nextTick(() => {
-        this.$emit("updateHeight");
+        const headerBannerHeight = this.$refs.headerBanner?.offsetHeight || 0;
+        document.documentElement.style.setProperty('--header-banner-height', `${headerBannerHeight}px`)
       });
     },
   },

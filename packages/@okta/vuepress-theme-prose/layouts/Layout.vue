@@ -1,12 +1,10 @@
 <template>
   <div class="layout">
     <div
-      ref="header" 
       class="fixed-header"
     >
       <HeaderBanner
         banner-id="v1"
-        @updateHeight="updateHeaderHeight"
       >
         <p>
           Is it easy or difficult to use our developer documentation?
@@ -22,7 +20,6 @@
       <HeaderNav />
     </div>
     <div
-      ref="mainContent"
       :class="{
         'page-body': true,
       }"
@@ -214,12 +211,6 @@ export default {
     this.$on("toggle-tree-nav", event => {
       that.appContext.isTreeNavMobileOpen = event.treeNavOpen;
     });
-
-    // Delay height adjustment on mount to ensure all header elements are fully rendered.
-    setTimeout(() => {
-      this.updateHeaderHeight();
-    }, 400)
-
     this.onResize();
     window.addEventListener("resize", this.onResize);
     this.redirIfRequired();
@@ -244,7 +235,6 @@ export default {
       }
     },
     onResize() {
-      this.updateHeaderHeight();
       this.appContext.isInMobileViewport =
         window.innerWidth <= TABLET_BREAKPOINT;
     },
@@ -262,14 +252,6 @@ export default {
       this.appContext.treeNavDocs = this.appContext.treeNavDocs.length > 0 ? this.appContext.treeNavDocs : this.getNavigationData();
       return this.appContext.treeNavDocs;
     },
-    updateHeaderHeight() {
-      this.$nextTick(() => {
-        const headerHeight = this.$refs.header.offsetHeight;
-        if(headerHeight) {
-          this.$refs.mainContent.style.paddingTop = `${headerHeight}px`;
-        }
-      })
-    }
   }
 };
 </script>
