@@ -67,18 +67,21 @@ export default {
 
 <style scoped lang="scss">
 .header-banner {
+  position: relative;
+  
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   gap: 12px;
+
   padding: 10px 50px;
-  position: relative;
-  transition: background-color 0.3s;
+  
+  background: linear-gradient(90deg, #1a31a9 -26.4%,#3f66e4 58.74%,#b6caff 143.88%);
+
   color: #ffffff;
-  background: linear-gradient(90deg,
-      #1a31a9 -26.4%,
-      #3f66e4 58.74%,
-      #b6caff 143.88%);
+  
+  transition: background-color 0.3s;
 
   @media screen and (max-width: 1440px) {
     padding: 10px 35px;
@@ -95,23 +98,25 @@ body.dark-theme .header-banner {
 
 .header-banner-content {
   flex-grow: 1;
-  font-size: 14px;
+
   font-weight: 400;
+  font-size: 14px;
 
   a {
-    color: #ffffff;
-    text-decoration: underline;
     font-weight: 500;
+    text-decoration: underline;
     text-wrap: nowrap;
+    color: #ffffff;
   }
 }
 
 .dismiss-btn {
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
   flex-shrink: 0;
+  padding: 0;
+
+  border: none;
+  background: none;
+  cursor: pointer;
 
   img {
     width: 24px;
