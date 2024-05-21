@@ -1,10 +1,20 @@
 <template>
-  <div v-if="!isDismissed" class="header-banner">
+  <div 
+    v-if="!isDismissed" 
+    class="header-banner"
+  >
     <div class="header-banner-content">
-      <slot></slot>
+      <slot />
     </div>
-    <button v-if="dismissable" class="dismiss-btn" @click="dismissBanner">
-      <img src="/img/icons/icon--x.svg" alt="close" />
+    <button 
+      v-if="dismissible" 
+      class="dismiss-btn" 
+      @click="dismissBanner"
+    >
+      <img
+        src="/img/icons/icon--x.svg" 
+        alt="close" 
+      >
     </button>
   </div>
 </template>
@@ -15,7 +25,7 @@ import storage from "../util/localStorage";
 export default {
   name: "HeaderBanner",
   props: {
-    dismissable: {
+    dismissible: {
       type: Boolean,
       default: false,
     },
@@ -41,7 +51,7 @@ export default {
       this.updateHeaderHeight();
     },
     checkDismissal() {
-      if (this.dismissable) {
+      if (this.dismissible) {
         this.isDismissed =
           storage.getItem(`banner_dismissed_${this.bannerId}`) === "true";
       }
@@ -65,12 +75,10 @@ export default {
   position: relative;
   transition: background-color 0.3s;
   color: #ffffff;
-  background: linear-gradient(
-    90deg,
-    #1a31a9 -26.4%,
-    #3f66e4 58.74%,
-    #b6caff 143.88%
-  );
+  background: linear-gradient(90deg,
+      #1a31a9 -26.4%,
+      #3f66e4 58.74%,
+      #b6caff 143.88%);
 
   @media screen and (max-width: 1440px) {
     padding: 10px 35px;
