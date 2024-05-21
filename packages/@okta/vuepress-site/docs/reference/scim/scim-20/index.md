@@ -33,19 +33,19 @@ To better understand SCIM and the specific implementation of SCIM using Okta, se
 
 The User creation operation brings the user's application profile from Okta over to the Service Provider as a User object. A user's application profile represents the key-value attributes defined on the **Profile** tab when a User object is added.
 
-To enable user provisioning, you must configure the provisioning options in the Okta Admin Console. In the Okta Admin Console:
+To enable user provisioning, you must configure the provisioning options in the Admin Console. In the Admin Console:
 
 1. Select your SCIM integration from the list of integrations in your Okta org.
-1. Under the **Provisioning** tab, click **To App** and **Edit**.
-1. In the **Create User** option, click **Enable** and then **Save**.
+1. Click **To App** and **Edit** under the **Provisioning** tab.
+1. Click **Enable** and then **Save** in the **Create User** option.
 
 For more information on enabling the provisioning features of your SCIM integration, see [Configure provisioning for an app integration](https://help.okta.com/okta_help.htm?id=ext_prov_lcm_prov_app).
 
 After you complete this step, whenever a user is assigned to the integration in Okta, the following requests are made against the SCIM server:
 
-* Determine if the User object already exists. Okta runs a query against the `userName` values stored on the SCIM server. If the query matches a User object, the SCIM server returns the User object's unique ID value. Okta stores this value as the `externalId` value in the Okta user profile.
+* Determine if the User object exists. Okta runs a query against the `userName` values stored on the SCIM server. If the query matches a User object, the SCIM server returns the User object's unique ID value. Okta stores this value as the `externalId` value in the Okta user profile.
 * If the User isn't found on the SCIM server, create the User.
-* If the User is found on the SCIM server, but the Okta account is not active, activate the User in Okta.
+* If the User is found on the SCIM server, but the Okta account isn't active, activate the User in Okta.
 * If the User is found on the SCIM server and the Okta account is active, then update the Okta profile by setting its unique `externalId` value to match the ID value returned from the SCIM server.
 
 #### Determine if the User already exists
@@ -58,7 +58,7 @@ For example, if the email attribute is configured as a unique identifier, then t
 
 > **Note:** The filter must check an attribute that is _unique_ for all Users in the Service Provider profiles.
 
-For Okta Integration Network (OIN) integrations, this filter is configured with the help of the assigned Okta App Analyst during the submission process. Integration submissions are handled through the [OIN Manager](https://oinmanager.okta.com).
+For Okta Integration Network (OIN) integrations, this filter is configured with the help of the assigned Okta App analyst during the submission process. Integration submissions are handled through the [OIN Manager](https://oinmanager.okta.com).
 
 The requests from Okta to the Service Provider are of the form:
 
@@ -165,7 +165,7 @@ Content-Type: text/json;charset=UTF-8
 }
 ```
 
-There is another scenario if your SCIM server has custom attributes that you want to add for any new user. Any custom attributes defined in your application schema for user profiles are applied to the user's application profile when the user is created. The request to the SCIM server looks like the following:
+There's another scenario if your SCIM server has custom attributes that you want to add for any new user. Any custom attributes defined in your application schema for user profiles are applied to the user's application profile when the user is created. The request to the SCIM server looks like the following:
 
 ```http
 POST /scim/v2/Users HTTP/1.1
@@ -228,11 +228,11 @@ In this example, the `externalID` and `userType` attributes weren't included in 
 
 >**Note:** If your custom attributes are defined in your Okta integration (as an App to Okta mapping), the custom attributes aren't applied to the Okta user profile until an admin runs an import from the SCIM application or a Force Sync operation.
 
-If the SCIM server returns an empty response body to the provisioning request, then Okta marks the operation as invalid, and the Okta Admin Console displays an error:
+If the SCIM server returns an empty response body to the provisioning request, then Okta marks the operation as invalid, and the Admin Console displays an error:
 
 "Automatic provisioning of user `userName` to app `AppName` failed: Error while creating user `displayName`: Create new user returned empty user."
 
-If the User object that Okta tries to create already exists in the Service Provider application, then the Service Provider needs to respond with an error schema to stop the provisioning job. The response looks like the following:
+If the User object that Okta tries to create exists in the Service Provider application, then the Service Provider needs to respond with an error schema to stop the provisioning job. The response looks like the following:
 
 ```http
 HTTP/1.1 409 Conflict
@@ -320,7 +320,7 @@ Content-Type: text/json;charset=UTF-8
 
 Updating a User object refers to modifying an attribute in the Okta user's application profile that is mapped to an attribute in the SCIM application.
 
-To update a User object, you need to enable the functionality in the Okta Admin Console:
+To update a User object, you need to enable the functionality in the Admin Console:
 
 1. Select your SCIM integration from the list of integrations in your Okta org.
 1. Under the **Provisioning** tab, click **To App**.
@@ -457,13 +457,13 @@ All other updates to User objects are handled through a PUT method request.
 
 For any custom app integrations created using the AIW, all SCIM operations that update a User object, including these operations, are always sent through a PUT method request.
 
-The `active` attribute in an Okta user profile represents the user's current status.  
+The `active` attribute in an Okta user profile represents the user's current status.
 
-To deactivate users, you need to enable the functionality in the Okta Admin Console:
+To deactivate users, you need to enable the functionality in the Admin Console:
 
 1. Select your SCIM integration from the list of integrations in your Okta org.
-1. Under the **Provisioning** tab, click **To App** and **Edit**.
-1. In the **Deactivate Users** option, click **Enable** and then **Save**.
+1. Click **To App** and **Edit** under the **Provisioning** tab.
+1. Click **Enable** and then **Save** in the **Deactivate Users** option.
 
 When a user is deactivated, Okta sends this request:
 
@@ -513,7 +513,7 @@ Content-Type: text/json;charset=UTF-8
 }
 ```
 
-> **Note:** The SCIM server response to PATCH method requests can also be a HTTP 204 response, with no body returned.
+> **Note:** The SCIM server response to PATCH method requests can also be an HTTP 204 response, with no body returned.
 
 ### Delete Users
 
@@ -527,7 +527,7 @@ Content-Type: text/json;charset=UTF-8
 
 Okta doesn't perform DELETE operations on User objects in your SCIM application.
 
-If a user is deactivated or removed from your integration inside Okta, then Okta sends a request to your SCIM application to set the `active` attribute to `false`. There is no deprovisioning event sent for users that are suspended inside Okta.
+If a user is deactivated or removed from your integration inside Okta, then Okta sends a request to your SCIM application to set the `active` attribute to `false`. There's no deprovisioning event sent for users that are suspended inside Okta.
 
 * For all new OIN app integrations, this request to update a User object is sent through a PATCH method request.
 * For any custom app integrations created using the AIW, this request is sent through a PUT method request.
@@ -543,9 +543,9 @@ For a detailed explanation on deleting users, see [Delete (Deprovision)](/docs/c
 To create a Group object on the SCIM server, you first need to enable provisioning with the Group Push feature in the Admin Console:
 
 1. Select your SCIM integration from the list of integrations in your Okta org.
-2. On the **Push Groups** tab, click **Push Groups**.
+2. Click **Push Groups** on the **Push Groups** tab.
 
-You can select which existing Okta group to push, either by specifying a name or a rule. If a group doesn't exist, create a new group in Okta and then push it to the SCIM server. For more information, see [About Group push](https://help.okta.com/okta_help.htm?id=ext_Directory_Using_Group_Push) in the Okta Help Center.
+You can select which existing Okta group to push, either by specifying a name or a rule. If a group doesn't exist, create a group in Okta and then push it to the SCIM server. For more information, see [About Group push](https://help.okta.com/okta_help.htm?id=ext_Directory_Using_Group_Push) in the Okta Help Center.
 
 After the group is selected, Okta makes a POST method request to the Service Provider:
 
@@ -719,7 +719,7 @@ Authorization: <Authorization credentials>
 }
 ```
 
-The group name update operation is triggered each time there is a group membership update operation.
+The group name update operation is triggered each time there's a group membership update operation.
 
 The SCIM server response is to return the updated Group object:
 
@@ -739,7 +739,7 @@ Content-Type: text/json;charset=UTF-8
 }
 ```
 
-> **Note:** The SCIM server response to PATCH method requests can also be a HTTP 204 response, with no body returned.
+> **Note:** The SCIM server response to PATCH method requests can also be an HTTP 204 response, with no body returned.
 
 ### Update specific Group membership
 
@@ -750,8 +750,8 @@ Content-Type: text/json;charset=UTF-8
 To add or remove users inside a specific pushed Group object on the SCIM server, Okta requires the following:
 
 * The user must be a member of the group in Okta.
-* The user has been added under the **Assignments** tab of the SCIM integration inside the Okta Admin Console.
-* The group is pushed under the **Push Groups** tab of the SCIM integration inside the Okta Admin Console.
+* The user has been added under the **Assignments** tab of the SCIM integration inside the Admin Console.
+* The group is pushed under the **Push Groups** tab of the SCIM integration inside the Admin Console.
 
 If these three requirements are met, Okta sends a request to add the specified users to the Group object on the SCIM server.
 
@@ -853,13 +853,13 @@ Authorization: <Authorization credentials>
 }
 ```
 
-> **Note:** The SCIM server response to PATCH method requests can also be a HTTP 204 response, with no body returned.
+> **Note:** The SCIM server response to PATCH method requests can also be an HTTP 204 response, with no body returned.
 
 ### Delete a specific Group
 
 **DELETE** /Groups/*$groupID*
 
-Okta administrators can remove pushed groups from the Okta Admin Console, under the **Push Groups** tab of the SCIM integration.
+Okta administrators can remove pushed groups from the Admin Console, under the **Push Groups** tab of the SCIM integration.
 
 On the **Push Groups** tab, click **Active** then click **Unlink pushed group**. In the dialog box that appears, you can choose whether you want to **Delete the group in the target app** or **Leave the group in the target app** on the SCIM server.
 
