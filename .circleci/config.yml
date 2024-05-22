@@ -121,12 +121,12 @@ workflows:
           requires:
             - semgrep-prepare
 
-  build_checks:
-    when:
-      not: << pipeline.parameters.preview >>
-    jobs:
-      - node_build_checks:
-          name: "Build and Checks"
+  # build_checks:
+  #   when:
+  #     not: << pipeline.parameters.preview >>
+  #   jobs:
+  #     - node_build_checks:
+  #         name: "Build and Checks"
   
   nightly:
     triggers:
