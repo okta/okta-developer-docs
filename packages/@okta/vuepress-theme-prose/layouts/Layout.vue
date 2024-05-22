@@ -217,7 +217,7 @@ export default {
     // Delay height adjustment on mount to ensure the header element is fully rendered.
     setTimeout(() => {
       this.updateHeaderHeight();
-    }, 400)
+    }, 340)
 
     this.onResize();
     window.addEventListener("resize", this.onResize);
@@ -264,7 +264,10 @@ export default {
     updateHeaderHeight() {
       this.$nextTick(() => {
         const headerHeight = this.$refs.header?.offsetHeight || 0;
-        document.documentElement.style.setProperty('--header-height', `${headerHeight}px`)
+
+        if(headerHeight) {
+          document.documentElement.style.setProperty('--header-height', `${headerHeight}px`)
+        }
       });
     },
   }
