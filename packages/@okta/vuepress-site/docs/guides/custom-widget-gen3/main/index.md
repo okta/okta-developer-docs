@@ -5,7 +5,11 @@ layout: Guides
 ---
 <ApiLifecycle access="ie" />
 
+<ApiLifecycle access="ie" />
+
 This guide explains how to customize the Sign-In Widget (third generation) for redirect authentication.
+
+> **Note:** This document is only for Okta Identity Engine. If you’re using Okta Classic Engine, see [Style the sign-in page](/docs/guides/custom-widget/main/). See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.
 
 ---
 
@@ -59,7 +63,7 @@ Consider the following when adjusting the theming of your org:
 
 ## Upgrade to the third generation
 
-> **Note:** If you have a new Okta Identity Engine org, the third generation Sign-In Widget isn't enabled by default.
+> **Note:** If you have a new Identity Engine org, the third generation Sign-In Widget isn't enabled by default.
 
 To upgrade to the third generation:
 
@@ -453,5 +457,5 @@ The following examples illustrate the impact of basic changes:
 
 ## See also
 
-- [Customize domain and email address](/docs/guides/custom-url-domain/main/)
+- [Customize your domain and email address](/docs/guides/custom-url-domain/main/)
 - [Sign-In Widget, third generation](https://help.okta.com/okta_help.htm?type=oie&id=ext-compare-siw)
