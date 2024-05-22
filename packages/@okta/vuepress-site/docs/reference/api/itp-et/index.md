@@ -234,14 +234,13 @@ This resource contains detailed reference material on event types triggered with
 | **client**                |  The client of the system principal actor for continuous access evaluation and entity risk policy actions, or the client of the admin triggering the clear user sessions action.                 | Object      |         |
 | IPAddress              | IP address                |       |         |
 
-### user.authentication.universal_logout.start
+### user.authentication.universal_logout.scheduled
 
 **Description:** This event triggers only when an admin manually triggers the Universal Logout against an app instance. It contains the location of the admin and the context of the universal logout, that is, from where and how the Universal Logout API was triggered. This event is only triggered once. You can co-relate this event with the `user.authentication.universal_logout` event using the `traceID` found under `DebugData` for both events.
 
 | Key event properties | Description                                         | Data type      | Example values |
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
 | **event.system.debugContext.debugData**                |                 |         |         |
-| AppInstanceIds            |A list of application IDs that Okta triggered for Universal Logout                 | Array of IDs         | ["0oa1ysra5y0ESChAr0h8"]        |
 | TraceId            | The `TraceId` is used in continuous access evaluation use cases. A request that triggers a CAE evaluation can ultimately trigger things like CAE action events - and those are executed from the async jobs. `TraceId` connects together events triggered both by the original request handler and from the async jobs triggered by this handler. | String         | `94384405-51e3-4e13-b8b0-ba857b585a63`         |
 | **target** (User)         | The user impacted by the universal logout          | Object     |        |
 | type        | The type of target object     | String     | User       |
