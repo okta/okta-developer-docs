@@ -26,10 +26,10 @@ If any org-wide rate limit is exceeded, an HTTP 429 status code is returned. You
 
 > **Notes:**
 >
-> * Per-minute rate limits are the same for both Okta Preview and Production orgs.
 > * In addition to the rate limit per API, Okta implements limits on concurrent requests, Okta-generated email messages, end user requests, and home page endpoints. These limits are described on the [Additional limits](/docs/reference/rl-additional-limits/) page.
 > * [DynamicScale rate limits](/docs/reference/rl-dynamic-scale/) apply to various endpoints across different APIs for customers that purchased this add-on.
 > * Rate limits may be changed to protect customers. Okta provide warning of changes when possible.
+> * The type of cell your Okta org resides in (preview or production) doesn't affect the rate limit values. If you purchased dynamic scale or other rate limit increases for your org, these updates generally apply to production orgs.
 > * You can expand the Okta rate limits upon request. To learn how, see [Request exceptions](/docs/reference/rl-best-practices/#request-rate-limit-exceptions) and [DynamicScale rate limits](/docs/reference/rl-dynamic-scale/).
 > * Review the [Rate limit best practices](/docs/reference/rl-best-practices/) for further information on monitoring and managing your rate limits.
 >
