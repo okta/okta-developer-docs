@@ -20,14 +20,12 @@ const _getToken = () => {
   // Invalidate token if about to expire
   const decoded = jwt_decode(token);
   const now = DateTime.now();
-  if (decoded && decoded.exp) {
-    const expWithBuffer = DateTime.fromSeconds(decoded.exp).minus({ minutes: 5 });
-    if (now > expWithBuffer) {
-      storage.removeItem(COVEO_KEY);
-      return;
-    } else {
-      return token;
-    }
+  const expWithBuffer = DateTime.fromSeconds(decoded['exp']).minus({ minutes: 5 });
+  if (now > expWithBuffer) {
+    storage.removeItem(COVEO_KEY);
+    return;
+  } else {
+    return token;
   }
 };
 
