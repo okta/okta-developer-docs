@@ -75,6 +75,7 @@ ul.menu--items > li.expandable > ul.submenu--items {
   position: absolute;
   top: 42px;
   left: 50%;
+  z-index: 1;
 
   display: none;
   padding: 16px;
