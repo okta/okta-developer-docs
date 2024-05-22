@@ -1378,7 +1378,7 @@ The entity risk detection conditions object specifies the detected risk events t
 * `SESSION_INFLUENCED_USER_RISK`
 * `SUSPICIOUS_APP_ACCESS`
 * `USER_REPORTED_SUSPICIOUS_ACTIVITY`
-* `SECURITY_EVENTS_PROVIDER_REPORTED_RISK`
+* `SECURITY_EVENTS_PROVIDER_REPORTED_RISK` <!-- Will be changing for 2024.06.0 release -->
 
 #### Entity detection condition object example
 
