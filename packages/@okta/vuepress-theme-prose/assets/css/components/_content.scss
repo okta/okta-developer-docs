@@ -56,7 +56,7 @@
 
 .content--container .sidebar-area {
   position: sticky;
-  top: calc(142px + var(--header-banner-height));
+  top: var(--header-height);
 
   width: 18.5vw;
   min-width: 350px;
@@ -123,12 +123,12 @@
 }
 
 :target {
-  scroll-margin-top: 160px;
+  scroll-margin-top: calc(var(--header-height) + 32px);
 }
 
 @include media("<tablet") {
   :target {
-    scroll-margin-top: 140px;
+    scroll-margin-top: calc(var(--header-height) + 32px);
   }
 }
 

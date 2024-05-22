@@ -6,7 +6,7 @@ body,
 }
 
 :root {
-  --header-banner-height: 0;
+  --header-height: 141px;
 }
 
 body {
@@ -82,7 +82,7 @@ body.loaded {
 
 .page-body {
   flex: 1 0 auto;
-  padding-top: calc(141px + var(--header-banner-height));
+  padding-top: var(--header-height);
 
   background-color: #ffffff;
 
@@ -91,13 +91,13 @@ body.loaded {
 
 @include media("<desktop-xl") {
   .page-body {
-    padding-top: calc(125px + var(--header-banner-height));
+    padding-top: var(--header-height);
   }
 }
 
 @include media("<tablet") {
   .page-body {
-    padding-top: calc(115px + var(--header-banner-height));
+    padding-top: var(--header-height);
   }
 }
 

@@ -43,28 +43,19 @@ export default {
   },
   mounted() {
     this.checkDismissal();
-    // Delay height adjustment on mount to ensure the banner element is fully rendered.
-    setTimeout(() => {
-      this.updateHeaderHeight();
-    }, 150)
+    this.$emit("updateHeight")
   },
   methods: {
     dismissBanner() {
       this.isDismissed = true;
       storage.setItem(`banner_dismissed_${this.bannerId}`, "true");
-      this.updateHeaderHeight();
+      this.$emit("updateHeight")
     },
     checkDismissal() {
       if (this.dismissible) {
         this.isDismissed =
           storage.getItem(`banner_dismissed_${this.bannerId}`) === "true";
       }
-    },
-    updateHeaderHeight() {
-      this.$nextTick(() => {
-        const headerBannerHeight = this.$refs.headerBanner?.offsetHeight || 0;
-        document.documentElement.style.setProperty('--header-banner-height', `${headerBannerHeight}px`)
-      });
     },
   },
 };
