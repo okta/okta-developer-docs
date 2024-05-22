@@ -1,12 +1,12 @@
 ---
-title: Rate limits overview
+title: Rate limits
 excerpt: >-
   Understand rate limits at Okta and learn how to design for efficient use of resources
 ---
 
 # Rate limits overview
 
-To protect the service for all customers, Okta APIs are subject to rate limiting. These limits mitigate denial-of-service attacks and abusive actions such as rapidly updating configurations, aggressive polling and concurrency, or excessive API calls.
+To protect the service for all customers, Okta APIs are subject to rate limits. These limits mitigate denial-of-service attacks and abusive actions such as rapidly updating configurations, aggressive polling and concurrency, or excessive API calls.
 
 The Okta API rate limits are divided into three categories: authentication/end user, management, and other endpoints. Each category has APIs with rate limits that are enforced individually and as a cumulative rate limit. The rate limits vary by [service subscription](https://developer.okta.com/pricing/).
 
@@ -14,7 +14,7 @@ The Okta API rate limits are divided into three categories: authentication/end u
 
 To access the individual API limits, visit a category page by clicking the appropriate category link in the table.
 
-> Okta enforce the following per-minute limits.
+> Okta enforces the following per-minute limits.
 
 | Category                                                          | Developer (free) | Developer (paid) | One App | Enterprise | Workforce identity    |
 | ----------------------------------------------------------------- | ----------------:| ----------------:| -------:| ----------:| ---------------------:|
@@ -28,7 +28,7 @@ If any org-wide rate limit is exceeded, an HTTP 429 status code is returned. You
 >
 > * In addition to the rate limit per API, Okta implements limits on concurrent requests, Okta-generated email messages, end user requests, and home page endpoints. These limits are described on the [Additional limits](/docs/reference/rl-additional-limits/) page.
 > * [DynamicScale rate limits](/docs/reference/rl-dynamic-scale/) apply to various endpoints across different APIs for customers that purchased this add-on.
-> * Rate limits may be changed to protect customers. Okta provide warning of changes when possible.
+> * Rate limits may be changed to protect customers. Okta provides warning of changes when possible.
 > * The type of cell your Okta org resides in (preview or production) doesn't affect the rate limit values. If you purchased dynamic scale or other rate limit increases for your org, these updates generally apply to production orgs.
 > * You can expand the Okta rate limits upon request. To learn how, see [Request exceptions](/docs/reference/rl-best-practices/#request-rate-limit-exceptions) and [DynamicScale rate limits](/docs/reference/rl-dynamic-scale/).
 > * Review the [Rate limit best practices](/docs/reference/rl-best-practices/) for further information on monitoring and managing your rate limits.
@@ -36,25 +36,27 @@ If any org-wide rate limit is exceeded, an HTTP 429 status code is returned. You
 
 ## API rate limits by token
 
-Okta API tokens are, by default, configured to have 50% of an API endpoint's rate limit when created through the Admin Console. This configuration avoids one API token exceeding the endpoint's rate limit violation in an org with multiple API tokens. To adjust the default API token capacity value from 50%, you can edit the percentage value in the Admin Console. See [Set token rate limits](https://help.okta.com/okta_help.htm?id=ext_API#set-token-rate-limits). Reducing the capacity percentage per API token prevents one API token from consuming the entire endpoint rate, assists with investigating rate-limit violations, and prevents future violations.
+Okta API tokens are, by default, configured to have 50% of an API endpoint's rate limit when created through the Admin Console. This configuration avoids one API token exceeding the endpoint's rate limit violation in an org with multiple API tokens.
 
-## Rate Limit Monitoring widget
+To adjust the default API token capacity value from 50%, you can edit the percentage value in the Admin Console. See [Set token rate limits](https://help.okta.com/okta_help.htm?id=ext_API#set-token-rate-limits). Reducing the capacity percentage prevents one API token from consuming the entire endpoint rate, assists with investigating rate-limit violations, and prevents future violations.
 
-The Admin Console tracks any rate-limit warnings or violations directly in a Rate Limit Monitoring widget. By default, only the last hour of warnings or violations appear, but you can also check for events within the last 24 hours or the last seven days from the dropdown menu. Selecting **View** at the top of the widget takes you to the [Rate Limits dashboard](/docs/reference/rl-dashboard/) for further investigation. If individual rate-limit violations appear in the widget, you can access affected API usage in the Rate Limits Dashboard by clicking the API link in the widget.
+## Rate limit monitoring widget
+
+The Admin Console tracks any rate-limit warnings or violations directly in a rate limit monitoring widget. By default, only the last hour of warnings or violations appear. You can also check for events within the last 24 hours or the last seven days from the dropdown menu. Selecting **View** at the top of the widget takes you to the [Rate Limits dashboard](/docs/reference/rl-dashboard/) for further investigation. If individual rate-limit violations appear in the widget, you can access affected API usage in the rate limits Dashboard by clicking the API link in the widget.
 
 <div class="half">
 
-![Displays the rate limits monitoring widget on the Admin Dashboard to show rate limit warnings, bursts, or violations.](/img/rate-limits/rl-monitoring-widget.png)
+![The image displays the rate limit monitoring widget on the Admin Dashboard to show rate limit warnings, bursts, or violations.](/img/rate-limits/rl-monitoring-widget.png)
 
 </div>
 
 ## Burst rate limits
 
-Okta provides rate limits for orgs based on the traffic that they expect to have. If your org experiences higher traffic than what is expected, this unplanned use may potentially have an impact on end users. To ensure that our customers are successful and to help minimize impact, Okta doesn't suspend use that is above the rate limit (specifically for authentication and authorization flows). If there’s sustained use above the purchased rate limit, Okta requires that you purchase an applicable offering that is in line with your use. By making burst rate limits available, Okta provides peace of mind by ensuring that an unplanned spike doesn't detrimentally affect the end user's experience.
+Okta provides rate limits for orgs based on the traffic that they expect to have. If your org experiences higher traffic than what is expected, this unplanned use may potentially have an impact on end users. To help minimize impact, Okta doesn't suspend use that is above the rate limit (specifically for authentication and authorization flows). If there’s sustained use above the purchased rate limit, Okta requires that you purchase an applicable offering that is in line with your use. With burst rate limits, Okta provides peace of mind by ensuring that an unplanned spike doesn't detrimentally affect the end user's experience.
 
-In a typical use case scenario where orgs exceed a default rate limit, they receive a System Log warning event, a burst event, and then a violation event. For example, an org has a rate limit of 600 requests per minute on the `/api/v1/authn` endpoint. That org would receive a warning at 360 requests per minute (60%) of 600. That org would get a burst notification when the endpoint hits 600 requests per minute and then the violation event when it hits 3000 requests all in the same minute.
+In a scenario where orgs exceed a default rate limit, they receive a System Log warning event, a burst event, and then a violation event. For example, an org has a rate limit of 600 requests per minute on the `/api/v1/authn` endpoint. That org would receive a warning at 360 requests per minute (60% of 600). That org would get a burst notification when the endpoint hits 600 requests per minute. And then the violation event when it hits 3000 requests all in the same minute.
 
-Also, burst rate limits typically apply on top of any rate limit increase that an org may have, such as [DynamicScale](/docs/reference/rl-dynamic-scale/). For example, the default limit on `/api/v1/authn` is 600 requests per minute. If an org is expecting traffic to require 6000 requests per minute, the org would purchase DynamicScale 10x. The burst rate limit in this scenario would provide 5x coverage on top of the 6000 and ensure peace of mind for any unplanned spike in use.
+Also, burst rate limits typically apply on top of any rate limit increase that an org may have, such as [DynamicScale](/docs/reference/rl-dynamic-scale/). For example, the default limit on `/api/v1/authn` is 600 requests per minute. If an org is expecting traffic to require 6000 requests per minute, the org would purchase DynamicScale 10x. The burst rate limit in this scenario provides 5x coverage on top of the 6000 and ensure peace of mind for any unplanned spike in use.
 
 On the rate limit dashboard, the trendline can now exceed 100% of the org's default rate limit (up to 5x the default with the buffer zone) as shown in the following example.
 
@@ -64,7 +66,7 @@ On the rate limit dashboard, the trendline can now exceed 100% of the org's defa
 
 </div>
 
-When a burst rate limit event occurs, the `system.org.rate_limit.burst` system log event is triggered and an email notification is generated.
+When a burst rate limit event occurs, the `system.org.rate_limit.burst` System Log event is triggered and an email notification is generated.
 
 <div class="half">
 
@@ -82,9 +84,9 @@ The email is sent to the same admin who received the `system.org.warning` and `s
 
 * [Concurrent rate limits](/docs/reference/rl-additional-limits/#concurrent-rate-limits): To protect the service for all customers, Okta enforces concurrent rate limits, which is a limit on the number of simultaneous transactions. Concurrent rate limits are distinct from the org-wide, per-minute API rate limits, which measure the total number of transactions per minute. Transactions are typically short-lived. Even large bulk loads rarely use more than 10 simultaneous transactions at a time.
 
-* [Client-based rate limits](/docs/reference/rl-clientbased/): To provide granular isolation, client-based rate limiting uses a combination of the client ID/IP address/device identifier for requests made to the OAuth 2.0 `/authorize` endpoint or the IP address/device identifier for requests made to the `/login/login.htm` endpoint. This framework isolates OAuth 2.0 clients that are generating unexpected traffic, thereby it ensures that valid users and applications don't run into rate limit violations.
+* [Client-based rate limits](/docs/reference/rl-clientbased/): To provide granular isolation, client-based rate limiting uses a combination of the client ID/IP address/device identifier for requests made to the OAuth 2.0 `/authorize` endpoint or the IP address/device identifier for requests made to the `/login/login.htm` endpoint. This framework isolates OAuth 2.0 clients that are generating unexpected traffic. It ensures that valid users and applications don't run into rate limit violations.
 
-* [DynamicScale rate limits](/docs/reference/rl-dynamic-scale/): If your needs exceed the default rate limits for the base product subscriptions (One App or Enterprise) that you've already purchased, the DynamicScale add-on service grants you higher limits for various endpoints across different APIs.
+* [DynamicScale rate limits](/docs/reference/rl-dynamic-scale/): If your needs exceed the default rate limits for the base product subscriptions (One App or Enterprise), the DynamicScale add-on service grants you higher limits for various endpoints across different APIs.
 
 * [End-user rate limits](/docs/reference/rl-additional-limits/#end-user-rate-limits): Okta limits the number of requests from the Admin Console and End-User Dashboard to 40 requests per user per 10 seconds per endpoint. This rate limit protects users from each other and from other API requests in the system.
 
