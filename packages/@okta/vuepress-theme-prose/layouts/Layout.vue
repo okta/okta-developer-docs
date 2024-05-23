@@ -1,6 +1,23 @@
 <template>
   <div class="layout">
-    <div class="fixed-header">
+    <div
+      ref="header"
+      class="fixed-header"
+    >
+      <HeaderBanner
+        banner-id="v1"
+        @updateHeight="updateHeaderHeight"
+      >
+        <p>
+          Is it easy or difficult to use our developer documentation?
+          <a
+            href="https://surveys.okta.com/jfe/form/SV_6XTKmUbd22BlYFg"
+            target="_blank"
+          >
+            Let us know in this short survey ↗
+          </a>
+        </p>
+      </HeaderBanner>
       <Header />
       <HeaderNav />
     </div>
@@ -116,6 +133,7 @@ export default {
     Terms: () => import("../components/Terms.vue"),
     Errors: () => import("../components/Errors.vue"),
     Copyright: () => import("../components/Copyright.vue"),
+    HeaderBanner: () => import("../components/HeaderBanner.vue"),
   },
   mixins: [SidebarItems],
   provide() {
@@ -195,6 +213,12 @@ export default {
     this.$on("toggle-tree-nav", event => {
       that.appContext.isTreeNavMobileOpen = event.treeNavOpen;
     });
+    
+    // Delay height adjustment on mount to ensure the header element is fully rendered.
+    setTimeout(() => {
+      this.updateHeaderHeight();
+    }, 340)
+
     this.onResize();
     window.addEventListener("resize", this.onResize);
     this.redirIfRequired();
@@ -219,6 +243,7 @@ export default {
       }
     },
     onResize() {
+      this.updateHeaderHeight()
       this.appContext.isInMobileViewport =
         window.innerWidth <= TABLET_BREAKPOINT;
     },
@@ -235,6 +260,15 @@ export default {
     getTreeNavDocs() {
       this.appContext.treeNavDocs = this.appContext.treeNavDocs.length > 0 ? this.appContext.treeNavDocs : this.getNavigationData();
       return this.appContext.treeNavDocs;
+    },
+    updateHeaderHeight() {
+      this.$nextTick(() => {
+        const headerHeight = this.$refs.header?.offsetHeight || 0;
+
+        if(headerHeight) {
+          document.documentElement.style.setProperty('--header-height', `${headerHeight}px`)
+        }
+      });
     },
   }
 };

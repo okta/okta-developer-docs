@@ -11,7 +11,7 @@
 
 @include media(">=tablet") {
   .on-this-page-navigation {
-    top: 170px;
+    top: calc(40px + var(--header-height));
 
     padding-bottom: 40px;
     min-height: 450px;
