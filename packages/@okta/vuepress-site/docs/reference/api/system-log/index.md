@@ -184,48 +184,48 @@ Each LogEvent object describes a single logged action or "event" that is perform
           String -> String/Resource Map
           "requestUri": "/api/1/devtools/global/test/orgs/specific"
           "originalPrincipal": {
-               "id": "00ujchcbjpltartYI0g3",
-               "type": "User",
-               "alternateId": "admin@saasure.com",
-               "displayName": "Piras Add-min"
+             "id": "00ujchcbjpltartYI0g3",
+             "type": "User",
+             "alternateId": "admin@example.com",
+             "displayName": "Piras Add-min"
           },
      }
 },
   "authenticationContext": { Object, Optional
      "authenticationProvider": String one of OKTA_AUTHENTICATION_PROVIDER, ACTIVE_DIRECTORY, LDAP, FEDERATION,
             SOCIAL, FACTOR_PROVIDER, Optional
-          "credentialProvider": String one of OKTA_CREDENTIAL_PROVIDER, RSA, SYMANTEC, GOOGLE, DUO, YUBIKEY, Optional
-          "credentialType": String one of OTP, SMS, PASSWORD, ASSERTION, IWA, EMAIL, OAUTH2, JWT, CERTIFICATE, PRE_SHARED_SYMMETRIC_KEY, OKTA_CLIENT_SESSION, DEVICE_UDID, Optional
-          "issuer": Object, Optional {
-               "id": String, Optional
-               "type": String Optional
-          }
-          "externalSessionId": String, Optional
-          "interface": String, Optional i.e. Outlook, Office365, wsTrust
+     "credentialProvider": String one of OKTA_CREDENTIAL_PROVIDER, RSA, SYMANTEC, GOOGLE, DUO, YUBIKEY, Optional
+     "credentialType": String one of OTP, SMS, PASSWORD, ASSERTION, IWA, EMAIL, OAUTH2, JWT, CERTIFICATE, PRE_SHARED_SYMMETRIC_KEY, OKTA_CLIENT_SESSION, DEVICE_UDID,     Optional
+     "issuer": Object, Optional {
+        "id": String, Optional
+        "type": String Optional
+      }
+      "externalSessionId": String, Optional
+      "interface": String, Optional i.e. Outlook, Office365, wsTrust
 },
   "securityContext": { Object, Optional
-          "asNumber": Integer, Optional
-          "asOrg": String, Optional
-          "isp": String, Optional
-          "domain": String, Optional
-          "isProxy": Boolean, Optional
+     "asNumber": Integer, Optional
+     "asOrg": String, Optional
+     "isp": String, Optional
+     "domain": String, Optional
+     "isProxy": Boolean, Optional
 },
   "request": { Object, Optional
-          "ipChain": List of objects of the form [
-              "ip": String, Optional
-              "geographicalContext": { Object, Optional
-                        "geolocation": { Object, Optional
-                             "lat":Double, Optional
-                             "lon": Double, Optional
-                        }
-                        "city": String, Optional
-                        "state": String, Optional
-                        "country": String, Optional
-                        "postalCode": String, Optional
-                   },
-              "version": String, one of V4, V6 Optional
-              "source": String, Optional
-          ], Optional
+     "ipChain": List of objects of the form [{
+          "ip": String, Optional
+          "geographicalContext": { Object, Optional
+              "geolocation": { Object, Optional
+                  "lat":Double, Optional
+                  "lon": Double, Optional
+              }
+               "city": String, Optional
+               "state": String, Optional
+               "country": String, Optional
+               "postalCode": String, Optional
+          },
+          "version": String, one of V4, V6 Optional
+          "source": String, Optional
+     }], Optional
   }
 }
 ```
