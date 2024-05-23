@@ -18,7 +18,7 @@ jobs:
             name: Install dependencies
             command: yarn install --frozen-lockfile
         - run:
-            name: Build 
+            name: Build
             command: yarn build
         - run:
             name: Run checks
@@ -61,7 +61,7 @@ jobs:
             broken_urls=$(comm -23 <(sort urls.txt | uniq) <(sort falsepos.txt | uniq))
             broken_urls=$(echo "$broken_urls" | sed 's/ /\n/g')
             formatted_broken_urls=$(echo "$broken_urls" | awk '{printf "<a href=\"%s\">%s</a><br/>\n", $0, $0}')
-            
+
             if [ -n "$broken_urls" ]; then
                 curl --location --request POST 'https://www.cinotify.cc/api/notify' \
                         -d "to=${NOTIFY_EMAIL}&subject=FAILED: Dev Docs Nightly Job&type=text/html&body=<p style='font-family: Arial, sans-serif; font-size: 16px; color: #333; line-height: 1.6; text-align: center; background-color: #ffcccc; padding: 10px;'>
@@ -70,7 +70,7 @@ jobs:
                         to see job details.<br>
                     </p><h2 style='font-family: Arial, sans-serif; font-size: 16px; color: #333; line-height: 1.6; text-align: center;'>List of broken URLs:</h2>$formatted_broken_urls"
             fi
-  
+
   netlify_manual:
     docker:
       - image: cimg/node:14.21.3-browsers
@@ -95,7 +95,7 @@ jobs:
       - run:
           name: Install Netlify CLI
           command: |
-            npm install netlify-cli -g
+            npm install netlify-cli@17.23.5 -g
       - run:
           name: Deploy preview to Netlify
           command: |
@@ -127,7 +127,7 @@ workflows:
     jobs:
       - node_build_checks:
           name: "Build and Checks"
-  
+
   nightly:
     triggers:
       - schedule:
