@@ -31,7 +31,6 @@ Use Enhanced Dynamic Network Zones to define IP service categories (proxies, VPN
 | [PUT requests for an API token network condition is self-service EA](#put-requests-for-an-api-token-network-condition-is-self-service-ea) | May 8, 2024 |
 | [Permissions for custom admins to manage agents is GA in Production](#permissions-for-custom-admins-to-manage-agents-is-ga-in-production) | May 8, 2024 |
 | [New System Log API property for target object](#new-system-log-api-property-for-target-object) | May 8, 2024 |
-| [Developer documentation update in 2024.05.0](#developer-documentation-update-in-2024-05-0) | May 8, 2024 |
 | [Bugs fixed in 2024.05.0](#bugs-fixed-in-2024-05-0) | May 8, 2024 |
 
 #### Seamless ISV experience with integrated testing is GA in Preview
@@ -49,10 +48,6 @@ Custom admins can now view, register, and manage agents. See [Permission types](
 #### New System Log API property for target object
 
 Certain system log events now contain a new property called `changeDetails` in the `target` object. When this property is populated, it reflects new, changed, or removed attributes of the target resource that has been modified. See [changeDetails property](/docs/reference/api/system-log/#changedetails-property). <!-- OKTA-724000 -->
-
-#### Developer documentation update in 2024.05.0
-
-The [Style the Sign-In Widget (third generation) guide](/docs/guides/custom-widget-gen3/main/#about-the-afterrender-function) has been updated to describe how the `afterRender` function works. <!-- OKTA-686866 -->
 
 #### Bugs fixed in 2024.05.0
 
