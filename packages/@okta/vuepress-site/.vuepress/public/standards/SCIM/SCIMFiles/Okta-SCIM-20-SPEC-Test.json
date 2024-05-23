@@ -680,7 +680,7 @@
           "comparison": "has_value",
           "source": "response_json",
           "value": "urn:ietf:params:scim:api:messages:2.0:Error",
-          "property": ""
+          "property": "schemas"
         }
       ],
       "variables": [],
