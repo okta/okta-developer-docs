@@ -420,7 +420,7 @@ Include this section if there are known issues that apply to the entire configur
 ##### OIDC examples
 
 * [HacWare](https://docs.google.com/document/d/1k-TNUDCXZslL4D3wZyH3KgZyU45qUgiaIG9U0i6Jupc/edit)
-* [Parmonic](https://partners.parmonic.com/okta)
+* [Parmonic](https://help.parmonic.com/article/116-instructions-to-setup-okta-sso)
 * [Upwave](https://help.upwave.io/en/articles/4129778-okta-configuration-guide)
 
 ##### SAML examples
