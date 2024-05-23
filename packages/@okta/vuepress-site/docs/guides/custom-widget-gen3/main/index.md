@@ -59,7 +59,7 @@ Consider the following when adjusting the theme of your org:
 
 * If you modify your theme using the primary color in the Admin Console, Okta generates an accessible palette. However, the generated palette might not map exactly to your brand's palette. See [Set a theme for your org](https://help.okta.com/okta_help.htm?type=oie&id=ext-branding-set-theme).
 
-* If you modify your theme using design tokens, you can create themes that closely align with your brand's palette. For example, you can use the code editor to modify `PalettePrimaryMain` to have the exact hex code of your brand. However, if you use design tokens, you take on the responsibility of any broken accessibility ratios. See [Use design tokens](#use-design-tokens).
+* If you modify your theme using design tokens, you can create themes that closely align with your brand's palette. For example, you can use the code editor to modify `PalettePrimaryMain` to have the exact hex code of your brand. However, if you use design tokens it's at your own risk. You're responsible for your use of the tokens and any broken accessibility ratios that could result. See [Use design tokens](#use-design-tokens).
 
 ## Upgrade to the third generation
 
