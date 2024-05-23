@@ -101,23 +101,23 @@ Each LogEvent object describes a single logged action or "event" that is perform
 
 ```html
 {
-"uuid": Randomly generated String, Required
-"published": ISO8601 string for timestamp, Required
-"eventType": String, Required
-"version": String, Required
-"severity": String, one of DEBUG, INFO, WARN, ERROR, Required
-"legacyEventType": String, Optional
-"displayMessage": String, Optional
-"actor": { Object, Required
-     "id": String, Required
-     "type": String, Required
-     "alternateId": String, Optional
-     "displayName": String, Optional
-     "detailEntry" = {
-     String -> String/Resource Map
-     }
+  "uuid": Randomly generated String, Required
+  "published": ISO8601 string for timestamp, Required
+  "eventType": String, Required
+  "version": String, Required
+  "severity": String, one of DEBUG, INFO, WARN, ERROR, Required
+  "legacyEventType": String, Optional
+  "displayMessage": String, Optional
+  "actor": { Object, Required
+      "id": String, Required
+      "type": String, Required
+      "alternateId": String, Optional
+      "displayName": String, Optional
+      "detailEntry" = {
+          String -> String/Resource Map
+      }
 },
-"client": { Object, Optional
+  "client": { Object, Optional
      "userAgent": { Object, Optional
           "rawUserAgent": String, Optional
           "os": String, Optional
@@ -138,24 +138,24 @@ Each LogEvent object describes a single logged action or "event" that is perform
      "device": String, Optional
      "id": String, Optional
 },
-"device": { Object, Optional
-            "id": String, Optional
-            "name": String, Optional
-            "os_platform": String, Optional
-            "os_version": String, Optional
-            "managed": Boolean, Optional
-            "registered": Boolean, Optional
-            "device_integrator": Object, Optional
-            "disk_encryption_type": String, one of: NONE, FULL, SYSTEM_VOLUME, ALL_INTERNAL_VALUES, and USER, Optional
-            "screen_lock_type": String, one of: NONE, PASSCODE, and BIOMETRIC, Optional
-            "jailbreak": Boolean, Optional
-            "secure_hardware_present": Boolean, Optional
+  "device": { Object, Optional
+     "id": String, Optional
+     "name": String, Optional
+     "os_platform": String, Optional
+     "os_version": String, Optional
+     "managed": Boolean, Optional
+     "registered": Boolean, Optional
+     "device_integrator": Object, Optional
+     "disk_encryption_type": String, one of: NONE, FULL, SYSTEM_VOLUME, ALL_INTERNAL_VALUES, and USER, Optional
+     "screen_lock_type": String, one of: NONE, PASSCODE, and BIOMETRIC, Optional
+     "jailbreak": Boolean, Optional
+     "secure_hardware_present": Boolean, Optional
 },
-"outcome": { Object, Optional
+  "outcome": { Object, Optional
      "result": String, one of: SUCCESS, FAILURE, SKIPPED, ALLOW, DENY, CHALLENGE, UNKNOWN, Required
      "reason": String, Optional
 },
-"target": [ List of Objects of the form:
+  "target": [ List of Objects of the form:
           {
                "id": String, Required
                "type": String, Required
@@ -172,14 +172,14 @@ Each LogEvent object describes a single logged action or "event" that is perform
               }
      }
 ],
-"transaction": { Object, Optional
+  "transaction": { Object, Optional
      "id": String, Optional
      "type": String one of "WEB", "JOB", Optional
      "detail" = {
           String -> String/Resource Map
      }
 },
-"debugContext": { Object, Optional
+  "debugContext": { Object, Optional
      "debugData": {
           String -> String/Resource Map
           "requestUri": "/api/1/devtools/global/test/orgs/specific"
@@ -191,7 +191,7 @@ Each LogEvent object describes a single logged action or "event" that is perform
           },
      }
 },
-"authenticationContext": { Object, Optional
+  "authenticationContext": { Object, Optional
      "authenticationProvider": String one of OKTA_AUTHENTICATION_PROVIDER, ACTIVE_DIRECTORY, LDAP, FEDERATION,
             SOCIAL, FACTOR_PROVIDER, Optional
           "credentialProvider": String one of OKTA_CREDENTIAL_PROVIDER, RSA, SYMANTEC, GOOGLE, DUO, YUBIKEY, Optional
@@ -203,14 +203,14 @@ Each LogEvent object describes a single logged action or "event" that is perform
           "externalSessionId": String, Optional
           "interface": String, Optional i.e. Outlook, Office365, wsTrust
 },
-"securityContext": { Object, Optional
+  "securityContext": { Object, Optional
           "asNumber": Integer, Optional
           "asOrg": String, Optional
           "isp": String, Optional
           "domain": String, Optional
           "isProxy": Boolean, Optional
 },
-"request": { Object, Optional
+  "request": { Object, Optional
           "ipChain": List of objects of the form [
               "ip": String, Optional
               "geographicalContext": { Object, Optional
@@ -226,7 +226,7 @@ Each LogEvent object describes a single logged action or "event" that is perform
               "version": String, one of V4, V6 Optional
               "source": String, Optional
           ], Optional
-}
+  }
 }
 ```
 
