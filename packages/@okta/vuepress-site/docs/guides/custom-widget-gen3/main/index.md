@@ -72,7 +72,7 @@ To upgrade to the third generation:
 1. Go to the **Pages** tab, and then click **Edit** or **Configure** for the **Sign-in page**.
 1. Click the **Settings** tab.
 1. In the **Sign-In Widget version** section, click **Edit**.
-1. Click the **Use the third generation** toggle so that it's active.
+1. Turn on the **Use the third generation** toggle.
 1. Click **Save to draft**.
 1. Click **Publish**.
 
