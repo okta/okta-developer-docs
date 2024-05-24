@@ -24,7 +24,7 @@ Update your widget based on your user deployment model.
 
 The Sign-In Widget is a JavaScript library that provides a full-featured and customizable sign-in experience. You can use the Sign-In Widget to authenticate web and mobile app users.
 
-Use the Sign-In Widget on the Okta default sign-in page to do the following:
+Use the Sign-In Widget on the default sign-in page to do the following:
 
 * Start an Okta SSO session
 * Set the Okta [session cookie](/docs/guides/session-cookie/) in the web browser
