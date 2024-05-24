@@ -72,10 +72,13 @@ To upgrade to the third generation:
 1. Go to the **Pages** tab, and then click **Edit** or **Configure** for the **Sign-in page**.
 1. Click the **Settings** tab.
 1. In the **Sign-In Widget version** section, click **Edit**.
-1. To use the third generation, click the **Use the third generation** toggle so that it's active. Leave the toggle inactive to remain on the second generation.
+1. Click the **Use the third generation** toggle so that it's active.
 1. Click **Save to draft**.
+1. Click **Publish**.
 
-See [Style the sign-in page](/docs/guides/custom-widget/main/) for details about customizing the second generation.
+Customizations that you made in the [second-generation Sign-In Widget](/docs/guides/custom-widget/main/) don't appear if you move to the third generation. To recreate them, see [Use design tokens](#use-design-tokens).
+
+To pin to a specific version, see [Pin a specific third-generation Sign-In Widget](https://help.okta.com/okta_help.htm?type=oie&id=ext-pin-siw3-ver).
 
 ## Use the code editor
 
