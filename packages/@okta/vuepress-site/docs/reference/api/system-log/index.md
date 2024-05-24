@@ -156,20 +156,20 @@ Each LogEvent object describes a single logged action or "event" that is perform
      "reason": String, Optional
 },
   "target": [ List of Objects of the form:
-          {
-               "id": String, Required
-               "type": String, Required
-               "alternateId": String, Optional
-               "displayName": String, Optional
-               "detailEntry" = {
-                  String -> String/Resource Map
-               }
-               "changeDetails" = {
-                  "from:": {String -> String/Resource Map
-                  }
-                  "to:": {String -> String/Resource Map
-                  }
-              }
+    {
+       "id": String, Required
+       "type": String, Required
+       "alternateId": String, Optional
+       "displayName": String, Optional
+       "detailEntry" = {
+         String -> String/Resource Map
+        }
+       "changeDetails" = {
+          "from:": {String -> String/Resource Map
+          }
+          "to:": {String -> String/Resource Map
+          }
+        }
      }
 ],
   "transaction": { Object, Optional
