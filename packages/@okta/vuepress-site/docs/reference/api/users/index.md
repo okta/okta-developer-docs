@@ -776,7 +776,7 @@ Fetch a user by `id`, `login`, or `login shortname` if the short name is unambig
 | id        | `id`, `login`, or `login shortname` (as long as it is unambiguous) | URL        | String   | TRUE     |
 | expand    | Valid value: `block`. If this parameter is specified, then account block details are included in the `_embedded` attribute. The [embedded object](/docs/reference/api/users/#user-block-object) lists information about how the account is blocked from access. | Query        | String   | FALSE     |
 
-> When fetching a user by `login` or `login shortname`, you should [URL encode](http://en.wikipedia.org/wiki/Percent-encoding) the request parameter to ensure special characters are escaped properly.  Logins with a `/` or `?`  character can only be fetched by `id` due to URL issues with escaping the `/` and `?` characters.
+> When fetching a user by `login` or `login shortname`, you should [URL encode](https://datatracker.ietf.org/doc/html/rfc3986#section-2.1) the request parameter to ensure special characters are escaped properly.  Logins with a `/` or `?`  character can only be fetched by `id` due to URL issues with escaping the `/` and `?` characters.
 
 >**Hint:** you can substitute `me` for the `id` to fetch the current user linked to an API token or session cookie.
 
@@ -967,7 +967,7 @@ curl -v -X GET \
 
 Fetches a specific user when you know the user's `login`
 
-When fetching a user by `login`, [URL encode](http://en.wikipedia.org/wiki/Percent-encoding) the request parameter to ensure special characters are escaped properly.
+When fetching a user by `login`, [URL encode](https://datatracker.ietf.org/doc/html/rfc3986#section-2.1) the request parameter to ensure special characters are escaped properly.
 Logins with a `/` character can only be fetched by `id` due to URL issues with escaping the `/` character.
 
 ##### Request example
@@ -1042,7 +1042,7 @@ curl -v -X GET \
 
 Fetches a specific user when you know the user's `login shortname` and the shortname is unique within the organization
 
-When fetching a user by `login shortname`, [URL encode](http://en.wikipedia.org/wiki/Percent-encoding) the request parameter to ensure special characters are escaped properly.
+When fetching a user by `login shortname`, [URL encode](https://datatracker.ietf.org/doc/html/rfc3986#section-2.1) the request parameter to ensure special characters are escaped properly.
 Logins with a `/` character can only be fetched by `id` due to URL issues with escaping the `/` character.
 
 ##### Request example
@@ -1186,7 +1186,7 @@ Property names in the search parameter are case sensitive, whereas operators (`e
 This operation:
 
 - Supports [pagination](/docs/reference/core-okta-api/#pagination).
-- Requires [URL encoding](http://en.wikipedia.org/wiki/Percent-encoding).
+- Requires [URL encoding](https://datatracker.ietf.org/doc/html/rfc3986#section-2.1).
   For example, `search=profile.department eq "Engineering"` is encoded as `search=profile.department%20eq%20%22Engineering%22`.
   Use an ID lookup for records that you update to ensure your results contain the latest data.
   > **Note:** If you use the special character `"` within a quoted string, it must also be escaped `\` and encoded. For example, `search=profile.lastName eq "bob"smith"` is encoded as `search=profile.lastName%20eq%20%22bob%5C%22smith%22`.
@@ -1353,7 +1353,7 @@ Lists all users that match the filter criteria. To ensure optimal performance, O
 
 This operation:
 
-- Requires [URL encoding](http://en.wikipedia.org/wiki/Percent-encoding). For example, `filter=lastUpdated gt "2013-06-01T00:00:00.000Z"` is encoded as `filter=lastUpdated%20gt%20%222013-06-01T00:00:00.000Z%22`.
+- Requires [URL encoding](https://datatracker.ietf.org/doc/html/rfc3986#section-2.1). For example, `filter=lastUpdated gt "2013-06-01T00:00:00.000Z"` is encoded as `filter=lastUpdated%20gt%20%222013-06-01T00:00:00.000Z%22`.
 - Supports the following limited number of properties: `status`, `lastUpdated`, `id`, `profile.login`, `profile.email`, `profile.firstName`, and `profile.lastName`.
 - Supports only the equal `eq` operator from the standard Okta API filtering semantics, except in the case of the `lastUpdated` property. This property can also use the inequality operators (`gt`, `ge`, `lt`, and `le`).
 - Supports only the logical operators `and` and `or`. The `not` operator isn't supported.
