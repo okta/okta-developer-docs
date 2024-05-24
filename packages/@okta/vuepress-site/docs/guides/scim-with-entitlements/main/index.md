@@ -116,7 +116,7 @@ Each resource includes the following fields:
     - The schema for users is the standard: `urn:ietf:params:scim:schemas:core:2.0:User`
 * Schema extensions: List any extensions required for other properties. Generally, entitlements and roles don't need to have extensions, while it's common for users to have highly customized extensions. For example, a user might have a schema extension to store a custom attribute for a particular app.
 
-The default location for `ResourceTypes` definitions is `BaseURL/scim/v2/ResourceTypes`. For example, if your server is hosted on `https://example.com`, then the available ResourceTypes can be retrieved from `https://example.com/scim/v2/ResourceTypes`.
+The default location for `ResourceTypes` definitions is `BaseURL/scim/v2/ResourceTypes`. For example, if your server is hosted on `https://example.com`, then you can retrieve the available `ResourceTypes` from `https://example.com/scim/v2/ResourceTypes`.
 
 The following `ResourceTypes` example includes a sample `Role` resource with no extensions, an `Entitlement` resource, and a `Profile` resource that includes extensions.
 
