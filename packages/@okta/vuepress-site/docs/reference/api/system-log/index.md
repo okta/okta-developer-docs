@@ -113,7 +113,7 @@ Each LogEvent object describes a single logged action or "event" that is perform
       "type": String, Required
       "alternateId": String, Optional
       "displayName": String, Optional
-      "detailEntry" = {
+      "detailEntry": {
           String -> String/Resource Map
       }
 },
@@ -125,7 +125,7 @@ Each LogEvent object describes a single logged action or "event" that is perform
      },
      "geographicalContext": { Object, Optional
           "geolocation": { Object, Optional
-               "lat":Double, Optional
+               "lat": Double, Optional
                "lon": Double, Optional
           }
           "city": String, Optional
