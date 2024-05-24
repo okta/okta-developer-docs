@@ -68,7 +68,7 @@ The SCIM server should be updated to maintain parity with the downstream app. Us
 
 ### User operations
 
-Create, update, and import user operations are handled using [SCIM User operations](/docs/reference/scim/scim-20/#scim-user-operations). The user object should include any Entitlements, Roles, and custom user schema extensions that your app requires. See [User with entitlements and roles](#user-with-entitlements-and-roles) for an example.
+Create, update, and import user operations are handled using [SCIM User operations](/docs/reference/scim/scim-20/#scim-user-operations). The user object should include any entitlements, roles, and custom user schema extensions that your app requires. See [User with entitlements and roles](#user-with-entitlements-and-roles) for an example.
 
 ### Endpoints for user schema discovery
 
