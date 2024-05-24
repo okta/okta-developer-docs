@@ -39,6 +39,7 @@ See [Examples](#examples) for ways you can use the System Log API. See [Useful S
 Each LogEvent object describes a single logged action or "event" that is performed by a set of actors for a set of targets.
 
 ### Example LogEvent object
+
 ```json
 {
   "version": "0",
@@ -52,6 +53,19 @@ Each LogEvent object describes a single logged action or "event" that is perform
       "rawUserAgent": "UNKNOWN-DOWNLOAD"
     },
     "ipAddress": "12.97.85.90"
+  },
+  "device": {
+    "id": "guob5wtu7rBggkg9G1d7",
+    "name": "MacBookPro16,1",
+    "os_platform": "OSX",
+    "os_version": "14.3.0",
+    "managed": false,
+    "registered": true,
+    "device_integrator": null,
+    "disk_encryption_type": "ALL_INTERNAL_VOLUMES",
+    "screen_lock_type": "BIOMETRIC",
+    "jailbreak": null,
+    "secure_hardware_present": true
   },
   "actor": {
     "id": "00u1qw1mqitPHM8AJ0g7",
@@ -87,23 +101,23 @@ Each LogEvent object describes a single logged action or "event" that is perform
 
 ```html
 {
-"uuid": Randomly generated String, Required
-"published": ISO8601 string for timestamp, Required
-"eventType": String, Required
-"version": String, Required
-"severity": String, one of DEBUG, INFO, WARN, ERROR, Required
-"legacyEventType": String, Optional
-"displayMessage": String, Optional
-"actor": { Object, Required
-     "id": String, Required
-     "type": String, Required
-     "alternateId": String, Optional
-     "displayName": String, Optional
-     "detailEntry" = {
-     String -> String/Resource Map
-     }
+  "uuid": Randomly generated String, Required
+  "published": ISO8601 string for timestamp, Required
+  "eventType": String, Required
+  "version": String, Required
+  "severity": String, one of DEBUG, INFO, WARN, ERROR, Required
+  "legacyEventType": String, Optional
+  "displayMessage": String, Optional
+  "actor": { Object, Required
+      "id": String, Required
+      "type": String, Required
+      "alternateId": String, Optional
+      "displayName": String, Optional
+      "detailEntry": {
+          String -> String/Resource Map
+      }
 },
-"client": { Object, Optional
+  "client": { Object, Optional
      "userAgent": { Object, Optional
           "rawUserAgent": String, Optional
           "os": String, Optional
@@ -111,7 +125,7 @@ Each LogEvent object describes a single logged action or "event" that is perform
      },
      "geographicalContext": { Object, Optional
           "geolocation": { Object, Optional
-               "lat":Double, Optional
+               "lat": Double, Optional
                "lon": Double, Optional
           }
           "city": String, Optional
@@ -124,81 +138,95 @@ Each LogEvent object describes a single logged action or "event" that is perform
      "device": String, Optional
      "id": String, Optional
 },
-"outcome": { Object, Optional
+  "device": { Object, Optional
+     "id": String, Optional
+     "name": String, Optional
+     "os_platform": String, Optional
+     "os_version": String, Optional
+     "managed": Boolean, Optional
+     "registered": Boolean, Optional
+     "device_integrator": Object, Optional
+     "disk_encryption_type": String, one of: NONE, FULL, SYSTEM_VOLUME, ALL_INTERNAL_VALUES, and USER, Optional
+     "screen_lock_type": String, one of: NONE, PASSCODE, and BIOMETRIC, Optional
+     "jailbreak": Boolean, Optional
+     "secure_hardware_present": Boolean, Optional
+},
+  "outcome": { Object, Optional
      "result": String, one of: SUCCESS, FAILURE, SKIPPED, ALLOW, DENY, CHALLENGE, UNKNOWN, Required
      "reason": String, Optional
 },
-"target": [ List of Objects of the form:
-          {
-               "id": String, Required
-               "type": String, Required
-               "alternateId": String, Optional
-               "displayName": String, Optional
-               "detailEntry" = {
-                  String -> String/Resource Map
-               }
-               "changeDetails" = {
-                  "from:": {String -> String/Resource Map
-                  }
-                  "to:": {String -> String/Resource Map
-                  }
-              }
+  "target": [ List of Objects of the form:
+    {
+       "id": String, Required
+       "type": String, Required
+       "alternateId": String, Optional
+       "displayName": String, Optional
+       "detailEntry" = {
+         String -> String/Resource Map
+        }
+       "changeDetails" = {
+          "from:": {String -> String/Resource Map
+          }
+          "to:": {String -> String/Resource Map
+          }
+        }
      }
 ],
-"transaction": { Object, Optional
+  "transaction": { Object, Optional
      "id": String, Optional
      "type": String one of "WEB", "JOB", Optional
      "detail" = {
           String -> String/Resource Map
      }
 },
-"debugContext": { Object, Optional
+  "debugContext": { Object, Optional
      "debugData": {
           String -> String/Resource Map
           "requestUri": "/api/1/devtools/global/test/orgs/specific"
           "originalPrincipal": {
-               "id": "00ujchcbjpltartYI0g3",
-               "type": "User",
-               "alternateId": "admin@saasure.com",
-               "displayName": "Piras Add-min"
+             "id": "00ujchcbjpltartYI0g3",
+             "type": "User",
+             "alternateId": "admin@example.com",
+             "displayName": "Piras Add-min"
           },
      }
 },
-"authenticationContext": { Object, Optional
+  "authenticationContext": { Object, Optional
      "authenticationProvider": String one of OKTA_AUTHENTICATION_PROVIDER, ACTIVE_DIRECTORY, LDAP, FEDERATION,
             SOCIAL, FACTOR_PROVIDER, Optional
-          "credentialProvider": String one of OKTA_CREDENTIAL_PROVIDER, RSA, SYMANTEC, GOOGLE, DUO, YUBIKEY, Optional
-          "credentialType": String one of OTP, SMS, PASSWORD, ASSERTION, IWA, EMAIL, OAUTH2, JWT, CERTIFICATE, PRE_SHARED_SYMMETRIC_KEY, OKTA_CLIENT_SESSION, DEVICE_UDID, Optional
-          "issuer": Object, Optional {
-               "id": String, Optional
-               "type": String Optional
-          }
-          "externalSessionId": String, Optional
-          "interface": String, Optional i.e. Outlook, Office365, wsTrust
+     "credentialProvider": String one of OKTA_CREDENTIAL_PROVIDER, RSA, SYMANTEC, GOOGLE, DUO, YUBIKEY, Optional
+     "credentialType": String one of OTP, SMS, PASSWORD, ASSERTION, IWA, EMAIL, OAUTH2, JWT, CERTIFICATE, PRE_SHARED_SYMMETRIC_KEY, OKTA_CLIENT_SESSION, DEVICE_UDID,     Optional
+     "issuer": Object, Optional {
+        "id": String, Optional
+        "type": String Optional
+      }
+      "externalSessionId": String, Optional
+      "interface": String, Optional i.e. Outlook, Office365, wsTrust
 },
-"securityContext": { Object, Optional
-          "asNumber": Integer, Optional
-          "asOrg": String, Optional
-          "isp": String, Optional
-          "domain": String, Optional
-          "isProxy": Boolean, Optional
+  "securityContext": { Object, Optional
+     "asNumber": Integer, Optional
+     "asOrg": String, Optional
+     "isp": String, Optional
+     "domain": String, Optional
+     "isProxy": Boolean, Optional
 },
-"request": { Object, Optional
-          "ipChain": List of objects of the form [
-              "ip": String, Optional
-              "geographicalContext": { Object, Optional
-                        "geolocation": { Object, Optional
-                             "lat":Double, Optional
-                             "lon": Double, Optional
-                        }
-                        "city": String, Optional
-                        "state": String, Optional
-                        "country": String, Optional
-                        "postalCode": String, Optional
-                   },
-              "version": String, one of V4, V6 Optional
-              "source": String, Optional
-          ], Optional
+  "request": { Object, Optional
+     "ipChain": List of objects of the form [{
+          "ip": String, Optional
+          "geographicalContext": { Object, Optional
+              "geolocation": { Object, Optional
+                  "lat":Double, Optional
+                  "lon": Double, Optional
+              }
+               "city": String, Optional
+               "state": String, Optional
+               "country": String, Optional
+               "postalCode": String, Optional
+          },
+          "version": String, one of V4, V6 Optional
+          "source": String, Optional
+     }], Optional
+  }
 }
 ```
 
@@ -313,6 +341,40 @@ When an event is triggered by an HTTP request, the client object describes the [
 | zone                | The `name` of the [Zone](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/NetworkZone/#tag/NetworkZone/operation/getNetworkZone) that the client's location is mapped to                                                                                                | String                                                    | TRUE     |
 | ipAddress           | IP address that the client is making its request from                                                                                                                                                      | String                                                    | TRUE     |
 | device              | Type of device that the client operates from (for example, Computer)                                                                                                                                          | String                                                    | TRUE     |
+
+### Device object
+
+The entity that describes a device enrolled with passwordless authentication using Okta Verify.
+
+| Property    | Description                                                  | DataType            | Nullable |
+| ----------- | ------------------------------------------------------------ | ---------------     | -------- |
+| id          | ID of the device                                               | String              | FALSE    |
+| name        | Name of the device                                             | String              | FALSE    |
+| os_platform | Operating system of the device                                   | String              | TRUE     |
+| os_version  | Operating system version of the device                                   | String              | TRUE     |
+| managed     | Indicates if the device is configured for device management and is registered with Okta                                                        | Boolean              | TRUE     |
+| registered  | Indicates if the device is registered with an Okta org and is bound to an Okta Verify instance on the device                                                          | Boolean             | TRUE     |
+| device_integrator     | The integration platform or software used with the device                                                            | Object             | TRUE     |
+| disk_encryption_type     | The amount of disk encryption for a device. Values can be: `NONE`, `FULL`, `SYSTEM_VOLUME`, `ALL_INTERNAL_VALUES`, and `USER`.                                                              | Enum              | TRUE     |
+| screen_lock_type     | The availability of a screen lock on the device. Values can be: `NONE`, `PASSCODE`, and `BIOMETRIC`.                                                           | Enum             | TRUE     |
+| jailbreak     |  If the device has removed software restrictions                                                             | Boolean            | TRUE    |
+| secure_hardware_present     |  The availability of hardware security on the device                                                            | Boolean             | TRUE    |
+
+```json
+{
+  "id": "guob5wtu7rAggkg9G1d7",
+  "name": "MacBookPro16,1",
+  "os_platform": "OSX",
+  "os_version": "14.3.0",
+  "managed": false,
+  "registered": true,
+  "device_integrator": null,
+  "disk_encryption_type": "ALL_INTERNAL_VOLUMES",
+  "screen_lock_type": "BIOMETRIC",
+  "jailbreak": null,
+  "secure_hardware_present": true
+}
+```
 
 ### UserAgent object
 
