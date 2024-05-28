@@ -108,7 +108,7 @@ Configure integration variables if your URLs are dynamic for each tenant. The va
     | <div style="width:100px">Property</div> | Description  |
     | --------------- | ------------ |
     | **Label** `*`  | A descriptive name for the dynamic variable that admins see when they install your app integration |
-     | **Name** `*`  | Specify the variable name. This variable name is used to construct the dynamic URL. It's hidden from admins and is only passed to your external app.<br>String is the only variable type supported.<br>The maximum field length is 1024 characters. |
+     | **Name** `*`  | Specify the variable name. This variable name is used to construct the dynamic URL. It's hidden from admins and is only passed to your external app.<br>String is the only variable type supported.<br>**Note:** Use alphanumeric lowercase and underscore characters for the variable name field. The first character must be a letter and the maximum field length is 1024 characters. For example: `subdomain_div1` |
 
      `*` This section is optional, but if you specify a variable, both `Label` and `Name` properties are required.
 
