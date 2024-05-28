@@ -33,7 +33,7 @@ $text-color-placeholder: #a1a1a1;
 $paragraph-line-height: 18px;
 $component-heading-color: #919191;
 $form-heading-color: $secondary-color-text;
-$paragraph-margin: $paragraph-line-height / 2;
+$paragraph-margin: calc($paragraph-line-height / 2);
 
 // Buttons
 $btn-bg-color-primary: $secondary-color;
