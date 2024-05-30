@@ -245,7 +245,7 @@ After you've customized your SCIM test in Runscope with the details of your SCIM
     | idUserOne | `323da8f8-21b8-4b25-8322-90673d9e1bc7` | A UUID of a test user created on your SCIM server. |
     | randomUserEmail | `Runscope300Hfluaklab151@example.com` | An email address returned from your SCIM server. |
 
-1. To see the details of tests, click the name of each particular test case to expand the section. The details have information on the **Request**, **Response**, and **Connection** for each HTTP request involved in the test. Each test sends a composed GET or POST request to your SCIM server. The HTTP status received in response determines the success or failure of each test.
+1. To see test details, click the name of each particular test case to expand the section. The details have information on the **Request**, **Response**, and **Connection** for each HTTP request involved in the test. Each test sends a composed GET or POST request to your SCIM server. The HTTP status received in the response determines the success or failure of each test.
 1. After the test is completed, the main panel displays the results of your test.
 
 Since this test is running in your own Runscope instance, you can modify the tests to better fit your own environment. Then complete the test run it again. If you need more technical details, see the [SCIM Reference](/docs/reference/scim/), or check out [Test your SCIM API](/docs/guides/scim-provisioning-integration-prepare/main/#test-your-scim-api).
