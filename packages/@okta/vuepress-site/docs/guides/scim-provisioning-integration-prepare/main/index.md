@@ -248,7 +248,7 @@ After you've customized your SCIM test in Runscope with the details of your SCIM
 1. To see test details, click the name of each particular test case to expand the section. The details have information on the **Request**, **Response**, and **Connection** for each HTTP request involved in the test. Each test sends a composed GET or POST request to your SCIM server. The HTTP status received in the response determines the success or failure of each test.
 1. After the test finishes, the main panel displays the test results.
 
-Since this test is running in your own Runscope instance, you can modify the tests to better fit your own environment. Then complete the test run it again. If you need more technical details, see the [SCIM Reference](/docs/reference/scim/), or check out [Test your SCIM API](/docs/guides/scim-provisioning-integration-prepare/main/#test-your-scim-api).
+Since this test is running in your own Runscope instance, you can modify the tests to better fit your own environment. Then, complete the test run again. If you need more technical details, see the [SCIM Reference](/docs/reference/scim/), or check out [Test your SCIM API](/docs/guides/scim-provisioning-integration-prepare/main/#test-your-scim-api).
 
 ## Share test results from Runscope
 
