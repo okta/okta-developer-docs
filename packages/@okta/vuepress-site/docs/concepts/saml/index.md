@@ -27,8 +27,6 @@ A more elegant way to solve this problem is to allow JuiceCo and every other sup
 
 This type of use case is what led to the birth of federated protocols such as [Security Assertion Markup Language (SAML)](https://docs.oasis-open.org/security/saml/Post2.0/sstc-saml-tech-overview-2.0.html).
 
-See the [Security Assertion Markup Language (SAML) V2.0 Technical Overview](http://docs.oasis-open.org/security/saml/Post2.0/sstc-saml-tech-overview-2.0.html) for a more in-depth overview.
-
 ## Planning for SAML
 
 SAML is mostly used as a web-based authentication mechanism as it relies on using the browser agent to broker the authentication flow. At a high-level, the authentication flow of SAML looks like this:
