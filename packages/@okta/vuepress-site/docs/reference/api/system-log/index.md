@@ -378,7 +378,7 @@ The entity that describes a device enrolled with passwordless authentication usi
 
 ### UserAgent object
 
-"A user agent is software (a software agent) that is acting on behalf of a user." ([Wikipedia](https://www.w3.org/WAI/UA/work/wiki/Definition_of_User_Agent))
+"A user agent is software (a software agent) that is acting on behalf of a user." ([Definition of User Agent](https://www.w3.org/WAI/UA/work/wiki/Definition_of_User_Agent))
 
 In the Okta event data object, the UserAgent object provides specifications about the client software that makes event-triggering HTTP requests. User agent identification is often useful for identifying interoperability problems between servers and clients, and also for browser and operating system usage analytics.
 
