@@ -6108,7 +6108,7 @@ The `matchAttribute` must be a valid Okta User profile attribute of one of the f
 
 **Property details**
 
-* Defining a [regular expression pattern](https://pubs.opengroup.org/onlinepubs/000095399/basedefs/xbd_chap09.html) to filter untrusted IdP usernames for security purposes is **highly recommended**, especially if you have multiple IdPs connected to your organization. The filter prevents an IdP from issuing an assertion for any User including partners or directory Users in your Okta organization.
+* Defining a [regular expression pattern](https://pubs.opengroup.org/onlinepubs/000095399/basedefs/xbd_chap09.html) to filter untrusted IdP usernames for security purposes is **highly recommended**, especially if multiple IdPs are connected to your org. The filter prevents an IdP from issuing an assertion for any User including partners or directory Users in your Okta org.
 
 For example, the filter pattern `(\S+@example\.com)` allows only Users that have an `@example.com` username suffix and rejects assertions that have any other suffix such as `@corp.example.com` or `@partner.com`.
 
