@@ -65,7 +65,7 @@ A couple of key things to note:
 
 ## Planning checklist
 
-While the SAML protocol is a standard, there are different ways to implement it depending on the nature of your application. The following is a checklist that will guide you through some of the key considerations.
+While the SAML protocol is a standard, there are different ways to implement it depending on the nature of your application. The following is a checklist that guides you through some key considerations.
 
   1. Understanding the role of a Service Provider
 
