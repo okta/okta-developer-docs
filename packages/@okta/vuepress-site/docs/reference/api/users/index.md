@@ -776,7 +776,7 @@ Fetch a user by `id`, `login`, or `login shortname` if the short name is unambig
 | id        | `id`, `login`, or `login shortname` (as long as it is unambiguous) | URL        | String   | TRUE     |
 | expand    | Valid value: `block`. If this parameter is specified, then account block details are included in the `_embedded` attribute. The [embedded object](/docs/reference/api/users/#user-block-object) lists information about how the account is blocked from access. | Query        | String   | FALSE     |
 
-> When fetching a user by `login` or `login shortname`, you should [URL encode](https://datatracker.ietf.org/doc/html/rfc3986#section-2.1) the request parameter to ensure special characters are escaped properly.  Logins with a `/` or `?`  character can only be fetched by `id` due to URL issues with escaping the `/` and `?` characters.
+> When fetching a user by `login` or `login shortname`, you should [URL encode](https://datatracker.ietf.org/doc/html/rfc3986#section-2.1) the request parameter to ensure that special characters are escaped properly. Usernames with a `/` or `?`  character can only be fetched by `id` due to URL issues with escaping the `/` and `?` characters.
 
 >**Hint:** you can substitute `me` for the `id` to fetch the current user linked to an API token or session cookie.
 
