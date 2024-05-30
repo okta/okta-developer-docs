@@ -89,7 +89,7 @@ To do this, the SP requires at least the following:
 - ACS Endpoint - Assertion Consumer Service URL - often referred to simply as the SP sign-in URL. This is the endpoint provided by the SP where SAML responses are posted. The SP needs to provide this information to the IdP.
 - IdP Sign-in URL - This is the endpoint on the IdP side where SAML requests are posted. The SP needs to obtain this information from the IdP.
 
-The easiest way to implement SAML is to leverage an open-source SAML toolkit. Find a list at the end of this article of recommended toolkits for several languages. These toolkits provide the logic needed to digest the information in an incoming SAML Response. In addition, if the SP needs to support the SP-initiated sign-in flow, the toolkits also provide the logic needed to generate an appropriate SAML authentication request.
+The easiest way to implement SAML is to leverage an open-source SAML toolkit. There's a list at the end of this article of recommended toolkits for several languages. These toolkits provide the logic needed to digest the information in an incoming SAML Response. In addition, if the SP needs to support the SP-initiated sign-in flow, the toolkits also provide the necessary logic to generate an appropriate SAML authentication request.
 
 ### Single IdP vs multiple IdPs
 
