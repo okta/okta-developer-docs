@@ -101,7 +101,7 @@ If you’re building an internal integration and you want to SAML-enable it to i
 
 </div>
 
-If you’re an independent software vendor (ISV) building an enterprise SaaS product, or if you’re building an external facing website/portal/community for your customers and partners, then you need to look at supporting multiple IdPs. This is the typical use case for many SaaS ISVs that need to integrate with customers' corporate identity infrastructure. Depending on the architecture of your application, you need to think about ways to store the SAML configuration (Certificates or IdP sign-in URLs, for example) from each identity provider, as well as how to provide the necessary SP information for each.
+Independent software vendors (ISV) building an enterprise SaaS product or an external facing website/portal/community for customers and partners should look at supporting multiple IdPs. This is the typical use case for many SaaS ISVs that need to integrate with customers' corporate identity infrastructure. Depending on the architecture of your application, think about ways to store the SAML configuration (Certificates or IdP sign-in URLs, for example) from each Identity Provider. You should also think about how to provide the necessary SP information for each.
 
 <div class="half">
 
