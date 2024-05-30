@@ -141,7 +141,7 @@ For instructions to construct a deep link for SAML IdPs, see [Redirecting with S
 
 ### Exposing SAML configuration in SP
 
-As discussed before, the SP needs the IdP configuration to complete the SAML setup. While many ISVs choose to do this through support and email, the better way is to expose a self-service administrator page for your customer's IT administrator to enable SAML. SAML supports metadata on both the IdP and SP side. One way to configure the IdP/SP relationship on the SP side is to build the ability to receive an IdP metadata file and the ability to generate an SP metadata file for consumption by the IdP. This is the preferred method.
+As discussed before, the SP needs the IdP configuration to complete the SAML setup. While many ISVs choose to do this through support and email, there is a better way. Expose a self-service administrator page for your customer's IT administrator to enable SAML. SAML supports metadata on both the IdP and SP side. One way to configure the IdP/SP relationship on the SP side is to build the ability to receive an IdP metadata file. Then, build the ability to generate an SP metadata file for consumption by the IdP. This is the preferred method.
 
 However, some ISVs choose to allow configuration of several key SAML parameters directly rather than through a metadata file. Typical parameters would include the IdP redirect URL (for SAML Request), IssuerID, IdP Logout URL. The SP must also allow the IdP public certificate to be uploaded or saved.
 
