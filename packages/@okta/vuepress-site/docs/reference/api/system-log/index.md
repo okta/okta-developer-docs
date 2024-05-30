@@ -410,7 +410,7 @@ Geographical context describes a set of geographic coordinates. In addition to c
 
 ### Geolocation object
 
-The latitude and longitude of the geolocation where an action was performed. The object is formatted according to the [ISO-6709](https://www.iso.org/obp/ui/fr/#iso:std:iso:6709:ed-3:v1:en) standard
+The latitude and longitude of the geolocation where an action was performed. The object is formatted according to the [ISO-6709](https://www.iso.org/obp/ui/fr/#iso:std:iso:6709:ed-3:v1:en) standard.
 
 | Property   | Description                                                                                       | DataType        | Nullable |
 | ---------- | ------------------------------------------------------------------------------------------------- | --------------- | -------- |
