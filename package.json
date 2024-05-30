@@ -32,15 +32,11 @@
     "stylelint:scss": "stylelint \"packages/@okta/vuepress-theme-prose/**/*.scss\"",
     "stylelint:vue": "stylelint \"packages/@okta/vuepress-theme-prose/**/*.vue\"",
     "eslint": "eslint \"packages/@okta/vuepress-theme-prose/**/*.vue\"",
-    "lint-all": "yarn eslint --max-warnings=0 && yarn stylelint",
-    "postinstall": "node scripts/patch-css.js"
+    "lint-all": "yarn eslint --max-warnings=0 && yarn stylelint"
   },
   "repository": "git@github.com:okta/okta.github.io",
   "author": "Brian Retterer <brian.retterer@okta.com>",
   "license": "Apache-2.0",
-  "dependencies": {
-    "replace-in-file": "^7.1.0"
-  },
   "devDependencies": {
     "@mapbox/stylelint-processor-arbitrary-tags": "^0.4.0",
     "axios": "^0.26.1",
