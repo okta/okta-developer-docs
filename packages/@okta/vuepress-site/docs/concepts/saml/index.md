@@ -93,7 +93,7 @@ The easiest way to implement SAML is to leverage an open-source SAML toolkit. Th
 
 ### Single IdP vs multiple IdPs
 
-If you’re building an internal integration and you want to SAML-enable it to integrate with your corporate SAML identity provider, then you’re looking at supporting only a single IdP. In this case, your integration only needs to deal with a single set of IdP metadata (cert, endpoints, and so on).
+If you’re building an internal integration and you want to SAML-enable it to integrate with your corporate SAML Identity Provider, then you’re looking at supporting only a single IdP. In this case, your integration only needs to deal with a single set of IdP metadata (cert, endpoints, and so on).
 
 <div class="half">
 
