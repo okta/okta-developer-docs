@@ -1042,7 +1042,7 @@ curl -v -X GET \
 
 Fetches a specific user when you know the user's `login shortname` and the shortname is unique within the organization
 
-When fetching a user by `login shortname`, [URL encode](https://datatracker.ietf.org/doc/html/rfc3986#section-2.1) the request parameter to ensure special characters are escaped properly.
+When fetching a user by `login shortname`, [URL encode](https://datatracker.ietf.org/doc/html/rfc3986#section-2.1) the request parameter to ensure that special characters are escaped properly.
 Logins with a `/` character can only be fetched by `id` due to URL issues with escaping the `/` character.
 
 ##### Request example
