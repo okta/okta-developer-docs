@@ -545,7 +545,7 @@ The `securityContext` object provides security information that is directly rela
 
 | Property | Description                                                                                                                                                        | DataType | Nullable |
 | -------- | -----------------------------------------------------------------------------------------------                                                                    | -------- | -------- |
-| asNumber | The [Autonomous system](https://https://www.iana.org/numbers) number that is associated with the autonomous system that the event request was sourced to | Integer  | TRUE     |
+| asNumber | The [Autonomous system](https://https://www.iana.org/numbers) number that's associated with the autonomous system the event request was sourced to | Integer  | TRUE     |
 | asOrg    | The organization that is associated with the autonomous system that the event request is sourced to                                                                           | String   | TRUE     |
 | isp      | The Internet service provider that is used to send the event's request                                              | String   | TRUE     |
 | domain   | The domain name that is associated with the IP address of the inbound event request                                           | String   | TRUE     |
