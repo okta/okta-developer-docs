@@ -7,7 +7,7 @@ meta:
 layout: Guides
 ---
 
-Use this guide to prepare a SCIM-compliant (System for Cross-domain Identity Management) API server to host your SCIM service. Then test your server to ensure it's functional.
+Use this guide to prepare a SCIM-compliant (System for Cross-domain Identity Management) API server to host your SCIM service. Then, test your server to ensure that it's functional.
 
 ## Preparation
 
