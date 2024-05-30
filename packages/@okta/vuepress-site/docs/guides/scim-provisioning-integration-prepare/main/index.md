@@ -148,7 +148,7 @@ Sometimes it isn't feasible for your cloud-based application to natively support
 
 ## Provision to on-premises applications
 
-This provisioning guide targets cloud-based apps. For on-premises apps, see [Provision on-premises provisioning](https://help.okta.com/okta_help.htm?id=ext_OPP_configure) for details about the Okta agent-based provisioning solution.
+This provisioning guide targets cloud-based apps. For on-premises apps, see [Provision on-premises applications](https://help.okta.com/okta_help.htm?id=ext_OPP_configure) for details about the Okta agent-based provisioning solution.
 
 ## Test your SCIM API
 
