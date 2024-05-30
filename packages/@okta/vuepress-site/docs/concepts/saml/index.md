@@ -49,7 +49,7 @@ The following common SAML terms are important to understand during the planning 
 
 - **Service Provider Initiated (SP-initiated) sign-in**: Describes the SAML sign-in flow when initiated by the Service Provider. This is typically triggered when the end user tries to access a resource or sign in directly on the Service Provider side.
 
-- **Identity Provider Initiated (IdP-initiated) sign-in**: Describes the SAML sign-in flow initiated by the Identity Provider. Instead of the SAML flow being triggered by a redirection from the Service Provider, in this flow the Identity Provider initiates a SAML Response that is redirected to the Service Provider to assert the user's identity.
+- **Identity Provider Initiated (IdP-initiated) sign-in**: Describes the SAML sign-in flow initiated by the Identity Provider. Instead of the SAML flow being triggered by a redirection from the Service Provider, the Identity Provider initiates a SAML Response that's redirected to the Service Provider to assert the user's identity.
 
 A couple of key things to note:
 
