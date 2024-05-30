@@ -81,7 +81,7 @@ While the SAML protocol is a standard, there are different ways to implement it 
 
 ### Understanding the role of a Service Provider
 
-A SAML IdP generates a SAML response based on a configuration that is mutually agreed to by the IdP and the SP. After receiving the SAML assertion, the SP needs to validate that the assertion comes from a valid IdP and then parse the necessary information from the assertion: the username, attributes, and so on.
+A SAML IdP generates a SAML response based on a configuration that's mutually agreed to by the IdP and the SP. After receiving the SAML assertion, the SP must validate that the assertion comes from a valid IdP and then parse the necessary information from the assertion, for example, the username, attributes, and so on.
 
 To do this, the SP requires at least the following:
 
