@@ -15,7 +15,7 @@ The first step in delivering your SCIM integration is preparing a SCIM-compliant
 
 Okta supports lifecycle provisioning using either version 2.0 and version 1.1 of the SCIM protocol.
 
-If your service already supports the SCIM protocol, you should still review the [Okta SCIM reference](/docs/reference/scim/) documentation. They help you to understand how Okta implements the SCIM protocol.
+If your service already supports the SCIM protocol, you should still review the [Okta SCIM reference](/docs/reference/scim/) documentation. The SCIM reference helps you to understand how Okta implements the SCIM protocol.
 
 If you haven't yet implemented SCIM, Okta recommends that you use [version 2.0 of the SCIM protocol](/docs/reference/scim/scim-20/).
 
