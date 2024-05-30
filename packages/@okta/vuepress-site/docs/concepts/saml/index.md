@@ -109,7 +109,7 @@ Independent software vendors (ISV) building an enterprise SaaS product or an ext
 
 </div>
 
-A key consideration involves the ACS URL endpoint on the SP side where SAML responses are posted. It’s possible to expose a single endpoint even when dealing with multiple IdPs. For a single-instance multi-tenant application where the tenancy isn't defined in the URL (such as when using a subdomain), this might be a simpler way to implement. However, you must then rely on additional information in the SAML response to determine which IdP is trying to authenticate (for example, using the IssuerID). If your application is set up in a multi-tenant fashion with domain information in the URL (for example, using either `https://domain1.example.com` or `https://www.example.com/domain1`), then having an ACS URL endpoint for each subdomain might be a good option since the URL itself identifies the domain.
+A key consideration involves the ACS URL endpoint on the SP side where SAML responses are posted. It’s possible to expose a single endpoint even when dealing with multiple IdPs. For a single-instance multi-tenant application where the tenancy isn't defined in the URL (such as when using a subdomain), this might be a simpler way to implement. However, you must then rely on additional information in the SAML response to determine which IdP is trying to authenticate (for example, using the IssuerID). Applications set up in a multi-tenant fashion with domain information in the URL (for example, using either `https://domain1.example.com` or `https://www.example.com/domain1`) can benefit from having an ACS URL endpoint for each subdomain. It's a good option since the URL itself identifies the domain.
 
 <div class="three-quarter">
 
