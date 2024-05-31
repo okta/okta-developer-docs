@@ -81,6 +81,9 @@ module.exports = ctx => ({
   ],
   title: "Okta Developer",
   description: "Secure, scalable, and highly available authentication and user management for any app.",
+  scss: {
+    quietDeps: true
+  },
 
   /**
    * Global theme config
