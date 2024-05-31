@@ -606,7 +606,7 @@ Okta checks that the Group object exists on the SCIM server through a GET method
 
 Okta uses the `GET /Groups` request with `displayName` filtering when you want to update a group, but the external group ID isn't known.
 
-> **Note:** One case where the external group ID isn't known is when admins configure the provisioning app integration and unselects the **Import Groups** checkbox. See [Configure provisioning for an app integration](https://help.okta.com/okta_help.htm?id=ext_prov_lcm_prov_app).
+> **Note:** One case where the external group ID isn't known is when admins configure the provisioning app integration and unselect the **Import Groups** checkbox. See [Configure provisioning for an app integration](https://help.okta.com/okta_help.htm?id=ext_prov_lcm_prov_app).
 
 The following is an example of a request to the SCIM server:
 
