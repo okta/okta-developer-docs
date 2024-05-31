@@ -602,11 +602,11 @@ Authorization: <Authorization credentials>
 The response to this request is a JSON list of all the Group objects found in the SCIM application.
 
 You must also implement filtering results with the `eq` (equals) operator on your SCIM server.
-Okta checks that the Group object exists on the SCIM server through a GET method request with the `filter=displayName eq "${groupName}"` path parameter. This check is performed using the `eq` (equal) operator against the group name on the target app.
+Okta checks that the Group object exists on the SCIM server through a GET method request with the `filter=displayName eq "${groupName}"` path parameter, where `groupName` is the group name on the target app.
 
-Okta uses the `GET /Groups` request with `displayName` filtering when you want to update a group, but the external group ID isn't known.
+Okta uses the `GET /Groups` request with a group name filter when you want to update a group, but the external group ID isn't known.
 
-> **Note:** One case where the external group ID isn't known is when admins configure the provisioning app integration and unselect the **Import Groups** checkbox. See [Configure provisioning for an app integration](https://help.okta.com/okta_help.htm?id=ext_prov_lcm_prov_app).
+> **Note:** One case where the external group ID isn't known is when admins configure the provisioning app integration and clear the **Import Groups** checkbox. See [Configure provisioning for an app integration](https://help.okta.com/okta_help.htm?id=ext_prov_lcm_prov_app).
 
 The following is an example of a request to the SCIM server:
 
