@@ -185,7 +185,10 @@ If you restore an email to default settings, you delete any customizations made 
 
 After you customize a template in one language, you need to customize templates for other languages if you want to include them. If you reset all customized translations, then Okta uses the 27 default translations.
 
-Okta uses the default language when the end user’s locale doesn't match any email customizations.
+The following settings determine the language for emails sent from Okta to a user, if the user hasn't selected a specific display language:
+
+* The user's locale property value (if specified)
+* The org's display language
 
 ### Supported languages
 
