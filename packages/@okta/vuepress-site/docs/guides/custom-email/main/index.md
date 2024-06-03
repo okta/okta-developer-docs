@@ -79,7 +79,7 @@ See [Email template operations](/docs/reference/api/brands/#email-template-opera
 
 Use these steps to add or edit a template in one of the Okta-supported languages.
 
-> **Note:** To access email customization with a free Okta Developer Edition org, you need to contact [Okta support](https://support.okta.com/help).
+> **Note:** To access email customization with a free Okta Developer Edition org, contact [Okta support](https://support.okta.com/help).
 
 1. In the Admin Console, go to **Customizations** > **Brands**, and then select the brand you want.
 1. On the **Emails** tab, click an email template name:
