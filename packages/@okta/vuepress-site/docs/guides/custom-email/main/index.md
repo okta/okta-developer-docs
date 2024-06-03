@@ -187,6 +187,38 @@ After you customize a template in one language, you need to customize templates 
 
 Okta uses the default language when the end user’s locale doesn't match any email customizations.
 
+### Supported languages
+
+| Language | BCP 47 language tag |
+| -------------------- | -------------- |
+| Czech  | `cs` |
+| Danish  | `da` |
+| German  | `de` |
+| Greek  | `el` |
+| English  | `en` |
+| Spanish  | `es` |
+| Finnish  | `fi` |
+| French  | `fr` |
+| Hungarian  | `hu` |
+| Indonesian  | `id` |
+| Italian  | `it` |
+| Japanese  | `ja` |
+| Korean  | `ko` |
+| Malaysian  | `ms` |
+| Norwegian  | `nb` |
+| Dutch  | `nl-NL` |
+| Polish  | `pl` |
+| Portuguese  | `pt-BR` |
+| Romanian  | `ro` |
+| Russian  | `ru` |
+| Swedish  | `sv` |
+| Thai  | `th` |
+| Turkish  | `tr` |
+| Ukrainian  | `uk` |
+| Vietnamese  | `vi` |
+| Chinese (simplified)  | `zh-CN` |
+| Chinese (traditional)  | `zh-TW` |
+
 ### Enable additional locales
 
 <ApiLifecycle access="ea" />
