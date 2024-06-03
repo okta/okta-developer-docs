@@ -191,6 +191,8 @@ Okta uses the default language when the end user’s locale doesn't match any em
 
 | Language | BCP 47 language tag |
 | -------------------- | -------------- |
+| Chinese (simplified)  | `zh-CN` |
+| Chinese (traditional)  | `zh-TW` |
 | Czech  | `cs` |
 | Danish  | `da` |
 | German  | `de` |
@@ -216,8 +218,6 @@ Okta uses the default language when the end user’s locale doesn't match any em
 | Turkish  | `tr` |
 | Ukrainian  | `uk` |
 | Vietnamese  | `vi` |
-| Chinese (simplified)  | `zh-CN` |
-| Chinese (traditional)  | `zh-TW` |
 
 ### Enable additional locales
 
