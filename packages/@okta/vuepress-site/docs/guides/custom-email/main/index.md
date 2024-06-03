@@ -79,7 +79,7 @@ See [Email template operations](/docs/reference/api/brands/#email-template-opera
 
 Use these steps to add or edit a template in one of the Okta-supported languages.
 
-> **Note:** To access email customization with a free developer edition of an Okta org, you need to contact [Okta support](https://support.okta.com/help).
+> **Note:** To access email customization with a free Okta Developer Edition org, you need to contact [Okta support](https://support.okta.com/help).
 
 1. In the Admin Console, go to **Customizations** > **Brands**, and then select the brand you want.
 1. On the **Emails** tab, click an email template name:
@@ -90,7 +90,7 @@ Use these steps to add or edit a template in one of the Okta-supported languages
    - **Subject**: The subject line for the template in the default language. You can edit the subject line when the template is in read/write mode.
    - In the preview window, to see a translation of a customized template, select a language from the dropdown menu. See [Add translations](#add-translations).
 1. Click **Edit** to put the editor in read/write mode.
-1. Make changes directly in the editor. If you type `$`, `#` or `{`, the editor provides a list of available variables that you can use. See [Use Velocity Templating Language (VTL)](#use-velocity-templating-language).
+1. Make changes directly in the editor. If you type `$`, `#`, or `{`, the editor provides a list of available variables that you can use. See [Use Velocity Templating Language (VTL)](#use-velocity-templating-language).
    - Click the code editor to full-screen mode.
    - Click **Save changes**, then click **Preview** to see your changes before you publish.
    - Click **Reset template** to remove your customizations and restore the default HTML/CSS and JavaScript code.
@@ -241,7 +241,7 @@ If you use functions while adding more locales, use the `getTimeDiffHoursNow` fu
 1. In the Admin Console, go to **Customizations** > **Brands**.
 1. Select a brand.
 1. Click **Emails**.
-1. In the **Email Templates** box, select an email template that you have customized.
+1. In the **Email Templates** box, select an email template that you’ve customized.
    - The code editor is in preview mode and shows the default language version.
    - **Translations**: Customize email template translations:
       1. Click **Edit**.
