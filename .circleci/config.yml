@@ -6,6 +6,14 @@ parameters:
     default: ""
 
 jobs:
+  inclusive-linting:
+    docker:
+      - image: cimg/node:18.19.0
+    resource_class: small
+    steps:
+      - checkout
+      - run: bash ./scripts/inclusive-lint.sh
+
   node_build_checks:
       docker:
         - image: cimg/node:14.21.3-browsers
@@ -120,6 +128,11 @@ workflows:
           name: "Scan with Semgrep"
           requires:
             - semgrep-prepare
+
+  linting:
+    jobs:
+      - inclusive-linting:
+          name: "Inclusive Linting"
 
   build_checks:
     when:
