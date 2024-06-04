@@ -16,27 +16,28 @@ title: Okta Classic Engine API release notes 2024
 | [SCIM 2.0 endpoint call update for user ResourceType requirements](#scim-2-0-endpoint-call-update-for-user-resourcetype-requirements) | June 5, 2024 |
 | [Increase to Inline Hooks](#increase-to-inline-hooks) | June 5, 2024 |
 | [New attribute to manage SAML app session lifetimes is GA in Preview](#new-attribute-to-manage-saml-app-session-lifetimes-is-ga-in-preview) | June 5, 2024 |
-| [Protected actions in the Admin Console]() | June 5, 2024 |
+| [Protected actions in the Admin Console is GA in Preview](#protected-actions-in-the-admin-console-is-ga-in-preview) | June 5, 2024 |
+| [Session cookie overrides are GA in Production](#session-cookie-overrides-are-ga-in-production) | June 5, 2024 |
 | [Developer documentation update in 2024.06.0](#developer-documentation-update-in-2024-06-0) | June 5, 2024 |
 | [Bug fixed in 2024.06.0](#bug-fixed-in-2024-06-0) | June 5, 2024 |
 
 #### Active Directory Bidirectional Group Management API is GA in Preview
 
-The [Bidirectional Group Management for Active Directory (AD) API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/DirectoriesIntegration) allows you to manage Active Directory groups from within Okta. You can add or remove users from groups based on their identity and access requirements. This ensures that changes made to user access in Okta are reflected in Active Directory. When you use Okta Access Certifications to revoke a user's membership to an AD group, the removal is reflected in AD.
+The [Bidirectional Group Management for Active Directory (AD) API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/DirectoriesIntegration) allows you to manage AD groups from within Okta. You can add or remove users from groups based on their identity and access requirements. This ensures that changes made to user access in Okta are reflected in AD. When you use Okta Access Certifications to revoke a user's membership to an AD group, the removal is reflected in AD.
 
 Okta can only manage group memberships for users and groups imported into Okta using the AD integration. It isn't possible to manage users and groups that weren't imported through AD integration or are outside the organizational unit's scope for the integration using this feature. <!--AD_BIDIRECTIONAL_GROUP_MANAGEMENT OKTA-734564-->
 
 #### Seamless ISV experience with integrated testing is GA in Production
 
-Okta now provides a seamless ISV experience to optimize the [Okta Integration Network (OIN)](https://www.okta.com/integrations/) submission experience for SAML and OIDC integrations. This new experience enables independent software vendors (ISVs) to build and automatically test their integration metadata before submission. This reduces the time needed for the OIN team to review and validate that the integration functions as intended, which shortens the time to publish in the OIN. This experience also incorporates communication processes in Salesforce, enabling improved collaboration internally within Okta teams and externally with ISVs. See [Publish an OIN integration](/docs/guides/submit-app-overview/) overview and [Submit an SSO integration with the OIN Wizard](/docs/guides/submit-oin-app/openidconnect/main/) guide. <!--OKTA_OIN_SUBMISSION_TESTER OKTA-686228-->
+Okta now provides a seamless ISV experience to optimize the [Okta Integration Network (OIN)](https://www.okta.com/integrations/) submission experience for SAML and OIDC integrations. This new experience enables independent software vendors (ISVs) to build and automatically test their integration metadata before submission. This reduces the time needed for the OIN team to review and validate that the integration functions as intended, which shortens the time to publish in the OIN. This experience also incorporates communication processes in Salesforce, enabling improved collaboration internally within Okta teams and externally with ISVs. See [Publish an OIN integration](/docs/guides/submit-app-overview/) overview and [Submit an SSO integration with the OIN Wizard](/docs/guides/submit-oin-app/openidconnect/main/) guide. <!--OKTA_OIN_SUBMISSION_TESTER OKTA-686228 -->
 
 #### Your OIN Integrations instruction updates
 
-The instructions on how to submit your OIN integration has been updated in the **Your OIN Integrations** page in the Admin Console for Developer Edition orgs. <!--OKTA-734095-->
+TThe instructions on how to submit your OIN integration have been updated on the **Your OIN Integrations** page of the Admin Console in Developer Edition orgs. <!--OKTA-734095-->
 
 #### SCIM 2.0 endpoint call update for user ResourceType requirements
 
-When using [SCIM 2.0 with Entitlements](https://developer.okta.com/docs/guides/scim-with-entitlements/main/), Okta no longer requires a User `ResourceType` value when no custom `schemaExtensions` are used. This applies only to SCIM 2.0 apps enabled for governance with Okta Identity Governance leveraging the `/ResourceTypes` endpoint. <!--OKTA-729238-->
+When using [SCIM 2.0 with Entitlements](/docs/guides/scim-with-entitlements/main/), Okta no longer requires a user `ResourceType` value when no custom `schemaExtensions` are used. This applies only to SCIM 2.0 apps enabled for governance with Okta Identity Governance leveraging the `/ResourceTypes` endpoint. <!--OKTA-729238-->
 
 #### Increase to Inline Hooks
 
@@ -44,15 +45,19 @@ The maximum number of inline hooks an org can create is now 100. The previous ma
 
 #### New attribute to manage SAML app session lifetimes is GA in Preview
 
-The `SessionNotOnOrAfter` parameter is an optional SAML parameter that enables the IdP to control the session at the SP. Add `SessionNotOnOrAfter` as an attribute in the SAML assertion to control the session lifetimes of SP apps using the Okta IdP. <!--SAML_ASSERTION_LIFETIME_SECONDS_ON_APPS_API OKTA-690479-->
+The `SessionNotOnOrAfter` parameter is an optional SAML parameter that enables the IdP to control the session at the SP. Add `SessionNotOnOrAfter` as an attribute in the SAML assertion to control the session lifetimes of SP apps using the Okta IdP. <!--OKTA-690479-->
 
-#### Protected actions in the Admin Console
+#### Protected actions in the Admin Console is GA in Preview
 
-[TBD if to be included]
+The protected actions feature provides an additional layer of security to your org. It prompts admins for authentication when they perform critical tasks in the Admin Console and helps ensure that only authorized admins can perform these tasks. Super admins can configure the authentication interval for their org. See [Protected actions in the Admin Console](https://help.okta.com/okta_help.htm?type=oie&id=ext-protected-actions). <!-- PRIVILEGED_ACTIONS OKTA-683167 -->
+
+#### Session cookie overrides are GA in Production
+
+Okta ignores the session cookie if the request includes a session token parameter.
 
 #### Developer documentation update in 2024.06.0
 
-* The [Customize domain and email address guide](/docs/guides/custom-url-domain/main/#caveats) has been updated to say that network zones are incompatible with Okta-managed TLS certificates. (OKTA-730633)
+* The [Customize domain and email address guide](/docs/guides/custom-url-domain/main/#caveats) now says that network zones are incompatible with Okta-managed TLS certificates. (OKTA-730633)
 
 #### Bug fixed in 2024.06.0
 
