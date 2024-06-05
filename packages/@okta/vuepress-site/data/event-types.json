@@ -12166,7 +12166,7 @@
     }, {
       "id" : "security.breached_credential.detected",
       "category" : "adaptive",
-      "description" : "A credential, such as a password, which is associated with a known breach was used during an authentication flow. Used to identify users for whom credential rotation or other risk mitigation is necessary. The actor is the user with the breached credential. For OIE, a target will indicate the specificcredential associated with the breach. The outcome for this event will always be SUCCESS with a severity level of WARN. If breached credential protection is enabled, auser.session.clear will also be fired. These two events can be correlated by the Request ID.",
+      "description" : "A credential, such as a password, which is associated with a known breach was used during an authentication flow. Used to identify users for whom credential rotation or other risk mitigation is necessary. The actor is the user with the breached credential. For Identity Engine, a target will indicate the specific credential associated with the breach. The outcome for this event will always be SUCCESS with a severity level of WARN. If breached credential protection is enabled, auser.session.clear will also be fired. These two events can be correlated by the Request ID.",
       "info" : {
         "created" : "2024-04-03",
         "release" : "2024.04.2"
