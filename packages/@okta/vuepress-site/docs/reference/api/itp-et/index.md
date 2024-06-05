@@ -41,13 +41,13 @@ This resource contains detailed reference material on event types triggered with
 
 ### policy.auth_reevaluate.fail
 
-**Description:** This event is triggered when an authentication policy detects a Continuous Access violation and it results in failure. It's used to determine the user, apps, and session that were involved in a continuous access violation.
+**Description:** This event is triggered when an authentication policy detects a continuous access violation and it results in failure. It's used to determine the user, apps, and session that were involved in a continuous access violation.
 
 | Key event properties  | Description                                         | Data type      | Example values |
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
 | **event.system.debugContext.debugData**                |                 |         |         |
 | Behaviors             | List of behaviors identified for the current event. `POSITIVE` - the specific behavior is identified. `NEGATIVE` - the specific behavior wasn't identified. See [About Behavior Detection](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-behavior-detection).                 | key-value pairs        |  `{ New Geo-Location=POSITIVE, New Device=NEGATIVE, New IP=POSITIVE, New State=POSITIVE, New Country=POSITIVE, Velocity=POSITIVE, New City=POSITIVE } `       |
-| CaeEnforceMode             | The Continuous Access evaluation (CAE) UI setting that determines whether the policy is enforceable. If this is false, Okta logs these events but doesn't take any further action.                  | Boolean         | `true`       |
+| CaeEnforceMode             | The Continuous Access evaluation UI setting that determines whether the policy is enforceable. If this is false, Okta logs these events but doesn't take any further action.                  | Boolean         | `true`       |
 | Risk            | Contains the level of risk for a particular request (`LOW`, `MEDIUM`, or `HIGH`) and the `reasons` that contributed to the risk level.               | key-value pairs         | `{reasons=Anomalous Geo-Distance, New Device, New ASN, New IP, New State, New Country, New City, level=HIGH}`        |
 | ServerStatus            |  Describes the current state of the Okta servers. Other values can be `READ_ONLY` and `SAFE_MODE`.                | Enum         | `ACTIVE`         |
 | ThreatSuspected            | If ThreatInsight is running and detects a request as suspicious, the value for this property is `true`.                 | Boolean         | `false`         |
@@ -83,18 +83,18 @@ This resource contains detailed reference material on event types triggered with
 | TraceId            | A unique ID that is used across a single flow of ITP events to easily correlate them all into one System Log query                 | String         | `65d55fa6-b5a9-40f9-a6f1-627b9fa71b50`        |
 | **target** (User)         | The user associated with the risk change           | Object      |        |
 | type        | The type of target object     | String     | User       |
-| **target** (Rule)         | The rule associated with the continuous access evaluation           | Object     |        |
+| **target** (Rule)         | The rule associated with the Continuous Access evaluation           | Object     |        |
 | type       | The type of target object           | String     | Rule       |
 | **target.DetailEntry** (Rule)       |             |      |        |
 | RuleAction        | The configured action to respond to the risk. Values include `TERMINATE_SESSION` or `RUN_WORKFLOW`.            | Enum     | `TERMINATE_SESSION`       |
-| SingleLogOutEnabled        | For a `RuleAction` of `TERMINATE_SESSION`, and if `true`, a continuous access evaluation violation enforces application logout             | Boolean     | `true`      |
+| SingleLogOutEnabled        | For a `RuleAction` of `TERMINATE_SESSION`, and if `true`, a Continuous Access evaluation violation enforces application logout             | Boolean     | `true`      |
 | SingleLogOutSelectionMode        | For a `RuleAction` of `TERMINATE_SESSION`, the options of the application logout, either all applications, specific applications, or none. Values can be: `NONE`, `ALL`, or `SPECIFIED`.           | Enum     | `ALL`       |
 | WorkflowId         | The unique identifier of the workflow if the `RuleAction` is `RUN_WORKFLOW`.           | String     | 572749       |
 | DisplayName        | Displays the name of the rule           | String     | Entity Risk Policy       |
 | ID        | Unique identifier of the rule            | String     | `00u8xst93qEWYx65sx1d7`       |
-| **target** (Policy)         |  The continuous access evaluation policy         | Object      |        |
+| **target** (Policy)         |  The Continuous Access evaluation policy         | Object      |        |
 | type        | The type of target object     | String     | Policy       |
-| **target** (PolicyAction)         | The action associated with the continuous access evaluation           | Object     |        |
+| **target** (PolicyAction)         | The action associated with the Continuous Access evaluation           | Object     |        |
 | type        | The type of target object           | String     | PolicyAction       |
 | **target.DetailEntry** (PolicyAction)       |             |      |        |
 | PolicyAction        | The configured action to respond to the risk. Values include `TERMINATE_SESSION` or`RUN_WORKFLOW`.              | Enum     | `TERMINATE_SESSION`       |
@@ -103,7 +103,7 @@ This resource contains detailed reference material on event types triggered with
 | PolicySingleLogoutAppInstanceIds          | A list of apps that will that will be logged out if the `PolicySingleLogOutMode` mode is `SPECIFIED`.            | Array     | `[ "0oa1gkh63g214r0Hq0g4", "0oa1gjh63g214q0Iq3g3" ]`      |
 | WorkflowId         | The unique identifier of the workflow if the `PolicyAction` is `RUN_WORKFLOW`.           | String     | 572749       |
 | DisplayName        | Displays the name of the action          | String     | `TERMINATE_SESSION`       |
-| ID        | Unique identifier of the continuous access evaluation policy           | String     | `00u8xst93qEWYx65sx1d7`       |
+| ID        | Unique identifier of the Continuous Access evaluation policy           | String     | `00u8xst93qEWYx65sx1d7`       |
 | **actor**                 |  The target user if synchronous and the system principal if asynchronous                 | Object        |         |
 | type        | The type of actor object           |      |        |
 | **client**                |  The client of the actor                 |       |         |
@@ -122,16 +122,16 @@ This resource contains detailed reference material on event types triggered with
 | TraceId            | A unique ID that is used across a single flow of ITP events to easily correlate them all into one System Log query                 | String         | `65d55fa6-b5a9-40f9-a6f1-627b9fa71b50`        |
 | **target** (User)         | The user associated with the risk change           | Object     |        |
 | type        | The type of target object     | String     | User       |
-| **target** (Rule)         | The rule associated with the continuous access evaluation            | Object     |        |
+| **target** (Rule)         | The rule associated with the Continuous Access evaluation            | Object     |        |
 | type        | The type of target object           | String     | Rule       |
 | **target.DetailEntry** (Rule)       |             |      |        |
 | RuleAction        | The configured action to respond to the risk. Values include `TERMINATE_SESSION` or `RUN_WORKFLOW`.             | Enum     | `TERMINATE_SESSION`       |
-| SingleLogOutEnabled        | For a `RuleAction` of `TERMINATE_SESSION`, and if `true`, a continuous access evaluation violation enforces application logout.          | Boolean     | `true`      |
-| SingleLogOutSelectionMode        | For a `RuleAction` of `TERMINATE_SESSION`, the options of the application logout, either all applications, specific applications, or none. Values can be: `NONE`, `ALL`, or `SPECIFIED`.           | Enum     | `ALL`       |
+| SingleLogOutEnabled        | For a `RuleAction` of `TERMINATE_SESSION`, and if `true`, a Continuous Access evaluation violation enforces app logout.          | Boolean     | `true`      |
+| SingleLogOutSelectionMode        | For a `RuleAction` of `TERMINATE_SESSION`, the options of the app logout, either all apps, specific apps, or none. Values can be: `NONE`, `ALL`, or `SPECIFIED`.           | Enum     | `ALL`       |
 | WorkflowId         | The unique identifier of the workflow if the `RuleAction` is `RUN_WORKFLOW`.           | String     | 572749       |
 | DisplayName        | Display the name of the target rule           | String     | Test Rule      |
 | ID        | Unique identifier of the target rule           | String     | `00u8xst93qEWYx65sx1d7`       |
-| **target** (Policy)         |  The continuous access evaluation policy        | Object     |        |
+| **target** (Policy)         |  The Continuous Access evaluation policy        | Object     |        |
 | type        | The type of target object     | String     | Policy      |
 | **actor**                 |  The target user if synchronous and the system principal if asynchronous                |         |         |
 | type        | The type of actor object           | Object     |        |
@@ -225,28 +225,28 @@ This resource contains detailed reference material on event types triggered with
 | Key event properties | Description                                         | Data type      | Example values |
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
 | **event.system.debugContext.debugData**                |                 |         |         |
-| AppInstanceIds            |A list of application IDs that Okta triggered for Universal Logout                 | Array of IDs         | ["0oa1ysra5y0ESChAr0h8"]        |
-| TraceId            | The `TraceId` is used in continuous access evaluation use cases. A request that triggers a CAE evaluation can ultimately trigger things like CAE action events - and those are executed from the async jobs. `TraceId` connects together events triggered both by the original request handler and from the async jobs triggered by this handler. | String         | `94384405-51e3-4e13-b8b0-ba857b585a63`         |
+| AppInstanceIds            |A list of app IDs that Okta triggered for Universal Logout                 | Array of IDs         | ["0oa1ysra5y0ESChAr0h8"]        |
+| TraceId            | The `TraceId` is used in Continuous Access evaluation use cases. A request that triggers a Continuous Access evaluation can ultimately trigger things like continuous access action events - and those are executed from the async jobs. `TraceId` connects together events triggered both by the original request handler and from the async jobs triggered by this handler. | String         | `94384405-51e3-4e13-b8b0-ba857b585a63`         |
 | **target** (User)         | The user impacted by the universal logout          | Object     |        |
 | type        | The type of target object     | String     | User       |
 | **actor**                 |  The admin or system principal that triggers universal logout                 | Object        |         |
 | type        | The type of actor object           |      |        |
-| **client**                |  The client of the system principal actor for continuous access evaluation and entity risk policy actions, or the client of the admin triggering the clear user sessions action.                 | Object      |         |
+| **client**                |  The client of the system principal actor for Continuous Access evaluation and entity risk policy actions, or the client of the admin triggering the clear user sessions action.                 | Object      |         |
 | IPAddress              | IP address                |       |         |
 
 ### user.authentication.universal_logout.scheduled
 
-**Description:** This event triggers only when an admin manually triggers the Universal Logout against an app instance. It contains the location of the admin and the context of the universal logout, that is, from where and how the Universal Logout API was triggered. This event is only triggered once. You can co-relate this event with the `user.authentication.universal_logout` event using the `traceID` found under `DebugData` for both events.
+**Description:** This event triggers only when an admin manually triggers the Universal Logout against an app instance. It contains the location of the admin and the context of the Universal Logout, that is, from where and how the Universal Logout API was triggered. This event is only triggered once. You can correlate this event with the `user.authentication.universal_logout` event using the `traceID` found under `DebugData` for both events.
 
 | Key event properties | Description                                         | Data type      | Example values |
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
 | **event.system.debugContext.debugData**                |                 |         |         |
-| TraceId            | The `TraceId` is used in continuous access evaluation use cases. A request that triggers a CAE evaluation can ultimately trigger things like CAE action events - and those are executed from the async jobs. `TraceId` connects together events triggered both by the original request handler and from the async jobs triggered by this handler. | String         | `94384405-51e3-4e13-b8b0-ba857b585a63`         |
-| **target** (User)         | The user impacted by the universal logout          | Object     |        |
+| TraceId            | The `TraceId` is used in Continuous Access evaluation use cases. A request that triggers a Continuous Access evaluation can ultimately trigger things like continuous access action events - and those are executed from the async jobs. `TraceId` connects together events triggered both by the original request handler and from the async jobs triggered by this handler. | String         | `94384405-51e3-4e13-b8b0-ba857b585a63`         |
+| **target** (User)         | The user impacted by the Universal Logout          | Object     |        |
 | type        | The type of target object     | String     | User       |
-| **actor**                 |  The admin or system principal that triggers universal logout                 | Object        |         |
+| **actor**                 |  The admin or system principal that triggers Universal Logout                 | Object        |         |
 | type        | The type of actor object           |      |        |
-| **client**                |  The client of the system principal actor for continuous access evaluation and entity risk policy actions, or the client of the admin triggering the clear user sessions action.                 | Object      |         |
+| **client**                |  The client of the system principal actor for Continuous Access evaluation and entity risk policy actions, or the client of the admin triggering the clear user sessions action.                 | Object      |         |
 | Device           | This property contains information about what type of device the admin was using when the Universal Logout event was triggered.                 |  String     | Computer        |
 | GeographicalContext.City         | This property contains information about the city where the Universal Logout event was triggered. | String         | San Francisco       |
 | GeographicalContext.Country/region        | This property contains information about the country/region where the Universal Logout event was triggered. | String         | United States       |
@@ -330,12 +330,12 @@ This resource contains detailed reference material on event types triggered with
 | EndedSessionId             |  The session ID that is ended for the target user                 | String         |  `idxffK-esRDSrC5m0ly-Kma9A `       |
 | TraceId            | A unique ID that is used across a single flow of ITP events to easily correlate them all into one System Log query                  | String         | `e1214f29-e6b3-4698-b3be-4bccaadf1937`         |
 | ThreatSuspected             |  If ThreatInsight is running and detects a request as suspicious, the value for this property is `true`.                   | Boolean         |          |
-| Url                        | The log-out URL from the end user or admin actor                  | String         |          |
+| Url                        | The logout URL from the end user or admin actor                  | String         |          |
 | **event.System.Transaction**                |                 |         |         |
 | ID              | For an admin actor, this ID correlates with `user.session.clear` or `user.authentication.universal_logout` events. For a system principal actor, this ID correlates to the `user.authentication.universal_logout` event.               | String         |  `c579b0f27865c4b93be9ceb6f00e5373`          |
 | **target** (User)         | The user associated with a risk activity            | Object     |        |
 | type        | The type of target object     | String     | User       |
-| **actor**                 |  The end user, the Admin (in the case of an explicit Admin action), or the system principal (i the case of a continuous access evaluation)               |  Object       |         |
+| **actor**                 |  The end user, the Admin (in the case of an explicit Admin action), or the system principal (i the case of a Continuous Access evaluation)               |  Object       |         |
 | type        | The type of actor object           |      |        |
 | **client**                |  The client of the system principal actor                | Object      |         |
 | IPAddress              | IP address                |       |         |
