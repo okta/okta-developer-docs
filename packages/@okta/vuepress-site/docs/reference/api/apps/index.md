@@ -984,7 +984,7 @@ curl -v -X POST \
 
 #### Add custom SAML application
 
-Adds a custom SAML 2.0 app. This application is only available to the org that creates it.
+Adds a custom SAML 2.0 app. This app is only available to the org that creates it.
 
 [Application](#application-object) parameters:
 
