@@ -185,7 +185,10 @@ If you restore an email to default settings, you delete any customizations made 
 
 After you customize a template in one language, you need to customize templates for other languages if you want to include them. If you reset all customized translations, then Okta uses the 27 default translations.
 
-Okta uses the default language when the end user’s locale doesn't match any email customizations.
+The following settings determine the language for emails sent from Okta to a user, if the user hasn't selected a specific display language:
+
+* The user's locale property value (if specified)
+* The org's display language
 
 ### Supported languages
 
@@ -219,13 +222,13 @@ Okta uses the default language when the end user’s locale doesn't match any em
 | Ukrainian  | `uk` |
 | Vietnamese  | `vi` |
 
-### Enable additional locales
+### Enable other locales
 
 <ApiLifecycle access="ea" />
 
-Enable more locales by using the [BCP 47 format](https://www.rfc-editor.org/info/bcp47). These locales are in addition to the 27 default languages that Okta provides.
+Use the [BCP 47 format](https://www.rfc-editor.org/info/bcp47) to enable more locales than Okta's 27 default languages.
 
-You can only create customizations using these additional languages by calling the Brands API. Once created, the new locale appears in the Admin Console along with the default-supported locales. See [Create an Email Customization](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Customization/#tag/Customization/operation/createEmailCustomization).
+You can only create customizations using these other languages by calling the Brands API. Once created, the new locale appears in the Admin Console along with the default-supported locales. See [Create an Email Customization](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Customization/#tag/Customization/operation/createEmailCustomization).
 
 Include `null` in the subject or body of the email customization. Okta replaces `null` with a default value based on the following order of priority:
 
