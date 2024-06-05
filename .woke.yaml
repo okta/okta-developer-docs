@@ -33,25 +33,6 @@ rules:
     note: "Avoid using block listing and block listed as verbs. "
     options:
       include_note: true
-  - name: master
-    terms:
-      - master
-    alternatives:
-      - source
-      - main
-      - Leader
-    options:
-      word_boundary: true
-  - name: mastering
-    terms:
-      - mastering
-    alternatives:
-      - as a source
-      - sourced
-      - sourcing
-      - backed
-    options:
-      word_boundary: true
   - name: slave
     terms:
       - slave
