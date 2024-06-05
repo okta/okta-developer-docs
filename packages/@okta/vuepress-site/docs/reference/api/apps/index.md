@@ -363,7 +363,7 @@ curl -v -X POST \
 
 #### Add an OIN SAML 2.0 Authentication app
 
-Adds a SAML 2.0 app instance for an app integration listed in the Okta Integration (OIN) catalog
+Adds a SAML 2.0 app instance for an app integration that's listed in the Okta Integration (OIN) catalog
 
 * The `name` field is required which identifies the OIN app definition for the instance you want to create. See [App name](#app-names).
 * Specify `SAML_2_0` in the required `signOnMode` parameter.
