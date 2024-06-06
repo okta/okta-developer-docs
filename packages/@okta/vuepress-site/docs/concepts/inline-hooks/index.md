@@ -202,7 +202,7 @@ After creating your external service, you need to tell Okta it exists, and enabl
 
 1. Associate the endpoint with a particular Okta process flow. This step varies by inline hook type.
 
-The total number of inline hooks that you can create in an Okta org is limited to 50, which is a total for any combination of inline hook types.
+The total number of inline hooks that you can create in an Okta org is limited to 100, which is a total for any combination of inline hook types.
 
 For more information on implementing inline hooks, see the documentation for specific inline hook types linked to in [Currently-Supported Types](#currently-supported-types).
 
