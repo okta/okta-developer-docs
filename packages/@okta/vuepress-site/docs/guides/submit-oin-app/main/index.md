@@ -194,6 +194,16 @@ To generate an integration instance:
     > **Note:** There's a limit of five app instances in a Developer Edition org. **Generate instance** is deactivated when you reach this limit. Deactivate unused instances to make room for new instances in your org. See [Deactivate app instances in your org](#deactivate-an-app-instance-in-your-org).
 
 <StackSnippet snippet="test-instance" />
+<br>
+The OIN Submission Tester supports a password-only authentication policy, so you need to use a password-only policy to test your app instance:
+
+1. In the Admin Console, go to **Security** > **Authentication Policies**.
+1. Click your password-only OIN Submission Tester authentication policy. See [Authentication policy for OIN Wizard](/docs/guides/submit-app-prereq/main/#authentication-policy-for-oin-wizard).
+1. In the **Applications** tab, click **Add app**.
+1. Click **Add** next to your generated instance app.
+1. Click **Done**.
+
+> **Note:** The password-only authentication policy is applied to users assigned to your app instance.
 
 #### Assign test users to your integration instance
 
