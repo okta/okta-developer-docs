@@ -292,7 +292,7 @@ The format for conditional expressions is:
 * The `OR` operator
 * The `!` operator to designate NOT
 * Standard relational operators including <code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code>, and <code>&gt;=</code>.
-* The `matches` operator to evaluate a string against a regular expression. <ApiLifecycle access="deprecated" />
+* The `matches` operator to evaluate a string against a regular expression (regex). <ApiLifecycle access="deprecated" />
 
 > **Note:** Use the double equals sign `==` to check for equality and `!=` for inequality.
 
@@ -336,7 +336,7 @@ The following samples are valid conditional expressions. The actions in these ca
 
 | IF (Implicit) | Condition                                      | Assign to this Group Name if Condition is TRUE |
 | ---           | ---                                            | ---                                            |
-| IF            | String.stringContains(user.firstName, "dummy") | dummyUsers                                     |
+| IF            | String.stringContains(user.firstName, "sales") | dummyUsers                                     |
 | IF            | user.city == "San Francisco"                   | sfo                                            |
 | IF            | user.salary >= 1000000                         | expensiveEmployee                              |
 | IF            | !user.isContractor                             | fullTimeEmployees                              |
