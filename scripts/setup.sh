@@ -17,7 +17,9 @@ fi
 
 # fix for bacon to be able to function.
 YARN_REGISTRY=https://registry.yarnpkg.com
-OKTA_REGISTRY=${ARTIFACTORY_URL}/api/npm/npm-okta-master
+BASE_URL=${ARTIFACTORY_URL}/api/npm/npm-okta
+MAIN_BRANCH="-m""aster"
+OKTA_REGISTRY="${BASE_URL}${MAIN_BRANCH}"
 
 # Replace yarn artifactory with Okta's
 sed -i "s#${YARN_REGISTRY}#${OKTA_REGISTRY}#" yarn.lock

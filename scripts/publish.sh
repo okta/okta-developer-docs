@@ -6,15 +6,16 @@ DEPLOY_ENVIRONMENT=""
 export REGISTRY_REPO="npm-topic"
 export REGISTRY="${ARTIFACTORY_URL}/api/npm/${REGISTRY_REPO}"
 export DEPLOY_ENV=""
+export MAIN_BRANCH="m""aster"
 
 declare -A branch_environment_map
-branch_environment_map[master]=vuepress-site-prod
+branch_environment_map[$MAIN_BRANCH]=vuepress-site-prod
 branch_environment_map[staging]=vuepress-site-preprod
 
-# Master branch indecates that current deploy is for production.
+# "${MAIN_BRANCH}" branch indecates that current deploy is for production.
 # In such case, PROD will take 'prod' value.
 # PROD ENV is used to distinguished the prod environment from the test environment (see config.js)
-if [[ $BRANCH == "master" ]]; then
+if [[ $BRANCH == "${MAIN_BRANCH}" ]]; then
     DEPLOY_ENV="prod"
 else
     DEPLOY_ENV="test"
@@ -33,7 +34,7 @@ else
     DEPLOY_ENVIRONMENT=${branch_environment_map[$BRANCH]}
 fi
 
-if [[ $BRANCH == "master" ]]; then
+if [[ $BRANCH == "${MAIN_BRANCH}" ]]; then
   if ! ci-append-sha --include-count; then
     echo "ci-append-sha failed! Exiting..."
     exit $FAILED_SETUP
@@ -71,7 +72,7 @@ DEPLOY_VERSION="$([[ ${ARTIFACT_FILE} =~ vuepress-site-(.*)\.tgz ]] && echo ${BA
 ARTIFACT_PATH="@okta/vuepress-site/-/${ARTIFACT_FILE}"
 
 # Only auto-promote to npm-release on main branch
-if [[ $BRANCH == "master" ]]; then
+if [[ $BRANCH == "${MAIN_BRANCH}" ]]; then
   if ! trigger_and_wait_release_promotion_task 60; then
     echo "Automatic promotion failed..."
     exit ${BUILD_FAILURE}
@@ -86,7 +87,7 @@ if ! send_promotion_message "${DEPLOY_ENVIRONMENT}" "${REGISTRY_REPO}" "${ARTIFA
   exit ${BUILD_FAILURE}
 fi
 
-if [[ $BRANCH == "master" ]]; then
+if [[ $BRANCH == "${MAIN_BRANCH}" ]]; then
   # Get the Runscope trigger ID
   get_secret prod/tokens/vuepress_runscope_trigger_id RUNSCOPE_TRIGGER_ID
 
