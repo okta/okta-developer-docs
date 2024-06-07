@@ -11,21 +11,30 @@ If your needs exceed the Okta default rate limits for the base product subscript
 
 **Authentication endpoints:**
 
+* `/activate` <!-- is this the right location under Authentication? -->
 * `/api/v1/authn`
+* `/api/v1/authn/introspect`
 * `/api/v1/authn/factors/${factorIdOrFactorType}/verify`
-* `/api/v1/sessions`
+* `/api/v1/authn/factors/${factorIdOrFactorType}/transactions/${transactionId}/verify`
+* `/api/v1/sessions*`
+* `/auth/services/devicefingerprint` <!-- is this the right location under Authentication? -->
 * `/login/login.htm`
-* `/signin/*`
+* `/login/interact/${interactionHandle}`
 * `/login/sessionCookieRedirect`
 * `/login/token/redirect`
 * `/login/step-up/redirect`
+* `/signin/*`
+* `/sign-in*`
+* `/sso/idps/${idpId}`
 
 **OAuth2 endpoints:**
 
 * `/oauth2/${authorizationServerId}/v1`
 * `/oauth2/${authorizationServerId}/v1/authorize`
-* `/oauth2/v1` except `/oauth2/v1/clients`
+* `/oauth2/${authorizationServerId}/v1/interact`
+* `/oauth2/v1*` except `/oauth2/v1/clients`
 * `/oauth2/v1/authorize`
+* `/oauth2/v1/interact`
 * `/oauth2/v1/token`
 * `/idp/idx/introspect` <ApiLifecycle access="ie" />
 * `/idp/idx/identify` <ApiLifecycle access="ie" />
@@ -40,7 +49,9 @@ If your needs exceed the Okta default rate limits for the base product subscript
 
 * `/api/v1/apps/${id}`
 * `/api/v1/groups/${id}`
+* `/api/v1/users/me`
 * `/api/v1/users/${idOrLogin}`
+* `/api/v1/users/{userId}/factors/{userFactorIdOrFactorType}/verify`
 
 > **Notes:**
 >
