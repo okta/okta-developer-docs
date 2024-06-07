@@ -12,7 +12,6 @@
           Is it easy or difficult to use our developer documentation?
           <a
             href="#"
-            target="_blank"
             @click="openSurvey()"
           >
             Let us know in this short survey ↗
