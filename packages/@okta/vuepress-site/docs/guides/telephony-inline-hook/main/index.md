@@ -54,9 +54,8 @@ At a high-level, the following workflow occurs:
 * A user attempts to sign in to Okta. The Okta org has an authentication requirement of a Phone authenticator. The user selects **Receive a code via SMS** or **Receive a voice call instead**.
 * Okta generates a one-time passcode (OTP) and verifies if a telephony hook is configured and active for the org.
 * A telephony inline hook is triggered and sends a request to a provider to deliver the OTP.
-* The external service evaluates the request, and if the request headers are valid, a request is sent to the telephony provider.
 * The external service evaluates the request. If the request headers are valid, a request is sent to a telephony provider.
-* Okta recieves a response that indicates if the OTP was sent successfully.
+* Okta receives a response that indicates if the OTP was sent successfully.
 
 ### Multiple providers
 Although each org can have only one active telephony inline hook, you aren't limited to a single telephony provider. Orgs sometimes build conditional logic into their web service to control how requests are sent to multiple telephony providers. This might be done to protect against provider failures, or to route messages depending on a user's country or region.
