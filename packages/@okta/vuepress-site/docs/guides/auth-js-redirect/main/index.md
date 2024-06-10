@@ -72,6 +72,8 @@ To review or set trusted origins go to **Security** > **API** and select the **T
 
 To make this sample as versatile as possible, the following starter app redirects to Okta to sign in as you load it into the browser. In your own apps, you might want to initiate the redirect using a sign-in button. You might want to initiate the redirect when visiting a certain route that requires authentication (such as an admin page). The key is that you initiate the sign-in flow through the redirect.
 
+Review the following sections to build out the sample app, or see the full sample app code in the [Add a sign-out function](#add-a-sign-out-function) section.
+
 ### Create a simple HTML UI
 
 In your app directory, create an HTML file called `index.html`. Add the following markup to this file:
@@ -102,7 +104,7 @@ Include this script in your target HTML page (`index.html`) by including the fol
 
 ```html
 <!-- Latest CDN production Auth JS SDK-->
-<script src="https://global.oktacdn.com/okta-auth-js/7.2.0/okta-auth-js.min.js" type="text/javascript"></script>
+<script src="https://global.oktacdn.com/okta-auth-js/7.7.0/okta-auth-js.min.js" type="text/javascript"></script>
 ```
 
 >**Note:** If you're using a package manager, you can also install it through the appropriate command, for example `yarn add @okta/okta-auth-js` or `npm install @okta/okta-auth-js`.
@@ -173,6 +175,74 @@ Include the following function within the `body` tags after the `content-jwt` re
 ```
 
 This function signs the user out of the Okta session. See [signOut()](https://github.com/okta/okta-auth-js/#signout) in the Auth JS SDK.
+
+After adding the sign-our function, the sample app is ready to test. Your sample app code appears as follows:
+
+```html
+<html>
+<head>
+ <meta charset="utf-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <title>Okta Auth JS - Redirect SPA</title>
+ <!-- Latest CDN production Auth JS SDK-->
+ <script src="https://global.oktacdn.com/okta-auth-js/7.7.0/okta-auth-js.min.js" type="text/javascript"></script>
+ <script type="text/javascript">
+
+
+   // UPDATE THESE FOR YOUR OKTA TENANT
+   var baseOktaURL = "https:${yourOKtaDomain}"; //For example, https://dev-12345678.okta.com
+   var appClientID = "${yourClientID}"; // For example, 0oa73hm5sh9jf6s5e1d6
+
+
+   // Bootstrap the AuthJS Client
+   const authClient = new OktaAuth({
+   // Required Fields for OIDC client
+     url: baseOktaURL,
+     clientId: appClientID,
+     redirectUri: "http://localhost:9000/", //or the redirect URI for your app
+     issuer: baseOktaURL , // oidc
+     scopes: ['openid', 'profile', 'email']
+   });
+
+
+   if (authClient.isLoginRedirect()) {
+       // Parse token from redirect url
+       console.log("Parse token from redirect url");
+       authClient.token.parseFromUrl()
+           .then(data => {
+           const { idToken } = data.tokens;
+           // Display the Token
+           const str1 = document.createElement('p');
+           str1.innerHTML = `<b>${idToken.claims.email}</b> (email)<br /><b>${idToken.claims.sub}</b> (sub)<br /><br />Token Response:<br /><code style="word-wrap: break-word;">${JSON.stringify(idToken)}</code><br /><br/>Parsed from JWT<br />Client ID: <b>${authClient.options.clientId}</b><br />Issuer: <b>${authClient.options.issuer}</b>`;
+           document.getElementById('content-jwt').appendChild(str1);
+       });
+   } else {
+       // Always Redirect to get a "Fresh JWT" - Skipping the Token Manager in this example
+       console.log("Attempt to retrieve ID Token from redirect");
+       authClient.token.getWithRedirect({
+           responseType: ['id_token']
+       });
+   }
+</script>
+</head>
+
+
+<body>
+<b>Okta Auth JS Simple Redirect App</b>
+<hr />
+<div id="content-jwt"></div>
+<hr />
+<div id="uxActiveOptions">
+<b>Functions:</b>
+<br /><button onclick="authClient.signOut();">Close Okta Session</button>
+</div>
+</body>
+
+
+</html>
+```
+
 
 ## Test your app
 
