@@ -11,27 +11,28 @@ If your needs exceed the Okta default rate limits for the base product subscript
 
 **Authentication endpoints:**
 
-* `/activate` <!-- is this the right location under Authentication? -->
-* `/api/v1/authn`
+* `/api/v1/authn*`
 * `/api/v1/authn/introspect`
 * `/api/v1/authn/factors/${factorIdOrFactorType}/verify`
-* `/api/v1/authn/factors/${factorIdOrFactorType}/transactions/${transactionId}/verify`
+* `/api/v1/authn/factors/${factorId}/transactions/${transactionId}/verify`
 * `/api/v1/sessions*`
-* `/auth/services/devicefingerprint` <!-- is this the right location under Authentication? -->
+* `/auth/services/devicefingerprint`
 * `/login/login.htm`
 * `/login/interact/${interactionHandle}`
 * `/login/sessionCookieRedirect`
 * `/login/token/redirect`
 * `/login/step-up/redirect`
-* `/signin/*`
+* `/signin/**`
 * `/sign-in*`
 * `/sso/idps/${idpId}`
 
 **OAuth2 endpoints:**
 
-* `/oauth2/${authorizationServerId}/v1`
+* `/activate`
+* `/oauth2/${authorizationServerId}/v1*`
 * `/oauth2/${authorizationServerId}/v1/authorize`
 * `/oauth2/${authorizationServerId}/v1/interact`
+* `/oauth2/{authorizationServerId}/v1/token`
 * `/oauth2/v1*` except `/oauth2/v1/clients`
 * `/oauth2/v1/authorize`
 * `/oauth2/v1/interact`
