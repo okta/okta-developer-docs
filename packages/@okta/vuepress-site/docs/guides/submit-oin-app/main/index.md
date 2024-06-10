@@ -195,15 +195,13 @@ To generate an integration instance:
 
 <StackSnippet snippet="test-instance" />
 <br>
-The OIN Submission Tester supports a password-only authentication policy, so you need to use a password-only policy to test your app instance:
 
-1. In the Admin Console, go to **Security** > **Authentication Policies**.
-1. Click your password-only OIN Submission Tester authentication policy. See [Authentication policy for OIN Wizard](/docs/guides/submit-app-prereq/main/#authentication-policy-for-oin-wizard).
-1. In the **Applications** tab, click **Add app**.
-1. Click **Add** next to your generated instance app.
-1. Click **Done**.
-
-> **Note:** The password-only authentication policy is applied to users assigned to your app instance.
+7. Follow these steps if you have an Identity Engine <ApiLifecycle access="ie" /> &nbsp;Developer Edition org:
+   1. Click the **Sign On** tab, scroll to the **User authentication** section and click **Edit**.
+   1. Select **Password only** from the **Authentication policy** dropdown menu.
+   {style="list-style-type:lower-alpha"}
+   1. Click **Save**.
+   > **Note:** Most recent Okta Developer Edition orgs are Identity Engine orgs. See [OIN Wizard authentication policy for testing](/docs/guides/submit-app-prereq/main/#oin-wizard-authentication-policy-for-testing).
 
 #### Assign test users to your integration instance
 
