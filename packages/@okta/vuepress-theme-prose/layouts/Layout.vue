@@ -11,8 +11,8 @@
         <p>
           Is it easy or difficult to use our developer documentation?
           <a
-            href="https://surveys.okta.com/jfe/form/SV_6XTKmUbd22BlYFg"
-            target="_blank"
+            href="#"
+            @click="openSurvey()"
           >
             Let us know in this short survey ↗
           </a>
@@ -270,6 +270,9 @@ export default {
         }
       });
     },
+    openSurvey() {
+      window.open('https://surveys.okta.com/jfe/form/SV_6XTKmUbd22BlYFg?source=' + encodeURIComponent(document.location.href), '_blank');
+    }
   }
 };
 </script>
