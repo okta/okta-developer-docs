@@ -286,14 +286,14 @@ To edit the app instance from the OIN Wizard, follow these steps:
 
 ### OIN Submission Tester
 
-The **Test your integration experience** page includes the integrated OIN Submission Tester, which is a plugin app that runs the minimal tests required to ensure that your sign-in flow works as expected. Ideally, you want to execute other variations of these test cases without the OIN Submission Tester. Try negative and edge test cases.
+The **Test your integration experience** page includes the integrated OIN Submission Tester, which is a plugin app that runs the minimal tests required to ensure that your sign-in flow works as expected. Ideally, you want to execute other variations of these test cases without the OIN Submission Tester. Try negative and edge test cases. You can't submit your integration in the OIN Wizard until all required tests in the OIN Submission Tester pass.
 
-You can't submit your integration in the OIN Wizard until all required tests in the OIN Submission Tester pass.
+Before you start testing with the OIN Submission Tester, see [OIN Wizard test requirements](/docs/guides/submit-app-prereq/main/#oin-wizard-test-requirements).
 
 > **Notes:**
-> * The OIN Submission Tester requires you to trust the current Okta Developer Edition org if you're using multiple Okta orgs.
 > * Click **Initialize Tester** if you're using the OIN Submission Tester for the first time.
 > * Click **Refresh Tester session** for a new test session if the OIN Submission Tester session expired.
+> * See [Troubleshoot the OIN Submission Tester](/docs/guides/submit-app-prereq/main/#troubleshoot-the-oin-submission-tester) if you have issues loading the OIN Submission Tester.
 
 The OIN Submission Tester includes the mechanism to test the following flows:
 

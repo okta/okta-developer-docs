@@ -121,7 +121,7 @@ The OIN Submission Tester only supports a password authentication flow, so you n
 
 #### Troubleshoot the OIN Submission Tester
 
-The OIN Submission Tester is a preinstalled plugin app in your Okta Developer Edition org. This app is used during the testing phase of your submission journey in the OIN Wizard. If you have issues loading or accessing the OIN Submission Tester, review the following tips:
+If you have issues loading or accessing the OIN Submission Tester, review the following tips:
 
 * Ensure that you're using a Google Chrome browser with the [Okta Browser Plugin installed](#oin-wizard-okta-browser-plugin-setup).
 * Ensure that **Allow in Incognito** is enabled for the Okta Brower Plugin extension.
