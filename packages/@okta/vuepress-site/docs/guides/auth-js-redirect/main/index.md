@@ -29,7 +29,7 @@ Auth JS also powers our other redirect SDKs that provide simple authentication f
 
 ### Auth JS and redirect authentication
 
-In this guide, you don't need to use an Okta-supported server-side or front-end framework to get access to redirect authentication. It's possible to use Auth JS to create a drop-in solution that works with most web apps. This solution works whether you're adding a centralized sign-in flow to a new app or retrofitting it to an existing app.
+In this guide, you don't need to use an Okta-supported server-side or front-end framework for redirect authentication. It's possible to use Auth JS to create a drop-in solution that works with most web apps. This solution works whether you're adding a centralized sign-in flow to a new app or retrofitting it to an existing app.
 
 To see examples of Auth JS with other front-end frameworks, go to [Sign in to SPA](/docs/guides/sign-into-spa-redirect/angular/main/).
 
@@ -48,7 +48,7 @@ The integration includes configuration information required by the app to access
 
 1. [Sign in to your Okta organization](https://developer.okta.com/login) with your administrator account.
 1. Click **Admin** in the upper-right corner of the page.
-1. Open the Applications configuration pane by selecting **Applications** > **Applications**.
+1. Open the **Applications** configuration pane by selecting **Applications** > **Applications**.
 1. Click **Create App Integration**, and then select a **Sign-in method** of **OIDC - OpenID Connect**.
 1. Select an **Application type** of **Single-Page Application**, then click **Next**.
    > **Note:** If you choose an inappropriate application type, it breaks the sign-in or sign-out flow. It breaks the flow by requiring the verification of a client secret, which public clients don't have.
@@ -70,7 +70,7 @@ To review or set trusted origins go to **Security** > **API** and select the **T
 
 ## Create a basic app
 
-To make this sample as versatile as possible, the following starter app redirects to Okta to sign in as you load it into the browser. In your own apps, you might want to initiate the redirect using a sign-in button. You might want to initiate the redirect when visiting a certain route that requires authentication (such as an admin page). The key is that you initiate the sign-in flow through the redirect.
+To make this sample as versatile as possible, the following starter app redirects to Okta to sign in as you load it into the browser. In your own apps, you might want to initiate the redirect using a button for sign-in. You might want to initiate the redirect when visiting a certain route that requires authentication (such as an admin page). The key is that you initiate the sign-in flow through the redirect.
 
 Review the following sections to build out the sample app, or see the full sample app code in the [Add a sign-out function](#add-a-sign-out-function) section.
 
@@ -243,7 +243,6 @@ After adding the sign-our function, the sample app is ready to test. Your sample
 </html>
 ```
 
-
 ## Test your app
 
 You can now run your app by using a local web server. For example, with a macOS, go to your sample app directly and use the Python web server command:
@@ -262,7 +261,7 @@ If your app isn't functional, ensure that:
 * Your client ID is accurate from your Okta app integration.
 * Your `redirectUri` is accurate or the port number for your local web server is correct.
 * You've enabled a Trusted Origin for `http://localhost:9000`. See [About Trusted Origins](#about-trusted-origins).
-* If your app is bypassing the Okta Sign-In Widget, your user is already signed in. Use a new private or incognito browser window or optionally set the Authentication Policy for your app to always sign in. That is, **Re-authentication frequency is** set to **Every sign-in attempt**.
+* If your app is bypassing the Okta Sign-In Widget, your user is already signed in. Use a new private or incognito browser window or optionally set the Authentication Policy for your app to always sign in. That is, the **Re-authentication frequency is** set to **Every sign-in attempt**.
 
 ## Enable profile enrollment (self-service registration)
 
