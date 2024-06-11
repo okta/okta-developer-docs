@@ -14,7 +14,7 @@ Okta then tells the user to either click the link in the email or enter the code
 
 </div>
 
-The email's **Reset Password** link includes the `otp` and `request.relayState` variables sent back as query parameters to the application. For instance, the URL in the email template,  `http://localhost:8080/magic-link/callback?otp=${oneTimePassword}&state=${request.relayState}`, might be rendered as `http://localhost:8080/magic-link/callback?otp=726009&state=1b34371af02dd31d2bc4c48a3607cd32` in the email sent to the user.
+The email's **Reset Password** link includes the `otp` and `request.relayState` variables sent back as query parameters to the application. For instance, the URL in the email template,  `http://localhost:8080/magic-link/callback?otp={oneTimePassword}&state={request.relayState}`, might be rendered as `http://localhost:8080/magic-link/callback?otp=726009&state=1b34371af02dd31d2bc4c48a3607cd32` in the email sent to the user.
 
 ### 2: Handle the OTP and state parameters
 
@@ -47,15 +47,15 @@ If the OTP and state values aren't valid or the user is in a different browser a
 
 ### 3: Set up and render Widget with OTP and state
 
-Consume the session `state` and `otp` values in a Razor page that contains the Sign-In Widget. In the code, replace `${widgetVersion}` with the [latest version](https://github.com/okta/okta-signin-widget/releases/) of the widget (-=OKTA_REPLACE_WITH_WIDGET_VERSION=-):
+Consume the session `state` and `otp` values in a Razor page that contains the Sign-In Widget. In the code, replace `{widgetVersion}` with the [latest version](https://github.com/okta/okta-signin-widget/releases/) of the widget (-=OKTA_REPLACE_WITH_WIDGET_VERSION=-):
 
 ```razor
 @model SignInWidgetConfiguration
 
 @section head
 {
-    <script src="https://global.oktacdn.com/okta-signin-widget/${widgetVersion}/js/okta-sign-in.min.js" type="text/javascript"></script>
-    <link href="https://global.oktacdn.com/okta-signin-widget/${widgetVersion}/css/okta-sign-in.min.css" type="text/css" rel="stylesheet" />
+    <script src="https://global.oktacdn.com/okta-signin-widget/{widgetVersion}/js/okta-sign-in.min.js" type="text/javascript"></script>
+    <link href="https://global.oktacdn.com/okta-signin-widget/{widgetVersion}/css/okta-sign-in.min.css" type="text/css" rel="stylesheet" />
 }
 
 <div id="okta-signin-widget-container"></div>
