@@ -23,12 +23,12 @@ Use the `passport-openidconnect` package to store these configuration values.
 
    // set up passport
    passport.use('oidc', new Strategy({
-     issuer: 'https://${yourOktaDomain}/oauth2/default',
-     authorizationURL: 'https://${yourOktaDomain}/oauth2/default/v1/authorize',
-     tokenURL: 'https://${yourOktaDomain}/oauth2/default/v1/token',
-     userInfoURL: 'https://${yourOktaDomain}/oauth2/default/v1/userinfo',
-     clientID: '${clientID}',
-     clientSecret: '${clientSecret}',
+     issuer: 'https://{yourOktaDomain}/oauth2/default',
+     authorizationURL: 'https://{yourOktaDomain}/oauth2/default/v1/authorize',
+     tokenURL: 'https://{yourOktaDomain}/oauth2/default/v1/token',
+     userInfoURL: 'https://{yourOktaDomain}/oauth2/default/v1/userinfo',
+     clientID: '{clientID}',
+     clientSecret: '{clientSecret}',
      callbackURL: 'http://localhost:3000/authorization-code/callback',
      scope: 'openid profile'
    }, (issuer, profile, done) => {
