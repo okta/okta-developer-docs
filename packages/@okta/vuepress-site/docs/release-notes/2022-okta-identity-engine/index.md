@@ -75,7 +75,7 @@ When an authentication flow begins at an org's Okta or custom domain and then fi
 
 #### Loading Page Animation feature for the Brands API is GA in Production
 
-When redirecting applications, you can use the loading page variant property (`loadingPageTouchPointVariant`) of the [Brands API](/docs/reference/api/brands/#theme-object) to display a blank page instead of the default Okta loading page animation. As a result, Okta's branding doesn't appear anywhere in the redirect user journey. <!-- OKTA-552673-->
+When redirecting applications, you can use the loading page variant property (`loadingPageTouchPointVariant`) of the [Brands API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Brands/) to display a blank page instead of the default Okta loading page animation. As a result, Okta's branding doesn't appear anywhere in the redirect user journey. <!-- OKTA-552673-->
 
 #### Rate limit parameter matching
 
@@ -179,7 +179,7 @@ Authenticator enrollment provides a standardized way for a user to enroll a new 
 
 #### Loading page animation feature for the Brands API is in GA
 
-When redirecting applications, you can use the [loading page variant property](/docs/reference/api/brands/#theme-object) (`loadingPageTouchPointVariant`) of the Brands API to display a blank page instead of the default Okta loading page animation. As a result, Okta's branding doesn't appear anywhere in the redirect user journey. <!--OKTA-544951-->
+When redirecting applications, you can use the [loading page variant property](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Brands/) (`loadingPageTouchPointVariant`) of the Brands API to display a blank page instead of the default Okta loading page animation. As a result, Okta's branding doesn't appear anywhere in the redirect user journey. <!--OKTA-544951-->
 
 #### API service integrations is Self-Service EA in Preview
 
@@ -439,7 +439,7 @@ Users want seamless access to certain resources, but organizations want to incre
 
 #### API for suppressing email notifications is in General Availability
 
-This API allows you to change who receives email notifications for each individual email template. You can suppress them completely or send them to admins only. This unlocks testing scenarios that warrant using production user directories and prevents end users from getting test emails. It also allows extensibility for customers who would like to use a third party email sender through Hooks or Workflows. See [Email template settings](/docs/reference/api/brands/#email-template-settings).<!--OKTA-526580-->
+This API allows you to change who receives email notifications for each individual email template. You can suppress them completely or send them to admins only. This unlocks testing scenarios that warrant using production user directories and prevents end users from getting test emails. It also allows extensibility for customers who would like to use a third party email sender through Hooks or Workflows. See [Email template settings](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/CustomTemplates/).<!--OKTA-526580-->
 
 #### Access Denied error message customization is GA in Preview
 
@@ -651,7 +651,7 @@ Earlier versions of the self-service registration (SSR) flow used a complicated 
 
 #### Loading Page Animation feature for the Brands API is EA in Preview
 
-When redirecting applications, you can use the [loading page variant property](/docs/reference/api/brands/#theme-object) (`loadingPageTouchPointVariant`) of the Brands API to display a blank page instead of the default Okta loading page animation. As a result, Okta's branding doesn't appear anywhere in the redirect user journey. <!-- OKTA-509771 -->
+When redirecting applications, you can use the [loading page variant property](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Brands/) (`loadingPageTouchPointVariant`) of the Brands API to display a blank page instead of the default Okta loading page animation. As a result, Okta's branding doesn't appear anywhere in the redirect user journey. <!-- OKTA-509771 -->
 
 #### Progressive enrollment is GA in Production
 
@@ -870,7 +870,7 @@ Typically, collecting end-user data during the initial sign-up process creates f
 
 #### The API for suppressing email notifications is EA in Preview
 
-This API allows you to change who receives email notifications for each individual email template. You can suppress them completely, or send them to admins only. This unlocks testing scenarios that warrant using production user directories, and prevents end users from getting test emails. It also allows extensibility for customers who would like to use a third party email sender through Hooks or Workflows. See [Email template settings](/docs/reference/api/brands/#email-template-settings).
+This API allows you to change who receives email notifications for each individual email template. You can suppress them completely, or send them to admins only. This unlocks testing scenarios that warrant using production user directories, and prevents end users from getting test emails. It also allows extensibility for customers who would like to use a third party email sender through Hooks or Workflows. See [Email template settings](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/CustomTemplates/).
 
 #### Bug fixed in 2022.05.1
 
@@ -1060,7 +1060,7 @@ The `auth_time` [claim](/docs/reference/api/oidc/#reserved-claims-in-the-header-
 #### Bugs fixed in 2022.03.1
 
 * Performing a GET request on the `/policies/` [endpoint](/docs/reference/api/policy/) sometimes returned a page with the wrong number of items. (OKTA-455164)
-* When the [List email templates](/docs/reference/api/brands/#list-email-templates) or the [List email customizations](/docs/reference/api/brands/#list-email-customizations) operations were performed on the `/brands/` endpoint, the base address in the link response header contained the `-admin` string instead of the requested base address. (OKTA-465356)
+* When the [List email templates](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/CustomTemplates/#tag/CustomTemplates/operation/listEmailTemplates) or the [List email customizations](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/CustomTemplates/#tag/CustomTemplates/operation/listEmailCustomizations) operations were performed on the `/brands/` endpoint, the base address in the link response header contained the `-admin` string instead of the requested base address. (OKTA-465356)
 * When modifying the [custom email activation template](/docs/guides/custom-email/main/#use-customizable-email-templates), an admin could save the template without either of the required `verificationLink` or `verificationToken` elements. (OKTA-472895)
 * When modifying the [custom email challenge template](/docs/guides/custom-email/main/#use-customizable-email-templates), an admin could save the template without either of the required `emailAuthenticationLink` or `verificationToken` elements. (OKTA-472928)
 
@@ -1204,7 +1204,7 @@ The masking algorithm now reveals fewer digits in API responses for shorter prof
 
 * When the [Update resource set](/docs/reference/api/roles/#update-resource-set) endpoint was called, the `resourceSetId` parameter was required in the body of the request. (OKTA-445144)
 
-* When the [Upload Theme background image](/docs/reference/api/brands/#upload-theme-background-image) endpoint was called, the image was converted to PNG format. (OKTA-458260)
+* When the [Upload Theme background image](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Themes/#tag/Themes/operation/uploadBrandThemeBackgroundImage) endpoint was called, the image was converted to PNG format. (OKTA-458260)
 
 * When the [List events](/docs/reference/api/system-log/#list-events) operation was performed on the `/logs` endpoint, some system logs showed the incorrect status for debug behaviors if there was missing data that prevented behavior evaluation. (OKTA-455372)
 

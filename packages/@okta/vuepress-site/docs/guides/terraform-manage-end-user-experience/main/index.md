@@ -258,7 +258,7 @@ Edit the subject and body of the email templates in your org. Okta uses email te
 
 Each brand object in your org has a set of associated email templates. You can create customizations for a given email template using the `okta_email_customization` resource. You can also modify existing customizations by first importing them using the same techniques described in [Import brand and theme objects to Terraform](#import-brand-and-theme-objects-to-terraform).
 
-Separate email customizations for a given email template represent different languages. Set the `language` argument for an email customization to one of the [supported languages](/docs/reference/api/brands/#supported-languages). An email template can have only one customization for each language.
+Separate email customizations for a given email template represent different languages. Set the `language` argument for an email customization to one of the [supported languages](/docs/guides/custom-email/main/#supported-languages). An email template can have only one customization for each language.
 
 This example creates a default English email customization and a secondary Spanish customization for the User Activation email template:
 

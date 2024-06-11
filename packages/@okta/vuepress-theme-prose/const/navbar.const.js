@@ -1012,7 +1012,7 @@ export const reference = [
                { title: "Authenticators Admin", path: "/docs/reference/api/authenticators-admin/" },
                { title: "Authorization Servers", path: "/docs/reference/api/authorization-servers/" },
                { title: "Behavior Rules", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Behavior/" },
-               { title: "Brands", path: "/docs/reference/api/brands/" },
+               { title: "Brands", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Brands/" },
                { title: "CAPTCHAs", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/CAPTCHA/" },
                { title: "Custom Domains", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/CustomDomain/" },
                { title: "Custom Error Page", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/CustomPages/#tag/CustomPages/operation/getErrorPage" },

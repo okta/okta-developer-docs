@@ -401,7 +401,7 @@ The Org Logo API has the following CRUD operations:
 
 Updates the logo for your org
 
->**Note:** This endpoint is deprecated. Use the [Upload Theme logo](/docs/reference/api/brands/#upload-theme-logo) endpoint instead.
+>**Note:** This endpoint is deprecated. Use the [Upload the Logo](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Themes/#tag/Themes/operation/uploadBrandThemeLogo) endpoint instead.
 
 #### Request path parameters
 
