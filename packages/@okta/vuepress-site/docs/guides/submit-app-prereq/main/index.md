@@ -100,7 +100,7 @@ After you installed the Okta Browser Plugin in your Chrome browser, set **Allow 
 1. Close the **Extensions** and **Settings** tabs.
 1. Refresh your OIN Wizard browser tab.
 
-> **Note:** Okta recommends that you pin the Okta Browser Plugin extension on your Chrome browser. You can see warnings and errors relating to the Okta Browser Plugin for troubleshooting purposes if the extension is pinned to your browser.
+> **Note:** Okta recommends that you pin the Okta Browser Plugin extension on your Chrome browser. You can see warnings and errors relating to the Okta Browser Plugin if the extension is pinned to your browser.
 
 #### OIN Wizard authentication policy for testing
 
