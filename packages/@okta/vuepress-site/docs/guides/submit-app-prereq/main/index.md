@@ -102,9 +102,9 @@ After you installed the Okta Browser Plugin in your Chrome browser, set **Allow 
 #### OIN Wizard authentication policy for testing
 
 <ApiLifecycle access="ie" />
-> **Note:** These instructions only apply to Identity Engine Okta Developer Edition orgs. If you're not sure which solution you're using, check the footer on any page of the Admin Console. The version number is appended with **E** for Identity Engine orgs and **C** for Classic Engine orgs.
+> **Note:** These instructions only apply to Okta Identity Engine Developer Edition orgs. If you're not sure which solution you're using, check the footer on any page of the Admin Console. The version number is appended with **E** for Identity Engine orgs and **C** for Classic Engine orgs.
 
-The OIN Submission Tester supports a password-only authentication policy, so you need to use a password-only policy to test your app instance. For Identity Engine orgs, the default authentication policy requires MFA. Use the pre-configured **Password only** authentication policy that is included in your Okta Developer Edition org for OIN Wizard test instances.
+The OIN Submission Tester only supports a password authentication flow, so you need to use a password-only authentication policy to test your app instance. For Identity Engine orgs, the default authentication policy requires MFA. Use the pre-configured **Password only** authentication policy that is included in your Okta Developer Edition org for OIN Wizard test instances.
 
 From your app instance in the Admin Console:
 
@@ -116,12 +116,12 @@ The selected authentication policy applies to users assigned to your app instanc
 
 #### Troubleshoot the OIN Submission Tester
 
-The OIN Submission Tester is a pre-installed app in your Okta Developer Edition org. This app is used during the testing phase of your OIN submission journey. If you have issues loading or accessing the OIN Submission Tester, review the following tips:
+The OIN Submission Tester is a pre-installed app in your Okta Developer Edition org. This app is used during the testing phase of your submission journey in the OIN Wizard. If you have issues loading or accessing the OIN Submission Tester, review the following tips:
 
-* Ensure you're using a Google Chrome browser with the [Okta Browser Plugin installed](#oin-wizard-okta-browser-plugin-setup).
+* Ensure that you're using a Google Chrome browser with the [Okta Browser Plugin installed](#oin-wizard-okta-browser-plugin-setup).
 * Ensure that **Allow in Incognito** is enabled for the Okta Brower Plugin extension.
 * If you're using multiple Okta orgs, the OIN Submission Tester requires you to trust the current Okta Developer Edition org.
-* If you still can't load the OIN Submission Tester after you've checked all the [OIN Wizard test requirements](#oin-wizard-test-requirements), assign the **Password only** authentication policy to the OIN Submission Tester app. Use instructions in [OIN Wizard authentication policy for testing](#oin-wizard-authentication-policy-for-testing) on the OIN Submission Tester app.
+* If you still can't load the OIN Submission Tester after you've checked all the [OIN Wizard test requirements](#oin-wizard-test-requirements), assign the **Password only** authentication policy to the OIN Submission Tester app. Use the instructions in [OIN Wizard authentication policy for testing](#oin-wizard-authentication-policy-for-testing) on the OIN Submission Tester app.
 * If you're using the OIN Submission Tester for the first time, click **Initialize Tester** to initialize the app.
 * If the OIN Submission Tester session expired, click **Refresh Tester session** for a new test session.
 
