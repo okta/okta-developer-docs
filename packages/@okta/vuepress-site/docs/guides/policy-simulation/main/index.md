@@ -57,7 +57,7 @@ To find these values:
 
 To simulate the first scenario, use the following call but replace the following values:
 
-* `{api_token}`: your org's API token value
+* `{api_token}`: Your org's API token value
 
 * `{yourOktaDomain}`: your Okta domain, for example, `https://example.oktapreview.com`
 
