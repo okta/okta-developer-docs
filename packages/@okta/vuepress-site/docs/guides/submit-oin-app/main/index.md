@@ -174,8 +174,8 @@ The OIN Wizard journey includes the **Test your integration experience** page to
 4. Submit your integration after all required tests ran successfully in the OIN Submission Tester.
 
 > **Notes:**
-> * You must have the Okta Browser Plugin installed with **Allow in Incognito** enabled before you begin the **Test your integration experience** journey. See [OIN Wizard requirements](/docs/guides/submit-app-prereq/main/#oin-wizard-requirements).
-> * For testing in the OIN Wizard, if you don't have the super admin role, then you must have both the app admin and the org admin roles assigned.
+> * You must have the Okta Browser Plugin installed with **Allow in Incognito** enabled before you begin the **Test your integration experience** journey.
+> * For testing in the OIN Wizard, if you don't have the super admin role, then you must have both the app admin and the org admin roles assigned. See [OIN Wizard requirements](/docs/guides/submit-app-prereq/main/#oin-wizard-requirements).
 
 ### Generate instances for testing
 
