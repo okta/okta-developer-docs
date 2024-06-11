@@ -46,7 +46,7 @@ Set up your [Okta org](/docs/concepts/okta-organizations/). The Okta command-lin
       Your Okta Domain: https://dev-xxxxxxx.okta.com
       ```
 
-   1. Make a note of your Okta domain. Use it wherever `${yourOktaDomain}` appears in this guide.
+   1. Make a note of your Okta domain. Use it wherever `{yourOktaDomain}` appears in this guide.
 
 1. Run `okta login` to connect to your org if you didn't create one in the last step (successfully creating an Okta org also signs you in). You need the URL of your org, which is `https://` followed by your [Okta domain](/docs/guides/find-your-domain/), and an [API/access token](/docs/guides/create-an-api-token/).
 
@@ -191,7 +191,7 @@ After a user signs in, your app stores an access token issued by Okta. By attach
 On your front end (this SPA), make sure that you place the access token in the HTTP `Authorization` header of outgoing requests using this format:
 
 ```http
-Authorization: Bearer ${token}
+Authorization: Bearer {token}
 ```
 
 On your back-end (the API), make sure that you check for valid tokens in incoming requests. See [Protect your API endpoints](/docs/guides/protect-your-api/).
