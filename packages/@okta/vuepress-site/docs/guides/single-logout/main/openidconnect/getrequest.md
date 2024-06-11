@@ -1,1 +1,1 @@
-`GET https://${yourOktaDomain}/api/v1/apps/${appID}`
+`GET https://{yourOktaDomain}/api/v1/apps/{appID}`

@@ -81,7 +81,7 @@ Any magic link URL pointing to your application contains two query parameters:
 * The OTP that validates the user (`otp`)
 * A state token that uniquely identifies the current authentication process and its state (`state`)
 
-For example, `http://${yourOktaDomain}?otp=726009&state=1b31fa98b34c45d9a`.
+For example, `http://{yourOktaDomain}?otp=726009&state=1b31fa98b34c45d9a`.
 
 Create an endpoint for your app that does the following:
 
@@ -97,10 +97,10 @@ If your application uses the embedded Sign-In Widget to authenticate the user, p
 ```javascript
 var searchParams = new URL(window.location.href).searchParams;
 var signIn = new OktaSignIn({
-   baseUrl: '${yourOktaDomain}',
-   baseUrl: '${yourOktaDomain}',
-   clientId: '${yourClientId}',
-   redirectUri: '${yourSignInRedirectUrl}',
+   baseUrl: '{yourOktaDomain}',
+   baseUrl: '{yourOktaDomain}',
+   clientId: '{yourClientId}',
+   redirectUri: '{yourSignInRedirectUrl}',
    otp: searchParams.get('otp'),
    state: searchParams.get('state')
 });
@@ -143,7 +143,7 @@ When required, Identity Engine sends an email similar to this one containing an 
 
 When a user clicks the magic link from the email authenticator, a request is sent to Identity Engine to validate the user. The link has a token parameter and looks something like this:
 
-`https://${yourOktaDomain}/email/verify/0oa1esny76wdQqjsg697?token=ftlNKCIYA_4WvR6BPbYhyKisVYIF-QLp2t`
+`https://{yourOktaDomain}/email/verify/0oa1esny76wdQqjsg697?token=ftlNKCIYA_4WvR6BPbYhyKisVYIF-QLp2t`
 
 Authentication continues at an Okta-hosted page if the EVE setting doesn't have a value. If there's a value, Identity Engine builds a new URL based on the EVE setting and the current `otp` and `state` values. Then it redirects the user's browser to that URL. For example:
 
@@ -169,13 +169,13 @@ All Okta email templates are written using [Velocity Templating Language (VTL)](
 
 | Variable                     | Contains                                                       |
 |------------------------------|----------------------------------------------------------------|
-| `${verificationToken}`       | The one-time passcode that Identity Engine generated for the user              |
-| `${request.relayState}`      | The [OIDC/OAuth2 state parameter](/docs/guides/implement-grant-type/authcodepkce/main/#request-an-authorization-code) for the current authorization request         |
-| `${emailAuthenticationLink}` | The Okta-hosted URL that continues the password recovery flow  |
+| `{verificationToken}`       | The one-time passcode that Identity Engine generated for the user              |
+| `{request.relayState}`      | The [OIDC/OAuth2 state parameter](/docs/guides/implement-grant-type/authcodepkce/main/#request-an-authorization-code) for the current authorization request         |
+| `{emailAuthenticationLink}` | The Okta-hosted URL that continues the password recovery flow  |
 
-By default, the magic link in the template is set to `${emailAuthenticationLink}`. If you're using the Email Verification Experience setting for your redirects, you don't need to change this. The magic link works as explained in the [Use the Email Verification Experience](#use-the-email-verification-experience) section.
+By default, the magic link in the template is set to `{emailAuthenticationLink}`. If you're using the Email Verification Experience setting for your redirects, you don't need to change this. The magic link works as explained in the [Use the Email Verification Experience](#use-the-email-verification-experience) section.
 
-To point the magic link directly to the endpoint in your application, you must replace `${emailAuthenticationLink}` with your custom URL that includes `otp` and `state` as query parameters:
+To point the magic link directly to the endpoint in your application, you must replace `{emailAuthenticationLink}` with your custom URL that includes `otp` and `state` as query parameters:
 
 1. In the **Admin Console**, go to **Customizations** > **Emails**.
 2. On the **Emails** page, find the **Other** category on the template menu.
@@ -186,7 +186,7 @@ To point the magic link directly to the endpoint in your application, you must r
 
    ```html
    <a id="email-authentication-button"
-   href="${emailAuthenticationLink}"
+   href="{emailAuthenticationLink}"
    style="text-decoration: none;">
       <span style="padding: 9px ...;">
          Sign In
@@ -194,11 +194,11 @@ To point the magic link directly to the endpoint in your application, you must r
    </a>
    ```
 
-7. Replace the `${emailAuthenticationLink}` variable with the URL for your endpoint. Append the `${verificationToken}` and `${request.relayState}` variables as query parameter values. For example:
+7. Replace the `{emailAuthenticationLink}` variable with the URL for your endpoint. Append the `{verificationToken}` and `{request.relayState}` variables as query parameter values. For example:
 
    ```html
    <a id="email-authentication-button"
-   href="https://example.com/magiclink/callback?otp=${verificationToken}&state=${request.relayState}"
+   href="https://example.com/magiclink/callback?otp={verificationToken}&state={request.relayState}"
    style="text-decoration: none;">
       <span style="padding: 9px ...;">
          Sign In
@@ -215,15 +215,15 @@ You can customize four email templates this way. These are listed in the table t
 * To add `otp` and `state` variables to the magic link, find the template that you're editing in the table. Then, complete the following steps:
   * Replace the VTL variable in the **magic link variable name** column with your custom endpoint URL.
   * Set your `otp` query string variable to the VTL variable in the **OTP variable name** column for the template.
-  * Set your `state` query string variable to `${request.relayState}` for all templates.
+  * Set your `state` query string variable to `{request.relayState}` for all templates.
 
 | Template name  | Use case | Magic link variable name | OTP variable name |
 |----------------|----------|--------------------------|-------------------|
-| Email challenge | Sign in with email - challenge | `${emailAuthenticationLink}`    | `${verificationToken}` |
-| Forgot Password | Self-service password recovery | `${resetPasswordUrl}`           | `${oneTimePassword}`   |
-| Registration - Activation | Self-service registration | `${registrationActivationLink}` | `${oneTimePassword}`   |
-| Email factor verification | Sign in with email - enrollment | `${verificationLink}` | `${verificationToken}` |
-| Self-Service Unlock Account | Self-service unlock account| `${unlockAccountLink}` | `${oneTimePassword}` |
+| Email challenge | Sign in with email - challenge | `{emailAuthenticationLink}`    | `{verificationToken}` |
+| Forgot Password | Self-service password recovery | `{resetPasswordUrl}`           | `{oneTimePassword}`   |
+| Registration - Activation | Self-service registration | `{registrationActivationLink}` | `{oneTimePassword}`   |
+| Email factor verification | Sign in with email - enrollment | `{verificationLink}` | `{verificationToken}` |
+| Self-Service Unlock Account | Self-service unlock account| `{unlockAccountLink}` | `{oneTimePassword}` |
 
 When a user clicks the magic link based on a customized email template, their browser is redirected straight to your application's endpoint:
 

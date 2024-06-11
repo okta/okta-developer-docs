@@ -48,7 +48,7 @@ Ideally, when the user wants to sign out, they should sign out of every app to k
 * The user signs out of App 1 using Browser 1.
 * App 1 initiates the logout (SP-initiated) by sending a front-channel inbound logout request to Okta using Browser 1. For example:
 
-    `GET https://${yourOktaDomain}/oauth2/v1/logout?id_token_hint=<idToken>&post_logout_redirect_uri=<configuredPostLogoutRedirectUri>&state=<someState>`
+    `GET https://{yourOktaDomain}/oauth2/v1/logout?id_token_hint=<idToken>&post_logout_redirect_uri=<configuredPostLogoutRedirectUri>&state=<someState>`
 
 * Okta ends Okta Session 1. The user can still access Apps 2 and 3 within the scope of each app session.
 

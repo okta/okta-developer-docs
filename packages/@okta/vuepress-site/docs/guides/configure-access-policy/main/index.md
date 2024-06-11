@@ -88,11 +88,11 @@ Let's test your access policy and get back an access token.
 
      > **Note:** Make sure that you have a user assigned to the client application.
 
-2. Retrieve the authorization server's authorization endpoint by using the server's Metadata URI: `https://${yourOktaDomain}/oauth2/${authorizationServerId}/.well-known/openid-configuration`.
+2. Retrieve the authorization server's authorization endpoint by using the server's Metadata URI: `https://{yourOktaDomain}/oauth2/{authorizationServerId}/.well-known/openid-configuration`.
 
-     It looks like this: `https://${yourOktaDomain}/oauth2/${authorizationServerId}/v1/authorize`
+     It looks like this: `https://{yourOktaDomain}/oauth2/{authorizationServerId}/v1/authorize`
 
-     Unless you are using the default authorization server, then it looks like this: `https://${yourOktaDomain}/oauth2/default/v1/authorize`
+     Unless you are using the default authorization server, then it looks like this: `https://{yourOktaDomain}/oauth2/default/v1/authorize`
 
 3. Add the following `/authorize` endpoint query parameters to the URL:
 
@@ -107,7 +107,7 @@ Let's test your access policy and get back an access token.
 
      The resulting URL looks like this:
 
-     `https://${yourOktaDomain}/oauth2/${authorizationServerId}/v1/authorize?client_id=${client_id}&response_type=token&response_mode=fragment&scope=openid email&redirect_uri=http://yourRedirectURIHere.com&state=WM6D&nonce=YsG76jo`
+     `https://{yourOktaDomain}/oauth2/{authorizationServerId}/v1/authorize?client_id={client_id}&response_type=token&response_mode=fragment&scope=openid email&redirect_uri=http://yourRedirectURIHere.com&state=WM6D&nonce=YsG76jo`
 
 4. Open a private browsing session in your browser and paste the URL into the address box. You are redirected to the sign-in page for your Okta org.
 
@@ -178,11 +178,11 @@ Let's test your access policy and get back an access token.
 
      > **Note:** Make sure that you have a user assigned to the client application.
 
-2. Retrieve the authorization server's authorization endpoint by using the server's metadata URI: `https://${yourOktaDomain}/oauth2/${authorizationServerId}/.well-known/openid-configuration`.
+2. Retrieve the authorization server's authorization endpoint by using the server's metadata URI: `https://{yourOktaDomain}/oauth2/{authorizationServerId}/.well-known/openid-configuration`.
 
-     It looks like this: `https://${yourOktaDomain}/oauth2/${authorizationServerId}/v1/authorize`
+     It looks like this: `https://{yourOktaDomain}/oauth2/{authorizationServerId}/v1/authorize`
 
-     Unless you’re using the default authorization server, then it looks like this: `https://${yourOktaDomain}/oauth2/default/v1/authorize`
+     Unless you’re using the default authorization server, then it looks like this: `https://{yourOktaDomain}/oauth2/default/v1/authorize`
 
 3. Add the following `/authorize` endpoint query parameters to the URL:
 
@@ -195,7 +195,7 @@ Let's test your access policy and get back an access token.
 
      The resulting URL looks like this:
 
-     `https://${yourOktaDomain}/oauth2/${authorizationServerId}/v1/authorize?client_id=${client_id}&response_type=token&response_mode=fragment&scope=openid&redirect_uri=http://yourRedirectURIHere.com&state=WM6D&nonce=YsG76jo`
+     `https://{yourOktaDomain}/oauth2/{authorizationServerId}/v1/authorize?client_id={client_id}&response_type=token&response_mode=fragment&scope=openid&redirect_uri=http://yourRedirectURIHere.com&state=WM6D&nonce=YsG76jo`
 
 4. Open a private browsing session in your browser and paste the URL into the address box. You’re redirected to the sign-in page for your Okta org.
 
