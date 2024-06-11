@@ -59,7 +59,7 @@ To simulate the first scenario, use the following call but replace the following
 
 * `{api_token}`: Your org's API token value
 
-* `{yourOktaDomain}`: your Okta domain, for example, `https://example.oktapreview.com`
+* `{yourOktaDomain}`: Your Okta domain, for example, `https://example.oktapreview.com`
 
 * `{yourAppID}`: the `id` value that represents your sample app
 
