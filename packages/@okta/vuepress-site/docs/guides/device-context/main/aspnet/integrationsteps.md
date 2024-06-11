@@ -12,10 +12,10 @@ Add the device ID to the `X-Device-Token` request header in the constructor of t
 
 ```csharp
 const authClient = new OktaAuth({
-  issuer: 'https://${yourOktaDomain}',
+  issuer: 'https://{yourOktaDomain}',
   …
   headers: {
-    'X-Device-Token': '${yourDeviceID}'
+    'X-Device-Token': '{yourDeviceID}'
   }
 });
 ```
@@ -24,9 +24,9 @@ Alternatively, call `OktaAuth.setHeaders()` with `X-Device-Token` and the device
 
 ```csharp
 const authClient = new OktaAuth({
-  issuer: 'https://${yourOktaDomain}',
+  issuer: 'https://{yourOktaDomain}',
   …
 });
 
-authClient.setHeaders({'X-Device-Token': '${yourDeviceID}'});
+authClient.setHeaders({'X-Device-Token': '{yourDeviceID}'});
 ```
