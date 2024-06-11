@@ -63,7 +63,7 @@ To simulate the first scenario, use the following call but replace the following
 
 * `{yourAppID}`: The `id` value that represents your sample app
 
-* `{yourSalesGroupID}`: the `id` value that represents your Sales group
+* `{yourSalesGroupID}`: The `id` value that represents your Sales group
 
 ```bash
 curl -v -X POST \
