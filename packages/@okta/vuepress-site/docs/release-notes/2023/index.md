@@ -317,7 +317,7 @@ Multibrand customizations allow customers to use one org to manage multiple bran
 
 #### Pagination for the Brands API is GA in Production
 
-The Brands API now supports [pagination](/docs/reference/core-okta-api/#pagination) when returning lists of brands. Previously, users would get a list of all brands in the org. With pagination, users receive 20 records per page. See [Customizations](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Customization/). <!-- OKTA-574011 -->
+The Brands API now supports [pagination](/docs/reference/core-okta-api/#pagination) when returning lists of brands. Previously, users would get a list of all brands in the org. With pagination, users receive 20 records per page. See [Brands](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Brands/). <!-- OKTA-574011 -->
 
 #### Unique refresh token ID added to token inline hook requests
 

@@ -129,7 +129,7 @@ SAML and WS-Fed template applications now support username as an optional reques
 
 #### Version pinning for Sign-In Widget (third generation) is GA in Production
 
-You can now pin the Sign-In Widget version (third generation) when updating a customized sign-in page (`PUT /brands/{brandId}/pages/sign-in/customized`) or a preview sign-in page (`PUT /brands/{brandId}/pages/sign-in/preview`). The value of `widgetVersion` must be `7.8` or later if `widgetCustomizations.widgetGeneration` is set to `G3`. A value of `7.7` or earlier results in an invalid request. See [Replace the Customized Error Page](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Customization/#tag/Customization/operation/replaceCustomizedErrorPage). <!-- OKTA-713942 -->
+You can now pin the Sign-In Widget version (third generation) when updating a customized sign-in page (`PUT /brands/{brandId}/pages/sign-in/customized`) or a preview sign-in page (`PUT /brands/{brandId}/pages/sign-in/preview`). The value of `widgetVersion` must be `7.8` or later if `widgetCustomizations.widgetGeneration` is set to `G3`. A value of `7.7` or earlier results in an invalid request. See [Replace the Customized Error Page](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/CustomPages/#tag/CustomPages/operation/replaceCustomizedErrorPage). <!-- OKTA-713942 -->
 
 #### New System Log API property for target object
 

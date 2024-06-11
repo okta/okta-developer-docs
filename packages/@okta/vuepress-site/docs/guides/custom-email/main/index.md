@@ -52,7 +52,7 @@ See [Brands](/docs/concepts/brands/).
 
 ### Use the Brands API
 
-The [Brands API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Customization/) allows you to customize the look and feel of pages and templates, including:
+The [Brands API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Brands/) allows you to customize the look and feel of pages and templates, including:
 
 - The custom sign-in page
 - Error pages
@@ -228,7 +228,7 @@ The following settings determine the language for emails sent from Okta to a use
 
 Use the [BCP 47 format](https://www.rfc-editor.org/info/bcp47) to enable more locales than Okta's 27 default languages.
 
-You can only create customizations using these other languages by calling the Brands API. Once created, the new locale appears in the Admin Console along with the default-supported locales. See [Create an Email Customization](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Customization/#tag/Customization/operation/createEmailCustomization).
+You can only create customizations using these other languages by calling the Brands API. Once created, the new locale appears in the Admin Console along with the default-supported locales. See [Create an Email Customization](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/CustomTemplates/#tag/CustomTemplates/operation/createEmailCustomization).
 
 Include `null` in the subject or body of the email customization. Okta replaces `null` with a default value based on the following order of priority:
 

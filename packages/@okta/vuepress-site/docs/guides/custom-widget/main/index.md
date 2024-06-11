@@ -109,7 +109,7 @@ Use the code editor to modify any HTML, CSS, or JavaScript on the sign-in page. 
 
 ### Use the Brands API
 
-The [Brands API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Customization/) is a feature that allows you to set icons, images, and colors across your Okta-hosted sign-in page, error pages, email templates, and End-User Dashboard all at once, without needing to set a customized Okta URL domain.
+The [Brands API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Brands/) is a feature that allows you to set icons, images, and colors across your Okta-hosted sign-in page, error pages, email templates, and End-User Dashboard all at once, without needing to set a customized Okta URL domain.
 
 ### Bypass the custom sign-in page
 
