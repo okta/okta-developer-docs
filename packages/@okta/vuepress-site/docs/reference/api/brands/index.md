@@ -3,10 +3,13 @@ title: Brands
 category: management
 ---
 
-> **Important** Multibrand customization updates are available in our new API reference docs. See [Customizations](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Customization/).
-
 # Brands API
 
+The Brands API reference is now available at the new [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Brands/).
+
+Explore the [Okta Public API Collections](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/overview) workspace to get started with the Brands API Postman collection.
+
+<!--
 The Okta Brands API allows you to customize the look and feel of pages and templates, including:
 
 - The Okta-hosted sign-in page
@@ -15,6 +18,8 @@ The Okta Brands API allows you to customize the look and feel of pages and templ
 - The Okta End-User Dashboard
 
 Each org starts off with Okta default branding. You can upload your own assets (colors, background image, logo, and favicon) to replace Okta default brand assets. You can then publish these assets directly to your pages and templates.
+
+> **Important** Multibrand customization updates are available in our new API reference docs. See [Customizations](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Customization/).
 
 <ApiAuthMethodWarning />
 
@@ -2625,4 +2630,4 @@ The Email Template Settings Object resource defines the following properties:
 
 ## Links object
 
-Specifies link relations available for the status of an application using the [JSON Hypertext Application Language](https://tools.ietf.org/html/draft-kelly-json-hal-06) specification. This object is used for dynamic discovery of related resources and lifecycle operations. The Links object is read-only. See [Web Linking](https://tools.ietf.org/html/rfc8288)) for more information on link relations.
+Specifies link relations available for the status of an application using the [JSON Hypertext Application Language](https://tools.ietf.org/html/draft-kelly-json-hal-06) specification. This object is used for dynamic discovery of related resources and lifecycle operations. The Links object is read-only. See [Web Linking](https://tools.ietf.org/html/rfc8288)) for more information on link relations. -->

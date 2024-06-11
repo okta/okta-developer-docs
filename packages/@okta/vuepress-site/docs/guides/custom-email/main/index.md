@@ -63,7 +63,7 @@ You can brand these pages and templates without setting up a customized Okta URL
 
 > **Note:** If you change any email code using the [Admin Console](#edit-a-default-email-template), your customizations may override the values of the Theme objects. To get your Theme object values back, reset the code editors in the Admin Console to the default settings.
 
-See [Email template operations](/docs/reference/api/brands/#email-template-operations) and [Email template resources](/docs/reference/api/brands/#email-template-resources) for details about email templates and the Brands API.
+See [Custom Email Templates](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/CustomTemplates/) for details about email templates and the Brands API.
 
 ### Caveats
 
@@ -103,7 +103,7 @@ Remember that Okta doesn't automatically translate the changes you make in one t
 The following table provides a list of all available email templates in an Okta org, including:
 
 - The default subject line for the email template
-- The corresponding API object reference (`${templateName}`) for the email template (see [Email template operations](/docs/reference/api/brands/#email-template-operations))
+- The corresponding API object reference (`${templateName}`) for the email template. See [Custom email templates](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/CustomTemplates/).
 - The required validation fields for templates created using the API
 - A description of the template
 
