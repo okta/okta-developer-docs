@@ -15,8 +15,8 @@ Make the following changes to `src/app/app.module.ts`:
 
    ```ts
    const oktaAuth = new OktaAuth({
-     issuer: 'https://${yourOktaDomain}/oauth2/default',
-     clientId: '${yourClientID}',
+     issuer: 'https://{yourOktaDomain}/oauth2/default',
+     clientId: '{yourClientID}',
      redirectUri: window.location.origin + '/login/callback'
    });
    ```

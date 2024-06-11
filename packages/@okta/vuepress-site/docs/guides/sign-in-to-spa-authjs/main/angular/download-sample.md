@@ -25,8 +25,8 @@ Update the Okta sample application configuration file (`src/app/okta-config.ts `
 
 ```javascript
 const oidcConfig = {
-  clientId: '${clientId}',
-  issuer: 'https://${yourOktaDomain}/oauth2/default',
+  clientId: '{clientId}',
+  issuer: 'https://{yourOktaDomain}/oauth2/default',
   scopes: ['openid', 'profile', 'email'],
   pkce: true
 };
