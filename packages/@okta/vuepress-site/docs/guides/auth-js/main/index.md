@@ -280,8 +280,8 @@ npm install
 
 ```JavaScript
 var config = {
-  issuer: `https://${yourOktaDomain}/oauth2/default`, //For example, `"https://example.okta.com/oauth2/default"`
-  clientId: `${yourClientId}`, // for example, `0oa2am3kk1CraJ8xO1d7`
+  issuer: `https://{yourOktaDomain}/oauth2/default`, //For example, `"https://example.okta.com/oauth2/default"`
+  clientId: `{yourClientId}`, // for example, `0oa2am3kk1CraJ8xO1d7`
   scopes: ['openid','email'],
   storage: 'sessionStorage',
   useInteractionCodeFlow: true,
