@@ -6,17 +6,17 @@ If you are using Apache Maven for your project, include the following dependency
 <dependency>
     <groupId>com.okta.idx.sdk</groupId>
     <artifactId>okta-idx-java-api</artifactId>
-    <version>{okta.idx.sdk.version}</version>
+    <version>${okta.idx.sdk.version}</version>
 </dependency>
 ```
 
 If you are using Gradle for your project, include the following:
 
 ```shell
-compile "com.okta.idx.sdk:okta-idx-java-api:{okta.idx.sdk.version}"
+compile "com.okta.idx.sdk:okta-idx-java-api:${okta.idx.sdk.version}"
 ```
 
-See [Release Status](https://github.com/okta/okta-idx-java#release-status) for the latest Identity Engine Java SDK version (`{okta.idx.sdk.version}`).
+See [Release Status](https://github.com/okta/okta-idx-java#release-status) for the latest Identity Engine Java SDK version (`${okta.idx.sdk.version}`).
 
 > **Note:** The order of dependencies doesn't matter. You can add the Identity Engine Java SDK dependency before or after your previous Okta Java Management or Okta Java Authentication SDK dependencies.
 

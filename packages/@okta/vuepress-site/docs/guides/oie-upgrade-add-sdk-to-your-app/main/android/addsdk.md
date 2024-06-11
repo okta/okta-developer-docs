@@ -3,10 +3,10 @@ After you verify and upgrade your application, the next step is to add the Ident
 If you are using Gradle for your project, include the following:
 
 ```shell
-implementation "com.okta.idx.sdk:okta-idx-java-api:{okta.idx.sdk.version}"
+implementation "com.okta.idx.sdk:okta-idx-java-api:${okta.idx.sdk.version}"
 ```
 
-See [Release Status](https://github.com/okta/okta-idx-java#release-status) for the latest Identity Engine Java SDK version (`{okta.idx.sdk.version}`).
+See [Release Status](https://github.com/okta/okta-idx-java#release-status) for the latest Identity Engine Java SDK version (`${okta.idx.sdk.version}`).
 
 > **Note:** The order of dependencies doesn’t matter. You can add the Identity Engine Java SDK dependency before or after your previous Okta Java Authentication SDK dependencies.
 
