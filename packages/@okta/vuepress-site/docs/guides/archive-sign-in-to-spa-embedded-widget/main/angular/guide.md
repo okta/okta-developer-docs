@@ -41,7 +41,7 @@ You can sign in to the Admin Console using <https://login.okta.com>, and then cl
 
 `{clientId}` placeholders further in this tutorial should be replaced by the client ID of the created application.
 
-> **Note:** It is important to choose the appropriate application type for apps which are public clients. Failing to do so may result in Okta API endpoints attempting to verify an app's client secret, which public clients are not designed to have, hence breaking the sign-in or sign-out flow.
+> **Note:** It's important to choose the appropriate application type for public client apps. Failing to do so may result in Okta API endpoints attempting to verify an app's client secret, which public clients are not designed to have, hence breaking the sign-in or sign-out flow.
 
 ## Create an Angular App
 
