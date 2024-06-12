@@ -74,21 +74,21 @@ npm install @okta/okta-auth-js @okta/okta-react react-router-dom
 
 ## Config
 
-Create a `src/config.js` file. Make sure to replace the `${...}` placeholders with your Okta values.
+Create a `src/config.js` file. Make sure to replace the `{...}` placeholders with your Okta values.
 
 ```js
 const oktaAuthConfig = {
   // Note: If your app is configured to use the Implicit flow
   // instead of the Authorization Code with Proof Key for Code Exchange (PKCE)
   // you will need to add `pkce: false`
-  issuer: 'https://${yourOktaDomain}/oauth2/default',
-  clientId: '${clientId}',
+  issuer: 'https://{yourOktaDomain}/oauth2/default',
+  clientId: '{clientId}',
   redirectUri: window.location.origin + '/login/callback',
 };
 
 const oktaSignInConfig = {
-  baseUrl: 'https://${yourOktaDomain}',
-  clientId: '${clientId}',
+  baseUrl: 'https://{yourOktaDomain}',
+  clientId: '{clientId}',
   redirectUri: window.location.origin + '/login/callback',
   authParams: {
     // If your app is configured to use the Implicit flow
