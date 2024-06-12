@@ -124,7 +124,7 @@ Use the [Interaction Code flow](#interaction-code-flow) if your app hosts the au
 
 #### Does the client have an end user?
 
-A client app that runs on a server with no direct end user can be trusted with its own credentials. The app can be trusted to use them responsibly. If your client app is only doing machine-to-machine interaction, then you should use the [Client Credentials flow](#client-credentials-flow).
+A client app that runs on a server with no direct end user can be trusted to use its own credentials responsibly. If your client app is only doing machine-to-machine interaction, then you should use the [Client Credentials flow](#client-credentials-flow).
 
 #### Is your app high-trust?
 
