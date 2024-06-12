@@ -71,13 +71,13 @@ When a request is sent to the org authorization server's `/authorize` endpoint, 
 Alternatively, you can add grants using the [Apps API](/docs/reference/api/apps/#application-oauth-2-0-scope-consent-grant-operations). The following is an example request to create a grant for the `okta.users.read` scope.
 
 ```bash
-curl --location --request POST 'https://${yourOktaDomain}/api/v1/apps/${appInstanceId}/grants' \
+curl --location --request POST 'https://{yourOktaDomain}/api/v1/apps/{appInstanceId}/grants' \
 --header 'Accept: application/json' \
 --header 'Content-Type: application/json' \
---header 'Authorization: SSWS ${api_token}' \
+--header 'Authorization: SSWS {api_token}' \
 --data-raw '{
     "scopeId": "okta.users.read",
-    "issuer": "https://${yourOktaDomain}"
+    "issuer": "https://{yourOktaDomain}"
 }'
 ```
 
@@ -99,7 +99,7 @@ Request an access token by making a request to your Okta [org authorization serv
 This page helps you build a request in Postman. You can also manually build the request URL and paste it into a private browser window. After you authenticate, the browser returns the access token in the address bar. Your request URL should look something like this:
 
 ```bash
-https://${yourOktaDomain}/oauth2/v1/authorize?client_id=0oan47pj9BsB30h7&response_type=token&response_mode=fragment&scope=okta.users.read&redirect_uri=${yourConfiguredRedirectUri}&nonce=UBGW&state=1234
+https://{yourOktaDomain}/oauth2/v1/authorize?client_id=0oan47pj9BsB30h7&response_type=token&response_mode=fragment&scope=okta.users.read&redirect_uri={yourConfiguredRedirectUri}&nonce=UBGW&state=1234
 ```
 
 We recommend that you always use the Authorization Code with PKCE grant flow. See [Implement the Authorization Code with PKCE flow](/docs/guides/implement-grant-type/authcodepkce/main/) for details on this grant type.
@@ -114,8 +114,8 @@ We recommend that you always use the Authorization Code with PKCE grant flow. Se
 6. Define the remaining fields for the token request:
 
     * **Callback URL**: Define the callback location where Okta returns the token after the user finishes authenticating. This URL must match one of the redirect URIs that you configured in the [Create an OAuth 2.0 app in Okta](#create-an-oauth-2-0-app-in-okta) section.
-    * **Auth URL**: Enter the authorization endpoint for your org authorization server, for example, `https://${yourOktaDomain}/oauth2/v1/authorize`.
-    * **Access Token URL**: Enter the token endpoint for your org authorization server, for example, `https://${yourOktaDomain}/oauth2/v1/token`.
+    * **Auth URL**: Enter the authorization endpoint for your org authorization server, for example, `https://{yourOktaDomain}/oauth2/v1/authorize`.
+    * **Access Token URL**: Enter the token endpoint for your org authorization server, for example, `https://{yourOktaDomain}/oauth2/v1/token`.
     * **Client ID**: Use the `client_id` of your Okta OAuth 2.0 application that you created in the [Create an OAuth 2.0 app in Okta](#create-an-oauth-2-0-app-in-okta) section.
     * **Client secret**: Use the `client_secret` of your Okta OAuth 2.0 application that you created in the [Create an OAuth 2.0 app in Okta](#create-an-oauth-2-0-app-in-okta) section.
     * **Code Challenge Method**: Leave the default of `SHA-256` selected.
