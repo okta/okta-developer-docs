@@ -128,7 +128,7 @@ A client app that runs on a server with no direct end user can be trusted to use
 
 #### Is your app high-trust?
 
-An app is **high-trust** if you own both it and the resource that it accesses. Because you own both, you can trust the app to handle your end users' usernames and passwords. In this case, and _only if other flows aren't viable_, you can use the [Resource Owner Password flow](#resource-owner-password-flow). However, it isn't possible to use this flow with multifactor authentication, so consider alternatives such as the [Authorization Code](/docs/guides/implement-grant-type/authcode/main/) or [Interaction Code flow](#interaction-code-flow).
+An app is **high-trust** if you own it and the resource that it accesses. Because you own both, you can trust the app to handle your end users' usernames and passwords. In this case, and _only if other flows aren't viable_, you can use the [Resource Owner Password flow](#resource-owner-password-flow). However, it isn't possible to use this flow with multifactor authentication, so consider alternatives such as the [Authorization Code](/docs/guides/implement-grant-type/authcode/main/) or [Interaction Code flow](#interaction-code-flow).
 
 If your app isn't high-trust, or if you want to take advantage of multifactor authentication, you should use the [Authorization Code](/docs/guides/implement-grant-type/authcode/main/) flow.
 
