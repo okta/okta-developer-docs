@@ -24,12 +24,12 @@ The first step is to install the Widget. For this, you have two options: linking
 
 ### CDN
 
-To use the CDN, include this in your HTML, replacing `${widgetVersion}` with the [latest version](https://github.com/okta/okta-signin-widget/releases/) of the widget:
+To use the CDN, include this in your HTML, replacing `{widgetVersion}` with the [latest version](https://github.com/okta/okta-signin-widget/releases/) of the widget:
 
 ```html
 <!-- Latest CDN production JavaScript and CSS -->
-<script src="https://global.oktacdn.com/okta-signin-widget/${widgetVersion}/js/okta-sign-in.min.js" type="text/javascript"></script>
-<link href="https://global.oktacdn.com/okta-signin-widget/${widgetVersion}/css/okta-sign-in.min.css" type="text/css" rel="stylesheet"/>
+<script src="https://global.oktacdn.com/okta-signin-widget/{widgetVersion}/js/okta-sign-in.min.js" type="text/javascript"></script>
+<link href="https://global.oktacdn.com/okta-signin-widget/{widgetVersion}/css/okta-sign-in.min.css" type="text/css" rel="stylesheet"/>
 ```
 
 See also [Using the Okta CDN](https://github.com/okta/okta-signin-widget#using-the-okta-cdn). The latest version of the widget is -=OKTA_REPLACE_WITH_WIDGET_VERSION=-.
@@ -71,7 +71,7 @@ The code that initializes the Widget looks like this:
 <div id="widget-container"></div>
 
 <script>
-  const signIn = new OktaSignIn({baseUrl: 'https://${yourOktaDomain}'});
+  const signIn = new OktaSignIn({baseUrl: 'https://{yourOktaDomain}'});
   signIn.renderEl({
     el: '#widget-container'
   }, function success(res) {
@@ -144,11 +144,11 @@ In this case, you would like to use the Widget to sign in to a simple web page a
     </div>
     <script type="text/javascript">
       const oktaSignIn = new OktaSignIn({
-        baseUrl: "https://${yourOktaDomain}",
-        redirectUri: '{{https://${yourAppRedirectUri} configured in your OIDC app}}',
-        clientId: "${yourClientId}",
+        baseUrl: "https://{yourOktaDomain}",
+        redirectUri: '{{https://{yourAppRedirectUri} configured in your OIDC app}}',
+        clientId: "{clientId}",
         authParams: {
-          issuer: "https://${yourOktaDomain}/oauth2/default"
+          issuer: "https://{yourOktaDomain}/oauth2/default"
         }
       });
 
@@ -195,7 +195,7 @@ In this case, you would like to use the Widget to sign in to the default Okta da
 ```javascript
 function success(res) {
   if (res.status === 'SUCCESS') {
-    res.session.setCookieAndRedirect('https://${yourOktaDomain}/app/UserHome');
+    res.session.setCookieAndRedirect('https://{yourOktaDomain}/app/UserHome');
   }
 }
 ```
@@ -225,13 +225,13 @@ If you'd like to use the Widget to sign in to your own application instead of Ok
 ```javascript
 
 const signIn = new OktaSignIn({
-  baseUrl: 'https://${yourOktaDomain}',
+  baseUrl: 'https://{yourOktaDomain}',
   el: '#widget-container',
-  clientId: '${clientId}',
+  clientId: '{clientId}',
   // must be in the list of redirect URIs enabled for the OIDC app
-  redirectUri: '${redirectUri}',
+  redirectUri: '{redirectUri}',
   authParams: {
-    issuer: 'https://${yourOktaDomain}/oauth2/default',
+    issuer: 'https://{yourOktaDomain}/oauth2/default',
     pkce: false,
     responseType: ['code']
   }
@@ -248,13 +248,13 @@ signIn.showSignInAndRedirect();
 ```javascript
 
 const signIn = new OktaSignIn({
-  baseUrl: 'https://${yourOktaDomain}',
+  baseUrl: 'https://{yourOktaDomain}',
   el: '#widget-container',
-  clientId: '${clientId}',
+  clientId: '{clientId}',
   // must be in the list of redirect URIs enabled for the OIDC app
-  redirectUri: '${redirectUri}',
+  redirectUri: '{redirectUri}',
   authParams: {
-    issuer: 'https://${yourOktaDomain}/oauth2/default'
+    issuer: 'https://{yourOktaDomain}/oauth2/default'
   }
 });
 
@@ -373,6 +373,6 @@ You can also develop your mobile app with frameworks like Ionic and Flutter. We 
 
 The Okta Sign-In Widget is fully customizable through CSS and JavaScript. See [Style the Widget](/docs/guides/custom-widget/) for more information and multiple examples of customization options.
 
-## See also 
+## See also
 
 [Identity Engine upgrade overview](/docs/guides/oie-upgrade-overview/)

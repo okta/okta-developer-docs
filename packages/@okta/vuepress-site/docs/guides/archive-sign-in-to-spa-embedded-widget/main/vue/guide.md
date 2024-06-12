@@ -87,20 +87,20 @@ import OktaSignIn from '@okta/okta-signin-widget'
 import { OktaAuth } from '@okta/okta-auth-js'
 
 const oktaSignIn = new OktaSignIn({
-  baseUrl: 'https://${yourOktaDomain}',
-  clientId: '${clientId}',
+  baseUrl: 'https://{yourOktaDomain}',
+  clientId: '{clientId}',
   redirectUri: 'http://localhost:8080/login/callback',
   authParams: {
     pkce: true,
-    issuer: 'https://${yourOktaDomain}/oauth2/default',
+    issuer: 'https://{yourOktaDomain}/oauth2/default',
     display: 'page',
     scopes: ['openid', 'profile', 'email']
   }
 });
 
 const oktaAuth = new OktaAuth({
-  issuer: 'https://${yourOktaDomain}/oauth2/default',
-  clientId: '${clientId}',
+  issuer: 'https://{yourOktaDomain}/oauth2/default',
+  clientId: '{clientId}',
   redirectUri: window.location.origin + '/login/callback',
   scopes: ['openid', 'profile', 'email']
 })
@@ -108,7 +108,7 @@ const oktaAuth = new OktaAuth({
 export { oktaAuth, oktaSignIn };
 ```
 
-Make sure to replace the `${...}` placeholders with values from your OIDC app on Okta.
+Make sure to replace the `{...}` placeholders with values from your OIDC app on Okta.
 
 > **Note:** In Okta Sign-In Widget version 7+, [Okta Identity Engine](/docs/concepts/oie-intro) is enabled by default. If you are using version 7+ and want to use Okta Classic Engine rather than Identity Engine, you need to specify `useClassicEngine: true` in the [configuration options](https://github.com/okta/okta-signin-widget#configuration) passed into the `new OktaSignIn()` call.
 
