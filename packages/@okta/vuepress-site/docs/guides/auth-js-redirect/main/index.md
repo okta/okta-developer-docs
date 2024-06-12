@@ -50,7 +50,7 @@ The integration includes configuration information required by the app to access
 1. Click **Admin** in the upper-right corner of the page.
 1. Go to **Applications** > **Applications**.
 1. Click **Create App Integration**, and then select a **Sign-in method** of **OIDC - OpenID Connect**.
-1. Select an **Application type** of **Single-Page Application**, then click **Next**.
+1. Select an **Application type** of **Single-Page Application**, and then click **Next**.
    > **Note:** If you choose an inappropriate application type, it breaks the sign-in or sign-out flow. It breaks the flow by requiring the verification of a client secret, which public clients don't have.
 1. Enter an **App integration name**, and then ensure that the **Authorization Code** grant type is selected.
 1. Enter the **Sign-in redirect URIs** for local development. For this sample, use `http://localhost:9000`.
