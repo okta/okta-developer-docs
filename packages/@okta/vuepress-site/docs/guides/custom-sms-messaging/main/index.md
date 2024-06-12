@@ -27,13 +27,13 @@ Okta provides one default SMS message template that is automatically sent to you
 
 Okta supports two variables for [SMS message templates](/docs/reference/api/templates/):
 
-* `${code}`: Required. When you add a translation or create a custom SMS message template, the message text must include the variable `${code}`. This variable represents the one-time verification code that is required when a user signs in.
-* `${org.name}`: Optional. This variable represents the Okta organization that the user is trying to authenticate with.
+* `{code}`: Required. When you add a translation or create a custom SMS message template, the message text must include the variable `{code}`. This variable represents the one-time verification code that is required when a user signs in.
+* `{org.name}`: Optional. This variable represents the Okta organization that the user is trying to authenticate with.
 
 When crafting a translation or creating a custom SMS message, keep the following in mind:
 
 * The maximum length of the message is 159 characters.
-* The variable `${code}` is required. The variable `${org.name}` is optional.
+* The variable `{code}` is required. The variable `{org.name}` is optional.
 * The variables are included in the message length count.
 * The message can include only alphanumeric and punctuation characters. Avoid using special characters.
 
@@ -51,7 +51,7 @@ When crafting a translation or creating a custom SMS message, keep the following
 
 3. Click the pencil icon under **Actions** to start creating a custom message from the default. The changes that you make create a custom SMS message template, and you are no longer using the default Okta SMS message.
 
-For example: `${org.name}: your verification code is ${code}`
+For example: `{org.name}: your verification code is {code}`
 
 > **Tip:** To reset the message back to the original default, click **Reset to Default**. This removes the custom SMS message template and all of the associated translations, and reverts back to the original default SMS message template.
 
@@ -74,7 +74,7 @@ If you support other languages in your org, you need to create a translation for
 
 5. Enter the message, in the translated language, into the box.
 
-For example: `it": "${org.name}: il codice di verifica è ${code}`
+For example: `it": "{org.name}: il codice di verifica è {code}`
 
 6. Click **Add Translation**.
 
