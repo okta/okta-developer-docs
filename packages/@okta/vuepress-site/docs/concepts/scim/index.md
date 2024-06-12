@@ -88,7 +88,7 @@ This option sets the user's password for your integration to match the Okta pass
 
 Another provisioning feature supported by Okta is the mapping of user profile attributes.
 
-After enabling provisioning, you can set an app as the "source" from which users profiles are imported or the "target" to which attributes are sent.
+After enabling provisioning, you can set an app as the "source" from which user profiles are imported or the "target" to which attributes are sent.
 
 Okta uses a Profile Editor to map specific user attributes from the source app to the Okta user profile.
 
