@@ -37,7 +37,7 @@ To submit an OIDC integration, click the **OIDC** tab and select **On** from the
     * https://okta-`${app.variableName}`.com
     * `${app.variableName}/route`
 
-    > **Note**: A variable can include a complete URL (for example, https://example.com). This enables you to use more globally useful variables such as `${org.baseURL}`.
+    > **Note**: A variable can include a complete URL (for example, https://example.com). This enables you to use more globally useful variables such as `org.baseURL`.
 
 * **Do you require an Initiate Login URI** (Optional): Include a sign-in URI if you want the Okta integration to handle redirecting your users to your application to start the sign-in request. When end users click a tile in their Okta dashboard, they are redirected to the `initiate_login_uri` of the client application, which constructs an authorization request and redirects the end user back to Okta.
 

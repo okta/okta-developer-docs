@@ -234,7 +234,7 @@ Before you can delete an attribute, you first need to remove the mapping for tha
 
 1. Scroll to the **Attribute Mappings** section. Look for the attribute that you want to update and click **Edit**.
 
-1. In the dialog that appears, there are two dropdown fields. In the first dropdown menu, select **Map from ${App Name} App Profile**. In the second dropdown menu, choose the Okta profile attribute that you want to map the SCIM attribute to. Click **Save**.
+1. In the dialog that appears, there are two dropdown fields. In the first dropdown menu, select **Map from {App Name} App Profile**. In the second dropdown menu, choose the Okta profile attribute that you want to map the SCIM attribute to. Click **Save**.
 
 1. Repeat steps 7 and 8 for all other SCIM attributes that you want to map (from your app to Okta).
 
