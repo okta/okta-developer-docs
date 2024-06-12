@@ -120,7 +120,7 @@ After you have built and tested your SCIM app, read through our [Publish an OIN 
 
 ## Related resources
 
-For more information about how to use the Admin Console to set up provisioning in your integration or have more questions about SCIM, see:
+For more information about SCIM and how to use the Admin Console to set up provisioning in your integration, see:
 
 * [Provision cloud applications](https://help.okta.com/okta_help.htm?id=ext_prov_okta_lcm_user_provision)
 * [SCIM Technical FAQs](/docs/concepts/scim/faqs/)
