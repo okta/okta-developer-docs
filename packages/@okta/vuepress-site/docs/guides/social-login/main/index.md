@@ -58,9 +58,9 @@ To add <StackSnippet snippet="idp" inline /> as an Identity Provider in Okta:
 
 You can automatically link external IdP accounts to Okta accounts when the user signs in using the external IdP. If **Account Link Policy** is set to Automatic (`AUTO`), Okta searches the Universal Directory for a user's profile to link. The user profile is found when the **IdP username** value (email) passed by the IdP matches the **Match against** value (username). See [Account Linking and JIT Provisioning](/docs/concepts/identity-providers/#account-linking-and-just-in-time-provisioning).
 
-To remove an existing account link or validate account linking with every sign-in flow, Okta recommends that you make a `DELETE` call to the `/api/v1/idps/${idpId}/users/${userId}` [endpoint](/docs/reference/api/idps/#unlink-user-from-idp) to remove the link between the Okta user and the IdP user before authentication.
+To remove an existing account link or validate account linking with every sign-in flow, Okta recommends that you make a `DELETE` call to the `/api/v1/idps/{idpId}/users/{userId}` [endpoint](/docs/reference/api/idps/#unlink-user-from-idp) to remove the link between the Okta user and the IdP user before authentication.
 
-If **Account Link Policy** is disabled, no account linking occurs. You can manually create an account link without a transaction by making a `POST` call to the `/api/v1/idps/${idps}/users/${userId}` [endpoint](/docs/reference/api/idps/#link-a-user-to-a-social-provider-without-a-transaction).
+If **Account Link Policy** is disabled, no account linking occurs. You can manually create an account link without a transaction by making a `POST` call to the `/api/v1/idps/{idps}/users/{userId}` [endpoint](/docs/reference/api/idps/#link-a-user-to-a-social-provider-without-a-transaction).
 
 See [Add an Identity Provider](/docs/reference/api/idps/#add-identity-provider) for API examples of account linking JSON payloads.
 
@@ -72,7 +72,7 @@ You can test your integration by configuring a [routing rule](https://help.okta.
 
 Alternatively, you can use the Authorize URL to simulate the authorization flow. The Okta Identity Provider that you created generated an authorize URL with several blank parameters that you can fill in to test the flow with the Identity Provider. The authorize URL initiates the authorization flow that authenticates the user with the Identity Provider.
 
-In the URL, replace `${yourOktaDomain}` with your org's base URL, and then replace the following values:
+In the URL, replace `{yourOktaDomain}` with your org's base URL, and then replace the following values:
 
 * `client_id`: Use the `client_id` value from your Okta app integration. This isn’t the `client_id` from the Identity Provider. For example, `0oawjqpb2wcUAWM8C0h7`.
 
@@ -93,7 +93,7 @@ For a full explanation of all of these parameters, see: [/authorize Request para
 An example of a complete URL looks like this:
 
 ```bash
-https://${yourOktaDomain}/oauth2/v1/authorize?idp=${idp_id}&client_id=${client_id}&response_type=id_token&response_mode=fragment&scope=openid%20email&redirect_uri=https%3A%2F%2FyourAppUrlHere.com%2F&state=WM6D&nonce=YsG76jo
+https://{yourOktaDomain}/oauth2/v1/authorize?idp={idp_id}&client_id={client_id}&response_type=id_token&response_mode=fragment&scope=openid%20email&redirect_uri=https%3A%2F%2FyourAppUrlHere.com%2F&state=WM6D&nonce=YsG76jo
 
 ```
 

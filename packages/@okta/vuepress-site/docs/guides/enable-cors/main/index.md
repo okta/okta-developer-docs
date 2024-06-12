@@ -69,7 +69,7 @@ The following code samples can be added to your website to test your CORS config
 
 ```javascript
 (async function () {
-    const baseUrl = `https://${yourOktaDomain}`;
+    const baseUrl = `https://{yourOktaDomain}`;
     try {
         const response = await fetch(baseUrl + '/api/v1/users/me', {
             credentials: 'include'
@@ -85,7 +85,7 @@ The following code samples can be added to your website to test your CORS config
 #### XMLHttpRequest
 
 ```javascript
-var baseUrl = 'https://${yourOktaDomain}';
+var baseUrl = 'https://{yourOktaDomain}';
 var xhr = new XMLHttpRequest();
 if ("withCredentials" in xhr) {
     xhr.onerror = function() {
@@ -105,7 +105,7 @@ if ("withCredentials" in xhr) {
 #### jQuery
 
 ```javascript
-var baseUrl = 'https://${yourOktaDomain}';
+var baseUrl = 'https://{yourOktaDomain}';
 $.ajax({
   url: baseUrl + '/api/v1/users/me',
   type: 'GET',

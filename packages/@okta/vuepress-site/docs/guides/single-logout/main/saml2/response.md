@@ -5,11 +5,11 @@ The response and the x.509 certificate are truncated for brevity.
       "signOn": {
       "defaultRelayState": "",
       "ssoAcsUrl": "http://myapp.exampleco.com/saml/sso",
-      "idpIssuer": "http://www.okta.com/${org.externalKey}",
+      "idpIssuer": "http://www.okta.com/{org.externalKey}",
       "audience": "urn:example:sp",
       "recipient": "http://myapp.exampleco.com/saml/sso",
       "destination": "http://myapp.exampleco.com/saml/sso",
-      "subjectNameIdTemplate": "${user.userName}",
+      "subjectNameIdTemplate": "{user.userName}",
       "subjectNameIdFormat": "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
       "responseSigned": true,
       "assertionSigned": true,

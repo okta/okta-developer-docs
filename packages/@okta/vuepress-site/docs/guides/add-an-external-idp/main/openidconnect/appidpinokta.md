@@ -16,13 +16,13 @@
 
 In the **Endpoints** section:
 
-Add the following endpoint URLs for the OpenID Connect Identity Provider that you're configuring. You can obtain the appropriate endpoints and the required scopes in the well-known configuration document for the Identity Provider (for example, `https://${theIdPdomain}/.well-known/openid-configuration`).
+Add the following endpoint URLs for the OpenID Connect Identity Provider that you're configuring. You can obtain the appropriate endpoints and the required scopes in the well-known configuration document for the Identity Provider (for example, `https://{theIdPdomain}/.well-known/openid-configuration`).
 
-* **Issuer**: The identifier of the OpenID Connect provider. For example, `https://${theIdPdomain}/`.
-* **Authorization endpoint**: The URL of the Identity Provider's OAuth 2.0 authorization endpoint. For example: `https://${theIdPdomain}/oauth2/v1/authorize`
-* **Token endpoint**: The URL of the Identity Provider's token endpoint for obtaining access and ID tokens. For example: `https://${theIdPdomain}/oauth2/v1/token`
-* **JWKS endpoint**: The URL of the Identity Provider's JSON Web Key Set document. This document contains signing keys that are used to validate the signatures from the provider. For example: `https://${theIdPdomain}/oauth2/v1/keys`
-* **Userinfo endpoint (optional)**: The endpoint for getting identity information about the user. For example: `https://${theIdPdomain}/oauth2/v1/userinfo`.
+* **Issuer**: The identifier of the OpenID Connect provider. For example, `https://{theIdPdomain}/`.
+* **Authorization endpoint**: The URL of the Identity Provider's OAuth 2.0 authorization endpoint. For example: `https://{theIdPdomain}/oauth2/v1/authorize`
+* **Token endpoint**: The URL of the Identity Provider's token endpoint for obtaining access and ID tokens. For example: `https://{theIdPdomain}/oauth2/v1/token`
+* **JWKS endpoint**: The URL of the Identity Provider's JSON Web Key Set document. This document contains signing keys that are used to validate the signatures from the provider. For example: `https://{theIdPdomain}/oauth2/v1/keys`
+* **Userinfo endpoint (optional)**: The endpoint for getting identity information about the user. For example: `https://{theIdPdomain}/oauth2/v1/userinfo`.
 
 > **Note:** Okta requires an access token returned from the Identity Provider if you add the `/userinfo` endpoint URL.
 
