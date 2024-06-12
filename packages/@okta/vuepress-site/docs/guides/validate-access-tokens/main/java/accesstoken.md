@@ -23,7 +23,7 @@ Include the lines below in your Maven `pom.xml`:
 
 > **Note:** Replace `${okta-jwt.version}` in your Maven `pom.xml` with the latest version from [here](https://search.maven.org/search?q=a:okta-jwt-verifier)
 
-### Validate Access Token
+### Validate access token
 
 Create the Okta JWT Verifier using the `JwtVerifiers` class:
 

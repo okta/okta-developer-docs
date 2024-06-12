@@ -1,6 +1,7 @@
 This code uses the [Okta JWT Verifier for Python](https://github.com/okta/okta-jwt-verifier-python).
 
 To install Okta JWT Verifier for Python run the following command:
+
 ```sh
 pip install okta-jwt-verifier
 ```
@@ -12,7 +13,6 @@ For any access token to be valid, the following must be asserted:
 - The `aud` claim in the JWT matches any expected `aud` claim passed in `ClaimsToValidate` during setup.
 - The `iss` claim matches the issuer the verifier is constructed with.
 - Any custom claim assertions that you add are confirmed
-
 
 ```py
 import asyncio

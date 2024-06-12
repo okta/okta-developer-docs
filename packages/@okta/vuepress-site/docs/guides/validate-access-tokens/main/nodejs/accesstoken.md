@@ -7,6 +7,7 @@ const oktaJwtVerifier = new OktaJwtVerifier({
   issuer: 'https://${yourOktaDomain}/oauth2/default' // issuer required
 });
 ```
+
 For any access token to be valid, the following are asserted:
 
 - Signature is valid (the token was signed by a private key which has a corresponding public key in the JWKS response from the authorization server).
@@ -27,6 +28,7 @@ oktaJwtVerifier.verifyAccessToken(accessTokenString, expectedAud)
   // a validation failed, inspect the error
 });
 ```
+
 The expected audience passed to `verifyAccessToken()` is required, and can be either a string (direct match) or an array of strings (the actual `aud` claim in the token must match one of the strings):
 
 ```javascript
