@@ -11,5 +11,5 @@ Create an empty API project in Visual Studio with the ASP.NET Core Web API proje
 Alternatively, you can create a project with the .NET CLI:
 
 ```bash
-dotnet new webapi -o ${yourProjectName} --framework netcoreapp3.1
+dotnet new webapi -o {yourProjectName} --framework netcoreapp3.1
 ```
