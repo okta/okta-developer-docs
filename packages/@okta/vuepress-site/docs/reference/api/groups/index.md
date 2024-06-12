@@ -208,7 +208,7 @@ The following expressions are supported for Groups with the `filter` query param
 
 See [Filtering](/docs/reference/core-okta-api/#filter) for more information on expressions.
 
-> **Note:** All filters must be [URL encoded](https://datatracker.ietf.org/doc/html/rfc3986#section-2.1) where `filter=lastUpdated gt "2013-06-01T00:00:00.000Z"` is encoded as `filter=lastUpdated%20gt%20%222013-06-01T00:00:00.000Z%22`.
+> **Note:** All filters must be [URL encoded](https://developer.mozilla.org/en-US/docs/Glossary/Percent-encoding) where `filter=lastUpdated gt "2013-06-01T00:00:00.000Z"` is encoded as `filter=lastUpdated%20gt%20%222013-06-01T00:00:00.000Z%22`.
 
 **Filter examples**
 
@@ -735,7 +735,7 @@ This operation:
 
 - Supports [pagination](/docs/reference/core-okta-api/#pagination).
 
-- Requires [URL encoding](https://datatracker.ietf.org/doc/html/rfc3986#section-2.1). For example, `search=type eq "OKTA_GROUP"` is encoded as `search=type+eq+%22OKTA_GROUP%22`. Use an ID lookup for records that you update to ensure that your results contain the latest data. Search results are eventually consistent.
+- Requires [URL encoding](https://developer.mozilla.org/en-US/docs/Glossary/Percent-encoding). For example, `search=type eq "OKTA_GROUP"` is encoded as `search=type+eq+%22OKTA_GROUP%22`. Use an ID lookup for records that you update to ensure that your results contain the latest data. Search results are eventually consistent.
 
 - Searches many properties:
   - Any group profile property, including imported app group profile properties.

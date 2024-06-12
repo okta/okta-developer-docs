@@ -33,7 +33,7 @@ The search query parameter uses standard Okta API filtering semantics to create 
 
 ### URL encoding
 
-The search parameter requires URL encoding for expressions that include characters such as spaces and double quotes used for strings. See [URL encoding](https://datatracker.ietf.org/doc/html/rfc3986#section-2.1). For example:
+The search parameter requires URL encoding for expressions that include characters such as spaces and double quotes used for strings. See [URL encoding](https://developer.mozilla.org/en-US/docs/Glossary/Percent-encoding). For example:
 
 `search=profile.department eq "Engineering"` is encoded as `search=profile.department%20eq%20%22Engineering%22`.
 
