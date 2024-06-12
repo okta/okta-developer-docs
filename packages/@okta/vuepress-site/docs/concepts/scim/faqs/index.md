@@ -88,7 +88,7 @@ To run an import for your SCIM users, do the following in the Admin Console:
 1. Under the **Import** tab, click **To Okta** and **Import Now** to do a one-time import.
 1. Okta prompts you to review and confirm assignments for any users that aren't automatically matched to existing Okta users.
 
-To set up a regular schedule for importing users, in the Admin Console:
+To set up a regular schedule for importing users, do the following in the Admin Console:
 
 1. Select your SCIM integration from the list of integrations in your Okta org.
 1. Under the **Provisioning** tab, click **To Okta** and **Edit** in the General section.
