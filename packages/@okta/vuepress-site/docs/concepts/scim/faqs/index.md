@@ -94,7 +94,7 @@ To set up a regular schedule for importing users, do the following in the Admin 
 1. Under the **Provisioning** tab, click **To Okta** and **Edit** in the General section.
 1. In the **Full Import Schedule** drop down, you can choose from hourly, daily, or weekly imports.
 
-For more details on the import functionality of Okta, see the [Import users](https://help.okta.com/okta_help.htm?id=ext_Importing_People) guide.
+See [Import users](https://help.okta.com/okta_help.htm?id=ext_Importing_People).
 
 **Q: How do I get my SCIM integration to use `PUT` requests instead of `PATCH` when updating users and groups?**
 
