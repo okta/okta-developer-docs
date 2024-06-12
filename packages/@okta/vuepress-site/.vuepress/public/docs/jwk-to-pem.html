@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JWK to PEM Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .header {
+            background-color: #333;
+            padding: 10px;
+            text-align: center;
+        }
+        .logo {
+            max-width: 200px;
+            height: auto;
+        }
+        .main-content {
+            flex-grow: 1;
+            max-width: 800px;
+            width: 90%;
+            margin: 20px auto;
+            padding: 30px;
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        textarea {
+            width: 100%;
+            height: 200px;
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 14px;
+        }
+        .button-group {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 0 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .footer {
+            background-color: #333;
+            color: #ccc;
+            text-align: center;
+            padding: 10px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <img src="Okta_logo.png" alt="Okta" class="logo">
+    </header>
+
+    <main class="main-content">
+        <h1>JWK to PEM Converter</h1>
+        <p>Input a JWK below (RSA and EC supported):</p>
+        <textarea id="jwkInput" placeholder="Paste your JWK here..."></textarea>
+        <div class="button-group">
+            <button onclick="convertJwkToPem()">Convert</button>
+            <button onclick="clearFields()">Clear</button>
+        </div>
+        <h2>PEM Output:</h2>
+        <textarea id="pemOutput" readonly></textarea>
+    </main>
+
+    <footer class="footer">
+       Copyright &copy; 2024 Okta. All rights reserved.
+    </footer>
+
+    <script>
+        async function convertJwkToPem() {
+            const jwkInput = document.getElementById('jwkInput').value;
+            let jwk;
+            try {
+                jwk = JSON.parse(jwkInput);
+            } catch (e) {
+                alert('Invalid JWK. Please provide a valid JSON Web Key.');
+                return;
+            }
+
+            if (!jwk.kty) {
+                alert('Invalid JWK. It should have a "kty" (key type) field.');
+                return;
+            }
+
+            try {
+                let algorithm, publicKey;
+
+                switch (jwk.kty) {
+                    case "RSA":
+                        if (!jwk.n || !jwk.e) {
+                            throw new Error('Invalid RSA JWK. It should have "n" and "e" fields.');
+                        }
+                        algorithm = { name: "RSASSA-PKCS1-v1_5" };
+                        if (jwk.alg) {
+                            switch (jwk.alg) {
+                                case "RS256": algorithm.hash = "SHA-256"; break;
+                                case "RS384": algorithm.hash = "SHA-384"; break;
+                                case "RS512": algorithm.hash = "SHA-512"; break;
+                                default: throw new Error(`Unsupported RSA algorithm: ${jwk.alg}`);
+                            }
+                        }
+                        publicKey = await crypto.subtle.importKey("jwk", jwk, algorithm, true, ["verify"]);
+                        break;
+
+                    case "EC":
+                        if (!jwk.crv || !jwk.x || !jwk.y) {
+                            throw new Error('Invalid EC JWK. It should have "crv", "x", and "y" fields.');
+                        }
+                        algorithm = { name: "ECDSA", namedCurve: jwk.crv };
+                        if (jwk.alg) {
+                            switch (jwk.alg) {
+                                case "ES256": if (jwk.crv !== "P-256") throw new Error("For ES256, curve should be P-256"); break;
+                                case "ES384": if (jwk.crv !== "P-384") throw new Error("For ES384, curve should be P-384"); break;
+                                case "ES512": if (jwk.crv !== "P-521") throw new Error("For ES512, curve should be P-521"); break;
+                                default: throw new Error(`Unsupported EC algorithm: ${jwk.alg}`);
+                            }
+                        }
+                        publicKey = await crypto.subtle.importKey("jwk", jwk, algorithm, true, ["verify"]);
+                        break;
+
+                    default:
+                        throw new Error(`Unsupported key type: ${jwk.kty}`);
+                }
+
+                const publicKeyDer = await crypto.subtle.exportKey("spki", publicKey);
+                const publicKeyBase64 = btoa(String.fromCharCode.apply(null, new Uint8Array(publicKeyDer)));
+                const publicKeyPem = `-----BEGIN PUBLIC KEY-----\n${publicKeyBase64.match(/.{1,64}/g).join('\n')}\n-----END PUBLIC KEY-----`;
+
+                document.getElementById('pemOutput').value = publicKeyPem;
+            } catch (error) {
+                alert(`Error converting JWK to PEM: ${error.message}`);
+            }
+        }
+
+        function clearFields() {
+            document.getElementById('jwkInput').value = '';
+            document.getElementById('pemOutput').value = '';
+        }
+    </script>
+</body>
+</html>
