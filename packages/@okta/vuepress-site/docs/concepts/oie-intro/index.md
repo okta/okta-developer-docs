@@ -30,7 +30,7 @@ See [Customize email notifications > Use app context](/docs/guides/custom-email/
 
 ### App intent links
 
-App intent links are used to signal intent to access an application. These links are protocol-specific endpoints that you can use to initiate a sign-in flow to an application. Both Identity Provider and Service Provider initiated flows are supported.
+App intent links are used to signal intent to access an app. These links are protocol-specific endpoints that you can use to initiate a sign-in flow to an app. Both Identity Provider and Service Provider initiated flows are supported.
 
 Example app intent link for a SAML application:
 `http://{yourOktaDomain}/app/mysamlapp_1/{appInstanceID}/sso/saml`
@@ -41,7 +41,7 @@ The user was then redirected to the relevant app intent link through an intermed
 
 Identity Engine changes the way Okta processes these requests. It no longer forwards requests to the centralized sign-in page (`/login/login.htm`). Instead, the app intent links location hosts the widget/sign-in experience for the app that the user is attempting to access.
 
-Then, Identity Engine evaluates the Global Session Policy, authentication policy, and all other policies relevant to the sign-in experience. Since each app intent link is responsible for hosting the sign-in experience on Identity Engine, they share a common app intent link rate limit bucket/group similar to what exists for the centralized sign-in page on Classic Engine.
+Then, Identity Engine evaluates the Global Session Policy, authentication policy, and all other policies relevant to the sign-in experience. Each app intent link is responsible for hosting the sign-in experience on Identity Engine. Because of this, they share a common app intent link rate limit bucket/group similar to what exists for the centralized sign-in page on Classic Engine.
 
 ### Authentication policies
 
@@ -68,13 +68,13 @@ You can use either hCAPTCHA or reCAPTCHA with the redirect or embedded authentic
 
 If you use the [Sign-In Widget SDK](https://github.com/okta/okta-signin-widget), CAPTCHA works out of the box. If you use any other [Okta SDK](https://developer.okta.com/code/), you need to implement CAPTCHA. See [CAPTCHAs](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/CAPTCHA/).
 
-### Interaction code grant type for embedded authentication
+### Interaction Code grant type for embedded authentication
 
 To enable a more customized user authentication experience, Okta introduces an extension to the [OAuth 2.0 and OpenID Connect](/docs/concepts/oauth-openid) standard called the [Interaction Code grant type](/docs/concepts/interaction-code/). This grant type allows apps using an embedded Okta Sign-In Widget and/or SDK to manage user interactions with the authorization server directly, rather than relying on a browser-based redirect to an authentication component (such as the Sign-In Widget).
 
 ## Authentication deployment models
 
-You can divide the Identity Engine user authentication deployment model into three approaches:
+You can divide the Identity Engine deployment model for user authentication into three approaches:
 
 * **Okta-hosted (redirect) Sign-In Widget**: Use the redirect (Okta-hosted) Sign-In Widget to authenticate your users, then redirect back to your app. This is the recommended approach as it's the most secure and fastest to implement.
 * **Embedded Sign-In Widget**: Embed the Sign-In Widget into your own code base to handle the authentication on your servers. This provides a balance between complexity and customization.
@@ -84,7 +84,7 @@ See [Okta deployment models &mdash; redirect vs. embedded](/docs/concepts/redire
 
 ## SDKs and sample apps
 
-Okta has a host of SDKs available for integrating new Identity Engine features into your apps using [Okta deployment models](#authentication-deployment-models), and sample apps to show them in action.
+Okta has a host of SDKs available for integrating new Identity Engine features into your apps using [Okta deployment models](#authentication-deployment-models). There are also sample apps to show them in action.
 
 * [Browse our SDKs and samples](/code/)
 * [Set up and explore our Identity Engine sample apps](/docs/guides/oie-embedded-common-download-setup-app/)
