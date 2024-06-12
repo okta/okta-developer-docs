@@ -103,41 +103,41 @@ Remember that Okta doesn't automatically translate the changes you make in one t
 The following table provides a list of all available email templates in an Okta org, including:
 
 - The default subject line for the email template
-- The corresponding API object reference (`${templateName}`) for the email template. See [Custom email templates](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/CustomTemplates/).
+- The corresponding API object reference (`{templateName}`) for the email template. See [Custom email templates](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/CustomTemplates/).
 - The required validation fields for templates created using the API
 - A description of the template
 
-> **Note:** If you use the embedded Okta Sign-In Widget for authentication, don't use `${emailAuthenticationLink}` as the required validation field. It takes you to the Okta-hosted Sign-In Widget. Instead, use [Custom password recovery](/docs/guides/oie-embedded-sdk-use-case-custom-pwd-recovery-mfa/nodeexpress/main/).
+> **Note:** If you use the embedded Okta Sign-In Widget for authentication, don't use `{emailAuthenticationLink}` as the required validation field. It takes you to the Okta-hosted Sign-In Widget. Instead, use [Custom password recovery](/docs/guides/oie-embedded-sdk-use-case-custom-pwd-recovery-mfa/nodeexpress/main/).
 
-| UI name | Default subject line | API object reference</br>`${templateName}` | Required validation fields | Description |
+| UI name | Default subject line | API object reference</br>`{templateName}` | Required validation fields | Description |
 |---------|---------|----------------------|----------|---------|
-| User Activation | Welcome to Okta! | `UserActivation` | Either `${activationLink}` or `${activationToken}` | Sent to new users who must follow the provided link to complete the Okta sign-up process |
+| User Activation | Welcome to Okta! | `UserActivation` | Either `{activationLink}` or `{activationToken}` | Sent to new users who must follow the provided link to complete the Okta sign-up process |
 | Active Directory User Activation | Welcome to Okta! | `ADUserActivation` | | Sent to your new Active Directory users who must follow the provided link to complete the Okta sign-up process |
 | LDAP User Activation | Welcome to Okta! | `LDAPUserActivation` | |  Sent to your new LDAP users who must follow the provided link to complete the Okta sign-up process |
-| Send Push Verify Activation Link | Push Verify Activation Email | `OktaVerifyActivation` | `${pushVerifyActivationLink}` |  Sent to users who must follow the provided link to download Okta Verify Push for multifactor authentication on their mobile device |
-| Registration - Activation | Activate Account | `RegistrationActivation` | Either `${registrationActivationLink}` or `${registrationActivationToken}` |  Sent to users who must follow the provided link to complete their self-registration |
-| Registration - Email Verification | Welcome to (`instanceDisplayName`)! | `RegistrationEmailVerification` | One of `${verificationLink}`, `${verificationToken}`, `$[registrationEmailVerificationLink}`, or `${registrationEmailVerificationToken}` (Identity Engine) Either `${registrationEmailVerificationLink}` or `${registrationEmailVerificationToken}` (Classic Engine) |  Sent to users who can follow the provided link to verify their email address |
-| Email Factor verification (Identity Engine) Email Verification (Classic Engine) | Confirm your email address | `EmailFactorVerification` | One of `${verificationLink}`, `${verificationToken}`, `$[registrationEmailVerificationLink}`, or `${registrationEmailVerificationToken}` (Identity Engine) |  Sent to users who must follow the provided link to verify their email address |
+| Send Push Verify Activation Link | Push Verify Activation Email | `OktaVerifyActivation` | `{pushVerifyActivationLink}` |  Sent to users who must follow the provided link to download Okta Verify Push for multifactor authentication on their mobile device |
+| Registration - Activation | Activate Account | `RegistrationActivation` | Either `{registrationActivationLink}` or `{registrationActivationToken}` |  Sent to users who must follow the provided link to complete their self-registration |
+| Registration - Email Verification | Welcome to (`instanceDisplayName`)! | `RegistrationEmailVerification` | One of `{verificationLink}`, `{verificationToken}`, `[registrationEmailVerificationLink}`, or `{registrationEmailVerificationToken}` (Identity Engine) Either `{registrationEmailVerificationLink}` or `{registrationEmailVerificationToken}` (Classic Engine) |  Sent to users who can follow the provided link to verify their email address |
+| Email Factor verification (Identity Engine) Email Verification (Classic Engine) | Confirm your email address | `EmailFactorVerification` | One of `{verificationLink}`, `{verificationToken}`, `{registrationEmailVerificationLink}`, or `{registrationEmailVerificationToken}` (Identity Engine) |  Sent to users who must follow the provided link to verify their email address |
 | Forgot Password Denied | Account Password Reset | `ForgotPasswordDenied` | |  Sent to users who forgot their password but only their admin can reset it |
 | Password Reset by Admin | Account Password Reset | `PasswordResetByAdmin` | |  Sent to users who had their password reset by an Okta system administrator and must follow the provided link to complete the password reset process |
 | Active Directory Password Reset Denied | Forgotten Password | `ADForgotPasswordDenied` | |  Sent to Active Directory users who tried to reset their Active Directory password but don't have permission |
 | LDAP Forgot Password Denied | Account password reset | `LDAPForgotPasswordDenied` | |  Sent to LDAP users who tried to reset their LDAP password but don't have permission |
-| LDAP Forgot Password | Account password reset | `LDAPForgotPassword` | Either `${resetPasswordLink}` or `${recoveryToken}` (Identity Engine) Either `${resetPasswordLink}` or `${oneTimePassword}` (Classic Engine) |  Sent to LDAP users who forgot their password and must follow the provided link to reset their password |
-| Forgot Password | Account password reset | `ForgotPassword` | Either `${resetPasswordLink}` or `${oneTimePassword}`</br>(Identity Engine and Classic Engine) |  Sent to users who must follow the provided link to reset their forgotten password |
-| Active Directory Password Reset | Forgotten password (Identity Engine) Account password reset (Classic Engine) | `ADForgotPassword` | Either `${recoveryLink}` or `${recoveryToken}`</br>(Identity Engine and Classic Engine) | Sent to users who want to reset their Active Directory account password. Users must follow the provided link to reset their password (Identity Engine). </br></br>Sent to users who have had their Active Directory account password reset. Users must follow the provided link to reset their password (Classic Engine). |
+| LDAP Forgot Password | Account password reset | `LDAPForgotPassword` | Either `{resetPasswordLink}` or `{recoveryToken}` (Identity Engine) Either `{resetPasswordLink}` or `{oneTimePassword}` (Classic Engine) |  Sent to LDAP users who forgot their password and must follow the provided link to reset their password |
+| Forgot Password | Account password reset | `ForgotPassword` | Either `{resetPasswordLink}` or `{oneTimePassword}`</br>(Identity Engine and Classic Engine) |  Sent to users who must follow the provided link to reset their forgotten password |
+| Active Directory Password Reset | Forgotten password (Identity Engine) Account password reset (Classic Engine) | `ADForgotPassword` | Either `{recoveryLink}` or `{recoveryToken}`</br>(Identity Engine and Classic Engine) | Sent to users who want to reset their Active Directory account password. Users must follow the provided link to reset their password (Identity Engine). </br></br>Sent to users who have had their Active Directory account password reset. Users must follow the provided link to reset their password (Classic Engine). |
 | Password Changed | Password Changed | `PasswordChanged` | |  Sent to users whenever their account password changes |
 | Self-Service Unlock when Account isn’t Locked | Unlock Account | `SelfServiceUnlockOnUnlockedAccount` | |  Sent to users who tried to use self-service to unlock an account that isn't locked |
-| Active Directory Password Unlock | Unlock Account | `ADSelfServiceUnlock` | Either `${unlockAccountLink}` or `${recoveryToken}` (Identity Engine)</br></br>`${unlockAccountLink}` (Classic Engine) |  Sent to Active Directory users who must follow the provided link to unlock their password |
-| Self-Service Unlock Account | Unlock Account | `SelfServiceUnlock` | Either `${unlockAccountLink}` or `${recoveryToken}` (Identity Engine)</br></br>`${unlockAccountLink}` (Classic Engine) |  Sent to users who must follow the provided link to complete the self-service unlock account process |
-| LDAP Self-Service Unlock Account | Unlock Account | `LDAPSelfServiceUnlock` | Either `${unlockAccountLink}` or `${recoveryToken}` (Identity Engine)</br></br>`${unlockAccountLink}` (Classic Engine) |  Sent to LDAP users who must follow the provided link to complete the self-service unlock account process |
-| Change Email confirmation | Confirm email address change | `ChangeEmailConfirmation` | `${verificationToken}` |  Sent to users who must follow the provided link to confirm their email change request |
+| Active Directory Password Unlock | Unlock Account | `ADSelfServiceUnlock` | Either `{unlockAccountLink}` or `{recoveryToken}` (Identity Engine)</br></br>`{unlockAccountLink}` (Classic Engine) |  Sent to Active Directory users who must follow the provided link to unlock their password |
+| Self-Service Unlock Account | Unlock Account | `SelfServiceUnlock` | Either `{unlockAccountLink}` or `{recoveryToken}` (Identity Engine)</br></br>`{unlockAccountLink}` (Classic Engine) |  Sent to users who must follow the provided link to complete the self-service unlock account process |
+| LDAP Self-Service Unlock Account | Unlock Account | `LDAPSelfServiceUnlock` | Either `{unlockAccountLink}` or `{recoveryToken}` (Identity Engine)</br></br>`{unlockAccountLink}` (Classic Engine) |  Sent to LDAP users who must follow the provided link to complete the self-service unlock account process |
+| Change Email confirmation | Confirm email address change | `ChangeEmailConfirmation` | `{verificationToken}` |  Sent to users who must follow the provided link to confirm their email change request |
 | Email Change Notification | Notice of pending email address change | `PendingEmailChange` | |  Sent to a user's old email address when they request to change their email address |
 | Email Change Confirmed Notification | Notice of email address change | `EmailChangeConfirmation` | |  Sent when the request to change a user's email address is confirmed |
-| Email Challenge | One-time Email Authentication Link | `EmailChallenge` | Either `${emailAuthenticationLink}` or `${verificationToken}` |  Sent to users with email as an authentication factor and must follow the provided link to complete their authentication into Okta |
+| Email Challenge | One-time Email Authentication Link | `EmailChallenge` | Either `{emailAuthenticationLink}` or `{verificationToken}` |  Sent to users with email as an authentication factor and must follow the provided link to complete their authentication into Okta |
 | Account Lockout | Account Lockout | `AccountLockout` | |  Sent to users with locked accounts. Users must follow the provided link to unlock their account or contact their admin. |
-| New Sign-On Notification | New Sign-On Notification | `NewSignOnNotification` | `${request.browser}`, `${request.date}`, `${request.time}`, `${request.location}`, and `${request.ipAddress}` |  Sent to users who authenticated into Okta from an unknown device or browser. The user should contact the Okta system administrator if they don't recognize the sign-in details of the unknown device. |
-| Authenticator Enrolled (Identity Engine)</br></br>MFA Factor Enrolled (Classic Engine) | Security method enrolled (Identity Engine)</br>MFA Factor Enrolled (Classic Engine) | `AuthenticatorEnrolled` | Either `${request.factor}` or `${request.authenticator}` (Identity Engine)</br></br>`${request.factor}`, `${request.date}`, `${request.time}`, and `${request.location}` (Classic Engine) | Sent to users when authenticators are reset (Identity Engine) </br></br>Sent to users with new MFA factor enrollment (Classic Engine) |
-| Authenticator Reset (Identity Engine)</br></br>MFA Factor Reset (Classic Engine) | Security method reset (Identity Engine)</br>MFA Factor Reset (Classic Engine) | `AuthenticatorReset` | Either `${request.factors}` or `${request.authenticators}` (Identity Engine)</br></br>`${request.factors}`, `${request.date}`, `${request.time}`, and `${request.location}` (Classic Engine) | Sent to users when authenticators are reset (Identity Engine) Sent to users when MFA factors are reset (Classic Engine) |
+| New Sign-On Notification | New Sign-On Notification | `NewSignOnNotification` | `{request.browser}`, `{request.date}`, `{request.time}`, `{request.location}`, and `{request.ipAddress}` |  Sent to users who authenticated into Okta from an unknown device or browser. The user should contact the Okta system administrator if they don't recognize the sign-in details of the unknown device. |
+| Authenticator Enrolled (Identity Engine)</br></br>MFA Factor Enrolled (Classic Engine) | Security method enrolled (Identity Engine)</br>MFA Factor Enrolled (Classic Engine) | `AuthenticatorEnrolled` | Either `{request.factor}` or `{request.authenticator}` (Identity Engine)</br></br>`{request.factor}`, `{request.date}`, `{request.time}`, and `{request.location}` (Classic Engine) | Sent to users when authenticators are reset (Identity Engine) </br></br>Sent to users with new MFA factor enrollment (Classic Engine) |
+| Authenticator Reset (Identity Engine)</br></br>MFA Factor Reset (Classic Engine) | Security method reset (Identity Engine)</br>MFA Factor Reset (Classic Engine) | `AuthenticatorReset` | Either `{request.factors}` or `{request.authenticators}` (Identity Engine)</br></br>`{request.factors}`, `{request.date}`, `{request.time}`, and `{request.location}` (Classic Engine) | Sent to users when authenticators are reset (Identity Engine) Sent to users when MFA factors are reset (Classic Engine) |
 | Campaign Launched | Access certification campaign: (`campaignName`) | `IGAReviewerNotification` | | Sent to reviewers when they’re assigned reviews to complete in a newly launched campaign. |
 | Campaign Ended | Access certification campaign: (`campaignName`) | `IGAReviewerEndNotification` | | Sent to reviewers if they have pending reviews after a campaign ends. |
 | Campaign Reminder | Access certification campaign: (`campaignName`) | `IGAReviewerPendingNotification` | | Sent to reviewers to remind them of pending reviews. |
@@ -152,9 +152,9 @@ After you create a theme for your org, select the `FULL_THEME` ("Solid Backgroun
 
 | Variable | Asset Type |
 |-------------------|--------------------|
-| `${brand.theme.logo}`| URL |
-| `${brand.theme.primaryColor}` | Hex code for the CTA button |
-| `${brand.theme.secondaryColor}` | Hex code for the background color |
+| `{brand.theme.logo}`| URL |
+| `{brand.theme.primaryColor}` | Hex code for the CTA button |
+| `{brand.theme.secondaryColor}` | Hex code for the background color |
 
 ### Use allowed HTML tags and elements
 
@@ -266,7 +266,7 @@ To delete all custom translations and revert to the Okta template, click **Reset
 - All attributes in the Okta [User Profile object](/docs/reference/api/users/#profile-object)
 - Some of the org attributes in the VTL variables
 
-Email templates use both common and unique VTL variables. When you interpolate variables in the template, precede them with a dollar sign. Use dot notation to reference subobjects. For example, reference the first name of a user with `${user.profile.firstName}`.
+Email templates use both common and unique VTL variables. When you interpolate variables in the template, precede them with a dollar sign. Use dot notation to reference subobjects. For example, reference the first name of a user with `{user.profile.firstName}`.
 
 See [Use VTL variables](#use-vtl-variables) for available email template variables.
 
@@ -276,17 +276,17 @@ In your email templates, you can use any conditional logic that VTL supports, su
 
 ### Customization example
 
-The following example uses the `${app.name}` variable, which is only available in Identity Engine.
+The following example uses the `{app.name}` variable, which is only available in Identity Engine.
 
 ```html
-#if(${app.name} == "Toys R' Fun")
+#if({app.name} == "Toys R' Fun")
 <img src="https://cdn.toysrfun.com/logo" height="37">
 <a id="support-link" href="https://support.toysrfun.com/help/?language=en_US" style="text-decoration: none;"> Contact Toy Support </a>
-#elseif(${app.name} == "Fidget Spinners Unlimited")
+#elseif({app.name} == "Fidget Spinners Unlimited")
 <img src="https://cdn.fidgetsu.com/logo" height="37">
 <a id="support-link" href="https://support.fidgetsu.com/help/?language=en_US" style="text-decoration: none;"> Contact Fidget SU Support </a>
 #else
-<img src="${parentLogoUrl}" height="37">
+<img src="{parentLogoUrl}" height="37">
 #end
 ```
 
@@ -298,70 +298,70 @@ You can reference any Okta User Profile attribute in your email templates.
 
 | Variable       | Template availability         |
 |---------------------------------------------------------------|------------------------------------------------------------------------|
-| `${user.profile.login}` | Available in all templates |
-| `${user.profile.email}` | Available in all templates |
-| `${user.profile.secondEmail}` | Available in all templates |
-| `${user.profile.firstName}` | Available in all templates |
-| `${user.profile.lastName}` | Available in all templates |
-| `${user.profile.locale}` | Available in all templates |
-| `${user.profile.mobilePhone}` | Available in all templates |
-| `${user.profile.primaryPhone}` | Available in all templates |
-| `${user.profile.username}` | Available in all templates |
-| `${user.profile.fullName}` | Available in all templates |
-| `${user.profile.city}` | Available in all templates |
-| `${user.profile.state}` | Available in all templates |
-| `${user.profile.streetAddress}` | Available in all templates |
-| `${user.profile.zipCode}` | Available in all templates |
-| `${user.profile.countryCode}` | Available in all templates |
-| `${user.groups.names}` | Available in all templates |
-| `${user.groups.ids}` | Available in all templates |
-| `${app.id}` | Available in all templates</br></br><ApiLifecycle access="ie" /> |
-| `${app.name}` | Available in all templates</br></br><ApiLifecycle access="ie" /> |
-| `${app.label}` | Available in all templates</br></br><ApiLifecycle access="ie" /> |
-| `${org.name}` | Available in all templates |
-| `${org.locale}` | Available in all templates |
-| `${org.subDomain}` | Available in all templates |
-| `${org.activationTokenExpirationHours}` | Available in all templates |
-| `${baseURL}` | Available in all templates |
-| `${oktaLogoUrl}` | Available in all templates |
-| `${activationLink}` | Available in these templates:</br><ul><li>User Activation</li><li>Active Directory User Activation</li><li>Registration - Activation</li></ul> |
-| `${activationToken}` | Available in these templates:</br><ul><li>User Activation</li><li>Active Directory User Activation</li><li>Registration - Activation</li></ul> |
-| `${samAccountName}` | Available in these templates:</br><ul><li>Active Directory User Activation</li><li>Active Directory Password Reset</li><li>Active Directory Self-Service Unlock Account</li><li>Active Directory Password Unlock</li><li>Active Directory Self-Service Unlock Account</li></ul> |
-| `${technicalContact.login}` | Available in these templates:</br><ul><li>User Activation</li><li>Password Reset by Admin</li></ul> |
-| `${technicalContact.email}` | Available in these templates:</br><ul><li>User Activation</li><li>Password Reset by Admin</li></ul> |
-| `${technicalContact.secondEmail}` | Available in these templates:</br><ul><li>User Activation</li><li>Password Reset by Admin</li></ul> |
-| `${technicalContact.firstName}` | Available in these templates:</br><ul><li>User Activation</li><li>Password Reset by Admin</li></ul> |
-| `${technicalContact.lastName}` | Available in these templates:</br><ul><li>User Activation</li><li>Password Reset by Admin</li></ul> |
-| `${technicalContact.locale}` | Available in these templates:</br><ul><li>User Activation</li><li>Password Reset by Admin</li></ul> |
-| `${technicalContact.fullName}` | Available in Password Reset by Admin |
-| `${pushVerifyActivationLink}` | Available in Send Push Verify Activation Link |
-| `${androidOktaVerifyAppLink}` | Available in Send Push Verify Activation Link |
-| `${iosOktaVerifyAppLink}` | Available in Send Push Verify Activation Link |
-| `${registrationEmailVerificationLink}` | Available in these templates:</br><ul><li>Registration - Email Verification</li><li>Registration - Activation</li></ul> |
-| `${registrationEmailVerificationToken}` | Available in these templates:</br><ul><li>Registration - Email Verification</li><li>Registration - Activation</li></ul> |
-| `${instanceDisplayName}` | Available in these templates:</br><ul><li>Email Factor Verification</li><li>Registration - Email Verification</li><li>Registration - Activation</li></ul> |
-| `${unlockAccountLink}` | Available in these templates:</br><ul><li>Self-Service Unlock Account</li><li>Active Directory Self-Service Unlock Account</li><li>Active Directory Password Unlock</li><li>LDAP Self-Service Unlock Account</li><li>LDAP Self-Service Unlock Account</li></ul> |
-| `${recoveryLink}` | Available in these templates:</br><ul><li>Reset Factor</li><li>Active Directory Password Reset</li><li>Unlock Factor</li></ul> |
-| `${factorDisplayName}` | Available in these templates:</br><ul><li>Reset Factor</li><li>Active Directory Password Reset</li><li>Unlock Factor</li></ul> |
-| `${orgTechSupportEmail}` | Available in these templates:</br><ul><li>Reset Factor</li><li>Active Directory Password Reset</li><li>Unlock Factor</li></ul> |
-| `${unlockAccountTokenExpirationDate}` | Available in these templates:</br><ul><li>Self-Service Unlock Account</li><li>Active Directory Self-Service Unlock Account</li><li>Active Directory Password Unlock</li><li>LDAP Self-Service Unlock Account</li><li>LDAP Self-Service Unlock Account</li></ul> |
-| `${resetPasswordLink}` | Available in these templates:</br><ul><li>Forgot Password</li><li>Forgot Password Denied</li><li>Active Directory Reset Password</li><li>LDAP Forgot Password</li><li>LDAP Forgot Password Denied</li><li>Password Reset by Admin</li></ul> |
-| `${oneTimePassword}` | Available in these templates:</br><ul><li>Forgot Password</li><li>Active Directory Password Reset</li><li>LDAP Forgot Password</li><li>Self-Service Unlock Account</li><li>Active Directory Self-Service Unlock Account</li><li>LDAP Self-Service Unlock Account</li></ul> |
-| `${resetPasswordTokenExpirationDate}` | Available in these templates:</br><ul><li>Forgot Password</li><li>Forgot Password Denied</li><li>Active Directory Password Reset</li><li>LDAP Forgot Password</li><li>LDAP Forgot Password Denied</li></ul> |
-| `${request.date}` | Available in Authenticator Enrolled |
-| `${request.time}` | Available in these templates:</br><ul><li>Authenticator Enrolled</li><li>Authenticator Reset</li><li>Factor Enrolled</li><li>Factor Reset</li><li>Sign In From New Device</li></ul> |
-| `${request.location}` | Available in Authenticator Enrolled |
-| `${request.performedBySubject}` | Available in Authenticator Enrolled |
-| `${request.factor}` | Available in Factor Enrolled |
-| `${request.factors}` | Available in Factor Reset |
-| `${request.ipAddress}` | Available in Sign In From New Device |
-| `${request.reportSuspiciousActivityToken}` | Available in Authenticator Enrolled (with Report Suspicious Activity button) |
-| `${request.browser}` | Available in Sign In From New Device |
-| `${request.relayState}` | Available in these templates:</br><ul><li>Registration Activation</li><li>Forgot Password</li><li>Email Challenge</li><li>Email Factor Verification</li><li>Self-Service Unlock Account</li></ul> |
-| `${request.verificationLink}` | Available in Email Factor Verification |
-| `${verificationToken}` | Available in these templates:</br><ul><li>Email Challenge</li><li>Activation</li><li>Registration - Email Verification</li><li>Change Email Confirmation</li></ul> |
-| `${emailAuthenticationLink}` | Available in Email Challenge |
-| `${email}` | Available in these templates:</br><ul><li>Email Challenge</li><li>Email Factor Verification</li></ul> |
+| `{user.profile.login}` | Available in all templates |
+| `{user.profile.email}` | Available in all templates |
+| `{user.profile.secondEmail}` | Available in all templates |
+| `{user.profile.firstName}` | Available in all templates |
+| `{user.profile.lastName}` | Available in all templates |
+| `{user.profile.locale}` | Available in all templates |
+| `{user.profile.mobilePhone}` | Available in all templates |
+| `{user.profile.primaryPhone}` | Available in all templates |
+| `{user.profile.username}` | Available in all templates |
+| `{user.profile.fullName}` | Available in all templates |
+| `{user.profile.city}` | Available in all templates |
+| `{user.profile.state}` | Available in all templates |
+| `{user.profile.streetAddress}` | Available in all templates |
+| `{user.profile.zipCode}` | Available in all templates |
+| `{user.profile.countryCode}` | Available in all templates |
+| `{user.groups.names}` | Available in all templates |
+| `{user.groups.ids}` | Available in all templates |
+| `{app.id}` | Available in all templates</br></br><ApiLifecycle access="ie" /> |
+| `{app.name}` | Available in all templates</br></br><ApiLifecycle access="ie" /> |
+| `{app.label}` | Available in all templates</br></br><ApiLifecycle access="ie" /> |
+| `{org.name}` | Available in all templates |
+| `{org.locale}` | Available in all templates |
+| `{org.subDomain}` | Available in all templates |
+| `{org.activationTokenExpirationHours}` | Available in all templates |
+| `{baseURL}` | Available in all templates |
+| `{oktaLogoUrl}` | Available in all templates |
+| `{activationLink}` | Available in these templates:</br><ul><li>User Activation</li><li>Active Directory User Activation</li><li>Registration - Activation</li></ul> |
+| `{activationToken}` | Available in these templates:</br><ul><li>User Activation</li><li>Active Directory User Activation</li><li>Registration - Activation</li></ul> |
+| `{samAccountName}` | Available in these templates:</br><ul><li>Active Directory User Activation</li><li>Active Directory Password Reset</li><li>Active Directory Self-Service Unlock Account</li><li>Active Directory Password Unlock</li><li>Active Directory Self-Service Unlock Account</li></ul> |
+| `{technicalContact.login}` | Available in these templates:</br><ul><li>User Activation</li><li>Password Reset by Admin</li></ul> |
+| `{technicalContact.email}` | Available in these templates:</br><ul><li>User Activation</li><li>Password Reset by Admin</li></ul> |
+| `{technicalContact.secondEmail}` | Available in these templates:</br><ul><li>User Activation</li><li>Password Reset by Admin</li></ul> |
+| `{technicalContact.firstName}` | Available in these templates:</br><ul><li>User Activation</li><li>Password Reset by Admin</li></ul> |
+| `{technicalContact.lastName}` | Available in these templates:</br><ul><li>User Activation</li><li>Password Reset by Admin</li></ul> |
+| `{technicalContact.locale}` | Available in these templates:</br><ul><li>User Activation</li><li>Password Reset by Admin</li></ul> |
+| `{technicalContact.fullName}` | Available in Password Reset by Admin |
+| `{pushVerifyActivationLink}` | Available in Send Push Verify Activation Link |
+| `{androidOktaVerifyAppLink}` | Available in Send Push Verify Activation Link |
+| `{iosOktaVerifyAppLink}` | Available in Send Push Verify Activation Link |
+| `{registrationEmailVerificationLink}` | Available in these templates:</br><ul><li>Registration - Email Verification</li><li>Registration - Activation</li></ul> |
+| `{registrationEmailVerificationToken}` | Available in these templates:</br><ul><li>Registration - Email Verification</li><li>Registration - Activation</li></ul> |
+| `{instanceDisplayName}` | Available in these templates:</br><ul><li>Email Factor Verification</li><li>Registration - Email Verification</li><li>Registration - Activation</li></ul> |
+| `{unlockAccountLink}` | Available in these templates:</br><ul><li>Self-Service Unlock Account</li><li>Active Directory Self-Service Unlock Account</li><li>Active Directory Password Unlock</li><li>LDAP Self-Service Unlock Account</li><li>LDAP Self-Service Unlock Account</li></ul> |
+| `{recoveryLink}` | Available in these templates:</br><ul><li>Reset Factor</li><li>Active Directory Password Reset</li><li>Unlock Factor</li></ul> |
+| `{factorDisplayName}` | Available in these templates:</br><ul><li>Reset Factor</li><li>Active Directory Password Reset</li><li>Unlock Factor</li></ul> |
+| `{orgTechSupportEmail}` | Available in these templates:</br><ul><li>Reset Factor</li><li>Active Directory Password Reset</li><li>Unlock Factor</li></ul> |
+| `{unlockAccountTokenExpirationDate}` | Available in these templates:</br><ul><li>Self-Service Unlock Account</li><li>Active Directory Self-Service Unlock Account</li><li>Active Directory Password Unlock</li><li>LDAP Self-Service Unlock Account</li><li>LDAP Self-Service Unlock Account</li></ul> |
+| `{resetPasswordLink}` | Available in these templates:</br><ul><li>Forgot Password</li><li>Forgot Password Denied</li><li>Active Directory Reset Password</li><li>LDAP Forgot Password</li><li>LDAP Forgot Password Denied</li><li>Password Reset by Admin</li></ul> |
+| `{oneTimePassword}` | Available in these templates:</br><ul><li>Forgot Password</li><li>Active Directory Password Reset</li><li>LDAP Forgot Password</li><li>Self-Service Unlock Account</li><li>Active Directory Self-Service Unlock Account</li><li>LDAP Self-Service Unlock Account</li></ul> |
+| `{resetPasswordTokenExpirationDate}` | Available in these templates:</br><ul><li>Forgot Password</li><li>Forgot Password Denied</li><li>Active Directory Password Reset</li><li>LDAP Forgot Password</li><li>LDAP Forgot Password Denied</li></ul> |
+| `{request.date}` | Available in Authenticator Enrolled |
+| `{request.time}` | Available in these templates:</br><ul><li>Authenticator Enrolled</li><li>Authenticator Reset</li><li>Factor Enrolled</li><li>Factor Reset</li><li>Sign In From New Device</li></ul> |
+| `{request.location}` | Available in Authenticator Enrolled |
+| `{request.performedBySubject}` | Available in Authenticator Enrolled |
+| `{request.factor}` | Available in Factor Enrolled |
+| `{request.factors}` | Available in Factor Reset |
+| `{request.ipAddress}` | Available in Sign In From New Device |
+| `{request.reportSuspiciousActivityToken}` | Available in Authenticator Enrolled (with Report Suspicious Activity button) |
+| `{request.browser}` | Available in Sign In From New Device |
+| `{request.relayState}` | Available in these templates:</br><ul><li>Registration Activation</li><li>Forgot Password</li><li>Email Challenge</li><li>Email Factor Verification</li><li>Self-Service Unlock Account</li></ul> |
+| `{request.verificationLink}` | Available in Email Factor Verification |
+| `{verificationToken}` | Available in these templates:</br><ul><li>Email Challenge</li><li>Activation</li><li>Registration - Email Verification</li><li>Change Email Confirmation</li></ul> |
+| `{emailAuthenticationLink}` | Available in Email Challenge |
+| `{email}` | Available in these templates:</br><ul><li>Email Challenge</li><li>Email Factor Verification</li></ul> |
 
 ## Use functions for email templates
 
