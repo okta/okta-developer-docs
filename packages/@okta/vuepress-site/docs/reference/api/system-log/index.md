@@ -336,7 +336,7 @@ When an event is triggered by an HTTP request, the client object describes the [
 | Property            | Description                                                                                                                                                                                           | DataType                                                  | Nullable |
 | ----------          | ------------------------------------------------------------------------------------------------------------------                                                                                    | ---------------                                           | -------- |
 | id                  | For OAuth requests, this is the ID of the OAuth [client](https://tools.ietf.org/html/rfc6749#section-1.1) making the request. For SSWS token requests, this is the ID of the agent making the request. | String                                                    | TRUE     |
-| userAgent           | The [user agent](https://www.w3.org/WAI/UA/work/wiki/Definition_of_User_Agent) that's used by an actor to perform an action                                                                                                      | [UserAgent object](#useragent-object)                     | TRUE     |
+| userAgent           | The [user agent](https://developer.mozilla.org/en-US/docs/Glossary/User_agent) that's used by an actor to perform an action                                                                                                      | [UserAgent object](#useragent-object)                     | TRUE     |
 | geographicalContext | The physical location where the client is making its request from                                                                                                                                          | [GeographicalContext object](#geographicalcontext-object) | TRUE     |
 | zone                | The `name` of the [Zone](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/NetworkZone/#tag/NetworkZone/operation/getNetworkZone) that the client's location is mapped to                                                                                                | String                                                    | TRUE     |
 | ipAddress           | IP address that the client is making its request from                                                                                                                                                      | String                                                    | TRUE     |
@@ -378,7 +378,7 @@ The entity that describes a device enrolled with passwordless authentication usi
 
 ### UserAgent object
 
-"A user agent is software (a software agent) that is acting on behalf of a user." ([Definition of User Agent](https://www.w3.org/WAI/UA/work/wiki/Definition_of_User_Agent))
+"A user agent is software (a software agent) that is acting on behalf of a user." ([Definition of User Agent](https://developer.mozilla.org/en-US/docs/Glossary/User_agent))
 
 In the Okta event data object, the UserAgent object provides specifications about the client software that makes event-triggering HTTP requests. User agent identification is often useful for identifying interoperability problems between servers and clients, and also for browser and operating system usage analytics.
 
@@ -545,7 +545,7 @@ The `securityContext` object provides security information that is directly rela
 
 | Property | Description                                                                                                                                                        | DataType | Nullable |
 | -------- | -----------------------------------------------------------------------------------------------                                                                    | -------- | -------- |
-| asNumber | The [Autonomous system](https://https://www.iana.org/numbers) number that's associated with the autonomous system the event request was sourced to | Integer  | TRUE     |
+| asNumber | The [Autonomous system](https://docs.telemetry.mozilla.org/datasets/other/asn_aggregates/reference) number that's associated with the autonomous system the event request was sourced to | Integer  | TRUE     |
 | asOrg    | The organization that is associated with the autonomous system that the event request is sourced to                                                                           | String   | TRUE     |
 | isp      | The Internet service provider that's used to send the event's request                                              | String   | TRUE     |
 | domain   | The domain name that's associated with the IP address of the inbound event request                                           | String   | TRUE     |
