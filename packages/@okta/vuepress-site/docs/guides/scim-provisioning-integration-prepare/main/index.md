@@ -32,7 +32,7 @@ Another important part of the planning process is determining which Okta provisi
 
 ### API endpoints
 
-The API endpoint for your SCIM API must be secured using the Transport Layer Security (TLS) protocol. Connections through this secure layer are routed by using the `https://` prefix for your URL. See the [MDN article on Transport Layer Security](https://developer.mozilla.org/en-US/docs/Web/Security/Transport_Layer_Security).
+The API endpoint for your SCIM API must be secured using the [Transport Layer Security (TLS)](https://developer.mozilla.org/en-US/docs/Web/Security/Transport_Layer_Security) protocol. Connections through this secure layer are routed by using the `https://` prefix for your URL.
 
 Use the URL structure described in the ["SCIM Endpoints and HTTP Methods" section of RFC7644](https://tools.ietf.org/html/rfc7644#section-3.2).
 
