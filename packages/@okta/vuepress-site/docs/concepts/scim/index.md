@@ -69,7 +69,7 @@ User attributes can be mapped from your source into Okta. Conversely, an attribu
 
 Deleting or deprovisioning user profiles in SCIM operations depends on whether Okta or your SCIM app is the source of truth for user profile information.
 
-* If an admin deprovisions an user's profile inside Okta, the user resource inside your SCIM app is updated with `active=false`. If that user needs to be reprovisioned later (for example, a return from parental leave or if a contractor is rehired), then the `active` attribute can be switched back to `true`.
+* If an admin deprovisions a user's profile inside Okta, the user resource inside your SCIM app is updated with `active=false`. If that user needs to be reprovisioned later (for example, a return from parental leave or if a contractor is rehired), then you can switch back the `active` attribute to `true`.
 
    Deactivated user accounts lose access to their provisioned Okta integrations. Your app can run different actions after deprovisioning a user, such as changing user access permissions, removing a license, or disabling the user account.
 * If an admin deletes a deactivated user profile inside Okta, the user resource inside your SCIM app isn't changed. The initial deactivation step already set `active=false`. Okta doesn't send a request to delete the user resource inside the customer's SCIM app.
