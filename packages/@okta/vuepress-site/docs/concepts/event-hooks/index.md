@@ -84,7 +84,7 @@ The header of requests sent by Okta appears as follows, provided that you config
 ```http
 Accept: application/json
 Content-Type: application/json
-Authorization: ${key}
+Authorization: {key}
 ```
 
 The value sent in the Authorization header is a secret string that you provide to Okta when you register your event hook. This string serves as an API access key for your service, and Okta provides it in every request, allowing your code to check for its presence as a security measure. (This isn't an Okta authorization token, it's simply a text string you decide on.)
