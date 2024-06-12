@@ -241,7 +241,7 @@ Your guide link is available to customer administrators through the Admin Consol
 
 ### Configuration guide content
 
-The following section are suggestions for your configuration guide:
+The following are topic suggestions for your configuration guide:
 
 * [Prerequisites](#prerequisites)
 * [Supported features](#supported-features)
