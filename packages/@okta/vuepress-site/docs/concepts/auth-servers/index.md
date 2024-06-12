@@ -33,7 +33,7 @@ Every Okta org comes with a built-in authorization server called the org authori
 
 You can use the org authorization server to perform SSO with Okta for your OpenID Connect apps or to get an access token for the Okta APIs. You can't customize audience, claims, policies, or scopes for this authorization server.
 
-The issuer for access tokens from an org authorization server is `https://{yourOktaOrg}`, which indicates that only Okta can consume or validate it. The access token can't be used or validated by your own applications. The contents of the access token are subject to change at any time without notice, therefore any attempts to validate the access token may not work in the future.
+The issuer for access tokens from an org authorization server is `https://{yourOktaOrg}`, which indicates that only Okta can consume or validate it. The access token can't be used or validated by your own apps. The contents of the access token are subject to change at any time without notice. Therefore, any attempts to validate the access token may not work in the future.
 
 #### Org authorization server discovery endpoints
 
