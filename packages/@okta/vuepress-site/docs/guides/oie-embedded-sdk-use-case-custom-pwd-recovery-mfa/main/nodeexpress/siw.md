@@ -2,7 +2,7 @@
 
 The first step is to initiate the password recovery flow and choose email as the authenticator. After the user submits the email as an authenticator, Okta sends an email to their email address. These initial steps are described in detail in the [User password recovery guide](/docs/guides/oie-embedded-sdk-use-case-pwd-recovery-mfa/nodejs/main/).
 
-Before sending the email, Okta builds the message based on the **Forgot Password** template. The `otp` and `request.relayState` variables are translated into actual values. For example,`http://localhost:8080/login/callback?otp=${oneTimePassword}&state=${request.relayState}` becomes `http://localhost:8080/login/callback?otp=726009&state=1b34371af02dd31d2bc4c48a3607cd32`.
+Before sending the email, Okta builds the message based on the **Forgot Password** template. The `otp` and `request.relayState` variables are translated into actual values. For example,`http://localhost:8080/login/callback?otp={oneTimePassword}&state={request.relayState}` becomes `http://localhost:8080/login/callback?otp=726009&state=1b34371af02dd31d2bc4c48a3607cd32`.
 
 ### 2: Click the email magic link
 
@@ -41,13 +41,13 @@ Call `OktaAuth.idx.canProceed()` and pass in the`state` parameter to verify that
 
 ```javascript
     if (authClient.idx.canProceed({ state })) {
-      res.redirect(`/login?state=${state}&otp=${otp}`);
+      res.redirect(`/login?state={state}&otp={otp}`);
       return;
 ```
 
 ### 5: Set up and render widget with otp and state
 
-After you validate the `state` parameter, the final step is to set up the `otp` and `state` in the widget configurations. Set up the configurations based on the following snippet. Replace `${widgetVersion}` with the [latest version](https://github.com/okta/okta-signin-widget/releases/) of the widget (-=OKTA_REPLACE_WITH_WIDGET_VERSION=-).
+After you validate the `state` parameter, the final step is to set up the `otp` and `state` in the widget configurations. Set up the configurations based on the following snippet. Replace `{widgetVersion}` with the [latest version](https://github.com/okta/okta-signin-widget/releases/) of the widget (-=OKTA_REPLACE_WITH_WIDGET_VERSION=-).
 
 ```javascript
     const widgetConfig = {
@@ -61,7 +61,7 @@ After you validate the `state` parameter, the final step is to set up the `otp` 
       otp
     };
     res.render('login', {
-      siwVersion: '${widgetVersion}',
+      siwVersion: '{widgetVersion}',
       widgetConfig: JSON.stringify(widgetConfig),
       selfHosted: !!process.env.SELF_HOSTED_WIDGET
     });

@@ -1,1 +1,1 @@
-`http://${yourAppsURL}/register?activationToken=7nlzWIv1aCKStPXlknwd`
+`http://{yourAppsURL}/register?activationToken=7nlzWIv1aCKStPXlknwd`
