@@ -1,6 +1,6 @@
-## Deploying a JavaScript app
+## Deploy a JavaScript app
 
-JavaScript applications, when built for production, are just a bunch of static files. You can deploy them to any web server, configure that web server to be SPA-aware, and you should be good to go!
+JavaScript apps built for production are a collection of static files. You can deploy them to any web server, configure that web server to be SPA-aware, and you should be good to go.
 
 Ensure that you configure all paths to redirect to `index.html` because your framework handles the routing. You also need to force HTTPS.
 
@@ -71,12 +71,12 @@ If your branch isn't named `master`, run:
 git push --set-upstream heroku <branch-name>
 ```
 
-You won't be able to sign in to your application until you add your Heroku app's URLs to your **Sign-in redirect URIs**, **Sign-out redirect URIs**, and **Trusted Origins** on Okta.
+You can't sign in to your app until you add your Heroku app's URLs to your **Sign-in redirect URIs**, **Sign-out redirect URIs**, and **Trusted Origins** on Okta.
 
-For more information, see [Angular Deployment with a Side of Spring Boot](https://developer.okta.com/blog/2020/05/29/angular-deployment). This blog post includes instructions for deploying to Heroku, Firebase, Netlify, and AWS S3.
+See [Angular Deployment with a Side of Spring Boot](https://developer.okta.com/blog/2020/05/29/angular-deployment) for deploying to Heroku, Firebase, Netlify, and AWS S3.
 
 ## Docker
 
-You can package your JavaScript application with Docker, too. See [Angular + Docker with a Big Hug from Spring Boot](https://developer.okta.com/blog/2020/06/17/angular-docker-spring-boot) for a blog post that details how. Specifically, see the [Create a Docker Container for Your Angular App](https://developer.okta.com/blog/2020/06/17/angular-docker-spring-boot#create-a-docker-container-for-your-angular-app) section.
+You can package your JavaScript app with Docker. See the [Angular + Docker with a Big Hug from Spring Boot](https://developer.okta.com/blog/2020/06/17/angular-docker-spring-boot) blog post. Specifically, see the [Create a Docker Container for Your Angular App](https://developer.okta.com/blog/2020/06/17/angular-docker-spring-boot#create-a-docker-container-for-your-angular-app) section.
 
-We also have a tutorial that details [how to package a React app with Docker](https://developer.okta.com/blog/2020/06/24/heroku-docker-react).
+Okta also has a tutorial that details [how to package a React app with Docker](https://developer.okta.com/blog/2020/06/24/heroku-docker-react).
