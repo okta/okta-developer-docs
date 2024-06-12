@@ -25,7 +25,7 @@ In this case, BigMart (who is providing this application) will need to take care
 
 A more elegant way to solve this problem is to allow JuiceCo and every other supplier to share or "federate" the identities with BigMart. As an employee of JuiceCo, you already have a corporate identity and credentials. What Federated Identity provides is a secure way for the supermarket chain (Service Provider) to externalize authentication by integrating with the existing identity infrastructure of its suppliers (Identity Provider).
 
-This type of use case is what led to the birth of federated protocols such as [Security Assertion Markup Language (SAML)](https://docs.oasis-open.org/security/saml/Post2.0/sstc-saml-tech-overview-2.0.html).
+This type of use case is what led to the birth of federated protocols such as Security Assertion Markup Language (SAML). See the [Mozilla Infosec article on SAML](https://infosec.mozilla.org/guidelines/iam/saml.html).
 
 ## Planning for SAML
 

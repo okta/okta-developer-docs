@@ -32,7 +32,7 @@ Another important part of the planning process is determining which Okta provisi
 
 ### API endpoints
 
-The API endpoint for your SCIM API must be secured using the [Transport Layer Security](https://tools.ietf.org/html/rfc5246) protocol. Connections through this secure layer are routed by using the `https://` prefix for your URL.
+The API endpoint for your SCIM API must be secured using the Transport Layer Security (TLS) protocol. Connections through this secure layer are routed by using the `https://` prefix for your URL. See the [MDN article on Transport Layer Security](https://developer.mozilla.org/en-US/docs/Web/Security/Transport_Layer_Security).
 
 Use the URL structure described in the ["SCIM Endpoints and HTTP Methods" section of RFC7644](https://tools.ietf.org/html/rfc7644#section-3.2).
 
@@ -43,7 +43,7 @@ Your SCIM API must be secured against anonymous access.
 Okta supports authentication against SCIM APIs using any one of the following methods:
 
 - OAuth 2.0 [Authorization Code grant flow](https://tools.ietf.org/html/rfc6749#section-4.1)
-- [Basic authentication](https://www.w3.org/Protocols/HTTP/1.0/spec.html#BasicAA)
+- [Basic authentication (MDN article)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication#basic_authentication_scheme)
 - A custom HTTP header
 
 If you’re using OAuth 2.0, then after successfully authorizing Okta to use your SCIM API, your application's authorization server redirects the user back to Okta, with either an authorization code or an access token.
