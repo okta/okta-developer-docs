@@ -45,7 +45,7 @@ Create the client app that you want to use with the Okta APIs.
 1. On the **Create a new app integration** page, select **OIDC - OpenID Connect** as the **Sign-in method**.
 1. Choose **Web Application** for the **Application type**. Creating a web app is an easy way to test scope-based access to the Okta APIs using an OAuth 2.0 bearer token. Click **Next**.
 
-    > **Note:** It's important to choose the appropriate app type for apps that are public clients. Not choosing the right app may result in Okta API endpoints attempting to verify an app's client secret. Public clients aren't designed to have these, and so it breaks the sign-in or sign-out flow.
+    > **Note:** It's important to choose the appropriate app type for apps that are public clients. Choosing the wrong app type may result in Okta API endpoints attempting to verify an app's client secret. Because public clients aren't designed to have these, the sign-in or sign-out flow can break.
 
 1. Enter a name for your app integration.
 1. For **Grant type**, the **Authorization Code** is required. It's selected by default, and you can't clear the checkbox.
