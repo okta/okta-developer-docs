@@ -261,7 +261,7 @@ If your app isn't functional, ensure that:
 * Your client ID is accurate from your Okta app integration.
 * Your `redirectUri` is accurate or the port number for your local web server is correct.
 * You've enabled a Trusted Origin for `http://localhost:9000`. See [About Trusted Origins](#about-trusted-origins).
-* If your app is bypassing the Okta Sign-In Widget, your user is already signed in. Use a new private or incognito browser window or optionally set the Authentication Policy for your app to always sign in. That is, the **Re-authentication frequency is** set to **Every sign-in attempt**.
+* If your app is bypassing the Okta Sign-In Widget, your user is already signed in. Use a new private or incognito browser window or optionally set the authentication policy for your app to always sign in. That is, the **Re-authentication frequency is** set to **Every sign-in attempt**.
 
 ## Enable profile enrollment (self-service registration)
 
