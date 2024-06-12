@@ -36,12 +36,12 @@ The actual endpoint URL is up to the discretion of the app developer building th
 
 ### Endpoint authentication
 
-The request to the Universal Logout endpoint requires authentication so that your app knows the request is coming from Okta. Okta sends a signed JWT to authenticate to your API. The JWT follows a similar format to the [`private_key_jwt`](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/client-auth/#jwt-with-private-key) format used as OAuth 2.0 client authentication. The details of the JWT claims are described below. The format `<>` indicates a placeholder value and isn't included as part of a value.
+The request to the Universal Logout endpoint requires authentication so that your app knows the request is coming from Okta. Okta sends a signed JWT to authenticate to your API. The JWT follows a similar format to the [`private_key_jwt`](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/client-auth/#jwt-with-private-key) format used as OAuth 2.0 client authentication. The details of the JWT claims are described below. The format `{}` indicates a placeholder value and isn't included as part of a value.
 
 The JWT is sent using the `Bearer` HTTP Authorization scheme:
 
 ```BASH
-Authorization: Bearer <JWT>
+Authorization: Bearer {JWT}
 ```
 
 The claims of the JWT are the following:
@@ -50,17 +50,17 @@ The claims of the JWT are the following:
 // Header
 {
   "typ": "global-token-revocation+jwt",
-  "alg": "<algorithm used for signing SSO token>"
+  "alg": "{algorithm used for signing SSO token}"
 }
 // Payload
 {
-  "jti": "<unique identifier>",
-  "iss": "<orgDomainBaseUrl/customDomainBaseUrl>",
-  "sub": "<client_id of OIDC app/appInstanceId of SAML 2.0 app>",
-  "aud": "<revocation endpoint URL>",
-  "exp": "<5 min into future>",
-  "nbf": "<5 min ago>",
-  "iat": "<current timestamp>"
+  "jti": "{unique identifier}",
+  "iss": "{orgDomainBaseUrl/customDomainBaseUrl}",
+  "sub": "{client_id of OIDC app/appInstanceId of SAML 2.0 app}",
+  "aud": "{revocation endpoint URL}",
+  "exp": "{5 min into future}",
+  "nbf": "{5 min ago}",
+  "iat": "{current timestamp}"
 }
 ```
 

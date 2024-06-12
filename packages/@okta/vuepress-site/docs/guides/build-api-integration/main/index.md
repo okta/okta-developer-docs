@@ -82,7 +82,7 @@ You must store these credentials for each customer to allow your integration to 
 * client ID
 * client secret
 
-> **Note:** This guide refers to these values as `${customerOktaDomain}`, `${clientId}`, and `${clientSecret}` variables.
+> **Note:** This guide refers to these values as `{customerOktaDomain}`, `{clientId}`, and `{clientSecret}` variables.
 
 ### Scope selection
 
@@ -141,19 +141,19 @@ For testing purposes, use the Okta domain, client ID, and client secret obtained
 
 Your service app integration needs to request an access token to access the Okta APIs securely. Use the following configuration variables to form the access token request:
 
-* `${customerOktaDomain}`: Your customer tenant Okta org domain
-* `${clientId}`: Your customer's integration client ID
-* `${clientSecret}`: Your customer's integration client secret
-* `${scopes}`: The resource scopes required for the access token
+* `{customerOktaDomain}`: Your customer tenant Okta org domain
+* `{clientId}`: Your customer's integration client ID
+* `{clientSecret}`: Your customer's integration client secret
+* `{scopes}`: The resource scopes required for the access token
 
-> **Note:** If you're using an OAuth 2.0 library, you typically need to configure an OAuth client class with a `tokenUri` parameter, and the `clientId` and `clientSecret` parameters. Specify the `tokenUri` string as `https://${customerOktaDomain}/oauth2/v1/token`.
+> **Note:** If you're using an OAuth 2.0 library, you typically need to configure an OAuth client class with a `tokenUri` parameter, and the `clientId` and `clientSecret` parameters. Specify the `tokenUri` string as `https://{customerOktaDomain}/oauth2/v1/token`.
 
 Follow these steps to use a Basic Authorization header in a `/token` request:
 
 1. Base64-encode the string and set it in the Authorization header:
 
    ```sh
-   Authorization: Basic ${Base64(${clientId}:${clientSecret})}
+   Authorization: Basic {Base64({clientId}:{clientSecret})}
    ```
 
 1. Make a request to the [/token](/docs/reference/api/oidc/#token) endpoint with these query parameters:
@@ -164,7 +164,7 @@ Follow these steps to use a Basic Authorization header in a `/token` request:
 
    ```bash
    curl --request POST \
-     --url https://${customerOktaDomain}/oauth2/v1/token \
+     --url https://{customerOktaDomain}/oauth2/v1/token \
      --header 'Accept: application/json' \
      --header 'Authorization: Basic MG9hY...' \
      --header 'Cache-control: no-cache' \
@@ -205,9 +205,9 @@ When you have an access token, you can use it to make requests to the [Okta mana
 Example request:
 
 ```bash
-curl -X GET "https://${customerOktaDomain}/api/v1/users"
+curl -X GET "https://{customerOktaDomain}/api/v1/users"
     -H "Accept: application/json"
-    -H "Authorization: Bearer ${accessToken}"
+    -H "Authorization: Bearer {accessToken}"
 ```
 
 ### Test your API service flow
