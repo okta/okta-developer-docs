@@ -184,7 +184,7 @@ curl -X POST \
  }' "https://{yourHubOktaDomain}/oauth2/v1/clients"
 ```
 
-> **Note:** You can copy the entire [response from the previous `GET /api/v1/apps/{id}/credentials/keys` request](#response-example) in to the `jwks.keys` array. The `created`, `lastUpdated`, and `expiresAt` properties are ignored in the POST request. Alternatively, you can remove them from the `jwks.keys` parameter body.
+> **Note:** You can copy the entire [response from the previous `GET /api/v1/apps/{id}/credentials/keys` request](#response-example) into the `jwks.keys` array. The `created`, `lastUpdated`, and `expiresAt` properties are ignored in the POST request. Alternatively, you can remove them from the `jwks.keys` parameter body.
 
 ### Assign admin roles to the OAuth 2.0 service app
 
