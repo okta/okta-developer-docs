@@ -37,7 +37,7 @@ Adopting SCIM for domain management improves overall security for your company. 
 
 * IT departments can manage the user provisioning lifecycle through a single system.
 * New employees are automatically provisioned with a user account for their apps.
-* Employee accounts can be created either directly from Okta accounts, or shared from external systems like HR apps or Active Directory.
+* You can create employee accounts either directly from Okta accounts or shared from external systems like HR apps or Active Directory.
 * Any profile updates - like department changes - populate automatically.
 * Inactive employees are automatically deactivated from their apps.
 
