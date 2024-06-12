@@ -106,7 +106,7 @@ SCIM integrations that are created using the Application Integration Wizard use 
 
 Use the Okta agent-based provisioning solution. See [Provision on-premises applications](https://help.okta.com/okta_help.htm?id=ext_OPP_configure).
 
-The [Build a SCIM provisioning integration](/docs/guides/scim-provisioning-integration-overview) instructions target cloud-based app.
+The [Build a SCIM provisioning integration](/docs/guides/scim-provisioning-integration-overview) instructions target cloud-based apps.
 
 **Q: What is the timeout if Okta doesn't receive a response from my SCIM server?**
 
