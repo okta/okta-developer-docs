@@ -235,9 +235,9 @@ The **Application instances for testing** section displays, by default, the inst
 
 > **Note:** The filter (![filter icon](/img/icons/odyssey/filter.svg)) is automatically set to only show eligible instances.
 
-An instance is eligible if it was generated from the latest version of the integration submission in the OIN Wizard. An instance is ineligible if it was generated from a previous version of the integration submission and you subsequently made edits to the submission. This is to ensure that you test your integration based on the latest submission details.
+An instance is eligible if it was generated from the latest version of the integration submission in the OIN Wizard. An instance is ineligible if it was generated from a previous version of the integration submission and you later made edits to the submission. This is to ensure that you test your integration based on the latest submission details.
 
-If you modify a published OIN integration, you must generate an instance based on the published integration for backwards-compatibility testing. A backwards-compatible instance is eligible if it was generated from the published version of the integration before any edits are made in the current OIN Wizard submission. The OIN Wizard detects if you're modifying a published OIN integration and asks you to generate a backwards-compatible instance before you make any edits.
+If you modify a published OIN integration, you must generate an instance based on the published integration for backwards-compatibility testing. A backwards-compatible instance is eligible if it was generated from the published version of the integration before any edits are made in the current submission. The OIN Wizard detects if you're modifying a published OIN integration and asks you to generate a backwards-compatible instance before you make any edits.
 
 There's a maximum of five active instances allowed in a Developer Edition org, so [deactivate](#deactivate-an-app-instance-in-your-org) or delete any instances you aren't using. Click **Clear filter** to find instances in your org that may be active and ineligible for testing.
 
@@ -245,11 +245,11 @@ There's a maximum of five active instances allowed in a Developer Edition org, s
 
 * Click **Add to Tester** next to the instance from the **Application instances for testing** list to include it for testing with the OIN Submission Tester. The **Add to Tester** option only appears for instances that are active and eligible for testing.
 
-    After you click **Add to Tester** for the instance, the corresponding test cases are populated with the instance name and the **Run test** option is enabled in the OIN Submission Tester.
+    The corresponding test cases are populated with the instance name and the **Run test** option is enabled in the OIN Submission Tester.
 
 * Click **Remove from Tester** to disable the test cases associated with the instance from the OIN Submission Tester.
 
-    After you click **Remove from Tester** for the instance, the instance name and test results are removed for the corresponding test cases in the OIN Submission Tester. The **Run test** option is also disabled.
+    The instance name and test results are removed for the corresponding test cases in the OIN Submission Tester. The **Run test** option is also disabled.
 
 #### Deactivate an app instance in your org
 
@@ -364,7 +364,7 @@ For the JIT provisioning test, the OIN Submission Tester creates a temporary Okt
 
 > **Notes:**
 > * Ensure that your app integration supports JIT provisioning before you run the JIT provisioning test.
-> * If you don't have the super admin role, then you must have both the app admin and the org admin roles assigned to you for JIT provisioning testing.
+> * For JIT provisioning testing, you must have either the super admin role or both the app admin and org admin roles assigned to you.
 > * The JIT provisioning test case appears only if you select **Supports Just-In-Time provisioning** in your submission.
 
 To run the JIT provisioning with IdP flow test:
@@ -372,7 +372,7 @@ To run the JIT provisioning with IdP flow test:
 1. Click **Run test** next to the **JIT provisioning (w/ IdP flow)** test case.
 
     The OIN Submission Tester executes the following steps for the JIT provisioning test case:
-    1. Creates a new user in Okta and assigns them to the test app instance.
+    1. Creates a user in Okta and assigns them to the test app instance.
     {style="list-style-type:lower-alpha"}
     1. Open an incognito browser window to sign in to Okta.
     1. Sign in to Okta as the new test user.
@@ -404,7 +404,7 @@ You're only required to pass one JIT provisioning test case to submit your integ
 
 Similar to the [JIT provisioning with IdP flow test](#run-the-jit-provisioning-with-idp-flow-test), the OIN Submission Tester creates a temporary Okta test user account for you to verify that JIT provisioning was successful. The Tester then removes the test user account from Okta to complete the test.
 
-To run the JIT provisioning with SP flow test, follow the same steps in [Run the JIT provisioning with IdP flow test](#run-the-jit-provisioning-with-idp-flow-test). The difference between the JIT provisioning with SP and IdP tests is that the OIN Submission Tester opens an incognito browser window to sign in to your app first instead of to sign in to Okta.
+ Follow the same steps in [Run the JIT provisioning with IdP flow test](#run-the-jit-provisioning-with-idp-flow-test) to run the JIT provisioning with SP flow test. The only difference in the SP test is that the OIN Submission Tester opens an incognito browser window to sign in to your app first.
 
 #### Failed tests
 
@@ -458,7 +458,7 @@ To update a previously published OIN integration:
 1. Click **Generate Instance** to create an instance required for the **CURRENT VERSION** from the **Required app instances** status box.
 
     See [Generate an instance for testing](#generate-instances-for-testing) to create instances for your current submission.
-    > **Note:** There is a maximum of five active app instances allowed in a Developer Edition org. Deactivate any instances you don't need for testing.
+    > **Note:** There's a maximum of five active app instances allowed in a Developer Edition org. Deactivate any instances that you don't need for testing.
 
 1. Click **Add to Tester** for each required test instance. See [Add to Tester](#add-to-tester). The required tests appear for each test instance.
 1. Run your tests from the OIN Submission Tester. See [OIN Submission Tester](#oin-submission-tester).
@@ -470,7 +470,7 @@ To update a previously published OIN integration:
 
 * When you update an integration that's already published, be mindful to preserve backwards compatibility for your integration. Older instances of your integration could be in use by Okta customers.
 
-   If your update introduces new variables and you're using dynamic URLs, ensure that your test cases cover a variety of scenarios with different possible values for those variables. The newly introduced variables aren't populated for older instances of your integration. For example:
+   If your update introduces new variables and you're using dynamic URLs, ensure that your tests cover various scenarios with different possible values for those variables. The newly introduced variables aren't populated for older instances of your integration. For example:
 
    <StackSnippet snippet="backward-compatible-eg" />
 
