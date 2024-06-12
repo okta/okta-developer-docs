@@ -93,9 +93,9 @@ The bulk-load request contains an array of external [Identity Source User Profil
 
 Before you start to build your XaaS data synchronization client, you need to set up a few configuration variables:
 
-* Your Okta org domain URL (`${yourOktaDomain}`) for API requests
-* Your Custom Identity Source ID (`${identitySourceId}`): The unique identifier that you obtained from configuring a Custom Identity Source integration in your Okta org. See Create and configure a Custom Identity Source in [Use Anything-as-a-Source](https://help.okta.com/okta_help.htm?type=oie&id=ext-use-xaas).
-* An API token (`${apiKey}`): Obtain an [API token](/docs/guides/create-an-api-token/main/) from your Okta org to make secure API calls to Okta. Use this API token in the SSWS Authorization header.
+* Your Okta org domain URL (`{yourOktaDomain}`) for API requests
+* Your Custom Identity Source ID (`{identitySourceId}`): The unique identifier that you obtained from configuring a Custom Identity Source integration in your Okta org. See Create and configure a Custom Identity Source in [Use Anything-as-a-Source](https://help.okta.com/okta_help.htm?type=oie&id=ext-use-xaas).
+* An API token (`{apiKey}`): Obtain an [API token](/docs/guides/create-an-api-token/main/) from your Okta org to make secure API calls to Okta. Use this API token in the SSWS Authorization header.
 
 Code your XaaS data synchronization client with the following generalized API flow:
 
@@ -133,8 +133,8 @@ Use these steps to insert or update a set of user data profiles from your HR sou
 
    ```bash
     curl -i -X POST \
-      'https://${yourOktaDomain}/api/v1/identity-sources/${identitySourceId}/sessions' \
-    -H 'Authorization: SSWS ${apiKey}' \
+      'https://{yourOktaDomain}/api/v1/identity-sources/{identitySourceId}/sessions' \
+    -H 'Authorization: SSWS {apiKey}' \
     -H 'Content-Type: application/json'
     ```
 
@@ -161,26 +161,26 @@ Use these steps to insert or update a set of user data profiles from your HR sou
     * Use the `id` property value returned from the created Identity Source Session to make the bulk-upsert data request.
     * Obtain the user profiles from your HR source and add each user profile and their attributes into the `profiles` array. You can have up to a maximum of 200 user profiles in the array.
     * Set `entityType` to `USERS`. Only user data is supported. Group data isn't currently supported.
-    * If you need to add more users, make another bulk-upsert data request with the same `${sessionId}` value. You can make up to 50 bulk-load requests for one Identity Source Session.
+    * If you need to add more users, make another bulk-upsert data request with the same `{sessionId}` value. You can make up to 50 bulk-load requests for one Identity Source Session.
 
     ```bash
     curl -i -X POST \
-      'https://${yourOktaDomain}/api/v1/identity-sources/${identitySourceId}/sessions/${sessionId}/bulk-upsert' \
-    -H 'Authorization: SSWS ${apiKey}' \
+      'https://{yourOktaDomain}/api/v1/identity-sources/{identitySourceId}/sessions/{sessionId}/bulk-upsert' \
+    -H 'Authorization: SSWS {apiKey}' \
     -H 'Content-Type: application/json' \
     -d '{
         "entityType": "USERS",
         "profiles": [
             {
-                "externalId": "${userId}",
+                "externalId": "{userId}",
                 "profile": {
-                    "userName": "${userName}",
-                    "firstName": "${firstName}",
-                    "lastName": "${lastName}",
-                    "email": "${userEmail}",
-                    "secondEmail": "${userEmail2}",
-                    "mobilePhone": "${userMobileNumber}",
-                    "homeAddress": "${userAddress}"
+                    "userName": "{userName}",
+                    "firstName": "{firstName}",
+                    "lastName": "{lastName}",
+                    "email": "{userEmail}",
+                    "secondEmail": "{userEmail2}",
+                    "mobilePhone": "{userMobileNumber}",
+                    "homeAddress": "{userAddress}"
                 }
             }
         ]
@@ -198,8 +198,8 @@ Use these steps to insert or update a set of user data profiles from your HR sou
 
     ```bash
     curl -i -X POST \
-      'https://${yourOktaDomain}/api/v1/identity-sources/${identitySourceId}/sessions/${sessionId}/start-import' \
-    -H 'Authorization: SSWS ${apiKey}' \
+      'https://{yourOktaDomain}/api/v1/identity-sources/{identitySourceId}/sessions/{sessionId}/start-import' \
+    -H 'Authorization: SSWS {apiKey}' \
     -H 'Content-Type: application/json'
     ```
 
@@ -228,8 +228,8 @@ When users are deactivated or deleted from your HR source, you need to reflect t
 
     ```bash
     curl -i -X POST \
-      'https://${yourOktaDomain}/api/v1/identity-sources/${identitySourceId}/sessions' \
-    -H 'Authorization: SSWS ${apiKey}' \
+      'https://{yourOktaDomain}/api/v1/identity-sources/{identitySourceId}/sessions' \
+    -H 'Authorization: SSWS {apiKey}' \
     -H 'Content-Type: application/json'
     ```
 
@@ -256,24 +256,24 @@ When users are deactivated or deleted from your HR source, you need to reflect t
     * Use the `id` property value returned from the created Identity Source Session to make the bulk-delete data request.
     * Obtain the unique user identifiers from your HR source and add each `externalId` value into the `profiles` array. You can have up to a maximum of 200 user IDs in the array.
     * Set `entityType` to `USERS`. Only user data is supported. Group data isn't currently supported.
-    * If you need to deactivate more users, make another bulk-delete data request with the same `${sessionId}` value. You can make up to 50 bulk-load requests for one Identity Source Session.
+    * If you need to deactivate more users, make another bulk-delete data request with the same `{sessionId}` value. You can make up to 50 bulk-load requests for one Identity Source Session.
 
     ```bash
     curl -i -X POST \
-      'https://${yourOktaDomain}/api/v1/identity-sources/${identitySourceId}/sessions/${sessionId}/bulk-delete' \
-    -H 'Authorization: SSWS ${apiKey}' \
+      'https://{yourOktaDomain}/api/v1/identity-sources/{identitySourceId}/sessions/{sessionId}/bulk-delete' \
+    -H 'Authorization: SSWS {apiKey}' \
     -H 'Content-Type: application/json' \
     -d '{
         "entityType": "USERS",
         "profiles": [
           {
-            "externalId": "${userId1}"
+            "externalId": "{userId1}"
           },
           {
-            "externalId": "${userId2}"
+            "externalId": "{userId2}"
           },
           {
-            "externalId": "${userId3}"
+            "externalId": "{userId3}"
           }
         ]
       }'
@@ -292,8 +292,8 @@ When users are deactivated or deleted from your HR source, you need to reflect t
 
     ```bash
     curl -i -X POST \
-      'https://${yourOktaDomain}/api/v1/identity-sources/${identitySourceId}/session/${sessionId}/start-import' \
-    -H 'Authorization: SSWS ${apiKey}' \
+      'https://{yourOktaDomain}/api/v1/identity-sources/{identitySourceId}/session/{sessionId}/start-import' \
+    -H 'Authorization: SSWS {apiKey}' \
     -H 'Content-Type: application/json'
     ```
 
@@ -322,8 +322,8 @@ Use the [Cancel an Identity Source Session](/docs/reference/api/xaas/#cancel-an-
 
 ```bash
 curl -i -X DELETE \
-  'https://${yourOktaDomain}/api/v1/identity-sources/${identitySourceId}/sessions/${sessionId}' \
--H 'Authorization: SSWS ${apiKey}' \
+  'https://{yourOktaDomain}/api/v1/identity-sources/{identitySourceId}/sessions/{sessionId}' \
+-H 'Authorization: SSWS {apiKey}' \
 -H 'Content-Type: application/json'
 ```
 
@@ -343,8 +343,8 @@ The [List active Identity Source Sessions](/docs/reference/api/xaas/#list-active
 
 ```bash
 curl -i -X GET \
-  'https://${yourOktaDomain}/api/v1/identity-sources/${identitySourceId}/sessions' \
--H 'Authorization: SSWS ${apiKey}' \
+  'https://{yourOktaDomain}/api/v1/identity-sources/{identitySourceId}/sessions' \
+-H 'Authorization: SSWS {apiKey}' \
 -H 'Content-Type: application/json'
 ```
 
@@ -385,8 +385,8 @@ The [Retrieve an Identity Source Session](/docs/reference/api/xaas/#retrieve-an-
 
 ```bash
 curl -i -X GET \
-  'https://${yourOktaDomain}/api/v1/identity-sources/${identitySourceId}/sessions/${sessionId}' \
--H 'Authorization: SSWS ${apiKey}' \
+  'https://{yourOktaDomain}/api/v1/identity-sources/{identitySourceId}/sessions/{sessionId}' \
+-H 'Authorization: SSWS {apiKey}' \
 -H 'Content-Type: application/json'
 ```
 
