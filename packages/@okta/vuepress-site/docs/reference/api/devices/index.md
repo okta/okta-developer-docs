@@ -198,7 +198,7 @@ Searches for devices based on the properties specified in the `search` parameter
 This operation:
 
 * Supports pagination (to a maximum of 200 results).
-* Requires URL encoding. For example, `search=profile.displayName eq "Bob"` is encoded as `search=profile.displayName%20eq%20%22Bob%22`. See [MDN article on Percent-encoding](https://developer.mozilla.org/en-US/docs/Glossary/Percent-encoding).
+* Requires [URL encoding](https://developer.mozilla.org/en-US/docs/Glossary/Percent-encoding). For example, `search=profile.displayName eq "Bob"` is encoded as `search=profile.displayName%20eq%20%22Bob%22`.
 
 Searches include all Device profile properties, and the Device `id`, `status`, and `lastUpdated` properties.
 
