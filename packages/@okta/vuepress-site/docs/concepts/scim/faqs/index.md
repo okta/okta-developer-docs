@@ -80,7 +80,9 @@ The filtering capabilities in the SCIM protocol are pretty broad, but the common
 
 **Q: How do I import users?**
 
-User import operations are initiated by Okta, either manually or on a schedule. To run an import for your SCIM users, in the Admin Console:
+You can initiate user imports through Okta, either manually or on a schedule.
+
+To run an import for your SCIM users, in the Admin Console:
 
 1. Select your SCIM integration from the list of integrations in your Okta org.
 1. Under the **Import** tab, click **To Okta** and **Import Now** to do a one-time import.
