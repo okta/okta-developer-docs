@@ -86,7 +86,7 @@ Create the service app that integrates with the third-party risk provider using 
 
 1. Copy the name of your third-party risk provider to your Postman environment's `providerName` variable. In this example, use `Risk Provider Example`. Save the environment.
 
-2. Call the following POST API from the Risk Integration Postman Collection: **Admin: API to create OAuth service client (for the provider)** (`https://${yourOktaDomain}/oauth2/v1/clients`).
+2. Call the following POST API from the Risk Integration Postman Collection: **Admin: API to create OAuth service client (for the provider)** (`https://{yourOktaDomain}/oauth2/v1/clients`).
 
 3. Review the response, which includes the `jwks` key pair. The `client_name` value is the same value that you gave as the `providerName` variable. A sample response follows:
 
@@ -125,7 +125,7 @@ Create the service app that integrates with the third-party risk provider using 
 
 4. From the response, copy the `client_id` value, in this example `0oaaaboyxsbrWdsk81d6`, to your Postman environment's `clientId` variable. Save the environment.
 
-5. Verify that the app is available by making a GET request using the following API from the Risk Integration Postman Collection: **Admin: API to get all OAuth service clients** (`https://${yourOktaDomain}/oauth2/v1/clients`).
+5. Verify that the app is available by making a GET request using the following API from the Risk Integration Postman Collection: **Admin: API to get all OAuth service clients** (`https://{yourOktaDomain}/oauth2/v1/clients`).
 
 This call retrieves all service apps from your Okta org, including the new Risk Integration service app.
 
@@ -135,7 +135,7 @@ For background information on this process, see [Create a service app and grant 
 
 Define the allowed Risk scope for use with the third-party risk provider service app.
 
-1. Make a POST request using the following API from the Risk Integration Postman Collection: **Admin: API to grant scopes to the OAuth service client** (`/api/v1/apps/${clientId}/grants`).
+1. Make a POST request using the following API from the Risk Integration Postman Collection: **Admin: API to grant scopes to the OAuth service client** (`/api/v1/apps/{clientId}/grants`).
 
     This call adds the `scopeId` to the value of: `okta.riskEvents.manage`.
 
@@ -169,7 +169,7 @@ In this example, use the following two procedures to set up your third-party ris
 
 This procedure retrieves the default risk provider profile and Provider ID.
 
-1. Make a GET request using the following API from the Risk Integration Postman Collection: **Admin: API to get all Provider Settings** (`https://${yourOktaDomain}/api/v1/risk/providers`).
+1. Make a GET request using the following API from the Risk Integration Postman Collection: **Admin: API to get all Provider Settings** (`https://{yourOktaDomain}/api/v1/risk/providers`).
 
 2. Review the response that includes the Provider ID, default name, and action properties. A sample response follows:
 
@@ -202,7 +202,7 @@ This procedure retrieves the default risk provider profile and Provider ID.
 
 This procedure updates the default risk provider profile with the service app ID, risk provider name, and the risk provider action.
 
-1. Make a PUT request using the following API from the Risk Integration Postman Collection: **Admin: API to Update Provider Settings** (`https://${yourOktaDomain}/api/v1/risk/providers/${providerId}`). This call updates the default risk provider's data. The following data is included in the request body:
+1. Make a PUT request using the following API from the Risk Integration Postman Collection: **Admin: API to Update Provider Settings** (`https://{yourOktaDomain}/api/v1/risk/providers/{providerId}`). This call updates the default risk provider's data. The following data is included in the request body:
 
     ```JSON
     {
@@ -277,7 +277,7 @@ For further background information on this process, see [Create and sign the JWT
 
 This procedure creates an access token using the `clientAssertion` value required for authentication into the risk provider service app.
 
-1. Make a POST request using the following API from the Risk Integration Postman Collection: **Partner: API to get the access token** (`https://${yourOktaDomain}/oauth2/v1/token`).
+1. Make a POST request using the following API from the Risk Integration Postman Collection: **Partner: API to get the access token** (`https://{yourOktaDomain}/oauth2/v1/token`).
 2. Review the response from the call and copy the `access_token` value to your Postman's `accessToken` environment variable. Don't include the leading and trailing double quotes around the `access_token` value while saving the `accessToken` variable. A sample response follows:
 
     ```JSON
