@@ -1,6 +1,6 @@
 ## Deploy a React Native app
 
-Mobile apps built for production are usually a binary file that you upload to an app store.
+A mobile app built for production is usually a binary file that you upload to an app store.
 
 See the following blog posts that detail how to deploy a React Native app:
 
