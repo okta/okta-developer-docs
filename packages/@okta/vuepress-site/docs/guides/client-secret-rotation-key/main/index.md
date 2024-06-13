@@ -121,7 +121,7 @@ This option allows you to host your public key in a URI and paste the link to th
 
 > **Note:** If you switch from saving keys in Okta to using a URL to fetch keys dynamically, any saved public keys are deleted.
 
-1. After you select **Use a URL to fetch keys dynamically**, enter the URL where you’re hosting your public key in the **URL** box, for example: `https:/${yourOktaDomain}/oauth2/v1/keys`.
+1. After you select **Use a URL to fetch keys dynamically**, enter the URL where you’re hosting your public key in the **URL** box, for example: `https:/{yourOktaDomain}/oauth2/v1/keys`.
 
     > **Note:** You can try this in Postman using the **Add a JWK URI** request.
 
