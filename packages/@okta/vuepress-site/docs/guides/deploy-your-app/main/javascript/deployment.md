@@ -1,6 +1,6 @@
 ## Deploy a JavaScript app
 
-JavaScript apps built for production are a collection of static files. You can deploy them to any web server, configure that web server to be SPA-aware, and you should be good to go.
+JavaScript apps built for production are a collection of static files. You can deploy them to any web server, and then configure that web server to be SPA-aware.
 
 Ensure that you configure all paths to redirect to `index.html` because your framework handles the routing. You also need to force HTTPS.
 
