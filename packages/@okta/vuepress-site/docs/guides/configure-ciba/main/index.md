@@ -206,7 +206,7 @@ The call to the `/bc/authorize` endpoint and to the `/token` endpoint requires a
 To use a Basic Authorization header in both the `/bc/authorize` and `/token` requests, Base64-encode the string and set it in the Authorization header:
 
 ```sh
-   Authorization: Basic ${Base64(${clientId}:${clientSecret})}
+   Authorization: Basic {Base64({clientId}:{clientSecret})}
 ```
 
 ### Initiate the flow
@@ -230,7 +230,7 @@ The OIDC client sends the CIBA challenge request to an Okta authorization server
 
 ```bash
 curl --request POST \
-  --url https://${yourOktaDomain}/oauth2/default/v1/bc/authorize \
+  --url https://{yourOktaDomain}/oauth2/default/v1/bc/authorize \
   --header 'Accept: application/json' \
   --header 'authorization: Basic MG9hY...' \
   --header 'Content-Type: application/x-www-form-urlencoded' \
@@ -276,7 +276,7 @@ The next step in the CIBA authentication flow is to send a request for tokens to
 
    ```bash
      curl --request POST \
-     --url https://${yourOktaDomain}/oauth2/default/v1/token \
+     --url https://{yourOktaDomain}/oauth2/default/v1/token \
      --header 'Accept: application/json' \
      --header 'authorization: Basic MG9hY...' \
      --header 'Content-Type: application/x-www-form-urlencoded' \

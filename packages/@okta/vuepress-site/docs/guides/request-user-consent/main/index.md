@@ -35,7 +35,7 @@ When an app needs to get a new access token from an authorization server, the us
 
 When a consent dialog appears depends on the values of three elements:
 
-* `prompt`: a query [parameter](/docs/reference/api/oidc/#parameter-details) that is used in requests to `/oauth2/${authorizationServerId}/v1/authorize` (custom authorization server)
+* `prompt`: a query [parameter](/docs/reference/api/oidc/#parameter-details) that is used in requests to `/oauth2/{authorizationServerId}/v1/authorize` (custom authorization server)
 * `consent_method`: an app property listed in the **Settings** [table](/docs/reference/api/apps/#settings-10) in the Apps API doc. This property allows you to determine whether a client is fully trusted (for example, a first-party app) or requires consent (for example, a third-party app).
 * `consent`: a scope property listed in the **Parameter details** [section](/docs/reference/api/oidc/#parameter-details) for the `/authorize` endpoint. This property allows you to enable or disable user consent for an individual scope.
 
@@ -87,7 +87,7 @@ The following section provides example requests for enabling the consent dialog 
     * Do a [List applications](/docs/reference/api/apps/#list-applications-with-defaults) to locate the `applicationId` of the app.
     * Do a [Get application](/docs/reference/api/apps/#get-application) using the `applicationId` and verify that the `consent_method` parameter is set to `REQUIRED`.
 
-2. If the `consent_method` is set to `TRUSTED`, you need to update that parameter. The following example shows the JSON body of a PUT request to an existing OpenID Connect app (`https://${yourOktaDomain}/api/v1/apps/${applicationId}`). The request updates the `consent_method` parameter from `TRUSTED` to `REQUIRED`. The value that you specify for `consent_method` depends on the values for `prompt` and `consent`.
+2. If the `consent_method` is set to `TRUSTED`, you need to update that parameter. The following example shows the JSON body of a PUT request to an existing OpenID Connect app (`https://{yourOktaDomain}/api/v1/apps/{applicationId}`). The request updates the `consent_method` parameter from `TRUSTED` to `REQUIRED`. The value that you specify for `consent_method` depends on the values for `prompt` and `consent`.
 
     > **Note:** Check the **Settings** [table](/docs/reference/api/apps/#settings-10) in the **Add OAuth 2.0 Client Application** section of the Apps API reference for information on these properties. In most cases, `REQUIRED` is the correct value.
 
@@ -100,7 +100,7 @@ The following section provides example requests for enabling the consent dialog 
         "signOnMode": "OPENID_CONNECT",
         "credentials": {
          "userNameTemplate": {
-             "template": "${source.login}",
+             "template": "{source.login}",
              "type": "BUILT_IN"
          },
             "signing": {
@@ -155,7 +155,7 @@ To make consent of a scope optional, set the `consent` property to either `REQUI
 
 > **Note:** See the [Authorization Servers API](/docs/reference/api/authorization-servers/#scope-properties) for more information on scope properties and how to use them.
 
-This example shows the JSON body for a PUT request to the default custom authorization server (`https://${yourOktaDomain}/api/v1/authorizationServers/${authorizationServerId}/scopes/${scopeId}`) to update the `phone` scope. You need the following information for the request:
+This example shows the JSON body for a PUT request to the default custom authorization server (`https://{yourOktaDomain}/api/v1/authorizationServers/{authorizationServerId}/scopes/{scopeId}`) to update the `phone` scope. You need the following information for the request:
 
 * `authorizationServerId`: Do a [List Authorization Servers](/docs/reference/api/authorization-servers/#list-authorization-servers) to locate the appropriate ID.
 * `scopeId`: Do a [List Scopes](/docs/reference/api/authorization-servers/#get-all-scopes) to locate the appropriate ID.
@@ -220,25 +220,25 @@ After you define the scopes that you want to require consent for, prepare an aut
 
     ```bash
     curl -X GET
-    "https://${yourOktaDomain}/oauth2/${authorizationServerId}/v1/authorize?client_id=examplefa39J4jXdcCwWA
+    "https://{yourOktaDomain}/oauth2/{authorizationServerId}/v1/authorize?client_id=examplefa39J4jXdcCwWA
     &response_type=token
     &scope=openid%20phone
     &redirect_uri=https%3A%2F%2FyourRedirectUriHere.com
     &state=myState
-    &nonce=${myNonceValue}"
+    &nonce={myNonceValue}"
     ```
 
     Example with the `prompt` parameter included:
 
      ```bash
     curl -X GET
-    "https://${yourOktaDomain}/oauth2/${authorizationServerId}/v1/authorize?client_id=examplefa39J4jXdcCwWA
+    "https://{yourOktaDomain}/oauth2/{authorizationServerId}/v1/authorize?client_id=examplefa39J4jXdcCwWA
     &response_type=token
     &scope=openid%20phone
     &prompt=consent
     &redirect_uri=https%3A%2F%2FyourRedirectUriHere.com
     &state=myState
-    &nonce=${myNonceValue}"
+    &nonce={myNonceValue}"
     ```
 
     > **Note:** The `response_type` for an ID token looks like this: `&response_type=id_token`.
@@ -299,8 +299,8 @@ There are several ways to verify that you've successfully created a user grant:
     curl -v -X GET \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    -H "Authorization: SSWS ${api_token} \
-    "https://${yourOktaDomain}/api/v1/users/${userId}/grants"
+    -H "Authorization: SSWS {api_token} \
+    "https://{yourOktaDomain}/api/v1/users/{userId}/grants"
     ```
 
     The response should contain the `scopeId` for the grant that you created when you clicked **Allow** in the previous step.
@@ -373,8 +373,8 @@ To [revoke one grant for a user](/docs/reference/api/users/#revoke-a-grant-for-a
 curl -v -X DELETE \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
--H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/users/${userId}/grants/${grantId}"
+-H "Authorization: SSWS {api_token}" \
+"https://{yourOktaDomain}/api/v1/users/{userId}/grants/{grantId}"
 ```
 
 ### Revoke all Grants
@@ -387,8 +387,8 @@ To [revoke all grants for a user](/docs/reference/api/users/#revoke-all-grants-f
 curl -v -X DELETE \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
--H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/users/${userId}/grants"
+-H "Authorization: SSWS {api_token}" \
+"https://{yourOktaDomain}/api/v1/users/{userId}/grants"
 ```
 
 ## Troubleshooting
