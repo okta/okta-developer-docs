@@ -32,7 +32,7 @@ Which JWT type that you use depends on the client authentication method configur
 
 > **Note:** To create a client application and specify either the `client_secret_jwt` or `private_key_jwt` authentication method, see the [Add OAuth 2.0 Client Application](/docs/reference/api/apps/#add-oauth-2-0-client-application) API reference section. To change the client authentication method of an existing app, see the [Update the Client Authentication Method](/docs/reference/api/apps/#update-the-client-authentication-method) API reference section.
 
-> **Tip:** Don't know which method is configured for your client app? You can quickly check the settings by doing a GET to `https://{yourOktaDomain}/api/v1/apps/{appId}`.
+> **Tip:** If you don't know which method is configured for your client app, you can quickly check the settings by doing a GET to `https://{yourOktaDomain}/api/v1/apps/{appId}`.
 
 ## Gather claims information
 
