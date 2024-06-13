@@ -83,20 +83,20 @@ As an Okta admin, make a `POST /api/v1/apps` request to the spoke org with [Okta
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
--H "Authorization: SSWS ${spokeApiToken}" \
+-H "Authorization: SSWS {spokeApiToken}" \
 -d '{
   "name": "okta_org2org",
-  "label": "'${spokeOrg2OrgClientLabel}'",
+  "label": "'{spokeOrg2OrgClientLabel}'",
   "signOnMode": "SAML_2_0",
   "settings": {
     "app": {
-        "baseUrl": "https://'${yourHubOktaDomain}'"
+        "baseUrl": "https://'{yourHubOktaDomain}'"
     }
   }
-}' "https://${yourSpokeOktaDomain}/api/v1/apps"
+}' "https://{yourSpokeOktaDomain}/api/v1/apps"
 ```
 
-From the response of your POST request, use the `id` property of the Org2Org app instance to [retrieve the key credentials](/docs/reference/api/apps/#list-key-credentials-for-application) generated for the app with the `GET /api/v1/apps/${id}/credentials/keys` request.
+From the response of your POST request, use the `id` property of the Org2Org app instance to [retrieve the key credentials](/docs/reference/api/apps/#list-key-credentials-for-application) generated for the app with the `GET /api/v1/apps/{id}/credentials/keys` request.
 
 ##### Request example
 
@@ -104,8 +104,8 @@ From the response of your POST request, use the `id` property of the Org2Org app
 curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
--H "Authorization: SSWS ${spokeApiToken}" \
-"https://${yourOktaDomain}/api/v1/apps/${yourOrg2OrgAppId}/credentials/keys"
+-H "Authorization: SSWS {spokeApiToken}" \
+"https://{yourOktaDomain}/api/v1/apps/{yourOrg2OrgAppId}/credentials/keys"
 ```
 
 ##### Response example
@@ -151,10 +151,10 @@ Save the generated credentials to configure the corresponding hub-org service ap
 ```bash
 curl -X POST \
   -H 'Accept: application/json' \
-  -H "Authorization: SSWS ${hubApiToken}" \
+  -H "Authorization: SSWS {hubApiToken}" \
   -H 'Content-Type: application/json' \
   -d '{
-    "client_name": "'${hubServiceClientLabel}'",
+    "client_name": "'{hubServiceClientLabel}'",
     "response_types": [
       "token"
     ],
@@ -181,10 +181,10 @@ curl -X POST \
                 }
               ]
             }
- }' "https://${yourHubOktaDomain}/oauth2/v1/clients"
+ }' "https://{yourHubOktaDomain}/oauth2/v1/clients"
 ```
 
-> **Note:** You can copy the entire [response from the previous `GET /api/v1/apps/${id}/credentials/keys` request](#response-example) in to the `jwks.keys` array. The `created`, `lastUpdated`, and `expiresAt` properties are ignored in the POST request. Alternatively, you can remove them from the `jwks.keys` parameter body.
+> **Note:** You can copy the entire [response from the previous `GET /api/v1/apps/{id}/credentials/keys` request](#response-example) into the `jwks.keys` array. The `created`, `lastUpdated`, and `expiresAt` properties are ignored in the POST request. Alternatively, you can remove them from the `jwks.keys` parameter body.
 
 ### Assign admin roles to the OAuth 2.0 service app
 
@@ -201,11 +201,11 @@ For the OAuth 2.0 Org2Org provisioning connection, Okta recommends that you assi
 
 You can use the Admin Console to assign an admin role to your service app. See [Assign admin roles to apps](https://help.okta.com/okta_help.htm?type=oie&id=csh-work-with-admin-assign-admin-role-to-apps) and go to the **Admin roles** tab from your app integration details. Alternatively, you can assign the admin role to your service app with the Okta API.
 
-As an Okta super admin, make a `POST /oauth2/v1/clients/${yourServiceAppId}/roles` request to the hub org with the following required parameters to assign an admin role:
+As an Okta super admin, make a `POST /oauth2/v1/clients/{yourServiceAppId}/roles` request to the hub org with the following required parameters to assign an admin role:
 
 | Parameter |  Description/Value   |
 | --------- |  ------------- |
-| `yourServiceAppId`  |  Specify the `client_id` value from the previous response when the service app was created. In the following role assignment example, the `${yourServiceAppId}` variable name is used instead of `client_id`.|
+| `yourServiceAppId`  |  Specify the `client_id` value from the previous response when the service app was created. In the following role assignment example, the `{yourServiceAppId}` variable name is used instead of `client_id`.|
 | `type`  |  Specify the admin role to assign to the service app. Use the recommended standard admin roles (`USER_ADMIN`, `GROUP_MEMBERSHIP_ADMIN`). |
 
 See [Assign a Role to a client app](/docs/reference/api/roles/#assign-a-role-to-a-client-application) in the Role Assignment API reference.
@@ -218,17 +218,17 @@ See [Assign a Role to a client app](/docs/reference/api/roles/#assign-a-role-to-
  curl -X POST \
  -H "Accept: application/json" \
  -H "Content-Type: application/json" \
- -H "Authorization: SSWS ${hubApiToken}" \
+ -H "Authorization: SSWS {hubApiToken}" \
  -d '{
     "type": "USER_ADMIN"
-  }' "https://${yourHubOrgDomain}/oauth2/v1/clients/${yourServiceAppId}/roles"
+  }' "https://{yourHubOrgDomain}/oauth2/v1/clients/{yourServiceAppId}/roles"
  ```
 
 > **Note:** The admin roles determine which resources the admin can perform the actions on (such as a specific group of users or a specific set of apps). Scopes determine the action that the admin can perform (such as manage users, read apps). Therefore, the admin roles need to have enough permissions for the scopes provided.
 
 ### Grant allowed scopes to the OAuth 2.0 client
 
-From the response of the previous [POST request](#create-an-oauth-2-0-service-app-in-the-hub-org), use the `client_id` property of the hub service app instance to grant the [allowed scopes](/docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints) with the [`POST /api/v1/apps/${client_id}/grants`](/docs/reference/api/apps/#grant-consent-to-scope-for-application) request. In the following example, the `${yourServiceAppId}` variable name is used instead of `client_id`.
+From the response of the previous [POST request](#create-an-oauth-2-0-service-app-in-the-hub-org), use the `client_id` property of the hub service app instance to grant the [allowed scopes](/docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints) with the [`POST /api/v1/apps/{client_id}/grants`](/docs/reference/api/apps/#grant-consent-to-scope-for-application) request. In the following example, the `{yourServiceAppId}` variable name is used instead of `client_id`.
 
 > **Note**: Currently, both `okta.users.manage` and `okta.groups.manage` scopes are required for the service app configuration.
 
@@ -237,23 +237,23 @@ From the response of the previous [POST request](#create-an-oauth-2-0-service-ap
 ```bash
 curl -X POST \
   -H 'Accept: application/json' \
-  -H "Authorization: SSWS ${hubApiToken}" \
+  -H "Authorization: SSWS {hubApiToken}" \
   -H 'Content-Type: application/json' \
   -d ' {
     "scopeId": "okta.users.manage",
-    "issuer": "https://'${yourHubOrgDomain}'"
-}' "https://${yourHubOrgDomain}/api/v1/apps/${yourServiceAppId}/grants"
+    "issuer": "https://'{yourHubOrgDomain}'"
+}' "https://{yourHubOrgDomain}/api/v1/apps/{yourServiceAppId}/grants"
 ```
 
 ```bash
 curl -X POST \
   -H 'Accept: application/json' \
-  -H "Authorization: SSWS ${hubApiToken}" \
+  -H "Authorization: SSWS {hubApiToken}" \
   -H 'Content-Type: application/json' \
   -d ' {
     "scopeId": "okta.groups.manage",
-    "issuer": "https://'${yourHubOrgDomain}'"
-}' "https://${yourHubOrgDomain}/api/v1/apps/${yourServiceAppId}/grants"
+    "issuer": "https://'{yourHubOrgDomain}'"
+}' "https://{yourHubOrgDomain}/api/v1/apps/{yourServiceAppId}/grants"
 ```
 
 ### Enable provisioning in the Org2Org app
@@ -262,7 +262,7 @@ In each spoke org, set and activate provisioning for the Org2Org app integration
 
 > **Note**: Currently, you can only enable OAuth 2.0-based provisioning with the Okta API.
 
-As an Okta admin, make a [`POST /api/v1/apps/${Org2OrgAppId}/connections/default?activate=TRUE`](/docs/reference/api/apps/#set-default-provisioning-connection-for-application) request to set provisioning for the spoke org using the following profile parameters:
+As an Okta admin, make a [`POST /api/v1/apps/{Org2OrgAppId}/connections/default?activate=TRUE`](/docs/reference/api/apps/#set-default-provisioning-connection-for-application) request to set provisioning for the spoke org using the following profile parameters:
 
 | Parameter |  Description/Value   |
 | --------- |  ------------- |
@@ -274,14 +274,14 @@ As an Okta admin, make a [`POST /api/v1/apps/${Org2OrgAppId}/connections/default
 ```bash
 curl -X POST \
   -H 'Accept: application/json' \
-  -H "Authorization: SSWS ${spokeApiToken}" \
+  -H "Authorization: SSWS {spokeApiToken}" \
   -H 'Content-Type: application/json' \
   -d ' {
     "profile": {
         "authScheme": "OAUTH2",
-        "clientId": "'${yourHubOrgServiceAppId}'"
+        "clientId": "'{yourHubOrgServiceAppId}'"
     }
-}' "https://${yourSpokeOrgDomain}/api/v1/apps/${yourOrg2OrgAppId}/connections/default?activate=TRUE"
+}' "https://{yourSpokeOrgDomain}/api/v1/apps/{yourOrg2OrgAppId}/connections/default?activate=TRUE"
 ```
 
 > **Note**: After you enable provisioning, if you want to enable app features or edit Org2Org attribute mappings, use the [App features operation](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationFeatures/) or the [Profile Mappings API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ProfileMapping/). Alternatively, go to the Org2Org app **Provisioning** > **To App** settings from the Admin Console and edit the **Provisioning To App** or the **Okta Org2Org Attribute Mappings** sections.
@@ -290,8 +290,8 @@ curl -X POST \
 
 In each spoke (source) org, assign the users and groups to the Org2Org app integration by using the [Okta Application Users API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationUsers/#tag/ApplicationUsers/operation/assignUserToApplication):
 
-* [`POST /api/v1/apps/${yourOrg2OrgAppId}/users` (Assign user to an app for SSO and provisioning)](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationUsers/#tag/ApplicationUsers/operation/assignUserToApplication)
-* [`POST /api/v1/apps/${yourOrg2OrgAppId}/groups/${groupId}` (Assign group to an app)](/docs/reference/api/apps/#assign-group-to-application)
+* [`POST /api/v1/apps/{yourOrg2OrgAppId}/users` (Assign user to an app for SSO and provisioning)](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationUsers/#tag/ApplicationUsers/operation/assignUserToApplication)
+* [`POST /api/v1/apps/{yourOrg2OrgAppId}/groups/{groupId}` (Assign group to an app)](/docs/reference/api/apps/#assign-group-to-application)
 
 Alternatively, you can assign users and groups for provisioning using the Okta Admin Console. See [Assign an app integration to a user](https://help.okta.com/okta_help.htm?type=oie&id=ext-lcm-assign-app-user) and [Assign an app integration to a group](https://help.okta.com/okta_help.htm?type=oie&id=ext-lcm-assign-app-groups).
 
@@ -316,9 +316,9 @@ From your spoke org, make a request to [generate a new app key credential](/docs
 ```bash
 curl -X POST \
   -H 'Accept: application/json' \
-  -H "Authorization: SSWS ${spokeApiToken}" \
+  -H "Authorization: SSWS {spokeApiToken}" \
   -H 'Content-Type: application/json' \
-  "https://${yourSpokeOrgDomain}/api/v1/apps/${yourOrg2OrgAppId}/credentials/keys/generate?validityYears=${validYears}"
+  "https://{yourSpokeOrgDomain}/api/v1/apps/{yourOrg2OrgAppId}/credentials/keys/generate?validityYears={validYears}"
 ```
 
 ##### Response example
@@ -353,11 +353,11 @@ On your hub org, register the key, [generated from the previous POST request](#g
 ```bash
 curl -X PUT \
   -H 'Accept: application/json' \
-  -H "Authorization: SSWS ${hubApiToken}" \
+  -H "Authorization: SSWS {hubApiToken}" \
   -H 'Content-Type: application/json' \
   -d ' {
-    "client_id": "'${yourServiceAppId}'",
-    "client_name": "'${hubServiceClientLabel}'",
+    "client_id": "'{yourServiceAppId}'",
+    "client_name": "'{hubServiceClientLabel}'",
     "response_types": [
       "token"
     ],
@@ -381,7 +381,7 @@ curl -X PUT \
                   }
                 ]
             }
- }' "https://${yourHubOrgDomain}/oauth2/v1/clients/${yourServiceAppId}"
+ }' "https://{yourHubOrgDomain}/oauth2/v1/clients/{yourServiceAppId}"
 ```
 
 > **Note**: Specify all the required parameters when you update a client app. Partial updates aren't supported. If any mandatory parameters are missing when you update a client app, the update fails. When you update the keys in the service app `jwks` parameter, all the old keys are overwritten. To add a key and keep the old key, you need to specify both old and new keys in the `jwks.keys` array.
@@ -395,17 +395,17 @@ From the response of the [previous generate key POST request](#generate-a-new-ke
 ```bash
 curl -X PUT \
   -H 'Accept: application/json' \
-  -H "Authorization: SSWS ${spokeApiToken}" \
+  -H "Authorization: SSWS {spokeApiToken}" \
   -H 'Content-Type: application/json' \
   -d ' {
     "name": "okta_org2org",
-    "label": "'${spokeOrg2OrgClientLabel}'",
+    "label": "'{spokeOrg2OrgClientLabel}'",
     "credentials": {
         "signing": {
             "kid": "sf-jWwRKMUU5588aokhj-xu_mGucHLxIh_-fYLAofB8"
         }
     }
-}' "https://${yourSpokeOrgDomain}/api/v1/apps/${yourOrg2OrgAppId}"
+}' "https://{yourSpokeOrgDomain}/api/v1/apps/{yourOrg2OrgAppId}"
 ```
 
 > **Note**: Specify `name` and `label` parameters when you update an Org2Org app.

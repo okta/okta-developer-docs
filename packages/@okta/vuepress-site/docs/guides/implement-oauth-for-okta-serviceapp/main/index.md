@@ -63,7 +63,7 @@ Assign admin roles for every OAuth 2.0 service app that you create. Service apps
 
 > **Note:** To temporarily bypass assigning an admin role, enable the **Public client app admins** org setting. This automatically assigns the super admin role to custom API service apps that you create after the scopes are granted. Go to **Settings** > **Account** > **Public client app admins** in the Admin Console to edit this setting. See [Assign admin roles to apps](https://help.okta.com/okta_help.htm?type=oie&id=csh-work-with-admin-assign-admin-role-to-apps). Disable this setting after you incorporate admin role assignments in your workflow.
 
-As an [Okta super administrator](https://help.okta.com/okta_help.htm?type=oie&id=ext_superadmin), make a `POST /oauth2/v1/clients/${yourServiceAppId}/roles` request to your org with the following parameters to assign an admin role:
+As an [Okta super administrator](https://help.okta.com/okta_help.htm?type=oie&id=ext_superadmin), make a `POST /oauth2/v1/clients/{yourServiceAppId}/roles` request to your org with the following parameters to assign an admin role:
 
 | Parameter |  Description/Value   |
 | --------- |  ------------- |
@@ -80,11 +80,11 @@ See [Assign a Role to a client application](/docs/reference/api/roles/#assign-a-
 
 ```bash
 curl -i -X POST \
-  'https://subdomain.okta.com/oauth2/v1/clients/${yourServiceAppId}/roles' \
+  'https://subdomain.okta.com/oauth2/v1/clients/{yourServiceAppId}/roles' \
   -H 'Authorization: YOUR_API_KEY_HERE' \
   -H 'Content-Type: application/json' \
   -d '{
-    "type": "${type}"
+    "type": "{type}"
   }'
 ```
 
@@ -97,8 +97,8 @@ curl -i -X POST \
   -H 'Content-Type: application/json' \
   -d '{
     "type": "CUSTOM",
-    "role": "${role}",
-    "resource-set": "${resource-set}"
+    "role": "{role}",
+    "resource-set": "{resource-set}"
   }'
 ```
 
@@ -177,7 +177,7 @@ This option allows you to host your public key in a URI and paste the link to th
 
 > **Note:** If you switch from saving keys in Okta to using a URL to fetch keys dynamically, any saved public keys are deleted.
 
-1. After you select **Use a URL to fetch keys dynamically**, enter the URL in the **URL** box, for example: `https://${yourOktaDomian}/oauth2/v1/keys`.
+1. After you select **Use a URL to fetch keys dynamically**, enter the URL in the **URL** box, for example: `https://{yourOktaDomian}/oauth2/v1/keys`.
 
 1. Click **Save**.
 
@@ -214,17 +214,17 @@ Now that you've created the service app and registered the public key with that 
     Provide values for these parameters in your request:
 
     * `scopeID`: `okta.users.read`
-    * `issuer`: `https://${yourOktaDomain}`
+    * `issuer`: `https://{yourOktaDomain}`
 
     ```bash
-    curl --location --request POST 'https://${yourOktaDomain}/api/v1/apps/{serviceappclient_id}/grants' \
+    curl --location --request POST 'https://{yourOktaDomain}/api/v1/apps/{serviceappclient_id}/grants' \
     --header 'Accept: application/json' \
     --header 'Content-Type: application/json' \
     --header 'Authorization: SSWS 00...Y' \
     --header 'Cache-Control: no-cache' \
     --data-raw '{
         "scopeId": "okta.users.read",
-        "issuer": "https://${yourOktaDomain}"
+        "issuer": "https://{yourOktaDomain}"
     }'
     ```
 
@@ -250,7 +250,7 @@ You can use the following [JWT claims](/docs/reference/api/oidc/#token-claims-fo
 
 1. For this example, include the following parameters in the payload of the JWT:
 
-    * `aud`: `https://${yourOktaDomain}/oauth2/v1/token`
+    * `aud`: `https://{yourOktaDomain}/oauth2/v1/token`
     * `iss`: `client_id`
     * `sub`: `client_id`
     * `exp`: `1614664267`
@@ -259,7 +259,7 @@ You can use the following [JWT claims](/docs/reference/api/oidc/#token-claims-fo
 
     ```json
     {
-        "aud": "https://${yourOktaDomain}/oauth2/v1/token",
+        "aud": "https://{yourOktaDomain}/oauth2/v1/token",
         "iss": "0oar95zt9zIpYuz6A0h7",
         "sub": "0oar95zt9zIpYuz6A0h7",
         "exp": "1614664267"
@@ -289,7 +289,7 @@ Include the following parameters:
 The following is an example request for an access token (the JWT is truncated for brevity).
 
 ```bash
-curl --location --request POST 'https://${yourOktaDomain}/oauth2/v1/token' \
+curl --location --request POST 'https://{yourOktaDomain}/oauth2/v1/token' \
     --header 'Accept: application/json' \
     --header 'Content-Type: application/x-www-form-urlencoded' \
     --data-urlencode 'grant_type=client_credentials' \
@@ -323,7 +323,7 @@ Make a request to the `/users` endpoint using the access token.
 **Example Request**
 
 ```bash
-curl -X GET "https://${yourOktaDomain}/api/v1/users"
+curl -X GET "https://{yourOktaDomain}/api/v1/users"
     -H "Accept: application/json"
     -H "Content-Type: application/json"
     -H "Authorization: Bearer eyJraWQiOiJEa1lUbmhTdkd5OEJkbk9yMVdYTENhbVFRTUZiNTlYbHdBWVR2bVg5ekxNIiwiYWxnIjoiUlMyNTYifQ.eyJ2ZXIiOjEsImp0aSI6IkFULmRNcmJJc1paTWtMR0FyN1gwRVNKdmdsX19JOFF4N0pwQlhrVjV6ZGt5bk0iLCJpc3MiOiJodHRwczovL2xvZ2luLndyaXRlc2hhcnBlci5jb20iLCJhdWQiOiJodHRwczovL2dlbmVyaWNvaWRjLm9rdGFwcmV2aWV3LmNvbSIsInN1YiI6IjBvYXI5NXp0OXpJcFl1ejZBMGg3IiwiaWF0IjoxNTg4MTg1NDU3LCJleHAiOjE1ODgxODkwNTcsImNpZCI6IjBvYXI5NXp0OXpJcFl1ejZBMGg3Iiwic2NwIjpbIm9rdGEudXNlcnMubWFuYWdlIl19.TrrStbXUFtuH5TemMISgozR1xjT3rVaLHF8hqnwbe9gmFffVrLovY-JLl63G8vZVnyudvZ_fWkOBUxip1hcGm80KvrSgpdOp9Nazz-mjkP6T6JwslRFHDe8SC_4h2LG9zi5PV9y3hAayBK51q1HIwgAxl_2F7q4l0jLKDFsWjQS8epNaB05NLI12BDvO-C-7ZGGJ4EQfGS9EjN9lS-vWnt_V3ojTL0BJCKgL5Y0c9D2VkSqVN4j-7BSRZt0Un3MAEgznXmk2ecg3y7s9linGR0mC3QqKeyDfFNdsUJG6ac0h2CFFZQizpQu1DFmI_ADKmzxVQGPICuslgJFFoIF4ZA"
