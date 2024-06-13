@@ -125,18 +125,18 @@ Create a Terraform configuration that uses the credentials that you created earl
 
     ```hcl
     provider "okta" {
-      org_name = "${yourOktaOrg}"
+      org_name = "{yourOktaOrg}"
       base_url = "okta.com"
-      client_id   = "${yourClientID}"
+      client_id   = "{yourClientID}"
       scopes = ["okta.groups.manage"]
-      private_key = ${privateKey}
+      private_key = {privateKey}
     }
     ```
 
    In the previous code sample, add your values to the following fields:
 
    * `org_name`: Your Okta org name. For example, `exampleOrgName` from the full domain `https://exampleOrgName.okta.com`.
-   * `base_url`: Your Okta org domain
+   * `base_url`: Your Okta org domain.
    * `client_id`: The client ID of the service app that you created in an earlier step.
    * `private_key`: Either the path to the private key file or the private key itself. Okta recommends storing the key in a separate location and using a secrets and encryption management system, such as HashiCorp Vault.
    * `scopes`: A list of scopes required by the Terraform configuration. This example uses the `okta.groups.manage` scope.

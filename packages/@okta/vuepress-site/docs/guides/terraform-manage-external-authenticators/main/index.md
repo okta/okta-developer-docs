@@ -53,7 +53,7 @@ To configure a Google social IdP, first create OAuth 2.0 credentials in your Goo
 1. Confirm that you can access the [Google Developers Console](https://console.developers.google.com/).
 1. Create a project in the Google Developers Console or use an existing one.
 1. Create OAuth 2.0 credentials by following the instructions in [Create authorization credentials](https://developers.google.com/identity/sign-in/web/sign-in#create_authorization_credentials).
-1. Add the redirect URI for your Okta org using the following format: `https://${yourOktaDomain}.okta.com/oauth2/v1/authorize/callback`.
+1. Add the redirect URI for your Okta org using the following format: `https://{yourOktaDomain}.okta.com/oauth2/v1/authorize/callback`.
 
 > **Note:** The default domain name of your Okta org is based on your company name. For example: `https://company.okta.com/oauth2/v1/authorize/callback`. If you’ve configured a custom domain in your Okta org, use that value to construct your redirect URI, such as `https://login.company.com/oauth2/v1/authorize/callback`.
 
@@ -74,7 +74,7 @@ Configure Google as a social IdP in your Terraform configuration:
 | `name`                | `Google Social IdP`                | The name that appears in the Okta Admin Console                                                                                                           |
 | `type`                | `GOOGLE`                           | The type of Social IdP. See [Identity Provider type](/docs/reference/api/idps/#identity-provider-type).                                                   |
 | `protocol_type`       | `OIDC`                             | The protocol that Google uses as an IdP. See [Identity Provider type](/docs/reference/api/idps/#identity-provider-type)                                   |
-| `client_id`           | ${client_id}                       | Client ID of the OAuth 2.0 credentials that you created in the Google Developer Console                                                                   |
+| `client_id`           | {client_id}                       | Client ID of the OAuth 2.0 credentials that you created in the Google Developer Console                                                                   |
 | `client_secret`       | `var.google_oidc_client_secret`    | The variable that represents the client secret of the OAuth 2.0 credentials                                                                               |
 | `scopes`              | `[ "openid", "email", "profile" ]` | The scopes that the Google social IdP requires. See [Identity Provider type](https://developer.okta.com/docs/reference/api/idps/#identity-provider-type). |
 | `username_template`   | `idpuser.email`                    | Okta uses the email of the Google user to check for matching Okta users                                                                                   |
@@ -89,7 +89,7 @@ resource "okta_idp_social" "google_social_idp" {
   name = "Google Social IdP"
   type = "GOOGLE"
   protocol_type = "OIDC"
-  client_id = "${googleClientId}"
+  client_id = "{googleClientId}"
   client_secret     = var.google_oidc_client_secret
   scopes = [ "openid", "email", "profile" ]
   username_template = "idpuser.email"
@@ -112,7 +112,7 @@ To configure a Google OIDC IdP, first create OAuth 2.0 credentials in your Googl
 1. Confirm that you can access the [Google Developers Console](https://console.developers.google.com/).
 1. Create a project if you don’t already have one.
 1. Create OAuth 2.0 credentials by following the instructions in [Create authorization credentials](https://developers.google.com/identity/sign-in/web/sign-in#create_authorization_credentials).
-1. Add the redirect URI for your Okta org. For example, `https://${yourOktaDomain}.okta.com/oauth2/v1/authorize/callback`.
+1. Add the redirect URI for your Okta org. For example, `https://{yourOktaDomain}.okta.com/oauth2/v1/authorize/callback`.
 
 > **Note:** The default domain name of your Okta org is based on your company name. For example: `https://company.okta.com/oauth2/v1/authorize/callback`. If you’ve configured a custom domain in your Okta Org, use that value to construct your redirect URI, such as `https://login.company.com/oauth2/v1/authorize/callback`.
 
@@ -132,7 +132,7 @@ Configure Google as an OIDC IdP in your Terraform configuration:
 | ------------------------- | -------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
 | `name`                    | `Google OIDC IdP`                                  | The name that appears in the Okta Admin Console                                                                                             |
 | `scopes`                  | `["openid", "email", "profile"]`                   | The Google OIDC IdP requires these scopes for authorization. See [Identity Provider type](/docs/reference/api/idps/#identity-provider-type) |
-| `client_id`               | ${client_id}                                       | Client ID of the OAuth 2.0 credentials that you created in the Google Developer Console                                                     |
+| `client_id`               | {client_id}                                       | Client ID of the OAuth 2.0 credentials that you created in the Google Developer Console                                                     |
 | `client_secret`           | `var.google_oidc_client_secret`                    | The variable that represents the client secret of the OAuth 2.0 credentials                                                                 |
 | `status`                  | `ACTIVE`                                           | Activates the IdP                                                                                                                           |
 | `authorization_url`       | `https://accounts.google.com/o/oauth2/v2/auth`     | Corresponding values from the [Google OIDC discovery document](https://accounts.google.com/.well-known/openid-configuration)                |
@@ -156,7 +156,7 @@ This code shows a generic example:
 resource "okta_idp_oidc" "google_oidc_idp" {
   name = "Google OIDC IdP"
   scopes = ["email", "openid", "profile"]
-  client_id = "${googleClientId}"
+  client_id = "{googleClientId}"
   client_secret = var.google_oidc_client_secret
   status = "ACTIVE"
   authorization_url = "https://accounts.google.com/o/oauth2/v2/auth"
@@ -217,8 +217,8 @@ Configure Google as a SAML IdP in your Terraform configuration:
 | ------------------------------ | ------------------------------------------- | ----------------------------------------------------------------------------------------- |
 | `name`                         | `Google SAML IdP`                           | The name that appears in the Okta Admin Console                                           |
 | `status`                       | `ACTIVE`                                    | Activates the IdP in your org                                                             |
-| `sso_url`                      | ${sso_url}                                  | **SSO URL** of the web app in your Google Admin Console that you created previously       |
-| `issuer`                       | ${entity_id}                                | **Entity ID** of the web app in your Google Admin Console.                                |
+| `sso_url`                      | {sso_url}                                  | **SSO URL** of the web app in your Google Admin Console that you created previously       |
+| `issuer`                       | {entity_id}                                | **Entity ID** of the web app in your Google Admin Console.                                |
 | `sso_binding`                  | `HTTP-POST`                                 | The method of making an SSO request.                                                      |
 | `kid`                          | `okta_idp_saml_key.google_saml_idp_key.kid` | References the SAML certificate you uploaded to Okta in a previous step                   |
 | `request_signature_scope`      | `NONE`                                      | Okta sends unsigned requests                                                              |
@@ -236,8 +236,8 @@ This code shows a generic example:
 resource "okta_idp_saml" "google_saml_idp" {
   name = "Google SAML IdP"
   status = "ACTIVE"
-  sso_url = "${google_sso_url}"
-  issuer = "${google_entity_id_url}"
+  sso_url = "{google_sso_url}"
+  issuer = "{google_entity_id_url}"
   sso_binding = "HTTP-POST"
   kid = okta_idp_saml_key.google_saml_idp_key.kid
   request_signature_scope = "NONE"
@@ -263,7 +263,7 @@ Run your configuration to create the Google SAML 2.0 IdP in your org and to get 
 Finish creating the SAML web app in your Google Admin Console:
 
 1. Return to your Google Admin Console.
-1. Enter `https://${yourOktaDomain}.okta.com/sso/saml2` in the **SSO URL** box.
+1. Enter `https://{yourOktaDomain}.okta.com/sso/saml2` in the **SSO URL** box.
 1. Enter the value of the `audience` attribute that you copied in a previous step in the **Entity ID** box. For example: `https://www.okta.com/saml2/service-provider/spvsvyjdmwomeipztdxp`.
 1. Map the following attributes from the Google user profile to the attributes of the Okta user profile:
 
@@ -304,7 +304,7 @@ For example, create a routing rule that requires users with a specific email dom
 | `network_connection`        | `ANYWHERE`                                           | Applies this rule to users from any network                                     |
 | `user_identitier_type`      | `ATTRIBUTE`                                          | Applies this rule only to users based on a specified attribute                  |
 | `user_identifier_attribute` | `email`                                              | Specifies email as the attribute that controls which users this rule applies to |
-| `user_identifier_patterns`  | {`match_type`: `CONTAINS`, `value`: ${email domain}} | Applies the routing rule to users with that email domain                        |
+| `user_identifier_patterns`  | {`match_type`: `CONTAINS`, `value`: {email domain}} | Applies the routing rule to users with that email domain                        |
 
 This code shows a generic example:
 
@@ -321,7 +321,7 @@ resource "okta_policy_rule_idp_discovery" "social_idp_rule" {
   user_identifier_attribute = "email"
   user_identifier_patterns {
     match_type = "CONTAINS"
-    value = "${yourGoogleAccountDomain}"
+    value = "{yourGoogleAccountDomain}"
   }
 }
 ```
