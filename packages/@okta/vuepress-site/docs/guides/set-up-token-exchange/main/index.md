@@ -132,7 +132,7 @@ Use the Authorization Code with PKCE flow to obtain an authorization code for th
 Go to the `/authorize` endpoint using a request URL with the appropriate parameters:
 
   ```bash
-    https://${yourOktaDomain}/oauth2/default/v1/authorize?client_id=${nativeAppClientId}&response_type=code&scope=openid&redirect_uri=${configuredRedirectUri}&state=teststate&code_challenge_method=S256&code_challenge=${code_challenge}
+    https://{yourOktaDomain}/oauth2/default/v1/authorize?client_id={nativeAppClientId}&response_type=code&scope=openid&redirect_uri={configuredRedirectUri}&state=teststate&code_challenge_method=S256&code_challenge={code_challenge}
   ```
 
 Note the parameters that are being passed:
@@ -152,7 +152,7 @@ If the user doesn't have an existing session, this request opens the Okta sign-i
 **Response**
 
 ```bash
-https://${configuredRedirectUri}/?code=FQGFlDO-J1jXl....7-cfYJ0KtKB8&state=testState
+https://{configuredRedirectUri}/?code=FQGFlDO-J1jXl....7-cfYJ0KtKB8&state=testState
 ```
 
 #### Exchange code for tokens request
@@ -161,14 +161,14 @@ Use the following example to build the request to exchange the authorization cod
 
 ```bash
   curl --location --request POST \
-    --url 'https://${yourOktaDomain}/oauth2/default/v1/token' \
+    --url 'https://{yourOktaDomain}/oauth2/default/v1/token' \
     --header 'Accept: application/json' \
     --header 'Content-Type: application/x-www-form-urlencoded' \
     --data-urlencode 'grant_type=authorization_code' \
-    --data-urlencode 'redirect_uri=${configuredRedirectUri}' \
+    --data-urlencode 'redirect_uri={configuredRedirectUri}' \
     --data-urlencode 'code=FQGFlDO-J1j.....QvabuZ7-cfYJ0KtKB8' \
     --data-urlencode 'code_verifier=xO5wgOEH5UA2XUdVQ88pM.....Rtc5ERKq1MeonMo8QLCSRYlDk' \
-    --data-urlencode 'client_id=${nativeAppClientId}'
+    --data-urlencode 'client_id={nativeAppClientId}'
 ```
 
 **Response**
@@ -189,7 +189,7 @@ Use the following example to build the request to exchange the authorization cod
 
 ```bash
 curl --location --request POST \
-  --url 'https://${yourOktaDomain}/oauth2/default/v1/token' \
+  --url 'https://{yourOktaDomain}/oauth2/default/v1/token' \
   --header 'Accept: application/json' \
   --header 'Authorization: Basic {Base64-encoded service app client ID and client secret}' \
   --header 'Content-Type: application/x-www-form-urlencoded' \
@@ -290,7 +290,7 @@ Perform the requests in the previous [Flow specifics](#flow-specifics) section. 
 
 ```bash
 curl --location --request POST \
-  --url 'https://${yourOktaDomain}/oauth2/{trustedAuthServerId}/v1/token' \
+  --url 'https://{yourOktaDomain}/oauth2/{trustedAuthServerId}/v1/token' \
   --header 'Accept: application/json' \
   --header 'Authorization: Basic {Base64-encoded service app client ID and client secret}' \
   --header 'Content-Type: application/x-www-form-urlencoded' \
