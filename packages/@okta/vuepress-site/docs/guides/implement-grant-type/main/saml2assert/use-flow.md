@@ -7,7 +7,7 @@ Before you can begin this flow, you must collect the SAML assertion from the Ide
 If you’re using the org authorization server, then your request would look something like this:
 
 ```bash
-curl --location --request POST 'https://${yourOktaDomain}/oauth2/v1/token' \
+curl --location --request POST 'https://{yourOktaDomain}/oauth2/v1/token' \
 --header 'Accept: application/json' \
 --header 'Content-Type: application/x-www-form-urlencoded' \
 --header 'Authorization: Basic MG9hb....' \

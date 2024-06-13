@@ -6,7 +6,7 @@ Before you can begin this flow, collect the user's password in a manner of your 
 
 ```bash
 curl --request POST \
-  --url https://${yourOktaDomain}/oauth2/v1/token \
+  --url https://{yourOktaDomain}/oauth2/v1/token \
   --header 'accept: application/json' \
   --header 'authorization: Basic MG9hYn...' \
   --header 'content-type: application/x-www-form-urlencoded' \
