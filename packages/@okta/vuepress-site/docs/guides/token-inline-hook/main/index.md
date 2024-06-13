@@ -87,9 +87,9 @@ An Okta app integration represents your app in your Okta org. The integration co
 1. In the root folder of your local app (`samples-nodejs-express-4`), add an environment variable file called `dotenv`. There's no extension to this file.
 1. Add the following variables and values to the `dotenv` file. The `CLIENT_ID` and `CLIENT_SECRET` values are available on the **General** tab of your app integration.
 
-    * **ISSUER**=`https://${yourOktaDomain.com}/oauth2/default`
-    * **CLIENT_ID**=`${yourClientId}`
-    * **CLIENT_SECRET**:`${yourClientSecret}`
+    * **ISSUER**=`https://{yourOktaDomain.com}/oauth2/default`
+    * **CLIENT_ID**=`{yourClientId}`
+    * **CLIENT_SECRET**:`{yourClientSecret}`
 
 Your `dotenv`file appears as follows:
 
