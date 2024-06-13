@@ -15,6 +15,8 @@ Okta Expression Language is based on [SpEL](https://docs.spring.io/spring-framew
 
 Expressions allow you to reference, transform, and combine attributes before storing them on a user profile or passing them to an app for authentication or provisioning. For example, you might use a custom expression to create a username by stripping `@company.com` from an email address. Or, you might combine the `firstName` and `lastName` attributes into a single `displayName` attribute.
 
+> **Note:** In this reference, `$placeholder` denotes a value that you need to replace with an appropriate variable. For example, in `user.$attribute`, `$attribute` can be replaced with `firstName`, `lastName`, `email`, and other valid values.
+
 ## Reference user attributes
 
 When you create an Okta expression, you can reference any attribute that lives on an Okta user profile or app user profile.
