@@ -12,7 +12,7 @@ If your needs exceed the Okta default rate limits for the base product subscript
 **Authentication endpoints:**
 
 * `/api/v1/authn`
-* `/api/v1/authn/factors/${factorIdOrFactorType}/verify`
+* `/api/v1/authn/factors/{factorIdOrFactorType}/verify`
 * `/api/v1/sessions`
 * `/login/login.htm`
 * `/signin/*`
@@ -22,8 +22,8 @@ If your needs exceed the Okta default rate limits for the base product subscript
 
 **OAuth2 endpoints:**
 
-* `/oauth2/${authorizationServerId}/v1`
-* `/oauth2/${authorizationServerId}/v1/authorize`
+* `/oauth2/{authorizationServerId}/v1`
+* `/oauth2/{authorizationServerId}/v1/authorize`
 * `/oauth2/v1` except `/oauth2/v1/clients`
 * `/oauth2/v1/authorize`
 * `/oauth2/v1/token`
@@ -33,14 +33,14 @@ If your needs exceed the Okta default rate limits for the base product subscript
 
 **SAML endpoints:**
 
-* `/app/template_saml_2_0/${key}/sso/saml`
-* `/app/${app}/${key}/sso/saml`
+* `/app/template_saml_2_0/{key}/sso/saml`
+* `/app/{app}/{key}/sso/saml`
 
 **Single User/Group/App reads (GET only):**
 
-* `/api/v1/apps/${id}`
-* `/api/v1/groups/${id}`
-* `/api/v1/users/${idOrLogin}`
+* `/api/v1/apps/{id}`
+* `/api/v1/groups/{id}`
+* `/api/v1/users/{idOrLogin}`
 
 > **Notes:**
 >
