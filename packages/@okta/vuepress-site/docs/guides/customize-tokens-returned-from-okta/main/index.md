@@ -46,21 +46,21 @@ To test the full authentication flow that returns an ID token or an access token
 
     * An org authorization server authorization endpoint looks like this:
 
-        `https://${yourOktaDomain}/oauth2/v1/authorize`
+        `https://{yourOktaDomain}/oauth2/v1/authorize`
 
     * A custom authorization server endpoint looks like this:
 
-        `https://${yourOktaDomain}/oauth2/${authorizationServerId}/v1/authorize`
+        `https://{yourOktaDomain}/oauth2/{authorizationServerId}/v1/authorize`
 
-    > **Note:** If you add the claim to the default custom authorization server, the `${authorizationServerId}` is `default`.
+    > **Note:** If you add the claim to the default custom authorization server, the `{authorizationServerId}` is `default`.
 
     You can retrieve a custom authorization server's authorization endpoint using the server's metadata URI:
 
     **ID token**
-    `https://${yourOktaDomain}/oauth2/${authorizationServerId}/.well-known/openid-configuration`
+    `https://{yourOktaDomain}/oauth2/{authorizationServerId}/.well-known/openid-configuration`
 
     **Access token**
-    `https://${yourOktaDomain}/oauth2/${authorizationServerId}/.well-known/oauth-authorization-server`
+    `https://{yourOktaDomain}/oauth2/{authorizationServerId}/.well-known/oauth-authorization-server`
 
 3. Add the following query parameters to the URL:
 
@@ -77,7 +77,7 @@ To test the full authentication flow that returns an ID token or an access token
 
     ```bash
     curl -X GET
-    "https://${yourOktaDomain}/oauth2/${authorizationServerId}/v1/authorize?client_id=examplefa39J4jXdcCwWA
+    "https://{yourOktaDomain}/oauth2/{authorizationServerId}/v1/authorize?client_id=examplefa39J4jXdcCwWA
     &response_type=id_token
     &scope=openid
     &redirect_uri=https%3A%2F%2FyourRedirectUriHere.com
@@ -138,9 +138,9 @@ To add a custom claim:
 
 To confirm that your custom claim is successfully added, you can [retrieve a list of all claims](/docs/reference/api/authorization-servers/#get-all-claims) from your authorization server, including the custom ones, using the `/claims` endpoint:
 
-`https://${yourOktaDomain}/api/v1/authorizationServers/${authorizationServerId}/claims`
+`https://{yourOktaDomain}/api/v1/authorizationServers/{authorizationServerId}/claims`
 
-> **Note:** If you add the claim to the default custom authorization server, the `${authorizationServerId}` is `default`.
+> **Note:** If you add the claim to the default custom authorization server, the `{authorizationServerId}` is `default`.
 
 ### Request a token with the custom claim
 
@@ -152,7 +152,7 @@ The resulting URL looks something like this:
 
 ```bash
 curl -X GET
-"https://${yourOktaDomain}/oauth2/${authorizationServerId}/v1/authorize?client_id=examplefa39J4jXdcCwWA
+"https://{yourOktaDomain}/oauth2/{authorizationServerId}/v1/authorize?client_id=examplefa39J4jXdcCwWA
 &response_type=id_token
 &scope=openid
 &redirect_uri=https%3A%2F%2FyourRedirectUriHere.com
@@ -292,8 +292,8 @@ In this example, the service app's `token_endpoint_auth_method` was set to `clie
 ```bash
 curl -v -X POST \
 -H "Content-type:application/x-www-form-urlencoded" \
-"https://${yourOktaDomain}/oauth2/default/v1/token" \
--d "client_id=${clientId}&client_secret=${clientSecret}&grant_type=client_credentials&scope=aCustomScope"
+"https://{yourOktaDomain}/oauth2/default/v1/token" \
+-d "client_id={clientId}&client_secret={clientSecret}&grant_type=client_credentials&scope=aCustomScope"
 ```
 
 If the credentials are valid, the access token is sent in the response:
