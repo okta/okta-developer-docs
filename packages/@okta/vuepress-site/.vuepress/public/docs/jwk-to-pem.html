@@ -99,76 +99,246 @@
        Copyright &copy; 2024 Okta. All rights reserved.
     </footer>
 
+    <!-- Include the asn1js library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/asn1js/5.0.1/asn1.min.js"></script>
+
     <script>
-        async function convertJwkToPem() {
-            const jwkInput = document.getElementById('jwkInput').value;
-            let jwk;
-            try {
-                jwk = JSON.parse(jwkInput);
-            } catch (e) {
-                alert('Invalid JWK. Please provide a valid JSON Web Key.');
-                return;
-            }
-
-            if (!jwk.kty) {
-                alert('Invalid JWK. It should have a "kty" (key type) field.');
-                return;
-            }
-
-            try {
-                let algorithm, publicKey;
-
-                switch (jwk.kty) {
-                    case "RSA":
-                        if (!jwk.n || !jwk.e) {
-                            throw new Error('Invalid RSA JWK. It should have "n" and "e" fields.');
-                        }
-                        algorithm = { name: "RSASSA-PKCS1-v1_5" };
-                        if (jwk.alg) {
-                            switch (jwk.alg) {
-                                case "RS256": algorithm.hash = "SHA-256"; break;
-                                case "RS384": algorithm.hash = "SHA-384"; break;
-                                case "RS512": algorithm.hash = "SHA-512"; break;
-                                default: throw new Error(`Unsupported RSA algorithm: ${jwk.alg}`);
-                            }
-                        }
-                        publicKey = await crypto.subtle.importKey("jwk", jwk, algorithm, true, ["verify"]);
-                        break;
-
-                    case "EC":
-                        if (!jwk.crv || !jwk.x || !jwk.y) {
-                            throw new Error('Invalid EC JWK. It should have "crv", "x", and "y" fields.');
-                        }
-                        algorithm = { name: "ECDSA", namedCurve: jwk.crv };
-                        if (jwk.alg) {
-                            switch (jwk.alg) {
-                                case "ES256": if (jwk.crv !== "P-256") throw new Error("For ES256, curve should be P-256"); break;
-                                case "ES384": if (jwk.crv !== "P-384") throw new Error("For ES384, curve should be P-384"); break;
-                                case "ES512": if (jwk.crv !== "P-521") throw new Error("For ES512, curve should be P-521"); break;
-                                default: throw new Error(`Unsupported EC algorithm: ${jwk.alg}`);
-                            }
-                        }
-                        publicKey = await crypto.subtle.importKey("jwk", jwk, algorithm, true, ["verify"]);
-                        break;
-
-                    default:
-                        throw new Error(`Unsupported key type: ${jwk.kty}`);
-                }
-
-                const publicKeyDer = await crypto.subtle.exportKey("spki", publicKey);
-                const publicKeyBase64 = btoa(String.fromCharCode.apply(null, new Uint8Array(publicKeyDer)));
-                const publicKeyPem = `-----BEGIN PUBLIC KEY-----\n${publicKeyBase64.match(/.{1,64}/g).join('\n')}\n-----END PUBLIC KEY-----`;
-
-                document.getElementById('pemOutput').value = publicKeyPem;
-            } catch (error) {
-                alert(`Error converting JWK to PEM: ${error.message}`);
-            }
+    async function convertJwkToPem() {
+        const jwkInput = document.getElementById('jwkInput').value;
+        let jwk;
+        try {
+            jwk = JSON.parse(jwkInput);
+        } catch (e) {
+            alert('Invalid JWK. Please provide a valid JSON Web Key.');
+            return;
         }
 
-        function clearFields() {
-            document.getElementById('jwkInput').value = '';
-            document.getElementById('pemOutput').value = '';
+        if (!jwk.kty) {
+            alert('Invalid JWK. It should have a "kty" (key type) field.');
+            return;
         }
+
+        try {
+            let publicKeyPem, privateKeyPem;
+
+            switch (jwk.kty) {
+                case "RSA":
+                    if (!jwk.n || !jwk.e) {
+                        throw new Error('Invalid RSA JWK. It should have "n" and "e" fields.');
+                    }
+                    const rsaPublicKeyData = {
+                        kty: jwk.kty,
+                        n: jwk.n,
+                        e: jwk.e
+                    };
+                    const rsaPublicKey = await crypto.subtle.importKey("jwk", rsaPublicKeyData, {
+                        name: "RSA-PSS",
+                        hash: { name: "SHA-256" }
+                    }, true, ["verify"]);
+                    publicKeyPem = await exportKeyToPem(rsaPublicKey, "spki");
+
+                    if (jwk.d) {
+                        const rsaPrivateKeyData = {
+                            kty: jwk.kty,
+                            n: jwk.n,
+                            e: jwk.e,
+                            d: jwk.d,
+                            p: jwk.p,
+                            q: jwk.q,
+                            dp: jwk.dp,
+                            dq: jwk.dq,
+                            qi: jwk.qi
+                        };
+                        privateKeyPem = exportRsaPrivateKeyToPem(rsaPrivateKeyData);
+                    }
+                    break;
+
+                case "EC":
+                    if (!jwk.crv || !jwk.x || !jwk.y) {
+                        throw new Error('Invalid EC JWK. It should have "crv", "x", and "y" fields.');
+                    }
+                    const ecPublicKeyData = {
+                        kty: jwk.kty,
+                        crv: jwk.crv,
+                        x: jwk.x,
+                        y: jwk.y
+                    };
+                    const ecPublicKey = await crypto.subtle.importKey("jwk", ecPublicKeyData, {
+                        name: "ECDSA",
+                        namedCurve: jwk.crv
+                    }, true, ["verify"]);
+                    publicKeyPem = await exportKeyToPem(ecPublicKey, "spki");
+
+                    if (jwk.d) {
+                        privateKeyPem = exportEcPrivateKeyToPem(jwk);
+                    }
+                    break;
+
+                default:
+                    throw new Error(`Unsupported key type: ${jwk.kty}`);
+            }
+
+            let pemOutput = publicKeyPem;
+            if (privateKeyPem) {
+                pemOutput = privateKeyPem + "\n\n" + publicKeyPem;
+            }
+            document.getElementById('pemOutput').value = pemOutput;
+        } catch (error) {
+            alert(`Error converting JWK to PEM: ${error.message}`);
+        }
+    }
+
+    function exportRsaPrivateKeyToPem(rsaKeyData) {
+        const header = "-----BEGIN RSA PRIVATE KEY-----\n";
+        const footer = "-----END RSA PRIVATE KEY-----";
+
+        const n = base64UrlToUint8Array(rsaKeyData.n);
+        const e = base64UrlToUint8Array(rsaKeyData.e);
+        const d = base64UrlToUint8Array(rsaKeyData.d);
+        const p = base64UrlToUint8Array(rsaKeyData.p);
+        const q = base64UrlToUint8Array(rsaKeyData.q);
+        const dp = base64UrlToUint8Array(rsaKeyData.dp);
+        const dq = base64UrlToUint8Array(rsaKeyData.dq);
+        const qi = base64UrlToUint8Array(rsaKeyData.qi);
+
+        const version = 0;
+        const versionAsn1 = integerToDer(version);
+        const nAsn1 = integerToDerWithLeadingZeros(n);
+        const eAsn1 = integerToDer(e);
+        const dAsn1 = integerToDerWithLeadingZeros(d);
+        const pAsn1 = integerToDerWithLeadingZeros(p);
+        const qAsn1 = integerToDerWithLeadingZeros(q);
+        const dpAsn1 = integerToDerWithLeadingZeros(dp);
+        const dqAsn1 = integerToDerWithLeadingZeros(dq);
+        const qiAsn1 = integerToDerWithLeadingZeros(qi);
+
+        const totalLength = versionAsn1.length + nAsn1.length + eAsn1.length + dAsn1.length + pAsn1.length + qAsn1.length + dpAsn1.length + dqAsn1.length + qiAsn1.length;
+
+        const privateKeyInfo = [
+            0x30, totalLength - 2, // Sequence
+            0x02, versionAsn1.length - 2, ...versionAsn1.slice(2), // Version
+            0x02, nAsn1.length - 2, ...nAsn1.slice(2), // Modulus
+            0x02, eAsn1.length - 2, ...eAsn1.slice(2), // Public Exponent
+            0x02, dAsn1.length - 2, ...dAsn1.slice(2), // Private Exponent
+            0x02, pAsn1.length - 2, ...pAsn1.slice(2), // Prime 1
+            0x02, qAsn1.length - 2, ...qAsn1.slice(2), // Prime 2
+            0x02, dpAsn1.length - 2, ...dpAsn1.slice(2), // Exponent 1
+             0x02, dqAsn1.length - 2, ...dqAsn1.slice(2), // Exponent 2
+             0x02, qiAsn1.length - 2, ...qiAsn1.slice(2), // Coefficient
+         ];
+
+        const privateKeyBytes = new Uint8Array(privateKeyInfo);
+        const privateKeyBase64 = arrayBufferToBase64(privateKeyBytes);
+
+        return `${header}${formatAsPem(privateKeyBase64)}${footer}`;
+    }
+
+    function integerToDerWithLeadingZeros(arr) {
+        // Convert Uint8Array to regular array if needed
+        arr = Array.from(arr);
+
+        // Ensure integer is positive by adding a leading zero if necessary
+        if (arr[0] >= 0x80) arr.unshift(0x00);
+
+        // Add additional leading zero if the first byte has the highest bit set
+        if (arr[0] >= 0x80) arr.unshift(0x00);
+
+        return [0x02, arr.length, ...arr]; // INTEGER tag and length
+    }
+
+    function integerToDer(arr) {
+        // Convert Uint8Array to regular array if needed
+        arr = Array.from(arr);
+
+        if (arr[0] > 127) arr.unshift(0); // Ensure integer is positive
+        return [0x02, arr.length, ...arr]; // INTEGER tag and length
+    }
+
+    function base64UrlToUint8Array(base64Url) {
+        const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+        const binaryString = atob(base64);
+        const len = binaryString.length;
+        const bytes = new Uint8Array(len);
+        for (let i = 0; i < len; i++) {
+            bytes[i] = binaryString.charCodeAt(i);
+        }
+        return bytes;
+    }
+
+    function arrayBufferToBase64(arrayBuffer) {
+        const bytes = new Uint8Array(arrayBuffer);
+        let binary = '';
+        bytes.forEach(byte => binary += String.fromCharCode(byte));
+        return btoa(binary);
+    }
+
+    function formatAsPem(base64Str) {
+        const lines = base64Str.match(/.{1,64}/g) || [];
+        return lines.join('\n');
+    }
+
+    async function exportKeyToPem(key, format) {
+        const keyData = await crypto.subtle.exportKey(format, key);
+        const keyBase64 = arrayBufferToBase64(keyData);
+        let pemHeader, pemFooter;
+
+        if (format === "pkcs8") {
+            pemHeader = "-----BEGIN PRIVATE KEY-----";
+            pemFooter = "-----END PRIVATE KEY-----";
+        } else if (format === "spki") {
+            pemHeader = "-----BEGIN PUBLIC KEY-----";
+            pemFooter = "-----END PUBLIC KEY-----";
+        } else if (format === "jwk") {
+            return JSON.stringify(key, null, 2);
+        } else {
+            throw new Error(`Unsupported format: ${format}`);
+        }
+
+        return `${pemHeader}\n${formatAsPem(keyBase64)}\n${pemFooter}`;
+    }
+
+    function exportEcPrivateKeyToPem(jwk) {
+        const header = "-----BEGIN EC PRIVATE KEY-----\n";
+        const footer = "-----END EC PRIVATE KEY-----";
+
+        const d = base64UrlToUint8Array(jwk.d);
+        const x = base64UrlToUint8Array(jwk.x);
+        const y = base64UrlToUint8Array(jwk.y);
+
+        const version = new Uint8Array([1]);
+        const privateKey = integerToDerWithLeadingZeros(d);
+
+        // EC parameters (named curve)
+        const namedCurveOid = {
+            "P-256": [0x06, 0x08, 0x2A, 0x86, 0x48, 0xCE, 0x3D, 0x03, 0x01, 0x07],
+            "P-384": [0x06, 0x05, 0x2B, 0x81, 0x04, 0x00, 0x22],
+            "P-521": [0x06, 0x05, 0x2B, 0x81, 0x04, 0x00, 0x23]
+        }[jwk.crv];
+        const namedCurve = [0xA0, namedCurveOid.length, ...namedCurveOid];
+
+        // Public Key (optional)
+        const publicKeyBitString = [0x03, x.length + y.length + 1, 0x00, 0x04, ...x, ...y];
+        const publicKey = [0xA1, publicKeyBitString.length, ...publicKeyBitString];
+
+        const totalLength = version.length + privateKey.length + namedCurve.length + publicKey.length;
+        const privateKeyInfo = [
+            0x30, totalLength,
+            ...version,
+            ...privateKey,
+            ...namedCurve,
+            ...publicKey
+        ];
+
+        const privateKeyBytes = new Uint8Array(privateKeyInfo);
+        const privateKeyBase64 = arrayBufferToBase64(privateKeyBytes);
+
+        return `${header}${formatAsPem(privateKeyBase64)}${footer}`;
+    }
+
+    function clearFields() {
+        document.getElementById('jwkInput').value = '';
+        document.getElementById('pemOutput').value = '';
+    }
     </script>
 </body>
 </html>
