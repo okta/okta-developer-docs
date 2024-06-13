@@ -11,9 +11,10 @@ This guide explains how to interact with Okta APIs by using scoped OAuth 2.0 acc
 #### Learning outcomes
 
 * Create a public/private key pair.
-* Create a service app with grant scopes.
+* Define allowed scopes for your service app.
 * Create and sign the JSON Web Token (JWT).
 * Get an access token to make an API request.
+* Know what the available scopes and supported endpoints are.
 
 #### What you need
 
@@ -26,18 +27,24 @@ This guide explains how to interact with Okta APIs by using scoped OAuth 2.0 acc
 
 Most Okta API endpoints require that you include an API token with your request. Currently, this API token takes the form of an SSWS token that you generate in the Admin Console. With OAuth for Okta, you’re able to interact with Okta APIs using scoped OAuth 2.0 access tokens. Each access token enables the bearer to perform specific actions on specific Okta endpoints, with that ability controlled by which scopes the access token contains.
 
+Scoped access tokens have several advantages, including:
+
+* More access granularity
+* Shorter token lifespans
+* Can be generated and retrieved using an API
+
 ## Use the Client Credentials grant flow
 
-For machine-to-machine use cases where a backend service or a daemon has to call Okta APIs, use the Client Credentials grant flow with an OAuth 2.0 service app. The Client Credentials grant flow is the only grant flow supported with the OAuth 2.0 service app when you want to mint access tokens that contain Okta scopes.
+The Client Credentials grant flow is intended for server-side (confidential) client apps with no end user, which normally describes machine-to-machine communication. Machine-to-machine uses cases have a backend service or a daemon that makes calls to the Okta APIs. To mint access tokens that contain Okta scopes, the Client Credentials flow is the only flow supported with an OAuth 2.0 service app.
 
-The following are the high-level steps required to perform the Client Credentials grant flow with an OAuth service app:
+The following are the high-level steps required to perform the Client Credentials grant flow with an OAuth 2.0 service app:
 
 1. Create the service app integration in Okta.
 1. Generate a public/private JSON Web Key Set (JWKS) key pair and store the private key.
-1. Grant the required OAuth 2.0 scopes to the app.
-1. Create a JSON Web Token (JWT) and sign it using the private key for use as the client assertion when making the `/token` endpoint API call.
+1. Grant the required OAuth 2.0 scopes to the service app.
+1. Create a JSON Web Token (JWT) and sign it using the private key. Use this as the client assertion when making the `/token` endpoint API call.
 
-> **Note:** OAuth for Okta works only with allowed [OAuth 2.0 Scopes](https://developer.okta.com/docs/api/oauth2/#okta-admin-management).
+> **Note:** OAuth for Okta works only with allowed [OAuth 2.0 scopes](https://developer.okta.com/docs/api/oauth2/#okta-admin-management).
 
 ## Create a service app integration
 
