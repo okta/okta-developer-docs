@@ -7,7 +7,7 @@ This flow is similar to the [Authorization Code flow](/docs/guides/implement-gra
 Your application redirects the user's browser to your [authorization server's](/docs/concepts/auth-servers/) `/authorize` endpoint. If you are using the org authorization server, then your request URL would look something like this:
 
 ```bash
-https://${yourOktaDomain}/oauth2/v1/authorize?
+https://{yourOktaDomain}/oauth2/v1/authorize?
    client_id=0oabv6kx4qq6h1U5l0h7&
    response_type=token&scope=openid&
    redirect_uri=https%3A%2F%2Fexample.com&
@@ -30,7 +30,7 @@ See the [OAuth 2.0 API reference](/docs/reference/api/oidc/#authorize) for more 
 If the user doesn't have an existing session, the request opens the Okta sign-in page. If they have an existing session, or after they authenticate, the user is redirected back to the specified `redirect_uri` along with a `token` as a hash fragment:
 
 ```bash
-https://${yourOktaDomain}/#access_token=eyJhb[...]erw&
+https://{yourOktaDomain}/#access_token=eyJhb[...]erw&
    token_type=Bearer&
    expires_in=3600&
    scope=openid&
