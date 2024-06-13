@@ -41,7 +41,7 @@ This quickstart contains the following tasks:
 1. [Enable CORS for your API](#enable-cors-for-your-api)
 1. [Test your API is secure](#test-that-your-api-is-secure)
 
-> **Tip**: You need your Okta org domain to follow this tutorial. It looks like `dev-123456.okta.com`. See [Find your Okta domain](/docs/guides/find-your-domain/). Where you see `${yourOktaDomain}` in this guide, replace it with your Okta domain.
+> **Tip**: You need your Okta org domain to follow this tutorial. It looks like `dev-123456.okta.com`. See [Find your Okta domain](/docs/guides/find-your-domain/). Where you see `{yourOktaDomain}` in this guide, replace it with your Okta domain.
 
 > **Note**: For a similar use case where Okta secures a machine-to-machine sign-in flow between a background service app and the Okta APIs, rather than a service app and your own API, see [Implement OAuth for Okta with a service app](/docs/guides/implement-oauth-for-okta-serviceapp/)
 
@@ -66,7 +66,7 @@ This tutorial uses the **default** custom authorization server to secure your AP
    * **Audience**: Found under audience. It should be `api://default`.
    * **Authorization Server Name**: Found under name. It should be `default`.
 
-Moving on, where you see `${yourAudience}` and `${yourAuthServerName}` in this guide, replace them with your audience and authorization server name.
+Moving on, where you see `{yourAudience}` and `{yourAuthServerName}` in this guide, replace them with your audience and authorization server name.
 
 > **Note**: You can either create a custom authorization server or use the default to protect your APIs. In either case, you need an appropriate licence to use them in production.
 
@@ -149,7 +149,7 @@ The configuration page for the new API services integration appears. Make a note
 * **Client ID**: Found on the **General** tab in the Client Credentials section.
 * **Client Secret**: Found on the **General** tab in the Client Credentials section.
 
-Moving on, where you see `${yourClientId}` and `${yourClientSecret}` in this guide, replace them with your client ID and client secret.
+Moving on, where you see `{yourClientId}` and `{yourClientSecret}` in this guide, replace them with your client ID and client secret.
 
 ### Create a custom scope for the API
 
@@ -181,13 +181,13 @@ Make an HTTP POST request to [/token](http://localhost:8080/docs/reference/api/o
 
 1. Select **+** in the Postman workbench to open a new request tab.
 1. Select **GET** and change it to **POST**.
-1. Enter `https://${yourOktaDomain}/oauth2/${yourAuthServerName}/v1/token` for the **URL**.
+1. Enter `https://{yourOktaDomain}/oauth2/{yourAuthServerName}/v1/token` for the **URL**.
 1. In the **Params** tab, create two key-value pairs:
    1. **Key**: `grant_type`, **Value**: `client_credentials`
    {style="list-style-type:lower-alpha"}
-   1. **Key**: `scope`, **Value**: `${yourCustomScope}`
+   1. **Key**: `scope`, **Value**: `{yourCustomScope}`
 1. Select the **Authorization** tab, and then select Basic Auth for **type**.
-1. Enter `${yourClientId}` for **Username** and `${yourClientSecret}` for **Password**.
+1. Enter `{yourClientId}` for **Username** and `{yourClientSecret}` for **Password**.
 1. Select the **Headers** tab and add two new headers:
    1. **Name**: Cache-Control, **Value**: no-cache
    {style="list-style-type:lower-alpha"}

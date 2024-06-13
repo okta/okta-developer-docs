@@ -17,18 +17,18 @@ The following table lists the high capacity rate limits per minute that apply ac
 
 | Endpoint                                                                   | One App   | Enterprise   |
 | -------------------------------------------------------------------------- | ---------: | ------------: |
-| `/oauth2/${authorizationServerId}/v1`                                       | 6000      | 6000         |
+| `/oauth2/{authorizationServerId}/v1`                                       | 6000      | 6000         |
 | `/oauth2/v1` except `/oauth2/v1/clients`                                   | 6000      | 6000         |
 | `/api/v1`                                                                  | 3000      | 3000         |
 | `/api/v1/sessions`                                                         | 3000      | 3000         |
-|  Only `/app/template_saml_2_0/${key}/sso/saml`                                    | 3000      | 3000         |
-|  Only `/app/${app}/${key}/sso/saml`                                                | 3000      | 3000         |
-|  Only `/api/v1/groups/${id}`                                                      | 3000      | 3000         |
-|  Only `/api/v1/users/${id}`                                                       | 3000      | 3000         |
-| `/api/v1/users/${idOrLogin}` (only `GET`)                                   | 5000      | 5000         |
+|  Only `/app/template_saml_2_0/{key}/sso/saml`                                    | 3000      | 3000         |
+|  Only `/app/{app}/{key}/sso/saml`                                                | 3000      | 3000         |
+|  Only `/api/v1/groups/{id}`                                                      | 3000      | 3000         |
+|  Only `/api/v1/users/{id}`                                                       | 3000      | 3000         |
+| `/api/v1/users/{idOrLogin}` (only `GET`)                                   | 5000      | 5000         |
 | `/api/v1/authn`                                                            | 3000      | 3000         |
-|  Only `/api/v1/authn/factors/${factorIdOrFactorType}/verify`                      | 3000      | 3000         |
-|  Only `/api/v1/apps/${id}`                                                        | 3000      | 3000         |
+|  Only `/api/v1/authn/factors/{factorIdOrFactorType}/verify`                      | 3000      | 3000         |
+|  Only `/api/v1/apps/{id}`                                                        | 3000      | 3000         |
 | `/bc/image/fileStoreRecord`                                                | 3000      | 3000         |
 | `/bc/globalFileStoreRecord`                                                | 3000      | 3000         |
 

@@ -44,7 +44,7 @@ You can create users in Okta, without credentials, in a state ready for migratio
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
--H "Authorization: SSWS ${api_token}" \
+-H "Authorization: SSWS {api_token}" \
 -d '{
   "profile": {
     "firstName": "Isaac",
@@ -60,7 +60,7 @@ curl -v -X POST \
       }
     }
   }
-}' "https://${yourOktaDomain}/api/v1/users?activate=true"
+}' "https://{yourOktaDomain}/api/v1/users?activate=true"
 ```
 
 ### Response Example

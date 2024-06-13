@@ -85,7 +85,7 @@ The direct authentication grant types are now in a new [Configure Direct Authent
 
 * When attempts were made to update the profiles of app users whose profiles were controlled by external apps, an incorrect error was returned. (OKTA-640752)
 
-* Some operations for the Factors API (`GET /api/v1/users/${userId}/factors/{factorId}` and `GET /api/v1/users/me/factors/${factorId}`) weren't accessible when using tokens created by read-only admins. (OKTA-648751)
+* Some operations for the Factors API (`GET /api/v1/users/{userId}/factors/{factorId}` and `GET /api/v1/users/me/factors/{factorId}`) weren't accessible when using tokens created by read-only admins. (OKTA-648751)
 
 * When many apps were added to routing rules through the API, system performance was degraded. (OKTA-653756)
 
@@ -556,7 +556,7 @@ The Identity Sources API bulk upsert operation accepted an empty profile payload
 
 * In some cases, groups with a `status` of INACTIVE were synchronized with the reporting database as ACTIVE. (OKTA-589084)
 
-* Requests to the Policies API (`PUT /policies/${defaultIdpPolicy}/rules/${IdpRule}`) with an empty `userIdentifier` parameter returned an HTTP 500 Internal Server error. (OKTA-565856)
+* Requests to the Policies API (`PUT /policies/{defaultIdpPolicy}/rules/{IdpRule}`) with an empty `userIdentifier` parameter returned an HTTP 500 Internal Server error. (OKTA-565856)
 
 * Admins were able to modify the `auth_time` claim for an access token using a token inline hook. (OKTA-503099)
 
@@ -650,7 +650,7 @@ When an admin used a group limit in an expression that was greater than 100 (for
 
 * Some event hook requests failed to send in Preview orgs. (OKTA-578439)
 
-* Events weren't logged in the System Log when the Users API (`DELETE /users/${userId}/clients/${clientId}/tokens/${tokenId}`) was used to revoke refresh tokens. (OKTA-574992)
+* Events weren't logged in the System Log when the Users API (`DELETE /users/{userId}/clients/{clientId}/tokens/{tokenId}`) was used to revoke refresh tokens. (OKTA-574992)
 
 * Pagination and search query matching didn't work as expected when a list request was made using the `/idps` API. (OKTA-577464)
 

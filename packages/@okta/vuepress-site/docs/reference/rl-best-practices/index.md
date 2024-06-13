@@ -196,7 +196,7 @@ The error condition resolves itself as soon as there is another concurrent threa
 
 In some cases, you can avoid hitting rate limits by implementing the maximum value of the `limit` query parameter for an individual API endpoint. Increasing this value to the maximum reduces the number of calls for a given operation, which can keep you under the endpoint's rate limit. By default, Okta uses a default `limit` if one isn't set.
 
-For example, the endpoint `/api/v1/apps/${applicationId}/users` returns, by default, 50 results. You can increase this limit to 500, reducing the number of calls.
+For example, the endpoint `/api/v1/apps/{applicationId}/users` returns, by default, 50 results. You can increase this limit to 500, reducing the number of calls.
 
 See the [Core Okta API](/docs/reference/core-okta-api/) for details on each endpoint's default and maximum values for the `limit` parameter.
 

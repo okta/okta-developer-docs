@@ -115,7 +115,7 @@ When creating your inline hook, in the Authentication section, select **OAuth 2.
 
 1. In the **Client Authentication** field, select **Use client secret** from the dropdown menu.
 1. Add the **Client ID** and **Client Secret** values from your app integration.
-1. Add the authorization server's token URL, such as `https://${yourOktaDomain}/oauth2/default/v1/token`, and the custom scope that you created previously.
+1. Add the authorization server's token URL, such as `https://{yourOktaDomain}/oauth2/default/v1/token`, and the custom scope that you created previously.
 1. Click **Save**.
 
 #### Add code to verify the JWT
@@ -128,7 +128,7 @@ The following Node.js code uses the Okta JWT verifier package to validate the JW
 const OktaJwtVerifier = require("@okta/jwt-verifier");
 
 const oktaJwtVerifier = new OktaJwtVerifier({
-  issuer: 'https://${yourOktaDomain}/oauth2/default' // required
+  issuer: 'https://{yourOktaDomain}/oauth2/default' // required
 });
 
 const authenticationRequired = async (request, response, next) => {
@@ -205,7 +205,7 @@ Before you can implement authorization, you need to register your app in Okta by
 1. In the **Client Authentication** field, select **Use private key** from the dropdown menu.
 1. Add the Client ID value from your app integration.
 1. Select the **Key** that you created previously from the dropdown menu.
-1. Add the authorization server's token URL, such as `https://${yourOktaDomain}/oauth2/default/v1/token`, and the custom scope that you created previously.
+1. Add the authorization server's token URL, such as `https://{yourOktaDomain}/oauth2/default/v1/token`, and the custom scope that you created previously.
 1. Click **Save**.
 
 #### Add code to verify the request
@@ -218,7 +218,7 @@ The following Node.js code uses the Okta JWT verifier package to validate the JW
 const OktaJwtVerifier = require("@okta/jwt-verifier");
 
 const oktaJwtVerifier = new OktaJwtVerifier({
-  issuer: 'https://${yourOktaDomain}/oauth2/default' // required
+  issuer: 'https://{yourOktaDomain}/oauth2/default' // required
 });
 
 const authenticationRequired = async (request, response, next) => {

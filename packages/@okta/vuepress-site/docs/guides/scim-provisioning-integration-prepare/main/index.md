@@ -52,23 +52,23 @@ If you’re using OAuth 2.0, then after successfully authorizing Okta to use you
 
 If you’re going to publish your integration to the OIN catalog, Okta requires that all SCIM applications support the following [redirect URIs](https://tools.ietf.org/html/rfc6749#section-3.1.2):
 
-- `https://system-admin.okta.com/admin/app/cpc/${appName}/oauth/callback`
-- `https://system-admin.okta-emea.com/admin/app/cpc/${appName}/oauth/callback`
-- `https://system-admin.oktapreview.com/admin/app/cpc/${appName}/oauth/callback`
-- `https://system-admin.trexcloud.com/admin/app/cpc/${appName}/oauth/callback`
-- `http://system-admin.okta1.com:1802/admin/app/cpc/${appName}/oauth/callback`
+- `https://system-admin.okta.com/admin/app/cpc/{appName}/oauth/callback`
+- `https://system-admin.okta-emea.com/admin/app/cpc/{appName}/oauth/callback`
+- `https://system-admin.oktapreview.com/admin/app/cpc/{appName}/oauth/callback`
+- `https://system-admin.trexcloud.com/admin/app/cpc/{appName}/oauth/callback`
+- `http://system-admin.okta1.com:1802/admin/app/cpc/{appName}/oauth/callback`
 
-Where the `${appName}` is an identifier provided to you after you create your app integration instance in Okta.
+Where the `{appName}` is an identifier provided to you after you create your app integration instance in Okta.
 
-Obtain the `${appName}` from the Admin Console URL when you select **Applications** > **Applications** > your app instance. The Admin Console URL has the following format:
+Obtain the `{appName}` from the Admin Console URL when you select **Applications** > **Applications** > your app instance. The Admin Console URL has the following format:
 
 ```html
-https://${orgSubDomain}-admin.${oktaEnvironment}.com/admin/app/${appName}/instance/{instanceID}/#tab-general
+https://{orgSubDomain}-admin.{oktaEnvironment}.com/admin/app/{appName}/instance/{instanceID}/#tab-general
 ```
 
-The `${appName}` is the string between `/app/` and `/instance/` in the URL.
+The `{appName}` is the string between `/app/` and `/instance/` in the URL.
 
-> **Note:** If you have issues locating your `${appName}` identifier, send an email to <oin@okta.com>.
+> **Note:** If you have issues locating your `{appName}` identifier, send an email to <oin@okta.com>.
 
 ### Base URL
 
