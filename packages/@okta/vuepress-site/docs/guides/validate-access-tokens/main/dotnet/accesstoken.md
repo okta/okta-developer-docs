@@ -101,7 +101,7 @@ if (validatedToken.Header?.Alg == null || validatedToken.Header?.Alg != expected
 
 ### More validation for ID tokens
 
-When validating an ID token, you should verify that the `aud` (audience) claim equals the client ID of the current application.
+When validating an ID token, you should verify that the `aud` (audience) claim equals the client ID of the current app.
 
 Add this to the validation parameters:
 
