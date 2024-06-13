@@ -53,7 +53,7 @@ private static async Task<JwtSecurityToken> ValidateToken(
 }
 ```
 
-To use the method, pass it a token, and the issuer and `configurationManager` you declared earlier:
+To use the method, pass it a token, the issuer, and `configurationManager` that you declared earlier:
 
 ```csharp
 var accessToken = "eyJh...";
@@ -71,7 +71,7 @@ else
 }
 ```
 
-This method returns an instance of `JwtSecurityToken` if the token is valid, or `null` if it’s invalid. Returning `JwtSecurityToken` makes it possible to retrieve claims from the token later.
+This method returns an instance of `JwtSecurityToken` if the token is valid or `null` if it’s invalid. Returning `JwtSecurityToken` makes it possible to retrieve claims from the token later.
 
 Depending on your application, you could change this method to return a boolean, log specific exceptions like `SecurityTokenExpiredException` with a message, or handle validation failures in some other way.
 
@@ -86,7 +86,7 @@ ValidateAudience = true,
 ValidAudience = "MyAwesomeApi",
 ```
 
-You also must verify that the `alg` claim matches the expected algorithm that was used to sign the token. You'll have to perform this check after the `ValidateToken` method returns a validated token:
+You also must verify that the `alg` claim matches the expected algorithm that was used to sign the token. Perform this check after the `ValidateToken` method returns a validated token:
 
 ```csharp
 // Validate alg
@@ -101,7 +101,7 @@ if (validatedToken.Header?.Alg == null || validatedToken.Header?.Alg != expected
 
 ### More validation for ID tokens
 
-When validating an ID token, you should verify that the `aud` (Audience) claim equals the Client ID of the current application.
+When validating an ID token, you should verify that the `aud` (audience) claim equals the client ID of the current application.
 
 Add this to the validation parameters:
 
@@ -110,7 +110,7 @@ ValidateAudience = true,
 ValidAudience = "xyz123", // This Application's Client ID
 ```
 
-You also must verify that the `alg` claim matches the expected algorithm that was used to sign the token. You'll have to perform this check after the `ValidateToken` method returns a validated token:
+You also must verify that the `alg` claim matches the expected algorithm that was used to sign the token. Perform this check after the `ValidateToken` method returns a validated token:
 
 ```csharp
 // Validate alg
@@ -123,7 +123,7 @@ if (validatedToken.Header?.Alg == null || validatedToken.Header?.Alg != expected
 }
 ```
 
-If you specified a `nonce` during the initial code exchange when your application retrieved the ID token, you should verify that the nonce matches:
+If you specified a `nonce` during the initial code exchange when your application retrieved the ID token, you should verify that the `nonce` matches:
 
 ```csharp
 var validatedToken = await ValidateToken(idToken, issuer, configurationManager);
@@ -141,15 +141,15 @@ if (!nonceMatches)
 
 ## Decode token claims
 
-The sample `ValidateToken` method above both validates a token and decodes its claims. You can use the returned `JwtSecurityToken` object to inspect the claims in the token.
+The sample `ValidateToken` method above both validates a token and decodes its claims. Use the returned `JwtSecurityToken` object to inspect the claims in the token.
 
-For example, you can get the `sub` (Subject) claim with the `Subject` property:
+For example, you can get the `sub` (subject) claim with the `Subject` property:
 
 ```csharp
 Console.WriteLine($"Token subject: {validatedToken.Subject}");
 ```
 
-You can access more claims with the `Payload` property, or loop over the entire `Claims` collection:
+You can access more claims with the `Payload` property or loop over the entire `Claims` collection:
 
 ```csharp
 Console.WriteLine("All claims:");
