@@ -10,18 +10,18 @@ Include the lines below in your Maven `pom.xml`:
 <dependency>
    <groupId>com.okta.jwt</groupId>
    <artifactId>okta-jwt-verifier</artifactId>
-   <version>${okta-jwt.version}</version>
+   <version>{okta-jwt.version}</version>
 </dependency>
 
 <dependency>
   <groupId>com.okta.jwt</groupId>
   <artifactId>okta-jwt-verifier-impl</artifactId>
-  <version>${okta-jwt.version}</version>
+  <version>{okta-jwt.version}</version>
   <scope>runtime</scope>
 </dependency>
 ```
 
-> **Note:** Replace `${okta-jwt.version}` in your Maven `pom.xml` with the latest version from [here](https://search.maven.org/search?q=a:okta-jwt-verifier)
+> **Note:** Replace `{okta-jwt.version}` in your Maven `pom.xml` with the latest version from [here](https://search.maven.org/search?q=a:okta-jwt-verifier)
 
 ### Validate Access Token
 
@@ -29,7 +29,7 @@ Create the Okta JWT Verifier using the `JwtVerifiers` class:
 
 ```java
 AccessTokenVerifier jwtVerifier = JwtVerifiers.accessTokenVerifierBuilder()
-    .setIssuer("https://${yourOktaDomain}/oauth2/default")
+    .setIssuer("https://{yourOktaDomain}/oauth2/default")
     .setAudience("api://default")                // defaults to 'api://default'
     .setConnectionTimeout(Duration.ofSeconds(1)) // defaults to 1s
     .setReadTimeout(Duration.ofSeconds(1))       // defaults to 1s

@@ -4,7 +4,7 @@ This code uses [the Okta JWT Verifier for NodeJS](https://github.com/okta/okta-j
 const OktaJwtVerifier = require('@okta/jwt-verifier');
 
 const oktaJwtVerifier = new OktaJwtVerifier({
-  issuer: 'https://${yourOktaDomain}/oauth2/default' // issuer required
+  issuer: 'https://{yourOktaDomain}/oauth2/default' // issuer required
 });
 ```
 For any access token to be valid, the following are asserted:

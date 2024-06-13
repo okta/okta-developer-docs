@@ -29,7 +29,7 @@ After signed tokens are issued to end users, they can be passed to your app for 
 - If you'd like to jump straight to the local validation steps: [What to check when validating an access token](#what-to-check-when-validating-an-access-token)
 - If you'd like to see how to validate a token directly with Okta: [Validatie a token remotely with Okta](#validate-a-token-remotely-with-okta)
 
-> **Note:** Access tokens from the org authorization server, as signified by an issuer `https://${yourOktaOrg}`, shouldn't be consumed or validated by any app other than Okta. Consider these access tokens as opaque strings because their content is subject to change at any time. Therefore, any attempts to validate the tokens may not work in the future.
+> **Note:** Access tokens from the org authorization server, as signified by an issuer `https://{yourOktaOrg}`, shouldn't be consumed or validated by any app other than Okta. Consider these access tokens as opaque strings because their content is subject to change at any time. Therefore, any attempts to validate the tokens may not work in the future.
 
 ## Access tokens vs ID tokens
 
