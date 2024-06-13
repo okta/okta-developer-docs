@@ -21,8 +21,8 @@ from okta_jwt_verifier import JWTVerifier
 
 
 async def main():
-    jwt_verifier = JWTVerifier('${ISSUER}', '${CLIENT_ID}', 'api://default')
-    await jwt_verifier.verify_access_token('${JWT}')
+    jwt_verifier = JWTVerifier('{ISSUER}', '{CLIENT_ID}', 'api://default')
+    await jwt_verifier.verify_access_token('{JWT}')
     print('Token validated successfully.')
 
 

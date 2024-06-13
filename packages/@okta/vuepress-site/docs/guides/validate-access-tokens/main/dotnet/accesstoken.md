@@ -146,7 +146,7 @@ The sample `ValidateToken` method above both validates a token and decodes its c
 For example, you can get the `sub` (subject) claim with the `Subject` property:
 
 ```csharp
-Console.WriteLine($"Token subject: {validatedToken.Subject}");
+Console.WriteLine("Token subject: {validatedToken.Subject}");
 ```
 
 You can access more claims with the `Payload` property or loop over the entire `Claims` collection:
@@ -156,6 +156,6 @@ Console.WriteLine("All claims:");
 
 foreach (var claim in validatedToken.Claims)
 {
-    Console.WriteLine($"{claim.Type}\t{claim.Value}");
+    Console.WriteLine("{claim.Type}\t{claim.Value}");
 }
 ```

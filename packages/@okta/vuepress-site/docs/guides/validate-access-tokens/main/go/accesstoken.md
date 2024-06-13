@@ -13,23 +13,23 @@ import github.com/okta/okta-jwt-verifier-golang
 
 toValidate := map[string]string{}
 toValidate["aud"] = "api://default"
-toValidate["cid"] = "${clientId}"
+toValidate["cid"] = "{clientId}"
 
 jwtVerifierSetup := jwtverifier.JwtVerifier{
-        Issuer: "${issuer}",
+        Issuer: "{issuer}",
         ClaimsToValidate: toValidate
 }
 
 verifier := jwtVerifierSetup.New()
 
-token, err := verifier.VerifyAccessToken("${JWT}")
+token, err := verifier.VerifyAccessToken("{JWT}")
 ```
 
 You may need to adjust your clock skew leeway. Okta defaults to a `PT2M` clock skew adjustment in our validation. You can adjust this to your needs by setting the `SetLeeway` in seconds after getting a new instance of the verifier:
 
 ```go
 jwtVerifierSetup := JwtVerifier{
-        Issuer: "${issuer}",
+        Issuer: "{issuer}",
 }
 
 verifier := jwtVerifierSetup.New()
