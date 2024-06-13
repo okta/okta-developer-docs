@@ -1,10 +1,10 @@
 Although Okta doesn't provide a .Net library for JWT validation, you can use the Microsoft OpenID Connect JWT libraries for this purpose.
 
-For additional details about the code described here, see [.NET JWT Validation Guide](/code/dotnet/jwt-validation/).
+For more details about the code described here, see the [.NET JWT Validation Guide](/code/dotnet/jwt-validation/).
 
 ### Validate a token
 
-The `JwtSecurityTokenHandler` class in the [System.IdentityModel.Tokens.Jwt](https://www.nuget.org/packages/System.IdentityModel.Tokens.Jwt) package will handle the low-level details of validating a JWT.
+The `JwtSecurityTokenHandler` class in the [System.IdentityModel.Tokens.Jwt](https://www.nuget.org/packages/System.IdentityModel.Tokens.Jwt) package handles the low-level details of validating a JWT.
 
 You can write a method that takes the token, the issuer, and the `configurationManager` you created. The method is `async` because the `configurationManager` may need to make an HTTP call to get the signing keys (if they aren't already cached):
 
@@ -71,13 +71,13 @@ else
 }
 ```
 
-This method will return an instance of `JwtSecurityToken` if the token is valid, or `null` if it is invalid. Returning `JwtSecurityToken` makes it possible to retrieve claims from the token later.
+This method returns an instance of `JwtSecurityToken` if the token is valid, or `null` if it’s invalid. Returning `JwtSecurityToken` makes it possible to retrieve claims from the token later.
 
 Depending on your application, you could change this method to return a boolean, log specific exceptions like `SecurityTokenExpiredException` with a message, or handle validation failures in some other way.
 
-### Additional validation for access tokens
+### More validation for access tokens
 
-If you are validating access tokens, you should verify that the `aud` (audience) claim equals the audience that is configured for your authorization server in the Okta Admin Console.
+If you’re validating access tokens, you should verify that the `aud` (audience) claim equals the audience that is configured for your authorization server in the Admin Console.
 
 For example, if your authorization server audience is set to `MyAwesomeApi`, add this to the validation parameters:
 
@@ -86,7 +86,7 @@ ValidateAudience = true,
 ValidAudience = "MyAwesomeApi",
 ```
 
-You also must verify that the `alg` claim matches the expected algorithm which was used to sign the token. You'll have to perform this check after the `ValidateToken` method returns a validated token:
+You also must verify that the `alg` claim matches the expected algorithm that was used to sign the token. You'll have to perform this check after the `ValidateToken` method returns a validated token:
 
 ```csharp
 // Validate alg
@@ -99,7 +99,7 @@ if (validatedToken.Header?.Alg == null || validatedToken.Header?.Alg != expected
 }
 ```
 
-### Additional validation for ID tokens
+### More validation for ID tokens
 
 When validating an ID token, you should verify that the `aud` (Audience) claim equals the Client ID of the current application.
 
@@ -110,7 +110,7 @@ ValidateAudience = true,
 ValidAudience = "xyz123", // This Application's Client ID
 ```
 
-You also must verify that the `alg` claim matches the expected algorithm which was used to sign the token. You'll have to perform this check after the `ValidateToken` method returns a validated token:
+You also must verify that the `alg` claim matches the expected algorithm that was used to sign the token. You'll have to perform this check after the `ValidateToken` method returns a validated token:
 
 ```csharp
 // Validate alg
@@ -123,7 +123,7 @@ if (validatedToken.Header?.Alg == null || validatedToken.Header?.Alg != expected
 }
 ```
 
-If you specified a nonce during the initial code exchange when your application retrieved the ID token, you should verify that the nonce matches:
+If you specified a `nonce` during the initial code exchange when your application retrieved the ID token, you should verify that the nonce matches:
 
 ```csharp
 var validatedToken = await ValidateToken(idToken, issuer, configurationManager);
