@@ -51,7 +51,7 @@ The Glitch event hook example uses the Okta event triggered when a user is added
 
 1. Click **Create Event Hook**.
 
-1. In the **Endpoint URL** field, add your external service URL, including endpoint. For example, use your Glitch project name with the endpoint: `https://${your-glitch-projectname}.glitch.me/userAdded`.
+1. In the **Endpoint URL** field, add your external service URL, including endpoint. For example, use your Glitch project name with the endpoint: `https://{your-glitch-projectname}.glitch.me/userAdded`.
 
 1. In the **Event Hook Name**, add a unique name for the hook (in this example, "User added to Sales group event hook").
 
