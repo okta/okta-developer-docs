@@ -7,7 +7,7 @@ Similar to the standard [Authorization Code flow](/docs/guides/implement-grant-t
 Your first step is to add code to your app that generates a code verifier and challenge:
 
 * Code verifier: A random URL-safe string with a minimum length of 43 characters
-* Code challenge: A Base64URL-encoded SHA-256 hash of the code verifier
+* Code challenge: A Base64-encoded SHA-256 hash of the code verifier
 
 The PKCE generator code returns both values as JSON:
 
@@ -18,7 +18,7 @@ The PKCE generator code returns both values as JSON:
 }
 ```
 
-The `code_challenge` is a Base64URL-encoded SHA256 hash of the `code_verifier`. Your app saves the `code_verifier` for later, and sends the `code_challenge` along with the authorization request to your authorization server's `/authorize` URL.
+The `code_challenge` is a Base64-encoded SHA256 hash of the `code_verifier`. Your app saves the `code_verifier` for later, and sends the `code_challenge` along with the authorization request to your authorization server's `/authorize` URL.
 
 ### Request an authorization code
 
@@ -35,13 +35,13 @@ https://{yourOktaDomain}/oauth2/v1/authorize?
 
 Note the parameters that are being passed:
 
-* `client_id` is the client ID of the app integration that you created earlier. Find it in the Admin Console on your app integration's **General** tab.
-* `response_type` is `code`, indicating that you're using the Authorization Code grant type.
-* `scope` is `openid`, which means that the `/token` endpoint returns an ID token. For custom scopes, see the **Create Scopes** section of the [Create an authorization server guide](/docs/guides/customize-authz-server/main/#create-scopes).
-* `redirect_uri` is the callback location where the user agent is directed to along with the `code`. This URI must match one of the **Sign-in redirect URIs** that you specified when you created your app integration earlier.
-* `state` is an arbitrary alphanumeric string that the authorization server reproduces when redirecting the user agent back to the client. This is used to help prevent cross-site request forgery.
-* `code_challenge_method` is the hash method used to generate the challenge, which is always `S256`.
-* `code_challenge` is the code challenge used for PKCE.
+* `client_id`: The client ID of the app integration that you created earlier. Find it in the Admin Console on your app integration's **General** tab.
+* `response_type=code`: Indicates that you're using the Authorization Code grant type
+* `scope=openid`: The `/token` endpoint returns an ID token. For custom scopes, see the **Create Scopes** section of the [Create an authorization server guide](/docs/guides/customize-authz-server/main/#create-scopes).
+* `redirect_uri`: The callback location where the user agent is directed to along with the `code`. This URI must match one of the **Sign-in redirect URIs** that you specified when you created your app integration earlier.
+* `state`: An arbitrary alphanumeric string that the authorization server reproduces when redirecting the user agent back to the client. This is used to help prevent cross-site request forgery.
+* `code_challenge_method`: The hash method used to generate the challenge, which is always `S256`
+* `code_challenge`: The code challenge used for PKCE
 
 See [the OAuth 2.0 API reference](/docs/reference/api/oidc/#authorize) for more information on these parameters.
 
@@ -70,11 +70,11 @@ curl --request POST \
 
 Note the parameters that are being passed:
 
-* `grant_type` is `authorization_code`, indicating that you're using the Authorization Code grant type.
-* `redirect_uri` is the URI that was used to get the authorization code.
-* `code` is the authorization code that you got from the `/authorize` endpoint.
-* `code_verifier` is the PKCE code verifier that your app generated at the beginning of this flow.
-* `client_id` is the client ID of the app integration that you created earlier.
+* `grant_type=authorization_code`: Indicates that you're using the Authorization Code grant type
+* `redirect_uri`: The URI that was used to get the authorization code
+* `code`: The authorization code that you got from the `/authorize` endpoint
+* `code_verifier`: The PKCE code verifier that your app generated at the beginning of this flow
+* `client_id`: The client ID of the app integration that you created earlier
 
 See the [OIDC & OAuth 2.0 API reference](/docs/reference/api/oidc/#token) for more information on these parameters.
 
