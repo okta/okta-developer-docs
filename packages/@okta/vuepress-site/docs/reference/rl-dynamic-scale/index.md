@@ -13,25 +13,25 @@ If your needs exceed the Okta default rate limits for the base product subscript
 
 * `/api/v1/authn*`
 * `/api/v1/authn/introspect`
-* `/api/v1/authn/factors/${factorIdOrFactorType}/verify`
-* `/api/v1/authn/factors/${factorId}/transactions/${transactionId}/verify`
+* `/api/v1/authn/factors/{factorIdOrFactorType}/verify`
+* `/api/v1/authn/factors/{factorId}/transactions/{transactionId}/verify`
 * `/api/v1/sessions*`
 * `/auth/services/devicefingerprint`
 * `/login/login.htm`
-* `/login/interact/${interactionHandle}`
+* `/login/interact/{interactionHandle}`
 * `/login/sessionCookieRedirect`
 * `/login/token/redirect`
 * `/login/step-up/redirect`
 * `/signin/**`
 * `/sign-in*`
-* `/sso/idps/${idpId}`
+* `/sso/idps/{idpId}`
 
 **OAuth2 endpoints:**
 
 * `/activate`
-* `/oauth2/${authorizationServerId}/v1*`
-* `/oauth2/${authorizationServerId}/v1/authorize`
-* `/oauth2/${authorizationServerId}/v1/interact`
+* `/oauth2/{authorizationServerId}/v1*`
+* `/oauth2/{authorizationServerId}/v1/authorize`
+* `/oauth2/{authorizationServerId}/v1/interact`
 * `/oauth2/{authorizationServerId}/v1/token`
 * `/oauth2/v1*` except `/oauth2/v1/clients`
 * `/oauth2/v1/authorize`
@@ -43,15 +43,15 @@ If your needs exceed the Okta default rate limits for the base product subscript
 
 **SAML endpoints:**
 
-* `/app/template_saml_2_0/${key}/sso/saml`
-* `/app/${app}/${key}/sso/saml`
+* `/app/template_saml_2_0/{key}/sso/saml`
+* `/app/{app}/{key}/sso/saml`
 
 **Single User/Group/App reads (GET only):**
 
-* `/api/v1/apps/${id}`
-* `/api/v1/groups/${id}`
+* `/api/v1/apps/{id}`
+* `/api/v1/groups/{id}`
 * `/api/v1/users/me`
-* `/api/v1/users/${idOrLogin}`
+* `/api/v1/users/{idOrLogin}` (appears as `/api/v1/users/{id:.+}` in the Rate Limit dashboard)
 * `/api/v1/users/{userId}/factors/{userFactorIdOrFactorType}/verify`
 
 > **Notes:**
@@ -59,6 +59,7 @@ If your needs exceed the Okta default rate limits for the base product subscript
 > 1. Okta communicates any updates to the DynamicScale add-on rate limits through an updated version of this documentation.
 > 2. DynamicScale add-on isn't available for customers that are using delegated authentication.
 > 3. Not all DynamicScale multipliers are available when a customer uses both the DynamicScale add-on service and Okta inline hooks. When a customer is using Okta inline hooks, it's assumed that the third-party system responds to the inline hook requests in under 500 milliseconds.
+> 4. API endpoints that end with an asterisk (for example, `/oauth2/v1*`) refer to calls that use that base schema and don't match a specific endpoint.
 >
 
 If your usage pattern exceeds the rate limits offered by the DynamicScale add-on, or the endpoint that you're consuming isn't listed as part of the DynamicScale add-on, then contact your Okta sales representative regarding other options.

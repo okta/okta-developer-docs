@@ -89,7 +89,7 @@ Each API is a link that navigates you to the [dashboard view of API rate limits 
 
 You can perform a search in your table list by making an entry in the Search box. You can also perform a "lookup" with the Search. For example, you're calling Okta with an example `requestURI` and you want to know the rate limit that is applied to calls that are made against that `requestURI`.
 
-Unless the endpoint is specifically called out in the dashboard, API endpoints that end with an asterisk (for example, `/api/v1/users/*`) refer to calls that use that base schema and count towards that call's limit. It's also important to note the HTTP operation involved with each call, as the same call with different operations can count towards different limits.
+Unless the endpoint is specifically called out in the dashboard, API endpoints that end with an asterisk (for example, `/api/v1/users*`) refer to calls that use that base schema and count towards that call's limit. It's also important to note the HTTP operation involved with each call, as the same call with different operations can count towards different limits.
 
 > **Note:** You can view rate limits for endpoints that include parameter matching of the form `?{parameter}=*`. For example, `api/v1/users?search=*` returns all rate limit data on user searches.
 
