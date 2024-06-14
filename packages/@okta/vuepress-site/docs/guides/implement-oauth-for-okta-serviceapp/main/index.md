@@ -123,7 +123,7 @@ The private key that you use to sign the JWT must have the corresponding public 
     * Key size: 2048
     * Key use: signature
     * Algorithm: RSA256
-    * Key ID: This can be any random value
+    * Key ID: any random value
 
 > **Note:** Use the JSON Web Key Generator link to generate a JWKS public/private key pair for testing purposes only. For a production use case, use your own internal instance of the key pair generator. See this [key pair generator](https://github.com/mitreid-connect/mkjwk.org) for an example.
 
