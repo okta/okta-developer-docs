@@ -7,7 +7,12 @@ excerpt: >-
 
 # DynamicScale rate limits
 
-If your needs exceed the Okta default rate limits for the base product subscriptions (One App or Enterprise) that you’ve already purchased, you can purchase a DynamicScale add-on service. The DynamicScale service grants you higher rate limits for the following endpoints on this page. DynamicScale increases your default rate limits by 5x to 1000x, depending on the tier multiplier that you purchase. You can purchase this add-on annually for a production tenant or temporarily for testing in a preview or sandbox tenant. The DynamicScale add-on service includes the following list of endpoints:
+You can purchase a DynamicScale add-on service if your needs exceed the default rate limits for your base product. The DynamicScale service grants you higher rate limits for the following endpoints on this page. It increases your default rate limits by five times and up to 1000 times depending on the tier multiplier.
+
+You can purchase this add-on annually for a production tenant or temporarily for testing in a preview or sandbox tenant.
+
+The DynamicScale add-on service includes the following list of endpoints:
+
 
 **Authentication endpoints:**
 
@@ -57,9 +62,12 @@ If your needs exceed the Okta default rate limits for the base product subscript
 > **Notes:**
 >
 > 1. Okta communicates any updates to the DynamicScale add-on rate limits through an updated version of this documentation.
-> 2. DynamicScale add-on isn't available for customers that are using delegated authentication.
+> 2. The DynamicScale add-on isn't available for customers that are using delegated authentication.
 > 3. Not all DynamicScale multipliers are available when a customer uses both the DynamicScale add-on service and Okta inline hooks. When a customer is using Okta inline hooks, it's assumed that the third-party system responds to the inline hook requests in under 500 milliseconds.
 > 4. API endpoints that end with an asterisk (for example, `/oauth2/v1*`) refer to calls that use that base schema and don't match a specific endpoint.
 >
 
-If your usage pattern exceeds the rate limits offered by the DynamicScale add-on, or the endpoint that you're consuming isn't listed as part of the DynamicScale add-on, then contact your Okta sales representative regarding other options.
+Contact your Okta sales representative regarding other options if:
+
+* Your usage pattern exceeds the rate limits offered by the DynamicScale add-on
+* The endpoint that you're consuming isn't listed as part of the DynamicScale add-on
