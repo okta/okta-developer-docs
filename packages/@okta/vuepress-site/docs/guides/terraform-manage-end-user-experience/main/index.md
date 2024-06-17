@@ -99,7 +99,7 @@ Use the IDs of the default brand and its associated theme to prepare your config
     ```hcl
     import {
       to = okta_theme.resource_default_brand
-      id = "${default_brand_id}"
+      id = "{default_brand_id}"
     }
     ```
 
@@ -108,7 +108,7 @@ Use the IDs of the default brand and its associated theme to prepare your config
     ```hcl
     import {
       to = okta_theme.resource_default_theme
-      id = "${default_brand_id}/${default_theme_id}"
+      id = "{default_brand_id}/{default_theme_id}"
     }
     ```
 
@@ -194,9 +194,9 @@ Add `okta_brand` and `okta_theme` resources to your configuration before you imp
     ```hcl
     resource "okta_theme" "resource_default_brand_theme" {
       brand_id = okta_brand.manual_default_brand.id
-      logo = "${path_to_your_logo}"
-      favicon = "${path_to_your_favicon}"
-      background_image = "${path_to_your_background_image}"
+      logo = "{path_to_your_logo}"
+      favicon = "{path_to_your_favicon}"
+      background_image = "{path_to_your_background_image}"
       primary_color_hex = "#1662dd"
       secondary_color_hex = "#ebebed"
       sign_in_page_touch_point_variant = "OKTA_DEFAULT"
@@ -209,8 +209,8 @@ Add `okta_brand` and `okta_theme` resources to your configuration before you imp
 Import the default brand and its associated theme into your Terraform state file using the `terraform import` command:
 
 1. In a terminal, go to your Terraform configuration directory.
-1. Run `terraform import okta_brand.resource_default_brand "${default_brand_id}"` to import the default brand.
-1. Run `terraform import okta_theme.resource_default_brand_theme "${default_brand_id}/${default_theme_id}" to import the theme for the default brand.
+1. Run `terraform import okta_brand.resource_default_brand "{default_brand_id}"` to import the default brand.
+1. Run `terraform import okta_theme.resource_default_brand_theme "{default_brand_id}/{default_theme_id}"` to import the theme for the default brand.
 
 ## Customize the appearance of your org
 
@@ -226,7 +226,7 @@ To customize the appearance of your org:
     ```hcl
     resource "okta_brand" "resource_default_brand" {
       agree_to_custom_privacy_policy = true
-      custom_privacy_policy_url = "${private_policy_url}"
+      custom_privacy_policy_url = "{private_policy_url}"
       remove_powered_by_okta = true
     }
     ```
@@ -240,9 +240,9 @@ To customize the appearance of your org:
     ```hcl
     resource "okta_theme" "resource_default_brand_theme" {
       brand_id = okta_brand.manual_default_brand.id
-      logo = "${path_to_your_logo}"
-      favicon = "${path_to_your_favicon}"
-      background_image = "${path_to_your_background_image}"
+      logo = "{path_to_your_logo}"
+      favicon = "{path_to_your_favicon}"
+      background_image = "{path_to_your_background_image}"
       primary_color_hex = "#1882ff"
       secondary_color_hex = "#ababad"
       sign_in_page_touch_point_variant = "BACKGROUND_IMAGE"
@@ -258,7 +258,7 @@ Edit the subject and body of the email templates in your org. Okta uses email te
 
 Each brand object in your org has a set of associated email templates. You can create customizations for a given email template using the `okta_email_customization` resource. You can also modify existing customizations by first importing them using the same techniques described in [Import brand and theme objects to Terraform](#import-brand-and-theme-objects-to-terraform).
 
-Separate email customizations for a given email template represent different languages. Set the `language` argument for an email customization to one of the [supported languages](/docs/reference/api/brands/#supported-languages). An email template can have only one customization for each language.
+Separate email customizations for a given email template represent different languages. Set the `language` argument for an email customization to one of the [supported languages](/docs/guides/custom-email/main/#supported-languages). An email template can have only one customization for each language.
 
 This example creates a default English email customization and a secondary Spanish customization for the User Activation email template:
 

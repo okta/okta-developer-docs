@@ -51,21 +51,21 @@ To test the full authentication flow that returns an ID token or an access token
 
     * An org authorization server authorization endpoint looks like this:
 
-        `https://${yourOktaDomain}/oauth2/v1/authorize`
+        `https://{yourOktaDomain}/oauth2/v1/authorize`
 
     * A custom authorization server authorization endpoint looks like this:
 
-        `https://${yourOktaDomain}/oauth2/${authorizationServerId}/v1/authorize`
+        `https://{yourOktaDomain}/oauth2/{authorizationServerId}/v1/authorize`
 
-    > **Note:** If you add the claim to the default custom authorization server, the `${authorizationServerId}` is `default`.
+    > **Note:** If you add the claim to the default custom authorization server, the `{authorizationServerId}` is `default`.
 
     You can retrieve a custom authorization server's authorization endpoint using the server's metadata URI:
 
     **ID token**
-    `https://${yourOktaDomain}/oauth2/${authorizationServerId}/.well-known/openid-configuration`
+    `https://{yourOktaDomain}/oauth2/{authorizationServerId}/.well-known/openid-configuration`
 
     **Access token**
-    `https://${yourOktaDomain}/oauth2/${authorizationServerId}/.well-known/oauth-authorization-server`
+    `https://{yourOktaDomain}/oauth2/{authorizationServerId}/.well-known/oauth-authorization-server`
 
 3. Add the following query parameters to the URL:
 
@@ -82,7 +82,7 @@ To test the full authentication flow that returns an ID token or an access token
 
     ```bash
     curl -X GET
-    "https://${yourOktaDomain}/oauth2/${authorizationServerId}/v1/authorize?client_id=examplefa39J4jXdcCwWA
+    "https://{yourOktaDomain}/oauth2/{authorizationServerId}/v1/authorize?client_id=examplefa39J4jXdcCwWA
     &response_type=id_token
     &scope=openid
     &redirect_uri=https%3A%2F%2FyourRedirectUriHere.com
@@ -153,7 +153,7 @@ The resulting URL looks something like this:
 
 ```bash
 curl -X GET
-"https://${yourOktaDomain}/oauth2/v1/authorize?client_id=examplefa39J4jXdcCwWA
+"https://{yourOktaDomain}/oauth2/v1/authorize?client_id=examplefa39J4jXdcCwWA
 &response_type=id_token
 &scope=openid%20groups
 &redirect_uri=https%3A%2F%2FyourRedirectUriHere.com
@@ -218,7 +218,7 @@ The resulting URL looks something like this:
 
 ```bash
 curl -X GET
-"https://${yourOktaDomain}/oauth2/${authorizationServerId}/v1/authorize?client_id=examplefa39J4jXdcCwWA
+"https://{yourOktaDomain}/oauth2/{authorizationServerId}/v1/authorize?client_id=examplefa39J4jXdcCwWA
 &response_type=token
 &scope=openid%20groups
 &redirect_uri=https%3A%2F%2FyourRedirectUriHere.com

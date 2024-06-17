@@ -34,7 +34,7 @@
 1. Populate the `testenv` file with the following parameters and values from your app integration created in the previous section:
 
     ```txt
-    ISSUER=https:////${yourOktaDomain.com}/oauth2/default
-    CLIENT_ID=${Client ID value from app integration}
+    ISSUER=https:////{yourOktaDomain.com}/oauth2/default
+    CLIENT_ID={Client ID value from app integration}
     USE_INTERACTION_CODE=true
     ```

@@ -7,8 +7,8 @@ You can run the [sample embedded Sign-In Widget Vue.js app](https://github.com/o
 5. Set the environment variables with your [Okta org app integration configuration settings](#okta-org-app-integration-configuration-settings):
 
   ```bash
-  export ISSUER=https://${yourOktaDomain}/oauth2/default
-  export CLIENT_ID=${yourAppClientId}
+  export ISSUER=https://{yourOktaDomain}/oauth2/default
+  export CLIENT_ID={yourAppClientId}
   export USE_INTERACTION_CODE=true
   ```
 

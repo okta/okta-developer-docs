@@ -6,10 +6,10 @@ Before you can begin this flow, collect the username and the OTP from the user i
 
 ```bash
 curl --request POST \
-  --url https://${yourOktaDomain}/oauth2/v1/token \
+  --url https://{yourOktaDomain}/oauth2/v1/token \
   --header 'accept: application/json' \
   --header 'content-type: application/x-www-form-urlencoded' \
-  --data 'client_id=${client_id}&scope=openid%20profile&grant_type=urn:okta:params:oauth:grant-type:otp&otp=${123456}&login_hint=${testuser%40example.com}'
+  --data 'client_id={client_id}&scope=openid%20profile&grant_type=urn:okta:params:oauth:grant-type:otp&otp={123456}&login_hint={testuser%40example.com}'
 ```
 
 Note the parameters that are passed:

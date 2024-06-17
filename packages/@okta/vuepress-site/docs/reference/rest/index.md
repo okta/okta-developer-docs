@@ -46,7 +46,7 @@ You need a free Okta developer-edition org to get started. Don't have one? [Crea
 1. In the upper-right corner of the `{yourOktaDomain}` dialog, click **Edit**.
 
     <!--
-    ![Postman environment quick look edit link: Displays an arrow pointing to the edit link in the upper-right corner of the ${yourOktaDomain} dialog](/img/postman/postman_environment_quick_look_edit.png)
+    ![Postman environment quick look edit link: Displays an arrow pointing to the edit link in the upper-right corner of the {yourOktaDomain} dialog](/img/postman/postman_environment_quick_look_edit.png)
     Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3236%3A31016  postman_environment_quick_look_edit
     -->
 
@@ -173,7 +173,7 @@ After you obtain the JWKS from your Okta service app, create a JSON Web Token (J
 
 Use the private JWKS as the JWT header and use the following [token claims](/docs/reference/api/oidc/#token-claims-for-client-authentication-with-client-secret-or-private-key-jwt) as the JWT payload:
 
-* `aud`: Set this value to `https://${yourOktaDomain}/oauth2/v1/token`.
+* `aud`: Set this value to `https://{yourOktaDomain}/oauth2/v1/token`.
 * `exp`: The expiration time of the token, in seconds since January 1, 1970 UTC (current UNIX timestamp). Set this value to a maximum of only an hour in the future.
 * `iss`: Set this value to your service app client ID (from the [Create a service app in Okta](#create-a-service-app-in-okta) task).
 * `sub`: Set this value to your service app client ID.
@@ -188,10 +188,10 @@ To generate a JWT for testing purposes, complete the following steps:
 
     ```json
     {
-        "aud": "https://${yourOktaDomain}/oauth2/v1/token",
-        "iss": "${clientId}",
-        "sub": "${clientId}",
-        "exp": "${currentPlusOneHour}"
+        "aud": "https://{yourOktaDomain}/oauth2/v1/token",
+        "iss": "{clientId}",
+        "sub": "{clientId}",
+        "exp": "{currentPlusOneHour}"
     }
     ```
 
@@ -221,7 +221,7 @@ Include the following parameters in your `/token` request:
     The following is a cURL request example for an access token (the JWT is truncated for brevity).
 
     ```bash
-    curl --location --request POST 'https://${yourOktaDomain}/oauth2/v1/token' \
+    curl --location --request POST 'https://{yourOktaDomain}/oauth2/v1/token' \
         --header 'Accept: application/json' \
         --header 'Content-Type: application/x-www-form-urlencoded' \
         --data-urlencode 'grant_type=client_credentials' \
@@ -271,8 +271,8 @@ In Postman, the initial `/authorize` request is included in the **Authorization*
 6. Define the remaining fields for the token request:
 
     * **Callback URL**: Define the callback location where Okta returns the token after the user finishes authenticating. This URL must match one of the redirect URIs that you configured in the [Create an OIDC app in Okta](#create-an-oidc-app-in-okta) task.
-    * **Auth URL**: Enter the authorization endpoint for your org authorization server: `https://${yourOktaDomain}/oauth2/v1/authorize`.
-    * **Access Token URL**: Enter the token endpoint for your org authorization server: `https://${yourOktaDomain}/oauth2/v1/token`.
+    * **Auth URL**: Enter the authorization endpoint for your org authorization server: `https://{yourOktaDomain}/oauth2/v1/authorize`.
+    * **Access Token URL**: Enter the token endpoint for your org authorization server: `https://{yourOktaDomain}/oauth2/v1/token`.
     * **Client ID**: Specify the client ID value of your Okta OIDC app integration that you created in the [Create an OIDC app in Okta](#create-an-oidc-app-in-okta) task.
 
         Alternatively, you can add the client ID to the `clientId` variable in your Postman environment and use the following **Client ID** value:
@@ -316,7 +316,7 @@ If you have an access token (such as the `access_token` value from the [Get an a
         The following is a cURL example of a similar request:
 
         ```bash
-        curl -X GET "https://${yourOktaDomain}/api/v1/users"
+        curl -X GET "https://{yourOktaDomain}/api/v1/users"
             -H "Accept: application/json"
             -H "Content-Type: application/json"
             -H "Authorization: Bearer eyJraWQiOiJ.....UfThlJ7w"
@@ -333,7 +333,7 @@ Use the following tips to work more efficiently with your collection.
 
 ### Find IDs for Okta API requests
 
-Your imported collections contain URLs and JSON request bodies that have sample data with variables such as `${userId}`. You can replace the variables in the URL and body with the IDs of the resources that you want to specify.
+Your imported collections contain URLs and JSON request bodies that have sample data with variables such as `{userId}`. You can replace the variables in the URL and body with the IDs of the resources that you want to specify.
 
 1. To get a user's ID, send a request to list the users in your org like you did in the previous section. Each user listed in the response has an ID:
 

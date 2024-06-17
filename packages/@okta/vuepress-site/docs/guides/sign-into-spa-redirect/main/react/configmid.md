@@ -10,8 +10,8 @@ The Okta React SDK requires an instance of an `OktaAuth` object with configurati
    import Home from './Home';
 
    const oktaAuth = new OktaAuth({
-     issuer: 'https://${yourOktaDomain}/oauth2/default',
-     clientId: '${yourClientID}',
+     issuer: 'https://{yourOktaDomain}/oauth2/default',
+     clientId: '{yourClientID}',
      redirectUri: window.location.origin + '/login/callback'
    });
 

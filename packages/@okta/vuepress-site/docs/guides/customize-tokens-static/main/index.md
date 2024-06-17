@@ -48,21 +48,21 @@ To test the full authentication flow that returns an ID token or an access token
 
     * An org authorization server authorization endpoint looks like this:
 
-        `https://${yourOktaDomain}/oauth2/v1/authorize`
+        `https://{yourOktaDomain}/oauth2/v1/authorize`
 
     * A custom authorization server authorization endpoint looks like this:
 
-        `https://${yourOktaDomain}/oauth2/${authorizationServerId}/v1/authorize`
+        `https://{yourOktaDomain}/oauth2/{authorizationServerId}/v1/authorize`
 
-    > **Note:** If you add the claim to the default custom authorization server, the `${authorizationServerId}` is `default`.
+    > **Note:** If you add the claim to the default custom authorization server, the `{authorizationServerId}` is `default`.
 
     You can retrieve a custom authorization server's authorization endpoint using the server's metadata URI:
 
     **ID token**
-    `https://${yourOktaDomain}/oauth2/${authorizationServerId}/.well-known/openid-configuration`
+    `https://{yourOktaDomain}/oauth2/{authorizationServerId}/.well-known/openid-configuration`
 
     **Access token**
-    `https://${yourOktaDomain}/oauth2/${authorizationServerId}/.well-known/oauth-authorization-server`
+    `https://{yourOktaDomain}/oauth2/{authorizationServerId}/.well-known/oauth-authorization-server`
 
 3. Add the following query parameters to the URL:
 
@@ -79,7 +79,7 @@ To test the full authentication flow that returns an ID token or an access token
 
     ```bash
     curl -X GET
-    "https://${yourOktaDomain}/oauth2/${authorizationServerId}/v1/authorize?client_id=examplefa39J4jXdcCwWA
+    "https://{yourOktaDomain}/oauth2/{authorizationServerId}/v1/authorize?client_id=examplefa39J4jXdcCwWA
     &response_type=id_token
     &scope=openid
     &redirect_uri=https%3A%2F%2FyourRedirectUriHere.com
@@ -117,15 +117,15 @@ This example configures a single group (the IT group) for simplicity. This group
 
 ### Get the group IDs
 
-Send a request to `https://${yourOktaDomain}/api/v1/groups` and collect the IDs for the groups that you want in the allowlist.
+Send a request to `https://{yourOktaDomain}/api/v1/groups` and collect the IDs for the groups that you want in the allowlist.
 
 #### Request example
 
 ```bash
-curl --location --request GET 'https://${yourOktaDomain}/api/v1/groups' \
+curl --location --request GET 'https://{yourOktaDomain}/api/v1/groups' \
 --header 'Accept: application/json' \
 --header 'Content-Type: application/json' \
---header 'Authorization: SSWS ${api_token}'
+--header 'Authorization: SSWS {api_token}'
 ```
 
 #### Response example
@@ -173,7 +173,7 @@ If your allowlist contains many groups, you can store the group IDs as a string 
 
 The following example names the group allowlist `groupallowlist`, but you can name it anything.
 
-> **Tip:** To build your request body, you can first perform a GET to the `/apps` endpoint (`https://${yourOktaDomain}/api/v1/apps/${applicationId}`) using the `applicationId` for the app that you want to add the groups list to. Then, copy the response JSON that you receive to help build your request JSON for this example.
+> **Tip:** To build your request body, you can first perform a GET to the `/apps` endpoint (`https://{yourOktaDomain}/api/v1/apps/{applicationId}`) using the `applicationId` for the app that you want to add the groups list to. Then, copy the response JSON that you receive to help build your request JSON for this example.
 
 The `profile` property that contains the allowlist is at the bottom of the request example.
 
@@ -281,7 +281,7 @@ The resulting URL looks something like this:
 
 ```bash
 curl -X GET \
-"https://${yourOktaDomain}/oauth2/v1/authorize?client_id=0oaoesxtxmPf08QHk0h7
+"https://{yourOktaDomain}/oauth2/v1/authorize?client_id=0oaoesxtxmPf08QHk0h7
 &response_type=id_token
 &scope=openid%20groups
 &redirect_uri=https%3A%2F%2Fexample.com
@@ -290,7 +290,7 @@ curl -X GET \
 ```
 
 ```bash
-curl --location --request GET 'https://${yourOktaDomain}/oauth2/v1/authorize?client_id=0oaiw2v8m6unWCvXM0h7
+curl --location --request GET 'https://{yourOktaDomain}/oauth2/v1/authorize?client_id=0oaiw2v8m6unWCvXM0h7
 &response_type=id_token
 &scope=openid%20groups
 &redirect_uri=https%3A%2F%2Fexample.com
@@ -326,7 +326,7 @@ The decoded JWT looks something like this:
 
 The ID token contains the group "IT", so the audience (`aud`) has access to the group information about the user.
 
-> **Note:** For flows other than implicit, post to the token endpoint `https://${yourOktaDomain}/oauth2/v1/token` with the user or client that you want. Make sure that the user is assigned to the app and to one of the groups from your allowlist.
+> **Note:** For flows other than implicit, post to the token endpoint `https://{yourOktaDomain}/oauth2/v1/token` with the user or client that you want. Make sure that the user is assigned to the app and to one of the groups from your allowlist.
 
 If the results aren't as expected, start your troubleshooting by inspecting the [System Log](/docs/reference/api/system-log/) to see what went wrong.
 
@@ -358,7 +358,7 @@ To obtain an access token with the configured groups claim, send a request to th
 The resulting URL looks something like this:
 
 ```bash
-curl --location --request GET 'https://${yourOktaDomain}/oauth2/${authorizationServerId}/v1/authorize?client_id=0oaiw2v8m6unWCvXM0h7
+curl --location --request GET 'https://{yourOktaDomain}/oauth2/{authorizationServerId}/v1/authorize?client_id=0oaiw2v8m6unWCvXM0h7
 &response_type=token
 &scope=openid%20groups
 &redirect_uri=https%3A%2F%2Fexample.com

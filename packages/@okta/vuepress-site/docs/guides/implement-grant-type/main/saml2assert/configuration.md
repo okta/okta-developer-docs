@@ -17,7 +17,7 @@ After you complete the SAML Identity Provider configuration, if you haven't done
 
 1. On the Identity Providers page in the Admin Console, locate the SAML Identity Provider that you just added and click the arrow next to the name to expand.
 
-2. Download the metadata by clicking **Download metadata**. The metadata URL is similar to this: `https://{yourOktaDomain}/api/v1/idps/${idpId}/metadata.xml`.
+2. Download the metadata by clicking **Download metadata**. The metadata URL is similar to this: `https://{yourOktaDomain}/api/v1/idps/{idpId}/metadata.xml`.
 
 If your Service Provider doesn't support uploading metadata, save the **Assertion Consumer Service URL** (ACS URL) and the **Audience URI** values to enter manually.
 

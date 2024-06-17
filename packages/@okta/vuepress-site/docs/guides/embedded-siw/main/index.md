@@ -47,12 +47,12 @@ The first step is to install the widget. You have two options: linking out to th
 
 ### CDN
 
-To use the CDN, include this in your HTML, replacing `${widgetVersion}` with the [latest version](https://github.com/okta/okta-signin-widget/releases/) of the widget:
+To use the CDN, include this in your HTML, replacing `{widgetVersion}` with the [latest version](https://github.com/okta/okta-signin-widget/releases/) of the widget:
 
 ```html
 <!-- Latest CDN production JavaScript and CSS -->
-<script src="https://global.oktacdn.com/okta-signin-widget/${widgetVersion}/js/okta-sign-in.min.js" type="text/javascript"></script>
-<link href="https://global.oktacdn.com/okta-signin-widget/${widgetVersion}/css/okta-sign-in.min.css" type="text/css" rel="stylesheet"/>
+<script src="https://global.oktacdn.com/okta-signin-widget/{widgetVersion}/js/okta-sign-in.min.js" type="text/javascript"></script>
+<link href="https://global.oktacdn.com/okta-signin-widget/{widgetVersion}/css/okta-sign-in.min.css" type="text/css" rel="stylesheet"/>
 ```
 
 See also [Using the Okta CDN](https://github.com/okta/okta-signin-widget#using-the-okta-cdn). The latest version of the widget is -=OKTA_REPLACE_WITH_WIDGET_VERSION=-.
@@ -92,7 +92,7 @@ The code that initializes the widget appears as follows:
 
 ```javascript
 <script>
-  const signIn = new OktaSignIn({baseUrl: 'https://${yourOktaDomain}'});
+  const signIn = new OktaSignIn({baseUrl: 'https://{yourOktaDomain}'});
 
   signIn.showSignInToGetTokens({
     scopes: ['openid', 'profile'] // optional
@@ -200,8 +200,8 @@ Create an app integration in the Okta org that represents the application you wa
         }
       </style>
       <!-- widget stuff here -->
-      <script src="https://global.oktacdn.com/okta-signin-widget/${widgetVersion}/js/okta-sign-in.min.js" type="text/javascript"></script>
-      <link href="https://global.oktacdn.com/okta-signin-widget/${widgetVersion}/css/okta-sign-in.min.css" type="text/css" rel="stylesheet"/>
+      <script src="https://global.oktacdn.com/okta-signin-widget/{widgetVersion}/js/okta-sign-in.min.js" type="text/javascript"></script>
+      <link href="https://global.oktacdn.com/okta-signin-widget/{widgetVersion}/css/okta-sign-in.min.css" type="text/css" rel="stylesheet"/>
     </head>
     <body>
       <div class="container">
@@ -215,9 +215,9 @@ Create an app integration in the Okta org that represents the application you wa
       </div>
       <script type="text/javascript">
         var oktaConfig = {
-          issuer: "https://${yourOktaDomain}/oauth2/default",
-          redirectUri: '${https://${yourAppRedirectUri} configured in your Okta OIDC app integration}',
-          clientId: "${yourClientId}"
+          issuer: "https://{yourOktaDomain}/oauth2/default",
+          redirectUri: '{https://{yourAppRedirectUri} configured in your Okta OIDC app integration}',
+          clientId: "{yourClientId}"
         }
         // Search for URL Parameters to see if a user is being routed to the application to recover password
         var searchParams = new URL(window.location.href).searchParams;
@@ -258,9 +258,9 @@ Create an app integration in the Okta org that represents the application you wa
 
 3. Configure the code in `index.html` with values for your Okta org application integration:
 
-    * **issuer:** `"https://${yourOktaDomain}/oauth2/default"`. For example, `"https://example.okta.com/oauth2/default"`
-    * **redirectUri:** `"https://${yourAppRedirectUri}"`. For example, `"http://localhost:3000"`
-    * **clientId:** `"${yourClientId}"`. For example, `0oa2am3kk1CraJ8xO1d7`
+    * **issuer:** `"https://{yourOktaDomain}/oauth2/default"`. For example, `"https://example.okta.com/oauth2/default"`
+    * **redirectUri:** `"https://{yourAppRedirectUri}"`. For example, `"http://localhost:3000"`
+    * **clientId:** `"{yourClientId}"`. For example, `0oa2am3kk1CraJ8xO1d7`
 
 4. (Optional) Update the version of the `okta-auth-js` dependency to use other authentication features. See [Related SDKs](https://github.com/okta/okta-signin-widget#related-sdks). The basic authentication feature doesn't require this update.
 
@@ -290,13 +290,13 @@ var otp = searchParams.get('otp');
 var state = searchParams.get('state');
 
 const signIn = new OktaSignIn({
-  baseUrl: 'https://${yourOktaDomain}',
+  baseUrl: 'https://{yourOktaDomain}',
   el: '#widget-container',
-  clientId: '${clientId}',
+  clientId: '{clientId}',
   // must be in the list of redirect URIs enabled for the OIDC app
-  redirectUri: '${redirectUri}',
+  redirectUri: '{redirectUri}',
   authParams: {
-    issuer: 'https://${yourOktaDomain}/oauth2/default'
+    issuer: 'https://{yourOktaDomain}/oauth2/default'
   }
 });
 

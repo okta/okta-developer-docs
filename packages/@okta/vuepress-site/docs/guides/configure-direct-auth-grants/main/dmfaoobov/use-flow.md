@@ -6,10 +6,10 @@ Before you can begin this flow, collect the username and password from the user 
 
 ```bash
 curl --request POST \
-  --url https://${yourOktaDomain}/oauth2/v1/token \
+  --url https://{yourOktaDomain}/oauth2/v1/token \
   --header 'accept: application/json' \
   --header 'content-type: application/x-www-form-urlencoded' \
-  --data 'client_id=${client_id}&scope=openid%20profile&grant_type=password&username=${testuser%40example.com}&password=${userpassword}'
+  --data 'client_id={client_id}&scope=openid%20profile&grant_type=password&username={testuser%40example.com}&password={userpassword}'
 ```
 
 Note the parameters that are passed:
@@ -47,10 +47,10 @@ Next, your app sends a request to the authorization server `/challenge` endpoint
 
 ```bash
 curl --request POST \
-  --url https://${yourOktaDomain}/oauth2/v1/challenge \
+  --url https://{yourOktaDomain}/oauth2/v1/challenge \
   --header 'accept: application/json' \
   --header 'content-type: application/x-www-form-urlencoded' \
-  --data 'client_id=${client_id}&mfa_token=fCRU9lDO0rMHQ_FIADFL&challenge_types_supported=http://auth0.com/oauth/grant-type/mfa-oob&channel_hint=push'
+  --data 'client_id={client_id}&mfa_token=fCRU9lDO0rMHQ_FIADFL&challenge_types_supported=http://auth0.com/oauth/grant-type/mfa-oob&channel_hint=push'
 ```
 
 Note the parameters that are passed:
@@ -111,10 +111,10 @@ Your app polls the authorization server `/token` endpoint at the set `interval`.
 
 ```bash
 curl --request POST \
-  --url https://${yourOktaDomain}/oauth2/v1/token \
+  --url https://{yourOktaDomain}/oauth2/v1/token \
   --header 'accept: application/json' \
   --header 'content-type: application/x-www-form-urlencoded' \
-  --data 'client_id=${client_id}&scope=openid profile&grant_type=http://auth0.com/oauth/grant-type/mfa-oob&oob_code=ftqmhFRXHxOVo-4t4JoQhtbsqww3XTMCp2&mfa_token=fCRU9lDO0rMHQ_FIADFL'
+  --data 'client_id={client_id}&scope=openid profile&grant_type=http://auth0.com/oauth/grant-type/mfa-oob&oob_code=ftqmhFRXHxOVo-4t4JoQhtbsqww3XTMCp2&mfa_token=fCRU9lDO0rMHQ_FIADFL'
 ```
 
 Note the parameters that are passed:

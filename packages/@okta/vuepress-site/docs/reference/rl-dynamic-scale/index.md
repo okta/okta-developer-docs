@@ -11,12 +11,18 @@ If your needs exceed the Okta default rate limits for the base product subscript
 
 **Authentication endpoints:**
 
+<<<<<<< bd-okta-736868-update-dynamic-rl
 * `/api/v1/authn*`
 * `/api/v1/authn/introspect`
 * `/api/v1/authn/factors/{factorIdOrFactorType}/verify`
 * `/api/v1/authn/factors/{factorId}/transactions/{transactionId}/verify`
 * `/api/v1/sessions*`
 * `/auth/services/devicefingerprint`
+=======
+* `/api/v1/authn`
+* `/api/v1/authn/factors/{factorIdOrFactorType}/verify`
+* `/api/v1/sessions`
+>>>>>>> master
 * `/login/login.htm`
 * `/login/interact/{interactionHandle}`
 * `/login/sessionCookieRedirect`
@@ -28,12 +34,18 @@ If your needs exceed the Okta default rate limits for the base product subscript
 
 **OAuth2 endpoints:**
 
+<<<<<<< bd-okta-736868-update-dynamic-rl
 * `/activate`
 * `/oauth2/{authorizationServerId}/v1*`
 * `/oauth2/{authorizationServerId}/v1/authorize`
 * `/oauth2/{authorizationServerId}/v1/interact`
 * `/oauth2/{authorizationServerId}/v1/token`
 * `/oauth2/v1*` except `/oauth2/v1/clients`
+=======
+* `/oauth2/{authorizationServerId}/v1`
+* `/oauth2/{authorizationServerId}/v1/authorize`
+* `/oauth2/v1` except `/oauth2/v1/clients`
+>>>>>>> master
 * `/oauth2/v1/authorize`
 * `/oauth2/v1/interact`
 * `/oauth2/v1/token`
@@ -50,9 +62,13 @@ If your needs exceed the Okta default rate limits for the base product subscript
 
 * `/api/v1/apps/{id}`
 * `/api/v1/groups/{id}`
+<<<<<<< bd-okta-736868-update-dynamic-rl
 * `/api/v1/users/me`
 * `/api/v1/users/{idOrLogin}` (appears as `/api/v1/users/{id:.+}` in the Rate Limit dashboard)
 * `/api/v1/users/{userId}/factors/{userFactorIdOrFactorType}/verify`
+=======
+* `/api/v1/users/{idOrLogin}`
+>>>>>>> master
 
 > **Notes:**
 >

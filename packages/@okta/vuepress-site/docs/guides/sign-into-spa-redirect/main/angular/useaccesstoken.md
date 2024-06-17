@@ -43,7 +43,7 @@ The recommended way to add your access token to HTTP calls in Angular is to use 
        const allowedOrigins = ['http://localhost'];
        if (!!allowedOrigins.find(origin => request.url.includes(origin))) {
          const authToken = this._oktaAuth.getAccessToken();
-         req = request.clone({ setHeaders: { 'Authorization': `Bearer ${authToken}` } });
+         req = request.clone({ setHeaders: { 'Authorization': `Bearer {authToken}` } });
        }
 
        return req;

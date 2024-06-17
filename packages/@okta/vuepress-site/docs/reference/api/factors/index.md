@@ -4156,7 +4156,7 @@ Specifies the Profile for a `sms` Factor
 
 | Property      | Description                                     | DataType                                                        | Nullable | Unique  | Readonly |
 | ------------- | -----------------------------                   | --------------------------------------------------------------- | -------- | ------- | -------- |
-| phoneNumber   | Phone number of the mobile device, maximum 15 characters | String [E.164 formatted](http://en.wikipedia.org/wiki/E.164)    | FALSE    | TRUE    | FALSE    |
+| phoneNumber   | Phone number of the mobile device, maximum 15 characters | String [E.164 formatted](https://www.itu.int/rec/T-REC-E.164-201011-I/en)    | FALSE    | TRUE    | FALSE    |
 
 ```json
 {
@@ -4176,7 +4176,7 @@ Specifies the Profile for a `call` Factor
 
 | Property       | Description                                  | DataType                                                        | Nullable | Unique  | Readonly |
 | -------------  | -----------------------------                | --------------------------------------------------------------- | -------- | ------- | -------- |
-| phoneNumber    | Phone number of the device, maximum 15 characters | String [E.164 formatted](http://en.wikipedia.org/wiki/E.164)    | FALSE    | TRUE    | FALSE    |
+| phoneNumber    | Phone number of the device, maximum 15 characters | String [E.164 formatted](https://www.itu.int/rec/T-REC-E.164-201011-I/en)    | FALSE    | TRUE    | FALSE    |
 | phoneExtension | Extension of the device, maximum 15 characters    | String                                                          | TRUE     | FALSE   | FALSE    |
 
 ```json

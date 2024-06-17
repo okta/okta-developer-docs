@@ -6,13 +6,13 @@ title: Sanitize Inputs - Sanitizing Data
 
 ## Sanitize Inputs {#sanitize-inputs}
 
-Sanitizing inputs can be a good option when the input format is not strict but still somewhat predictable, such as phone numbers or other free-text fields. There are a few different ways to sanitize inputs, you could use a whitelist, a blacklist, or escape input.
+Sanitizing inputs can be a good option when the input format is not strict but still somewhat predictable, such as phone numbers or other free-text fields. There are a few different ways to sanitize inputs, you could use an allowlist, a blocklist, or escape input.
 
-### Sanitize Input Using a Whitelist
-When sanitizing data with a whitelist, only valid characters/strings matching a given pattern are kept.  For example, when validating a phone number there are multiple formats people use, US phone numbers could be written as `555-123-1245`, `(555) 123-1245`, `555.123.1245`, or a similar combination. Running any of these through a whitelist that only allows numeric characters would leave `5551231245`.
+### Sanitize Input Using an Allowlist
+When sanitizing data with an allowlist, only valid characters/strings matching a given pattern are kept.  For example, when validating a phone number there are multiple formats people use, US phone numbers could be written as `555-123-1245`, `(555) 123-1245`, `555.123.1245`, or a similar combination. Running any of these through an allowlist that only allows numeric characters would leave `5551231245`.
 
-### Sanitize Input Using a Blacklist
-A blacklist, of course, is the exact opposite of a whitelist. A blacklist can be used to strip HTML `<script>` tags or other non-conforming text from inputs before using input values.  This technique suffers from the same shortcomings of the above section, <a href="#sanitizing-reject-bad" class="section">Rejecting Bad Inputs</a>. This type of sanitization must be done recursively until the value no longer changes. For example if the value <code>&lt;scr<b>&lt;script</b>ipt foo bar</code> is only processed once the result would be still contain `<script`, but if done recursively, the result would be `foo bar`.
+### Sanitize Input Using a Blocklist
+A blocklist, of course, is the exact opposite of an allowlist. A blocklist can be used to strip HTML `<script>` tags or other non-conforming text from inputs before using input values.  This technique suffers from the same shortcomings of the above section, <a href="#sanitizing-reject-bad" class="section">Rejecting Bad Inputs</a>. This type of sanitization must be done recursively until the value no longer changes. For example if the value <code>&lt;scr<b>&lt;script</b>ipt foo bar</code> is only processed once the result would be still contain `<script`, but if done recursively, the result would be `foo bar`.
 
 ### Sanitize Input Using Escaping
 Escaping input is one of the easiest and best ways to deal with free-form text.  Essentially, instead of trying to determine the parts of the input that are safe (as with the above strategies), you assume the input is unsafe. There are a few different ways to encode strings depending on how the value is used:

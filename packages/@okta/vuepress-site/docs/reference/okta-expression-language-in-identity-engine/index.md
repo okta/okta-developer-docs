@@ -15,6 +15,8 @@ This document details the features and syntax of Okta Expression Language used f
 
 Expressions used outside of these areas should continue using the features and syntax of [Okta Expression Language](/docs/reference/okta-expression-language/). This document is updated as new capabilities are added to the language. Okta Expression Language is based on a subset of [SpEL functionality](https://docs.spring.io/spring-framework/reference/core/expressions.html).
 
+> **Note:** In this reference, `$placeholder` denotes a value that you need to replace with an appropriate variable. For example, in `user.profile.$profile_property`, `$profile_property` can be replaced with `firstName`, `lastName`, `email`, and other valid values.
+
 ## Unsupported features
 
 The following operators and functionality offered by SpEL aren't supported in Okta Expression Language:
@@ -52,7 +54,7 @@ When you create an Okta expression, you can reference EDR attributes and any pro
 | Syntax                             | Definitions                                                                              | Examples                                                       |
 | --------                           | ----------                                                                               | ------------                                                   |
 | `device.profile.$profile_property`  | `profile_property` - references a Device Profile property  | `device.profile.managed`<br>`device.profile.registered`<br>           |
-| `device.provider.<vendor>.<signal>`| `vendor` - references a vendor, such as `wsc` for Windows Security Center or `zta` for CrowdStrike <br>`signal` - references the supported EDR signal by the vendor| `device.provider.wsc.fireWall`<br>`device.provider.wsc.autoUpdateSettings`<br>`device.provider.zta.overall`   |
+| `device.provider.$vendor.$signal`| `vendor` - references a vendor, such as `wsc` for Windows Security Center or `zta` for CrowdStrike <br>`signal` - references the supported EDR signal by the vendor| `device.provider.wsc.fireWall`<br>`device.provider.wsc.autoUpdateSettings`<br>`device.provider.zta.overall`   |
 
 See [Integrate with Endpoint Detection and Response solutions](https://help.okta.com/okta_help.htm?type=oie&id=ext-edr-integration-main) and [Available EDR signals by vendor](https://help.okta.com/okta_help.htm?type=oie&id=ext-edr-integration-available-signals) for details about `vendor` and `signal`.
 

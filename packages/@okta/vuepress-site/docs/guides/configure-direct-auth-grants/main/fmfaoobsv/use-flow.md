@@ -6,10 +6,10 @@ Before you can begin this flow, collect the username and password from the user 
 
 ```bash
 curl --request POST \
-  --url https://${yourOktaDomain}/oauth2/v1/token \
+  --url https://{yourOktaDomain}/oauth2/v1/token \
   --header 'accept: application/json' \
   --header 'content-type: application/x-www-form-urlencoded' \
-  --data 'client_id=${client_id}&scope=openid%20profile&grant_type=password&username=${testuser%40example.com}&password=${userpassword}'
+  --data 'client_id={client_id}&scope=openid%20profile&grant_type=password&username={testuser%40example.com}&password={userpassword}'
 ```
 
 Note the parameters that are passed:
@@ -47,10 +47,10 @@ Next, your app sends a request to the authorization server `/challenge` endpoint
 
 ```bash
 curl --request POST \
-  --url https://${yourOktaDomain}/oauth2/v1/challenge \
+  --url https://{yourOktaDomain}/oauth2/v1/challenge \
   --header 'accept: application/json' \
   --header 'content-type: application/x-www-form-urlencoded' \
-  --data 'client_id=${client_id}&mfa_token=fCRU9lDO0rMHQ_FIADFL&challenge_types_supported=http://auth0.com/oauth/grant-type/mfa-oob&channel_hint=push'
+  --data 'client_id={client_id}&mfa_token=fCRU9lDO0rMHQ_FIADFL&challenge_types_supported=http://auth0.com/oauth/grant-type/mfa-oob&channel_hint=push'
 ```
 
 Note the parameters that are passed:
@@ -94,10 +94,10 @@ After the user responds to the out-of-band challenge, the app makes a `/token` r
 
 ```bash
 curl --request POST \
-  --url https://${yourOktaDomain}/oauth2/v1/token \
+  --url https://{yourOktaDomain}/oauth2/v1/token \
   --header 'accept: application/json' \
   --header 'content-type: application/x-www-form-urlencoded' \
-  --data 'client_id=${client_id}&scope=openid%20profile&grant_type=http://auth0.com/oauth/grant-type/mfa-oob&oob_code=ftXV6pXUNEKgBF8MyPy5EPANPVxfiajMDx&binding_code=436575'
+  --data 'client_id={client_id}&scope=openid%20profile&grant_type=http://auth0.com/oauth/grant-type/mfa-oob&oob_code=ftXV6pXUNEKgBF8MyPy5EPANPVxfiajMDx&binding_code=436575'
 ```
 
 Note the parameters that are passed:

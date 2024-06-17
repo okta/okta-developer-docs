@@ -7,7 +7,7 @@ meta:
 layout: Guides
 ---
 
-Use this guide to prepare a SCIM-compliant API server to host your SCIM service, and test it to make sure it's functional.
+Use this guide to prepare a SCIM-compliant (System for Cross-domain Identity Management) API server to host your SCIM service. Then, test your server to ensure that it's functional.
 
 ## Preparation
 
@@ -15,7 +15,7 @@ The first step in delivering your SCIM integration is preparing a SCIM-compliant
 
 Okta supports lifecycle provisioning using either version 2.0 and version 1.1 of the SCIM protocol.
 
-If your service already supports the SCIM protocol, you still need to review the [Okta SCIM reference](/docs/reference/scim/) to understand the specifics of how Okta implements the SCIM protocol.
+If your service already supports the SCIM protocol, you should still review the [Okta SCIM reference](/docs/reference/scim/) documentation. The SCIM reference helps you to understand how Okta implements the SCIM protocol.
 
 If you haven't yet implemented SCIM, Okta recommends that you use [version 2.0 of the SCIM protocol](/docs/reference/scim/scim-20/).
 
@@ -32,9 +32,9 @@ Another important part of the planning process is determining which Okta provisi
 
 ### API endpoints
 
-The API endpoint for your SCIM API must be secured using the [Transport Layer Security](https://tools.ietf.org/html/rfc5246) protocol. Connections through this secure layer are routed by using the `https://` prefix for your URL.
+The API endpoint for your SCIM API must be secured using the [Transport Layer Security (TLS)](https://developer.mozilla.org/en-US/docs/Web/Security/Transport_Layer_Security) protocol. Connections through this secure layer are routed by using the `https://` prefix for your URL.
 
-You must support the URL structure described in the ["SCIM Endpoints and HTTP Methods" section of RFC7644](https://tools.ietf.org/html/rfc7644#section-3.2).
+Use the URL structure described in the ["SCIM Endpoints and HTTP Methods" section of RFC7644](https://tools.ietf.org/html/rfc7644#section-3.2).
 
 ### Authentication
 
@@ -43,7 +43,7 @@ Your SCIM API must be secured against anonymous access.
 Okta supports authentication against SCIM APIs using any one of the following methods:
 
 - OAuth 2.0 [Authorization Code grant flow](https://tools.ietf.org/html/rfc6749#section-4.1)
-- [Basic authentication](https://en.wikipedia.org/wiki/Basic_access_authentication)
+- [Basic authentication](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication#basic_authentication_scheme)
 - A custom HTTP header
 
 If you’re using OAuth 2.0, then after successfully authorizing Okta to use your SCIM API, your application's authorization server redirects the user back to Okta, with either an authorization code or an access token.
@@ -52,23 +52,23 @@ If you’re using OAuth 2.0, then after successfully authorizing Okta to use you
 
 If you’re going to publish your integration to the OIN catalog, Okta requires that all SCIM applications support the following [redirect URIs](https://tools.ietf.org/html/rfc6749#section-3.1.2):
 
-- `https://system-admin.okta.com/admin/app/cpc/${appName}/oauth/callback`
-- `https://system-admin.okta-emea.com/admin/app/cpc/${appName}/oauth/callback`
-- `https://system-admin.oktapreview.com/admin/app/cpc/${appName}/oauth/callback`
-- `https://system-admin.trexcloud.com/admin/app/cpc/${appName}/oauth/callback`
-- `http://system-admin.okta1.com:1802/admin/app/cpc/${appName}/oauth/callback`
+- `https://system-admin.okta.com/admin/app/cpc/{appName}/oauth/callback`
+- `https://system-admin.okta-emea.com/admin/app/cpc/{appName}/oauth/callback`
+- `https://system-admin.oktapreview.com/admin/app/cpc/{appName}/oauth/callback`
+- `https://system-admin.trexcloud.com/admin/app/cpc/{appName}/oauth/callback`
+- `http://system-admin.okta1.com:1802/admin/app/cpc/{appName}/oauth/callback`
 
-Where the `${appName}` is an identifier provided to you after you create your app integration instance in Okta.
+Where the `{appName}` is an identifier provided to you after you create your app integration instance in Okta.
 
-Obtain the `${appName}` from the Admin Console URL when you select **Applications** > **Applications** > your app instance. The Admin Console URL has the following format:
+Obtain the `{appName}` from the Admin Console URL when you select **Applications** > **Applications** > your app instance. The Admin Console URL has the following format:
 
 ```html
-https://${orgSubDomain}-admin.${oktaEnvironment}.com/admin/app/${appName}/instance/{instanceID}/#tab-general
+https://{orgSubDomain}-admin.{oktaEnvironment}.com/admin/app/{appName}/instance/{instanceID}/#tab-general
 ```
 
-The `${appName}` is the string between `/app/` and `/instance/` in the URL.
+The `{appName}` is the string between `/app/` and `/instance/` in the URL.
 
-> **Note:** If you have issues locating your `${appName}` identifier, send an email to <oin@okta.com>.
+> **Note:** If you have issues locating your `{appName}` identifier, send an email to <oin@okta.com>.
 
 ### Base URL
 
@@ -103,7 +103,9 @@ Okta requires that your SCIM implementation stores the following four user attri
 
 Okta supports more than those four user attributes. However, these are the base attributes that you must support. The full schema of user attributes supported by SCIM 2.0 is described in [section 4 of RFC 7643](https://tools.ietf.org/html/rfc7643#section-4).
 
-If your integration supports user attributes beyond those four base attributes, you can add support for more attributes to your SCIM API. Sometimes, you might need to configure Okta to map non-standard user attributes into the user profile for your app. See [Check the attributes and corresponding mappings](/docs/guides/scim-provisioning-integration-connect/main/#check-the-attributes-and-corresponding-mappings), or [Add custom attributes to an Okta user profile](https://help.okta.com/okta_help.htm?id=ext_Directory_Profile_Editor_Tasks) in the Okta product documentation.
+If your integration supports more than the four base user attributes, you can add them to your SCIM API. Sometimes, you might need to configure Okta to map non-standard user attributes to the user profile for your app.
+
+See [Check the attributes and corresponding mappings](/docs/guides/scim-provisioning-integration-connect/main/#check-the-attributes-and-corresponding-mappings), or [Add custom attributes to an Okta user profile](https://help.okta.com/okta_help.htm?id=ext_Directory_Profile_Editor_Tasks).
 
 ### Unique ID
 
@@ -142,21 +144,21 @@ A full list of implementations, both open-source and proprietary, is available a
 
 ## SCIM facade
 
-Sometimes it isn't feasible for your cloud-based application to natively support a SCIM API. An alternative option is to build and host your own SCIM facade middleware that translates between the Okta SCIM API connection and the cloud application's proprietary API. The Okta integration connection is then made to this SCIM facade.
+Sometimes it isn't feasible for your cloud-based application to natively support a SCIM API. An alternative is to build and host your own SCIM facade middleware. It can translate between the Okta SCIM API connection and the cloud application's proprietary API. The Okta integration connection is then made to this SCIM facade.
 
 ## Provision to on-premises applications
 
-This provisioning guide targets cloud-based apps. For on-premise apps, see [Provision on-premises provisioning](https://help.okta.com/okta_help.htm?id=ext_OPP_configure) for details about the Okta agent-based provisioning solution.
+This provisioning guide targets cloud-based apps. For on-premises apps, see [Provision on-premises applications](https://help.okta.com/okta_help.htm?id=ext_OPP_configure) for details about the Okta agent-based provisioning solution.
 
 ## Test your SCIM API
 
-The best way to develop and verify that your SCIM integration is to use an automated test suite that runs on the [BlazeMeter Runscope](https://www.runscope.com/) API monitoring tool.
+To test your SCIM integration, run an automated test suite that's built on the [BlazeMeter Runscope](https://www.runscope.com/) API monitoring tool.
 
 ### Set up Runscope
 
 If you don't have a Runscope account, you can sign up with a [free trial to Runscope](https://www.runscope.com/okta) for Okta developers.
 
-If you’re developing your SCIM integration in a local environment and need to expose it to Runscope for testing, use the [ngrok](https://ngrok.com/) tool so you can route external address requests to your local web server.
+If you’re developing your SCIM integration in a local environment and need to expose it to Runscope for testing, use the [ngrok](https://ngrok.com/) tool. It allows you to route external address requests to your local web server.
 
 To get started using Runscope to test your SCIM API:
 
@@ -194,7 +196,7 @@ After importing the Okta SCIM test suite into Runscope, you need to configure th
     | Variable name | Example values | Notes |
     |:-|:-|:-|
     | SCIMBaseURL | `https://example.com/scim/v2`  `https://example.com/scim/v1` | For example, if your SCIM integration is hosted on <https://example.com> and uses a prefix of /scim/v2 then the *SCIMBaseURL* value for your integration would be: `https://example.com/scim/v2`. |
-    | auth | Bearer abcxyz1234567890 | OAuth 2.0 Bearer token or Basic authentication code. |
+    | auth | Bearer abcxyz1234567890 | OAuth 2.0 Bearer token or basic authentication code. |
     Click **Save**.
 
 1. In a new browser window, open the [Initial Script Spec](/standards/SCIM/SCIMFiles/Initial_Script_Spec.txt) text file and copy all the text to your clipboard.
@@ -214,16 +216,17 @@ After importing the Okta SCIM test suite into Runscope, you need to configure th
     | randomEmail | `Runscope300Hfluaklab151@example.com` | A valid email address. |
     | randomFamilyName | `Hfluaklab151` | A valid family name. |
     | randomGivenName | `Runscope300` | A valid first name. |
-    | randomUsername | `Runscope300Hfluaklab151@example.com` | A valid user name. |
+    | randomUsername | `Runscope300Hfluaklab151@example.com` | A valid username. |
     | randomUsernameCaps |  `RUNSCOPE300HFLUAKLAB151@example.com` | The random username in all caps to test case sensitivity. |
     | UserIdThatDoesNotExist | `010101001010101011001010101011` | A specific UUID considered invalid by the test. |
 
-    A "Script ON" label appears on your Test Settings page to indicate that the script is accepted and runs before the first request in the test.
+    A "Script ON" label appears on your **Test Settings** page. The label shows that the script is accepted and runs before the first request in the test.
+
 1. Click **Save**.
 
-## Running Okta SPEC tests against your SCIM server
+## Run Okta SPEC tests against your SCIM server
 
-> **Note:** You must create at least one user in your SCIM server before running the Okta SCIM API test suite.
+> **Note:** Create at least one user in your SCIM server before running the Okta SCIM API test suite.
 
 After you've customized your SCIM test in Runscope with the details of your SCIM server, you can run the test:
 
@@ -242,17 +245,17 @@ After you've customized your SCIM test in Runscope with the details of your SCIM
     | idUserOne | `323da8f8-21b8-4b25-8322-90673d9e1bc7` | A UUID of a test user created on your SCIM server. |
     | randomUserEmail | `Runscope300Hfluaklab151@example.com` | An email address returned from your SCIM server. |
 
-1. To see the details of tests, click the name of each particular test case to expand the section. The details have information on the **Request**, **Response**, and **Connection** for each HTTP request involved in the test. Each test sends a composed GET or POST request to your SCIM server, and the HTTP status received in response determines the success or failure of each test.
-1. After the test is complete, the main panel displays the results of your test.
+1. To see test details, click the name of each particular test case to expand the section. The details have information on the **Request**, **Response**, and **Connection** for each HTTP request involved in the test. Each test sends a composed GET or POST request to your SCIM server. The HTTP status received in the response determines the success or failure of each test.
+1. After the test finishes, the main panel displays the test results.
 
-Since this test is running in your own Runscope instance, you can modify the tests to better fit your own environment and complete the test run again. If you need more technical details, see the [SCIM Reference](/docs/reference/scim/), or check out [Test your SCIM API](/docs/guides/scim-provisioning-integration-prepare/main/#test-your-scim-api).
+Since this test is running in your own Runscope instance, you can modify the tests to better fit your own environment. Then, complete the test run again. If you need more technical details, see the [SCIM Reference](/docs/reference/scim/), or check out [Test your SCIM API](/docs/guides/scim-provisioning-integration-prepare/main/#test-your-scim-api).
 
-## Sharing test results from Runscope
+## Share test results from Runscope
 
 As you refine your SCIM implementation, you can share API test results with your teammates or with people outside of your organization:
 
-1. From your Runscope dashboard, open the test result that you want to share.
-2. At the top of the test result, Change the **Private | Shareable** toggle from **Private** to **Shareable**.
+1. From your Runscope dashboard, open the test results that you want to share.
+2. At the top of the test result, change the **Private | Shareable** toggle from **Private** to **Shareable**.
 3. Copy the URL for the test result, it looks something like this:
     `https://www.runscope.com/radar/abcdefghijkl/m01nopq2-3456-7r8s-9012-t34567uvw890/history/123ef4gh-i567-89j0-1k2l-3m4n5o678901`.
     The test results can be viewed in detail, but the test can't be edited or rerun by people outside of your team.

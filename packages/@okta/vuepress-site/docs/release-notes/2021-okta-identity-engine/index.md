@@ -60,7 +60,7 @@ The OAuth 2.0 [Device Authorization Grant flow](/docs/guides/device-authorizatio
 
 #### Upload Logo for Org deprecated
 
-The Upload Logo for Org endpoint (`/org/logo`) is deprecated. Use the [Upload Theme Logo](/docs/reference/api/brands/#upload-theme-logo) (`/brands/${brandId}/themes/${themeId}/logo`) endpoint instead. <!--OKTA-432207-->
+The Upload Logo for Org endpoint (`/org/logo`) is deprecated. Use the [Upload the Logo](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Themes/#tag/Themes/operation/uploadBrandThemeLogo) (`/brands/${brandId}/themes/${themeId}/logo`) endpoint instead. <!--OKTA-432207-->
 
 #### Bugs fixed in 2021.12.0
 
@@ -122,7 +122,7 @@ When the [Update User endpoint](/docs/reference/api/users/#update-user) or the [
 
 #### Brands API support for auto-detecting contrast colors
 
-The Brands API [Theme object properties](/docs/reference/api/brands/#theme-api-objects) `primaryColorContrastHex` and `secondaryColorContrastHex` automatically optimize the contrast between font color and the background or button color. You can disable the auto-detection feature by updating either property value with an accepted contrast hex value. See [Update Theme](/docs/reference/api/brands/#update-theme).<!--OKTA-426715-->
+The Brands API Theme object properties `primaryColorContrastHex` and `secondaryColorContrastHex` automatically optimize the contrast between font color and the background or button color. You can disable the auto-detection feature by updating either property value with an accepted contrast hex value. See [Replace a Theme](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Themes/#tag/Themes/operation/replaceBrandTheme).<!--OKTA-426715-->
 
 #### New Devices API response property available
 
@@ -152,7 +152,7 @@ Native SSO allows you to protect native OpenID Connect applications, such as des
 
 #### Bug fixed in 2021.10.2
 
-The `endUserDashboardTouchPointVariant` property on the [Brands API Theme object](/docs/reference/api/brands/#theme-object) didn't include a variant for LOGO_ON_FULL_WHITE_BACKGROUND. (OKTA-425798)
+The `endUserDashboardTouchPointVariant` property on the [Brands API Theme object](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Themes/#tag/Themes/operation/replaceBrandTheme) didn't include a variant for LOGO_ON_FULL_WHITE_BACKGROUND. (OKTA-425798)
 
 ### Monthly release 2021.10.0
 
@@ -162,7 +162,7 @@ The `endUserDashboardTouchPointVariant` property on the [Brands API Theme object
 
 #### New Brands API option to remove sign-in page footer message
 
-You can now remove "Powered by Okta" and "© 2021" from the Okta-hosted sign-in page using either the [Customizations > Footer](https://help.okta.com/okta_help.htm?type=oie&id=ext-custom-footer) option in the Admin Console or the [Brands API](/docs/reference/api/brands/#brand-api-objects). <!--OKTA-424736-->
+You can now remove "Powered by Okta" and "© 2021" from the Okta-hosted sign-in page using either the [Customizations > Footer](https://help.okta.com/okta_help.htm?type=oie&id=ext-custom-footer) option in the Admin Console or the [Brands API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Brands/#tag/Brands/operation/replaceBrand). <!--OKTA-424736-->
 
 ## September
 

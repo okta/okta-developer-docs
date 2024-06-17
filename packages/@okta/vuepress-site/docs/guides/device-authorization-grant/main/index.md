@@ -113,12 +113,12 @@ To retrieve tokens for the user, the smart device needs to make a request to the
 
 ```bash
 curl --request POST \
-  --url https://${yourOktaDomain}/oauth2/default/v1/token \
+  --url https://{yourOktaDomain}/oauth2/default/v1/token \
   --header 'Accept: application/json' \
   --header 'Content-Type: application/x-www-form-urlencoded' \
-  --data-urlencode 'client_id=${clientId}' \
+  --data-urlencode 'client_id={clientId}' \
   --data-urlencode 'grant_type=urn:ietf:params:oauth:grant-type:device_code' \
-  --data-urlencode 'device_code=${deviceCode}'
+  --data-urlencode 'device_code={deviceCode}'
 ```
 
 Note the parameters that are being passed:
@@ -160,12 +160,12 @@ To revoke the tokens, the smart device must make a request to the `/revoke` endp
 
 ```bash
 curl --request POST \
-  --url https://${yourOktaDomain}/oauth2/default/v1/revoke \
+  --url https://{yourOktaDomain}/oauth2/default/v1/revoke \
   --header 'Accept: application/json' \
   --header 'Content-Type: application/x-www-form-urlencoded' \
-  --data-urlencode 'token=${refreshToken}' \
+  --data-urlencode 'token={refreshToken}' \
   --data-urlencode 'token_type_hint=refresh_token' \
-  --data-urlencode 'client_id=${clientId}'
+  --data-urlencode 'client_id={clientId}'
 ```
 
 **Example response**

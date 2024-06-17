@@ -18,14 +18,13 @@ title: Okta Identity Engine API release notes 2024
 | [Increase to Inline Hooks](#increase-to-inline-hooks) | June 5, 2024 |
 | [New attribute to manage SAML app session lifetimes is GA in Preview](#new-attribute-to-manage-saml-app-session-lifetimes-is-ga-in-preview) | June 5, 2024 |
 | [Protected actions in the Admin Console](#protected-actions-in-the-admin-console-is-ga-in-preview) | June 5, 2024 |
-| [Session cookie overrides are GA in Production](#session-cookie-overrides-are-ga-in-production) | June 5, 2024 |
 | [Event hook for session context changes](#event-hook-for-session-context-changes) | June 5, 2024 |
 | [Developer documentation update in 2024.06.0](#developer-documentation-update-in-2024-06-0) | June 5, 2024 |
 | [Bugs fixed in 2024.06.0](#bugs-fixed-in-2024-06-0) | June 5, 2024 |
 
 #### Active Directory Bidirectional Group Management API is GA in Preview
 
-The Bidirectional Group Management for Active Directory (AD) API<!--Don't forget to format this correctly!](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/DirectoriesIntegration)--> allows you to manage AD groups from within Okta. You can add or remove users from groups based on their identity and access requirements. This ensures that changes made to user access in Okta are reflected in AD. When you use Okta Access Certifications to revoke a user's membership to an AD group, the removal is reflected in AD.
+The [Bidirectional Group Management for Active Directory (AD) API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/DirectoriesIntegration) allows you to manage AD groups from within Okta. You can add or remove users from groups based on their identity and access requirements. This ensures that changes made to user access in Okta are reflected in AD. When you use Okta Access Certifications to revoke a user's membership to an AD group, the removal is reflected in AD.
 
 Okta can only manage group memberships for users and groups imported into Okta using the AD integration. It isn't possible to manage users and groups that weren't imported through AD integration or are outside the organizational unit's scope for the integration using this feature. <!--AD_BIDIRECTIONAL_GROUP_MANAGEMENT OKTA-734564-->
 
@@ -52,10 +51,6 @@ The `SessionNotOnOrAfter` parameter is an optional SAML parameter that enables t
 #### Protected actions in the Admin Console is GA in Preview
 
 The protected actions feature provides an additional layer of security to your org. It prompts admins for authentication when they perform critical tasks in the Admin Console and helps ensure that only authorized admins can perform these tasks. Super admins can configure the authentication interval for their org. See [Protected actions in the Admin Console](https://help.okta.com/okta_help.htm?type=oie&id=ext-protected-actions). <!-- PRIVILEGED_ACTIONS OKTA-683167 -->
-
-#### Session cookie overrides are GA in Production
-
-Okta ignores the session cookie if the request includes a session token parameter.
 
 #### Event hook for session context changes
 
@@ -129,7 +124,7 @@ SAML and WS-Fed template applications now support username as an optional reques
 
 #### Version pinning for Sign-In Widget (third generation) is GA in Production
 
-You can now pin the Sign-In Widget version (third generation) when updating a customized sign-in page (`PUT /brands/{brandId}/pages/sign-in/customized`) or a preview sign-in page (`PUT /brands/{brandId}/pages/sign-in/preview`). The value of `widgetVersion` must be `7.8` or later if `widgetCustomizations.widgetGeneration` is set to `G3`. A value of `7.7` or earlier results in an invalid request. See [Replace the Customized Error Page](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Customization/#tag/Customization/operation/replaceCustomizedErrorPage). <!-- OKTA-713942 -->
+You can now pin the Sign-In Widget version (third generation) when updating a customized sign-in page (`PUT /brands/{brandId}/pages/sign-in/customized`) or a preview sign-in page (`PUT /brands/{brandId}/pages/sign-in/preview`). The value of `widgetVersion` must be `7.8` or later if `widgetCustomizations.widgetGeneration` is set to `G3`. A value of `7.7` or earlier results in an invalid request. See [Replace the Customized Error Page](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/CustomPages/#tag/CustomPages/operation/replaceCustomizedErrorPage). <!-- OKTA-713942 -->
 
 #### New System Log API property for target object
 
@@ -256,7 +251,7 @@ The [OIN QA SCIM test plan](/docs/guides/scim-provisioning-integration-test/main
 
 #### Bugs fixed in 2024.03.2
 
-* An admin was able to make a GET Policy request (`/authorizationServers/${authorizationServerId}/policies/${policyId}`) to an authorization server with no policies, using a policy ID from another authorization server with policies, and get that policy information returned. (OKTA-684225)
+* An admin was able to make a GET Policy request (`/authorizationServers/{authorizationServerId}/policies/{policyId}`) to an authorization server with no policies, using a policy ID from another authorization server with policies, and get that policy information returned. (OKTA-684225)
 
 * Okta sometimes incorrectly returned an Invalid Phone Number error during SMS factor enrollment. (OKTA-705078)
 
@@ -293,7 +288,7 @@ The Content Security Policy (CSP) feature lets admins control which URLs may be 
 
 #### New mappings property for Policy API is EA in Preview
 
-A new `mappings` property is available for the `links` object in  `GET /api/v1/policies/${policyId}` and `GET /api/v1/policies?type=${type}` responses. This property displays links to policy mappings. See [Policy API](/docs/reference/api/policy/#links-object). <!-- OKTA-637310 -->
+A new `mappings` property is available for the `links` object in  `GET /api/v1/policies/{policyId}` and `GET /api/v1/policies?type={type}` responses. This property displays links to policy mappings. See [Policy API](/docs/reference/api/policy/#links-object). <!-- OKTA-637310 -->
 
 #### My Account Authenticators API is GA in Production
 

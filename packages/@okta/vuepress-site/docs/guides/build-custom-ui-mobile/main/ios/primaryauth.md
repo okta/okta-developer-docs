@@ -24,7 +24,7 @@ With the primary authentication flow (no MFA, no password management, and so on)
     guard let username = userNameTextField.text, !username.isEmpty,
           let password = passwordTextField.text, !password.isEmpty else { return }
 
-    OktaAuthSdk.authenticate(with: URL(string: ${yourOktaDomain})!,
+    OktaAuthSdk.authenticate(with: URL(string: {yourOktaDomain})!,
                              username: username,
                              password: password,
                              onStatusChange:

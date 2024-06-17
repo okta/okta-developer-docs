@@ -1,28 +1,10 @@
-Although Okta doesn't provide a .Net library for JWT validation, the Microsoft OpenID Connect JWT libraries may be used for this purpose.
+Although Okta doesn't provide a .Net library for JWT validation, you can use the Microsoft OpenID Connect JWT libraries for this purpose.
 
-For additional details about the code described here, see [.NET JWT Validation Guide](/code/dotnet/jwt-validation/).
-
-### Get the signing keys
-
-Okta signs JWTs using [asymmetric encryption (RS256)](https://auth0.com/blog/rs256-vs-hs256-whats-the-difference/), and publishes the public signing keys in a JSON Web Key Set (JWKS) as part of the OAuth 2.0 and OpenID Connect discovery documents. The signing keys are rotated on a regular basis. The first step to verify a signed JWT is to retrieve the current signing keys.
-
-The `OpenIdConnectConfigurationRetriever` class in the [Microsoft.IdentityModel.Protocols.OpenIdConnect](https://www.nuget.org/packages/Microsoft.IdentityModel.Protocols.OpenIdConnect/) package will download and parse the discovery document to get the key set. You can use it in conjunction with the `ConfigurationManager` class, which will handle caching the response and refreshing it regularly:
-
-```csharp
-// Replace with your authorization server URL:
-var issuer = "https://${yourOktaDomain}/oauth2/default";
-
-var configurationManager = new ConfigurationManager<OpenIdConnectConfiguration>(
-    issuer + "/.well-known/oauth-authorization-server",
-    new OpenIdConnectConfigurationRetriever(),
-    new HttpDocumentRetriever());
-```
-
-Once you've instantiated the `configurationManager`, keep it around as a singleton. You only need to set it up once.
+For more details about the code described here, see the [.NET JWT Validation Guide](/code/dotnet/jwt-validation/).
 
 ### Validate a token
 
-The `JwtSecurityTokenHandler` class in the [System.IdentityModel.Tokens.Jwt](https://www.nuget.org/packages/System.IdentityModel.Tokens.Jwt) package will handle the low-level details of validating a JWT.
+The `JwtSecurityTokenHandler` class in the [System.IdentityModel.Tokens.Jwt](https://www.nuget.org/packages/System.IdentityModel.Tokens.Jwt) package handles the low-level details of validating a JWT.
 
 You can write a method that takes the token, the issuer, and the `configurationManager` you created. The method is `async` because the `configurationManager` may need to make an HTTP call to get the signing keys (if they aren't already cached):
 
@@ -71,7 +53,7 @@ private static async Task<JwtSecurityToken> ValidateToken(
 }
 ```
 
-To use the method, pass it a token, and the issuer and `configurationManager` you declared earlier:
+To use the method, pass it a token, the issuer, and `configurationManager` that you declared earlier:
 
 ```csharp
 var accessToken = "eyJh...";
@@ -89,13 +71,13 @@ else
 }
 ```
 
-This method will return an instance of `JwtSecurityToken` if the token is valid, or `null` if it is invalid. Returning `JwtSecurityToken` makes it possible to retrieve claims from the token later.
+This method returns an instance of `JwtSecurityToken` if the token is valid or `null` if it’s invalid. Returning `JwtSecurityToken` makes it possible to retrieve claims from the token later.
 
 Depending on your application, you could change this method to return a boolean, log specific exceptions like `SecurityTokenExpiredException` with a message, or handle validation failures in some other way.
 
-### Additional validation for access tokens
+### More validation for access tokens
 
-If you are validating access tokens, you should verify that the `aud` (audience) claim equals the audience that is configured for your authorization server in the Okta Admin Console.
+If you’re validating access tokens, you should verify that the `aud` (audience) claim equals the audience that is configured for your authorization server in the Admin Console.
 
 For example, if your authorization server audience is set to `MyAwesomeApi`, add this to the validation parameters:
 
@@ -104,7 +86,7 @@ ValidateAudience = true,
 ValidAudience = "MyAwesomeApi",
 ```
 
-You also must verify that the `alg` claim matches the expected algorithm which was used to sign the token. You'll have to perform this check after the `ValidateToken` method returns a validated token:
+You also must verify that the `alg` claim matches the expected algorithm that was used to sign the token. Perform this check after the `ValidateToken` method returns a validated token:
 
 ```csharp
 // Validate alg
@@ -117,9 +99,9 @@ if (validatedToken.Header?.Alg == null || validatedToken.Header?.Alg != expected
 }
 ```
 
-### Additional validation for ID tokens
+### More validation for ID tokens
 
-When validating an ID token, you should verify that the `aud` (Audience) claim equals the Client ID of the current application.
+When validating an ID token, you should verify that the `aud` (audience) claim equals the client ID of the current app.
 
 Add this to the validation parameters:
 
@@ -128,7 +110,7 @@ ValidateAudience = true,
 ValidAudience = "xyz123", // This Application's Client ID
 ```
 
-You also must verify that the `alg` claim matches the expected algorithm which was used to sign the token. You'll have to perform this check after the `ValidateToken` method returns a validated token:
+You also must verify that the `alg` claim matches the expected algorithm that was used to sign the token. Perform this check after the `ValidateToken` method returns a validated token:
 
 ```csharp
 // Validate alg
@@ -141,7 +123,7 @@ if (validatedToken.Header?.Alg == null || validatedToken.Header?.Alg != expected
 }
 ```
 
-If you specified a nonce during the initial code exchange when your application retrieved the ID token, you should verify that the nonce matches:
+If you specified a `nonce` during the initial code exchange when your application retrieved the ID token, you should verify that the `nonce` matches:
 
 ```csharp
 var validatedToken = await ValidateToken(idToken, issuer, configurationManager);
@@ -159,21 +141,21 @@ if (!nonceMatches)
 
 ## Decode token claims
 
-The sample `ValidateToken` method above both validates a token and decodes its claims. You can use the returned `JwtSecurityToken` object to inspect the claims in the token.
+The sample `ValidateToken` method above both validates a token and decodes its claims. Use the returned `JwtSecurityToken` object to inspect the claims in the token.
 
-For example, you can get the `sub` (Subject) claim with the `Subject` property:
+For example, you can get the `sub` (subject) claim with the `Subject` property:
 
 ```csharp
-Console.WriteLine($"Token subject: {validatedToken.Subject}");
+Console.WriteLine("Token subject: {validatedToken.Subject}");
 ```
 
-You can access more claims with the `Payload` property, or loop over the entire `Claims` collection:
+You can access more claims with the `Payload` property or loop over the entire `Claims` collection:
 
 ```csharp
 Console.WriteLine("All claims:");
 
 foreach (var claim in validatedToken.Claims)
 {
-    Console.WriteLine($"{claim.Type}\t{claim.Value}");
+    Console.WriteLine("{claim.Type}\t{claim.Value}");
 }
 ```

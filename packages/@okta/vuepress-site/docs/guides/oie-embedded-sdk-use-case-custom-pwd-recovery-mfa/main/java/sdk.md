@@ -10,11 +10,11 @@ After the user starts the password recovery flow and selects the email authentic
 
 </div>
 
-When the user clicks the **Reset Password** link, their browser sends a request to the endpoint defined by the template, attaching the `${oneTimePassword}` and `${request.relayState}` VTL variables as query parameters to the URL. For instance, in the sample this request might render as `http://localhost:8080/magic-link/callback?otp=726009&state=1b34371af02dd31d2bc4c48a3607cd32`.
+When the user clicks the **Reset Password** link, their browser sends a request to the endpoint defined by the template, attaching the `{oneTimePassword}` and `{request.relayState}` VTL variables as query parameters to the URL. For instance, in the sample this request might render as `http://localhost:8080/magic-link/callback?otp=726009&state=1b34371af02dd31d2bc4c48a3607cd32`.
 
 ### 2: Handle the OTP and state parameters
 
-Create a callback handler that takes the `${oneTimePassword}` and `${request.relayState}` values from the query string, saves them into local variables (for instance, 'otp', and 'state'), and makes the following checks:
+Create a callback handler that takes the `{oneTimePassword}` and `{request.relayState}` values from the query string, saves them into local variables (for instance, 'otp', and 'state'), and makes the following checks:
 
 1. That `otp` and `state` aren't `null`.
 2. That `state` matches the state value stored in the current `ProceedContext` session variable.

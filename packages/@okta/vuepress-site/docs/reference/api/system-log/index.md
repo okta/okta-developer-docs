@@ -336,7 +336,7 @@ When an event is triggered by an HTTP request, the client object describes the [
 | Property            | Description                                                                                                                                                                                           | DataType                                                  | Nullable |
 | ----------          | ------------------------------------------------------------------------------------------------------------------                                                                                    | ---------------                                           | -------- |
 | id                  | For OAuth requests, this is the ID of the OAuth [client](https://tools.ietf.org/html/rfc6749#section-1.1) making the request. For SSWS token requests, this is the ID of the agent making the request. | String                                                    | TRUE     |
-| userAgent           | The [user agent](https://en.wikipedia.org/wiki/User_agent) that is used by an actor to perform an action                                                                                                      | [UserAgent object](#useragent-object)                     | TRUE     |
+| userAgent           | The [user agent](https://developer.mozilla.org/en-US/docs/Glossary/User_agent) that's used by an actor to perform an action                                                                                                      | [UserAgent object](#useragent-object)                     | TRUE     |
 | geographicalContext | The physical location where the client is making its request from                                                                                                                                          | [GeographicalContext object](#geographicalcontext-object) | TRUE     |
 | zone                | The `name` of the [Zone](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/NetworkZone/#tag/NetworkZone/operation/getNetworkZone) that the client's location is mapped to                                                                                                | String                                                    | TRUE     |
 | ipAddress           | IP address that the client is making its request from                                                                                                                                                      | String                                                    | TRUE     |
@@ -378,14 +378,14 @@ The entity that describes a device enrolled with passwordless authentication usi
 
 ### UserAgent object
 
-"A user agent is software (a software agent) that is acting on behalf of a user." ([Wikipedia](https://en.wikipedia.org/wiki/User_agent))
+"A user agent is software (a software agent) that is acting on behalf of a user." ([Definition of User Agent](https://developer.mozilla.org/en-US/docs/Glossary/User_agent))
 
 In the Okta event data object, the UserAgent object provides specifications about the client software that makes event-triggering HTTP requests. User agent identification is often useful for identifying interoperability problems between servers and clients, and also for browser and operating system usage analytics.
 
 | Property     | Description                                                                                                                                                                                                                                        | DataType       | Nullable |
 | ------------ | -------------------------------------------------------------------------------------------------                                                                                                                                                  | -------------- | -------- |
 | Browser      | If the client is a web browser, this field identifies the type of web browser (for example, CHROME, FIREFOX)                                                                                                                                               | String         | TRUE     |
-| OS           | The [operating system](https://en.wikipedia.org/wiki/Operating_system) that the client runs on (for example, Windows 10)                                                                                                                                        | String         | TRUE     |
+| OS           | The operating system that the client runs on (for example, Windows 10)                                                                                                                                        | String         | TRUE     |
 | RawUserAgent | A raw string representation of the user agent that is formatted according to [section 5.5.3 of HTTP/1.1 Semantics and Content](https://tools.ietf.org/html/rfc7231#section-5.5.3). Both the `browser` and the `OS` fields can be derived from this field. | String         | TRUE     |
 
 ### Request object
@@ -410,12 +410,12 @@ Geographical context describes a set of geographic coordinates. In addition to c
 
 ### Geolocation object
 
-The latitude and longitude of the geolocation where an action was performed. The object is formatted according to the [ISO-6709](https://en.wikipedia.org/wiki/ISO_6709) standard
+The latitude and longitude of the geolocation where an action was performed. The object is formatted according to the [ISO-6709](https://www.iso.org/obp/ui/fr/#iso:std:iso:6709:ed-3:v1:en) standard.
 
 | Property   | Description                                                                                       | DataType        | Nullable |
 | ---------- | ------------------------------------------------------------------------------------------------- | --------------- | -------- |
-| lat        | Latitude: Uses two digits for the [integer part](https://en.wikipedia.org/wiki/ISO_6709#Latitude)   | Double          | FALSE    |
-| lon        | Longitude: Uses three digits for the [integer part](https://en.wikipedia.org/wiki/ISO_6709#Longitude) | Double          | FALSE    |
+| lat        | Latitude: Uses two digits for the [integer part](https://www.iso.org/obp/ui/fr/#iso:std:iso:6709:ed-3:v1:en#Latitude)   | Double          | FALSE    |
+| lon        | Longitude: Uses three digits for the [integer part](https://www.iso.org/obp/ui/fr/#iso:std:iso:6709:ed-3:v1:en#Longitude) | Double          | FALSE    |
 
 ### Outcome object
 
@@ -545,10 +545,10 @@ The `securityContext` object provides security information that is directly rela
 
 | Property | Description                                                                                                                                                        | DataType | Nullable |
 | -------- | -----------------------------------------------------------------------------------------------                                                                    | -------- | -------- |
-| asNumber | The [Autonomous system](https://en.wikipedia.org/wiki/Autonomous_system_(Internet)) number that is associated with the autonomous system that the event request was sourced to | Integer  | TRUE     |
+| asNumber | The [Autonomous system](https://docs.telemetry.mozilla.org/datasets/other/asn_aggregates/reference) number that's associated with the autonomous system the event request was sourced to | Integer  | TRUE     |
 | asOrg    | The organization that is associated with the autonomous system that the event request is sourced to                                                                           | String   | TRUE     |
-| isp      | The [Internet service provider](https://en.wikipedia.org/wiki/Internet_service_provider) that is used to send the event's request                                              | String   | TRUE     |
-| domain   | The [domain name](https://en.wikipedia.org/wiki/Domain_name) that is associated with the IP address of the inbound event request                                           | String   | TRUE     |
+| isp      | The Internet service provider that's used to send the event's request                                              | String   | TRUE     |
+| domain   | The domain name that's associated with the IP address of the inbound event request                                           | String   | TRUE     |
 | isProxy  | Specifies whether an event's request is from a known proxy                                                                                                         | Bool     | TRUE     |
 
 ### IpAddress object

@@ -5526,9 +5526,9 @@ redirects:
   - from: /docs/guides/oie-intro/index.html
     to: /docs/concepts/oie-intro/
   - from: /docs/guides/customize-themes/index.html
-    to: /docs/reference/api/brands/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Brands/
   - from: /docs/guides/customize-themes
-    to: /docs/reference/api/brands/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Brands/
   - from: /docs/concepts/events-api-migration/index.html
     to: /docs/reference/api/system-log/
   - from: /docs/concepts/events-api-migration

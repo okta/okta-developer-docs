@@ -17,13 +17,12 @@ title: Okta Classic Engine API release notes 2024
 | [Increase to Inline Hooks](#increase-to-inline-hooks) | June 5, 2024 |
 | [New attribute to manage SAML app session lifetimes is GA in Preview](#new-attribute-to-manage-saml-app-session-lifetimes-is-ga-in-preview) | June 5, 2024 |
 | [Protected actions in the Admin Console is GA in Preview](#protected-actions-in-the-admin-console-is-ga-in-preview) | June 5, 2024 |
-| [Session cookie overrides are GA in Production](#session-cookie-overrides-are-ga-in-production) | June 5, 2024 |
 | [Developer documentation update in 2024.06.0](#developer-documentation-update-in-2024-06-0) | June 5, 2024 |
 | [Bug fixed in 2024.06.0](#bug-fixed-in-2024-06-0) | June 5, 2024 |
 
 #### Active Directory Bidirectional Group Management API is GA in Preview
 
-The Bidirectional Group Management for Active Directory (AD) API<!--Don't forget to format this correctly! (https://developer.okta.com/docs/api/openapi/okta-management/management/tag/DirectoriesIntegration)--> allows you to manage AD groups from within Okta. You can add or remove users from groups based on their identity and access requirements. This ensures that changes made to user access in Okta are reflected in AD. When you use Okta Access Certifications to revoke a user's membership to an AD group, the removal is reflected in AD.
+The [Bidirectional Group Management for Active Directory (AD) API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/DirectoriesIntegration) allows you to manage AD groups from within Okta. You can add or remove users from groups based on their identity and access requirements. This ensures that changes made to user access in Okta are reflected in AD. When you use Okta Access Certifications to revoke a user's membership to an AD group, the removal is reflected in AD.
 
 Okta can only manage group memberships for users and groups imported into Okta using the AD integration. It isn't possible to manage users and groups that weren't imported through AD integration or are outside the organizational unit's scope for the integration using this feature. <!--AD_BIDIRECTIONAL_GROUP_MANAGEMENT OKTA-734564-->
 
@@ -50,10 +49,6 @@ The `SessionNotOnOrAfter` parameter is an optional SAML parameter that enables t
 #### Protected actions in the Admin Console is GA in Preview
 
 The protected actions feature provides an additional layer of security to your org. It prompts admins for authentication when they perform critical tasks in the Admin Console and helps ensure that only authorized admins can perform these tasks. Super admins can configure the authentication interval for their org. See [Protected actions in the Admin Console](https://help.okta.com/okta_help.htm?type=oie&id=ext-protected-actions). <!-- PRIVILEGED_ACTIONS OKTA-683167 -->
-
-#### Session cookie overrides are GA in Production
-
-Okta ignores the session cookie if the request includes a session token parameter.
 
 #### Developer documentation update in 2024.06.0
 
@@ -189,7 +184,7 @@ Users were able to unselect a saved SSO protocol for an integration submission i
 
 #### Bugs fixed in 2024.03.2
 
-* An admin was able to make a GET Policy request (`/authorizationServers/${authorizationServerId}/policies/${policyId}`) to an authorization server with no policies, using a policy ID from another authorization server with policies, and get that policy information returned. (OKTA-684225)
+* An admin was able to make a GET Policy request (`/authorizationServers/{authorizationServerId}/policies/{policyId}`) to an authorization server with no policies, using a policy ID from another authorization server with policies, and get that policy information returned. (OKTA-684225)
 
 * Client rate limiting configurations for the `/login/login.htm` endpoint were displayed incorrectly in the Rate Limit dashboard and were in an inconsistent state for some orgs. (OKTA-699914)
 
@@ -231,7 +226,7 @@ The Content Security Policy (CSP) feature lets admins control which URLs may be 
 
 #### New mappings property for Policy API is EA in Preview
 
-A new `mappings` property is available for the `links` object in  `GET /api/v1/policies/${policyId}` and `GET /api/v1/policies?type=${type}` responses. This property displays links to policy mappings. See [Policy API](/docs/reference/api/policy/#links-object). <!-- OKTA-637310 -->
+A new `mappings` property is available for the `links` object in  `GET /api/v1/policies/{policyId}` and `GET /api/v1/policies?type={type}` responses. This property displays links to policy mappings. See [Policy API](/docs/reference/api/policy/#links-object). <!-- OKTA-637310 -->
 
 #### AAL values for Login.gov IdP
 

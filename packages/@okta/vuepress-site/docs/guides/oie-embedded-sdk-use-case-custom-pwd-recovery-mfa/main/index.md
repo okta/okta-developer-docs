@@ -63,13 +63,13 @@ Okta sends users an email based on the **Forgot Password** template when they st
 
 | Variable | Contains  |
 | ---------------| ------------------------|
-| `${oneTimePassword}`   | The one-time passcode Okta generated for the user |
-| `${request.relayState}` | The current SAML [RelayState](https://developer.okta.com/docs/concepts/saml/#understanding-sp-initiated-sign-in-flow) value |
-| `${resetPasswordLink}` | The Okta-hosted URL that continues the password recovery flow |
+| `{oneTimePassword}`   | The one-time passcode Okta generated for the user |
+| `{request.relayState}` | The current SAML [RelayState](https://developer.okta.com/docs/concepts/saml/#understanding-sp-initiated-sign-in-flow) value |
+| `{resetPasswordLink}` | The Okta-hosted URL that continues the password recovery flow |
 
-> **Note**: The `${oneTimePassword}` and `${request.relayState}` variables aren't supported in the **Password Reset by Admin** template. As a result, you can't use this template in the custom password recovery flow described in this guide.
+> **Note**: The `{oneTimePassword}` and `{request.relayState}` variables aren't supported in the **Password Reset by Admin** template. As a result, you can't use this template in the custom password recovery flow described in this guide.
 
-By default, the magic link in the template is set to `${resetPasswordLink}`. Update it to an endpoint in your app that expects `${oneTimePassword}` and `${request.relayState}` as query parameters and uses them to continue the password recovery flow:
+By default, the magic link in the template is set to `{resetPasswordLink}`. Update it to an endpoint in your app that expects `{oneTimePassword}` and `{request.relayState}` as query parameters and uses them to continue the password recovery flow:
 
 1. In the Admin Console, go to **Customizations > Emails**.
 1. On the **Emails** page, find the **Password** category on the template menu.
@@ -80,7 +80,7 @@ By default, the magic link in the template is set to `${resetPasswordLink}`. Upd
 
     ```html
    <a id="reset-password-link"
-      href="${resetPasswordLink}"
+      href="{resetPasswordLink}"
       style="text-decoration: none;">
       <span style="padding: 9px ...;">
          Reset Password
@@ -88,7 +88,7 @@ By default, the magic link in the template is set to `${resetPasswordLink}`. Upd
       </a>
     ```
 
-   Replace the `${resetPasswordLink}` variable with the URL for the endpoint in your app that processes the magic link. Append the `${oneTimePassword}` and `${request.relayState}` variables as query parameter values. For example, if you're using one of the sample apps, the updated link is as follows:
+   Replace the `{resetPasswordLink}` variable with the URL for the endpoint in your app that processes the magic link. Append the `{oneTimePassword}` and `{request.relayState}` variables as query parameter values. For example, if you're using one of the sample apps, the updated link is as follows:
 
    <StackSnippet snippet="emailtemplate" />
 

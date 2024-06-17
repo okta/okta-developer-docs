@@ -48,11 +48,11 @@ There are three similar methods in the widget. `showSignIn` applies to most use 
 var signIn = new OktaSignIn({
    // Assumes there is an empty element on the page with an ID of 'osw-container'  el: `#osw-container`,
    el: '#osw-container',
-   clientId: `${clientId of your OIDC app integration}`,
-   redirectUri: `${redirectUri configured in your OIDC app integration}`,
-   baseUrl: `https://${yourOktaDomain}`,
+   clientId: `{clientId of your OIDC app integration}`,
+   redirectUri: `{redirectUri configured in your OIDC app integration}`,
+   baseUrl: `https://{yourOktaDomain}`,
    authParams: {
-      issuer: `https://${yourOktaDomain}/oauth2/default`
+      issuer: `https://{yourOktaDomain}/oauth2/default`
    }
 });
 

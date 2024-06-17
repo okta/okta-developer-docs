@@ -109,14 +109,14 @@ Use the code editor to modify any HTML, CSS, or JavaScript on the sign-in page. 
 
 ### Use the Brands API
 
-The [Brands API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Customization/) is a feature that allows you to set icons, images, and colors across your Okta-hosted sign-in page, error pages, email templates, and End-User Dashboard all at once, without needing to set a customized Okta URL domain.
+The [Brands API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Brands/) is a feature that allows you to set icons, images, and colors across your Okta-hosted sign-in page, error pages, email templates, and End-User Dashboard all at once, without needing to set a customized Okta URL domain.
 
 ### Bypass the custom sign-in page
 
 Use the `/login/default` backdoor sign-in URL to bypass the custom sign-in page. If, for example, something goes wrong with your customizations and your sign-in page won't load, add `/login/default` to the end of your Okta URL to bring up the default sign-in page and enter your credentials:
 
 ```
-https://${yourOktaDomain}/login/default
+https://{yourOktaDomain}/login/default
 ```
 
 This URL only bypasses changes that you have made to the HTML in the HTML editor. It doesn't bypass changes that you made using the controls on the left side of the page.
@@ -560,7 +560,7 @@ lang: {
 
 ```javascript
 var config = {
-  baseUrl: 'https://${yourOktaDomain}',
+  baseUrl: 'https://{yourOktaDomain}',
   ...
   i18n: {
     'en': {
