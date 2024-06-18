@@ -23,7 +23,7 @@ However, if a user needs to access multiple apps where each one requires a diffe
 
 Federated identity supports app access beyond a company or organization boundary. Imagine a relationship between a juice company (JuiceCo) selling its product to a large supermarket chain (BigMart). As an employee of JuiceCo, you need to access an app provided by BigMart to manage the relationship and monitor supplies and sales.
 
-In this case, BigMart (who is providing this app) needs to handle user authentication. The simple way is to require a different username and password from users working at JuiceCo. But with many users to maintain, it isn't that simple, especially with all the suppliers and their users who need to access the app.
+In this case, BigMart (who is providing this app) needs to manage user authentication. The simple way is to require a different username and password from users working at JuiceCo. But with many users to maintain, this can be complicated - especially with all the suppliers and their users who need to access the app.
 
 A better way to solve this problem is to allow JuiceCo, and every other supplier, to share or "federate" the identities with BigMart. As a JuiceCo employee, you already have a corporate identity and credentials. Federated identity provides a secure way for the supermarket chain (Service Provider) to externalize authentication. They do this by integrating with the existing identity infrastructure of its suppliers (Identity Provider).
 
