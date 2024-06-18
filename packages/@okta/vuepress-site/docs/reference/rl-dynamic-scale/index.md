@@ -7,7 +7,7 @@ excerpt: >-
 
 # DynamicScale rate limits
 
-You can purchase a DynamicScale add-on service if your needs exceed the default rate limits for your base product. The DynamicScale service grants you higher rate limits for the following endpoints on this page. It increases your default rate limits by five times and up to 1000 times depending on the tier multiplier.
+You can purchase a DynamicScale add-on service if your needs exceed the default rate limits for your base product. The DynamicScale service grants you higher rate limits for the following endpoints. It increases your default rate limits by five times and up to 1000 times depending on the tier multiplier.
 
 You can purchase this add-on annually for a production tenant or temporarily for testing in a preview or sandbox tenant.
 
@@ -56,7 +56,7 @@ The DynamicScale add-on service includes the following list of endpoints:
 * `/api/v1/apps/{id}`
 * `/api/v1/groups/{id}`
 * `/api/v1/users/me`
-* `/api/v1/users/{idOrLogin}` (appears as `/api/v1/users/{id:.+}` in the Rate Limit dashboard)
+* `/api/v1/users/{idOrLogin}` (appears as `/api/v1/users/{id:.+}` in the rate limit dashboard)
 * `/api/v1/users/{userId}/factors/{userFactorIdOrFactorType}/verify`
 
 > **Notes:**
@@ -69,5 +69,5 @@ The DynamicScale add-on service includes the following list of endpoints:
 
 Contact your Okta sales representative regarding other options if:
 
-* Your usage pattern exceeds the rate limits offered by the DynamicScale add-on
+* Your use pattern exceeds the rate limits offered by the DynamicScale add-on
 * The endpoint that you're consuming isn't listed as part of the DynamicScale add-on

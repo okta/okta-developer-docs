@@ -31,7 +31,7 @@ You can access the rate limit dashboard only if you're assigned one of these adm
 
 ## Rate limit monitoring
 
-The overview of the rate limits dashboard enables you to browse and monitor rate limit usage over a period whenever you want to check on an API. You can also configure the client rate limit settings and customize the threshold percentage for when a warning notification occurs.
+The overview of the rate limits dashboard enables you to browse and monitor rate limit use when you want to check on an API. You can also configure the client rate limit settings and customize the threshold percentage for when a warning notification occurs.
 
 The following describes typical uses of the functions in the rate limits report:
 
@@ -49,12 +49,12 @@ In the Admin Console, go to **Reports** > **Rate Limits**. The rate limits repor
 
 </div>
 
-The **Overview** tab provides you with graphs that plot the number of events (violations, bursts, and warnings) over time and is based on system log events. Use the **Filters** dropdown menu to select the time period and events that you want to view. The tab also provides a table that lists your org's APIs and their corresponding current rate limits, violations, bursts, and warnings. See [Browse and monitor rate limit usage](#browse-and-monitor-rate-limit-usage).
+The **Overview** tab provides you with graphs that plot the number of events (violations, bursts, and warnings) over time and is based on System Log events. Use the **Filters** dropdown menu to select the time period and events that you want to view. The tab also provides a table that lists your org's APIs and their corresponding current rate limits, violations, bursts, and warnings. See [Browse and monitor rate limit usage](#browse-and-monitor-rate-limit-usage).
 
 On the **Settings** tab, you can:
 
 * Change the per-client rate limit settings
-* Customize the threshold for warning notification when the API's rate limit is exceeded
+* Customize the threshold for warning notifications when the API's rate limit is exceeded
 
 See [Change rate limit settings](#change-rate-limit-settings).
 
@@ -92,7 +92,7 @@ You can sort on all the columns. The Trendline is sorted by the current usage. U
 
 Each API is a link that navigates you to the [dashboard view of API rate limits and violations](#api-rate-limits-and-violations) where you can obtain more details on the API.
 
-You can perform a search in your table list by making an entry in the Search box. You can also perform a "lookup" with the search. For example, you're calling Okta with an example `requestURI` and you want to know the rate limit that is applied to calls that are made against that `requestURI`.
+You can perform a search in your table list by making an entry in the search field. You can also perform a "lookup" with the search. For example, you're calling Okta with an example `requestURI` and you want to know the rate limit that's applied to calls that are made against that `requestURI`.
 
 Unless the endpoint is called out in the dashboard, API endpoints that end with an asterisk (for example, `/api/v1/users*`) refer to calls that use that base schema and count towards that call's limit. It's also important to note the HTTP operation involved with each call, as the same call with different operations can count towards different limits.
 
@@ -104,9 +104,9 @@ Unless the endpoint is called out in the dashboard, API endpoints that end with 
 
 You can enable per-client rate limiting to prevent a single client from blocking Internet traffic to your org's authentication and access APIs. See [Client-based rate limits](/docs/reference/rl-clientbased/). For these APIs, select from the following options:
 
-* **Enforce and log per client (recommended):** enables client-based rate limiting for all clients (default setting)
-* **Log per client:** enables client-based rate limiting in log-only mode. Rate limiting is based on org-wide rate-limit values, but the client-specific rate limiting information is recorded as System Log events. By analyzing these events, you can determine if client-based rate limiting is effective for you.
-* **Do nothing (not recommended):** disables client-based rate limiting
+* **Enforce and log per client (recommended):** Enables client-based rate limiting for all clients (default setting)
+* **Log per client:** Enables client-based rate limiting in log-only mode. Rate limiting is based on org-wide rate-limit values, but the client-specific rate limiting information is recorded as System Log events. By analyzing these events, you can determine if client-based rate limiting is effective for you.
+* **Do nothing (not recommended):** Disables client-based rate limiting
 
 #### Warning notification
 
@@ -126,7 +126,7 @@ Rate limit violations generate system log events, entries in the rate limit moni
 
 ## API rate limits and violations
 
-The dashboard enables you to view an API, the current rate limit for each API, and usage of the API over a time period. You can select the API of interest and get more details such as the API's average usage and the top 10 IPs that are consuming the most traffic for the API.
+The dashboard enables you to view an API, the current rate limit for each API, and use of the API over a time period. You can select the API of interest and get more details such as the API's average use and the top 10 IPs that are consuming the most traffic for the API.
 
 You can investigate high use of a rate limit, bursts, or a rate limit violation. After you know the issue, you can take the appropriate corrective action. For example, if the issue is high traffic, you may want to increase the rate limits. In cases where the issue is a rogue app or bad script, you can disable the app or block that traffic. Whatever the issue is, you can remediate the issue through self-service. In cases where a higher rate limit is required, you can create a support case for a rate limit increase to the correct team, see [How to Request a Temporary Rate Limit Increase](https://support.okta.com/help/s/article/How-can-we-request-to-have-the-rate-limit-for-our-org-temporarily-increased?language=en_US).
 
@@ -229,11 +229,11 @@ The timeline graph gives you an overview of use from the days in the past week s
 
 #### Bar graph view
 
-The bar graph compares a rogue IP or App with other IPs or Apps. For example, the bar graph can show a single rogue IP that is responsible for a spike in traffic that appears in the line graph. It can also show that many users are signing in at the same time, perhaps to attend a company-wide meeting or to check out a special offer that was delivered in a mass email to a company's clients.
+The bar graph compares a rogue IP or app with other IPs or apps. For example, the bar graph can show a single rogue IP that is responsible for a spike in traffic that appears in the line graph. It can also show that many users are signing in at the same time, perhaps to attend a company-wide meeting or to check out a special offer that was delivered in a mass email to a company's clients.
 
 ### Potential next steps
 
-If you find that the rate limit usage is high, you may want to adjust your rate limit maximums. If your company is planning an upcoming event, such as an upcoming marketing campaign, you may want to figure out the rate limit capacity that you'd need. In both cases, Okta recommends that you contact Okta support to determine and adjust your rate limits, see [How to Request a Temporary Rate Limit Increase](https://support.okta.com/help/s/article/How-can-we-request-to-have-the-rate-limit-for-our-org-temporarily-increased?language=en_US).
+If you find that the rate limit use is high, you may want to adjust your rate limit maximums. If your company is planning an upcoming event, such as an upcoming marketing campaign, you may want to figure out the rate limit capacity that you'd need. In both cases, Okta recommends that you contact Okta support to determine and adjust your rate limits. See [How to Request a Temporary Rate Limit Increase](https://support.okta.com/help/s/article/How-can-we-request-to-have-the-rate-limit-for-our-org-temporarily-increased?language=en_US).
 
 If the usage is high over a long period, you may need to lower the usage. This means that if high traffic usage points to a particular offender, you would need to inform or block the offender (such as a malfunctioning app, a bad script, or a rogue user) that is causing the traffic. For example, you can either reach out to the team that writes the script or block the user or application that is causing the traffic.
 
