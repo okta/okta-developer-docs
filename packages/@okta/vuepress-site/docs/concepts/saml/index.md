@@ -133,7 +133,7 @@ SAML is an asynchronous protocol by design. The SP-initiated sign-in flow begins
 
 A `relayState` is an HTTP parameter that you can include as part of the SAML request and response. In an SP-initiated sign-in flow, the SP can set the `relayState` parameter in the SAML request with additional information about the request. After receiving the SAML request, the SAML IdP attaches the `relayState` value as an HTTP parameter in the SAML response after the user authenticates. This way, when the round trip completes, the SP can use the `relayState` information to get more context about the initial SAML authentication request.
 
-In the case of a deep link, the SP sets the `relayState` of the SAML request with the deep-link value. When the SAML response comes back, the SP can use the `relayState` value and take the authenticated user to the right resource.
+In the case of a deep link, the SP sets the `relayState` of the SAML request with the deep link value. When the SAML response is returned, the SP can use the `relayState` value and take the authenticated user to the right resource.
 
 <div class="full">
 
