@@ -155,7 +155,7 @@ Using a metadata file is preferred because it can handle any future additions/en
 
 Depending on the nature of your app, there might be reasons to allow only a subset of users to be SAML enabled. Imagine an app that internal employees and external users access. The employees may use SAML to sign in to the app, while the external users may use a separate set of credentials.
 
-A smaller subset of users is useful even in proof-of-concept cases where the intent is to have all users of a tenant be SAML-enabled. It's also useful during testing and roll-out.
+A smaller subset of users is useful even in proof-of-concept cases where the intent is to have all users of a tenant be SAML-enabled. It's also useful during testing and rollout.
 
 ### Implement a backdoor
 
