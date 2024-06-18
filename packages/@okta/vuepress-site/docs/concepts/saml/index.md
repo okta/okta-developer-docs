@@ -71,7 +71,7 @@ While the SAML protocol is a standard, there are different ways to implement it 
 
   1. Understanding the role of an SP
 
-  2. Single IdP vs multiple IdPs
+  2. Single and multiple IdPs
 
   3. Understanding the SP-initiated sign-in flow
 
