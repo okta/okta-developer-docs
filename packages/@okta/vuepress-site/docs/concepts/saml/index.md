@@ -17,7 +17,7 @@ Authentication defines the way that a user is identified and validated through c
 
 Most apps have a user store (database or LDAP) that contains, among other things, user profile information and credentials. When a user signs in, the credentials are validated against this user store. The advantage of this approach is that everything is managed within the app, providing a single and consistent way to authenticate a user.
 
-However, if a user needs to access multiple apps where each one requires a different set of credentials, it get complicated. First, the user needs to remember different passwords in addition to any other corporate password (for example, their AD password) that may exist. The user is now forced to maintain separate usernames and passwords, and must handle different password policies and expirations. This scenario also creates headaches for admins and independent software vendors (ISV) when users continue to have access to apps that should have been revoked.
+However, if a user needs to access multiple apps where each one requires a different set of credentials, the process is more complicated. First, the user needs to remember different passwords in addition to any other corporate password (for example, their AD password). The user is now forced to maintain separate usernames and passwords, and must handle different password policies and expirations. This scenario also creates headaches for admins and independent software vendors (ISV) when users continue to have access to apps that should have been revoked.
 
 ## Federated identity
 
