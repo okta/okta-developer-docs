@@ -7,6 +7,22 @@ title: Okta Identity Engine API release notes 2024
 
 ## June
 
+### Weekly release 2024.06.1
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Bugs fixed in 2024.06.1](#bugs-fixed-in-2024-06-1)  | June 20, 2024 |
+
+#### Bugs fixed in 2024.06.1
+
+* The `user.authentication.universal_logout` System Log event didn't capture all of the client data. (OKTA-706046)
+
+* The System Log event description for `security.events.provider.receive.event` was "Third Party Vendor reported risk" and was updated to "Security Events Provider Reported Risk". (OKTA-725427)
+
+* A System Log event wasn't present for provisioned users when the password-only sign-in flow failed. (OKTA-727271)
+
+* The `security.breached_credential.detected` System Log event had a typo. (OKTA-736552)
+
 ### Monthly release 2024.06.0
 
 | Change | Expected in Preview Orgs |
