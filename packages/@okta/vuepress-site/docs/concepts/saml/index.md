@@ -13,7 +13,7 @@ However, with increased collaboration and the move towards cloud-based environme
 
 ## Authentication
 
-Authentication defines the way that a user is identified and validated through credentials as part of a sign-in flow. Most apps present a sign-in page to a user, allowing the user to specify a username and a password. Sometimes, additional information may be required to locate the user, like a company ID or a client code. This information allows the app to narrow down the search of the username applicable to the provided info. This is often used to allow the same username to exist across multiple tenants belonging to different customers.
+Authentication defines the way that a user is identified and validated through credentials as part of a sign-in flow. Most apps present a sign-in page to a user, allowing the user to specify a username and a password. Sometimes, additional information may be required to locate the user, like a company ID or a client code. This information allows the app to narrow the search of the username that's applicable to the provided info. This is often used to allow the same username to exist across multiple tenants that belong to different organizations.
 
 Most apps have a user store (database or LDAP) that contains, among other things, user profile information and credentials. When a user signs in, the credentials are validated against this user store. The advantage of this approach is that everything is managed within the app, providing a single and consistent way to authenticate a user.
 
