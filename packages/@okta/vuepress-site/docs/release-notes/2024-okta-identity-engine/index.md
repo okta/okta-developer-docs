@@ -17,7 +17,7 @@ title: Okta Identity Engine API release notes 2024
 
 * The `user.authentication.universal_logout` System Log event didn't capture all of the client data. (OKTA-706046)
 
-* The System Log event description for `security.events.provider.receive.event` was "Third Party Vendor reported risk" and was updated to "Security Events Provider Reported Risk". (OKTA-725427)
+* The System Log event description for `security.events.provider.receive_event` was "Third Party Vendor reported risk" and was updated to "Security Events Provider Reported Risk". (OKTA-725427)
 
 * A System Log event wasn't present for provisioned users when the password-only sign-in flow failed. (OKTA-727271)
 
