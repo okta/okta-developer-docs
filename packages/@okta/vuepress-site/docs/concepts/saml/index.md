@@ -151,7 +151,7 @@ However, some ISVs choose to allow configuration of several key SAML parameters 
 
 Using a metadata file is preferred because it can handle any future additions/enhancements to your SAML support without making UI changes. UI changes would be required if you exposed specific SAML configuration parameters in your UI.
 
-### Enable SAML for everyone vs a subset of users
+### Enable SAML for everyone or a subset of users
 
 Depending on the nature of your app, there might be reasons to allow only a subset of users to be SAML enabled. Imagine an app that internal employees and external users access. The employees may use SAML to sign in to the app, while the external users may use a separate set of credentials.
 
