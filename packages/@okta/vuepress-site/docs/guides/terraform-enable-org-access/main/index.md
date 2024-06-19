@@ -89,7 +89,7 @@ Repeat these steps for any other desired API scopes.
 
 Use a public/private key pair to control access to the service app used by Terraform. Store the public key in the API service app, and use the private key in your Terraform configuration. You can use Okta to generate the public/private key pair or use an external tool to create the key pair.
 
-> **Important:** Key pair authentication is the most secure option. Use other options such as API tokens only when the tradeoff of decreased security is worth it to you.
+> **Important:** Choose an access method based on the level of security required for your service app.
 
 ### Use Okta to generate the keys
 
