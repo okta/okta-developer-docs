@@ -114,7 +114,8 @@ Use a public/private key pair to control access to the service app used by Terra
 ### Use an external tool to generate the keys
 
 Audit your external tool to generate a key pair for security. Follow organization best practices and audit any code beforehand to maintain org security. Never use an untrusted third-party web site to generate keys for production systems.
-1. Check that the generated private key is in PKCS#1 format, which is the format required by the Okta Terraform provider. In that format, the file that contains the private key begins with `-----BEGIN RSA PRIVATE KEY-----`. If the key isn't in the right format, convert it to the correct format using the OpenSSL command line program:
+
+Check that the generated private key is in PKCS#1 format, which is the format required by the Okta Terraform provider. In that format, the file that contains the private key begins with `-----BEGIN RSA PRIVATE KEY-----`. If the key isn't in the right format, convert it to the correct format using the OpenSSL command line program:
 
 1. In a terminal, go to the file path where you saved the original private key.
 1. Run OpenSSL to convert the key. One of the following command lines should work depending on your operating system and version of OpenSSL:
