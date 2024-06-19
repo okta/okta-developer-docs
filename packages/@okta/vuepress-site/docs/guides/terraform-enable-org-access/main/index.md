@@ -30,7 +30,11 @@ Terraform is a tool that allows admins to automate your Okta org. Terraform requ
 
 An Okta API service app uses the OAuth 2.0 [Client Credentials authorization flow](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/main/) to authorize Terraform. You create a public/private key pair as the client credentials for this flow. Okta stores the public key, and Terraform uses the private key in the configuration for access to your org.
 
-In the Okta API service app tat controls your Terraform integration, you specify the Okta objects that Terraform can access using API scopes, which are like permissions to do a certain action on a type of resource. For example, the Terraform configuration in this article creates a test group in Okta, which requires the `okta.groups.manage` API scope. Just as a person would need the `groups.manage` scope on their account to manage groups, the API service app that controls your Terraform integration needs to be granted the `groups.manage` API scope in the Admin Console. That scope must also be listed in your Terraform provider setup as a list of scopes that the Terraform provider requests during setup.
+In the Okta API service app that controls your Terraform integration, you specify the Okta objects that Terraform can access using API scopes. Scopes are like permissions to do a certain action on a type of resource. For example, the Terraform configuration in this article creates a test group in Okta, which requires the `okta.groups.manage` API scope.
+
+One way to determine the required scopes for the service app is to consider which ones an admin needs to perform the same kind of action. Next, find the corresponding scopes in the list of [OAuth Admin Management scopes](https://developer.okta.com/docs/api/oauth2/#okta-admin-management) and add them to your service app. For example, adding a group in the Okta Admin console requires the `groups.manage`. In the table, the corresponding scope is `okta.groups.manage`.
+
+You'll also add any required scopes to your Terraform configuration.
 
 Separate from granting API scopes, you must assign admin permissions to the app through groups of permissions called admin roles.
 
