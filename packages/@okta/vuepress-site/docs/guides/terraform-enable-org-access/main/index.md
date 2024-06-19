@@ -106,7 +106,7 @@ Okta recommends using a public/private key pair for credentials to control acces
 1. If you created multiple keys in this application, set the status of any public key currently used by Terraform to **Active**. Set the status of the other public keys to **Inactive**.  
 1. For a production deployment, securely store the private key in a Terraform secrets management system or other key management system.
 
-### Use an external tool to generate the public/private key pair
+### Use an external tool to generate the keys
 
 1. Audit your external tool to generate a key pair for security. Follow organization best practices and audit any code beforehand to maintain org security. Never use an untrusted third-party web site to generate keys for production systems.
 1. Check that the generated private key is in PKCS#1 format, which is the format required by the Okta Terraform provider. In that format, the file that contains the private key begins with `-----BEGIN RSA PRIVATE KEY-----`. If the key isn't in the right format, convert it to the correct format using the OpenSSL command line program:
