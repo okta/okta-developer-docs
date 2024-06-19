@@ -100,7 +100,7 @@ Use a public/private key pair to control access to the service app used by Terra
 1. In the Add a public key dialog, click **Generate new key**.
 1. In the **Private key** section, click **PEM** to show the PEM format (not JSON) format of the private key.
 1. Copy the PEM private key and save it as a `.key` file.
-   > **Important:** The private key appears in this dialog only once. Losing the private key requires generating a new pair of keys.
+   > **Important:** The private key appears in this dialog only once. Losing the private key requires generating a new key pair.
 1. Save your new key: click **Done**, **Save**, and then **Save** again.
 1. If you created multiple keys in this application, set the status of any public key currently used by Terraform to **Active**. Set the status of the other public keys to **Inactive**.  
 1. For a production deployment, securely store the private key in a Terraform secrets management system or other key management system.
