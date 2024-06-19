@@ -70,7 +70,7 @@ For more information on custom roles, see [Custom admin roles](https://help.okta
 
 Admin roles are separate from API scopes, which are discussed in the following section. To manage resources in Terraform, you need to assign admin roles and also grant API scopes to the application.
 
-## Use Admin Console to grant API scopes to the API service app
+## Grant API scopes
 
 Separate from the admin roles discussed in the previous section, Okta has a concept of _API scopes_ that define permissions for an external API client like Terraform. These are sometimes referred to simply as _scopes_. Determine which Okta resources and which operations you need from Terraform, and use the names of the scopes to match which resources and actions you need. The name of the scope indicates the resouce type and level of access. For a full reference, see [the Okta list of Auth 2.0 API scopes](https://developer.okta.com/docs/api/oauth2/). The example Terraform code used in this article requires only the `okta.groups.manage` scope to create a group, but other resource types require other scopes.
 
