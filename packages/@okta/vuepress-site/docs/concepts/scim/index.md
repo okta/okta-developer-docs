@@ -15,7 +15,7 @@ When you’re ready to create a SCIM integration, see [Build a SCIM provisioning
 
 SCIM, or the [System for Cross-domain Identity Management](https://scim.cloud) specification, is an open standard designed to manage user identity information. SCIM provides a defined schema for representing users and groups, and a RESTful API to run CRUD operations on those user and group resources.
 
-The goal of SCIM is to securely automate the exchange of user identity data between your company's cloud apps and any Service Providers, such as enterprise SaaS apps.
+The goal of SCIM is to securely automate the exchange of user identity data between your company's cloud apps and any Service Providers (SP).
 
 Managing user lifecycles in your org is a fundamental business problem. Hiring employees is just the first step. You also need to provision apps needed for their job and enforce corporate security policies. Then you need to update user accounts as they advance through your company. At the end of their employment, you need to ensure that all access is quickly and thoroughly revoked across all apps. Handling all of this can be time-consuming and error-prone if done manually.
 
@@ -41,7 +41,7 @@ Adopting SCIM for domain management improves overall security for your company. 
 * Any profile updates - like department changes - populate automatically.
 * Inactive employees are automatically deactivated from their apps.
 
-> **Note**: Okta event hooks provide a mechanism for outbound calls to notify your own systems of events occurring in your Okta org. This allows them to take actions as a result, for example, provisioning external app access after a user account is created in Okta. Event hooks are a flexible and lightweight alternative to SCIM. See [Event hook implementation](/docs/guides/event-hook-implementation/nodejs/main/).
+> **Note**: Okta event hooks provide a mechanism for outbound calls to notify your systems of events occurring in your Okta org. The event hooks can, for example, provision external app access after a user account is created in Okta. Event hooks are a flexible and lightweight alternative to SCIM. See [Event hook implementation](/docs/guides/event-hook-implementation/nodejs/main/).
 
 ## How does SCIM work?
 
