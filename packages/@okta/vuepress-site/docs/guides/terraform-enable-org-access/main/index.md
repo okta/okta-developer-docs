@@ -81,7 +81,7 @@ Separate from the admin roles discussed in the previous section, Okta has a conc
 1. Click **Grant** for the desired scope.
 1. For some scopes, Okta requests confirmation. To confirm, click **Grant Scope**.
 
-To add other API scopes, repeat these steps with other scopes.
+Repeat these steps for any other desired API scopes.
 
 > **Important**: when you add other resource types to your Terraform configuration, you must make several changes. Grant the new API scopes to the app. Modify your Terraform provider setup to request the new API scopes. Depending on your existing setup, you may need to add more admin roles to the app, see earlier in this article for details.
 
