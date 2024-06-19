@@ -83,7 +83,7 @@ Separate from the admin roles discussed in the previous section, Okta has a conc
 
 Repeat these steps for any other desired API scopes.
 
-> **Important**: when you add other resource types to your Terraform configuration, you must make several changes. Grant the new API scopes to the app. Modify your Terraform provider setup to request the new API scopes. Depending on your existing setup, you may need to add more admin roles to the app, see earlier in this article for details.
+> **Important**: When you add other resource types to your Terraform configuration, you must make several changes. Grant the new API scopes to the app. Modify your Terraform provider setup to request the new API scopes. Depending on your existing setup, you may need to add more admin roles to the app. For more information, see [Assign admin roles](#assign-admin-roles).
 
 ## Create access credentials
 
