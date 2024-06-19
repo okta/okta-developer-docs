@@ -53,6 +53,7 @@ Create an Okta service app that authorizes Terraform to make changes to your org
 ## Assign admin roles
 
 To use the Okta Terraform provider, you must update your Okta API service app to enable some admin permissions that correspond to the resources and actions you will manage in Terraform. Some admin permissions apply to the whole organization. Some admin permissions can be assigned to specific users and groups.
+
 The example in this article for initial testing creates an Okta group using Terraform. To run this example code, add the `Organization Administrator` admin role to your API service app.
 
 To simplify assigning sets of admin permissions, Okta provides built-in admin roles that encapsulate permissions with a similar purpose. For example, the Organization Admin role includes admin permissions that are commonly needed by org administrators, including adding new groups. Just as you would add the admin role to a person or group that you're onboarding for admin tasks, assign the Organization Admin role to the API service app for your Terraform integration to allow it to control Okta.
