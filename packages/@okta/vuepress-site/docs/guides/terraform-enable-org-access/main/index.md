@@ -74,7 +74,7 @@ Admin roles are separate from API scopes, which are discussed in the following s
 
 Separate from the admin roles discussed in the previous section, Okta has a concept of _API scopes_ that define permissions for an external API client like Terraform. These are sometimes referred to simply as _scopes_. Determine which Okta resources and which operations you need from Terraform, and use the names of the scopes to match which resources and actions you need. The name of the scope indicates the resouce type and level of access. For a full reference, see [the Okta list of Auth 2.0 API scopes](https://developer.okta.com/docs/api/oauth2/). The example Terraform code used in this article requires only the `okta.groups.manage` scope to create a group, but other resource types require other scopes.
 
-> **Note:** Only admin users with the Super Administrator role have the permission to grant new API scopes to a service app.
+> **Note:** Granting new API scopes to a service app requires that the admin has Super Administrator permission.
 
 1. Open the Okta API service app that you created in the previous section.
 1. Click **Okta API Scopes**.
