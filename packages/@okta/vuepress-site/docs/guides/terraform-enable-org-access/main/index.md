@@ -170,7 +170,7 @@ Create a Terraform configuration that uses the credentials that you created earl
    * `client_id`: The client ID of the API service app that you created. In the Admin Console, click **Applications**, then click the name of your API service app. In the app editor, click **General**. Under **Client Credentials**, copy the **Client ID** value.
    * `private_key`: Either the path to the private key file or the private key itself. Okta recommends storing the key in a separate location and using a secrets and encryption management system, such as HashiCorp Vault.
    * `scopes`: A list of API scopes that your Terraform code requests. This example creates a group, which requires the `okta.groups.manage` scope. 
-     > Note: Also you must grant these API scopes to the API service application in the Admin Console. When viewing your app, click the **API Scopes** tab, find the scope in the list,  and click **Grant** next to it.
+     > Note: Grant the same API scopes to the service app you created for Terraform. In the Admin Console view your app, click the **API Scopes** tab, and grant the desired scopes from the list.
 
 For more information on configuring the Okta Terraform provider, see the [Okta Provider documentation](https://registry.terraform.io/providers/okta/okta/latest/docs).
 
