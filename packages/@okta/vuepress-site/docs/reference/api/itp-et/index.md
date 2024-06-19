@@ -12,6 +12,15 @@ This resource contains detailed reference material on event types triggered with
 
 >**Note:** Not every property is documented for the event types. Only those primarily used to assist in reviewing an identity threat interaction. Also, objects and properties may differ based on your implementation of the Identity Threat Protection solution.
 
+<div class="row">
+  <div class="col-md-8" markdown="1">
+  * Test column 1 
+  </div>
+  <div class="col-md-4" markdown="1">
+  * Test column 
+  </div>
+</div>
+
 ### analytics.feedback.provide
 
 **Description:** This event triggers when an admin provides feedback on a user or session risk detection. It can be used to monitor feedback provided by admins in response to Okta-determined changes in risk.
@@ -261,6 +270,20 @@ This resource contains detailed reference material on event types triggered with
 ### user.risk.change
 
 **Description:** This event type indicates that a user's risk level has changed. It can be used to monitor risk level changes for users. The event is triggered when Okta determines that a user is associated with a risk context or activity.
+
+| Key event properties  | Description                                         | Data type            | Example values |
+| --------------------- | --------------------------------------------------- | -------------------- | -------------- |
+| **event.system.debugContext.debugData**                |                 |         |         |
+| Risk                  | Contains the level of risk for a user entity (`LOW`, `MEDIUM`, or `HIGH`) and the reasons that contributed to the risk level. The `detectionName` key defines the risks monitored by Okta. The `level` key defines the current risk. The `previousLevel` key defines the previous risk level of the user entity. The `issuer` defines the source of the risk detection. See [Detections](https://help.okta.com/okta_help.htm?type=oie&id=csh-detections).                             | key-value pair       |` {previousLevel=LOW, level=MEDIUM, detectionName=Session Influenced User Risk, reasons=Associated sessionId is suspected to be hijacked, issuer=OKTA} `        |
+| TraceId               | A unique identifier to track all events associated with the risk                | String         | `65d65fa6-b5a9-50e9-b6f1-637b9fb71c50`        |
+| **target** (User)         | The user associated with a risk change          | Object     |        |
+| type        | The type of target object     | String     | User       |
+| **actor**                 |  The entity reporting the user risk change (can be a system principal, end user, or org administrator)                | Object        |         |
+| type        | The type of actor object           | String     | User       |
+
+### user.risk.detect
+
+**Description:** This event type indicates a user risk was detected. It can be used to monitor risk level detections for users. This event triggers when Okta detects that a user is associated with risk activity or context.
 
 | Key event properties  | Description                                         | Data type            | Example values |
 | --------------------- | --------------------------------------------------- | -------------------- | -------------- |
