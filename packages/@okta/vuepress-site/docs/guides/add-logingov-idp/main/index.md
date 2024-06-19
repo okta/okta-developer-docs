@@ -41,7 +41,7 @@ Login.gov requires you to [test your app integration](https://developers.login.g
 
    * **Name**: Enter a name for the IdP configuration.
 
-   * **Client ID**: Specify an identifier for your IdP integration with Login.gov. This can be any string value, but must match the **issuer** value from Login.gov's configuration. You can use your Okta org URL as the client ID. For example: `https://${yourCompanySubdomain}.okta.com`
+   * **Client ID**: Specify an identifier for your IdP integration with Login.gov. This can be any string value, but must match the **issuer** value from Login.gov's configuration. You can use your Okta org URL as the client ID. For example: `https://{yourCompanySubdomain}.okta.com`
 
    * **Private key**: The public/private key is available for download when you click **Finish**.
 
@@ -80,9 +80,9 @@ When you create the Login.gov IdP configuration in Okta, the Login.gov attribute
 
 You can automatically link external IdP accounts to Okta accounts when the user signs in using the external IdP. If **Account Link Policy** is set to Automatic (`AUTO`), then Okta searches the Universal Directory for a user's profile to link. The user profile is found when the **IdP username** value (email) passed by the IdP matches the **Match against** value (username). See [Account Linking and JIT Provisioning](/docs/concepts/identity-providers/#account-linking-and-just-in-time-provisioning).
 
-To remove an existing account link or validate account linking with every sign-in flow, Okta recommends that you make a `DELETE` call to the `/api/v1/idps/${idpId}/users/${userId}` [endpoint](/docs/reference/api/idps/#unlink-user-from-idp) to remove the link between the Okta user and the IdP user before authentication.
+To remove an existing account link or validate account linking with every sign-in flow, Okta recommends that you make a `DELETE` call to the `/api/v1/idps/{idpId}/users/{userId}` [endpoint](/docs/reference/api/idps/#unlink-user-from-idp) to remove the link between the Okta user and the IdP user before authentication.
 
-If **Account Link Policy** is disabled, no account linking occurs. You can manually create an account link without a transaction by making a `POST` call to the `/api/v1/idps/${idps}/users/${userId}` [endpoint](/docs/reference/api/idps/#link-a-user-to-a-social-provider-without-a-transaction).
+If **Account Link Policy** is disabled, no account linking occurs. You can manually create an account link without a transaction by making a `POST` call to the `/api/v1/idps/{idps}/users/{userId}` [endpoint](/docs/reference/api/idps/#link-a-user-to-a-social-provider-without-a-transaction).
 
 See [Add an Identity Provider](/docs/reference/api/idps/#add-identity-provider) for API examples of account-linking JSON payloads.
 
@@ -109,7 +109,7 @@ At Login.gov, you need to first register your app integration in Login.gov's ide
     * **Attribute bundle**: Select the default attributes for Login.gov to return during authentication. Select at least **email**, **profile**, and **profile:email**.
     * **Issuer**: Specify a string that matches the **Client ID** value in your Okta Login.gov IdP configuration from [Create an Identity Provider in Okta](#create-an-identity-provider-in-okta). Typically, your Okta org URL is used. For example, if your Okta subdomain is `company`, then specify `https://company.okta.com`.
     * **Certificates**: Upload the public key file that you downloaded from [Create an Identity Provider in Okta](#create-an-identity-provider-in-okta).
-    * **Redirect URIs**: Specify the Okta **Redirect URI** that you copied from [Create an Identity Provider in Okta](#create-an-identity-provider-in-okta). For example, if you don't have a custom domain, this value is usually `https://${yourCompanySubdomain}.okta.com/oauth2/v1/authorize/callback`.
+    * **Redirect URIs**: Specify the Okta **Redirect URI** that you copied from [Create an Identity Provider in Okta](#create-an-identity-provider-in-okta). For example, if you don't have a custom domain, this value is usually `https://{yourCompanySubdomain}.okta.com/oauth2/v1/authorize/callback`.
 
 1. Click **Create test app**.
 
@@ -199,24 +199,24 @@ If something is configured incorrectly, the authorization response contains erro
 The Okta Identity Provider that you created generates an authorize URL with a number of blank parameters that you can fill in to test the flow with the Identity Provider. For example:
 
 ```bash
-https://${yourOktaDomain}/oauth2/v1/authorize?
-  idp=${yourIdPId}&
-  client_id=${clientId}&
-  response_type=${responseType}&
-  response_mode=${responseMode}&
-  scope=${scopes}&
-  redirect_uri=${redirectUri}&
-  state=${state}&
-  nonce=${nonce}
+https://{yourOktaDomain}/oauth2/v1/authorize?
+  idp={yourIdPId}&
+  client_id={clientId}&
+  response_type={responseType}&
+  response_mode={responseMode}&
+  scope={scopes}&
+  redirect_uri={redirectUri}&
+  state={state}&
+  nonce={nonce}
 ```
 
 > **Note:** If you are using Authorization Code with PKCE as the grant type for your client app, you must generate and store the PKCE. See [Implement authorization by grant type](/docs/guides/implement-grant-type/authcodepkce/main/#flow-specifics). Okta recommends that you use the [AuthJS SDK](https://github.com/okta/okta-auth-js#signinwithredirectoptions) with this grant type.
 
-In the URL, replace `${yourOktaDomain}` with your org's base URL, and then replace the following values:
+In the URL, replace `{yourOktaDomain}` with your org's base URL, and then replace the following values:
 
-* `idp`: Your `${yourIdPId}` value that you obtained from [Create an Identity Provider in Okta](#create-an-identity-provider-in-okta).
+* `idp`: Your `{yourIdPId}` value that you obtained from [Create an Identity Provider in Okta](#create-an-identity-provider-in-okta).
 
-* `client_id`: Use the `${clientId}` value that you obtained from your OpenID Connect client application. This isn't the **Client ID** value from the Identity Provider.
+* `client_id`: Use the `{clientId}` value that you obtained from your OpenID Connect client application. This isn't the **Client ID** value from the Identity Provider.
 
 * `response_type`: Determines which flow is used. For the [Implicit](/docs/guides/implement-grant-type/implicit/main/) flow, use `id_token`. For the [Authorization Code](/docs/guides/implement-grant-type/authcode/main/) flow, use `code`.
 
@@ -237,7 +237,7 @@ For a full explanation of all of these parameters, see: [/authorize Request para
 Create a link that the user clicks to sign in. The HREF for that link is the authorize URL with your specified values. For example:
 
 ```html
-`<a href="https://${yourOktaDomain}/oauth2/v1/authorize?idp=0oaaq9pjc2ujmFZexample&client_id=GkGw4K49N4UEE1example&response_type=id_token&response_mode=fragment&scope=openid&redirect_uri=${yourAppRedirectUrl}&state=WM6D&nonce=YsG76jo">Sign in with Login.gov</a>`
+`<a href="https://{yourOktaDomain}/oauth2/v1/authorize?idp=0oaaq9pjc2ujmFZexample&client_id=GkGw4K49N4UEE1example&response_type=id_token&response_mode=fragment&scope=openid&redirect_uri={yourAppRedirectUrl}&state=WM6D&nonce=YsG76jo">Sign in with Login.gov</a>`
 
 ```
 

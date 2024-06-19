@@ -15,13 +15,13 @@ Add your configuration values to the file, using the following format:
 ```yaml
 okta:
   idx:
-    issuer: "https://${yourOktaDomain}/oauth2/default"
-    clientId: "${clientId}"
-    clientSecret: "${clientSecret}"
+    issuer: "https://{yourOktaDomain}/oauth2/default"
+    clientId: "{clientId}"
+    clientSecret: "{clientSecret}"
     scopes:
-      - "${scope1}"
-      - "${scope2}"
-    redirectUri: "${redirectUri}"
+      - "{scope1}"
+      - "{scope2}"
+    redirectUri: "{redirectUri}"
 ```
 
 ### Option 2: Set the values as environment variables

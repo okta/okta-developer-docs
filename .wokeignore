@@ -1,0 +1,9 @@
+# .wokeignore
+
+# # files we can not change
+packages/@okta/vuepress-site/data/event-types.json
+packages/@okta/vuepress-site/docs/reference/hooks-best-practices/index.md
+packages/@okta/vuepress-site/docs/release-notes/2020/index.md
+packages/@okta/vuepress-site/.vuepress/public/docs/okta-event-types.csv
+packages/@okta/vuepress-site/.vuepress/public/docs/api/postman/client-registration.json
+packages/@okta/vuepress-site/conductor.yml

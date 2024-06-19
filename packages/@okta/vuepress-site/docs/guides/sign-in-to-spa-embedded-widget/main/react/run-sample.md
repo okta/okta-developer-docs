@@ -7,16 +7,16 @@ You can run the [sample embedded Sign-In Widget React app](https://github.com/ok
 5. Set the environment variables with your [Okta org app integration configuration settings](#okta-org-app-integration-configuration-settings):
 
     ```bash
-    export ISSUER=https://${yourOktaDomain}/oauth2/default
-    export CLIENT_ID=${yourAppClientId}
+    export ISSUER=https://{yourOktaDomain}/oauth2/default
+    export CLIENT_ID={yourAppClientId}
     export USE_INTERACTION_CODE=true
     ```
 
     Alternatively, you can set the `samples-js-react/testenv` file with the configuration settings before you run the app:
 
     ```bash
-    ISSUER=https://${yourOktaDomain}/oauth2/default
-    CLIENT_ID=${yourAppClientId}
+    ISSUER=https://{yourOktaDomain}/oauth2/default
+    CLIENT_ID={yourAppClientId}
     USE_INTERACTION_CODE=true
     ```
 

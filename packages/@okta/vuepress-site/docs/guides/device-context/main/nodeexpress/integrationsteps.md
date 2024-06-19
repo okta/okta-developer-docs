@@ -11,5 +11,5 @@ Generate a unique identifier for the device with a maximum length of 32 characte
 Add the device ID to the `X-Device-Token` request header in the constructor of the OktaAuth IDX client class. Do this by calling the `OktaAuth.setHeaders()` method and pass `X-Device-Token` as the header name with a user-defined value.
 
 ```javascript
-authClient.setHeaders({'X-Device-Token': '${yourDeviceID}'});
+authClient.setHeaders({'X-Device-Token': '{yourDeviceID}'});
 ```

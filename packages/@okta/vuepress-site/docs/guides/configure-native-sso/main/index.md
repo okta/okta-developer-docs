@@ -152,7 +152,7 @@ Provide the `device_sso`, `openid`, and `offline_access` scopes in the first req
 **Example Authorization Code flow with PKCE request**
 
 ```bash
-  https://${yourOktaDomain}/oauth2/default/v1/authorize?client_id=${clientId}&response_type=code&scope=openid device_sso offline_access&redirect_uri=${configuredRedirectUri}&state=state-8600b31f-52d1-4dca-987c-386e3d8967e9&code_challenge_method=S256&code_challenge=qjrzSW9gMiUgpUvqgEPE4_-8swvyCtfOVvg55o5S_es
+  https://{yourOktaDomain}/oauth2/default/v1/authorize?client_id={clientId}&response_type=code&scope=openid device_sso offline_access&redirect_uri={configuredRedirectUri}&state=state-8600b31f-52d1-4dca-987c-386e3d8967e9&code_challenge_method=S256&code_challenge=qjrzSW9gMiUgpUvqgEPE4_-8swvyCtfOVvg55o5S_es
 ```
 
 The user is prompted to provide their credentials. After the authorization server verifies those credentials, the authorization code is sent to the `redirect_uri` that you specified. The following is an example of the authorization code returned.
@@ -160,7 +160,7 @@ The user is prompted to provide their credentials. After the authorization serve
 **Example response**
 
 ```bash
-  https://${configuredRedirectUri}/?code=S_NuB0TNeDMXD_5SKZO6FuXFOi_J9XB-sHAk0Dc0txQ&state=state-8600b31f-52d1-4dca-987c-386e3d8967e9
+  https://{configuredRedirectUri}/?code=S_NuB0TNeDMXD_5SKZO6FuXFOi_J9XB-sHAk0Dc0txQ&state=state-8600b31f-52d1-4dca-987c-386e3d8967e9
 ```
 
 ### Exchange the code for tokens
@@ -171,12 +171,12 @@ To exchange the authorization code for tokens, pass the code to your authorizati
 
 ```bash
 curl --request POST \
-  --url https://${yourOktaDomain}/oauth2/default/v1/token \
+  --url https://{yourOktaDomain}/oauth2/default/v1/token \
   --header 'accept: application/json' \
   --header 'content-type: application/x-www-form-urlencoded' \
   --data-urlencode 'grant_type=authorization_code' \
-  --data-urlencode 'client_id=${clientId}' \
-  --data-urlencode 'redirect_uri=${configuredRedirectUri}' \
+  --data-urlencode 'client_id={clientId}' \
+  --data-urlencode 'redirect_uri={configuredRedirectUri}' \
   --data-urlencode 'code=CKA9Utz2GkWlsrmnqehz' \
   --data-urlencode 'code_verifier=M25iVXpKU3puUjFaYWg3T1NDTDQtcW1ROUY5YXlwalNoc0hhakxifmZHag'
 ```
@@ -207,17 +207,17 @@ Client 2 makes a token exchange request, and the response returns the tokens app
 
 ```bash
 curl --request POST \
-  --url https://${yourOktaDomain}/oauth2/default/v1/token \
+  --url https://{yourOktaDomain}/oauth2/default/v1/token \
   --header 'Accept: application/json' \
   --header 'Content-Type: application/x-www-form-urlencoded' \
-  --data-urlencode 'client_id=${client 2 ID}' \
+  --data-urlencode 'client_id={client 2 ID}' \
   --data-urlencode 'grant_type=urn:ietf:params:oauth:grant-type:token-exchange' \
-  --data-urlencode 'actor_token=${deviceSecret}' \
+  --data-urlencode 'actor_token={deviceSecret}' \
   --data-urlencode 'actor_token_type=urn:x-oath:params:oauth:token-type:device-secret' \
-  --data-urlencode 'subject_token=${idToken}' \
+  --data-urlencode 'subject_token={idToken}' \
   --data-urlencode 'subject_token_type=urn:ietf:params:oauth:token-type:id_token' \
   --data-urlencode 'scope=openid offline_access' \
-  --data-urlencode 'audience=${audience}'
+  --data-urlencode 'audience={audience}'
 ```
 
 Note the parameters that are being passed:
@@ -256,11 +256,11 @@ Occasionally you may want to verify that the device secret is still valid by usi
 
 ```bash
 curl --request POST \
-  --url https://${yourOktaDomain}/oauth2/default/v1/introspect \
+  --url https://{yourOktaDomain}/oauth2/default/v1/introspect \
   --header 'Accept: application/json' \
   --header 'Content-Type: application/x-www-form-urlencoded' \
-  --data-urlencode 'client_id=${client 1 ID}' \
-  --data-urlencode 'token=${deviceSecret}' \
+  --data-urlencode 'client_id={client 1 ID}' \
+  --data-urlencode 'token={deviceSecret}' \
   --data-urlencode 'token_type_hint=device_secret'
 ```
 
@@ -285,11 +285,11 @@ Sometimes you have to end a user's desktop session. When you do that, you’re s
 
 ```bash
 curl --request POST \
-  --url https://${yourOktaDomain}/oauth2/default/v1/revoke \
+  --url https://{yourOktaDomain}/oauth2/default/v1/revoke \
   --header 'Accept: application/json' \
   --header 'Content-Type: application/x-www-form-urlencoded' \
-  --data-urlencode 'token=${deviceSecret}' \
-  --data-urlencode 'client_id=${client 1 ID}'
+  --data-urlencode 'token={deviceSecret}' \
+  --data-urlencode 'client_id={client 1 ID}'
 ```
 
 **Example response**
@@ -314,7 +314,7 @@ When the user signs out of an application, the application sends a `/logout` req
 
 ```bash
 curl --request GET \
-  --url https://${yourOktaDomain}/oauth2/default/v1/logout?id_token_hint=${idToken}&device_secret=${deviceSecret}&post_logout_redirect_uris=${configuredPostLogoutRedirectUri}&state=2OwvFrEMTJg
+  --url https://{yourOktaDomain}/oauth2/default/v1/logout?id_token_hint={idToken}&device_secret={deviceSecret}&post_logout_redirect_uris={configuredPostLogoutRedirectUri}&state=2OwvFrEMTJg
 ```
 
 The authorization server invalidates the access and refreshes tokens that are issued for the `sid` and `device_secret`. If the invalidated refresh token is used to renew tokens, the request fails.
@@ -322,5 +322,5 @@ The authorization server invalidates the access and refreshes tokens that are is
 Okta returns a response to the `post_logout_redirect_uri`.
 
 ```bash
-  https://${configuredPostLogoutRedirectUri}/?state=2OwvFrEMTJg
+  https://{configuredPostLogoutRedirectUri}/?state=2OwvFrEMTJg
 ```

@@ -243,7 +243,7 @@ Integrate user activations in this proxy model with the following steps.
 
 #### Create the user
 
-The first step is to create a user using the [Create user](/docs/reference/api/users/#create-user) operation on the Users API. The URL format of the endpoint call is `https://${yourOktaDomain}/api/v1/users?activate=false`. The following example creates a user without credentials. Ensure the `activate` query parameter is set to `false`.
+The first step is to create a user using the [Create user](/docs/reference/api/users/#create-user) operation on the Users API. The URL format of the endpoint call is `https://{yourOktaDomain}/api/v1/users?activate=false`. The following example creates a user without credentials. Ensure the `activate` query parameter is set to `false`.
 
 ##### Request
 
@@ -251,8 +251,8 @@ The first step is to create a user using the [Create user](/docs/reference/api/u
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
--H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
--H "Authorization: SSWS ${api_token}" \
+-H "User-Agent: Mozilla/5.0 ({systemInformation}) {platform} ({platformDetails}) {extensions}" \
+-H "Authorization: SSWS {api_token}" \
 -d '{
   "profile": {
     "firstName": "Isaac",
@@ -261,7 +261,7 @@ curl -v -X POST \
     "login": "john.doe@example.com",
     "mobilePhone": "555-415-1337"
   }
-}' "https://${yourOktaDomain}/api/v1/users?activate=false"
+}' "https://{yourOktaDomain}/api/v1/users?activate=false"
 ```
 
 ##### Response
@@ -287,7 +287,7 @@ curl -v -X POST \
 
 #### Start user activation and get activation token
 
-After user creation, obtain the activation token. Use the [Activate User](/docs/reference/api/users/#activate-user) operation in the User Lifecycle API to generate the activation token. The URL format of the endpoint call is `https://${yourOktaDomain}/api/v1/users/${userid}/lifecycle/activate?sendEmail=false`. The endpoint requires the user id, which is found in the`id` property shown in the previous step. In addition, set the `sendEmail` query parameter to `false` to include the activation token in the response. See the following examples for more details:
+After user creation, obtain the activation token. Use the [Activate User](/docs/reference/api/users/#activate-user) operation in the User Lifecycle API to generate the activation token. The URL format of the endpoint call is `https://{yourOktaDomain}/api/v1/users/{userid}/lifecycle/activate?sendEmail=false`. The endpoint requires the user ID, which is found in the`id` property shown in the previous step. In addition, set the `sendEmail` query parameter to `false` to include the activation token in the response. See the following examples for more details:
 
 ##### Request
 
@@ -295,9 +295,9 @@ After user creation, obtain the activation token. Use the [Activate User](/docs/
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
--H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
--H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/activate?sendEmail=false"
+-H "User-Agent: Mozilla/5.0 ({systemInformation}) {platform} ({platformDetails}) {extensions}" \
+-H "Authorization: SSWS {api_token}" \
+"https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/activate?sendEmail=false"
 ```
 
 ##### Response

@@ -62,10 +62,10 @@ The following endpoints are used by the Okta home page for authentication and us
 
 | Okta home page endpoints                                                | Developer (free)  | Developer (paid)  | One App  | Enterprise  | Workforce Identity |
 | ----------------------------------------------------------------------- | ----------------: | ----------------: | -------: | ----------: | ------------------:|
-| `/app/${app}/${key}/sso/saml`                                             | 100               | 600               | *600     | *600        | 750                |
-| `/app/office365/${key}/sso/wsfed/active`                                 | N/A               | N/A               | N/A      | 2000        | 1000               |
-| `/app/office365/${key}/sso/wsfed/passive`                                | N/A               | N/A               | N/A      | 250         | 250                |
-| `/app/template_saml_2_0/${key}/sso/saml`                                 | 100               | 600               | *600     | *600        | 2500               |
+| `/app/{app}/{key}/sso/saml`                                             | 100               | 600               | *600     | *600        | 750                |
+| `/app/office365/{key}/sso/wsfed/active`                                 | N/A               | N/A               | N/A      | 2000        | 1000               |
+| `/app/office365/{key}/sso/wsfed/passive`                                | N/A               | N/A               | N/A      | 250         | 250                |
+| `/app/template_saml_2_0/{key}/sso/saml`                                 | 100               | 600               | *600     | *600        | 2500               |
 | `/login/do-login`                                                       | 100               | 600               | 600      | 600         | 200                |
 | `/login/login.htm`                                                      | 100               | 600               | 600      | 600         | 850                |
 | `/login/sso_iwa_auth`                                                   | 100               | 600               | 600      | 600         | 500                |
@@ -117,9 +117,9 @@ Workforce orgs that are created after January 7, 2021 have increased default rat
 
 [Authentication](/docs/reference/rl-global-enduser/)
 
-* `/api/${apiVersion}/radius`
+* `/api/{apiVersion}/radius`
 * `/api/v1/authn`
-* `/api/v1/authn/factors/${factorIdOrFactorType}/verify`
+* `/api/v1/authn/factors/{factorIdOrFactorType}/verify`
 * `/api/v1/sessions`
 * `/login/agentlessDsso`
 * `/login/agentlessDsso/auth`
@@ -133,23 +133,23 @@ Workforce orgs that are created after January 7, 2021 have increased default rat
 
 [Authorization](/docs/reference/rl-global-enduser/)
 
-* `/app/${app}/${key}/sso/saml`
-* `/app/office365${appType}/${key}/sso/wsfed/active`
-* `/app/office365${appType}/${key}/sso/wsfed/passive`
-* `/app/template_saml_2_0/${key}/sso/saml`
+* `/app/{app}/{key}/sso/saml`
+* `/app/office365{appType}/{key}/sso/wsfed/active`
+* `/app/office365{appType}/{key}/sso/wsfed/passive`
+* `/app/template_saml_2_0/{key}/sso/saml`
 * `/idp/idx/introspect` <ApiLifecycle access="ie" />
 * `/idp/idx/identify` <ApiLifecycle access="ie" />
 * Identity Engine App Intent <ApiLifecycle access="ie" />
 * `/oauth2/v1`
 * `/oauth2/v1/authorize`
 * `/oauth2/v1/token`
-* `/oauth2/${authorizationServerId}/v1`
-* `/oauth2/${authorizationServerId}/v1/authorize`
-* `/oauth2/${authorizationServerId}/v1/token`
+* `/oauth2/{authorizationServerId}/v1`
+* `/oauth2/{authorizationServerId}/v1/authorize`
+* `/oauth2/{authorizationServerId}/v1/token`
 
 [Single User/Group/App reads (GET only)](/docs/reference/rl-dynamic-scale/)
 
-* `/api/v1/apps/${id}`
-* `/api/v1/groups/${id}`
-* `/api/v1/users/${id}`
-* `/api/v1/users/${idOrLogin}`
+* `/api/v1/apps/{id}`
+* `/api/v1/groups/{id}`
+* `/api/v1/users/{id}`
+* `/api/v1/users/{idOrLogin}`

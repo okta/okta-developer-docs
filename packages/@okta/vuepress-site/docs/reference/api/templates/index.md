@@ -362,7 +362,7 @@ Template translations are optionally provided when you want to localize the SMS 
   }
 ```
 
-The key portion is a two-letter country code that conforms to [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes), and the value is the translated SMS Template.
+The key portion is a two-letter country code that conforms to [ISO 639-1](https://www.loc.gov/standards/iso639-2/php/code_list.php), and the value is the translated SMS Template.
 
 > **Note:** Just like with regular SMS Templates, the length of the SMS message can't exceed 160 characters.
 

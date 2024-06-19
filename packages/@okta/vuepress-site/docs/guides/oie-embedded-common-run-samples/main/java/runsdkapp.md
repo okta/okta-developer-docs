@@ -2,16 +2,16 @@
 
 1. [Set up your Okta org for a password factor only use case](/docs/guides/oie-embedded-common-org-setup/java/main/#set-up-your-okta-org-for-a-password-factor-only-use-case).
 
-1. Obtain app-specific configuration values (such as `${clientId}`, `${clientSecret}`, `${yourOktaDomain}`) from the app integration that you created in [Create an application](/docs/guides/oie-embedded-common-org-setup/java/main/#create-an-application).
+1. Obtain app-specific configuration values (such as `{clientId}`, `{clientSecret}`, `{yourOktaDomain}`) from the app integration that you created in [Create an application](/docs/guides/oie-embedded-common-org-setup/java/main/#create-an-application).
 
 1. From your command shell, locate the embedded authentication SDK sample app source files in the following path: `...\okta-idx-java\samples\embedded-auth-with-sdk`.
 
 1. Set the app-specific environment variables:
 
    ```bash
-   export OKTA_IDX_ISSUER=https://${yourOktaDomain}/oauth2/default
-   export OKTA_IDX_CLIENTID=${clientId}
-   export OKTA_IDX_CLIENTSECRET=${clientSecret}
+   export OKTA_IDX_ISSUER=https://{yourOktaDomain}/oauth2/default
+   export OKTA_IDX_CLIENTID={clientId}
+   export OKTA_IDX_CLIENTSECRET={clientSecret}
    export OKTA_IDX_SCOPES="openid profile offline_access"
    export OKTA_IDX_REDIRECTURI=http://localhost:8080
    ```

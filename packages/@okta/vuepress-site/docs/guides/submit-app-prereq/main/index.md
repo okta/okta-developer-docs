@@ -35,6 +35,8 @@ Review the following submission artifact guidelines:
 
 Before you submit your integration, ensure that your integration uses features that are supported in the OIN. See [OIN multi-tenancy](#oin-multi-tenancy) and [OIN limitations](#oin-limitations).
 
+See [OIN Wizard requirements](#oin-wizard-requirements) for publishing Single Sign-On (SSO) integrations.
+
 ## OIN multi-tenancy
 
 Your app integration must support multi-tenancy to be listed in the public OIN catalog.
@@ -47,7 +49,7 @@ Provide a method for each of your customer tenants to uniquely connect to their 
 
 #### SAML SSO multi-tenant example
 
-The following multi-tenant example demonstrates the scenario where your Okta app integration supports Security Assertion Markup Language (SAML) SSO, and you configure SSO for your customers:
+The following multi-tenant example demonstrates the scenario where you configure Security Assertion Markup Language (SAML) SSO for your customers:
 
 * Customer A and customer B have separate instances of your app within their own Okta orgs. Each customer has their own set of users. Both customers use Okta as an IdP.
 * Customer A adds your integration to their Okta org and obtains the SAML metadata from the integration. They contact you to enable SSO for their users on your app and forward you the SAML metadata.
@@ -62,6 +64,71 @@ The following multi-tenant example assumes that your Okta app integration suppor
 * Customer A instantiates an OIDC integration for your app in their Okta org and obtains the integration client ID and secret. They then sign in to your app platform portal and set up SSO configuration with their client ID, client secret, and Okta domain. Customer A enables SSO to your app for their users, and doesn't require any external assistance.
 * Similarly, customer B instantiates your OIDC app integration in their Okta org and obtains their unique client ID and secret. They then sign in to their account on your app platform. They use their client ID, client secret, and Okta domain (for the issuer URL) to enable SSO without any assistance from you.
 * Each customer enables SSO to your app for their users in a separate credential system with their Okta org. Because you've created a self-service portal that allows your customers to enable SSO by themselves, you save resources and provide autonomy to your customers.
+
+## OIN Wizard requirements
+
+The OIN Wizard is only available in Okta Developer Edition orgs.
+
+### OIN Wizard role requirements
+
+To access the OIN Wizard and the **Your OIN Integrations** dashboard in your org:
+
+* You must have either the super admin or the app and org admin [roles](https://help.okta.com/okta_help.htm?type=oie&id=ext-administrators-admin-comparison) assigned to you.
+* Use your company domain email as your username for your Okta admin account (submissions from a personal email account aren't reviewed).
+
+> **Note:** The app admin role enables you to view and edit details in the OIN Wizard. To test in the OIN Wizard, if you don't have the super admin role, then you must have both the app admin and the org admin roles assigned to you.
+
+### OIN Wizard test requirements
+
+Part of your OIN Wizard journey includes using the OIN Submission Tester to verify that your integration works before you submit it. The OIN Submission Tester requires the following:
+
+* Google Chrome browser
+* [Okta Browser Plugin](https://help.okta.com/okta_help.htm?type=eu&id=csh-user-plugin-overview) installed with **Allow in Incognito** enabled
+* A password-only authentication policy for the **Okta OIN Submission Tester** app
+
+#### OIN Wizard Okta Browser Plugin setup
+
+See [Install the Okta Browser Plugin with Chrome](https://help.okta.com/okta_help.htm?type=eu&id=ext_plugin_installation).
+
+> **Note:** The OIN Submission Tester requires Okta Browser Plugin version 6.30.0 or later. If you already have the plugin installed, it's automatically updated after each Okta release.
+
+After you installed the Okta Browser Plugin in your Chrome browser, set **Allow in Incognito** mode:
+
+1. In Chrome settings, click **Extensions**.
+1. From the Okta Browser Plugin tile, click **Details**.
+1. Enable the **Allow in Incognito** option.
+1. Close the **Extensions** and **Settings** tabs.
+1. Refresh your OIN Wizard browser tab.
+
+> **Note:** Okta recommends that you pin the Okta Browser Plugin extension on your Chrome browser. You can see warnings and errors relating to the Okta Browser Plugin if the extension is pinned to your browser.
+
+#### OIN Wizard authentication policy for testing
+
+<ApiLifecycle access="ie" />
+
+> **Note:** These instructions only apply to Identity Engine Developer Edition orgs. If you're not sure which solution you're using, check the footer on any page of the Admin Console. The version number is appended with **E** for Identity Engine orgs and **C** for Classic Engine orgs.
+
+The OIN Wizard testing phase uses a plugin app called the **Okta OIN Submission Tester**, which is preinstalled in your Developer Edition org. This app requires a password-only authentication policy to run properly.
+
+For Identity Engine orgs, the default authentication policy requires MFA. Use the pre-configured **Password only** authentication policy that is included in your Okta Developer Edition org for the Okta OIN Submission Tester app.
+
+1. Go to **Application** > **Applications** in the Admin Console.
+1. Click **Okta OIN Submission Tester**.
+1. Click the **Sign On** tab, scroll to the **User authentication** section and click **Edit**.
+1. Select **Password only** from the **Authentication policy** dropdown menu.
+1. Click **Save**.
+
+The OIN Submission Tester only supports a password authentication flow, so you need to use a password-only authentication policy for all your test app instances generated from the OIN Wizard.
+
+#### Troubleshoot the OIN Submission Tester
+
+If you have issues loading or accessing the OIN Submission Tester, review the following tips:
+
+* Ensure that you're using a Google Chrome browser with the [Okta Browser Plugin installed](#oin-wizard-okta-browser-plugin-setup).
+* Ensure that **Allow in Incognito** is enabled for the Okta Brower Plugin extension.
+* Pin the Okta Browser Plugin extension on your Chrome browser to get error notifications.
+* If you're using multiple Okta orgs, the Okta Browser Plugin requires you to trust the current Okta Developer Edition org. Click **Trust** when the **Do you trust this account?** dialog appears for the Okta Browser Plugin extension.
+* Ensure that you're using a password-only authentication policy for the OIN Submission Tester. See [OIN Wizard authentication policy for testing](#oin-wizard-authentication-policy-for-testing).
 
 ## Logo guidelines
 
@@ -111,11 +178,11 @@ The app descriptions must be less than 1024 characters and should describe the v
 
 ##### Single Sign-On (SSO) app description example
 
-Acme is a CMR platform that helps modern businesses thrive. A platform that connects different departments, from accounting to sales to customer service, in a centralized manner. Okta's Acme integration allows customers to sign in to the Acme platform using Okta as a Single Sign-On provider.
+Acme is a CMR platform that helps modern businesses thrive. A platform that connects different departments, from accounting to sales to customer service, in a centralized manner. The Okta Acme integration allows customers to sign in to the Acme platform, using Okta as a Single Sign-On provider.
 
 ##### SSO and SCIM app description example
 
-Acme is a CMR platform that helps modern businesses thrive. A platform that connects different departments, from accounting to sales to customer service, in a centralized manner. Okta’s Acme integration allows users to authenticate securely through Single Sign-On with SAML along with provisioning capabilities.
+Acme is a CMR platform that helps modern businesses thrive. A platform that connects different departments, from accounting to sales to customer service, in a centralized manner. The Okta Acme integration allows users to authenticate securely through Single Sign-On with SAML along with provisioning capabilities.
 
 ## Use case guidelines
 
@@ -124,7 +191,7 @@ The OIN catalog organizes integrations into use cases. You can select up to five
 | Use case | Integration capability |
 | -------- | ---------------------- |
 | [Single Sign-On](https://www.okta.com/integrations/?category=single-sign-on) (most common) | Enables users to access your app from any device with a single entry of their Okta user credentials. This use case is automatically assigned to Security Assertion Markup Language (SAML) and OpenID Connect (OIDC) integrations. <br><br> **Note:** You don't need to select this use case because `Single Sign-On` isn't an option in the **App use case** dropdown list. |
-| [Automation](https://www.okta.com/integrations/?category=automation)  | Automates business processes and Okta administration tasks. Most integrations in this use case are API service integrations that access Okta’s APIs using OAuth 2.0.  |
+| [Automation](https://www.okta.com/integrations/?category=automation)  | Automates business processes and Okta administration tasks. Most integrations in this use case are API service integrations that access Okta APIs using OAuth 2.0.  |
 | [Centralized Logging](https://www.okta.com/integrations/?category=centralized-logging) | Aggregates Okta logs into a central location, like a Security Information and Event Management (SIEM) tool, for optimized searching and alerting capabilities. API service integrations that poll the Okta API for System Logs using OAuth 2.0 support this use case. |
 | [Directory and HR Sync](https://www.okta.com/integrations/?category=directory-and-hr-sync) | Provides synchronization capabilities for external-sourced user profiles with the Okta Universal Directory. This use case is most common for human resources (HR) solutions using the System for Cross-domain Identity Management (SCIM) or [Okta Workflows](https://help.okta.com/okta_help.htm?type=wf). |
 | [Lifecycle Management](https://www.okta.com/integrations/?category=lifecycle-management) | Enables organizations to securely manage their entire identity lifecycle: from on-boarding to off-boarding, and ensuring that the company meets compliance requirements as user roles evolve and access levels change. This use case is most common with either SCIM or Workflows connector integrations. |
@@ -144,7 +211,7 @@ There are two types of support contacts that you must provide for your integrati
     * **Email**: An email support contact, such as `support@your-app.com` (see an [OIN email support contact example](https://www.okta.com/integrations/careervillage/))
     * **Phone Number**: A public phone number that customers can call for support
 
-* **Escalation support contact**: This is a private support contact used by Okta to contact your organization. It isn't shared with customers. In an emergency, Okta may need to reach your company's escalation support team, so this email or phone number needs to be monitored. Don’t use a general support contact that queues regular customer inquiries.
+* **Escalation support contact**: This is a private support contact used by Okta to contact your organization. It isn't shared with customers. In an emergency, Okta may need to reach your company's escalation support team, so this email or phone number needs to be monitored. Don't use a general support contact that queues regular customer inquiries.
 
 ## Test account guidelines
 
@@ -168,13 +235,13 @@ Provide a separate configuration guide as part of the OIN submission process for
 * During the OIN verification process, ensure that the link to your configuration guide is accessible to the OIN team. The OIN team checks your document for general adherence to the configuration instructions.
 * After your integration is in the OIN catalog, ensure that your guide link is public or customer-accessible.
 
-Your guide link is available to customer administrators through the Okta Admin Console when they add your integration to their Okta org. For example, when admins add your SAML integration in the Admin Console, they have access to your guide through the **View SAML setup instructions** link.
+Your guide link is available to customer administrators through the Admin Console when they add your integration to their Okta org. For example, when admins add your SAML integration in the Admin Console, they have access to your guide through the **View SAML setup instructions** link.
 
 > **Note**: Submit a separate guide for each type of integration if your integration supports more than one type. For example, if your integration supports both SSO and SCIM, you need to submit a guide for SSO and a separate guide for SCIM.
 
 ### Configuration guide content
 
-The following are section suggestions for your configuration guide:
+The following are topic suggestions for your configuration guide:
 
 * [Prerequisites](#prerequisites)
 * [Supported features](#supported-features)
@@ -347,7 +414,7 @@ Assign the mapping to the correct value for your organization.
 
 #### SP-initiated SSO
 
-> **Note**: This section applies only to SAML or OIDC integrations that support app-initiated Single Sign-On (SSO), also known as service provider (SP) initiated SSO.
+> **Note**: This section applies only to SAML or OIDC integrations that support app-initiated Single Sign-On (SSO), also known as Service Provider (SP) initiated SSO.
 
 Provide instructions for your users to sign in with Okta from your app. The user sign-in flow starts from your app's sign-in page. The user enters their credentials and your app sends the authorization request to Okta (the Identity Provider) to authenticate the user.
 
@@ -393,7 +460,7 @@ You can't publish integrations with the following Okta features in the OIN catal
 * **SWA apps:** Okta no longer publishes new Secure Web Authentication (SWA) integrations to the OIN catalog. The OIN team maintains existing SWA integrations.
 
 * **SAML apps with certain features:** The [OIN Wizard](/docs/guides/submit-oin-app/openidconnect/main/) places certain limits on SAML integration submissions. Examples of these limitations include:
-   * Only one to three app instance variables allowed
+   * Only one to three app instance variables are allowed
    * No RelayState support
    * No force authentication (`ForceAuthn`) support
 

@@ -59,16 +59,16 @@ When you follow these guides, be aware of the authorization server used. Most of
 
 For example, the following are the various `/authorize` request URLs for the different authorization servers:
 
-**custom authorization server**: `https://${customerOktaDomain}/oauth2/${authorizationServerId}/v1/authorize?client_id=${clientId}&response_type=code&scope=openid&redirect_uri=${redirectURI}&state=${state}`
+**custom authorization server**: `https://{customerOktaDomain}/oauth2/{authorizationServerId}/v1/authorize?client_id={clientId}&response_type=code&scope=openid&redirect_uri={redirectURI}&state={state}`
 
-**default custom authorization server**(`${authorizationServerId}=default`): `https://${customerOktaDomain}/oauth2/default/v1/authorize?client_id=${clientId}&response_type=code&scope=openid&redirect_uri=${redirectURI}&state=${state}`
+**default custom authorization server**(`{authorizationServerId}=default`): `https://{customerOktaDomain}/oauth2/default/v1/authorize?client_id={clientId}&response_type=code&scope=openid&redirect_uri={redirectURI}&state={state}`
 
-**org authorization server**:`https://${customerOktaDomain}/oauth2/v1/authorize?client_id=${clientId}&response_type=code&scope=openid&redirect_uri=${redirectURI}&state=${state}`
+**org authorization server**:`https://{customerOktaDomain}/oauth2/v1/authorize?client_id={clientId}&response_type=code&scope=openid&redirect_uri={redirectURI}&state={state}`
 
 Make sure you only use the **org authorization server** URL.
 
 > **Notes:**
-> * When you use the org authorization server, the issuer URL is `https://${yourOktaDomain}`.
+> * When you use the org authorization server, the issuer URL is `https://{yourOktaDomain}`.
 > * The `refresh_token` option isn't supported for apps published in the OIN.
 
 ### Scopes

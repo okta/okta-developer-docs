@@ -112,7 +112,7 @@ One of the following attributes must be defined. These attributes are defined by
 
 #### Location object
 
-Each Location object specifies an [ISO-3166-1](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code and an optional [ISO-3166-2](https://en.wikipedia.org/wiki/ISO_3166-2) region code.
+Each Location object specifies an ISO-3166-1 country code and an optional ISO-3166-2 region code.
 
 | Field Name  | Description                                                | Data Type   | Required |
 | :---------- | :--------------------------------------------------------- | :---------- | :------- |

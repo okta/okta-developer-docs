@@ -52,13 +52,13 @@ Suppose you have groups in your user data that you want to include when you crea
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
--H "Authorization: SSWS ${api_token}" \
+-H "Authorization: SSWS {api_token}" \
 -d '{
   "profile": {
     "name": "All Employees",
     "description": "Every single one of our employees"
   }
-}' "https://${yourOktaDomain}/api/v1/groups"
+}' "https://{yourOktaDomain}/api/v1/groups"
 ```
 
 The description property can be empty.
@@ -117,7 +117,7 @@ In our sample, the user's email address is our unique login and the Group IDs ar
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
--H "Authorization: SSWS ${api_token}" \
+-H "Authorization: SSWS {api_token}" \
 -d '{
   "profile": {
     "firstName": "John",
@@ -130,7 +130,7 @@ curl -v -X POST \
     "00g40qj7v5fn1AcOi357",
     "00g40qkfmol5YWDUX357"
   ]
-}' "https://${yourOktaDomain}/api/v1/users?activate=false"
+}' "https://{yourOktaDomain}/api/v1/users?activate=false"
 ```
 
 If you don't have any Groups or want to add your Users to Groups later, simply use the same request but without the `groupIds` array.
@@ -141,7 +141,7 @@ If you don't have any Groups or want to add your Users to Groups later, simply u
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
--H "Authorization: SSWS ${api_token}" \
+-H "Authorization: SSWS {api_token}" \
 -d '{
   "profile": {
     "firstName": "John",
@@ -149,7 +149,7 @@ curl -v -X POST \
     "email": "john.smith@example.com",
     "login": "john.smith@example.com"
   }
-}' "https://${yourOktaDomain}/api/v1/users?activate=false"
+}' "https://{yourOktaDomain}/api/v1/users?activate=false"
 ```
 
 ### Response example for both requests

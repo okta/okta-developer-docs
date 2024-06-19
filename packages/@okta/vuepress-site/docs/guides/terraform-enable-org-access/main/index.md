@@ -161,11 +161,11 @@ Create a Terraform configuration that uses the credentials that you created earl
 
     ```hcl
     provider "okta" {
-      org_name = "${yourOktaOrg}"
+      org_name = "{yourOktaOrg}"
       base_url = "okta.com"
-      client_id   = "${yourClientID}"
+      client_id   = "{yourClientID}"
       scopes = ["okta.groups.manage"]
-      private_key = ${privateKey}
+      private_key = {privateKey}
     }
     ```
 

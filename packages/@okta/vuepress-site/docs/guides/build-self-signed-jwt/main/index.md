@@ -32,15 +32,15 @@ Which JWT type that you use depends on the client authentication method configur
 
 > **Note:** To create a client application and specify either the `client_secret_jwt` or `private_key_jwt` authentication method, see the [Add OAuth 2.0 Client Application](/docs/reference/api/apps/#add-oauth-2-0-client-application) API reference section. To change the client authentication method of an existing app, see the [Update the Client Authentication Method](/docs/reference/api/apps/#update-the-client-authentication-method) API reference section.
 
-> **Tip:** Don't know which method is configured for your client app? You can quickly check the settings by doing a GET to `https://${yourOktaDomain}/api/v1/apps/${appId}`.
+> **Tip:** If you don't know which method is configured for your client app, you can quickly check the settings by doing a GET to `https://{yourOktaDomain}/api/v1/apps/{appId}`.
 
 ## Gather claims information
 
-When you create a JWT assertion claim for client authentication (`client_secret_jwt` or `private_key_jwt`), gather claims information for the payload section of the JWT. Claims are statements about the entity, which is typically a user and any additional data. 
+When you create a JWT assertion claim for client authentication (`client_secret_jwt` or `private_key_jwt`), gather claims information for the payload section of the JWT. Claims are statements about the entity, which is typically a user and any additional data.
 
 | Claim    | Description                                                  | Type        |
 |----------|--------------------------------------------------------------|-------------|
-| `aud`      | Required. The full URL of the resource that you're trying to access using the JWT to authenticate. For example: `https://${yourOktaDomain}/oauth2/default/v1/token` | String  |
+| `aud`      | Required. The full URL of the resource that you're trying to access using the JWT to authenticate. For example: `https://{yourOktaDomain}/oauth2/default/v1/token` | String  |
 | `exp`      | Required. The token expiration time in seconds since January 1, 1970 UTC (UNIX timestamp), for example, `1555594819`. This claim fails the request if the expiration time is more than one hour in the future or if the token is already expired.            | Integer     |
 | `iss`      | Required. The issuer of the token. This value must be the same as the `client_id` of the application that you’re accessing.  | String      |
 | `sub`      | Required. The subject of the token. This value must be the same as the `client_id` of the application that you’re accessing. | String       |

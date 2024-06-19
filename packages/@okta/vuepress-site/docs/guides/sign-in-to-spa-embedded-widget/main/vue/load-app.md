@@ -2,8 +2,8 @@
 
 Use the required [configuration settings](#okta-org-app-integration-configuration-settings) to initialize your Sign-In Widget and your Auth JS instance:
 
-* `clientId`: Your client ID &mdash; `${yourClientId}`
-* ` issuer`: The authorization server in your Okta org (for example, `https://${yourOktaDomain}/oauth2/default`)
+* `clientId`: Your client ID &mdash; `{yourClientId}`
+* ` issuer`: The authorization server in your Okta org (for example, `https://{yourOktaDomain}/oauth2/default`)
 * `pkce`: Set this option to `true` to enable PKCE in the widget. This is used for SPA apps that use the [Authentication Code with PKCE flow](/docs/guides/implement-grant-type/authcodepkce/main/).
 * `scopes`: Set the OAuth 2.0 scopes that your app requires.
 * `redirectUri`: Set your callback redirect URI. This value must be configured in your Okta app **Sign-in redirect URIs** and the URI host must be in the **Trusted Origins** list.
@@ -13,9 +13,9 @@ You can create a `src/config.js` file to define your configuration settings. For
 ```js
 export default {
   oidc: {
-    clientId: '${yourClientId}',
-    issuer: 'https://${yourOktaDomain}/oauth2/default',
-    redirectUri: '${yourLocalAppDomain}/login/callback',
+    clientId: '{yourClientId}',
+    issuer: 'https://{yourOktaDomain}/oauth2/default',
+    redirectUri: '{yourLocalAppDomain}/login/callback',
     scopes: ['openid', 'profile', 'email'],
     pkce: true,
   }

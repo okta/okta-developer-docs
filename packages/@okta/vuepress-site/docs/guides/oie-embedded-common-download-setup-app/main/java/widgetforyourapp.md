@@ -8,11 +8,11 @@ Begin to integrate the Sign-In Widget into your own embedded app by following th
 
 #### Source the Sign-In Widget from the Okta CDN
 
-Add the Sign-In Widget source to your sign-in page by referencing the Okta CDN, replacing `${widgetVersion}` with the [latest version](https://github.com/okta/okta-signin-widget/releases/) of the widget:
+Add the Sign-In Widget source to your sign-in page by referencing the Okta CDN, replacing `{widgetVersion}` with the [latest version](https://github.com/okta/okta-signin-widget/releases/) of the widget:
 
 ```html
-<script src="https://global.oktacdn.com/okta-signin-widget/${widgetVersion}/js/okta-sign-in.min.js" type="text/javascript"></script>
-<link href="https://global.oktacdn.com/okta-signin-widget/${widgetVersion}/css/okta-sign-in.min.css" type="text/css" rel="stylesheet"/>
+<script src="https://global.oktacdn.com/okta-signin-widget/{widgetVersion}/js/okta-sign-in.min.js" type="text/javascript"></script>
+<link href="https://global.oktacdn.com/okta-signin-widget/{widgetVersion}/css/okta-sign-in.min.css" type="text/css" rel="stylesheet"/>
 ```
 
 See also [Using the Okta CDN](https://github.com/okta/okta-signin-widget#using-the-okta-cdn). The latest version of the widget is -=OKTA_REPLACE_WITH_WIDGET_VERSION=-.
@@ -26,19 +26,19 @@ When you initialize the Sign-In Widget on your sign-in page, you must configure 
 
     var config = {};
 
-    config.baseUrl = /*[[${oktaBaseUrl}]]*/ 'https://{yourOktaDomain}';
-    config.clientId = /*[[${oktaClientId}]]*/ '{clientId}';
-    config.redirectUri = /*[[${redirectUri}]]*/ '{redirectUri}';
-    config.interactionHandle = /*[[${interactionHandle}]]*/ '{interactionHandle}';
-    config.codeChallenge = /*[[${codeChallenge}]]*/ '{codeChallenge}';
-    config.codeChallengeMethod = /*[[${codeChallengeMethod}]]*/ '{codeChallengeMethod}';
+    config.baseUrl = /*[[{oktaBaseUrl}]]*/ 'https://{yourOktaDomain}';
+    config.clientId = /*[[{oktaClientId}]]*/ '{clientId}';
+    config.redirectUri = /*[[{redirectUri}]]*/ '{redirectUri}';
+    config.interactionHandle = /*[[{interactionHandle}]]*/ '{interactionHandle}';
+    config.codeChallenge = /*[[{codeChallenge}]]*/ '{codeChallenge}';
+    config.codeChallengeMethod = /*[[{codeChallengeMethod}]]*/ '{codeChallengeMethod}';
     config.redirect = 'always';
     config.authParams = {
-        issuer: /*[[${issuerUri}]]*/ '{issuerUri}',
+        issuer: /*[[{issuerUri}]]*/ '{issuerUri}',
         pkce: true,
-        state: /*[[${state}]]*/ '{state}' || false,
-        nonce: /*[[${nonce}]]*/ '{nonce}',
-        scopes: /*[[${scopes}]]*/ '[scopes]',
+        state: /*[[{state}]]*/ '{state}' || false,
+        nonce: /*[[{nonce}]]*/ '{nonce}',
+        scopes: /*[[{scopes}]]*/ '[scopes]',
     };
 
   const signIn = new OktaSignIn({

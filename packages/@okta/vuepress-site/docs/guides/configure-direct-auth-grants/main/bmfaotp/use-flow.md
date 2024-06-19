@@ -6,10 +6,10 @@ Before you can begin this flow, collect the username and password from the user 
 
 ```bash
 curl --request POST \
-  --url https://${yourOktaDomain}/oauth2/v1/token \
+  --url https://{yourOktaDomain}/oauth2/v1/token \
   --header 'accept: application/json' \
   --header 'content-type: application/x-www-form-urlencoded' \
-  --data 'client_id=${client_id}&scope=openid%20profile&grant_type=password&username=${testuser%40example.com}&password={$userpassword}'
+  --data 'client_id={client_id}&scope=openid%20profile&grant_type=password&username={testuser%40example.com}&password={userpassword}'
 ```
 
 Note the parameters that are passed:
@@ -44,10 +44,10 @@ Your app prompts the user for an OTP in the app UI. The user obtains the OTP and
 
 ```bash
 curl --request POST \
-  --url https://${yourOktaDomain}/oauth2/v1/token \
+  --url https://{yourOktaDomain}/oauth2/v1/token \
   --header 'accept: application/json' \
   --header 'content-type: application/x-www-form-urlencoded' \
-  --data 'client_id=${client_id}&scope=openid profile&grant_type=http://auth0.com/oauth/grant-type/mfa-otp&otp=${otp_value}&mfa_token=${mfa_token_value}'
+  --data 'client_id={client_id}&scope=openid profile&grant_type=http://auth0.com/oauth/grant-type/mfa-otp&otp={otp_value}&mfa_token={mfa_token_value}'
 ```
 
 Note the parameters that are passed:

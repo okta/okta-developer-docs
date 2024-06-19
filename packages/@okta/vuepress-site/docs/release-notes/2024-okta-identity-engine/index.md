@@ -5,6 +5,153 @@ title: Okta Identity Engine API release notes 2024
 <ApiLifecycle access="ie" />
 # Okta Identity Engine API release notes (2024)
 
+## June
+
+### Monthly release 2024.06.0
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Active Directory Bidirectional Group Management API is GA in Preview](#active-directory-bidirectional-group-management-api-is-ga-in-preview) | June 5, 2024 |
+| [Seamless ISV experience with integrated testing is GA in Production](#seamless-isv-experience-with-integrated-testing-is-ga-in-production) | June 5, 2024 |
+| [Your OIN Integrations instruction updates](#your-oin-integrations-instruction-updates) | June 5, 2024 |
+| [SCIM 2.0 endpoint call update for user ResourceType requirements](#scim-2-0-endpoint-call-update-for-user-resourcetype-requirements) | June 5, 2024 |
+| [Increase to Inline Hooks](#increase-to-inline-hooks) | June 5, 2024 |
+| [New attribute to manage SAML app session lifetimes is GA in Preview](#new-attribute-to-manage-saml-app-session-lifetimes-is-ga-in-preview) | June 5, 2024 |
+| [Protected actions in the Admin Console](#protected-actions-in-the-admin-console-is-ga-in-preview) | June 5, 2024 |
+| [Event hook for session context changes](#event-hook-for-session-context-changes) | June 5, 2024 |
+| [Developer documentation update in 2024.06.0](#developer-documentation-update-in-2024-06-0) | June 5, 2024 |
+| [Bugs fixed in 2024.06.0](#bugs-fixed-in-2024-06-0) | June 5, 2024 |
+
+#### Active Directory Bidirectional Group Management API is GA in Preview
+
+The [Bidirectional Group Management for Active Directory (AD) API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/DirectoriesIntegration) allows you to manage AD groups from within Okta. You can add or remove users from groups based on their identity and access requirements. This ensures that changes made to user access in Okta are reflected in AD. When you use Okta Access Certifications to revoke a user's membership to an AD group, the removal is reflected in AD.
+
+Okta can only manage group memberships for users and groups imported into Okta using the AD integration. It isn't possible to manage users and groups that weren't imported through AD integration or are outside the organizational unit's scope for the integration using this feature. <!--AD_BIDIRECTIONAL_GROUP_MANAGEMENT OKTA-734564-->
+
+#### Seamless ISV experience with integrated testing is GA in Production
+
+Okta now provides a seamless ISV experience to optimize the [Okta Integration Network (OIN)](https://www.okta.com/integrations/) submission experience for SAML and OIDC integrations. This new experience enables independent software vendors (ISVs) to build and automatically test their integration metadata before submission. This reduces the time needed for the OIN team to review and validate that the integration functions as intended, which shortens the time to publish in the OIN. This experience also incorporates communication processes in Salesforce, enabling improved collaboration internally within Okta teams and externally with ISVs. See [Publish an OIN integration](/docs/guides/submit-app-overview/) overview and [Submit an SSO integration with the OIN Wizard](/docs/guides/submit-oin-app/openidconnect/main/) guide. <!--OKTA_OIN_SUBMISSION_TESTER OKTA-686228 -->
+
+#### Your OIN Integrations instruction updates
+
+TThe instructions on how to submit your OIN integration have been updated on the **Your OIN Integrations** page of the Admin Console in Developer Edition orgs. <!--OKTA-734095-->
+
+#### SCIM 2.0 endpoint call update for user ResourceType requirements
+
+When using [SCIM 2.0 with Entitlements](/docs/guides/scim-with-entitlements/main/), Okta no longer requires a user `ResourceType` value when no custom `schemaExtensions` are used. This applies only to SCIM 2.0 apps enabled for governance with Okta Identity Governance leveraging the `/ResourceTypes` endpoint. <!--OKTA-729238-->
+
+#### Increase to Inline Hooks
+
+The maximum number of inline hooks an org can create is now 100. The previous maximum was 50. See [Inline hook setup](/docs/concepts/inline-hooks/#inline-hook-setup). <!-- OKTA-732758 -->
+
+#### New attribute to manage SAML app session lifetimes is GA in Preview
+
+The `SessionNotOnOrAfter` parameter is an optional SAML parameter that enables the IdP to control the session at the SP. Add `SessionNotOnOrAfter` as an attribute in the SAML assertion to control the session lifetimes of SP apps using the Okta IdP. <!--OKTA-690479-->
+
+#### Protected actions in the Admin Console is GA in Preview
+
+The protected actions feature provides an additional layer of security to your org. It prompts admins for authentication when they perform critical tasks in the Admin Console and helps ensure that only authorized admins can perform these tasks. Super admins can configure the authentication interval for their org. See [Protected actions in the Admin Console](https://help.okta.com/okta_help.htm?type=oie&id=ext-protected-actions). <!-- PRIVILEGED_ACTIONS OKTA-683167 -->
+
+#### Event hook for session context changes
+
+The `user.session.context.change` System Log event is now available for use in an event hook. See the [Event type](https://developer.okta.com/docs/reference/api/event-types/?q=user.session.context.change) reference and [Event hooks](https://help.okta.com/okta_help.htm?type=oie&id=ext-event-hooks) in the Product documentation. <!--OKTA-730871-->
+
+#### Developer documentation update in 2024.06.0
+
+* The [Customize domain and email address guide](/docs/guides/custom-url-domain/main/#caveats) now says that network zones are incompatible with Okta-managed TLS certificates. (OKTA-730633)
+
+* The [Style the Sign-In Widget (third generation) guide](/docs/guides/custom-widget-gen3/main/#about-the-afterrender-function) now describes how palette generation aligns with accessible color contrast ratios. (OKTA-712381)
+
+#### Bugs fixed in 2024.06.0
+
+* The `forceAuthn` parameter was ignored for org2org apps using the SAML sign-in mode and AMR claims mapping. (OKTA-711957)
+
+* The `user.risk.change` System Log event displayed incorrect actor values. (OKTA-731725)
+
+## May
+
+### Weekly release 2024.05.1
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Enhanced Dynamic Network Zones is self-service EA](#enhanced-dynamic-network-zones-is-self-service-ea) | May 15, 2024 |
+| [Bug fixed in 2024.05.1](#bug-fixed-in-2024-05-1)  | May 15, 2024 |
+
+#### Enhanced Dynamic Network Zones is self-service EA
+
+Use Enhanced Dynamic Network Zones to define IP service categories (proxies, VPNs), locations, and Autonomous System Numbers (ASNs) that are allowed or blocked in a zone. See [Network Zones API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/NetworkZone/). <!--ENHANCED_DYNAMIC_NETWORK_ZONE OKTA-727934-->
+
+#### Bug fixed in 2024.05.1
+
+<!---Removing as part of OKTA-734890: * If an API request contained any malformed syntax within the query string, the request was still processed. (OKTA-728810) --->
+
+* Sometimes the SAML assertion lifetime couldn't be unset when the SAML Assertion Lifetime API feature was enabled. (OKTA-728316)
+
+### Monthly release 2024.05.0
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [SSF Transmitter API is self-service EA in Preview](#ssf-transmitter-api-is-self-service-ea-in-preview) | May 8, 2024 |
+| [Seamless ISV experience with integrated testing is GA in Preview](#seamless-isv-experience-with-integrated-testing-is-ga-in-preview) | May 8, 2024 |
+| [PUT requests for an API token network condition is self-service EA](#put-requests-for-an-api-token-network-condition-is-self-service-ea) | May 8, 2024 |
+| [Permissions for custom admins to manage agents is GA in Production](#permissions-for-custom-admins-to-manage-agents-is-ga-in-production) | May 8, 2024 |
+| [Username supported as optional request query parameter](#username-supported-as-optional-request-query-parameter) | May 8, 2024 |
+| [Version pinning for Sign-In Widget (third generation) is GA in Production](#version-pinning-for-sign-in-widget-third-generation-is-ga-in-production) | May 8, 2024 |
+| [New System Log API property for target object](#new-system-log-api-property-for-target-object) | May 8, 2024 |
+| [Multiple Identifiers is EA in Preview](#multiple-identifiers-is-ea-in-preview) | April 10, 2024 |
+| [Developer documentation update in 2024.05.0](#developer-documentation-update-in-2024-05-0) | May 8, 2024 |
+| [Bugs fixed in 2024.05.0](#bugs-fixed-in-2024-05-0) | May 8, 2024 |
+
+#### SSF Transmitter API is self-service EA in Preview
+
+Okta uses [CAEP](https://openid.net/specs/openid-caep-specification-1_0.html) to send security-related events and other data-subject signals to Apple, known as the Shared Signal Framework (SSF) receiver. After an SSF stream is configured, Okta sends signals as [Security Event Tokens (SETs)](https://datatracker.ietf.org/doc/html/rfc8417) to Apple. Use the [SSF Transmitter API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SSFTransmitter/) to manage SSF stream configurations between the SSF receiver and Okta. <!-- OKTA-660502 -->
+
+#### Seamless ISV experience with integrated testing is GA in Preview
+
+Okta now provides a seamless ISV experience to optimize the [Okta Integration Network (OIN)](https://www.okta.com/integrations/) submission experience for SAML and OIDC integrations. This new experience enables independent software vendors (ISVs) to build and automatically test their integration metadata before submission. This reduces the time needed for the OIN team to review and validate that the integration functions as intended, which shortens the time to publish in the OIN. This experience also incorporates communication processes in Salesforce, enabling improved collaboration internally within Okta teams and externally with ISVs. See [Publish an OIN integration](/docs/guides/submit-app-overview/) overview and [Submit an SSO integration with the OIN Wizard](/docs/guides/submit-oin-app/openidconnect/main/) guide. <!-- OKTA-686228 -->
+
+#### PUT requests for an API token network condition is self-service EA
+
+You can now make PUT requests to the `/api-tokens/{apiTokenId}` endpoint to update the network condition of an API token. <!-- OKTA-704387 -->
+
+#### Permissions for custom admins to manage agents is GA in Production
+
+Custom admins can now view, register, and manage agents. See [Permission types](/docs/reference/api/roles/#permission-properties). <!-- OKTA-706310 -->
+
+#### Username supported as optional request query parameter
+
+SAML and WS-Fed template applications now support username as an optional request query parameter for supplying a login hint. <!-- OKTA-711401 -->
+
+#### Version pinning for Sign-In Widget (third generation) is GA in Production
+
+You can now pin the Sign-In Widget version (third generation) when updating a customized sign-in page (`PUT /brands/{brandId}/pages/sign-in/customized`) or a preview sign-in page (`PUT /brands/{brandId}/pages/sign-in/preview`). The value of `widgetVersion` must be `7.8` or later if `widgetCustomizations.widgetGeneration` is set to `G3`. A value of `7.7` or earlier results in an invalid request. See [Replace the Customized Error Page](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/CustomPages/#tag/CustomPages/operation/replaceCustomizedErrorPage). <!-- OKTA-713942 -->
+
+#### New System Log API property for target object
+
+Certain system log events now contain a new property called `changeDetails` in the `target` object. When this property is populated, it reflects new, changed, or removed attributes of the target resource that has been modified. See [changeDetails property](/docs/reference/api/system-log/#changedetails-property). <!-- OKTA-724000 -->
+
+#### Multiple Identifiers is EA in Preview
+
+Today, end users must sign in to Okta with a username or email address only. With the Multiple Identifiers feature, admins can configure identifiers, or user attributes from Universal Directory, that an end user can enter to authenticate. Multiplier identifiers work in sign-in, recovery, self-service registration, and unlock flows. Admins can configure up to three identifiers, including email (which is still a required identifier). See [Profile enrollment policy](/docs/reference/api/policy/#profile-enrollment-policy). <!-- OKTA-687191 FF: MULTIPLE_IDENTIFIERS -->
+
+#### Developer documentation update in 2024.05.0
+
+The [Style the Sign-In Widget (third generation) guide](/docs/guides/custom-widget-gen3/main/#about-the-afterrender-function) has been updated to describe how the `afterRender` function works. <!-- OKTA-686866 -->
+
+#### Bugs fixed in 2024.05.0
+
+* When a large number of users were linked to an Identity Provider, requests to the `/idps/{IdP_ID}/users` endpoint timed out. (OKTA-710934)
+
+* POST calls to `/idp/myaccount/emails` to capitalize a letter resulted in the end user unable to sign in to their account. (OKTA-712135)
+
+* Users who entered an invalid username into a password-first sign-in flow saw a misleading error message. This behavior occurred only in orgs that enabled the Multiple Identifiers feature and disabled User Enumeration Prevention. (OKTA-713096)
+
+* Super admins with roles assigned through group assignment couldn't enable Direct Authentication grant types in an OIDC app. (OKTA-719756)
+
+* If a [login pattern](https://developer.okta.com/docs/reference/api/schemas/#login-pattern-validation) failed validation when making a request with the Schemas API, the call dropped the pattern and continued the request. (OKTA-723332)
+
+* The Apps API accepted `0` as a value for the `samlAssertionLifetimeSeconds` parameter. (OKTA-723982)
+
 ## April
 
 ### Weekly release 2024.04.3
@@ -17,17 +164,19 @@ title: Okta Identity Engine API release notes 2024
 
 * GET policy rules (`/v1/policies/{policyId}/rules`) and GET a policy rule  (`/v1/policies/{policyId}/rules/{ruleId}`) requests returned a rule with a null value for the `created` property. (OKTA-542919)
 
-* The Factors API didn’t correctly return all `profile.keys` parameters for Okta Verify enrollments. (OKTA-694655)
+* The Factors API didn't correctly return all `profile.keys` parameters for Okta Verify enrollments. (OKTA-694655)
 
 * Apps API users were able to add duplicate SAML `attributeStatements` when they created or updated a custom SAML 2.0 app. (OKTA-706474)
 
 * GET calls to `/iam/roles` sometimes didn't return link headers. (OKTA-712212)
 
+* When the **First name** and **Last name** values in a user's profile contained dots, they were clickable in emails. (OKTA-712504)
+
 * The `/introspect` endpoint response was incorrect for an access token returned by the On-Behalf-Of Token Exchange flow. (OKTA-712602)
 
 * The `/authorize` endpoint didn't accept the `sessionToken` when **Stay signed in** was set to **Before and after users sign in** in the Admin Console. (OKTA-713055)
 
-* The `aud` claim value must now be the org’s URL in SSF messages. (OKTA-720203)
+* The `aud` claim value must now be the org's URL in SSF messages. (OKTA-720203)
 
 ### Weekly release 2024.04.1
 
@@ -102,7 +251,7 @@ The [OIN QA SCIM test plan](/docs/guides/scim-provisioning-integration-test/main
 
 #### Bugs fixed in 2024.03.2
 
-* An admin was able to make a GET Policy request (`/authorizationServers/${authorizationServerId}/policies/${policyId}`) to an authorization server with no policies, using a policy ID from another authorization server with policies, and get that policy information returned. (OKTA-684225)
+* An admin was able to make a GET Policy request (`/authorizationServers/{authorizationServerId}/policies/{policyId}`) to an authorization server with no policies, using a policy ID from another authorization server with policies, and get that policy information returned. (OKTA-684225)
 
 * Okta sometimes incorrectly returned an Invalid Phone Number error during SMS factor enrollment. (OKTA-705078)
 
@@ -139,7 +288,7 @@ The Content Security Policy (CSP) feature lets admins control which URLs may be 
 
 #### New mappings property for Policy API is EA in Preview
 
-A new `mappings` property is available for the `links` object in  `GET /api/v1/policies/${policyId}` and `GET /api/v1/policies?type=${type}` responses. This property displays links to policy mappings. See [Policy API](/docs/reference/api/policy/#links-object). <!-- OKTA-637310 -->
+A new `mappings` property is available for the `links` object in  `GET /api/v1/policies/{policyId}` and `GET /api/v1/policies?type={type}` responses. This property displays links to policy mappings. See [Policy API](/docs/reference/api/policy/#links-object). <!-- OKTA-637310 -->
 
 #### My Account Authenticators API is GA in Production
 

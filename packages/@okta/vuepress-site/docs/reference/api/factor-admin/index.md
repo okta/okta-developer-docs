@@ -42,8 +42,8 @@ The following factor types are supported:
 | --------------------- | -----------                                                                                                         |
 | `question`            | Additional security question                                                                                        |
 | `sms`                 | SMS                                                                                                                 |
-| `token:software:totp` | Software [Time-based One-time Password (TOTP)](http://en.wikipedia.org/wiki/Time-based_One-time_Password_Algorithm) |
-| `token`               | A software or hardware one-time password [OTP](http://en.wikipedia.org/wiki/One-time_password) device               |
+| `token:software:totp` | Software [Time-based One-Time Passcode (TOTP)](https://datatracker.ietf.org/doc/html/rfc6238) |
+| `token`               | A software or hardware one-time passcode [OTP](https://datatracker.ietf.org/doc/html/rfc2289) device               |
 
 ### Provider type
 

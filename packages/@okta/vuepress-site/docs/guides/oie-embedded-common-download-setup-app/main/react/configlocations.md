@@ -3,7 +3,7 @@ There are many different ways to store these configuration values. Wherever you 
 ```javascript
 const appConfig = {
     "clientId": "0oa1kelclsb...",
-    "issuer": "https://${yourOktaDomain}/oauth2/default",
+    "issuer": "https://{yourOktaDomain}/oauth2/default",
     "redirectUri": "http://app.example.com/login/callback",
     "scopes": [
         "openid",
@@ -31,8 +31,8 @@ Set the configuration values directly in your code. For example, create a config
 ```javascript
 export default {
   clientId: `0oa1kelclsb...`,
-  issuer: `https://${yourOktaDomain}/oauth2/default`,
-  redirectUri: `${window.location.origin}/login/callback`,
+  issuer: `https://{yourOktaDomain}/oauth2/default`,
+  redirectUri: `{window.location.origin}/login/callback`,
   scopes: [
     'openid',
     'profile',
@@ -66,7 +66,7 @@ Access these values using the global `process.env` object. For example, use `pro
 Read the settings from a configuration file located on the server. For example, use the [dotenv](https://www.npmjs.com/package/dotenv) package and create an external configuration file that defines each setting.
 
 ```yaml
-ISSUER=https://${yourOktaDomain}/oauth2/default
+ISSUER=https://{yourOktaDomain}/oauth2/default
 CLIENT_ID=0oa1kelclsb...
 ...
 ```

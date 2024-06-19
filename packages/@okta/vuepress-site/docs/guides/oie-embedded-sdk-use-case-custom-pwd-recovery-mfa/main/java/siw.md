@@ -10,11 +10,11 @@ After the user starts the password recovery flow and selects the email authentic
 
 </div>
 
-When the user clicks the **Reset Password** link, their browser sends a request to the endpoint defined by the template and attaches the `${oneTimePassword}` and `${request.relayState}` VTL variables as query parameters to the URL. For instance, in the sample this request might render as `http://localhost:8080/magic-link/callback?otp=726009&state=1b34371af02dd31d2bc4c48a3607cd32`.
+When the user clicks the **Reset Password** link, their browser sends a request to the endpoint defined by the template and attaches the `{oneTimePassword}` and `{request.relayState}` VTL variables as query parameters to the URL. For instance, in the sample this request might render as `http://localhost:8080/magic-link/callback?otp=726009&state=1b34371af02dd31d2bc4c48a3607cd32`.
 
 ### 2: Handle the OTP and state parameters
 
-Create a callback handler that takes the `${oneTimePassword}` and `${request.relayState}` values from the query string, saves them into local variables (for instance, 'otp', and 'state'), and makes the following checks:
+Create a callback handler that takes the `{oneTimePassword}` and `{request.relayState}` values from the query string, saves them into local variables (for instance, 'otp', and 'state'), and makes the following checks:
 
 1. That the current session attribute `IdxClientContext` isn't `null` (because the user clicked the magic link from a different browser).
 2. That `state` isn't `null`.
@@ -80,20 +80,20 @@ Pass the values using the widget's `config` object.
       /*<![CDATA[*/
 
       var config = {};
-      config.baseUrl = /*[[${oktaBaseUrl}]]*/ 'https://{yourOktaDomain}';
-      config.clientId = /*[[${oktaClientId}]]*/ '{clientId}';
-      config.otp = /*[[${otp}]]*/ '{otp}';
-      config.redirectUri = /*[[${redirectUri}]]*/ '{redirectUri}';
-      config.interactionHandle = /*[[${interactionHandle}]]*/ '{interactionHandle}';
-      config.codeChallenge = /*[[${codeChallenge}]]*/ '{codeChallenge}';
-      config.codeChallengeMethod = /*[[${codeChallengeMethod}]]*/ '{codeChallengeMethod}';
+      config.baseUrl = /*[[{oktaBaseUrl}]]*/ 'https://{yourOktaDomain}';
+      config.clientId = /*[[{oktaClientId}]]*/ '{clientId}';
+      config.otp = /*[[{otp}]]*/ '{otp}';
+      config.redirectUri = /*[[{redirectUri}]]*/ '{redirectUri}';
+      config.interactionHandle = /*[[{interactionHandle}]]*/ '{interactionHandle}';
+      config.codeChallenge = /*[[{codeChallenge}]]*/ '{codeChallenge}';
+      config.codeChallengeMethod = /*[[{codeChallengeMethod}]]*/ '{codeChallengeMethod}';
       config.redirect = 'always';
       config.authParams = {
-          issuer: /*[[${issuerUri}]]*/ '{issuerUri}',
+          issuer: /*[[{issuerUri}]]*/ '{issuerUri}',
           pkce: true,
-          state: /*[[${state}]]*/ '{state}' || false,
-          nonce: /*[[${nonce}]]*/ '{nonce}',
-          scopes: /*[[${scopes}]]*/ '[scopes]',
+          state: /*[[{state}]]*/ '{state}' || false,
+          nonce: /*[[{nonce}]]*/ '{nonce}',
+          scopes: /*[[{scopes}]]*/ '[scopes]',
       };
 
       new OktaSignIn(config).showSignInAndRedirect(

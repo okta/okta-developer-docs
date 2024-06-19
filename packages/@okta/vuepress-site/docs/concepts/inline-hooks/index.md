@@ -97,12 +97,12 @@ Support is provided for header-based authentication to authenticate every reques
 ```http
 Accept: application/json
 Content-Type: application/json
-Authorization: ${key}
+Authorization: {key}
 ```
 
 #### Authorization header
 
-The Authorization header (`Authorization: ${key}`) is a secret string that you provide to Okta when you register your external service. This string serves as an API access key for your service, and Okta provides it in every request. Your code can check if the string is present as a security measure. (This isn't an Okta authorization token, it's simply a text string you decide on.) See [HTTP header: Basic Authentication](/docs/guides/common-hook-set-up-steps/#http-header-basic-authentication).
+The Authorization header (`Authorization: {key}`) is a secret string that you provide to Okta when you register your external service. This string serves as an API access key for your service, and Okta provides it in every request. Your code can check if the string is present as a security measure. (This isn't an Okta authorization token, it's simply a text string you decide on.) See [HTTP header: Basic Authentication](/docs/guides/common-hook-set-up-steps/#http-header-basic-authentication).
 
 ### JSON request payload objects
 
@@ -202,7 +202,7 @@ After creating your external service, you need to tell Okta it exists, and enabl
 
 1. Associate the endpoint with a particular Okta process flow. This step varies by inline hook type.
 
-The total number of inline hooks that you can create in an Okta org is limited to 50, which is a total for any combination of inline hook types.
+The total number of inline hooks that you can create in an Okta org is limited to 100, which is a total for any combination of inline hook types.
 
 For more information on implementing inline hooks, see the documentation for specific inline hook types linked to in [Currently-Supported Types](#currently-supported-types).
 

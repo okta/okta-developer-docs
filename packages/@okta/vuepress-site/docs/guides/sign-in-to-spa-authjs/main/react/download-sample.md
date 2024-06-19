@@ -24,8 +24,8 @@ yarn install
 Create and add a configuration file (`testenv`) to the `okta-auth-js` root folder. The `testenv` file contains the configuration values for your Okta app integration. See [Create an app integration](#create-an-app-integration) for details on these values.
 
 ```txt
-ISSUER=https://${yourOktaDomain}/oauth2/default
-CLIENT_ID=${clientId}
+ISSUER=https://{yourOktaDomain}/oauth2/default
+CLIENT_ID={clientId}
 USE_INTERACTION_CODE=true
 ```
 

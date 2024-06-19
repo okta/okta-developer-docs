@@ -51,32 +51,32 @@ For this call, you need the `id` for your app and the `id` for the Sales group.
 
 To find these values:
 
-1. Call the [Groups API](/docs/reference/api/groups/#find-groups) with the query parameter as follows: `https://${yourOktaDomain}/api/v1/groups?q=Sales`. Save the `id` value from the response.
+1. Call the [Groups API](/docs/reference/api/groups/#find-groups) with the query parameter as follows: `https://{yourOktaDomain}/api/v1/groups?q=Sales`. Save the `id` value from the response.
 
-1. Call the [Apps API](/docs/reference/api/apps/#list-applications) with the query parameter as follows: `https://${yourOktaDomain}/api/v1/apps?q={YourAppName}`. Save the `id` value from the response. Alternatively, the client ID available in the Admin Console is the `id` of your app.
+1. Call the [Apps API](/docs/reference/api/apps/#list-applications) with the query parameter as follows: `https://{yourOktaDomain}/api/v1/apps?q={YourAppName}`. Save the `id` value from the response. Alternatively, the client ID available in the Admin Console is the `id` of your app.
 
 To simulate the first scenario, use the following call but replace the following values:
 
-* `${api_token}`: your org's API token value
+* `{api_token}`: Your org's API token value
 
-* `${yourOktaDomain}`: your Okta domain, for example, `https://example.oktapreview.com`
+* `{yourOktaDomain}`: Your Okta domain, for example, `https://example.oktapreview.com`
 
-* `${yourAppID}`: the `id` value that represents your sample app
+* `{yourAppID}`: The `id` value that represents your sample app
 
-* `${yourSalesGroupID}`: the `id` value that represents your Sales group
+* `{yourSalesGroupID}`: The `id` value that represents your Sales group
 
 ```bash
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
--H "Authorization: SSWS ${api_token}" \
+-H "Authorization: SSWS {api_token}" \
 -d '{
-  "appInstance": "${yourAppID}",
+  "appInstance": "{yourAppID}",
   "policyContext": {
-    "groups": {"ids":["${yourSalesGroupID}"]}
+    "groups": {"ids":["{yourSalesGroupID}"]}
     }
   }'
-  "https://${yourOktaDomain}/api/v1/policies/simulate?expand=EVALUATED&expand=RULE"
+  "https://{yourOktaDomain}/api/v1/policies/simulate?expand=EVALUATED&expand=RULE"
 
 ```
 
@@ -226,7 +226,7 @@ For this call, you need the `id` for another group not assigned to your app, for
 
 To find this value:
 
-* Call the [Groups API](/docs/reference/api/groups/#find-groups) with the query parameter as follows: `https://${yourOktaDomain}/api/v1/groups?q=Everyone`. Save the `id` value from the response.
+* Call the [Groups API](/docs/reference/api/groups/#find-groups) with the query parameter as follows: `https://{yourOktaDomain}/api/v1/groups?q=Everyone`. Save the `id` value from the response.
 
 To simulate the second scenario, use the following call but replace the group ID for Sales for the group ID of another group. In this case, Everyone:
 
@@ -234,15 +234,15 @@ To simulate the second scenario, use the following call but replace the group ID
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
--H "Authorization: SSWS ${api_token}" \
+-H "Authorization: SSWS {api_token}" \
 -d '{
   "policyTypes":[],
-  "appInstance": "${yourAppID}",
+  "appInstance": "{yourAppID}",
   "policyContext": {
-    "groups": {"ids":["${yourEveryoneGroupID}"]},
+    "groups": {"ids":["{yourEveryoneGroupID}"]},
     "risk":{"level":"LOW"}
   }
-' "https://${yourOktaDomain}/api/v1/policies/simulate?expand=EVALUATED&expand=RULE'" \
+' "https://{yourOktaDomain}/api/v1/policies/simulate?expand=EVALUATED&expand=RULE'" \
 
 ```
 

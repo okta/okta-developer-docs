@@ -56,7 +56,7 @@ See the following sample calls and responses for this basic authentication flow:
 #### Call /api/v1/authn
 
 ```bash
-curl --location --request POST 'https://${yourOktaDomain}/api/v1/authn' \
+curl --location --request POST 'https://{yourOktaDomain}/api/v1/authn' \
 --header 'Accept: application/json' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -106,7 +106,7 @@ curl --location --request POST 'https://${yourOktaDomain}/api/v1/authn' \
 #### Use the sessionToken from the response to create a session
 
 ```bash
-curl --location --request POST 'https://${yourOktaDomain}/api/v1/sessions' \
+curl --location --request POST 'https://{yourOktaDomain}/api/v1/sessions' \
 --header 'Accept: application/json' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: SSWS 00igKrTNyNLHCw0wYSIsoDF28cN4B3KZPETBz9pqz0' \
@@ -182,8 +182,8 @@ The following sections highlight the Classic Engine Authentication SDK method ca
 If your app uses direct APIs for a multifactor authentication flow, your code may call the following Okta APIs:
 
 - `/api/v1/authn`: Begin the MFA authentication with the password credentials, which sets the transaction state to `MFA_REQUIRED`
-- `/api/authn/factors/${emailFactorId}/verify`: Send the user an email with a sign-in code
-- `/api/authn/factors/${$emailFactorId}/verify`: Call this a second time with the sign-in code from the email challenge
+- `/api/authn/factors/{emailFactorId}/verify`: Send the user an email with a sign-in code
+- `/api/authn/factors/{$emailFactorId}/verify`: Call this a second time with the sign-in code from the email challenge
 
 >**Note:** If you call the direct `/api/v1/policies` API to manage or update MFA enrollment policies, you need to update these calls to use Identity Engine policies. See [Authentication policy](/docs/reference/api/policy/#authentication-policy) and [Profile enrollment policy](/docs/reference/api/policy/#profile-enrollment-policy).
 
@@ -192,7 +192,7 @@ See the following sample calls and responses for the MFA authentication flow usi
 #### Call the /api/v1/authn endpoint
 
 ```bash
-curl --location --request POST 'https://${yourOktaDomain}/api/v1/authn' \
+curl --location --request POST 'https://{yourOktaDomain}/api/v1/authn' \
 --header 'Accept: application/json' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -285,10 +285,10 @@ curl --location --request POST 'https://${yourOktaDomain}/api/v1/authn' \
 }
 ```
 
-#### Send email challenge (/api/v1/authn/factors/${emailFactorId}/verify)
+#### Send email challenge (/api/v1/authn/factors/{emailFactorId}/verify)
 
 ```bash
-curl --location --request POST 'https://${yourOktaDomain}/api/v1/authn/factors/emf276bb2dP3no7Da5d7/verify' \
+curl --location --request POST 'https://{yourOktaDomain}/api/v1/authn/factors/emf276bb2dP3no7Da5d7/verify' \
 --header 'Accept: application/json' \
 --header 'Content-Type: application/json' \
 --header 'Cookie: JSESSIONID=6B93EFE5B529BB1CCC437F33996F04AB' \
@@ -375,10 +375,10 @@ curl --location --request POST 'https://${yourOktaDomain}/api/v1/authn/factors/e
 }
 ```
 
-#### Verify code from challenge email (/api/v1/authn/factors/${emailFactorId}/verify)
+#### Verify code from challenge email (/api/v1/authn/factors/{emailFactorId}/verify)
 
 ```bash
-curl --location --request POST 'https://${yourOktaDomain}/api/v1/authn/factors/emf276bb2dP3no7Da5d7/verify' \
+curl --location --request POST 'https://{yourOktaDomain}/api/v1/authn/factors/emf276bb2dP3no7Da5d7/verify' \
 --header 'Accept: application/json' \
 --header 'Content-Type: application/json' \
 --header 'Cookie: JSESSIONID=6B93EFE5B529BB1CCC437F33996F04AB' \
@@ -444,12 +444,12 @@ See the following sample calls and responses for the password recovery flow usin
 #### User clicks link to recover password (/api/v1/authn/recovery/password with factorType)
 
 ```bash
-curl --location --request POST 'https://${yourOktaDomain}/api/v1/authn/recovery/password' \
+curl --location --request POST 'https://{yourOktaDomain}/api/v1/authn/recovery/password' \
 --header 'Accept: application/json' \
 --header 'Content-Type: application/json' \
 --header 'Cookie: JSESSIONID=567D81F8C70A8F601AD0EF3A551FB53D' \
 --data-raw '{
-  "username": "${username}",
+  "username": "{username}",
   "factorType": "SMS",
   "relayState": "/myapp/some/deep/link/i/want/to/return/to"
 }'
@@ -499,7 +499,7 @@ curl --location --request POST 'https://${yourOktaDomain}/api/v1/authn/recovery/
 #### The user verifies the SMS challenge (/api/v1/authn/recovery/factors/sms/verify)
 
 ```bash
-curl --location --request POST 'https://${yourOktaDomain}/api/v1/authn/recovery/factors/sms/verify' \
+curl --location --request POST 'https://{yourOktaDomain}/api/v1/authn/recovery/factors/sms/verify' \
 --header 'Accept: application/json' \
 --header 'Content-Type: application/json' \
 --header 'Cookie: JSESSIONID=567D81F8C70A8F601AD0EF3A551FB53D' \
@@ -570,7 +570,7 @@ curl --location --request POST 'https://${yourOktaDomain}/api/v1/authn/recovery/
 #### Prompt the user to reset password (/api/v1/authn/credentials/reset_password)
 
 ```bash
-curl --location --request POST 'https://${yourOktaDomain}/api/v1/authn/credentials/reset_password' \
+curl --location --request POST 'https://{yourOktaDomain}/api/v1/authn/credentials/reset_password' \
 --header 'Accept: application/json' \
 --header 'Content-Type: application/json' \
 --header 'Cookie: JSESSIONID=567D81F8C70A8F601AD0EF3A551FB53D' \

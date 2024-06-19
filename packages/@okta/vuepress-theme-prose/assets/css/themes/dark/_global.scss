@@ -28,3 +28,7 @@ table::-webkit-scrollbar-thumb {
 hr {
   color: cv("text");
 }
+
+img[src*="odyssey/"] {
+  filter: invert(100%);
+}

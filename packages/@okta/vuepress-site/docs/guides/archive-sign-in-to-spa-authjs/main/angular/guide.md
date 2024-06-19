@@ -79,12 +79,12 @@ import { OktaAuth, IDToken, AccessToken } from '@okta/okta-auth-js';
 export class OktaAuthService {
 
   // IMPORTANT!
-  // Replace ${clientId} with your actual Client ID
-  // Replace ${yourOktaDomain} with your actual Okta domain
-  // If using a custom authorization server, ISSUER should be 'https://${yourOktaDomain}/oauth2/${authorizationServerId}'
+  // Replace {clientId} with your actual Client ID
+  // Replace {yourOktaDomain} with your actual Okta domain
+  // If using a custom authorization server, ISSUER should be 'https://{yourOktaDomain}/oauth2/{authorizationServerId}'
 
-  CLIENT_ID = '${clientId}';
-  ISSUER = 'https://${yourOktaDomain}'
+  CLIENT_ID = '{clientId}';
+  ISSUER = 'https://{yourOktaDomain}'
   LOGIN_REDIRECT_URI = 'http://localhost:4200/callback';
   LOGOUT_REDIRECT_URI = 'http://localhost:4200/';
 

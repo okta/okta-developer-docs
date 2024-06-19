@@ -75,7 +75,7 @@ Custom application username formats that are set by the [Apps API](/docs/referen
 
 #### Upload Logo for Org deprecated
 
-The Upload Logo for Org endpoint (`/org/logo`) is deprecated. Use the [Upload Theme Logo](/docs/reference/api/brands/#upload-theme-logo) (`/brands/${brandId}/themes/${themeId}/logo`) endpoint instead. <!--OKTA-432207-->
+The Upload Logo for Org endpoint (`/org/logo`) is deprecated. Use the [Upload the Logo](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Themes/#tag/Themes/operation/uploadBrandThemeLogo) (`/brands/${brandId}/themes/${themeId}/logo`) endpoint instead. <!--OKTA-432207-->
 
 #### User Types API and Mappings API support OAuth 2.0
 
@@ -136,7 +136,7 @@ The new response for the Identity Providers API [social authentication token ope
 
 #### Brands API support for auto-detecting contrast colors
 
-The Brands API [Theme object properties](/docs/reference/api/brands/#theme-api-objects) `primaryColorContrastHex` and `secondaryColorContrastHex` automatically optimize the contrast between font color and the background or button color. You can disable the auto-detection feature by updating either property value with an accepted contrast hex value. See [Update Theme](/docs/reference/api/brands/#update-theme).<!--OKTA-426715-->
+The Brands API Theme object properties `primaryColorContrastHex` and `secondaryColorContrastHex` automatically optimize the contrast between font color and the background or button color. You can disable the auto-detection feature by updating either property value with an accepted contrast hex value. See [Replace a Theme](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Themes/#tag/Themes/operation/replaceBrandTheme).<!--OKTA-426715-->
 
 #### New error page macros for themed templates
 
@@ -200,7 +200,7 @@ The [Okta Org API](/docs/reference/api/org/) allows you to manage your org accou
 
 #### Bugs fixed in 2021.10.2
 
-* The `endUserDashboardTouchPointVariant` property on the [Brands API Theme object](/docs/reference/api/brands/#theme-object) didn’t include a variant for LOGO_ON_FULL_WHITE_BACKGROUND. (OKTA-425798)
+* The `endUserDashboardTouchPointVariant` property on the [Brands API Theme object](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Themes/#tag/Themes/operation/replaceBrandTheme) didn’t include a variant for LOGO_ON_FULL_WHITE_BACKGROUND. (OKTA-425798)
 
 * When an application used the Resource Owner Password authentication flow, an [authorization call](/docs/reference/api/oidc/#token) for a user with an expired password previously returned an error message that stated: “The credentials provided were invalid." (OKTA-423090)
 
@@ -242,7 +242,7 @@ You can now configure your org to use the Native SSO flow. The [Native SSO](/doc
 
 #### New Brands API option to remove sign-in page footer message
 
-You can now remove "Powered by Okta" and "© 2021" from the Okta-hosted sign-in page using either the [Customizations > Footer](https://help.okta.com/okta_help.htm?id=ext-custom-footer) option in the Admin Console or the [Brands API](/docs/reference/api/brands/#brand-api-objects). <!--OKTA-424736-->
+You can now remove "Powered by Okta" and "© 2021" from the Okta-hosted sign-in page using either the [**Customizations** > **Footer**](https://help.okta.com/okta_help.htm?id=ext-custom-footer) option in the Admin Console or the [Brands API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Brands/#tag/Brands/operation/replaceBrand). <!--OKTA-424736-->
 
 #### Bug fixed in 2021.10.0
 
@@ -358,7 +358,7 @@ For details about this release, see the Okta [Sign-In Widget release notes](http
 
 #### Brands API is Self-Service EA
 
-The Okta [Brands API](/docs/reference/api/brands/) allows customization of the look and feel of pages and templates. It allows you to upload your own brand assets (colors, background image, logo, and favicon) to replace Okta's default brand assets. You can then publish these assets directly to the Okta-hosted sign-in page, error pages, email templates, and the Okta End-User Dashboard. <!-- 414350-->
+The Okta [Brands API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Brands/) allows customization of the look and feel of pages and templates. It allows you to upload your own brand assets (colors, background image, logo, and favicon) to replace Okta's default brand assets. You can then publish these assets directly to the Okta-hosted sign-in page, error pages, email templates, and the Okta End-User Dashboard. <!-- 414350-->
 
 #### Risk Providers and Risk Events APIs are EA
 

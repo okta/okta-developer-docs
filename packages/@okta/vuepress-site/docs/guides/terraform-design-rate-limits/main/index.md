@@ -114,11 +114,11 @@ The following example demonstrates using the `max_api_capacity` argument in your
 
 ```hcl
 provider "okta" {
-  org_name = "${yourOktaDomain}"
+  org_name = "{yourOktaDomain}"
   base_url = "okta.com"
-  client_id   = "${applicationClientID}"
+  client_id   = "{applicationClientID}"
   scopes = ["okta.groups.manage"]
-  private_key = ${privateKey}
+  private_key = {privateKey}
   max_api_capacity = 50
 }
 ```

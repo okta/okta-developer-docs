@@ -39,6 +39,7 @@ See [Examples](#examples) for ways you can use the System Log API. See [Useful S
 Each LogEvent object describes a single logged action or "event" that is performed by a set of actors for a set of targets.
 
 ### Example LogEvent object
+
 ```json
 {
   "version": "0",
@@ -52,6 +53,19 @@ Each LogEvent object describes a single logged action or "event" that is perform
       "rawUserAgent": "UNKNOWN-DOWNLOAD"
     },
     "ipAddress": "12.97.85.90"
+  },
+  "device": {
+    "id": "guob5wtu7rBggkg9G1d7",
+    "name": "MacBookPro16,1",
+    "os_platform": "OSX",
+    "os_version": "14.3.0",
+    "managed": false,
+    "registered": true,
+    "device_integrator": null,
+    "disk_encryption_type": "ALL_INTERNAL_VOLUMES",
+    "screen_lock_type": "BIOMETRIC",
+    "jailbreak": null,
+    "secure_hardware_present": true
   },
   "actor": {
     "id": "00u1qw1mqitPHM8AJ0g7",
@@ -87,23 +101,23 @@ Each LogEvent object describes a single logged action or "event" that is perform
 
 ```html
 {
-"uuid": Randomly generated String, Required
-"published": ISO8601 string for timestamp, Required
-"eventType": String, Required
-"version": String, Required
-"severity": String, one of DEBUG, INFO, WARN, ERROR, Required
-"legacyEventType": String, Optional
-"displayMessage": String, Optional
-"actor": { Object, Required
-     "id": String, Required
-     "type": String, Required
-     "alternateId": String, Optional
-     "displayName": String, Optional
-     "detailEntry" = {
-     String -> String/Resource Map
-     }
+  "uuid": Randomly generated String, Required
+  "published": ISO8601 string for timestamp, Required
+  "eventType": String, Required
+  "version": String, Required
+  "severity": String, one of DEBUG, INFO, WARN, ERROR, Required
+  "legacyEventType": String, Optional
+  "displayMessage": String, Optional
+  "actor": { Object, Required
+      "id": String, Required
+      "type": String, Required
+      "alternateId": String, Optional
+      "displayName": String, Optional
+      "detailEntry": {
+          String -> String/Resource Map
+      }
 },
-"client": { Object, Optional
+  "client": { Object, Optional
      "userAgent": { Object, Optional
           "rawUserAgent": String, Optional
           "os": String, Optional
@@ -111,7 +125,7 @@ Each LogEvent object describes a single logged action or "event" that is perform
      },
      "geographicalContext": { Object, Optional
           "geolocation": { Object, Optional
-               "lat":Double, Optional
+               "lat": Double, Optional
                "lon": Double, Optional
           }
           "city": String, Optional
@@ -124,75 +138,95 @@ Each LogEvent object describes a single logged action or "event" that is perform
      "device": String, Optional
      "id": String, Optional
 },
-"outcome": { Object, Optional
+  "device": { Object, Optional
+     "id": String, Optional
+     "name": String, Optional
+     "os_platform": String, Optional
+     "os_version": String, Optional
+     "managed": Boolean, Optional
+     "registered": Boolean, Optional
+     "device_integrator": Object, Optional
+     "disk_encryption_type": String, one of: NONE, FULL, SYSTEM_VOLUME, ALL_INTERNAL_VALUES, and USER, Optional
+     "screen_lock_type": String, one of: NONE, PASSCODE, and BIOMETRIC, Optional
+     "jailbreak": Boolean, Optional
+     "secure_hardware_present": Boolean, Optional
+},
+  "outcome": { Object, Optional
      "result": String, one of: SUCCESS, FAILURE, SKIPPED, ALLOW, DENY, CHALLENGE, UNKNOWN, Required
      "reason": String, Optional
 },
-"target": [ List of Objects of the form:
-          {
-               "id": String, Required
-               "type": String, Required
-               "alternateId": String, Optional
-               "displayName": String, Optional
-               "detailEntry" = {
-                    String -> String/Resource Map
-               }
+  "target": [ List of Objects of the form:
+    {
+       "id": String, Required
+       "type": String, Required
+       "alternateId": String, Optional
+       "displayName": String, Optional
+       "detailEntry" = {
+         String -> String/Resource Map
+        }
+       "changeDetails" = {
+          "from:": {String -> String/Resource Map
+          }
+          "to:": {String -> String/Resource Map
+          }
+        }
      }
 ],
-"transaction": { Object, Optional
+  "transaction": { Object, Optional
      "id": String, Optional
      "type": String one of "WEB", "JOB", Optional
      "detail" = {
           String -> String/Resource Map
      }
 },
-"debugContext": { Object, Optional
+  "debugContext": { Object, Optional
      "debugData": {
           String -> String/Resource Map
           "requestUri": "/api/1/devtools/global/test/orgs/specific"
           "originalPrincipal": {
-               "id": "00ujchcbjpltartYI0g3",
-               "type": "User",
-               "alternateId": "admin@saasure.com",
-               "displayName": "Piras Add-min"
+             "id": "00ujchcbjpltartYI0g3",
+             "type": "User",
+             "alternateId": "admin@example.com",
+             "displayName": "Piras Add-min"
           },
      }
 },
-"authenticationContext": { Object, Optional
+  "authenticationContext": { Object, Optional
      "authenticationProvider": String one of OKTA_AUTHENTICATION_PROVIDER, ACTIVE_DIRECTORY, LDAP, FEDERATION,
             SOCIAL, FACTOR_PROVIDER, Optional
-          "credentialProvider": String one of OKTA_CREDENTIAL_PROVIDER, RSA, SYMANTEC, GOOGLE, DUO, YUBIKEY, Optional
-          "credentialType": String one of OTP, SMS, PASSWORD, ASSERTION, IWA, EMAIL, OAUTH2, JWT, CERTIFICATE, PRE_SHARED_SYMMETRIC_KEY, OKTA_CLIENT_SESSION, DEVICE_UDID, Optional
-          "issuer": Object, Optional {
-               "id": String, Optional
-               "type": String Optional
-          }
-          "externalSessionId": String, Optional
-          "interface": String, Optional i.e. Outlook, Office365, wsTrust
+     "credentialProvider": String one of OKTA_CREDENTIAL_PROVIDER, RSA, SYMANTEC, GOOGLE, DUO, YUBIKEY, Optional
+     "credentialType": String one of OTP, SMS, PASSWORD, ASSERTION, IWA, EMAIL, OAUTH2, JWT, CERTIFICATE, PRE_SHARED_SYMMETRIC_KEY, OKTA_CLIENT_SESSION, DEVICE_UDID,     Optional
+     "issuer": Object, Optional {
+        "id": String, Optional
+        "type": String Optional
+      }
+      "externalSessionId": String, Optional
+      "interface": String, Optional i.e. Outlook, Office365, wsTrust
 },
-"securityContext": { Object, Optional
-          "asNumber": Integer, Optional
-          "asOrg": String, Optional
-          "isp": String, Optional
-          "domain": String, Optional
-          "isProxy": Boolean, Optional
+  "securityContext": { Object, Optional
+     "asNumber": Integer, Optional
+     "asOrg": String, Optional
+     "isp": String, Optional
+     "domain": String, Optional
+     "isProxy": Boolean, Optional
 },
-"request": { Object, Optional
-          "ipChain": List of objects of the form [
-              "ip": String, Optional
-              "geographicalContext": { Object, Optional
-                        "geolocation": { Object, Optional
-                             "lat":Double, Optional
-                             "lon": Double, Optional
-                        }
-                        "city": String, Optional
-                        "state": String, Optional
-                        "country": String, Optional
-                        "postalCode": String, Optional
-                   },
-              "version": String, one of V4, V6 Optional
-              "source": String, Optional
-          ], Optional
+  "request": { Object, Optional
+     "ipChain": List of objects of the form [{
+          "ip": String, Optional
+          "geographicalContext": { Object, Optional
+              "geolocation": { Object, Optional
+                  "lat":Double, Optional
+                  "lon": Double, Optional
+              }
+               "city": String, Optional
+               "state": String, Optional
+               "country": String, Optional
+               "postalCode": String, Optional
+          },
+          "version": String, one of V4, V6 Optional
+          "source": String, Optional
+     }], Optional
+  }
 }
 ```
 
@@ -242,10 +276,11 @@ The entity that an actor performs an action on. Targets can be anything, such as
 | Property    | Description                                                  | DataType            | Nullable |
 | ----------- | ------------------------------------------------------------ | ---------------     | -------- |
 | id          | ID of a target                                               | String              | FALSE    |
-| type        | Type of a target                                             | String              | FALSE    |
+| type        | Type of target                                               | String              | FALSE    |
 | alternateId | Alternative ID of a target                                   | String              | TRUE     |
 | displayName | Display name of a target                                     | String              | TRUE     |
-| detailEntry | Details on a target                                         | Map[String->Object] | TRUE     |
+| detailEntry | Details on a target                                          | Map[String->Object] | TRUE     |
+| changeDetails | Details on the target's changes                   | Map[String->Object] | TRUE     |
 
 ```json
 {
@@ -257,6 +292,43 @@ The entity that an actor performs an action on. Targets can be anything, such as
 }
 ```
 
+#### changeDetails property
+
+The `changeDetails` property of the `target` object defines the change of state of an entity within Okta. Each `changeDetails` property contains a `to` and `from` object that defines the change. Not all event types support the `changeDetails` property, and not all `target` objects contain the `changeDetails` property.
+
+```json
+"target": [
+  {
+    "id": "0oaabcd1234",
+    "type": "AppInstance",
+    "alternateId": "Workday",
+    "displayName": "Workday",
+    "detailEntry": null,
+    "changeDetails": {
+      "from": {
+        "vpnLocationOptions": "DISABLED",
+        "vpnSettingsZones": {
+          "include": [],
+          "exclude": []
+        }
+      },
+      "to": {
+        "message": "You must a use VPN to connect to this application",
+        "vpnLocationOptions": "ZONE",
+        "vpnSettingsZones": {
+          "include": [
+            "ALL_ZONES"
+          ],
+          "exclude": []
+        }
+      }
+    }
+  }
+]
+```
+
+>**Note**: When querying the `changeDetails` property, you can't search on the `to` or `from` objects alone. You must include a property within the object.
+
 ### Client object
 
 When an event is triggered by an HTTP request, the client object describes the [client](https://en.wikipedia.org/wiki/Category:Hypertext_Transfer_Protocol_clients) that issues the HTTP request. For instance, the web browser is the client when a user accesses Okta. When this request is received and processed, a sign-in event is fired. When the event isn't sourced to an HTTP request, such as an automatic update, the client object field is blank.
@@ -264,22 +336,56 @@ When an event is triggered by an HTTP request, the client object describes the [
 | Property            | Description                                                                                                                                                                                           | DataType                                                  | Nullable |
 | ----------          | ------------------------------------------------------------------------------------------------------------------                                                                                    | ---------------                                           | -------- |
 | id                  | For OAuth requests, this is the ID of the OAuth [client](https://tools.ietf.org/html/rfc6749#section-1.1) making the request. For SSWS token requests, this is the ID of the agent making the request. | String                                                    | TRUE     |
-| userAgent           | The [user agent](https://en.wikipedia.org/wiki/User_agent) that is used by an actor to perform an action                                                                                                      | [UserAgent object](#useragent-object)                     | TRUE     |
+| userAgent           | The [user agent](https://developer.mozilla.org/en-US/docs/Glossary/User_agent) that's used by an actor to perform an action                                                                                                      | [UserAgent object](#useragent-object)                     | TRUE     |
 | geographicalContext | The physical location where the client is making its request from                                                                                                                                          | [GeographicalContext object](#geographicalcontext-object) | TRUE     |
 | zone                | The `name` of the [Zone](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/NetworkZone/#tag/NetworkZone/operation/getNetworkZone) that the client's location is mapped to                                                                                                | String                                                    | TRUE     |
 | ipAddress           | IP address that the client is making its request from                                                                                                                                                      | String                                                    | TRUE     |
 | device              | Type of device that the client operates from (for example, Computer)                                                                                                                                          | String                                                    | TRUE     |
 
+### Device object
+
+The entity that describes a device enrolled with passwordless authentication using Okta Verify.
+
+| Property    | Description                                                  | DataType            | Nullable |
+| ----------- | ------------------------------------------------------------ | ---------------     | -------- |
+| id          | ID of the device                                               | String              | FALSE    |
+| name        | Name of the device                                             | String              | FALSE    |
+| os_platform | Operating system of the device                                   | String              | TRUE     |
+| os_version  | Operating system version of the device                                   | String              | TRUE     |
+| managed     | Indicates if the device is configured for device management and is registered with Okta                                                        | Boolean              | TRUE     |
+| registered  | Indicates if the device is registered with an Okta org and is bound to an Okta Verify instance on the device                                                          | Boolean             | TRUE     |
+| device_integrator     | The integration platform or software used with the device                                                            | Object             | TRUE     |
+| disk_encryption_type     | The amount of disk encryption for a device. Values can be: `NONE`, `FULL`, `SYSTEM_VOLUME`, `ALL_INTERNAL_VALUES`, and `USER`.                                                              | Enum              | TRUE     |
+| screen_lock_type     | The availability of a screen lock on the device. Values can be: `NONE`, `PASSCODE`, and `BIOMETRIC`.                                                           | Enum             | TRUE     |
+| jailbreak     |  If the device has removed software restrictions                                                             | Boolean            | TRUE    |
+| secure_hardware_present     |  The availability of hardware security on the device                                                            | Boolean             | TRUE    |
+
+```json
+{
+  "id": "guob5wtu7rAggkg9G1d7",
+  "name": "MacBookPro16,1",
+  "os_platform": "OSX",
+  "os_version": "14.3.0",
+  "managed": false,
+  "registered": true,
+  "device_integrator": null,
+  "disk_encryption_type": "ALL_INTERNAL_VOLUMES",
+  "screen_lock_type": "BIOMETRIC",
+  "jailbreak": null,
+  "secure_hardware_present": true
+}
+```
+
 ### UserAgent object
 
-"A user agent is software (a software agent) that is acting on behalf of a user." ([Wikipedia](https://en.wikipedia.org/wiki/User_agent))
+"A user agent is software (a software agent) that is acting on behalf of a user." ([Definition of User Agent](https://developer.mozilla.org/en-US/docs/Glossary/User_agent))
 
 In the Okta event data object, the UserAgent object provides specifications about the client software that makes event-triggering HTTP requests. User agent identification is often useful for identifying interoperability problems between servers and clients, and also for browser and operating system usage analytics.
 
 | Property     | Description                                                                                                                                                                                                                                        | DataType       | Nullable |
 | ------------ | -------------------------------------------------------------------------------------------------                                                                                                                                                  | -------------- | -------- |
 | Browser      | If the client is a web browser, this field identifies the type of web browser (for example, CHROME, FIREFOX)                                                                                                                                               | String         | TRUE     |
-| OS           | The [operating system](https://en.wikipedia.org/wiki/Operating_system) that the client runs on (for example, Windows 10)                                                                                                                                        | String         | TRUE     |
+| OS           | The operating system that the client runs on (for example, Windows 10)                                                                                                                                        | String         | TRUE     |
 | RawUserAgent | A raw string representation of the user agent that is formatted according to [section 5.5.3 of HTTP/1.1 Semantics and Content](https://tools.ietf.org/html/rfc7231#section-5.5.3). Both the `browser` and the `OS` fields can be derived from this field. | String         | TRUE     |
 
 ### Request object
@@ -304,12 +410,12 @@ Geographical context describes a set of geographic coordinates. In addition to c
 
 ### Geolocation object
 
-The latitude and longitude of the geolocation where an action was performed. The object is formatted according to the [ISO-6709](https://en.wikipedia.org/wiki/ISO_6709) standard
+The latitude and longitude of the geolocation where an action was performed. The object is formatted according to the [ISO-6709](https://www.iso.org/obp/ui/fr/#iso:std:iso:6709:ed-3:v1:en) standard.
 
 | Property   | Description                                                                                       | DataType        | Nullable |
 | ---------- | ------------------------------------------------------------------------------------------------- | --------------- | -------- |
-| lat        | Latitude: Uses two digits for the [integer part](https://en.wikipedia.org/wiki/ISO_6709#Latitude)   | Double          | FALSE    |
-| lon        | Longitude: Uses three digits for the [integer part](https://en.wikipedia.org/wiki/ISO_6709#Longitude) | Double          | FALSE    |
+| lat        | Latitude: Uses two digits for the [integer part](https://www.iso.org/obp/ui/fr/#iso:std:iso:6709:ed-3:v1:en#Latitude)   | Double          | FALSE    |
+| lon        | Longitude: Uses three digits for the [integer part](https://www.iso.org/obp/ui/fr/#iso:std:iso:6709:ed-3:v1:en#Longitude) | Double          | FALSE    |
 
 ### Outcome object
 
@@ -439,10 +545,10 @@ The `securityContext` object provides security information that is directly rela
 
 | Property | Description                                                                                                                                                        | DataType | Nullable |
 | -------- | -----------------------------------------------------------------------------------------------                                                                    | -------- | -------- |
-| asNumber | The [Autonomous system](https://en.wikipedia.org/wiki/Autonomous_system_(Internet)) number that is associated with the autonomous system that the event request was sourced to | Integer  | TRUE     |
+| asNumber | The [Autonomous system](https://docs.telemetry.mozilla.org/datasets/other/asn_aggregates/reference) number that's associated with the autonomous system the event request was sourced to | Integer  | TRUE     |
 | asOrg    | The organization that is associated with the autonomous system that the event request is sourced to                                                                           | String   | TRUE     |
-| isp      | The [Internet service provider](https://en.wikipedia.org/wiki/Internet_service_provider) that is used to send the event's request                                              | String   | TRUE     |
-| domain   | The [domain name](https://en.wikipedia.org/wiki/Domain_name) that is associated with the IP address of the inbound event request                                           | String   | TRUE     |
+| isp      | The Internet service provider that's used to send the event's request                                              | String   | TRUE     |
+| domain   | The domain name that's associated with the IP address of the inbound event request                                           | String   | TRUE     |
 | isProxy  | Specifies whether an event's request is from a known proxy                                                                                                         | Bool     | TRUE     |
 
 ### IpAddress object

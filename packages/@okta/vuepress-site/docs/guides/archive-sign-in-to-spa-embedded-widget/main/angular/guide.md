@@ -38,9 +38,10 @@ You can sign in to the Admin Console using <https://login.okta.com>, and then cl
 | Login redirect URIs  | `http://localhost:4200/login/callback`              |
 | Logout redirect URIs | `http://localhost:4200/login`                       |
 | Allowed grant types  | Authorization Code                                  |
-`${clientId}` placeholders further in this tutorial should be replaced by the `Client ID` of the created application.
 
-> **Note:** It is important to choose the appropriate application type for apps which are public clients. Failing to do so may result in Okta API endpoints attempting to verify an app's client secret, which public clients are not designed to have, hence breaking the sign-in or sign-out flow.
+`{clientId}` placeholders further in this tutorial should be replaced by the client ID of the created application.
+
+> **Note:** It's important to choose the appropriate application type for public client apps. Failing to do so may result in Okta API endpoints attempting to verify an app's client secret, which public clients are not designed to have, hence breaking the sign-in or sign-out flow.
 
 ## Create an Angular App
 
@@ -84,14 +85,14 @@ Some routes require authentication in order to render. Defining these protected 
 
 ### `/ - index page`
 
-First, update `src/app/app.component.html` to provide the Login logic , replacing `${widgetVersion}` with the [latest version](https://github.com/okta/okta-signin-widget/releases/) of the widget (-=OKTA_REPLACE_WITH_WIDGET_VERSION=-):
+First, update `src/app/app.component.html` to provide the login logic, replacing `{widgetVersion}` with the [latest version](https://github.com/okta/okta-signin-widget/releases/) of the widget (-=OKTA_REPLACE_WITH_WIDGET_VERSION=-):
 
 ```html
 <!-- src/app/app.component.html -->
 
 
 <!-- Latest CDN production CSS -->
-<link href="https://global.oktacdn.com/okta-signin-widget/${widgetVersion}/css/okta-sign-in.min.css" type="text/css" rel="stylesheet"/>
+<link href="https://global.oktacdn.com/okta-signin-widget/{widgetVersion}/css/okta-sign-in.min.css" type="text/css" rel="stylesheet"/>
 
 <button routerLink="/"> Home </button>
 <button *ngIf="!isAuthenticated" routerLink="/login"> Login </button>
@@ -150,7 +151,6 @@ This route will only be visible to users with a valid `accessToken` or `idToken`
 
 Create a new component `src/app/protected.component.ts`:
 
-
 ```typescript
 // src/app/protected.component.ts
 
@@ -199,11 +199,11 @@ export class LoginComponent implements OnInit {
   authService;
   widget = new OktaSignIn({
     el: '#okta-signin-container',
-    baseUrl: 'https://${yourOktaDomain}',
+    baseUrl: 'https://{yourOktaDomain}',
     authParams: {
       pkce: true
     },
-         clientId: '${clientId}',
+         clientId: '{clientId}',
          redirectUri: 'http://localhost:4200/login/callback'
   });
 
@@ -269,9 +269,9 @@ import { ProtectedComponent } from './protected.component';
 import { LoginComponent } from './login.component';
 
 const config = {
-  issuer: 'https://${yourOktaDomain}/oauth2/default',
+  issuer: 'https://{yourOktaDomain}/oauth2/default',
   redirectUri: window.location.origin + '/login/callback',
-  clientId: '${clientId}',
+  clientId: '{clientId}',
   pkce: true
 }
 

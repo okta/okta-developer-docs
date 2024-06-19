@@ -70,14 +70,14 @@ Then, if the certificate is SHA1, update the app:
 
 ### Get the app's ID, name, label, and current certificate
 
-Return a [list of all the apps](/docs/reference/api/apps/#list-applications) in your org. Find your app in the list, and note its `id`, `name`, and `label` elements. You see them referred to as `${appId}`, `${appName}`, and `${appLabel}` later on.
+Return a [list of all the apps](/docs/reference/api/apps/#list-applications) in your org. Find your app in the list, and note its `id`, `name`, and `label` elements. You see them referred to as `{appId}`, `{appName}`, and `{appLabel}` later on.
 
 ```bash
 curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
--H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/apps"
+-H "Authorization: SSWS {api_token}" \
+"https://{yourOktaDomain}/api/v1/apps"
 ```
 
 Truncated response:
@@ -109,13 +109,13 @@ To check if your app's certificate was hashed with the SHA1 or SHA256 algorithm,
 A PEM file contains a Base64-encoded version of the certificate text and a plain-text header and footer marking the beginning and end of the certificate. You can obtain the PEM file for a current certificate for an app from the following URL:
 
 ```bash
-https://${yourOktaSubdomain}-admin.okta.com/admin/org/security/${appId}/cert
+https://{yourOktaSubdomain}-admin.okta.com/admin/org/security/{appId}/cert
 ```
 
 Where:
 
-* `${yourOktaSubdomain}` is your org's subdomain.
-* `${appId}` is your app's ID.
+* `{yourOktaSubdomain}` is your org's subdomain.
+* `{appId}` is your app's ID.
 
 Alternatively, you can create the file manually:
 
@@ -144,16 +144,16 @@ If the "Signature Algorithm" is *sha256WithRSAEncryption*, your app's certificat
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
--H "Authorization: SSWS ${api_token}" \
+-H "Authorization: SSWS {api_token}" \
 -d '{
-}' "https://${yourOktaDomain}/api/v1/apps/${appId}/credentials/keys/generate?validityYears=${years}"
+}' "https://{yourOktaDomain}/api/v1/apps/{appId}/credentials/keys/generate?validityYears={years}"
 ```
 
 Where:
 
-* `${yourOktaDomain}` is your org's domain.
-* `${appId}` is your app's ID.
-* `${years}` is the number of years before the credential expires. If you have no company policy for credential expiration, use `10` years.
+* `{yourOktaDomain}` is your org's domain.
+* `{appId}` is your app's ID.
+* `{years}` is the number of years before the credential expires. If you have no company policy for credential expiration, use `10` years.
 
 Response:
 
@@ -186,27 +186,27 @@ After you create a new key credential for the app, you must update the app to us
 curl -v -X PUT \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
--H "Authorization: SSWS ${api_token}" \
+-H "Authorization: SSWS {api_token}" \
 -d '{
-  "name": "${appName}",
-  "label": "${appLabel}",
+  "name": "{appName}",
+  "label": "{appLabel}",
   "signOnMode": "SAML_2_0",
   "credentials": {
     "signing": {
-      "kid": "${keyId}"
+      "kid": "{keyId}"
     }
   }
-}' "https://${yourOktaDomain}/api/v1/apps/${appId}"
+}' "https://{yourOktaDomain}/api/v1/apps/{appId}"
 
 ```
 
 Request parameters:
 
-* `${yourOktaDomain}`: Your org's domain
-* `${appId}`: The app's ID
-* `${appName}`: The app's name
-* `${appLabel]`: The app's label
-* `${keyId]`: The key ID that you generated in the previous step
+* `{yourOktaDomain}`: Your org's domain
+* `{appId}`: The app's ID
+* `{appName}`: The app's name
+* `{appLabel]`: The app's label
+* `{keyId]`: The key ID that you generated in the previous step
 
 ### Upload the new certificate to the ISV
 
@@ -241,14 +241,14 @@ In the following example, there are two certificates to check to find the SHA1 c
 curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
--H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/apps/${appId}/credentials/keys"
+-H "Authorization: SSWS {api_token}" \
+"https://{yourOktaDomain}/api/v1/apps/{appId}/credentials/keys"
 ```
 
 Request parameters:
 
-* `${yourOktaDomain}`: Your org's domain
-* `${appId}`: The app's ID
+* `{yourOktaDomain}`: Your org's domain
+* `{appId}`: The app's ID
 
 Response:
 

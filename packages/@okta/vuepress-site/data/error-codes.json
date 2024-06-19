@@ -1,6 +1,6 @@
 {
-  "release" : "2024.03.1",
-  "build" : "2024.03.1-begin-166-gc41ac4b03009",
+  "release" : "2024.06.1",
+  "build" : "2024.06.1-begin-145-g888629ac004b",
   "errors" : [ {
     "title" : "API validation exception",
     "includesExceptionMessage" : true,
@@ -1738,14 +1738,6 @@
     "errorSummary" : "Okta Verify SMS setup link is a feature only available on paid Okta accounts. To enable this feature please upgrade your free tier org.",
     "errorDescription" : null
   }, {
-    "title" : "Authenticator policy mapping already exists exception",
-    "includesExceptionMessage" : true,
-    "statusCode" : 409,
-    "statusReasonPhrase" : "Conflict",
-    "errorCode" : "E0000234",
-    "errorSummary" : "Authenticator is already mapped to an authentication policy.",
-    "errorDescription" : null
-  }, {
     "title" : "Resource selectors exception",
     "includesExceptionMessage" : true,
     "statusCode" : 400,
@@ -1800,6 +1792,22 @@
     "statusReasonPhrase" : "Bad Request",
     "errorCode" : "E0000242",
     "errorSummary" : "ETag syntax is invalid.",
+    "errorDescription" : null
+  }, {
+    "title" : "API validation exception with no message",
+    "includesExceptionMessage" : false,
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "errorCode" : "E0000243",
+    "errorSummary" : "Bad request.",
+    "errorDescription" : null
+  }, {
+    "title" : "Email customization multiple defaults exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 409,
+    "statusReasonPhrase" : "Conflict",
+    "errorCode" : "E0000244",
+    "errorSummary" : "There are conflicting default customizations for this template. To create or update email customizations, discard your changes and then reset your templates.",
     "errorDescription" : null
   } ]
 }

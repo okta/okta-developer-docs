@@ -5,7 +5,7 @@ The following sections outline the main requests required to implement the Autho
 To get an authorization code, your app redirects the user to your [authorization server's](/docs/concepts/auth-servers/) `/authorize` endpoint. If you're using the org authorization server, then your request URL would look something like this:
 
 ```bash
-https://${yourOktaDomain}/oauth2/v1/authorize?
+https://{yourOktaDomain}/oauth2/v1/authorize?
    client_id=0oabucvyc38HLL1ef0h7&
    response_type=code&scope=openid&
    redirect_uri=https%3A%2F%2Fexample.com&
@@ -36,7 +36,7 @@ To exchange this code for access and ID tokens, you pass it to your [authorizati
 
 ```bash
 curl --request POST \
-  --url https://${yourOktaDomain}/oauth2/v1/token \
+  --url https://{yourOktaDomain}/oauth2/v1/token \
   --header 'accept: application/json' \
   --header 'authorization: Basic MG9hY...' \
   --header 'content-type: application/x-www-form-urlencoded' \

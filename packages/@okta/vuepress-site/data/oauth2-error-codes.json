@@ -1,6 +1,6 @@
 {
-  "release" : "2024.03.1",
-  "build" : "2024.03.1-begin-166-gc41ac4b03009",
+  "release" : "2024.06.1",
+  "build" : "2024.06.1-begin-145-g888629ac004b",
   "errors" : [ {
     "title" : "Access denied",
     "statusCode" : 403,
@@ -2248,6 +2248,13 @@
     "internalErrorCode" : "missing_redirect_uri",
     "errorCode" : "missing_redirect_uri",
     "errorDescription" : "redirect_uri is missing."
+  }, {
+    "title" : "Platform sso invalid password credentials",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "platformsso_invalid_password_credentials",
+    "errorCode" : "platformsso_invalid_password_credentials",
+    "errorDescription" : "The credentials provided for platformsso authentication were invalid."
   }, {
     "title" : "Refresh token validation failure",
     "statusCode" : 400,

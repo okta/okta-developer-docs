@@ -10,10 +10,10 @@ Your request should look something like this:
 
 ```bash
 curl --request POST \
-  --url https://${yourOktaDomain}/oauth2/v1/oob-authenticate \
+  --url https://{yourOktaDomain}/oauth2/v1/oob-authenticate \
   --header 'accept: application/json' \
   --header 'content-type: application/x-www-form-urlencoded' \
-  --data 'client_id=${client_id}&login_hint=${testuser%40example.com}&channel_hint=${sms or voice}'
+  --data 'client_id={client_id}&login_hint={testuser%40example.com}&channel_hint={sms or voice}'
 ```
 
 Note the parameters that are passed:
@@ -65,10 +65,10 @@ After the user responds to the prompt for the OTP code, the app makes a request 
 
 ```bash
 curl --request POST \
-  --url https://${yourOktaDomain}/oauth2/v1/token \
+  --url https://{yourOktaDomain}/oauth2/v1/token \
   --header 'accept: application/json' \
   --header 'content-type: application/x-www-form-urlencoded' \
-  --data 'client_id=${client_id}&scope=openid%20profile&grant_type=urn:okta:params:oauth:grant-type:oob&oob_code=${oob_code}&binding_code=${binding_code}'
+  --data 'client_id={client_id}&scope=openid%20profile&grant_type=urn:okta:params:oauth:grant-type:oob&oob_code={oob_code}&binding_code={binding_code}'
 ```
 
 Note the parameters that are passed:

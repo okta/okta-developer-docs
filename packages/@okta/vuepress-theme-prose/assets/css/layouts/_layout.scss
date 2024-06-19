@@ -5,6 +5,10 @@ body,
   scroll-behavior: smooth;
 }
 
+:root {
+  --header-height: 141px;
+}
+
 body {
   display: none;
 
@@ -78,20 +82,22 @@ body.loaded {
 
 .page-body {
   flex: 1 0 auto;
-  padding-top: 141px;
+  padding-top: var(--header-height);
 
   background-color: #ffffff;
+
+  transition: padding-top 0.1s ease-out;
 }
 
 @include media("<desktop-xl") {
   .page-body {
-    padding-top: 125px;
+    padding-top: var(--header-height);
   }
 }
 
 @include media("<tablet") {
   .page-body {
-    padding-top: 115px;
+    padding-top: var(--header-height);
   }
 }
 
