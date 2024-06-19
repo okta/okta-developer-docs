@@ -68,7 +68,6 @@ Use a built-in admin role to assign permissions:
 
 For more information on custom roles, see [Custom admin roles](https://help.okta.com/okta_help.htm?type=oie&id=ext-cstm-admin-roles).
 
-Admin roles are separate from API scopes, which are discussed in the following section. To manage resources in Terraform, you need to assign admin roles and also grant API scopes to the application.
 
 ## Grant API scopes
 
