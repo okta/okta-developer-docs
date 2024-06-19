@@ -121,7 +121,7 @@ Okta recommends using a public/private key pair for credentials to control acces
    * `ORIGINAL_PRIVATE_KEY`: Set this to the file path of the original key.
    * `CONVERTED_PRIVATE_KEY`: Set this to the file path for the converted key.
 1. Confirm the converted key begins with `-----BEGIN RSA PRIVATE KEY-----`. If not, try these steps again.
-1. Save the converted private key locally to somewhere on your system that you can reference it from Terraform. By convention, save the file with a file name ending in `.pem`. 
+1. Save the converted private key file. By convention, the file extension for a private key file is `.pem`. 
 1. For a production deployment, securely store the private key in a Terraform secrets management system or other key management system.
 
 Add an externally-created key to Okta:
