@@ -76,7 +76,7 @@ Separate from the admin roles discussed in the previous section, Okta has a conc
 > **Note:** Granting new API scopes to a service app requires that the admin has Super Administrator permission.
 
 1. Open the Okta API service app that you created in the previous section.
-1. Click **Okta API Scopes**.
+1. Click the **Okta API Scopes** tab.
 1. Find the desired scope. Using our example, find `okta.groups.manage`. 
 1. Next to that item, click **Grant**.
 1. For some scopes, Okta requests confirmation. To confirm, click **Grant Scope**.
