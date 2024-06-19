@@ -36,7 +36,7 @@ Separate from granting API scopes, you must assign admin permissions to the app 
 
 > **Note:** See [Control Terraform access to Okta](/docs/guides/terraform-design-access-security).
 
-## Create an API service app to manage your Terraform access
+## Create an API service app to manage Terraform access
 
 Create an Okta service app that authorizes Terraform to make changes to your org:
 
