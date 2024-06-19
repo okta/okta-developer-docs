@@ -12,14 +12,22 @@ This resource contains detailed reference material on event types triggered with
 
 >**Note:** Not every property is documented for the event types. Only those primarily used to assist in reviewing an identity threat interaction. Also, objects and properties may differ based on your implementation of the Identity Threat Protection solution.
 
-<div class="row">
-  <div class="col-md-8" markdown="1">
-  * Test column 1 
-  </div>
-  <div class="col-md-4" markdown="1">
-  * Test column 
-  </div>
-</div>
+* [analytics.feedback.provide](#analyticsfeedbackprovide)
+* [device.signals.status.timeout](#devicesignalsstatustimeout)
+* [policy.auth_reevaluate.fail](#policyauth_reevaluatefail)
+* [policy.continuous_access.action](#policycontinuous_accessaction)
+* [policy.continuous_access.evaluate](#policycontinuous_accessevaluate)
+* [policy.entity_risk.action](#policyentity_riskaction)
+* [policy.entity_risk.evaluate](#policyentity_riskevaluate)
+* [security.events.provider.receive_event](#securityeventsproviderreceive_event)
+* [user.authentication.universal_logout](#userauthenticationuniversal_logout)
+* [user.authentication.universal_logout.scheduled](#userauthenticationuniversal_logoutscheduled)
+* [user.risk.change](#userriskchange)
+* [user.risk.detect](#userriskdetect)
+* [`user.session.clear`](#user-session-clear)
+* [user.session.context.change](#usersessioncontextchange)
+* [user.session.end](#usersessionend)
+* [workflows.user.delegatedflow.run](#workflowsuserdelegatedflowrun)
 
 ### analytics.feedback.provide
 
@@ -295,7 +303,8 @@ This resource contains detailed reference material on event types triggered with
 | **actor**                 |  The entity reporting the user risk change (can be a system principal, end user, or org administrator)                | Object        |         |
 | type        | The type of actor object           | String     | User       |
 
-### user.session.clear
+### user session clear
+`user.session.clear`
 
 **Description:**   This event triggers when an admin invokes clear sessions from the user profile. This event appears only one time and contains `externalSessionId` and `System.Transaction.ID`.
 
