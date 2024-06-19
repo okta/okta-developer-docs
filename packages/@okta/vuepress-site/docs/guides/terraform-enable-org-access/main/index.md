@@ -132,7 +132,7 @@ Check that the generated private key is in PKCS#1 format, which is the format re
 
 Add an externally-created key to Okta:
 
-1. In the Admin Console, open your service app and select **General**.
+1. In the Admin Console, open your service app and select the **General** tab.
 1. In the **Client Credentials** section, click **Edit** to change the client authentication method.
 1. Select **Public key / Private key** as the **Client authentication** method.
 1. Click **Add key**.
