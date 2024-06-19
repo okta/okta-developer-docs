@@ -87,7 +87,7 @@ Repeat these steps for any other desired API scopes.
 
 ## Create access credentials
 
-Okta recommends using a public/private key pair for credentials to control access from Terraform to Okta. Store the public key in the API service app, and use the private key in your Terraform configuration. You can use Okta to generate the public/private key pair or use an external tool to create the key pair.
+Use a public/private key pair to control access to the service app used by Terraform. Store the public key in the API service app, and use the private key in your Terraform configuration. You can use Okta to generate the public/private key pair or use an external tool to create the key pair.
 
 > **Important:** Key pair authentication is the most secure option. Use other options such as API tokens only when the tradeoff of decreased security is worth it to you.
 
