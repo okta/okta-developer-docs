@@ -58,7 +58,7 @@ To simplify assigning sets of admin permissions, Okta provides built-in admin ro
 
 For improved security on production systems, create a custom role and narrow the set of admin permissions to only those that relate to what you control in Terraform.
 
-As you expand your own Terraform code to control more resource types, you might need to assign your API service application more permissions or roles to do the new types of tasks. The example in this article for initial testing creates an Okta group using Terraform. To run this example code, add the `Organization Administrator` admin role to your API service app. To manage other Terraform resource types, your app might need additional roles. 
+You may need to add more permissions or roles to your service app as you add more functionality to your Terraform scripts.
 
 For a list of admin permissions and which built-in roles include them, see [the admin role and permission comparison page](https://help.okta.com/okta_help.htm?type=oie&id=ext-administrators-admin-comparison).
 
