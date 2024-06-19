@@ -91,7 +91,7 @@ Use a public/private key pair to control access to the service app used by Terra
 
 > **Important:** Key pair authentication is the most secure option. Use other options such as API tokens only when the tradeoff of decreased security is worth it to you.
 
-### Use Okta to generate the public/private key pair
+### Use Okta to generate the keys
 
 1. In the Admin Console, open the service app and select **General**.
 1. In the **Client Credentials** section, click **Edit** to change the client authentication method.
