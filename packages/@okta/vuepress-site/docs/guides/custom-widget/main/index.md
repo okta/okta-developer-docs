@@ -87,10 +87,6 @@ Example:
 
 ### Edit the sign-in page
 
-The **Custom Sign-In Page** offers basic and advanced customization options to transform the sign-in experience.
-
-### Use the code editor
-
 Use the code editor to modify any HTML, CSS, or JavaScript on the sign-in page. See [Customization examples](#customization-examples) for snippets that you can update and use.
 
 1. In the Admin Console, go to **Customizations** > **Brands**, and then select the brand you want.
@@ -121,7 +117,7 @@ https://{yourOktaDomain}/login/default
 
 This URL only bypasses changes that you have made to the HTML in the HTML editor. It doesn't bypass changes that you made using the controls on the left side of the page.
 
-### Use variables
+#### Use variables
 
 The Okta sign-in page template is written with [Mustache](http://mustache.github.io/mustache.5.html) and uses predefined variables to insert relevant values into the sign-in page. To see the variables in a code sample, refer to the error page default code in the code editor. See [Use the code editor](#use-the-code-editor).
 
@@ -163,7 +159,7 @@ Example:
 
 Defines a global `OktaUtil` JavaScript object that contains methods used to complete the Okta sign-in flow. When an application uses the Okta-hosted sign-in page to sign a user in, information (called request context) is available about the target application and the request.
 
-### Use request context
+#### Use request context
 
 By calling the `OktaUtil.getRequestContext()` method, JavaScript code on your sign-in page can inspect the current request and make decisions based on the target application or other details.
 
@@ -271,7 +267,7 @@ Example:
  <link rel="shortcut icon" href="{{faviconUrl}}" type="image/x-icon"/>
 ```
 
-### Hide or suppress the transient Sign-In Widget
+#### Hide or suppress the transient Sign-In Widget
 
 In Okta Identity Engine, the sign-in page uses a JavaScript redirect method (instead of HTTP 302).
 
