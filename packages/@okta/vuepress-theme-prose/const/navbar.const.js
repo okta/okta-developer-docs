@@ -1038,7 +1038,7 @@ export const reference = [
                { title: "Policy", path: "/docs/reference/api/policy/" },
                { title: "Principal Rate Limits", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/PrincipalRateLimit/" },
                { title: "Profile Mappings", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ProfileMapping/" },
-               { title: "Push Providers", path: "/docs/reference/api/push-providers/" },
+               { title: "Push Providers", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/PushProvider/" },
                { title: "Rate Limit Settings", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RateLimitSettings/" },
                { title: "Realms", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Realm/" },
                { title: "Realm Assignments", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RealmAssignment/" },
