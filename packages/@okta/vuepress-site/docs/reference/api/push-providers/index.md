@@ -5,6 +5,11 @@ category: management
 
 # Push Providers API
 
+The Push Providers API reference is now available at the new [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/PushProvider/).
+
+Explore the [Okta Public API Collections](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/overview) workspace to get started with the Push Providers API Postman collection.
+
+<!--
 <ApiLifecycle access="ea" /></br>
 <ApiLifecycle access="ie" />
 
@@ -628,3 +633,4 @@ For a Push Provider result, the `_links` is read-only and contains a full set of
   }
 }
 ```
+-->
