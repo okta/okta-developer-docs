@@ -6,6 +6,18 @@ title: Okta Classic Engine API release notes 2024
 
 ## June
 
+### Weekly release 2024.06.1
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Bugs fixed in 2024.06.1](#bugs-fixed-in-2024-06-1)  | June 20, 2024 |
+
+#### Bugs fixed in 2024.06.1
+
+* An error occurred during the device code flow using an external Identity Provider and an inline token hook. (OKTA-733713)
+
+* The `security.breached_credential.detected` System Log event had a typo. (OKTA-736552)
+
 ### Monthly release 2024.06.0
 
 | Change | Expected in Preview Orgs |
@@ -32,7 +44,7 @@ Okta now provides a seamless ISV experience to optimize the [Okta Integration Ne
 
 #### Your OIN Integrations instruction updates
 
-TThe instructions on how to submit your OIN integration have been updated on the **Your OIN Integrations** page of the Admin Console in Developer Edition orgs. <!--OKTA-734095-->
+The instructions on how to submit your OIN integration have been updated on the **Your OIN Integrations** page of the Admin Console in Developer Edition orgs. <!--OKTA-734095-->
 
 #### SCIM 2.0 endpoint call update for user ResourceType requirements
 
