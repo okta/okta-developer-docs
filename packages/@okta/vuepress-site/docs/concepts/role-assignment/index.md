@@ -4,6 +4,8 @@ title: Role Assignment
 
 # Role assignment
 
+As a super admin, you can assign admin permissions to principals so they're able to perform tasks and access resources. Principals can be users, groups of users, or client apps. You can assign standard roles, or create custom roles that limit an admin’s access to a subset of permissions and resources.
+
 Role assignment to principals makes them administrators of your org. Principals can be users or groups of users. When a role is assigned to a group, all members of the group automatically have the privileges granted by the role.
 
 Roles can be one of the [standard roles](#standard-role-assignment) that are provided by default. Alternatively, you can create your own custom roles by choosing from the collection of available [permissions](#permission-types).
