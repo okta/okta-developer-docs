@@ -1,6 +1,6 @@
 <div class="three-quarter">
 
-![Sequence diagram that displays communication between the client, authorization server, and Okta for Demonstrating Proof-of-Possession](/img/authorization/DPoPOktaResource.png)
+![Sequence diagram that displays the communication between the client, authorization server, and Okta for DPoP](/img/authorization/DPoPOktaResource.png)
 
 </div>
 
@@ -33,16 +33,16 @@ okta -> client: Validates the DPoP-bound access token and grants access to resou
 > **Note:** These steps assume that you've already made a request to the `/authorize` endpoint to obtain the authorization code for the [Authorization Code with PKCE](/docs/guides/implement-grant-type/authcodepkce/main/) flow.
 
 1. The client generates a public/private key pair for use with DPoP.
-1. The client adds the public key in the header of the JWT and signs the JWT with the private key.
+1. The client adds the public key in the header of the JSON Web Token (JWT) and signs the JWT with the private key.
 1. The client adds the JWT to the `DPoP` request header and sends the request to the `/token` endpoint for an access token.
 1. The Okta org authorization server observes no `nonce` in the `DPoP` JWT and returns an error with `dpop-nonce`.
 1. Client adds the `nonce` and `jti` values to the JWT payload, updates the request header with the new JWT value, and sends the access token request again.
 
-    > **Note:** A `jti` is a [JSON Web Token ID](https://www.rfc-editor.org/rfc/rfc7519#section-4.1.7) claim that provides a unique identifier for the JSON Web Token (JWT). The `jti` claim helps prevent the JWT from being replayed.
+    > **Note:** A `jti` is a [JSON Web Token ID](https://www.rfc-editor.org/rfc/rfc7519#section-4.1.7) claim that provides a unique identifier for the JWT. The `jti` claim helps prevent the JWT from being replayed.
 
 1. The authorization server binds the public key to the access token and sends the response.
 
-    > **Note:** Token binding, or sender constraining, assures that only the app that requested the access token can use it to access the associated resource, thus mitigating token theft and replay attacks.
+    > **Note:** Token binding, or sender constraining, assures that only the app that requested the access token can use it to access the associated resource. This mitigates token theft and replay attacks.
 
 1. The client hashes and then Base64-encodes the access token for use with the `ath` claim.
 1. The client creates a DPoP proof JWT with the `ath` claim. The client also adds the appropriate HTTP verb for `htm` and the endpoint URL for the resource as the value for `htu`.
