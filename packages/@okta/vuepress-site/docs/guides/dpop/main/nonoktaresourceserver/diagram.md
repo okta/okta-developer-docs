@@ -33,6 +33,12 @@ rs -> client: Validates the DPoP-bound access token and grants access to client
 1. Client adds the JWT to the `DPoP` request header and sends the request to the `/token` endpoint for an access token.
 1. The authorization server observes no `nonce` in the DPoP proof, returns an error with the `dpop-nonce` header.
 1. Client adds the `nonce` and `jti` values to the JWT payload, updates the request header with the new JWT value, and sends the access token request again.
+
+    > **Note:** A `jti` is a [JSON Web Token ID](https://www.rfc-editor.org/rfc/rfc7519#section-4.1.7) claim that provides a unique identifier for the JSON Web Token (JWT). The `jti` claim helps prevent the JWT from being replayed.
+
 1. The authorization server binds the public key to the access token and sends the response.
+
+    > **Note:** Token binding, or sender constraining, assures that only the app that requested the access token can use it to access the associated resource. This mitigates token theft and replay attacks.
+
 1. Client sends the request for access to the resource and includes the DPoP-bound access token and the DPoP proof JWT in the header.
 1. The resource validates the DPoP-bound access token by verifying that the public key of the DPoP proof JWT in the `DPoP` header matches the public key that the access token is bound to. When validation is successful, the resource grants access.
