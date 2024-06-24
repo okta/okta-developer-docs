@@ -4,7 +4,7 @@ title: IAM terminology
 
 # IAM terminology
 
-- **Access control:** Grant or deny individual requests to view or update a restricted resource based on the resource, the nature of the request, whether the user is authenticated, the user's authorizations, relevant policies, and other data. (Access control is part of *authorization*.) The term access control can also refer broadly to IAM. See [What Is Access Control & How Crucial Is It to Cybersecurity?](https://www.okta.com/identity-101/access-control/)
+- **Access control:** Grant or deny individual requests to view or update a restricted resource. Access is based on the resource, the nature of the request, whether the user is authenticated, the user's authorization, relevant policies, and other data. (Access control is part of *authorization*.) The term access control can also refer broadly to IAM. See [What Is Access Control & How Crucial Is It to Cybersecurity?](https://www.okta.com/identity-101/access-control/)
 
 - **Authentication:** Processes and services to prove the claimed identity of an individual user, machine, software component, or any other entity. Typical authentication mechanisms include conventional password schemes, biometric devices, cryptographic methods, and one-time passcodes. See [The Ultimate Authentication Playbook](https://www.okta.com/blog/2019/02/the-ultimate-authentication-playbook/).
 
@@ -20,9 +20,9 @@ title: IAM terminology
 
 - **Entitlement Management:** A technology that grants, resolves, enforces, revokes, and administers fine-grained access entitlements. This is also called "authorizations," "privileges," "access rights," "permissions," and/or "rules". Its purpose is to execute IT access policies to structured/unstructured data, devices, and services. Entitlement management can be delivered by different technologies and is often different across platforms, applications, network components, and devices. There are coarse-grained and fine-grained entitlements. See [Entitlement Management Identity Governance Explained](https://www.okta.com/identity-101/entitlement-management-identity-governance-explained).
 
-- **Federation:** A group of Service Providers who agree on standards for sharing identity information among multiple entities and across trust domains. These tools and standards permit identity attributes to be transferred from one trusted identifying and authenticating entity to another for authentication, authorization and other purposes. This provides Single Sign-On (SSO) convenience and efficiencies to identified individuals and Identity Providers. See [What Is Federated Identity?](https://www.okta.com/identity-101/what-is-federated-identity/)
+- **Federation:** A group of Service Providers who agree on standards for sharing identity information among multiple entities and across trust domains. These tools and standards permit identity attributes to be transferred from one trusted identifying and authenticating entity to another for authentication, authorization, and other purposes. This provides Single Sign-On (SSO) convenience to identified individuals and Identity Providers. See [What Is Federated Identity?](https://www.okta.com/identity-101/what-is-federated-identity/)
 
-- **FIM (Federated Identity Management):** A strategy for linking user identities across federated Identity Providers. It provides a SSO capability for these IdPs and has the same benefits as SSO, but applies across domain boundaries to customers, partners, and social networks. It allows users to access your apps with their existing external sign-in IDs. See [Federated Identity Management vs. Single Sign-On: What's the Difference?](https://www.okta.com/uk/identity-101/federated-identity-vs-sso)
+- **FIM (Federated Identity Management):** A strategy for linking user identities across federated Identity Providers. It provides an SSO capability for these IdPs and has the same benefits as SSO, but applies across domain boundaries to customers, partners, and social networks. It allows users to access your apps with their existing external sign-in IDs. See [Federated Identity Management vs. Single Sign-On: What's the Difference?](https://www.okta.com/uk/identity-101/federated-identity-vs-sso)
 
 - **IAM (Identity and Access Management):** A framework of policies and technologies to ensure that the right people get access to the right resources. This is achieved first by confirming that users are who they say they are, and then by restricting the resources they can see and use.
 
@@ -36,7 +36,7 @@ title: IAM terminology
 
 - **OIDC (OpenID Connect):** An authentication layer on top of OAuth 2.0. It allows a user's identity to be securely authenticated by an authorization server that returns basic profile information about the user over a REST API. Okta bases its authentication on OIDC or SAML, depending on the IdP. See [OAuth 2.0 and OpenID Connect Overview](/docs/concepts/oauth-openid/).
 
-- **Policy:** A set of rules and conditions that help you manage your users, such as restricting access to members of a certain group or requiring more authentication factors to access a sensitive app. See [What are policies](/docs/concepts/policies/).
+- **Policy:** A set of rules and conditions that help you manage your users, such as restricting access to members of a certain group or requiring more authentication factors to access a sensitive app. See [Policies](/docs/concepts/policies/).
 
 - **Profile:** The data record where information about an individual user, group, or other entity is stored. A typical profile contains attributes such as the type of profile, a name, and other profile type-specific data. See [User profiles](/docs/concepts/user-profiles/) and [Work with profiles and attributes](https://help.okta.com/okta_help.htm?id=ext_Directory_Manage_Profile_Attributes).
 
