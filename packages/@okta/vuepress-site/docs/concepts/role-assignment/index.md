@@ -4,11 +4,9 @@ title: Role Assignment
 
 # Role assignment
 
-Role assignment to principals makes them administrators of your org. Principals can be users or groups of users. When a role is assigned to a group, all members of the group automatically have the privileges granted by the role.
+As a super admin, you can assign admin permissions to principals so they're able to perform tasks and access resources. Principals can be users, groups of users, or client apps. You can assign [standard roles](#standard-role-assignment), or create [custom roles](#custom-role-assignment) that limit an admin’s access to a subset of [permissions](#permission-types) and [resources](#supported-resources).
 
-Roles can be one of the [standard roles](#standard-role-assignment) that are provided by default. Alternatively, you can create your own custom roles by choosing from the collection of available [permissions](#permission-types).
-
-This page discusses the concepts of role assignment through APIs. See [Custom administrator roles](https://help.okta.com/okta_help.htm?id=ext-cstm-admin-roles).
+This page discusses the concepts of role assignment through APIs. See [Custom administrator roles](https://help.okta.com/okta_help.htm?id=ext-cstm-admin-roles) for product documentation through the Admin Console.
 
 ## Standard role assignment
 
