@@ -12,24 +12,25 @@ This resource contains detailed reference material on event types triggered with
 
 >**Note:** Not every property is documented for the event types. Only those primarily used to assist in reviewing an identity threat interaction. Also, objects and properties may differ based on your implementation of the Identity Threat Protection solution.
 
-* [analytics.feedback.provide](#analyticsfeedbackprovide)
-* [device.signals.status.timeout](#devicesignalsstatustimeout)
-* [policy.auth_reevaluate.fail](#policyauth_reevaluatefail)
-* [policy.continuous_access.action](#policycontinuous_accessaction)
-* [policy.continuous_access.evaluate](#policycontinuous_accessevaluate)
-* [policy.entity_risk.action](#policyentity_riskaction)
-* [policy.entity_risk.evaluate](#policyentity_riskevaluate)
-* [security.events.provider.receive_event](#securityeventsproviderreceive_event)
-* [user.authentication.universal_logout](#userauthenticationuniversal_logout)
-* [user.authentication.universal_logout.scheduled](#userauthenticationuniversal_logoutscheduled)
-* [user.risk.change](#userriskchange)
-* [user.risk.detect](#userriskdetect)
-* [`user.session.clear`](#user-session-clear)
-* [user.session.context.change](#usersessioncontextchange)
-* [user.session.end](#usersessionend)
-* [workflows.user.delegatedflow.run](#workflowsuserdelegatedflowrun)
+* [analytics.feedback.provide](#analytics-feedback-provide)
+* [device.signals.status.timeout](#device-signals-status-timeout)
+* [policy.auth_reevaluate.fail](#policy-auth_reevaluate-fail)
+* [policy.continuous_access.action](#policy-continuous_access-action)
+* [policy.continuous_access.evaluate](#policy-continuous_access-evaluate)
+* [policy.entity_risk.action](#policy-entity_risk-action)
+* [policy.entity_risk.evaluate](#policy-entity_risk-evaluate)
+* [security.events.provider.receive_event](#security-events-provider-receive_event)
+* [user.authentication.universal_logout](#user-authentication-universal_logout)
+* [user.authentication.universal_logout.scheduled](#user-authentication-universal_logout-scheduled)
+* [user.risk.change](#user-risk-change)
+* [user.risk.detect](#user-risk-detect)
+* [user.session.clear](#user-session-clear)
+* [user.session.context.change](#user-session-context-change)
+* [user.session.end](#user-session-end)
+* [workflows.user.delegatedflow.run](#workflows-user-delegatedflow-run)
 
-### analytics.feedback.provide
+### analytics feedback provide
+`analytics.feedback.provide`
 
 **Description:** This event triggers when an admin provides feedback on a user or session risk detection. It can be used to monitor feedback provided by admins in response to Okta-determined changes in risk.
 
@@ -43,7 +44,8 @@ This resource contains detailed reference material on event types triggered with
 | **actor**                 |  The user or admin that is providing the feedback                | Object        |         |
 | type        | The type of actor object           |      |        |
 
-### device.signals.status.timeout
+### device signals status timeout
+`device.signals.status.timeout`
 
 **Description:** This event is triggered when a registered device that is associated with at least one user session hasn't communicated with Okta within the required time interval. Use this event to investigate a potentially insecure device and compromised user session. The event contains the device unique identifier in the System Log actor object. You can use this information to find other related events.
 
@@ -56,7 +58,8 @@ This resource contains detailed reference material on event types triggered with
 | **actor**                 | The registered device associated with the user sessions                | Object        |         |
 | id       | The ID of the registered device          | string     |  `guv1ibaeaz4lr8Eo70a9`      |
 
-### policy.auth_reevaluate.fail
+### policy auth_reevaluate fail
+`policy.auth_reevaluate.fail`
 
 **Description:** This event is triggered when an authentication policy detects a continuous access violation and it results in failure. It's used to determine the user, apps, and session that were involved in a continuous access violation.
 
@@ -87,7 +90,8 @@ This resource contains detailed reference material on event types triggered with
 | **client**                |  The client of the actor                  | Object      |         |
 | IPAddress              | IP address                |       |         |
 
-### policy.continuous_access.action
+### policy continuous_access action
+`policy.continuous_access.action`
 
 **Description:** This event is triggered when an action that's associated with an entity risk policy evaluation is invoked.
 
@@ -126,7 +130,8 @@ This resource contains detailed reference material on event types triggered with
 | **client**                |  The client of the actor                 |       |         |
 | IPAddress              | IP address of the client                |       |         |
 
-### policy.continuous_access.evaluate
+### policy continuous_access evaluate
+`policy.continuous_access.evaluate`
 
 **Description:** This event triggers when Okta detects a risk change event, and then evaluates the entity risk policy.
 
@@ -155,7 +160,8 @@ This resource contains detailed reference material on event types triggered with
 | **client**                |  The client of the actor                |       |         |
 | IPAddress              | IP address of the client                |       |         |
 
-### policy.entity_risk.action
+### policy entity_risk action
+`policy.entity_risk.action`
 
 **Description:** Entity risk policy action invocation. Signals that an action associated with an evaluation of an entity risk policy has been invoked.
 
@@ -194,7 +200,8 @@ This resource contains detailed reference material on event types triggered with
 | **client**                |  The client of the actor                |       |         |
 | IPAddress              | IP address                |       |         |
 
-### policy.entity_risk.evaluate
+### policy entity_risk evaluate
+`policy.entity_risk.evaluate`
 
 **Description:** This event triggers when Okta receives a risk event and then evaluates the entity risk policy.
 
@@ -222,7 +229,8 @@ This resource contains detailed reference material on event types triggered with
 | **client**                | The client of the actor                | Object      |         |
 | IPAddress              | IP address                |       |         |
 
-### security.events.provider.receive_event
+### security events provider receive_event
+`security.events.provider.receive_event`
 
 **Description:** This event is triggered when an event provider submits a valid Shared Signals Framework (SSF) security event. It can help org admins debug/monitor partner SSF submissions. The event contains debug context data about the event provider's risk report.
 
@@ -235,7 +243,8 @@ This resource contains detailed reference material on event types triggered with
 | **actor**                 |  The security events provider                | Object        |         |
 | type        | The type of actor object           | String     | SecurityEventProvider        |
 
-### user.authentication.universal_logout
+### user authentication universal_logout
+`user.authentication.universal_logout`
 
 **Description:** This event triggers when Okta or an admin invokes Universal Logout against an app instance. It contains the app instance details for which the Universal Logout API was triggered. The event indicates when apps have had Universal Logout triggered for audit or debugging purposes. This event is only triggered once. It's only triggered for apps that have been configured for Universal Logout. You can configure it in an Entity risk policy or Continuous Access, or invoke it manually from the user profile.
 
@@ -251,7 +260,8 @@ This resource contains detailed reference material on event types triggered with
 | **client**                |  The client of the system principal actor for Continuous Access evaluation and entity risk policy actions, or the client of the admin triggering the clear user sessions action.                 | Object      |         |
 | IPAddress              | IP address                |       |         |
 
-### user.authentication.universal_logout.scheduled
+### user authentication universal_logout scheduled
+`user.authentication.universal_logout.scheduled`
 
 **Description:** This event triggers only when an admin manually triggers the Universal Logout against an app instance. It contains the location of the admin and the context of the Universal Logout, that is, from where and how the Universal Logout API was triggered. This event is only triggered once. You can correlate this event with the `user.authentication.universal_logout` event using the `traceID` found under `DebugData` for both events.
 
@@ -275,7 +285,8 @@ This resource contains detailed reference material on event types triggered with
 | UserAgent.Browser         | This property contains information about the type of browser the admin was using when the Universal Logout event was triggered.           | String   | Chrome  |
 | UserAgent.OS       | This property contains information about the type of OS the admin was using when the Universal Logout event was triggered.           | String   | Mac OS 14.3.0 (Sonoma)  |
 
-### user.risk.change
+### user risk change
+`user.risk.change`
 
 **Description:** This event type indicates that a user's risk level has changed. It can be used to monitor risk level changes for users. The event is triggered when Okta determines that a user is associated with a risk context or activity.
 
@@ -289,7 +300,8 @@ This resource contains detailed reference material on event types triggered with
 | **actor**                 |  The entity reporting the user risk change (can be a system principal, end user, or org administrator)                | Object        |         |
 | type        | The type of actor object           | String     | User       |
 
-### user.risk.detect
+### user risk detect
+`user.risk.detect`
 
 **Description:** This event type indicates a user risk was detected. It can be used to monitor risk level detections for users. This event triggers when Okta detects that a user is associated with risk activity or context.
 
@@ -324,7 +336,8 @@ This resource contains detailed reference material on event types triggered with
 <!-- | **event.system.debugContext.debugData**                |                 |         |         |
 | Url             | ???                 | String         |         |-->
 
-### user.session.context.change
+### user session context change
+`user.session.context.change`
 
 **Description:** This event indicates that the current session context has changed from the session context when the event was created, and that a reevaluation of policy may be required. This can indicate a security issue related to the session.
 
@@ -352,7 +365,8 @@ This resource contains detailed reference material on event types triggered with
 | **client**                |  The user client with the context change, except in the case of a device context change when a user isn't interacting with Okta. In that scenario, the client is Okta Verify.              | Object      |         |
 | IPAddress              | IP address                |       |         |
 
-### user.session.end
+### user session end
+`user.session.end`
 
 **Description:** This event is triggered when Okta terminates all IDX sessions for a user. A separate event is logged for each of the user's active sessions. Each event contains `externalSessionId` and `System.Transaction.ID` values that correlate with the `System.Transaction.ID` for the `user.session.clear` event.
 
@@ -372,7 +386,8 @@ This resource contains detailed reference material on event types triggered with
 | **client**                |  The client of the system principal actor                | Object      |         |
 | IPAddress              | IP address                |       |         |
 
-### workflows.user.delegatedflow.run
+### workflows user delegatedflow run
+`workflows.user.delegatedflow.run`
 
 **Description:** This event can be used by admins or security team members to monitor the execution of delegated flows in the Workflows platform from the Admin Console. The actor field provides the Okta User ID of the user that ran the flow. The target fields provide context on the Workflows instance and the name and flow ID of the executed flow. The event only indicates if the flow was successfully triggered and doesn't provide information about whether the flow encountered an error.
 
