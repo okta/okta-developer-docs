@@ -5,6 +5,11 @@ category: other
 
 # Authenticators Administration API
 
+The Authenticators API reference is now available at the new [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/).
+
+Explore the [Okta Public API Collections](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/overview) workspace to get started with the Authenticators API Postman collection.
+
+<!--
 <ApiLifecycle access="ie" />
 
 The Authenticators Administration API enables an Org Administrator to configure which Authenticators are available to end users for use when signing in to applications.
@@ -1360,3 +1365,4 @@ An [Authenticator Method object](#authenticator-method-object)
   }
 ]
 ```
+-->

@@ -16,4 +16,4 @@
    > **Note:** By adding this feature, you agree on behalf of the entity you represent that it's your sole responsibility to provide any required notices and disclosures to end users, including any necessary information from [https://www.okta.com/privacy-policy](https://www.okta.com/privacy-policy).
 7. Click **Add**.
 
-Alternatively, you can create an authenticator using the [Create Authenticator](/docs/reference/api/authenticators-admin/#create-authenticator) operation of the Authenticators API.
+Alternatively, you can create an authenticator using the [Authenticator API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/#tag/Authenticator/operation/createAuthenticator).
