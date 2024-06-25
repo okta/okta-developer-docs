@@ -98,6 +98,10 @@ body.dark-theme .header-banner {
   font-weight: 400;
   font-size: 14px;
 
+  p {
+    font-size: 14px;
+  }
+
   a {
     font-weight: 500;
     text-decoration: underline;

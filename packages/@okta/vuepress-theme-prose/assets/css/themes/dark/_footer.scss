@@ -1,9 +1,9 @@
 .app-footer {
-  background-color: cv("footer");
+  background-color: cv("footer", "base");
 }
 
 .app-footer .social a.link {
-  color: cv("white");
+  color: cv("white", "base");
 }
 
 .app-footer .footer--columns .websites .website {
@@ -19,5 +19,5 @@
 }
 
 .app-footer ul.link-list li.link-list--item i.link-list--icon svg path {
-  fill: cv("action");
+  fill: cv("action", "base");
 }

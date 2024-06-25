@@ -3,13 +3,13 @@ ul.menu--items {
 }
 
 ul.menu--items a.router-link-exact-active {
-  color: cv("link");
+  color: cv("link", "base");
 }
 
 ul.menu--items a.router-link-exact-active:visited,
 ul.menu--items a.router-link-exact-active:active,
 ul.menu--items a.router-link-exact-active:focus {
-  color: cv("link");
+  color: cv("link", "base");
 }
 
 ul.menu--items > li + li {
@@ -17,7 +17,7 @@ ul.menu--items > li + li {
 }
 
 ul.menu--items > li span a.link {
-  color: cv("text");
+  color: cv("text", "base");
 }
 
 ul.menu--items > li span.tree-nav-link a.link {
@@ -26,7 +26,7 @@ ul.menu--items > li span.tree-nav-link a.link {
 }
 
 ul.menu--items > li span.tree-nav-link a.router-link-active {
-  color: cv("link") !important;
+  color: cv("link", "base") !important;
 }
 
 ul.menu--items > li.expandable {
@@ -50,7 +50,7 @@ ul.menu--items > li.expandable span.tree-nav-link a.link {
 }
 
 ul.menu--items > li.expandable span.tree-nav-link a.router-link-active {
-  color: cv("link") !important;
+  color: cv("link", "base") !important;
 }
 
 ul.menu--items > li.expandable span.tree-nav-link .shevron {

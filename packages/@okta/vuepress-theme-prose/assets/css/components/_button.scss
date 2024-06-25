@@ -1,7 +1,7 @@
 .is-button-cerise-outline {
   padding: 1em 3em;
 
-  border-color: cv("header");
+  border-color: cv("header", "base");
   background-color: transparent;
 
   font-weight: 400;
@@ -11,7 +11,7 @@
   &:hover,
   &:visited,
   &.is-button-hover {
-    border-color: cv("header");
+    border-color: cv("header", "base");
     background-color: transparent;
 
     color: cv("gray", "000");
@@ -19,14 +19,14 @@
 
   &:focus,
   &.is-button-focus {
-    border-color: cv("header");
+    border-color: cv("header", "base");
     background-color: transparent;
 
     color: cv("gray", "000");
   }
 
   &:disabled {
-    border-color: cv("header");
+    border-color: cv("header", "base");
     background-color: transparent;
 
     color: cv("gray", "000");
@@ -36,8 +36,8 @@
 .is-button-cerise {
   padding: 1em 3em;
 
-  border-color: cv("header");
-  background-color: cv("header");
+  border-color: cv("header", "base");
+  background-color: cv("header", "base");
 
   font-weight: 500;
   text-decoration: none;
@@ -47,23 +47,23 @@
   &:hover,
   &:visited,
   &.is-button-hover {
-    border-color: cv("header");
-    background-color: cv("header");
+    border-color: cv("header", "base");
+    background-color: cv("header", "base");
 
     color: cv("gray", "000");
   }
 
   &:focus,
   &.is-button-focus {
-    border-color: cv("header");
-    background-color: cv("header");
+    border-color: cv("header", "base");
+    background-color: cv("header", "base");
   }
 
   &:disabled {
-    border-color: cv("header");
-    background-color: cv("header");
+    border-color: cv("header", "base");
+    background-color: cv("header", "base");
 
-    color: cv("header");
+    color: cv("header", "base");
   }
 }
 
@@ -307,8 +307,8 @@
   &,
   &:active,
   &:hover {
-    border-color: cv("header");
-    background-color: cv("header");
+    border-color: cv("header", "base");
+    background-color: cv("header", "base");
 
     color: cv("gray", "000");
   }
@@ -325,14 +325,14 @@
   &,
   &:active,
   &:hover {
-    border-color: cv("header");
+    border-color: cv("header", "base");
     background-color: transparent;
 
-    color: cv("header");
+    color: cv("header", "base");
   }
 
   &:visited {
-    color: cv("header");
+    color: cv("header", "base");
   }
 
   @extend %Button;

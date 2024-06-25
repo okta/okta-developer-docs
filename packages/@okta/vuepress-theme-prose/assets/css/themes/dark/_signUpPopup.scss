@@ -7,7 +7,7 @@
   outline: 0;
   border: 1px solid cv("border", "checkbox");
   border-radius: 4px;
-  background-color: cv("code");
+  background-color: cv("code", "base");
   appearance: none;
   cursor: pointer;
 }
@@ -25,7 +25,7 @@
 
   border-width: 0 1px 1px 0;
   border-style: solid;
-  border-color: cv("action");
+  border-color: cv("action", "base");
   transform: rotate(45deg);
   opacity: 0;
 }
@@ -36,14 +36,14 @@
 
 .dialog {
   box-shadow: rgb(0 0 0 / 0.3) 0 2px 10px;
-  background-color: cv("body");
+  background-color: cv("body", "base");
 }
 
 .dialog--header,
 .dialog p,
 .dialog .terms-conditions-btns,
 .dialog-text {
-  color: cv("text") !important;
+  color: cv("text", "base") !important;
 }
 
 .dialog-backdrop {
@@ -51,29 +51,29 @@
 }
 
 .dialog a {
-  color: cv("text");
+  color: cv("text", "base");
 }
 
 .dialog select {
   border-color: cv("body", "obscure");
-  background-color: cv("code");
+  background-color: cv("code", "base");
 
-  color: cv("text");
+  color: cv("text", "base");
 }
 
 .dialog .terms-conditions-btns .btn-container .btn:not(.social-btn) {
   border-color: transparent;
 
-  color: cv("text");
+  color: cv("text", "base");
 }
 
 .dialog .terms-conditions-btns .btn-container .btn {
-  border-color: cv("link");
+  border-color: cv("link", "base");
 
   font-weight: 500;
-  color: cv("link");
+  color: cv("link", "base");
 }
 
 .dialog-text .marketing-c .gdpr-condition {
-  background-color: cv("body");
+  background-color: cv("body", "base");
 }

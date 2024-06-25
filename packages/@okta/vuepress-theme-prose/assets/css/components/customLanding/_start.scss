@@ -46,7 +46,7 @@
 }
 
 .customLanding-start__button:hover {
-  background-color: cv("link");
+  background-color: cv("link", "base");
 
   color: cv("body", "white");
 }

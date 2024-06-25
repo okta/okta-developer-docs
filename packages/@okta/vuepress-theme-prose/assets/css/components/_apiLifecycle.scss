@@ -27,7 +27,7 @@
 .api-label-beta {
   margin-bottom: $base-spacing;
 
-  background: cv("yellow");
+  background: cv("yellow", "base");
 
   color: cv("gray", "900");
 }
@@ -35,7 +35,7 @@
 .api-label-ea {
   margin-bottom: $base-spacing;
 
-  background: cv("violet");
+  background: cv("violet", "base");
 }
 
 .api-label-deprecated {

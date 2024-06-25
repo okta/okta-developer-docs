@@ -82,7 +82,7 @@
 }
 
 .customLanding-hero__button:hover {
-  background-color: cv("link");
+  background-color: cv("link", "base");
 
   color: cv("body", "white");
 }
@@ -97,7 +97,7 @@
   display: inline-block;
 
   font-weight: 500;
-  color: cv("link");
+  color: cv("link", "base");
 }
 
 .customLanding-hero__image svg {
