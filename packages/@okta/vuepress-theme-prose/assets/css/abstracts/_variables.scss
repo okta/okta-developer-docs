@@ -1,23 +1,13 @@
 $container-width: 1340px;
 $container-width-desktop-large: 1600px;
 $base-font-size: 16px;
-$scale-ratio: 1.2308;
 $base-line-height: 1.5;
-$heading-line-height: 1.2;
 $max-line-length: 32em;
 
 // Spacing Variables
 
 $base-spacing: $base-line-height * 1rem;
 $small-spacing: $base-spacing / 2;
-$tiny-spacing: $small-spacing / 2;
-$big-spacing: $base-spacing * 2;
-$huge-spacing: $big-spacing * 2;
-
-$em-base-spacing: $base-line-height * 1em;
-$em-small-spacing: $em-base-spacing / 2;
-$em-tiny-spacing: $em-small-spacing / 2;
-$em-big-spacing: $em-base-spacing * 2;
 
 //-----------------------------------------------------------------------
 // Paths
