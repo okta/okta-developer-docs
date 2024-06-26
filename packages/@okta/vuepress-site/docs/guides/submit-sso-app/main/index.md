@@ -8,22 +8,16 @@ layout: Guides
 
 <ApiLifecycle access="deprecated" />
 
-> **Deprecated:** As of release 2024.01.0 (Jan 10, 2024), you can't submit new OIDC and SAML integrations using the OIN Manager. Use the new [OIN Wizard](/docs/guides/submit-oin-app) for a seamless ISV submission experience. You can still use the OIN Manager to update integrations you've submitted previously through the OIN Manager, until further notice. See [Submission process](/docs/guides/submit-app-overview/#submission-process) for OIN submission guidance.
-
----
-
-Use this guide to understand the process of submitting a Single Sign-On (SSO) OIDC or SAML 2.0 integration to the Okta Integration Network (OIN) using the OIN Manager. This guide also shows you how to update a previously published integration or delete a draft submission.
+> **Deprecated:** As of release 2024.01.0 (Jan 10, 2024), you can't submit new Single Sign-On (SSO) integrations using the OIN Manager. Use the new [OIN Wizard](/docs/guides/submit-oin-app) for a seamless ISV submission experience. Okta is in the process of migrating published integrations from the OIN Manager to the OIN Wizard. If your published integration hasn't been migrated yet, you can still use the OIN Manager to [update integrations](#update-your-published-integration). See [Submission process](/docs/guides/submit-app-overview/#submission-process) for OIN submission guidance.
 
 ---
 
 #### Learning outcomes
 
-* Understand how to submit a new SSO integration to the OIN
-* Understand how to update or delete a previously published OIN SSO integration
+* Understand how to submit an SSO integration to the Okta Integration Network (OIN) with the OIN Manager.
+* Learn how to update or delete a previously published OIN SSO integration with the OIN Manager.
 
 #### What you need
-
-* A functional SSO integration created and tested in accordance with the [Build a Single Sign-On integration](/docs/guides/build-sso-integration/) guide
 
 * The various items necessary for submission in accordance with the [OIN submission requirements](/docs/guides/submit-app-prereq/)
 
@@ -61,9 +55,11 @@ If you have questions or need more support to publish your app integration, you 
 
 ## Submit an integration
 
-> **Note:** Review the [OIN submission requirements](/docs/guides/submit-app-prereq) before you start your submission.
+<ApiLifecycle access="deprecated" />
 
-Start your integration submission:
+> **Deprecated:** As of release 2024.01.0 (Jan 10, 2024), you can't submit new Single Sign-On (SSO) integrations using the OIN Manager. Use the new [OIN Wizard](/docs/guides/submit-oin-app) for a seamless ISV submission experience.
+
+Review the [OIN submission requirements](/docs/guides/submit-app-prereq) before you start your submission.
 
 1. Open the [OIN Manager](https://oinmanager.okta.com) and click **Start Submission Form**.
 
@@ -137,9 +133,11 @@ Include all required information before you click **Submit for Review** to move 
 
 ## Update your published integration
 
-If you need to make protocol changes to your published integration, use the [OIN Manager](https://oinmanager.okta.com/) to create an updated version of the integration.
+> **Note:** Okta is migrating published SSO integrations from the OIN Manager to the OIN Wizard as of release 2024.06.0.
+> *  If your published SSO integration was migrated to the OIN Wizard, you can make updates in the [OIN Wizard](/docs/guides/submit-oin-app/#update-your-integration). A deprecated note appears next to your integration in the OIN Manager. If you edit and submit your migrated integration from the OIN Manager, it won't be reviewed by the OIN team.
+> * If your published SSO integration wasn't migrated to the OIN Wizard, it appears as usual in the OIN Manager. Follow the steps in this section to update your published integration in the OIN Manager.
 
-Similarly, when you enable a new capability in your app, you don't need to create an entirely new submission. For example, you can add SCIM provisioning to an existing published SAML app. You can update your existing submission to enable and specify the settings for that protocol, then submit the updated integration.
+When you enable a new capability in your app, you don't need to create an entirely new submission. For example, you can add SCIM provisioning to an existing published SAML app. You can update your existing submission to enable and specify the settings for that protocol, then submit the updated integration.
 
 1. Sign in to the OIN Manager using the credentials for your original dev org.
 
