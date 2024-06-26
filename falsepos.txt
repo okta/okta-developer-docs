@@ -21,3 +21,12 @@ https://app.getpostman.com/run-collection/1a927e3b353fd0e1b158/
 https://app.getpostman.com/run-collection/ff723148292df05bb58b/
 https://csrc.nist.gov/pubs/sp/800/63/b/upd2/final/
 https://accounts.google.com/signup/
+https://8gwifi.org/jwkconvertfunctions.jsp
+https://app.getpostman.com/run-collection/3295add9e852d8728ef2/
+https://app.getpostman.com/run-collection/519c04869c17079762f9/
+https://app.getpostman.com/run-collection/9daeb4b935a423c39009/
+https://app.getpostman.com/run-collection/c85985861f9b277913ae/
+https://app.getpostman.com/run-collection/f443644517abb15117af/
+https://odyssey.okta.design/latest/foundations/accessibility/color-9O9a4XAU/
+https://okta.com/free-trial/workforce-identity/
+https://www.jsonwebtoken.dev/
