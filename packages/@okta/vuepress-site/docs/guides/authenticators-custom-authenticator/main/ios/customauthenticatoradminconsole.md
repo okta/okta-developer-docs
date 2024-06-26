@@ -8,8 +8,8 @@
       * **Preferred** - User verification is optional.
       * **Required** - User verification is required.
    * **Authenticator logo:** Select the logo that users see on authentication screens.
-      * **Browse files** - Click this button and select an SVG file from the file selection dialog.
-      * **Use default logo** - Click the lock icon to use the default logo.
+      * **Browse files** - Click and select an SVG file from the file selection dialog.
+      * **Use default logo** - Click the Lock to use the default logo.
 5. Configure the connection to the push notification service:
    * **APNs configuration:** Select the connection to the APNs service that you want the custom authenticator to use.
 6. Select the checkbox to agree to Okta's Terms and Conditions.
