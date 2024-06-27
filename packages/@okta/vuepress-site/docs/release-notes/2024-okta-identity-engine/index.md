@@ -7,6 +7,18 @@ title: Okta Identity Engine API release notes 2024
 
 ## June
 
+### Weekly release 2024.06.2
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Bugs fixed in 2024.06.2](#bugs-fixed-in-2024062)  | July 2, 2024 |
+
+#### Bugs fixed in 2024.06.2
+
+* The Policy simulation API, `/api/v1/policies/simulate`, responded that non-admin users had access to the Okta Admin Console `appInstance`. (OKTA-729726)
+
+* The List all IdP key credentials API response always included a "next" link header, even if there were no more pages left to return. (OKTA-718352)
+
 ### Weekly release 2024.06.1
 
 | Change | Expected in Preview Orgs |

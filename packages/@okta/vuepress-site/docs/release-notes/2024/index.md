@@ -6,6 +6,16 @@ title: Okta Classic Engine API release notes 2024
 
 ## June
 
+### Weekly release 2024.06.2
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Bug fixed in 2024.06.2](#bug-fixed-in-2024062)  | July 2, 2024 |
+
+#### Bug fixed in 2024.06.2
+
+The List all IdP key credentials API response always included a "next" link header, even if there were no more pages left to return. (OKTA-718352)
+
 ### Weekly release 2024.06.1
 
 | Change | Expected in Preview Orgs |
