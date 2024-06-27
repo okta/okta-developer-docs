@@ -10,7 +10,7 @@ title: Okta Classic Engine API release notes 2024
 
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
-| [Bug fixed in 2024.06.2](#bug-fixed-in-2024062)  | July 2, 2024 |
+| [Bug fixed in 2024.06.2](#bug-fixed-in-2024-06-2)  | July 2, 2024 |
 
 #### Bug fixed in 2024.06.2
 
