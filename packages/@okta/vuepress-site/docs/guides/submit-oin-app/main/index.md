@@ -468,7 +468,7 @@ To update a previously published OIN integration:
 
 * Your published integration may contain properties and variables that aren't available in the OIN Wizard. If you use the OIN Wizard to edit your previously published integration, the same OIN Wizard validations and limitations still apply to your edits.
 
-    For example, consider the case where you have a published integration that used `1Subdomain` and `2Subdomain` variables and you want to add another variable named `3Subdomain`. The OIN Wizard allows `1Subdomain` and `2Subdomain` to remain in the integration since they were used in the published integration and weren't edited. However, the OIN Wizard restricts you from adding `3Subdomain` since variable names must start with a letter and have no uppercase letters.
+    For example, consider the case where you have a published integration that used `1Subdomain` and `2Subdomain` variables and you want to add another variable named `3Subdomain`. The OIN Wizard allows `1Subdomain` and `2Subdomain` to remain since they're used in the published integration and weren't modified. However, the OIN Wizard restricts you from adding `3Subdomain` since variable names must start with a letter and have no uppercase letters.
 
 * If you have an existing SAML SSO integration and you want to update advanced properties that aren't available in the OIN Wizard, contact <oin@okta.com>.
 
