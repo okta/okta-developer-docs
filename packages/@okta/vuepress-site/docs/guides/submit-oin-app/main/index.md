@@ -426,7 +426,7 @@ All required tests in the OIN Submission Tester must have passed within 48 hours
 
 You can modify your published SSO integration from the OIN Wizard.
 
-When you edit a published OIN integration, you need to test the SSO flow for the updated version and the published version for backwards compatibility. Testing the published version for backwards compatibility ensures that SSO to your app still works for customers who have already installed your published OIN integration. After you successfully test the updated and published versions of your integration, resubmit it to the OIN team.
+When you edit a published OIN integration, you need to test the SSO flow for the updated version and the published version for backwards compatibility. Testing the published version for backwards compatibility ensures that SSO to your app still works for customers who have already installed your published OIN integration. See [Update integration considerations](#update-integration-considerations) before you edit your published SSO integration. After you successfully test the updated and published versions of your integration, resubmit it to the OIN team.
 
 > **Note:** When you edit your published OIN integration, your previous PUBLISHED status and date are overwritten with the DRAFT status and current date.
 
@@ -466,7 +466,13 @@ To update a previously published OIN integration:
 
 ### Update integration considerations
 
+* Your published integration may contain properties and variables that aren't available in the OIN Wizard. If you use the OIN Wizard to edit your previously published integration, the same OIN Wizard validations and limitations still apply to your edits.
+
+    For example, consider the case where you have a published integration that used `1Subdomain` and `2Subdomain` variables and you want to add another variable named `3Subdomain`. The OIN Wizard allows `1Subdomain` and `2Subdomain` to remain in the integration since they were used in the published integration and weren't edited. However, the OIN Wizard restricts you from adding `3Subdomain` since variable names must start with a letter and have no uppercase letters.
+
 * If you have an existing SAML SSO integration and you want to update advanced properties that aren't available in the OIN Wizard, contact <oin@okta.com>.
+
+* You can't update the **Name** (`name`) property of your [integration variables](#integration-variables) (you can edit the **Label** property). If you must edit the integration variable name, then you need to delete the original variable before you add a variable with the desired name.
 
 * When you update an integration that's already published, be mindful to preserve backwards compatibility for your integration. Older instances of your integration could be in use by Okta customers.
 
