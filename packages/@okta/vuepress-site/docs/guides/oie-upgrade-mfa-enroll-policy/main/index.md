@@ -16,11 +16,17 @@ Okta Identity Engine sets apart factors and authenticators to align with industr
 
 In Identity Engine, the MFA Enrollment Policy name has changed to [authenticator enrollment policy](/docs/reference/api/policy/#authenticator-enrollment-policy). Classic Engine still refers to the same policy as the [Multifactor (MFA) Enrollment Policy](/docs/reference/api/policy/#multifactor-mfa-enrollment-policy). In the API, the policy type of `MFA_ENROLL` remains unchanged, however, the `settings` data contains authenticator or factors, depending on the configuration.
 
-After you upgrade your org to Identity Engine, new authenticator enrollment policies created in the Admin Console are configured using authenticators. Authenticator enrollment policies created before upgrading to Identity Engine, are still configured with factors. However, if an existing policy was saved in the Admin Console, the factors in that policy are converted to authenticators. This conversion is seamless to admin users that are managing policies in the Admin Console.
+After your upgrade your org to Identity Engine, consider the following:
+
+- New authenticator enrollment policies that you create in the Admin Console are configured with authenticators.
+
+- Existing authenticator enrollment policies that you created before upgrading to Identity Engine are still configured with factors.
+
+- Existing authenticator enrollment polices that you save in the Admin Console have their factors converted to authenticators. The conversion is seamless to admin users that manage policies in the Admin Console.
 
 > **Note:** Whether you edit the authenticator enrollment policy or not, when you click **Update Policy** in the Admin Console, the factor-to-authenticator conversion occurs.
 
-For existing code that manages and uses authenticator enrollment policies programmatically through the [Policy API](/docs/reference/api/policy/), some development work is required. You need to handle the factor to authenticator conversion schema changes after you upgrade your org. This guide provides key API considerations to upgrade your app for multifactor enrollment flows in Identity Engine.
+Existing code that manages and uses authenticator enrollment policies through the [Policy API](/docs/reference/api/policy/) requires some development work. After you upgrade your org, handle the factor to authenticator conversion schema changes. This guide provides key API considerations to upgrade your app for multifactor enrollment flows in Identity Engine.
 
 ## Authenticator enrollment policy API changes in Identity Engine
 
@@ -31,7 +37,7 @@ The following are the main behavior changes to the [authenticator enrollment pol
 - Existing authenticator enrollment policies (that is, policies created before the Identity Engine upgrade) still contain factors in their settings.
 - Authenticator enrollment policies modified from the Admin Console of an Identity Engine org have their factors converted to authenticators in their settings.
 
-> **Note:** For Identity Engine orgs with the Authenticator enrollment policy feature enabled, the new default authenticator enrollment policy created by Okta uses the authenticators setting schema. Existing default authenticator enrollment policies from a migrated org remain unchanged and still use the factors setting schema. If you want the default policy to use the authenticators setting schema, then modify the default policy from the Admin Console to convert the settings from factors to authenticators.
+> **Note:** For Identity Engine orgs with the Authenticator enrollment policy feature enabled, the new default authenticator enrollment policy created by Okta uses the authenticators setting schema. Existing default authenticator enrollment policies from a migrated org remain unchanged and still use the factors setting schema. If you want the default policy to use the authenticators setting schema, then modify the default policy. In the Admin Console, convert the settings from factors to authenticators.
 
 ### Recovery authenticators
 
@@ -116,14 +122,14 @@ To update an authenticator enrollment policy through the [Update a Policy](/docs
 
 > **Note:** Configure the other policy parameters according to the [Update a Policy](/docs/reference/api/policy/#update-a-policy) API operation. This section focuses on the `settings` parameter required specifically for the authenticator enrollment policy.
 
-If you need to convert an existing factor-based authenticator enrollment policy to use authenticators, then update the policy with authenticators in the `settings` parameter. Use the [Policy Factors Configuration object and Authenticator keys mapping](#policy-factors-configuration-object-and-authenticator-keys-mapping) table to map Policy Factors Configuration objects to authenticator keys. See [Authenticator enrollment policy settings conversion example](#authenticator-enrollment-policy-settings-conversion-example).
+If you need to convert an existing factor-based authenticator enrollment policy to use authenticators, then update the policy with authenticators in the `settings` parameter. Use the [Policy Factors Configuration object and Authenticator keys mapping](#policy-factors-configuration-object-and-authenticator-keys-mapping) table to map Policy Factors Configuration objects to authenticator keys. See the [settings conversion example](#authenticator-enrollment-policy-settings-conversion-example).
 
-To revert to the factor-based authenticator enrollment policy model, modify an existing authenticator-based enrollment policy to a factored one. To convert the authenticator keys to Policy Factor Configuration objects, see the following:
+You can revert to the factor-based authenticator enrollment policy model. Modify an existing authenticator-based enrollment policy to a factored one. To convert the authenticator keys to Policy Factor Configuration objects, see the following:
 
 * [Policy Factors Configuration objects](/docs/reference/api/policy/#policy-factors-configuration-object)
 * [Policy Factors Configuration object and Authenticator keys mapping](#policy-factors-configuration-object-and-authenticator-keys-mapping)
 
-> **Note:** Your app might be integrated with systems, such as Terraform that can’t be updated to parse the authenticators-based enrollment policy. If so, you need to revert your policy to use factors instead of authenticators.
+> **Note:** Your app might be integrated with systems like Terraform that can’t be updated to parse the authenticators-based enrollment policy. If so, you need to revert your policy to use factors instead of authenticators.
 
 ## Policy Factors Configuration object and Authenticator keys mapping
 
