@@ -16,7 +16,7 @@ Okta Identity Engine sets apart factors and authenticators to align with industr
 
 In Identity Engine, the MFA Enrollment Policy name has changed to [authenticator enrollment policy](/docs/reference/api/policy/#authenticator-enrollment-policy). Classic Engine still refers to the same policy as the [Multifactor (MFA) Enrollment Policy](/docs/reference/api/policy/#multifactor-mfa-enrollment-policy). In the API, the policy type of `MFA_ENROLL` remains unchanged, however, the `settings` data contains authenticator or factors, depending on the configuration.
 
-After your upgrade your org to Identity Engine, consider the following:
+After you upgrade your org to Identity Engine, consider the following:
 
 - New authenticator enrollment policies that you create in the Admin Console are configured with authenticators.
 
