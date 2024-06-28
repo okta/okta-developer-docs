@@ -55,7 +55,7 @@ To parse a response from the `GET /api/v1/policies?type=MFA_ENROLL` request, you
 
 > **Note:** Another indicator of an authenticator-based enrollment policy is when `type=AUTHENTICATORS` in the [settings schema](/docs/reference/api/policy/#policy-settings-data-2). The `type` property could be absent from the response of factor-based authenticator enrollment policies.
 
-If the returned policy uses `authenticators`, you need to loop through the list of [Policy Authenticator objects](/docs/reference/api/policy/#policy-authenticator-object) and use the `key` property to identify the authenticator. See the [Authenticators API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/) for more details on the available authenticators in your org.
+If the returned policy uses `authenticators`, loop through the list of [Policy Authenticator objects](/docs/reference/api/policy/#policy-authenticator-object) and use the `key` property to identify the authenticator. See the [Authenticators API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/) for more details on the available authenticators in your org.
 
 If the returned policy uses `factors`, you need to loop through every type of [Policy Factor Configuration object](/docs/reference/api/policy/#policy-factors-configuration-object), as you've done previously for your app.
 
