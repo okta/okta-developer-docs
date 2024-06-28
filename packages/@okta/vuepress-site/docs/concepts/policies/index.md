@@ -130,11 +130,11 @@ With progressive enrollment flows, you can capture the minimum user information 
 
 <ApiLifecycle access="ie" /> <ApiLifecycle access="ea" />
 
-Identity Threat Protection with Okta AI is an identity threat solution that combines current security practices with continuous real-time risk assessment. See [Identity Threat Protection with Okta AI](https://help.okta.com/okta_help.htm?type=oie&id=ext-itp-overview). Identity Threat Protection uses the entity risk policy and Continuous Access evaluation for these threat evaluations.
+Identity Threat Protection with Okta AI is an identity threat solution that combines current security practices with continuous real-time risk assessment. See [Identity Threat Protection with Okta AI](https://help.okta.com/okta_help.htm?type=oie&id=ext-itp-overview). Identity Threat Protection uses the entity risk policy and Post auth session evaluation for these threat evaluations.
 
 * [Entity risk policy](/docs/reference/api/policy/#entity-risk-policy): The entity risk policy monitors your org for entity risk changes related to identity-based threats. For Admin Console tasks and further information, see [Entity risk policy](https://help.okta.com/okta_help.htm?type=oie&id=csh-entity-risk-policy).
 
-* [Continuous Access evaluation](/docs/reference/api/policy/#continuous-access-evaluation-cae-policy): Continuous Access evaluation monitors user sessions on your org to identify changes in session context. For Admin Console tasks and further information, see [Continuous Access evaluation](https://help.okta.com/okta_help.htm?type=oie&id=csh-continuous-access-evaluation).
+* [Post auth session evaluation](/docs/reference/api/policy/#continuous-access-evaluation-cae-policy): Post auth session evaluation monitors user sessions on your org to identify changes in session context. For Admin Console tasks and further information, see [Post auth session evaluation](https://help.okta.com/okta_help.htm?type=oie&id=csh-continuous-access-evaluation).
 
 ### API access policies
 
