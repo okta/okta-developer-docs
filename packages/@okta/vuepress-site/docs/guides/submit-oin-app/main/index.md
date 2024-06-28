@@ -466,19 +466,21 @@ To update a previously published OIN integration:
 
 ### Update integration considerations
 
-* Your published integration may contain properties and variables that aren't available in the OIN Wizard. If you use the OIN Wizard to edit your previously published integration, the same OIN Wizard validations and limitations still apply to your edits.
-
-    For example, consider the case where you have a published integration that used `1Subdomain` and `2Subdomain` variables and you want to add another variable named `3Subdomain`. The OIN Wizard allows `1Subdomain` and `2Subdomain` to remain since they're used in the published integration and weren't modified. However, the OIN Wizard restricts you from adding `3Subdomain` since variable names must start with a letter and have no uppercase letters.
-
 * If you have an existing SAML SSO integration and you want to update advanced properties that aren't available in the OIN Wizard, contact <oin@okta.com>.
-
-* You can't update the **Name** (`name`) property of your [integration variables](#integration-variables) (you can edit the **Label** property). If you must edit the integration variable name, then you need to delete the original variable before you add a variable with the desired name.
 
 * When you update an integration that's already published, be mindful to preserve backwards compatibility for your integration. Older instances of your integration could be in use by Okta customers.
 
-   If your update introduces new variables and you're using dynamic URLs, ensure that your tests cover various scenarios with different possible values for those variables. The newly introduced variables aren't populated for older instances of your integration. For example:
+    * If you modify the **Name** (`name`) property of your [integration variables](#integration-variables), Okta removes the original variable and creates a variable with your updated name. This action negatively impacts your existing customers if you use the original variable in your integration dynamic properties.
 
-   <StackSnippet snippet="backward-compatible-eg" />
+    * Migrated published integrations from the OIN Manager don't have some OIN Wizard restrictions. For instance:
+
+        * Published integrations can have more than three integration variables
+        * Published integrations can have variable names with uppercase letters
+        * Published integrations can use `http` (instead of enforced `https`) in URLs and Okta EL properties
+
+    * If your update introduces new variables and you're using dynamic URLs, ensure that your tests cover various scenarios with different possible values for those variables. The newly introduced variables aren't populated for older instances of your integration. For example:
+
+       <StackSnippet snippet="backward-compatible-eg" />
 
 ## Submit your integration
 
