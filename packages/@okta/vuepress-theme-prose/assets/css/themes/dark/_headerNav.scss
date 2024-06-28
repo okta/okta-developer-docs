@@ -1,6 +1,7 @@
 .header-nav a {
   @include media(">desktop") {
     &:hover {
+      text-decoration: none;
       color: #b1e4de;
     }
   }

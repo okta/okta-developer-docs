@@ -10,8 +10,8 @@
 .Button--blueDarkOutline:active,
 .Button--blueDarkOutline:hover,
 .Button--blueDarkOutline:visited {
-  border-color: cv("text");
+  border-color: cv("text", "base");
   background-color: cv("body", "obscure");
 
-  color: cv("text");
+  color: cv("text", "base");
 }

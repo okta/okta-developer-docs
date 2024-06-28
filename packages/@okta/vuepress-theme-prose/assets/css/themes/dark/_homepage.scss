@@ -7,7 +7,7 @@
 }
 
 .homepage--top-section {
-  background: cv("body") url("/img/homepage/black-to-gray-bg.svg") repeat-x left bottom;
+  background: cv("body", "base") url("/img/homepage/black-to-gray-bg.svg") repeat-x left bottom;
 }
 
 .homepage--assurance-block-margin {
@@ -17,7 +17,7 @@
 .homepage--assurance-block-margin .col-xl-4:nth-child(1) span,
 .homepage--assurance-block-margin .col-xl-4:nth-child(2) span,
 .homepage--assurance-block-margin .col-xl-4:nth-child(3) span {
-  background-color: cv("action") !important;
+  background-color: cv("action", "base") !important;
   background-image: none !important;
   mask-repeat: no-repeat;
   mask-position: center;
@@ -40,7 +40,7 @@
 
 .oin--bg,
 .oin--bg:last-of-type {
-  background: cv("body") url("/img/homepage/black-to-gray-bg.svg") repeat-x left bottom !important;
+  background: cv("body", "base") url("/img/homepage/black-to-gray-bg.svg") repeat-x left bottom !important;
 }
 
 .oin-alt-bg {
@@ -52,5 +52,5 @@
 }
 
 .assurance-item--rounded {
-  background-color: cv("body");
+  background-color: cv("body", "base");
 }

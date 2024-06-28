@@ -25,7 +25,7 @@ select {
   text-transform: none;
   text-shadow: none;
   word-spacing: normal;
-  color: cv("text");
+  color: cv("text", "base");
   text-rendering: auto;
   appearance: textfield;
 }
@@ -69,9 +69,9 @@ button.btn {
   padding: 16px 20px;
   height: auto;
 
-  border: 1px solid cv("header");
+  border: 1px solid cv("header", "base");
   border-radius: 3px;
-  background-color: cv("header");
+  background-color: cv("header", "base");
 
   font-weight: 600;
   font-size: 16px;

@@ -44,7 +44,7 @@
 
 .assurance-item--content--description {
   font-size: 16px;
-  color: cv("text");
+  color: cv("text", "base");
 }
 
 @include media("<desktop") {

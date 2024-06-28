@@ -5,24 +5,24 @@
 
   header.page-header .menu--slideout .header--links > ul.menu--items:not(.expanded) > li span.link,
   header.page-header .menu--slideout .header--links > ul.menu--items:not(.expanded) > li a.link {
-    color: cv("text");
+    color: cv("text", "base");
   }
 
   header.page-header .menu--slideout .header--links > ul.menu--items:not(.expanded) > li a.link.router-link-active {
-    color: cv("action") !important;
+    color: cv("action", "base") !important;
   }
 
   header.page-header .menu--slideout .header--links > ul.menu--items li a.link:hover,
   header.page-header .menu--slideout .header--links > ul.menu--items li span.link:hover {
-    color: cv("action");
+    color: cv("action", "base");
   }
 
   header.page-header .menu--slideout .header--links > ul.menu--items.expanded li.opened > span {
-    color: cv("action");
+    color: cv("action", "base");
   }
 
   header.page-header .menu--slideout .header--links > ul.menu--items.expanded li.opened > span:after {
-    background-color: cv("action") !important;
+    background-color: cv("action", "base") !important;
     background-image: none !important;
     mask-repeat: no-repeat;
     mask-position: center;
@@ -49,9 +49,9 @@ ul.menu--items > li.expandable > ul.submenu--items:before {
 }
 
 ul.menu--items > li.expandable > ul.submenu--items li a {
-  color: cv("text");
+  color: cv("text", "base");
 }
 
 ul.menu--items > li.expandable > ul.submenu--items .menu--icons .menu--icon svg path {
-  fill: cv("link");
+  fill: cv("link", "base");
 }

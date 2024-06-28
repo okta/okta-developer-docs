@@ -1,20 +1,20 @@
 .page-body .content--container {
-  color: cv("text");
+  color: cv("text", "base");
 }
 
 .page-body .content--container pre[class*="language-"] {
-  background-color: cv("code");
+  background-color: cv("code", "base");
 }
 
 .page-body .content--container :not([class*="language-"]) > code {
   border-color: transparent;
   background-color: cv("text", "accent");
 
-  color: cv("text");
+  color: cv("text", "base");
 }
 
 .page-body .content--container .edit-on-github .fa {
-  color: cv("text");
+  color: cv("text", "base");
 }
 
 .page-body .content--container blockquote {
@@ -25,7 +25,7 @@
 }
 
 .page-body .content--container .vs__selected {
-  color: cv("text");
+  color: cv("text", "base");
 }
 
 .page-body .content--container .vs__dropdown-menu {
@@ -34,9 +34,9 @@
 
 .page-body .content--container .vs__dropdown-menu .vs__dropdown-option {
   border-bottom: 1px solid var(--c-text-gray);
-  background-color: cv("code");
+  background-color: cv("code", "base");
 
-  color: cv("text");
+  color: cv("text", "base");
 }
 
 [class^="icon-"]:before,
@@ -47,7 +47,7 @@
 
 .download-16::before,
 .fa-github:before {
-  color: cv("text");
+  color: cv("text", "base");
 }
 
 .page-title [class^="icon-"]:before,
@@ -56,17 +56,17 @@
 }
 
 .api-label-ie {
-  border-color: cv("text");
+  border-color: cv("text", "base");
   background-color: cv("link", "signup");
 
-  color: cv("text");
+  color: cv("text", "base");
 }
 
 .api-label-limited-ga {
-  border-color: cv("text");
-  background-color: cv("cyan");
+  border-color: cv("text", "base");
+  background-color: cv("cyan", "base");
 
-  color: cv("text");
+  color: cv("text", "base");
 }
 
 .app-footer a:hover {

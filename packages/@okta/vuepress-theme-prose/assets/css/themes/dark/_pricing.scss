@@ -3,7 +3,7 @@
 }
 
 .pricing .Button--redOutline {
-  color: cv("text");
+  color: cv("text", "base");
 }
 
 .pricing .pricing--costs .pricing-card {
@@ -16,7 +16,7 @@
 
 .pricing .pricing-collapsible-item-content {
   border-color: cv("body", "obscure") !important;
-  background-color: cv("body") !important;
+  background-color: cv("body", "base") !important;
 }
 
 .pricing .selector-lozenge.multiple .lozenge {
