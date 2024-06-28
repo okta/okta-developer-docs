@@ -12,7 +12,7 @@
       * **Use default logo** - Click Lock to use the default logo.
 5. Configure the connection to the push notification service:
    * **APNs configuration:** Select the connection to the APNs service that you want the custom authenticator to use.
-6. Select the checkbox to agree to Okta's terms and conditions.
+6. Select the checkbox to agree to the Okta terms and conditions.
    > **Note:** By adding this feature, you agree to provide any required notices and disclosures to end users. This is your sole responsibility on behalf of the entity that you represent. Include any necessary information from [https://www.okta.com/privacy-policy](https://www.okta.com/privacy-policy).
 7. Click **Add**.
 
