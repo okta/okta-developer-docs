@@ -12,7 +12,7 @@ meta:
 Okta Identity Engine sets apart factors and authenticators to align with industry standards:
 
 - Identity Engine uses authenticators in its authenticator enrollment policy settings.
-- Okta Classic Engine uses factors in its Multifactor (MFA) enrollment policy settings.
+- Classic Engine uses factors in its multifactor (MFA) enrollment policy settings.
 
 In Identity Engine, the MFA Enrollment Policy name has changed to [authenticator enrollment policy](/docs/reference/api/policy/#authenticator-enrollment-policy). Classic Engine still refers to the same policy as the [Multifactor (MFA) Enrollment Policy](/docs/reference/api/policy/#multifactor-mfa-enrollment-policy). In the API, the policy type of `MFA_ENROLL` remains unchanged, however, the `settings` data contains authenticator or factors, depending on the configuration.
 
