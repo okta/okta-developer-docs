@@ -11,8 +11,8 @@ meta:
 
 Okta Identity Engine sets apart factors and authenticators to align with industry standards:
 
-- Identity Engine uses authenticators in its authenticator enrollment policy settings.
-- Classic Engine uses factors in its multifactor (MFA) enrollment policy settings.
+- Identity Engine uses authenticators in the settings for its authenticator enrollment policy.
+- Classic Engine uses factors in the settings for its multifactor (MFA) enrollment policy.
 
 In Identity Engine, the MFA Enrollment Policy name has changed to [authenticator enrollment policy](/docs/reference/api/policy/#authenticator-enrollment-policy). Classic Engine still refers to the same policy as the [Multifactor (MFA) Enrollment Policy](/docs/reference/api/policy/#multifactor-mfa-enrollment-policy). In the API, the policy type of `MFA_ENROLL` remains unchanged, however, the `settings` data contains authenticator or factors, depending on the configuration.
 
@@ -22,17 +22,19 @@ After you upgrade your org to Identity Engine, consider the following:
 
 - Existing authenticator enrollment policies that you created before upgrading to Identity Engine are still configured with factors.
 
-- Existing authenticator enrollment policies that you save in the Admin Console have their factors converted to authenticators. The conversion is seamless to admin users that manage policies in the Admin Console.
+- Existing authenticator enrollment policies that you save in the Admin Console have their factors converted to authenticators. The conversion is seamless to admins that manage policies in the Admin Console.
 
 > **Note:** Whether you edit the authenticator enrollment policy, when you click **Update Policy** in the Admin Console, the factor-to-authenticator conversion occurs.
 
-Existing code that manages and uses authenticator enrollment policies through the [Policy API](/docs/reference/api/policy/) requires some development work. After you upgrade your org, address the factor-to-authenticator conversion schema changes. This guide provides key API considerations to upgrade your app for multifactor enrollment flows in Identity Engine.
+Existing code that manages and uses authenticator enrollment policies through the [Policy API](/docs/reference/api/policy/) requires some development work. After you upgrade your org, address the factor-to-authenticator conversion schema changes.
+
+This guide provides key API considerations to upgrade your app for multifactor enrollment flows in Identity Engine.
 
 ## Authenticator enrollment policy API changes in Identity Engine
 
 The following are the main behavior changes to the [authenticator enrollment policy](/docs/reference/api/policy/#authenticator-enrollment-policy) in Identity Engine:
 
-- The Policy API supports both factors and authenticator schemas in the authenticator enrollment policy [settings](/docs/reference/api/policy/#policy-settings-data-2).
+- The Policy API supports both factors and authenticator schemas in the [settings](/docs/reference/api/policy/#policy-settings-data-2) for the authenticator enrollment policy.
 - New authenticator enrollment policies contain either factors or authenticators in their settings (they’re mutually exclusive).
 - Existing authenticator enrollment policies (that is, policies created before the Identity Engine upgrade) still contain factors in their settings.
 - Authenticator enrollment policies modified from the Admin Console of an Identity Engine org have their factors converted to authenticators in their settings.
@@ -45,7 +47,7 @@ In Identity Engine, you can use authenticator-based authenticator enrollment pol
 
 Both the password policy and the authenticator enrollment policy govern the enrollment of recovery authenticators (Email, phone, Okta Verify, and Security Question). For example, if the Email authenticator is enabled and set to `Required` in the authenticator enrollment policy, then email enrollment is required for recovery even if it isn't required in the password policy.
 
-> **Note:** Password policy recovery authenticator settings supersede authenticator enrollment policy settings. For example, if the phone authenticator is `Optional` or `Disabled` for the authenticator enrollment policy, but `Required` for the password policy, then phone enrollment is required for the password recovery flow.
+> **Note:** Password policy recovery authenticator settings supersede the authenticator enrollment policy settings. For example, if the phone authenticator is `Optional` or `Disabled` for the authenticator enrollment policy, but `Required` for the password policy, then phone enrollment is required for the password recovery flow.
 
 See [password policy](/docs/reference/api/policy/#password-policy) and [Configure password policies](https://help.okta.com/okta_help.htm?type=oie&id=csh-configure-password) for details on how to configure the password policy in the Admin Console.
 
@@ -59,7 +61,7 @@ If the returned policy uses `authenticators`, loop through the list of [Policy A
 
 If the returned policy uses `factors`, you need to loop through every type of [Policy Factor Configuration object](/docs/reference/api/policy/#policy-factors-configuration-object), as you've done previously for your app.
 
-Example of an authenticator enrollment policy response `settings` snippet with authenticators:
+Response example of an authenticator enrollment policy `settings` snippet with authenticators:
 
 ```json
 "settings": {
@@ -81,7 +83,7 @@ Example of an authenticator enrollment policy response `settings` snippet with a
 }
 ```
 
-Example of an authenticator enrollment policy response `settings` snippet with factors:
+Response example of an authenticator enrollment policy `settings` snippet with factors:
 
 ```json
 "settings": {
@@ -135,12 +137,12 @@ You can revert to the factor-based authenticator enrollment policy model. Modify
 
 | Policy Factors Configuration object | Authenticator keys       |
 | --------- | ----------- |
-| okta_sms<br>okta_voice  | phone_number |
-| okta_otp<br>okta_push   | okta_verify  |
-| okta_question           | security_question  |
-| okta_email              | email  |
-| duo                     | duo  |
-| fido_webauthn           | security_key  |
+| okta_sms<br>okta_voice  | `phone_number` |
+| okta_otp<br>okta_push   | `okta_verify`  |
+| okta_question           | `security_question` |
+| okta_email              | `email`  |
+| duo                     | `duo`  |
+| fido_webauthn           | `security_key`  |
 | rsa_token               | n/a  |
 | sympantec_vip           | n/a  |
 | yubikey_token           | n/a  |
