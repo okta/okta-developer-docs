@@ -129,7 +129,7 @@ You can revert to the factor-based authenticator enrollment policy model. Modify
 * [Policy Factors Configuration objects](/docs/reference/api/policy/#policy-factors-configuration-object)
 * [Policy Factors Configuration object and Authenticator keys mapping](#policy-factors-configuration-object-and-authenticator-keys-mapping)
 
-> **Note:** Your app might be integrated with systems like Terraform that can’t be updated to parse the authenticators-based enrollment policy. If so, you need to revert your policy to use factors instead of authenticators.
+> **Note:** Your app might be integrated with systems like Terraform that you can't update to parse the authenticators-based enrollment policy. If so, revert your policy to use factors instead of authenticators.
 
 ## Policy Factors Configuration object and Authenticator keys mapping
 
