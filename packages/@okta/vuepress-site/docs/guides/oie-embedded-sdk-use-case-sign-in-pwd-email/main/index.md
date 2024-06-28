@@ -1,5 +1,5 @@
 ---
-title: Sign in with password and email factors
+title: "Sign-in flow: password and email"
 ---
 
 <ApiLifecycle access="ie" />

@@ -1,10 +1,10 @@
 ### Sample application and SDK integration
 
-Similar to the Okta APIs, the SDK uses a generic interface to handle each step of the user sign-in flow. This interface enables apps to use a dynamic model when responding to policy changes within Okta. Specifically, it enables a pure policy-driven design that accepts new functionality, such as adding other sign-in factors, without the need to update your app's code. This feature is important for mobile devices due to the challenges in updating apps. See how the [sample application](/docs/guides/oie-embedded-common-run-samples/ios/main/) uses the SDK to implement this dynamic policy-driven behavior.
+Similar to the Okta APIs, the SDK uses a generic interface to handle each step of the user sign-in flow. This interface enables apps to use a dynamic model when responding to policy changes within Okta. Specifically, it enables a pure policy-driven design that accepts new functionality, such as adding other sign-in factors, without the need to update your app's code. This feature is important for mobile devices due to the challenges in updating apps. To learn how the sample app uses the SDK, see [The embedded SDK flow](/docs/guides/oie-embedded-common-run-samples/ios/main/#the-embedded-sdk-flow).
 
 ### Integrate the SDK with the sample code
 
-In contrast to the sample app, the [sample code](https://github.com/okta/okta-idx-swift/tree/master/Samples/Signin%20Samples) provided in this step-by-step guide wraps the SDK with a more prescriptive and explicit interface that is purposely built to help facilitate understanding of how to use the SDK. It's meant to be a learning tool and although you can implement similar code in your app, you're advised to use the same best practice dynamic approach implemented in the sample app.
+In contrast to the iOS Identity Engine sample app, the [sample code](https://github.com/okta/okta-idx-swift/tree/master/Samples/Signin%20Samples) provided in this guide wraps the SDK with a more prescriptive and explicit interface. This interface was built to help people learn how to use the SDK. Although you can choose to implement similar code in your app, we recommend that you use the same best practice dynamic approach implemented in the sample app instead.
 
 The following steps document how to integrate the sample code into your app. The sample code converts the SDK's generic remediation interface into explicit authentication steps and automatically executes steps, such as the code-to-token exchange. The following diagram illustrates this call flow from your app's UI to the sample code, SDK, and API.
 
@@ -18,7 +18,7 @@ The following steps document how to integrate the sample code into your app. The
 
 ### Launch the app and initialize the SDK
 
-The first step is to initialize the SDK when the user opens your app. This is done by creating an instance of `BasicLogin` and passing into its initializer a `configuration` object.
+The SDK initializes when the user opens your app. Create an instance of `BasicLogin` and pass into its initializer a `configuration` object.
 
  ```swift
 self.authHandler = BasicLogin(configuration: configuration)
@@ -46,8 +46,6 @@ When the user enters their credentials and initiates the sign-in flow, call the 
 ### Send the user to the home page after a successful sign-in flow
 
 The final integration step is to send the user to the default home page after a successful sign-in flow. Optionally, you can obtain basic user information after the user successfully signs in by making a request to the Okta OpenID Connect authorization server. See [Get the user profile information](#get-the-user-profile-information).
-
-#### Sample code
 
 The following sample code is also located in the [okta-idx-swift repository](https://github.com/okta/okta-idx-swift/blob/master/Samples/Signin%20Samples/BasicLogin.swift).
 

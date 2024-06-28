@@ -1,6 +1,6 @@
 ### Your app displays the sign-in page
 
-Build a sign-in page that captures both the user's name and their password.
+Display a sign-in page where users input their username and password.
 
 <div class="half wireframe-border">
 
@@ -22,7 +22,7 @@ const authClient = getAuthClient(req);
 const transaction = await authClient.idx.authenticate({ username, password });
 ```
 
-### Your app handles an authentication success response
+### Your app handles an authentication response
 
 `authenticate()` returns a `transaction` object with a `status` property indicating the current state of the sign-in flow. Handle the returned `IdxStatus` value accordingly:
 
