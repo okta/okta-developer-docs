@@ -25,7 +25,7 @@ You can customize the text of the SMS messages that Okta sends to an end user fo
 
 Okta provides one default SMS message template that is automatically sent to your users. You can't change this default message, but you can add translations for it, and you can use it to create a custom SMS message template.
 
-Okta supports two variables for [SMS message templates](/docs/reference/api/templates/):
+Okta supports two variables for [SMS message templates](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Template/):
 
 * `{code}`: Required. When you add a translation or create a custom SMS message template, the message text must include the variable `{code}`. This variable represents the one-time verification code that is required when a user signs in.
 * `{org.name}`: Optional. This variable represents the Okta organization that the user is trying to authenticate with.
@@ -82,7 +82,7 @@ For example: `it": "{org.name}: il codice di verifica è {code}`
 
 7. Repeat steps 3 through 6 for each language that your org supports.
 
-> **Note:** Alternatively, you can use the [Okta Templates API](/docs/reference/api/templates/) to manage custom SMS message templates.
+> **Note:** Alternatively, you can use the [Okta SMS Templates API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Template/) to manage custom SMS message templates.
 
 ## Next steps
 
