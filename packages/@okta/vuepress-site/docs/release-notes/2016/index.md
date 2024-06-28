@@ -585,7 +585,7 @@ You can send custom text as part of an SMS message request:
 1. Use the `/api/v1/templates/sms` endpoint to create a custom SMS text template.
 2. Send a request to the Factors API specifying the template for verification. There is no change in the response.
 
-For more information, see [Templates API](/docs/reference/api/templates/) and [Factors API](/docs/reference/api/factors/).
+For more information, see [SMS Templates API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Template/) and [Factors API](/docs/reference/api/factors/).
 
 ### Feature Enhancement: Resource Owner Password Credential Flow for OpenID Connect Supports Refresh Tokens
 

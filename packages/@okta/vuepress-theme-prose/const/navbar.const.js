@@ -1051,7 +1051,7 @@ export const reference = [
                { title: "SMS Templates", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Template/" },
                { title: "Subscriptions", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Subscription/" },
                { title: "System Log", path: "/docs/reference/api/system-log/" },
-               { title: "Templates", path: "/docs/reference/api/templates/" },
+               { title: "Templates", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Template/" },
                { title: "ThreatInsight", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ThreatInsight/" },
                { title: "Trusted Origins", path: "/docs/reference/api/trusted-origins/" },
                { title: "UI Schema", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UISchema/" },
