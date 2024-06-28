@@ -26,7 +26,7 @@ After your upgrade your org to Identity Engine, consider the following:
 
 > **Note:** Whether you edit the authenticator enrollment policy or not, when you click **Update Policy** in the Admin Console, the factor-to-authenticator conversion occurs.
 
-Existing code that manages and uses authenticator enrollment policies through the [Policy API](/docs/reference/api/policy/) requires some development work. After you upgrade your org, handle the factor to authenticator conversion schema changes. This guide provides key API considerations to upgrade your app for multifactor enrollment flows in Identity Engine.
+Existing code that manages and uses authenticator enrollment policies through the [Policy API](/docs/reference/api/policy/) requires some development work. After you upgrade your org, address the factor-to-authenticator conversion schema changes. This guide provides key API considerations to upgrade your app for multifactor enrollment flows in Identity Engine.
 
 ## Authenticator enrollment policy API changes in Identity Engine
 
