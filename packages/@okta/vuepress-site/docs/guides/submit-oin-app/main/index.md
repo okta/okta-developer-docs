@@ -426,7 +426,7 @@ All required tests in the OIN Submission Tester must have passed within 48 hours
 
 You can modify your published SSO integration from the OIN Wizard.
 
-When you edit a published OIN integration, you need to test the SSO flow for the updated version and the published version for backwards compatibility. Testing the published version for backwards compatibility ensures that SSO to your app still works for customers who have already installed your published OIN integration. See [Update integration considerations](#update-integration-considerations) before you edit your published SSO integration. After you successfully test the updated and published versions of your integration, resubmit it to the OIN team.
+When you edit a published OIN integration, test the SSO flow for the updated version and the published version for backwards compatibility. Testing the published version for backwards compatibility ensures that SSO to your app still works for customers who have already installed your published OIN integration. See [Update integration considerations](#update-integration-considerations) before you edit your published SSO integration. After you successfully test the updated and published versions of your integration, resubmit it to the OIN team.
 
 > **Note:** When you edit your published OIN integration, your previous PUBLISHED status and date are overwritten with the DRAFT status and current date.
 
