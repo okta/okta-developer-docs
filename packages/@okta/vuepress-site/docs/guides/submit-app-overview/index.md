@@ -32,7 +32,9 @@ Consider the following questions to help you choose which pathway to use for sub
   1. [Use the OIN Manager](#submission-process-for-lcm-integrations) to submit your SCIM integration component.
      > **Note:** Submit the SSO integration in the OIN Wizard first before you submit the SCIM integration in the OIN Manager.
 * Are you updating a published SSO integration, previously submitted through the OIN Manager?
-  * Use the [OIN Manager to update published SSO integrations](/docs/guides/submit-sso-app/saml2/main/#update-your-published-integration).
+   > **Note:** Okta is in the process of migrating published integrations from the OIN Manager to the OIN Wizard.
+    * If your published integration hasn't been migrated to the OIN Wizard yet, use the [OIN Manager to update published SSO integrations](/docs/guides/submit-sso-app/saml2/main/#update-your-published-integration).
+    * If your published integration appears in the Admin Console > **Your OIN Integrations** dashboard, use the [OIN Wizard](/docs/guides/submit-oin-app/openidconnect/main/#update-your-integration).
 
 Submit your integration to Okta and work with the Okta OIN team as they test and review your submission. If the Okta OIN team identifies any issues in the review and QA testing phases, you're sent an email with the specific details. At any point in the process, you can check the status of your submission in the OIN Wizard or OIN Manager.
 
