@@ -1535,7 +1535,7 @@ The authenticator enrollment policy controls which authenticators are available 
 
 > **Note:** Allow List for FIDO2 (WebAuthn) Authenticators is an [Early Access](/docs/reference/releases-at-okta/#early-access-ea) (Self-Service) feature. Enable the feature for your org from the **Settings** > **Features** page in the Admin Console.
 
-Configure which FIDO2 WebAuthn authenticators are allowed in your org for new enrollments by defining WebAuthn authenticator groups, then specifying which groups are in the allow list for enrollments. The authenticators in the group are based on FIDO Alliance Metadata Service that is identified by name or the Authenticator Attestation Global Unique Identifier ([AAGUID](https://support.yubico.com/hc/en-us/articles/360016648959-YubiKey-Hardware-FIDO2-AAGUIDs)) number. These groups are defined in the [WebAuthn authenticator method settings](/docs/reference/api/authenticators-admin/#authenticator-method-settings-propeties).
+Configure which FIDO2 WebAuthn authenticators are allowed in your org for new enrollments by defining WebAuthn authenticator groups. Then, specify which groups are in the allow list for enrollments. The authenticators in the group are based on FIDO Alliance Metadata Service that's identified by name or the Authenticator Attestation Global Unique Identifier ([AAGUID](https://support.yubico.com/hc/en-us/articles/360016648959-YubiKey-Hardware-FIDO2-AAGUIDs)) number. These groups are defined in the [WebAuthn authenticator method settings](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/#tag/Authenticator/operation/listAuthenticatorMethods).
 
 | Parameter | Description                                    | Data Type                                | Required |
 | ---       | ---                                            | ---                                      | ---      |
@@ -2112,7 +2112,7 @@ Constraints on the values specified in the `selfServicePasswordReset.requirement
 
 | Property | Description | Data Type | Supported Values | Required |
 | -------- | ----------- | --------- | ---------------- | -------- |
-| allowedAuthenticators | Limits the authenticators that can be used for a given method. Currently, only the `OTP` method supports constraints and Google authenticator is the only allowed authenticator. | Array of [authenticator keys](/docs/reference/api/authenticators-admin/#authenticator-properties) | `[ { "key": "google_otp" } ]` | No |
+| allowedAuthenticators | Limits the authenticators that you can use for a given method. Currently, only the `OTP` method supports constraints and Google authenticator is the only allowed authenticator. | Array of [authenticator keys](https://preview.redoc.ly/oktadev/OKTA-742034-add-missing-authenticator-api-objects/openapi/okta-management/management/tag/Authenticator/) | `[ { "key": "google_otp" } ]` | No |
 | method  | Specifies the method that is limited to the specific authenticator in `allowedAuthenticators`. Currently, Google OTP is the only accepted constraint. | String | `OTP` | No |
 
 ###### Self Service Password Reset Action Step-up Requirement object
