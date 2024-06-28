@@ -22,7 +22,7 @@ After you upgrade your org to Identity Engine, consider the following:
 
 - Existing authenticator enrollment policies that you created before upgrading to Identity Engine are still configured with factors.
 
-- Existing authenticator enrollment polices that you save in the Admin Console have their factors converted to authenticators. The conversion is seamless to admin users that manage policies in the Admin Console.
+- Existing authenticator enrollment policies that you save in the Admin Console have their factors converted to authenticators. The conversion is seamless to admin users that manage policies in the Admin Console.
 
 > **Note:** Whether you edit the authenticator enrollment policy, when you click **Update Policy** in the Admin Console, the factor-to-authenticator conversion occurs.
 
