@@ -294,7 +294,7 @@ The format for conditional expressions is:
 * The `OR` operator
 * The `!` operator to designate NOT
 * Standard relational operators including <code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code>, and <code>&gt;=</code>.
-* The `matches` operator to evaluate a string against a regular expression. <ApiLifecycle access="deprecated" />
+* The `matches` operator to evaluate a string against a regular expression (regex). <ApiLifecycle access="deprecated" />
 
 > **Note:** Use the double equals sign `==` to check for equality and `!=` for inequality.
 
@@ -336,13 +336,14 @@ Include the honorific prefix in front of the full name, or use the courtesy titl
 
 The following samples are valid conditional expressions. The actions in these cases are group assignments.
 
-| IF (Implicit) | Condition                                      | Assign to this Group Name if Condition is TRUE |
-| ---           | ---                                            | ---                                            |
-| IF            | String.stringContains(user.firstName, "dummy") | dummyUsers                                     |
-| IF            | user.city == "San Francisco"                   | sfo                                            |
-| IF            | user.salary >= 1000000                         | expensiveEmployee                              |
-| IF            | !user.isContractor                             | fullTimeEmployees                              |
-| IF            | user.salary > 1000000 AND !user.isContractor   | expensiveFullTimeEmployees                     |
+| IF (Implicit) | Condition                                       | Assign to this Group Name if Condition is TRUE |
+| ---           | ---                                             | ---                                            |
+| IF            | String.stringContains(user.department, "Sales") | Sales                                          |
+| IF            | user.city == "San Francisco"                    | sfo                                            |
+| IF            | user.salary >= 1000000                          | expensiveEmployee                              |
+| IF            | !user.isContractor                              | fullTimeEmployees                              |
+| IF            | user.salary > 1000000 AND !user.isContractor    | expensiveFullTimeEmployees                     |
+| IF            | user.department matches '(?i)admins'            | Administrators                                 |
 
 #### Check for null and blank attributes
 
