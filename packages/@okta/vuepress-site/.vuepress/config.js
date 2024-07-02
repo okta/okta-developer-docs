@@ -271,7 +271,7 @@ module.exports = ctx => ({
       md.use(require('markdown-it-attrs'), {
         leftDelimiter: '[[',
         rightDelimiter: ']]'
-      })
+      }) 
     },
     anchor: {
       permalinkBefore: false,
