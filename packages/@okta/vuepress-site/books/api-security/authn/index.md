@@ -1,7 +1,7 @@
 ---
 title: Authentication
 ---
-# Authentication {#authn}
+# Authentication [[#authn]]
 
 <div class="chapter-author">By Matt Raible</div>
 

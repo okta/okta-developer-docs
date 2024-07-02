@@ -1,7 +1,7 @@
 ---
 title: Acknowledgments
 ---
-# Acknowledgments {#acknowledgments}
+# Acknowledgments [[#acknowledgments]]
 
 The authors of the book in your hands today (physically or digitally) would like to take a moment to thank a few individuals without whom this work would not have been assembled.
 

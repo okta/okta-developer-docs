@@ -4,7 +4,7 @@ title: Look For Other Attack Vectors - Sanitizing Data
 
 <div style="font-size: 0.9em; margin-bottom: -20px;"><a href="/books/api-security/sanitizing/">&larr; Sanitizing Data</a></div>
 
-## Look For Other Attack Vectors {#sanitizing-attack-vectors}
+## Look For Other Attack Vectors [[#sanitizing-attack-vectors]]
 
 Inputs are everywhere, often only evident in hindsight. User input and file uploads are just the tip of the iceberg, but what if we consider more than input and instead the code itself? Here are a couple of examples to illustrate this point.
 

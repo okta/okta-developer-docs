@@ -4,7 +4,7 @@ title: SSL Rating - Transport Layer Security
 
 <div style="font-size: 0.9em; margin-bottom: -20px;"><a href="/books/api-security/tls/">&larr; Transport Layer Security</a></div>
 
-## SSL Rating {#tls-ssl-rating}
+## SSL Rating [[#tls-ssl-rating]]
 
 After implementing SSL/TLS into your API endpoint infrastructure, be sure to run an SSL Rating test to validate your use of the SSL/TLS Best Practices in the section above. While an A+ SSL rating is not a guarantee that your infrastructure is ideally provisioned, any lower rating should raise red flags that you can correct.
 

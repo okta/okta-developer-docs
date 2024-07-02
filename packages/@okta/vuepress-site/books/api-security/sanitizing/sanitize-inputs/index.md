@@ -4,7 +4,7 @@ title: Sanitize Inputs - Sanitizing Data
 
 <div style="font-size: 0.9em; margin-bottom: -20px;"><a href="/books/api-security/sanitizing/">&larr; Sanitizing Data</a></div>
 
-## Sanitize Inputs {#sanitize-inputs}
+## Sanitize Inputs [[#sanitize-inputs]]
 
 Sanitizing inputs can be a good option when the input format is not strict but still somewhat predictable, such as phone numbers or other free-text fields. There are a few different ways to sanitize inputs, you could use an allowlist, a blocklist, or escape input.
 

@@ -4,7 +4,7 @@ title: Hierarchical - Authorization
 
 <div style="font-size: 0.9em; margin-bottom: -20px;"><a href="/books/api-security/authz/">&larr; Authorization</a></div>
 
-## Hierarchical {#authz-hierarchical}
+## Hierarchical [[#authz-hierarchical]]
 
 Hierarchical authorization is exactly what it sounds like — authorization determined based on the hierarchy. As you might imagine, within this structure permissions are determined by an entity's place in the hierarchy.
 

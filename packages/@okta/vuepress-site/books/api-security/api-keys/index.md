@@ -1,7 +1,7 @@
 ---
 title: Managing API Credentials
 ---
-# Managing API Credentials {#api-keys}
+# Managing API Credentials [[#api-keys]]
 
 <div class="chapter-author">By Joël Franusic</div>
 

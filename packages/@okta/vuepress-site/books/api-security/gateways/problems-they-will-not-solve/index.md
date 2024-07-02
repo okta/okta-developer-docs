@@ -4,7 +4,7 @@ title: Problems Your API Management Platform Won't Solve - API Gateways
 
 <div style="font-size: 0.9em; margin-bottom: -20px;"><a href="/books/api-security/gateways/">&larr; API Gateways</a></div>
 
-## Problems Your API Management Platform Won't Solve {#gateways-problems-they-will-not-solve}
+## Problems Your API Management Platform Won't Solve [[#gateways-problems-they-will-not-solve]]
 
 An API management platform does not design your API. You still need to understand your users, their goals, and the best way to accomplish those goals. That will require you to determine which use cases you are and are not solving with your API. Further, you have to decide the name and structure of appropriate endpoints and what is required to interact with them.
 

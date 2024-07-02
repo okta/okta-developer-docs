@@ -1,7 +1,7 @@
 ---
 title: About the Authors
 ---
-# About the Authors {#about-the-authors}
+# About the Authors [[#about-the-authors]]
 
 ## Lee Brandt
 

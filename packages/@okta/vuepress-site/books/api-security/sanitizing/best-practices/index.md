@@ -4,7 +4,7 @@ title: Best Practices for Secure Data - Sanitizing Data
 
 <div style="font-size: 0.9em; margin-bottom: -20px;"><a href="/books/api-security/sanitizing/">&larr; Sanitizing Data</a></div>
 
-## Best Practices for Secure Data {#sanitizing-best-practices}
+## Best Practices for Secure Data [[#sanitizing-best-practices]]
 
 While this chapter provides an overview of a few common types of attacks, there are many more out there.
 

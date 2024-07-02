@@ -6,7 +6,7 @@ title: >-
 
 <div style="font-size: 0.9em; margin-bottom: -20px;"><a href="/books/api-security/api-keys/">&larr; Managing API Credentials</a></div>
 
-## Other Options for Authentication to Your API Service {#api-keys-other-options}
+## Other Options for Authentication to Your API Service [[#api-keys-other-options]]
 Now, while I suggest that you have your clients authenticate to your API using JWTs as Bearer tokens, there are other patterns you will encounter. Below is a short list of other approaches to API authentication. Keep in mind that this is by no means an exhaustive list, just a list of the most common approaches and their tradeoffs:
 
 ### Basic Authentication

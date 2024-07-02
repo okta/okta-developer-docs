@@ -4,7 +4,7 @@ title: Accept Known Good - Sanitizing Data
 
 <div style="font-size: 0.9em; margin-bottom: -20px;"><a href="/books/api-security/sanitizing/">&larr; Sanitizing Data</a></div>
 
-## Accept Known Good {#sanitizing-accept-good}
+## Accept Known Good [[#sanitizing-accept-good]]
 
 The known good strategy is often the easiest and most foolproof of the given options. With this approach each input is validated against an expected type and format:
 

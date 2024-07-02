@@ -4,7 +4,7 @@ title: A Brief History of Secure Data Transport - Transport Layer Security
 
 <div style="font-size: 0.9em; margin-bottom: -20px;"><a href="/books/api-security/tls/">&larr; Transport Layer Security</a></div>
 
-## A Brief History of Secure Data Transport {#tls-history}
+## A Brief History of Secure Data Transport [[#tls-history]]
 
 Today we take for granted our ability to send data over the internet securely. When we purchase an item from Amazon or complete our taxes online, we place our trust in the infrastructure of the internet to securely share our data with only the systems and parties we intend.
 

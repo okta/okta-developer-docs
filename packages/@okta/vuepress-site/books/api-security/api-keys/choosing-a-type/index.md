@@ -4,7 +4,7 @@ title: Choosing a Type of API Token - Managing API Credentials
 
 <div style="font-size: 0.9em; margin-bottom: -20px;"><a href="/books/api-security/api-keys/">&larr; Managing API Credentials</a></div>
 
-## Choosing a Type of API Token {#api-keys-choosing-a-type}
+## Choosing a Type of API Token [[#api-keys-choosing-a-type]]
 
 Now that we've covered general advice for storing and using API tokens, let's review common options for securing your API. We'll cover the different types of API tokens, touch on the advantages and disadvantages of each, and summarize with suggestions and a recommended approach.
 

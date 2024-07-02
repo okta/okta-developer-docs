@@ -4,7 +4,7 @@ title: Key Takeaways for Managing API Credentials - Managing API Credentials
 
 <div style="font-size: 0.9em; margin-bottom: -20px;"><a href="/books/api-security/api-keys/">&larr; Managing API Credentials</a></div>
 
-## Key Takeaways for Managing API Credentials {#api-keys-takeaways}
+## Key Takeaways for Managing API Credentials [[#api-keys-takeaways]]
 
 In closing, here is my best advice for managing API credentials:
 

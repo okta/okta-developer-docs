@@ -4,7 +4,7 @@ title: Server Certificates - Transport Layer Security
 
 <div style="font-size: 0.9em; margin-bottom: -20px;"><a href="/books/api-security/tls/">&larr; Transport Layer Security</a></div>
 
-## Server Certificates {#tls-server-certificates}
+## Server Certificates [[#tls-server-certificates]]
 
 You've seen that SSL/TLS server certificates are integral to the SSL/TLS handshake. They help the client verify that the server is who they appear to be, which helps prevent third parties impersonating the server. But what are certificates, anyway? How are they generated, and why do the clients trust them?
 

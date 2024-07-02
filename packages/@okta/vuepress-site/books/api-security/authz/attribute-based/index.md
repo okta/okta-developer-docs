@@ -4,7 +4,7 @@ title: Attribute-Based Access Control - Authorization
 
 <div style="font-size: 0.9em; margin-bottom: -20px;"><a href="/books/api-security/authz/">&larr; Authorization</a></div>
 
-## Attribute-Based Access Control {#authz-attribute-based}
+## Attribute-Based Access Control [[#authz-attribute-based]]
 
 The pattern must be obvious by now – in ABAC, access is defined by the attributes on the user or service, and a policy that enforces what actions these attributes are allowed to perform. As we saw in the above section, implementing RBAC is relatively simple but maintaining it over time becomes cumbersome as the system grows and permissions get more fine-grained. With ABAC, it's the opposite. Implementing it can be a herculean task but once complete, maintaining it is relatively simple and efficient.
 

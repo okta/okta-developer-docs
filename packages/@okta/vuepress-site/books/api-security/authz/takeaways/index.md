@@ -4,7 +4,7 @@ title: Key Takeaways - Authorization
 
 <div style="font-size: 0.9em; margin-bottom: -20px;"><a href="/books/api-security/authz/">&larr; Authorization</a></div>
 
-## Key Takeaways {#authz-takeaways}
+## Key Takeaways [[#authz-takeaways]]
 
 In closing, here's some simple advice on how to think about authorization in your APIs:
 

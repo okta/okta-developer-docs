@@ -4,7 +4,7 @@ title: Certificate Verification - Transport Layer Security
 
 <div style="font-size: 0.9em; margin-bottom: -20px;"><a href="/books/api-security/tls/">&larr; Transport Layer Security</a></div>
 
-## Certificate Verification {#tls-certificate-verification}
+## Certificate Verification [[#tls-certificate-verification]]
 
 Now that we understand the importance of trusted certificates and why certificate authorities are necessary, let's walk through the missing middle step: how a client verifies a server's SSL/TLS certificate.
 

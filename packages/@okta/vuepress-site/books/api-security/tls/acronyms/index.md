@@ -4,7 +4,7 @@ title: 'Acronym Party: HTTPS/SSL/TLS - Transport Layer Security'
 
 <div style="font-size: 0.9em; margin-bottom: -20px;"><a href="/books/api-security/tls/">&larr; Transport Layer Security</a></div>
 
-## Acronym Party: HTTPS/SSL/TLS {#tls-acronyms}
+## Acronym Party: HTTPS/SSL/TLS [[#tls-acronyms]]
 
 Now that we're up to speed on the basics of key exchange, let's discuss some of the acronyms you'll see throughout this discussion:
 

@@ -4,7 +4,7 @@ title: Types of Denial of Service Attacks - DOS Mitigation Strategies
 
 <div style="font-size: 0.9em; margin-bottom: -20px;"><a href="/books/api-security/dos/">&larr; DOS Mitigation Strategies</a></div>
 
-## Types of Denial of Service Attacks {#dos-what}
+## Types of Denial of Service Attacks [[#dos-what]]
 
 There are three main types of DoS attacks:
 

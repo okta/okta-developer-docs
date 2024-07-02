@@ -4,7 +4,7 @@ title: Role-Based Access Control - Authorization
 
 <div style="font-size: 0.9em; margin-bottom: -20px;"><a href="/books/api-security/authz/">&larr; Authorization</a></div>
 
-## Role-Based Access Control {#authz-role-based}
+## Role-Based Access Control [[#authz-role-based]]
 
 Many organizations have roles and responsibilities that don't quite fit a strict hierarchical structure. For example, a release manager on a development team may have access to deploy their components but their direct supervisor may not. Let's take a look at role-based access control, starting with a simple use case: one user creating another user.
 

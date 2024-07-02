@@ -4,7 +4,7 @@ title: Recommended Best Practices for Authentication - Authentication
 
 <div style="font-size: 0.9em; margin-bottom: -20px;"><a href="/books/api-security/authn/">&larr; Authentication</a></div>
 
-## Recommended Best Practices for Authentication {#authn-best-practices}
+## Recommended Best Practices for Authentication [[#authn-best-practices]]
 
 Using industry standard authentication protocols will help you secure your API in well-understood, predictable, and scalable ways that allow your team to use established services, components, and libraries while not confusing end users.
 

@@ -4,7 +4,7 @@ title: Common Attacks - Sanitizing Data
 
 <div style="font-size: 0.9em; margin-bottom: -20px;"><a href="/books/api-security/sanitizing/">&larr; Sanitizing Data</a></div>
 
-## Common Attacks {#sanitizing-common-attacks}
+## Common Attacks [[#sanitizing-common-attacks]]
 
 The examples in this chapter have discussed ways to validate inputs but have only hinted at the type of attacks used when inputs are not properly sanitized. Let's look at those potential attacks, and how to prevent them, now.
 
