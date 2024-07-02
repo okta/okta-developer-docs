@@ -30,13 +30,17 @@ pre[class*="language-"] .code-copy {
 
 .highlight-lines {
   user-select: none;
-  padding: 0.5rem 0rem 0.5rem 0rem;
+
   position: absolute;
+
   top: 0;
   left: 0;
+
+  padding: 0.5rem 0 0.5rem 0;
+
   width: 100%;
 
   .highlighted {
-    background-color: rgba(0, 0, 0, .66);
+    background-color: rgba(0 0 0 / 0.66);
   }
 }
