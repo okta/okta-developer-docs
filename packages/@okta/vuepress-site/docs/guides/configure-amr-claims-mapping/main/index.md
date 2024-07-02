@@ -38,6 +38,8 @@ When you configure AMR claims in Okta-to-Okta orgs, there are some configuration
 <div class="three-quarter">
 
 ![Flow diagram that displays the communication between the user, user agent, authorization server, and the Identity Provider](/img/auth/amr-claims-mapping-oidc.png)
+<!-- https://www.figma.com/design/YH5Zhzp66kGCglrXQUag2E/📊-Updated-Diagrams-for-Dev-Docs?node-id=4696-3134&t=vwcppYyoeWOz2kEQ-11
+amr-claims-mapping-oidc.png -->
 
 </div>
 
