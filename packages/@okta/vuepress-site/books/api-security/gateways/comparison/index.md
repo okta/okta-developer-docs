@@ -4,7 +4,7 @@ title: API Management Platform Comparison - API Gateways
 
 <div style="font-size: 0.9em; margin-bottom: -20px;"><a href="/books/api-security/gateways/">&larr; API Gateways</a></div>
 
-## API Management Platform Comparison {#gateways-comparison}
+## API Management Platform Comparison [[#gateways-comparison]]
 
 This is a much more complex question and depends on your use case, budget, and familiarity. If your infrastructure is entirely on AWS, Azure, or Google Cloud, using their respective gateways is a safe choice.
 

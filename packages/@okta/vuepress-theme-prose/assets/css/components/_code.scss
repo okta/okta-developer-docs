@@ -27,3 +27,16 @@ pre[class*="language-"] .code-copy {
   white-space: normal;
   color: #333333;
 }
+
+.highlight-lines {
+  user-select: none;
+  padding: 0.5rem 0rem 0.5rem 0rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+
+  .highlighted {
+    background-color: rgba(0, 0, 0, .66);
+  }
+}

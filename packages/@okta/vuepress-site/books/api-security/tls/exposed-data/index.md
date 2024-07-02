@@ -4,7 +4,7 @@ title: Exposed Data over SSL/TLS - Transport Layer Security
 
 <div style="font-size: 0.9em; margin-bottom: -20px;"><a href="/books/api-security/tls/">&larr; Transport Layer Security</a></div>
 
-## Exposed Data over SSL/TLS {#tls-exposed-data}
+## Exposed Data over SSL/TLS [[#tls-exposed-data]]
 
 TLS aims to provide data integrity and privacy between two trusted parties. Information exchanged over the latest version of TLS should be secure from being exposed to third parties in unencrypted form. Additionally, third parties should be unable to modify that information: this is the concept of data integrity, and is the reason an integrity check is performed on each message.
 

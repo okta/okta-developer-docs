@@ -1,7 +1,7 @@
 ---
 title: Authorization
 ---
-# Authorization {#authz}
+# Authorization [[#authz]]
 
 <div class="chapter-author">By Sai Maddali</div>
 

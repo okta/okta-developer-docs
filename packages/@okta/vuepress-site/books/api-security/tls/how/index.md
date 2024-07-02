@@ -4,7 +4,7 @@ title: Establishing a SSL/TLS Session - Transport Layer Security
 
 <div style="font-size: 0.9em; margin-bottom: -20px;"><a href="/books/api-security/tls/">&larr; Transport Layer Security</a></div>
 
-## Establishing a SSL/TLS Session {#tls-how}
+## Establishing a SSL/TLS Session [[#tls-how]]
 
 When an SSL/TLS connection needs to be made between a client (a browser, or an application attempting to access an API) and a server (a web server, for example, or an API endpoint) it follows a number of steps. The TLS spec, published by the IETF Transport Layer Security Working Group, gives an overview of these steps.
 

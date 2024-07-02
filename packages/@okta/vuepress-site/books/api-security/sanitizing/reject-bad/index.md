@@ -4,7 +4,7 @@ title: Reject Bad Inputs - Sanitizing Data
 
 <div style="font-size: 0.9em; margin-bottom: -20px;"><a href="/books/api-security/sanitizing/">&larr; Sanitizing Data</a></div>
 
-## Reject Bad Inputs {#sanitizing-reject-bad}
+## Reject Bad Inputs [[#sanitizing-reject-bad]]
 
 Rejecting known invalid inputs is more complicated than only accepting known good inputs (which we talked about above) and far less accurate.  This strategy is typically implemented as a blocklist of strings or patterns.  This technique may require many regular expressions to be run against a single field which may also affect the speed of your application. It also means that this blocklist will require updates any time a new pattern needs to be blocked.
 
