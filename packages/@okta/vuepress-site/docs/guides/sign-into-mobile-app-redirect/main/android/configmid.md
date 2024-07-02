@@ -1,12 +1,13 @@
-1. Create a new file called `okta.properties` in the root directory of your project:
+1. Create a file called `okta.properties` in the root directory of your project:
 
-1. Add the configuration values that your app uses to interact with the Okta org. Replace the placeholders in the code below with the values from the Okta app integration that you created in [Create an Okta integration for your app](#create-an-okta-integration-for-your-app).
-    ```properties
-    discoveryUrl=<DISCOVERY_URL>
-    clientId=<CLIENT_ID>
-    signInRedirectUri=<SIGN_IN_URI>
-    signOutRedirectUri=<SIGN_OUT_REDIRECT_URI>
-    ```
+1. Add the configuration values that your app uses to interact with the Okta org. Replace the placeholders in the following code with the values from the Okta app that you created in [Create an Okta integration for your app](#create-an-okta-integration-for-your-app).
+
+   Properties:
+      `discoveryUrl`=<DISCOVERY_URL>
+      `clientId`=<CLIENT_ID>
+      `signInRedirectUri`=<SIGN_IN_URI>
+      `signOutRedirectUri`=<SIGN_OUT_REDIRECT_URI>
+
    | Placeholder               | Value                                                                                                                                                        |
    |---------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
    | `<DISCOVERY_URL>`         | The domain of your registered Okta org followed by `/oauth2/default/.well-known/openid-configuration`, such as `https://dev-1234567.okta.com/oauth2/default/.well-known/openid-configuration` |
