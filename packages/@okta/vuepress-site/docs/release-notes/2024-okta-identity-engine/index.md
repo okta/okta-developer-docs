@@ -19,6 +19,10 @@ title: Okta Identity Engine API release notes 2024
 
 * The List all IdP key credentials API response always included a "next" link header, even if there were no more pages left to return. (OKTA-718352)
 
+* An app created by an API call with an existing `clientId` in the request payload didn't match the way an app was created in the UI. This resulted in the wrong app rate limit displayed in the rate limit dashboard. (OKTA-736117)
+
+* The [oauth2/introspect](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/introspectCustomAS) endpoint hit rate limits without logging it in the System Log. (OKTA-744604)
+
 ### Weekly release 2024.06.1
 
 | Change | Expected in Preview Orgs |
