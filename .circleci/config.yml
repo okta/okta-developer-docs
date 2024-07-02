@@ -130,6 +130,8 @@ workflows:
             - semgrep-prepare
 
   linting:
+    when:
+      not: << pipeline.parameters.preview >>
     jobs:
       - inclusive-linting:
           name: "Inclusive Linting"
