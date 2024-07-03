@@ -76,7 +76,7 @@ You should also specify your data requirements in the configuration document tha
 
 **Q: How much support is required for filtering results?**
 
-The filtering capabilities in the SCIM protocol are pretty broad, but the common filtering use case with Okta is quite narrow. Okta determines if a newly created user or group exists in your app based on a matching identifier. This means the `eq` (equals) operator is all you really need to support.
+The filtering capabilities in the SCIM protocol are broad, but the common filtering use case with Okta is narrow. Okta determines if a newly created user or group exists in your app based on a matching identifier. This means the `eq` (equals) operator is all you really need to support.
 
 **Q: How do I import users?**
 
@@ -114,4 +114,4 @@ The timeout is 60 seconds if Okta doesn't receive anything from the socket after
 
 **Q: Are there reserved attributes that I can't use?**
 
-Okta follows the SCIM specifications as defined by [RFC 7642](https://datatracker.ietf.org/doc/html/rfc7642), [RFC 7643](https://datatracker.ietf.org/doc/html/rfc7643), and [RFC 7644](https://datatracker.ietf.org/doc/html/rfc7644), with exceptions listed in the reference guides. All system or reserved attributes follow these RFC documents. For example, `groups` is a reserved and utilized property on the User object defined as part of RFC 7643, so you shouldn't try to create a custom attribute called `groups` in your SCIM server.
+Okta follows the SCIM specifications as defined by [RFC 7642](https://datatracker.ietf.org/doc/html/rfc7642), [RFC 7643](https://datatracker.ietf.org/doc/html/rfc7643), and [RFC 7644](https://datatracker.ietf.org/doc/html/rfc7644), with exceptions listed in the reference guides. All system or reserved attributes follow these RFC documents. For example, `groups` is a reserved and used property on the `User` object defined as part of RFC 7643, so you shouldn't try to create a custom attribute called `groups` in your SCIM server.
