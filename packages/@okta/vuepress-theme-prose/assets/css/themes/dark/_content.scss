@@ -3,7 +3,7 @@
 }
 
 .page-body .content--container pre[class*="language-"] {
-  background-color: cv("code", "base");
+  background-color: cv("code", "background");
 }
 
 .page-body .content--container :not([class*="language-"]) > code {

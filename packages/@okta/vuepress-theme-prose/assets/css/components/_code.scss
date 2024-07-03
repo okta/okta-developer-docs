@@ -41,6 +41,6 @@ pre[class*="language-"] .code-copy {
   width: 100%;
 
   .highlighted {
-    background-color: rgba(0 0 0 / 0.66);
+    background-color: cv("code", "highlight-background");
   }
 }
