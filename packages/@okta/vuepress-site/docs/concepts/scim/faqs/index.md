@@ -111,3 +111,7 @@ The [Build a SCIM provisioning integration](/docs/guides/scim-provisioning-integ
 **Q: What is the timeout if Okta doesn't receive a response from my SCIM server?**
 
 The timeout is 60 seconds if Okta doesn't receive anything from the socket after any SCIM request is made.
+
+**Q: Are there reserved attributes that I can't use?**
+
+Okta follows the SCIM specifications as defined by [RFC 7642](https://datatracker.ietf.org/doc/html/rfc7642), [RFC 7643](https://datatracker.ietf.org/doc/html/rfc7643), and [RFC 7644](https://datatracker.ietf.org/doc/html/rfc7644), with exceptions listed in the reference guides. All system or reserved attributes follow these RFC documents. For example, `groups` is a reserved and utilized property on the User object defined as part of RFC 7643, so you shouldn't try to create a custom attribute called `groups` in your SCIM server.
