@@ -1009,7 +1009,7 @@ export const reference = [
                { title: "API Tokens", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApiToken/" },
                { title: "Apps", path: "/docs/reference/api/apps/" },
                { title: "Attack Protection", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AttackProtection/" },
-               { title: "Authenticators Admin", path: "/docs/reference/api/authenticators-admin/" },
+               { title: "Authenticators Admin", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/" },
                { title: "Authorization Servers", path: "/docs/reference/api/authorization-servers/" },
                { title: "Behavior Rules", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Behavior/" },
                { title: "Brands", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Brands/" },
