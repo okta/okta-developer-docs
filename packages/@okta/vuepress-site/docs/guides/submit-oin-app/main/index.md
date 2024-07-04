@@ -98,16 +98,13 @@ Continue with the OIN Wizard and configure your integration:
 
 #### Integration variables
 
-Configure integration variables if your URLs are dynamic for each tenant. The variables are for your customer admins to add their specific tenant values during installation.
-
-<StackSnippet snippet="variable-desc" />
-<br>
+Configure integration variables if your URLs are dynamic for each tenant. The variables are for your customer admins to add their specific tenant values during installation. See [Dynamic properties with OEL](#dynamic-properties-with-oel).
 
 1. In the **Integration variables** section, specify the name and label for each variable:
 
     | <div style="width:100px">Property</div> | Description  |
     | --------------- | ------------ |
-    | **Label** `*`  | A descriptive name for the dynamic variable that admins see when they install your app integration |
+    | **Label** `*`  | A descriptive name for the dynamic variable that admins see when they install your app integration. For example: `Division subdomain` |
      | **Name** `*`  | Specify the variable name. This variable name is used to construct the dynamic URL. It's hidden from admins and is only passed to your external app.<br>String is the only variable type supported.<br>**Note:** Use alphanumeric lowercase and underscore characters for the variable name field. The first character must be a letter and the maximum field length is 1024 characters. For example: `subdomain_div1` |
 
      `*` This section is optional, but if you specify a variable, both `Label` and `Name` properties are required.
@@ -126,6 +123,16 @@ Continue with the OIN Wizard and configure your protocol settings:
     <StackSnippet snippet="protocol-properties" />
 
 1. Click **Get started with testing** to save your edits and move to the testing section, where you need to enter your integration test details.
+
+#### Dynamic properties with OEL
+
+You can specify dynamic strings for your <StackSnippet snippet="protocol-name" inline/> properties in the OIN Wizard. The OIN Wizard supports [Okta Expression Language (OEL)](/docs/reference/okta-expression-language/#reference-user-attributes) to generate dynamic properties, such as URLs or URIs, based on your customer tenant.
+
+First, add your [integration variables](#integration-variables) in the OIN Wizard. These variables become fields for customers to enter during your OIN integration installation to identify their tenant.
+
+Second, use the integration variables in your [<StackSnippet snippet="protocol-name" inline/> property definitions](#properties) in OEL format.
+
+<StackSnippet snippet="variable-desc" />
 
 ### Enter test information
 
@@ -478,7 +485,7 @@ To update a previously published OIN integration:
         * Published integrations can have variable names with uppercase letters
         * Published integrations can use `http` (instead of enforced `https`) in URLs and Okta EL properties
 
-    * If your update introduces new variables and you're using dynamic URLs, ensure that your tests cover various scenarios with different possible values for those variables. The newly introduced variables aren't populated for older instances of your integration. For example:
+    * If your update introduces new variables and you're using dynamic URLs, ensure that your tests cover various scenarios with different possible values for those variables.  See [Dynamic properties with OEL](#dynamic-properties-with-oel). The newly introduced variables aren't populated for older instances of your integration. For example:
 
        <StackSnippet snippet="backward-compatible-eg" />
 
