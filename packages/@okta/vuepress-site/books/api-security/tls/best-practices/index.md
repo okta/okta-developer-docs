@@ -4,7 +4,7 @@ title: Best Practices - Transport Layer Security
 
 <div style="font-size: 0.9em; margin-bottom: -20px;"><a href="/books/api-security/tls/">&larr; Transport Layer Security</a></div>
 
-## Best Practices {#tls-best-practices}
+## Best Practices [[#tls-best-practices]]
 
 Hopefully this chapter has convinced you of the ease and importance of implementing SSL/TLS into your public internet application infrastructure. However, even when using SSL/TLS, organizations can be subject to compromise if best practices are not followed. Let's go over a few of the big ones:
 

@@ -4,7 +4,7 @@ title: API Authentication Options - Authentication
 
 <div style="font-size: 0.9em; margin-bottom: -20px;"><a href="/books/api-security/authn/">&larr; Authentication</a></div>
 
-## API Authentication Options {#authn-api-authentication-options}
+## API Authentication Options [[#authn-api-authentication-options]]
 
 The first type of API authentication I'll talk about is HTTP Basic Authentication.
 

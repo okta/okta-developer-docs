@@ -4,7 +4,7 @@ title: Solutions Provided by an API Management Platform - API Gateways
 
 <div style="font-size: 0.9em; margin-bottom: -20px;"><a href="/books/api-security/gateways/">&larr; API Gateways</a></div>
 
-## Solutions Provided by an API Management Platform {#gateways-solutions}
+## Solutions Provided by an API Management Platform [[#gateways-solutions]]
 
 An API management platform or an API gateway makes basic security easier. With a well-configured gateway, you know exactly which endpoints are open to the world and what parameters they expect. You still have to filter and validate the input according to best practices, but the attack surface is a fraction of what it would be otherwise.
 

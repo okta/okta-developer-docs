@@ -4,7 +4,7 @@ title: Why are DoS Attacks So Prevalent? - DOS Mitigation Strategies
 
 <div style="font-size: 0.9em; margin-bottom: -20px;"><a href="/books/api-security/dos/">&larr; DOS Mitigation Strategies</a></div>
 
-## Why are DoS Attacks So Prevalent? {#dos-why}
+## Why are DoS Attacks So Prevalent? [[#dos-why]]
 There are several reasons why someone might perform a DoS attack on a network or service. Most frequently, DoS attacks are carried out for profit. There are several ways to make money by staging a DoS attack. For instance, competitors of Amazon might find it beneficial if Amazon's service were slow or offline. This form of industrial sabotage may encourage customers to search for alternatives, increasing profits for competing businesses who aren't suffering the effects of a DoS attack.
 
 Another way attackers can profit from DoS attacks is by selling access to compromised computers (called "BotNets") that can perform large-scale Distributed Denial of Service (DDoS) attacks. There are many places online where people can contract BotNets to carry out DDoS attacks. They can typically be rented and charge based on the amount of time that they slow or disable the target service; costs range from a few dollars for a fifteen-minute attack, to a few hundred dollars for twenty-four hours. Portals known as "booter" portals offer the BotNets for hire.

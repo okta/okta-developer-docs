@@ -268,7 +268,10 @@ module.exports = ctx => ({
 
   markdown: {
     extendMarkdown: md => {
-      md.use(require('markdown-it-attrs'))
+      md.use(require('markdown-it-attrs'), {
+        leftDelimiter: '[[',
+        rightDelimiter: ']]'
+      }) 
     },
     anchor: {
       permalinkBefore: false,
