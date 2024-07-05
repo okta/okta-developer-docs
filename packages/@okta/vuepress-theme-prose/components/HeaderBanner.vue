@@ -43,7 +43,12 @@ export default {
   },
   mounted() {
     this.checkDismissal();
-    this.$emit("updateHeight")
+
+    this.$nextTick(() => {
+      setTimeout(() => {
+        this.$emit("updateHeight")
+      }, 400)
+    })
   },
   methods: {
     dismissBanner() {

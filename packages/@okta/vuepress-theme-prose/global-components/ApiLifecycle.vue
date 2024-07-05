@@ -43,6 +43,7 @@
 const DEFAULT_LINK = "/docs/reference/releases-at-okta/";
 const IE_LINK = "/docs/concepts/oie-intro/";
 const DEPRECATED_LINK = "/docs/reference/releases-at-okta/#deprecation";
+const EA_LINK = "/docs/reference/releases-at-okta/#early-access-ea"
 
 export default {
   name: "ApiLifecycle",
@@ -61,6 +62,8 @@ export default {
         return IE_LINK;
       } else if(this.access === this.labelType.DEPRECATED) {
         return DEPRECATED_LINK;
+      } else if(this.access === this.labelType.EARLY_ACCESS) {
+        return EA_LINK;
       } else {
         return DEFAULT_LINK;
       }
