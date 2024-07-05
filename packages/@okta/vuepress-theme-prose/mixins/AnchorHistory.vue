@@ -50,7 +50,7 @@ export default {
           window.pageYOffset,
           document.documentElement.scrollTop,
           document.body.scrollTop
-        ) + LAYOUT_CONSTANTS.ANCHOR_TOP_MARGIN + 1;
+        ) + LAYOUT_CONSTANTS.ANCHOR_TOP_MARGIN;
 
       const anchors = this.appContext.anchors;
 
@@ -64,7 +64,7 @@ export default {
 
         if (
           scrollPosition >= midOffsetTop &&
-          scrollPosition <= midOffsetTopNext
+          scrollPosition <= midOffsetTopNext - 1
         ) {
           return anchors[mid];
         }
