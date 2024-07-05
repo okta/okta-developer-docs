@@ -50,7 +50,7 @@ export default {
           window.pageYOffset,
           document.documentElement.scrollTop,
           document.body.scrollTop
-        ) + LAYOUT_CONSTANTS.ANCHOR_TOP_MARGIN;
+        ) + LAYOUT_CONSTANTS.ANCHOR_TOP_MARGIN + 1;
 
       const anchors = this.appContext.anchors;
 
