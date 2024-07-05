@@ -137,7 +137,6 @@ Add the access token to the Authorization header of Okta Aerial API requests:
 Authorization: Bearer ${access_token}
 ```
 
-
 <!-- our OAuth docs for service apps rely on Postman for this step. need something in the interim until Postman is ready -->
 
 ## Create a child org
@@ -158,7 +157,7 @@ Link the org to Okta Aerial by sending a `POST` request to the `/api/va/orgs` en
 
 ### Use `orgId`
 
-<ApiOperation method="post" url="{aerialDomain}/{accountId}/api/v1/orgs" />
+<ApiOperation method="post" url="https://{aerialDomain}/{accountId}/api/v1/orgs" />
 
 ```bash
 Authorization: Bearer ${access_token}
@@ -171,7 +170,7 @@ Authorization: Bearer ${access_token}
 
 ### Use `domain`
 
-<ApiOperation method="post" url="{aerialDomain}/{accountId}/api/v1/orgs" />
+<ApiOperation method="post" url="https://{aerialDomain}/{accountId}/api/v1/orgs" />
 
 ```bash
 Authorization: Bearer ${access_token}
@@ -206,7 +205,7 @@ The ID of this record is the `orgId`. Use it in the URL for enabling products:
 
 ## Enable products in the org
 
-<ApiOperation method="put" url="{aerialDomain}/{accountId}/api/v1/orgs/{orgId}/products" />
+<ApiOperation method="put" url="https://{aerialDomain}/{accountId}/api/v1/orgs/{orgId}/products" />
 
 Include the products that you want to enable in an array in the request body.
 
@@ -283,7 +282,7 @@ curl --location --request POST 'https://${newOrgDomain}/api/v1/apps \
 
 ## Deactivate an org
 
-<ApiOperation method="put" url="{aerialDomain}/{accountId}/api/v1/orgs/{orgId}/status" />
+<ApiOperation method="put" url="https://{aerialDomain}/{accountId}/api/v1/orgs/{orgId}/status" />
 
 Deactivate an org by calling the `/status` endpoint. Deactivated orgs don’t count toward billing. Users in the org can’t use Okta services or sign in to Okta.
 
