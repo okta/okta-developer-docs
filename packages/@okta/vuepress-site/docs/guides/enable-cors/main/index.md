@@ -14,6 +14,7 @@ This guide explains Cross-Origin Resource Sharing (CORS), why it’s useful, and
 * Test your Okta CORS configuration.
 
 #### What you need
+
 An [Okta Developer Edition org](https://developer.okta.com/signup/)
 
 ---
