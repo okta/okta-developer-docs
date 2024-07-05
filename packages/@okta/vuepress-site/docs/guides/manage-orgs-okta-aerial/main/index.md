@@ -150,7 +150,6 @@ However, the Org creator API token doesn’t appear in the Admin Console. You ca
 
 If you lose this token or it expires, you must sign in to the Admin Console as a super admin and [create a token](/docs/guides/create-an-api-token/main/#create-the-token).
 
-
 ## Add the org to the Aerial account
 
 To enable products in an org, add the org to your Aerial account. You can only add orgs to your Aerial account that are associated with your Okta contracts.
@@ -159,7 +158,7 @@ Link the org to Okta Aerial by sending a `POST` request to the `/api/va/orgs` en
 
 ### Use `orgId`
 
-<ApiOperation method="post" url="https://aerial-{region}/{accountId}/api/v1/orgs" />
+<ApiOperation method="post" url="{aerialDomain}/{accountId}/api/v1/orgs" />
 
 ```bash
 Authorization: Bearer ${access_token}
@@ -172,7 +171,7 @@ Authorization: Bearer ${access_token}
 
 ### Use `domain`
 
-<ApiOperation method="post" url="https://aerial-{region}/{accountId}/api/v1/orgs" />
+<ApiOperation method="post" url="{aerialDomain}/{accountId}/api/v1/orgs" />
 
 ```bash
 Authorization: Bearer ${access_token}
@@ -207,7 +206,7 @@ The ID of this record is the `orgId`. Use it in the URL for enabling products:
 
 ## Enable products in the org
 
-<ApiOperation method="put" url="https://aerial-{region}/{accountId}/api/v1/orgs/{orgId}/products" />
+<ApiOperation method="put" url="{aerialDomain}/{accountId}/api/v1/orgs/{orgId}/products" />
 
 Include the products that you want to enable in an array in the request body.
 
@@ -284,7 +283,7 @@ curl --location --request POST 'https://${newOrgDomain}/api/v1/apps \
 
 ## Deactivate an org
 
-<ApiOperation method="put" url="https://aerial-{region}/{accountId}/api/v1/orgs/{orgId}/status" />
+<ApiOperation method="put" url="{aerialDomain}/{accountId}/api/v1/orgs/{orgId}/status" />
 
 Deactivate an org by calling the `/status` endpoint. Deactivated orgs don’t count toward billing. Users in the org can’t use Okta services or sign in to Okta.
 
