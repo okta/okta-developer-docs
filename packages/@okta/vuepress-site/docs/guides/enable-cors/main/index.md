@@ -22,7 +22,7 @@ An [Okta Developer Edition org](https://developer.okta.com/signup/)
 
 [Cross-Origin Resource Sharing (CORS)](https://www.w3.org/TR/cors/) is a mechanism that allows a web page to make an AJAX call using [XMLHttpRequest (XHR)](https://xhr.spec.whatwg.org/).
 
-You can use XHR to call a domain that is different from the domain where the script was loaded. Web browsers typically don't allow cross-domain requests because of the [same origin security policy](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy). However, CORS defines a standardized way for the server and browser to interact. Then CORS determines whether to allow a cross-origin request.
+You can use XHR to call a domain that's different from the domain where the script was loaded. Web browsers typically don't allow cross-domain requests because of the [same origin security policy](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy). However, CORS defines a standardized way for the server and browser to interact. Then CORS determines whether to allow a cross-origin request.
 
 ### CORS and Okta
 
