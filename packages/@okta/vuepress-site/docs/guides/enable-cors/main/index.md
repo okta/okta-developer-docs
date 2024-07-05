@@ -34,7 +34,7 @@ You can use XHR to call a domain that's different from the domain where the scri
 
 ### API Support
 
-The Okta API supports CORS on an API by API basis. If you're building an application that needs CORS, check that the specific operation supports CORS for your use case. APIs that support CORS are marked with the following icon <span class="api-label api-label-small api-label-cors"><i class="fa fa-cloud-download"></i>CORS</span>.
+The Okta API supports CORS on an API by API basis. If you're building an app that needs CORS, check that the specific operation supports CORS for your use case. APIs that support CORS are marked with the following icon <span class="api-label api-label-small api-label-cors"><i class="fa fa-cloud-download"></i>CORS</span>.
 
 ### Browser Support
 
