@@ -35,6 +35,7 @@
 </template>
 
 <script>
+  import { guideFromPath } from '../util/guides';
 
   export default {
     name: "Breadcrumb",
@@ -80,8 +81,19 @@
           if (parent) {
             menuItem.parents = _.union([parent], parent.parents)
           }
-          if(menuItem.path != undefined && window.location.pathname === menuItem.path) {
 
+          let windowPathname = window.location.pathname;
+
+          if(
+            this.$page.regularPath.indexOf('/-/') > 0 && 
+            guideFromPath(this.$page.regularPath).guideName === menuItem.guideName &&
+            menuItem.frameworks &&
+            menuItem.frameworks.length > 0
+          ) {
+            windowPathname = this.$page.regularPath.replace('/-/', `/${menuItem.frameworks[0]}/`);
+          }
+
+          if(menuItem.path != undefined && windowPathname === menuItem.path) {
             //add parent crumbs    
             if (menuItem.parents) {      
               menuItem.parents.reverse().map((parentCrumb) => {
