@@ -46,6 +46,7 @@ export default {
 
     this.$nextTick(() => {
       setTimeout(() => {
+        // Delay height adjustment on mount to ensure the header element is fully rendered.
         this.$emit("updateHeight")
       }, 400)
     })
