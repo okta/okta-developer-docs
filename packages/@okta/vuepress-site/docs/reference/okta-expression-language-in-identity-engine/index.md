@@ -61,22 +61,22 @@ When you create an Okta expression, you can reference EDR attributes and any pro
 
 See [Integrate with Endpoint Detection and Response solutions](https://help.okta.com/okta_help.htm?type=oie&id=ext-edr-integration-main) and [Available EDR signals by vendor](https://help.okta.com/okta_help.htm?type=oie&id=ext-edr-integration-available-signals) for details about `vendor` and `signal`.
 
-### Security Context
+### Security context
 
-You can specify certain [rule conditions](/docs/reference/api/policy/#conditions) in [authentication policies](/docs/reference/api/policy/#authentication-policy). Use expressions based on the Security Context of the app sign-on request. Security Context is made up of the [risk level](https://help.okta.com/okta_help.htm?id=csh-risk-scoring) and the matching [User behaviors](https://help.okta.com/okta_help.htm?id=ext_proc_security_behavior_detection) for the request.
+You can specify certain [rule conditions](/docs/reference/api/policy/#conditions) in [authentication policies](/docs/reference/api/policy/#authentication-policy). Use expressions based on the security context of the app sign-on request. Security context is made up of the [risk level](https://help.okta.com/okta_help.htm?id=csh-risk-scoring) and the matching [User behaviors](https://help.okta.com/okta_help.htm?id=ext_proc_security_behavior_detection) for the request.
 
 | Syntax | Definitions | Type | Examples | Usage   |
 | ------ | ----------- | ---- | -------- | -----   |
-| security.risk.level | `security` - references the Security Context of the request<br>`risk` - references the [risk](https://help.okta.com/okta_help.htm?id=csh-risk-scoring) context of the request<br>`level` - the risk level associated with the request | String | `'LOW'`<br>`'MEDIUM'`<br>`'HIGH'` | `security.risk.level == 'HIGH'`<br>`security.risk.level != 'LOW'`   |
-| security.behaviors | `security` - references the Security Context of the request<br>`behaviors` - the list of matching [User behaviors](https://help.okta.com/okta_help.htm?id=ext_proc_security_behavior_detection) for the request, by name. | Array of Strings | `{'New IP', 'New Device'}`| `security.behaviors.contains('New IP') && security.behaviors.contains('New Device')`   |
+| security.risk.level | `security` - references the security context of the request<br>`risk` - references the [risk](https://help.okta.com/okta_help.htm?id=csh-risk-scoring) context of the request<br>`level` - the risk level associated with the request | String | `'LOW'`<br>`'MEDIUM'`<br>`'HIGH'` | `security.risk.level == 'HIGH'`<br>`security.risk.level != 'LOW'`   |
+| security.behaviors | `security` - references the security context of the request<br>`behaviors` - the list of matching [User behaviors](https://help.okta.com/okta_help.htm?id=ext_proc_security_behavior_detection) for the request, by name. | Array of Strings | `{'New IP', 'New Device'}`| `security.behaviors.contains('New IP') && security.behaviors.contains('New Device')`   |
 
 ### Login Context
 <ApiLifecycle access="ea"/>
-You can specify the [dynamic IdP](/docs/reference/api/policy/#policy-action-with-dynamic-IdP-routing). Use expressions based on the Login Context that holds the user's `username` as the `identifier`.
+You can specify the [dynamic IdP](/docs/reference/api/policy/#policy-action-with-dynamic-IdP-routing). Use expressions based on the login context that holds the user's `username` as the `identifier`.
 
 | Syntax | Definitions | Type |
 | ------ | ----------- | ---- |
-| login.identifier| `login` references the Login Context of the request. `identifier` references the user's `username`. |String|
+| login.identifier| `login` references the login context of the request. `identifier` references the user's `username`. |String|
 
 ### Account management
 <ApiLifecycle access="ea"/>
@@ -85,7 +85,7 @@ You can specify certain [Expression Language conditions](/docs/reference/api/pol
 | Syntax | Definitions | Type |
 | ------ | ----------- | ---- |
 | `accessRequest.$operation`| `accessRequest` references the access context of the request. `operation` references the account management operation: `enroll`, `unenroll`, `recover`, or `unlockAccount`. | String |
-| `accessRequest.authenticator.$id` | `accessRequest` references the access context of the request. `authenticator.id` references an optional authenticator `id`. For example, a custom authenticator. | String |
+| `accessRequest.authenticator.$id` | `accessRequest` references the access context of the request. `authenticator.id` references an optional authenticator `id`. For example, the `id` of a custom authenticator. | String |
 | `accessRequest.authenticator.$key` | `accessRequest` references the access context of the request. `authenticator.key` references the [authenticator key](/docs/reference/api/policy/#authenticator-key-type-method-and-characteristic-relationships-for-constraints). | String |
 
 ## Functions
