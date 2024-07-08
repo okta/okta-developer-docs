@@ -84,7 +84,7 @@ The following bug fixes will be available on preview orgs starting Dec 13, 2017,
 
 #### Early Access Feature in Preview: App User Schema API
 
-The [App User Schema API](/docs/reference/api/schemas/#app-user-schema-operations) is an [Early Access (EA)](/docs/reference/releases-at-okta/#early-access-ea) release. Use this API to work with App User profiles, typically for apps that have features for provisioning users.
+The [App User Schema API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/#tag/Schema/operation/getApplicationUserSchema) is an [Early Access (EA)](/docs/reference/releases-at-okta/#early-access-ea) release. Use this API to work with App User profiles, typically for apps that have features for provisioning users.
 <!-- OKTA-148782 -->
 
 #### Completing Rollout of Simple HAL Links

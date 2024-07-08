@@ -5,7 +5,7 @@ category: management
 
 # User Types API
 
-The User Types API provides operations to manage User Types. See the [User Schema API reference](/docs/reference/api/schemas/#user-schema-operations) for information on managing the schemas associated with the User Types.
+The User Types API provides operations to manage User Types. See the [User Schema API reference](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/#tag/Schema/operation/getUserSchema) for information on managing the schemas associated with the User Types.
 
 <ApiAuthMethodWarning />
 
@@ -202,7 +202,7 @@ curl -s -XPOST -H "Content-Type: application/json" -H "Authorization: SSWS ${api
 
 Replaces an existing User Type. A PUT is a full replace operation. Only the `displayName` and `description` elements can be changed. The `name` of an existing User Type can't be changed.
 
-The schema associated with this type isn't editable with this API. If you want to edit the schema, use the [schema update API](/docs/reference/api/schemas/#add-property-to-user-profile-schema).
+The schema associated with this type isn't editable with this API. If you want to edit the schema, use the [schema update API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/#tag/Schema/operation/updateUserProfile).
 
 ##### Request parameters
 
@@ -261,7 +261,7 @@ curl -s -X PUT -H "Content-Type: application/json" -H "Authorization: SSWS ${api
 
 Updates an existing User Type. A POST is a partial update. Only the `displayName` and `description` elements can be changed. The `name` of an existing User Type can't be changed.
 
-The schema associated with this type isn't editable with this API. If you want to edit the schema, use the [schema update API](/docs/reference/api/schemas/#add-property-to-user-profile-schema).
+The schema associated with this type isn't editable with this API. If you want to edit the schema, use the [schema update API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/#tag/Schema/operation/updateUserProfile).
 
 ##### Request parameters
 

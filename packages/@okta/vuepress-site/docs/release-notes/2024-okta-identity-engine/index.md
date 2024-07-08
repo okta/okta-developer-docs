@@ -180,7 +180,7 @@ The [Style the Sign-In Widget (third generation) guide](/docs/guides/custom-widg
 
 * Super admins with roles assigned through group assignment couldn't enable Direct Authentication grant types in an OIDC app. (OKTA-719756)
 
-* If a [login pattern](https://developer.okta.com/docs/reference/api/schemas/#login-pattern-validation) failed validation when making a request with the Schemas API, the call dropped the pattern and continued the request. (OKTA-723332)
+* If a [login pattern](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/#tag/Schema/operation/getUserSchema!c=200&path=definitions/base/properties/login&t=response) failed validation when making a request with the Schemas API, the call dropped the pattern and continued the request. (OKTA-723332)
 
 * The Apps API accepted `0` as a value for the `samlAssertionLifetimeSeconds` parameter. (OKTA-723982)
 

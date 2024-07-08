@@ -354,7 +354,7 @@ Updates the configuration for a Log Stream
 | logStream       | Updated configuration for the Log Stream | Body       | [Log Stream](#log-stream-object) | TRUE     |
 
 Depending on the type of Log Stream, certain properties can't be updated once the Log Stream is created.
-Use the [Log Stream Schema API](/docs/reference/api/schemas/#log-stream-schema-operations) to determine which
+Use the [Log Stream Schema API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/#tag/Schema/operation/listLogStreamSchemas) to determine which
 Log Stream type can't be updated. Log Stream types with the `"writeOnce" : true` property can't be updated after
 creation.
 
@@ -647,7 +647,7 @@ The AWS EventBridge Settings object specifies the configuration for the `aws_eve
 #### Property details
 
 *  The `accountId`, `eventSourceName`,  and `region` properties are assigned during creation and can't be modified afterwards.
-* The `region` property can be set to one of the following supported AWS region codes. The `region` list can also be retrieved with the [Log Stream Schema](/docs/reference/api/schemas/#log-stream-schema-operations) endpoint.
+* The `region` property can be set to one of the following supported AWS region codes. The `region` list can also be retrieved with the [Log Stream Schema](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/#tag/Schema/operation/getLogStreamSchema) endpoint.
 
 | Region      | Description                                                  |
 | ------------- | ------------------------------------------------------------ |
