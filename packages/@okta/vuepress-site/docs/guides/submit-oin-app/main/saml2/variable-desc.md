@@ -12,11 +12,20 @@ The following are OEL specifics for SAML properties:
     ${empty org.baseUrl ? 'https://app.mySubdomain.com' : org.baseUrl}
     ```
 
-* SAML properties don't support OEL [String functions](https://developer.okta.com/docs/reference/okta-expression-language/#string-functions). Use [JSTL](https://www.javatpoint.com/jstl-function-tags) functions instead. For example:
+* SAML properties don't support OEL [String functions](https://developer.okta.com/docs/reference/okta-expression-language/#string-functions). Use [JSTL functions](https://docs.oracle.com/javaee/5/jstl/1.1/docs/tlddocs/fn/tld-summary.html) instead. For example:
 
     ```js
-    ${fn:substringAfter(org.baseUrl, '//')}
+    ${fn:substringAfter(org.base_url, '//')}
+    ```
+
+    ```js
     ${fn:substringBefore(user.userName, '@')}@example.com
-    ${fn:endsWith(org.siteURL, 'mydomain1.com') ? '' : fn:endsWith(org.siteURL, 'mydomain2.com') ? '' : '.mydomain2.com'}
-    ${fn:contains(org.serverType, 'app.myCustDomain.com') ? '/login/sso/saml/consume?customerId=' : '/my-saml/consume.php?CompanyID='}
+    ```
+
+    ```js
+    https://${fn:endsWith(org.site_url, 'host1.com') ? 'host1.com' : fn:endsWith(org.site_url, 'host2.com') ? 'host2.com' : '.host.com'}/sso/saml
+    ```
+
+    ```js
+    https://host.com/${fn:contains(org.environment, 'production') ? 'prod/sso/saml' : 'preview/sso/saml'}
     ```

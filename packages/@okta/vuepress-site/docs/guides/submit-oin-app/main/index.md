@@ -483,7 +483,7 @@ To update a previously published OIN integration:
 
         * Published integrations can have more than three integration variables
         * Published integrations can have variable names with uppercase letters
-        * Published integrations can use `http` (instead of enforced `https`) in URLs and Okta EL properties
+        * Published integrations can use `http` (instead of enforced `https`) in URLs and OEL-supported properties
 
     * If your update introduces new variables and you're using dynamic URLs, ensure that your tests cover various scenarios with different possible values for those variables.  See [Dynamic properties with OEL](#dynamic-properties-with-oel). The newly introduced variables aren't populated for older instances of your integration. For example:
 
