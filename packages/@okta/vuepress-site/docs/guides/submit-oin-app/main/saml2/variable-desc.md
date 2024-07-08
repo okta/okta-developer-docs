@@ -2,19 +2,21 @@ For example, if you have a SAML configuration variable called `subdomain`, then 
 
 > **Note**: A variable can include a complete URL (for example, `https://example.com`). This enables you to use global variables, such as `org.baseURL`.
 
-SAML [integration variables](#integration-variables) you define in the OIN Wizard are considered [Organization properties](/docs/reference/okta-expression-language/#organization-properties) and have the `org.` prefix when you reference them in an OEL expression. For example, if your integration variable name is `subdomain`, then you can reference that variable with `org.subdomain`.
+The following are OEL specifics for SAML properties:
 
-SAML properties support [OEL conditional expressions](/docs/reference/okta-expression-language/#conditional-expressions) and evaluates everything between `${` and `}`. For example, the following is an expression for the **ACS URL** property:
+* SAML [integration variables](#integration-variables) you define in the OIN Wizard are considered [Organization properties](/docs/reference/okta-expression-language/#organization-properties) and have the `org.` prefix when you reference them in an OEL expression. For example, if your integration variable name is `subdomain`, then you can reference that variable with `org.subdomain`.
 
-```js
-${empty org.baseUrl ? 'https://app.clicdata.com' : org.baseUrl}
-```
+* SAML properties support [OEL conditional expressions](/docs/reference/okta-expression-language/#conditional-expressions) and evaluates everything between `${` and `}`. For example, the following is an expression for the **ACS URL** property:
 
-SAML properties don't support OEL [String functions](https://developer.okta.com/docs/reference/okta-expression-language/#string-functions). Use [JSTL](https://www.javatpoint.com/jstl-function-tags) functions instead. For example:
+    ```js
+    ${empty org.baseUrl ? 'https://app.mySubdomain.com' : org.baseUrl}
+    ```
 
-```js
-${fn:substringAfter(org.baseUrl, '//')}
-${fn:substringBefore(user.userName, '@')}@example.com
-${fn:endsWith(org.siteURL, 'mydomain1.com') ? '' : fn:endsWith(org.siteURL, 'mydomain2.com') ? '' : '.mydomain2.com'}
-${fn:contains(org.serverType, 'app.myCustDomain.com') ? '/login/sso/saml/consume?customerId=' : '/my-saml/consume.php?CompanyID='}
-```
+* SAML properties don't support OEL [String functions](https://developer.okta.com/docs/reference/okta-expression-language/#string-functions). Use [JSTL](https://www.javatpoint.com/jstl-function-tags) functions instead. For example:
+
+    ```js
+    ${fn:substringAfter(org.baseUrl, '//')}
+    ${fn:substringBefore(user.userName, '@')}@example.com
+    ${fn:endsWith(org.siteURL, 'mydomain1.com') ? '' : fn:endsWith(org.siteURL, 'mydomain2.com') ? '' : '.mydomain2.com'}
+    ${fn:contains(org.serverType, 'app.myCustDomain.com') ? '/login/sso/saml/consume?customerId=' : '/my-saml/consume.php?CompanyID='}
+    ```

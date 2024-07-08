@@ -126,11 +126,11 @@ Continue with the OIN Wizard and configure your protocol settings:
 
 #### Dynamic properties with OEL
 
-You can specify dynamic strings for your <StackSnippet snippet="protocol-name" inline/> properties in the OIN Wizard. The OIN Wizard supports [Okta Expression Language (OEL)](/docs/reference/okta-expression-language/#reference-user-attributes) to generate dynamic properties, such as URLs or URIs, based on your customer tenant.
+ The OIN Wizard supports [Okta Expression Language (OEL)](/docs/reference/okta-expression-language/#reference-user-attributes) to generate dynamic properties, such as URLs or URIs, based on your customer tenant. You can specify dynamic strings for your <StackSnippet snippet="protocol-name" inline/> properties in the OIN Wizard:
 
-First, add your [integration variables](#integration-variables) in the OIN Wizard. These variables become fields for customers to enter during your OIN integration installation to identify their tenant.
+1. Add your [integration variables](#integration-variables) in the OIN Wizard. These variables become fields for customers to enter during your OIN integration installation to identify their tenant.
 
-Second, use the integration variables in your [<StackSnippet snippet="protocol-name" inline/> property definitions](#properties) in OEL format.
+2. Use the integration variables with OEL format in your [<StackSnippet snippet="protocol-name" inline/> property definitions](#properties) for dynamic values based on customer information.
 
 <StackSnippet snippet="variable-desc" />
 
