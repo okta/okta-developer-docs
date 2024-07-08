@@ -11,7 +11,7 @@ meta:
 
 ## Overview
 
-This document details the features and syntax of Okta Expression Language used for the following:
+This document details the features and syntax of Expression Language used for the following:
 
 * [Authentication policies](/docs/guides/configure-signon-policy/main/) of Identity Engine
 * [Access Certification campaigns](https://help.okta.com/okta_help.htm?id=ext-el-eg) and Entitlement Management policies for Okta Identity Governance
