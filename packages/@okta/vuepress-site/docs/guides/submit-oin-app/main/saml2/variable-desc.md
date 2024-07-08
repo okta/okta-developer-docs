@@ -9,3 +9,12 @@ SAML properties support [OEL conditional expressions](/docs/reference/okta-expre
 ```js
 ${empty org.baseUrl ? 'https://app.clicdata.com' : org.baseUrl}
 ```
+
+SAML properties don't support OEL [String functions](https://developer.okta.com/docs/reference/okta-expression-language/#string-functions). Use [JSTL](https://www.javatpoint.com/jstl-function-tags) functions instead. For example:
+
+```js
+${fn:substringAfter(org.baseUrl, '//')}
+${fn:substringBefore(user.userName, '@')}@example.com
+${fn:endsWith(org.siteURL, 'mydomain1.com') ? '' : fn:endsWith(org.siteURL, 'mydomain2.com') ? '' : '.mydomain2.com'}
+${fn:contains(org.serverType, 'app.myCustDomain.com') ? '/login/sso/saml/consume?customerId=' : '/my-saml/consume.php?CompanyID='}
+```
