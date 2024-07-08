@@ -9,7 +9,7 @@ The following are Expression Language specifics for SAML properties:
 * SAML properties support [Expression Language conditional expressions](/docs/reference/okta-expression-language/#conditional-expressions) and evaluates everything between `${` and `}`. For example, the following is an expression for the **ACS URL** property:
 
     ```js
-    ${empty org.baseUrl ? 'https://app.mySubdomain.com' : org.baseUrl}
+    ${empty org.baseUrl ? 'https://app.mydomain.com' : org.baseUrl}
     ```
 
 * SAML properties don't support Expression Language [String functions](https://developer.okta.com/docs/reference/okta-expression-language/#string-functions). Use [JSTL functions](https://docs.oracle.com/javaee/5/jstl/1.1/docs/tlddocs/fn/tld-summary.html) instead. For example:
@@ -27,5 +27,5 @@ The following are Expression Language specifics for SAML properties:
     ```
 
     ```js
-    https://host.com/${fn:contains(org.environment, 'production') ? 'prod/sso/saml' : 'preview/sso/saml'}
+    https://${fn:contains(org.environment, 'production') ? 'productiondomain.com' : 'previewdomain.com'}/sso/saml
     ```
