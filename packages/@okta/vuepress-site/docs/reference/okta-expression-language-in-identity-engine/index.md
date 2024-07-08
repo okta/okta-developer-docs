@@ -80,13 +80,13 @@ You can specify the [dynamic IdP](/docs/reference/api/policy/#policy-action-with
 
 ### Account management
 <ApiLifecycle access="ea"/>
-You can specify certain [rule conditions](https://developer.okta.com/docs/reference/api/policy/#conditions) in [account management policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-account-management-policy).
+You can specify certain [Expression Language conditions](/docs/reference/api/policy/#okta-expression-language-condition-object) in [account management policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-account-management-policy).
 
 | Syntax | Definitions | Type |
 | ------ | ----------- | ---- |
-| accessRequest.operation| `accessRequest` references the access context of the request. `operation` references the account management operation: `enroll`, `unenroll`, `recover`, or `unlockAccount`. | String |
-| accessRequest.authenticator.id | `accessRequest` references the access context of the request. `authenticator.id` references an optional authenticator `id`. For example, a custom authenticator. | String |
-| accessRequest.authenticator.key | `accessRequest` references the access context of the request. `authenticator.key` references the authenticator key. | String |
+| `accessRequest.$operation`| `accessRequest` references the access context of the request. `operation` references the account management operation: `enroll`, `unenroll`, `recover`, or `unlockAccount`. | String |
+| `accessRequest.authenticator.$id` | `accessRequest` references the access context of the request. `authenticator.id` references an optional authenticator `id`. For example, a custom authenticator. | String |
+| `accessRequest.authenticator.$key` | `accessRequest` references the access context of the request. `authenticator.key` references the [authenticator key](/docs/reference/api/policy/#authenticator-key-type-method-and-characteristic-relationships-for-constraints). | String |
 
 ## Functions
 
