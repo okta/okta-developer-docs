@@ -2,11 +2,11 @@ For example, if you have an OIDC configuration variable called `subdomain`, then
 
 > **Note**: A variable can include a complete URL (for example, `https://example.com`). This enables you to use global variables, such as `app.baseURL`.
 
-The following are OEL specifics for OIDC properties:
+The following are Expression Language specifics for OIDC properties:
 
-* OIDC [integration variables](#integration-variables) you define in the OIN Wizard are considered [Application properties](/docs/reference/okta-expression-language/#application-properties) and have the `app.` prefix when you reference them in an OEL expression. For example, if your integration variable name is `subdomain`, then you can reference that variable with `app.subdomain`.
+* OIDC [integration variables](#integration-variables) you define in the OIN Wizard are considered [Application properties](/docs/reference/okta-expression-language/#application-properties) and have the `app.` prefix when you reference them in Expression Language. For example, if your integration variable name is `subdomain`, then you can reference that variable with `app.subdomain`.
 
-* OIDC properties support [OEL conditional expressions](/docs/reference/okta-expression-language/#conditional-expressions) and evaluates everything between curly brackets. For example, the following is an expression for the **Redirect URI** property:
+* OIDC properties support [Expression Language conditional expressions](/docs/reference/okta-expression-language/#conditional-expressions) and evaluates everything between curly brackets. For example, the following is an expression for the **Redirect URI** property:
 
     ```js
     {String.stringContains(app.environment, 'PROD') ? 'https://app.data.one/' : 'https://app-sandbox.data.one/'}

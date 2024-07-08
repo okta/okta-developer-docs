@@ -98,7 +98,7 @@ Continue with the OIN Wizard and configure your integration:
 
 #### Integration variables
 
-Configure integration variables if your URLs are dynamic for each tenant. The variables are for your customer admins to add their specific tenant values during installation. See [Dynamic properties with OEL](#dynamic-properties-with-oel).
+Configure integration variables if your URLs are dynamic for each tenant. The variables are for your customer admins to add their specific tenant values during installation. See [Dynamic properties with Okta Expression Language](#dynamic-properties-with-okta-expression-language).
 
 1. In the **Integration variables** section, specify the name and label for each variable:
 
@@ -124,13 +124,13 @@ Continue with the OIN Wizard and configure your protocol settings:
 
 1. Click **Get started with testing** to save your edits and move to the testing section, where you need to enter your integration test details.
 
-#### Dynamic properties with OEL
+#### Dynamic properties with Okta Expression Language
 
- The OIN Wizard supports [Okta Expression Language (OEL)](/docs/reference/okta-expression-language/#reference-user-attributes) to generate dynamic properties, such as URLs or URIs, based on your customer tenant. You can specify dynamic strings for your <StackSnippet snippet="protocol-name" inline/> properties in the OIN Wizard:
+ The OIN Wizard supports [Okta Expression Language](/docs/reference/okta-expression-language/#reference-user-attributes) to generate dynamic properties, such as URLs or URIs, based on your customer tenant. You can specify dynamic strings for your <StackSnippet snippet="protocol-name" inline/> properties in the OIN Wizard:
 
 1. Add your [integration variables](#integration-variables) in the OIN Wizard. These variables become fields for customers to enter during your OIN integration installation to identify their tenant.
 
-2. Use the integration variables with OEL format in your [<StackSnippet snippet="protocol-name" inline/> property definitions](#properties) for dynamic values based on customer information.
+2. Use the integration variables with Expression Language format in your [<StackSnippet snippet="protocol-name" inline/> property definitions](#properties) for dynamic values based on customer information.
 
 <StackSnippet snippet="variable-desc" />
 
@@ -483,9 +483,9 @@ To update a previously published OIN integration:
 
         * Published integrations can have more than three integration variables
         * Published integrations can have variable names with uppercase letters
-        * Published integrations can use `http` (instead of enforced `https`) in URLs and OEL-supported properties
+        * Published integrations can use `http` (instead of enforced `https`) in URLs and Expression Language-supported properties
 
-    * If your update introduces new variables and you're using dynamic URLs, ensure that your tests cover various scenarios with different possible values for those variables.  See [Dynamic properties with OEL](#dynamic-properties-with-oel). The newly introduced variables aren't populated for older instances of your integration. For example:
+    * If your update introduces new variables and you're using dynamic URLs, ensure that your tests cover various scenarios with different possible values for those variables.  See [Dynamic properties with Okta Expression Language](#dynamic-properties-with-okta-expression-language). The newly introduced variables aren't populated for older instances of your integration. For example:
 
        <StackSnippet snippet="backward-compatible-eg" />
 
