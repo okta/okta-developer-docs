@@ -1717,7 +1717,7 @@ Updates current user's profile with partial update semantics
 End user can only update `profile` with this request. Within the profile, if the end user tries to update the primary or the secondary email IDs, verification emails are sent to those email IDs, and the fields are updated only upon verification. To update credentials, use [Update Profile with ID](#update-profile-with-id).
 
 >**Note:** An end user can only update profile properties for which the user has write access. To update user permissions for a schema property,
-use [Update User Profile Schema Property](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/#tag/Schema/operation/updateUserProfile)
+use [Update a User Schema endpoint](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/#tag/Schema/operation/updateUserProfile)
 
 ##### Response parameters
 
@@ -4058,17 +4058,17 @@ Every user within your Okta organization must have a unique identifier for a log
 
 Logins are not considered unique if they differ only in case and/or diacritical marks.  If one of your users has a login of `Isaac.Brock@example.com`, there cannot be another user whose login is `isaac.brock@example.com`, nor `isáàc.bröck@example.com`.
 
-Okta has a default ambiguous name resolution policy for logins that include @-signs.  (By default, logins must be formatted as email addresses and thus always include @-signs.  That restriction can be removed using either the administrator UI or the [Schemas API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/).)  Users can login with their non-qualified short name (e.g. `isaac.brock` with login `isaac.brock@example.com`) as long as the short name is still unique within the organization.
+Okta has a default ambiguous name resolution policy for usernames that include @-signs.  (By default, usernames must be formatted as email addresses and thus always include @-signs.  You can remove that restriction using either the Admin Consolue or the [Schemas API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/).)  Users can sign in with their non-qualified short name (for example: `isaac.brock` with username `isaac.brock@example.com`) as long as the short name is still unique within the organization.
 
 > **Hint:** Don't use a `login` with a `/` character.  Although `/` is a valid character according to [RFC 6531 section 3.3](http://tools.ietf.org/html/rfc6531#section-3.3), a user with this character in their `login` can't be fetched by `login` due to security risks with escaping this character in URI paths.
 For more information about `login`, see [Get User by ID](#get-user-with-id).
 
 ##### Modifying default Profile properties
-The only permitted customization of the default profile is to update permissions, to change whether the `firstName` and `lastName` properties are nullable, or to specify a [pattern](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/#tag/Schema/operation/getUserSchema!c=200&path=definitions/base/properties/login&t=response) for `login`.  You can use the Profile Editor in the administrator UI or the [Schemas API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/) to make schema modifications.
+The only permitted customization of the default profile is to update permissions, to change whether the `firstName` and `lastName` properties are nullable, or to specify a [pattern](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/#tag/Schema/operation/getUserSchema!c=200&path=definitions/base/properties/login&t=response) for `login`.  Use the Profile Editor in the Admin Console or the [Schemas API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/) to make schema modifications.
 
 #### Custom Profile properties
 
-User profiles may be extended with custom properties but the property must first be added to the user profile schema before it can be referenced.  You can use the Profile Editor in the administrator UI or the [Schemas API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/) to manage schema extensions.
+You can extend user profiles with custom properties, but you must first add the property to the user profile schema before you can reference it.  Use the Profile Editor in the Admin Console or the [Schemas API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/) to manage schema extensions.
 
 Custom attributes may contain HTML tags. It is the client's responsibility to escape or encode this data before displaying it. Use [best-practices](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html) to prevent cross-site scripting.
 
