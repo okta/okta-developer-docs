@@ -647,7 +647,7 @@ The AWS EventBridge Settings object specifies the configuration for the `aws_eve
 #### Property details
 
 *  The `accountId`, `eventSourceName`,  and `region` properties are assigned during creation and can't be modified afterwards.
-* The `region` property can be set to one of the following supported AWS region codes. The `region` list can also be retrieved with the [Log Stream Schema](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/#tag/Schema/operation/getLogStreamSchema) endpoint.
+* Set the `region` property to one of the following supported AWS region codes. You can also retrieve the `region` list with the [Log Stream Schema](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/#tag/Schema/operation/getLogStreamSchema) endpoint.
 
 | Region      | Description                                                  |
 | ------------- | ------------------------------------------------------------ |
