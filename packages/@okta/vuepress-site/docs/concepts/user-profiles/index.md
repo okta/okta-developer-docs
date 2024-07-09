@@ -67,7 +67,7 @@ The available custom attributes, however, are determined by the app. You can man
 
 ## Universal Directory schemas
 
-Many different types of data can be stored in a user profile such as strings, numbers, dates, lists. A schema is a description of what type of information is stored in a user profile. Each element in a schema is known as an “attribute” and each attribute has the following metadata or properties:
+You can store many different types of data in a user profile such as strings, numbers, dates, lists. A schema is a description of what type of information is stored in a user profile. Each element in a schema is known as an “attribute” and each attribute has the following metadata or properties:
 
 * **Data type:** What kind of data is being stored. Examples include, string, number, and Boolean.
 * **Display name:** A human readable label to be used in User Interfaces
