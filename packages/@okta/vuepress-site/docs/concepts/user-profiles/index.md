@@ -29,7 +29,7 @@ You can manage the Apps user profiles in the Universal Directory from the Admin 
 
 ### User mappings
 
-In addition to storing user profiles and app user profiles, the Universal Directory maps data from one profile to another. This keeps data synchronized between all of your apps. For example, you can store a user’s first and last name in the user profile and map that data to an app user profile. A single change to a field in a User Profile is reflected in all the apps that map to that field.
+In addition to storing user profiles and app user profiles, Universal Directory maps data from one profile to another. This keeps data synchronized between all of your apps. For example, you can store a user’s first and last name in the user profile and map that data to an app user profile. A single change to a field in a User Profile is reflected in all the apps that map to that field.
 
 See also [About attribute mappings](https://help.okta.com/okta_help.htm?id=ext-usgp-about-attribute-mappings)
 
