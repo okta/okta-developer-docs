@@ -61,7 +61,7 @@ User profiles can only belong to one user profile type. The [User object propert
 
 ### App user profile type
 
-The app user profile type defines the attributes available for a user of that app in the Universal Directory. The app user profile attributes are mapped to the user profile and determines the data that can be sent to or imported from an app. Similar to user profiles, the app user profile has base attributes and custom attributes.
+The app user profile type defines the attributes available for a user of that app in Universal Directory. The app user profile attributes are mapped to the user profile and determine the data that you can send to or import from an app. Similar to user profiles, the app user profile has base attributes and custom attributes.
 
 The available custom attributes, however, are determined by the app. You can manage the app user profile type with the [Apps API](/docs/reference/api/apps/). Review the [Application User Profile](/docs/reference/api/apps/#application-user-profile-object) object and the [Application User](/docs/reference/api/apps/#application-user-object) object for further details.
 
