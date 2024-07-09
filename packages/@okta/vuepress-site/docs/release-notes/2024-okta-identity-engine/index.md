@@ -16,7 +16,7 @@ title: Okta Identity Engine API release notes 2024
 | [Identity Threat Protection with Okta AI is GA in Production](#identity-threat-protection-with-okta-ai-is-ga-in-production) | April 3, 2024 |
 | [Network zone allowlists for SSWS API tokens is GA Preview](#network-zone-allowlists-for-ssws-api-tokens-is-ga-preview) | July 10, 2024 |
 | [Network Zones and API token restrictions](#network-zones-and-api-token-restrictions) | July 10, 2024 |
-| [Read-only admins can't use the Principal Rate Limits API to update API tokens](#read-only-admins-cant-use-the-principal-rate-limits-api-to-update-api-tokens) | July 10, 2024 |
+| [Read-only admins can't use the Principal Rate Limits API to update API tokens](#read-only-admins-can-t-use-the-principal-rate-limits-api-to-update-api-tokens) | July 10, 2024 |
 | [Event hook limit increased](#event-hook-limit-increased) | July 10, 2024 |
 
 #### OIN Submission Tester copy function update
