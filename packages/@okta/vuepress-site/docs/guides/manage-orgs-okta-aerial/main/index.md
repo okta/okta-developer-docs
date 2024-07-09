@@ -44,7 +44,7 @@ Okta Aerial introduces a few terms to the Okta ecosystem:
 | Term                                                           | Definition                                                                    |
 |----------------------------------------------------------------|--------------------------------------------------------------------------------|
 | Aerial account              | The management layer around multiple orgs within Okta. The Aerial account lives outside of your orgs and can manage any production or preview org linked to the Aerial account. Each Aerial account has a dedicated Aerial org.  |
-| Aerial org        | The Aerial org is used to register API clients and acts as an [authorization server](/docs/concepts/auth-servers/) for all API calls made in the associated Aerial account. The Aerial org also contains all [System Log](https://help.okta.com/okta_help.htm?type=oie&id=ext_Reports_SysLog) events associated with Okta Aerial actions. |
+| Aerial org        | Used to register API clients and acts as an [authorization server](/docs/concepts/auth-servers/) for all API calls made in the associated Aerial account. The Aerial org also contains all [System Log](https://help.okta.com/okta_help.htm?type=oie&id=ext_Reports_SysLog) events associated with Okta Aerial actions. |
 | Products       | Okta-determined sets of features. With the Okta Aerial API, you can view subscribed products for an Aerial account and enable a subset of products to orgs. |
 | Features | Distinct pieces of functionality. Features are bundled within products but may also be offered separately, for example, Early Access features. |
 
