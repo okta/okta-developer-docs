@@ -60,6 +60,8 @@ Okta provides the following environments to use with your Aerial account:
 
   `https://aerial-apac.okta.com`
 
+Use either the sandbox or production URL for the placeholder `{aerialDomain}` in your API calls.
+
 See [Link the org to the Aerial account](#link-the-org-to-the-aerial-account).
 
 ### Summary of steps
