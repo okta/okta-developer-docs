@@ -11,33 +11,39 @@ title: Okta Identity Engine API release notes 2024
 
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
-| [Active Directory Bidirectional Group Management API is GA in Preview](#active-directory-bidirectional-group-management-api-is-ga-in-preview) | June 5, 2024 |
+| [OIN Submission Tester copy function update](#oin-submission-tester-copy-function-update) | July 10, 2024 |
+| [OIN Wizard guidance updates](#oin-wizard-guidance-updates) | July 10, 2024 |
+| [Identity Threat Protection with Okta AI is GA in Production](#identity-threat-protection-with-okta-ai-is-ga-in-production) | April 3, 2024 |
+| [Network zone allowlists for SSWS API tokens is GA Preview](#network-zone-allowlists-for-ssws-api-tokens-is-ga-preview) | July 10, 2024 |
+| [Network Zones and API token restrictions](#network-zones-and-api-token-restrictions) | July 10, 2024 |
+| [Read-only admins can't use the Principal Rate Limits API to update API tokens](#read-only-admins-cant-use-the-principal-rate-limits-api-to-update-api-tokens) | July 10, 2024 |
+| [Event hook limit increased](#event-hook-limit-increased) | July 10, 2024 |
 
 #### OIN Submission Tester copy function update
 
 The copy function in the OIN Submission Tester **Network Traffic** results section now provides the option to copy the request step either as a URL or a cURL command. See [Run tests in the OIN Submission Tester](/docs/guides/submit-oin-app/openidconnect/main/#run-tests).
 <!--OKTA-679512-->
 
-#### Identity Threat Protection with Okta AI is GA in Production
-
-Identity Threat Protection with Okta AI is a powerful risk assessment and response solution that provides post-authentication security to your org. By continuously analyzing risk signals that are native to Okta, risk signals from integrated security partner vendors, and your policy conditions, it safeguards orgs against identity attacks that occur during and outside of a user's session. When Identity Threat Protection discovers a risk, it can immediately end the user's sessions, prompt an MFA challenge, or invoke a workflow to restore your org's security posture. Using intuitive dashboard widgets and reports, you can easily monitor security threats as they happen. See [Identity Thread Protection with Okta AI](https://help.okta.com/okta_help.htm?type=oie&id=ext-itp-overview). See the [Shared Signals Framework (SSF) Receiver](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SSFReceiver/) and [SSF SET](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SSFSecurityEventToken/) APIs. <!-- OKTA-683707 ENABLE_USER_RISK_CHANGE_EVALUATIONS -->
-
 #### OIN Wizard guidance updates
 
 A new link to the [Okta Documentation](https://developer.okta.com/docs/guides/submit-oin-app/saml2/main/#properties) has been added to the **SAML properties** section of the OIN Wizard. Okta documentation provides guidance on Okta Expression Language usage in SAML properties with integration variables. See [Dynamic properties with Okta Expression Language](https://developer.okta.com/docs/guides/submit-oin-app/saml2/main/#dynamic-properties-with-okta-expression-language).
 <!--OKTA-689994-->
 
+#### Identity Threat Protection with Okta AI is GA in Production
+
+Identity Threat Protection with Okta AI is a powerful risk assessment and response solution that provides post-authentication security to your org. By continuously analyzing risk signals that are native to Okta, risk signals from integrated security partner vendors, and your policy conditions, it safeguards orgs against identity attacks that occur during and outside of a user's session. When Identity Threat Protection discovers a risk, it can immediately end the user's sessions, prompt an MFA challenge, or invoke a workflow to restore your org's security posture. Using intuitive dashboard widgets and reports, you can easily monitor security threats as they happen. See [Identity Thread Protection with Okta AI](https://help.okta.com/okta_help.htm?type=oie&id=ext-itp-overview). See the [Shared Signals Framework (SSF) Receiver](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SSFReceiver/) and [SSF SET](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SSFSecurityEventToken/) APIs. <!-- OKTA-683707 ENABLE_USER_RISK_CHANGE_EVALUATIONS -->
+
 #### Network zone allowlists for SSWS API tokens is GA Preview
 
 Admins can now specify a network zone allowlist for each static (SSWS) API token. These allowlists define the IP addresses or network ranges from where Okta API requests using SSWS API tokens can be made. This restricts attackers and malware from stealing SSWS tokens and replaying them outside of the specified IP range to gain unauthorized access. <!-- OKTA-691818 SSWS_IP_HARDENING-->
 
-#### Read-only admins can't use the Principal Rate Limits API to update API tokens
-
-Read-only admins can no longer use the principal rate limits endpoint (`/api/v1/principal-rate-limits/{principalRateLimitId}`) to update the rate limit for their own API tokens. <!-- OKTA-730827-->
-
 #### Network Zones and API token restrictions
 
 You can no longer update network zones so they're invalid for use with an API token. This applies only to network zones that are used as restrictions to API tokens. You can update network zones if you first remove them from the API token restriction. These zones can't be deactivated, deleted, blocklisted, or made anything other than an active IP zone. <!-- OKTA-736535-->
+
+#### Read-only admins can't use the Principal Rate Limits API to update API tokens
+
+Read-only admins can no longer use the principal rate limits endpoint (`/api/v1/principal-rate-limits/{principalRateLimitId}`) to update the rate limit for their own API tokens. <!-- OKTA-730827-->
 
 #### Event hook limit increased
 
