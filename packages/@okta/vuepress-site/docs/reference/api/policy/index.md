@@ -2112,7 +2112,7 @@ Constraints on the values specified in the `selfServicePasswordReset.requirement
 
 | Property | Description | Data Type | Supported Values | Required |
 | -------- | ----------- | --------- | ---------------- | -------- |
-| allowedAuthenticators | Limits the authenticators that you can use for a given method. Currently, only the `OTP` method supports constraints and Google authenticator is the only allowed authenticator. | Array of [authenticator keys](https://preview.redoc.ly/oktadev/OKTA-742034-add-missing-authenticator-api-objects/openapi/okta-management/management/tag/Authenticator/) | `[ { "key": "google_otp" } ]` | No |
+| allowedAuthenticators | Limits the authenticators that you can use for a given method. Currently, only the `OTP` method supports constraints and Google authenticator is the only allowed authenticator. | Array of [authenticator keys](/docs/reference/api/policy/#authenticator-key-type-method-and-characteristic-relationships-for-constraints) | `[ { "key": "google_otp" } ]` | No |
 | method  | Specifies the method that is limited to the specific authenticator in `allowedAuthenticators`. Currently, Google OTP is the only accepted constraint. | String | `OTP` | No |
 
 ###### Self Service Password Reset Action Step-up Requirement object
