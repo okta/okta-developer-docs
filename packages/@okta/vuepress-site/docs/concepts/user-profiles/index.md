@@ -17,15 +17,15 @@ See also [Users, Groups, and Profiles](https://help.okta.com/okta_help.htm?id=ex
 
 ## What is the Okta Universal Directory
 
-The Okta Universal Directory is the service that stores all the information on your users (user profiles) for your organization. Depending on the setup for your org, the Universal Directory can serve as the “single-source-of-truth” for your users.
+The Okta Universal Directory is the service that stores all the information on your users (user profiles) for your organization. Depending on the setup for your org, Universal Directory can serve as the "single-source-of-truth" for your users.
 
-Also, Universal Directory holds app user profiles that define the attributes that apps require from individual users. For example, one of your apps might only need to know the user’s name as one string (for example, “John Doe”). Another app might require that the user’s first and last names be separate (for example, “John” and “Doe”). Furthermore, some apps might store sensitive information, like a user’s address, while other apps don’t. If you share the same user profile with each app, both apps have access to data they don't need or aren't authorized to view. With Universal Directory, you can be sure that each app only gets the data it needs.
+Also, Universal Directory holds app user profiles that define the attributes that apps require from individual users. For example, one app might only need to know the user’s name as one string (for example, "John Doe"). Another app might require that the user’s first and last names be separate (for example, "John" and "Doe"). Furthermore, some apps might store sensitive information, like a user’s address, while other apps don’t. If you share the same user profile with each app, both apps can access data they don't need or aren't authorized to view. With Universal Directory, you can be sure that each app only gets the data it needs.
 
 Universal Directory has a single Okta user profile for every user and an app user profile for each app. The user profile is the primary place to store all user information, and the app user profile is where app-specific information is stored.
 
-You can manage the User profiles in the Universal Directory from the Admin Console or use the [User API](/docs/reference/api/users).
+You can manage the User profiles in Universal Directory from the Admin Console or use the [User API](/docs/reference/api/users).
 
-You can manage the Apps user profiles in the Universal Directory from the Admin Console or use the [Apps API](/docs/reference/api/apps).
+You can manage the Apps user profiles in Universal Directory from the Admin Console or use the [Apps API](/docs/reference/api/apps).
 
 ### User mappings
 
@@ -51,7 +51,7 @@ Okta groups simplify management of multiple users of the same type. See [About g
 
 #### Custom profile type
 
-The custom user profile type is based on the Okta user profile type, and defines different types of users, for example admins, contractors, help desk, and so on. Similar to the default Okta profile, the custom user profile type contains 31 attributes and you can extend it with custom attributes. See [About custom user types in Universal Directory](https://help.okta.com/okta_help.htm?id=ext-custom-user-types).
+The custom user profile type is based on the Okta user profile type. It defines different types of users, like admins, contractors, and help desk. Similar to the default Okta profile, the custom user profile type contains 31 attributes and you can extend it with custom attributes. See [About custom user types in Universal Directory](https://help.okta.com/okta_help.htm?id=ext-custom-user-types).
 
 The [User Types API](/docs/reference/api/user-types/) defines and manages the custom profile types.
 
@@ -61,7 +61,7 @@ User profiles can only belong to one user profile type. The [User object propert
 
 ### App user profile type
 
-The app user profile type defines the attributes available for a user of that app in Universal Directory. The app user profile attributes are mapped to the user profile and determine the data that you can send to or import from an app. Similar to user profiles, the app user profile has base attributes and custom attributes.
+The app user profile type defines the attributes available for a user of that app in the Universal Directory. The app user profile attributes are mapped to the user profile and determine the data that you can send to or import from an app. Similar to user profiles, the app user profile has base attributes and custom attributes.
 
 The available custom attributes, however, are determined by the app. You can manage the app user profile type with the [Apps API](/docs/reference/api/apps/). Review the [Application User Profile](/docs/reference/api/apps/#application-user-profile-object) object and the [Application User](/docs/reference/api/apps/#application-user-object) object for further details.
 
