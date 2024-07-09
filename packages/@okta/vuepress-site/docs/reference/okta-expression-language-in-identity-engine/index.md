@@ -214,7 +214,7 @@ The `group.profile.name` key supports the operators `EXACT` and `STARTS_WITH` to
 
 ### Linked Object function
 
-Use this function to retrieve the User that is identified with the specified `primary` relationship. You can then access the properties of that User.
+Use this function to retrieve the user who's identified with the specified `primary` relationship. You can then access the properties of that user.
 
 * **Function:** `user.getLinkedObject($primaryName)`
     * **Parameter:** (String primaryName)
