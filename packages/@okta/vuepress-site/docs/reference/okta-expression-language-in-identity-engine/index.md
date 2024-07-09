@@ -92,7 +92,7 @@ You can specify certain [Expression Language conditions](/docs/reference/api/pol
 
 Okta offers various functions to manipulate properties to generate a desired output. You can combine and nest functions inside a single expression.
 
-> **Note:** For the following expression examples, assume that the following properties exist in Okta and that the User has the associated values.
+> **Note:** For the following expression examples, assume that the following properties exist in Okta and that the user has the associated values.
 
 | Attribute            | Type          | Data                       |
 | ---------            | ----          | --------                   |
