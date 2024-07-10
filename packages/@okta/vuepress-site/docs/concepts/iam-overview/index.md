@@ -18,7 +18,7 @@ A key concept for using IAM is understanding who needs to access which services 
 
 - [IAM design example](#iam-design-example) describes a typical Customer Identity and Access Management (CIAM) solution.
 
-- [Designing an IAM solution](#design-an-iam-solution) summarizes some key features of IAM solutions.
+- [Design an IAM solution](#design-an-iam-solution) summarizes some key features of IAM solutions.
 
 Some topics require more information:
 
@@ -90,7 +90,7 @@ You can divide the features of an IAM system into three areas: user experience, 
 
 - **Self service:** Let end users, especially customers, self-administer their accounts. For example, ensure that a user can control account creation, password reset, and originating access requests. This can improve customer satisfaction and reduce your admin workload.
 
-- **Social auth (social authentication):** Let users sign in with their social media credentials. For example, let a user sign in using their Facebook or LinkedIn IDs instead of credentials for your IAM solution. This can enhance customer satisfaction, provide reliable user data, and reduce admin workload.
+- **Social auth (social authentication):** Let users sign in with their social media credentials. For example, let a user sign in using their Facebook or LinkedIn IDs instead of credentials. This can enhance customer satisfaction, provide reliable user data, and reduce admin workload.
 
 <!--Social authentication is a special case of external IdP authentication.-->
 
@@ -106,7 +106,7 @@ You can divide the features of an IAM system into three areas: user experience, 
 
 The following diagram shows a typical CIAM solution for an app that supports an organization's employees and customer users (B2B). End users sign in to the web portal or mobile app in various ways. All end users sign in to the same system, but sign-in behavior and available services are user- and organization-specific. The diagram shows some of IAM's complexity and areas where it affects an app's high-level design.
 
-This is an AWS-hosted healthcare app but the IAM design features are generic and could apply to apps in any domain.
+This is an AWS-hosted healthcare app but the IAM design features are generic and can apply to apps in any domain.
 
 The app is used by the organization's employees and by other large corporations, and has tens of millions of end users. Most end users are patients, and most primary users are physicians, nurses, and other medical personnel.
 
@@ -168,14 +168,10 @@ Consider the following areas when you design an IAM solution:
 
 - **Authorization:** Define what resources that a user is allowed to access and what functions they're allowed to perform with them.
 
-- **Access control:** Grant or deny individual requests to view or update a restricted resource. Grant or deny requests based on the resource, whether the user is authenticated, the user's authorization, relevant policies, and other data. (Access control is part of authorization.)
+- **Access control:** Grant or deny individual requests to view or update a restricted resource. Grant or deny requests based on the resource, whether the user is authenticated, the user's authorization, relevant policies, and other data. Access control is part of authorization.
 
 All of these functions must be highly reliable, available, and secure.
 
 > **Note:** The diagram in [Features of an IAM solution](#features-of-an-iam-solution) summarizes important features to consider. Some of the features fall into two or more of the [IAM areas](#design-an-iam-solution).
-
-## See also
-
-[IAM Terminology](/docs/concepts/iam-overview-iam-terminology/)
 
 Next step: [Identity Management Factors](/docs/concepts/iam-overview-identity-management-factors/)
