@@ -102,10 +102,7 @@
 </template>
 
 <script>
-export const LAYOUT_CONSTANTS = {
-  HEADER_TO_CONTENT_GAP: 45, //px
-  ANCHOR_TOP_MARGIN: 32
-};
+
 const TABLET_BREAKPOINT = 767;
 
 import SidebarItems from "../mixins/SidebarItems";

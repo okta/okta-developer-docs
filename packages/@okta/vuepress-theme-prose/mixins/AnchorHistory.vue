@@ -1,5 +1,6 @@
 <script>
-import { LAYOUT_CONSTANTS } from "../layouts/Layout";
+
+import { LAYOUT_CONSTANTS } from "../const/index.const";
 
 export default {
   inject: ['appContext'],
