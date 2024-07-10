@@ -17,7 +17,7 @@ jobs:
   node_build_checks:
       docker:
         - image: cimg/node:14.21.3-browsers
-      resource_class: xlarge
+      resource_class: large
       environment:
         NODE_OPTIONS: '--max_old_space_size=3584'
       steps:
