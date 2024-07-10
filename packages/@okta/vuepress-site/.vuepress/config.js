@@ -330,6 +330,7 @@ module.exports = ctx => ({
               '/docs/reference/csi-delauth-hook/',
               //'/docs/reference/api/inline-hooks-lea/',
               //'/docs/reference/api/hook-keys/'
+              '/docs/guides/configure-amr-claims-mapping/'
           ]
         }
       ]
