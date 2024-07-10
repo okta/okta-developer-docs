@@ -14,23 +14,23 @@ A key concept for using IAM is understanding who needs to access which services 
 
 ## What to know about IAM
 
-- [IAM concepts](#iam-concepts) introduce the Workforce and Customer Identity models for IAM solutions and summarize the main features of an IAM solution.
+- [IAM concepts](#iam-concepts): Introduces the Workforce and Customer Identity models for IAM solutions and summarize the main features of an IAM solution
 
-- [IAM design example](#iam-design-example) describes a typical Customer Identity and Access Management (CIAM) solution.
+- [IAM design example](#iam-design-example): Describes a typical Customer Identity and Access Management (CIAM) solution
 
-- [Design an IAM solution](#design-an-iam-solution) summarizes some key features of IAM solutions.
+- [Design an IAM solution](#design-an-iam-solution): Summarizes some key features of IAM solutions
 
 Some topics require more information:
 
-- [Identity management factors](/docs/concepts/iam-overview-identity-management-factors/) focus on identity storage, processing, and related administration design.
+- [Identity management factors](/docs/concepts/iam-overview-identity-management-factors/): Focuses on identity storage, processing, and related administration design
 
-- [Authentication factors](/docs/concepts/iam-overview-authentication-factors/) describe design considerations for authenticating users.
+- [Authentication factors](/docs/concepts/iam-overview-authentication-factors/): Describes design considerations for authenticating users
 
-- [Authorization factors](/docs/concepts/iam-overview-authorization-factors/) describe design considerations for defining what resources that a user can access.
+- [Authorization factors](/docs/concepts/iam-overview-authorization-factors/): Describes design considerations for defining what resources that a user can access
 
-- [Architectural factors](/docs/concepts/iam-overview-architectural-factors/) describe important architectural requirements to consider for your solution and possible strategies for addressing them.
+- [Architectural factors](/docs/concepts/iam-overview-architectural-factors/): Describes important architectural requirements to consider for your solution and possible strategies for addressing them
 
-- [IAM terminology](/docs/concepts/iam-overview-iam-terminology/) contains key definitions of common terms.
+- [IAM terminology](/docs/concepts/iam-overview-iam-terminology/): Contains key definitions of common terms
 
 ## IAM concepts
 
