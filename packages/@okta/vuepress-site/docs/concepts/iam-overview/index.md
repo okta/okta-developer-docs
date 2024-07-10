@@ -78,7 +78,7 @@ You can divide the features of an IAM system into three areas: user experience, 
 
 - **User storage and password management:** Store and manage information about your users, including their passwords, for authenticating and authorizing users.
 
-- **Multifactor Authentication (MFA):** Require a user to verify their identity in different ways. Some of these ways include knowledge, such as answers to questions, or biometrics, such as a fingerprint, or possession, such as a key-card. MFA is key to controlling access to your apps.
+- **Multifactor Authentication (MFA):** Require a user to verify their identity in different ways. For example, use answers to questions as a knowledge check, fingerprint scanning as a biometric check, or a key-card as a possession check. MFA is key to controlling access to your apps. See [Multifactor authentication](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-authenticators).
 
 - **Distributed Denial of Service (DDoS) protection:** Prevent DDoS attacks from blocking legitimate use of your apps.
 
