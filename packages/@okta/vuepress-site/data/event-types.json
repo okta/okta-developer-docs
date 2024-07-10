@@ -17828,7 +17828,7 @@
         "release" : "2024.06.1"
       },
       "beta" : false,
-      "internal" : false,
+      "internal" : true,
       "tags" : [ "event-hook-eligible", "risk", "security" ],
       "mappings" : [ ],
       "schema" : {
