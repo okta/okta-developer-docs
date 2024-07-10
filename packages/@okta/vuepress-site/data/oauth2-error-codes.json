@@ -1,6 +1,6 @@
 {
-  "release" : "2024.06.1",
-  "build" : "2024.06.1-begin-145-g888629ac004b",
+  "release" : "2024.07.1",
+  "build" : "2024.07.1-begin-115-ge97a014a96fd",
   "errors" : [ {
     "title" : "Access denied",
     "statusCode" : 403,
