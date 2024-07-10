@@ -42,9 +42,9 @@ For example, a customer may require only a username and password and has permiss
 
 High-level designs for IAM may be called Workforce or Customer identity. The two have significant overlap in use cases and technical approaches. The most important thing is to design and build a solution that meets your particular requirements.
 
-- Workforce identity (Workforce or WF) solutions manage employee and contractor access to your organization's apps and resources. The main goal of WF solutions is to manage risk. IT teams usually assign user identities and use cases are typically administrative. For example, controlling access to apps by integrating them into your single sign-on solution.
+- Workforce identity (Workforce or WF) solutions manage employee and contractor access to your organization's apps and resources. The main goal of WF solutions is to manage risk. IT teams usually assign user identities and use cases are typically administrative. For example, you might want to control access to apps by integrating them into your single sign-on solution.
 
-- Customer identity (Customer Identity and Access Management or CIAM) solutions add the ability to manage customer, partner, and other external access to WF. Ease of use for customers is important. CIAM solutions can increase both customer engagement and revenue. Unlike WF users, CIAM users commonly create their own identities, sign in from various locations and platforms, and may have multiple identities. Use cases are typically user-focused. For example, improving the user experience (UX) of an app and building branded user registration and sign-in flows.
+- Customer identity (Customer Identity and Access Management or CIAM) solutions add the ability to manage customer, partner, and other external access to WF. Ease of use for customers is important. CIAM solutions can increase both customer engagement and revenue. Unlike WF users, CIAM users commonly create their own identities, sign in from various locations and platforms, and may have multiple identities. Use cases are typically user-focused. For example, you might want to improve the user experience (UX) of an app and build branded user registration and sign-in flows.
 
 <div class="three-quarter border">
 
@@ -66,9 +66,9 @@ You can divide the features of an IAM system into three areas: user experience, 
 
 - **Scalability:** Design your solution to allow for user growth and changing use patterns of your apps and infrastructure, without requiring a redesign.
 
-- **Easy integration with app stack:** Maintain your IAM solution separately from your apps. Your apps can evolve independently and you can enable multiple apps to use your IAM solution. Enable integration with your apps that optimizes performance by designing an event-based interface that is accessed using an API. Provide an SDK to make integration easier.
+- **Easy integration with app stack:** Maintain your IAM solution separately from your apps. Your apps can evolve independently, and you can enable multiple apps to use your IAM solution. Enable integration with your apps that optimizes performance by designing an event-based interface that's accessed using an API. Provide an SDK to make integration easier.
 
-- **Traffic surge protection:** Prevent sudden bursts of requests from disrupting usage or operations.
+- **Traffic surge protection:** Prevent sudden bursts of requests from disrupting use or operations.
 
 - **High availability:** Ensure that your IAM solution is fully operational when your apps go live.
 
@@ -108,7 +108,7 @@ The following diagram shows a typical CIAM solution for an app that supports an 
 
 This is an AWS-hosted healthcare app but the IAM design features are generic and can apply to apps in any domain.
 
-The app is used by the organization's employees and by other large corporations, and has tens of millions of end users. Most end users are patients, and most primary users are physicians, nurses, and other medical personnel.
+The app is used by the organization's employees and by other large corporations and has tens of millions of end users. Most end users are patients, and most primary users are physicians, nurses, and other medical personnel.
 
 <div class="full border">
 
