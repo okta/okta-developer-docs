@@ -67,6 +67,8 @@ The limit on active event hooks per org has been increased from 10 to 25. See [E
 
 * The [oauth2/introspect](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/introspectCustomAS) endpoint hit rate limits without logging it in the System Log. (OKTA-744604)
 
+* In Groups API queries, some users who weren't in the "Everyone" group were missing group memberships. (OKTA-747426)
+
 ### Weekly release 2024.06.1
 
 | Change | Expected in Preview Orgs |
