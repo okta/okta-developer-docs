@@ -146,12 +146,13 @@
 }
 
 #SearchPage .coveo-facet-value-caption {
-  margin: 0 0 8px;
+  margin: 0 0 6px;
 
   font-weight: 400;
   font-size: 16px;
   line-height: 16px;
   color: cv("text", "darker");
+  height: 18px;
 }
 
 #SearchPage .coveo-pager-list-item,
