@@ -1,0 +1,4 @@
+export const LAYOUT_CONSTANTS = {
+    HEADER_TO_CONTENT_GAP: 45,
+    ANCHOR_TOP_MARGIN: 32
+}

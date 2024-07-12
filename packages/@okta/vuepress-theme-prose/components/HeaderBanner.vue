@@ -43,7 +43,13 @@ export default {
   },
   mounted() {
     this.checkDismissal();
-    this.$emit("updateHeight")
+
+    this.$nextTick(() => {
+      setTimeout(() => {
+        // Delay height adjustment on mount to ensure the header element is fully rendered.
+        this.$emit("updateHeight")
+      }, 400)
+    })
   },
   methods: {
     dismissBanner() {

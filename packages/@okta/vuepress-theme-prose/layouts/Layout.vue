@@ -102,10 +102,7 @@
 </template>
 
 <script>
-export const LAYOUT_CONSTANTS = {
-  HEADER_TO_CONTENT_GAP: 45, //px
-  ANCHOR_TOP_MARGIN: 32
-};
+
 const TABLET_BREAKPOINT = 767;
 
 import SidebarItems from "../mixins/SidebarItems";
@@ -213,11 +210,6 @@ export default {
     this.$on("toggle-tree-nav", event => {
       that.appContext.isTreeNavMobileOpen = event.treeNavOpen;
     });
-    
-    // Delay height adjustment on mount to ensure the header element is fully rendered.
-    setTimeout(() => {
-      this.updateHeaderHeight();
-    }, 340)
 
     this.onResize();
     window.addEventListener("resize", this.onResize);
