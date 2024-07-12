@@ -1024,7 +1024,7 @@ export const reference = [
                { title: "Factors", path: "/docs/reference/api/factors/" },
                { title: "Features", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Feature/" },
                { title: "Groups", path: "/docs/reference/api/groups/" },
-               { title: "Groups Owners", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/#tag/Group/operation/listGroupOwners" },
+               { title: "Groups Owners", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/GroupOwner/" },
                { title: "Identity Sources", path: "/docs/reference/api/xaas/" },
                { title: "Key Management", path: "/docs/reference/api/hook-keys/" },
                { title: "Linked Objects", path: "/docs/reference/api/linked-objects/" },
