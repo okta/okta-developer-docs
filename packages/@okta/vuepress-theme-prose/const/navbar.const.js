@@ -1043,7 +1043,7 @@ export const reference = [
                { title: "Risk Providers", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RiskProvider/" },
                { title: "SSF Receiver", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SSFReceiver/" },
                { title: "SSF Security Event Tokens", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SSFSecurityEventToken/" },
-               { title: "Schemas", path: "/docs/reference/api/schemas/" },
+               { title: "Schemas", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/" },
                { title: "Sessions", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Session/" },
                { title: "SMS Templates", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Template/" },
                { title: "Subscriptions", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Subscription/" },
