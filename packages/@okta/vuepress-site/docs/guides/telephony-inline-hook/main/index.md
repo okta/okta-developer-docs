@@ -144,11 +144,13 @@ The following code is used to send the SMS or voice call to the user:
 
 ## Send response to Okta
 
-To tell Okta that the SMS or voice call message was successfully sent, return a `commands` object in the body of your HTTPS response. This object is an array that allows you to send multiple commands. The two required properties are `type` and `value`. The `value` property is where you specify the status of your telephony transaction and other relevant transaction metadata. The action type is `com.okta.telephony.action`. See the following response example.
+To tell Okta that the SMS or voice call message was successfully sent, return a `commands` object in the body of your HTTPS response. This object is an array that allows you to send multiple commands. The two required properties are `type` and `value`. The `value` property is where you specify the status of your telephony transaction and other relevant transaction metadata. The action type is `com.okta.telephony.action`.
 
-> **Note:** The `transactionId` and `transactionMetadata` properties are not required, but are useful for tracking when the OTP isn't being delivered.
+<StackSelector snippet="responsetookta" noSelector/>
 
-### Example response for successful OTP delivery
+### Example JSON response for successful OTP delivery
+
+> **Note:** The `transactionId` and `transactionMetadata` properties aren't required, but are useful for tracking when the OTP isn't being delivered.
 
 ```json
 {
@@ -173,8 +175,6 @@ To tell Okta that the SMS or voice call message was successfully sent, return a 
 There are several common causes of failure for telephony inline hooks. When a response fails, Okta attempts to send the OTP using the Okta telephony providers. However, this failover is heavily rate-limited.
 
 See the [Troubleshoot](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createTelephonyInlineHook) section in the Telephony Inline Hook API reference for a list that includes the impact of the issue and error visibility.
-
-<StackSelector snippet="responsetookta" noSelector/>
 
 ## Preview and test
 
