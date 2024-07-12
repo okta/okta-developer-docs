@@ -17,6 +17,7 @@ title: Okta Classic Engine API release notes 2024
 | [Network Zones and API token restrictions](#network-zones-and-api-token-restrictions) | July 10, 2024 |
 | [Read-only admins can't use the Principal Rate Limits API to update API tokens](#read-only-admins-can-t-use-the-principal-rate-limits-api-to-update-api-tokens) | July 10, 2024 |
 | [Event hook limit increased](#event-hook-limit-increased) | July 10, 2024 |
+| [Active Directory Bidirectional Group Management API is GA in Production](#active-directory-bidirectional-group-management-api-is-ga-in-production) | July 10, 2024 |
 
 #### OIN Submission Tester copy function update
 
@@ -47,6 +48,12 @@ Read-only admins can no longer use the principal rate limits endpoint (`/api/v1/
 #### Event hook limit increased
 
 The limit on active event hooks per org has been increased from 10 to 25. See [Event hooks](/docs/concepts/event-hooks/). <!-- OKTA-741766 -->
+
+#### Active Directory Bidirectional Group Management API is GA in Production
+
+The [Bidirectional Group Management for Active Directory (AD) (Directories Integration) API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/DirectoriesIntegration) allows you to manage AD groups from within Okta. You can add or remove users from groups based on their identity and access requirements. This ensures that changes made to user access in Okta are reflected in AD. When you use Okta Access Certifications to revoke a user's membership to an AD group, the removal is reflected in AD.
+
+Okta can only manage group memberships for users and groups imported into Okta using the AD integration. It isn't possible to manage users and groups that weren't imported through AD integration or are outside the organizational unit's scope for the integration using this feature. <!--AD_BIDIRECTIONAL_GROUP_MANAGEMENT OKTA-734564, OKTA-747631-->
 
 ## June
 
