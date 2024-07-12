@@ -174,7 +174,7 @@ To tell Okta that the SMS or voice call message was successfully sent, return a 
 
 There are several common causes of failure for telephony inline hooks. When a response fails, Okta attempts to send the OTP using the Okta telephony providers. However, this failover is heavily rate-limited.
 
-See the [Troubleshoot](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createTelephonyInlineHook) section in the Telephony Inline Hook API reference for a list that includes the impact of the issue and error visibility.
+See the [Troubleshoot](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createTelephonyInlineHook) section in the Telephony Inline Hook API reference. The section contains a list of why the response failed and information on the impact of the failure and error visibility.
 
 ## Preview and test
 
