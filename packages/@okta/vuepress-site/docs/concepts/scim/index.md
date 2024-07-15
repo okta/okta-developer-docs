@@ -47,7 +47,7 @@ Adopting SCIM for domain management improves overall security for your company. 
 
 Provisioning consists of a set of actions between a Service Provider - like Okta - and the cloud-based integration (the SCIM client). Using REST-style architecture and JSON objects, the SCIM protocol communicates data about users or groups. As an app developer, you define the use cases needed and then build the corresponding SCIM actions into your integration.
 
-By implementing support for the SCIM standard, an integration in the Okta Integration Network can be notified when a user is created, updated, or removed from their app in Okta.
+By implementing support for the SCIM standard, an integration in the Okta Integration Network is notified when a user is created in Okta. An integration is also notified when the user is updated or removed from their app in Okta.
 
 The provisioning actions performed by an integration are described using the database operation acronym "CRUD": Create, Read, Update, and Delete. The four CRUD operations are the building blocks that combine to solve your end-to-end use cases:
 
