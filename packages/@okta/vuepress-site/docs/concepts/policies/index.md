@@ -104,7 +104,7 @@ Use the [Authentication Policies page](https://help.okta.com/okta_help.htm?type=
 <ApiLifecycle access="ie" />
 <ApiLifecycle access="ea" />
 
-The account management policy is a kind of authentication policy. It defines the requirements when users enroll in authenticators, recover their passwords, and unlock their accounts. The policy uses a rule-based framework to enforce phishing resistance throughout the user journey, from onboarding to authentication and recovery.
+The account management policy is a type of authentication policy. It defines requirements when users enroll in authenticators, recover their passwords, and unlock their accounts. The policy uses a rule-based framework to enforce phishing resistance throughout the user journey, from onboarding to authentication and recovery.
 
 When using the [Policy API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/listPolicies), account management policies are read-only. You can't delete the policy (you have to disable the feature if you want to stop using it). And most importantly, you can't assign it to apps. This policy applies to account management actions only.
 
