@@ -36,7 +36,7 @@ This guide provides an example of an Okta telephony inline hook. This guide uses
 
 * Make sure you have an active phone number in Twilio with SMS and MMS capabilities.
 
-* Create a [TwiML bin](https://www.twilio.com/docs/runtime/tutorials/twiml-bins#create-a-new-twiml-bin) in your Twilio account for use with voice call messages. You'll use the automatically generated handler URL as a variable. Additionally, include an `otp` tag key within double brackets in the prepopulated XML. This tag key references the dynamic `otp` used later in this exercise. For example:
+* Create a [TwiML bin](https://www.twilio.com/docs/runtime/tutorials/twiml-bins#create-a-new-twiml-bin) in your Twilio account for use with voice call messages. Use the automatically generated handler URL as a variable. Also, include an `otp` tag key within double brackets in the prepopulated XML. This tag key references the dynamic `otp` used later in this exercise. For example:
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
@@ -45,7 +45,7 @@ This guide provides an example of an Okta telephony inline hook. This guide uses
 
 ## About telephony inline hook implementation
 
-The Okta telephony inline hook allows you to integrate your own custom code into Okta flows that send SMS or voice call messages (except Okta Verify enrollment). You can integrate this hook with enrollment, authentication, and recovery flows that involve phone authenticators. Okta uses your external provider to deliver the one-time passcode (OTP) to the Requester. The provider can respond with commands that indicate if the delivery was successful.
+The Okta telephony inline hook enables you to integrate your own custom code into Okta flows that send SMS or voice call messages (except Okta Verify enrollment). You can integrate this hook with enrollment, authentication, and recovery flows that involve phone authenticators. Okta uses your external provider to deliver the one-time passcode (OTP) to the Requester. The provider can respond with commands that indicate if the delivery was successful.
 
 > **Note:** An org can have only one active telephony inline hook.
 
@@ -70,7 +70,7 @@ Verify that your org has the Phone authenticator added and enabled for **Authent
 1. Verify that the **Authentication and recovery** option is selected.
 1. Click **Save** if made any changes.
 
-> **Note:** If a Phone authenticator isn't already added, click **Add Authenticator** and then click **Add** on the Phone tile and make sure that you select the options mentioned earlier and click **Add**.
+> **Note:** If a Phone authenticator isn't already added, click **Add Authenticator**, and then **Add** on the Phone tile. Make sure that you select the options mentioned earlier, and then click **Add**.
 
 ## Update an authentication policy
 
@@ -142,15 +142,15 @@ The following code is used to send the SMS or voice call to the user:
 
 <StackSelector snippet="sendsmsmakecall" noSelector/>
 
-## Send response to Okta
+## Send a response to Okta
 
-To tell Okta that the SMS or voice call message was successfully sent, return a `commands` object in the body of your HTTPS response. This object is an array that allows you to send multiple commands. The two required properties are `type` and `value`. The `value` property is where you specify the status of your telephony transaction and other relevant transaction metadata. The action type is `com.okta.telephony.action`.
+To tell Okta that the SMS or voice call message was successfully sent, return a `commands` object in the body of your HTTPS response. This object is an array that allows you to send multiple commands. The two required properties are `type` and `value.status`. The `value.status` property is where you specify the status of your telephony transaction and other relevant transaction metadata. The action type is `com.okta.telephony.action`.
 
 <StackSelector snippet="responsetookta" noSelector/>
 
 ### Example JSON response for successful OTP delivery
 
-> **Note:** The `transactionId` and `transactionMetadata` properties aren't required, but are useful for tracking when the OTP isn't being delivered.
+> **Note:** The other `value` properties aren't required, but are useful for tracking when the OTP isn't being delivered.
 
 ```json
 {
@@ -172,9 +172,11 @@ To tell Okta that the SMS or voice call message was successfully sent, return a 
 
 ### Failover to Okta telephony providers
 
-There are several common causes of failure for telephony inline hooks. When a response fails, Okta attempts to send the OTP using the Okta telephony providers. However, this failover is heavily rate-limited.
+If your response to Okta doesn't have the correct format and the required properties, Okta attempts to send the OTP using Okta telephony providers. This failover happens even if your service successfully sends the SMS to the user. The user then receives two SMS messages.
 
-See the [Troubleshoot](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createTelephonyInlineHook) section in the Telephony Inline Hook API reference. The section contains a list of why the response failed and information on the impact of the failure and error visibility.
+> **Note:** Failovers that use the Okta telephony providers are heavily rate-limited.
+
+There are other common causes of failure for telephony inline hooks. See the [Troubleshoot](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createTelephonyInlineHook) section in the Telephony Inline Hook API reference. The section contains a list of why the response failed and information on the impact of the failure and error visibility.
 
 ## Preview and test
 
@@ -187,7 +189,7 @@ The external service example is now ready with code to receive and respond to an
 To preview the telephony inline hook:
 
 1. In the Admin Console, go to **Workflow** > **Inline Hooks**.
-1. Select the telephony inline hook you set up (in this example, **Twilio Telephony Hook**).
+1. Select the telephony inline hook that you set up (in this example, **Twilio Telephony Hook**).
 1. Select the **Preview** tab.
 1. Define a value for `data.userProfile` by selecting a user in your org from the **data.userProfile** dropdown list.
 1. Define a value for `requestType` by selecting a flow to test. In this example, select **MFA Verification**.
@@ -201,7 +203,7 @@ To preview the telephony inline hook:
 
 ### Test
 
-To run a test of your telephony inline hook, go to your Okta org's sign-in page and sign in as a user in your org.
+To run a test of your telephony inline hook, go to your Okta org's sign-in page and sign in as an existing org user.
 When you click **Sign in**, you're prompted for an additional factor to either receive a code through SMS or receive a voice call instead. Click whichever option that you want to test. The SMS or Voice Call is sent to your phone.
 
 ## Next steps
