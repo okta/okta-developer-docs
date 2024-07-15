@@ -9,7 +9,7 @@ meta:
 
 <ApiAmProdWarning />
 
-Authentication and authorization are essential to application development. Whether you're developing an internal IT app for your employees, building a portal for your partners, or exposing a set of APIs for developers building apps around your resources, you need the right authentication and authorization support for your projects. With Okta, you can control access to your application using both [OAuth 2.0 and OpenID Connect](/docs/concepts/oauth-openid/). Use Okta as your authorization server to retain all of your user information and grant users tokens to control their authorization and authentication.
+Authentication and authorization are essential to app development. Projects such as building a protal for your partners or developing an internal IT app for your employees need the right authentication and authorization support. With Okta, you can control access to your app using both [OAuth 2.0 and OpenID Connect](/docs/concepts/oauth-openid/). Use Okta as your authorization server to retain all of your user information and grant users tokens to control their authorization and authentication.
 
 ## What is an authorization server
 
@@ -19,7 +19,7 @@ At its core, an authorization server is simply an engine for minting OpenID Conn
 
 You can use an authorization server to perform Single Sign-On (SSO) with Okta for your OIDC apps. You can also use an authorization server to secure your own APIs and provide user authorization to access your web services.
 
-OIDC is used to authenticate users with a web app. The app uses the ID token that is returned from the authorization server to know if a user is authenticated and to obtain profile information about the user, such as their username or locale. OAuth 2.0 is used to authorize user access to an API. An access token is used by the resource server to validate a user's level of authorization/access. When using OIDC or OAuth, the authorization server authenticates a user and issues an ID token and/or an access token.
+OIDC is used to authenticate users with a web app. The app uses the ID token returned from the authorization server to know if a user is authenticated. The app also uses the ID token to obtain profile information about the user, such as their username or locale. OAuth 2.0 is used to authorize user access to an API. An access token is used by the resource server to validate a user's level of authorization/access. When using OIDC or OAuth, the authorization server authenticates a user and issues an ID token and/or an access token.
 
 > **Note:** You can't mix tokens between different authorization servers. By design, authorization servers don't have trust relationships with each other.
 
@@ -31,9 +31,9 @@ Okta has two types of authorization servers: the org authorization server and th
 
 Every Okta org comes with a built-in authorization server called the org authorization server. The base URL for the org authorization server is `https://{yourOktaOrg}`.
 
-You can use the org authorization server to perform SSO with Okta for your OpenID Connect apps or to get an access token for the Okta APIs. You can't customize audience, claims, policies, or scopes for this authorization server.
+Use the org authorization server to perform SSO with Okta for your OIDC apps or to get an access token for the Okta APIs. You can't customize audience, claims, policies, or scopes for this authorization server.
 
-The issuer for access tokens from an org authorization server is `https://{yourOktaOrg}`, which indicates that only Okta can consume or validate it. The access token can't be used or validated by your own apps. The contents of the access token are subject to change at any time without notice. Therefore, any attempts to validate the access token may not work in the future.
+The issuer for access tokens from an org authorization server is `https://{yourOktaOrg}`, which indicates that only Okta can consume or validate it. Your apps can't use or validate this access token. The contents of the access token are subject to change at any time without notice. Therefore, any attempts to validate the access token may not work in the future.
 
 #### Org authorization server discovery endpoints
 
@@ -79,9 +79,9 @@ The OpenID and OAuth discovery endpoints for the default custom authorization se
 
 ## Which authorization server should you use
 
-If you're looking to add SSO for your OIDC-based applications, you can use your org authorization server. Also, use the org authorization server if you want to use [OAuth 2.0 bearer tokens with your Okta APIs](/docs/guides/implement-oauth-for-okta/). Only the org authorization server can mint access tokens that contain Okta API scopes.
+If you're looking to add SSO for your OIDC-based apps, you can use your org authorization server. Also, use the org authorization server if you want to use [OAuth 2.0 bearer tokens with your Okta APIs](/docs/guides/implement-oauth-for-okta/). Only the org authorization server can mint access tokens that contain Okta API scopes.
 
-If your application has requirements such as additional scopes, customizing rules for when to grant scopes, or you need more authorization servers with different scopes and claims, then you need to [create a custom authorization server](/docs/guides/customize-authz-server/).
+If your app has requirements such as additional scopes, customizing rules for when to grant scopes, or you need more authorization servers with different scopes and claims, then you need to [create a custom authorization server](/docs/guides/customize-authz-server/).
 
 The following table describes which capabilities are supported by the custom authorization server (includes the default custom authorization server) and which are supported by the org authorization server.
 
