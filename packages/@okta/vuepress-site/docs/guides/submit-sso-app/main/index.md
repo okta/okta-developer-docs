@@ -133,7 +133,7 @@ Include all required information before you click **Submit for Review** to move 
 
 ## Update your published integration
 
-> **Note:** Okta is migrating published SSO integrations from the OIN Manager to the OIN Wizard as of release 2024.06.0.
+> **Note:** Okta is migrating published SSO integrations from the OIN Manager to the OIN Wizard:
 > *  If your published SSO integration was migrated to the OIN Wizard, make updates in the [OIN Wizard](/docs/guides/submit-oin-app/#update-your-integration). A deprecated note appears next to your integration in the OIN Manager. If you edit and submit your migrated integration from the OIN Manager, it won't be reviewed by the OIN team.
 > * If your published SSO integration wasn't migrated to the OIN Wizard, it appears as usual in the OIN Manager. Follow the steps in this section to update your published integration in the OIN Manager.
 
