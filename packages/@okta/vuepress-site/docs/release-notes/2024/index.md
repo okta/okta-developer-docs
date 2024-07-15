@@ -6,6 +6,14 @@ title: Okta Classic Engine API release notes 2024
 
 ## July
 
+### Weekly release 2024.07.1
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Bugs fixed in 2024.07.1](#bugs-fixed-in-2024-07-1) | July 17, 2024|
+
+#### Bugs fixed in 2024.07.1
+
 ### Monthly release 2024.07.0
 
 | Change | Expected in Preview Orgs |
