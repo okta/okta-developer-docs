@@ -21,7 +21,7 @@ There are many possibilities for policy use:
 * Determine the extra levels of authentication that must be performed before a user accesses a specific app.
 * Maintain a list of allowed users and deny access based on multiple conditions.
 * Change the returned scopes of the access token and add claims to it and to the ID token using [inline hooks](/docs/concepts/inline-hooks/).
-* Notify other systems in real-time through an API when a user signs in.
+* Notify other systems in real time through an API when a user signs in.
 * Use token scopes to look up user information in an external database or API, then add that data to the user's profile object.
 * Monitor your org for identity threats like changes in entity risk or session context.
 * Define authentication requirements when users enroll in authenticators, recover their passwords, and unlock their accounts.
@@ -176,5 +176,5 @@ Policy evaluation is different when you use the AuthN authentication pipeline ve
 
 If you have both Classic Engine and Identity Engine apps:
 
-* You should create group-based sign-on policy rules that tightly couple apps to corresponding groups. For example, create a single-page app and then a corresponding group for it that evaluates sign-on policies.
+* Create group-based sign-on policy rules that tightly couple apps to corresponding groups. For example, create a single-page app and then a corresponding group for it that evaluates sign-on policies.
 * Standard risk apps should use one-factor authentication and high risk apps should use two-factor authentication that is defined in a sign-on policy. This should help when you need to lower security for Okta FastPass apps and not disturb the high-risk apps that are still on Classic Engine, but need MFA.
