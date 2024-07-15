@@ -110,7 +110,7 @@ When using the [Policy API](https://developer.okta.com/docs/api/openapi/okta-man
 
 However, you can use the Policy API to [manage its policy rules](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule).
 
-See [Okta account management policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-account-management-policy) for details about configuring the policy for three primary use cases.
+See [Okta account management policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-account-management-policy) for details about configuring the policy in the Admin Console.
 
 ### Password policies
 
