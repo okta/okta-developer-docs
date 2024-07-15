@@ -75,9 +75,9 @@ Deleting or deprovisioning user profiles in SCIM operations depends on whether O
 
 * If an admin deletes a deactivated user profile inside Okta, the user resource inside your SCIM app isn't changed. The initial deactivation step already set `active=false`. Okta doesn't send a request to delete the user resource inside the customer's SCIM app.
 
-* SCIM app sources the user: A user profile is deleted from inside your SCIM app. The user's profile is deleted inside Okta when an import from your SCIM app is run.
+* SCIM app sources the user: A user profile is deleted from inside your SCIM app. The user's profile is then deleted inside Okta when an import from your SCIM app is run.
 
-* SCIM app sources the Okta integration: A user profile is marked with `active=false` inside your SCIM app. The user's profile is marked as deactivated in Okta when an import from your SCIM app runs.
+* SCIM app sources the Okta integration: A user profile is marked with `active=false` inside your SCIM app. The user's profile is then marked as deactivated in Okta when an import from your SCIM app runs.
 
 ### Sync passwords
 
