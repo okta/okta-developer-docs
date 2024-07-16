@@ -761,6 +761,8 @@ Different Policy types control settings for different operations. All Policy typ
 * [IdP Discovery policy](#idp-discovery-policy)
 * [OAuth Authorization policy](/docs/reference/api/authorization-servers/#policy-object)
 * [Authentication policy](#authentication-policy) <ApiLifecycle access="ie" /><br>
+  > **Note:** <ApiLifecycle access="ie" />
+  > The account management policy is a type of authentication policy.
 * [Profile enrollment policy](#profile-enrollment-policy) <ApiLifecycle access="ie" /><br>
 * [Entity risk policy](#entity-risk-policy) <ApiLifecycle access="ie" /> <ApiLifecycle access="ea" /><br>
 * [Continuous Access evaluation policy](#continuous-access-evaluation-policy) <ApiLifecycle access="ie" /> <ApiLifecycle access="ea" /><br>
@@ -2274,7 +2276,7 @@ refers to the user's `username`. If the user is signing in with the username `jo
 
 <ApiLifecycle access="ie" />
 
-> **Note:** This feature is only available as a part of the Identity Engine. [Contact support](https://support.okta.com/) for information on the Identity Engine.
+> **Note:** This feature is only available as a part of Identity Engine. [Contact support](https://support.okta.com/) for information.
 
 > **Note:** The app sign-on policy name has changed to authentication policy. The policy type of `ACCESS_POLICY` remains unchanged.
 
@@ -2288,6 +2290,10 @@ When you create a new application, the shared default authentication policy is a
 > The highest priority that an authentication policy rule can be set to is `0`.
 
 > **Note:** When you [merge duplicate authentication policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-merge-auth-policies), policy and mapping CRUD operations may be unavailable during the consolidation. When the consolidation is complete, you receive an email.
+
+### Okta account management policy
+
+
 
 #### Authentication policy example
 
