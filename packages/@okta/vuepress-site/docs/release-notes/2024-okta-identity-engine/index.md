@@ -11,8 +11,13 @@ title: Okta Identity Engine API release notes 2024
 
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
+| [YubiKey preregistration feature is self-service EA](#yubikey-preregistration-feature-is-self-service-ea) | July 17, 2024 |
 | [New IP service categories added](#new-ip-service-categories-added) | July 17, 2024 |
 | [Bugs fixed in 2024.07.1](#bugs-fixed-in-2024-07-1) | July 17, 2024|
+
+#### YubiKey preregistration feature is self-service EA
+
+Customer admins were previously unable to enroll and ship YubiKeys as WebAuthn enrollments in a quick and automated way. The YubiKey preregistration feature enables admins to preregister YubiKey factors as WebAuthn enrollments for both staged and existing (active) users using a Workflows and Yubico integration to seamlessly handle the registration and shipment. <!-- OKTA-720689 YUBIKEY_PREREGISTRATION_AS_WEBAUTHN_ENROLLMENT -->
 
 #### New IP service categories added
 
