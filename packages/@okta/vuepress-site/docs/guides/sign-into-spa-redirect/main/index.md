@@ -33,7 +33,6 @@ Set up your [Okta org](/docs/concepts/okta-organizations/). The Okta command-lin
 1. Install [Okta CLI](https://cli.okta.com/).
 1. If you don't already have a free Okta developer account:
    1. Open your terminal.
-   {style="list-style-type:lower-alpha"}
    1. Run `okta register`, and enter your first name, last name, email address, and country.
    1. Click or tap **Activate** in the account activation email that is sent to the email address that you gave.
 
