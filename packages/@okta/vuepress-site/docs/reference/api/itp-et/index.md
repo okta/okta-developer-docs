@@ -12,7 +12,7 @@ This resource contains detailed reference material on event types triggered with
 
 >**Note:** Not every property is documented for the event types. Only those primarily used to assist in reviewing an identity threat interaction. Also, objects and properties may differ based on your implementation of the Identity Threat Protection solution.
 
-| Event Types                                                 | Event Types                                         |
+<!-- | Event Types                                                 | Event Types                                         |
 | ----------------------------------------------------------- | --------------------------------------------------- |
 | [analytics.feedback.provide](#analytics-feedback-provide) | [device.signals.status.timeout](#device-signals-status-timeout) |
 | [policy.auth_reevaluate.fail](#policy-auth-reevaluate-fail)| [policy.continuous_access.action](#policy-continuous-access-action)|
@@ -21,7 +21,7 @@ This resource contains detailed reference material on event types triggered with
 | [user.authentication.universal_logout](#user-authentication-universal-logout) | [user.authentication.universal_logout.scheduled](#user-authentication-universal-logout-scheduled)|
 | [user.risk.change](#user-risk-change)| [user.session.clear](#user-session-clear)|
 | [user.session.context.change](#user-session-context-change)| [user.session.end](#user-session-end) |
-| [workflows.user.delegatedflow.run](#workflows-user-delegatedflow-run)| |
+| [workflows.user.delegatedflow.run](#workflows-user-delegatedflow-run)| | -->
 
 ## analytics feedback provide
 `analytics.feedback.provide`
@@ -124,7 +124,7 @@ This resource contains detailed reference material on event types triggered with
 | **client**                |  The client of the actor                 |       |         |
 | IPAddress              | IP address of the client                |       |         |
 
-## policy continuous access evaluate
+## policy continuous_access evaluate
 `policy.continuous_access.evaluate`
 
 **Description:** This event triggers when a post auth session evaluation occurs.
@@ -154,7 +154,7 @@ This resource contains detailed reference material on event types triggered with
 | **client**                |  The client of the actor                |       |         |
 | IPAddress              | IP address of the client                |       |         |
 
-## policy entity risk action
+## policy entity_risk action
 `policy.entity_risk.action`
 
 **Description:** Entity risk policy action invocation. Signals that an action associated with an evaluation of an entity risk policy has been invoked.
@@ -194,7 +194,7 @@ This resource contains detailed reference material on event types triggered with
 | **client**                |  The client of the actor                |       |         |
 | IPAddress              | IP address                |       |         |
 
-## policy entity risk evaluate
+## policy entity_risk evaluate
 `policy.entity_risk.evaluate`
 
 **Description:** This event triggers when Okta receives a risk event and then evaluates the entity risk policy.
@@ -254,7 +254,7 @@ This resource contains detailed reference material on event types triggered with
 | **client**                |  The client of the system principal actor for Continuous Access evaluation and entity risk policy actions, or the client of the admin triggering the clear user sessions action.                 | Object      |         |
 | IPAddress              | IP address                |       |         |
 
-## user authentication universal logout scheduled
+## user authentication universal_logout scheduled
 `user.authentication.universal_logout.scheduled`
 
 **Description:** This event triggers only when an admin manually triggers the Universal Logout against an app instance. It contains the location of the admin and the context of the Universal Logout, that is, from where and how the Universal Logout API was triggered. This event is only triggered once. You can correlate this event with the `user.authentication.universal_logout` event using the `traceID` found under `DebugData` for both events.
