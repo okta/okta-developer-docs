@@ -124,7 +124,7 @@ This resource contains detailed reference material on event types triggered with
 | **client**                |  The client of the actor                 |       |         |
 | IPAddress              | IP address of the client                |       |         |
 
-## policy continuous_access evaluate
+## policy continuous access evaluate
 `policy.continuous_access.evaluate`
 
 **Description:** This event triggers when a post auth session evaluation occurs.
@@ -154,7 +154,7 @@ This resource contains detailed reference material on event types triggered with
 | **client**                |  The client of the actor                |       |         |
 | IPAddress              | IP address of the client                |       |         |
 
-## policy entity_risk action
+## policy entity risk action
 `policy.entity_risk.action`
 
 **Description:** Entity risk policy action invocation. Signals that an action associated with an evaluation of an entity risk policy has been invoked.
@@ -194,7 +194,7 @@ This resource contains detailed reference material on event types triggered with
 | **client**                |  The client of the actor                |       |         |
 | IPAddress              | IP address                |       |         |
 
-## policy entity_risk evaluate
+## policy entity risk evaluate
 `policy.entity_risk.evaluate`
 
 **Description:** This event triggers when Okta receives a risk event and then evaluates the entity risk policy.
@@ -237,7 +237,7 @@ This resource contains detailed reference material on event types triggered with
 | **actor**                 |  The security events provider                | Object        |         |
 | type        | The type of actor object           | String     | SecurityEventProvider        |
 
-### user authentication universal_logout
+## user authentication universal_logout
 `user.authentication.universal_logout`
 
 **Description:** This event triggers when Okta or an admin invokes Universal Logout against an app instance. It contains the app instance details for which the Universal Logout API was triggered. The event indicates when apps have had Universal Logout triggered for audit or debugging purposes. This event is only triggered once. It's only triggered for apps that have been configured for Universal Logout. You can configure it in an Entity risk policy or Continuous Access, or invoke it manually from the user profile.
@@ -254,7 +254,7 @@ This resource contains detailed reference material on event types triggered with
 | **client**                |  The client of the system principal actor for Continuous Access evaluation and entity risk policy actions, or the client of the admin triggering the clear user sessions action.                 | Object      |         |
 | IPAddress              | IP address                |       |         |
 
-## user authentication universal_logout scheduled
+## user authentication universal logout scheduled
 `user.authentication.universal_logout.scheduled`
 
 **Description:** This event triggers only when an admin manually triggers the Universal Logout against an app instance. It contains the location of the admin and the context of the Universal Logout, that is, from where and how the Universal Logout API was triggered. This event is only triggered once. You can correlate this event with the `user.authentication.universal_logout` event using the `traceID` found under `DebugData` for both events.
