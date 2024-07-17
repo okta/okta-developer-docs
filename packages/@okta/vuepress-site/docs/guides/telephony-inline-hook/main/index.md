@@ -174,6 +174,8 @@ To tell Okta that the SMS or voice call message was successfully sent, return a 
 
 Your response to Okta needs to have the correct format and the required properties. If it doesn't, Okta attempts to send the OTP using Okta telephony providers. This failover may happen even if your service successfully sends the SMS/voice to the user. Some providers have an asychronous model where they might not know the status of a telephony transaction right away. The user then receives two SMS messages.
 
+When Okta calls an external service, it enforces a default timeout of three seconds. See [Time out and retry](https://developer.okta.com/docs/concepts/inline-hooks/#time-out-and-retry).
+
 > **Note:** Failovers that use the Okta telephony providers are heavily rate-limited.
 
 There are other common causes of failure for telephony inline hooks. See the [Troubleshoot](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createTelephonyInlineHook) section in the Telephony Inline Hook API reference. This section contains a list of possible failures for telephony hook callouts, information on the impact of the failure, and error visibility.
