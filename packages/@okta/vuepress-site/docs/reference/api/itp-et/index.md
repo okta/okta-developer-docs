@@ -15,7 +15,7 @@ This resource contains detailed reference material on event types triggered with
 ## analytics feedback provide
 `analytics.feedback.provide`
 
-**Description:** This event triggers when an admin provides feedback on a user or session risk detection. It can be used to monitor feedback provided by admins in response to Okta-determined changes in risk.
+**Description:** This event is triggered when an admin provides feedback on a user or session risk detection. It can be used to monitor feedback provided by admins in response to Okta-determined changes in risk.
 
 | Key event properties  | Description                                         | Data type      | Example values |
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
@@ -76,7 +76,7 @@ This resource contains detailed reference material on event types triggered with
 ## policy continuous_access action
 `policy.continuous_access.action`
 
-**Description:** This event triggers when Okta logs a user out of their configured apps or runs a Workflow in response to an authentication or global session policy violation.
+**Description:** This event is triggered when Okta logs a user out of their configured apps or runs a Workflow in response to an authentication or global session policy violation.
 
 | Key event properties  | Description                                         | Data type      | Example values |
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
@@ -116,7 +116,7 @@ This resource contains detailed reference material on event types triggered with
 ## policy continuous_access evaluate
 `policy.continuous_access.evaluate`
 
-**Description:** This event triggers when a post auth session evaluation occurs.
+**Description:** This event is triggered when a post auth session evaluation occurs.
 
 | Key event properties | Description                                         | Data type      | Example values |
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
@@ -146,7 +146,7 @@ This resource contains detailed reference material on event types triggered with
 ## policy entity_risk action
 `policy.entity_risk.action`
 
-**Description:** Entity risk policy action invocation. Signals that an action associated with an evaluation of an entity risk policy has been invoked.
+**Description:** This event is triggered from an Entity risk policy action invocation. It signals that an action associated with an evaluation of an entity risk policy has been invoked.
 
 | Key event properties  | Description                                         | Data type      | Example values |
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
@@ -186,7 +186,7 @@ This resource contains detailed reference material on event types triggered with
 ## policy entity_risk evaluate
 `policy.entity_risk.evaluate`
 
-**Description:** This event triggers when Okta receives a risk event and then evaluates the entity risk policy.
+**Description:** This event is triggered when Okta receives a risk event and then evaluates the entity risk policy.
 
 | Key event properties | Description                                         | Data type      | Example values |
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
@@ -229,7 +229,7 @@ This resource contains detailed reference material on event types triggered with
 ## user authentication universal_logout
 `user.authentication.universal_logout`
 
-**Description:** This event triggers when Okta or an admin invokes Universal Logout against an app instance. It contains the app instance details for which the Universal Logout API was triggered. The event indicates when apps have had Universal Logout triggered for audit or debugging purposes. This event is only triggered once. It's only triggered for apps that have been configured for Universal Logout. You can configure it in an Entity risk policy or Continuous Access, or invoke it manually from the user profile.
+**Description:** This event is triggered when Okta or an admin invokes Universal Logout against an app instance. It contains the app instance details for which the Universal Logout API was triggered. The event indicates when apps have had Universal Logout triggered for audit or debugging purposes. This event is only triggered once. It's only triggered for apps that have been configured for Universal Logout. You can configure it in an Entity risk policy or Continuous Access, or invoke it manually from the user profile.
 
 | Key event properties | Description                                         | Data type      | Example values |
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
@@ -246,7 +246,7 @@ This resource contains detailed reference material on event types triggered with
 ## user authentication universal_logout scheduled
 `user.authentication.universal_logout.scheduled`
 
-**Description:** This event triggers only when an admin manually triggers the Universal Logout against an app instance. It contains the location of the admin and the context of the Universal Logout, that is, from where and how the Universal Logout API was triggered. This event is only triggered once. You can correlate this event with the `user.authentication.universal_logout` event using the `traceID` found under `DebugData` for both events.
+**Description:** This event is triggered only when an admin manually triggers the Universal Logout against an app instance. It contains the location of the admin and the context of the Universal Logout, that is, from where and how the Universal Logout API was triggered. This event is only triggered once. You can correlate this event with the `user.authentication.universal_logout` event using the `traceID` found under `DebugData` for both events.
 
 | Key event properties | Description                                         | Data type      | Example values |
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
@@ -271,7 +271,7 @@ This resource contains detailed reference material on event types triggered with
 ## user risk change
 `user.risk.change`
 
-**Description:** This event type indicates that a user's risk level has changed. It can be used to monitor risk level changes for users. The event is triggered when Okta determines that a user is associated with a risk context or activity.
+**Description:** This event is triggered when a user's risk level has changed. It can be used to monitor risk level changes for users. The event is triggered when Okta determines that a user is associated with a risk context or activity.
 
 | Key event properties  | Description                                         | Data type            | Example values |
 | --------------------- | --------------------------------------------------- | -------------------- | -------------- |
@@ -286,7 +286,7 @@ This resource contains detailed reference material on event types triggered with
 ## user session clear
 `user.session.clear`
 
-**Description:**   This event triggers when an admin invokes clear sessions from the user profile. This event appears only one time and contains `externalSessionId` and `System.Transaction.ID`.
+**Description:** This event is triggered when an admin invokes clear sessions from the user profile. This event appears only one time and contains `externalSessionId` and `System.Transaction.ID`.
 
 | Key event properties  | Description                                         | Data type      | Example values |
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
@@ -307,7 +307,7 @@ This resource contains detailed reference material on event types triggered with
 ## user session context change
 `user.session.context.change`
 
-**Description:** This event indicates that the current session context has changed from the session context when the event was created, and that a reevaluation of policy may be required. This can indicate a security issue related to the session.
+**Description:** This event is triggered when the current session context has changed from the session context when the event was created, and that a reevaluation of policy may be required. This can indicate a security issue related to the session.
 
 | Key event properties  | Description                                         | Data type      | Example values |
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
