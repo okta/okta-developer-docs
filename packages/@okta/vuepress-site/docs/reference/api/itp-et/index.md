@@ -12,17 +12,6 @@ This resource contains detailed reference material on event types triggered with
 
 >**Note:** Not every property is documented for the event types. Only those primarily used to assist in reviewing an identity threat interaction. Also, objects and properties may differ based on your implementation of the Identity Threat Protection solution.
 
-<!-- | Event Types                                                 | Event Types                                         |
-| ----------------------------------------------------------- | --------------------------------------------------- |
-| [analytics.feedback.provide](#analytics-feedback-provide) | [device.signals.status.timeout](#device-signals-status-timeout) |
-| [policy.auth_reevaluate.fail](#policy-auth-reevaluate-fail)| [policy.continuous_access.action](#policy-continuous-access-action)|
-| [policy.continuous_access.evaluate](#policy-continuous-access-evaluate)| [policy.entity_risk.action](#policy-entity-risk-action)|
-| [policy.entity_risk.evaluate](#policy-entity-risk-evaluate)| [security.events.provider.receive_event](#security-events-provider-receive-event)|
-| [user.authentication.universal_logout](#user-authentication-universal-logout) | [user.authentication.universal_logout.scheduled](#user-authentication-universal-logout-scheduled)|
-| [user.risk.change](#user-risk-change)| [user.session.clear](#user-session-clear)|
-| [user.session.context.change](#user-session-context-change)| [user.session.end](#user-session-end) |
-| [workflows.user.delegatedflow.run](#workflows-user-delegatedflow-run)| | -->
-
 ## analytics feedback provide
 `analytics.feedback.provide`
 
