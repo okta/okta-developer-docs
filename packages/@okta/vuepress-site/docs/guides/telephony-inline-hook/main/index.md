@@ -172,7 +172,7 @@ To tell Okta that the SMS or voice call message was successfully sent, return a 
 
 ### Failover to Okta telephony providers
 
-If your response to Okta doesn't have the correct format and the required properties, Okta attempts to send the OTP using Okta telephony providers. This failover may happen even if your service successfully sends the SMS/voice to the user. Some providers have an asychronous model where they might not know the status of a telephony transaction right away. The user then receives two SMS messages.
+Your response to Okta needs to have the correct format and the required properties. If it doesn't, Okta attempts to send the OTP using Okta telephony providers. This failover may happen even if your service successfully sends the SMS/voice to the user. Some providers have an asychronous model where they might not know the status of a telephony transaction right away. The user then receives two SMS messages.
 
 > **Note:** Failovers that use the Okta telephony providers are heavily rate-limited.
 
