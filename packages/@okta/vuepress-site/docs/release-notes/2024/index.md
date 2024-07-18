@@ -6,6 +6,25 @@ title: Okta Classic Engine API release notes 2024
 
 ## July
 
+### Weekly release 2024.07.1
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [New IP service categories added](#new-ip-service-categories-added) | July 17, 2024 |
+| [Bugs fixed in 2024.07.1](#bugs-fixed-in-2024-07-1) | July 17, 2024|
+
+#### New IP service categories added
+
+Additional IP service categories have been added to the enhanced dynamic zones [IP service category list](https://help.okta.com/okta_help.htm?id=ext-about-ednz). <!-- OKTA-747047 -->
+
+#### Bugs fixed in 2024.07.1
+
+* Sometimes, step-up authentication using the ACR value `urn:okta:loa:2fa:any` continuously challenged the user for an additional authentication factor for each `/oauth2/v1/authorize` call, despite the user having an upgraded Okta session from initial authentication. (OKTA-726605)
+
+* If an API request in Preview contained any malformed syntax within the query string, the request was still processed. (OKTA-748246)
+
+* Authenticators returned by GET requests to the `/idp/myaccount/authenticators` and `/idp/myaccount/authenticators/{authenticatorId}` endpoints had the `enrollable` property set to `true`. (OKTA-718177)
+
 ### Monthly release 2024.07.0
 
 | Change | Expected in Preview Orgs |
