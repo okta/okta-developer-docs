@@ -260,7 +260,7 @@ Create an app integration in the Okta org that represents the application you wa
 
     * **issuer:** `"https://{yourOktaDomain}/oauth2/default"`. For example, `"https://example.okta.com/oauth2/default"`
 
-       >**Note:** If you don't have [API Access Management (API AM)](/docs/concepts/api-access-management) enabled, replace `https://{yourOktaDomain}/oauth2/default` with `https://{yourOktaDomain}`. You may see a permission error if you use `"https://{yourOktaDomain}/oauth2/default"` and API (AM) isn't enabled. See [Check that API Access Management is enabled](/docs/guides/protect-your-api/aspnetcore3/main/#check-that-api-access-management-is-enabled).
+       >**Note:** If you don't have [API Access Management (API AM)](/docs/concepts/api-access-management) enabled, replace `"https://{yourOktaDomain}/oauth2/default"` with `"https://{yourOktaDomain}"`. You may see a permission error if you use `"https://{yourOktaDomain}/oauth2/default"` and API (AM) isn't enabled. See [Check that API Access Management is enabled](/docs/guides/protect-your-api/aspnetcore3/main/#check-that-api-access-management-is-enabled).
     * **redirectUri:** `"https://{yourAppRedirectUri}"`. For example, `"http://localhost:3000"`
     * **clientId:** `"{yourClientId}"`. For example, `0oa2am3kk1CraJ8xO1d7`
 
