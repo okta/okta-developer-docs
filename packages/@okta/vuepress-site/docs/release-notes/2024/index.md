@@ -90,7 +90,7 @@ Okta can only manage group memberships for users and groups imported into Okta u
 
 * The [oauth2/introspect](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/introspectCustomAS) endpoint hit rate limits without logging it in the System Log. (OKTA-744604)
 
-* In Groups API queries, some users who weren't in the "Everyone" group were missing group memberships. (OKTA-7747426)
+* The number of group members returned from the `/api/v1/groups/{group_id}/users` API call was inconsistent with the database query count of the same group. (OKTA-7747426)
 
 ### Weekly release 2024.06.1
 
