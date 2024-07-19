@@ -21,9 +21,10 @@ There are many possibilities for policy use:
 * Determine the extra levels of authentication that must be performed before a user accesses a specific app.
 * Maintain a list of allowed users and deny access based on multiple conditions.
 * Change the returned scopes of the access token and add claims to it and to the ID token using [inline hooks](/docs/concepts/inline-hooks/).
-* Notify other systems in real-time through an API when a user signs in.
+* Notify other systems in real time through an API when a user signs in.
 * Use token scopes to look up user information in an external database or API, then add that data to the user's profile object.
 * Monitor your org for identity threats like changes in entity risk or session context.
+* Define authentication requirements when users enroll in authenticators, recover their passwords, and unlock their accounts.
 
 ### Control who can access your app
 
@@ -98,6 +99,19 @@ You can create an authentication policy specifically for the app or create a few
 
 Use the [Authentication Policies page](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-auth-policy) to modify an app's sign-on policy or switch to a different policy. See [Configure a global session policy and an authentication policy](/docs/guides/configure-signon-policy/main/). Also, you can [merge duplicate authentication policies with identical rules](https://help.okta.com/okta_help.htm?type=oie&id=ext-merge-auth-policies) to simplify policy management.
 
+##### Okta account management policy
+
+<ApiLifecycle access="ie" />
+<ApiLifecycle access="ea" />
+
+The account management policy is a type of authentication policy. It defines requirements when users enroll in authenticators, recover their passwords, and unlock their accounts. The policy uses a rule-based framework to enforce phishing resistance throughout the user journey, from onboarding to authentication and recovery.
+
+When using the [Policy API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/listPolicies), account management policies are read-only. You can't delete the policy (you have to disable the feature if you want to stop using it). And most importantly, you can't assign it to apps. This policy applies to account management actions only.
+
+However, you can use the Policy API to [manage its policy rules](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule).
+
+See [Okta account management policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-account-management-policy) for details about configuring the policy in the Admin Console.
+
 ### Password policies
 
 A [password policy](/docs/reference/api/policy/#password-policy) determines the requirements for a user's password length and complexity, and how often a user must change their password. Okta provides a default policy to enforce the use of strong passwords.
@@ -128,7 +142,8 @@ With progressive enrollment flows, you can capture the minimum user information 
 
 ### Identity Threat Protection policies
 
-<ApiLifecycle access="ie" /> <ApiLifecycle access="ea" />
+<ApiLifecycle access="ie" />
+<ApiLifecycle access="ea" />
 
 Identity Threat Protection with Okta AI is an identity threat solution that combines current security practices with continuous real-time risk assessment. See [Identity Threat Protection with Okta AI](https://help.okta.com/okta_help.htm?type=oie&id=ext-itp-overview). Identity Threat Protection uses the entity risk policy and Post auth session evaluation for these threat evaluations.
 
@@ -161,5 +176,5 @@ Policy evaluation is different when you use the AuthN authentication pipeline ve
 
 If you have both Classic Engine and Identity Engine apps:
 
-* You should create group-based sign-on policy rules that tightly couple apps to corresponding groups. For example, create a single-page app and then a corresponding group for it that evaluates sign-on policies.
+* Create group-based sign-on policy rules that tightly couple apps to corresponding groups. For example, create a single-page app and then a corresponding group for it that evaluates sign-on policies.
 * Standard risk apps should use one-factor authentication and high risk apps should use two-factor authentication that is defined in a sign-on policy. This should help when you need to lower security for Okta FastPass apps and not disturb the high-risk apps that are still on Classic Engine, but need MFA.
