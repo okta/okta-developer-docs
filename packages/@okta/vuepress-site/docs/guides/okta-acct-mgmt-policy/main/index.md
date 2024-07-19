@@ -31,7 +31,21 @@ However, you can use the Policy API to [manage its policy rules](https://develop
 
 See [Okta account management policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-account-management-policy) for details about configuring the policy in the Admin Console.
 
-## Retrieve the Okta account management policy
+### Policy configuration
+
+There are three primary use cases for the Okta account management policy. Each one adds a rule to the policy, so you can skip any that you don't need. However, if your org doesn't use phishing-resistant authenticators yet, start by enrolling your first phishing-resistant authenticator.
+
+- [Add a rule for your first phishing-resistant authenticator](#add-a-rule-for-your-first-phishing-resistant-authenticator)
+- [Add a rule for authenticator enrollment](#add-a-rule-for-authenticator-enrollment)
+- [Add a rule for password recovery and account unlock](#add-a-rule-for-password-recovery-and-account-unlock)
+
+You can also update rules to restore legacy processes. See [Edit the Okta account management policy](#edit-the-okta-account-management-policy).
+
+## Retrieve the Okta account management policy ID
+
+Before you can create or update policy rules, you need the `id` of your Okta account management policy.
+
+### Example request
 
 To retrieve your Okta account management policy, make a GET request to the `/api/v1/policies` endpoint. Set the policy `type` parameter to `ACCESS_POLICY`:
 
@@ -41,9 +55,11 @@ curl -i -X GET \
   -H 'Authorization: YOUR_API_KEY_HERE'
 ```
 
-The response includes all of your org's authentication policies and the Okta account management policy. In the policy object, the value of the `_embedded.resourceType` parameter is `END_USER_ACCOUNT_MANAGEMENT` for your Okta account management policy. For authentication policies it's `APP`.
+### Example response
 
-Use the value of the `id` parameter to manage the [policy's rules](#policy-configuration). You can also use the `id` to retrieve the specific policy (GET `/api/v1/policies/{policyId}`).
+The response includes all of your org's [authentication policies](/docs/concepts/policies/#authentication-policies) and the Okta account management policy. In the policy object, the value of the `_embedded.resourceType` parameter is `END_USER_ACCOUNT_MANAGEMENT` for your Okta account management policy. For authentication policies it's `APP`.
+
+Use the value of the `id` parameter to manage the policy's rules. You can also use the `id` to retrieve the specific policy (GET `/api/v1/policies/{policyId}`).
 
 ```json
 {
@@ -82,30 +98,52 @@ Use the value of the `id` parameter to manage the [policy's rules](#policy-confi
     }
 ```
 
-## Policy configuration
+## Add a rule for your first phishing-resistant authenticator
 
-There are three primary use cases for the Okta account management policy. Each one adds a rule to the policy, so you can skip any that you don't need. However, if your org doesn't use phishing-resistant authenticators yet, start by enrolling your first phishing-resistant authenticator.
+Add this rule to your Okta account management policy if your org doesn't already use a phishing-resistant authenticator. After your users enroll their first phishing-resistant authenticator, you can require it for the other use cases.
 
-- Enroll your first phishing-resistant authenticator
-- Enroll new authenticators using an existing phishing-resistant authenticator
-- Unlock accounts and recover passwords using phishing-resistant authenticators
+If your org already uses phishing-resistant authenticators, see [Add a rule for authenticator enrollment]().
 
-You can also update rules to restore legacy processes. See [Edit the Okta account management policy](#edit-the-okta-account-management-policy).
+> **Note:** This rule relies on [managed devices](https://support.okta.com/help/s/article/Howto-Get-a-List-of-All-Managed-and-NotManaged-Devices-in-Okta?language=en_US) and [IP Network Zones](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/NetworkZone/).
 
-### Enroll your first phishing-resistant authenticator
+### Example request
 
 
 
 
-
-
-### Enroll new authenticators using an existing phishing-resistant authenticator
-
+### Example response
 
 
 
+### User experience
 
-### Unlock accounts and recover passwords using phishing-resistant authenticators
+Users must be on a managed device, inside a trusted network zone, and demonstrate low risk behavior before they enroll the designated phishing-resistant authenticator. If they don't meet all of these requirements, they're denied enrollment, which means that they also can't access any apps with phishing-resistant authentication policies.
+
+This rule also applies to authenticator unenrollment, and users can lock themselves out if they unenroll too many authenticators. Encourage users to always maintain one phishing-resistant authenticator.
+
+### Add a rule for authenticator enrollment
+
+Add this rule to build phishing resistance into your authenticator enrollment process. When this rule is active, users must provide a phishing-resistant authenticator when they enroll other authenticators and when they unenroll one. If your org doesn't use phishing-resistant authenticators yet, start with Add a rule for your first phishing-resistant authenticator.
+
+> **Note:** All users in your org must be eligible to use the phishing-resistant authenticators. See [Profile enrollment policies](/docs/concepts/policies/#profile-enrollment-policies).
+
+### Example request
+
+
+### Example response
+
+
+
+### User experience
+
+The user experience for this process doesn't change, except that users' authenticator choices are limited to the phishing-resistant options. Consider these two scenarios:
+
+- Users who are currently activated with a single factor can't enroll new authenticators or sign in to apps that require MFA. Refer to this task's prerequisite.
+- Users can lock themselves out if they unenroll too many authenticators. Inform your users that they must keep one phishing-resistant authenticator enrolled always.
+
+### Add a rule for password recovery and account unlock
+
+
 
 
 
@@ -119,5 +157,3 @@ You can also update rules to restore legacy processes. See [Edit the Okta accoun
 - [Policies](/docs/concepts/policies/)
 - [Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/)
 - [Configure a global session policy and authentication policies](/docs/guides/configure-signon-policy/main/)
-
-
