@@ -9,7 +9,7 @@ layout: Guides
 
 > **Note:** This document is only for Okta Identity Engine. See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.
 
-This guide describes how to use the Policies API and Okta Expression Language to configure rules for the Okta account management policy.
+This guide describes how to use the [Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/) and [Okta Expression Language](/docs/reference/okta-expression-language-in-identity-engine/) to configure rules for the Okta account management policy.
 
 ---
 
@@ -43,7 +43,7 @@ curl -i -X GET \
 
 The response includes all of your org's authentication policies and the Okta account management policy. In the policy object, the value of the `_embedded.resourceType` parameter is `END_USER_ACCOUNT_MANAGEMENT` for your Okta account management policy. For authentication policies it's `APP`.
 
-Use the value of the `id` parameter to manage the policy's rules.
+Use the value of the `id` parameter to manage the [policy's rules](#policy-configuration). You can also use the `id` to retrieve the specific policy (GET `/api/v1/policies/{policyId}`).
 
 ```json
 {
@@ -90,7 +90,7 @@ There are three primary use cases for the Okta account management policy. Each o
 - Enroll new authenticators using an existing phishing-resistant authenticator
 - Unlock accounts and recover passwords using phishing-resistant authenticators
 
-You can also update rules to restore legacy processes. See [Edit the Okta account management policy]().
+You can also update rules to restore legacy processes. See [Edit the Okta account management policy](#edit-the-okta-account-management-policy).
 
 ### Enroll your first phishing-resistant authenticator
 
@@ -106,6 +106,10 @@ You can also update rules to restore legacy processes. See [Edit the Okta accoun
 
 
 ### Unlock accounts and recover passwords using phishing-resistant authenticators
+
+
+
+### Edit the Okta account management policy
 
 
 
