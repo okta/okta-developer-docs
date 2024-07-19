@@ -2296,11 +2296,15 @@ When you create a new application, the shared default authentication policy is a
 <ApiLifecycle access="ie" />
 <ApiLifecycle access="ea" />
 
-The account management policy is a type of authentication policy. It defines requirements when users enroll in authenticators, recover their passwords, and unlock their accounts. The policy uses a rule-based framework to enforce phishing resistance throughout the user journey, from onboarding to authentication and recovery.
+The Okta account management policy is a type of authentication policy. It defines requirements when users enroll in authenticators, recover their passwords, and unlock their accounts. The policy uses a rule-based framework to enforce phishing resistance throughout the user journey, from onboarding to authentication and recovery.
 
-Account management policies are read-only. You can't delete the policy (you have to disable the feature if you want to stop using it). And most importantly, you can't assign it to apps. This policy applies to account management actions only.
+Okta account management policies appear in GET calls to the `/policies` endpoint. However, they are read-only. You can't create, update, or delete the policy. You have to disable the feature if you want to stop using it. Most importantly, you can't assign it to apps. This policy applies to Okta account management actions only.
+
+However, you can use the Policy API to [manage its policy rules](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule).
 
 <!-- See [Configure an Okta account management policy](/docs/guides/configure-okta-account-management-policy/main/) for more details. -->
+
+See [Okta account management policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-account-management-policy) for details about configuring the policy in the Admin Console.
 
 ### Authentication policy example
 
