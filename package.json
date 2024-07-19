@@ -34,7 +34,7 @@
     "eslint": "eslint \"packages/@okta/vuepress-theme-prose/**/*.vue\"",
     "lint-all": "yarn eslint --max-warnings=0 && yarn stylelint"
   },
-  "repository": "git@github.com:okta/okta.github.io",
+  "repository": "git@github.com:okta/okta-developer-docs",
   "author": "Brian Retterer <brian.retterer@okta.com>",
   "license": "Apache-2.0",
   "devDependencies": {
