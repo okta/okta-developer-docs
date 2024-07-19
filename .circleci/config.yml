@@ -2,12 +2,26 @@ version: 2.1
 
 orbs:
   general-platform-helpers: okta/general-platform-helpers@1.8
-  node: circleci/node@5.2
 
 parameters:
   preview:
     type: string
     default: ""
+
+commands:
+  install-deps:
+    steps:
+      - restore_cache:
+          keys:
+            - v1-yarn-deps-{{ checksum "yarn.lock" }}
+            # allow for partial cache hits
+            - v1-yarn-deps-
+      - save_cache:
+          key: v1-yarn-deps-{{ checksum "yarn.lock" }}
+          paths:
+            - node_modules/
+            - packages/@okta/vuepress-plugin-active-header-links/node_modules/
+            - packages/@okta/vuepress-site/node_modules/
 
 jobs:
   inclusive-linting:
@@ -26,9 +40,7 @@ jobs:
         NODE_OPTIONS: '--max_old_space_size=3584'
       steps:
         - checkout
-        - node/install-packages:
-            pkg-manager: yarn
-            include-branch-in-cache-key: false
+        - install-deps
         - run:
             name: Lint
             command: yarn lint-all
@@ -51,9 +63,7 @@ jobs:
       NODE_OPTIONS: '--max_old_space_size=3584'
     steps:
       - checkout
-      - node/install-packages:
-          pkg-manager: yarn
-          include-branch-in-cache-key: false
+      - install-deps
       - run:
           name: Run script and capture logs
           command: yarn build
@@ -103,9 +113,7 @@ jobs:
               exit 1
             fi
       - checkout
-      - node/install-packages:
-          pkg-manager: yarn
-          include-branch-in-cache-key: false
+      - install-deps
       - run:
           name: Build preview
           command: |
