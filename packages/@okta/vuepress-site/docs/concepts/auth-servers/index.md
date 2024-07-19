@@ -35,7 +35,7 @@ Use the org authorization server to perform SSO with Okta for your OIDC apps or 
 
 The issuer for access tokens from an org authorization server is `https://{yourOktaOrg}`, which indicates that only Okta can consume or validate it. Your apps can't use or validate this access token. The contents of the access token are subject to change at any time without notice. Therefore, any attempts to validate the access token may not work in the future.
 
-#### Org authorization server discovery endpoints
+#### Discovery endpoints - org authorization servers
 
 The following discovery endpoints return OpenID Connect or OAuth 2.0 metadata related to your org authorization server. Clients can use this information to programmatically configure their interactions with Okta.
 
@@ -45,9 +45,9 @@ The following discovery endpoints return OpenID Connect or OAuth 2.0 metadata re
 
 ### Custom authorization server
 
-You can use a custom authorization server to create and apply authorization policies to secure your APIs. An access token that is minted by a custom authorization server is consumed by your APIs.
+You can use a custom authorization server to create and apply authorization policies to secure your APIs. The custom authorization server creates the access token and then your APIs consume the token.
 
-Okta allows you to [create multiple custom authorization servers](/docs/guides/customize-authz-server/main/#create-an-authorization-server) within a single Okta org that you can use to protect your own resource servers. Within each authorization server, you can define your own custom OAuth 2.0 [scopes](/docs/guides/customize-authz-server/main/#create-scopes), [claims](/docs/guides/customize-authz-server/main/#create-claims), and [access policies](/docs/guides/customize-authz-server/main/#create-access-policies) to support authorization for your APIs.
+Okta allows you to [create multiple custom authorization servers](/docs/guides/customize-authz-server/main/#create-an-authorization-server) within a single Okta org. Use these custom authorization servers to protect your own resource servers. Within each authorization server, you can define your own custom OAuth 2.0 [scopes](/docs/guides/customize-authz-server/main/#create-scopes), [claims](/docs/guides/customize-authz-server/main/#create-claims), and [access policies](/docs/guides/customize-authz-server/main/#create-access-policies) to support authorization for your APIs.
 
 #### Default custom authorization server
 
@@ -61,7 +61,7 @@ For custom authorization servers that you create yourself, the `{authorizationSe
 
 `https://{yourOktaDomain}/api/v1/authorizationServers/{authorizationServerId}`
 
-#### Custom authorization server discovery endpoints
+#### Discovery endpoints - custom authorization server
 
 The following endpoints return OIDC or OAuth 2.0 metadata related to a custom authorization server. Clients can use this information to programmatically configure their interactions with Okta. Custom scopes and custom claims aren't returned.
 
@@ -81,9 +81,9 @@ The OpenID and OAuth discovery endpoints for the default custom authorization se
 
 If you're looking to add SSO for your OIDC-based apps, you can use your org authorization server. Also, use the org authorization server if you want to use [OAuth 2.0 bearer tokens with your Okta APIs](/docs/guides/implement-oauth-for-okta/). Only the org authorization server can mint access tokens that contain Okta API scopes.
 
-If your app has requirements such as additional scopes, customizing rules for when to grant scopes, or you need more authorization servers with different scopes and claims, then you need to [create a custom authorization server](/docs/guides/customize-authz-server/).
+If your app has requirements like more scopes or customizing rules for when to grant scopes, then you need to [create a custom authorization server](/docs/guides/customize-authz-server/). Also, create a custom authorization server if you need more authorization servers with different scopes and claims.
 
-The following table describes which capabilities are supported by the custom authorization server (includes the default custom authorization server) and which are supported by the org authorization server.
+This table describes the capabilities supported by a custom authorization server (includes the default custom authorization server) and capabilities supported by the org authorization server.
 
 | Capabilities                               | Custom authorization server          | Org authorization server    |
 | :----------------------------------------- | :----------------------------------- | :-------------------------- |
