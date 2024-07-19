@@ -19,7 +19,7 @@ commands:
             - v4-yarn-deps-
       - run:
           name: Install dependencies with Yarn
-          command: yarn install --frozen-lockfile --verbose
+          command: yarn install --frozen-lockfile
       - save_cache:
           name: Save Yarn dependency cache
           key: v4-yarn-deps-{{ checksum "yarn.lock" }}
