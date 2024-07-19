@@ -2300,7 +2300,7 @@ The account management policy is a type of authentication policy. It defines req
 
 Account management policies are read-only. You can't delete the policy (you have to disable the feature if you want to stop using it). And most importantly, you can't assign it to apps. This policy applies to account management actions only.
 
-Okta account management policies have a policy type of `ACCESS_POLICY`.
+See [Configure an Okta account management policy](/docs/guides/configure-okta-account-management-policy/main/) for more details.
 
 ### Authentication policy example
 
@@ -2323,6 +2323,18 @@ Additionally, there is no direct property to get the policy ID for an applicatio
         }
     }
 ```
+
+### Okta account management policy example
+
+```json
+    {
+        "type": "ACCESS_POLICY",
+        "name": "Web Cart App Sign On Policy",
+        "description": "Standard policy for Web Cart application"
+    }
+```
+
+
 
 ### Policy conditions
 
