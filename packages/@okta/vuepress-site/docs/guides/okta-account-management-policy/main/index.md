@@ -114,6 +114,8 @@ Send a POST request to the `/api/v1/policies/{policyId}/rules` endpoint. Use the
 
 Set the value of `priority` to `1`.
 
+
+
 ```bash
 
 
@@ -165,6 +167,10 @@ The user experience for this process doesn't change, except that users' authenti
 Add this rule to require phishing resistant authenticators when users reset their passwords or unlock their accounts.
 
 Traditionally, the password policy controls the authentication requirements for these self-service processes. If you're not ready to switch to phishing resistance for one or both of these processes, you can continue using the password policy.
+
+> **Note:** All users in your org must be eligible to use the phishing-resistant authenticators. See [Add a rule for authenticator enrollment](#add-a-rule-for-authenticator-enrollment).
+
+If you want to add this rule using the Admin Console, see [Add a rule for authenticator enrollment](https://help.okta.com/okta_help.htm?type=oie&id=ext-oamp-enroll-pr-auth).
 
 ### Update your password policy
 
@@ -226,12 +232,20 @@ curl --location --request PUT '{yourSubdomain}/api/v1/policies/{policyId}/rules/
 }'
 ```
 
-### Request example
+### Example request
+
+Continue to use the same value for `policyId`.
+
+Set the value of `priority` above the catch-all rule but below the first [phishing-resistant authenticator](#add-a-rule-for-your-first-phishing-resistant-authenticator) (if you added it). Be sure that the first phishing-resistant authenticator rule stays at priority 1.
+
+```bash
+
+
+```
 
 
 
-
-### Response example
+### Example response
 
 
 
@@ -244,7 +258,8 @@ There are no changes to the user experience when you move password recovery and 
 
 ## Edit the Okta account management policy
 
-You might want to use the Okta account management policy for some processes but not for others. For example, you want to use the Okta account management policy for authenticator enrollment. For self-service password recovery, you want to keep using your password policy. You can change the settings of your authentication policy.
+You might want to use the Okta account management policy for some processes but not for others. For example, you want to use the Okta account management policy for authenticator enrollment. However, for self-service password recovery, you want to keep using your password policy.
+
 
 
 ```bash
