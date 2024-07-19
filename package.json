@@ -16,7 +16,7 @@
     "test": "yarn dev & yarn test:test-local && yarn stop-all",
     "test:ci": "node scripts/test-ci-build & yarn test:test-local && yarn stop-all",
     "cy:open": "cypress open",
-    "cy:run": "cypress run",
+    "cy:run": "cypress run --reporter junit --reporter-options \"mochaFile=test_results/cypress.xml,toConsole=true\"",
     "test:unit": "jest tests/unit",
     "test-only": "yarn test:unit && yarn cy:run",
     "test:test-local": "yarn test:wait-on-local && yarn test-only || exit 1",
@@ -85,5 +85,6 @@
     "tough-cookie": "^4.1.3",
     "semver": "^7.5.2"
   },
-  "version": "0.0.0"
+  "version": "0.0.0",
+  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
 }
