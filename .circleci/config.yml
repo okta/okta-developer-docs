@@ -27,7 +27,7 @@ commands:
             - node_modules/
             - packages/@okta/vuepress-plugin-active-header-links/node_modules/
             - packages/@okta/vuepress-site/node_modules/
-            - ~/.yarn-cache
+            - ~/.cache/yarn/
 
 jobs:
   inclusive-linting:
