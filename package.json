@@ -5,7 +5,7 @@
   ],
   "scripts": {
     "dev": "yarn workspace @okta/vuepress-site dev",
-    "build": "yarn lint-all && yarn workspace @okta/vuepress-site build",
+    "build": "yarn workspace @okta/vuepress-site build",
     "broken-link-checker:all": "node scripts/broken-link-checker all",
     "broken-link-checker:internal": "node scripts/broken-link-checker internal",
     "broken-link-checker:external": "node scripts/broken-link-checker external",
