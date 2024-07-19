@@ -2293,9 +2293,16 @@ When you create a new application, the shared default authentication policy is a
 
 ### Okta account management policy
 
+<ApiLifecycle access="ie" />
+<ApiLifecycle access="ea" />
 
+The account management policy is a type of authentication policy. It defines requirements when users enroll in authenticators, recover their passwords, and unlock their accounts. The policy uses a rule-based framework to enforce phishing resistance throughout the user journey, from onboarding to authentication and recovery.
 
-#### Authentication policy example
+Account management policies are read-only. You can't delete the policy (you have to disable the feature if you want to stop using it). And most importantly, you can't assign it to apps. This policy applies to account management actions only.
+
+Okta account management policies have a policy type of `ACCESS_POLICY`.
+
+### Authentication policy example
 
 ```json
     {
@@ -2307,7 +2314,7 @@ When you create a new application, the shared default authentication policy is a
 
 Additionally, there is no direct property to get the policy ID for an application. Instead, you need to retrieve the application object and use the reference to the policy ID that is a part of the application object.
 
-#### Authentication policy reference in HAL link in Application API Object example
+### Authentication policy reference in HAL link in Application API Object example
 
 ```json
     {
