@@ -85,7 +85,7 @@ jobs:
   netlify_manual:
     docker:
       - image: cimg/node:14.21.3-browsers
-    resource_class: xlarge
+    resource_class: large
     steps:
       - run:
           name: Has secrets?
