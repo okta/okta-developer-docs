@@ -27,8 +27,6 @@
 </template>
 
 <script>
-  import { LAYOUT_CONSTANTS } from "../layouts/Layout";
-
   export default {
     name: 'MobileOnThisPage',
     data: ()=>({ 

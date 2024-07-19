@@ -371,6 +371,10 @@ export const guides = [
             guideName: "configure-signon-policy"
           },
           {
+            title: "Okta account management policy",
+            guideName: "okta-account-management-policy"
+          },
+          {
             title: "Test your access policies",
             guideName: "policy-simulation"
           },
@@ -392,10 +396,7 @@ export const guides = [
               },
             ],
           },
-          {
-            title: "Configure AMR claims mapping",
-            guideName: "configure-amr-claims-mapping"
-          },
+          {title: "Configure AMR claims mapping", guideName: "configure-amr-claims-mapping", hidden: true},
           { title: "Sign users out", guideName: "oie-embedded-sdk-use-case-basic-sign-out" },
           { title: "Delete all Stay signed in sessions", guideName: "delete-all-stay-signed-in-sessions" },
           { title: "Single Logout", guideName: "single-logout" },
@@ -1027,7 +1028,7 @@ export const reference = [
                { title: "Factors", path: "/docs/reference/api/factors/" },
                { title: "Features", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Feature/" },
                { title: "Groups", path: "/docs/reference/api/groups/" },
-               { title: "Groups Owners", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/#tag/Group/operation/listGroupOwners" },
+               { title: "Groups Owners", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/GroupOwner/" },
                { title: "Identity Sources", path: "/docs/reference/api/xaas/" },
                { title: "Key Management", path: "/docs/reference/api/hook-keys/" },
                { title: "Linked Objects", path: "/docs/reference/api/linked-objects/" },
@@ -1046,7 +1047,7 @@ export const reference = [
                { title: "Risk Providers", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RiskProvider/" },
                { title: "SSF Receiver", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SSFReceiver/" },
                { title: "SSF Security Event Tokens", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SSFSecurityEventToken/" },
-               { title: "Schemas", path: "/docs/reference/api/schemas/" },
+               { title: "Schemas", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/" },
                { title: "Sessions", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Session/" },
                { title: "SMS Templates", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Template/" },
                { title: "Subscriptions", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Subscription/" },

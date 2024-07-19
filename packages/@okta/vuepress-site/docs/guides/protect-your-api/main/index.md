@@ -31,7 +31,7 @@ Add a layer of authorization to your web services with [Okta API Access Manageme
 
 ## Overview
 
-Background services and third-party APIs accessing your own APIs require the same level of [authentication and authorization](https://www.okta.com/identity-101/authentication-vs-authorization/) as users accessing your web apps. However, a machine-to-machine sign-in flow should be silent and require no human user interaction. Use Okta to grant the correct level of access to your APIs on your behalf.
+Background services and third-party APIs that access your APIs require the same levels of [authentication and authorization](https://www.okta.com/identity-101/authentication-vs-authorization/) as users who access your web apps. However, a machine-to-machine sign-in flow is silent and requires no user interaction. Use Okta to grant the correct level of access to your APIs on your behalf.
 
 This quickstart contains the following tasks:
 
@@ -51,7 +51,6 @@ This quickstart contains the following tasks:
 
 1. Open the Admin Console for your org.
    1. [Sign in to your Okta organization](https://developer.okta.com/login) with your administrator account.
-   {style="list-style-type:lower-alpha"}
    1. Click **Admin** in the upper-right corner of the page.
 1. Go to **Security** > **API** to view the API AM area.
 
@@ -196,7 +195,7 @@ Make an HTTP POST request to [/token](http://localhost:8080/docs/reference/api/o
 
    <div class="full border">
 
-   ![A screenshot of Postman making a call to /token and receiving an access token](/img/authorization/postman-get-access-token.png)
+   ![A screenshot of a Postman call to /token and receiving an access token.](/img/authorization/postman-get-access-token.png)
 
    </div>
 
@@ -209,18 +208,18 @@ Now you can test your secured API endpoints. First, test the `\whoami` endpoint,
 1. Select **+** in the Postman workbench to open a new request tab.
 1. Enter <StackSnippet snippet="whoamiurl" inline /> for **URL**.
 1. Select the **Authorization** tab, and then select Bearer Token for **type**.
-1. Enter the token you received earlier for **Token**.
+1. Enter the token that you received earlier for **Token**.
 1. Click **Send**.
 1. Ensure that you received a `200 OK` response.
 1. Select the **Authorization** tab, and then select No Auth for **type**.
 1. Ensure that you received a `401 Unauthorized` response.
 
-Now test the hello endpoint which doesn't require authorization:
+Now test the hello endpoint that doesn't require authorization:
 
 1. Select **+** in the Postman workbench to open a new request tab.
 1. Enter <StackSnippet snippet="hellourl" inline /> for **URL**.
 1. Select the **Authorization** tab, and then select Bearer Token for **type**.
-1. Enter the token you received earlier for **Token**.
+1. Enter the token that you received earlier for **Token**.
 1. Click **Send**.
 1. Ensure that you received a `200 OK` response.
 1. Select the **Authorization** tab, and then select No Auth for **type**.

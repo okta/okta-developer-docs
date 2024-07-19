@@ -1,6 +1,6 @@
 {
-  "release" : "2024.06.1",
-  "build" : "2024.06.1-begin-145-g888629ac004b",
+  "release" : "2024.07.1",
+  "build" : "2024.07.1-begin-115-ge97a014a96fd",
   "errors" : [ {
     "title" : "API validation exception",
     "includesExceptionMessage" : true,
@@ -1808,6 +1808,22 @@
     "statusReasonPhrase" : "Conflict",
     "errorCode" : "E0000244",
     "errorSummary" : "There are conflicting default customizations for this template. To create or update email customizations, discard your changes and then reset your templates.",
+    "errorDescription" : null
+  }, {
+    "title" : "Knowledge second and access policy conflict exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "errorCode" : "E0000245",
+    "errorSummary" : "One or more authentication method chains include a knowledge method in the first step. Update these chains to require a possession factor in the first step: {0}",
+    "errorDescription" : null
+  }, {
+    "title" : "Deactivate authenticator method in use by authentication policy method chain exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "errorCode" : "E0000246",
+    "errorSummary" : "This action can't be completed because the authentication method is in use by one or more authentication policies: {0}",
     "errorDescription" : null
   } ]
 }

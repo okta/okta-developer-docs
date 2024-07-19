@@ -476,7 +476,7 @@ redirects:
   - from: /docs/api/resources/policy/index.html
     to: /docs/reference/api/policy/
   - from: /docs/api/resources/schemas/index.html
-    to: /docs/reference/api/schemas/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/
   - from: /docs/api/resources/sessions/index.html
     to: /docs/reference/api/sessions/
   - from: /docs/api/resources/system_log/index.html
@@ -804,7 +804,7 @@ redirects:
   - from: /docs/api/resources/policy
     to: /docs/reference/api/policy/
   - from: /docs/api/resources/schemas
-    to: /docs/reference/api/schemas/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/
   - from: /docs/api/resources/sessions
     to: /docs/reference/api/sessions/
   - from: /docs/api/resources/system_log
@@ -906,7 +906,7 @@ redirects:
   - from: /docs/api/resources/policy.html
     to: /docs/reference/api/policy/
   - from: /docs/api/resources/schemas.html
-    to: /docs/reference/api/schemas/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/
   - from: /docs/api/resources/system_log.html
     to: /docs/reference/api/system-log/
   - from: /docs/api/resources/templates.html

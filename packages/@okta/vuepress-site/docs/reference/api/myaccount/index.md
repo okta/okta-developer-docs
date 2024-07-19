@@ -1706,7 +1706,7 @@ The User Profile Schema object has several properties:
 | Property           | Type                                                                                                              | Description                                                        |
 | ------------------ | ----------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ |
 | `_links`             | Object ([JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06))                                                    | Discoverable resources related to the caller's User Profile Schema |
-| `properties`         | Object | The properties defined in the [User Profile Schema](/docs/reference/api/schemas/#user-profile-schema-property-object)                               |
+| `properties`         | Object | The properties defined in the [User Profile Schema](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/#tag/Schema/operation/getUserSchema!c=200&path=definitions&t=response)                               |
 
 #### User Profile Schema example
 

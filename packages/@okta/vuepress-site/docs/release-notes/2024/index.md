@@ -4,6 +4,76 @@ title: Okta Classic Engine API release notes 2024
 
 # Okta Classic Engine API release notes (2024)
 
+## July
+
+### Weekly release 2024.07.1
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [New IP service categories added](#new-ip-service-categories-added) | July 17, 2024 |
+| [Bugs fixed in 2024.07.1](#bugs-fixed-in-2024-07-1) | July 17, 2024|
+
+#### New IP service categories added
+
+Additional IP service categories have been added to the enhanced dynamic zones [IP service category list](https://help.okta.com/okta_help.htm?id=ext-about-ednz). <!-- OKTA-747047 -->
+
+#### Bugs fixed in 2024.07.1
+
+* Sometimes, step-up authentication using the ACR value `urn:okta:loa:2fa:any` continuously challenged the user for an additional authentication factor for each `/oauth2/v1/authorize` call, despite the user having an upgraded Okta session from initial authentication. (OKTA-726605)
+
+* If an API request in Preview contained any malformed syntax within the query string, the request was still processed. (OKTA-748246)
+
+* Authenticators returned by GET requests to the `/idp/myaccount/authenticators` and `/idp/myaccount/authenticators/{authenticatorId}` endpoints had the `enrollable` property set to `true`. (OKTA-718177)
+
+### Monthly release 2024.07.0
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [OIN Submission Tester copy function update](#oin-submission-tester-copy-function-update) | July 10, 2024 |
+| [OIN Wizard guidance updates](#oin-wizard-guidance-updates) | July 10, 2024 |
+| [Identity Threat Protection with Okta AI is GA in Production](#identity-threat-protection-with-okta-ai-is-ga-in-production) | April 3, 2024 |
+| [Network zone allowlists for SSWS API tokens is GA Preview](#network-zone-allowlists-for-ssws-api-tokens-is-ga-preview) | July 10, 2024 |
+| [Network Zones and API token restrictions](#network-zones-and-api-token-restrictions) | July 10, 2024 |
+| [Read-only admins can't use the Principal Rate Limits API to update API tokens](#read-only-admins-can-t-use-the-principal-rate-limits-api-to-update-api-tokens) | July 10, 2024 |
+| [Event hook limit increased](#event-hook-limit-increased) | July 10, 2024 |
+| [Active Directory Bidirectional Group Management API is GA in Production](#active-directory-bidirectional-group-management-api-is-ga-in-production) | July 10, 2024 |
+
+#### OIN Submission Tester copy function update
+
+The copy function in the OIN Submission Tester **Network Traffic** results section now provides the option to copy the request step either as a URL or a cURL command. See [Run tests in the OIN Submission Tester](/docs/guides/submit-oin-app/openidconnect/main/#run-tests).
+<!--OKTA-679512-->
+
+#### OIN Wizard guidance updates
+
+A new link to the [Okta Documentation](https://developer.okta.com/docs/guides/submit-oin-app/saml2/main/#properties) has been added to the **SAML properties** section of the OIN Wizard. Okta documentation provides guidance on Okta Expression Language usage in SAML properties with integration variables. See [Dynamic properties with Okta Expression Language](https://developer.okta.com/docs/guides/submit-oin-app/saml2/main/#dynamic-properties-with-okta-expression-language).
+<!--OKTA-689994-->
+
+#### Identity Threat Protection with Okta AI is GA in Production
+
+Identity Threat Protection with Okta AI is a powerful risk assessment and response solution that provides post-authentication security to your org. By continuously analyzing risk signals that are native to Okta, risk signals from integrated security partner vendors, and your policy conditions, it safeguards orgs against identity attacks that occur during and outside of a user's session. When Identity Threat Protection discovers a risk, it can immediately end the user's sessions, prompt an MFA challenge, or invoke a workflow to restore your org's security posture. Using intuitive dashboard widgets and reports, you can easily monitor security threats as they happen. See [Identity Thread Protection with Okta AI](https://help.okta.com/okta_help.htm?type=oie&id=ext-itp-overview). See the [Shared Signals Framework (SSF) Receiver](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SSFReceiver/) and [SSF SET](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SSFSecurityEventToken/) APIs. <!-- OKTA-683707 ENABLE_USER_RISK_CHANGE_EVALUATIONS -->
+
+#### Network zone allowlists for SSWS API tokens is GA Preview
+
+Admins can now specify a network zone allowlist for each static (SSWS) API token. These allowlists define the IP addresses or network ranges from where Okta API requests using SSWS API tokens can be made. This restricts attackers and malware from stealing SSWS tokens and replaying them outside of the specified IP range to gain unauthorized access. <!-- OKTA-691818 SSWS_IP_HARDENING-->
+
+#### Network Zones and API token restrictions
+
+You can no longer update network zones so they're invalid for use with an API token. This applies only to network zones that are used as restrictions to API tokens. You can update network zones if you first remove them from the API token restriction. These zones can't be deactivated, deleted, blocklisted, or made anything other than an active IP zone. <!-- OKTA-736535-->
+
+#### Read-only admins can't use the Principal Rate Limits API to update API tokens
+
+Read-only admins can no longer use the principal rate limits endpoint (`/api/v1/principal-rate-limits/{principalRateLimitId}`) to update the rate limit for their own API tokens. <!-- OKTA-730827-->
+
+#### Event hook limit increased
+
+The limit on active event hooks per org has been increased from 10 to 25. See [Event hooks](/docs/concepts/event-hooks/). <!-- OKTA-741766 -->
+
+#### Active Directory Bidirectional Group Management API is GA in Production
+
+The [Bidirectional Group Management for Active Directory (AD) (Directories Integration) API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/DirectoriesIntegration) allows you to manage AD groups from within Okta. You can add or remove users from groups based on their identity and access requirements. This ensures that changes made to user access in Okta are reflected in AD. When you use Okta Access Certifications to revoke a user's membership to an AD group, the removal is reflected in AD.
+
+Okta can only manage group memberships for users and groups imported into Okta using the AD integration. It isn't possible to manage users and groups that weren't imported through AD integration or are outside the organizational unit's scope for the integration using this feature. <!--AD_BIDIRECTIONAL_GROUP_MANAGEMENT OKTA-734564, OKTA-747631-->
+
 ## June
 
 ### Weekly release 2024.06.2
@@ -19,6 +89,8 @@ title: Okta Classic Engine API release notes 2024
 * An app created by an API call with an existing `clientId` in the request payload didn't match the way an app was created in the UI. This resulted in the wrong app rate limit displayed in the rate limit dashboard. (OKTA-736117)
 
 * The [oauth2/introspect](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/introspectCustomAS) endpoint hit rate limits without logging it in the System Log. (OKTA-744604)
+
+* The number of group members returned from the `/api/v1/groups/{group_id}/users` API call was inconsistent with the database query count of the same group. (OKTA-7747426)
 
 ### Weekly release 2024.06.1
 
@@ -135,7 +207,7 @@ Certain system log events now contain a new property called `changeDetails` in t
 
 * POST requests to the `/sessions/me/lifecycle/refresh` endpoint didn't return a `sid` cookie. (OKTA-716839)
 
-* If a [login pattern](https://developer.okta.com/docs/reference/api/schemas/#login-pattern-validation) failed validation when making a request with the Schemas API, the call dropped the pattern and continued the request. (OKTA-723332)
+* If a [login pattern](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/#tag/Schema/operation/getUserSchema!c=200&path=definitions/base/properties/login&t=response) failed validation when making a request with the Schemas API, the call dropped the pattern and continued the request. (OKTA-723332)
 
 * The Apps API accepted `0` as a value for the `samlAssertionLifetimeSeconds` parameter. (OKTA-723982)
 
