@@ -2300,7 +2300,7 @@ The account management policy is a type of authentication policy. It defines req
 
 Account management policies are read-only. You can't delete the policy (you have to disable the feature if you want to stop using it). And most importantly, you can't assign it to apps. This policy applies to account management actions only.
 
-See [Configure an Okta account management policy](/docs/guides/configure-okta-account-management-policy/main/) for more details.
+<!-- See [Configure an Okta account management policy](/docs/guides/configure-okta-account-management-policy/main/) for more details. -->
 
 ### Authentication policy example
 
