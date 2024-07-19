@@ -73,6 +73,7 @@ guides:
  - deployment-checklist
  - deploy-your-app
  - dpop
+ - okta-account-management-policy
  - protect-your-api
  - quickstart
  - sampleapp-oie-redirectauth

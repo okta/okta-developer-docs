@@ -371,6 +371,10 @@ export const guides = [
             guideName: "configure-signon-policy"
           },
           {
+            title: "Okta account management policy",
+            guideName: "okta-account-management-policy"
+          },
+          {
             title: "Test your access policies",
             guideName: "policy-simulation"
           },
