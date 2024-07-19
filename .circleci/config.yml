@@ -14,15 +14,15 @@ commands:
       - restore_cache:
           name: Restore Yarn dependency cache
           keys:
-            - v1-yarn-deps-{{ checksum "yarn.lock" }}
+            - v2-yarn-deps-{{ checksum "yarn.lock" }}
             # allow for partial cache hits
-            - v1-yarn-deps-
+            - v2-yarn-deps-
       - run:
           name: Install dependencies with Yarn
           command: yarn install --frozen-lockfile
       - save_cache:
           name: Save Yarn dependency cache
-          key: v1-yarn-deps-{{ checksum "yarn.lock" }}
+          key: v2-yarn-deps-{{ checksum "yarn.lock" }}
           paths:
             - node_modules/
             - packages/@okta/vuepress-plugin-active-header-links/node_modules/
