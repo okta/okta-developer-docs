@@ -4,12 +4,12 @@ excerpt: How to add rules to an Okta account management policy using the Policie
 layout: Guides
 ---
 
-<ApiLifecycle access="ie" /><br>
+<ApiLifecycle access="ie" />
 <ApiLifecycle access="ea" />
 
-> **Note:** This document is only for Okta Identity Engine. See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.
-
 This guide describes how to use the [Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/) and [Okta Expression Language](/docs/reference/okta-expression-language-in-identity-engine/) to configure rules for the Okta account management policy.
+
+> **Note:** This document is only for Okta Identity Engine. See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.
 
 ---
 
@@ -17,7 +17,7 @@ This guide describes how to use the [Policies API](https://developer.okta.com/do
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
 * [Groups created](/docs/reference/api/groups/) in your org
-* A configured [dynamic network zone](https://help.okta.com/okta_help.htm?id=ext_Security_Network)
+* A configured [network zone](https://help.okta.com/okta_help.htm?id=ext_Security_Network)
 
 ---
 
@@ -108,8 +108,7 @@ If your org already uses phishing-resistant authenticators, see [Add a rule for 
 
 ### Example request
 
-
-
+Send a POST request to the `/api/v1/policies/{policyId}/rules` endpoint. Use the value of `id` from the [GET call](#retrieve-the-okta-account-management-policy-id) as the value of `policyId` in your request.
 
 ### Example response
 
@@ -121,7 +120,7 @@ Users must be on a managed device, inside a trusted network zone, and demonstrat
 
 This rule also applies to authenticator unenrollment, and users can lock themselves out if they unenroll too many authenticators. Encourage users to always maintain one phishing-resistant authenticator.
 
-### Add a rule for authenticator enrollment
+## Add a rule for authenticator enrollment
 
 Add this rule to build phishing resistance into your authenticator enrollment process. When this rule is active, users must provide a phishing-resistant authenticator when they enroll other authenticators and when they unenroll one. If your org doesn't use phishing-resistant authenticators yet, start with Add a rule for your first phishing-resistant authenticator.
 
@@ -141,7 +140,7 @@ The user experience for this process doesn't change, except that users' authenti
 - Users who are currently activated with a single factor can't enroll new authenticators or sign in to apps that require MFA. Refer to this task's prerequisite.
 - Users can lock themselves out if they unenroll too many authenticators. Inform your users that they must keep one phishing-resistant authenticator enrolled always.
 
-### Add a rule for password recovery and account unlock
+## Add a rule for password recovery and account unlock
 
 
 
