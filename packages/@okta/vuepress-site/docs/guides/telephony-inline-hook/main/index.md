@@ -45,7 +45,7 @@ This guide provides an example of an Okta telephony inline hook. This guide uses
 
 ## About telephony inline hook implementation
 
-The Okta telephony inline hook enables you to integrate your own custom code into Okta flows that send SMS or voice call messages (except Okta Verify enrollment). You can integrate this hook with enrollment, authentication, and recovery flows that involve phone authenticators. Okta uses your external provider to deliver the one-time passcode (OTP) to the Requester. The provider can respond with commands that indicate if the delivery was successful.
+The Okta telephony inline hook enables you to integrate your own custom code into Okta flows that send SMS or voice call messages (except Okta Verify enrollment). You can integrate this hook with enrollment, authentication, and recovery flows that involve phone authenticators. Okta uses your external provider to deliver the one-time passcode (OTP) to the requester. The provider can respond with commands that indicate if the delivery was successful.
 
 > **Note:** An org can have only one active telephony inline hook.
 
