@@ -23,13 +23,13 @@ This guide describes how to use the [Policies API](https://developer.okta.com/do
 
 ## About the Okta account management policy
 
-The Okta account management policy is a type of authentication policy. It defines requirements when users enroll in authenticators, recover their passwords, and unlock their accounts. The policy uses a rule-based framework to enforce phishing resistance throughout the user journey, from onboarding to authentication and recovery.
+The Okta account management policy is a type of authentication policy. It defines the requirements when users enroll in authenticators, recover their passwords, and unlock their accounts. The policy uses a rule-based framework to enforce phishing resistance throughout the user journey, from onboarding to authentication and recovery.
 
-Okta account management policies appear in GET calls to the `/policies` endpoint. However, they are read-only. You can't create, update, or delete the policy. You have to disable the feature if you want to stop using it. Most importantly, you can't assign it to apps. This policy applies to Okta account management actions only.
+Okta account management policies appear in GET calls to the `/policies` endpoint. However, they’re read-only. You can't create, update, or delete the policy. You have to disable the feature if you want to stop using it. Most importantly, you can't assign it to apps. This policy applies to Okta account management actions only.
 
 However, you can use the Policy API to [manage its policy rules](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule).
 
-See [Okta account management policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-account-management-policy) for details about configuring the policy in the Admin Console.
+See [Okta account management policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-oamp) for details about configuring the policy in the Admin Console.
 
 ### Policy configuration
 
@@ -49,7 +49,7 @@ Before you can create or update policy rules, you need the `id` of your Okta acc
 
 To retrieve your Okta account management policy, make a GET request to the `/api/v1/policies` endpoint. Set the policy `type` parameter to `ACCESS_POLICY`:
 
-```curl
+```bash
 curl -i -X GET \
   'https://subdomain.okta.com/api/v1/policies?type=ACCESS_POLICY' \
   -H 'Authorization: YOUR_API_KEY_HERE'
@@ -106,9 +106,18 @@ If your org already uses phishing-resistant authenticators, see [Add a rule for 
 
 > **Note:** This rule relies on [managed devices](https://support.okta.com/help/s/article/Howto-Get-a-List-of-All-Managed-and-NotManaged-Devices-in-Okta?language=en_US) and [IP Network Zones](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/NetworkZone/).
 
+If you want to add this rule using the Admin Console, see [Add a rule for your first phishing-resistant authenticator](https://help.okta.com/okta_help.htm?type=oie&id=ext-oamp-enroll-first).
+
 ### Example request
 
 Send a POST request to the `/api/v1/policies/{policyId}/rules` endpoint. Use the value of `id` from the [GET call](#retrieve-the-okta-account-management-policy-id) as the value of `policyId` in your request.
+
+Set the value of `priority` to `1`.
+
+```bash
+
+
+```
 
 ### Example response
 
@@ -126,7 +135,18 @@ Add this rule to build phishing resistance into your authenticator enrollment pr
 
 > **Note:** All users in your org must be eligible to use the phishing-resistant authenticators. See [Profile enrollment policies](/docs/concepts/policies/#profile-enrollment-policies).
 
+If you want to add this rule using the Admin Console, see [Add a rule for authenticator enrollment](https://help.okta.com/okta_help.htm?type=oie&id=ext-oamp-enroll-pr-auth).
+
 ### Example request
+
+Continue to use the same value for `policyId`.
+
+Set the value of `priority` above the catch-all rule but below the first [phishing-resistant authenticator](#add-a-rule-for-your-first-phishing-resistant-authenticator) (if you added it). Be sure that the first phishing-resistant authenticator rule stays at priority 1.
+
+```bash
+
+
+```
 
 
 ### Example response
@@ -142,14 +162,137 @@ The user experience for this process doesn't change, except that users' authenti
 
 ## Add a rule for password recovery and account unlock
 
+Add this rule to require phishing resistant authenticators when users reset their passwords or unlock their accounts.
+
+Traditionally, the password policy controls the authentication requirements for these self-service processes. If you're not ready to switch to phishing resistance for one or both of these processes, you can continue using the password policy.
+
+### Update your password policy
+
+Before you add this rule, change the access control settings in your [password policy](/docs/concepts/policies/#password-policies).
+
+Send a PUT request to the `/api/v1/policies/{policyId}/rules/{ruleId}` endpoint. Include the following parameters in the request body:
+
+- `"accessControl": "AUTH_POLICY"`
+- `"type": "PASSWORD"`
+
+Repeat for any other password policy rules.
+
+> **Note:** For each rule, verify that `selfServicePasswordReset` and `selfServiceUnlock` are set to `ALLOW`. If they aren't, add a new rule that specifically allows them. New rules that you add to your org default to `"accessControl": "AUTH_POLICY"`.
+
+```bash
+curl --location --request PUT '{yourSubdomain}/api/v1/policies/{policyId}/rules/{ruleId}' \
+--header 'Accept: application/json' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: SSWS {API_KEY}' \
+--data '{
+    "id": "{ruleId}",
+    "name": "sdfsd",
+    "priority": 1,
+    "status": "ACTIVE",
+    "conditions": {
+        "people": {
+            "users": {
+                "exclude": []
+            }
+        },
+        "network": {
+            "connection": "ANYWHERE"
+        }
+    },
+    "actions": {
+        "passwordChange": {
+            "access": "ALLOW"
+        },
+        "selfServicePasswordReset": {
+            "access": "ALLOW",
+            "requirement": {
+                "primary": {
+                    "methods": [
+                        "email"
+                    ]
+                },
+                "stepUp": {
+                    "required": false
+                },
+                "accessControl": "AUTH_POLICY"
+            }
+        },
+        "selfServiceUnlock": {
+            "access": "ALLOW"
+        }
+    },
+    "system": false,
+    "type": "PASSWORD"
+}'
+```
+
+### Request example
 
 
 
 
-### Edit the Okta account management policy
+### Response example
 
 
 
+### User experience
+
+There are no changes to the user experience when you move password recovery and account unlock to the account management policy. However, be aware of how the account management policy works with the following features:
+
+- [Stay signed in](https://help.okta.com/okta_help.htm?type=oie&id=ext-stay-signed-in): Works with the account management policy if you configure the authentication frequency correctly. The **Prompt for authentication** setting must be more frequent than the equivalent setting in your Okta Dashboard authentication policy. Setting **Prompt for authentication** in your Okta account management policy to every time ensures that users don't have to wait to reset a password.
+- [User enumeration prevention](https://help.okta.com/okta_help.htm?type=oie&id=ext_Security_General): Isn't supported in recovery scenarios with the Okta account management policy.
+
+## Edit the Okta account management policy
+
+You might want to use the Okta account management policy for some processes but not for others. For example, you want to use the Okta account management policy for authenticator enrollment. For self-service password recovery, you want to keep using your password policy. You can change the settings of your authentication policy.
+
+
+```bash
+curl --location --request PUT 'http://devorg1.okta1.com:1802/api/v1/policies/<POLICY_ID>/rules/<RULE_ID>' \
+--header 'Accept: application/json' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: SSWS <API_KEY>' \
+--data '{
+    "id": "<RULE_ID>",
+    "name": "sdfsd",
+    "priority": 1,
+    "status": "ACTIVE",
+    "conditions": {
+        "people": {
+            "users": {
+                "exclude": []
+            }
+        },
+        "network": {
+            "connection": "ANYWHERE"
+        }
+    },
+    "actions": {
+        "passwordChange": {
+            "access": "ALLOW"
+        },
+        "selfServicePasswordReset": {
+            "access": "ALLOW",
+            "requirement": {
+                "primary": {
+                    "methods": [
+                        "email"
+                    ]
+                },
+                "stepUp": {
+                    "required": false
+                },
+                "accessControl": "AUTH_POLICY"
+            }
+        },
+        "selfServiceUnlock": {
+            "access": "ALLOW"
+        }
+    },
+    "system": false,
+    "type": "PASSWORD"
+}'
+```
 
 ## See also
 
