@@ -70,7 +70,7 @@ Verify that your org has the Phone authenticator added and enabled for **Authent
 1. Verify that the **Authentication and recovery** option is selected.
 1. Click **Save** if made any changes.
 
-> **Note:** If a Phone authenticator isn't already added, click **Add Authenticator**, and then **Add** on the Phone tile. Make sure that you select the options mentioned earlier, and then click **Add**.
+> **Note:** If a phone authenticator isn't already added, click **Add Authenticator**, and then **Add** on the Phone tile. Make sure that you select the options mentioned earlier, and then click **Add**.
 
 ## Update an authentication policy
 
