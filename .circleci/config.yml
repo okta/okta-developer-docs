@@ -28,6 +28,7 @@ jobs:
         - checkout
         - node/install-packages:
             pkg-manager: yarn
+            include-branch-in-cache-key: false
         - run:
             name: Lint
             command: yarn lint-all
@@ -52,6 +53,7 @@ jobs:
       - checkout
       - node/install-packages:
           pkg-manager: yarn
+          include-branch-in-cache-key: false
       - run:
           name: Run script and capture logs
           command: yarn build
@@ -103,6 +105,7 @@ jobs:
       - checkout
       - node/install-packages:
           pkg-manager: yarn
+          include-branch-in-cache-key: false
       - run:
           name: Build preview
           command: |
