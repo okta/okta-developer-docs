@@ -8,7 +8,7 @@ parameters:
 jobs:
   inclusive-linting:
     docker:
-      - image: cimg/node:18.19.0
+      - image: cimg/base:current
     resource_class: small
     steps:
       - checkout
