@@ -2,31 +2,12 @@ version: 2.1
 
 orbs:
   general-platform-helpers: okta/general-platform-helpers@1.8
+  node: circleci/node@5.2
 
 parameters:
   preview:
     type: string
     default: ""
-
-commands:
-  install-deps:
-    steps:
-      - restore_cache:
-          name: Restore Yarn dependency cache
-          keys:
-            # Find a cache corresponding to this specific yarn.lock checksum
-            # when this file is changed, this key will fail (correctly)
-            - v1-yarn-deps-{{ checksum "yarn.lock" }}
-            # Find the most recently generated cache used from any branch
-            - v1-yarn-deps-
-      - run:
-          name: Install dependencies
-          command: yarn install --frozen-lockfile
-      - save_cache:
-          name: Save Yarn dependency Cache
-          key: v1-yarn-deps-{{ checksum "yarn.lock" }}
-          paths:
-            - node_modules/
 
 jobs:
   inclusive-linting:
@@ -45,7 +26,8 @@ jobs:
         NODE_OPTIONS: '--max_old_space_size=3584'
       steps:
         - checkout
-        - install-deps
+        - node/install-packages:
+            pkg-manager: yarn
         - run:
             name: Lint
             command: yarn lint-all
@@ -68,7 +50,8 @@ jobs:
       NODE_OPTIONS: '--max_old_space_size=3584'
     steps:
       - checkout
-      - install-deps
+      - node/install-packages:
+          pkg-manager: yarn
       - run:
           name: Run script and capture logs
           command: yarn build
@@ -118,7 +101,8 @@ jobs:
               exit 1
             fi
       - checkout
-      - install-deps
+      - node/install-packages:
+          pkg-manager: yarn
       - run:
           name: Build preview
           command: |
