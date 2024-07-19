@@ -1,5 +1,8 @@
 version: 2.1
 
+orbs:
+  general-platform-helpers: okta/general-platform-helpers@1.8
+  
 parameters:
   preview:
     type: string
@@ -117,8 +120,6 @@ jobs:
             chmod +x ./scripts/update-dev-docs-pr-cci.sh
             ./scripts/update-dev-docs-pr-cci.sh
 
-orbs:
-  general-platform-helpers: okta/general-platform-helpers@1.8
 
 workflows:
   semgrep:
