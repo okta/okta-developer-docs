@@ -31,6 +31,57 @@ However, you can use the Policy API to [manage its policy rules](https://develop
 
 See [Okta account management policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-account-management-policy) for details about configuring the policy in the Admin Console.
 
+## Retrieve the Okta account management policy
+
+To retrieve your Okta account management policy, make a GET request to the `/api/v1/policies` endpoint. Set the policy `type` parameter to `ACCESS_POLICY`:
+
+```curl
+curl -i -X GET \
+  'https://subdomain.okta.com/api/v1/policies?type=ACCESS_POLICY' \
+  -H 'Authorization: YOUR_API_KEY_HERE'
+```
+
+The response includes all of your org's authentication policies and the Okta account management policy. In the policy object, the value of the `_embedded.resourceType` parameter is `END_USER_ACCOUNT_MANAGEMENT` for your Okta account management policy. For authentication policies it's `APP`.
+
+Use the value of the `id` parameter to manage the policy's rules.
+
+```json
+{
+        "id": "rst5czs80uoZHaUxK0g7",
+        "status": "ACTIVE",
+        "name": "Okta Account Management Policy",
+        "description": "This policy defines how users must authenticate for authenticator enrollment, password reset, or unlock account. Password policy rules control whether to enforce this policy for password reset and unlock account.",
+        "priority": 1,
+        "system": false,
+        "conditions": null,
+        "created": "2024-07-08T17:31:39.000Z",
+        "lastUpdated": "2024-07-08T17:31:39.000Z",
+        "_links": {
+            "self": {
+                "href": "https://{yourSubdomain}/api/v1/policies/rst5czs80uoZHaUxK0g7",
+                "hints": {
+                    "allow": [
+                        "GET"
+                    ]
+                }
+            },
+            "rules": {
+                "href": "https://{yourSubdomain}/api/v1/policies/rst5czs80uoZHaUxK0g7/rules",
+                "hints": {
+                    "allow": [
+                        "GET",
+                        "POST"
+                    ]
+                }
+            }
+        },
+        "_embedded": {
+            "resourceType": "END_USER_ACCOUNT_MANAGEMENT"
+        },
+        "type": "ACCESS_POLICY"
+    }
+```
+
 ## Policy configuration
 
 There are three primary use cases for the Okta account management policy. Each one adds a rule to the policy, so you can skip any that you don't need. However, if your org doesn't use phishing-resistant authenticators yet, start by enrolling your first phishing-resistant authenticator.
