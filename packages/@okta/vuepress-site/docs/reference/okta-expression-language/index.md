@@ -341,7 +341,10 @@ The following samples are valid conditional expressions. The actions in these ca
 | IF            | user.salary >= 1000000                          | expensiveEmployee                              |
 | IF            | !user.isContractor                              | fullTimeEmployees                              |
 | IF            | user.salary > 1000000 AND !user.isContractor    | expensiveFullTimeEmployees                     |
-| IF            | user.department matches '(?i)admins'            | Administrators                                 |
+| IF            | user.department matches "California-[a-zA-Z]+-Sales"            | californiaSalesTeams                            |
+| IF            | user.primaryPhone matches "(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}"            | allPhoneNumberTypes                             |
+| IF            | user.title matches '(?i)engineer'            |   allEngineers                        |
+
 
 #### Check for null and blank attributes
 
