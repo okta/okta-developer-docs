@@ -11468,7 +11468,7 @@
     }, {
       "id" : "policy.auth_reevaluate.fail",
       "category" : "authn-platform",
-      "description" : "Auth policy re-evaluation has occurred and has resulted in a continuous access violation. Can be used to identify which user, apps, and session were involved in a continuous access violation event. Event fired when continuing access evaluation results in failure.",
+      "description" : "This event is triggered when your org's authentication or global session policy is reevaluated, and a violation is identified",
       "info" : {
         "created" : "2023-08-07",
         "release" : "2023.09.0"
@@ -11486,7 +11486,7 @@
     }, {
       "id" : "policy.continuous_access.action",
       "category" : "authn-platform",
-      "description" : "Contionuous Access policy action invocation. Signal that an action associated with a continuous access policy evaluation has been invoked. Event fired when an action associated with a continuous access policy evaluation has been invoked.",
+      "description" : "This event is triggered when Okta logs a user out of their configured apps or runs a Workflow in response to an authentication or global session policy violation.",
       "info" : {
         "created" : "2023-08-07",
         "release" : "2023.09.0"
@@ -11504,7 +11504,7 @@
     }, {
       "id" : "policy.continuous_access.evaluate",
       "category" : "authn-platform",
-      "description" : "Evaluation of Continuous Access Policy. Signal that continuous access policy has been evaluated for a session which has failed CAE. Event fired when continuous access policy has been evaluated for a session which has failed CAE.",
+      "description" : "This event is triggered when a post auth session evaluation occurs.",
       "info" : {
         "created" : "2023-08-07",
         "release" : "2023.09.0"
