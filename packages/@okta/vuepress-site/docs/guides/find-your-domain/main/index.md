@@ -18,7 +18,7 @@ If you're building an application by using one of our SDKs or client libraries, 
 
 > **Note:** Your Okta URL is missing. Replace `{yourOktaDomain}` with your Okta domain. You can copy your domain from the Admin Console.
 
-Okta orgs host pages on subdomains and each org is assigned a URL. The typical org URL is the tenant name (the subdomain), and then the domain name.
+Orgs host pages on subdomains and each org is assigned a URL. The typical org URL is the tenant name (the subdomain), and then the domain name.
 
 ### Find your Okta domain
 
