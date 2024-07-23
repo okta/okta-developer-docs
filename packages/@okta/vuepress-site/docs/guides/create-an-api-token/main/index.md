@@ -32,11 +32,11 @@ Authorization: SSWS 00QCjAl4MlV-WPXM...0HmjFx-vbGua
 
 ### Privilege level
 
-Different Okta API operations require different admin privilege levels. API tokens inherit the privilege level of the admin account that is used to create them. It’s therefore good practice to create a service account to use when you create API tokens so that you can assign the token the specific privilege level needed. See [Administrators](https://help.okta.com/okta_help.htm?id=ext_Security_Administrators) for admin account types and the specific privileges of each.
+Different Okta API operations require different admin privilege levels. API tokens inherit the privilege level of the admin account that is used to create them. It’s therefore good practice to create a service account to use when you create API tokens. With a separate service account, you can assign specific privilege levels to your API tokens. See [Administrators](https://help.okta.com/okta_help.htm?id=ext_Security_Administrators) for admin account types and the specific privileges of each.
 
 ### OAuth 2.0 instead of API tokens
 
-As an alternative to Okta API tokens, you can now interact with Okta APIs. You can use a scoped OAuth 2.0 access token for various Okta endpoints. Each access token enables the bearer to perform specific actions on specific Okta endpoints, with that ability controlled by which scopes the access token contains. For more information, see the [OAuth for Okta](/docs/guides/implement-oauth-for-okta/) guide.
+As an alternative to Okta API tokens, you can use Okta APIs. You can use a scoped OAuth 2.0 access token for various Okta endpoints. Each access token enables the bearer to perform specific actions on specific Okta endpoints, with that ability controlled by which scopes the access token contains. For more information, see the [OAuth for Okta](/docs/guides/implement-oauth-for-okta/) guide.
 
 ## Create the token
 
@@ -46,7 +46,7 @@ See [Create Okta API tokens](https://help.okta.com/okta_help.htm?id=ext-create-a
 
 ## Token network restrictions
 
-You can specify a network range for every SSWS API token. The tokens only work if API requests are made from the specified IP or network range. You can specify network zones while you create a new API token. You can also modify an existing token to specify a network range.
+You can specify a network range for every SSWS API token. The tokens only work if API requests are made from the specified IP or network range. You can specify network zones while you create an API token. You can also modify an existing token to specify a network range.
 
 See [Manage Okta API tokens](https://help.okta.com/okta_help.htm?id=ext_API) for steps on creating API tokens and editing network restrictions for an existing API token.
 
