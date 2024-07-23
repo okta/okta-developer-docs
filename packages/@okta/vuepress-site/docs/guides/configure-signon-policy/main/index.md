@@ -42,7 +42,7 @@ Global session policies help control who can have access and how a user gains ac
 
 You can configure a global session policy to require any of the [factors that you set up](https://help.okta.com/okta_help.htm?type=oie&id=csh-configure-authenticators). Then use the primary and secondary factor conditions in a rule to define which factors are evaluated. For example, add a rule that prompts for more factors when you want only users who are inside your [corporate network](/docs/reference/api/policy/#network-condition-object) to have access.
 
-> **Note:** If you select **Password/IDP/any factor allowed by app sign on rules** as a rule's primary factor, you remove the global password requirement from the global session policy. This transfers responsibility for defining and enforcing authentication criteria to each of your [authentication policies](#authentication-policies) instead. See [Configure passwordless authentication](https://help.okta.com/okta_help.htm?type=oie&id=ext-passwordless-auth).
+> **Note:** If you select **Any factor used to meet the Authentication Policy requirements**, you remove the global password requirement from the global session policy. This transfers responsibility for defining and enforcing authentication criteria to each of your [authentication policies](#authentication-policies) instead. See [Configure passwordless authentication](https://help.okta.com/okta_help.htm?type=oie&id=ext-passwordless-auth).
 
 You can specify any number of global session policies and the order in which they’re executed. If a policy in the list doesn't apply to the user trying to sign in, the system moves to the next policy. There’s one required organization-wide policy named default. By definition, the default policy applies to all users.
 
@@ -83,31 +83,31 @@ The following are step-by-step instructions to configure a global session policy
 
 1. In the **Add Rule** window, add a descriptive name for the rule in the **Rule name** box, such as **Require contractors to use MFA once per session**.
 
-2. If there are any users in the **Contractor** group that you want to exclude from the rule, enter them in the **Exclude Users** box.
+1. If there are any users in the **Contractor** group that you want to exclude from the rule, enter them in the **Exclude Users** box.
 
-3. Configure IF conditions, which define the authentication context for the rule. For this use case example, leave the defaults. For other use cases where you want to assign location parameters, you can specify what kind of location prompts authentication in the **IF User’s IP is** dropdown box (for example, prompting a user for a factor when they aren't on the corporate network).
+1. Configure IF conditions, which define the authentication context for the rule. For this use case example, leave the defaults. For other use cases where you want to assign location parameters, you can specify what kind of location prompts authentication in the **IF User’s IP is** dropdown box (for example, prompting a user for a factor when they aren't on the corporate network).
 
-4. Configure THEN conditions, which define the authentication experience for the rule. For this use case example, leave **Password/IDP** option selected. Also, leave **Require secondary factor** selected so that users of the Contractor group are prompted for a secondary factor before they’re granted access.
+1. Configure THEN conditions, which define the authentication experience for the rule. For this use case example, select the **Any factor used to meet the Authentication Policy requirements** option. Also, ensure that Multifactor authentication (MFA) is **Required** so that users of the Contractor group are prompted for a secondary factor before they’re granted access.
 
-    > **Note:** Click the **Multifactor Authentication** link for quick access to the **Authenticators** page to configure the factors that you want to use.
+    > **Note:** Click the **authenticators** link for quick access to the [Authenticators](https://help.okta.com/okta_help.htm?type=oie&id=csh-configure-authenticators) page to configure the factors that you want to use.
 
-5. Use the option buttons to determine how users are prompted for a secondary factor in a given session. In this example, leave the default of **Per Session** selected.
+1. Select how users are prompted for a secondary factor in a given session. In this example, leave the default of **At every sign in** selected. You can also prompt users for a secondary factor:
+    * **When signing in with a new device cookie**
+    * **After MFA lifetime expires for the device cookie**
 
-    You can configure whether the factor prompt is triggered per a device, at every sign-in attempt, or per a session time that you specify:
-
-    * **Per Device:** Provides the option **Do not challenge me on this device again** in the end user MFA challenge dialog. This option allows prompts solely for new devices.
+    <!--* **Per Device:** Provides the option **Do not challenge me on this device again** in the end user MFA challenge dialog. This option allows prompts solely for new devices.
     * **Every Time:** End users are prompted every time they sign in to Okta and can't influence when they’re prompted to provide a factor.
-    * **Per Session:** Provides the option **Do not challenge me on this device for the next (minutes/hours/days)** in the end user MFA challenge dialog. When you specify per session, sessions have a default lifetime as configured, but sessions always end whenever users sign out of their Okta session.
+    * **Per Session:** Provides the option **Do not challenge me on this device for the next (minutes/hours/days)** in the end user MFA challenge dialog. When you specify per session, sessions have a default lifetime as configured, but sessions always end whenever users sign out of their Okta session. -->
 
-6. For this use case example, leave the default **Factor Lifetime** of **15 minutes**. Use these fields to specify how much time must elapse before the user is challenged again for the secondary factor.
+1. For this use case example, leave the default **Factor Lifetime** of **15 minutes**. Use these fields to specify how much time must elapse before the user is challenged again for the secondary factor.
 
     The maximum lifetime period is six months. Setting a factor lifetime is a way for end users to sign out for the amount of time noted in the **Factor Lifetime** and not have to authenticate again with MFA the next time they sign in. End users must select a box when they sign in to confirm that the setting should be applied. An example is **Do not challenge me on this device for the next 15 minutes**. In this case, after signing out, there’s no secondary factor prompt if the user signs in again within 15 minutes of the last sign-in event with MFA. If users don't select the box, they’re always prompted for a secondary factor. The time since the last sign-in event is noted at the bottom of the End-User Dashboard. However, end users must refresh the page to see the updated value.
 
-7. For this use case example, select **8 hours** for **Session Expires After**. Use these fields to specify the maximum idle time before an authentication prompt is triggered. The maximum allowed time for this option is 90 days. This isn't the total connection time. This is idle time before users see a countdown timer at the 5-minute mark of remaining session time.
+1. For this use case example, select **8 hours** for **Session Expires After**. Use these fields to specify the maximum idle time before an authentication prompt is triggered. The maximum allowed time for this option is 90 days. This isn't the total connection time. This is idle time before users see a countdown timer at the 5-minute mark of remaining session time.
 
     > **Note:** You can also set the [maximum session lifetime value](/docs/reference/api/policy/#signon-session-object) using the Okta APIs. If you previously set this value using the API, you can't exceed that maximum in the Admin Console. Setting a value over the API maximum results in an error.
 
-8. Click **Create Rule**.
+1. Click **Create Rule**.
 
 > **Note:** After you create a policy, you must close all active sessions for the new policy to take effect.
 
