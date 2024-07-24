@@ -73,8 +73,8 @@ This resource contains detailed reference material on event types triggered with
 | **client**                |  The client of the actor                  | Object      |         |
 | IPAddress              | IP address                |       |         |
 
-## policy continuous_access action
-`policy.continuous_access.action`
+## policy auth_reevaluate action
+`policy.auth_reevaluate.action`
 
 **Description:** This event is triggered when Okta logs a user out of their configured apps or runs a Workflow in response to an authentication or global session policy violation.
 
@@ -113,8 +113,8 @@ This resource contains detailed reference material on event types triggered with
 | **client**                |  The client of the actor                 |       |         |
 | IPAddress              | IP address of the client                |       |         |
 
-## policy continuous_access evaluate
-`policy.continuous_access.evaluate`
+## policy auth_evaluate enforce
+`policy.auth_evaluate.enforce`
 
 **Description:** This event is triggered when a post auth session evaluation occurs.
 
