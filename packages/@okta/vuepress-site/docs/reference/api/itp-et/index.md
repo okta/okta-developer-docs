@@ -44,7 +44,7 @@ This resource contains detailed reference material on event types triggered with
 ## policy auth_reevaluate fail
 `policy.auth_reevaluate.fail`
 
-**Description:** This event is triggered when your org’s authentication or global session policy is reevaluated, and a violation is identified.
+**Description:** This event is triggered when your org’s authentication or global session policy is reevaluated, and a violation is identified. The violation occurs if the request doesn't meet the assurances defined in the policy, or if the request has an action set to `DENY` based on environment conditions.
 
 | Key event properties  | Description                                         | Data type      | Example values |
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
