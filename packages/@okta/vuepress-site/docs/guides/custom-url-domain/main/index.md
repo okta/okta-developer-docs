@@ -24,8 +24,8 @@ For customizing an Okta-managed domain or using your own TLS certificate:
 
 For customizing a domain using your own TLS certificate:
 
-* A valid TLS certificate (PEM-encoded) for your subdomain
-* A 2048-bit private key (PEM-encoded)
+* A valid TLS certificate for your subdomain (2048, 3072, or 4096 bits) (PEM-encoded)
+* A private key (2048, 3072, or 4096 bits) (PEM-encoded)
 
 For configuring a custom email address:
 
@@ -86,6 +86,8 @@ The third generation of the Okta Sign-In Widget doesn’t guarantee the stabilit
 
 * If you use your own TLS certificate, consider the following:
 
+  * It can be 2048, 3072, or 4096-bits.
+
   * It should be signed with the SHA-256 hash algorithm.
 
   * It must not be expired.
@@ -104,7 +106,7 @@ The third generation of the Okta Sign-In Widget doesn’t guarantee the stabilit
 
 * Any DNS text (`TXT`) and `CNAME` record names and values included in your domain configuration must be resolvable and contain the values provided by Okta. You can validate these names and values with a DNS query tool, such as [dig](https://bind9.readthedocs.io/en/latest/manpages.html?highlight=#dig-dns-lookup-utility).
 
-* Okta currently only supports 2048-bit keys for the private key that you upload. However, your certificate chain can use keys of any size.
+* Okta supports 2048, 3072, and 4096-bit keys for the private key that you upload. However, your certificate chain can use keys of any size.
 
 * If you configure any SAML or WS-Fed integrated apps in your org, review the setup instructions for [SAML SSO](/docs/guides/build-sso-integration/saml2/main/) or [WS-Fed SSO](https://help.okta.com/okta_help.htm?id=ext_Apps_Configuring_WS_Federation). If you want your customers to see the new custom domain rather than the Okta org domain, update those SAML or WS-Fed Service Provider integrations to use the new custom URL in the metadata.
 
@@ -169,7 +171,7 @@ You need to add DNS TXT and CNAME records for your domain to prove ownership of 
 
 ### Validate your TLS certificate
 
-Before starting, make sure that you have the TLS certificate (PEM-encoded) for your subdomain and the 2048-bit private key (PEM-encoded).
+Before starting, make sure that you have the TLS certificate (PEM-encoded) for your subdomain and the private key (2048, 3072, or 4096-bits) (PEM-encoded).
 
 Okta performs validation checks on the certificate that you upload. If your TLS certificate is a wildcard certificate, it must include the full URL in the Common Name (CN) or Subject Alternative Name (SAN) when it’s generated. Otherwise, the following error occurs when you attempt to upload the certificate:
 
