@@ -66,7 +66,7 @@
 
       <div
         v-if="['user.risk.change', 'analytics.feedback.provide', 'security.events.provider.receive_event', 'device.signals.status.timeout', 
-               'policy.auth.reevaluate.fail', 'policy.continuous_access.evaluate', 'policy.continuous_access.action', 'user.session.context.changed', 
+               'policy.auth_reevaluate.fail', 'policy.continuous_access.evaluate', 'policy.continuous_access.action', 'user.session.context.changed', 
                'policy.entity_risk.evaluate', 'policy.entity_risk.action', 'user.session.end', 'user.session.clear', 'user.authentication.universal_logout', 
                'workflows.user.delegatedflow.run'].indexOf(eventType.id) !== -1"
       >
