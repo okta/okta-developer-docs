@@ -62,6 +62,7 @@ This guide provides step-by-step instructions to configure a global session poli
 
 * [Prompt for an additional factor for a group](#prompt-for-an-additional-authenticator-for-a-group)
 * [Prompt for an additional factor when a user is outside the US](#prompt-for-an-mfa-factor-when-a-user-is-outside-the-us)
+* [Prompt for passwordless sign-in flow]()
 
 ## Prompt for an additional factor for a group
 
@@ -87,23 +88,23 @@ The following are step-by-step instructions to configure a global session policy
 
 1. Configure IF conditions, which define the authentication context for the rule. For this use case example, leave the defaults. For other use cases where you want to assign location parameters, you can specify what kind of location prompts authentication in the **IF User’s IP is** dropdown box (for example, prompting a user for a factor when they aren't on the corporate network).
 
-1. Configure THEN conditions, which define the authentication experience for the rule. For this use case example, select the **Any factor used to meet the Authentication Policy requirements** option. Also, ensure that Multifactor authentication (MFA) is **Required** so that users of the Contractor group are prompted for a secondary factor before they’re granted access.
+1. Configure THEN conditions, which define the authentication experience for the rule. For this use case example, select that the session is established with the user entering **A password**. Also, ensure that Multifactor authentication (MFA) is **Required** so that users of the Contractor group are prompted for a secondary factor before they’re granted access.
 
     > **Note:** Click the **authenticators** link for quick access to the [Authenticators](https://help.okta.com/okta_help.htm?type=oie&id=csh-configure-authenticators) page to configure the factors that you want to use.
 
-1. Select how users are prompted for a secondary factor in a given session. In this example, leave the default of **At every sign in** selected. You can also prompt users for a secondary factor:
-    * **When signing in with a new device cookie**
-    * **After MFA lifetime expires for the device cookie**
+1. Select how users are prompted for a secondary factor in a given session. In this example, leave the default of **At every sign in** selected. Users are challenged for MFA every time they sign in.
 
     <!--* **Per Device:** Provides the option **Do not challenge me on this device again** in the end user MFA challenge dialog. This option allows prompts solely for new devices.
     * **Every Time:** End users are prompted every time they sign in to Okta and can't influence when they’re prompted to provide a factor.
-    * **Per Session:** Provides the option **Do not challenge me on this device for the next (minutes/hours/days)** in the end user MFA challenge dialog. When you specify per session, sessions have a default lifetime as configured, but sessions always end whenever users sign out of their Okta session. -->
+    * **Per Session:** Provides the option **Do not challenge me on this device for the next (minutes/hours/days)** in the end user MFA challenge dialog. When you specify per session, sessions have a default lifetime as configured, but sessions always end whenever users sign out of their Okta session.
 
-1. For this use case example, leave the default **Factor Lifetime** of **15 minutes**. Use these fields to specify how much time must elapse before the user is challenged again for the secondary factor.
+    For this use case example, leave the default **Factor Lifetime** of **15 minutes**. Use these fields to specify how much time must elapse before the user is challenged again for the secondary factor.
 
-    The maximum lifetime period is six months. Setting a factor lifetime is a way for end users to sign out for the amount of time noted in the **Factor Lifetime** and not have to authenticate again with MFA the next time they sign in. End users must select a box when they sign in to confirm that the setting should be applied. An example is **Do not challenge me on this device for the next 15 minutes**. In this case, after signing out, there’s no secondary factor prompt if the user signs in again within 15 minutes of the last sign-in event with MFA. If users don't select the box, they’re always prompted for a secondary factor. The time since the last sign-in event is noted at the bottom of the End-User Dashboard. However, end users must refresh the page to see the updated value.
+    The maximum lifetime period is six months/ 180 days. Setting a factor lifetime is a way for end users to sign out for the amount of time noted in the **Factor Lifetime** and not have to authenticate again with MFA the next time they sign in. End users must select a box when they sign in to confirm that the setting should be applied. An example is **Do not challenge me on this device for the next 15 minutes**. In this case, after signing out, there’s no secondary factor prompt if the user signs in again within 15 minutes of the last sign-in event with MFA. If users don't select the box, they’re always prompted for a secondary factor. The time since the last sign-in event is noted at the bottom of the End-User Dashboard. However, end users must refresh the page to see the updated value.-->
 
-1. For this use case example, select **8 hours** for **Session Expires After**. Use these fields to specify the maximum idle time before an authentication prompt is triggered. The maximum allowed time for this option is 90 days. This isn't the total connection time. This is idle time before users see a countdown timer at the 5-minute mark of remaining session time.
+1. Configure the time settings for the rule. Use these fields to specify the maximum idle time before an authentication prompt is triggered. The maximum allowed time for this option is 90 days. This isn't the total connection time. This is idle time before users see a countdown timer at the 5-minute mark of remaining session time.
+
+1. Click **Set time limit** and leave the default time settings.
 
     > **Note:** You can also set the [maximum session lifetime value](/docs/reference/api/policy/#signon-session-object) using the Okta APIs. If you previously set this value using the API, you can't exceed that maximum in the Admin Console. Setting a value over the API maximum results in an error.
 
@@ -119,29 +120,61 @@ The following are step-by-step instructions to configure another rule for the de
 
 > **Note:**  You can add as many rules to the default authentication policy that you want, but remember that the changes are applied to all new apps as it is a shared app policy.
 
-### Select the policy and add a rule
+### Select the default policy and add a rule
 
 > **Note:** This example assumes that you've already [set up a Dynamic Zone](https://help.okta.com/okta_help.htm?id=ext_Security_Network). In this example, use a dynamic zone defined for IP addresses within the United States.
 
 1. In the Admin Console, select **Security** > **Authentication Policies**.
 
-2. Select **Default Policy** and then click **Add rule**. The Add Rule dialog appears.
+1. Select **Default Policy** and then click **Add rule**. The Add Rule dialog appears.
 
-3. Enter a **Rule name** such as **Prompt for an MFA factor when a user is outside the US**.
+1. Enter a **Rule name** such as **Prompt for an MFA factor when a user is outside the US**.
 
-4. Configure IF conditions to define the authentication context for the rule. Select **Not in any of the following zones** from the **AND User’s IP is** dropdown list.
+1. Configure IF conditions to define the authentication context for the rule. Select **Not in zone** from the **AND User’s IP is** dropdown list.
 
     > **Note:** You can click the **Go to Network Zones** link to access the gateway settings that enable your choice of access. A [network zone](https://help.okta.com/okta_help.htm?id=ext_Security_Network) is a security perimeter used to limit or restrict access to a network based on a single IP address, one or more IP address ranges, or a list of geolocations. You can also create network zones using the [Zones API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/NetworkZone/).
 
-5. In the text box, start typing the dynamic zone name and then select it when it appears in the list.
+1. In the text box, enter the dynamic zone name and then select it when it appears in the list.
 
-6. Configure THEN conditions to define the authentication experience. For this use case, leave the default of **Allowed after successful authentication** for **THEN Access is**.
+1. Configure THEN conditions to define the authentication experience. For this use case, leave the default of **Allowed** for **THEN Access is**.
 
-7. In the **Re-authentication frequency** section, select **Every sign-in attempt** for both **AND Password re-authentication frequency is** and **AND Re-authentication frequency for all other factors is**.
+1. For **Establish the user session with**, select **Any factor used to meet the Authentication Policy requirements**. Users who sign in to your app from a non-US IP address are prompted for an additional factor.
 
-8. Click **Save**.
+1. Ensure that MFA is **Required**.
+
+1. Select how users are prompted for a secondary factor in a given session.
+
+1. Configure the time settings for the rule.
+
+1. Click **Save**.
 
 > **Note:** You can [use the API](/docs/reference/api/policy/#authentication-policy) to assign an app to an authentication policy. You need the application ID and the policy ID for this API request. Make a `PUT /api/v1/apps/{appId}/policies/{policyId}` request. No HTTP body is necessary for the PUT request. Then, to check that the assignment was successful, make a `GET /api/v1/apps/{appId}` request and the response should contain information on the policy associated with the app.
+
+## Prompt for a passwordless sign-in flow
+
+In this example, create a policy that allows a specific group to use a passwordless sign-in flow. To set up a passwordless global session policy, ensure that you have set up [passwordless authentication](https://help.okta.com/okta_help.htm?type=oie&id=ext-passwordless-auth).
+
+### Create a passwordless policy
+
+1. In the Admin Console, select **Security** > **Authentication Policies**.
+
+1. [Create a policy container](#create-the-policy-container). For this example, create a policy and assign it to the group.
+
+1. Click **Add rule**. The Add Rule dialog appears.
+
+1. Enter a **Rule name** such as **Passwordless sign-in flow**.
+
+1. Configure IF conditions, which define the authentication context for the rule. For this use case example, leave the defaults.
+
+1. Configure THEN conditions, which define the authentication experience for the rule. For this use case example, select that the session is established with the user entering **Any factor used to meet the Authentication Policy requirements**. Optionally, you can select that MFA is **Required** so that users of the group are prompted for a secondary factor before they’re granted access.
+
+1. Configure THEN conditions to define the authentication experience. For this use case, leave the default of **Allowed** for **THEN Access is**.
+
+1. Select how users are prompted for a secondary factor in a given session.
+
+1. Configure the time settings for the rule.
+
+1. Click **Save**.
 
 ## See also
 
