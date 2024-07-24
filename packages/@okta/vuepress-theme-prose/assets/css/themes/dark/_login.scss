@@ -1,6 +1,6 @@
 .login .login--form {
-  box-shadow: 0 6px 18px cv("code");
-  background-color: cv("code");
+  box-shadow: 0 6px 18px cv("code", "base");
+  background-color: cv("code", "base");
 }
 
 .login .login--form .fa-github:before {
@@ -8,5 +8,5 @@
 }
 
 .login .login--form .goto-signup a {
-  color: cv("link");
+  color: cv("link", "base");
 }

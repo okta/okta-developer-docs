@@ -1,14 +1,22 @@
-import VueSelect from 'vue-select';
-import pageComponents from '@internal/page-components'
-import 'bootstrap/dist/css/bootstrap-grid.css';
-import PortalVue from 'portal-vue';
+import VueSelect from "vue-select";
+import "bootstrap/dist/css/bootstrap-grid.css";
+import PortalVue from "portal-vue";
+import { LAYOUT_CONSTANTS } from "./const/index.const";
 
-export default ({
-  Vue,
-  options,
-  router,
-  siteData
-}) => {
+function scrollToAnchor(to) {
+  const targetAnchor = to.hash.slice(1);
+  const targetElement = document.getElementById(targetAnchor);
+
+  if (targetElement) {
+    const scrollToPosition = targetElement.offsetTop - LAYOUT_CONSTANTS.ANCHOR_TOP_MARGIN;
+
+    return window.scrollTo({ top: scrollToPosition, behavior: "smooth" });
+  } else {
+    return false;
+  }
+}
+
+export default ({ Vue, options, router, siteData }) => {
   Vue.use(PortalVue);
   Vue.component('v-select', VueSelect);
 
@@ -22,4 +30,13 @@ export default ({
       next();
     }
   });
-}
+
+  router.options.scrollBehavior = (to, from, savedPosition) => {
+    if(savedPosition) {
+      return savedPosition;
+    }
+    if (to.hash) {
+      return scrollToAnchor(to);
+    }
+  };
+};

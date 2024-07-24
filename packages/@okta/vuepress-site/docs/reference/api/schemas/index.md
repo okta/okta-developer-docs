@@ -6,6 +6,11 @@ excerpt: The Schemas API defines custom user profiles for Okta users, applicatio
 
 # Schemas API
 
+The Schemas API reference is now available at the new [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/).
+
+<!--
+
+Explore the [Okta Public API Collections](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/overview) workspace to get started with the SMS Templates API Postman collection.
 The Okta Schemas API provides operations to manage custom User profiles as well as endpoints to discover the structure of the Log Stream configuration.
 
 Okta's [Universal Directory](https://help.okta.com/okta_help.htm?id=ext_About_Universal_Directory) allows administrators to define custom User profiles for Okta Users and Applications.
@@ -3382,3 +3387,5 @@ Specific property types support a subset of [JSON Schema validations](https://da
 | Property Type| Description | Validation Keywords |
 | :------------------------- | :------------- | :-------------------------- |
 | string | JSON String | pattern|
+
+-->

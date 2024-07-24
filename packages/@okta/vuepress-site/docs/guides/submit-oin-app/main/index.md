@@ -98,16 +98,13 @@ Continue with the OIN Wizard and configure your integration:
 
 #### Integration variables
 
-Configure integration variables if your URLs are dynamic for each tenant. The variables are for your customer admins to add their specific tenant values during installation.
-
-<StackSnippet snippet="variable-desc" />
-<br>
+Configure integration variables if your URLs are dynamic for each tenant. The variables are for your customer admins to add their specific tenant values during installation. See [Dynamic properties with Okta Expression Language](#dynamic-properties-with-okta-expression-language).
 
 1. In the **Integration variables** section, specify the name and label for each variable:
 
     | <div style="width:100px">Property</div> | Description  |
     | --------------- | ------------ |
-    | **Label** `*`  | A descriptive name for the dynamic variable that admins see when they install your app integration |
+    | **Label** `*`  | A descriptive name for the dynamic variable that admins see when they install your app integration. For example: `Division subdomain` |
      | **Name** `*`  | Specify the variable name. This variable name is used to construct the dynamic URL. It's hidden from admins and is only passed to your external app.<br>String is the only variable type supported.<br>**Note:** Use alphanumeric lowercase and underscore characters for the variable name field. The first character must be a letter and the maximum field length is 1024 characters. For example: `subdomain_div1` |
 
      `*` This section is optional, but if you specify a variable, both `Label` and `Name` properties are required.
@@ -126,6 +123,16 @@ Continue with the OIN Wizard and configure your protocol settings:
     <StackSnippet snippet="protocol-properties" />
 
 1. Click **Get started with testing** to save your edits and move to the testing section, where you need to enter your integration test details.
+
+#### Dynamic properties with Okta Expression Language
+
+ The OIN Wizard supports [Okta Expression Language](/docs/reference/okta-expression-language/#reference-user-attributes) to generate dynamic properties, such as URLs or URIs, based on your customer tenant. You can specify dynamic strings for your <StackSnippet snippet="protocol-name" inline/> properties in the OIN Wizard:
+
+1. Add your [integration variables](#integration-variables) in the OIN Wizard. These variables become fields for customers to enter during your OIN integration installation to identify their tenant.
+
+2. Use the integration variables with Expression Language format in your [<StackSnippet snippet="protocol-name" inline/> property definitions](#properties) for dynamic values based on customer information.
+
+<StackSnippet snippet="variable-desc" />
 
 ### Enter test information
 
@@ -426,7 +433,7 @@ All required tests in the OIN Submission Tester must have passed within 48 hours
 
 You can modify your published SSO integration from the OIN Wizard.
 
-When you edit a published OIN integration, you need to test the SSO flow for the updated version and the published version for backwards compatibility. Testing the published version for backwards compatibility ensures that SSO to your app still works for customers who have already installed your published OIN integration. After you successfully test the updated and published versions of your integration, resubmit it to the OIN team.
+When you edit a published OIN integration, test the SSO flow for the updated version and the published version for backwards compatibility. Testing the published version for backwards compatibility ensures that SSO to your app still works for customers who have already installed your published OIN integration. See [Update integration considerations](#update-integration-considerations) before you edit your published SSO integration. After you successfully test the updated and published versions of your integration, resubmit it to the OIN team.
 
 > **Note:** When you edit your published OIN integration, your previous PUBLISHED status and date are overwritten with the DRAFT status and current date.
 
@@ -470,9 +477,17 @@ To update a previously published OIN integration:
 
 * When you update an integration that's already published, be mindful to preserve backwards compatibility for your integration. Older instances of your integration could be in use by Okta customers.
 
-   If your update introduces new variables and you're using dynamic URLs, ensure that your tests cover various scenarios with different possible values for those variables. The newly introduced variables aren't populated for older instances of your integration. For example:
+    * If you modify the **Name** (`name`) property of your [integration variables](#integration-variables), Okta removes the original variable and creates a variable with your updated name. This action negatively impacts your existing customers if you use the original variable in your integration dynamic properties.
 
-   <StackSnippet snippet="backward-compatible-eg" />
+    * Migrated published integrations from the OIN Manager don't have some OIN Wizard restrictions. For instance:
+
+        * Published integrations can have more than three integration variables
+        * Published integrations can have variable names with uppercase letters
+        * Published integrations can use `http` (instead of enforced `https`) in URLs and Expression Language-supported properties
+
+    * If your update introduces new variables and you're using dynamic URLs, ensure that your tests cover various scenarios with different possible values for those variables.  See [Dynamic properties with Okta Expression Language](#dynamic-properties-with-okta-expression-language). The newly introduced variables aren't populated for older instances of your integration. For example:
+
+       <StackSnippet snippet="backward-compatible-eg" />
 
 ## Submit your integration
 

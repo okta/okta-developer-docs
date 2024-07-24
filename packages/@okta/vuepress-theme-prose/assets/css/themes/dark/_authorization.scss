@@ -6,9 +6,9 @@
 .authorization-layout .authorization-layout--content input[type="button"],
 .authorization-layout .authorization-layout--content select {
   border-color: cv("text", "accent");
-  background-color: cv("code");
+  background-color: cv("code", "base");
 
-  color: cv("text");
+  color: cv("text", "base");
 }
 
 .authorization-layout .authorization-layout--content a.btn {
@@ -16,11 +16,11 @@
 }
 
 .authorization-layout .authorization-layout--content input[type="submit"] {
-  border-color: cv("link");
-  background-color: cv("link");
+  border-color: cv("link", "base");
+  background-color: cv("link", "base");
 
   font-weight: 500;
-  color: cv("body");
+  color: cv("body", "base");
 }
 
 .authorization-layout .authorization-layout--content a.social-btn,
@@ -28,22 +28,22 @@
   background-color: cv("link", "gray");
 
   font-weight: 500;
-  color: cv("text");
+  color: cv("text", "base");
 }
 
 .authorization-layout .authorization-layout--content .auth0-banner {
-  background-color: cv("code");
+  background-color: cv("code", "base");
 
   color: cv("text", "accent");
 }
 
 .authorization-layout .authorization-layout--content .auth0-banner a:link,
 .authorization-layout .authorization-layout--content .auth0-banner a:visited {
-  color: cv("link");
+  color: cv("link", "base");
 }
 
 .authorization-layout .authorization-layout--content .auth0-banner--logo:after {
-  background-color: cv("white") !important;
+  background-color: cv("white", "base") !important;
   background-image: none !important;
   mask-repeat: no-repeat;
   mask-position: center;

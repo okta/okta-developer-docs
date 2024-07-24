@@ -135,7 +135,7 @@
 }
 
 .tree-nav .sections:first-child > .link-wrap > .tree-nav-link.router-link-active > .text-holder {
-  color: cv("link");
+  color: cv("link", "base");
 }
 
 .tree-nav .sections .link-wrap {
@@ -189,7 +189,7 @@
   font-weight: 400;
   font-size: 1em;
   text-decoration: none;
-  color: cv("text");
+  color: cv("text", "base");
   cursor: pointer;
 }
 
@@ -233,7 +233,7 @@
 }
 
 .tree-nav .sections .tree-nav-link.router-link-active {
-  color: cv("link");
+  color: cv("link", "base");
   @include active-link;
 }
 

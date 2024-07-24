@@ -21,7 +21,6 @@ This guide explains how to build transactional verification using a Client-Initi
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
 * A configured [mobile app that verifies user identities for an Okta Custom Authenticator](/docs/guides/authenticators-custom-authenticator/ios/main/) and [responds to CIBA authorization challenges](https://github.com/okta/okta-devices-swift#enable-using-your-app-for-client-initiated-backchannel-authentication-ciba) sent by Okta in a backchannel request.
 * A test user in your org that you can use for testing the CIBA flow with a Custom Authenticator.
-* The CIBA feature enabled for your org. From the left navigation pane in the Admin Console, go to **Settings** > **Features**, locate the Transaction Verification feature and slide to enable.
 
 > **Note:** See the [Okta Devices Swift SDK](https://github.com/okta/okta-devices-swift) for iOS and the [Okta Mobile Kotlin SDK](https://github.com/okta/okta-mobile-kotlin) for Android for more information on the Okta Devices SDK. This guide uses the [Okta Devices Swift SDK](https://github.com/okta/okta-devices-swift#okta-devices-sdk).
 

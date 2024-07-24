@@ -1,25 +1,25 @@
 .selector-tile--header {
-  border-bottom: 1px solid cv("action");
+  border-bottom: 1px solid cv("action", "base");
 
-  color: cv("action");
+  color: cv("action", "base");
 }
 
 .selector-tile--header:visited,
 .selector-tile--header:active,
 .selector-tile--header:focus {
-  color: cv("action");
+  color: cv("action", "base");
 }
 
 .selector-tile--header:hover {
-  color: cv("text");
+  color: cv("text", "base");
 }
 
 .selector-tile--header:hover i {
-  color: cv("text");
+  color: cv("text", "base");
 }
 
 .selector-tile--header i {
-  color: cv("action");
+  color: cv("action", "base");
 }
 
 .selector-tile--data--item {
@@ -29,9 +29,9 @@
 .selector-tile--data--item:hover {
   background: cv("text", "accent");
 
-  color: cv("text");
+  color: cv("text", "base");
 }
 
 .selector-tile--data--item:hover > i {
-  color: cv("text");
+  color: cv("text", "base");
 }

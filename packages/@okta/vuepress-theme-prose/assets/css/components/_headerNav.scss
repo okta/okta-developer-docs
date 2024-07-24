@@ -22,6 +22,7 @@
 
   @include media(">desktop") {
     &:hover {
+      text-decoration: none;
       color: #b6caff !important;
 
       &::after {
@@ -34,6 +35,7 @@
 .dark-theme .header-nav a {
   @include media(">desktop") {
     &:hover {
+      text-decoration: none;
       color: #b1e4de !important;
     }
   }

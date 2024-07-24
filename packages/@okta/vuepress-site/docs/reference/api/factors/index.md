@@ -1011,7 +1011,7 @@ Customize (and optionally localize) the SMS message sent to the user on enrollme
 * If the language provided in the `Accept-Language` header doesn't exist, the SMS message is sent using the template text.
 * If the provided `templateId` doesn't match the existing template, the SMS message is sent using the default template.
 
-> **Note:** For instructions about how to create custom templates, see [SMS template](/docs/reference/api/templates/#add-sms-template).
+> **Note:** For instructions about how to create custom templates, see [Create an SMS Template](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Template/#tag/Template/operation/createSmsTemplate).
 
 ###### Request example
 
@@ -1055,7 +1055,7 @@ curl -v -X POST \
 
 Customize (and optionally localize) the SMS message sent to the user in case Okta needs to resend the message as part of enrollment.
 
-> **Note:** For instructions about how to create custom templates, see [SMS template](/docs/reference/api/templates/#add-sms-template).
+> **Note:** For instructions on how to create custom templates, see [Create an SMS Template](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Template/#tag/Template/operation/createSmsTemplate).
 
 ###### Request example
 
@@ -2979,7 +2979,7 @@ Customize (and optionally localize) the SMS message sent to the user on verifica
 * If the language provided in the `Accept-Language` header doesn't exist in the template definition, the SMS message is sent using the template text.
 * If the provided `templateId` doesn't match an existing template, the SMS message is sent using the default template.
 
-To create custom templates, see [Templates](/docs/reference/api/templates/#add-sms-template).
+To create custom templates, see [Create an SMS Template](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Template/#tag/Template/operation/createSmsTemplate).
 
 ###### Request example
 

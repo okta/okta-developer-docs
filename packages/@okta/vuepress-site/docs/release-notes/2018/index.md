@@ -371,7 +371,7 @@ A System Log event will be generated exactly two days before a temporary API rat
 
 #### Required Properties in App User Schema
 
-API calls to [modify an app user schema](/docs/reference/api/schemas/#update-app-user-profile-schema-property) can no longer change the nullability (`required` field) of a property if that property is shown as required in the default predefined schema for that app. <!--OKTA-177449-->
+API calls to [modify an app user schema](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/#tag/Schema/operation/updateApplicationUserProfile) can no longer change the nullability (`required` field) of a property if that property is shown as required in the default predefined schema for that app. <!--OKTA-177449-->
 
 #### Previously Released Early Access Features 2018.36 Update
 
@@ -658,7 +658,7 @@ The following features have already been released as Early Access. To enable the
 
 #### User Login Pattern Validation
 
-A user's `login` no longer needs to be in the form of an email address.  Instead the login is validated against a `pattern` property stored in the User Schema, which can be set to certain Regular Expressions.  If no pattern is set, the default validation requires email addresses. More information can be found in the [User](/docs/reference/api/users) and [Schema](/docs/reference/api/schemas/) API references. <!-- OKTA-166157 -->
+A user's `login` no longer needs to be in the form of an email address.  Instead, the login is validated against a `pattern` property stored in the User Schema, which can be set to certain Regular Expressions. If no pattern is set, the default validation requires email addresses. More information can be found in the [User](/docs/reference/api/users) and [Schema](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/) API references. <!-- OKTA-166157 -->
 
 #### Bugs Fixed in 2018.24
 
@@ -1179,7 +1179,7 @@ Preference-Applied: return=minimal
 
 #### User Schema API Allows Nullable `firstName`, `lastName`
 
-You can set `firstName` or `lastName` to be nullable in [the User Profile Base sub-schema](/docs/reference/api/schemas/#user-profile-base-subschema). These properties are defined in a profile sub-schema with the resolution scope `#base`.
+You can set `firstName` or `lastName` to be nullable in [the User Profile Base sub-schema](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/#tag/Schema/operation/getUserSchema!c=200&path=definitions/base&t=response). These properties are defined in a profile sub-schema with the resolution scope `#base`.
 
 #### Improved Response Mode for OAuth 2.0 and OpenID Connect Requests
 
@@ -1399,7 +1399,7 @@ The following bug has been fixed and is expected in preview orgs February 7, 201
 | [New Version of the Sign-In Widget](#new-version-of-the-sign-in-widget) | Available Now | Available Now |
 
 #### Generally Available: App User Schema API
-Use the [App User Schema API](/docs/reference/api/schemas/#app-user-schema-operations) to work with App User profiles, typically for apps that have features for provisioning users. <!--OKTA-154105-->
+Use the [App User Schema API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/#tag/Schema/operation/getApplicationUserSchema) to work with App User profiles, typically for apps that have features for provisioning users. <!--OKTA-154105-->
 
 #### Special HTML Characters in `state` for `okta_post_message`
 
@@ -1452,7 +1452,7 @@ The following bugs have been fixed and are expected in preview orgs January 31, 
 | [App User Schema API is Generally Available](#generally-available-app-user-schema-api)   | Available Now          | February 13, 2017  |
 
 #### Generally Available: App User Schema API
-Use the [App User Schema API](/docs/reference/api/schemas/#app-user-schema-operations) to work with App User profiles, typically for apps that have features for provisioning users. <!--OKTA-154105-->
+Use the [App User Schema API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/#tag/Schema/operation/getApplicationUserSchema) to work with App User profiles, typically for apps that have features for provisioning users. <!--OKTA-154105-->
 
 
 ### Weekly Release 2018.02
@@ -1465,7 +1465,7 @@ Use the [App User Schema API](/docs/reference/api/schemas/#app-user-schema-opera
 | [SHA-256 Certificates for New SAML 2.0 Apps is Generally Available](#generally-available-sha-256-certificates-for-saml-20-apps) | Available  Now        | January 10, 2018                |
 
 #### Generally Available: App User Schema API
-Use the [App User Schema API](/docs/reference/api/schemas/#app-user-schema-operations) to work with App User profiles, typically for apps that have features for provisioning users. <!--OKTA-154105-->
+Use the [App User Schema API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/#tag/Schema/operation/getApplicationUserSchema) to work with App User profiles, typically for apps that have features for provisioning users. <!--OKTA-154105-->
 
 #### Generally Available: SHA-256 Certificates for SAML 2.0 Apps
 

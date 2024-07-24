@@ -1,5 +1,6 @@
 <script>
-import { LAYOUT_CONSTANTS } from "../layouts/Layout";
+
+import { LAYOUT_CONSTANTS } from "../const/index.const";
 
 export default {
   inject: ['appContext'],
@@ -64,7 +65,7 @@ export default {
 
         if (
           scrollPosition >= midOffsetTop &&
-          scrollPosition <= midOffsetTopNext
+          scrollPosition <= midOffsetTopNext - 1
         ) {
           return anchors[mid];
         }

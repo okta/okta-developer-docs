@@ -129,20 +129,42 @@
   src: url("/fonts/okticon.eot?#iefix") format("embedded-opentype"), url("/fonts/okticon.woff") format("woff"), url("/fonts/okticon.ttf") format("truetype"), url("/fonts/okticon.svg#okticon") format("svg");
 }
 
+html {
+  font-size: $base-font-size;
+}
+
 a {
   font-weight: 500;
   text-decoration: none;
-  color: cv("link");
+  color: cv("link", "base");
   &:visited,
   &:active,
   &:focus {
-    color: cv("link");
+    color: cv("link", "base");
   }
   @include media(">desktop") {
     &:hover {
+      text-decoration: none;
       color: #3f59e4;
     }
   }
+}
+
+p {
+  margin-bottom: 1.5rem;
+
+  font-size: 100%;
+}
+
+blockquote {
+  margin: 0 0 1.5rem;
+  padding: 1.5rem 1.5rem 1.5rem calc(1.5rem + 3px);
+
+  border-top: 1px solid cv("gray", "300");
+  border-bottom: 1px solid cv("gray", "300");
+  border-left: 3px solid cv("violet", "base");
+  border-right: 1px solid cv("gray", "300");
+  border-radius: 4px;
 }
 
 h1,
@@ -155,6 +177,9 @@ h6 {
   margin-bottom: 1.1rem;
 
   font-weight: 600;
+
+  line-height: 1.2;
+
   color: cv("text", "darker");
   -webkit-font-smoothing: antialiased;
 }
@@ -177,6 +202,7 @@ h4 {
 
 h5 {
   font-size: 16px;
+  line-height: 1.5;
 }
 
 h6 {
@@ -185,16 +211,6 @@ h6 {
 
 .is-link {
   cursor: pointer;
-}
-
-blockquote {
-  padding: 1.5rem 1.5rem 1.5rem calc(1.5rem + 3px);
-
-  border-top: 1px solid cv("gray", "300");
-  border-bottom: 1px solid cv("gray", "300");
-  border-left: 3px solid cv("violet", "base");
-  border-right: 1px solid cv("gray", "300");
-  border-radius: 4px;
 }
 
 button {
@@ -206,4 +222,41 @@ button {
 input,
 textarea {
   font-family: "Aeonik";
+}
+
+ol,
+ul {
+  &:not([class]) {
+    margin: 0 0 $base-spacing 0;
+    padding: 0 0 0 $base-spacing;
+
+    max-width: $max-line-length;
+    list-style-position: outside;
+
+    font-size: 100%;
+  }
+}
+
+ol:not([class]) li,
+ul:not([class]) li {
+  margin-bottom: $small-spacing;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+p + ol:not([class]),
+p + ul:not([class]) {
+  margin-top: -$small-spacing;
+}
+
+ol:not([class]):last-child,
+ul:not([class]):last-child {
+  margin-bottom: 0;
+}
+
+code {
+  font-family: unset;
+  color: unset;
 }

@@ -247,7 +247,7 @@ $gray-900: #2f3f4a;
   padding: 0 45px;
   height: 41px;
 
-  border: 2px solid cv("link");
+  border: 2px solid cv("link", "base");
   border-radius: 3px;
 
   font-weight: 500;
@@ -257,7 +257,7 @@ $gray-900: #2f3f4a;
 }
 
 .top-bar-nav .navigation .buttons-block--button.red {
-  background: cv("header");
+  background: cv("header", "base");
 
   color: #ffffff;
 }
@@ -339,7 +339,7 @@ $gray-900: #2f3f4a;
 .top-bar-nav--controls--toggle svg.toggle {
   width: 1.4em;
 
-  fill: cv("link");
+  fill: cv("link", "base");
 }
 
 .top-bar-nav--controls--toggle svg.toggle-close {

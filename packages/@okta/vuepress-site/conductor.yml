@@ -112,7 +112,7 @@ redirects:
   - from: /docs/api/rest/sessions.html
     to: /docs/reference/api/sessions/
   - from: /docs/api/rest/templates.html
-    to: /docs/reference/api/templates/index.html
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Template/
   - from: /docs/getting_started/tokens.html
     to: /docs/guides/create-an-api-token/
   - from: /docs/api/resources/tokens/index.html
@@ -476,13 +476,13 @@ redirects:
   - from: /docs/api/resources/policy/index.html
     to: /docs/reference/api/policy/
   - from: /docs/api/resources/schemas/index.html
-    to: /docs/reference/api/schemas/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/
   - from: /docs/api/resources/sessions/index.html
     to: /docs/reference/api/sessions/
   - from: /docs/api/resources/system_log/index.html
     to: /docs/reference/api/system-log/
   - from: /docs/api/resources/templates/index.html
-    to: /docs/reference/api/templates/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Template/
   - from: /docs/api/resources/threat-insight/index.html
     to: /docs/reference/api/threat-insight/
   - from: /docs/api/resources/trusted-origins/index.html
@@ -804,13 +804,13 @@ redirects:
   - from: /docs/api/resources/policy
     to: /docs/reference/api/policy/
   - from: /docs/api/resources/schemas
-    to: /docs/reference/api/schemas/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/
   - from: /docs/api/resources/sessions
     to: /docs/reference/api/sessions/
   - from: /docs/api/resources/system_log
     to: /docs/reference/api/system-log/
   - from: /docs/api/resources/templates
-    to: /docs/reference/api/templates/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Template/
   - from: /docs/api/resources/trusted-origins
     to: /docs/reference/api/trusted-origins/
   - from: /docs/api/resources/users
@@ -906,11 +906,11 @@ redirects:
   - from: /docs/api/resources/policy.html
     to: /docs/reference/api/policy/
   - from: /docs/api/resources/schemas.html
-    to: /docs/reference/api/schemas/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/
   - from: /docs/api/resources/system_log.html
     to: /docs/reference/api/system-log/
   - from: /docs/api/resources/templates.html
-    to: /docs/reference/api/templates/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Template/
   - from: /docs/api/resources/trusted-origins.html
     to: /docs/reference/api/trusted-origins/
   - from: /docs/api/resources/zones.html

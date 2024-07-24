@@ -82,7 +82,7 @@ $small-spacing: 0.75rem;
   text-overflow: ellipsis;
   text-overflow: ellipsis;
   white-space: nowrap;
-  color: cv("text");
+  color: cv("text", "base");
 }
 
 .stack-selector .selector-control .vs__search {
@@ -159,7 +159,7 @@ $small-spacing: 0.75rem;
 .stack-selector .selector-control .vs__dropdown-menu .vs__dropdown-option--highlight {
   box-sizing: border-box;
 
-  border: 1px solid cv("action");
+  border: 1px solid cv("action", "base");
   background: inherit;
 
   color: inherit;
@@ -168,7 +168,7 @@ $small-spacing: 0.75rem;
 .stack-selector .selector-control .vs__dropdown-menu .vs__dropdown-option--highlight:last-child {
   box-sizing: border-box;
 
-  border: 1px solid cv("action");
+  border: 1px solid cv("action", "base");
   border-radius: 0 0 4px 4px;
 }
 

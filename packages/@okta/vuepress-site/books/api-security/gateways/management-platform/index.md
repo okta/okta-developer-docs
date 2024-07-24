@@ -4,7 +4,7 @@ title: The Role of an API Management Platform - API Gateways
 
 <div style="font-size: 0.9em; margin-bottom: -20px;"><a href="/books/api-security/gateways/">&larr; API Gateways</a></div>
 
-## The Role of an API Management Platform {#gateways-management-platform}
+## The Role of an API Management Platform [[#gateways-management-platform]]
 
 ### Lifecycle Management
 

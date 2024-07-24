@@ -268,7 +268,10 @@ module.exports = ctx => ({
 
   markdown: {
     extendMarkdown: md => {
-      md.use(require('markdown-it-attrs'))
+      md.use(require('markdown-it-attrs'), {
+        leftDelimiter: '[[',
+        rightDelimiter: ']]'
+      }) 
     },
     anchor: {
       permalinkBefore: false,
@@ -327,6 +330,7 @@ module.exports = ctx => ({
               '/docs/reference/csi-delauth-hook/',
               //'/docs/reference/api/inline-hooks-lea/',
               //'/docs/reference/api/hook-keys/'
+              '/docs/guides/configure-amr-claims-mapping/'
           ]
         }
       ]

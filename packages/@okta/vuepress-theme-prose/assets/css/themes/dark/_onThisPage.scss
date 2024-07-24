@@ -1,5 +1,5 @@
 .page-body .content--container .mobile-on-this-page {
-  color: cv("body");
+  color: cv("body", "base");
 }
 
 .page-body .content--container .mobile-on-this-page .vs__dropdown-toggle {
@@ -11,7 +11,7 @@
 }
 
 .page-body .content--container .on-this-page .title {
-  color: cv("text");
+  color: cv("text", "base");
 }
 
 .page-body .content--container .on-this-page .links {
@@ -19,7 +19,7 @@
 }
 
 .page-body .content--container .on-this-page a.router-link-active {
-  border-color: cv("action");
+  border-color: cv("action", "base");
 }
 
 .mobile-on-this-page .vs__dropdown-menu .vs__dropdown-option--highlight {

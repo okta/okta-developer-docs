@@ -1,6 +1,6 @@
 {
-  "release" : "2024.06.1",
-  "build" : "2024.06.1-begin-145-g888629ac004b",
+  "release" : "2024.07.1",
+  "build" : "2024.07.1-begin-115-ge97a014a96fd",
   "categories" : [ {
     "id" : "access-gateway",
     "name" : "Access Gateway"
@@ -779,6 +779,10 @@
     "description" : "Authenticator Management.",
     "tags" : [ ]
   }, {
+    "id" : "authentication-telemetry",
+    "description" : "",
+    "tags" : [ ]
+  }, {
     "id" : "agent",
     "description" : "Agent.",
     "tags" : [ ]
@@ -1182,6 +1186,42 @@
         "actor" : null,
         "targets" : [ "OrgResourceDetails" ],
         "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "account.org.consent.grant",
+      "category" : "account-services",
+      "description" : "Aerial consent granted. Triggered when access to an Aerial account is granted. This event audits the user who made the grant. This event is fired when the the user grants consent to add the org to Aerial.",
+      "info" : {
+        "created" : "2024-05-24",
+        "release" : "2024.06.1"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "account-service" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null,
+        "changeDetails" : null
+      }
+    }, {
+      "id" : "account.org.consent.revoke",
+      "category" : "account-services",
+      "description" : "Aerial consent revoked. Triggered when access to an Aerial account is revoked. This event audits the user who revoked the access. This event is fired when the the user revokes consent to add the org to Aerial.",
+      "info" : {
+        "created" : "2024-05-24",
+        "release" : "2024.06.1"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "account-service" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null,
+        "changeDetails" : null
       }
     }, {
       "id" : "account.org.delete.cancel",
@@ -1642,7 +1682,7 @@
         "release" : "2017.52"
       },
       "beta" : false,
-      "internal" : true,
+      "internal" : false,
       "tags" : [ "app" ],
       "mappings" : [ "app.audit_report.download" ],
       "schema" : {
@@ -6512,6 +6552,24 @@
         "changeDetails" : [ ]
       }
     }, {
+      "id" : "certification.campaign.context.update",
+      "category" : "id-fabric",
+      "description" : "Triggered when the customizable context settings are updated at org level. Can be used to audit customizable context settings changes in the system log as well as reports. This is triggered when the customizable context settings are updated at the org level.",
+      "info" : {
+        "created" : "2024-06-03",
+        "release" : "2024.06.1"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "certification", "event-hook-eligible" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "IgaCampaignDebugData",
+        "actor" : null,
+        "targets" : [ "ResourceDetails" ],
+        "changeDetails" : [ ]
+      }
+    }, {
       "id" : "certification.campaign.create",
       "category" : "id-fabric",
       "description" : "Triggered when a new campaign is created. Can be used to audit campaign activity in the system log as well as reports. This is triggered by creating a new campaign.",
@@ -6854,6 +6912,24 @@
         "changeDetails" : null
       }
     }, {
+      "id" : "device.local_account.create",
+      "category" : "device-sso",
+      "description" : "Fired when a user creates a local account on a device backed by Okta credentials. Will allow an admin to identify and audit which Okta users are creating local accounts on registered Okta device using Just-In-Time (JIT) local account creation feature. Note that the event is fired even when the account creation is unsuccessful.",
+      "info" : {
+        "created" : "2024-06-17",
+        "release" : "2024.06.2"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "device-sso", "oie-only" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null,
+        "changeDetails" : null
+      }
+    }, {
       "id" : "device.password_sync.authentication",
       "category" : "device-sso",
       "description" : "Fired when the OS tries to sync a local account password with an Okta password. Can be used to audit that a credential has been successfully registered, and troubleshoot why a credential registration attempt has failed. Note that the event is fired even when the password sync is unsuccessful.",
@@ -7086,6 +7162,42 @@
         "actor" : null,
         "targets" : [ "DirectoryResourceDetails" ],
         "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "directory.external.group.membership.add",
+      "category" : "directories",
+      "description" : "External API call to add user group membership in a directory. This event audits the directory integration API when it adds a user to a group in a directory. Note that the event is fired even when the API call is unsuccessful.",
+      "info" : {
+        "created" : "2024-06-25",
+        "release" : "2024.07.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "ad-agent", "group", "user" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null,
+        "changeDetails" : null
+      }
+    }, {
+      "id" : "directory.external.group.membership.remove",
+      "category" : "directories",
+      "description" : "External API call to remove user group membership in a directory. This event audits the directory integration API when it removes a user from a group in a directory. Note that the event is fired even when the API call is unsuccessful.",
+      "info" : {
+        "created" : "2024-06-25",
+        "release" : "2024.07.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "ad-agent", "group", "user" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null,
+        "changeDetails" : null
       }
     }, {
       "id" : "directory.linked_object.create",
@@ -8176,7 +8288,7 @@
         "release" : "2019.01.2"
       },
       "beta" : false,
-      "internal" : true,
+      "internal" : false,
       "tags" : [ "inline-hook" ],
       "mappings" : [ "platform.inline_hook.verified.failure", "platform.inline_hook.verified.success" ],
       "schema" : {
@@ -10096,7 +10208,7 @@
     }, {
       "id" : "pam.resource.checkin.end",
       "category" : "asa",
-      "description" : "This event is triggered when a resource's check-in process completes or fails to complete. Monitor 'FAILED' outcomes of this event to identify resources that may be unavailable for checkout due to an incomplete check-in. This event contains details of the original checkout and, if a failure occurred, the reason why the check-in failed.",
+      "description" : "This event is triggered when a resource's checkin process completes or fails to complete. Monitor 'FAILED' outcomes of this event to identify resources that may be unavailable for checkout due to an incomplete checkin. This event contains details of the original checkout and, if a failure occurred, the reason why the checkin failed.",
       "info" : {
         "created" : "2024-05-10",
         "release" : "2024.05.1"
@@ -10114,7 +10226,7 @@
     }, {
       "id" : "pam.resource.checkin.start",
       "category" : "asa",
-      "description" : "This event is triggered when a previously checked out resource has its check-in process started. Use this event to identify when a user's exclusive access to a resource has ended. This event contains details of the original checkout and the user who checked it in.",
+      "description" : "This event is triggered when a previously checked out resource has its checkin process started. Use this event to identify when a user's exclusive access to a resource has ended. This event contains details of the original checkout and the user who checked it in.",
       "info" : {
         "created" : "2024-05-10",
         "release" : "2024.05.1"
@@ -10616,6 +10728,60 @@
         "changeDetails" : null
       }
     }, {
+      "id" : "pam.sudo_command_bundle.create",
+      "category" : "asa",
+      "description" : "This event is triggered after a sudo command bundle is created. Use this event to determine when Resource Administrators create a new Sudo Command Bundle. Only applicable for Okta Privileged Access. This event defines when a Resource Administrator has created a new sudo command bundle.",
+      "info" : {
+        "created" : "2023-06-14",
+        "release" : "2023.06.1"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null,
+        "changeDetails" : null
+      }
+    }, {
+      "id" : "pam.sudo_command_bundle.delete",
+      "category" : "asa",
+      "description" : "This event is triggered after a sudo command bundle is deleted. Use this event to determine when Resource Administrators delete an existing Sudo Command Bundle. Only applicable for Okta Privileged Access. This event defines when a Resource Administrator has deleted a sudo command bundle.",
+      "info" : {
+        "created" : "2023-06-14",
+        "release" : "2023.06.1"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null,
+        "changeDetails" : null
+      }
+    }, {
+      "id" : "pam.sudo_command_bundle.update",
+      "category" : "asa",
+      "description" : "This event is triggered after a sudo command bundle is updated. Use this event to determine when Resource Administrators update an existing Sudo Command Bundle. Only applicable for Okta Privileged Access. This event defines when a Resource Administrator has updated a new sudo command bundle.",
+      "info" : {
+        "created" : "2023-06-14",
+        "release" : "2023.06.1"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null,
+        "changeDetails" : null
+      }
+    }, {
       "id" : "pam.team.create",
       "category" : "asa",
       "description" : "This event is triggered after a team is created in ASA.",
@@ -10978,7 +11144,7 @@
     }, {
       "id" : "pam.user_creds.issue",
       "category" : "asa",
-      "description" : "This event is triggered after ASA credentials are issued to access servers.",
+      "description" : "This event is triggered when an Okta user is authorized and initiates a connection to a server protected by Okta.",
       "info" : {
         "created" : "2022-02-01",
         "release" : "2022.02.0"
@@ -11302,7 +11468,7 @@
     }, {
       "id" : "policy.auth_reevaluate.fail",
       "category" : "authn-platform",
-      "description" : "Auth policy re-evaluation has occurred and has resulted in a continuous access violation. Can be used to identify which user, apps, and session were involved in a continuous access violation event. Event fired when continuing access evaluation results in failure.",
+      "description" : "This event is triggered when your org's authentication or global session policy is reevaluated, and a violation is identified",
       "info" : {
         "created" : "2023-08-07",
         "release" : "2023.09.0"
@@ -11320,7 +11486,7 @@
     }, {
       "id" : "policy.continuous_access.action",
       "category" : "authn-platform",
-      "description" : "Contionuous Access policy action invocation. Signal that an action associated with a continuous access policy evaluation has been invoked. Event fired when an action associated with a continuous access policy evaluation has been invoked.",
+      "description" : "This event is triggered when Okta logs a user out of their configured apps or runs a Workflow in response to an authentication or global session policy violation.",
       "info" : {
         "created" : "2023-08-07",
         "release" : "2023.09.0"
@@ -11338,7 +11504,7 @@
     }, {
       "id" : "policy.continuous_access.evaluate",
       "category" : "authn-platform",
-      "description" : "Evaluation of Continuous Access Policy. Signal that continuous access policy has been evaluated for a session which has failed CAE. Event fired when continuous access policy has been evaluated for a session which has failed CAE.",
+      "description" : "This event is triggered when a post auth session evaluation occurs.",
       "info" : {
         "created" : "2023-08-07",
         "release" : "2023.09.0"
@@ -17186,12 +17352,48 @@
         "changeDetails" : [ ]
       }
     }, {
+      "id" : "user.internal.authentication.telemetry",
+      "category" : "access-frameworks",
+      "description" : "Captures authentication telemetry and MFA abandonment during auth flow. This internal event is a valuable data point for data scientists aiming to analyze security threats, fraud detection etc. This event captures comprehensive telemetry data related to the user authentication process, including various authentication factors used, timestamps of different steps, the success or failure of the authentication attempts, and the detection of MFA abandonment.",
+      "info" : {
+        "created" : "2024-06-12",
+        "release" : "2024.06.2"
+      },
+      "beta" : false,
+      "internal" : true,
+      "tags" : [ "authentication-telemetry" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null,
+        "changeDetails" : null
+      }
+    }, {
       "id" : "user.internal.risk.change",
       "category" : "adaptive",
-      "description" : "Indicates a user's risk level has changed. This internal event can be used to monitor risk level changes for users. This event is fired when Okta determines that a user is associated with activity or context that indicate risk.",
+      "description" : "Indicates a user's risk level has changed. This internal event can be used to monitor risk level changes for users. This event triggers when Okta determines that a user is associated with a change in risk activity or context.",
       "info" : {
         "created" : "2023-02-06",
         "release" : "2023.03.0"
+      },
+      "beta" : false,
+      "internal" : true,
+      "tags" : [ "risk", "security" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null,
+        "changeDetails" : null
+      }
+    }, {
+      "id" : "user.internal.risk.detect",
+      "category" : "adaptive",
+      "description" : "Indicates a user risk was detected. This internal event can be used to monitor risk level detections for users. This event triggers when Okta detects that a user is associated with risk activity or context.",
+      "info" : {
+        "created" : "2024-06-03",
+        "release" : "2024.06.1"
       },
       "beta" : false,
       "internal" : true,
@@ -17602,13 +17804,31 @@
     }, {
       "id" : "user.risk.change",
       "category" : "adaptive",
-      "description" : "Indicates a user's risk level has changed. This can be used to monitor risk level changes for users. This event is fired when Okta determines that a user is associated with activity or context that indicate risk.",
+      "description" : "Indicates a user's risk level has changed. This event can be used to monitor risk level changes for users. This event triggers when Okta determines that a user is associated with a change in risk activity or context.",
       "info" : {
         "created" : "2022-08-17",
         "release" : "2023.01.2"
       },
       "beta" : false,
       "internal" : false,
+      "tags" : [ "event-hook-eligible", "risk", "security" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null,
+        "changeDetails" : null
+      }
+    }, {
+      "id" : "user.risk.detect",
+      "category" : "adaptive",
+      "description" : "Indicates a user risk was detected. This event can be used to monitor risk level detections for users. This event triggers when Okta detects that a user is associated with risk activity or context.",
+      "info" : {
+        "created" : "2024-06-03",
+        "release" : "2024.06.1"
+      },
+      "beta" : false,
+      "internal" : true,
       "tags" : [ "event-hook-eligible", "risk", "security" ],
       "mappings" : [ ],
       "schema" : {
@@ -18309,7 +18529,7 @@
         "created" : "2024-02-07",
         "release" : "2024.02.1"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "workflows" ],
       "mappings" : [ ],
@@ -18327,7 +18547,7 @@
         "created" : "2024-02-07",
         "release" : "2024.02.1"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "workflows" ],
       "mappings" : [ ],
@@ -18345,7 +18565,7 @@
         "created" : "2024-02-07",
         "release" : "2024.02.1"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "workflows" ],
       "mappings" : [ ],
@@ -18363,7 +18583,7 @@
         "created" : "2024-02-07",
         "release" : "2024.02.1"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "workflows" ],
       "mappings" : [ ],
@@ -20117,6 +20337,30 @@
             "customer" : false,
             "format" : "id",
             "examples" : [ "X2VCdlgDiOx8wuRzdWiZ6gAABOk", "X04hrZh4mEb9dgc6GkD5@AAACPU" ]
+          },
+          "excluded_network_zones" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[nzo36563h1oVyGTWV0g5]", "[nzo2jfw38SImOPSHp0g4, nzo33jbpFPfaS35WW0g4]" ]
+          },
+          "included_network_zones" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[nzo36563h1oVyGTWV0g5]", "[nzo2jfw38SImOPSHp0g4, nzo33jbpFPfaS35WW0g4]" ]
+          },
+          "network_connection" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "ANYWHERE", "ZONE" ]
           },
           "concurrency_percentage" : {
             "type" : "Integer",
@@ -36539,7 +36783,7 @@
             "personal" : false,
             "customer" : false,
             "format" : "enum",
-            "examples" : [ "user.risk.change", "user.session.context.change" ]
+            "examples" : [ "user.risk.detect", "user.session.context.change" ]
           },
           "label" : {
             "type" : "String",
@@ -43750,6 +43994,14 @@
       "SignOnPolicyResourceDetails" : {
         "name" : "SignOnPolicyResourceDetails",
         "properties" : {
+          "access_request_intent" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "enroll", "unenroll", "recovery", "unlockAccount" ]
+          },
           "sign_on_mode_evaluation_result" : {
             "type" : "String",
             "sensitive" : false,
@@ -44326,11 +44578,11 @@
             "examples" : [ "{\"groups\" : [ \"00g1oqdbq6o0sbXZt0g4\"]" ]
           },
           "access_scope_settings_type" : {
-            "type" : "Enum",
+            "type" : "String",
             "sensitive" : false,
             "personal" : false,
             "customer" : false,
-            "format" : "enum",
+            "format" : "text",
             "examples" : [ "ENTITLEMENT_BUNDLES", "ENTITLEMENT_VALUES", "GROUPS", "RESOURCE_DEFAULT" ]
           },
           "requester_settings" : {
@@ -44342,19 +44594,19 @@
             "examples" : [ "{\"groups\" : [\"00g1oqdbq6o0sbXZt0g4\"]" ]
           },
           "requester_settings_type" : {
-            "type" : "Enum",
+            "type" : "String",
             "sensitive" : false,
             "personal" : false,
             "customer" : false,
-            "format" : "enum",
+            "format" : "text",
             "examples" : [ "EVERYONE", "REQUESTER_EXPRESSION", "GROUPS" ]
           },
           "status" : {
-            "type" : "Enum",
+            "type" : "String",
             "sensitive" : false,
             "personal" : false,
             "customer" : false,
-            "format" : "enum",
+            "format" : "text",
             "examples" : [ "ACTIVE", "INACTIVE", "INVALID" ]
           }
         }
@@ -44513,7 +44765,7 @@
             "format" : "text",
             "examples" : [ "" ]
           },
-          "custom_group_SAML_attributes" : {
+          "custom_group_saml_attributes" : {
             "type" : "List",
             "sensitive" : false,
             "personal" : false,
@@ -44521,7 +44773,7 @@
             "format" : "text",
             "examples" : [ "" ]
           },
-          "custom_generic_SAML_attributes" : {
+          "custom_generic_saml_attributes" : {
             "type" : "List",
             "sensitive" : false,
             "personal" : false,

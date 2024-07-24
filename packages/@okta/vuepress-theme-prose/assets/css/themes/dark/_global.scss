@@ -22,11 +22,11 @@ table::-webkit-scrollbar-thumb {
 }
 
 .page-body {
-  background-color: cv("body");
+  background-color: cv("body", "base");
 }
 
 hr {
-  color: cv("text");
+  color: cv("text", "base");
 }
 
 img[src*="odyssey/"] {

@@ -11,7 +11,7 @@
 }
 
 .api-uri-template strong {
-  color: cv("success");
+  color: cv("success", "base");
 }
 
 .api-uri-template .api-label {
@@ -34,19 +34,19 @@
 }
 
 .api-uri-get strong {
-  color: cv("success");
+  color: cv("success", "base");
 }
 
 .api-uri-get .api-label {
-  background: cv("success");
+  background: cv("success", "base");
 }
 
 .api-uri-post strong {
-  color: cv("warning");
+  color: cv("warning", "base");
 }
 
 .api-uri-post .api-label {
-  background: cv("warning");
+  background: cv("warning", "base");
 }
 
 .api-uri-put strong {
@@ -58,17 +58,17 @@
 }
 
 .api-uri-patch strong {
-  color: cv("violet");
+  color: cv("violet", "base");
 }
 
 .api-uri-patch .api-label {
-  background: cv("violet");
+  background: cv("violet", "base");
 }
 
 .api-uri-delete strong {
-  color: cv("danger");
+  color: cv("danger", "base");
 }
 
 .api-uri-delete .api-label {
-  background: cv("danger");
+  background: cv("danger", "base");
 }

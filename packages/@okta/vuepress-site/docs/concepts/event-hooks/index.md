@@ -17,7 +17,7 @@ Okta event hooks are an implementation of the industry concept of webhooks. Okta
 
 Before the introduction of event hooks, polling the [System Log API](/docs/reference/api/system-log/) was the only method your external software systems could use to detect the occurrence of specific events in your Okta org. Event hooks provide an Okta-initiated push notification.
 
-You can have a maximum of 10 active and verified event hooks set up in your org at any time. Each event hook can be configured to deliver multiple event types.
+You can have a maximum of 25 active and verified event hooks set up in your org at any time. Each event hook can be configured to deliver multiple event types.
 
 > **Note:** To deliver event information, event hooks use the data structure associated with the [System Log API](/docs/reference/api/system-log/).
 

@@ -51,7 +51,7 @@
   left: 10px;
 
   font: 13px "FontAwesome";
-  color: cv("header");
+  color: cv("header", "base");
 
   @include media(">desktop") {
     content: none;
@@ -102,12 +102,12 @@
   height: auto;
 
   border: none;
-  border-left: 2px solid cv("header");
+  border-left: 2px solid cv("header", "base");
 
   font-weight: 600;
   font-size: 14px;
   line-height: 1em;
-  color: cv("header");
+  color: cv("header", "base");
 }
 
 .search--wrapper .SearchBox .search--form .CoveoSearchButton:before {

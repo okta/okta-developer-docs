@@ -79,6 +79,7 @@
   --c-code-orange: #f19b56;
   --c-code-lightblue: #8bc5eb;
   --c-code-lightgray: #c4c4c4;
+  --c-code-highlight-bg: rgba(0 0 0 / 0.66);
   --c-cerise-red: #e22866;
   --c-link-blue: #00297a;
   --c-link-lightgray: #b5d0df;
@@ -113,6 +114,7 @@
   --c-code-define: var(--c-code-orange);
   --c-code-property: var(--c-code-lightblue);
   --c-code-string: var(--c-code-lightgray);
+  --c-code-highlight-background: var(--c-code-highlight-bg);
   --c-body-border: var(--c-body-lightgray);
   --c-body-white: var(--c-body);
   --c-tile-angle: var(--c-tile-gray);
@@ -171,6 +173,7 @@
   --c-code-lightblue: #92bcff;
   --c-code-lightgray: #8c8c96;
   --c-code-green: #00b478;
+  --c-code-bg: #282c34;
   --c-warning-base: #b35909;
   --c-warning-deprecation: #e97107;
   --c-success-base: #0d7855;
@@ -207,6 +210,7 @@
   --c-code-property: var(--c-code-lightblue);
   --c-code-string: var(--c-code-lightgray);
   --c-code-greenstring: var(--c-code-green);
+  --c-code-background: var(--c-code-bg);
   --c-breadcrumb-link: var(--c-gray-400);
   --c-breadcrumb-svg: var(--c-gray-500);
   --c-footer-gray: var(--c-gray-500);
@@ -313,7 +317,9 @@ $colors: (
     "define": var(--c-code-define),
     "property": var(--c-code-property),
     "string": var(--c-code-string),
-    "success": var(--c-code-greenstring)
+    "success": var(--c-code-greenstring),
+    "background": var(--c-code-background),
+    "highlight-background": var(--c-code-highlight-background)
   ),
   "form": (
     "input-border": var(--c-form-input-border)

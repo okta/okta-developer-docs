@@ -4,11 +4,9 @@ title: Role Assignment
 
 # Role assignment
 
-Role assignment to principals makes them administrators of your org. Principals can be users or groups of users. When a role is assigned to a group, all members of the group automatically have the privileges granted by the role.
+As a super admin, you can assign admin permissions to principals so they're able to perform tasks and access resources. Principals can be users, groups of users, or client apps. You can assign [standard roles](#standard-role-assignment), or create [custom roles](#custom-role-assignment) that limit an admin’s access to a subset of [permissions](#permission-types) and [resources](#supported-resources).
 
-Roles can be one of the [standard roles](#standard-role-assignment) that are provided by default. Alternatively, you can create your own custom roles by choosing from the collection of available [permissions](#permission-types).
-
-This page discusses the concepts of role assignment through APIs. See [Custom administrator roles](https://help.okta.com/okta_help.htm?id=ext-cstm-admin-roles).
+This page discusses the concepts of role assignment through APIs. See [Custom administrator roles](https://help.okta.com/okta_help.htm?id=ext-cstm-admin-roles) for product documentation through the Admin Console.
 
 ## Standard role assignment
 
@@ -235,6 +233,8 @@ Standard resource sets are managed by Okta only and can't be updated or deleted.
 | `okta.users.lifecycle.clearSessions`                        | Allows the admin to clear all active Okta sessions and OAuth tokens for a user                                                                       | All users, all users within a specific group |
 | `okta.users.groupMembership.manage`                         | Allows the admin to manage a user's group membership (also need `okta.groups.members.manage` to assign to a specific group)                          | All users, all users within a specific group |
 | `okta.users.appAssignment.manage`                           | Allows the admin to manage a user's app assignment (also need `okta.apps.assignment.manage` to assign to a specific app)                             | All users, all users within a specific group |
+| `okta.users.apitokens.manage`  | Allows the admin to manage API tokens  | All users, all users within a specific group |
+| `okta.users.apitokens.read`  | Allows the admin to view API tokens  | All users, all users within a specific group |
 | `okta.groups.manage`                                        | Allows the admin to fully manage groups in your Okta organization                                                                                    | All groups, a specific group                 |
 | `okta.groups.create`                                        | Allows the admin to create groups                                                                                                                    | All groups                                   |
 | `okta.groups.members.manage`                                | Allows the admin to only manage member operations in a group in your Okta org                                                                        | All groups, a specific group                 |
