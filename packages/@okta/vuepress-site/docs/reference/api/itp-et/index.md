@@ -294,7 +294,7 @@ This resource contains detailed reference material on event types triggered with
 ## user risk detect
 `user.risk.detect`
 
-**Description:** This event type indicates a user risk was detected. It can be used to monitor risk level detections for users. This event triggers when Okta detects that a user is associated with risk activity or context.
+**Description:** This event is triggered when Okta detects that a user is associated with risk activity or context. It can be used to monitor risk level detections for users.
 
 | Key event properties  | Description                                         | Data type            | Example values |
 | --------------------- | --------------------------------------------------- | -------------------- | -------------- |
