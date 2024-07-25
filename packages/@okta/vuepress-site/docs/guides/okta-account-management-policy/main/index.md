@@ -27,7 +27,7 @@ The Okta account management policy is a type of authentication policy. It define
 
 The Okta account management policy appears in GET calls to the `/policies` endpoint. However, it's read-only. You can't create, update, or delete the policy. Disable the feature if you want to stop using it. Most importantly, you can't assign it to apps. This policy applies to Okta account management actions only.
 
-However, you can use the Policy API to [manage the rules of the policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule).
+You can use the Policy API to [manage the rules of the policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule).
 
 See [Okta account management policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-oamp) for details about configuring the policy in the Admin Console.
 
