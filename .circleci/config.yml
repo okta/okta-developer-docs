@@ -1,14 +1,38 @@
 version: 2.1
 
+orbs:
+  general-platform-helpers: okta/general-platform-helpers@1.8
+
 parameters:
   preview:
     type: string
     default: ""
 
+commands:
+  install-deps:
+    steps:
+      - restore_cache:
+          name: Restore Yarn dependency cache
+          keys:
+            - v6-yarn-deps-{{ checksum "yarn.lock" }}
+            # allow for partial cache hits
+            - v6-yarn-deps-
+      - run:
+          name: Install dependencies with Yarn
+          command: yarn install --frozen-lockfile
+      - save_cache:
+          name: Save Yarn dependency cache
+          key: v6-yarn-deps-{{ checksum "yarn.lock" }}
+          paths:
+            - node_modules/
+            - packages/@okta/vuepress-plugin-active-header-links/node_modules/
+            - packages/@okta/vuepress-site/node_modules/
+            - ~/.cache/
+
 jobs:
   inclusive-linting:
     docker:
-      - image: cimg/node:18.19.0
+      - image: cimg/base:current
     resource_class: small
     steps:
       - checkout
@@ -22,15 +46,20 @@ jobs:
         NODE_OPTIONS: '--max_old_space_size=3584'
       steps:
         - checkout
+        - install-deps
         - run:
-            name: Install dependencies
-            command: yarn install --frozen-lockfile
+            name: Lint
+            command: yarn lint-all
         - run:
             name: Build
             command: yarn build
         - run:
             name: Run checks
             command: ./scripts/yarn-checks-ci.sh
+        - store_test_results:
+            path: test_results
+        - store_artifacts:
+            path: test_results
 
   nightly_link_checker:
     docker:
@@ -40,9 +69,7 @@ jobs:
       NODE_OPTIONS: '--max_old_space_size=3584'
     steps:
       - checkout
-      - run:
-          name: Install dependencies
-          command: yarn install --frozen-lockfile
+      - install-deps
       - run:
           name: Run script and capture logs
           command: yarn build
@@ -92,10 +119,7 @@ jobs:
               exit 1
             fi
       - checkout
-      - run:
-          name: Install dependencies
-          command: |
-            yarn install --frozen-lockfile
+      - install-deps
       - run:
           name: Build preview
           command: |
@@ -114,8 +138,6 @@ jobs:
             chmod +x ./scripts/update-dev-docs-pr-cci.sh
             ./scripts/update-dev-docs-pr-cci.sh
 
-orbs:
-  general-platform-helpers: okta/general-platform-helpers@1.8
 
 workflows:
   semgrep:
