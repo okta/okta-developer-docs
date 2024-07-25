@@ -33,7 +33,7 @@ See [Okta account management policy](https://help.okta.com/okta_help.htm?type=oi
 
 ### Policy configuration
 
-There are three primary use cases for the Okta account management policy. Each one adds a rule to the policy, so you can skip any that you don't need. However, if your org doesn't use phishing-resistant authenticators yet, start by enrolling your first phishing-resistant authenticator.
+There are three primary use cases for the Okta account management policy. Each one adds a rule to the policy, so you can skip any that you don't need. However, if your org doesn't use phishing-resistant authenticators yet, start by enrolling your first phishing-resistant authenticator:
 
 - [Add a rule for your first phishing-resistant authenticator](#add-a-rule-for-your-first-phishing-resistant-authenticator)
 - [Add a rule for authenticator enrollment](#add-a-rule-for-authenticator-enrollment)
@@ -45,7 +45,7 @@ You can also update rules to restore legacy processes. See [Use the legacy optio
 
 Before you can create or update policy rules, you need the `id` of your Okta account management policy.
 
-### Example request
+### Example policy ID request
 
 To retrieve your Okta account management policy, make a GET request to the `/api/v1/policies` endpoint. Set the policy `type` parameter to `ACCESS_POLICY`:
 
@@ -128,11 +128,14 @@ If your org already uses phishing-resistant authenticators, see [Add a rule for 
 
 If you want to add this rule using the Admin Console, see [Add a rule for your first phishing-resistant authenticator](https://help.okta.com/okta_help.htm?type=oie&id=ext-oamp-enroll-first).
 
-### Example request
+### Example rule request
 
-Send a POST request to the `/api/v1/policies/{policyId}/rules` endpoint. Use the value of `id` from the [GET call](#retrieve-the-okta-account-management-policy-id) as the value of `policyId` in your request.
+Send a POST request to the `/api/v1/policies/{policyId}/rules` endpoint. Consider the following:
 
-Set the value of `priority` to `1`.
+* Use the value of `id` from the [GET call](#retrieve-the-okta-account-management-policy-id) as the value of `policyId` in your request.
+* Set the value of `priority` to `1`.
+* Set values for `network.connection` and `network.include`.
+* Set the value of `device.managed` to `true`.
 
 ```bash
 curl --location --globoff 'https://{yourOktaDomain}/api/v1/policies/{policyId/rules?activate=true' \
@@ -236,7 +239,7 @@ Add this rule to build phishing resistance into your authenticator enrollment pr
 
 > **Note:** All users in your org must be eligible to use the phishing-resistant authenticators. See [Profile enrollment policies](/docs/concepts/policies/#profile-enrollment-policies).
 
-This request for authenticator enrollment is similar to the request to enroll your [first phishing-resistant authenticator](#example-request-1). However, keep in mind the following:
+This request is similar to the request to [add a rule](#example-rule-request) for your first phishing-resistant authenticator. However, keep in mind the following:
 
 * Use the same value for `policyId`.
 * Set the value of `priority` above the catch-all rule but below the first [phishing-resistant authenticator](#add-a-rule-for-your-first-phishing-resistant-authenticator) (if you added it). Be sure that the first phishing-resistant authenticator rule stays at priority 1.
@@ -252,7 +255,8 @@ The user experience for this process doesn't change, except that users' authenti
 
 - Users who are currently activated with a single factor can't enroll new authenticators or sign in to apps that require MFA. Refer to this task's prerequisite.
 - Users can lock themselves out if they unenroll too many authenticators. Inform your users that they must keep one phishing-resistant authenticator enrolled always.
-If a user doesn't meet the requirements of your Okta account management policy, they can't update their profile settings. All fields are read-only, including the Reset, Update, and Remove options for their existing security methods, and the authenticators that they haven't enrolled are hidden.
+If a user doesn't meet the requirements of your Okta account management policy, they can't update their profile settings. All fields are read-only, including the Reset, Update, and Remove options for their existing security methods. Also, the authenticators that they haven't enrolled are hidden.
+
 ## Add a rule for password recovery and account unlock
 
 Add this rule to require phishing resistant authenticators when users reset their passwords or unlock their accounts.
@@ -323,7 +327,7 @@ curl --location --request PUT '{yourSubdomain}/api/v1/policies/{policyId}/rules/
 }'
 ```
 
-### Example request
+### Example password policy update request
 
 Continue to use the same value for `policyId`.
 
@@ -337,7 +341,8 @@ There are no changes to the user experience when you move password recovery and 
 
 - [Stay signed in](https://help.okta.com/okta_help.htm?type=oie&id=ext-stay-signed-in): Works with the account management policy if you configure the authentication frequency correctly. The **Prompt for authentication** setting must be more frequent than the equivalent setting in your Okta Dashboard authentication policy. Setting **Prompt for authentication** in your Okta account management policy to every time ensures that users don't have to wait to reset a password.
 - [User enumeration prevention](https://help.okta.com/okta_help.htm?type=oie&id=ext_Security_General): Isn't supported in recovery scenarios with the Okta account management policy.
-If a user doesn't meet the requirements of your Okta account management policy, they can't update their profile settings. All fields are read-only, including the Reset, Update, and Remove options for their existing security methods, and the authenticators that they haven't enrolled are hidden.
+If a user doesn't meet the requirements of your Okta account management policy, they can't update their profile settings. All fields are read-only, including the Reset, Update, and Remove options for their existing security methods. Also, the authenticators that they haven't enrolled are hidden.
+
 ## Use the legacy option
 
 You might want to use the Okta account management policy for some processes but not for others. For example, you want to use the Okta account management policy for authenticator enrollment. However, for self-service password recovery, you want to keep using your password policy.
