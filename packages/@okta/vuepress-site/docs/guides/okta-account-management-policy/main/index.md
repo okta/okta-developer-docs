@@ -39,7 +39,7 @@ There are three primary use cases for the Okta account management policy. Each o
 - [Add a rule for authenticator enrollment](#add-a-rule-for-authenticator-enrollment)
 - [Add a rule for password recovery and account unlock](#add-a-rule-for-password-recovery-and-account-unlock)
 
-You can also update rules to restore legacy processes. See [Edit the Okta account management policy](#edit-the-okta-account-management-policy).
+You can also update rules to restore legacy processes. See [Use the legacy option](#use-the-legacy-option).
 
 ## Retrieve the Okta account management policy ID
 
@@ -98,11 +98,31 @@ Use the value of the `id` parameter to manage the policy's rules. You can also u
     }
 ```
 
+## Use Okta Expression Language in your requests
+
+You can include an [Okta Expression Language](/docs/reference/okta-expression-language-in-identity-engine/) Condition object in requests to add or update an Okta account management policy rule.
+
+The policy allows for the following specific expressions:
+
+| Syntax | Definitions | Type |
+| ------ | ----------- | ---- |
+| `accessRequest.{operation}`| `accessRequest` references the access context of the request. `operation` references the account management operation: `enroll`, `unenroll`, `recover`, or `unlockAccount`. | String |
+| `accessRequest.authenticator.{id}` | `accessRequest` references the access context of the request. `authenticator.id` references an optional authenticator `id`. For example, the `id` of a custom authenticator. | String |
+| `accessRequest.authenticator.{key}` | `accessRequest` references the access context of the request. `authenticator.key` references the [authenticator key](/docs/reference/api/policy/#authenticator-key-type-method-and-characteristic-relationships-for-constraints). | String |
+
+### Condition Object example
+
+```bash
+"elCondition": {
+    "condition": "accessRequest.operation == '\''enroll'\'' && ( accessRequest.authenticator.key == '\''okta_verify'\'' || accessRequest.authenticator.key == '\''webauthn'\'' || accessRequest.authenticator.key == '\''smart_card_idp'\'' || accessRequest.authenticator.key == '\''yubikey_token'\'' )"
+},
+```
+
 ## Add a rule for your first phishing-resistant authenticator
 
 Add this rule to your Okta account management policy if your org doesn't already use a phishing-resistant authenticator. After your users enroll their first phishing-resistant authenticator, you can require it for the other use cases.
 
-If your org already uses phishing-resistant authenticators, see [Add a rule for authenticator enrollment]().
+If your org already uses phishing-resistant authenticators, see [Add a rule for authenticator enrollment](#add-a-rule-for-authenticator-enrollment).
 
 > **Note:** This rule relies on [managed devices](https://support.okta.com/help/s/article/Howto-Get-a-List-of-All-Managed-and-NotManaged-Devices-in-Okta?language=en_US) and [IP Network Zones](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/NetworkZone/).
 
@@ -114,16 +134,95 @@ Send a POST request to the `/api/v1/policies/{policyId}/rules` endpoint. Use the
 
 Set the value of `priority` to `1`.
 
-
-
 ```bash
-
-
+curl --location --globoff 'https://{yourOktaDomain}/api/v1/policies/{policyId/rules?activate=true' \
+--header 'Content-Type: application/json' \
+--header 'Accept: application/json' \
+--header 'Authorization: SSWS {apiToken}' \
+--data '{
+    "system": false,
+    "type": "ACCESS_POLICY",
+    "id": "rul2p9xACRTDf9qZV0g4",
+    "name": "Test rule",
+    "priority": 1,
+    "status": "ACTIVE",
+    "created": "2024-07-16T20:27:25.000Z",
+    "lastUpdated": "2024-07-16T20:27:25.000Z",
+    "conditions": {
+        "userType": {
+            "include": [],
+            "exclude": []
+        },
+        "network": {
+          "connection": "ZONE",
+          "include": [
+            "nzo5dtwhzly9mXvlN0g7"
+            ]
+        },
+        "people": {
+            "users": {
+                "exclude": [],
+                "include": []
+            },
+            "groups": {
+                "include": [],
+                "exclude": []
+            }
+        },
+        "device": {
+            "registered": true,
+            "managed": true
+        },
+        "riskScore": {
+            "level": "LOW"
+        },
+        "elCondition": {
+            "condition": "accessRequest.operation == '\''enroll'\'' && ( accessRequest.authenticator.key == '\''okta_verify'\'' || accessRequest.authenticator.key == '\''webauthn'\'' || accessRequest.authenticator.key == '\''smart_card_idp'\'' || accessRequest.authenticator.key == '\''yubikey_token'\'' )"
+        },
+        "platform": {
+            "include": []
+        }
+    },
+    "actions": {
+        "appSignOn": {
+            "access": "ALLOW",
+            "verificationMethod": {
+                "factorMode": "2FA",
+                "reauthenticateIn": "PT0S",
+                "constraints": [
+                    {
+                        "possession": {
+                            "userPresence": "OPTIONAL"
+                        }
+                    }
+                ],
+                "type": "ASSURANCE"
+            }
+        }
+    },
+    "initialMode": false,
+    "_links": {
+        "self": {
+            "href": "https://brent-stellar-org.trexcloud.com/api/v1/policies/rst1k0mWSjjvYzqQv0g4/rules/rul2p9xACRTDf9qZV0g4",
+            "hints": {
+                "allow": [
+                    "GET",
+                    "PUT",
+                    "DELETE"
+                ]
+            }
+        },
+        "deactivate": {
+            "href": "https://brent-stellar-org.trexcloud.com/api/v1/policies/rst1k0mWSjjvYzqQv0g4/rules/rul2p9xACRTDf9qZV0g4/lifecycle/deactivate",
+            "hints": {
+                "allow": [
+                    "POST"
+                ]
+            }
+        }
+    }
+}'
 ```
-
-### Example response
-
-
 
 ### User experience
 
@@ -137,23 +236,15 @@ Add this rule to build phishing resistance into your authenticator enrollment pr
 
 > **Note:** All users in your org must be eligible to use the phishing-resistant authenticators. See [Profile enrollment policies](/docs/concepts/policies/#profile-enrollment-policies).
 
+This request for authenticator enrollment is similar to the request to enroll your [first phishing-resistant authenticator](#example-request-1). However, keep in mind the following:
+
+* Use the same value for `policyId`.
+* Set the value of `priority` above the catch-all rule but below the first [phishing-resistant authenticator](#add-a-rule-for-your-first-phishing-resistant-authenticator) (if you added it). Be sure that the first phishing-resistant authenticator rule stays at priority 1.
+* Use the same Expression Language conditions.
+* Your user doesn't need a managed device.
+* Your user doesn't need to sign in from a network zone.
+
 If you want to add this rule using the Admin Console, see [Add a rule for authenticator enrollment](https://help.okta.com/okta_help.htm?type=oie&id=ext-oamp-enroll-pr-auth).
-
-### Example request
-
-Continue to use the same value for `policyId`.
-
-Set the value of `priority` above the catch-all rule but below the first [phishing-resistant authenticator](#add-a-rule-for-your-first-phishing-resistant-authenticator) (if you added it). Be sure that the first phishing-resistant authenticator rule stays at priority 1.
-
-```bash
-
-
-```
-
-
-### Example response
-
-
 
 ### User experience
 
@@ -238,16 +329,7 @@ Continue to use the same value for `policyId`.
 
 Set the value of `priority` above the catch-all rule but below the first [phishing-resistant authenticator](#add-a-rule-for-your-first-phishing-resistant-authenticator) (if you added it). Be sure that the first phishing-resistant authenticator rule stays at priority 1.
 
-```bash
-
-
-```
-
-
-
-### Example response
-
-
+See [Add ](#add-a-rule-for-authenticator-enrollment).
 
 ### User experience
 
@@ -256,11 +338,9 @@ There are no changes to the user experience when you move password recovery and 
 - [Stay signed in](https://help.okta.com/okta_help.htm?type=oie&id=ext-stay-signed-in): Works with the account management policy if you configure the authentication frequency correctly. The **Prompt for authentication** setting must be more frequent than the equivalent setting in your Okta Dashboard authentication policy. Setting **Prompt for authentication** in your Okta account management policy to every time ensures that users don't have to wait to reset a password.
 - [User enumeration prevention](https://help.okta.com/okta_help.htm?type=oie&id=ext_Security_General): Isn't supported in recovery scenarios with the Okta account management policy.
 
-## Edit the Okta account management policy
+## Use the legacy option
 
 You might want to use the Okta account management policy for some processes but not for others. For example, you want to use the Okta account management policy for authenticator enrollment. However, for self-service password recovery, you want to keep using your password policy.
-
-
 
 ```bash
 curl --location --request PUT 'http://devorg1.okta1.com:1802/api/v1/policies/<POLICY_ID>/rules/<RULE_ID>' \
