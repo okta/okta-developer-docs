@@ -4,7 +4,7 @@ excerpt: How to add rules to an Okta account management policy using the Policie
 layout: Guides
 ---
 
-<ApiLifecycle access="ie" />
+<ApiLifecycle access="ie" /></br>
 <ApiLifecycle access="ea" />
 
 This guide describes how to use the [Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/) and [Okta Expression Language](/docs/reference/okta-expression-language-in-identity-engine/) to configure rules for the Okta account management policy.
@@ -52,7 +52,7 @@ To retrieve your Okta account management policy, make a GET request to the `/api
 ```bash
 curl -i -X GET \
   'https://subdomain.okta.com/api/v1/policies?type=ACCESS_POLICY' \
-  -H 'Authorization: YOUR_API_KEY_HERE'
+  -H 'Authorization: SSWS {apiToken}'
 ```
 
 ### Example response
@@ -280,7 +280,7 @@ Repeat for any other password policy rules.
 curl --location --request PUT '{yourSubdomain}/api/v1/policies/{policyId}/rules/{ruleId}' \
 --header 'Accept: application/json' \
 --header 'Content-Type: application/json' \
---header 'Authorization: SSWS {API_KEY}' \
+--header 'Authorization: SSWS {apiToken}' \
 --data '{
     "id": "{ruleId}",
     "name": "sdfsd",
@@ -346,7 +346,7 @@ You might want to use the Okta account management policy for some processes but 
 curl --location --request PUT 'http://devorg1.okta1.com:1802/api/v1/policies/<POLICY_ID>/rules/<RULE_ID>' \
 --header 'Accept: application/json' \
 --header 'Content-Type: application/json' \
---header 'Authorization: SSWS <API_KEY>' \
+--header 'Authorization: SSWS {apiToken}' \
 --data '{
     "id": "<RULE_ID>",
     "name": "sdfsd",
