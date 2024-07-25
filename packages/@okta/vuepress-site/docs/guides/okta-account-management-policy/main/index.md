@@ -25,7 +25,7 @@ This guide describes how to use the [Policies API](https://developer.okta.com/do
 
 The Okta account management policy is a type of authentication policy. It defines the requirements when users enroll in authenticators, recover their passwords, and unlock their accounts. The policy uses a rule-based framework to enforce phishing resistance throughout the user journey, from onboarding to authentication and recovery.
 
-Okta account management policies appear in GET calls to the `/policies` endpoint. However, they’re read-only. You can't create, update, or delete the policy. You have to disable the feature if you want to stop using it. Most importantly, you can't assign it to apps. This policy applies to Okta account management actions only.
+Okta account management policies appear in GET calls to the `/policies` endpoint. However, they’re read-only. You can't create, update, or delete the policy. Disable the feature if you want to stop using it. Most importantly, you can't assign it to apps. This policy applies to Okta account management actions only.
 
 However, you can use the Policy API to [manage the rules of the policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule).
 
@@ -98,9 +98,9 @@ Use the value of the `id` parameter to manage the policy's rules. You can also u
     }
 ```
 
-## Use Okta Expression Language in your requests
+## Use Expression Language in your requests
 
-You can include an [Okta Expression Language](/docs/reference/okta-expression-language-in-identity-engine/) Condition object in requests to add or update an Okta account management policy rule.
+You can include an [Expression Language](/docs/reference/okta-expression-language-in-identity-engine/) Condition object in requests to add or update an Okta account management policy rule.
 
 The policy allows for the following specific expressions:
 
@@ -226,13 +226,13 @@ curl --location --globoff 'https://{yourOktaDomain}/api/v1/policies/{policyId/ru
 
 ### User experience
 
-Users must be on a managed device, inside a trusted network zone, and demonstrate low risk behavior before they enroll the designated phishing-resistant authenticator. If they don't meet all of these requirements, they're denied enrollment, which means that they also can't access any apps with phishing-resistant authentication policies.
+Users must be on a managed device, inside a trusted network zone, and demonstrate low risk behavior before they enroll the designated phishing-resistant authenticator. If they don't meet all of these requirements, they're denied enrollment. That means that they also can't access any apps with phishing-resistant authentication policies.
 
 This rule also applies to authenticator unenrollment, and users can lock themselves out if they unenroll too many authenticators. Encourage users to always maintain one phishing-resistant authenticator.
 
 ## Add a rule for authenticator enrollment
 
-Add this rule to build phishing resistance into your authenticator enrollment process. When this rule is active, users must provide a phishing-resistant authenticator when they enroll other authenticators and when they unenroll one. If your org doesn't use phishing-resistant authenticators yet, start with Add a rule for your first phishing-resistant authenticator.
+Add this rule to build phishing resistance into your authenticator enrollment process. When this rule is active, users must provide a phishing-resistant authenticator when they enroll other authenticators and when they unenroll one. If your org doesn't use phishing-resistant authenticators yet, start with [Add a rule for your first phishing-resistant authenticator](#add-a-rule-for-your-first-phishing-resistant-authenticator).
 
 > **Note:** All users in your org must be eligible to use the phishing-resistant authenticators. See [Profile enrollment policies](/docs/concepts/policies/#profile-enrollment-policies).
 
@@ -274,7 +274,7 @@ Send a PUT request to the `/api/v1/policies/{policyId}/rules/{ruleId}` endpoint.
 
 Repeat for any other password policy rules.
 
-> **Note:** For each rule, verify that `selfServicePasswordReset` and `selfServiceUnlock` are set to `ALLOW`. If they aren't, add a new rule that specifically allows them. New rules that you add to your org default to `"accessControl": "AUTH_POLICY"`.
+> **Note:** For each rule, verify that `selfServicePasswordReset` and `selfServiceUnlock` are set to `ALLOW`. If they aren't, add a rule that specifically allows them. New rules that you add to your org default to `"accessControl": "AUTH_POLICY"`.
 
 ```bash
 curl --location --request PUT '{yourSubdomain}/api/v1/policies/{policyId}/rules/{ruleId}' \
