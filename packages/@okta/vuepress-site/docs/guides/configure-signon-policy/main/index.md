@@ -42,7 +42,7 @@ Global session policies help control who can have access and how a user gains ac
 
 You can configure a global session policy to require any of the [factors that you set up](https://help.okta.com/okta_help.htm?type=oie&id=csh-configure-authenticators). Then use the primary and secondary factor conditions in a rule to define which factors are evaluated. For example, add a rule that prompts for more factors when you want only users who are inside your [corporate network](/docs/reference/api/policy/#network-condition-object) to have access.
 
-> **Note:** If you select **Any factor used to meet the Authentication Policy requirements**, you remove the global password requirement from the global session policy. This transfers responsibility for defining and enforcing authentication criteria to each of your [authentication policies](#authentication-policies) instead. See [Configure passwordless authentication](https://help.okta.com/okta_help.htm?type=oie&id=ext-passwordless-auth).
+> **Note:** If you select **Any factor used to meet the Authentication Policy requirements**, you remove the global password requirement from the global session policy. This transfers responsibility for defining and enforcing authentication to each of your [authentication policies](#authentication-policies) instead. See [Configure passwordless authentication](https://help.okta.com/okta_help.htm?type=oie&id=ext-passwordless-auth).
 
 You can specify any number of global session policies and the order in which they’re executed. If a policy in the list doesn't apply to the user trying to sign in, the system moves to the next policy. There’s one required organization-wide policy named default. By definition, the default policy applies to all users.
 
@@ -58,7 +58,7 @@ You don’t have to use the default authentication policy. You can create a new 
 
 ## Configure sign-on policies for common scenarios
 
-This guide provides step-by-step instructions to configure a global session policy and an authentication policy for two of the most common scenarios:
+This guide provides step-by-step instructions to configure a global session policy and an authentication policy for three common scenarios:
 
 * [Prompt for an additional factor for a group](#prompt-for-an-additional-authenticator-for-a-group)
 * [Prompt for an additional factor when a user is outside the US](#prompt-for-an-mfa-factor-when-a-user-is-outside-the-us)
@@ -93,14 +93,6 @@ The following are step-by-step instructions to configure a global session policy
     > **Note:** Click the **authenticators** link for quick access to the [Authenticators](https://help.okta.com/okta_help.htm?type=oie&id=csh-configure-authenticators) page to configure the factors that you want to use.
 
 1. Select how users are prompted for a secondary factor in a given session. In this example, leave the default of **At every sign in** selected. Users are challenged for MFA every time they sign in.
-
-    <!--* **Per Device:** Provides the option **Do not challenge me on this device again** in the end user MFA challenge dialog. This option allows prompts solely for new devices.
-    * **Every Time:** End users are prompted every time they sign in to Okta and can't influence when they’re prompted to provide a factor.
-    * **Per Session:** Provides the option **Do not challenge me on this device for the next (minutes/hours/days)** in the end user MFA challenge dialog. When you specify per session, sessions have a default lifetime as configured, but sessions always end whenever users sign out of their Okta session.
-
-    For this use case example, leave the default **Factor Lifetime** of **15 minutes**. Use these fields to specify how much time must elapse before the user is challenged again for the secondary factor.
-
-    The maximum lifetime period is six months/ 180 days. Setting a factor lifetime is a way for end users to sign out for the amount of time noted in the **Factor Lifetime** and not have to authenticate again with MFA the next time they sign in. End users must select a box when they sign in to confirm that the setting should be applied. An example is **Do not challenge me on this device for the next 15 minutes**. In this case, after signing out, there’s no secondary factor prompt if the user signs in again within 15 minutes of the last sign-in event with MFA. If users don't select the box, they’re always prompted for a secondary factor. The time since the last sign-in event is noted at the bottom of the End-User Dashboard. However, end users must refresh the page to see the updated value.-->
 
 1. Configure the time settings for the rule. Use these fields to specify the maximum idle time before an authentication prompt is triggered. The maximum allowed time for this option is 90 days. This isn't the total connection time. This is idle time before users see a countdown timer at the 5-minute mark of remaining session time.
 
@@ -138,11 +130,11 @@ The following are step-by-step instructions to configure another rule for the de
 
 1. Configure THEN conditions to define the authentication experience. For this use case, leave the default of **Allowed** for **THEN Access is**.
 
-1. For **Establish the user session with**, select **Any factor used to meet the Authentication Policy requirements**. Users who sign in to your app from a non-US IP address are prompted for an additional factor.
+1. For **Establish the user session with**, select **Any factor used to meet the Authentication Policy requirements**.
 
-1. Ensure that MFA is **Required**.
+1. Ensure that MFA is **Required**. Users who sign in to your app from a non-US IP address are prompted for an additional factor.
 
-1. Select how users are prompted for a secondary factor in a given session.
+1. Select how users are prompted for a secondary factor in a given session. For example, select **At every sign in** so that users are prompted at every time they sign in.
 
 1. Configure the time settings for the rule.
 
