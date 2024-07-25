@@ -2302,7 +2302,7 @@ Okta account management policies appear in GET calls to the `/policies` endpoint
 
 However, you can use the Policy API to [manage the rules of the policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule).
 
-See [Configure an Okta account management policy](/docs/guides/okta-account-management-policyy/main/) for more details.
+See [Configure an Okta account management policy](/docs/guides/okta-account-management-policy/main/) for more details.
 
 See [Okta account management policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-account-management-policy) for details about configuring the policy in the Admin Console.
 
