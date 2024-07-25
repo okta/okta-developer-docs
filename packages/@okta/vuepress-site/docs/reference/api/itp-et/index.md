@@ -115,8 +115,9 @@ This resource contains detailed reference material on event types triggered with
 
 ## policy continuous_access action
 `policy.continuous_access.action`
-<ApiLifecycle access="deprecated" />
-**Description:** This event is deprecated. The new event type name is [policy auth_reevaluate action](#policy-auth_reevaluate-action) This event is triggered when Okta logs a user out of their configured apps or runs a Workflow in response to an authentication or global session policy violation.
+<ApiLifecycle access="deprecated" /><br>
+
+**Description:** This event is deprecated. The new event type name is [policy auth_reevaluate action](#policy-auth-reevaluate-action) This event is triggered when Okta logs a user out of their configured apps or runs a Workflow in response to an authentication or global session policy violation.
 
 | Key event properties  | Description                                         | Data type      | Example values |
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
@@ -185,8 +186,9 @@ This resource contains detailed reference material on event types triggered with
 
 ## policy continuous_access evaluate
 `policy.continuous_access.enforce`
-<ApiLifecycle access="deprecated" />
-**Description:** This event is deprecated. The new event type name is [policy auth_evaluate enforce](#policy-auth_evaluate-enforce). This event is triggered when a post auth session evaluation occurs.
+<ApiLifecycle access="deprecated" /><br>
+
+**Description:** This event is deprecated. The new event type name is [policy auth_evaluate enforce](#policy-auth-evaluate-enforce). This event is triggered when a post auth session evaluation occurs.
 
 | Key event properties | Description                                         | Data type      | Example values |
 | --------------------- | --------------------------------------------------- | -------------- | -------------- |
