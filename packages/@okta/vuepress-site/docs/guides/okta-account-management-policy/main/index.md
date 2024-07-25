@@ -252,7 +252,7 @@ The user experience for this process doesn't change, except that users' authenti
 
 - Users who are currently activated with a single factor can't enroll new authenticators or sign in to apps that require MFA. Refer to this task's prerequisite.
 - Users can lock themselves out if they unenroll too many authenticators. Inform your users that they must keep one phishing-resistant authenticator enrolled always.
-
+If a user doesn't meet the requirements of your Okta account management policy, they can't update their profile settings. All fields are read-only, including the Reset, Update, and Remove options for their existing security methods, and the authenticators that they haven't enrolled are hidden.
 ## Add a rule for password recovery and account unlock
 
 Add this rule to require phishing resistant authenticators when users reset their passwords or unlock their accounts.
