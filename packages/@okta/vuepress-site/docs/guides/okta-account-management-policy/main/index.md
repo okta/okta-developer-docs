@@ -329,7 +329,7 @@ Continue to use the same value for `policyId`.
 
 Set the value of `priority` above the catch-all rule but below the first [phishing-resistant authenticator](#add-a-rule-for-your-first-phishing-resistant-authenticator) (if you added it). Be sure that the first phishing-resistant authenticator rule stays at priority 1.
 
-See [Add ](#add-a-rule-for-authenticator-enrollment).
+See [Add a rule for authenticator enrollment](#add-a-rule-for-authenticator-enrollment).
 
 ### User experience
 
@@ -342,8 +342,10 @@ If a user doesn't meet the requirements of your Okta account management policy, 
 
 You might want to use the Okta account management policy for some processes but not for others. For example, you want to use the Okta account management policy for authenticator enrollment. However, for self-service password recovery, you want to keep using your password policy.
 
+Update a password policy rule to set the value of `accessControl` to `LEGACY`:
+
 ```bash
-curl --location --request PUT 'http://devorg1.okta1.com:1802/api/v1/policies/<POLICY_ID>/rules/<RULE_ID>' \
+curl --location --request PUT 'http://devorg1.okta1.com:1802/api/v1/policies/{policyId}/rules/{ruleId}' \
 --header 'Accept: application/json' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: SSWS {apiToken}' \
@@ -377,7 +379,7 @@ curl --location --request PUT 'http://devorg1.okta1.com:1802/api/v1/policies/<PO
                 "stepUp": {
                     "required": false
                 },
-                "accessControl": "AUTH_POLICY"
+                "accessControl": "LEGACY"
             }
         },
         "selfServiceUnlock": {
