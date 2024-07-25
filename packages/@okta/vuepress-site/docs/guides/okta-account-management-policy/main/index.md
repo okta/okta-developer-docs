@@ -226,7 +226,7 @@ curl --location --globoff 'https://{yourOktaDomain}/api/v1/policies/{policyId/ru
 
 ### User experience
 
-Users must be on a managed device, inside a trusted network zone, and demonstrate low risk behavior before they enroll the designated phishing-resistant authenticator. If they don't meet all of these requirements, they're denied enrollment. That means that they also can't access any apps with phishing-resistant authentication policies.
+Users must be on a managed device, inside a trusted network zone, and demonstrate low risk behavior before they enroll the designated phishing-resistant authenticator. If they don't meet these requirements, all fields in their profile settings are read-only, including the Reset, Update, and Remove options for their existing security methods. The phishing-resistant authenticators that they haven't enrolled are hidden, which means that they can't access any apps with phishing-resistant authentication policies.
 
 This rule also applies to authenticator unenrollment, and users can lock themselves out if they unenroll too many authenticators. Encourage users to always maintain one phishing-resistant authenticator.
 
