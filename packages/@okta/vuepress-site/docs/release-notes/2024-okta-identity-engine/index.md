@@ -7,6 +7,16 @@ title: Okta Identity Engine API release notes 2024
 
 ## July
 
+### Weekly release 2024.07.2
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Bugs fixed in 2024.07.2](#bugs-fixed-in-2024-07-2) | July 31, 2024 |
+
+#### Bugs fixed in 2024.07.2
+
+Users that were created with the Users API (PUT `/users`) could include a security answer that contained all or part of the security question. (OKTA-712832)
+
 ### Weekly release 2024.07.1
 
 | Change | Expected in Preview Orgs |
