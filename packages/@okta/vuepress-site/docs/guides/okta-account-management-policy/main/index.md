@@ -107,7 +107,7 @@ The policy allows for the following specific expressions:
 | Syntax | Definitions | Type |
 | ------ | ----------- | ---- |
 | `accessRequest.{operation}`| `accessRequest` references the access context of the request. `operation` references the account management operation: `enroll`, `unenroll`, `recover`, or `unlockAccount`. | String |
-| `accessRequest.authenticator.{id}` | `accessRequest` references the access context of the request. `authenticator.id` references an optional authenticator `id`. For example, the `id` of a custom authenticator. | String |
+| `accessRequest.authenticator.{id}` | `accessRequest` references the access context of the request. `authenticator.id` references an optional authenticator `id`, for example, the `id` of a custom authenticator. | String |
 | `accessRequest.authenticator.{key}` | `accessRequest` references the access context of the request. `authenticator.key` references the [authenticator key](/docs/reference/api/policy/#authenticator-key-type-method-and-characteristic-relationships-for-constraints). | String |
 
 ### Condition Object example
