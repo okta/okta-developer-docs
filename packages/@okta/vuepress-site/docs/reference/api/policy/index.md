@@ -761,6 +761,8 @@ Different Policy types control settings for different operations. All Policy typ
 * [IdP Discovery policy](#idp-discovery-policy)
 * [OAuth Authorization policy](/docs/reference/api/authorization-servers/#policy-object)
 * [Authentication policy](#authentication-policy) <ApiLifecycle access="ie" /><br>
+  > **Note:** <ApiLifecycle access="ie" />
+  > The account management policy is a type of authentication policy.
 * [Profile enrollment policy](#profile-enrollment-policy) <ApiLifecycle access="ie" /><br>
 * [Entity risk policy](#entity-risk-policy) <ApiLifecycle access="ie" /><br>
 * [Continuous Access evaluation policy](#continuous-access-evaluation-policy) <ApiLifecycle access="ie" /><br>
@@ -2274,7 +2276,7 @@ refers to the user's `username`. If the user is signing in with the username `jo
 
 <ApiLifecycle access="ie" />
 
-> **Note:** This feature is only available as a part of the Identity Engine. [Contact support](https://support.okta.com/) for information on the Identity Engine.
+> **Note:** This feature is only available as a part of Identity Engine. [Contact support](https://support.okta.com/) for information.
 
 > **Note:** The app sign-on policy name has changed to authentication policy. The policy type of `ACCESS_POLICY` remains unchanged.
 
@@ -2289,7 +2291,22 @@ When you create a new application, the shared default authentication policy is a
 
 > **Note:** When you [merge duplicate authentication policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-merge-auth-policies), policy and mapping CRUD operations may be unavailable during the consolidation. When the consolidation is complete, you receive an email.
 
-#### Authentication policy example
+### Okta account management policy
+
+<ApiLifecycle access="ie" />
+<ApiLifecycle access="ea" />
+
+The Okta account management policy is a type of authentication policy. It defines requirements when users enroll in authenticators, recover their passwords, and unlock their accounts. Its rule-based framework lets you enforce phishing resistance throughout the user journey, from onboarding to authentication and recovery.
+
+The Okta account management policy appears in GET calls to the `/policies` endpoint. However, it's read-only. You can't create, update, or delete the policy. You have to disable the feature if you want to stop using it. Most importantly, you can't assign it to apps. This policy applies to Okta account management actions only.
+
+You can use the Policy API to [manage the rules of the policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule).
+
+See [Configure an Okta account management policy](/docs/guides/okta-account-management-policy/main/) for more details.
+
+See [Okta account management policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-account-management-policy) for details about configuring the policy in the Admin Console.
+
+### Authentication policy example
 
 ```json
     {
@@ -2301,7 +2318,7 @@ When you create a new application, the shared default authentication policy is a
 
 Additionally, there is no direct property to get the policy ID for an application. Instead, you need to retrieve the application object and use the reference to the policy ID that is a part of the application object.
 
-#### Authentication policy reference in HAL link in Application API Object example
+### Authentication policy reference in HAL link in Application API Object example
 
 ```json
     {
@@ -2310,6 +2327,18 @@ Additionally, there is no direct property to get the policy ID for an applicatio
         }
     }
 ```
+
+### Okta account management policy example
+
+```json
+    {
+        "type": "ACCESS_POLICY",
+        "name": "Web Cart App Sign On Policy",
+        "description": "Standard policy for Web Cart application"
+    }
+```
+
+
 
 ### Policy conditions
 
