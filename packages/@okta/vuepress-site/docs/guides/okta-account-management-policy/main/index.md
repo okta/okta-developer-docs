@@ -339,7 +339,7 @@ See [Add a rule for authenticator enrollment](#add-a-rule-for-authenticator-enro
 
 There are no changes to the user experience when you move password recovery and account unlock to the account management policy. However, be aware of how the account management policy works with the following features:
 
-- [Stay signed in](https://help.okta.com/okta_help.htm?type=oie&id=ext-stay-signed-in): Works with the account management policy if you configure the authentication frequency correctly. The **Prompt for authentication** setting must be more frequent than the equivalent setting in your Okta Dashboard authentication policy. Setting **Prompt for authentication** in your Okta account management policy to every time ensures that users don't have to wait to reset a password.
+- [Stay signed in](https://help.okta.com/okta_help.htm?type=oie&id=ext-stay-signed-in): Works with the account management policy if you configure the authentication frequency correctly. The **Prompt for authentication** setting must be more frequent than the equivalent setting in your Okta End-User Dashboard authentication policy. Setting **Prompt for authentication** in your Okta account management policy to every time ensures that users don't have to wait to reset a password.
 - [User enumeration prevention](https://help.okta.com/okta_help.htm?type=oie&id=ext_Security_General): Isn't supported in recovery scenarios with the Okta account management policy.
 If a user doesn't meet the requirements of your Okta account management policy, they can't update their profile settings. All fields are read-only, including the Reset, Update, and Remove options for their existing security methods. Also, the authenticators that they haven't enrolled are hidden.
 
