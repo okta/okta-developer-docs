@@ -9,7 +9,7 @@ meta:
 
 <ApiAmProdWarning />
 
-Authentication and authorization are essential to app development. Projects such as building a protal for your partners or developing an internal IT app for your employees need the right authentication and authorization support. With Okta, you can control access to your app using both [OAuth 2.0 and OpenID Connect](/docs/concepts/oauth-openid/). Use Okta as your authorization server to retain all of your user information and grant users tokens to control their authorization and authentication.
+Authentication and authorization are essential to app development. Projects such as building a portal for your partners or developing an internal IT app for your employees need the right authentication and authorization support. With Okta, you can control access to your app using both [OAuth 2.0 and OpenID Connect](/docs/concepts/oauth-openid/). Use Okta as your authorization server to retain all of your user information and grant users tokens to control their authorization and authentication.
 
 ## What is an authorization server
 
