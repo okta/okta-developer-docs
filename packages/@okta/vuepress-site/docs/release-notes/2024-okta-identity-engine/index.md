@@ -13,7 +13,7 @@ title: Okta Identity Engine API release notes 2024
 |--------|--------------------------|
 | [Bug fixed in 2024.07.2](#bug-fixed-in-2024-07-2) | July 31, 2024 |
 
-#### Bugs fixed in 2024.07.2
+#### Bug fixed in 2024.07.2
 
 Users that were created with the Users API (PUT `/users`) could include a security answer that contained all or part of the security question. (OKTA-712832)
 
