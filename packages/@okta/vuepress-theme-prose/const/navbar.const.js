@@ -171,6 +171,10 @@ export const guides = [
                 guideName: "sign-into-mobile-app-redirect",
               },
               {
+                title: "Configure Swift SDK redirect",
+                guideName: "mobile-swift-configure-redirect",
+              },
+              {
                 title: "Redirect auth in the sample apps",
                 guideName: "sampleapp-oie-redirectauth",
               },
