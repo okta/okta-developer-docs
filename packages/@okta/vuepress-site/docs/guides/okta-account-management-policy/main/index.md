@@ -242,7 +242,7 @@ Add this rule to build phishing resistance into your authenticator enrollment pr
 This request is similar to the request to [add a rule](#example-rule-request) for your first phishing-resistant authenticator. However, keep in mind the following:
 
 * Use the same value for `policyId`.
-* Set the value of `priority` above the catch-all rule but below the first [phishing-resistant authenticator](#add-a-rule-for-your-first-phishing-resistant-authenticator) (if you added it). Be sure that the first phishing-resistant authenticator rule stays at priority 1.
+* Set the value of `priority` above the catch-all rule but below the first [phishing-resistant authenticator](#add-a-rule-for-your-first-phishing-resistant-authenticator) (if you added it). Make sure that the first phishing-resistant authenticator rule stays at priority 1.
 * Use the same Expression Language conditions.
 * Your user doesn't need a managed device.
 * Your user doesn't need to sign in from a network zone.
