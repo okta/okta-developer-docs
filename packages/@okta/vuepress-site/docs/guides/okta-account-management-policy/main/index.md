@@ -251,7 +251,7 @@ If you want to add this rule using the Admin Console, see [Add a rule for authen
 
 ### User experience
 
-The user experience for this process doesn't change, except that users' authenticator choices are limited to the phishing-resistant options. Consider these two scenarios:
+The user experience for this process doesn't change, except that the users' authenticator choices are limited to the phishing-resistant options. Consider these two scenarios:
 
 - Users who are currently activated with a single factor can't enroll new authenticators or sign in to apps that require MFA. Refer to this task's prerequisite.
 - Users can lock themselves out if they unenroll too many authenticators. Inform your users that they must keep one phishing-resistant authenticator enrolled always.
