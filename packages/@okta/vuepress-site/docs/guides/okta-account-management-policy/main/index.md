@@ -331,7 +331,7 @@ curl --location --request PUT '{yourSubdomain}/api/v1/policies/{policyId}/rules/
 
 Continue to use the same value for `policyId`.
 
-Set the value of `priority` above the catch-all rule but below the first [phishing-resistant authenticator](#add-a-rule-for-your-first-phishing-resistant-authenticator) (if you added it). Be sure that the first phishing-resistant authenticator rule stays at priority 1.
+Set the value of `priority` above the catch-all rule but below the first [phishing-resistant authenticator](#add-a-rule-for-your-first-phishing-resistant-authenticator) (if you added it). Make sure that the first phishing-resistant authenticator rule stays at priority 1.
 
 See [Add a rule for authenticator enrollment](#add-a-rule-for-authenticator-enrollment).
 
