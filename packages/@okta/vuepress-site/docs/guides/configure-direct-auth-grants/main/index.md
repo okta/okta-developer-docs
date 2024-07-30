@@ -28,7 +28,7 @@ Also, you can use direct authentication where usability constraints hinder the u
 
 ## Enable authenticators for your org
 
-Direct authentication grant type flows use passwordless authentication, such as using Okta Verify, SMS, or signing in with email. To use the direct authentication <StackSnippet snippet="granttype" inline /> flow, you must enable a non-password authenticator like <StackSnippet snippet="authenticator" inline />.
+Direct authentication grant type flows use passwordless authentication, such as using Okta Verify and SMS. To use the direct authentication <StackSnippet snippet="granttype" inline /> flow, you must enable a non-password authenticator like <StackSnippet snippet="authenticator" inline />.
 
 1. Open the Admin Console for your org.
 1. Go to **Security** > **Authenticators** to view the available authenticators.
