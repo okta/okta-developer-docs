@@ -1,7 +1,7 @@
 1. Create an empty API controller named `InfoController.cs` in the `Controllers` folder.
 
    1. Right-click the `Controllers` folder in **Solution Explorer** and select **Add** > **Controller...**
-   {style="list-style-type:lower-alpha"}
+   [[style="list-style-type:lower-alpha"]]
    1. Select **API Controller - Empty**, and then click **Add**.
    1. Enter the name `InfoController.cs`, and then click **Add**.
 

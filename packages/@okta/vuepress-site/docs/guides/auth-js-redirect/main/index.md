@@ -272,7 +272,7 @@ By default, self-service registration isn't enabled for all apps. Use the follow
 1. Ensure that your app is assigned to the Everyone group:
 
     * Go to **Applications** > **Applications** and select your app.
-    {style="list-style-type:lower-alpha"}
+    [[style="list-style-type:lower-alpha"]]
     * Click the **Assignments** tab.
     * Click the **Groups** filter.
     * If the Everyone group isn't assigned, add it by clicking **Assign** > **Assign to Groups**, and assigning to the Everyone group.
@@ -288,7 +288,7 @@ By default, self-service registration isn't enabled for all apps. Use the follow
 1. Click **Manage Apps** and then **Add an App to This Policy**. Add or apply your sample app to this new policy.
 1. [Test your app](#test-your-app) again and note that the text **Don't have an account? Sign up** link now appears for your app under the Sign-In Widget. Click the link to add a user:
     * Enter a first name, family name, and email address and click **Sign up**.
-    {style="list-style-type:lower-alpha"}
+    [[style="list-style-type:lower-alpha"]]
     * Click **Set up** to add a password. (Click **Set up later** for any other authenticators.)
     You're now logged into the app with the new user's profile.
 
@@ -311,12 +311,12 @@ Progressive profile enrollment builds out a user's profile incrementally during 
 1. Clear the **Email verification** checkbox, for ease of testing.
 1. Add the other user profile fields that you want existing users to provide in the **Profile enrollment form**. In this example, add the city field:
     1. Click **Add form input** and select the **City (city)** field. If the field is read only, you must change the attribute permission. See [Create a custom profile enrollment form](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-prof-enroll-form).
-    {style="list-style-type:lower-alpha"}
+    [[style="list-style-type:lower-alpha"]]
     1. Repeat this step for the number of fields that you want to add. At least one of these fields must be set as **Required**.
 1. Click **Manage Apps** and then **Add an App to This Policy**. Add or apply your sample app to this new policy.
 1. [Test your app](#test-your-app). Sign in with a user that doesn't have a city added to their profile.
     1. After entering the user's credentials, a new dialog requests the required user profile data. In this scenario, the **City** field. Add a city to this user's profile and fill out any other required or optional fields that you configured. After the user adds the data, they’re signed in as normal.
-    {style="list-style-type:lower-alpha"}
+    [[style="list-style-type:lower-alpha"]]
     1. Sign out of the sample app by clicking **Close Okta Session**.
     1. Sign in again with the same user. With the data already added to the user's profile, the user is signed in directly.
 
@@ -327,7 +327,7 @@ By default, your dev org isn't configured for multifactor authentication. Use th
 1. Go to **Security** > **Authenticators** and ensure that the phone authenticator is available in the **Authenticators** list on the **Setup** tab.
 
    1. If it isn't listed, click **Add Authenticator**, and then click **Add** in the **Phone** tile.
-   {style="list-style-type:lower-alpha"}
+   [[style="list-style-type:lower-alpha"]]
    1. For **User can verify with**, select **SMS**.
    1. Set **This authenticator can be used for** to **Authentication and recovery**, and click **Add**.
 
@@ -356,7 +356,7 @@ By default, the dev org is configured for a self-service password reset. Review 
 1. Go to **Security** > **Authenticators**. Ensure that the email authenticator is available in the **Authenticators** list on the **Setup** tab, and that it's used for **Recovery**.
 
    1. If it isn't listed, click **Add Authenticator**, and then click **Add** in the **Email** tile.
-   {style="list-style-type:lower-alpha"}
+   [[style="list-style-type:lower-alpha"]]
    1. Set **This authenticator can be used for** to **Recovery**, and click **Add**.
 
 1. Go to **Security** > **Authenticators** and edit the **Password** authenticator by clicking **Actions** > **Edit**.

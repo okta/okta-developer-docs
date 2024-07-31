@@ -204,7 +204,7 @@ To generate an integration instance:
 7. Follow these steps if you have an Identity Engine <ApiLifecycle access="ie" /> &nbsp;Developer Edition org:
    1. Click the **Sign On** tab, scroll to the **User authentication** section and click **Edit**.
    1. Select **Password only** from the **Authentication policy** dropdown menu.
-   {style="list-style-type:lower-alpha"}
+   [[style="list-style-type:lower-alpha"]]
    1. Click **Save**.
    > **Note:** Most recent Okta Developer Edition orgs are Identity Engine orgs. See [OIN Wizard authentication policy for testing](/docs/guides/submit-app-prereq/main/#oin-wizard-authentication-policy-for-testing).
 
@@ -380,7 +380,7 @@ To run the JIT provisioning with IdP flow test:
 
     The OIN Submission Tester executes the following steps for the JIT provisioning test case:
     1. Creates a user in Okta and assigns them to the test app instance.
-    {style="list-style-type:lower-alpha"}
+    [[style="list-style-type:lower-alpha"]]
     1. Open an incognito browser window to sign in to Okta.
     1. Sign in to Okta as the new test user.
     1. Select the app tile.
@@ -395,7 +395,7 @@ To run the JIT provisioning with IdP flow test:
 
     The OIN Submission Tester executes the following steps after you click **Continue**:
     1. Signs out of the app and closes the incognito browser window.
-    {style="list-style-type:lower-alpha"}
+    [[style="list-style-type:lower-alpha"]]
     1. Unassigns the test user from the app instance in Okta.
     1. Deletes the test user from Okta.
     1. Records the test run result and timestamp in the OIN Submission Tester.
