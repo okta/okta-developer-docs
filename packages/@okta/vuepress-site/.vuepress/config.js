@@ -360,6 +360,18 @@ module.exports = ctx => ({
 
     // add redir url for main guide pages
     let found = guidesInfo.guideInfo[path];
+    if (path.endsWith('/main/')) {
+      // console.log('### path', path);
+      const mainPagePath = path.slice(0, path.length - 5);
+      // console.log('### mainPagePath', mainPagePath);
+      const mainPage = guidesInfo.guideInfo[mainPagePath];
+      if (mainPage && mainPage.guide && mainPage.sections) {
+        frontmatter.sitemap = {
+          exclude: true
+        };
+      }
+    }
+    
     if(found && found.guide && found.sections) {
       if(found.mainFramework) {
         $page.redir = `/docs/guides/${found.guide}/${found.mainFramework}/${found.sections[0]}/`
