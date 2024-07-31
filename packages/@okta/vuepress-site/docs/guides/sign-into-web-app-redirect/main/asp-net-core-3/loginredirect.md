@@ -39,7 +39,7 @@ Create a link for the user to start the sign-in process and be redirected to Okt
 1. Add code to handle the `Sign In` click.
    1. Create an empty MVC controller named `AccountController.cs` in the `Controllers` folder.
       1. Right-click the `Controllers` folder in **Solution Explorer** and select **Add** > **Controller...**
-      {style="list-style-type:lower-alpha"}
+      [[style="list-style-type:lower-alpha"]]
       1. Select **MVC Controller - Empty**, and then click **Add**.
       1. Enter the name `AccountController.cs`, and then click **Add**.
 
