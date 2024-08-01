@@ -83,7 +83,7 @@ This resource contains detailed reference material on event types triggered with
 | **event.system.debugContext.debugData**                |                 |         |         |
 | Behaviors             | List of behaviors identified for the current event. `POSITIVE` - the specific behavior is identified. `NEGATIVE` - the specific behavior wasn't identified. See [About Behavior Detection](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-behavior-detection).                 | key-value pairs        |  `{New Geo-Location=POSITIVE, New Device=NEGATIVE, New IP=POSITIVE, New State=POSITIVE, New Country=POSITIVE, Velocity=POSITIVE, New City=POSITIVE} `       |
 | Risk            | The level of risk for a particular request (`LOW`, `MEDIUM`, or `HIGH`) and the `reasons` that contributed to the risk level.                | key-value pairs         |`{reasons=Anomalous Geo-Distance, New Device, New ASN, New IP, New State, New Country, New City, level=HIGH}`          |
-| ThreatSuspected            | If ThreatInsight is running and detects a request as suspicious, the value for this property is `true`.                    | Boolean         | `false`         |
+| ThreatSuspected            | If ThreatInsight is running and detects a suspicious request, the value for this property is `true`.                    | Boolean         | `false`         |
 | TraceId            | A unique ID that is used across a single flow of ITP events to easily correlate them all into one System Log query                 | String         | `65d55fa6-b5a9-40f9-a6f1-627b9fa71b50`        |
 | **target** (User)         | The user associated with the risk change           | Object      |        |
 | type        | The type of target object     | String     | User       |
