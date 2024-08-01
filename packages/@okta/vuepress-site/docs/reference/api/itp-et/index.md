@@ -106,7 +106,7 @@ This resource contains detailed reference material on event types triggered with
 | PolicySingleLogOutSelectionMode        | For a `PolicyAction` of `TERMINATE_SESSION`, the options of the application logout, either all applications, specific applications, or none. Values can be: `NONE`, `ALL`, or `SPECIFIED`.           | Enum     | `ALL`       |
 | PolicySingleLogoutAppInstanceIds          | A list of apps that will that will be logged out if the `PolicySingleLogOutMode` mode is `SPECIFIED`.            | Array     | `[ "0oa1gkh63g214r0Hq0g4", "0oa1gjh63g214q0Iq3g3" ]`      |
 | WorkflowId         | The unique identifier of the workflow if the `PolicyAction` is `RUN_WORKFLOW`.           | String     | 572749       |
-| DisplayName        | Displays the name of the action          | String     | `TERMINATE_SESSION`       |
+| DisplayName        | The name of the action          | String     | `TERMINATE_SESSION`       |
 | ID        | Unique identifier of the Continuous Access evaluation policy           | String     | `00u8xst93qEWYx65sx1d7`       |
 | **actor**                 |  The target user if synchronous and the system principal if asynchronous                 | Object        |         |
 | type        | The type of actor object           |      |        |
