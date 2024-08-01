@@ -206,7 +206,7 @@ This resource contains detailed reference material on event types triggered with
 | SingleLogOutEnabled        | For a `RuleAction` of `TERMINATE_SESSION`, and if `true`, a Continuous Access evaluation violation enforces app logout.          | Boolean     | `true`      |
 | SingleLogOutSelectionMode        | For a `RuleAction` of `TERMINATE_SESSION`, the options of the app logout, either all apps, specific apps, or none. Values can be: `NONE`, `ALL`, or `SPECIFIED`.           | Enum     | `ALL`       |
 | WorkflowId         | The unique identifier of the workflow if the `RuleAction` is `RUN_WORKFLOW`.           | String     | 572749       |
-| DisplayName        | Display the name of the target rule           | String     | Test Rule      |
+| DisplayName        | The name of the target rule           | String     | Test Rule      |
 | ID        | Unique identifier of the target rule           | String     | `00u8xst93qEWYx65sx1d7`       |
 | **target** (Policy)         |  The Continuous Access evaluation policy        | Object     |        |
 | type        | The type of target object     | String     | Policy      |
