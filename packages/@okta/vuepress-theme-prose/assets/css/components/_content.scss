@@ -148,6 +148,11 @@
   word-break: break-word;
 }
 
+.content--container .content-area a span {
+  outline: 2px solid var(--c-external-link-base);
+  outline-offset: -2px;
+}
+
 .content--container .content-area .language-tabs a,
 .content--container .content-area .language-ctas a,
 .content--container .content-area a.card {
