@@ -5,7 +5,10 @@ category: management
 
 # Identity Sources API
 
-<ApiLifecycle access="ea" /><!--LEA for both Classic and Identity Engine. Okta needs to turn on IDENTITY_SOURCE_APPS feature flag (not Self-Service)-->
+The Identity Sources API reference is now available at the new [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/).
+
+<!--
+<ApiLifecycle access="ea" /><!--LEA for both Classic and Identity Engine. Okta needs to turn on IDENTITY_SOURCE_APPS feature flag (not Self-Service)-/->
 
 The Okta Identity Sources API provides a mechanism to synchronize an HR source (the custom identity source) with Okta user profiles in an org. This API supports the Anything-as-a-Source (XaaS) feature. See [Build an Anything-as-a-Source custom client integration](/docs/guides/anything-as-a-source/).
 
@@ -492,3 +495,4 @@ The following are common errors for the Identity Sources API:
 | `E0000011` | 401 Unauthorized | The API token is invalid. |
 | `E0000007` | 404 Not Found  | The Custom Identity Source integration ID is invalid. |
 | `E0000001` | 400 Bad Request  | The Identity Source Session ID is invalid. |
+-->
