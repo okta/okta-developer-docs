@@ -3922,7 +3922,7 @@ curl -v -X POST \
 
 The Application user operations reference is now available at the new [Okta API reference portal](https://developer.okta.com/docs/api/) as the [Application Users API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationUsers/).
 
-Explore the [Okta Public API Collections](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/overview) workspace to get started with the [Application Users API Postman collection](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/folder/4920859-ca5456b3-59ed-4c8b-8145-22a31890567b).
+Explore the [Okta Public API Collections](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/overview) workspace to get started with the [Application Users Postman collection](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/folder/4920859-ca5456b3-59ed-4c8b-8145-22a31890567b).
 
 <!--
 
@@ -4482,7 +4482,7 @@ curl -v -X DELETE \
 
 The Application group operations reference is now available at the new [Okta API reference portal](https://developer.okta.com/docs/api/) as the [Application Groups API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationGroups/).
 
-Explore the [Okta Public API Collections](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/overview) workspace to get started with the [Application Groups API Postman collection](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/folder/4920859-6c1656d1-21e1-49a2-98ae-9a71c38686e1).
+Explore the [Okta Public API Collections](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/overview) workspace to get started with the [Application Groups Postman collection](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/folder/4920859-6c1656d1-21e1-49a2-98ae-9a71c38686e1).
 
 <!--
 ### Assign group to application
@@ -6810,7 +6810,7 @@ HTTP/1.1 204 No Content
 
 The Application logo operations reference is now available at the new [Okta API reference portal](https://developer.okta.com/docs/api/) as the [Application Logos API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationLogos/#tag/ApplicationLogos).
 
-Explore the [Okta Public API Collections](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/overview) workspace to get started with the [Application Logos API Postman collection](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/folder/4920859-ba4bbc28-0552-45ad-b040-4eca97e1c43a).
+Explore the [Okta Public API Collections](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/overview) workspace to get started with the [Application Logos Postman collection](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/folder/4920859-ba4bbc28-0552-45ad-b040-4eca97e1c43a).
 
 <!--
 ### Update logo for application
@@ -6850,6 +6850,11 @@ Location: https://{yourOktaDomain}/bc/image/fileStoreRecord?id=fs01hfslJH2m3qUOe
 
 ## Application Provisioning Connection operations
 
+The Application provisioning connection operations reference is now available at the new [Okta API reference portal](https://developer.okta.com/docs/api/) as the [Application Connections API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationConnections/).
+
+Explore the [Okta Public API Collections](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/overview) workspace to get started with the [Application Connections Postman collection](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/folder/4920859-8363bae3-63d7-4790-9b5c-541d3e39ec4d).
+
+<!--
 > **Note:** The only currently supported application is Okta Org2Org.
 
 ### Get default Provisioning Connection for application
@@ -7022,6 +7027,7 @@ curl -v -X POST \
 ``` http
 HTTP/1.1 204 No Content
 ```
+-->
 
 ## Application Feature operations
 
