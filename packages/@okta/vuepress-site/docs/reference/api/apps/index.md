@@ -3853,6 +3853,9 @@ HTTP/1.1 204 No Content
 
 ## Application lifecycle operations
 
+The Application lifecycle operations reference is now available at the new [Okta API reference portal](https://developer.okta.com/docs/api/) as [Activate an Application](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/activateApplication) and [Deactivate an Application](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/deactivateApplication).
+
+<!--
 ### Activate application
 
 <ApiOperation method="post" url="/api/v1/apps/${applicationId}/lifecycle/activate" />
@@ -3917,6 +3920,7 @@ curl -v -X POST \
 ```json
 {}
 ```
+-->
 
 ## Application user operations
 
@@ -7031,6 +7035,11 @@ HTTP/1.1 204 No Content
 
 ## Application Feature operations
 
+The Application Feature operations reference is now available at the new [Okta API reference portal](https://developer.okta.com/docs/api/) as the [Application Features API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationFeatures/).
+
+Explore the [Okta Public API Collections](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/overview) workspace to get started with the [Application Features Postman collection](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/folder/4920859-ad80c71b-b5fc-4340-9151-5e44aa50ce17).
+
+<!-- 
 > **Note:** The only currently supported application is Okta Org2Org.
 
 ### List Features for application
@@ -7275,6 +7284,7 @@ curl -v -X PUT \
     }
 }
 ```
+-->
 
 ## Models
 
