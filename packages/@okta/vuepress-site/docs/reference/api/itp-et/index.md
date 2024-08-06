@@ -349,7 +349,7 @@ This resource contains detailed reference material on event types triggered with
 | ID              | For an admin actor, this ID correlates with `user.session.clear` or `user.authentication.universal_logout` events. For a system principal actor, this ID correlates to the `user.authentication.universal_logout` event.               | String         |  `c579b0f27865c4b93be9ceb6f00e5373`          |
 | **target** (User)         | The user associated with a risk activity            | Object     |        |
 | type        | The type of target object     | String     | User       |
-| **actor**                 |  The end user, the Admin (in the case of an explicit Admin action), or the system principal (in the case of a Post auth session evaluation)               |  Object       |         |
+| **actor**                 |  The end user, the admin (in the case of an explicit admin action), or the system principal (in the case of a Post auth session evaluation)               |  Object       |         |
 | type        | The type of actor object           |      |        |
 | **client**                |  The client of the system principal actor                | Object      |         |
 | IPAddress              | IP address                |       |         |
