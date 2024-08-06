@@ -22,9 +22,9 @@ Your end users are modeled inside Okta as [**Users**](/docs/reference/api/users/
 
 A [**Group**](/docs/reference/api/groups/) is made up of users found within a directory. It can be thought of as a label applied to a set of users. A user can be a member of multiple groups. Groups are useful for representing roles, relationships, and can even be used for subscription tiers.
 
-An [**Application**](/docs/reference/api/apps/) holds information about the protocol in which it wants Okta to communicate, policies for accessing the application, and which users can use the application after identifying themselves.
+An [**Application**](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/) holds information about the protocol in which it wants Okta to communicate, policies for accessing the application, and which users can use the application after identifying themselves.
 
-The relationship between an application and a user is stored in Okta as an [AppUser](/docs/reference/api/apps/#assign-user-to-application-for-sso). This allows for **mappings** between profile values where they are different. For example, application1 may refer to a user's last name as `lastName` and application2 may refer to last name as `surname`. The AppUser stores the value as necessary for the application.
+The relationship between an application and a user is stored in Okta as an [AppUser](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationUsers/). This allows for **mappings** between profile values where they are different. For example, application1 may refer to a user's last name as `lastName` and application2 may refer to last name as `surname`. The AppUser stores the value as necessary for the application.
 
 A [**Policy**](/docs/reference/api/policy/) specifies the **rules** of how your organization behaves for certain actions. Policies have conditions that need to be met to apply actions. Your Okta organization contains policies for how to gain access to an application, what the user needs to do to reset their password, and to enroll into multifactor authentication, for example.
 

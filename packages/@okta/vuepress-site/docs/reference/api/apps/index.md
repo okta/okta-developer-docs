@@ -3920,6 +3920,12 @@ curl -v -X POST \
 
 ## Application user operations
 
+The Application user operations reference is now available at the new [Okta API reference portal](https://developer.okta.com/docs/api/) as the [Application Users API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationUsers/).
+
+Explore the [Okta Public API Collections](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/overview) workspace to get started with the [Application Users API Postman collection](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/folder/4920859-ca5456b3-59ed-4c8b-8145-22a31890567b).
+
+<!--
+
 ### Assign user to application for SSO
 
 <ApiOperation method="post" url="/api/v1/apps/${applicationId}/users" />
@@ -4471,9 +4477,14 @@ curl -v -X DELETE \
 ```json
 {}
 ```
-
+-->
 ## Application group operations
 
+The Application group operations reference is now available at the new [Okta API reference portal](https://developer.okta.com/docs/api/) as the [Application Groups API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationGroups/).
+
+Explore the [Okta Public API Collections](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/overview) workspace to get started with the [Application Groups API Postman collection](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/folder/4920859-6c1656d1-21e1-49a2-98ae-9a71c38686e1).
+
+<!--
 ### Assign group to application
 
 <ApiOperation method="put" url="/api/v1/apps/${applicationId}/groups/${groupId}" />
@@ -4631,6 +4642,7 @@ curl -v -X DELETE \
 ```json
 {}
 ```
+-->
 
 ## Application key store operations
 
@@ -6796,6 +6808,11 @@ HTTP/1.1 204 No Content
 
 ## Application logo operations
 
+The Application logo operations reference is now available at the new [Okta API reference portal](https://developer.okta.com/docs/api/) as the [Application Logos API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationLogos/#tag/ApplicationLogos).
+
+Explore the [Okta Public API Collections](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/overview) workspace to get started with the [Application Logos API Postman collection](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/folder/4920859-ba4bbc28-0552-45ad-b040-4eca97e1c43a).
+
+<!--
 ### Update logo for application
 
 <ApiOperation method="post" url="/api/v1/apps/${applicationId}/logo" />
@@ -6829,6 +6846,7 @@ curl -v -X POST \
 HTTP/1.1 201 Content Created
 Location: https://{yourOktaDomain}/bc/image/fileStoreRecord?id=fs01hfslJH2m3qUOe0g4
 ```
+-->
 
 ## Application Provisioning Connection operations
 
