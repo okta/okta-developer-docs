@@ -360,12 +360,77 @@ module.exports = ctx => ({
 
     // add redir url for main guide pages
     let found = guidesInfo.guideInfo[path];
+
+    if (path.endsWith('/main/')) {
+      // For paths such as /docs/guides/{guide-name}/main/ where the guide has stack selector/frameworks
+      let mainPagePath = path.slice(0, path.length - 5);
+      let mainPageGuide = guidesInfo.guideInfo[mainPagePath];
+      /*
+        The current page might have some frameworks which are displayed in the stack selector. But `guideInfo` doesn't give the frameworks
+        for the pages ending with `/main` but provides frameworks for the parent page of this page. For eg. We'll get the list of frameworks for 
+        `/docs/guides/{guide-folder-name}/{specific-selection}/main/` in its parent page, which is `/docs/guides/{guide-folder-name}/`.
+
+        Example guideInfo for the parent page of `/docs/guides/authenticators-okta-verify/main/` which is `/docs/guides/authenticators-okta-verify/`
+        {
+          title: 'Okta Verify (Push/OTP) integration guide',
+          layout: 'Guides',
+          sections: [ 'main' ],
+          guide: 'authenticators-okta-verify',
+          frameworks: [ 'aspnet', 'java', 'nodeexpress' ],
+          mainFramework: 'aspnet'
+        }
+        
+        If the parent page of current page guide has frameworks(stack selector) then we don't need to add the current page to sitemap
+        but only add the pages with frameworks in the sitemap. Hence, excluding the current page from sitemap here. Refer - OKTA-745577
+      */
+      if (mainPageGuide && mainPageGuide.guide && mainPageGuide.sections && mainPageGuide.mainFramework) {
+        frontmatter.sitemap = {
+          exclude: true
+        };
+      }
+
+      // For paths such as /docs/guides/{guide-name}/-/main where the guide doesn't have stack selector/frameworks
+
+      mainPagePath = path.slice(0, path.length - 7);
+      mainPageGuide = guidesInfo.guideInfo[mainPagePath];
+      /* 
+        For paths such as /docs/guides/{guide-name}/-/main where there are no frameworks, we need to exclude the current page from sitemap
+
+        Eg. For path - `/docs/guides/build-api-integration/-/main/`, the mainPageGuide will be 
+
+        {
+          title: 'Build an API service integration',
+          excerpt: 'Learn how to build and register an API service integration with the Okta Integration Network.',
+          meta: [
+            {
+              name: 'description',
+              content: 'Use this guide to learn how to build, test, and submit an API service integration to the Okta Integration Network.'
+            }
+          ],
+          layout: 'Guides',
+          sections: [ 'main' ],
+          guide: 'build-api-integration',
+          frameworks: []
+        }
+      */
+
+      if (mainPageGuide && mainPageGuide.guide && mainPageGuide.sections && (!mainPageGuide.frameworks || !mainPageGuide.mainFramework)) {
+        frontmatter.sitemap = {
+          exclude: true
+        };
+      }
+    }
+
     if(found && found.guide && found.sections) {
       if(found.mainFramework) {
         $page.redir = `/docs/guides/${found.guide}/${found.mainFramework}/${found.sections[0]}/`
       } else {
         $page.redir = `/docs/guides/${found.guide}/${found.sections[0]}/`
       }
+      // Since current page is being redirected to the above links, we don't need to include current page in the sitemap.
+      frontmatter.sitemap = {
+        exclude: true
+      };
     }
     
     frontmatter.canonicalUrl = `https://developer.okta.com${path}`;
