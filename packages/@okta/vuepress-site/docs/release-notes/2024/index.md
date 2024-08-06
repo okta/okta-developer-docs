@@ -4,6 +4,54 @@ title: Okta Classic Engine API release notes 2024
 
 # Okta Classic Engine API release notes (2024)
 
+## August
+
+### Monthly release 2024.08.0
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Extended support for TLS certificates and private keys for custom domains](#extended-support-for-tls-certificates-and-private-keys-for-custom-domains) | August 7, 2024 |
+| [Request throttling for jwks_uri](#request-throttling-for-jwks_uri) | August 7, 2024 |
+| [System Log update for requests made with access tokens](#system-log-update-for-requests-made-with-access-tokens) | August 7, 2024 |
+| [Updated Universal Directory System Log events](#updated-universal-directory-system-log-events) | August 7, 2024 |
+| [](#) | August 7, 2024 |
+| [Bugs fixed in 2024.08.0](#bug-fixed-in-2024-08-0) | August 7, 2024 |
+
+#### Extended support for TLS certificates and private keys for custom domains
+
+Custom domains now support TLS certificates and private keys that are 2048, 3072, and 4096 bits. <!--OKTA-730872-->
+
+#### Request throttling for jwks_uri
+
+Okta has decreased the frequency at which it reloads JWKs from a customer's `jwks_uri`. <!--OKTA-739345-->
+
+#### System Log update for requests made with access tokens
+
+The client ID used to get an access token is now included in all System Logs for requests made with that access token. <!-- OKTA-667713 >
+
+#### Enforce an email verification when a user's email changes
+
+Each time that a user attempts to update their email, Okta sends an email to verify that their primary or secondary email address is up to date. <!-- OKTA-755687 -->
+
+#### Updated Universal Directory System Log events
+
+System Log events are generated when the following endpoints are called:
+
+* POST /api/v1/groups/{id}/owners
+* DELETE /api/v1/groups/{id}/owners/{ownerId}
+
+* POST /api/v1/meta/types/user/{id}
+* PUT /api/v1/meta/types/user/{id}
+
+* PUT /api/v1/users/{id}/linkedObjects/{property}/{value}
+* DELETE /api/v1/users/{id}/linkedObjects/{property} <!-- OKTA-710714-->
+
+#### Bugs fixed in 2024.008.0
+
+* Custom IdP profile attribute updates didn't validate the mandatory `externalName` property. (OKTA-690190)
+
+* System Log events from a token exchange request were missing information about the subject and actor tokens. (OKTA-687172)
+
 ## July
 
 ### Weekly release 2024.07.1

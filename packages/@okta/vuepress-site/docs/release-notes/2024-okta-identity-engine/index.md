@@ -5,6 +5,78 @@ title: Okta Identity Engine API release notes 2024
 <ApiLifecycle access="ie" />
 # Okta Identity Engine API release notes (2024)
 
+## August
+
+### Monthly release 2024.08.0
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Continuous Access renamed to Post auth session](#continuous-access-renamed-to-post-auth-session) | August 7, 2024 |
+| [Extended support for TLS certificates and private keys for custom domains](#extended-support-for-tls-certificates-and-private-keys-for-custom-domains) | August 7, 2024 |
+| [System Log event update](#system-log-event-update) | August 7, 2024 |
+| [Request throttling for jwks_uri](#request-throttling-for-jwks_uri) | August 7, 2024 |
+| [Network zone allowlists for SSWS API tokens is GA Preview](#network-zone-allowlists-for-ssws-api-tokens-is-ga-preview) | August 7, 2024 |
+| [System Log update for requests made with access tokens](#system-log-update-for-requests-made-with-access-tokens) | August 7, 2024 |
+| [Updated Universal Directory System Log events](#updated-universal-directory-system-log-events) | August 7, 2024 |
+| [](#) | August 7, 2024 |
+| [Bugs fixed in 2024.08.0](#bug-fixed-in-2024-08-0) | August 7, 2024 |
+
+
+#### Continuous Access renamed to Post auth session
+
+Continuous Access has been renamed to Post auth session. As a result, there are a few changes:
+
+Renamed System Log events
+
+* `policy.continuous_access.evaluate` is now `policy.auth_reevaluate.enforce`. This event is triggered when a Post auth session evaluation occurs.
+* `policy.continuous_access.action` is now `policy.auth_reevaluate.action`. This event is triggered when Okta signs a user out of their configured apps or runs a Workflow in response to an authentication or global session policy violation.
+
+Other changes
+
+* `POST_AUTH_SESSION` replaces `CONTINUOUS_ACCESS` as the `type` parameter value in `/api/v1/policies`.
+* The Terminate_Session failureActions object longer supports the `slo.appSelectionMode` and `slo.appInstanceIds` properties. <!--OKTA-753634 POST_AUTH_SESSION-->
+
+#### Extended support for TLS certificates and private keys for custom domains
+
+Custom domains now support TLS certificates and private keys that are 2048, 3072, and 4096 bits. <!--OKTA-730872-->
+
+#### System Log event update
+
+In the System Log, the `user.risk.detect` event now appears instead of the `user.risk.change` event when Okta detects an entity that's associated with a risk level. <!--OKTA-735117 ENABLE_USER_RISK_DETECT_EVENT-->
+
+#### Request throttling for jwks_uri
+
+Okta has decreased the frequency at which it reloads JWKs from a customer's `jwks_uri`. <!--OKTA-739345-->
+
+#### Network zone allowlists for SSWS API tokens is GA Preview
+
+Admins can now specify a network zone allowlist for each static (SSWS) API token. These allowlists define the IP addresses or network ranges from where Okta API requests using SSWS API tokens can be made. This restricts attackers and malware from stealing SSWS tokens and replaying them outside of the specified IP range to gain unauthorized access. <!--OKTA-691818 SSWS_IP_HARDENING-->
+
+#### System Log update for requests made with access tokens
+
+The client ID used to get an access token is now included in all System Logs for requests made with that access token. <!-- OKTA-667713 >
+
+#### Updated Universal Directory System Log events
+
+System Log events are generated when the following endpoints are called:
+
+* POST /api/v1/groups/{id}/owners
+* DELETE /api/v1/groups/{id}/owners/{ownerId}
+
+* POST /api/v1/meta/types/user/{id}
+* PUT /api/v1/meta/types/user/{id}
+
+* PUT /api/v1/users/{id}/linkedObjects/{property}/{value}
+* DELETE /api/v1/users/{id}/linkedObjects/{property} <!-- OKTA-710714-->
+
+#### Bugs fixed in 2024.008.0
+
+* The Universal Logout endpoint (`oauth2/v1/global-token-revocation`) used the incorrect OAuth 2.0 scope. (OKTA-747477)
+
+* Custom IdP profile attribute updates didn't validate the mandatory `externalName` property. (OKTA-690190)
+
+* System Log events from a token exchange request were missing information about the subject and actor tokens. (OKTA-687172)
+
 ## July
 
 ### Weekly release 2024.07.2
