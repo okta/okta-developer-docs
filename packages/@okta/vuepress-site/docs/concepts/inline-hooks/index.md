@@ -186,7 +186,7 @@ In the case of an inline hook time-out or failure, the Okta process flow either 
 | Password import inline hook | The Okta process flow stops and the user can't sign in. The password isn't imported. Future attempts to sign in triggers the inline hook again. |
 | Registration inline hook | The Okta process flow stops and the registration or the profile update is denied. The user receives one of the following default UI messages:<ul><li>"There was an error creating your account. Please try registering again". (Self-service registration)</li><li>"There was an error updating your profile. Please try again later." (Progressive profile enrollment)</li></ul> |
 | SAML assertion inline hook | The Okta process flow continues with the original SAML assertion returned. |
-| Telephony inline hook | The Okta process to deliver the OTP continues and the OTP is sent using the Okta providers. Okta enforces rate limits on this failover system. |
+| Telephony inline hook | The Okta process to deliver the OTP continues and the OTP is sent using the Okta providers. Failovers that use the Okta telephony providers are heavily rate-limited. |
 | Token inline hook | The Okta process flow continues with the original token returned. |
 | User import inline hook | The Okta import process continues and a user is created. |
 
