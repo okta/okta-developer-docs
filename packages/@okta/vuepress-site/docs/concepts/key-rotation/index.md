@@ -35,4 +35,4 @@ If you are using the org authorization server, configure and perform key rollove
 
 * You can't manually rotate the org authorization server's signing keys.
 
-> **Note:** If your application can't retrieve keys dynamically, you can pin that specific client to a specific key by [generating a key credential](/docs/reference/api/apps/#generate-new-application-key-credential) and [updating the application](docs/reference/api/apps/#update-key-credential-for-application) to use it for signing.
+> **Note:** If your application can't retrieve keys dynamically, you can pin that specific client to a specific key by [generating a key credential](/docs/reference/api/apps/#generate-new-application-key-credential) and [updating the application](/docs/reference/api/apps/#update-key-credential-for-application) to use it for signing.
