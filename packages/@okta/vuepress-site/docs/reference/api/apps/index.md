@@ -4943,6 +4943,11 @@ curl -v -X GET \
 
 ### Preview SAML metadata for application
 
+The Application SAML metadata preview reference is now available at the new [Okta API reference portal](https://developer.okta.com/docs/api/) as the [Application SSO API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationSSO/).
+
+Explore the [Okta Public API Collections](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/overview) workspace to get started with the [Application SSO Postman collection](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/folder/4920859-bd7b2acf-fc14-4d23-ac27-2486d3ffaa33).
+
+<!--
 <ApiOperation method="get" url="/api/v1/apps/${applicationId}/sso/saml/metadata" />
 
 Previews SAML metadata based on a specific key credential for an application
@@ -5004,6 +5009,7 @@ YoEdncuy+GQGzE9yLOhC4HNfHQXpqp2tMPdRlw==</ds:X509Certificate>
     </md:IDPSSODescriptor>
 </md:EntityDescriptor>
 ```
+-->
 
 ### Generate CSR for application
 
@@ -8314,6 +8320,9 @@ Specifies a password for a user. A password value is a **write-only** property. 
 
 ### Application Links object
 
+See [_links](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/getApplication!c=200&path=0/_links&t=response) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--
 Specifies link relations (see [Web Linking](http://tools.ietf.org/html/rfc8288)) available for the current status of an application using the [JSON Hypertext Application Language](http://tools.ietf.org/html/draft-kelly-json-hal-06) specification. This object is used for dynamic discovery of related resources and lifecycle operations.  The Links object is **read-only**.
 
 | Link Relation Type | Description                                                                                |
@@ -8325,9 +8334,13 @@ Specifies link relations (see [Web Linking](http://tools.ietf.org/html/rfc8288))
 | metadata           | Protocol-specific metadata document for the configured `SignOnMode`                        |
 | self               | The actual application                                                                     |
 | users              | [User](#application-user-operations) assignments for application                           |
+-->
 
 ### Notifications object
 
+See [OAS3 PR Preview - notifications](https://preview.redoc.ly/oktadev/vy_OKTA-715114_openidconnect/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication!path=4/settings/notifications&t=request) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--
 Specifies notifications settings for the application. The VPN notification feature allows admins to communicate a requirement for signing into VPN-required apps.
 
 | Property          | Description                                        | DataType                                             | Nullable | Default | MinLength | MaxLength | Validation |
@@ -8371,8 +8384,13 @@ There are four choices for the `connection` property.
  - `ON_NETWORK` - Displays VPN connection information only when a browser's client IP matches the configured Public Gateway IPs. The notification appears before the end user can access the app.
  - `OFF_NETWORK` - Displays VPN connection information only when the browser's client IP doesn't match the configured Public Gateway IPs. The notification appears before the end user can access the app.
 
+-->
+
 ### Attribute Statements object
 
+See [attributeStatements](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication!path=6/settings/signOn/attributeStatements&t=request) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--
 Specifies (optional) attribute statements for a SAML application
 
 | Property   | Description                                                                                  | DataType     | Nullable |
@@ -8382,8 +8400,13 @@ Specifies (optional) attribute statements for a SAML application
 | type       | The type of attribute statements object. Supported value: `EXPRESSION`                       | String       | FALSE    |
 | values     | The values of the attribute; Supports [Okta EL](/docs/reference/okta-expression-language/)   | Array        | FALSE    |
 
+-->
+
 ### Single Logout object
 
+See [slo](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication!path=6/settings/signOn/slo&t=request) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--
 Specifies the Single Logout (SLO) behavior for a Custom SAML application
 
 | Property  | Description                                                                  | Datatype | Nullable |
@@ -8401,9 +8424,13 @@ Specifies the Single Logout (SLO) behavior for a Custom SAML application
   }
 }
 ```
+-->
 
 ### Participate Single Logout object
 
+See [participateSlo](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication!path=6/settings/signOn/participateSlo&t=request) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--
 Specifies the Participate Single Logout behavior for a Custom SAML application
 
 | Property  | Description                                                                  | Datatype | Nullable |
@@ -8424,9 +8451,12 @@ Specifies the Participate Single Logout behavior for a Custom SAML application
   }
 }
 ```
-
+-->
 ### Service Provider certificate
 
+See [spCertificate]() in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--
 The certificate that the Service Provider uses to sign Single Logout requests
 
 | Property | Description                                               | Datatype       | Nullable |
@@ -8442,8 +8472,13 @@ The certificate that the Service Provider uses to sign Single Logout requests
   }
 }
 ```
+-->
 
 #### Group Attribute Statements object
+
+See [GROUP attributeStatements](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication!path=6/settings/signOn/attributeStatements/1/name&t=request) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--
 
 Group Attribute Statements can be used in place of Attribute Statements if your Org supports a large number of groups and you want to filter them into a single SAML assertion.
 
@@ -8498,6 +8533,7 @@ Group Attribute Statements can be used in place of Attribute Statements if your 
   }
 }
 ```
+-->
 
 ### Profile object
 
