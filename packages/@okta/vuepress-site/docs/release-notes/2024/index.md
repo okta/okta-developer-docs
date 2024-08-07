@@ -11,47 +11,63 @@ title: Okta Classic Engine API release notes 2024
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
 | [Extended support for TLS certificates and private keys for custom domains](#extended-support-for-tls-certificates-and-private-keys-for-custom-domains) | August 7, 2024 |
-| [Request throttling for jwks_uri](#request-throttling-for-jwks_uri) | August 7, 2024 |
+| [Enforce an email verification when a user's email changes](#enforce-an-email-verification-when-a-user-s-email-changes) | August 7, 2024 |
+| [New System Log API property for target object in Production](#new-system-log-api-property-for-target-object-in-production) | August 7, 2024 |
+| [Request throttling for jwks_uri](#request-throttling-for-jwks-uri) | August 7, 2024 |
+| [System Log events updates](#system-log-events-updates) | August 7, 2024 |
 | [System Log update for requests made with access tokens](#system-log-update-for-requests-made-with-access-tokens) | August 7, 2024 |
 | [Updated Universal Directory System Log events](#updated-universal-directory-system-log-events) | August 7, 2024 |
-| [System Log events updates](#) | August 7, 2024 |
-| [Bugs fixed in 2024.08.0](#bug-fixed-in-2024-08-0) | August 7, 2024 |
+| [Bugs fixed in 2024.08.0](#bugs-fixed-in-2024-08-0) | August 7, 2024 |
 
 #### Extended support for TLS certificates and private keys for custom domains
 
 Custom domains now support TLS certificates and private keys that are 2048, 3072, and 4096 bits. <!--OKTA-730872-->
 
-#### Request throttling for jwks_uri
-
-Okta has decreased the frequency at which it reloads JWKs from a customer's `jwks_uri`. <!--OKTA-739345-->
-
-#### System Log update for requests made with access tokens
-
-The client ID used to get an access token is now included in all System Logs for requests made with that access token. <!-- OKTA-667713 >
-
 #### Enforce an email verification when a user's email changes
 
 Each time that a user attempts to update their email, Okta sends an email to verify that their primary or secondary email address is up to date. <!-- OKTA-755687 -->
+
+#### New System Log API property for target object in Production
+
+Certain system log events now contain a new property called `changeDetails` in the `target` object. When this property is populated, it reflects new, changed, or removed attributes of the target resource that has been modified. See [changeDetails property](/docs/reference/api/system-log/#changedetails-property).
+
+#### Request throttling for jwks_uri
+
+Okta has decreased the frequency at which it reloads JWKs from a customer's `jwks_uri`. <!--OKTA-739345-->
 
 #### System Log events updates
 
 The following System Log events are now available:
 
-application.provision.group_push.deactivate_mapping
-system.agent.register
-security.attack_protection.settings.update
-system.self_service.configuration.update
-user.behavior.profile.reset
-system.identity_sources.bulk_upsert
-system.identity_sources.bulk_delete
-system.import.user_match.confirm
-system.import.schedule
-system.import.user_match.unignore
-system.import.user_match.update
-system.import.schedule
-system.import.user_match.confirm
-The application.lifecycle.update event now has the sessionIdleTimeoutMinutes and sessionMaxLifetimeMinutes fields. These fields add more session details to the event.
-See [Event types](https://developer.okta.com/docs/reference/api/event-types/). <!-- OKTA-713852, OKTA-710604, OKTA-750439, OKTA-753780, OKTA-751223, OKTA-710489, OKTA-755721, OKTA-752579 -->
+* application.provision.group_push.deactivate_mapping
+
+* system.agent.register
+
+* security.attack_protection.settings.update
+
+* system.self_service.configuration.update
+
+* user.behavior.profile.reset
+
+* system.identity_sources.bulk_upsert
+
+* system.identity_sources.bulk_delete
+
+* system.import.user_match.confirm
+
+* system.import.schedule
+
+* system.import.user_match.unignore
+
+* system.import.user_match.update
+
+* The application.lifecycle.update event now has the sessionIdleTimeoutMinutes and sessionMaxLifetimeMinutes fields. These fields add more session details to the event.
+
+See [Event types](https://developer.okta.com/docs/reference/api/event-types/). <!-- OKTA-713852, OKTA-753583, OKTA-710604, OKTA-750439, OKTA-753780, OKTA-750879, OKTA-750876, OKTA-751223, OKTA-710489, OKTA-755721, OKTA-752579 -->
+
+#### System Log update for requests made with access tokens
+
+The client ID used to get an access token is now included in all System Logs for requests made with that access token. <!-- OKTA-667713-->
 
 #### Updated Universal Directory System Log events
 
@@ -66,7 +82,7 @@ System Log events are generated when the following endpoints are called:
 * PUT /api/v1/users/{id}/linkedObjects/{property}/{value}
 * DELETE /api/v1/users/{id}/linkedObjects/{property} <!-- OKTA-710714-->
 
-#### Bugs fixed in 2024.008.0
+#### Bugs fixed in 2024.08.0
 
 * Custom IdP profile attribute updates didn't validate the mandatory `externalName` property. (OKTA-690190)
 
@@ -263,7 +279,7 @@ You can now make PUT requests to the `/api-tokens/{apiTokenId}` endpoint to upda
 
 Custom admins can now view, register, and manage agents. See [Permission types](/docs/reference/api/roles/#permission-properties). <!-- OKTA-706310 -->
 
-#### New System Log API property for target object
+#### New System Log API property for target object in Preview
 
 Certain system log events now contain a new property called `changeDetails` in the `target` object. When this property is populated, it reflects new, changed, or removed attributes of the target resource that has been modified. See [changeDetails property](/docs/reference/api/system-log/#changedetails-property). <!-- OKTA-724000 -->
 

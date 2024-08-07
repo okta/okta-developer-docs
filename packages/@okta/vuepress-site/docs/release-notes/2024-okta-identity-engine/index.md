@@ -13,47 +13,80 @@ title: Okta Identity Engine API release notes 2024
 |--------|--------------------------|
 | [Continuous Access renamed to Post auth session](#continuous-access-renamed-to-post-auth-session) | August 7, 2024 |
 | [Extended support for TLS certificates and private keys for custom domains](#extended-support-for-tls-certificates-and-private-keys-for-custom-domains) | August 7, 2024 |
-| [System Log event update](#system-log-event-update) | August 7, 2024 |
-| [Request throttling for jwks_uri](#request-throttling-for-jwks_uri) | August 7, 2024 |
 | [Network zone allowlists for SSWS API tokens is GA Preview](#network-zone-allowlists-for-ssws-api-tokens-is-ga-preview) | August 7, 2024 |
+| [New System Log API property for target object in Production](#new-system-log-api-property-for-target-object-in-production) | August 7, 2024 |
+| [Request throttling for jwks_uri](#request-throttling-for-jwks-uri) | August 7, 2024 |
+| [System Log events updates](#system-log-events-updates) | August 7, 2024 |
 | [System Log update for requests made with access tokens](#system-log-update-for-requests-made-with-access-tokens) | August 7, 2024 |
 | [Updated Universal Directory System Log events](#updated-universal-directory-system-log-events) | August 7, 2024 |
-| [](#) | August 7, 2024 |
-| [Bugs fixed in 2024.08.0](#bug-fixed-in-2024-08-0) | August 7, 2024 |
+| [User risk System Log event update](#user-risk-system-log-event-update) | August 7, 2024 |
+| [Bugs fixed in 2024.08.0](#bugs-fixed-in-2024-08-0) | August 7, 2024 |
 
 #### Continuous Access renamed to Post auth session
 
 Continuous Access has been renamed to Post auth session. As a result, there are a few changes:
 
-Renamed System Log events
+Renamed System Log events:
 
-* `policy.continuous_access.evaluate` is now `policy.auth_reevaluate.enforce`. This event is triggered when a Post auth session evaluation occurs.
-* `policy.continuous_access.action` is now `policy.auth_reevaluate.action`. This event is triggered when Okta signs a user out of their configured apps or runs a Workflow in response to an authentication or global session policy violation.
+* `policy.continuous_access.evaluate` is deprecated. `policy.auth_reevaluate.enforce` replaces it and is triggered when a Post auth session evaluation occurs.
 
-Other changes
+* `policy.continuous_access.action` is deprecated. `policy.auth_reevaluate.action` replaces it and is triggered when Okta signs a user out of their configured apps or runs a Workflow in response to an authentication or global session policy violation.
 
-* `POST_AUTH_SESSION` replaces `CONTINUOUS_ACCESS` as the `type` parameter value in `/api/v1/policies`.
-* The Terminate_Session failureActions object longer supports the `slo.appSelectionMode` and `slo.appInstanceIds` properties. <!--OKTA-753634 POST_AUTH_SESSION-->
+Other changes:
+
+* `CONTINUOUS_ACCESS` is deprecated. `POST_AUTH_SESSION` replaces it as the `type` parameter value in `/api/v1/policies`.
+
+* The Terminate_Session `failureActions` object no longer supports the `slo.appSelectionMode` and `slo.appInstanceIds` properties. <!--OKTA-753634 POST_AUTH_SESSION-->
 
 #### Extended support for TLS certificates and private keys for custom domains
 
 Custom domains now support TLS certificates and private keys that are 2048, 3072, and 4096 bits. <!--OKTA-730872-->
 
-#### System Log event update
+#### Network zone allowlists for SSWS API tokens is GA Preview
 
-In the System Log, the `user.risk.detect` event now appears instead of the `user.risk.change` event when Okta detects an entity that's associated with a risk level. <!--OKTA-735117 ENABLE_USER_RISK_DETECT_EVENT-->
+Admins can now specify a network zone allowlist for each static (SSWS) API token. These allowlists define the IP addresses or network ranges from where Okta API requests using SSWS API tokens can be made. This restricts attackers and malware from stealing SSWS tokens and replaying them outside of the specified IP range to gain unauthorized access. <!--OKTA-691818 SSWS_IP_HARDENING-->
+
+#### New System Log API property for target object in Production
+
+Certain system log events now contain a new property called `changeDetails` in the `target` object. When this property is populated, it reflects new, changed, or removed attributes of the target resource that has been modified. See [changeDetails property](/docs/reference/api/system-log/#changedetails-property). <!-- OKTA-724000-->
 
 #### Request throttling for jwks_uri
 
 Okta has decreased the frequency at which it reloads JWKs from a customer's `jwks_uri`. <!--OKTA-739345-->
 
-#### Network zone allowlists for SSWS API tokens is GA Preview
+#### System Log events updates
 
-Admins can now specify a network zone allowlist for each static (SSWS) API token. These allowlists define the IP addresses or network ranges from where Okta API requests using SSWS API tokens can be made. This restricts attackers and malware from stealing SSWS tokens and replaying them outside of the specified IP range to gain unauthorized access. <!--OKTA-691818 SSWS_IP_HARDENING-->
+The following System Log events are now available:
+
+* application.provision.group_push.deactivate_mapping
+
+* system.agent.register
+
+* security.attack_protection.settings.update
+
+* system.self_service.configuration.update
+
+* user.behavior.profile.reset
+
+* system.identity_sources.bulk_upsert
+
+* system.identity_sources.bulk_delete
+
+* system.import.user_match.confirm
+
+* system.import.schedule
+
+* system.import.user_match.unignore
+
+* system.import.user_match.update
+
+* The application.lifecycle.update event now has the sessionIdleTimeoutMinutes and sessionMaxLifetimeMinutes fields. These fields add more session details to the event.
+
+See [Event types](https://developer.okta.com/docs/reference/api/event-types/). <!-- OKTA-713852, OKTA-753583, OKTA-710604, OKTA-750439, OKTA-753780, OKTA-750879, OKTA-750876, OKTA-751223, OKTA-710489, OKTA-755721, OKTA-752579 -->
 
 #### System Log update for requests made with access tokens
 
-The client ID used to get an access token is now included in all System Logs for requests made with that access token. <!-- OKTA-667713 >
+The client ID used to get an access token is now included in all System Logs for requests made with that access token. <!-- OKTA-667713-->
 
 #### Updated Universal Directory System Log events
 
@@ -68,27 +101,11 @@ System Log events are generated when the following endpoints are called:
 * PUT /api/v1/users/{id}/linkedObjects/{property}/{value}
 * DELETE /api/v1/users/{id}/linkedObjects/{property} <!-- OKTA-710714-->
 
-#### System Log events updates
+#### User risk System Log event update
 
-The following System Log events are now available:
+In the System Log, the `user.risk.detect` event now appears instead of the `user.risk.change` event when Okta detects an entity that's associated with a risk level. <!--OKTA-735117 ENABLE_USER_RISK_DETECT_EVENT-->
 
-application.provision.group_push.deactivate_mapping
-system.agent.register
-security.attack_protection.settings.update
-system.self_service.configuration.update
-user.behavior.profile.reset
-system.identity_sources.bulk_upsert
-system.identity_sources.bulk_delete
-system.import.user_match.confirm
-system.import.schedule
-system.import.user_match.unignore
-system.import.user_match.update
-system.import.schedule
-system.import.user_match.confirm
-The application.lifecycle.update event now has the sessionIdleTimeoutMinutes and sessionMaxLifetimeMinutes fields. These fields add more session details to the event.
-See [Event types](https://developer.okta.com/docs/reference/api/event-types/). <!-- OKTA-713852, OKTA-753583, OKTA-710604, OKTA-750439, OKTA-753780, OKTA-750879, OKTA-750876, OKTA-751223, OKTA-710489, OKTA-755721, OKTA-752579 -->
-
-#### Bugs fixed in 2024.008.0
+#### Bugs fixed in 2024.08.0
 
 * The Universal Logout endpoint (`oauth2/v1/global-token-revocation`) used the incorrect OAuth 2.0 scope. (OKTA-747477)
 
@@ -336,7 +353,7 @@ SAML and WS-Fed template applications now support username as an optional reques
 
 You can now pin the Sign-In Widget version (third generation) when updating a customized sign-in page (`PUT /brands/{brandId}/pages/sign-in/customized`) or a preview sign-in page (`PUT /brands/{brandId}/pages/sign-in/preview`). The value of `widgetVersion` must be `7.8` or later if `widgetCustomizations.widgetGeneration` is set to `G3`. A value of `7.7` or earlier results in an invalid request. See [Replace the Customized Error Page](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/CustomPages/#tag/CustomPages/operation/replaceCustomizedErrorPage). <!-- OKTA-713942 -->
 
-#### New System Log API property for target object
+#### New System Log API property for target object in Preview
 
 Certain system log events now contain a new property called `changeDetails` in the `target` object. When this property is populated, it reflects new, changed, or removed attributes of the target resource that has been modified. See [changeDetails property](/docs/reference/api/system-log/#changedetails-property). <!-- OKTA-724000 -->
 
