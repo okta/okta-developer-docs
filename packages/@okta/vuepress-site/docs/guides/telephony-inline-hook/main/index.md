@@ -175,7 +175,7 @@ Your response to Okta needs to have the correct format and the required properti
 
 When Okta calls an external service, it enforces a default timeout of three seconds. See [Time out and retry](https://developer.okta.com/docs/concepts/inline-hooks/#time-out-and-retry).
 
-> **Note:** Failovers that use the Okta telephony providers are heavily rate-limited.
+> **Note:** The failover system that uses the Okta telephony providers is heavily rate-limited.
 
 There are other common causes of failure for telephony inline hooks. See the [Troubleshoot](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createTelephonyInlineHook) section in the Telephony Inline Hook API reference. This section contains a list of possible failures for telephony hook callouts, information on the impact of the failure, and error visibility.
 
