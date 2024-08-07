@@ -204,9 +204,11 @@ This section provides example JSON payloads for the supported operations.
 }
 ```
 
-## Timeout behavior
+## Time-out behavior
 
 If the provider response times out, Okta attempts to send the OTP using the Okta telephony providers. See [Troubleshoot](#troubleshoot).
+
+>**Note:** The failover mechanism that uses the Okta telephony providers is heavily rate-limited.
 
 ## Troubleshoot
 
