@@ -2647,6 +2647,9 @@ curl -v -X GET \
 
 ### Update application
 
+See [Replace an Application](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/replaceApplication) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--
 <ApiOperation method="put" url="/api/v1/apps/${applicationId}" />
 
 Updates an application in your organization
@@ -2665,6 +2668,7 @@ Updates an application in your organization
 ##### Response parameters
 
 Updated [Application](#application-object)
+-->
 
 #### Set SWA user-editable username and password
 
@@ -3805,6 +3809,9 @@ curl -v -X PUT \
 
 ### Delete application
 
+See [Delete an Application](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/deleteApplication) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--
 <ApiOperation method="delete" url="/api/v1/apps/${applicationId}" />
 
 Removes an inactive application
@@ -3855,8 +3862,13 @@ Content-Type: application/json
   ]
 }
 ```
+-->
 
 ### Update application policy
+
+The Application policy operation reference is now available at the new [Okta API reference portal](https://developer.okta.com/docs/api/) as the [Application Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationPolicies/).
+
+<!--
 
 <ApiLifecycle access="ie" />
 
@@ -3893,6 +3905,7 @@ curl -v -X PUT \
 ```http
 HTTP/1.1 204 No Content
 ```
+-->
 
 ## Application lifecycle operations
 
@@ -6348,6 +6361,11 @@ See [Role assignment operations](/docs/reference/api/roles/#role-assignment-oper
 
 ## Application OAuth 2.0 scope consent grant operations
 
+The Application OAuth 2.0 scope consent grant operations reference is now available at the new [Okta API reference portal](https://developer.okta.com/docs/api/) as the [Application Grants API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationGrants/).
+
+Explore the [Okta Public API Collections](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/overview) workspace to get started with the [Application Grants Postman collection](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/folder/4920859-cc2c28cc-7ddb-45a5-8142-e2662f9563d6).
+
+<!--
 A scope consent grant represents an application's permission to request to include a specific Okta scope in OAuth 2.0 Bearer tokens. If the application does not have this grant, token requests that contain this Okta scope are denied.
 
 ### Grant consent to scope for application
@@ -6617,6 +6635,7 @@ curl -v -X DELETE \
 ```http
 HTTP/1.1 204 No Content
 ```
+-->
 
 ## Application OAuth 2.0 token operations
 
