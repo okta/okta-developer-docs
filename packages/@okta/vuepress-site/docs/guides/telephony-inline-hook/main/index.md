@@ -34,14 +34,9 @@ This guide provides an example of an Okta telephony inline hook. This guide uses
 
 * Make sure you have a user in your org with a Phone authenticator enrolled. See [MFA Usage report](https://help.okta.com/okta_help.htm?type=oie&id=ext-mfa-usage).
 
-* Make sure you have an active phone number in Twilio with SMS and MMS capabilities.
+* Create a [Twilio Verify Service](https://twilio.com/console/verify/services) in your Twilio account for sending OTPs.
 
-* Create a [TwiML bin](https://www.twilio.com/docs/runtime/tutorials/twiml-bins#create-a-new-twiml-bin) in your Twilio account for use with voice call messages. Use the automatically generated handler URL as a variable. Also, include an `otp` tag key within double brackets in the prepopulated XML. This tag key references the dynamic `otp` used later in this exercise. For example:
-
-    ```xml
-    <?xml version="1.0" encoding="UTF-8"?>
-    <Response><Say>Your code is {{otp}}</Say></Response>
-    ```
+* [Enable custom code](https://www.twilio.com/docs/verify/api/customization-options#custom-verification-codes). Select "Enable Custom Verification Code" in the Code Configuration settings for your [Verify Service](https://twilio.com/console/verify/services)
 
 ## About telephony inline hook implementation
 
@@ -112,15 +107,14 @@ Alternatively, you can use the Inline Hooks Management API to create an inline h
 
 ## Add Twilio credentials to the external service
 
-Copy the account SID and auth token from your Twilio account and add them as variables in the `.env` file in the Glitch project.
+Copy the account SID, auth token, and Verify service SID from your Twilio account and add them as variables in the `.env` file in the Glitch project.
 
 > **Note:** Make sure you have the required default code and packages in your project. See [Common Hook set-up steps](https://developer.okta.com/docs/guides/common-hook-set-up-steps/nodejs/main/).
 
 1. From the left navigation in the Glitch project, click **.env**.
 1. In the first blank variable line that appears, add **ACCOUNT_SID** and then paste your account SID as the value on the right.
 1. In the second blank variable line, add **AUTH_TOKEN** and then paste your account authentication token as the value on the right.
-1. Click **Add a Variable** and then add **FROM_PHONE_NUMBER** as the variable and then the Twilio phone number from your account as the value.
-1. Click **Add a Variable** and then add **TWIML_URL** as the variable and then the [TwiML URL](https://www.twilio.com/docs/runtime/tutorials/twiml-bins#create-a-new-twiml-bin) from your Twilio account.
+1. Click **Add a Variable** and then add **VERIFY_SERVICE_SID** as the variable and then the Twilio Verify Service from your account as the value.
 
 > **Note:** See the code comments in the Glitch `server.js` file where these variable values appear.
 
@@ -140,7 +134,7 @@ The following code retrieves the value of the OTP code sent by Okta from the `da
 
 The following code is used to send the SMS or voice call to the user:
 
-<StackSelector snippet="sendsmsmakecall" noSelector/>
+<StackSelector snippet="sendotp" noSelector/>
 
 ## Send a response to Okta
 
