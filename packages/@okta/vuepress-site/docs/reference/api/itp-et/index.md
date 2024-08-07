@@ -154,8 +154,8 @@ This resource contains detailed reference material on event types triggered with
 | **client**                |  The client of the actor                 |       |         |
 | IPAddress              | IP address of the client                |       |         |
 
-## policy auth_evaluate enforce
-`policy.auth_evaluate.enforce`
+## policy auth_reevaluate enforce
+`policy.auth_reevaluate.enforce`
 
 **Description:** This event is triggered when a post auth session evaluation occurs.
 
