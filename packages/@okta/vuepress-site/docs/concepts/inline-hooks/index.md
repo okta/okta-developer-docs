@@ -30,7 +30,7 @@ Okta defines several different types of inline hooks. Each type of inline hook m
 | [SAML assertion inline hook](/docs/reference/saml-hook/)       | Customizes SAML assertions returned by Okta                                    |
 | [Registration inline hook](/docs/reference/registration-hook/) | Customizes handling of Self-Service Registration (SSR) and Progressive Enrollment support |
 | [Password import inline hook](/docs/reference/password-hook/)  | Verifies a user-supplied password to support migration of users to Okta        |
-| [Telephony inline hook](/docs/reference/telephony-hook/) | Customizes Okta's flows that send SMS or voice messages |
+| [Telephony inline hook](/docs/reference/telephony-hook/) | Customizes the Okta flows that send SMS or voice messages |
 
 ## Inline hook process flow
 
@@ -114,7 +114,7 @@ Always included is `data.context`, providing context information. In general, `d
 
 ## The response
 
-Your service receives the request from Okta and needs to respond to it. The response needs to include an HTTP response code and and, usually, a JSON payload. In particular, you'll typically include a `commands` object in the JSON payload to specify actions for Okta to execute or to communicate information back to Okta.
+Your service receives the request from Okta and needs to respond to it. The response needs to include an HTTP response code and, usually, a JSON payload. In particular, you'll typically include a `commands` object in the JSON payload to specify actions for Okta to execute or to communicate information back to Okta.
 
 <HookResponseSize/>
 
@@ -132,7 +132,7 @@ You can include any of the following types of objects in the JSON payload:
 
 #### commands
 
-Lets you return commands to Okta to affect the process flow being executed and to modify values within Okta objects. The available commands differ by inline hook type and are defined in the specific documentation for each inline hook type.
+Allows you to return commands to Okta to affect the process flow being executed and to modify values within Okta objects. The available commands differ by inline hook type and are defined in the specific documentation for each inline hook type.
 
 The `commands` object is an array, which allows you to return more than one command in your response. Each element within the array needs to consist of a pair of `type` and `value` elements. Each `type` element needs to be the name of a supported command you want to invoke. The corresponding `value` element is the operand that you want to specify for the command.
 
@@ -140,7 +140,7 @@ The names of the commands follow Java-style reverse DNS name format, beginning w
 
 #### error
 
-Lets you return error messages. How the error data is used varies by inline hook type.
+Allows you to return error messages. How the error data is used varies by inline hook type.
 
 The `error` object has the following structure:
 
@@ -165,7 +165,7 @@ While there are no technical restrictions on the values for any of the fields in
 
 #### debugContext
 
-Lets you specify additional information to make available in the Okta System Log with the call to your hook. You can use this object as you want, sending any information that would be useful for debugging purposes. In the System Log, the content sent in this object is populated into the `inline_hook.response.processed` event.
+Allows you to specify additional information to make available in the Okta System Log with the call to your hook. You can use this object as you want, sending any information that would be useful for debugging purposes. In the System Log, the content sent in this object is populated into the `inline_hook.response.processed` event.
 
 ## Time out and retry
 
@@ -179,16 +179,16 @@ The Okta process flow that triggered the inline hook remains in progress until a
 
 ### Inline hook time-out behavior
 
-In the case of an inline hook time out or failure, the Okta process flow either continues or stops based on the inline hook type:
+In the case of an inline hook time-out or failure, the Okta process flow either continues or stops based on the inline hook type:
 
 | Inline hook        | Inline hook failure behavior                             |
 |--------------------------------| ---------------------------------------------------------|
-| Password import inline hook | Okta process flow stops and user can't sign in. The password isn't imported. Future attempts to sign in triggers the inline hook again. |
-| Registration inline hook | Okta process flow stops and the registration or the profile update is denied. The user receives one of the following default UI messages:<ul><li>"There was an error creating your account. Please try registering again". (Self-service registration)</li><li>"There was an error updating your profile. Please try again later." (Progressive profile enrollment)</li></ul> |
-| SAML assertion inline hook | Okta process flow continues with the original SAML assertion returned. |
-| Telephony inline hook | Okta process to deliver the OTP continues and the OTP is sent using Okta's providers. |
-| Token inline hook | Okta process flow continues with the original token returned. |
-| User import inline hook | Okta import process continues and user is created. |
+| Password import inline hook | The Okta process flow stops and the user can't sign in. The password isn't imported. Future attempts to sign in triggers the inline hook again. |
+| Registration inline hook | The Okta process flow stops and the registration or the profile update is denied. The user receives one of the following default UI messages:<ul><li>"There was an error creating your account. Please try registering again". (Self-service registration)</li><li>"There was an error updating your profile. Please try again later." (Progressive profile enrollment)</li></ul> |
+| SAML assertion inline hook | The Okta process flow continues with the original SAML assertion returned. |
+| Telephony inline hook | The Okta process to deliver the OTP continues and the OTP is sent using the Okta providers. Okta enforces rate limits on this failover system. |
+| Token inline hook | The Okta process flow continues with the original token returned. |
+| User import inline hook | The Okta import process continues and a user is created. |
 
 >**Note:** Review the System Log for errors of type `inline_hook.executed`. This error type appears when Okta doesn't receive a response from your external service or receives a response with status codes other than `2xx`. See [Troubleshooting](#troubleshooting).
 
@@ -198,7 +198,7 @@ After creating your external service, you need to tell Okta it exists, and enabl
 
 1. Create an external service.
 
-1. Register your service's endpoint with Okta. You can do this in Admin Console by going to **Workflow > Inline Hooks** and clicking **Add Inline Hook**. Alternatively, you can do this using a REST API call by making a `POST` request to `/api/v1/inlineHooks`; see [Inline Hooks Management API](/docs/reference/api/inline-hooks/) for information.
+1. Register your service's endpoint with Okta. You can do this in the Admin Console by going to **Workflow > Inline Hooks** and clicking **Add Inline Hook**. Alternatively, you can do this using a REST API call by making a `POST` request to `/api/v1/inlineHooks`; see [Inline Hooks Management API](/docs/reference/api/inline-hooks/) for information.
 
 1. Associate the endpoint with a particular Okta process flow. This step varies by inline hook type.
 
