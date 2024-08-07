@@ -14,7 +14,7 @@ title: Okta Classic Engine API release notes 2024
 | [Request throttling for jwks_uri](#request-throttling-for-jwks_uri) | August 7, 2024 |
 | [System Log update for requests made with access tokens](#system-log-update-for-requests-made-with-access-tokens) | August 7, 2024 |
 | [Updated Universal Directory System Log events](#updated-universal-directory-system-log-events) | August 7, 2024 |
-| [](#) | August 7, 2024 |
+| [System Log events updates](#) | August 7, 2024 |
 | [Bugs fixed in 2024.08.0](#bug-fixed-in-2024-08-0) | August 7, 2024 |
 
 #### Extended support for TLS certificates and private keys for custom domains
@@ -32,6 +32,26 @@ The client ID used to get an access token is now included in all System Logs for
 #### Enforce an email verification when a user's email changes
 
 Each time that a user attempts to update their email, Okta sends an email to verify that their primary or secondary email address is up to date. <!-- OKTA-755687 -->
+
+#### System Log events updates
+
+The following System Log events are now available:
+
+application.provision.group_push.deactivate_mapping
+system.agent.register
+security.attack_protection.settings.update
+system.self_service.configuration.update
+user.behavior.profile.reset
+system.identity_sources.bulk_upsert
+system.identity_sources.bulk_delete
+system.import.user_match.confirm
+system.import.schedule
+system.import.user_match.unignore
+system.import.user_match.update
+system.import.schedule
+system.import.user_match.confirm
+The application.lifecycle.update event now has the sessionIdleTimeoutMinutes and sessionMaxLifetimeMinutes fields. These fields add more session details to the event.
+See [Event types](https://developer.okta.com/docs/reference/api/event-types/). <!-- OKTA-713852, OKTA-710604, OKTA-750439, OKTA-753780, OKTA-751223, OKTA-710489, OKTA-755721, OKTA-752579 -->
 
 #### Updated Universal Directory System Log events
 

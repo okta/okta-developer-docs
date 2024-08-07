@@ -21,7 +21,6 @@ title: Okta Identity Engine API release notes 2024
 | [](#) | August 7, 2024 |
 | [Bugs fixed in 2024.08.0](#bug-fixed-in-2024-08-0) | August 7, 2024 |
 
-
 #### Continuous Access renamed to Post auth session
 
 Continuous Access has been renamed to Post auth session. As a result, there are a few changes:
@@ -68,6 +67,26 @@ System Log events are generated when the following endpoints are called:
 
 * PUT /api/v1/users/{id}/linkedObjects/{property}/{value}
 * DELETE /api/v1/users/{id}/linkedObjects/{property} <!-- OKTA-710714-->
+
+#### System Log events updates
+
+The following System Log events are now available:
+
+application.provision.group_push.deactivate_mapping
+system.agent.register
+security.attack_protection.settings.update
+system.self_service.configuration.update
+user.behavior.profile.reset
+system.identity_sources.bulk_upsert
+system.identity_sources.bulk_delete
+system.import.user_match.confirm
+system.import.schedule
+system.import.user_match.unignore
+system.import.user_match.update
+system.import.schedule
+system.import.user_match.confirm
+The application.lifecycle.update event now has the sessionIdleTimeoutMinutes and sessionMaxLifetimeMinutes fields. These fields add more session details to the event.
+See [Event types](https://developer.okta.com/docs/reference/api/event-types/). <!-- OKTA-713852, OKTA-753583, OKTA-710604, OKTA-750439, OKTA-753780, OKTA-750879, OKTA-750876, OKTA-751223, OKTA-710489, OKTA-755721, OKTA-752579 -->
 
 #### Bugs fixed in 2024.008.0
 
