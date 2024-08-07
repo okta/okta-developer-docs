@@ -324,7 +324,7 @@ Use Enhanced Dynamic Network Zones to define IP service categories (proxies, VPN
 | [Permissions for custom admins to manage agents is GA in Production](#permissions-for-custom-admins-to-manage-agents-is-ga-in-production) | May 8, 2024 |
 | [Username supported as optional request query parameter](#username-supported-as-optional-request-query-parameter) | May 8, 2024 |
 | [Version pinning for Sign-In Widget (third generation) is GA in Production](#version-pinning-for-sign-in-widget-third-generation-is-ga-in-production) | May 8, 2024 |
-| [New System Log API property for target object](#new-system-log-api-property-for-target-object) | May 8, 2024 |
+| [New System Log API property for target object is GA Preview](#new-system-log-api-property-for-target-object-is-ga-preview) | May 8, 2024 |
 | [Multiple Identifiers is EA in Preview](#multiple-identifiers-is-ea-in-preview) | April 10, 2024 |
 | [Developer documentation update in 2024.05.0](#developer-documentation-update-in-2024-05-0) | May 8, 2024 |
 | [Bugs fixed in 2024.05.0](#bugs-fixed-in-2024-05-0) | May 8, 2024 |
@@ -353,7 +353,7 @@ SAML and WS-Fed template applications now support username as an optional reques
 
 You can now pin the Sign-In Widget version (third generation) when updating a customized sign-in page (`PUT /brands/{brandId}/pages/sign-in/customized`) or a preview sign-in page (`PUT /brands/{brandId}/pages/sign-in/preview`). The value of `widgetVersion` must be `7.8` or later if `widgetCustomizations.widgetGeneration` is set to `G3`. A value of `7.7` or earlier results in an invalid request. See [Replace the Customized Error Page](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/CustomPages/#tag/CustomPages/operation/replaceCustomizedErrorPage). <!-- OKTA-713942 -->
 
-#### New System Log API property for target object in Preview
+#### New System Log API property for target object is GA Preview
 
 Certain system log events now contain a new property called `changeDetails` in the `target` object. When this property is populated, it reflects new, changed, or removed attributes of the target resource that has been modified. See [changeDetails property](/docs/reference/api/system-log/#changedetails-property). <!-- OKTA-724000 -->
 
