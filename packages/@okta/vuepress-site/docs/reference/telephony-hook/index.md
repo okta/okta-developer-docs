@@ -208,7 +208,7 @@ This section provides example JSON payloads for the supported operations.
 
 If the provider response times out, Okta attempts to send the OTP using the Okta telephony providers. See [Troubleshoot](#troubleshoot).
 
->**Note:** The failover system that uses the Okta telephony providers is heavily rate-limited.
+>**Note:** The failover mechanism that uses the Okta telephony providers is heavily rate-limited.
 
 ## Troubleshoot
 
