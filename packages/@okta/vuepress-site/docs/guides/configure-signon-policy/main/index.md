@@ -158,11 +158,13 @@ In this example, create a policy that allows a specific group to use a passwordl
 
 1. Configure IF conditions, which define the authentication context for the rule. For this use case example, leave the defaults.
 
-1. Configure THEN conditions, which define the authentication experience for the rule. For this use case example, select that the session is established with the user entering **Any factor used to meet the Authentication Policy requirements**. Optionally, you can select that MFA is **Required** so that users of the group are prompted for a secondary factor before they’re granted access.
+1. Configure THEN conditions, which define the authentication experience for the rule. For this use case, leave the default of **Allowed** for **THEN Access is**.
 
-1. Configure THEN conditions to define the authentication experience. For this use case, leave the default of **Allowed** for **THEN Access is**.
+1. Select that the session is established with the user entering **Any factor used to meet the Authentication Policy requirements**.
 
-1. Select how users are prompted for a secondary factor in a given session.
+1. Select that MFA is **Required** so that users in the Project planners group are prompted for a secondary factor before they’re granted access.
+
+1. For **Users will be prompted for MFA**, select how users are prompted for a secondary factor in a given session.
 
 1. Configure the time settings for the rule.
 
