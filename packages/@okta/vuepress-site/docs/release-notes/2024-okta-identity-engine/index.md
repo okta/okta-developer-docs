@@ -14,7 +14,7 @@ title: Okta Identity Engine API release notes 2024
 | [Continuous Access renamed to Post auth session](#continuous-access-renamed-to-post-auth-session) | August 7, 2024 |
 | [Extended support for TLS certificates and private keys for custom domains](#extended-support-for-tls-certificates-and-private-keys-for-custom-domains) | August 7, 2024 |
 | [Network zone allowlists for SSWS API tokens is GA Preview](#network-zone-allowlists-for-ssws-api-tokens-is-ga-preview) | August 7, 2024 |
-| [New System Log API property for target object in Production](#new-system-log-api-property-for-target-object-in-production) | August 7, 2024 |
+| [New System Log API property for target object is GA Production](#new-system-log-api-property-for-target-object-is-ga-production) | August 7, 2024 |
 | [Request throttling for jwks_uri](#request-throttling-for-jwks-uri) | August 7, 2024 |
 | [System Log events updates](#system-log-events-updates) | August 7, 2024 |
 | [System Log update for requests made with access tokens](#system-log-update-for-requests-made-with-access-tokens) | August 7, 2024 |
@@ -46,7 +46,7 @@ Custom domains now support TLS certificates and private keys that are 2048, 3072
 
 Admins can now specify a network zone allowlist for each static (SSWS) API token. These allowlists define the IP addresses or network ranges from where Okta API requests using SSWS API tokens can be made. This restricts attackers and malware from stealing SSWS tokens and replaying them outside of the specified IP range to gain unauthorized access. <!--OKTA-691818 SSWS_IP_HARDENING-->
 
-#### New System Log API property for target object in Production
+#### New System Log API property for target object is GA Production
 
 Certain system log events now contain a new property called `changeDetails` in the `target` object. When this property is populated, it reflects new, changed, or removed attributes of the target resource that has been modified. See [changeDetails property](/docs/reference/api/system-log/#changedetails-property). <!-- OKTA-724000-->
 

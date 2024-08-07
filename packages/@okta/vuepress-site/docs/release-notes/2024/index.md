@@ -12,7 +12,7 @@ title: Okta Classic Engine API release notes 2024
 |--------|--------------------------|
 | [Extended support for TLS certificates and private keys for custom domains](#extended-support-for-tls-certificates-and-private-keys-for-custom-domains) | August 7, 2024 |
 | [Enforce an email verification when a user's email changes](#enforce-an-email-verification-when-a-user-s-email-changes) | August 7, 2024 |
-| [New System Log API property for target object in Production](#new-system-log-api-property-for-target-object-in-production) | August 7, 2024 |
+| [New System Log API property for target object is GA Production](#new-system-log-api-property-for-target-object-is-ga-production) | August 7, 2024 |
 | [Request throttling for jwks_uri](#request-throttling-for-jwks-uri) | August 7, 2024 |
 | [System Log events updates](#system-log-events-updates) | August 7, 2024 |
 | [System Log update for requests made with access tokens](#system-log-update-for-requests-made-with-access-tokens) | August 7, 2024 |
@@ -27,9 +27,9 @@ Custom domains now support TLS certificates and private keys that are 2048, 3072
 
 Each time that a user attempts to update their email, Okta sends an email to verify that their primary or secondary email address is up to date. <!-- OKTA-755687 -->
 
-#### New System Log API property for target object in Production
+#### New System Log API property for target object is GA Production
 
-Certain system log events now contain a new property called `changeDetails` in the `target` object. When this property is populated, it reflects new, changed, or removed attributes of the target resource that has been modified. See [changeDetails property](/docs/reference/api/system-log/#changedetails-property).
+Certain system log events now contain a new property called `changeDetails` in the `target` object. When this property is populated, it reflects new, changed, or removed attributes of the target resource that has been modified. See [changeDetails property](/docs/reference/api/system-log/#changedetails-property). <!-- OKTA-724000-->
 
 #### Request throttling for jwks_uri
 
@@ -264,7 +264,7 @@ Use Enhanced Dynamic Network Zones to define IP service categories (proxies, VPN
 | [Seamless ISV experience with integrated testing is GA in Preview](#seamless-isv-experience-with-integrated-testing-is-ga-in-preview) | May 8, 2024 |
 | [PUT requests for an API token network condition is self-service EA](#put-requests-for-an-api-token-network-condition-is-self-service-ea) | May 8, 2024 |
 | [Permissions for custom admins to manage agents is GA in Production](#permissions-for-custom-admins-to-manage-agents-is-ga-in-production) | May 8, 2024 |
-| [New System Log API property for target object](#new-system-log-api-property-for-target-object) | May 8, 2024 |
+| [New System Log API property for target object is GA Preview](#new-system-log-api-property-for-target-object-is-ga-preview) | May 8, 2024 |
 | [Bugs fixed in 2024.05.0](#bugs-fixed-in-2024-05-0) | May 8, 2024 |
 
 #### Seamless ISV experience with integrated testing is GA in Preview
@@ -279,7 +279,7 @@ You can now make PUT requests to the `/api-tokens/{apiTokenId}` endpoint to upda
 
 Custom admins can now view, register, and manage agents. See [Permission types](/docs/reference/api/roles/#permission-properties). <!-- OKTA-706310 -->
 
-#### New System Log API property for target object in Preview
+#### New System Log API property for target object is GA Preview
 
 Certain system log events now contain a new property called `changeDetails` in the `target` object. When this property is populated, it reflects new, changed, or removed attributes of the target resource that has been modified. See [changeDetails property](/docs/reference/api/system-log/#changedetails-property). <!-- OKTA-724000 -->
 
