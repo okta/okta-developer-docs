@@ -28,6 +28,7 @@ This resource contains detailed reference material on event types triggered with
 | type        | The type of actor object           |      |        |
 
 ## device signals status timeout
+
 `device.signals.status.timeout`
 
 **Description:** This event is triggered when a registered device that is associated with at least one user session hasn't communicated with Okta within the required time interval. Use this event to investigate a potentially insecure device and compromised user session. The event contains the device unique identifier in the System Log actor object. You can use this information to find other related events.
@@ -42,6 +43,7 @@ This resource contains detailed reference material on event types triggered with
 | id       | The ID of the registered device          | string     |  `guv1ibaeaz4lr8Eo70a9`      |
 
 ## policy auth_reevaluate fail
+
 `policy.auth_reevaluate.fail`
 
 **Description:** This event is triggered when your org’s authentication or global session policy is reevaluated, and a violation is identified. The violation occurs if the request doesn't meet the assurances defined in the policy, or if the request has an action set to `DENY` based on environment conditions.
@@ -74,6 +76,7 @@ This resource contains detailed reference material on event types triggered with
 | IPAddress              | IP address                |       |         |
 
 ## policy continuous_access action
+
 `policy.continuous_access.action`
 
 **Description:** This event is triggered when Okta logs a user out of their configured apps or runs a Workflow in response to an authentication or global session policy violation.
@@ -114,6 +117,7 @@ This resource contains detailed reference material on event types triggered with
 | IPAddress              | IP address of the client                |       |         |
 
 ## policy continuous_access evaluate
+
 `policy.continuous_access.evaluate`
 
 **Description:** This event is triggered when a post auth session evaluation occurs.
@@ -143,7 +147,9 @@ This resource contains detailed reference material on event types triggered with
 | **client**                |  The client of the actor                |       |         |
 | IPAddress              | IP address of the client                |       |         |
 
+
 ## policy entity_risk action
+
 `policy.entity_risk.action`
 
 **Description:** This event is triggered from an Entity risk policy action invocation. It signals that an action associated with an evaluation of an entity risk policy has been invoked.
@@ -184,6 +190,7 @@ This resource contains detailed reference material on event types triggered with
 | IPAddress              | IP address                |       |         |
 
 ## policy entity_risk evaluate
+
 `policy.entity_risk.evaluate`
 
 **Description:** This event is triggered when Okta receives a risk event and then evaluates the entity risk policy.
@@ -227,6 +234,7 @@ This resource contains detailed reference material on event types triggered with
 | type        | The type of actor object           | String     | SecurityEventProvider        |
 
 ## user authentication universal_logout
+
 `user.authentication.universal_logout`
 
 **Description:** This event is triggered when Okta or an admin invokes Universal Logout against an app instance. It contains the app instance details for which the Universal Logout API was triggered. The event indicates when apps have had Universal Logout triggered for audit or debugging purposes. This event is only triggered once. It's only triggered for apps that have been configured for Universal Logout. You can configure it in an Entity risk policy or Continuous Access, or invoke it manually from the user profile.
@@ -272,6 +280,21 @@ This resource contains detailed reference material on event types triggered with
 `user.risk.change`
 
 **Description:** This event is triggered when a user's risk level has changed. It can be used to monitor risk level changes for users. The event is triggered when Okta determines that a user is associated with a risk context or activity.
+
+| Key event properties  | Description                                         | Data type            | Example values |
+| --------------------- | --------------------------------------------------- | -------------------- | -------------- |
+| **event.system.debugContext.debugData**                |                 |         |         |
+| Risk                  | Contains the level of risk for a user entity (`LOW`, `MEDIUM`, or `HIGH`) and the reasons that contributed to the risk level. The `detectionName` key defines the risks monitored by Okta. The `level` key defines the current risk. The `previousLevel` key defines the previous risk level of the user entity. The `issuer` defines the source of the risk detection. See [Detections](https://help.okta.com/okta_help.htm?type=oie&id=csh-detections).                             | key-value pair       |` {previousLevel=LOW, level=MEDIUM, detectionName=Session Influenced User Risk, reasons=Associated sessionId is suspected to be hijacked, issuer=OKTA} `        |
+| TraceId               | A unique identifier to track all events associated with the risk                | String         | `65d65fa6-b5a9-50e9-b6f1-637b9fb71c50`        |
+| **target** (User)         | The user associated with a risk change          | Object     |        |
+| type        | The type of target object     | String     | User       |
+| **actor**                 |  The entity reporting the user risk change (can be a system principal, end user, or org administrator)                | Object        |         |
+| type        | The type of actor object           | String     | User       |
+
+## user risk detect
+`user.risk.detect`
+
+**Description:** This event is triggered when Okta detects that a user is associated with risk activity or context. It can be used to monitor risk level detections for users.
 
 | Key event properties  | Description                                         | Data type            | Example values |
 | --------------------- | --------------------------------------------------- | -------------------- | -------------- |
