@@ -103,7 +103,7 @@ When you enable a self-service registration policy, Okta enforces uniqueness for
     1. Find the attribute that you added, and then click its information icon.
     1. Change the **User permission** dropdown menu to **Read - Write**.
     1. Click **Save Attribute**.
-    {style="list-style-type:lower-alpha"}
+    [[style="list-style-type:lower-alpha"]]
 
 ## Disable the security image and other self-service recovery options
 

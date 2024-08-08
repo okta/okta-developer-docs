@@ -52,7 +52,7 @@ You need a free Okta developer-edition org to get started. Don't have one? [Crea
 
 1. In the environment tab, do the following:
     1. Click the environment name, delete the placeholder text, and name your environment. For example: `dev-1234567 Okta Org`
-    {style="list-style-type:lower-alpha"}
+    [[style="list-style-type:lower-alpha"]]
     1. For the `url` variable, in the **Initial Value** and **Current Value** columns, replace the placeholder text with your org's full URL. For example: `https://dev-1234567.okta.com`. Remember to remove the `-admin` part of your subdomain.
 
 1. Click **Save** near the top of the tab.
@@ -145,7 +145,7 @@ First, create a service app integration where you can define your scope-based ac
 
    If you're unsure of which admin roles to assign, for testing purposes, assign the super admin role to have permission to all resource sets:
    1. Click **Edit assignments**.
-   {style="list-style-type:lower-alpha"}
+   [[style="list-style-type:lower-alpha"]]
    1. Select **Super Administrator** under Roles and click **Save Changes**.
 
    > **Note:** See [Assign admin roles to apps](https://help.okta.com/okta_help.htm?type=oie&id=csh-work-with-admin-assign-admin-role-to-apps).
@@ -156,7 +156,7 @@ First, create a service app integration where you can define your scope-based ac
 
 1. Generate the public/private JSON Web Key Set (JWKS) for client authentication. This is the only authentication method supported for OAuth 2.0 service apps that want access to tokens with Okta scopes. For testing purposes, you can use the Admin Console to generate the JWKS:
    1. In the **Client Credentials** section of the **General** tab, click **Edit** to change the client authentication method.
-   {style="list-style-type:lower-alpha"}
+   [[style="list-style-type:lower-alpha"]]
    1. Select **Public key/Private key** as the **Client authentication** method.
    1. For a simple implementation, leave the default of **Save keys in Okta**, and then click **Add key**.
    1. Click **Generate new key** and the public and private keys appear in JWK format.

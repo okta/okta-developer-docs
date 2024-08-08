@@ -57,7 +57,7 @@ Use this quickstart to learn how to perform these tasks:
 
 1. Open the Admin Console for your org.
    1. [Sign in to your Okta organization](https://developer.okta.com/login) with your administrator account.
-   {style="list-style-type:lower-alpha"}
+   [[style="list-style-type:lower-alpha"]]
    1. Click **Admin** in the upper-right corner of the page.
 1. Go to **Security** > **API** to view the API AM area.
 
@@ -302,7 +302,7 @@ You can now test if your endpoint security works as intended. To do this, you wi
 1. [Run the API](#run-your-api)
 1. Use [Postman](https://www.getpostman.com/apps) to
    1. [Request an access token for the API](#request-an-access-token-for-the-api)
-   {style="list-style-type:lower-alpha"}
+   [[style="list-style-type:lower-alpha"]]
    1. [Query both the `\hello` and `\whoami` endpoints](#query-the-hello-and-whoami-endpoints)
 
 ### Create an API Services integration
@@ -357,13 +357,13 @@ Make an HTTP POST request to [/token](/docs/reference/api/oidc/#token) using the
 1. Enter `https://${yourOktaDomain}/oauth2/${yourAuthServerName}/v1/token` for the **URL**.
 1. In the **Params** tab, create two key-value pairs:
    1. **Key**: `grant_type`, **Value**: `client_credentials`
-   {style="list-style-type:lower-alpha"}
+   [[style="list-style-type:lower-alpha"]]
    1. **Key**: `scope`, **Value**: `${yourCustomScope}`
 1. Select the **Authorization** tab, and then select Basic Auth for **type**.
 1. Enter `${yourClientId}` for **Username** and `${yourClientSecret}` for **Password**.
 1. Select the **Headers** tab and add two new headers:
    1. **Name**: Cache-Control, **Value**: no-cache
-   {style="list-style-type:lower-alpha"}
+   [[style="list-style-type:lower-alpha"]]
    1. **Name**: Content-Type, **Value**: application/x-www-form-urlencoded
 1. Click **Send** to receive an access token.
 

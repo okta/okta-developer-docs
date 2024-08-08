@@ -49,7 +49,7 @@ To create an app integration for your app:
 
 1. Open the Admin Console for your org.
    1. [Sign in to your Okta organization](https://developer.okta.com/login) with your administrator account.
-   {style="list-style-type:lower-alpha"}
+   [[style="list-style-type:lower-alpha"]]
    1. Click **Admin** in the upper-right corner of the page.
 1. Go to **Applications** > **Applications** to view the current app integrations.
 1. Click **Create App Integration**.
@@ -61,7 +61,7 @@ To create an app integration for your app:
 1. Enter an **App integration name**. For example, **My first web application**.
 1. Enter the callback URLs for the local development of your app.
    1. Enter <StackSnippet snippet="signinredirecturi" inline /> for **Sign-in redirect URIs**.
-   {style="list-style-type:lower-alpha"}
+   [[style="list-style-type:lower-alpha"]]
    1. Enter <StackSnippet snippet="signoutredirecturi" inline /> for **Sign-out redirect URIs**.
 
    > **Note:** The values suggested here are those used in the sample app.

@@ -70,7 +70,7 @@ Create a policy for self-registration:
 1. Click **Edit** under **Default Policy**.
 1. Go to the **Effective factors** section of the **Edit Policy** dialog:
    1. Set **Email** to **Optional**.
-   {style="list-style-type:lower-alpha"}
+   [[style="list-style-type:lower-alpha"]]
    1. Set **Phone** to **Optional**.
 1. Click **Update Policy**.
 
@@ -91,18 +91,18 @@ To replicate this scenario:
 1. Configure your org following the steps described in <StackSnippet snippet="setupyourorglink" inline />.
 1. Set your app's authentication policy to require only the password factor.
    1. In the Admin Console, go to **Applications** > **Applications**.
-   {style="list-style-type:lower-alpha"}
+   [[style="list-style-type:lower-alpha"]]
    1. Select your app, and then go to the **Sign On** tab.
    1. In the **User authentication** section, click **Edit**.
    1. Set **Authentication Policy** to **Password only**, and click **Save**.
 1. Set your app's **Initiate login URI** to its sign-in URI. By setting this value, the email verification link for new user enrollment redirects the user to the URL provided in the **Initiate login URI** field.
    1. Select the **General** tab.
-   {style="list-style-type:lower-alpha"}
+   [[style="list-style-type:lower-alpha"]]
    1. In the **General Settings** section, click **Edit**.
    1. Set **Initiate login URI** to your **Sign-in Redirect URI**, and click **Save**.
 1. Make email verification mandatory in your default profile enrollment policy.
    1. Go to **Security** > **Profile Enrollment**.
-   {style="list-style-type:lower-alpha"}
+   [[style="list-style-type:lower-alpha"]]
    1. Click the pencil icon next to the **Default policy**.
    1. Ensure that **Required before access is granted** is selected for **Email Verification**.
 
