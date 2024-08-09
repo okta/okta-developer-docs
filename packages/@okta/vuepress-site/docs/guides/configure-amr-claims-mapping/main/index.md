@@ -18,7 +18,7 @@ This guide explains how to configure an OpenID Connect Identity Provider to send
 #### What you need
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
-* An existing OpenID Connect Identity Provider (IdP) that's able to send AMR claims to Okta. This can be another Okta org (org2org) or a third party IdP. If your current Org2Org uses SAML, you'll need to implement a new one with OIDC.
+* An existing OpenID Connect Identity Provider (IdP) that's able to send AMR claims to Okta. This can be another Okta org (Org2Org) or a third party IdP. If your current Org2Org uses SAML, you need to implement a new one with OpenID Connect.
 * The **IdP AMR Claims Mapping** feature enabled for your org. Contact [Okta Support](https://support.okta.com) to enable this EA feature.
 
 ---
@@ -133,15 +133,15 @@ The following table describes the AMR values that Okta supports:
 
 ### Okta-to-Okta
 
-Okta-to-Okta (org2org), also known as hub and spoke, refers to a deployment model where the IdP and Service Provider (SP) are both Okta orgs. Use the [Add an External Identity Provider guide for Okta-to-Okta](/docs/guides/add-an-external-idp/oktatookta/main/) to configure Okta-to-Okta orgs for AMR claims mapping.
+Okta-to-Okta (Org2Org), also known as hub and spoke, refers to a deployment model where the IdP and Service Provider (SP) are both Okta orgs. Use the [Add an External Identity Provider guide for Okta-to-Okta](/docs/guides/add-an-external-idp/oktatookta/main/) to configure Okta-to-Okta orgs for AMR claims mapping.
 
 <AMROktatoOkta/>
 
-#### Use an existing org2org app
+#### Use an existing Org2Org app
 
-You can configure Okta-to-Okta orgs for AMR claims mapping with existing org2org apps (OIDC). If you want to force the IdP Okta org to authenticate, clear the **Disable Force Authentication** checkbox in the existing org2org app:
+You can configure Okta-to-Okta orgs for AMR claims mapping with existing Org2Org OpenID Connect apps. If you want to force the IdP Okta org to authenticate, clear the **Disable Force Authentication** checkbox in the existing Org2Org app:
 
-1. In the Admin Console, go to **Applications** > **Applications** and select the org2org app that you want to configure.
+1. In the Admin Console, go to **Applications** > **Applications** and select the Org2Org app that you want to configure.
 1. Select the **Sign On** tab and then click **Edit** in the **Settings** section.
 1. Clear the **Disable Force Authentication** checkbox and click **Save**.
 
