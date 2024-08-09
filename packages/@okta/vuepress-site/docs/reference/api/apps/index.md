@@ -11,12 +11,21 @@ The Okta Application API provides operations to manage applications and/or assig
 
 ## Get started
 
+Explore the [Okta Public API Collections](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/overview) workspace to get started with the [Applications Postman collection](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/folder/4920859-a7b16809-a241-4212-b25a-b939923bcde8).
+
+<!--
 Explore the Apps API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/febec0ced153d9cd3db1)
+-->
 
 ## Application operations
 
+The Application operations reference is now available at the new [Okta API reference portal](https://developer.okta.com/docs/api/) as the [Applications API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/).
+
 ### Add application
 
+See [Create an Application](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--
 <ApiOperation method="post" url="/api/v1/apps" />
 
 Adds a new application to your Okta organization
@@ -31,11 +40,14 @@ Adds a new application to your Okta organization
 
 ##### Response parameters
 
-
 All responses return the created [Application](#application-object).
+-->
 
 #### Add Bookmark application
 
+See [Create a BOOKMARK Application](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication!path=2/name&t=request) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--
 Adds a new Bookmark application to your organization
 
 ##### Settings
@@ -128,9 +140,13 @@ curl -v -X POST \
   }
 }
 ```
+-->
 
 #### Add Basic Authentication application
 
+See [Create a BASIC_AUTH Application](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication!path=1/name&t=request) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--
 Adds a new application that uses HTTP Basic Authentication Scheme and requires a browser plugin
 
 ##### Settings
@@ -225,9 +241,13 @@ curl -v -X POST \
   }
 }
 ```
+-->
 
 #### Add Okta Org2Org application
 
+See [Create an Org2Org app instance](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/schema/Org2OrgApplication) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--
 Adds a new Okta Org2Org application to your organization
 
 > **Note:** You can't send this request to Okta Developer Edition orgs because the Org2Org app integration isn't available. If you need to test this feature in your Developer Edition org, contact your Okta account team.
@@ -360,7 +380,7 @@ curl -v -X POST \
   }
 }
 ```
-
+-->
 #### Add an OIN SAML 2.0 Authentication app
 
 Adds a SAML 2.0 app instance for an app integration that's listed in the Okta Integration (OIN) catalog
@@ -517,9 +537,11 @@ curl -X POST \
 }
 ```
 
-
 #### Add plugin SWA application
 
+See [Create a BROWSER_PLUGIN Application](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication!path=3/name&t=request) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--
 Adds a SWA application that requires a browser plugin
 
 ##### Settings
@@ -623,9 +645,12 @@ curl -v -X POST \
   }
 }
 ```
-
+-->
 #### Add plugin SWA (3 field) application
 
+See [Create a BROWSER_PLUGIN Application](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication!path=3/name&t=request) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--
 Adds a SWA application that requires a browser plugin and supports three CSS selectors for the sign-in form
 
 ##### Settings
@@ -735,9 +760,12 @@ curl -v -X POST \
   }
 }
 ```
-
+-->
 #### Add SWA application (no plugin)
 
+See [Create a SECURE_PASSWORD_STORE Application](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication!path=7/name&t=request) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--
 Adds a SWA application that uses HTTP POST and doesn't require a browser plugin
 
 ##### Settings
@@ -853,9 +881,13 @@ curl -v -X POST \
   }
 }
 ```
+-->
 
 #### Add custom SWA application
 
+See [Create an AUTO_LOGIN Application](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication!path=0/signOnMode&t=request) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--
 Adds a SWA application. This application is only available to the org that creates it.
 
 [Application](#application-object) parameters:
@@ -981,12 +1013,14 @@ curl -v -X POST \
   }
 }
 ```
+-->
 
 #### Add custom SAML application
 
-Adds a custom SAML 2.0 app. This app is only available to the org that creates it.
+See [Create a SAML_2_0 Application](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication!path=6/label&t=request) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
 
-[Application](#application-object) parameters:
+<!--
+Adds a custom SAML 2.0 app. This app is only available to the org that creates it.
 
 * Specify `SAML_2_0` in the required `signOnMode` parameter.
 * Specify a required `label` for your custom app.
@@ -1024,7 +1058,7 @@ Adds a custom SAML 2.0 app. This app is only available to the org that creates i
 | spCertificate                                                            | The certificate that Okta uses to validate Single Logout (SLO) requests and responses                                                                                                         | [SP Certificate](#service-provider-certificate)                | TRUE     | FALSE  |
 | subjectNameIdFormat                                                      | Identifies the SAML processing rules                                                                                                                                                          | String                                                         | FALSE    | FALSE  |                                           |
 | subjectNameIdTemplate                                                    | Template for app user's username when a user is assigned to the app                                                                                                                           | String                                                         | FALSE    | FALSE  |                                           |
-
+-->
 * You can't update the application's Assertion Encryption configuration through the API. Use the Admin Console.
 * Either (or both) `responseSigned` or `assertionSigned` must be `TRUE`.
 * The override settings `ssoAcsUrlOverride`, `recipientOverride`, `destinationOverride`, and `audienceOverride` provide an alternative way of persisting post back and similar other URLs.
@@ -1053,6 +1087,7 @@ The following values are support for creating custom SAML 2.0 Apps. Check [Attri
 | Unspecified     | urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified     |
 | x509SubjectName | urn:oasis:names:tc:SAML:1.1:nameid-format:x509SubjectName |
 
+<!--
 ###### Signature algorithm
 
 | Label            | Value      |
@@ -1319,10 +1354,12 @@ curl -v -X POST \
   }
 }
 ```
-
+-->
 #### Add WS-Federation application
 
+See [Create a WS_FEDERATION Application](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication!path=8/name&t=request) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
 
+<!--
 Adds a WS-Federation Passive Requestor Profile application with a SAML 2.0 token
 
 ##### Request example
@@ -1355,6 +1392,7 @@ curl -v -X POST \
   }
 }' "https://${yourOktaDomain}/api/v1/apps"
 ```
+-->
 
 #### Add OAuth 2.0 client application
 
@@ -1362,6 +1400,9 @@ Adds an OAuth 2.0 client application. This application is only available to the 
 
 ##### Credentials
 
+See [OAS3 PR Preview - oauthClient property](https://preview.redoc.ly/oktadev/as-okta-745821-get/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication!path=4/credentials/oauthClient&t=request) in the new [Okta API reference portal](https://developer.okta.com/docs/api/)
+
+<!--
 
 | Parameter                    | Description                                  | DataType   | Default               |
 | :--------------------------- | :------------------------------------------- | :--------- | :-------------------- |
@@ -1370,6 +1411,8 @@ Adds an OAuth 2.0 client application. This application is only available to the 
 | client_secret                | OAuth 2.0 client secret string (used for confidential clients)                                                                                      | String     |                       |
 | token_endpoint_auth_method   | Requested authentication method for the token endpoint. Valid values: `none`, `client_secret_post`, `client_secret_basic`, `client_secret_jwt`, or `private_key_jwt`   | String     | `client_secret_basic` |
 | pkce_required                | Require Proof Key for Code Exchange (PKCE) for additional verification | Boolean  | `true` for `browser` and `native` application types |
+
+-->
 
 ##### Settings
 
@@ -2604,6 +2647,9 @@ curl -v -X GET \
 
 ### Update application
 
+See [Replace an Application](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/replaceApplication) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--
 <ApiOperation method="put" url="/api/v1/apps/${applicationId}" />
 
 Updates an application in your organization
@@ -2622,6 +2668,7 @@ Updates an application in your organization
 ##### Response parameters
 
 Updated [Application](#application-object)
+-->
 
 #### Set SWA user-editable username and password
 
@@ -3762,6 +3809,9 @@ curl -v -X PUT \
 
 ### Delete application
 
+See [Delete an Application](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/deleteApplication) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--
 <ApiOperation method="delete" url="/api/v1/apps/${applicationId}" />
 
 Removes an inactive application
@@ -3812,8 +3862,13 @@ Content-Type: application/json
   ]
 }
 ```
+-->
 
 ### Update application policy
+
+The Application policy operation reference is now available at the new [Okta API reference portal](https://developer.okta.com/docs/api/) as the [Application Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationPolicies/).
+
+<!--
 
 <ApiLifecycle access="ie" />
 
@@ -3850,9 +3905,13 @@ curl -v -X PUT \
 ```http
 HTTP/1.1 204 No Content
 ```
+-->
 
 ## Application lifecycle operations
 
+The Application lifecycle operations reference is now available at the new [Okta API reference portal](https://developer.okta.com/docs/api/) as [Activate an Application](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/activateApplication) and [Deactivate an Application](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/deactivateApplication).
+
+<!--
 ### Activate application
 
 <ApiOperation method="post" url="/api/v1/apps/${applicationId}/lifecycle/activate" />
@@ -3917,8 +3976,15 @@ curl -v -X POST \
 ```json
 {}
 ```
+-->
 
 ## Application user operations
+
+The Application user operations reference is now available at the new [Okta API reference portal](https://developer.okta.com/docs/api/) as the [Application Users API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationUsers/).
+
+Explore the [Okta Public API Collections](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/overview) workspace to get started with the [Application Users Postman collection](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/folder/4920859-ca5456b3-59ed-4c8b-8145-22a31890567b).
+
+<!--
 
 ### Assign user to application for SSO
 
@@ -4471,9 +4537,14 @@ curl -v -X DELETE \
 ```json
 {}
 ```
-
+-->
 ## Application group operations
 
+The Application group operations reference is now available at the new [Okta API reference portal](https://developer.okta.com/docs/api/) as the [Application Groups API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationGroups/).
+
+Explore the [Okta Public API Collections](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/overview) workspace to get started with the [Application Groups Postman collection](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/folder/4920859-6c1656d1-21e1-49a2-98ae-9a71c38686e1).
+
+<!--
 ### Assign group to application
 
 <ApiOperation method="put" url="/api/v1/apps/${applicationId}/groups/${groupId}" />
@@ -4631,6 +4702,7 @@ curl -v -X DELETE \
 ```json
 {}
 ```
+-->
 
 ## Application key store operations
 
@@ -4871,6 +4943,11 @@ curl -v -X GET \
 
 ### Preview SAML metadata for application
 
+The Application SAML metadata preview reference is now available at the new [Okta API reference portal](https://developer.okta.com/docs/api/) as the [Application SSO API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationSSO/).
+
+Explore the [Okta Public API Collections](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/overview) workspace to get started with the [Application SSO Postman collection](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/folder/4920859-bd7b2acf-fc14-4d23-ac27-2486d3ffaa33).
+
+<!--
 <ApiOperation method="get" url="/api/v1/apps/${applicationId}/sso/saml/metadata" />
 
 Previews SAML metadata based on a specific key credential for an application
@@ -4932,6 +5009,7 @@ YoEdncuy+GQGzE9yLOhC4HNfHQXpqp2tMPdRlw==</ds:X509Certificate>
     </md:IDPSSODescriptor>
 </md:EntityDescriptor>
 ```
+-->
 
 ### Generate CSR for application
 
@@ -6289,6 +6367,11 @@ See [Role assignment operations](/docs/reference/api/roles/#role-assignment-oper
 
 ## Application OAuth 2.0 scope consent grant operations
 
+The Application OAuth 2.0 scope consent grant operations reference is now available at the new [Okta API reference portal](https://developer.okta.com/docs/api/) as the [Application Grants API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationGrants/).
+
+Explore the [Okta Public API Collections](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/overview) workspace to get started with the [Application Grants Postman collection](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/folder/4920859-cc2c28cc-7ddb-45a5-8142-e2662f9563d6).
+
+<!--
 A scope consent grant represents an application's permission to request to include a specific Okta scope in OAuth 2.0 Bearer tokens. If the application does not have this grant, token requests that contain this Okta scope are denied.
 
 ### Grant consent to scope for application
@@ -6558,6 +6641,7 @@ curl -v -X DELETE \
 ```http
 HTTP/1.1 204 No Content
 ```
+-->
 
 ## Application OAuth 2.0 token operations
 
@@ -6796,6 +6880,11 @@ HTTP/1.1 204 No Content
 
 ## Application logo operations
 
+The Application logo operations reference is now available at the new [Okta API reference portal](https://developer.okta.com/docs/api/) as the [Application Logos API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationLogos/#tag/ApplicationLogos).
+
+Explore the [Okta Public API Collections](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/overview) workspace to get started with the [Application Logos Postman collection](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/folder/4920859-ba4bbc28-0552-45ad-b040-4eca97e1c43a).
+
+<!--
 ### Update logo for application
 
 <ApiOperation method="post" url="/api/v1/apps/${applicationId}/logo" />
@@ -6829,9 +6918,15 @@ curl -v -X POST \
 HTTP/1.1 201 Content Created
 Location: https://{yourOktaDomain}/bc/image/fileStoreRecord?id=fs01hfslJH2m3qUOe0g4
 ```
+-->
 
 ## Application Provisioning Connection operations
 
+The Application provisioning connection operations reference is now available at the new [Okta API reference portal](https://developer.okta.com/docs/api/) as the [Application Connections API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationConnections/).
+
+Explore the [Okta Public API Collections](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/overview) workspace to get started with the [Application Connections Postman collection](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/folder/4920859-8363bae3-63d7-4790-9b5c-541d3e39ec4d).
+
+<!--
 > **Note:** The only currently supported application is Okta Org2Org.
 
 ### Get default Provisioning Connection for application
@@ -7004,9 +7099,15 @@ curl -v -X POST \
 ``` http
 HTTP/1.1 204 No Content
 ```
+-->
 
 ## Application Feature operations
 
+The Application Feature operations reference is now available at the new [Okta API reference portal](https://developer.okta.com/docs/api/) as the [Application Features API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationFeatures/).
+
+Explore the [Okta Public API Collections](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/overview) workspace to get started with the [Application Features Postman collection](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/folder/4920859-ad80c71b-b5fc-4340-9151-5e44aa50ce17).
+
+<!-- 
 > **Note:** The only currently supported application is Okta Org2Org.
 
 ### List Features for application
@@ -7251,6 +7352,7 @@ curl -v -X PUT \
     }
 }
 ```
+-->
 
 ## Models
 
@@ -7909,6 +8011,9 @@ Property details
 
 ##### App names
 
+See [name](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication!path=1/name&t=request) for each OIN and custom app [signOnMode](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication!path=0/signOnMode&t=request) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--
 The app name is the key that specifies the app definition schema that's required for custom or Okta Integration Network (OIN) apps. This field is required for all OIN and custom apps except for the custom SAML 2.0 or SWA app. For a custom SAML 2.0 or SWA app, the app name is autogenerated when you create the app object.
 
 > **Note:** A custom SAML 2.0 app is identified with SAML_2_0 `signOnMode` and no `name` specified. A custom SWA app is identified with AUTO_LOGIN `signOnMode` and no `name` specified.
@@ -7931,6 +8036,7 @@ The catalog is currently not exposed via an API. While additional apps may be ad
 | template_wsfed      | [Add WS-Federation application](#add-ws-federation-application)               |
 
 The current workaround is to manually configure the desired application via the administrator UI in a preview (sandbox) organization and view the application via [Get Application](#get-application).
+-->
 
 ##### App settings
 
@@ -7950,10 +8056,18 @@ An additional `notes` object can be passed within the `settings` object. The `no
 > **Note:** You can't currently manage app provisioning settings via the API. Use the administrator UI.
 
 ###### Identity Store ID
+
+See [OAS3 PR Preview - identityStoreId](https://preview.redoc.ly/oktadev/vy_OKTA-715114_openidconnect/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication!path=4/settings/identityStoreId&t=request) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--
 You can set an additional `identityStoreId` string parameter within the `settings` object if your application supports an identity store. The `identityStoreId` value must be a valid identity store application `id`. This identity store application must be created in the same org as your application.
+-->
 
 ##### Features
 
+See [OAS3 PR Preview - features](https://preview.redoc.ly/oktadev/as-okta-745821-get/openapi/okta-management/management/tag/Application/#tag/Application/operation/getApplication!c=200&path=0/features&t=response) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--
 Applications may support optional provisioning features on a per-app basis.
 
 > **Note:** You can't currently configure provisioning features via the API. Use the administrator UI.
@@ -7972,9 +8086,13 @@ The list of provisioning features an app may support are:
 | PUSH_PROFILE_UPDATES   | Update User Properties       | Updates a user's profile in the app when the user's profile changes in Okta (the profile source)                                                                                                                                                |
 | PUSH_USER_DEACTIVATION | Deactivate Users             | Deactivates a user's account in the app when unassigned from the app in Okta or deactivated                                                                                                                                                 |
 | REACTIVATE_USERS       | Deactivate Users             | Reactivates an existing inactive user when provisioning a user to the app                                                                                                                                                                   |
+-->
 
 ##### Sign-on modes
 
+See [signOnMode](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication!path=0/signOnMode&t=request) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--
 Applications support a limited set of sign-on modes that specify how a user is authenticated to the app.
 
 The list of possible modes an app may support are:
@@ -7993,6 +8111,7 @@ The list of possible modes an app may support are:
 | WS_FEDERATION         | Federated Authentication with WS-Federation Passive Requestor Profile  |
 
 This setting modifies the same settings as the **Sign On** tab when editing an application in your Okta Administration app.
+-->
 
 ### Accessibility object
 
@@ -8201,6 +8320,9 @@ Specifies a password for a user. A password value is a **write-only** property. 
 
 ### Application Links object
 
+See [_links](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/getApplication!c=200&path=0/_links&t=response) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--
 Specifies link relations (see [Web Linking](http://tools.ietf.org/html/rfc8288)) available for the current status of an application using the [JSON Hypertext Application Language](http://tools.ietf.org/html/draft-kelly-json-hal-06) specification. This object is used for dynamic discovery of related resources and lifecycle operations.  The Links object is **read-only**.
 
 | Link Relation Type | Description                                                                                |
@@ -8212,9 +8334,13 @@ Specifies link relations (see [Web Linking](http://tools.ietf.org/html/rfc8288))
 | metadata           | Protocol-specific metadata document for the configured `SignOnMode`                        |
 | self               | The actual application                                                                     |
 | users              | [User](#application-user-operations) assignments for application                           |
+-->
 
 ### Notifications object
 
+See [OAS3 PR Preview - notifications](https://preview.redoc.ly/oktadev/vy_OKTA-715114_openidconnect/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication!path=4/settings/notifications&t=request) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--
 Specifies notifications settings for the application. The VPN notification feature allows admins to communicate a requirement for signing into VPN-required apps.
 
 | Property          | Description                                        | DataType                                             | Nullable | Default | MinLength | MaxLength | Validation |
@@ -8258,8 +8384,13 @@ There are four choices for the `connection` property.
  - `ON_NETWORK` - Displays VPN connection information only when a browser's client IP matches the configured Public Gateway IPs. The notification appears before the end user can access the app.
  - `OFF_NETWORK` - Displays VPN connection information only when the browser's client IP doesn't match the configured Public Gateway IPs. The notification appears before the end user can access the app.
 
+-->
+
 ### Attribute Statements object
 
+See [attributeStatements](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication!path=6/settings/signOn/attributeStatements&t=request) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--
 Specifies (optional) attribute statements for a SAML application
 
 | Property   | Description                                                                                  | DataType     | Nullable |
@@ -8269,8 +8400,13 @@ Specifies (optional) attribute statements for a SAML application
 | type       | The type of attribute statements object. Supported value: `EXPRESSION`                       | String       | FALSE    |
 | values     | The values of the attribute; Supports [Okta EL](/docs/reference/okta-expression-language/)   | Array        | FALSE    |
 
+-->
+
 ### Single Logout object
 
+See [slo](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication!path=6/settings/signOn/slo&t=request) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--
 Specifies the Single Logout (SLO) behavior for a Custom SAML application
 
 | Property  | Description                                                                  | Datatype | Nullable |
@@ -8288,9 +8424,13 @@ Specifies the Single Logout (SLO) behavior for a Custom SAML application
   }
 }
 ```
+-->
 
 ### Participate Single Logout object
 
+See [participateSlo](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication!path=6/settings/signOn/participateSlo&t=request) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--
 Specifies the Participate Single Logout behavior for a Custom SAML application
 
 | Property  | Description                                                                  | Datatype | Nullable |
@@ -8311,9 +8451,12 @@ Specifies the Participate Single Logout behavior for a Custom SAML application
   }
 }
 ```
-
+-->
 ### Service Provider certificate
 
+See [spCertificate]() in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--
 The certificate that the Service Provider uses to sign Single Logout requests
 
 | Property | Description                                               | Datatype       | Nullable |
@@ -8329,8 +8472,13 @@ The certificate that the Service Provider uses to sign Single Logout requests
   }
 }
 ```
+-->
 
 #### Group Attribute Statements object
+
+See [GROUP attributeStatements](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication!path=6/settings/signOn/attributeStatements/1/name&t=request) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--
 
 Group Attribute Statements can be used in place of Attribute Statements if your Org supports a large number of groups and you want to filter them into a single SAML assertion.
 
@@ -8385,6 +8533,7 @@ Group Attribute Statements can be used in place of Attribute Statements if your 
   }
 }
 ```
+-->
 
 ### Profile object
 
