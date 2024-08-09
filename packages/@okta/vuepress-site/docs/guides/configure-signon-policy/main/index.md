@@ -52,7 +52,7 @@ In addition to the global session policy, you can configure authentication polic
 
 When you add an app, it's automatically assigned the shared default policy. This policy has a single catch-all rule that allows a user access with only one factor. You can add as many rules to the default policy as you need. However, remember that the changes are applied to both new and existing apps that are assigned the shared default policy.
 
-You don’t have to use the default authentication policy. You can create a new policy specifically for an app, or you can [add an app to another existing shared policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-share-auth-policy). If you decide later to change an app’s sign-on requirements, you can modify its policy or switch to a different shared policy using the [Authentication Policies page](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-auth-policy).
+You don’t have to use the default authentication policy. You can create a policy specifically for an app, or you can [add an app to another existing shared policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-share-auth-policy). If you change an app’s sign-on requirements, you can modify its policy or switch to a different shared policy using the [Authentication Policies page](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-auth-policy).
 
 > **Note:** There can be only one authentication policy per app.
 
@@ -86,7 +86,7 @@ The following are step-by-step instructions to configure a global session policy
 
 1. If there are any users in the **Contractor** group that you want to exclude from the rule, enter them in the **Exclude Users** box.
 
-1. Configure IF conditions, which define the authentication context for the rule. For this use case example, leave the defaults. For other use cases where you want to assign location parameters, you can specify what kind of location prompts authentication in the **IF User’s IP is** dropdown box (for example, prompting a user for a factor when they aren't on the corporate network).
+1. Configure IF conditions, which define the authentication context for the rule. For this use case example, leave the defaults. For other use cases where you want to assign location parameters, specify location prompts in the **IF User’s IP is** dropdown box. For example, you can prompt a user for a factor when they aren't on the corporate network.
 
 1. Configure THEN conditions, which define the authentication experience for the rule. For this use case example, select that the session is established with the user entering **A password**. Also, ensure that Multifactor authentication (MFA) is **Required** so that users of the Contractor group are prompted for a secondary factor before they’re granted access.
 
@@ -106,7 +106,7 @@ The following are step-by-step instructions to configure a global session policy
 
 ## Prompt for an additional factor when a user is outside the US
 
-You may want all default Okta users to provide a password, but you want all Okta users outside of the United States to provide both a password and another factor to access your app. You can use the default authentication policy’s catch-all rule that challenges all users to provide a password. Then, create another rule that challenges all users not in the United States to provide both a password and another factor each time that they sign in.
+You may want a rule that requires all default Okta users to provide a password. But you also want all Okta users outside of the United States to provide both a password and another factor to access your app. You can use the default authentication policy’s catch-all rule that challenges all users to provide a password. Then, create another rule that challenges all users not in the United States to provide both a password and another factor each time that they sign in.
 
 The following are step-by-step instructions to configure another rule for the default authentication policy to prompt a user for an additional factor when the user is outside of the United States.
 
@@ -124,7 +124,7 @@ The following are step-by-step instructions to configure another rule for the de
 
 1. Configure IF conditions to define the authentication context for the rule. Select **Not in zone** from the **AND User’s IP is** dropdown list.
 
-    > **Note:** You can click the **Go to Network Zones** link to access the gateway settings that enable your choice of access. A [network zone](https://help.okta.com/okta_help.htm?id=ext_Security_Network) is a security perimeter used to limit or restrict access to a network based on a single IP address, one or more IP address ranges, or a list of geolocations. You can also create network zones using the [Zones API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/NetworkZone/).
+    > **Note:** You can click the **Go to Network Zones** link to access the gateway settings that enable your choice of access. A [network zone](https://help.okta.com/okta_help.htm?id=ext_Security_Network) is a security perimeter used to limit or restrict access to a network. It can restrict access based on a single IP address, one or more IP address ranges, or a list of geolocations. You can also create network zones using the [Zones API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/NetworkZone/).
 
 1. In the text box, enter the dynamic zone name and then select it when it appears in the list.
 
@@ -144,17 +144,17 @@ The following are step-by-step instructions to configure another rule for the de
 
 ## Prompt for a passwordless sign-in flow
 
-In this example, create a policy that allows a specific group to use a passwordless sign-in flow. To set up a passwordless global session policy, ensure that you have set up [passwordless authentication](https://help.okta.com/okta_help.htm?type=oie&id=ext-passwordless-auth).
+In this example, create a policy that allows a specific group, **Project planners**, for example, to use a passwordless sign-in flow. To set up a passwordless global session policy, ensure that you have set up a [passwordless sign-in experience](https://help.okta.com/okta_help.htm?type=oie&id=ext-passwordless). Create an authenticator enrollment and authentication policy for the specific group. Then, create a global session policy.
 
 ### Create a passwordless policy
 
 1. In the Admin Console, select **Security** > **Authentication Policies**.
 
-1. [Create a policy container](#create-the-policy-container). For this example, create a policy and assign it to the group.
+1. [Create a policy container](#create-the-policy-container) and assign it to the **Project planners** group.
 
-1. Click **Add rule**. The Add Rule dialog appears.
+1. Click **Create policy and add rule**. The Add Rule dialog appears.
 
-1. Enter a **Rule name** such as **Passwordless sign-in flow**.
+1. Enter a **Rule name**.
 
 1. Configure IF conditions, which define the authentication context for the rule. For this use case example, leave the defaults.
 
@@ -162,13 +162,13 @@ In this example, create a policy that allows a specific group to use a passwordl
 
 1. Select that the session is established with the user entering **Any factor used to meet the Authentication Policy requirements**.
 
-1. Select that MFA is **Required** so that users in the Project planners group are prompted for a secondary factor before they’re granted access.
+1. Select that MFA is **Required** so that users in the **Project planners** group are prompted for a secondary factor before they’re granted access.
 
-1. For **Users will be prompted for MFA**, select how users are prompted for a secondary factor in a given session.
+1. For **Users will be prompted for MFA**, select how users are prompted for a secondary factor in a given session. For this example, select **At every sign in**.
 
 1. Configure the time settings for the rule.
 
-1. Click **Save**.
+1. Click **Create rule**.
 
 ## See also
 
