@@ -2910,7 +2910,7 @@ The `entityRisk` object's `actions` array can be empty or contain one of two `ac
 }
 ```
 
-## Post auth evaluation policy
+## Post auth session evaluation policy
 
 <ApiLifecycle access="ie" />
 
@@ -2990,8 +2990,6 @@ This `failureActions` object defines the options for the `TERMINATE_SESSION` act
 | Property                | Description              | Data Type                                       | Required                      | Default |
 | ---                     | ---------------          | ---                                             | ---                           | ---     |
 | `action`               | The action to take when Continuous Access evaluation detects a failure.              | `"TERMINATE_SESSION"`                       | Yes                           | No   |
-<!-- | `slo.appSelectionMode`               | This property defines the session to terminate: everyone, no one, or a specific app instance. This property must have a value.              | `"SPECIFIC"`, `"NONE"`, or `"ALL"`                       | Yes                           | No   |
-| `slo.appInstanceIds`               | This property defines the app instance access to terminate. Only include this property when `slo.appSelectionMode` is set to `"SPECIFIC"`.              | Array of IDs                     | No                          | No   | deprecated CAE properties-->
 
 #### Post auth session evaluation actions terminate sessions example
 
