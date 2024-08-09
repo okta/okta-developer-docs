@@ -150,7 +150,7 @@ Identity Threat Protection with Okta AI is an identity threat solution that comb
 
 * [Entity risk policy](/docs/reference/api/policy/#entity-risk-policy): The entity risk policy monitors your org for entity risk changes related to identity-based threats. For Admin Console tasks and further information, see [Entity risk policy](https://help.okta.com/okta_help.htm?type=oie&id=csh-entity-risk-policy).
 
-* [Post auth session evaluation](/docs/reference/api/policy/#continuous-access-evaluation-cae-policy): Post auth session evaluation monitors user sessions on your org to identify changes in session context. For Admin Console tasks and further information, see [Post auth session evaluation](https://help.okta.com/okta_help.htm?type=oie&id=csh-continuous-access-evaluation).
+* [Post auth session evaluation](/docs/reference/api/policy/#post-auth-session-evaluation-policy): Post auth session evaluation monitors user sessions on your org to identify changes in session context. For Admin Console tasks and further information, see [Post auth session evaluation](https://help.okta.com/okta_help.htm?type=oie&id=csh-continuous-access-evaluation).
 
 ### API access policies
 

@@ -765,7 +765,7 @@ Different Policy types control settings for different operations. All Policy typ
   > The account management policy is a type of authentication policy.
 * [Profile enrollment policy](#profile-enrollment-policy) <ApiLifecycle access="ie" /><br>
 * [Entity risk policy](#entity-risk-policy) <ApiLifecycle access="ie" /><br>
-* [Continuous Access evaluation policy](#continuous-access-evaluation-policy) <ApiLifecycle access="ie" /><br>
+* [Post auth session evaluation policy](#post-auth-session-evaluation-policy) <ApiLifecycle access="ie" /><br>
 
 ### Policy priority and defaults
 
@@ -2918,14 +2918,14 @@ Post auth session evaluation, implemented in the API as a policy type, determine
 
 >**Note:** This policy replaces the Continuous Access evaluation policy (`CONTINUOUS_ACCESS`), which is now deprecated.
 
-#### Post auth evaluation example
+#### Post auth session evaluation example
 
 ```json
        {
         "id": "rst4md03phZeFwacvE0g6",
         "status": "ACTIVE",
-        "name": "Post auth session Policy",
-        "description": "Enables post auth session policy evaluation for the org.",
+        "name": "Post auth session evaluation Policy",
+        "description": "Enables post auth session evaluation policy evaluation for the org.",
         "priority": 1,
         "system": true,
         "conditions": null,
@@ -2983,13 +2983,28 @@ The `postAuthSession` object's `failureActions` array can be empty or contain on
 | `[ { "action": "TERMINATE_SESSION" } ]`              | This action terminates active sessions based on the [Terminate_Session failureActions](#terminate_session-failureactions-object) object.            | object                      |       No   | No |
 | `[ { "action": "RUN_WORKFLOW", "workflow": {"id": "123123123"} } ]`               | This action runs a workflow and must include the additional workflow `id` for the `workflow` property.            | object                      | No |
 
+#### Post auth session evaluation actions example
+
+```json
+"actions": {
+    "postAuthSession": {
+      "failureActions": [{
+        "action": "RUN_WORKFLOW",
+        "workflow:" {
+            "id": "123123123"
+        }
+      }]
+    }
+}
+```
+
 #### Terminate_Session failureActions object
 
 This `failureActions` object defines the options for the `TERMINATE_SESSION` action:
 
 | Property                | Description              | Data Type                                       | Required                      | Default |
 | ---                     | ---------------          | ---                                             | ---                           | ---     |
-| `action`               | The action to take when Continuous Access evaluation detects a failure.              | `"TERMINATE_SESSION"`                       | Yes                           | No   |
+| `action`               | The action to take when Post auth session evaluation detects a failure.              | `"TERMINATE_SESSION"`                       | Yes                           | No   |
 
 #### Post auth session evaluation actions terminate sessions example
 
