@@ -144,7 +144,7 @@ With progressive enrollment flows, you can capture the minimum user information 
 
 ### Identity Threat Protection policies
 
-<ApiLifecycle access="ea" />
+<ApiLifecycle access="ie" />
 
 Identity Threat Protection with Okta AI is an identity threat solution that combines current security practices with continuous real-time risk assessment. See [Identity Threat Protection with Okta AI](https://help.okta.com/okta_help.htm?type=oie&id=ext-itp-overview). Identity Threat Protection uses the entity risk policy and Post auth session evaluation for these threat evaluations.
 
