@@ -18,7 +18,7 @@ This guide explains how to configure an OpenID Connect Identity Provider to send
 #### What you need
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
-* An existing OpenID Connect Identity Provider (IdP) that's able to send AMR claims to Okta. This can be another Okta org (org2org) or a third party IdP.
+* An existing OpenID Connect Identity Provider (IdP) that's able to send AMR claims to Okta. This can be another Okta org (org2org) or a third party IdP. If your current Org2Org uses SAML, you'll need to implement a new one with OIDC.
 * The **IdP AMR Claims Mapping** feature enabled for your org. Contact [Okta Support](https://support.okta.com) to enable this EA feature.
 
 ---
@@ -139,7 +139,7 @@ Okta-to-Okta (org2org), also known as hub and spoke, refers to a deployment mode
 
 #### Use an existing org2org app
 
-You can configure Okta-to-Okta orgs for AMR claims mapping with existing org2org apps. If you want to force the IdP Okta org to authenticate, clear the **Disable Force Authentication** checkbox in the existing org2org app:
+You can configure Okta-to-Okta orgs for AMR claims mapping with existing org2org apps (OIDC). If you want to force the IdP Okta org to authenticate, clear the **Disable Force Authentication** checkbox in the existing org2org app:
 
 1. In the Admin Console, go to **Applications** > **Applications** and select the org2org app that you want to configure.
 1. Select the **Sign On** tab and then click **Edit** in the **Settings** section.
