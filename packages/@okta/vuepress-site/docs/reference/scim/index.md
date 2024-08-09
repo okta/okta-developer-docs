@@ -5,6 +5,9 @@ meta:
     content: Your SCIM API must support specific SCIM API endpoints to work with Okta. Those endpoints and their explanations are detailed here.
 ---
 
+The SCIM protocol reference is now available at the new [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-scim/guides/).
+
+<!--
 # SCIM Protocol
 
 The System for Cross-domain Identity Management (SCIM) specification is a provisioning protocol to create, retrieve, update, and deactivate users and groups between Okta and downstream applications and directories.
@@ -37,3 +40,4 @@ To work with Okta, your SCIM application must use RESTful endpoints constructed 
 * V2.0 also :
   * Supports using JSON PATCH operations [Section 3.5.2](https://tools.ietf.org/html/rfc7644#section-3.5.2)
   * Requires that the response include the [errors in a JSON body](https://tools.ietf.org/html/rfc7644#section-3.12), using the error response schema `urn:ietf:params:scim:api:messages:2.0:Error`
+-->
