@@ -5,6 +5,10 @@ meta:
     content: Your SCIM API must support specific SCIM 2.0 API endpoints to work with Okta. Those endpoints and their explanations are detailed here.
 ---
 
+The SCIM 2.0 protocol reference is now available at the new [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-scim/guides/scim-20/).
+
+<!---
+
 # Okta and SCIM Version 2.0
 
 This reference focuses on how Okta API endpoints share information with System for Cross-domain Identity Management (SCIM) specific API calls.
@@ -890,3 +894,4 @@ Date: Tue, 10 Sep 2019 05:29:25 GMT
 * [SCIM 2.0 RFC: Core Schema](https://tools.ietf.org/html/rfc7643)
 * [SCIM 2.0 RFC: Protocol](https://tools.ietf.org/html/rfc7644)
 * [SCIM 2.0 RFC: Definitions and Use Cases](https://tools.ietf.org/html/rfc7642)
+---> 

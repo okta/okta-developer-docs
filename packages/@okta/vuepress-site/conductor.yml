@@ -272,9 +272,11 @@ redirects:
   - from: /docs/api/getting_started/okta_expression_lang
     to: /docs/reference/okta-expression-language/index.html
   - from: /docs/guides/scim_guidance.html
-    to: /docs/reference/scim/index.html
+    to: https://developer.okta.com/docs/api/openapi/okta-scim/guides/
+  - from: /docs/reference/scim/
+    to: https://developer.okta.com/docs/api/openapi/okta-scim/guides/
   - from: /docs/guides/scim_developer_program.html
-    to: /docs/reference/scim/index.html
+    to: https://developer.okta.com/docs/api/openapi/okta-scim/guides/
   - from: /standards/SAML/index.html
     to: /docs/concepts/saml/
   - from: /docs/guides/saml_guidance
@@ -396,7 +398,7 @@ redirects:
   - from: /reference/postman_collections/index.html
     to: /docs/reference/postman-collections/
   - from: /reference/scim/index.html
-    to: /docs/reference/scim/
+    to: https://developer.okta.com/docs/api/openapi/okta-scim/guides/
   - from: /reference/webfinger/index.html
     to: /docs/reference/api/webfinger/
   - from: /guides/index.html
@@ -734,7 +736,7 @@ redirects:
   - from: /reference/postman_collections
     to: /docs/reference/postman-collections/
   - from: /reference/scim
-    to: /docs/reference/scim/
+    to: https://developer.okta.com/docs/api/openapi/okta-scim/guides/
   - from: /reference/webfinger
     to: /docs/reference/api/webfinger/
   - from: /guides

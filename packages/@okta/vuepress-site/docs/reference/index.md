@@ -18,7 +18,7 @@ The Core Okta API is the primary way that apps and services interact with Okta. 
 
 ## Okta hooks
 
-Okta event and inline hooks allow you to integrate custom functionality into specific Okta process flows. event hooks send Okta events of interest to your systems as they occur, just like a webhook. inline hooks allow developers to modify in-flight Okta processes with custom logic and data from a non-Okta source. For example, you can migrate users from another data store and keep the user’s current password with a [password inline hook](/docs/reference/password-hook/).
+Okta event and inline hooks allow you to integrate custom functionality into specific Okta process flows. Event hooks send Okta events of interest to your systems as they occur, just like a webhook. Inline hooks allow developers to modify in-flight Okta processes with custom logic and data from a non-Okta source. For example, you can migrate users from another data store and keep the user’s current password with a [password inline hook](/docs/reference/password-hook/).
 
 ## Okta Expression Language
 
@@ -30,4 +30,4 @@ Expressions allow you to reference, transform, and combine attributes before you
 
 SCIM is an industry-standard protocol for automating the exchange of user identity information and is part of the Okta Lifecycle Management feature. For example, as your company onboards employees, new user accounts are created in your application so they can connect immediately. Okta supports SCIM versions 1.1 and 2.0.
 
-[Learn more](/docs/reference/scim/)
+[Learn more](https://developer.okta.com/docs/api/openapi/okta-scim/guides/)
