@@ -11713,7 +11713,7 @@
     }, {
       "id" : "policy.continuous_access.action",
       "category" : "authn-platform",
-      "description" : "Contionuous Access policy action invocation. Signal that an action associated with a continuous access policy evaluation has been invoked. Event fired when an action associated with a continuous access policy evaluation has been invoked.",
+      "description" : "Deprecated: Contionuous Access policy action invocation. Signal that an action associated with a continuous access policy evaluation has been invoked. Event fired when an action associated with a continuous access policy evaluation has been invoked. See the event type policy.auth_reevaluate.action that replaces this deprecated event.",
       "info" : {
         "created" : "2023-08-07",
         "release" : "2023.09.0"
@@ -11731,7 +11731,7 @@
     }, {
       "id" : "policy.continuous_access.evaluate",
       "category" : "authn-platform",
-      "description" : "Evaluation of Continuous Access Policy. Signal that continuous access policy has been evaluated for a session which has failed CAE. Event fired when continuous access policy has been evaluated for a session which has failed CAE.",
+      "description" : "Deprecated: Evaluation of Continuous Access Policy. Signal that continuous access policy has been evaluated for a session which has failed CAE. Event fired when continuous access policy has been evaluated for a session which has failed CAE. See the event type policy.auth_reevaluate.enforce that replaces this deprecated event.",
       "info" : {
         "created" : "2023-08-07",
         "release" : "2023.09.0"
