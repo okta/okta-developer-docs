@@ -1073,6 +1073,7 @@ Adds a custom SAML 2.0 app. This app is only available to the org that creates i
 * When you update an application, if you don't specify `participateSlo`, `slo`, or `spCertificate`, the existing configuration persists.
 * When you associate the application with `inlineHooks`, you should [create SAML inline hooks](/docs/concepts/inline-hooks/#inline-hook-setup) first, and then pass the created inline hook ID.
 
+<!--
 ##### Supported values for custom SAML app
 
 The following values are support for creating custom SAML 2.0 Apps. Check [Attribute statements](#attribute-statements-object) to see its supported values.
@@ -1087,7 +1088,7 @@ The following values are support for creating custom SAML 2.0 Apps. Check [Attri
 | Unspecified     | urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified     |
 | x509SubjectName | urn:oasis:names:tc:SAML:1.1:nameid-format:x509SubjectName |
 
-<!--
+
 ###### Signature algorithm
 
 | Label            | Value      |
@@ -1416,6 +1417,9 @@ See [OAS3 PR Preview - oauthClient property](https://preview.redoc.ly/oktadev/as
 
 ##### Settings
 
+See [OAS3 PR Preview - settings property](https://preview.redoc.ly/oktadev/vy_OKTA-715114_openidconnect/openapi/okta-management/management/tag/Application/#tag/Application/operation/listApplications!c=200&path=4/settings&t=response) in the new [Okta API reference portal](https://developer.okta.com/docs/api/)) in the new [Okta API reference portal](https://developer.okta.com/docs/api/)
+
+<!--
 | Parameter                                                                                                 | Description                                                                                                                                                                                                                | DataType                                                                                       | Nullable   | Unique   | Validation |
 | :-------------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------                                                                                                                              | :--------------------------------------------------------------------------------------------- | :--------- | :------- | :--------- |
 | application_type                                                                                          | The type of client application                                                                                                                                                                                             | `web`, `native`, `browser`, or `service`                                                       | TRUE       | FALSE    | TRUE       |
@@ -1490,7 +1494,9 @@ You can change the `issuer_mode` value using the API or the Admin Console. To en
   | `NONE`           | `REQUIRED`              | `IMPLICIT`                           | Not prompted |
 
 > **Note:** When a scope is requested during a Client Credentials grant flow and `CONSENT` is set to `FLEXIBLE`, the scope is granted in the access token with no consent prompt. This occurs because there is no user involved in a two-legged OAuth [Client Credentials](/docs/guides/implement-grant-type/clientcreds/main/) grant flow.
-<!-- If you change this section, change it in authorization-servers.md (/docs/reference/api/authorization-servers/#scope-properties) and oidc.md (/docs/reference/api/oidc/#scopes) as well. Add 'LOGIN' to the first three rows when supported -->
+
+??? note >>> If you change this section, change it in authorization-servers.md (/docs/reference/api/authorization-servers/#scope-properties) and oidc.md (/docs/reference/api/oidc/#scopes) as well. Add 'LOGIN' to the first three rows when supported
+
 
 > **Note:** The `refresh_token` <ApiLifecycle access="ea" /> parameter is visible only if the client has `refresh_token` defined as one of its allowed `grant_types`. See [Refresh token object](#refresh-token-object).
 
@@ -1506,6 +1512,8 @@ You can change the `issuer_mode` value using the API or the Admin Console. To en
   * The following properties can also be configured in the App Wizard and on the **General** tab in the Admin Console: `tos_uri`, `policy_uri`, and `logo_uri` and can be set using the [Dynamic Client Registration API](/docs/reference/api/oauth-clients/).
   * The `consent_method` property can be configured in the App Wizard and on the **General** tab in the Admin Console, but cannot be set using the Dynamic Client Registration API.
   * After an app is created, you can't change the `application_type`.
+
+-->
 
 #### Create an app with a Profile object
 
@@ -6645,6 +6653,11 @@ HTTP/1.1 204 No Content
 
 ## Application OAuth 2.0 token operations
 
+The Application OAuth 2.0 token operations reference is now available at the new [Okta API reference portal](https://developer.okta.com/docs/api/) as the [Application Tokens API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationTokens/).
+
+Explore the [Okta Public API Collections](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/overview) workspace to get started with the [Application Tokens Postman collection](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/folder/4920859-703ddb57-e1f1-435f-bc29-68a52ef62fb1).
+
+<!--
 ### List OAuth 2.0 tokens for application
 
 <ApiOperation method="get" url="/api/v1/apps/${applicationId}/tokens" />
@@ -6877,6 +6890,7 @@ curl -v -X DELETE \
 ```http
 HTTP/1.1 204 No Content
 ```
+-->
 
 ## Application logo operations
 
@@ -8115,6 +8129,9 @@ This setting modifies the same settings as the **Sign On** tab when editing an a
 
 ### Accessibility object
 
+See [Application - accessibility](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/getApplication!c=200&path=0/accessibility&t=response) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--
 Specifies access settings for the application
 
 | Property         | Description                                | DataType | Nullable | Default | MinLength | MaxLength | Validation |
@@ -8135,7 +8152,13 @@ Specifies access settings for the application
 ```
 > **Note:** The `loginRedirectUrl` property is deprecated in Identity Engine. This property is used with the custom app login feature. Orgs that actively use this feature can continue to do so. Orgs that don't use custom app login should use the [Okta-hosted sign-in experience](/docs/guides/redirect-authentication/) or [configure IdP routing rules](https://help.okta.com/okta_help.htm?type=oie&id=ext-cfg-routing-rules) that redirect users to the appropriate app to sign in.
 
+-->
+
 ### Visibility object
+
+See [Application - visibility](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/getApplication!c=200&path=0/visibility&t=response) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--
 
 Specifies visibility settings for the application
 
@@ -8172,8 +8195,13 @@ Specifies visibility settings for the application
 
 Each application defines one or more appLinks that can be published. You can disable AppLinks by setting the link value to `false`.
 
+-->
+
 ### Application Credentials object
 
+See [Application - credentials](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/getApplication!c=200&path=0/credentials&t=response) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--
 Specifies credentials and scheme for the application's `signOnMode`
 
 > **Note:** To update the app, you can provide just the [Signing Credential object](#signing-credential-object) instead of the entire Application Credential object.
@@ -8203,9 +8231,13 @@ Specifies credentials and scheme for the application's `signOnMode`
   }
 }
 ```
+-->
 
 #### Authentication schemes
 
+See [Application - scheme](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/getApplication!c=200&path=0/credentials/scheme&t=response) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--
 Applications that are configured with `BASIC_AUTH`, `BROWSER_PLUGIN`, or `SECURE_PASSWORD_STORE` have credentials vaulted by Okta and can be configured with the following schemes:
 
 | Scheme                       | Description                                                               | Shared UserName | Shared Password | App UserName     | App Password            |
@@ -8217,9 +8249,13 @@ Applications that are configured with `BASIC_AUTH`, `BROWSER_PLUGIN`, or `SECURE
 | SHARED_USERNAME_AND_PASSWORD | Users share a single username and password set by administrator           | Admin:`R/W`     | Admin:`W`       |                  |                         |
 
 > **Note:** `BOOKMARK`, `SAML_2_0`, and `WS_FEDERATION` signOnModes don't support an authentication scheme as they use a federated SSO protocol. You should omit the `scheme` property for apps with these signOnModes.
+-->
 
 #### Username Template object
 
+See [Application - userNameTemplate](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/getApplication!c=200&path=0/credentials/userNameTemplate&t=response) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--
 Specifies the template used to generate a user's username when the application is assigned via a group or directly to a user
 
 | Property   | Description                             | DataType                         | Nullable | Default           | MinLength | MaxLength  | Validation |
@@ -8239,6 +8275,7 @@ Specifies the template used to generate a user's username when the application i
   }
 }
 ```
+-->
 
 #### Signing Credential object
 
@@ -8549,6 +8586,9 @@ Profile Requirements
 
 ### Application User object
 
+See [Application User](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationUsers/#tag/ApplicationUsers/operation/getApplicationUser!c=200&path=created&t=response) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--
 The Application User object defines a user's app-specific profile and credentials for an application.
 
 #### Example
@@ -8728,9 +8768,13 @@ Application User profiles are app-specific, but may be customized by the Profile
   }
 }
 ```
+-->
 
 ### Application Group object
 
+See [Application Group](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationGroups/#tag/ApplicationGroups/operation/getApplicationGroupAssignment!c=200&path=id&t=response) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--
 #### Example
 
 ```json
@@ -8758,6 +8802,8 @@ All application groups have the following properties:
 | lastUpdated  | timestamp when app group was last updated       | Date                                                           | FALSE    | FALSE  | TRUE     |           |           |            |
 | priority     | priority of group assignment                    | Number                                                         | TRUE     | FALSE  | FALSE    | 0         | 100       |            |
 | profile      | Valid JSON schema for specifying properties     | [JSON](#profile-object)                                        | TRUE     | FALSE  | FALSE    |           |           |            |
+
+-->
 
 ### Application Key Credential object
 
