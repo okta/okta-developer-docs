@@ -5,6 +5,9 @@ meta:
     content: Your SCIM API must support specific SCIM 1.1 API endpoints to work with Okta. Those endpoints and their explanations are detailed here.
 ---
 
+The SCIM 1.1 protocol reference is now available at the new [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-scim/guides/scim-11/).
+
+<!--
 # Okta and SCIM Version 1.1
 
 This reference focuses on how Okta API endpoints share information with System for Cross-domain Identity Management (SCIM) specific API calls.
@@ -908,3 +911,4 @@ Date: Fri, 18 Oct 2019 07:16:10 GMT
 * [Build a SCIM provisioning integration](/docs/guides/scim-provisioning-integration-overview)
 * [SCIM 1.1 RFC: Core Schema](https://scim.cloud/specs/draft-scim-core-schema-01.html)
 * [SCIM 1.1 RFC: Protocol](https://scim.cloud/specs/draft-scim-api-01.html)
+-->

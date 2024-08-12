@@ -9,7 +9,7 @@ meta:
 
 This topic covers the concepts and use cases for SCIM and Okta.
 
-When you’re ready to create a SCIM integration, see [Build a SCIM provisioning integration](/docs/guides/scim-provisioning-integration-overview) and [how to implement the SCIM protocol with Okta](/docs/reference/scim/).
+When you’re ready to create a SCIM integration, see [Build a SCIM provisioning integration](/docs/guides/scim-provisioning-integration-overview) and [how to implement the SCIM protocol with Okta](https://developer.okta.com/docs/api/openapi/okta-scim/guides/).
 
 ## What is SCIM for?
 
