@@ -107,7 +107,7 @@ Ready to get started? Choose how you want to implement your lifecycle management
 
 <Card href="/docs/guides/scim-provisioning-integration-overview/" headerImage="/img/icons/scim.svg" cardTitle="System for Cross-domain Identity Management" :showFooter=false>Build a SCIM provisioning integration</Card>
 
-<Card href="https://help.okta.com/okta_help.htm?type=wf&id=ext-connector-builder" headerImage="/img/icons/WEB_Icon_Platform_Workflows_40x40.svg" cardTitle="Connector Builder" :showFooter=false>Build a Workflows integration</Card>
+<Card href="https://help.okta.com/okta_help.htm?type=wf&id=ext-connector-builder" headerImage="/img/icons/WEB_Icon_Platform_Workflows_40x40.svg" cardTitle="Connector Builder" :showFooter=false>Build a Workflows connector</Card>
 
 </Cards>
 <br>
