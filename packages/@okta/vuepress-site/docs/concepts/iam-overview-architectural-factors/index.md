@@ -5,9 +5,9 @@ title: Architectural factors
 
 IAM is critical to how users perceive and interact with their apps. A good IAM experience is seamless, with the least user involvement with IAM that security permits when accessing an app. A poor IAM experience can result in users developing a poor opinion of the app or not using the app at all.
 
-Identity or IAM is a collection of capabilities/building blocks essential for enabling your overall architecture and user experience. Your IAM solution's success depends on meeting some strict architectural requirements. 
+Identity or IAM is a collection of capabilities/building blocks essential for enabling your overall architecture and user experience. Your IAM solution's success depends on meeting some strict architectural requirements.
 
-This guide details specific architectural capabilities for making your solution as robust as possible for your org and as seamless as possible for your users. These capabilities are highly complex to build and integrate on your own if they aren't a core competency. It's much more efficient and effective to consider them in your high-level design as early as possible in your solution's life cycle. 
+This guide details specific architectural capabilities for making your solution as robust as possible for your org and as seamless as possible for your users. These capabilities are highly complex to build and integrate on your own if they aren't a core competency. It's more efficient and effective to consider them in your high-level design as early as possible in your solution's life cycle.
 
 Failure to meet any of the capabilities can lead to the following:
 
@@ -17,9 +17,9 @@ Failure to meet any of the capabilities can lead to the following:
 - Erosion of trust
 - Customer and user dissatisfaction
 - Damage to your reputation
-- Expensive breaches and lost business, in the worst case scenario
+- Expensive breaches and lost business, in the worst-case scenario
 
-> **Note:** This list isn't exhaustive, and strategies for any of them are too numerous and complex to go into here. Okta intends to identify some of the critical Non-Functional Requirements (NFRs) for your IAM solution and to illustrate a few possible strategies to address them.
+> **Note:** This list isn't comprehensive. Strategies for breaches are too numerous and complex to go into here. Okta intends to identify some of the critical Non-Functional Requirements (NFRs) for your IAM solution and to illustrate a few possible strategies to address them.
 
 See [**IAM Terminology**](/docs/concepts/iam-overview-iam-terminology/) for definitions of some terms and concepts used in this article.
 
@@ -39,7 +39,7 @@ Design your IAM solution to be highly available. Consider strategies such as the
 
 Design your IAM solution to be highly reliable with high data integrity. Make sure that every feature works correctly and can properly handle anomalies such as user and system errors. Consider strategies such as these to help achieve high reliability:
 
-- Design and develop aggressive error detection and error handling techniques. Ideally, Architectural Factors you should validate every piece of incoming data that your solution uses and never assume that any operation has succeeded without checking. Attempt to recover from errors that may be transient and tolerate unrecoverable errors and faults whenever possible.
+- Design and develop aggressive error detection and error handling techniques. Ideally for Architectural Factors, you should validate every piece of incoming data that your solution uses and never assume that any operation has succeeded without checking. Attempt to recover from errors that may be transient and tolerate unrecoverable errors and faults whenever possible.
 
 - Design your solution (as much as possible) to minimize opportunities for human errors and provide a way to quickly and easily recover when they happen.
 
@@ -69,7 +69,7 @@ Design your IAM solution to smoothly adapt to and handle rapid changes in worklo
 
 ## Security
 
-Your IAM solution is all about security. It's your app's guardian against unauthorized access and the problems that come with it. Design your solution to authenticate every user sign-in and access request reliably. Also only allow authenticated users to access the services and data for which they have permission. Consider strategies such as these to help ensure that your solution meets your security requirements:
+Your IAM solution is all about security. It's your app's guardian against unauthorized access and the problems that come with it. Design your solution to authenticate every user sign-in and access request reliably. Also, only allow authenticated users to access the services and data for which they have permission. Consider strategies such as these to help ensure that your solution meets your security requirements:
 
 - Don't use root access keys. Use other commonplace security measures to guard against unauthorized and inappropriate access to your apps, resources, and IAM facilities and data.
 
@@ -137,7 +137,7 @@ Okta provides a customizable, secure drop-in solution for managing users, authen
 
 - It's a cloud-based solution that allows your end users to access apps from any platform (desktop, laptop, mobile) and location. It enables your org to implement services quickly, at a large scale, and at a low total cost.
 
-- It quickly scales to handle changes in storage and processing requirements and traffic surges. Also it handles rapid changes in users and usage patterns and degrades smoothly and acceptably under load.
+- It quickly scales to handle changes in storage and processing requirements and traffic surges. Also it handles rapid changes in users and use patterns, and degrades smoothly and acceptably under load.
 
 - You can have an unlimited number of users and concurrent sessions with a large fraction of them. See [Scaling Okta to 50 Billion Users](https://www.okta.com/resources/whitepaper/scaling-okta-to-billions-of-users/).
 
@@ -167,7 +167,7 @@ Okta provides a customizable, secure drop-in solution for managing users, authen
 
 - With our Terraform Okta Provider, your team can introduce or add to our Infrastructure as Code codebase and automated pipeline. See [What is Terraform?](https://www.terraform.io/intro) and [Okta Provider](https://registry.terraform.io/providers/okta/okta/latest/docs).
 
-- You can use Okta's drop-in solutions and event-driven APIs and SDKs to integrate features with a wide range of apps in different ways and usage models. Tightly integrate Okta functions with your apps for optimal performance, flexibility, and user experience. See the [Reference](/docs/reference/) section.
+- You can use Okta's drop-in solutions and event-driven APIs and SDKs to integrate features with a wide range of apps in different ways and use models. Tightly integrate Okta functions with your apps for optimal performance, flexibility, and user experience. See the [Reference](/docs/reference/) section.
 
 - Its online technical documentation helps your app developers use its APIs and SDKs.
 

@@ -9,7 +9,7 @@ meta:
 
 **Q: My API is similar to SCIM, but isn't 100% compliant. Can I still integrate with Okta?**
 
-Guidance on what endpoints need to be implemented can be found in our [SCIM Reference](https://developer.okta.com/docs/api/openapi/okta-scim/guides/) documentation for either SCIM [V2.0](https://developer.okta.com/docs/api/openapi/okta-scim/guides/scim-20/) or [V1.1](https://developer.okta.com/docs/api/openapi/okta-scim/guides/scim-11/) deployments.
+You can find guidance on what endpoints you need to implement in our [SCIM Reference](https://developer.okta.com/docs/api/openapi/okta-scim/guides/) documentation for either SCIM [V2.0](https://developer.okta.com/docs/api/openapi/okta-scim/guides/scim-20/) or [V1.1](https://developer.okta.com/docs/api/openapi/okta-scim/guides/scim-11/) deployments.
 
 **Q: How should I be managing authentication to my SCIM API?**
 

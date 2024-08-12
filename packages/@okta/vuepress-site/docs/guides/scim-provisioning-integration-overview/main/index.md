@@ -21,7 +21,7 @@ This guide series teaches you how to build an Okta integration that uses the Sys
 
 * An Okta Developer Edition organization. Don't have one? [Create one for free](https://developer.okta.com/signup).
 * A SCIM version 2.0 API design that supports the [minimum feature set](/docs/guides/scim-provisioning-integration-prepare/main/#features).
-* Profile Sourcing activated in your org, to test this feature in your SCIM app integration (see [Profile Sourcing activation](/docs/guides/scim-provisioning-integration-test/main/#profile-sourcing-activation) to find out how to activate).
+* Profile Sourcing activated in your org, to test this feature in your SCIM app integration. See [Profile Sourcing activation](/docs/guides/scim-provisioning-integration-test/main/#profile-sourcing-activation).
 
 ---
 
