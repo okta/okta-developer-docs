@@ -90,6 +90,7 @@ To update **existing** OpenID Connect apps to use refresh token rotation:
 1. On the **General** tab, click **Edit** in the **General Settings** section.
 1. In the **Grant type** section, select **Refresh Token**.
 1. In the **Refresh Token** section, select **Rotate token after every use**.
+
     The default number of seconds for the **Grace period for token rotation** is set to 30 seconds. You can change the value to any number from 0 through 60 seconds. After the refresh token is rotated, the previous token remains valid for this amount of time to allow clients to get the new token.
 1. Click **Save** to confirm your changes.
 
@@ -103,6 +104,7 @@ When you create a mobile or web app and want to use refresh token rotation:
 1. Select **Allow everyone in your organization to access** in the **Assignments** section, and then click **Save**.
 1. In the **General Settings** section, click **Edit**.
 1. In the **Refresh Token** section, select **Rotate token after every use**.
+
     The default number of seconds for the **Grace period for token rotation** is set to 30 seconds. You can change the value to any number from 0 through 60 seconds. After the refresh token is rotated, the previous token remains valid for this amount of time to allow clients to get the new token.
 1. Click **Save** to confirm your changes.
 
