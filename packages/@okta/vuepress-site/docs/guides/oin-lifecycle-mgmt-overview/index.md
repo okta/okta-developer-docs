@@ -5,7 +5,7 @@ meta:
     content: Learn how to build a lifecycle management app integration for the Okta Integration Network.
 ---
 
-Lifecycle management refers to the process of provisioning and deprovisioning app access as a user moves through an org. Onboarding, role change, transfer, and offboarding employee processes require provisioning user accounts in workforce apps. It also requires enforcing corporate security policies in a timely manner.
+Lifecycle management refers to the process of provisioning and deprovisioning app access as a user moves through an org. Onboarding, role change, transfer, and offboarding employee processes require provisioning user accounts in Okta and other third-party apps. It also requires enforcing corporate security policies in a timely manner.
 
 <div>
 
@@ -13,7 +13,7 @@ Lifecycle management refers to the process of provisioning and deprovisioning ap
 
 </div>
 
-Okta provides two methods to integrate lifecycle management to your app. You can use the [System for Cross-domain Identity Management](https://developer.okta.com/docs/api/openapi/okta-scim/guides/) (SCIM) protocol to manage user accounts from Okta. You can also use the [Okta Worfklows Connector Builder](https://help.okta.com/okta_help.htm?type=wf&id=ext-connector-builder) to create automated identity processes in [Okta Workflows](https://help.okta.com/okta_help.htm?type=wf).
+Okta provides two methods to integrate lifecycle management to your app. You can use the [System for Cross-domain Identity Management](https://developer.okta.com/docs/api/openapi/okta-scim/guides/) (SCIM) protocol to manage user accounts from Okta. You can also use the [Okta Workflows Connector Builder](https://help.okta.com/okta_help.htm?type=wf&id=ext-connector-builder) to create automated identity processes in [Okta Workflows](https://help.okta.com/okta_help.htm?type=wf).
 
 After completing your Okta lifecycle management integration, publish it in the [Okta Integration Network (OIN)](https://www.okta.com/integrations/) for your customers to benefit from secure provisioning automation and meet compliance requirements. The OIN is a collection of pre-built app integrations covering numerous use cases. Join the community that customers trust to exchange secure authentication between users, devices, and apps.
 
