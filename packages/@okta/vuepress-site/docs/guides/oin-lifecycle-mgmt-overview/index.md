@@ -21,7 +21,7 @@ After completing your Okta lifecycle management integration, publish it in the [
 
 | &nbsp; | &nbsp; |
 | ------ | ------ |
-| **Automate onboarding/offboarding and win larger customers** | After an org reaches a certain size, manually provisioning accounts and getting users set up are time-consuming and a bottleneck for your product's adoption. Okta lifecycle management integration automates mundane tasks for your customers, which reduces the total cost of ownership and removes barriers to end user activation. |
+| **Automate onboarding/offboarding and win larger customers** | After an org reaches a certain size, manually provisioning accounts and getting users set up is a time-consuming process and a bottleneck for your product's adoption. Okta lifecycle management integration automates mundane tasks for your customers, which reduces the total cost of ownership and removes barriers to end user activation. |
 | **Secure access to your app** | Secure access to your app. Integrating with Okta ensures that end users can access your app when they join an org. Access is automatically removed as they leave the org to prevent embarrassing data loss and dangling access. |
 | **Meet compliance requirements** | Help your customers generate logs of access changes to comply with security policies and audits. |
 | **Increase adoption of your product and sell more licenses** | Okta lifecycle management integration helps your customers use SaaS licenses and ultimately purchase more as the org grows or use expands. |
