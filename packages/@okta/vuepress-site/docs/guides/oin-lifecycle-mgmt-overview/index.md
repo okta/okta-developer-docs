@@ -13,7 +13,7 @@ Lifecycle management refers to the process of provisioning and deprovisioning ap
 
 </div>
 
-Okta provides two methods to integrate lifecycle management to your app. You can use the [System for Cross-domain Identity Management](https://developer.okta.com/docs/api/openapi/okta-scim/guides/) (SCIM) protocol to manage user accounts from Okta. You can also use the [Workflows Connector Builder](https://help.okta.com/okta_help.htm?type=wf&id=ext-connector-builder) to create automated identity processes in [Okta Workflows](https://help.okta.com/okta_help.htm?type=wf).
+Okta provides two methods to integrate lifecycle management to your app. You can use the [System for Cross-domain Identity Management](https://developer.okta.com/docs/api/openapi/okta-scim/guides/) (SCIM) protocol to manage user accounts from Okta. You can also use the [Okta Worfklows Connector Builder](https://help.okta.com/okta_help.htm?type=wf&id=ext-connector-builder) to create automated identity processes in [Okta Workflows](https://help.okta.com/okta_help.htm?type=wf).
 
 After completing your Okta lifecycle management integration, publish it in the [Okta Integration Network (OIN)](https://www.okta.com/integrations/) for your customers to benefit from secure provisioning automation and meet compliance requirements. The OIN is a collection of pre-built app integrations covering numerous use cases. Join the community that customers trust to exchange secure authentication between users, devices, and apps.
 
@@ -28,12 +28,12 @@ After completing your Okta lifecycle management integration, publish it in the [
 
 ## Choose how to implement your integration
 
-| &nbsp; |  System for Cross-domain Identity Management (SCIM) |  Workflows Connector |
+| &nbsp; |  System for Cross-domain Identity Management (SCIM) |  Connector Builder |
 | ------ | :------------------- | :----------------------- |
-| **Description** | [SCIM](https://scim.cloud) is the industry standard protocol for managing users and groups in cloud-based systems. It handles basic operations like create, read, update, delete, and search. | [Okta Workflows Connector Builder](https://help.okta.com/okta_help.htm?type=wf&id=ext-connector-builder) is a no-code, if-this-then-that logic builder. Okta customers can use it to automate custom or complex employee onboarding and offboarding flows in your app. Publishing a Workflows Connector with Okta allows your customers to deeply integrate your product as part of their lifecycle management flows. |
+| **Description** | [SCIM](https://scim.cloud) is the industry standard protocol for managing users and groups in cloud-based systems. It handles basic operations like create, read, update, delete, and search. | [Connector Builder](https://help.okta.com/okta_help.htm?type=wf&id=ext-connector-builder) is a no-code, if-this-then-that logic builder. Okta customers can use it to automate custom or complex employee onboarding and offboarding flows in your app. Publishing a Connector with Okta allows your customers to deeply integrate your product as part of their lifecycle management flows. |
 | **Technology** | <ul><li>JSON-based REST API server implementation</li> <li>Okta supports outbound SCIM requests to your SCIM API service</li> <li>See [SCIM Protocol](https://developer.okta.com/docs/api/openapi/okta-scim/guides/)</li></ul> | <ul><li>Low code development environment</li> <li>See [Okta Workflows](https://help.okta.com/okta_help.htm?type=wf)</li></ul>|
-| **Benefits** | <ul><li>Covers the most common lifecycle management needs related to onboarding/offboarding</li> <li>SCIM standard is throughout the industry</li> </ul> | <ul><li>Customers can create highly custom automation with your product without writing code</li> <li>Your product is tightly integrated with Okta</li> </ul>|
-| **Get started** | [Build a SCIM Provisioning Integration](/docs/guides/scim-provisioning-integration-overview/) | [Workflows Connector Builder](https://help.okta.com/okta_help.htm?type=wf&id=ext-connector-builder) |
+| **Benefits** | <ul><li>Covers the most common lifecycle management needs related to onboarding/offboarding</li> <li>SCIM standard used throughout the industry</li> </ul> | <ul><li>Customers can create highly custom automation with your product without writing code</li> <li>Your product is tightly integrated with Okta</li> </ul>|
+| **Get started** | [Build a SCIM Provisioning Integration](/docs/guides/scim-provisioning-integration-overview/) | [Connector Builder](https://help.okta.com/okta_help.htm?type=wf&id=ext-connector-builder) |
 
 ## Use case examples
 
@@ -43,7 +43,7 @@ Tom is an internal developer at OktReward, an HR employee rewards app. OktReward
 
 Tom performs the following tasks:
 
-* Builds the OktReward-Okta lifecycle management integration by using the Workflows Connector Builder. Their customers don't need to worry about manual employee profile processes, such as onboarding or offboarding.
+* Builds the OktReward-Okta lifecycle management integration by using the Connector Builder. Their customers don't need to worry about manual employee profile processes, such as onboarding or offboarding.
 
 * Documents the required configuration steps for the customer admin.
 
@@ -53,7 +53,7 @@ After approval, the OktReward app is published as a lifecycle management integra
 
 ### Example of a customer admin integration journey with Okta
 
-Acme is a company that is using Okta to manage identity for their workforce. Acme is considering adding OktReward into their HR suite. OktReward is in the OIN with SSO and lifecycle management use cases. Therefore, Acme knows they can integrate OktReward securely into their existing Okta-managed SSO and automated user lifecycle flow with minimal effort. In addition, Acme can access OktRewards audits for their compliance needs.
+Acme is a company that uses Okta to manage identity for their workforce. Acme is considering adding OktReward into their HR suite. OktReward is in the OIN with SSO and lifecycle management use cases. Therefore, Acme knows they can integrate OktReward securely into their existing Okta-managed SSO and automated user lifecycle flow with minimal effort. In addition, Acme can access OktRewards audits for their compliance needs.
 
 Alicia is an admin at Acme and performs the following tasks to integrate OktReward:
 
@@ -67,7 +67,7 @@ Alicia is an admin at Acme and performs the following tasks to integrate OktRewa
 
 * Tests signing in to the OktReward app with existing Okta credentials to verify the authentication flow
 
-* Tests user onboarding, role changes, offboarding with HR to ensure that the user provisioning flow works accurately
+* Tests user onboarding, role changes, and offboarding with HR to ensure that the user provisioning flow works accurately
 
 Acme's employees can sign in to the OktReward app with their existing Okta credentials and no additional OktReward app registration is required. When new employees join Acme, their HR staff adds user profiles in one Okta source. The user profiles are automatically provisioned to the apps with lifecycle management support, which now includes OktReward.
 
@@ -107,7 +107,7 @@ Ready to get started? Choose how you want to implement your lifecycle management
 
 <Card href="/docs/guides/scim-provisioning-integration-overview/" headerImage="/img/icons/scim.svg" cardTitle="System for Cross-domain Identity Management" :showFooter=false>Build a SCIM provisioning integration</Card>
 
-<Card href="https://help.okta.com/okta_help.htm?type=wf&id=ext-connector-builder" headerImage="/img/icons/WEB_Icon_Platform_Workflows_40x40.svg" cardTitle="Workflows Connector Builder" :showFooter=false>Build a Workflow integration</Card>
+<Card href="https://help.okta.com/okta_help.htm?type=wf&id=ext-connector-builder" headerImage="/img/icons/WEB_Icon_Platform_Workflows_40x40.svg" cardTitle="Connector Builder" :showFooter=false>Build a Workflows integration</Card>
 
 </Cards>
 <br>
