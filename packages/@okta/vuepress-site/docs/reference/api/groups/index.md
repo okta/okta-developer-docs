@@ -5,7 +5,18 @@ category: management
 
 # Groups API
 
+The Groups API reference is now available at the new [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/).
+
+- [Group and Group Member operations](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/) - The Groups API provides operations to manage Okta Groups and their user members for your org.
+- [Group owner operations](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/GroupOwner/) - The Group Owners API provides operations to manage owners of Okta Groups for your organization.
+- [Group rule operations](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/GroupRule/) - The Group Rules API provides operations to manage rules for Okta Groups in your org.
+
+Explore the [Okta Public API Collections](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/overview) workspace to get started with the Groups API Postman collection.
+
+<!--
+
 The Okta Groups API provides operations to manage Okta Groups and their user members for your organization.
+
 
 <ApiAuthMethodWarning />
 

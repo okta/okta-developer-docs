@@ -273,7 +273,7 @@ The public metadata endpoints for Authorization Servers are now each assigned se
 
 #### Bugs Fixed in 2019.09.0
 
-* Responses from the [`GET /groups/rules`](/docs/reference/api/groups/#get-group-rule) API included deleted groups in the `assignUserToGroups.groupIds` property. (OKTA-242994)
+* Responses from the [`GET /groups/rules`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/GroupRule/#tag/GroupRule/operation/getGroupRule) API included deleted groups in the `assignUserToGroups.groupIds` property. (OKTA-242994)
 
 * Calls to the [`/users/${userid}/lifecycle/deactivate`](/docs/reference/api/users/#deactivate-user) endpoint could time out when deactivating a user with an extraordinarily high number of app assignments. (OKTA-228031)
 
@@ -371,7 +371,7 @@ In the Update User API, when the `secondEmail` attribute in a user's profile was
 
 #### Deleting App Groups
 
-The `DELETE /groups/${groupId}` [endpoint](/docs/reference/api/groups/#remove-group) now supports deleting app groups, in addition to Okta groups. Note, however, that groups configured for group push cannot be deleted. <!-- OKTA-214275 -->
+The `DELETE /groups/${groupId}` [endpoint](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/#tag/Group/operation/deleteGroup) now supports deleting app groups, in addition to Okta groups. Note, however, that groups configured for group push cannot be deleted. <!-- OKTA-214275 -->
 
 #### Bug Fixed in 2019.07.2
 
@@ -468,7 +468,7 @@ The [token inline hook](/docs/reference/token-hook/) now supports changing or re
 
 #### Bugs Fixed in 2019.05.3
 
-* Responses from the `GET /groups/rules` [API](/docs/reference/api/groups/#list-group-rules) failed to include a link to the next page of results in cases where there was more than one page. (OKTA-221434)
+* Responses from the `GET /groups/rules` [API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/GroupRule/#tag/GroupRule/operation/listGroupRules) failed to include a link to the next page of results in cases where there was more than one page. (OKTA-221434)
 
 * Calls to the `/authorize` endpoint during the Authorization Code with PKCE flow would fail if an `idp` parameter was supplied with the call (in Preview orgs only). (OKTA-229808)
 

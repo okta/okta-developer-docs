@@ -148,7 +148,7 @@ Admins can now enable or disable automatic account linking between SAML Identity
 
 #### Group object `source` property is now GA in Preview
 
-For API requests that return a Group or a list of Groups, the Group object includes a `source` property that provides the ID of the source application for the returned Group. This property is now GA in all Preview orgs. See [Group attributes](/docs/reference/api/groups/#group-attributes). <!--OKTA-326610-->
+For API requests that return a Group or a list of Groups, the Group object includes a `source` property that provides the ID of the source application for the returned Group. This property is now GA in all Preview orgs. See [`source`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/#tag/Group/operation/getGroup!c=200&path=_links/source&t=response). <!--OKTA-326610-->
 
 #### MyAccount API is now in Early Access (EA)
 
@@ -211,7 +211,7 @@ Rate limits for paid developer orgs and for one-app orgs have been updated. See 
 
 #### Groups API enhancements in EA
 
-The [Groups API](/docs/reference/api/groups/) now supports extended search. Also, source application is now returned in [Group](/docs/reference/api/groups/#group-object) objects.
+The [Groups API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/) now supports extended search. Also, source application is now returned in [Group](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/#tag/Group/operation/listGroups!c=200&path=created&t=response) objects.
 
 
 ## September

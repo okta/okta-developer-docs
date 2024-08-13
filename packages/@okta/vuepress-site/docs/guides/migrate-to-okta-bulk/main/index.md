@@ -6,7 +6,7 @@ meta:
 layout: Guides
 ---
 
-As part of your plan to migrate users to Okta, you gathered source data into a staging area like a secure database or CSV file. This guide explains how you can use that data to create users and groups in Okta with the [Okta Users API](/docs/reference/api/users/) and the [Okta Groups API](/docs/reference/api/groups/).
+As part of your plan to migrate users to Okta, you gathered source data into a staging area like a secure database or CSV file. This guide explains how you can use that data to create users and groups in Okta with the [Okta Users API](/docs/reference/api/users/) and the [Okta Groups API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/).
 
 ---
 
@@ -44,7 +44,7 @@ It's a good idea to use sample data that's as close as possible to your real use
 
 ## Create groups
 
-Suppose you have groups in your user data that you want to include when you create your users in Okta. To do this, you must first create Okta Groups that are equivalent to the groups in your user data. You can create an Okta group for the sample data (in this case, "All Employees") using an [Add Group](/docs/reference/api/groups/#add-group) request:
+Suppose you have groups in your user data that you want to include when you create your users in Okta. To do this, you must first create Okta Groups that are equivalent to the groups in your user data. You can create an Okta group for the sample data (in this case, "All Employees") using an [Add Group](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/#tag/Group/operation/addGroup) request:
 
 ### Request example
 
@@ -102,7 +102,7 @@ The description property can be empty.
 }
 ```
 
-You can obtain the new Group ID (`id`) from the response to use when you create Users in that Group later. You can also list all Groups in your org and obtain their IDs using a [List Groups](/docs/reference/api/groups/#list-groups) request.
+You can obtain the new Group ID (`id`) from the response to use when you create Users in that Group later. You can also list all Groups in your org and obtain their IDs using a [List Groups](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/#tag/Group/operation/listGroups) request.
 
 You can also create groups in your Admin Console. For more information, see [About groups](https://help.okta.com/okta_help.htm?id=Directory_Groups) in the product documentation.
 
@@ -230,7 +230,7 @@ Your next step should be configuring the necessary integration and access to app
 ### API reference pages
 
 * [Okta Users API](/docs/reference/api/users/)
-* [Okta Groups API](/docs/reference/api/groups/)
+* [Okta Groups API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/)
 * [API error codes](/docs/reference/error-codes/)
 * [Default user profile properties](/docs/reference/api/users/#default-profile-properties)
 * [Rate limits](/docs/reference/rate-limits/)

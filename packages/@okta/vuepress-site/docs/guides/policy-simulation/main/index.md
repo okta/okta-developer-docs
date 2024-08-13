@@ -51,7 +51,7 @@ For this call, you need the `id` for your app and the `id` for the Sales group.
 
 To find these values:
 
-1. Call the [Groups API](/docs/reference/api/groups/#find-groups) with the query parameter as follows: `https://{yourOktaDomain}/api/v1/groups?q=Sales`. Save the `id` value from the response.
+1. Call the [Groups API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/#tag/Group/operation/listGroups) with the query parameter as follows: `https://{yourOktaDomain}/api/v1/groups?q=Sales`. Save the `id` value from the response.
 
 1. Call the [Apps API](/docs/reference/api/apps/#list-applications) with the query parameter as follows: `https://{yourOktaDomain}/api/v1/apps?q={YourAppName}`. Save the `id` value from the response. Alternatively, the client ID available in the Admin Console is the `id` of your app.
 
@@ -226,7 +226,7 @@ For this call, you need the `id` for another group not assigned to your app, for
 
 To find this value:
 
-* Call the [Groups API](/docs/reference/api/groups/#find-groups) with the query parameter as follows: `https://{yourOktaDomain}/api/v1/groups?q=Everyone`. Save the `id` value from the response.
+* Call the [Groups API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/) with the query parameter as follows: `https://{yourOktaDomain}/api/v1/groups?q=Everyone`. Save the `id` value from the response.
 
 To simulate the second scenario, use the following call but replace the group ID for Sales for the group ID of another group. In this case, Everyone:
 

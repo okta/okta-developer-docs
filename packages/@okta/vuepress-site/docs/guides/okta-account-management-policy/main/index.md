@@ -16,7 +16,7 @@ This guide describes how to use the [Policies API](https://developer.okta.com/do
 #### What you need
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
-* [Groups created](/docs/reference/api/groups/) in your org
+* [Groups created](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/) in your org
 * A configured [network zone](https://help.okta.com/okta_help.htm?id=ext_Security_Network)
 
 ---
