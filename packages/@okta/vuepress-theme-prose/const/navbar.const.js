@@ -1029,7 +1029,7 @@ export const reference = [
                { title: "Features", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Feature/" },
                { title: "Groups", path: "/docs/reference/api/groups/" },
                { title: "Groups Owners", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/GroupOwner/" },
-               { title: "Identity Sources", path: "/docs/reference/api/xaas/" },
+               { title: "Identity Sources", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/" },
                { title: "Key Management", path: "/docs/reference/api/hook-keys/" },
                { title: "Linked Objects", path: "/docs/reference/api/linked-objects/" },
                { title: "Log Streaming", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/LogStream/#tag/LogStream" },
@@ -1070,15 +1070,15 @@ export const reference = [
        },
          {
             title: "SCIM Protocol",
-            path: "/docs/reference/scim/",
+            path: "https://developer.okta.com/docs/api/openapi/okta-scim/guides/",
             subLinks: [
                {
                   title: "SCIM V2.0",
-                  path: "/docs/reference/scim/scim-20/",
+                  path: "https://developer.okta.com/docs/api/openapi/okta-scim/guides/scim-20/",
                },
                {
                   title: "SCIM V1.1",
-                  path: "/docs/reference/scim/scim-11/",
+                  path: "https://developer.okta.com/docs/api/openapi/okta-scim/guides/scim-11/",
                },
             ],
          },

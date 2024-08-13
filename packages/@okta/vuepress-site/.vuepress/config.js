@@ -413,9 +413,6 @@ module.exports = ctx => ({
           frameworks: []
         }
       */
-      if (path.includes('custom-widget/')) {
-        console.log('### mainPAgeGuide', mainPageGuide, path);
-      }
       if (mainPageGuide && mainPageGuide.guide && mainPageGuide.sections && (!mainPageGuide.frameworks || !mainPageGuide.mainFramework)) {
         frontmatter.sitemap = {
           exclude: true

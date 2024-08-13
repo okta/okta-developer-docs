@@ -15,9 +15,9 @@ The first step in delivering your SCIM integration is preparing a SCIM-compliant
 
 Okta supports lifecycle provisioning using either version 2.0 and version 1.1 of the SCIM protocol.
 
-If your service already supports the SCIM protocol, you should still review the [Okta SCIM reference](/docs/reference/scim/) documentation. The SCIM reference helps you to understand how Okta implements the SCIM protocol.
+If your service already supports the SCIM protocol, you should still review the [Okta SCIM reference](https://developer.okta.com/docs/api/openapi/okta-scim/guides/) documentation. The SCIM reference helps you to understand how Okta implements the SCIM protocol.
 
-If you haven't yet implemented SCIM, Okta recommends that you use [version 2.0 of the SCIM protocol](/docs/reference/scim/scim-20/).
+If you haven't yet implemented SCIM, Okta recommends that you use [version 2.0 of the SCIM protocol](https://developer.okta.com/docs/api/openapi/okta-scim/guides/scim-20/).
 
 ## Features
 
@@ -46,11 +46,11 @@ Okta supports authentication against SCIM APIs using any one of the following me
 - [Basic authentication](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication#basic_authentication_scheme)
 - A custom HTTP header
 
-If you’re using OAuth 2.0, then after successfully authorizing Okta to use your SCIM API, your application's authorization server redirects the user back to Okta, with either an authorization code or an access token.
+If you’re using OAuth 2.0, then after successfully authorizing Okta to use your SCIM API, your app's authorization server redirects the user back to Okta, with either an authorization code or an access token.
 
 > **Note:**  It's up to your SCIM API authorization server (AS) to support and send a refresh token along with the access token. Okta supports refresh tokens for SCIM connections, if the SCIM API AS also supports refresh tokens.
 
-If you’re going to publish your integration to the OIN catalog, Okta requires that all SCIM applications support the following [redirect URIs](https://tools.ietf.org/html/rfc6749#section-3.1.2):
+If you’re going to publish your integration to the OIN catalog, Okta requires that all SCIM apps support the following [redirect URIs](https://tools.ietf.org/html/rfc6749#section-3.1.2):
 
 - `https://system-admin.okta.com/admin/app/cpc/{appName}/oauth/callback`
 - `https://system-admin.okta-emea.com/admin/app/cpc/{appName}/oauth/callback`
@@ -113,8 +113,8 @@ In addition to the basic user schema attributes, your SCIM API must also specify
 
 [Section 3.1](https://tools.ietf.org/html/rfc7643#section-3.1) of the SCIM specification asserts that the `id` attribute is used to identify resources. The unique identifier has the following properties and behaviors:
 
-- Assigned a value by the Service Provider (your application) for each SCIM resource
-- Always issued by the Service Provider (your application) and not specified by the client (Okta)
+- Assigned a value by the Service Provider (your app) for each SCIM resource
+- Always issued by the Service Provider (your app) and not specified by the client (Okta)
 - Must be included in every representation of the resource
 - Can’t be empty
 - Must be unique across the SCIM Service Provider's entire set of resources
@@ -133,9 +133,9 @@ Okta user management requires that your SCIM API supports an `active` attribute 
 
 ## Example implementations
 
-There are numerous examples of how to implement SCIM servers and applications. Here are a few to get you started:
+There are numerous examples of how to implement SCIM servers and apps. Here are a few to get you started:
 
-- [scimify](https://toolkit.okta.com/apps/scimify/): a PHP application for Okta that supports both SCIM 1.1 and SCIM 2.0 servers with operations for /Users, /Groups, and /ServiceProviderConfig endpoints
+- [scimify](https://toolkit.okta.com/apps/scimify/): a PHP app for Okta that supports both SCIM 1.1 and SCIM 2.0 servers with operations for /Users, /Groups, and /ServiceProviderConfig endpoints
 - [Apache Directory SCIMple](https://github.com/apache/directory-scimple): Apache's Java EE implementation of the SCIM version 2.0 specification
 - [django-scim2](https://github.com/15five/django-scim2): a SCIM 2.0 Service Provider implementation (for Django)
 - [go-scim](https://github.com/imulab/go-scim): building blocks for servers implementing SCIM v2
@@ -144,11 +144,11 @@ A full list of implementations, both open-source and proprietary, is available a
 
 ## SCIM facade
 
-Sometimes it isn't feasible for your cloud-based application to natively support a SCIM API. An alternative is to build and host your own SCIM facade middleware. It can translate between the Okta SCIM API connection and the cloud application's proprietary API. The Okta integration connection is then made to this SCIM facade.
+Sometimes it isn't feasible for your cloud-based app to natively support a SCIM API. An alternative is to build and host your own SCIM facade middleware. It can translate between the Okta SCIM API connection and the cloud app's proprietary API. The Okta integration connection is then made to this SCIM facade.
 
-## Provision to on-premises applications
+## Provision to on-premises apps
 
-This provisioning guide targets cloud-based apps. For on-premises apps, see [Provision on-premises applications](https://help.okta.com/okta_help.htm?id=ext_OPP_configure) for details about the Okta agent-based provisioning solution.
+This provisioning guide targets cloud-based apps. For on-premises apps, see [Provision on-premises apps](https://help.okta.com/okta_help.htm?id=ext_OPP_configure) for details about the Okta agent-based provisioning solution.
 
 ## Test your SCIM API
 
@@ -248,7 +248,7 @@ After you've customized your SCIM test in Runscope with the details of your SCIM
 1. To see test details, click the name of each particular test case to expand the section. The details have information on the **Request**, **Response**, and **Connection** for each HTTP request involved in the test. Each test sends a composed GET or POST request to your SCIM server. The HTTP status received in the response determines the success or failure of each test.
 1. After the test finishes, the main panel displays the test results.
 
-Since this test is running in your own Runscope instance, you can modify the tests to better fit your own environment. Then, complete the test run again. If you need more technical details, see the [SCIM Reference](/docs/reference/scim/), or check out [Test your SCIM API](/docs/guides/scim-provisioning-integration-prepare/main/#test-your-scim-api).
+Since this test is running in your own Runscope instance, you can modify the tests to better fit your own environment. Then, complete the test run again. If you need more technical details, see the [SCIM Reference](https://developer.okta.com/docs/api/openapi/okta-scim/guides/) or [Test your SCIM API](/docs/guides/scim-provisioning-integration-prepare/main/#test-your-scim-api).
 
 ## Share test results from Runscope
 

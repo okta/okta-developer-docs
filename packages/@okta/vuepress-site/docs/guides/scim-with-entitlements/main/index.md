@@ -68,7 +68,7 @@ The SCIM server should be updated to maintain parity with the downstream app. Us
 
 ### User operations
 
-Create, update, and import user operations are handled using [SCIM User operations](/docs/reference/scim/scim-20/#scim-user-operations). The user object should include any entitlements, roles, and custom user schema extensions that your app requires. See [User with entitlements and roles](#user-with-entitlements-and-roles) for an example.
+Create, update, and import user operations are handled using [SCIM User operations](https://developer.okta.com/docs/api/openapi/okta-scim/guides/scim-20/#scim-user-operations). The user object should include any entitlements, roles, and custom user schema extensions that your app requires. See [User with entitlements and roles](#user-with-entitlements-and-roles) for an example.
 
 ### Endpoints for user schema discovery
 
@@ -449,5 +449,5 @@ The following example demonstrates what the SCIM server might include in a user 
 
 ## See also
 
-* [Okta and SCIM Version 2.0](/docs/reference/scim/scim-20/)
+* [Okta and SCIM Version 2.0](https://developer.okta.com/docs/api/openapi/okta-scim/guides/scim-20/)
 * [Create SCIM app integrations with entitlement management](https://help.okta.com/okta_help.htm?type=oie&id=ext-aiw-scim-entitlements)

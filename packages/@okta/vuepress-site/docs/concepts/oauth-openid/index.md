@@ -114,6 +114,8 @@ Single-Page Applications (SPAs), mobile, and native apps are **public** apps whe
 
 #### Does your client use the redirect or embedded model?
 
+> **Note**: Okta recommends using redirect authentication in your apps whenever possible. Redirect authentication provides stronger security than the embedded model. See [Redirect vs. embedded](/docs/concepts/redirect-vs-embedded/#redirect-vs-embedded).
+
 [The redirect model](/docs/concepts/redirect-vs-embedded/#redirect-authentication)
 
 Use the [Authorization Code with PKCE](#authorization-code-flow-with-pkce) flow if your SPA or native app redirects authentication requests to an Okta-hosted sign-in page.
