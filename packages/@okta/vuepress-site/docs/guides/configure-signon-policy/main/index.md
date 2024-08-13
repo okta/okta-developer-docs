@@ -60,8 +60,8 @@ You don’t have to use the default authentication policy. You can create a new 
 
 This guide provides step-by-step instructions to configure a global session policy and an authentication policy for two of the most common scenarios:
 
-* [Prompt for an additional factor for a group](#prompt-for-an-additional-authenticator-for-a-group)
-* [Prompt for an additional factor when a user is outside the US](#prompt-for-an-mfa-factor-when-a-user-is-outside-the-us)
+* [Prompt for an additional factor for a group](#prompt-for-an-additional-factor-for-a-group)
+* [Prompt for an additional factor when a user is outside the US](#prompt-for-an-additional-factor-when-a-user-is-outside-the-us)
 
 ## Prompt for an additional factor for a group
 
@@ -75,7 +75,7 @@ The following are step-by-step instructions to configure a global session policy
 
 3. Enter a **Policy Name**, such as **Require MFA for Contractors**, and then enter a **Policy Description**.
 
-4. Enter the group name that you want to apply the policy to in the **Assign to Groups** box. In this example, specify the **Contractor** group in the org. The group names must already exist before assigning them to a policy.
+4. Enter the group name that you want to apply the policy to in the **Assign to Groups** box. In this example, specify the **Contractor** group in the org. The group names must exist before assigning them to a policy.
 
 5. Click **Create Policy and Add Rule**.
 
@@ -87,7 +87,7 @@ The following are step-by-step instructions to configure a global session policy
 
 3. Configure IF conditions, which define the authentication context for the rule. For this use case example, leave the defaults. For other use cases where you want to assign location parameters, you can specify what kind of location prompts authentication in the **IF User’s IP is** dropdown box (for example, prompting a user for a factor when they aren't on the corporate network).
 
-4. Configure THEN conditions, which define the authentication experience for the rule. For this use case example, leave **Password/IDP** option selected. Also, leave **Require secondary factor** selected so that users of the Contractor group are prompted for a secondary factor before they’re granted access.
+4. Configure THEN conditions, which define the authentication experience for the rule. For this use case example, leave the **Password/IDP** option selected. Also, leave **Require secondary factor** selected so that users of the Contractor group are prompted for a secondary factor before they’re granted access.
 
     > **Note:** Click the **Multifactor Authentication** link for quick access to the **Authenticators** page to configure the factors that you want to use.
 

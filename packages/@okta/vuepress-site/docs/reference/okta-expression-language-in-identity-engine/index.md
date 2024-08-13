@@ -161,7 +161,7 @@ Okta offers various functions to manipulate properties to generate a desired out
 |                                  |             | `-1.6.toInteger()`                               | -2                               |
 |                                  |             | `2147483647.7.toInteger()`                       | -2147483648 (Integer overflow)   |
 
-> **Note:**  The `toInteger` functions round the passed numeric value (or the String representation of the numeric value) either up or down to the nearest integer. Make sure to consider integer type range limitations when you convert to an integer with these functions.
+> **Note:**  The `toInteger` functions round the passed numeric value (or the String representation of the numeric value) either up or down to the nearest integer. Make sure to consider range limitations of the integer type when you convert to an integer with these functions.
 
 ##### Country code conversion functions
 
