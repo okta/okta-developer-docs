@@ -1727,6 +1727,9 @@ curl -v -X GET \
 
 ### List applications
 
+See [List all Applications](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/listApplications) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--
 <ApiOperation method="get" url="/api/v1/apps" />
 
 Enumerates apps added to your organization with pagination. A subset of apps can be returned that match a supported filter expression or query.
@@ -2652,6 +2655,7 @@ curl -v -X GET \
   }
 ]
 ```
+-->
 
 ### Update application
 
@@ -8004,6 +8008,9 @@ Determines the refresh token rotation configuration for the OAuth 2.0 client.
 
 #### Application properties
 
+See [Application object in the response](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/listApplications!c=200&path=0/signOnMode&t=response) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--
 Applications have the following properties:
 
 | Property           | Description                                    | DataType                                                             | Nullable     | Unique     | Readonly     | MinLength     | MaxLength   |
@@ -8030,6 +8037,8 @@ Property details
  * `id`, `created`, `lastUpdated`, `status`, `_links`, and `_embedded` are only available after an app is created.
  * `profile` is only available for OAuth 2.0 client apps. See [Profile object](#profile-object).
  * When you specify a value for the `request_object_signing_alg` property, all request objects from the client are rejected if not signed with the specified algorithm. The algorithm must be used when the request object is passed by value (using the request parameter). If a value for `request_object_signing_alg` isn't specified, the default is any algorithm that is supported by both the client and the server.
+
+-->
 
 ##### App names
 
@@ -8062,6 +8071,9 @@ The current workaround is to manually configure the desired application via the 
 
 ##### App settings
 
+See [settings](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/getApplication!c=200&path=0/settings&t=response) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--
 Each application has a schema that defines the required and optional settings for the application. When adding an application, you must specify the required settings.
 
 Currently, the catalog isn't exposed via an API. The current solution is to manually configure the desired application using the Okta Admin Dashboard and a preview (sandbox) Okta org. You can then view the application details using the [Get Application](#get-application) API.
@@ -8076,6 +8088,8 @@ An additional `notes` object can be passed within the `settings` object. The `no
 | enduser       | Application notes for end users                        | String  | TRUE    | NULL   |           |
 
 > **Note:** You can't currently manage app provisioning settings via the API. Use the administrator UI.
+
+-->
 
 ###### Identity Store ID
 
@@ -8305,6 +8319,9 @@ Determines the [key](#application-key-credential-object) used for signing assert
 
 #### OAuth Credential object
 
+See [credentials.oauthClient](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/listApplications!c=200&path=4/credentials/oauthClient&t=response) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--
 Determines how to authenticate the OAuth 2.0 client
 
 | Property                   | Description                                                                      | DataType | Nullable |
@@ -8314,6 +8331,8 @@ Determines how to authenticate the OAuth 2.0 client
 | client_secret              | OAuth 2.0 client secret string                                                   | String   | TRUE     |
 | token_endpoint_auth_method | Requested authentication method for the token endpoint                           | String   | FALSE    |
 | pkce_required              | Require Proof Key for Code Exchange (PKCE) for additional verification           | Boolean  | TRUE     |
+
+-->
 
 * When you create an OAuth 2.0 client application, you can specify the `client_id`, or Okta sets it as the same value as the application ID. Thereafter, the `client_id` is immutable.
 
@@ -8339,6 +8358,10 @@ Determines how to authenticate the OAuth 2.0 client
 
 ##### Built-in expressions
 
+See [credentials.userNameTemplate.template](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/listApplications!c=200&path=4/credentials/userNameTemplate/template&t=response
+) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--
 The following expressions are built-in and may be used with the `BUILT_IN` template type:
 
 | Name                            | Template Expression                            |
@@ -8354,6 +8377,8 @@ The following expressions are built-in and may be used with the `BUILT_IN` templ
 | LDAP UID + custom suffix        | `${source.userName}${instance.userSuffix}`     |
 | Okta username                   | `${source.login}`                              |
 | Okta username prefix            | `${fn:substringBefore(source.login, "@")}`     |
+
+-->
 
 ### Password object
 
