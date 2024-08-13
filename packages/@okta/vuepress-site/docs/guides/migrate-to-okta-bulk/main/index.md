@@ -239,4 +239,4 @@ Your next step should be configuring the necessary integration and access to app
 
 * [Get started with Okta](https://help.okta.com/okta_help.htm?id=ext-get-started)
 * [About profile sourcing](https://help.okta.com/okta_help.htm?id=csh-profile-masters)
-* [Users, Groups, and Profiles](https://help.okta.com/okta_help.htm?id=ext_User_Lifecycle_Overview)
+* [User management](https://help.okta.com/okta_help.htm?id=ext_User_Lifecycle_Overview)

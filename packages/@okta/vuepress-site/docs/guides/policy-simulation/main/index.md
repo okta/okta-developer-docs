@@ -228,7 +228,7 @@ To find this value:
 
 * Call the [Groups API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/) with the query parameter as follows: `https://{yourOktaDomain}/api/v1/groups?q=Everyone`. Save the `id` value from the response.
 
-To simulate the second scenario, use the following call but replace the group ID for Sales for the group ID of another group. In this case, Everyone:
+To simulate the second scenario, use the following call, but replace the group ID for Sales for the group ID of another group. In this case, `Everyone`:
 
 ```bash
 curl -v -X POST \
