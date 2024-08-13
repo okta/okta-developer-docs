@@ -47,7 +47,7 @@ The Okta user profile type defines the default user record used in the Universal
 
 #### Group profile type
 
-Okta groups simplify management of multiple users of the same type. See [About groups](https://help.okta.com/okta_help.htm?id=ext_Directory_Groups). The Group profile itself consists of attributes, and can be defined and managed with the [Groups API](/docs/reference/api/groups/). See the [Group object](/docs/reference/api/groups/#group-object) and [Group attributes](/docs/reference/api/groups/#group-attributes).
+Okta groups simplify management of multiple users of the same type. See [About groups](https://help.okta.com/okta_help.htm?id=ext_Directory_Groups). The Group profile itself consists of attributes, and can be defined and managed with the [Groups API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/). The responses and schemas show examples of a Group object and its attributes.
 
 #### Custom profile type
 

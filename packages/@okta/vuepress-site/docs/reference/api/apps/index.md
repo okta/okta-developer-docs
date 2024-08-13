@@ -4486,7 +4486,7 @@ Assigns a group to an application
 | ---------     | ----------------------------------------------- | ---------- | --------------------------------------------- | -------- | ------- |
 | appgroup      | App group                                       | Body       | [Application Group](#application-group-object) | FALSE    |         |
 | applicationId | `id` of an [app](#application-object)            | URL        | String                                        | TRUE     |         |
-| groupId       | unique key of a valid [Group](/docs/reference/api/groups/)           | URL        | String                | TRUE     |         |
+| groupId       | unique key of a valid [Group](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/)           | URL        | String                | TRUE     |         |
 
 ##### Response parameters
 
@@ -4524,7 +4524,7 @@ Fetches an application group assignment
 | Parameter     | Description                                     | Param Type | DataType | Required | Default |
 | ---------     | ----------------------------------------------- | ---------- | -------- | -------- | ------- |
 | applicationId | `id` of an [app](#application-object)            | URL        | String   | TRUE     |         |
-| groupId       | unique key of an assigned [Group](/docs/reference/api/groups/)       | URL        | String   | TRUE     |         |
+| groupId       | unique key of an assigned [Group](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/)       | URL        | String   | TRUE     |         |
 
 ##### Response parameters
 
@@ -4610,7 +4610,7 @@ Removes a group assignment from an application
 | Parameter     | Description                                     | Param Type | DataType | Required | Default |
 | ---------     | ----------------------------------------------- | ---------- | -------- | -------- | ------- |
 | applicationId | `id` of an [app](#application-object)            | URL        | String   | TRUE     |         |
-| groupId       | unique key of an assigned [Group](/docs/reference/api/groups/)       | URL        | String   | TRUE     |         |
+| groupId       | unique key of an assigned [Group](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/)       | URL        | String   | TRUE     |         |
 
 ##### Response parameters
 

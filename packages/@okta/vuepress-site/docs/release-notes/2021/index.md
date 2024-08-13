@@ -184,7 +184,7 @@ The [Okta Org API](/docs/reference/api/org/) allows you to manage your org accou
 
 - When the [Get user’s groups](/docs/reference/api/users/#get-user-s-groups) endpoint was called by a group administrator who didn’t have permission to see all the groups a user belonged to, the response was either an `HTTP 500 Internal Server` error or incorrect page behavior in the results. (OKTA-379237)
 
-- When the [Remove group](/docs/reference/api/groups/#remove-group) endpoint was called with an invalid group `profile` attribute, the group wasn't removed. (OKTA-425470)
+- When the [Remove group](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/#tag/Group/operation/deleteGroup) endpoint was called with an invalid group `profile` attribute, the group wasn't removed. (OKTA-425470)
 
 - When an [Update application](/docs/reference/api/apps/#update-application) endpoint was called without a recipient URL in the SAML app request body, the response was an HTTP 500 `Internal Server` error instead of a validation error message. (OKTA-438456)
 
@@ -204,9 +204,9 @@ The [Okta Org API](/docs/reference/api/org/) allows you to manage your org accou
 
 * When an application used the Resource Owner Password authentication flow, an [authorization call](/docs/reference/api/oidc/#token) for a user with an expired password previously returned an error message that stated: “The credentials provided were invalid." (OKTA-423090)
 
-* When a [List Group Rules](/docs/reference/api/groups/#list-group-rules) endpoint was called using the `expand` parameter, the response didn’t include the group name in the `self` and `next` links. (OKTA-435099)
+* When a [List Group Rules](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/GroupRule/#tag/GroupRule/operation/listGroupRules) endpoint was called using the `expand` parameter, the response didn’t include the group name in the `self` and `next` links. (OKTA-435099)
 
-* When a [List Groups](/docs/reference/api/groups/#list-groups) endpoint was called with the `limit` parameter set to zero, the response was previously a 500 error code instead of an empty set. (OKTA-436367)
+* When a [List Groups](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/#tag/Group/operation/listGroups) endpoint was called with the `limit` parameter set to zero, the response was previously a 500 error code instead of an empty set. (OKTA-436367)
 
 ### Weekly release 2021.10.1
 
@@ -216,7 +216,7 @@ The [Okta Org API](/docs/reference/api/org/) allows you to manage your org accou
 
 #### Bug fixed in 2021.10.1
 
-When a `search` keyword was provided as a query parameter in the [`/api/v1/groups/rules`](/docs/reference/api/groups/#list-group-rules) request, and the number of matching records exceeded the specified page `limit` query parameter in the request, the response didn't correctly indicate how to retrieve the next page of results. (OKTA-421126)
+When a `search` keyword was provided as a query parameter in the [`/api/v1/groups/rules`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/GroupRule/#tag/GroupRule/operation/listGroupRules) request, and the number of matching records exceeded the specified page `limit` query parameter in the request, the response didn't correctly indicate how to retrieve the next page of results. (OKTA-421126)
 
 ### Monthly release 2021.10.0
 
@@ -652,7 +652,7 @@ The [Administrator Roles API](/docs/reference/api/roles/) has been updated to su
 
 #### Custom Group Profile Properties is Self-Service EA in Preview
 
-[Custom Group Profile properties](/docs/reference/api/groups/#custom-profile-properties) has been released in Preview as Self-Service Early Access. The [Groups API](/docs/reference/api/groups/) can now manage [custom Group Profile properties](/docs/reference/api/groups/#custom-profile-properties) after these properties are added to the Group Profile schema. The [Schemas API](/docs/reference/api/schemas) includes a new [Groups Schema object](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/#tag/Schema/operation/getGroupSchema!c=200&path=$schema&t=response) and [operations](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/#tag/Schema/operation/getGroupSchema) that support custom Group properties. You can use the Schemas API or the Profile Editor in the Admin Console to manage schema extensions. Custom Group Profile properties provide flexibility to manage the default profile for Okta groups in the Okta Admin Console Profile Editor or through the Schemas API. This new functionality simplifies group management and lets you quickly add, edit, or remove custom profile attributes to groups. <!--OKTA-389897-->
+[Custom Group Profile properties](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/#tag/Group/operation/addGroup!c=200&path=profile&t=response) has been released in Preview as Self-Service Early Access. The [Groups API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/) can now manage custom Group Profile properties after these properties are added to the Group Profile schema. The [Schemas API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/) includes a new [Groups Schema object](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/#tag/Schema/operation/getGroupSchema!c=200&path=$schema&t=response) and [operations](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/#tag/Schema/operation/getGroupSchema) that support custom Group properties. You can use the Schemas API or the Profile Editor in the Admin Console to manage schema extensions. Custom Group Profile properties provide flexibility to manage the default profile for Okta groups in the Okta Admin Console Profile Editor or through the Schemas API. This new functionality simplifies group management and lets you quickly add, edit, or remove custom profile attributes to groups. <!--OKTA-389897-->
 
 #### Domains API is GA in Preview
 
@@ -743,7 +743,7 @@ The [Domains API](https://developer.okta.com/docs/api/openapi/okta-management/ma
 
 #### Groups API extended search is now GA in Production
 
-The Groups API support for [extended search](/docs/reference/api/groups/#list-groups-with-search) is now Generally Available (GA) in Production.
+The Groups API support for [extended search](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/#tag/Group/operation/listGroups!in=query&path=search&t=request) is now Generally Available (GA) in Production.
 
 #### Bug fixed in 2021.04.0
 
@@ -769,7 +769,7 @@ When an OAuth2 request was made with an access token instead of a required ID to
 
 #### Bugs fixed in 2021.03.2
 
-* After updating a Group `name` using the [Groups API](/docs/reference/api/groups/#update-group), the change wasn't reflected in the target application with [**Group Push**](https://help.okta.com/okta_help.htm?id=ext_Directory_Using_Group_Push) enabled. (OKTA-375190)
+* After updating a Group `name` using the [Groups API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/#tag/Group/operation/replaceGroup), the change wasn't reflected in the target application with [**Group Push**](https://help.okta.com/okta_help.htm?id=ext_Directory_Using_Group_Push) enabled. (OKTA-375190)
 
 * When creating a User with a recovery question using an OAuth access token rather than an API token, an invalid session error was returned. (OKTA-361888)
 
@@ -889,7 +889,7 @@ When performing a GET on the [`/oauth2/v1/clients` endpoint](/docs/reference/api
 
 #### Group object source property is now GA in Production
 
-For [Groups API](/docs/reference/api/groups/) requests that return a Group or a list of Groups, the Group object type APP_GROUP includes a `source` property that provides the ID of the source application for the returned Group. This property is now GA in Production. See [Group attributes](/docs/reference/api/groups/#group-attributes).<!--OKTA-326611-->
+For [Groups API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/) requests that return a Group or a list of Groups, the Group object type `APP_GROUP` includes a [`source`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/#tag/Group/operation/addGroup!c=200&path=_links/source&t=response) property that provides the ID of the source application for the returned Group. This property is now GA in Production.<!--OKTA-326611-->
 
 #### New Apps API endpoints in Early Access (EA)
 
