@@ -7378,6 +7378,9 @@ curl -v -X PUT \
 
 ### Idp-Initiated Login object
 
+See [OAS3 PR Preview - idp_initiated_login](https://preview.redoc.ly/oktadev/vy_OKTA-715114_openidconnect/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication!path=4/settings/oauthClient/idp_initiated_login&t=request) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--
 The Idp-Initiated Login object is used to configure what, if any, Idp-Initiated Login flows that an OAuth Client supports.
 
 | Property      | Description                                           | DataType                   | Nullable |
@@ -7859,8 +7862,12 @@ curl -X POST \
     }
 }
 ```
-
+-->
 ### Refresh token object
+
+See [OAS3 PR Preview - refresh_token](https://preview.redoc.ly/oktadev/vy_OKTA-715114_openidconnect/openapi/okta-management/management/tag/Application/#tag/Application/operation/getApplication!c=200&path=4/settings/oauthClient/refresh_token&t=response) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--
 
 Determines the refresh token rotation configuration for the OAuth 2.0 client.
 
@@ -7993,6 +8000,7 @@ Determines the refresh token rotation configuration for the OAuth 2.0 client.
   }
 }
 ```
+-->
 
 #### Application properties
 
