@@ -391,7 +391,7 @@ module.exports = ctx => ({
 
       // For paths such as /docs/guides/{guide-name}/-/main where the guide doesn't have stack selector/frameworks
 
-      mainPagePath = path.slice(0, 0, -'-/main/'.length);
+      mainPagePath = path.slice(0, -'-/main/'.length);
       mainPageGuide = guidesInfo.guideInfo[mainPagePath];
       /* 
         For paths such as /docs/guides/{guide-name}/-/main where there are no frameworks, we need to exclude the current page from sitemap
@@ -413,7 +413,6 @@ module.exports = ctx => ({
           frameworks: []
         }
       */
-
       if (mainPageGuide && mainPageGuide.guide && mainPageGuide.sections && (!mainPageGuide.frameworks || !mainPageGuide.mainFramework)) {
         frontmatter.sitemap = {
           exclude: true
