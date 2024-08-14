@@ -85,7 +85,7 @@
           v-if="eventType.schema.changeDetails !== null && (!Array.isArray(eventType.schema.changeDetails) || eventType.schema.changeDetails.length > 0) "
           :key="tag"
           class="event-type-tag"
-        >{{ "changeDetails available" }}</code>
+        >{{ "changeDetails" }}</code>
       </div>
       <div class="event-type-release">
         <!-- Since: <SmartLink :item="{link: '/docs/release-notes/', text: eventType.info.release}" /> -->

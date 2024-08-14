@@ -17,4 +17,10 @@ The following is a full listing of event types used in the [System Log API](/doc
 
 Download a CSV file with all event types: [Okta Event Types](/docs/okta-event-types.csv).
 
+>**Note:** Certain tags on the event type indicate specific behavior of the associated System Log events:<br>
+>
+> * `oie-only`: This event type is only available in Okta Identity Engine enabled orgs
+> * `event-hook-eligible`: This event type is eligible to be selected for use with an event hook
+> * `changeDetails`: This event type may include the `changeDetails` object on an associated target within it
+
 <EventTypes />
