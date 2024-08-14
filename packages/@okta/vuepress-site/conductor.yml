@@ -94,7 +94,7 @@ redirects:
   - from: /docs/api/rest/factors.html
     to: /docs/reference/api/factors/index.html
   - from: /docs/api/rest/groups.html
-    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/
+    to: /docs/reference/api/groups/index.html
   - from: /docs/api/rest/idps.html
     to: /docs/reference/api/idps/index.html
   - from: /docs/api/resources/idps
@@ -272,9 +272,11 @@ redirects:
   - from: /docs/api/getting_started/okta_expression_lang
     to: /docs/reference/okta-expression-language/index.html
   - from: /docs/guides/scim_guidance.html
-    to: /docs/reference/scim/index.html
+    to: https://developer.okta.com/docs/api/openapi/okta-scim/guides/
+  - from: /docs/reference/scim/
+    to: https://developer.okta.com/docs/api/openapi/okta-scim/guides/
   - from: /docs/guides/scim_developer_program.html
-    to: /docs/reference/scim/index.html
+    to: https://developer.okta.com/docs/api/openapi/okta-scim/guides/
   - from: /standards/SAML/index.html
     to: /docs/concepts/saml/
   - from: /docs/guides/saml_guidance
@@ -396,7 +398,7 @@ redirects:
   - from: /reference/postman_collections/index.html
     to: /docs/reference/postman-collections/
   - from: /reference/scim/index.html
-    to: /docs/reference/scim/
+    to: https://developer.okta.com/docs/api/openapi/okta-scim/guides/
   - from: /reference/webfinger/index.html
     to: /docs/reference/api/webfinger/
   - from: /guides/index.html
@@ -466,7 +468,7 @@ redirects:
   - from: /docs/api/resources/factors/index.html
     to: /docs/reference/api/factors/
   - from: /docs/api/resources/groups/index.html
-    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/
+    to: /docs/reference/api/groups/
   - from: /docs/api/resources/idps/index.html
     to: /docs/reference/api/idps/
   - from: /docs/api/resources/inline-hooks/index.html
@@ -734,7 +736,7 @@ redirects:
   - from: /reference/postman_collections
     to: /docs/reference/postman-collections/
   - from: /reference/scim
-    to: /docs/reference/scim/
+    to: https://developer.okta.com/docs/api/openapi/okta-scim/guides/
   - from: /reference/webfinger
     to: /docs/reference/api/webfinger/
   - from: /guides
@@ -796,7 +798,7 @@ redirects:
   - from: /docs/api/resources/factors
     to: /docs/reference/api/factors/
   - from: /docs/api/resources/groups
-    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/
+    to: /docs/reference/api/groups/
   - from: /docs/api/resources/inline-hooks
     to: /docs/reference/api/inline-hooks/
   - from: /docs/api/resources/linked-objects
@@ -898,7 +900,7 @@ redirects:
   - from: /docs/api/resources/factors.html
     to: /docs/reference/api/factors/
   - from: /docs/api/resources/groups.html
-    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/
+    to: /docs/reference/api/groups/
   - from: /docs/api/resources/idps.html
     to: /docs/reference/api/idps/
   - from: /docs/api/resources/linked-objects.html
