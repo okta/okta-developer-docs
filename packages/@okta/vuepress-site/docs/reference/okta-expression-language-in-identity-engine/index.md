@@ -80,7 +80,7 @@ You can specify the [dynamic IdP](/docs/reference/api/policy/#policy-action-with
 
 ### Okta account management
 <ApiLifecycle access="ea"/>
-You can specify certain [Expression Language conditions](/docs/reference/api/policy/#okta-expression-language-condition-object) in [Okta account management policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-account-management-policy).
+You can specify certain [Expression Language conditions](/docs/reference/api/policy/#okta-expression-language-condition-object) in [Okta account management policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-oamp).
 
 | Syntax | Definitions | Type |
 | ------ | ----------- | ---- |
