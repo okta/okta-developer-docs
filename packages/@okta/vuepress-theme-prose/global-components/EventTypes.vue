@@ -82,7 +82,7 @@
           class="event-type-tag"
         >{{ tag }}</code>
         <code
-          v-if="eventType.schema.changeDetails !== null && (!Array.isArray(eventType.schema.changeDetails) || eventType.schema.changeDetails.length > 0) "
+          v-if="eventType.schema.changeDetails !== null && Array.isArray(eventType.schema.changeDetails) && eventType.schema.changeDetails.length > 0"
           :key="tag"
           class="event-type-tag"
         >{{ "changeDetails" }}</code>
