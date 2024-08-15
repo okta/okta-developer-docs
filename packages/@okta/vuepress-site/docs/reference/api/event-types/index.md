@@ -21,6 +21,6 @@ Download a CSV file with all event types: [Okta Event Types](/docs/okta-event-ty
 >
 > * `oie-only`: This event type is only available in Okta Identity Engine enabled orgs
 > * `event-hook-eligible`: This event type is eligible for use with an event hook
-> * `changeDetails`: This event type may include the `changeDetails` object on an associated target within it
+> * `changeDetails`: This event type may include the `changeDetails` object within an associated target
 
 <EventTypes />
