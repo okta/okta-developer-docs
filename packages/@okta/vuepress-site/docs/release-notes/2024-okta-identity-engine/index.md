@@ -7,6 +7,21 @@ title: Okta Identity Engine API release notes 2024
 
 ## August
 
+### Weekly release 2024.08.1
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Authentication method chain is self-service EA](#authentication-method-chain-is-self-service-ea) | August 14, 2024 |
+| [Bug fixed in 2024.08.1](#bug-fixed-in-2024-08-1) | August 14, 2024 |
+
+#### Authentication method chain is self-service EA
+
+With this feature, you can require users to verify with multiple authentication methods in a specified sequence using the `AUTH_METHOD_CHAIN` verification method. You can create multiple authentication method chains in an authentication policy rule to cater to different use cases and scenarios. See [Create a Policy Rule](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule!path=0/actions/appSignOn/verificationMethod&t=request) and [Authentication method chain](https://help.okta.com/okta_help.htm?type=oie&id=csh-auth-method-chain). <!-- OKTA-790586 AUTHENTICATION_METHOD_CHAIN FF -->
+
+#### Bug fixed in 2024.08.1
+
+Requests to list client secrets (`/api/v1/apps/{appId}/credentials/secrets`) and get a client secret (`/api/v1/apps/{appId}/credentials/secrets/{id}`) didn't fire a System Log event when the client secrets were returned in the response. <!-- OKTA-692600 -->
+
 ### Monthly release 2024.08.0
 
 | Change | Expected in Preview Orgs |

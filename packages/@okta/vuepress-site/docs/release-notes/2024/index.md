@@ -6,6 +6,16 @@ title: Okta Classic Engine API release notes 2024
 
 ## August
 
+### Weekly release 2024.08.1
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Bug fixed in 2024.08.1](#bug-fixed-in-2024-08-1) | August 14, 2024 |
+
+#### Bug fixed in 2024.08.1
+
+Requests to list client secrets (`/api/v1/apps/{appId}/credentials/secrets`) and get a client secret (`/api/v1/apps/{appId}/credentials/secrets/{id}`) didn't fire a System Log event when the client secrets were returned in the response. <!-- OKTA-692600 -->
+
 ### Monthly release 2024.08.0
 
 | Change | Expected in Preview Orgs |
