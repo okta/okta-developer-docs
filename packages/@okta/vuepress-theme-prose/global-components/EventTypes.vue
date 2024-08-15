@@ -88,7 +88,6 @@
         >{{ "changeDetails" }}</code>
       </div>
       <div class="event-type-release">
-        <!-- Since: <SmartLink :item="{link: '/docs/release-notes/', text: eventType.info.release}" /> -->
         Since: {{ eventType.info.release }}
       </div>
     </div>
