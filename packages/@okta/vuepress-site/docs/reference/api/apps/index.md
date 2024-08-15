@@ -1058,7 +1058,7 @@ Adds a custom SAML 2.0 app. This app is only available to the org that creates i
 | spCertificate                                                            | The certificate that Okta uses to validate Single Logout (SLO) requests and responses                                                                                                         | [SP Certificate](#service-provider-certificate)                | TRUE     | FALSE  |
 | subjectNameIdFormat                                                      | Identifies the SAML processing rules                                                                                                                                                          | String                                                         | FALSE    | FALSE  |                                           |
 | subjectNameIdTemplate                                                    | Template for app user's username when a user is assigned to the app                                                                                                                           | String                                                         | FALSE    | FALSE  |                                           |
--->
+
 * You can't update the application's Assertion Encryption configuration through the API. Use the Admin Console.
 * Either (or both) `responseSigned` or `assertionSigned` must be `TRUE`.
 * The override settings `ssoAcsUrlOverride`, `recipientOverride`, `destinationOverride`, and `audienceOverride` provide an alternative way of persisting post back and similar other URLs.
@@ -1073,7 +1073,6 @@ Adds a custom SAML 2.0 app. This app is only available to the org that creates i
 * When you update an application, if you don't specify `participateSlo`, `slo`, or `spCertificate`, the existing configuration persists.
 * When you associate the application with `inlineHooks`, you should [create SAML inline hooks](/docs/concepts/inline-hooks/#inline-hook-setup) first, and then pass the created inline hook ID.
 
-<!--
 ##### Supported values for custom SAML app
 
 The following values are support for creating custom SAML 2.0 Apps. Check [Attribute statements](#attribute-statements-object) to see its supported values.
@@ -1401,7 +1400,7 @@ Adds an OAuth 2.0 client application. This application is only available to the 
 
 ##### Credentials
 
-See [OAS3 PR Preview - oauthClient property](https://preview.redoc.ly/oktadev/as-okta-745821-get/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication!path=4/credentials/oauthClient&t=request) in the new [Okta API reference portal](https://developer.okta.com/docs/api/)
+See [OoauthClient](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication!path=4/credentials/oauthClient&t=request) in the new [Okta API reference portal](https://developer.okta.com/docs/api/)
 
 <!--
 
@@ -1417,7 +1416,7 @@ See [OAS3 PR Preview - oauthClient property](https://preview.redoc.ly/oktadev/as
 
 ##### Settings
 
-See [OAS3 PR Preview - settings property](https://preview.redoc.ly/oktadev/vy_OKTA-715114_openidconnect/openapi/okta-management/management/tag/Application/#tag/Application/operation/listApplications!c=200&path=4/settings&t=response) in the new [Okta API reference portal](https://developer.okta.com/docs/api/)) in the new [Okta API reference portal](https://developer.okta.com/docs/api/)
+See [settings](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/listApplications!c=200&path=4/settings&t=response) in the new [Okta API reference portal](https://developer.okta.com/docs/api/) in the new [Okta API reference portal](https://developer.okta.com/docs/api/)
 
 <!--
 | Parameter                                                                                                 | Description                                                                                                                                                                                                                | DataType                                                                                       | Nullable   | Unique   | Validation |
@@ -1566,6 +1565,9 @@ curl -v -X POST \
 
 ### Get application
 
+See [Retrieve an Applications](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/getApplication) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--
 <ApiOperation method="get" url="/api/v1/apps/${applicationId}" />
 
 Fetches an application from your Okta organization by `id`
@@ -1724,6 +1726,7 @@ curl -v -X GET \
   }
 }
 ```
+-->
 
 ### List applications
 
@@ -7382,7 +7385,7 @@ curl -v -X PUT \
 
 ### Idp-Initiated Login object
 
-See [OAS3 PR Preview - idp_initiated_login](https://preview.redoc.ly/oktadev/vy_OKTA-715114_openidconnect/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication!path=4/settings/oauthClient/idp_initiated_login&t=request) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+See [dp_initiated_login](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication!path=4/settings/oauthClient/idp_initiated_login&t=request) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
 
 <!--
 The Idp-Initiated Login object is used to configure what, if any, Idp-Initiated Login flows that an OAuth Client supports.
@@ -7869,7 +7872,7 @@ curl -X POST \
 -->
 ### Refresh token object
 
-See [OAS3 PR Preview - refresh_token](https://preview.redoc.ly/oktadev/vy_OKTA-715114_openidconnect/openapi/okta-management/management/tag/Application/#tag/Application/operation/getApplication!c=200&path=4/settings/oauthClient/refresh_token&t=response) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+See [refresh_token](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/getApplication!c=200&path=4/settings/oauthClient/refresh_token&t=response) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
 
 <!--
 
@@ -8093,7 +8096,7 @@ An additional `notes` object can be passed within the `settings` object. The `no
 
 ###### Identity Store ID
 
-See [OAS3 PR Preview - identityStoreId](https://preview.redoc.ly/oktadev/vy_OKTA-715114_openidconnect/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication!path=4/settings/identityStoreId&t=request) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+See [identityStoreId](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication!path=4/settings/identityStoreId&t=request) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
 
 <!--
 You can set an additional `identityStoreId` string parameter within the `settings` object if your application supports an identity store. The `identityStoreId` value must be a valid identity store application `id`. This identity store application must be created in the same org as your application.
@@ -8101,7 +8104,7 @@ You can set an additional `identityStoreId` string parameter within the `setting
 
 ##### Features
 
-See [OAS3 PR Preview - features](https://preview.redoc.ly/oktadev/as-okta-745821-get/openapi/okta-management/management/tag/Application/#tag/Application/operation/getApplication!c=200&path=0/features&t=response) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+See [features](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/getApplication!c=200&path=0/features&t=response) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
 
 <!--
 Applications may support optional provisioning features on a per-app basis.
@@ -8301,6 +8304,9 @@ Specifies the template used to generate a user's username when the application i
 
 #### Signing Credential object
 
+See [credentials.signing](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication!path=3/credentials/signing/kid&t=request) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--
 Determines the [key](#application-key-credential-object) used for signing assertions for the `signOnMode`
 
 | Property   | Description                                                                                 | DataType | Nullable |
@@ -8316,6 +8322,7 @@ Determines the [key](#application-key-credential-object) used for signing assert
   }
 }
 ```
+-->
 
 #### OAuth Credential object
 
@@ -8332,7 +8339,6 @@ Determines how to authenticate the OAuth 2.0 client
 | token_endpoint_auth_method | Requested authentication method for the token endpoint                           | String   | FALSE    |
 | pkce_required              | Require Proof Key for Code Exchange (PKCE) for additional verification           | Boolean  | TRUE     |
 
--->
 
 * When you create an OAuth 2.0 client application, you can specify the `client_id`, or Okta sets it as the same value as the application ID. Thereafter, the `client_id` is immutable.
 
@@ -8355,6 +8361,7 @@ Determines how to authenticate the OAuth 2.0 client
   }
 }
 ```
+-->
 
 ##### Built-in expressions
 
@@ -8382,11 +8389,15 @@ The following expressions are built-in and may be used with the `BUILT_IN` templ
 
 ### Password object
 
+See [credentials.password](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication!path=3/credentials/password&t=request) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--
 Specifies a password for a user. A password value is a **write-only** property.  When a user has a valid password and a response object contains a password credential, then the Password object is a bare object without the `value`  property defined (for example: `password: {}`) to indicate that a password value exists.
 
 | Property  | Description | DataType | Nullable | Default | MinLength | MaxLength | Validation |
 | --------- | ----------- | -------- | -------- | ------- | --------- | --------- | ---------- |
 | value     |             | String   | TRUE     |         |           |           |            |
+-->
 
 ### Application Links object
 
@@ -8408,7 +8419,7 @@ Specifies link relations (see [Web Linking](http://tools.ietf.org/html/rfc8288))
 
 ### Notifications object
 
-See [OAS3 PR Preview - notifications](https://preview.redoc.ly/oktadev/vy_OKTA-715114_openidconnect/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication!path=4/settings/notifications&t=request) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+See [notifications](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication!path=4/settings/notifications&t=request) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
 
 <!--
 Specifies notifications settings for the application. The VPN notification feature allows admins to communicate a requirement for signing into VPN-required apps.
@@ -8607,6 +8618,9 @@ Group Attribute Statements can be used in place of Attribute Statements if your 
 
 ### Profile object
 
+See [profile](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/getApplication!c=200&path=0/profile&t=response) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--
 Profile object is a container for any valid JSON schema that can be referenced from a request. For example, add an app manager contact email address or define an allowlist of groups that you can then reference using the [Okta Expression `getFilteredGroups`](/docs/reference/okta-expression-language/#group-functions).
 
 Profile Requirements
@@ -8615,7 +8629,7 @@ Profile Requirements
 * The `profile` property doesn't limit the level of nesting in the JSON schema you created, but there is a practical size limit. We recommend a JSON schema size of 1 MB or less for best performance.
 
 > **Note:** Profile object is only available to OAuth 2.0 client applications.
-
+-->
 
 ### Application User object
 
@@ -8992,6 +9006,10 @@ Property details
 
 ### Provisioning Connection object
 
+See [Application Connection - Provisioning response](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationConnections/#tag/ApplicationConnections/operation/getDefaultProvisioningConnectionForApplication!c=200&path=profile&t=response) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--
+
 The provisioning connection object is a read only object that displays the method of authentication used for provisioning.
 
 #### Example
@@ -9070,8 +9088,13 @@ The application provisioning connection profile is used to configure the method 
 | authScheme   | Defines the method of authentication  | `OAUTH2` | FALSE    | FALSE  | FALSE    |
 | clientId     | Unique client identifier for the OAuth 2.0 service app from the target org  | String  | FALSE    | FALSE  | FALSE    |
 
+-->
+
 ### Application Feature object
 
+See [Application Feature - response payload](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationFeatures/#tag/ApplicationFeatures/operation/getFeatureForApplication!c=200&path=0/description&t=response) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--
 The Feature object is used to configure settings of the application. For example, the `USER_PROVISIONING` Feature object is used to configure the ability to create, read, update users in Okta accounts, deprovision accounts for deactivated users, and synchronize user attributes.
 
 #### Application Feature example
@@ -9219,6 +9242,7 @@ Okta updates a user's attributes in the application when the application is assi
 | Property | Description | DataType | Nullable | Unique | Readonly | Default |
 | -------- | ----------- | -------- | -------- | ------ | -------- | ------- |
 | status   | Status of the setting | `ENABLED`, `DISABLED` | FALSE    | FALSE   | FALSE    | `DISABLED`  |
+-->
 
 ### Client Secret Request object
 
