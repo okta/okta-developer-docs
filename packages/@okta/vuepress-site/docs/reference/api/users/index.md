@@ -2159,7 +2159,7 @@ Fetches the groups of which the user is a member
 ##### Response parameters
 
 
-Array of [Groups](/docs/reference/api/groups/)
+Array of [Groups](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/)
 
 ##### Request example
 
@@ -4277,7 +4277,7 @@ The Links object specifies link relations (see [Web Linking](http://tools.ietf.o
 
 #### Individual Users vs. collection of Users
 
-For an individual User result, the Links object contains a full set of link relations available for that User as determined by your policies. For a collection of Users, the Links object contains only the `self` link. Operations that return a collection of Users include [List Users](#list-users) and [List Group Members](/docs/reference/api/groups/#list-group-members).
+For an individual User result, the Links object contains a full set of link relations available for that User as determined by your policies. For a collection of Users, the Links object contains only the `self` link. Operations that return a collection of Users include [List Users](#list-users) and [List all Member Users](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/#tag/Group/operation/listGroupUsers).
 
 Here are some links that may be available on a User, as determined by your policies:
 
