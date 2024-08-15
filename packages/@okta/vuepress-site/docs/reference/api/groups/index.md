@@ -5,27 +5,21 @@ category: management
 
 # Groups API
 
-The Groups API reference is now available at the new [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/). The API has been organized into the following pages:
-
-- [Group and Group member operations](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/) - provides operations to manage Okta groups and their user members for your org.
-- [Group owner operations](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/GroupOwner/) - provides operations to manage owners of Okta groups for your org.
-- [Group rule operations](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/GroupRule/) - provides operations to manage rules for Okta groups in your org.
-
-Explore the [Okta Public API Collections](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/overview) workspace to get started with the Groups API Postman Collection.
-
-<!--
-
-The Okta Groups API provides operations to manage Okta Groups and their user members for your organization.
-
-
-<ApiAuthMethodWarning />
-
-## Get started with the Groups API
+The Okta Groups API provides operations to manage Okta groups and their user members for your org.
 
 Explore the Groups API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/e2c0074faecec203e487)
 
+<!--<ApiAuthMethodWarning />
+
+## Get started with the Groups API
+
+Explore the [Okta Public API Collections](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/overview) workspace to get started with the Groups API Postman Collection.-->
+
 ## Group operations
 
+Group operations provide operations to manage Okta groups and their user members for your org. These operations are available at the new [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/).
+
+<!--
 ### Add Group
 
 <ApiOperation method="post" url="/api/v1/groups" />
@@ -974,8 +968,13 @@ curl -v -X DELETE \
 ```http
 HTTP/1.1 204 No Content
 ```
+-->
 
 ## Group member operations
+
+Group member operations provide operations to manage Okta groups and their user members for your org. These operations are available at the new [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/).
+
+<!--
 
 ### List Group members
 
@@ -1148,9 +1147,13 @@ curl -v -X DELETE \
 ```http
 HTTP/1.1 204 No Content
 ```
+-->
 
 ## Group rule operations
 
+Group rule operations provide operations to manage rules for Okta groups in your org. These operations are available at the new [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/GroupRule/).
+
+<!--
 ### Create Group rule
 
 <ApiOperation method="post" url="/api/v1/groups/rules" />
