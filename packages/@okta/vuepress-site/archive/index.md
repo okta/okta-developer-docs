@@ -17,9 +17,3 @@ The archive stores content on technologies and techniques that are no longer sup
 * [Validate Access Tokens](/archive/php/validate-access-tokens)
 * [Get started with PHP + Okta](/archive/php/get-started-with-php)
 * [Use SimpleSAMLphp to add support for Okta via SAML](/archive/php/simplesamlphp)
-
-## Sign in to SPA with embedded widget
-
-* [Sign in to SPA with embedded Widget]
-* [XXX](/archive/)
-* [XXX](/archive/)
