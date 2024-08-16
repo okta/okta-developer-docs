@@ -114,7 +114,7 @@ Configure another rule for the default authentication policy to prompt a user fo
 
 ### Select the default policy and add a rule
 
-This example assumes that you've already [set up a Dynamic Zone](https://help.okta.com/okta_help.htm?id=configure-network-zones). In this example, use a dynamic zone defined for IP addresses within the United States.
+This example assumes that you've already [set up a Dynamic Zone](https://help.okta.com/okta_help.htm?type=oie&id=configure-network-zones). In this example, use a dynamic zone defined for IP addresses within the United States.
 
 1. In the Admin Console, select **Security** > **Global Session Policy**.
 
