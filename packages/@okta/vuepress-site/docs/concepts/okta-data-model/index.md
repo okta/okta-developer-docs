@@ -14,7 +14,7 @@ Entities inside Okta are referred to as resources. Each Okta resource contains:
 
 * A Profile that allows you to store information about the object. For example, a user profile has an `email` attribute that contains the value for the email address.
 
-When you sign up for Okta, a private data space is created for you that is represented as an **organization** (org) in Okta. As an Okta customer, you own your org and everything in it: apps, directories, users, groups, policies, and so on.
+When you sign up for Okta, a private data space is created for you that's represented as an **organization** (org) in Okta. As an Okta customer, you own your org and everything in it: apps, directories, users, groups, policies, and so on.
 
 A top-level directory resource is available for your user base in your org. You can host directories either inside Okta or replicate outside user directories, as in the case of Active Directory or LDAP.
 
