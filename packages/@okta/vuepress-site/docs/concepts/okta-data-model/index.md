@@ -26,7 +26,7 @@ An [Application](/docs/reference/api/apps/) holds information about the protocol
 
 The relationship between an app and a user is stored in Okta as an [AppUser](/docs/reference/api/apps/#assign-user-to-application-for-sso). This allows for mappings between profile values where they're different. For example, app1 may refer to a user's last name as `lastName` and app2 may refer to last name as `surname`. The AppUser stores the value as necessary for the app.
 
-A [Policy](/docs/reference/api/policy/) specifies the **rules** of how your org behaves for certain actions. Policies have conditions that need to be met to apply actions. Your Okta org contains policies for how to gain access to an app, what the user needs to do to reset their password, and to enroll into multifactor authentication, for example.
+A [Policy](/docs/reference/api/policy/) specifies the rules of how your org behaves for certain actions. Policies have conditions that need to be met to apply actions. Your Okta org contains policies for how to gain access to an app, what the user needs to do to reset their password, and to enroll into multifactor authentication, for example.
 
 An [authorization server](/docs/reference/api/authorization-servers/) in your Okta org provides apps tokens that allow those apps to access either your API or Okta resources. This is done with protocols such as OAuth 2.0, OpenID Connect, and SAML.
 
