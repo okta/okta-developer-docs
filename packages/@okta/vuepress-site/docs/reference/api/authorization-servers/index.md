@@ -9,30 +9,6 @@ The Authorization Servers API reference is available at the [Okta API reference 
 
 Explore the [Okta Public API Collections](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/overview) workspace to get started with the Authorization Servers API Postman collection.
 
-## OAuth 2.0 token management operations
-
-The OAuth 2.0 token management operations for the Authorization Servers API are available at the [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServerClients/).
-
-### Claims operations
-
-The Claims operations for the Authorization Servers API are available at the [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServerClaims/).
-
-### Key Store operations
-
-The Key Store operations for the Authorization Servers API are available at the [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServerKeys/).
-
-### Policy operations
-
-The Policy operations for the Authorization Servers API are available at the [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServerPolicies/).
-
-### Policy Rule operations
-
-The Policy Rule operations for the Authorization Servers API are available at the [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServerRules/).
-
-### Scope operations
-
-The Scope operations for the Authorization Servers API are available at the [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServerScopes/).
-
 <!-- Authorization Servers generate OAuth 2.0 and OpenID Connect tokens, including access tokens and ID tokens. The Okta Management API gives you the ability to configure and manage Authorization Servers and the security policies that are attached to them. The following configuration operations can be found on this page:
 
 * [Authorization Server operations](#authorization-server-operations)
@@ -420,8 +396,12 @@ curl -v -X POST \
 ```http
 HTTP/1.1 204 No Content
 ```
-
+-->
 ### Policy operations
+
+The Policy operations for the Authorization Servers API are available at the [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServerPolicies/).
+
+<!--
 
 * [Policy object](#policy-object)
 * [Get all Policies](#get-all-policies)
@@ -732,8 +712,12 @@ curl -v -X DELETE \
 ```http
 HTTP/1.1 204 No Content
 ```
-
+-->
 ### Policy Rule operations
+
+The Policy Rule operations for the Authorization Servers API are available at the [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServerRules/).
+
+<!--
 
 * [Policy Rule Object](#policy-rule-object)
 * [Get all Policy Rules](#get-all-policy-rules)
@@ -1016,8 +1000,12 @@ curl -v -X DELETE \
 HTTP/1.1 204 No Content
 ```
 
-
+-->
 ### Scope operations
+
+The Scope operations for the Authorization Servers API are available at the [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServerScopes/).
+
+<!--
 
 * [Get all scopes](#get-all-scopes)
 * [Get a Scope](#get-a-scope)
@@ -1248,9 +1236,12 @@ curl -v -X DELETE \
 ```http
 HTTP/1.1 204 No Content
 ```
-
+-->
 ### Claim operations
 
+The Claim operations for the Authorization Servers API are available at the [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServerClaims/).
+
+<!--
 * [Get all Claims](#get-all-claims)
 * [Get a Claim](#get-a-claim)
 * [Create a Claim](#create-a-claim)
@@ -1475,8 +1466,12 @@ curl -v -X DELETE \
 ```http
 HTTP/1.1 204 No Content
 ```
-
+-->
 ### Key Store operations
+
+The Key Store operations for the Authorization Servers API are available at the [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServerKeys/).
+
+<!--
 
 * [Get Authorization Server Keys](#get-authorization-server-keys)
 * [Get Authorization Server Key](#get-authorization-server-key)
@@ -2082,8 +2077,12 @@ curl -v -X GET \
     }
 ]
 ```
-
+-->
 ## OAuth 2.0 token management operations
+
+The OAuth 2.0 token management operations for the Authorization Servers API are available at the [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServerClients/).
+
+<!--
 
 * [List refresh tokens](#list-refresh-tokens)
 * [Get refresh token](#get-refresh-token)
