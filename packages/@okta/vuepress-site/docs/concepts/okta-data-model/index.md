@@ -20,7 +20,7 @@ A top-level directory resource is available for your user base in your org. You 
 
 Your end users are modeled inside Okta as [**Users**](/docs/reference/api/users/). Users are associated with an email address and a username. The username must be unique, but it can be changed (and often is when, for example, someone changes their name). The email address doesn't need to be unique and often isn't. The Okta user ID determines the uniqueness for a user.
 
-A [**Group**](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/) is made up of users found within a directory. It can be thought of as a label applied to a set of users. A user can be a member of multiple groups. Groups are useful for representing roles, relationships, and can even be used for subscription tiers.
+A [**Group**](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/) is made up of users within a directory. It can be thought of as a label that's applied to a set of users. A user can be a member of multiple groups. Groups are useful for representing roles, relationships, and can even be used for subscription tiers.
 
 An [**Application**](/docs/reference/api/apps/) holds information about the protocol in which it wants Okta to communicate, policies for accessing the app and which users can use the app after identifying themselves.
 
