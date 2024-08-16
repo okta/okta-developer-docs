@@ -346,7 +346,7 @@ Save the generated credentials to update the keys in your Org2Org and service ap
 
 ### Register the new Org2Org app key with the corresponding service app
 
-On your hub org, register the key, [generated from the previous POST request](#generate-a-new-key-for-the-org2org-app), to your corresponding service app by using the [Dynamic Client Registration API](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/Client/#tag/Client/operation/replaceClient).
+On your hub org, register the key [generated from the previous POST request](#generate-a-new-key-for-the-org2org-app) to your corresponding service app by using the [Dynamic Client Registration API](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/Client/#tag/Client/operation/replaceClient).
 
 ##### Request example
 
