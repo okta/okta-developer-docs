@@ -5496,7 +5496,7 @@ redirects:
   - from: /code/angular/okta_angular_sign-in_widget
     to: /docs/guides/sign-in-to-spa-embedded-widget/angular/main/
   - from: /code/angular/okta_angular_auth_js/index.html
-    to: /docs/guides/archive-sign-in-to-spa-embedded-widget/angular/main/
+    to: /docs/guides/sign-in-to-spa-embedded-widget/angular/main/
   - from: /code/angular/okta_angular_auth_js
     to: /docs/guides/archive-sign-in-to-spa-authjs/angular/main/
   - from: /code/javascript/okta_sign-in_widget/index.html
