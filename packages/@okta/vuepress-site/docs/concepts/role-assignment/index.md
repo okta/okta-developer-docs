@@ -183,7 +183,7 @@ To specify binding members, use the REST URL of the corresponding Okta API:
   ```
 
 <ApiLifecycle access="ea" />
-* [A specific client application](/docs/reference/api/oauth-clients/#get-an-oauth-client)
+* [A specific client application](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/Client/#tag/Client/operation/getClient)
 
   ```bash
   https://{yourOktaDomain}/oauth2/v1/clients/{clientId}

@@ -135,7 +135,7 @@ Save the generated credentials to configure the corresponding hub-org service ap
 
 ### Create an OAuth 2.0 service app in the hub org
 
- In the hub org, create an OAuth 2.0 service app for each spoke org by using the [Dynamic Client Registration API](/docs/reference/api/oauth-clients/). As an Okta admin, make a `POST /oauth2/v1/clients` request to the hub org with the following required parameters:
+ In the hub org, create an OAuth 2.0 service app for each spoke org by using the [Dynamic Client Registration API](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/Client/). As an Okta admin, make a `POST /oauth2/v1/clients` request to the hub org with the following required parameters:
 
 | Parameter |  Description/Value   |
 | --------- |  ------------- |
@@ -346,7 +346,7 @@ Save the generated credentials to update the keys in your Org2Org and service ap
 
 ### Register the new Org2Org app key with the corresponding service app
 
-On your hub org, register the key, [generated from the previous POST request](#generate-a-new-key-for-the-org2org-app), to your corresponding service app by using the [Dynamic Client Registration API](/docs/reference/api/oauth-clients/#update-a-client-application).
+On your hub org, register the key, [generated from the previous POST request](#generate-a-new-key-for-the-org2org-app), to your corresponding service app by using the [Dynamic Client Registration API](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/Client/#tag/Client/operation/replaceClient).
 
 ##### Request example
 

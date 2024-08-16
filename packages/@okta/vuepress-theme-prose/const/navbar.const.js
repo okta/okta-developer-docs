@@ -1016,7 +1016,7 @@ export const reference = [
                { title: "Custom Sign-out Page", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/CustomPages/#tag/CustomPages/operation/getSignOutPageSettings" },
                { title: "Device Assurance Policies", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/DeviceAssurance/" },
                { title: "Devices", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Device/" },
-               { title: "Dynamic Client Registration", path: "/docs/reference/api/oauth-clients/" },
+               { title: "Dynamic Client Registration", path: "https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/Client/" },
                { title: "Email Domains", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/EmailDomain/" },
                { title: "Event Types", path: "/docs/reference/api/event-types/" },
                { title: "ITP Event Types", path: "/docs/reference/api/itp-et/", hidden: true },

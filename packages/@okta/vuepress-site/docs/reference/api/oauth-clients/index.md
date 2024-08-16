@@ -8,6 +8,12 @@ excerpt: >-
 
 # Dynamic Client Registration API
 
+The Dynamic Client Registration API reference is now available at the new [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/Client/).
+
+Explore the [Okta Public API Collections](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/overview) workspace to get started with the Sessions API Postman collection.
+
+<!--
+
 The Dynamic Client Registration API provides operations to register and manage client Applications for use with Okta's
 OAuth 2.0 and OpenID Connect endpoints. This API largely follows the contract defined in [RFC7591: OAuth 2.0 Dynamic Client Registration Protocol](https://tools.ietf.org/html/rfc7591) and [OpenID Connect Dynamic Client Registration 1.0](https://openid.net/specs/openid-connect-registration-1_0.html).
 
@@ -843,3 +849,4 @@ A [JSON Web Key (JWK)](https://tools.ietf.org/html/rfc7517) is a JSON representa
 | n          | The modulus of the RSA key                              | String         | TRUE, unless the kty is `RSA`          | FALSE                  | FALSE      |
 | x          | The public x coordinate for the elliptic curve point  | String         | TRUE, unless the kty is `EC`           | FALSE                  | FALSE      |
 | y          | The public y coordinate for the elliptic curve point  | String         | TRUE, unless the kty is `EC`           | FALSE                  | FALSE      |
+-->

@@ -186,7 +186,7 @@ The following features have already been released as Early Access. To enable the
 
 #### Bugs Fixed in 2018.42
 
-* The `/clients` [endpoint](/docs/reference/api/oauth-clients/#list-client-applications) dropped the `filter` parameter for any paginated results returned after the first page.
+* The `/clients` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/Client/#tag/Client/operation/listClients) dropped the `filter` parameter for any paginated results returned after the first page.
 * Messages that were sent to devices using the [Factors API](/docs/reference/api/factors/) would sometimes return a `500` error if the message could not be sent.
 
 #### Previously Released Early Access Features 2018.42 Update
