@@ -5795,7 +5795,7 @@ If the delete request is received for an active secret, you receive an error res
 
 Adds a new JSON Web Key to the client’s JSON Web Keys.
 
-> **Note:** This API doesn't let you add a key if the existing key doesn't have a `kid`. This is also in sync with how the clients/apps APIs behave, as they don't allow the creation of multiple keys without `kids`. Use the [Update application](/docs/reference/api/apps/#update-application) operation or the [Update a client application](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/Client/#tag/Client/operation/replaceClient) to update the JWKS or use the new JWKS Management API's [delete a key operation](/docs/reference/api/apps/#delete-a-json-web-key) and re-add the key with a `kid`.
+> **Note:** This API doesn't let you add a key if the existing key doesn't have a `kid`. This is also in sync with how the clients/apps APIs behave, because they don't allow the creation of multiple keys without `kids`. Use the [Update application](/docs/reference/api/apps/#update-application) operation or the [Update a client application](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/Client/#tag/Client/operation/replaceClient) to update the JWKS or use the new JWKS Management API's [delete a key operation](/docs/reference/api/apps/#delete-a-json-web-key) and re-add the key with a `kid`.
 
 ##### Request parameters
 
