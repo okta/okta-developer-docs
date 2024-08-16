@@ -862,11 +862,6 @@ export const guides = [
             guideName: "archive-sign-in-to-spa-authjs",
             description: true
           },
-          {
-            title: "Sign in to SPA: Embedded widget",
-            guideName: "archive-sign-in-to-spa-embedded-widget",
-            description: true
-          },
           { title: "Sign users out", guideName: "sign-users-out" },
           {
             title: "Add multifactor authentication",
