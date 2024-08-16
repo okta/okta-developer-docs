@@ -337,7 +337,7 @@ Using the [Factors API](/docs/reference/api/factors/), requests for single YubiK
 
 #### Support for creating OIN OIDC Apps using the Dynamic Client Registration API
 
-Creating OIN OIDC Apps using the [Dynamic Client Registration API](/docs/reference/api/oauth-clients/) is now supported. <!-- OKTA-289900 -->
+Creating OIN OIDC Apps using the [Dynamic Client Registration API](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/Client/) is now supported. <!-- OKTA-289900 -->
 
 #### API support for multiple ACS URLs
 

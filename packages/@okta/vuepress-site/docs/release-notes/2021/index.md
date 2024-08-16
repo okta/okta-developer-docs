@@ -590,7 +590,7 @@ For details about this release, see the Okta [Sign-In Widget release notes](http
 
 * When a user was enrolled with SMS or Call factors and an additional or retry [API call](/docs/reference/api/factors) was made within 30 seconds of enrollment, the response included multiple rate limit headers. (OKTA-379654)
 
-* When [OIDC apps](/docs/reference/api/oauth-clients/#register-new-client) were created concurrently, some apps were created in a deactivated state. (OKTA-384407)
+* When [OIDC apps](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/Client/#tag/Client/operation/createClient) were created concurrently, some apps were created in a deactivated state. (OKTA-384407)
 
 * The [Client Credentials Flow](/docs/guides/implement-grant-type/clientcreds/main/) could not implement a custom claim named `scope`. (OKTA-389874)
 
@@ -681,7 +681,7 @@ The [System Log API](/docs/reference/api/system-log/) has been updated to return
 
 #### Bug fixed in 2021.05.0
 
-* When a [Dynamic Client Registration API](/docs/reference/api/oauth-clients/) call was created without a JSON Web Key Set (JWKS) configured, the error message returned was misleading, stating an invalid JWKS. (OKTA-383344)
+* When a [Dynamic Client Registration API](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/Client/) call was created without a JSON Web Key Set (JWKS) configured, the error message returned was misleading, stating an invalid JWKS. (OKTA-383344)
 
 ## April
 
@@ -858,7 +858,7 @@ To be compliant with the [RFC for JSON data interchange format](https://tools.ie
 
 #### Bug fixed in 2021.02.0
 
-When performing a GET on the [`/oauth2/v1/clients` endpoint](/docs/reference/api/oauth-clients/#list-client-applications) on an org that has a deactivated OIN client, a "404 resource not found" error occurred. (OKTA-365031)
+When performing a GET on the [`/oauth2/v1/clients` endpoint](/https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/Client/#tag/Client/operation/listClients) on an org that has a deactivated OIN client, a "404 resource not found" error occurred. (OKTA-365031)
 
 ## January
 
