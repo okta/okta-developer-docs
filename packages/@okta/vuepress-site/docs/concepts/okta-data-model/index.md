@@ -30,4 +30,4 @@ A [**Policy**](/docs/reference/api/policy/) specifies the **rules** of how your 
 
 An [**authorization server**](/docs/reference/api/authorization-servers/) in your Okta org provides apps tokens that allow those apps to access either your API or Okta resources. This is done with protocols such as OAuth 2.0, OpenID Connect, and SAML.
 
-A resource that contains other resources is known as a **collection**. Collections support additional behaviors, such as pagination, sort ordering, and searching. So the user's collection would contain an array of `User` resources.
+A resource that contains other resources is known as a **collection**. Collections support additional behaviors, such as pagination, sort ordering, and searching. The user's collection contains an array of `User` resources.
