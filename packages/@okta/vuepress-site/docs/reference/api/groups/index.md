@@ -5,18 +5,26 @@ category: management
 
 # Groups API
 
-The Okta Groups API provides operations to manage Okta Groups and their user members for your organization.
-
-<ApiAuthMethodWarning />
-
-## Get started with the Groups API
+The Okta Groups API provides operations to manage Okta groups and their user members for your org.
 
 Explore the Groups API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/e2c0074faecec203e487)
 
+<!--<ApiAuthMethodWarning />
+
+## Get started with the Groups API
+
+Explore the [Okta Public API Collections](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/overview) workspace to get started with the Groups API Postman Collection.-->
+
 ## Group operations
+
+Group operations provide operations to manage Okta groups for your org. These operations are available at the new [Okta API reference portal](https://developer.okta.com/docs/api/) as part of the [Groups API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/).
+
 
 ### Add Group
 
+See [Add a Group](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/#tag/Group/operation/addGroup) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--
 <ApiOperation method="post" url="/api/v1/groups" />
 
 Adds a new Group with `OKTA_GROUP` type to your organization
@@ -87,9 +95,13 @@ curl -v -X POST \
   }
 }
 ```
-
+-->
 ### Get Group
 
+See [Retrieve a Group](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/#tag/Group/operation/getGroup) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+
+<!--
 <ApiOperation method="get" url="/api/v1/groups/${groupId}" />
 
 Fetches a specific Group by `id` from your organization
@@ -156,8 +168,13 @@ curl -v -X GET \
   }
 }
 ```
+--->
 
 ### List Groups
+
+See [List all Groups](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/#tag/Group/operation/listGroups) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--
 
 <ApiOperation method="get" url="/api/v1/groups" />
 
@@ -344,8 +361,6 @@ curl -v -X GET \
   }
 ]
 ```
-
-#### Find Groups
 
 Finds groups by `name` in your organization
 
@@ -851,8 +866,12 @@ curl -v -X GET \
   }
 ]
 ```
-
+-->
 ### Update Group
+
+See [Retrieve a Group](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/#tag/Group/operation/getGroup) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--
 
 <ApiOperation method="put" url="/api/v1/groups/${groupId}" />
 
@@ -963,10 +982,17 @@ curl -v -X DELETE \
 ```http
 HTTP/1.1 204 No Content
 ```
+-->
 
 ## Group member operations
 
+Group member operations provide operations to manage the user members of your Okta groups for your org. These operations are available at the new [Okta API reference portal](https://developer.okta.com/docs/api/) as part of the [Groups API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/).
+
 ### List Group members
+
+See [List all Member Users](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/#tag/Group/operation/listGroupUsers) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--
 
 <ApiOperation method="get" url="/api/v1/groups/${groupId}/users" />
 
@@ -1064,9 +1090,12 @@ curl -v -X GET \
   }
 ]
 ```
-
+-->
 ### Add User to Group
 
+See [Assign a User to a Group](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/#tag/Group/operation/assignUserToGroup) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--
 <ApiOperation method="put" url="/api/v1/groups/${groupId}/users/${userId}" />
 
 Adds a [user](/docs/reference/api/users/#user-object) to a group of `OKTA_GROUP` type
@@ -1101,9 +1130,13 @@ curl -v -X PUT \
 ```http
 HTTP/1.1 204 No Content
 ```
+-->
 
 ### Remove User from Group
 
+See [Unassign a User from a Group](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/#tag/Group/operation/unassignUserFromGroup) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--
 <ApiOperation method="delete" url="/api/v1/groups/${groupId}/users/${userId}" />
 
 Removes a [user](/docs/reference/api/users/#user-object) from a group of `OKTA_GROUP` type
@@ -1137,11 +1170,17 @@ curl -v -X DELETE \
 ```http
 HTTP/1.1 204 No Content
 ```
+-->
 
 ## Group rule operations
 
+Group rule operations provide operations to manage rules for Okta groups in your org. These operations are available at the new [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/GroupRule/).
+
 ### Create Group rule
 
+See [Create a Group rule](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/GroupRule/#tag/GroupRule/operation/createGroupRule) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--
 <ApiOperation method="post" url="/api/v1/groups/rules" />
 
 Creates a Group rule to dynamically add users to the specified Group if they match the condition
@@ -1236,10 +1275,13 @@ curl -v -X POST \
   }
 }
 ```
+-->
 
 ### Update Group rule
 
+See [Replace a Group rule](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/GroupRule/#tag/GroupRule/operation/replaceGroupRule) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
 
+<!--
 <ApiOperation method="put" url="/api/v1/groups/rules/${ruleId}" />
 
 Updates a Group rule
@@ -1337,9 +1379,13 @@ curl -v -X PUT \
   }
 }
 ```
+-->
 
 ### List Group rules
 
+See [List all Group rules](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/GroupRule/#tag/GroupRule/operation/listGroupRules) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--
 <ApiOperation method="get" url="/api/v1/groups/rules" />
 
 Lists all Group rules for your organization
@@ -1449,9 +1495,12 @@ curl -v -X GET \
   }
 ]
 ```
-
+-->
 ### Get Group rule
 
+See [Retrieve a Group rule](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/GroupRule/#tag/GroupRule/operation/getGroupRule) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--
 <ApiOperation method="get" url="/api/v1/groups/rules/${ruleId}" />
 
 Fetches a specific Group rule by ID from your organization
@@ -1549,10 +1598,13 @@ curl -v -X DELETE \
 ```http
 HTTP/1.1 202 Accepted
 ```
+-->
 
 ### Activate a Group rule
 
+See [Activate a Group Rule](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/GroupRule/#tag/GroupRule/operation/activateGroupRule) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
 
+<!--
 <ApiOperation method="post" url="/api/v1/groups/rules/${ruleId}/lifecycle/activate" />
 
 Activates a specific Group rule by ID from your organization
@@ -1586,9 +1638,13 @@ curl -v -X POST \
 ```http
 HTTP/1.1 204 No Content
 ```
+-->
 
 ### Deactivate a Group rule
 
+See [Deactivate a Group Rule](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/GroupRule/#tag/GroupRule/operation/deactivateGroupRule) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--
 <ApiOperation method="post" url="/api/v1/groups/rules/${ruleId}/lifecycle/deactivate" />
 
 Deactivates a specific Group rule by ID from your organization
@@ -1622,11 +1678,14 @@ curl -v -X POST \
 ```http
 HTTP/1.1 204 No Content
 ```
-
+-->
 ## Related resources
 
 ### List assigned Applications
 
+See [List all Assigned Applications](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/#tag/Group/operation/listAssignedApplicationsForGroup) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--
 <ApiOperation method="get" url="/api/v1/groups/${groupId}/apps" />
 
 Enumerates all [Applications](/docs/reference/api/apps/#application-object) that are assigned to a Group. See [Application Group Operations](/docs/reference/api/apps/#application-group-operations).
@@ -1772,9 +1831,12 @@ curl -v -X GET \
     }
 ]
 ```
-
+-->
 ## Group object
 
+See [Group - response payload](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/#tag/Group/operation/getGroup!c=200&path=created&t=response) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--
 ### Example
 
 ```json
@@ -1954,3 +2016,4 @@ Specifies link relations. See [Web Linking](http://tools.ietf.org/html/rfc8288) 
 | users              | Provides [Group member operations](#group-member-operations) for the Group                                                      |
 
 > **Note:** The Links object is read-only.
+-->

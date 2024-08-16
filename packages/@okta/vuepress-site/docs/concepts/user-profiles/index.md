@@ -7,7 +7,7 @@ meta:
 
 # User profiles
 
-A user profile in Okta is the data record where user information is stored. A typical user profile contains information, or attributes, such as a user’s first name, last name, username, and email address. Users can be employees, customers, partners, or end-users of apps.
+A user profile in Okta is the data record where user information is stored. A typical user profile contains information, or attributes, such as a user’s first name, last name, username, and email address. Users can be employees, customers, partners, or end users of apps.
 
 The default Okta user profile has [31 user attributes](/docs/reference/api/users/#default-profile-properties), which you can customize based on client requirements. You can add other custom attributes to the user profile to support most client user needs. Custom profile attribute types enable you to customize the user experience even more, based on your org and app needs.
 
@@ -47,7 +47,7 @@ The Okta user profile type defines the default user record used in the Universal
 
 #### Group profile type
 
-Okta groups simplify management of multiple users of the same type. See [About groups](https://help.okta.com/okta_help.htm?id=ext_Directory_Groups). The Group profile itself consists of attributes, and can be defined and managed with the [Groups API](/docs/reference/api/groups/). See the [Group object](/docs/reference/api/groups/#group-object) and [Group attributes](/docs/reference/api/groups/#group-attributes).
+Okta groups simplify management of multiple users of the same type. See [About groups](https://help.okta.com/okta_help.htm?id=ext_Directory_Groups). The Group profile itself consists of attributes, and can be defined and managed with the [Groups API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/). The responses and schemas show examples of a Group object and its attributes.
 
 #### Custom profile type
 

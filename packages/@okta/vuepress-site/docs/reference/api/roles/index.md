@@ -2562,7 +2562,7 @@ Treat the page cursor as an opaque value. You can obtain it through the next lin
 
 ###### Response parameters
 
-Array of [Groups](/docs/reference/api/groups/)
+Array of [Groups](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/)
 
 If the Role isn't scoped to specific Group targets, an empty array `[]` is returned.
 
@@ -2635,7 +2635,7 @@ Treat the page cursor as an opaque value. You can obtain it through the next lin
 
 ###### Response parameters
 
-Array of [Groups](/docs/reference/api/groups/)
+Array of [Groups](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/)
 
 If the Role isn't scoped to specific Group targets, an empty array `[]` is returned.
 
@@ -2711,7 +2711,7 @@ Treat the page cursor as an opaque value. You can obtain it through the next lin
 
 ###### Response parameters
 
-Array of [Groups](/docs/reference/api/groups/)
+Array of [Groups](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/)
 
 If the Role isn't scoped to specific Group targets, an empty array `[]` is returned.
 
@@ -3962,15 +3962,15 @@ See the [product documentation](https://help.okta.com/okta_help.htm?id=ext_Secur
 | :-------------------------------------- | :---------------------------------- | :------------------------------------ |
 | `API_ACCESS_MANAGEMENT_ADMIN`           | API Access Management Administrator |                                       |
 | `APP_ADMIN`                             | Application Administrator           | Apps                                  |
-| `GROUP_MEMBERSHIP_ADMIN`                | Group Membership Administrator      | [Groups](/docs/reference/api/groups/) |
-| `HELP_DESK_ADMIN`                       | Help Desk Administrator             | [Groups](/docs/reference/api/groups/) |
+| `GROUP_MEMBERSHIP_ADMIN`                | Group Membership Administrator      | [Groups](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/) |
+| `HELP_DESK_ADMIN`                       | Help Desk Administrator             | [Groups](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/) |
 | `MOBILE_ADMIN`                          | Mobile Administrator                |                                       |
 | `ORG_ADMIN`                             | Organizational Administrator        |                                       |
 | `READ_ONLY_ADMIN`                       | Read-only Administrator             |                                       |
 | `REPORT_ADMIN`                          | Report Administrator                |                                       |
 | `SUPER_ADMIN`                           | Super Administrator                 |                                       |
-| `USER_ADMIN`                            | Group Administrator                 | [Groups](/docs/reference/api/groups/) |
-| `CUSTOM`  | Custom Label specified by the client    | [Groups](/docs/reference/api/groups/) |
+| `USER_ADMIN`                            | Group Administrator                 | [Groups](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/) |
+| `CUSTOM`  | Custom Label specified by the client    | [Groups](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/) |
 
 `API_ACCESS MANAGEMENT_ADMIN` is available if the API Access Management feature is enabled. See [API Access Management Best Practices](/docs/concepts/api-access-management/#recommended-practices-for-api-access-management) for a description of what the Role can do.
 
@@ -4151,9 +4151,9 @@ The following are the supported resources.
 | Service                 | Resource                                                            |  ORN Identifier                                                               | REST URL                                                                                                                                                |
 | :---------------------- | :------------------------------------------------------------------ | :---------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Directory               | All Users                                                           | `orn:${partition}:directory:${yourOrgId}:users`                                       | [`https://${yourOktaDomain}/api/v1/users`](/docs/reference/api/users/#list-users)                                                                       |
-|                         | All Groups                                                          | `orn:${partition}:directory:${yourOrgId}:groups`                                      | [`https://${yourOktaDomain}/api/v1/groups`](/docs/reference/api/groups/#list-groups)                                                                    |
-|                         | A specific Group                                                    | `orn:${partition}:directory:${yourOrgId}:groups:${groupId}`                           | [`https://${yourOktaDomain}/api/v1/groups/${groupId}`](/docs/reference/api/groups/#get-group)                                                           |
-|                         | All Users within a specific Group                                   | `orn:${partition}:directory:${yourOrgId}:groups:${groupId}:contained_resources`       | [`https://${yourOktaDomain}/api/v1/groups/${groupId}/users`](/docs/reference/api/groups/#list-group-members)                                            |
+|                         | All Groups                                                          | `orn:${partition}:directory:${yourOrgId}:groups`                                      | [`https://${yourOktaDomain}/api/v1/groups`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/#tag/Group/operation/listGroups)                                                                    |
+|                         | A specific Group                                                    | `orn:${partition}:directory:${yourOrgId}:groups:${groupId}`                           | [`https://${yourOktaDomain}/api/v1/groups/${groupId}`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/#tag/Group/operation/getGroup)                                                           |
+|                         | All Users within a specific Group                                   | `orn:${partition}:directory:${yourOrgId}:groups:${groupId}:contained_resources`       | [`https://${yourOktaDomain}/api/v1/groups/${groupId}/users`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/#tag/Group/operation/listGroupUsers)                                            |
 |                         | All Devices     <br><ApiLifecycle access="ea" />                                                     | `orn:${partition}:directory:${yourOrgId}:devices`                                     | [`https://${yourOktaDomain}/api/v1/devices`](/docs/reference/api/devices)            
 | Identity Provider       | All Apps                                                            | `orn:${partition}:idp:${yourOrgId}:apps`                                              | [`https://${yourOktaDomain}/api/v1/apps`](/docs/reference/api/apps/#list-applications)                                                                  |
 |                         | All Identity Providers    <ApiLifecycle access="ea" />    | `orn:${partition}:idp:${yourOrgId}:identity_provider`  | [`https://${yourOktaDomain}/api/v1/idps`](/docs/reference/api/idps/#list-identity-providers)                                                                  |
