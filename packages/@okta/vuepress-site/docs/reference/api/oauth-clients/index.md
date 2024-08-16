@@ -8,7 +8,7 @@ excerpt: >-
 
 # Dynamic Client Registration API
 
-The Dynamic Client Registration API reference is now available at the new [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/Client/).
+The Dynamic Client Registration API reference is available at the [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/Client/).
 
 Explore the [Okta Public API Collections](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/overview) workspace to get started with the Sessions API Postman collection.
 
