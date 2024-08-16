@@ -127,7 +127,7 @@ See [Refresh token object](/docs/reference/api/apps/#refresh-token-object).
 
 ### Refresh token lifetime
 
-Refresh token lifetimes are managed through the [access policy](/docs/guides/configure-access-policy/) of the authorization server. The default value for the refresh token lifetime (`refreshTokenLifetimeMinutes`) in the [actions object](/docs/reference/api/authorization-servers/#actions-object) is **Unlimited**. The refresh token lifetime does expire every seven days if it hasn't been used. When you use a refresh token with a SPA, make sure that you keep a short lifetime setting for better security.
+Refresh token lifetimes are managed through the [access policy](/docs/guides/configure-access-policy/) of the authorization server. The default value for the refresh token lifetime (`refreshTokenLifetimeMinutes`) in the [actions object](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServerRules/#tag/AuthorizationServerRules/operation/listAuthorizationServerPolicyRules!c=200&path=actions&t=response) is **Unlimited**. The refresh token lifetime does expire every seven days if it hasn't been used. When you use a refresh token with a SPA, make sure that you keep a short lifetime setting for better security.
 
 ## Get a refresh token
 
@@ -293,7 +293,7 @@ http --form POST https://{yourOktaDomain}/oauth2/v1/token \
 If the refresh token is valid, then you get back a new access token, a new ID token, and the refresh token. Whether that refresh token is the same one sent in the request or is a new refresh token depends on:
 
 * [Refresh token rotation](#refresh-token-rotation) enabled for the client
-* The configured [refresh token lifetime](/docs/reference/api/authorization-servers/#actions-object) in the access policy. See [Refresh token reuse detection](/docs/guides/refresh-tokens/main/#refresh-token-reuse-detection).
+* The configured [refresh token lifetime](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServerRules/#tag/AuthorizationServerRules/operation/listAuthorizationServerPolicyRules!c=200&path=actions&t=response) in the access policy. See [Refresh token reuse detection](/docs/guides/refresh-tokens/main/#refresh-token-reuse-detection).
 
 > **Note:** The access and ID tokens are truncated for brevity.
 

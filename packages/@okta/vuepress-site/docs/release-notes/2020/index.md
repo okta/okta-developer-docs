@@ -138,7 +138,7 @@ This feature will be available to orgs in Okta Production cells on November 9, 2
 
 #### User Consent for OAuth 2.0 and OpenID Connect flows is rolling out to GA in Production
 
-A consent represents a user's explicit permission to allow an application to access resources protected by scopes. As part of an OAuth 2.0 or OpenID Connect authentication flow, you can prompt the user with a page to approve your app's access to specified resources. See the [consent property for scopes](/docs/reference/api/authorization-servers/#scope-properties).
+A consent represents a user's explicit permission to allow an application to access resources protected by scopes. As part of an OAuth 2.0 or OpenID Connect authentication flow, you can prompt the user with a page to approve your app's access to specified resources. See the [consent property for scopes](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServerScopes/).
 
 This feature will be gradually made available to orgs in Okta Production cells beginning on November 11, 2020.
 
@@ -590,7 +590,7 @@ The [Third-Party admin role](https://help.okta.com/okta_help.htm?id=csh_admin-th
 
 #### Pagination is available for the List Authorization Servers operation
 
-Pagination is now available for the [List Authorization Servers operation](/docs/reference/api/authorization-servers/#list-authorization-servers). <!-- OKTA-277098 -->
+Pagination is now available for the [List Authorization Servers operation](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServer/#tag/AuthorizationServer/operation/listAuthorizationServers). <!-- OKTA-277098 -->
 
 #### Sign-in attempt behavior evaluation is now logged when there is no client information
 

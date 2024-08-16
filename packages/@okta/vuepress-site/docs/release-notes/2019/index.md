@@ -41,7 +41,7 @@ The [SAML inline hook](/docs/reference/saml-hook/) enables you to customize SAML
 
 #### Scope Object Properties Default Values
 
-In Scope objects created using the [Authorization Server API](/docs/reference/api/authorization-servers/), the default values of the `displayName` and `description` properties were updated to be more informative. <!-- OKTA-242646 -->
+In Scope objects created using the [Authorization Server API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServer/), the default values of the `displayName` and `description` properties were updated to be more informative. <!-- OKTA-242646 -->
 
 #### Okta-Hosted User Consent Dialog Change
 
@@ -53,7 +53,7 @@ The [Clear User Sessions endpoint](/docs/reference/api/users/#clear-user-session
 
 #### Bug Fixed in 2019.12.0
 
-* In the [Authorization Server API](/docs/reference/api/authorization-servers/), supplying a `consent` property was previously required when creating a Scope object in orgs that had the EA feature enabled. It is now required only when updating existing Scope objects. (OKTA-250368)
+* In the [Authorization Server API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServer/), supplying a `consent` property was previously required when creating a Scope object in orgs that had the EA feature enabled. It is now required only when updating existing Scope objects. (OKTA-250368)
 
 
 ## November
@@ -155,7 +155,7 @@ Error messages returned by the [User Types API](/docs/reference/api/user-types/)
 
 * A `SameSite=None` attribute sent by Okta caused a bug in cross-site handling of cookies in Chrome on iOS 12.* or earlier. (OKTA-254174)
 * In the [Features API](/docs/reference/api/features/), when using `mode=force` to enable a feature and its dependencies, email notifications were not sent to admins for Beta dependencies that were enabled. (OKTA-249644)
-* The length of EL expressions that you could specify for [OAuth 2.0 claim values](/docs/reference/api/authorization-servers/#claim-operations) was previously limited to a shorter length but has now been increased to 1024 characters. (OKTA-237675)
+* The length of EL expressions that you could specify for [OAuth 2.0 claim values](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServerClaims/) was previously limited to a shorter length but has now been increased to 1024 characters. (OKTA-237675)
 
 
 ### Weekly Release 2019.10.1
@@ -217,7 +217,7 @@ App Condition is now available for the [Enroll Policy](/docs/reference/api/polic
 
 #### Scope Naming Restriction
 
-OAuth Scopes are not allowed to start with the `okta.` prefix. See the Note under [Scope properties](/docs/reference/api/authorization-servers/#scope-properties) for more information. <!-- OKTA-212397 -->
+OAuth Scopes are not allowed to start with the `okta.` prefix. See the Note under [Scope properties](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServerScopes/) for more information. <!-- OKTA-212397 -->
 
 
 
@@ -410,7 +410,7 @@ To curtail phishing, free editions of Okta are no longer able to create and send
 
 #### Token expiration window increased to five years
 
-The [refresh token expiration window](/docs/reference/api/authorization-servers/#rule-properties) has increased to a maximum of five years in custom authorization servers. <!-- OKTA-207202 -->
+The [refresh token expiration window](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServerRules/) has increased to a maximum of five years in custom authorization servers. <!-- OKTA-207202 -->
 
 #### Bug Fixed in 2019.06.4
 

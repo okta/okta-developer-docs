@@ -849,7 +849,7 @@ The MyAccount API now provides user-scoped endpoints that don't require admin to
 
 * The wrong response code was returned when an [access policy rule](/docs/guides/customize-authz-server/main/#create-rules-for-each-access-policy) didn't have the Interaction Code grant type enabled. (OKTA-463497)
 
-* Using the [API](/docs/reference/api/authorization-servers/#claim-operations) to create a claim with a reserved name resulted in an unclear error message. (OKTA-477575)
+* Using the [API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServerClaims/) to create a claim with a reserved name resulted in an unclear error message. (OKTA-477575)
 
 ### Weekly release 2022.05.1
 
@@ -1047,7 +1047,7 @@ The `auth_time` [claim](/docs/reference/api/oidc/#reserved-claims-in-the-header-
 
 #### Bugs fixed in 2022.03.2
 
-* An error was returned when a valid [update request](/docs/reference/api/authorization-servers/#update-a-scope) was made for the `device_sso` or `online_access` system scopes. (OKTA-417477)
+* An error was returned when a valid [update request](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServerScopes/#tag/AuthorizationServerScopes/operation/replaceOAuth2Scope) was made for the `device_sso` or `online_access` system scopes. (OKTA-417477)
 
 * Sending an [error object](/docs/reference/registration-hook/#error) in the response message of an Inline Registration Hook resulted in an error message that included domain details and didn't target attributes. (OKTA-473152)
 
@@ -1200,7 +1200,7 @@ The masking algorithm now reveals fewer digits in API responses for shorter prof
 
 #### Bugs fixed in 2022.01.1
 
-* If the [Create a Scope](/docs/reference/api/authorization-servers/#create-a-scope) endpoint received multiple requests at or near the same time, duplicate Scopes could be created. (OKTA-442533)
+* If the [Create a Scope](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServerScopes/#tag/AuthorizationServerScopes/operation/createOAuth2Scope) endpoint received multiple requests at or near the same time, duplicate Scopes could be created. (OKTA-442533)
 
 * When the [Update resource set](/docs/reference/api/roles/#update-resource-set) endpoint was called, the `resourceSetId` parameter was required in the body of the request. (OKTA-445144)
 
@@ -1219,7 +1219,7 @@ The masking algorithm now reveals fewer digits in API responses for shorter prof
 
 #### Dynamic Issuer Mode is GA in Production
 
-An authorization server's issuer URL can be used to validate whether tokens are issued by the correct authorization server. You can configure the issuer URL to be either the Okta subdomain (such as `company.okta.com`) or a custom domain (such as `sso.company.com`). See [Property details](/docs/reference/api/authorization-servers/#authorization-server-properties).
+An authorization server's issuer URL can be used to validate whether tokens are issued by the correct authorization server. You can configure the issuer URL to be either the Okta subdomain (such as `company.okta.com`) or a custom domain (such as `sso.company.com`). See [Property details](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServer/).
 
 When there are applications that use Okta's subdomain and other applications that use the custom domain, the issuer validation breaks because the value is hard-coded to one domain or the other.
 

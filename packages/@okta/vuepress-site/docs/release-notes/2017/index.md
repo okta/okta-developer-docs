@@ -673,7 +673,7 @@ These platform bug fixes are in preview orgs with this release and expected in p
 
 * [`/oauth2/v1/clients`](/docs/reference/api/oauth-clients/#register-new-client) returned HTTP status code 200 rather than 201 when creating a client successfully.  (OKTA-128839)
 
-* [`/api/v1/authorizationServers`](/docs/reference/api/authorization-servers/#create-authorization-server) returned HTTP status code 200 rather than 201 when creating an Authorization Server successfully.  (OKTA-128839)
+* [`/api/v1/authorizationServers`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServer/#tag/AuthorizationServer/operation/createAuthorizationServer) returned HTTP status code 200 rather than 201 when creating an Authorization Server successfully.  (OKTA-128839)
 
 * [`/oauth2/v1/clients/{clientId}`](/docs/reference/api/oauth-clients/#get-oauth-client) returned HTTP status code 404 rather than 401 when it did not find the specified client.  (OKTA-130804, OKTA-130848)
 
@@ -1010,7 +1010,7 @@ Okta returns all default scopes in the Access Token that are permitted by the ac
 
 </div>
 
-For more information about setting default scopes in the API, see [OAuth 2.0 API](/docs/reference/api/authorization-servers/#scope-properties).
+For more information about setting default scopes in the API, see [OAuth 2.0 API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServerScopes/).
 <!-- OKTA-122185 OKTA-122072 -->
 
 #### Improved UI for Creating OpenID Connect Apps
@@ -1133,7 +1133,7 @@ With the following enhancements, the API Access Management Authorization Servers
 * Scopes were actions previously, but are now conditions in a policy rule.
 * Control which claims are returned in ID tokens with the `alwaysIncludeInToken` property. You can also configure this in the [administrator UI](https://help.okta.com/okta_help.htm?id=ext_API_Access).
 
-For more information see the [Authorization Server API documentation](/docs/reference/api/authorization-servers/#authorization-server-operations).
+For more information see the [Authorization Server API documentation](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServer/).
 <!-- OKTA-127511, OKTA-123638 -->
 
 #### Additional Logging for Invalid Use by OAuth 2.0 Client

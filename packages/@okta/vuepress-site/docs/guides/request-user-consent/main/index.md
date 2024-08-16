@@ -57,7 +57,7 @@ Use the following steps to display the user consent dialog as part of an OpenID 
     For the [Authorization Code flow](/docs/concepts/oauth-openid/#authorization-code-flow), the response type is `code`. You can exchange an authorization code for an ID token and/or an access token using the `/token` endpoint.
 
 1. Click **Save**.
-1. To enable consent for [scopes](/docs/reference/api/authorization-servers/#create-a-scope), from the left navigation select **Security** and then **API**.
+1. To enable consent for [scopes](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServerScopes/#tag/AuthorizationServerScopes/operation/createOAuth2Scope), from the left navigation select **Security** and then **API**.
 1. On the **Authorization Servers** tab, select **default** (custom authorization server) in the table. In this example, we are enabling consent for a default custom authorization server scope.
 1. Select the **Scopes** tab.
 1. Click the edit icon for the **phone** scope. The Edit Scope dialog appears.
@@ -72,7 +72,7 @@ Use the following steps to display the user consent dialog as part of an OpenID 
 
 1. When you select **User consent** as **Required** or **Optional**, the **Block services from requesting this scope** checkbox is automatically selected.
 
-    The **Block services from requesting this scope** checkbox strictly enforces user consent for the scope. When you select this checkbox, if a service using the [Client Credentials](/docs/guides/implement-grant-type/clientcreds/main/) grant flow makes a request that contains this scope, the authorization server returns an error. This occurs because there is no user involved in a Client Credentials grant flow. If you want to allow service-to-service interactions to request this scope, clear the checkbox. See the [Authorization Servers API](/docs/reference/api/authorization-servers/#scope-properties) for more information on consent options.
+    The **Block services from requesting this scope** checkbox strictly enforces user consent for the scope. When you select this checkbox, if a service using the [Client Credentials](/docs/guides/implement-grant-type/clientcreds/main/) grant flow makes a request that contains this scope, the authorization server returns an error. This occurs because there is no user involved in a Client Credentials grant flow. If you want to allow service-to-service interactions to request this scope, clear the checkbox. See the [Authorization Servers API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServerScopes/) for more information on consent options.
 
 1. Click **Save**.
 
@@ -149,16 +149,16 @@ The following section provides example requests for enabling the consent dialog 
 
 ### Update Scope consent
 
-To enable consent for a scope, you need to [update the appropriate scope](/docs/reference/api/authorization-servers/#update-a-scope) by updating the `consent` property for the scope from `IMPLICIT` (the default) to either `REQUIRED` or `FLEXIBLE`. In this example, set `consent` to `REQUIRED`.
+To enable consent for a scope, you need to [update the appropriate scope](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServerScopes/#tag/AuthorizationServerScopes/operation/replaceOAuth2Scope) by updating the `consent` property for the scope from `IMPLICIT` (the default) to either `REQUIRED` or `FLEXIBLE`. In this example, set `consent` to `REQUIRED`.
 
 To make consent of a scope optional, set the `consent` property to either `REQUIRED` or `FLEXIBLE` and include `"optional": true` in the request.
 
-> **Note:** See the [Authorization Servers API](/docs/reference/api/authorization-servers/#scope-properties) for more information on scope properties and how to use them.
+> **Note:** See the [Authorization Servers API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServerScopes/) for more information on scope properties and how to use them.
 
 This example shows the JSON body for a PUT request to the default custom authorization server (`https://{yourOktaDomain}/api/v1/authorizationServers/{authorizationServerId}/scopes/{scopeId}`) to update the `phone` scope. You need the following information for the request:
 
-* `authorizationServerId`: Do a [List Authorization Servers](/docs/reference/api/authorization-servers/#list-authorization-servers) to locate the appropriate ID.
-* `scopeId`: Do a [List Scopes](/docs/reference/api/authorization-servers/#get-all-scopes) to locate the appropriate ID.
+* `authorizationServerId`: Do a [List Authorization Servers](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServer/#tag/AuthorizationServer/operation/listAuthorizationServers) to locate the appropriate ID.
+* `scopeId`: Do a [List Scopes](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServerScopes/#tag/AuthorizationServerScopes/operation/listOAuth2Scopes) to locate the appropriate ID.
 
 ```json
 {

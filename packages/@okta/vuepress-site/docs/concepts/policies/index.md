@@ -44,11 +44,11 @@ You can create custom forms for your sign-in flows with [profile enrollment poli
 
 ### Control which app can access what information from your APIs
 
-When you want to restrict access to an API based on the calling app, you can create an [access policy](/docs/reference/api/authorization-servers/#policy-object).
+When you want to restrict access to an API based on the calling app, you can create an [access policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServerPolicies/).
 
 Access policies are also useful when you need scopes in addition to the [reserved scopes](/docs/reference/api/oidc/#scopes) that are created with any Okta authorization server. For example, to improve compatibility for an app, you can return additional profile information for the user by [creating custom scopes with corresponding claims](/docs/guides/customize-authz-server/main/#create-scopes) that tie them to a piece of user information.
 
-When you want to restrict access to an API based on the calling app, you can create an [access policy](/docs/reference/api/authorization-servers/#policy-object).
+When you want to restrict access to an API based on the calling app, you can create an [access policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServerPolicies/).
 
 ## How policies work
 
@@ -154,7 +154,7 @@ Identity Threat Protection with Okta AI is an identity threat solution that comb
 
 ### API access policies
 
-An [OAuth Authorization Policy](/docs/reference/api/authorization-servers/#policy-object) manages authorization between clients and Okta. The access policy is specific to a particular client app. The rules it contains define particular token lifetimes for a given combination of grant type, user, and scope.
+An [OAuth Authorization Policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServerPolicies/) manages authorization between clients and Okta. The access policy is specific to a particular client app. The rules it contains define particular token lifetimes for a given combination of grant type, user, and scope.
 
 ### Route to other identity providers
 
