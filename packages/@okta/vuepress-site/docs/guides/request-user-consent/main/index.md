@@ -57,10 +57,10 @@ Use the following steps to display the user consent dialog as part of an OpenID 
     For the [Authorization Code flow](/docs/concepts/oauth-openid/#authorization-code-flow), the response type is `code`. You can exchange an authorization code for an ID token and/or an access token using the `/token` endpoint.
 
 1. Click **Save**.
-1. To enable consent for [scopes](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServerScopes/#tag/AuthorizationServerScopes/operation/createOAuth2Scope), from the left navigation select **Security** and then **API**.
+1. To enable consent for [scopes](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServerScopes/#tag/AuthorizationServerScopes/operation/createOAuth2Scope), select **Security** > **API**.
 1. On the **Authorization Servers** tab, select **default** (custom authorization server) in the table. In this example, we are enabling consent for a default custom authorization server scope.
 1. Select the **Scopes** tab.
-1. Click the edit icon for the **phone** scope. The Edit Scope dialog appears.
+1. Click the edit icon for the **phone** scope. The **Edit Scope** dialog appears.
 1. For this use case example, select **Required** in the **User consent** section. **Required** indicates that the user must grant the app access to the information (scope) or they can't sign in to the app. The other options available include:
 
     > **Note:** If these options don't appear, you don't have the optional consent feature enabled. To enable it in your org, select **Settings** > **Features**, locate **OAuth 2.0 optional consent**, and slide to enable.

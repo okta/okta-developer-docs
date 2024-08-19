@@ -1133,7 +1133,7 @@ With the following enhancements, the API Access Management Authorization Servers
 * Scopes were actions previously, but are now conditions in a policy rule.
 * Control which claims are returned in ID tokens with the `alwaysIncludeInToken` property. You can also configure this in the [administrator UI](https://help.okta.com/okta_help.htm?id=ext_API_Access).
 
-For more information see the [Authorization Server API documentation](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServer/).
+For more information, see the [Authorization Server API documentation](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServer/).
 <!-- OKTA-127511, OKTA-123638 -->
 
 #### Additional Logging for Invalid Use by OAuth 2.0 Client

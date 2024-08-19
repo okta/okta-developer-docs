@@ -1011,7 +1011,7 @@ If you block suspicious traffic and [ThreatInsight](https://developer.okta.com/d
 
 An authorization server's issuer URL can be used to validate whether tokens are issued by the correct authorization server. You can configure the issuer URL to be either the Okta subdomain (such as `company.okta.com`) or a custom domain (such as `sso.company.com`). See [Property details](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServer/).
 
-When there are applications that use Okta's subdomain and other applications that use the custom domain, the issuer validation breaks because the value is hard-coded to one domain or the other.
+When there are apps that use Okta's subdomain and other apps that use the custom domain, the issuer validation breaks because the value is hard-coded to one domain or the other.
 
 With Dynamic Issuer Mode, the issuer value in minted tokens is dynamically updated based on the URL that is used to initiate the original authorize request. See [Client application settings](/docs/reference/api/apps/#settings-10). <!--OKTA-452668-->
 

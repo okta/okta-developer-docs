@@ -138,7 +138,7 @@ This feature will be available to orgs in Okta Production cells on November 9, 2
 
 #### User Consent for OAuth 2.0 and OpenID Connect flows is rolling out to GA in Production
 
-A consent represents a user's explicit permission to allow an application to access resources protected by scopes. As part of an OAuth 2.0 or OpenID Connect authentication flow, you can prompt the user with a page to approve your app's access to specified resources. See the [consent property for scopes](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServerScopes/).
+A consent represents a user's explicit permission to allow an app to access resources that are protected by scopes. As part of an OAuth 2.0 or OpenID Connect authentication flow, you can prompt the user with a page to approve your app's access to specified resources. See the [consent property for scopes](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServerScopes/).
 
 This feature will be gradually made available to orgs in Okta Production cells beginning on November 11, 2020.
 
@@ -568,7 +568,7 @@ Okta will now return CORS headers for [requests made with OAuth 2.0 Bearer token
 |-----------------------------------------------------|--------------------------|
 | [Email as a factor and supported optional enrollment is Generally Available in Preview](#email-as-a-factor-and-supported-optional-enrollment-is-generally-available-in-preview)| March 4, 2020 |
 | [The Third-Party admin role is Generally Available in Preview](#the-third-party-admin-role-is-generally-available-in-preview)| March 4, 2020 |
-| [OAuth for Okta is Generally Available in Preview](#oauth-for-okta-is-generally-available-in-preview)| March 4, 2020 |
+| [OAuth for Okta is Generally Available in Preview](#oauth-for-okta-is-generally-available-in-preview)| March 4, 2020 |A consent represents a user's explicit permission
 | [Pagination is available for the List Authorization Servers operation](#pagination-is-available-for-the-list-authorization-servers-operation)| March 4, 2020 |
 | [Sign-in attempt behavior evaulation is now logged when there is no client information](#sign-in-attempt-behavior-evaluation-is-now-logged-when-there-is-no-client-information)| March 4, 2020 |
 | [OAuth for Okta enabled for Schemas and Linked Objects APIs](#oauth-for-okta-enabled-for-schemas-and-linked-objects-apis)| March 4, 2020 |

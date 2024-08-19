@@ -217,7 +217,7 @@ App Condition is now available for the [Enroll Policy](/docs/reference/api/polic
 
 #### Scope Naming Restriction
 
-OAuth Scopes are not allowed to start with the `okta.` prefix. See the Note under [Scope properties](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServerScopes/) for more information. <!-- OKTA-212397 -->
+OAuth Scopes are not allowed to start with the `okta.` prefix. See the note under [Scope properties](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServerScopes/) for more information. <!-- OKTA-212397 -->
 
 
 
