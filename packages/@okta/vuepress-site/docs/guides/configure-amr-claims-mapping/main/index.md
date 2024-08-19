@@ -18,7 +18,7 @@ This guide explains how to configure an OpenID Connect Identity Provider to send
 #### What you need
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
-* An existing OpenID Connect Identity Provider (IdP) that's able to send AMR claims to Okta. This can be another Okta org (Org2Org) or a third party IdP. If your current Org2Org uses SAML, you need to implement a new one with OpenID Connect.
+* An existing OpenID Connect Identity Provider (IdP) that's able to send AMR claims to Okta. This can be another Okta org (Org2Org) or a third party IdP. If your current Org2Org integration uses SAML, you need to implement a new one with OpenID Connect.
 * The **IdP AMR Claims Mapping** feature enabled for your org. Contact [Okta Support](https://support.okta.com) to enable this EA feature.
 
 ---
