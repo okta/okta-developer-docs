@@ -38,7 +38,7 @@ For configuring a custom email address:
 
 You can customize your Okta organization by replacing the Okta domain name with your own domain name. Your customized domain allows you to create a seamless branded experience for your users so that all URLs look like your app.
 
-For example, you use Okta as a user store for your apps, but you don't want your users to know that the app uses Okta behind the scenes. Okta orgs host pages on subdomains such as `example.okta.com`. You can create a [CNAME record](https://datatracker.ietf.org/doc/html/rfc1035#section-3.2.2) for the Okta domain, allowing you to alias it to another subdomain that you own, like `login.example.com`.
+For example, you use Okta as a user store for your apps. But you don't want your users to know that the app uses Okta as its host. Okta orgs host pages on subdomains such as `example.okta.com`. You can create a [CNAME record](https://datatracker.ietf.org/doc/html/rfc1035#section-3.2.2) for the Okta domain, allowing you to alias it to another subdomain that you own, like `login.example.com`.
 
 > **Note:** Set up a [custom domain](/docs/guides/custom-url-domain/main/) and customize your [CSP](https://content-security-policy.com/) if you also want to customize the [sign-in page](/docs/guides/custom-widget/main/#content-security-policy-csp-for-your-custom-domain) and [error pages](/docs/guides/custom-error-pages/main/#content-security-policy-csp-for-your-custom-domain).
 
@@ -52,7 +52,7 @@ You can also [configure a custom email address](#about-custom-email-addresses) t
 
 You can create up to three custom domains with multibrand customizations and up to 200 custom domains by contacting support to increase your limit.
 
-You can only preview or visit a branded page (such as viewing brand assets applied to the Okta-hosted sign-in page) after you map to a custom domain. After you create a brand, map it to a custom domain. Then you can make further customizations, preview them, and publish them.
+You can only preview or visit a branded page after you map to a custom domain. For example, you can only view brand assets applied to the Okta-hosted sign-in page after you map it to a custom domain. After you create a brand, map it to a custom domain. Then you can make further customizations, preview them, and publish them.
 
 #### Redirect URIs
 
@@ -108,7 +108,7 @@ The third generation of the Okta Sign-In Widget doesn’t guarantee the stabilit
 
 * Okta supports 2048, 3072, and 4096-bit keys for the private key that you upload. However, your certificate chain can use keys of any size.
 
-* If you configure any SAML or WS-Fed integrated apps in your org, review the setup instructions for [SAML SSO](/docs/guides/build-sso-integration/saml2/main/) or [WS-Fed SSO](https://help.okta.com/okta_help.htm?id=ext_Apps_Configuring_WS_Federation). If you want your customers to see the new custom domain rather than the Okta org domain, update those SAML or WS-Fed Service Provider integrations to use the new custom URL in the metadata.
+* If you configure any SAML or WS-Fed integrated apps in your org, review the setup instructions for [SAML SSO](/docs/guides/build-sso-integration/saml2/main/) or [WS-Fed SSO](https://help.okta.com/okta_help.htm?id=ext_Apps_Configuring_WS_Federation). Update those SAML or WS-Fed Service Provider integrations to use the new custom URL in the metadata. Your customers then see the new custom domain rather than the Okta org domain.
 
 * If you sign a user in with your new custom domain and they try to SSO into previous OIDC integrations made with the org domain, your user is prompted to sign in again. To avoid this, you need to change the issuer in these integrations to your custom URL in both the Okta dashboard and your codebase.
 
@@ -122,7 +122,7 @@ The third generation of the Okta Sign-In Widget doesn’t guarantee the stabilit
 
 ## Use an Okta-managed certificate
 
-This method of configuring a custom domain is recommended because Okta manages your certificate renewals in perpetuity through an integration with Let's Encrypt, which is a free certificate authority. The certificate procurement process is free, and also faster and easier than configuring a custom domain with your own TLS certificate.
+This method of configuring a custom domain is recommended because Okta manages your certificate renewals in perpetuity. Okta manages certificate renewals through an integration with Let's Encrypt, which is a free certificate authority. The certificate procurement process is free, and also faster and easier than configuring a custom domain with your own TLS certificate.
 
 > **Note:** If your custom domain uses your own TLS certificate and you want to migrate to an Okta-managed certificate, contact [Support](https://support.okta.com/help/s/opencase).
 
@@ -139,13 +139,13 @@ This method of configuring a custom domain is recommended because Okta manages y
 
 ### Update your DNS TXT
 
-You need to add DNS TXT and CNAME records for your domain to prove ownership of your domain with Okta before Okta can serve traffic over it. These records include the values provided in the Host and Value columns of the table on the Update your DNS page. Okta verifies that you own your domain when it finds the records that contain the required values.
+You need to add DNS TXT and CNAME records for your domain to prove ownership of your domain with Okta. You must prove that ownership of the domain before Okta can serve traffic over it. DNS TXT and CNAME records include the values provided in the Host and Value columns of the table on the Update your DNS page. Okta verifies that you own your domain when it finds the records that contain the required values.
 
 > **Note:** Some orgs support [DNSSEC (Domain Name System Security Extensions)](https://datatracker.ietf.org/doc/html/rfc9364) and need to point their custom domain to `example.okta-dnssec.com`, instead of `example.okta.com`. This value appears for all new and existing custom domains and allows you to be DNSSEC compliant. See [Supportability for DNSSEC in Okta Organizations](https://support.okta.com/help/s/article/supportability-for-dnssec-in-okta-organizations?language=en_US).
 
 1. On the **Update your DNS** page of the configuration wizard, copy the values of the **Host** and **Value** columns into a text file.
 2. Sign in to your Domain Name registrar and locate the option to modify your DNS records.
-3. Add a TXT record and paste the value that you copied from the **Host** column into the appropriate field, for example, the **Name** or **Host** field.
+3. Add a TXT record and paste the value that you copied from the **Host** column into the appropriate field. For example, paste the value into the **Name** or **Host** fields.
 
     > **Note**: Depending on your domain provider, you may only need to enter `_acme-challenge.login` rather than `_acme-challenge.login.example.com`. If your domain provider doesn't support the value that you enter, verification fails and your custom URL domain configuration is incomplete.
     >
@@ -153,7 +153,7 @@ You need to add DNS TXT and CNAME records for your domain to prove ownership of 
 
 4. Paste the value that you copied from the **Value** column into the appropriate field, for example, the **Record** or **Value** field.
 5. Repeat Steps 3 and 4 for the CNAME record.
-6. Wait for the DNS record to propagate (typically one to five minutes, but it may take longer), and then return to Okta and click **Next** to prove to Okta that you have rights to use the domain name.
+6. Wait for the DNS record to propagate, typically one to five minutes, but it may take longer. Then, return to Okta and click **Next** to prove to Okta that you have rights to use the domain name.
 
     > **Note:** It may take up to 24 hours for your DNS changes to propagate. If your changes don't appear within 24 hours, return to this step and confirm your settings. Use a tool like [Dig](https://toolbox.googleapps.com/apps/dig/) to check your DNS records.
 
@@ -177,7 +177,7 @@ Okta performs validation checks on the certificate that you upload. If your TLS 
 
 `The specified certificate does not match your Custom URL Domain.`
 
-If you receive the previous error, consult with the person in your organization responsible for generating certificates to determine whether your TLS certificate is a wildcard certificate.
+If you receive the previous error, determine whether your TLS certificate is a wildcard certificate. Consult with the person in your organization responsible for generating certificates.
 
 ### Use the configuration wizard
 
@@ -190,7 +190,7 @@ If you receive the previous error, consult with the person in your organization 
 
 ### Add your subdomain information
 
-On the Domain page of the configuration wizard, enter your subdomain name, for example, `login.example.com`, and then click **Next**. Verifying domain ownership is the next step in the configuration wizard.
+On the Domain page of the configuration wizard, enter your subdomain name, for example, `login.example.com`, and then click **Next**. Verifying your ownership of the domain is the next step in the configuration wizard.
 
 ### Update your DNS TXT and CNAME record
 
@@ -198,13 +198,13 @@ If you use your own TLS certificate, you need to add a DNS TXT record and create
 
 #### Update your DNS TXT
 
-You need to add a DNS TXT record to your domain to verify ownership of your domain with Okta before Okta can serve traffic over it. This record includes the Okta-generated values provided in the **Host** and **Data** columns of the table on the **Verify domain ownership page**. Okta verifies that you own your domain when it finds the TXT record that contains the generated value.
+Add a DNS TXT record to your domain to verify ownership of your domain with Okta. You must verify that you own the domain before Okta can serve traffic over it. This record includes the Okta-generated values provided in the **Host** and **Data** columns of the table on the **Verify domain ownership page**. Okta verifies that you own your domain when it finds the TXT record that contains the generated value.
 
 1. On the **DNS Records** page of the configuration wizard, copy the values of the **Host** and **Data** columns into a text file.
 
 2. Sign in to your Domain Name registrar and locate the option to modify your DNS records.
 
-3. Add a TXT record and paste the value that you copied from the **Host** column into the appropriate field, for example, the **Name** or **Host** field.
+3. Add a TXT record and paste the value that you copied from the **Host** column into the appropriate field. For example, paste the value into the **Name** or **Host** fields.
 
     > **Note**: Depending on your domain provider, you may only need to enter `_oktaverification` rather than `_oktaverification.login.example.com`. If your domain provider doesn't support the value that you enter, the verification fails and your custom URL domain configuration is incomplete.
     >
@@ -218,11 +218,11 @@ You need to add a DNS TXT record to your domain to verify ownership of your doma
 
 6. Return to Okta and click **Verify** to prove to Okta that you have ownership of the domain name.
 
-7. If **Verified** appears, click **Next**. If an error occurs, possible issues may be that the TXT record may not have propagated yet or there may be a copy and paste issue with the values.
+7. If **Verified** appears, click **Next**. If an error occurs, possible issues may be that the TXT record hasn't propagated yet or a field was entered incorrectly.
 
 ### Create a CNAME record for your subdomain
 
-Before Okta can serve traffic over your domain, you need to add an alias from your custom domain to the Okta subdomain of your Okta organization. You do this by creating or modifying a CNAME record for your custom domain name.
+Before Okta can serve traffic over your domain, add an alias from your custom domain to the Okta subdomain of your Okta organization. You do this by creating or modifying a CNAME record for your custom domain name.
 
 1. Return to your Domain Name registrar and locate the option to modify your DNS records.
 2. Paste the CNAME **Host** URL into the appropriate field at the registrar, for example, the **Name** or **Host** field.
@@ -323,7 +323,7 @@ To fix this, update your authorization server to use your custom domain:
 
 ## About custom email addresses
 
-A custom email address allows you to present a branded experience to your end users. Emails that Okta sends to your end users appears to come from your custom email address instead of `noreply@okta.com`. You can switch to a different custom email address or revert to the default Okta domain, but you can use only one email domain at a time.
+A custom email address allows you to present a branded experience to your end users. Emails that Okta sends to your end users appears to come from your custom email address instead of `noreply@okta.com`. You can switch to a different custom email address or revert to the default Okta domain. But you can use only one email domain at a time.
 
 Okta sends your super admins a confirmation email after your custom email address is configured and operating correctly. To ensure continuous operation, Okta polls your custom email domain once every 24 hours. If a problem occurs, Okta alerts super admins by email, and Okta-generated emails are sent from the default address `noreply@okta.com` until the problem is resolved.
 
@@ -357,7 +357,7 @@ The [Email Domains API](https://developer.okta.com/docs/api/openapi/okta-managem
     example.com TXT    v=spf1 include:spf.protection.outlook.com -all
     ```
 
-    To finish configuring your custom email domain, you must add another include-statement that specifies the mail domain that you specified in the **Mail domain to send from** field from the Configure Email Sender dialog box in step 6. This is also the host that appears in the first CNAME row in the DNS Records table.
+    To finish configuring your custom email domain, you must add another include-statement. The include-statement must specify the mail domain that you entered in the **Mail domain to send from** field.  Use the mail domain from the Configure Email Sender dialog box in step 6. This is also the host that appears in the first CNAME row in the DNS Records table.
 
     <div class="three-quarter border">
 
