@@ -8,4 +8,4 @@ Sometimes the Issuer, Single Sign-On URL, and Certificate aren't available from 
 * **IdP Single Sign-On URL**: The binding specific IdP authentication request protocol endpoint that receives SAML AuthN Request messages from Okta.
 * **IdP Signature Certificate**: The PEM or DER encoded public key certificate of the Identity Provider used to verify SAML message and assertion signatures.
 
-> **Note:** When you add the attribute statement for the client app at the SAML IdP, be sure to add `session.amr` as an attribute and `session.amr` as the value. This allows Okta to accept Authentication Method Reference (AMR) claims sent in the SAML IdP response. <ApiLifecycle access="ea" />
+<!-- > **Note:** When you add the attribute statement for the client app at the SAML IdP, be sure to add `session.amr` as an attribute and `session.amr` as the value. This allows Okta to accept Authentication Method Reference (AMR) claims sent in the SAML IdP response. <ApiLifecycle access="ea" /> -->
