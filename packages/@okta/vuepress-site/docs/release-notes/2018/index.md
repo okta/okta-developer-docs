@@ -630,7 +630,7 @@ The following information has been added to the `userinfo` endpoint's error resp
 
 * In certain situations, if a call was made to the OAuth 2.0/OIDC [/authorize endpoint](/docs/reference/api/oidc/#authorize) with `response_mode` set to  `okta_post_message`, an `HTTP 500` error would return. (OKTA-175326)
 * Removing all permissions on a schema attribute would return a `READ_ONLY` permission. The response now correctly contains a `READ_WRITE` permission. (OKTA-173030)
-* If an [Authorization Server's](/docs/reference/api/authorization-servers/) `redirect_uri` was too long, an `HTTP 500` error would return. (OKTA-171950)
+* If an [Authorization Server's](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServer/) `redirect_uri` was too long, an `HTTP 500` error would return. (OKTA-171950)
 * The `phoneExtension` property would not be returned in `GET` requests to the Factors API's `catalog` endpoint. (OKTA-108859)
 
 #### Previously Released Early Access Features 2018.25 Update
@@ -1022,7 +1022,7 @@ When creating multiple instances of the same app, each instance of the app has a
 
 #### Token Management API Is in Early Access (EA)
 
-Use the Token Management API to view and revoke OAuth 2.0 and OpenID Connect refresh tokens by [end user](/docs/reference/api/users/#user-oauth-20-token-management-operations), [Custom Authorization Server](/docs/reference/api/authorization-servers/#oauth-20-token-management-operations), or [client app](/docs/reference/api/apps/#application-oauth-20-token-operations). <!-- OKTA-145525 -->
+Use the Token Management API to view and revoke OAuth 2.0 and OpenID Connect refresh tokens by [end user](/docs/reference/api/users/#user-oauth-20-token-management-operations), [Custom Authorization Server](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServerClients/), or [client app](/docs/reference/api/apps/#application-oauth-20-token-operations). <!-- OKTA-145525 -->
 
 #### Bug Fixed for 2018.12
 
@@ -1409,7 +1409,7 @@ Note that [`state` in the main request body](/docs/reference/api/oidc/#request-p
 #### Custom Scopes in Metadata Endpoints
 
 You can specify whether or not to include custom scopes in the metadata endpoints for [OAuth 2.0](/docs/reference/api/oidc/#well-knownoauth-authorization-server) and [OpenID Connect](/docs/reference/api/oidc/#well-knownopenid-configuration).
-Existing custom scopes are not exposed by default. Set the [`metadataPublish` attribute to `ALL_CLIENTS`](/docs/reference/api/authorization-servers/#scope-properties) to change the behavior. <!-- OKTA-106548 -->
+Existing custom scopes are not exposed by default. Set the [`metadataPublish` attribute to `ALL_CLIENTS`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServerScopes/) to change the behavior. <!-- OKTA-106548 -->
 
 #### Improved Enforcement of Authorization Server Policies
 
