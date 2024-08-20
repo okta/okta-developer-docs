@@ -5,6 +5,11 @@ category: management
 
 # Factors API
 
+The Factors API reference is available at the [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/).
+
+Explore the [Okta Public API Collections](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/overview) workspace to get started with the Factors API Postman collection.
+
+<!--
 The Okta Factors API provides operations to enroll, manage, and verify factors for multifactor authentication (MFA). Manage both administration and end-user accounts, or verify an individual factor at any time.
 
 <ApiAuthMethodWarning />
@@ -2616,7 +2621,7 @@ Activation gets the registration information from the U2F token using the API an
 
 ```html
 <!-- Get the u2f-api.js from https://github.com/google/u2f-ref-code/tree/master/u2f-gae-demo/war/js -->
-<script src="/u2f-api.js"></script>
+<!--script src="/u2f-api.js"></script>
 <script>
   // Use the origin of your app that is calling the factors API
   var appId = "https://foo.example.com";
@@ -2740,7 +2745,7 @@ Activation gets the registration information from the WebAuthn authenticator usi
 
 ```html
 <!-- Using CryptoUtil.js from https://github.com/okta/okta-signin-widget/blob/master/src/util/CryptoUtil.js -->
-<script>
+<!--<script>
 // Convert activation object's challenge and user id from string to binary
 response._embedded.activation.challenge = CryptoUtil.strToBin(response._embedded.activation.challenge);
 response._embedded.activation.user.id = CryptoUtil.strToBin(response._embedded.activation.user.id);
@@ -3583,7 +3588,7 @@ curl -v -X POST \
 
 ```html
 <!-- Get the u2f-api.js from https://github.com/google/u2f-ref-code/tree/master/u2f-gae-demo/war/js -->
-<script src="/u2f-api.js"></script>
+<!--<script src="/u2f-api.js"></script>
 <script>
   // Use the nonce from the challenge object
   var challengeNonce = response._embedded.challenge.nonce;
@@ -3714,7 +3719,7 @@ curl -v -X POST \
 
 ```html
 <!-- Using CryptoUtil.js from https://github.com/okta/okta-signin-widget/blob/master/src/util/CryptoUtil.js -->
-<script>
+<!--<script>
   // Convert activation object's challenge nonce from string to binary
   response._embedded.challenge.challenge = CryptoUtil.strToBin(response._embedded.challenge.challenge);
 

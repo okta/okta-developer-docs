@@ -124,7 +124,7 @@ In Classic Engine, when a user is using both the Forgot Password Question and a 
 
 The following Identity Engine features aren't supported using the Factor APIs.
 
-* Enroll in multiple Okta Verify factors using the [Factors API](/docs/reference/api/factors/#enroll-okta-verify-totp-factor). You can only use the Factors API to enroll the first Okta Verify factor.
+* Enroll in multiple Okta Verify factors using the [Factors API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/#tag/UserFactor/operation/enrollFactor). You can only use the Factors API to enroll the first Okta Verify factor.
 * Okta Verify authenticator settings aren't enforced when enrolling using the Factors API:
 
   * The FIPS compliance requirement for enrollments

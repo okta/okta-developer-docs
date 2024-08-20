@@ -88,5 +88,5 @@ Now that the factor has been enrolled and activated, you can verify that the fac
 At this point, you should understand how to use the Okta API to add MFA to an existing app. You can learn more about using the Okta MFA API using the following resources:
 
 * The [design principles for the Okta API](/docs/reference/core-okta-api/#design-principles)
-* The API documentation for the [Okta Factors API](/docs/reference/api/factors/)
+* The API documentation for the [Okta Factors API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/)
 * The API documentation for the [Okta Authentication API](/docs/reference/api/authn/)

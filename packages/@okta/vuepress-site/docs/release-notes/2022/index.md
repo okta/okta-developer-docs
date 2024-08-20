@@ -646,7 +646,7 @@ See the [System Log API](/docs/reference/api/system-log/). <!-- OKTA-498664 -->
 
 #### New optional request parameter for Reset Factor is GA in Preview
 
-The `/factors` endpoint has a new optional request parameter for the [Reset Factor](/docs/reference/api/factors/#reset-factor) lifecycle operation. You can now remove the phone factor (for example: SMS/Voice) as both a recovery method and a factor with one call by setting the `removeRecoveryEnrollment` parameter to `true` when making a DELETE request to the `/factors` endpoint (`/users/${userId}/factors/${factorId}`). <!--OKTA-489015-->
+The `/factors` endpoint has a new optional request parameter for the [Reset Factor](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/#tag/UserFactor/operation/unenrollFactor!in=query&path=removeRecoveryEnrollment&t=request) lifecycle operation. You can now remove the phone factor (for example: SMS/Voice) as both a recovery method and a factor with one call by setting the `removeRecoveryEnrollment` parameter to `true` when making a DELETE request to the `/factors` endpoint (`/users/${userId}/factors/${factorId}`). <!--OKTA-489015-->
 
 #### Bugs fixed in 2022.05.3
 

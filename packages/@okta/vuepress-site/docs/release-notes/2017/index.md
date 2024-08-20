@@ -32,9 +32,9 @@ Once you've got the right combination, it's easy to configure your authorization
 
 We improved some behaviors related for base claim `amr`:
 
-* When [MFA factors `sms` or `call`](/docs/reference/api/factors/#factor-type) are used, the `amr` claim returns [`mca`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Session/).
-* When [MFA factor `token:hardware`](/docs/reference/api/factors/#factor-type) is used, the `amr` claim returns `hwk`.
-* When [MFA factor `web`](/docs/reference/api/factors/#factor-type) is used, the `amr` claim returns `swk`. <!-- OKTA-152175 -->
+* When [MFA factors `sms` or `call`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/#tag/UserFactor/operation/enrollFactor!c=200&path=4/factorType&t=response) are used, the `amr` claim returns [`mca`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Session/).
+* When [MFA factor `token:hardware`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/#tag/UserFactor/operation/enrollFactor!c=200&path=4/factorType&t=response) is used, the `amr` claim returns `hwk`.
+* When [MFA factor `web`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/#tag/UserFactor/operation/enrollFactor!c=200&path=4/factorType&t=response) is used, the `amr` claim returns `swk`. <!-- OKTA-152175 -->
 
 ### Bug Fix: Legacy Events Available in System Log
 
@@ -623,7 +623,7 @@ All new SAML 2.0 apps are bootstrapped with SHA-256 signed public certificates. 
 #### Email for Two-Factor Authentication
 <!-- OKTA-134593  -->
 
-You can enroll a user with an email factor. See [Enroll Okta Email Factor](/docs/reference/api/factors/#enroll-okta-email-factor) for details.
+You can enroll a user with an email factor. See [Enroll Okta Email Factor](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/#tag/UserFactor/operation/enrollFactor) for details.
 
 ### New Version of the Sign-In Widget
 <!-- (OKTA-132800) -->
@@ -661,7 +661,7 @@ We provide the ability to generate a certificate with specified validity period 
 
 #### Email for Two-Factor Authentication  <!-- OKTA-134593  -->
 
-You can enroll a user with an email factor. See [Enroll Okta Email Factor](/docs/reference/api/factors/#enroll-okta-email-factor) for details.
+You can enroll a user with an email factor. See [Enroll Okta Email Factor](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/#tag/UserFactor/operation/enrollFactor) for details.
 
 ### Platform Bugs Fixed
 

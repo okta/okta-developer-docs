@@ -21,7 +21,7 @@ title: Okta API Products Release Notes 2018
 
 * Instead of providing specific reasons for failure, [Identity Providers](/docs/reference/api/idps/) operations failed with generic `error_description` values when the Social Auth provider required user attributes in the user's profile but the attributes were missing or invalid. <!--OKTA-120115-->
 
-* The `/users/${userId}/factors/catalog` [endpoint](/docs/reference/api/factors/#list-factors-to-enroll) returned `email` as a supported factor type even when Email Authentication was not enabled for the org in MFA settings. <!--OKTA-201633-->
+* The `/users/${userId}/factors/catalog` [endpoint](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/#tag/UserFactor/operation/listSupportedFactors) returned `email` as a supported factor type even when Email Authentication was not enabled for the org in MFA settings. <!--OKTA-201633-->
 
 #### Previously Released Early Access Features 2018.12.2 Update
 
@@ -187,7 +187,7 @@ The following features have already been released as Early Access. To enable the
 #### Bugs Fixed in 2018.42
 
 * The `/clients` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/Client/#tag/Client/operation/listClients) dropped the `filter` parameter for any paginated results returned after the first page.
-* Messages that were sent to devices using the [Factors API](/docs/reference/api/factors/) would sometimes return a `500` error if the message could not be sent.
+* Messages that were sent to devices using the [Factors API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/) would sometimes return a `500` error if the message could not be sent.
 
 #### Previously Released Early Access Features 2018.42 Update
 
@@ -282,7 +282,7 @@ The following features have already been released as Early Access. To enable the
 #### Bugs Fixed in 2018.39
 
 * Requests to the `/authorize` endpoint would incorrectly prioritize values from the URI query parameter, rather than the request JWT. For more information, see the [documentation for that endpoint](/docs/reference/api/oidc/#authorize). (OKTA-187642)
-* When multiple attempts were simultaneously made to update a user's phone number for the [SMS](/docs/reference/api/factors/#enroll-okta-sms-factor) or [Call](/docs/reference/api/factors/#enroll-okta-call-factor) Factor, an HTTP 500 error was sometimes returned. (OKTA-188112)
+* When multiple attempts were simultaneously made to update a user's phone number for the SMS or Call [Factor](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/#tag/UserFactor/operation/enrollFactor), an HTTP 500 error was sometimes returned. (OKTA-188112)
 * In some situations SHA-256 [password imports](/docs/reference/api/users/#hashed-password-object) would not work. SHA-256 password import now requires the salt to be base64-encoded.
 
 #### Previously Released Early Access Features 2018.39 Update
@@ -554,7 +554,7 @@ The following features have already been released as Early Access. To enable the
 
 #### MFA Call Factor is Generally Available (GA)
 
-The MFA [call factor](/docs/reference/api/factors/#factor-type) is now Generally Available (GA).
+The MFA [call factor](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/#tag/UserFactor/operation/enrollFactor!path=8/factorType&t=request) is now Generally Available (GA).
 
 #### Bugs Fixed in 2018.28
 
@@ -590,7 +590,7 @@ The [System Log API](/docs/reference/api/system-log/) is now Generally Available
 
 #### Bugs Fixed in 2018.27
 
-* Users who clicked an Activation Link for an [Okta Verify factor](/docs/reference/api/factors/#activate-push-factor) that had already been activated would get back an HTTP 500 error. (OKTA-146511)
+* Users who clicked an Activation Link for an [Okta Verify factor](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/#tag/UserFactor/operation/activateFactor) that had already been activated would get back an HTTP 500 error. (OKTA-146511)
 * Attempting to add more than the maximum number of zones via the [Zones API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/NetworkZone/) would result in an HTTP 500 error. (OKTA-175991)
 
 #### Previously Released Early Access Features 2018.27 Update
@@ -692,7 +692,7 @@ The following features have already been released as Early Access. To enable the
 
 #### Factors API Now Supports U2F
 
-Enrollment, activation, and verification of U2F factors are now supported in the [Factors API](/docs/reference/api/factors/). <!-- OKTA-112705 -->
+Enrollment, activation, and verification of U2F factors are now supported in the [Factors API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/). <!-- OKTA-112705 -->
 
 #### Network Selection Modes Deprecated
 
