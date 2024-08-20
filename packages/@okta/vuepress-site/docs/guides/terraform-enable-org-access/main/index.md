@@ -97,10 +97,10 @@ Limit the access of the service app to your org by assigning it one or more admi
 
 1. In the Admin Console, open the service app and select **Admin roles**.
 2. Click **Edit assignments**.
-3. In the **Complete the assignment** section, for **Role** select **Group Administrator**.
+3. In the **Complete the assignment** section, for **Role** select **Org Administrator**.
 4. Click **Save Changes**.
 
-> **Note:** The example Terraform configuration in this guide requires only the `Group Administrator` role. Create an appropriate custom role your own service app.
+> **Note:** The example Terraform configuration in this guide requires only the `Org Administrator` role. Create an appropriate custom role your own service app.
 
 For more information on admin roles, see [Assign admin roles to the OAuth 2.0 service app](/docs/guides/secure-oauth-between-orgs/main/#assign-admin-roles-to-the-oauth-2-0-service-app).
 
