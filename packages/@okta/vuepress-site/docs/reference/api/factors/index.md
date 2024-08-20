@@ -20,11 +20,6 @@ Explore the Factors API: [![Run in Postman](https://run.pstmn.io/button.svg)](ht
 
 ## Factor operations
 
-- **[List operations](#factor-operations)** &mdash; List factors and security questions.
-- **[Lifecycle operations](#factor-lifecycle-operations)** &mdash; Enroll, activate, and reset factors.
-- **[Challenge and verify operations](#factors-that-require-a-challenge-and-verify-operation)** &mdash; Challenge and Verify a factor
-- **[Verification only operations](#factors-that-require-only-a-verification-operation)** &mdash; Verify a factor
-
 ### Get Factor
 
 <ApiOperation method="get" url="/api/v1/users/${userId}/factors/${factorId}" />
@@ -1261,8 +1256,8 @@ curl -v -X POST \
 
 Enrolls a user with an Okta `token:software:totp` factor. The factor must be [activated](#activate-totp-factor) after enrollment by following the `activate` link relation to complete the enrollment process.
 
-> <ApiLifecycle access="ie" /> 
-> Enrolls a user with an Okta `token:software:totp` factor and the `push` factor, if the user isn't currently enrolled with these factors.
+<ApiLifecycle access="ie" />
+Enrolls a user with an Okta `token:software:totp` factor and the `push` factor, if the user isn't currently enrolled with these factors.
 
 ##### Request example
 
@@ -1339,8 +1334,8 @@ curl -v -X POST \
 
 Enrolls a user with the Okta Verify `push` factor. The factor must be [activated on the device](#activate-push-factor) by scanning the QR code or visiting the activation link sent through email or SMS.
 
-> <ApiLifecycle access="ie" /> 
-> Enrolls a user with the Okta Verify `push` factor, as well as the `totp` and `signed_nonce` factors (if the user isn't already enrolled with these factors).
+<ApiLifecycle access="ie" />
+Enrolls a user with the Okta Verify `push` factor, as well as the `totp` and `signed_nonce` factors (if the user isn't already enrolled with these factors).
 
 > **Note:** Use the published activation links to embed the QR code or distribute an activation `email` or `sms`.
 
@@ -2022,7 +2017,7 @@ Enrolls a user with a Custom time-based one-time passcode (TOTP) factor, which u
 
 A Factor Profile represents a particular configuration of the Custom TOTP factor. It includes certain properties that match the hardware token that end users possess, such as the HMAC algorithm, passcode length, and time interval. There can be multiple Custom TOTP factor profiles per org, but users can only be enrolled for one Custom TOTP factor. Admins can create Custom TOTP factor profiles in the Okta Admin Console following the instructions on the [Custom TOTP Factor help page](https://help.okta.com/okta_help.htm?id=ext-mfa-totp). Then, copy the `factorProfileId` from the Admin Console into following API request:
 
-> <ApiLifecycle access="ie" />
+<ApiLifecycle access="ie" />
 > **Note:** In Identity Engine, the Custom TOTP factor is referred to as the [Custom OTP authenticator](https://help.okta.com/okta_help.htm?type=oie&id=csh-custom-otp).
 
 ##### Enroll and auto-activate Custom TOTP Factor
@@ -2751,6 +2746,7 @@ response._embedded.activation.challenge = CryptoUtil.strToBin(response._embedded
 response._embedded.activation.user.id = CryptoUtil.strToBin(response._embedded.activation.user.id);
 
 // navigator.credentials is a global object on WebAuthn-supported clients, used to access WebAuthn API
+<script>
 navigator.credentials.create({
   publicKey: response._embedded.activation
 })
@@ -2860,8 +2856,8 @@ curl -v -X POST \
 
 Unenrolls an existing Factor for the specified user, allowing the user to enroll a new Factor
 
-> <ApiLifecycle access="ie" /> 
-> If the Okta Verify `push` factor is reset, then existing `totp` and `signed_nonce` factors are reset as well for the user. Similarly, if the `signed_nonce` factor is reset, then existing `push` and `totp` factors are also reset for the user.
+>ApiLifecycle access="ie" />
+If the Okta Verify `push` factor is reset, then existing `totp` and `signed_nonce` factors are reset as well for the user. Similarly, if the `signed_nonce` factor is reset, then existing `push` and `totp` factors are also reset for the user.
 
 ##### Request parameters
 
