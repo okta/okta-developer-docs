@@ -61,14 +61,14 @@
                 {
                     id: 3,
                     caption: 'Get Okta verified',
-                    text: 'Prepare submission requirements and use the OIN Manager portal to submit your integration for verification. The OIN team runs diagnostics and works with you to validate your integration for publication.',
+                    text: 'Prepare submission requirements and use the OIN Wizard to submit your integration for verification. The OIN team runs diagnostics and works with you to validate your integration for publication.',
                     link: 'Publish your app',
                     path: '/docs/guides/submit-app-overview/'
                 },
                 {
                     id: 4,
                     caption: 'Launch your integration',
-                    text: 'Congratulations! Your integration is Okta verified and trusted by thousands of customers who use the OIN. Now, it’s time to spread the word.',
+                    text: 'Congratulations! Your integration is published and trusted by thousands of customers who use the OIN. Now, it’s time to spread the word.',
                     link: 'View catalog',
                     path: 'https://okta.com/integrations/'
                 }
