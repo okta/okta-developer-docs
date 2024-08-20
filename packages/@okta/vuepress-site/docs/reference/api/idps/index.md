@@ -3828,7 +3828,7 @@ curl -v -X GET \
 -->
 ### Clone signing Key Credential for IdP
 
-The Clone signing Key Credential for IDP operation is available at the [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProviderSigningKeys/#tag/IdentityProviderSigningKeys/operation/cloneIdentityProviderKey).
+The Clone signing Key Credential for IdP operation is available at the [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProviderSigningKeys/#tag/IdentityProviderSigningKeys/operation/cloneIdentityProviderKey).
 
 <!--
 <ApiOperation method="post" url="/api/v1/idps/${idpId}/credentials/keys/${kid}/clone?targetIdpId=${targetIdpId}" />
