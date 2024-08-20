@@ -36,8 +36,6 @@ In the System Log, the `system.custom_url_domain.verify` and `system.email_domai
 
 * In orgs with the Okta account management policy configured for recovery, requests to update a password policy rule (`/policies/{policyId}/rules/{ruleId}`) without authenticators received an API validation error response. (OKTA-738910)
 
-* (OKTA-790533)
-
 * When Authentication Method Reference (AMR) claims were sent as comma-separated values, AMR claims mapping for SAML failed. (OKTA-791512)
 
 * The `honorPersistentNameId` parameter default setting for SAML IdPs was set to `false` if it was omitted from IdP API requests. (OKTA-791891)
