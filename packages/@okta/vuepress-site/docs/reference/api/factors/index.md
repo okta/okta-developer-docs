@@ -2619,9 +2619,9 @@ Activation gets the registration information from the U2F token using the API an
 
 ##### Get registration information from U2F token by calling the U2F JavaScript API
 
-```html -->
-<!-- Get the u2f-api.js from https://github.com/google/u2f-ref-code/tree/master/u2f-gae-demo/war/js -->
-<!-- <script src="/u2f-api.js"></script>
+```html
+Get the u2f-api.js from https://github.com/google/u2f-ref-code/tree/master/u2f-gae-demo/war/js 
+<script src="/u2f-api.js"></script>
 <script>
   // Use the origin of your app that is calling the factors API
   var appId = "https://foo.example.com";
@@ -2743,9 +2743,9 @@ Activation gets the registration information from the WebAuthn authenticator usi
 
 ##### Get registration information from WebAuthn authenticator by calling the WebAuthn JavaScript API
 
-```html -->
-<!-- Using CryptoUtil.js from https://github.com/okta/okta-signin-widget/blob/master/src/util/CryptoUtil.js -->
-<!-- <script>
+```html
+Using CryptoUtil.js from https://github.com/okta/okta-signin-widget/blob/master/src/util/CryptoUtil.js
+
 // Convert activation object's challenge and user id from string to binary
 response._embedded.activation.challenge = CryptoUtil.strToBin(response._embedded.activation.challenge);
 response._embedded.activation.user.id = CryptoUtil.strToBin(response._embedded.activation.user.id);
@@ -3586,9 +3586,9 @@ curl -v -X POST \
 
 #### Get the signed assertion from the U2F token by calling the U2F JavaScript API
 
-```html -->
-<!-- Get the u2f-api.js from https://github.com/google/u2f-ref-code/tree/master/u2f-gae-demo/war/js -->
-<!--<script src="/u2f-api.js"></script>
+```html
+ Get the u2f-api.js from https://github.com/google/u2f-ref-code/tree/master/u2f-gae-demo/war/js
+<script src="/u2f-api.js"></script>
 <script>
   // Use the nonce from the challenge object
   var challengeNonce = response._embedded.challenge.nonce;
@@ -3717,9 +3717,9 @@ curl -v -X POST \
 
 #### Get the signed assertion from the WebAuthn authenticator by calling the WebAuthn JavaScript API
 
-```html -->
-<!-- Using CryptoUtil.js from https://github.com/okta/okta-signin-widget/blob/master/src/util/CryptoUtil.js -->
-<!-- <script>
+```html
+Using CryptoUtil.js from https://github.com/okta/okta-signin-widget/blob/master/src/util/CryptoUtil.js
+<script>
   // Convert activation object's challenge nonce from string to binary
   response._embedded.challenge.challenge = CryptoUtil.strToBin(response._embedded.challenge.challenge);
 
