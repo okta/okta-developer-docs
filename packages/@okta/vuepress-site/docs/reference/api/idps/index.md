@@ -4296,7 +4296,7 @@ curl -v -X GET \
 -->
 ## Identity Provider User operations
 
-The Identity Provider User operations for the Identity Provider API are available at the [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProviderUsers/).
+The Identity Provider User operations for the Identity Providers API are available at the [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProviderUsers/).
 
 <!--
 ### Find Users
