@@ -6,6 +6,23 @@ title: Okta Classic Engine API release notes 2024
 
 ## August
 
+### Weekly release 2024.08.2
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Custom domain and custom email domain System Log events updates](#custom-domain-and-custom-email-domain-system-log-events-updates) | August 21, 2024 |
+| [Bugs fixed in 2024.08.2](#bug-fixed-in-2024-08-2) | August 21, 2024 |
+
+#### Custom domain and custom email domain System Log events updates
+
+In the System Log, the `system.custom_url_domain.verify` and `system.email_domain.verify` events now appear when a verification succeeds or fails. <!--OKTA-790610-->
+
+#### Bugs fixed in 2024.08.2
+
+* When `/api/v1/principal-rate-limits` was called to create or update a principal rate limit for an OAuth app, and a 404 server error was returned, the rate limit was still created or updated. (OKTA-652674)
+
+* The `honorPersistentNameId` parameter default setting for SAML IdPs was set to `false` if it was omitted from IdP API requests. (OKTA-791891)
+
 ### Weekly release 2024.08.1
 
 | Change | Expected in Preview Orgs |
