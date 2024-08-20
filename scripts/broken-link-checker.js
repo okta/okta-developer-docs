@@ -4,16 +4,16 @@ const chalk = require('chalk');
 const linkExtRe = new RegExp('https?://.*/[^/]+\\.[a-z]+$');
 const trailingSlashRe = new RegExp('/$');
 
-const handler = require('serve-handler');
-const http = require('http');
+// const handler = require('serve-handler');
+// const http = require('http');
 
-const server = http.createServer((request, response) => {
-  // You pass two more arguments for config and middleware
-  // More details here: https://github.com/zeit/serve-handler#options
-  return handler(request, response, {
-    public: "packages/@okta/vuepress-site/dist"
-  });
-});
+// const server = http.createServer((request, response) => {
+//   // You pass two more arguments for config and middleware
+//   // More details here: https://github.com/zeit/serve-handler#options
+//   return handler(request, response, {
+//     public: "packages/@okta/vuepress-site/dist"
+//   });
+// });
 
 var options = {
   excludedKeywords: [
@@ -159,8 +159,10 @@ var siteChecker = new blc.SiteChecker(options, {
 });
 
 
-server.listen(8080, () => {
-  console.log('Running at http://localhost:8080');
-});
+// server.listen(8080, () => {
+//   console.log('Running at http://localhost:8080');
+// });
 
-siteChecker.enqueue(siteUrl, customData);
+//siteChecker.enqueue(siteUrl, customData);
+console.log('start')
+siteChecker.enqueue('https://preview.redoc.ly/oktadev/ms-OKTA-728349-sitemap', customData);
