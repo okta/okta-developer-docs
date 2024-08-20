@@ -1,7 +1,7 @@
 
-The Identity Engine SDK is a ground up rewrite of the Classic Engine Authentication SDK. Unlike the Classic Engine Authentication SDK that has specific methods for each authentication use case, the Identity Engine SDK uses a generic interface that enables applications to respond dynamically to policy changes within Okta.
+The Identity Engine SDK is a rewrite of the Classic Engine Authentication SDK. The Classic Engine Authentication SDK has specific methods for each authentication use case. The Identity Engine SDK uses a generic interface that enables app to respond dynamically to policy changes within Okta.
 
-The Identity Engine SDK provides [sample code](https://github.com/okta/okta-idx-swift/tree/master/Samples/Signin%20Samples), which wraps the SDK with a more prescriptive and explicit interface. The sample code is purposely built to help facilitate understanding of how to use the SDK. Even though the Identity Engine examples in this guide use the sample code, you're advised to stick to the same best practice, dynamic approach implemented in the [sample application](https://github.com/okta/okta-idx-swift/tree/master/Samples/EmbeddedAuthWithSDKs).
+The Identity Engine SDK provides [sample code](https://github.com/okta/okta-idx-swift/tree/master/Samples/Signin%20Samples), which wraps the SDK with a more prescriptive and explicit interface. The sample code is purposely built to help facilitate understanding of how to use the SDK. Even though the Identity Engine examples in this guide use sample code, the suggested best practice is to use the same dynamic approach implemented in the [sample app](https://github.com/okta/okta-idx-swift/tree/master/Samples/EmbeddedAuthWithSDKs).
 
 For more information on the SDKs, see their corresponding repositories:
 

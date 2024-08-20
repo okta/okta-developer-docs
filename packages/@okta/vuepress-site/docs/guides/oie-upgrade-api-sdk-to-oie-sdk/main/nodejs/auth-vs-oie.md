@@ -1,7 +1,11 @@
 
-At a high level, the classic authentication flow for the Classic Engine Authentication SDK methods and their backend API calls function similarly to the new Identity Engine SDK methods: both versions call Okta, receive a transaction object, and ultimately receive tokens after a successful authentication.
+The authentication flow for the Classic Engine Authentication SDK methods, and their backend API calls, function similarly to the Identity Engine SDK methods. Both versions call Okta, receive a transaction object, and ultimately receive tokens after a successful authentication.
 
-The Classic Engine authentication flow returns a transaction object that has the ability to proceed in the process. You call a method on the transaction object based on the status, for example `authClient.signInWithCredentials` to authenticate the user. The Identity Engine SDK, however, uses a recursive process, and you call the same method again based on the information returned in the transaction object. The Identity Engine SDK uses the `nextStep` property on the transaction object to provide a hint at the required information. For the basic authentication example, the Identity Engine SDK calls `authClient.idx.authenticate` again with information as part of the call, the user’s email address, authenticator, and so on to complete the flow and return a success state.
+The Classic Engine authentication flow returns a transaction object that can proceed in the process. You call a method on the transaction object based on the status, for example `authClient.signInWithCredentials` to authenticate the user.
+
+The Identity Engine SDK, however, uses a recursive process. You call the same method again based on the information returned in the transaction object. The Identity Engine SDK uses the `nextStep` property on the transaction object to provide a hint at the required information.
+
+For the basic authentication example, the Identity Engine SDK calls `authClient.idx.authenticate` again with information as part of the call, the user’s email address, authenticator, and so on to complete the flow and return a success state.
 
 Another difference between Classic Engine Authentication SDK and Identity Engine SDK methods is how you receive tokens after a successful authentication. For the Classic Engine Authentication SDK, the method `setCookieAndRedirect`, which is deprecated in Identity Engine, makes a call to get the tokens. In the Identity Engine SDK, after receiving a success state, the tokens are included with the transaction object. There’s no separate call to get the tokens.
 
@@ -11,7 +15,7 @@ For further information on the Classic Engine Authentication SDK and the Identit
 * [Okta Identity Engine API (IDX)](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md)
 * [Migrating from authn to IDX](https://github.com/okta/okta-auth-js/blob/master/docs/migrate-from-authn-to-idx.md)
 
-The following table is a high-level mapping of the typical classic API requests and Classic Engine Authentication SDK methods to Identity Engine SDK methods. Since there are a variety of combinations to achieve classic authentication flows, the mapping list isn't exhaustive.
+The following table is a high-level mapping of the typical classic API requests and Classic Engine Authentication SDK methods to Identity Engine SDK methods. There are various combinations to achieve classic authentication flows, so the mapping list isn't exhaustive.
 
 | Okta API endpoints      | Classic Engine SDK methods      |   Identity Engine SDK methods      |   Description |
 | ----------------------- | ------------------------------ | -----------------------------------| ------------- |

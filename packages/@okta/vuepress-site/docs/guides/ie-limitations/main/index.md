@@ -32,7 +32,7 @@ The following Event Type isn't available in Identity Engine because it's no long
 
 `user.account.unlock_token`
 
-The following Event Types are available only in Identity Engine and can't be used by Classic Engine customers:
+The following Event Types are available only in Identity Engine:
 
 * `device.enrollment.create`
 * `user.mfa.factor.suspend`
@@ -46,7 +46,7 @@ The following Event Types are available only in Identity Engine and can't be use
 
 ### Help Support number
 
-**What Changed:** In Identity Engine, if the user is unable to use an Authenticator, the Help Support number is no longer provided. The only support available is the authenticator list page that provides alternative ways for the user to authenticate.
+**What Changed:** In Identity Engine, if the user is unable to use an authenticator, the support number is no longer provided. The only support available is the authenticator list page that provides alternative ways for the user to authenticate.
 
 ***
 
@@ -54,17 +54,19 @@ The following Event Types are available only in Identity Engine and can't be use
 
 **What Changed:** With Identity Engine, a user's verified `primaryEmail` is considered an email (authenticator) enrollment for the user. Therefore, the GET `/factors` API always returns the verified `primaryEmail` as an active email factor.
 
-The use of the Classic Engine Reset Factor API for resetting a user's email enrollment is discouraged and considered moot, because email is an auto-enrolling authenticator in Identity Engine. A user's verified `primaryEmail` is always usable as long as the Email authenticator is set to `ACTIVE`, and the user can use it for **recovery only** or for both **authentication and recovery**, depending on the Email authenticator settings.
+Okta discourages the use of the Classic Engine Reset Factor operation for resetting a user's email enrollment. This is because email is an auto-enrolling authenticator in Identity Engine. A user's verified `primaryEmail` is always usable as long as the Email authenticator is set to `ACTIVE`. The user can use it for **recovery only** or for both **authentication and recovery**, depending on the Email authenticator settings.
 
 ***
 
 ### Reset Factor API - question enrollment
 
-**What Changed:** Identity Engine steers away from the notion of separate questions for MFA and recovery. Therefore, the GET `/factors` API now returns the recovery question (Forgot Password Question) in the absence of an MFA Security Question enrollment for the user.
+**What Changed:** Identity Engine steers away from the notion of separate questions for MFA and recovery. Therefore, the GET `/factors` API now returns the recovery question (forgot password question) in the absence of an MFA Security Question enrollment for the user.
 
-In Classic Engine, when a user is using both the Forgot Password Question and a Security Question for MFA, and an API call is made to `v1/lifecycle/reset_factors` to reset all the factors for the user, only the Security Question is reset. And then, if the GET `/factors` API is called, the Forgot Password Question isn't returned as a factor. With an upgrade to Identity Engine, after resetting all the factors, when the GET `/factors` API is then called, the Forgot Password Question is returned as a factor in the response.
+In Classic Engine, when a user is using both the forgot password question and a Security Question for MFA, and an API call is made to `v1/lifecycle/reset_factors` to reset all the factors for the user, only the Security Question is reset. If the GET `/factors` API is called, the forgot password question isn't returned as a factor.
 
-> **Note:** With Identity Engine, if a user is using both the Forgot Password Question and a Security Question for MFA, and an API call is made to `v1/lifecycle/reset_factors` to reset all the factors for the user, just the Security Question is reset with that call. To reset the Forgot Password Question after that first call, make a second call to `/v1/lifecycle/reset_factors`.
+With an upgrade to Identity Engine, after resetting all the factors, when the GET `/factors` API is then called, the forgot password question is returned as a factor in the response.
+
+> **Note:** With Identity Engine, if a user is using both the forgot password question and a Security Question for MFA, and an API call is made to `v1/lifecycle/reset_factors` to reset all the factors for the user, just the Security Question is reset with that call. To reset the forgot password question after that first call, make a second call to `/v1/lifecycle/reset_factors`.
 
 ***
 
@@ -72,7 +74,7 @@ In Classic Engine, when a user is using both the Forgot Password Question and a 
 
 **What Changed:** The Classic Engine Self-Service Registration feature isn't supported. The Identity Engine Self-Service Registration is now accomplished through a profile enrollment policy. In a profile enrollment policy, admins select the attributes they want to collect when a new end user clicks **Sign up**. After the end user is authenticated into the app, their profile is complete and they're provisioned to the appropriate groups.
 
-> **Note:** The profile enrollment policy form only supports read-write attributes. If you added read-only or hidden attributes to your Self-Service Registration form in Classic Engine, they're not migrated to your profile enrollment policy.
+> **Note:** The form for the profile enrollment policy only supports read-write attributes. If you added read-only or hidden attributes to your Self-Service Registration form in Classic Engine, they're not migrated to your profile enrollment policy.
 
 **Further information:** [Manage Profile Enrollment policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-profile-enrollment)
 
@@ -104,7 +106,7 @@ In Classic Engine, when a user is using both the Forgot Password Question and a 
 
 ### SMS Factors Administration lifecycle operations
 
-**What Changed:** The SMS Factor can no longer be activated or deactivated using the Factors Administrator API (`/api/v1/org/factors`).
+**What Changed:** The SMS Factor can no longer be activated or deactivated using the Factors API (`/api/v1/org/factors`).
 
 **Further Information:** [Factors Administration API](/docs/reference/api/factor-admin)
 
@@ -122,7 +124,7 @@ In Classic Engine, when a user is using both the Forgot Password Question and a 
 
 ### Factor API enrollment limitations
 
-The following Identity Engine features aren't supported using the Factor APIs.
+The following Identity Engine features aren't supported using the Factor APIs:
 
 * Enroll in multiple Okta Verify factors using the [Factors API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/#tag/UserFactor/operation/enrollFactor). You can only use the Factors API to enroll the first Okta Verify factor.
 * Okta Verify authenticator settings aren't enforced when enrolling using the Factors API:
@@ -130,9 +132,9 @@ The following Identity Engine features aren't supported using the Factor APIs.
   * The FIPS compliance requirement for enrollments
   * The User Verification requirement for enrollments
   * New Okta Verify enrollments that are created with the Factors API aren't mapped to a device.
-  * WebAuthN authenticator User Verification settings aren't enforced when enrolling using the Factors API.
+  * WebAuthn authenticator User Verification settings aren't enforced when enrolling using the Factors API.
 
-See the [SDK uses cases](/docs/guides/oie-embedded-common-org-setup/main/) in our embedded SDK guides for more information on profile enrollment.
+See the [SDK use cases](/docs/guides/oie-embedded-common-org-setup/main/) in our embedded SDK guides for more information on profile enrollment.
 
 ***
 
@@ -146,4 +148,4 @@ Developers who use the `/api/v1/authn` APIs to build custom password reset and a
 
 ## Okta Sign-In Widget upgrade
 
-For Identity Engine, some specific objects that were previously in the widget configuration are no longer supported and must be removed. Also, specific feature flags aren't supported when you upgrade the widget and must be removed from `features` in the JSON code. See [Upgrade your Okta Sign-In Widget](/docs/guides/oie-upgrade-sign-in-widget/main/) for a comprehensive list of configuration and feature changes.
+For Identity Engine, some specific objects that were previously in the Sign-In Widget configuration are no longer supported and must be removed. Also, specific feature flags aren't supported when you upgrade the widget and must be removed from `features` in the JSON code. See [Upgrade your Okta Sign-In Widget](/docs/guides/oie-upgrade-sign-in-widget/main/) for a comprehensive list of configuration and feature changes.
