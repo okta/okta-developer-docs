@@ -5,7 +5,7 @@ category: management
 
 # Identity Providers API
 
-The Authorization Servers API reference is available at the [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServer/).
+The Identity Providers API reference is available at the [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServer/).
 
 Explore the [Okta Public API Collections](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/overview) workspace to get started with the Authorization Servers API Postman collection.
 
