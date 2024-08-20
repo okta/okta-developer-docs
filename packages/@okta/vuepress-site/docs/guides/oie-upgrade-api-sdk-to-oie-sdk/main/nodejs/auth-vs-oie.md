@@ -1,5 +1,5 @@
 
-The authentication flow for the Classic Engine Authentication SDK methods, and their backend API calls, function similarly to the Identity Engine SDK methods. Both versions call Okta, receive a transaction object, and ultimately receive tokens after a successful authentication.
+The authentication flow for the Classic Engine Authentication SDK methods and their backend API calls function similarly to the Identity Engine SDK methods. Both versions call Okta, receive a transaction object, and ultimately receive tokens after a successful authentication.
 
 The Classic Engine authentication flow returns a transaction object that can proceed in the process. You call a method on the transaction object based on the status, for example `authClient.signInWithCredentials` to authenticate the user.
 

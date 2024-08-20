@@ -64,7 +64,7 @@ Okta discourages the use of the Classic Engine Reset Factor operation for resett
 
 In Classic Engine, when a user is using both the forgot password question and a Security Question for MFA, and an API call is made to `v1/lifecycle/reset_factors` to reset all the factors for the user, only the Security Question is reset. If the GET `/factors` API is called, the forgot password question isn't returned as a factor.
 
-With an upgrade to Identity Engine, after resetting all the factors, when the GET `/factors` API is then called, the forgot password question is returned as a factor in the response.
+In Identity Engine, after you reset all the factors, calling the GET `/factors` API returns the forgot password question in the response.
 
 > **Note:** With Identity Engine, if a user is using both the forgot password question and a Security Question for MFA, and an API call is made to `v1/lifecycle/reset_factors` to reset all the factors for the user, just the Security Question is reset with that call. To reset the forgot password question after that first call, make a second call to `/v1/lifecycle/reset_factors`.
 
