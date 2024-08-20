@@ -13,16 +13,16 @@ title: Okta Identity Engine API release notes 2024
 |--------|--------------------------|
 | [Updated MyAccount API System Log events](#updated-myaccount-api-system-log-events) | August 21, 2024 |
 | [Custom domain and custom email domain System Log events updates](#custom-domain-and-custom-email-domain-system-log-events-updates) | August 21, 2024 |
-| [Bugs fixed in 2024.08.2](#bug-fixed-in-2024-08-2) | August 21, 2024 |
+| [Bugs fixed in 2024.08.2](#bugs-fixed-in-2024-08-2) | August 21, 2024 |
 
 #### Updated MyAccount API System Log events
 
 The following System Log events are generated when these endpoints are called:
 
-. POST `/idp/myaccount/emails`: `user.account.update_profile`, `system.email.send_factor_verify_message`
-. DELETE `/idp/myaccount/emails/{id}`: `user.account.update_profile`
-. POST `/idp/myaccount/phones/{id}/verify`: `user.mfa.factor.activate`
-. DELETE `/idp/myaccount/phones/{id}`: `user.mfa.factor.deactivate`
+* POST `/idp/myaccount/emails`: `user.account.update_profile`, `system.email.send_factor_verify_message`
+* DELETE `/idp/myaccount/emails/{id}`: `user.account.update_profile`
+* POST `/idp/myaccount/phones/{id}/verify`: `user.mfa.factor.activate`
+* DELETE `/idp/myaccount/phones/{id}`: `user.mfa.factor.deactivate`
 
 See [Event types](/docs/reference/api/event-types/). <!--OKTA-790035-->
 

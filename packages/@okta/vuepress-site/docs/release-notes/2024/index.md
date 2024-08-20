@@ -11,7 +11,7 @@ title: Okta Classic Engine API release notes 2024
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
 | [Custom domain and custom email domain System Log events updates](#custom-domain-and-custom-email-domain-system-log-events-updates) | August 21, 2024 |
-| [Bugs fixed in 2024.08.2](#bug-fixed-in-2024-08-2) | August 21, 2024 |
+| [Bugs fixed in 2024.08.2](#bugs-fixed-in-2024-08-2) | August 21, 2024 |
 
 #### Custom domain and custom email domain System Log events updates
 
