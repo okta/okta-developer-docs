@@ -3340,7 +3340,7 @@ HTTP/1.1 200 OK
 -->
 ## Identity Provider key store operations
 
-The key store operations for the Identity Provider API are available at the [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProviderKeys/#tag/IdentityProviderKeys).
+The key store operations for the Identity Providers API are available at the [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProviderKeys/#tag/IdentityProviderKeys).
 
 <!--
 ### Add X.509 Certificate public key
