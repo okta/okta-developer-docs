@@ -5402,6 +5402,8 @@ curl -v -X GET \
 
 ## Application client secret management operations
 
+See [OAS3 PR1246 new API section](https://preview.redoc.ly/oktadev/ss-OKTA-605465-app-credentials-api/openapi/okta-management/management/tag/ApplicationSSOCredentialOAuth2ClientAuth/#tag/ApplicationSSOCredentialOAuth2ClientAuth/operation/listOAuth2ClientSecrets) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
 ### Add new client secret
 
 <ApiOperation method="post" url="/api/v1/apps/${applicationId}/credentials/secrets" />
