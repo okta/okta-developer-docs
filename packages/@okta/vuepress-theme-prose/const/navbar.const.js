@@ -995,7 +995,7 @@ export const reference = [
                { title: "User query options", path: "/docs/reference/user-query/" },
                { title: 'Sign in Your Users', path: 'empty' },
                { title: "Authentication", path: "/docs/reference/api/authn/" },
-               { title: "Identity Providers", path: "/docs/reference/api/idps/" },
+               { title: "Identity Providers", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/" },
                { title: "OpenID Connect & OAuth 2.0 API", path: "/docs/reference/api/oidc/" },
                { title: "WebFinger", path: "/docs/reference/api/webfinger/" },
                { title: "Manage Okta Objects", path: "empty" },

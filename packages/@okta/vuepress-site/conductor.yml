@@ -96,9 +96,9 @@ redirects:
   - from: /docs/api/rest/groups.html
     to: /docs/reference/api/groups/index.html
   - from: /docs/api/rest/idps.html
-    to: /docs/reference/api/idps/index.html
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/
   - from: /docs/api/resources/idps
-    to: /docs/reference/api/idps/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/
   - from: /docs/api/rest/oauth-clients.html
     to: https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/Client/index.html
   - from: /docs/reference/api/oauth2
@@ -470,7 +470,7 @@ redirects:
   - from: /docs/api/resources/groups/index.html
     to: /docs/reference/api/groups/
   - from: /docs/api/resources/idps/index.html
-    to: /docs/reference/api/idps/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/
   - from: /docs/api/resources/inline-hooks/index.html
     to: /docs/reference/api/inline-hooks/
   - from: /docs/api/resources/linked-objects/index.html
@@ -902,7 +902,7 @@ redirects:
   - from: /docs/api/resources/groups.html
     to: /docs/reference/api/groups/
   - from: /docs/api/resources/idps.html
-    to: /docs/reference/api/idps/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/
   - from: /docs/api/resources/linked-objects.html
     to: /docs/reference/api/linked-objects/
   - from: /docs/api/resources/policy.html
