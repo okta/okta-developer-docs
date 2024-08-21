@@ -82,7 +82,7 @@ Configure a global session policy to prompt a user for a factor [authenticator](
 
 ### Create the rule
 
-1. In the **Add Rule** window, add a descriptive name for the rule in the **Rule name** box. For example, name it as **Require contractors to use MFA once per session**.
+1. In the **Add Rule** window, add a descriptive name for the rule in the **Rule name** box. For example, name it **Require contractors to use MFA once per session**.
 
 1. If there are any users in the **Contractor** group that you want to exclude from the rule, enter them in the **Exclude Users** box.
 
@@ -90,7 +90,7 @@ Configure a global session policy to prompt a user for a factor [authenticator](
 
 1. Configure THEN conditions, which define the authentication experience for the rule. For this use case example, select that the session is established with the user entering **A password**. Also, ensure that Multifactor authentication (MFA) is **Required** so that users of the **Contractor** group are prompted for a secondary factor before they’re granted access.
 
-    > **Note:** Click the **authenticators** link for quick access to the [Authenticators](https://help.okta.com/okta_help.htm?type=oie&id=csh-configure-authenticators) page to configure the factors that you want to use.
+    > **Note:** Click the **authenticators** link for quick access to the [Authenticators](https://help.okta.com/okta_help.htm?type=oie&id=csh-configure-authenticators) page to configure the authenticators that you want to use.
 
 1. Select how users are prompted for a secondary factor in a given session. In this example, leave the default of **At every sign in** selected. Users are challenged for MFA every time they sign in.
 
@@ -110,7 +110,7 @@ You may want a rule that requires all default Okta users to provide a password. 
 
 Configure another rule for the default authentication policy to prompt a user for an additional factor when the user is outside of the United States.
 
-> **Note:**  You can add as many rules to the default authentication policy that you want. But remember that changes to the default authentication policy are applied to all new apps because it's a shared app policy.
+> **Note:**  You can add as many rules to the default authentication policy as you want. But remember that changes to the default authentication policy are applied to all new apps because it's a shared app policy.
 
 ### Select the default policy and add a rule
 
@@ -144,7 +144,7 @@ This example assumes that you've already [set up a Dynamic Zone](https://help.ok
 
 ## Prompt for a passwordless sign-in flow
 
-In this example, create a policy that allows a specific group, **Full time employees**, for example, to sign in without using a password. This policy applies to users in that group only when they're connected to a corporate network. Before you create this global session policy:
+In this example, create a policy that allows a specific group, **Full time employees**, for example, to sign in without using a password. This policy applies to users in that group only when they're connected to a corporate network. Before you create this global session policy, complete these steps:
 
 * Create a network zone, **Corporate Network**, that defines the IP addresses used in your corporate office. See the [Zones API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/NetworkZone/) and [Network zones](https://help.okta.com/okta_help.htm?id=ext-network-zones).
 
@@ -168,9 +168,9 @@ In this example, create a policy that allows a specific group, **Full time emplo
 
 1. Configure THEN conditions, which define the authentication experience for the rule. For this use case, leave the default of **Allowed** for **THEN Access is**.
 
-1. Select that the session is established with the user entering **Any factor used to meet the Authentication Policy requirements**.
+1. For **Establish the user session with**, select **Any factor used to meet the Authentication Policy requirements**.
 
-1. Select that MFA is **Required** so that users in the **Full time employees** group are prompted for a secondary factor before they’re granted access.
+1. For **Multifactor authentication (MFA) is**, select **Required** so that users in the **Full time employees** group are prompted for a secondary factor before they’re granted access.
 
 1. For **Users will be prompted for MFA**, select how users are prompted for a secondary factor in a given session. For this example, select **At every sign in**.
 
