@@ -202,9 +202,8 @@ App Condition is now available for the [Enroll Policy](/docs/reference/api/polic
 
 #### Bugs Fixed in 2019.10.0
 
-* WebAuthn Factors could not be verified using the [Factors API](/docs/reference/api/factors/). (OKTA-228239)
+* WebAuthn Factors could not be verified using the [Factors API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/). (OKTA-228239)
 * During OAuth 2 and OIDC sign-in flows, the Okta Sign-In Widget incorrectly rendered pre-populated usernames, substituting `+` with a space. (OKTA-235187)
-
 
 ## September
 
@@ -229,7 +228,7 @@ OAuth Scopes are not allowed to start with the `okta.` prefix. See the note unde
 
 #### Bug Fixed in 2019.09.3
 
-* After a user successfully scanned the QR code and completed the MFA enrollment process, the `factorResult` [parameter](/docs/reference/api/factors/) was missing from the response. (OKTA-244102)
+* After a user successfully scanned the QR code and completed the MFA enrollment process, the `factorResult` [parameter](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/) was missing from the response. (OKTA-244102)
 
 
 ### Weekly Release 2019.09.2
@@ -330,7 +329,7 @@ Some users were not able to access the Group Rules API, despite having proper pe
 
 #### Added Support for TOTP Factor
 
-Okta now supports a custom MFA factor based on the time-based one-time passcode (TOTP) algorithm. For more information, see [Custom HOTP Factor](/docs/reference/api/factors/#enroll-custom-hotp-factor). <!-- OKTA-236375 -->
+Okta now supports a custom MFA factor based on the time-based one-time passcode (TOTP) algorithm. For more information, see [Custom HOTP Factor](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/#tag/UserFactor/operation/enrollFactor). <!-- OKTA-236375 -->
 
 #### Cookies updated to preserve cross-site functionality
 
@@ -388,7 +387,7 @@ The `DELETE /groups/${groupId}` [endpoint](/docs/reference/api/groups/#remove-gr
 
 #### Email Factor is now GA in Production
 
-The [Email Factor](/docs/reference/api/factors/#enroll-okta-email-factor) is now Generally Available (GA) in all Production orgs. <!-- OKTA-231156 -->
+The [Email Factor](/https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/#tag/UserFactor/operation/enrollFactor) is now Generally Available (GA) in all Production orgs. <!-- OKTA-231156 -->
 
 #### LinkedIn IdP creation re-enabled in Preview
 
@@ -446,7 +445,7 @@ The [Token Inline Hook](/docs/reference/token-hook/) now lets you modify particu
 
 #### Email Factor is now GA in Preview
 
-The [Email Factor](/docs/reference/api/factors/#enroll-okta-email-factor) is now Generally Available (GA) in all Preview orgs. <!-- OKTA-227761 -->
+The [Email Factor](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/#tag/UserFactor/operation/enrollFactor) is now Generally Available (GA) in all Preview orgs. <!-- OKTA-227761 -->
 
 #### Users can be removed from a Profile source
 

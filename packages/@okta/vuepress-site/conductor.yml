@@ -92,7 +92,7 @@ redirects:
   - from: /docs/api/resources/factor_admin/index.html
     to: /docs/reference/api/factor-admin/index.html
   - from: /docs/api/rest/factors.html
-    to: /docs/reference/api/factors/index.html
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/
   - from: /docs/api/rest/groups.html
     to: /docs/reference/api/groups/index.html
   - from: /docs/api/rest/idps.html
@@ -466,7 +466,7 @@ redirects:
   - from: /docs/api/resources/event-types
     to: /docs/reference/api/event-types/
   - from: /docs/api/resources/factors/index.html
-    to: /docs/reference/api/factors/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/
   - from: /docs/api/resources/groups/index.html
     to: /docs/reference/api/groups/
   - from: /docs/api/resources/idps/index.html
@@ -796,7 +796,7 @@ redirects:
   - from: /docs/api/resources/event-hooks
     to: /docs/reference/api/event-hooks/
   - from: /docs/api/resources/factors
-    to: /docs/reference/api/factors/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/
   - from: /docs/api/resources/groups
     to: /docs/reference/api/groups/
   - from: /docs/api/resources/inline-hooks
@@ -898,7 +898,7 @@ redirects:
   - from: /docs/api/resources/event-hooks.html
     to: /docs/reference/api/event-hooks/
   - from: /docs/api/resources/factors.html
-    to: /docs/reference/api/factors/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/
   - from: /docs/api/resources/groups.html
     to: /docs/reference/api/groups/
   - from: /docs/api/resources/idps.html

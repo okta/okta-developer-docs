@@ -49,7 +49,7 @@ amr-claims-mapping-oidc.png -->
 4. The Identity Provider authenticates the user.
 5. The Identity Provider redirects the user to Okta. The Identity Provider response contains the supported AMR claims, for example: `sms`, `mfa`, and `pwd`.
 
-    > **Note:** The AMR claims are stored in an Okta session and considered during policy evaluation.
+    > **Note:** AMR claims are stored in an Okta session and considered during policy evaluation.
 
 6. Okta redirects the user to the browser. The user isn't challenged for MFA if the factors used by the Identity Provider meet policy requirements.
 7. The browser sends a request to the Okta `/token` endpoint.

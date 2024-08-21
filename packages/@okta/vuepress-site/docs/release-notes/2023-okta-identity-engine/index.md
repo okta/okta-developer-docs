@@ -910,7 +910,7 @@ Identity Engine now supports Okta Verify enrollments with email or SMS links cre
 * The GET factors operation lists all Okta Verify enrollment methods for a user.
 * The DELETE `push` or `signed_nonce` factor operation deletes all three factor enrollments (`push`, `signed_nonce`, and `totp`).
 
-See [Enroll Okta Verify Push](/docs/reference/api/factors/#enroll-okta-verify-push-factor) and [Reset Factor](/docs/reference/api/factors/#reset-factor) updates in the Factors API. <!--OKTA-568807-->
+See [Enroll Okta Verify Push](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/#tag/UserFactor/operation/enrollFactor) and [Unenroll Factor](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/#tag/UserFactor/operation/unenrollFactor) updates in the Factors API. <!--OKTA-568807-->
 
 #### Full-featured code editor is GA in Production
 

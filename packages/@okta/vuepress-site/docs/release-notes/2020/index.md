@@ -333,7 +333,7 @@ Apple as an Identity Provider is now Generally Available in Preview. Apple as an
 
 #### YubiKey OTP Token operations added
 
-Using the [Factors API](/docs/reference/api/factors/), requests for single YubiKey OTP Tokens and uploading a seed for a YubiKey OTP are now supported. Other API operations for YubiKey OTP Tokens are now documented in the [Factors API](/docs/reference/api/factors/). <!-- OKTA-302434 -->
+Using the [Factors API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/#tag/UserFactor/operation/getYubikeyOtpTokenById), requests for single YubiKey OTP Tokens and uploading a seed for a YubiKey OTP are now supported. Other API operations for YubiKey OTP Tokens are now documented in the [Factors API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/#tag/UserFactor/operation/listYubikeyOtpTokens). <!-- OKTA-302434 -->
 
 #### Support for creating OIN OIDC Apps using the Dynamic Client Registration API
 

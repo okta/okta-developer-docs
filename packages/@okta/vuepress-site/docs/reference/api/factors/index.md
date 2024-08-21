@@ -5,6 +5,11 @@ category: management
 
 # Factors API
 
+The Factors API reference is available at the [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/).
+
+Explore the [Okta Public API Collections](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/overview) workspace to get started with the Factors API Postman collection.
+
+<!--
 The Okta Factors API provides operations to enroll, manage, and verify factors for multifactor authentication (MFA). Manage both administration and end-user accounts, or verify an individual factor at any time.
 
 <ApiAuthMethodWarning />
@@ -14,11 +19,6 @@ The Okta Factors API provides operations to enroll, manage, and verify factors f
 Explore the Factors API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/283a99e4b49ce7f5f54d)
 
 ## Factor operations
-
-- **[List operations](#factor-operations)** &mdash; List factors and security questions.
-- **[Lifecycle operations](#factor-lifecycle-operations)** &mdash; Enroll, activate, and reset factors.
-- **[Challenge and verify operations](#factors-that-require-a-challenge-and-verify-operation)** &mdash; Challenge and Verify a factor
-- **[Verification only operations](#factors-that-require-only-a-verification-operation)** &mdash; Verify a factor
 
 ### Get Factor
 
@@ -1256,8 +1256,8 @@ curl -v -X POST \
 
 Enrolls a user with an Okta `token:software:totp` factor. The factor must be [activated](#activate-totp-factor) after enrollment by following the `activate` link relation to complete the enrollment process.
 
-> <ApiLifecycle access="ie" /> 
-> Enrolls a user with an Okta `token:software:totp` factor and the `push` factor, if the user isn't currently enrolled with these factors.
+<ApiLifecycle access="ie" />
+Enrolls a user with an Okta `token:software:totp` factor and the `push` factor, if the user isn't currently enrolled with these factors.
 
 ##### Request example
 
@@ -1334,8 +1334,8 @@ curl -v -X POST \
 
 Enrolls a user with the Okta Verify `push` factor. The factor must be [activated on the device](#activate-push-factor) by scanning the QR code or visiting the activation link sent through email or SMS.
 
-> <ApiLifecycle access="ie" /> 
-> Enrolls a user with the Okta Verify `push` factor, as well as the `totp` and `signed_nonce` factors (if the user isn't already enrolled with these factors).
+<ApiLifecycle access="ie" />
+Enrolls a user with the Okta Verify `push` factor, as well as the `totp` and `signed_nonce` factors (if the user isn't already enrolled with these factors).
 
 > **Note:** Use the published activation links to embed the QR code or distribute an activation `email` or `sms`.
 
@@ -2017,7 +2017,7 @@ Enrolls a user with a Custom time-based one-time passcode (TOTP) factor, which u
 
 A Factor Profile represents a particular configuration of the Custom TOTP factor. It includes certain properties that match the hardware token that end users possess, such as the HMAC algorithm, passcode length, and time interval. There can be multiple Custom TOTP factor profiles per org, but users can only be enrolled for one Custom TOTP factor. Admins can create Custom TOTP factor profiles in the Okta Admin Console following the instructions on the [Custom TOTP Factor help page](https://help.okta.com/okta_help.htm?id=ext-mfa-totp). Then, copy the `factorProfileId` from the Admin Console into following API request:
 
-> <ApiLifecycle access="ie" />
+<ApiLifecycle access="ie" />
 > **Note:** In Identity Engine, the Custom TOTP factor is referred to as the [Custom OTP authenticator](https://help.okta.com/okta_help.htm?type=oie&id=csh-custom-otp).
 
 ##### Enroll and auto-activate Custom TOTP Factor
@@ -2615,7 +2615,7 @@ Activation gets the registration information from the U2F token using the API an
 ##### Get registration information from U2F token by calling the U2F JavaScript API
 
 ```html
-<!-- Get the u2f-api.js from https://github.com/google/u2f-ref-code/tree/master/u2f-gae-demo/war/js -->
+Get the u2f-api.js from https://github.com/google/u2f-ref-code/tree/master/u2f-gae-demo/war/js 
 <script src="/u2f-api.js"></script>
 <script>
   // Use the origin of your app that is calling the factors API
@@ -2739,13 +2739,14 @@ Activation gets the registration information from the WebAuthn authenticator usi
 ##### Get registration information from WebAuthn authenticator by calling the WebAuthn JavaScript API
 
 ```html
-<!-- Using CryptoUtil.js from https://github.com/okta/okta-signin-widget/blob/master/src/util/CryptoUtil.js -->
-<script>
+Using CryptoUtil.js from https://github.com/okta/okta-signin-widget/blob/master/src/util/CryptoUtil.js
+
 // Convert activation object's challenge and user id from string to binary
 response._embedded.activation.challenge = CryptoUtil.strToBin(response._embedded.activation.challenge);
 response._embedded.activation.user.id = CryptoUtil.strToBin(response._embedded.activation.user.id);
 
 // navigator.credentials is a global object on WebAuthn-supported clients, used to access WebAuthn API
+<script>
 navigator.credentials.create({
   publicKey: response._embedded.activation
 })
@@ -2855,8 +2856,8 @@ curl -v -X POST \
 
 Unenrolls an existing Factor for the specified user, allowing the user to enroll a new Factor
 
-> <ApiLifecycle access="ie" /> 
-> If the Okta Verify `push` factor is reset, then existing `totp` and `signed_nonce` factors are reset as well for the user. Similarly, if the `signed_nonce` factor is reset, then existing `push` and `totp` factors are also reset for the user.
+>ApiLifecycle access="ie" />
+If the Okta Verify `push` factor is reset, then existing `totp` and `signed_nonce` factors are reset as well for the user. Similarly, if the `signed_nonce` factor is reset, then existing `push` and `totp` factors are also reset for the user.
 
 ##### Request parameters
 
@@ -3582,7 +3583,7 @@ curl -v -X POST \
 #### Get the signed assertion from the U2F token by calling the U2F JavaScript API
 
 ```html
-<!-- Get the u2f-api.js from https://github.com/google/u2f-ref-code/tree/master/u2f-gae-demo/war/js -->
+ Get the u2f-api.js from https://github.com/google/u2f-ref-code/tree/master/u2f-gae-demo/war/js
 <script src="/u2f-api.js"></script>
 <script>
   // Use the nonce from the challenge object
@@ -3713,7 +3714,7 @@ curl -v -X POST \
 #### Get the signed assertion from the WebAuthn authenticator by calling the WebAuthn JavaScript API
 
 ```html
-<!-- Using CryptoUtil.js from https://github.com/okta/okta-signin-widget/blob/master/src/util/CryptoUtil.js -->
+Using CryptoUtil.js from https://github.com/okta/okta-signin-widget/blob/master/src/util/CryptoUtil.js
 <script>
   // Convert activation object's challenge nonce from string to binary
   response._embedded.challenge.challenge = CryptoUtil.strToBin(response._embedded.challenge.challenge);
@@ -4387,3 +4388,4 @@ Specifies the status of a Factor verification attempt
 | `TIMEOUT`              | Okta was unable to verify the Factor within the allowed time window.                                                                       |
 | `TIME_WINDOW_EXCEEDED` | The Factor was successfully verified, but outside of the computed time window. Another verification is required in the current time window.|
 | `WAITING`              | The Factor verification has started, but not yet completed (for example: The user hasn't answered the phone call yet).                     |
+-->
