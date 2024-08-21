@@ -20,8 +20,8 @@ OAuth 2.0 and OpenID Connect (OIDC) are industry standard protocols for user aut
 
 OAuth 2.0 and OpenID Connect (OIDC) are complementary protocols. They define how a server authenticates a user, and then grants the user access to resources.
 
-* [OAuth 2.0](/docs/reference/api/oidc/) controls and delegates authorization to access a protected resource, like your web app, native app, or API service. It provides API security through scoped access tokens.
-* [OIDC](/docs/reference/api/oidc/) extends OAuth 2.0 with user authentication and Single Sign-On (SSO) functionality. It enables you to retrieve and store authentication information about your end users. It also defines several OAuth 2.0 scopes to enable apps to access user profile information.
+* [OAuth 2.0](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/) controls and delegates authorization to access a protected resource, like your web app, native app, or API service. It provides API security through scoped access tokens.
+* [OIDC](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/) extends OAuth 2.0 with user authentication and Single Sign-On (SSO) functionality. It enables you to retrieve and store authentication information about your end users. It also defines several OAuth 2.0 scopes to enable apps to access user profile information.
 
 Okta recommends using one of its authentication deployment models for your app's authentication needs. Each model abstracts over the OAuth 2.0 and OIDC protocols, so you don't have to use them directly. To get started and to find sample apps, see [Sign users in](/docs/guides/sign-in-overview/).
 

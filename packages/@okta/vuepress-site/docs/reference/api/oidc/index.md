@@ -9,6 +9,22 @@ meta:
 
 # OpenID Connect & OAuth 2.0 API
 
+The OpenID Connect & OAuth 2.0 API reference is available at the [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/).
+
+Explore the [Okta Public API Collections](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/overview) workspace to get started with the OpenID Connect & OAuth 2.0 API Postman collection.
+
+https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/
+
+https://developer.okta.com/docs/reference/api/oidc/
+
+/docs/reference/api/oidc/
+
+
+custom authorization server [introspection endpoint](/https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/introspectCustomAS) or the Okta org authorization server [introspection endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/OrgAS/#tag/OrgAS/operation/introspect).
+
+
+
+<!--
 Okta is a standards-compliant [OAuth 2.0](http://oauth.net/documentation) authorization server and a certified [OpenID Connect provider](http://openid.net/certification).
 
 OpenID Connect extends OAuth 2.0. The OAuth 2.0 protocol provides API security via scoped access tokens, and OpenID Connect provides user authentication and single sign-on (SSO) functionality.
@@ -1478,7 +1494,7 @@ A consent dialog appears depending on the values of three elements:
 | `NONE`           | `REQUIRED`              | `IMPLICIT`                           | Not prompted |
 
 > **Note:** When a scope is requested during a Client Credentials grant flow and `CONSENT` is set to `FLEXIBLE`, the scope is granted in the access token with no consent prompt. This occurs because there is no user involved in a two-legged OAuth [Client Credentials](/docs/guides/implement-grant-type/clientcreds/main/) grant flow.
-<!-- If you change this section, change it in apps.md (/docs/reference/api/apps/#credentials-settings-details) and authorization-servers.md (/docs/reference/api/authorization-servers/#scope-properties) as well. Add 'LOGIN' to the first three rows when supported -->
+If you change this section, change it in apps.md (/docs/reference/api/apps/#credentials-settings-details) and authorization-servers.md (/docs/reference/api/authorization-servers/#scope-properties) as well. Add 'LOGIN' to the first three rows when supported
 
 **Notes:**
 
@@ -1923,3 +1939,4 @@ Some behaviors aren't obvious:
 * OpenID scopes can be requested with custom scopes. For example, a request can include `openid` and a custom scope.
 
 * The evaluation of a policy always takes place during the initial authentication of the user (or of the client in case of the client credentials flow). If the flow isn't immediately finished, such as when a token is requested using the `authorization_code` grant type, the policy isn't evaluated again, and a change in the policy after the user or client is initially authenticated won't affect the continued flow.
+-->

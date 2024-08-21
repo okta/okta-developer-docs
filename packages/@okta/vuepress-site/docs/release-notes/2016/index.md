@@ -606,7 +606,7 @@ The `/oauth2/v1/token` endpoint includes a Refresh Token if:
 To protect against arbitrarily large numbers of groups matching the group filter, the group claim has a limit of 100.
 If more than 100 groups match the filter, then the request fails.
 
-* For more information about configuring an app for OpenID Connect, including group claims, see [Using OpenID Connect](/docs/reference/api/oidc/).
+* For more information about configuring an app for OpenID Connect, including group claims, see [Using OpenID Connect](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/).
 * For more information about group claims in the API, see Scope-dependent claims.
 
 ### Bugs Fixed
@@ -637,7 +637,7 @@ The Links object, `_links`, is available in the Policy object. For more informat
 The error descriptions related to OAuth provide more helpful information about invalid clients for OpenID Connect flows.
 
 #### Disable Automatic Key Rotation
-If you need to disable automatic key rotation for an OpenID Connect flow, you can do so in General Settings section under the General tab for an app, and then use the `/oauth2/v1/keys` endpoint to fetch public keys for your app. For more information, see [OpenID Connect](/docs/reference/api/oidc/).
+If you need to disable automatic key rotation for an OpenID Connect flow, you can do so in General Settings section under the General tab for an app, and then use the `/oauth2/v1/keys` endpoint to fetch public keys for your app. For more information, see [OpenID Connect](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/).
 
 ### Bugs Fixed
 

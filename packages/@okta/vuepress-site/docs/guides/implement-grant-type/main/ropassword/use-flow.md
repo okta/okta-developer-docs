@@ -1,4 +1,4 @@
-If implementing the Resource Owner Password flow is your only option, you need to make direct calls to the [OIDC & OAuth 2.0 API](/docs/reference/api/oidc/). See the following sections for requests required in the flow.
+If implementing the Resource Owner Password flow is your only option, you need to make direct calls to the [OIDC & OAuth 2.0 API](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/). See the following sections for requests required in the flow.
 
 ### Request for tokens
 

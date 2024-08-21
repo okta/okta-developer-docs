@@ -157,7 +157,7 @@ After you set up and customize your authorization server, test it by sending any
 
 > **Note:** The `{authorizationServerId}` for the default server is `default`.
 
-You can find a full description of the relevant Okta APIs on the [OpenID Connect & OAuth 2.0 API](/docs/reference/api/oidc/) page.
+You can find a full description of the relevant Okta APIs on the [OpenID Connect & OAuth 2.0 API](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/) page.
 
 The following are a few things that you can try to ensure that your authorization server is functioning as expected.
 

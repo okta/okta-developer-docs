@@ -31,7 +31,7 @@ Native SSO enables you to protect native OpenID Connect applications, such as de
 
 SSO between browser-based web applications is achieved by sharing cookies. Unlike web applications, native applications can't use web cookies.
 
-Okta offers a token-based approach to achieve SSO between native applications. See [OpenID Connect & OAuth 2.0 API](/docs/reference/api/oidc/) for more information on the OAuth 2.0 and OpenID Connect endpoints.
+Okta offers a token-based approach to achieve SSO between native applications. See [OpenID Connect & OAuth 2.0 API](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/) for more information on the OAuth 2.0 and OpenID Connect endpoints.
 
 ## Before you begin
 

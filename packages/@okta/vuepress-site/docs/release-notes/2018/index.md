@@ -800,7 +800,7 @@ The following features have already been released as Early Access. To enable the
 
 #### ID Tokens Can Be Refreshed
 
-OpenID Connect ID tokens can now be retrieved using a refresh token. For more information, see our [OpenID Connect Reference](/docs/reference/api/oidc/).
+OpenID Connect ID tokens can now be retrieved using a refresh token. For more information, see our [OpenID Connect Reference](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/).
 
 #### Custom URL Domains are in Early Access
 
@@ -1082,7 +1082,7 @@ Secure your APIs with API Access Management, Okta's implementation of the OAuth 
 
 Generally Available (GA) in preview orgs since February 7, 2018, API Access Management is scheduled to be GA in production orgs starting March 12, 2018.
 
-For more information, see [OAuth 2.0 and Okta](/docs/reference/api/oidc/). <!--OKTA-153127-->
+For more information, see [OAuth 2.0 and Okta](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/). <!--OKTA-153127-->
 
 #### System Log API is in Early Access (EA)
 
@@ -1355,7 +1355,7 @@ The following bug has been fixed and is expected in preview orgs February 14, 20
 
 Secure your APIs with API Access Management, Okta's implementation of the OAuth 2.0 authorization framework. API Access Management uses the Okta Identity platform to enable powerful control over access to your APIs. API Access Management can be controlled through the administrator UI as well as a rich set of APIs for client, user, and policy management.
 
-For more information, see [OAuth 2.0 and Okta](/docs/reference/api/oidc/). <!--OKTA-153127-->
+For more information, see [OAuth 2.0 and Okta](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/). <!--OKTA-153127-->
 
 #### New Administrator Role for API Access Management
 

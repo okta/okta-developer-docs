@@ -930,7 +930,7 @@ Passwords are weak authenticators and prone to security issues. Currently all us
 
 #### Bugs fixed in 2022.05.0
 
-* Web and SPA app integrations using the [OIDC API](/docs/reference/api/oidc/) with the `Login Initiated By` feature incorrectly returned an error if they were created using an `authorization_code` or `interaction_code` grant type. (OKTA-435855)
+* Web and SPA app integrations using the [OIDC API](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/) with the `Login Initiated By` feature incorrectly returned an error if they were created using an `authorization_code` or `interaction_code` grant type. (OKTA-435855)
 
 * If the Administrator Roles API ([users](/docs/reference/api/roles/#remove-a-group-target-from-a-group-administrator-role-given-to-a-user) and [groups](/docs/reference/api/roles/#remove-a-group-target-from-a-group-administrator-role-given-to-a-group)) endpoints contained an invalid role type, an HTTP 500 Internal Server Error was returned. (OKTA-393032)
 
