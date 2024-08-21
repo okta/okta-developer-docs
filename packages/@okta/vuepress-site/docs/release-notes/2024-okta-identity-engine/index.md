@@ -40,7 +40,7 @@ In the System Log, the `system.custom_url_domain.verify` and `system.email_domai
 
 * The `honorPersistentNameId` parameter default setting for SAML IdPs was set to `false` if it was omitted from IdP API requests. (OKTA-791891)
 
-* Some Group API users experienced inconsistent pagination when the limit was higher than 200. (OKTA-795107)
+* Some Group API users experienced inconsistent pagination when the `limit` was higher than 200. (OKTA-795107)
 
 ### Weekly release 2024.08.1
 
