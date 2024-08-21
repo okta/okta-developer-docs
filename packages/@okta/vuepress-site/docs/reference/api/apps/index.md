@@ -1460,7 +1460,7 @@ You can change the `issuer_mode` value using the API or the Admin Console. To en
   * Apps created on `/api/v1/apps` default to `consent_method=TRUSTED`, while those created on `/api/v1/clients` default to `consent_method=REQUIRED`.
   * If you request a scope that requires consent while using the `client_credentials` flow, an error is returned. Because there is no user, no consent can be given.
   * If the `prompt` value is set to `NONE`, but the `consent_method` and the `consent` values are set to `REQUIRED`, then an error occurs.
-  * The following properties can also be configured in the App Wizard and on the **General** tab in the Admin Console: `tos_uri`, `policy_uri`, and `logo_uri` and can be set using the [Dynamic Client Registration API](/docs/reference/api/oauth-clients/).
+  * You can configure the `tos_uri`, `policy_uri`, and `logo-uri` properties in the App Wizard and on the **General** tab in the Admin Console. You can also set these properties using the [Dynamic Client Registration API](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/Client/).
   * The `consent_method` property can be configured in the App Wizard and on the **General** tab in the Admin Console, but cannot be set using the Dynamic Client Registration API.
   * After an app is created, you can't change the `application_type`.
 
@@ -4486,7 +4486,7 @@ Assigns a group to an application
 | ---------     | ----------------------------------------------- | ---------- | --------------------------------------------- | -------- | ------- |
 | appgroup      | App group                                       | Body       | [Application Group](#application-group-object) | FALSE    |         |
 | applicationId | `id` of an [app](#application-object)            | URL        | String                                        | TRUE     |         |
-| groupId       | unique key of a valid [Group](/docs/reference/api/groups/)           | URL        | String                | TRUE     |         |
+| groupId       | unique key of a valid [Group](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/)           | URL        | String                | TRUE     |         |
 
 ##### Response parameters
 
@@ -4524,7 +4524,7 @@ Fetches an application group assignment
 | Parameter     | Description                                     | Param Type | DataType | Required | Default |
 | ---------     | ----------------------------------------------- | ---------- | -------- | -------- | ------- |
 | applicationId | `id` of an [app](#application-object)            | URL        | String   | TRUE     |         |
-| groupId       | unique key of an assigned [Group](/docs/reference/api/groups/)       | URL        | String   | TRUE     |         |
+| groupId       | unique key of an assigned [Group](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/)       | URL        | String   | TRUE     |         |
 
 ##### Response parameters
 
@@ -4610,7 +4610,7 @@ Removes a group assignment from an application
 | Parameter     | Description                                     | Param Type | DataType | Required | Default |
 | ---------     | ----------------------------------------------- | ---------- | -------- | -------- | ------- |
 | applicationId | `id` of an [app](#application-object)            | URL        | String   | TRUE     |         |
-| groupId       | unique key of an assigned [Group](/docs/reference/api/groups/)       | URL        | String   | TRUE     |         |
+| groupId       | unique key of an assigned [Group](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/)       | URL        | String   | TRUE     |         |
 
 ##### Response parameters
 
@@ -5795,7 +5795,7 @@ If the delete request is received for an active secret, you receive an error res
 
 Adds a new JSON Web Key to the client’s JSON Web Keys.
 
-> **Note:** This API doesn't let you add a key if the existing key doesn't have a `kid`. This is also in sync with how the clients/apps APIs behave, as they don't allow the creation of multiple keys without `kids`. Use the [Update application](/docs/reference/api/apps/#update-application) operation or the [Update a client application](/docs/reference/api/oauth-clients/#update-a-client-application) to update the JWKS or use the new JWKS Management API's [delete a key operation](/docs/reference/api/apps/#delete-a-json-web-key) and re-add the key with a `kid`.
+> **Note:** This API doesn't let you add a key if the existing key doesn't have a `kid`. This is also in sync with how the clients/apps APIs behave, because they don't allow the creation of multiple keys without `kids`. Use the [Update application](/docs/reference/api/apps/#update-application) operation or the [Update a client application](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/Client/#tag/Client/operation/replaceClient) to update the JWKS or use the new JWKS Management API's [delete a key operation](/docs/reference/api/apps/#delete-a-json-web-key) and re-add the key with a `kid`.
 
 ##### Request parameters
 

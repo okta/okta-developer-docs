@@ -13,7 +13,7 @@
 
 Save the generated **Client ID** and **Client secret** values to implement your authorization flow.
 
-> **Note:** You can either create an OIDC app integration or use an existing one. In the previous instructions, you're creating a native (mobile) app integration using the Admin Console. Use the [Dynamic Client Registration API](/docs/reference/api/oauth-clients/#client-application-object) to create a SPA or web client application for use with the SAML 2.0 Assertion grant type.
+> **Note:** You can either create an OIDC app integration or use an existing one. In the previous instructions, you're creating a native (mobile) app integration using the Admin Console. Use the [Dynamic Client Registration API](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/Client/) to create a SPA or web client application for use with the SAML 2.0 Assertion grant type.
 
 ### Configure the authorization server policy
 

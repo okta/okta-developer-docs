@@ -40,7 +40,7 @@ See [Which authorization server should you use](/docs/concepts/auth-servers/#whi
 
   > **Note:** An access token that is minted by a custom authorization server requires that you define the **Audience** property and that it matches the `aud` claim that is returned during access token validation. The **Audience** property should be set to the URI for the OAuth 2.0 resource server that consumes the access token. Use an absolute path such as `https://api.example.com/pets`. This value is used as the default [audience](https://tools.ietf.org/html/rfc7519#section-4.1.3) for access tokens.
 
-When you finish, the authorization server's **Settings** tab displays the information that you provided. If you need to [edit any of the information](/docs/reference/api/authorization-servers/#authorization-server-properties), such as [Signing Key Rotation](/docs/concepts/key-rotation/), click **Edit**.
+When you finish, the authorization server's **Settings** tab displays the information that you provided. If you need to [edit any of the information](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServer/), such as [Signing Key Rotation](/docs/concepts/key-rotation/), click **Edit**.
 
 ## Create access policies
 
@@ -175,13 +175,13 @@ You can retrieve a list of all scopes for your authorization server, including c
 
 `/api/v1/authorizationServers/{authorizationServerId}/scopes`
 
-For more information on this endpoint, see [Get all scopes](/docs/reference/api/authorization-servers/#get-all-scopes).
+For more information on this endpoint, see [Get all scopes](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServerScopes/#tag/AuthorizationServerScopes/operation/listOAuth2Scopes).
 
 If you created any custom claims, the easiest way to confirm that they’ve been successfully added is to use this endpoint:
 
 `/api/v1/authorizationServers/{authorizationServerId}/claims`
 
-For more information on this endpoint, see [Get all claims](/docs/reference/api/authorization-servers/#get-all-claims).
+For more information on this endpoint, see [Get all claims](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServerClaims/#tag/AuthorizationServerClaims/operation/listOAuth2Claims).
 
 ### Test an OpenID Connect flow
 

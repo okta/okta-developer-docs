@@ -112,10 +112,10 @@
                 },
                 {
                     id: 2,
-                    title: 'Automate the user lifecycle',
+                    title: 'Automate lifecycle management',
                     text: 'Automatically provision, update, and deprovision users securely with SCIM and automate complex actions with our low code/no-code building tools.',
                     link: '/docs/guides/oin-lifecycle-mgmt-overview/',
-                    linkText: 'Get started with the user lifecycle',
+                    linkText: 'Get started with lifecycle management',
                     list: [
                         'Synchronize your app user profiles with Okta profiles',
                         'Use <a href="/docs/concepts/scim/">SCIM</a> to manage users in cloud-based systems',

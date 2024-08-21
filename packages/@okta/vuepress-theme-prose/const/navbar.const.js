@@ -862,11 +862,6 @@ export const guides = [
             guideName: "archive-sign-in-to-spa-authjs",
             description: true
           },
-          {
-            title: "Sign in to SPA: Embedded widget",
-            guideName: "archive-sign-in-to-spa-embedded-widget",
-            description: true
-          },
           { title: "Sign users out", guideName: "sign-users-out" },
           {
             title: "Add multifactor authentication",
@@ -1000,7 +995,7 @@ export const reference = [
                { title: "User query options", path: "/docs/reference/user-query/" },
                { title: 'Sign in Your Users', path: 'empty' },
                { title: "Authentication", path: "/docs/reference/api/authn/" },
-               { title: "Identity Providers", path: "/docs/reference/api/idps/" },
+               { title: "Identity Providers", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/" },
                { title: "OpenID Connect & OAuth 2.0 API", path: "/docs/reference/api/oidc/" },
                { title: "WebFinger", path: "/docs/reference/api/webfinger/" },
                { title: "Manage Okta Objects", path: "empty" },
@@ -1011,7 +1006,7 @@ export const reference = [
                { title: "Apps", path: "/docs/reference/api/apps/" },
                { title: "Attack Protection", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AttackProtection/" },
                { title: "Authenticators Admin", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/" },
-               { title: "Authorization Servers", path: "/docs/reference/api/authorization-servers/" },
+               { title: "Authorization Servers", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServer/" },
                { title: "Behavior Rules", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Behavior/" },
                { title: "Brands", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Brands/" },
                { title: "CAPTCHAs", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/CAPTCHA/" },
@@ -1021,7 +1016,7 @@ export const reference = [
                { title: "Custom Sign-out Page", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/CustomPages/#tag/CustomPages/operation/getSignOutPageSettings" },
                { title: "Device Assurance Policies", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/DeviceAssurance/" },
                { title: "Devices", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Device/" },
-               { title: "Dynamic Client Registration", path: "/docs/reference/api/oauth-clients/" },
+               { title: "Dynamic Client Registration", path: "https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/Client/" },
                { title: "Email Domains", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/EmailDomain/" },
                { title: "Event Types", path: "/docs/reference/api/event-types/" },
                { title: "ITP Event Types", path: "/docs/reference/api/itp-et/", hidden: true },

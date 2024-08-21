@@ -136,7 +136,7 @@ To add a custom claim:
 
 ### Verify the custom claim
 
-To confirm that your custom claim is successfully added, you can [retrieve a list of all claims](/docs/reference/api/authorization-servers/#get-all-claims) from your authorization server, including the custom ones, using the `/claims` endpoint:
+To confirm that your custom claim is successfully added, you can [retrieve a list of all claims](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServerClaims/#tag/AuthorizationServerClaims/operation/listOAuth2Claims) from your authorization server, including the custom ones, using the `/claims` endpoint:
 
 `https://{yourOktaDomain}/api/v1/authorizationServers/{authorizationServerId}/claims`
 

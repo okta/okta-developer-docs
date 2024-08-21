@@ -96,11 +96,11 @@ redirects:
   - from: /docs/api/rest/groups.html
     to: /docs/reference/api/groups/index.html
   - from: /docs/api/rest/idps.html
-    to: /docs/reference/api/idps/index.html
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/
   - from: /docs/api/resources/idps
-    to: /docs/reference/api/idps/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/
   - from: /docs/api/rest/oauth-clients.html
-    to: /docs/reference/api/oauth-clients/index.html
+    to: https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/Client/index.html
   - from: /docs/reference/api/oauth2
     to: /docs/reference/api/oidc/index.html
   - from: /docs/how-to/beta-auth-service/api-access-management-troubleshooting
@@ -454,9 +454,9 @@ redirects:
   - from: /docs/api/resources/roles/index.html
     to: /docs/reference/api/roles/
   - from: /docs/api/resources/authorization-servers/index.html
-    to: /docs/reference/api/authorization-servers/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServer/
   - from: /docs/api/resources/oauth-clients/index.html
-    to: /docs/reference/api/oauth-clients/
+    to: https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/Client/
   - from: /docs/api/resources/events/index.html
     to: /docs/reference/api/system-log/
   - from: /docs/api/resources/event-hooks/index.html
@@ -470,7 +470,7 @@ redirects:
   - from: /docs/api/resources/groups/index.html
     to: /docs/reference/api/groups/
   - from: /docs/api/resources/idps/index.html
-    to: /docs/reference/api/idps/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/
   - from: /docs/api/resources/inline-hooks/index.html
     to: /docs/reference/api/inline-hooks/
   - from: /docs/api/resources/linked-objects/index.html
@@ -788,9 +788,9 @@ redirects:
   - from: /docs/api/resources/roles
     to: /docs/reference/api/roles/
   - from: /docs/api/resources/authorization-servers
-    to: /docs/reference/api/authorization-servers/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServer/
   - from: /docs/api/resources/oauth-clients
-    to: /docs/reference/api/oauth-clients/
+    to: https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/Client/
   - from: /docs/api/resources/events
     to: /docs/reference/api/system-log/
   - from: /docs/api/resources/event-hooks
@@ -890,9 +890,9 @@ redirects:
   - from: /docs/api/resources/roles.html
     to: /docs/reference/api/roles/
   - from: /docs/api/resources/authorization-servers.html
-    to: /docs/reference/api/authorization-servers/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServer/
   - from: /docs/api/resources/oauth-clients.html
-    to: /docs/reference/api/oauth-clients/
+    to: https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/Client/
   - from: /docs/api/resources/events.html
     to: /docs/reference/api/system-log/
   - from: /docs/api/resources/event-hooks.html
@@ -902,7 +902,7 @@ redirects:
   - from: /docs/api/resources/groups.html
     to: /docs/reference/api/groups/
   - from: /docs/api/resources/idps.html
-    to: /docs/reference/api/idps/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/
   - from: /docs/api/resources/linked-objects.html
     to: /docs/reference/api/linked-objects/
   - from: /docs/api/resources/policy.html
@@ -5496,7 +5496,7 @@ redirects:
   - from: /code/angular/okta_angular_sign-in_widget
     to: /docs/guides/sign-in-to-spa-embedded-widget/angular/main/
   - from: /code/angular/okta_angular_auth_js/index.html
-    to: /docs/guides/archive-sign-in-to-spa-embedded-widget/angular/main/
+    to: /docs/guides/sign-in-to-spa-embedded-widget/angular/main/
   - from: /code/angular/okta_angular_auth_js
     to: /docs/guides/archive-sign-in-to-spa-authjs/angular/main/
   - from: /code/javascript/okta_sign-in_widget/index.html

@@ -43,7 +43,7 @@ The following operators and functionalities offered by SpEL aren't supported in 
 
 When you create an Okta expression, you can reference any property that exists in an Okta User Profile in addition to some top-level User properties.
 
-> **Note:** You can't use the `user.status` expression with group rules. See [Group rule operations](/docs/reference/api/groups/#group-rule-operations) and [Create group rules](https://help.okta.com/okta_help.htm?type=wf&id=ext-okta-method-creategrouprule).
+> **Note:** You can't use the `user.status` expression with group rules. See [Group rule operations](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/GroupRule/) and [Create Group Rule](https://help.okta.com/okta_help.htm?type=wf&id=ext-okta-method-creategrouprule).
 
 | Syntax                             | Definitions                                                                              | Examples                                                       |
 | --------                           | ----------                                                                               | ------------                                                   |
@@ -80,7 +80,7 @@ You can specify the [dynamic IdP](/docs/reference/api/policy/#policy-action-with
 
 ### Okta account management
 <ApiLifecycle access="ea"/>
-You can specify certain [Expression Language conditions](/docs/reference/api/policy/#okta-expression-language-condition-object) in [Okta account management policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-account-management-policy).
+You can specify certain [Expression Language conditions](/docs/reference/api/policy/#okta-expression-language-condition-object) in [Okta account management policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-oamp).
 
 | Syntax | Definitions | Type |
 | ------ | ----------- | ---- |
@@ -161,7 +161,7 @@ Okta offers various functions to manipulate properties to generate a desired out
 |                                  |             | `-1.6.toInteger()`                               | -2                               |
 |                                  |             | `2147483647.7.toInteger()`                       | -2147483648 (Integer overflow)   |
 
-> **Note:**  The `toInteger` functions round the passed numeric value (or the String representation of the numeric value) either up or down to the nearest integer. Make sure to consider integer type range limitations when you convert to an integer with these functions.
+> **Note:**  The `toInteger` functions round the passed numeric value (or the String representation of the numeric value) either up or down to the nearest integer. Make sure to consider range limitations of the integer type when you convert to an integer with these functions.
 
 ##### Country code conversion functions
 

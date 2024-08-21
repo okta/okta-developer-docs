@@ -21,7 +21,7 @@ Know the purpose of a global session policy and authentication policies and be a
 #### What you need
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
-* [Groups created](/docs/reference/api/groups/) in your org
+* [Groups created](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/) in your org
 * An application that you want to assign to an authentication policy
 * [Authenticators](https://help.okta.com/okta_help.htm?type=oie&id=csh-configure-authenticators) configured in your org
 * A configured [dynamic network zone](https://help.okta.com/okta_help.htm?id=ext_Security_Network)

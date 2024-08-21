@@ -51,7 +51,7 @@ The following are the high-level steps required to perform the Client Credential
 
 Create an OAuth 2.0 service app integration using the Admin Console.
 
-  > **Note:** You can also use the `/oauth2/v1/clients` endpoint to [create your service app using the API](/docs/reference/api/oauth-clients/#request-example-create-a-service-app-with-a-jwks). If you use the API, follow the [Generate the JWK using the API](#generate-the-jwk-using-the-api) section first, as you need the `JWKS` parameter value when you create the client using the API.
+  > **Note:** You can also use the `/oauth2/v1/clients` endpoint to [create your service app using the API](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/Client/#tag/Client/operation/createClient). If you use the API, follow the [Generate the JWK using the API](#generate-the-jwk-using-the-api) section first, because you need the `JWKS` parameter value when you create the client using the API.
   >
   >You can also add more JWKS to the app later using the [Add a new JSON Web Key](https://developer.okta.com/docs/reference/api/apps/#add-new-json-web-key) API.
 
@@ -116,7 +116,7 @@ curl -i -X POST \
 
 The `private_key_jwt` client authentication method is the only supported method for OAuth service apps that want to get access tokens with Okta scopes.
 
-The private key that you use to sign the JWT must have the corresponding public key registered in the [JWKSet](/docs/reference/api/oauth-clients/#json-web-key-set) of the OAuth service app. Okta recommends generating the public/private key pair first before creating the OAuth service app.
+The private key that you use to sign the JWT must have the corresponding public key registered in the [JWKSet](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/Client/#tag/Client/operation/createClient) of the OAuth service app. Okta recommends generating the public/private key pair first before creating the OAuth service app.
 
 1. Use a tool such as this [JSON Web Key Generator](https://mkjwk.org/) to generate a JWKS public/private key pair for testing. Okta supports both RSA and Elliptic Curve (EC) keys. In this example, select **RSA** as the encryption algorithm. Select the following values:
 

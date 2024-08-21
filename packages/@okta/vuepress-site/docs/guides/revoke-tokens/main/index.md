@@ -73,7 +73,7 @@ curl --location --request POST 'https://{yourOktaDomain}/oauth2/v1/revoke' \
 -d "token_type_hint=refresh_token"
 ```
 
-See [Rule policies](/docs/reference/api/authorization-servers/#rule-properties) for more information on configuring Time to Live (TTL) and other parameters involving access and refresh tokens.
+See [Rule policies](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServerRules/) for more information on configuring Time to Live (TTL) and other parameters involving access and refresh tokens.
 
 ## Remove a user session
 

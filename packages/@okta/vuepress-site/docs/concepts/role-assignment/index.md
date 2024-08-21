@@ -18,14 +18,14 @@ The following role types are provided and supported:
 | :-------------------------------------- | :---------------------------------- | :------------------------------------ |
 | `API_ACCESS_MANAGEMENT_ADMIN`           | API Access Management administrator |                                       |
 | `APP_ADMIN`                             | Application administrator           | Apps                                  |
-| `GROUP_MEMBERSHIP_ADMIN`                | Group membership administrator      | [Groups](/docs/reference/api/groups/) |
-| `HELP_DESK_ADMIN`                       | Help desk administrator             | [Groups](/docs/reference/api/groups/) |
+| `GROUP_MEMBERSHIP_ADMIN`                | Group membership administrator      | [Groups](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/) |
+| `HELP_DESK_ADMIN`                       | Help desk administrator             | [Groups](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/) |
 | `MOBILE_ADMIN`                          | Mobile administrator                |                                       |
 | `ORG_ADMIN`                             | Organization administrator        |                                       |
 | `READ_ONLY_ADMIN`                       | Read-only administrator             |                                       |
 | `REPORT_ADMIN`                          | Report administrator                |                                       |
 | `SUPER_ADMIN`                           | Super administrator                 |                                       |
-| `USER_ADMIN`                            | Group administrator                 | [Groups](/docs/reference/api/groups/) |
+| `USER_ADMIN`                            | Group administrator                 | [Groups](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/) |
 
 ### IAM-based standard role Types
 <ApiLifecycle access="ea" />
@@ -148,15 +148,15 @@ If the resource has a corresponding Okta API, you can specify the resource by it
 | Service                 | Resource                                                            |  ORN identifier                                                               | REST URL                                                                                                                                                |
 | :---------------------- | :------------------------------------------------------------------ | :---------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Directory               | All users                                                           | `orn:{partition}:directory:{yourOrgId}:users`                                       | [`https://{yourOktaDomain}/api/v1/users`](/docs/reference/api/users/#list-users)                                                                       |
-|                         | All groups                                                          | `orn:{partition}:directory:{yourOrgId}:groups`                                      | [`https://{yourOktaDomain}/api/v1/groups`](/docs/reference/api/groups/#list-groups)                                                                    |
-|                         | A specific group                                                    | `orn:{partition}:directory:{yourOrgId}:groups:{groupId}`                           | [`https://{yourOktaDomain}/api/v1/groups/{groupId}`](/docs/reference/api/groups/#get-group)                                                           |
-|                         | All users within a specific group                                   | `orn:{partition}:directory:{yourOrgId}:groups:{groupId}:contained_resources`       | [`https://{yourOktaDomain}/api/v1/groups/{groupId}/users`](/docs/reference/api/groups/#list-group-members)                                            |
+|                         | All groups                                                          | `orn:{partition}:directory:{yourOrgId}:groups`                                      | [`https://{yourOktaDomain}/api/v1/groups`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/#tag/Group/operation/listGroups)                                                                    |
+|                         | A specific group                                                    | `orn:{partition}:directory:{yourOrgId}:groups:{groupId}`                           | [`https://{yourOktaDomain}/api/v1/groups/{groupId}`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/#tag/Group/operation/getGroup)                                                           |
+|                         | All users within a specific group                                   | `orn:{partition}:directory:{yourOrgId}:groups:{groupId}:contained_resources`       | [`https://{yourOktaDomain}/api/v1/groups/{groupId}/users`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/#tag/Group/operation/listGroupUsers)                                            |
 |                         | All devices     <br><ApiLifecycle access="ea" />                                                     | `orn:{partition}:directory:{yourOrgId}:devices`                                     | [`https://{yourOktaDomain}/api/v1/devices`](/docs/reference/api/devices)                                            |
 | Identity Provider       | All apps                                                            | `orn:{partition}:idp:{yourOrgId}:apps`                                              | [`https://{yourOktaDomain}/api/v1/apps`](/docs/reference/api/apps/#list-applications)                                                                  |
 |                         | All apps of a specific type                                         | `orn:{partition}:idp:{yourOrgId}:apps:{appType}`                                   | [`https://{yourOktaDomain}/api/v1/apps/?filter=name+eq+\"{targetAppType}\"`](/docs/reference/api/apps/#list-apps-by-name)                             |
 |                         | A specific app                                                      | `orn:{partition}:idp:{yourOrgId}:apps:{appType}:{appId}`                          | [`https://{yourOktaDomain}/api/v1/apps/{appId}`](/docs/reference/api/apps/#get-application)                                                           |
-|                         | All authorization servers                                           | `orn:{partition}:idp:{yourOrgId}:authorization_servers`                             | [`https://{yourOktaDomain}/api/v1/authorizationServers`](/docs/reference/api/authorization-servers/#list-authorization-servers)                        |
-|                         | A specific authorization server                                     | `orn:{partition}:idp:{yourOrgId}:authorization_servers:{authorizationServerId}`    | [`https://{yourOktaDomain}/api/v1/authorizationServers/{authorizationServerId}`](/docs/reference/api/authorization-servers/#get-authorization-server) |
+|                         | All authorization servers                                           | `orn:{partition}:idp:{yourOrgId}:authorization_servers`                             | [`https://{yourOktaDomain}/api/v1/authorizationServers`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServer/#tag/AuthorizationServer/operation/listAuthorizationServers)                     |
+|                         | A specific authorization server                                     | `orn:{partition}:idp:{yourOrgId}:authorization_servers:{authorizationServerId}`    | [`https://{yourOktaDomain}/api/v1/authorizationServers/{authorizationServerId}`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServer/#tag/AuthorizationServer/operation/getAuthorizationServer) |
 |                         | All customizations                                                  | `orn:{partition}:idp:{yourOrgId}:customizations`                                    |                                                                                                                                                         |
 | Workflows               | All delegated flows                                                 | `orn:{partition}:workflow:{yourOrgId}:flows`                                        |                                                                                                                                                         |
 |                         | A specific delegated flow                                           | `orn:{partition}:workflow:{yourOrgId}:flows:{flowId}`                              |                                                                                                                                                         |
@@ -176,14 +176,14 @@ To specify binding members, use the REST URL of the corresponding Okta API:
   https://{yourOktaDomain}/api/v1/users/{memberUserId}
   ```
 
-* [A specific group](/docs/reference/api/groups/#get-group)
+* [A specific group](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/#tag/Group/operation/getGroup)
 
   ```bash
   https://{yourOktaDomain}/api/v1/groups/{memberGroupId}
   ```
 
 <ApiLifecycle access="ea" />
-* [A specific client application](/docs/reference/api/oauth-clients/#get-an-oauth-client)
+* [A specific client application](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/Client/#tag/Client/operation/getClient)
 
   ```bash
   https://{yourOktaDomain}/oauth2/v1/clients/{clientId}

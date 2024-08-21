@@ -246,25 +246,25 @@ This function takes Okta EL expressions for all parameters that evaluate to the 
 | `group_expression`     | Valid Okta EL expression that evaluates to a string for use in evaluating the group. This string must also be a valid Okta EL expression. | FALSE    |
 | `limit`                | Valid Okta EL expression that evaluates to an integer from 1 through 100, inclusive, to indicate the maximum number of groups to return **Note:** When you use the [Authorization Code](/docs/guides/implement-grant-type/authcode/main/) and [Authorization Code with PKCE](/docs/guides/implement-grant-type/authcodepkce/main/) flows, you can specify any number of maximum groups returned.  | FALSE    |
 
-The string produced by the `group_expression` parameter usually contains attributes and objects from the [Groups API](/docs/reference/api/groups/), although it isn't limited to those attributes and objects. Attributes and objects listed in the [Group Attributes](/docs/reference/api/groups/#group-attributes) section of the Groups API can be any of the following: `id`, `status`, `name`, `description`, `objectClass`, and the `profile` object that contains the `groupType`, `samAccountName`, `objectSid`, `groupScope`, `windowsDomainQualifiedName`, `dn`, and `externalID` attributes for groups that come from apps such as Active Directory.
+The string produced by the `group_expression` parameter usually contains attributes and objects from the [Groups API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/), although it isn't limited to those attributes and objects. Attributes and objects listed in the Groups API can be any of the following: `id`, `status`, `name`, `description`, `objectClass`, and `profile`. The [`profile`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/#tag/Group/operation/getGroup!c=200&path=profile&t=response) object contains the `groupType`, `samAccountName`, `objectSid`, `groupScope`, `windowsDomainQualifiedName`, `dn`, and `externalID` attributes for groups that come from apps such as Active Directory.
 
-The allowlist parameter must evaluate to a list of group IDs that are returned from the [Groups API](/docs/reference/api/groups/). If the user isn't a member of a group in the allowlist, that group is ignored.
+The `allowlist` parameter must evaluate to a list of group IDs that are returned from the [Groups API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/). If the user isn't a member of a group in the allowlist, that group is ignored.
 
 #### Parameter Examples
 
-* allowlist
+* `allowlist`
   * Array: <code class="OKTA-263808">{"00gn335BVurvavwEEL0g3", "00gnfg5BVurvavAAEL0g3"}</code>
   * Array variable: `app.profile.groupallowlist`
-* group_expression
+* `group_expression`
   * Attribute name: `"group.id"`
-  * Okta EL string that contains an `if` condition: `"(group.objectClass[0] == 'okta:windows_security_principal') ? 'AD: ' + group.profile.windowsDomainQualifiedName : 'Okta: ' + group.name"` If `okta:windows_security_principal` is true for a group, the function returns the `windowsDomainQualifiedName` prefixed with `AD:`. Otherwise, the function returns the group name prefixed with `Okta:`.
-* limit
+  * Okta EL string that contains an `if` condition: `"(group.objectClass[0] == 'okta:windows_security_principal') ? 'AD: ' + group.profile.windowsDomainQualifiedName : 'Okta: ' + group.name"`. If `okta:windows_security_principal` is true for a group, the function returns the `windowsDomainQualifiedName` prefixed with `AD:`. Otherwise, the function returns the group name prefixed with `Okta:`.
+* `limit`
   * Integer from 1 through 100, inclusive. For example: `50`
   * Okta EL expression that contains a condition that evaluates to an integer: `app.profile.maxLimit < 100 ? app.profile.maxLimit : 100`. If the maximum group limit in the profile is less than 100, return that number of groups. Otherwise, return a maximum of 100 groups. If there are more groups returned than the specified limit, an error is returned.
 
 ## Use a static group allowlist with the org authorization server
 
-For an org authorization server, you can only create an ID token with a groups claim, not an access token. For the steps to configure a groups claim for use with an access token, see the [Use a static group allowlist with a custom authorization server](#use-a-static-group-allow-list-with-a-custom-authorization-server) section.
+For an org authorization server, you can only create an ID token with a groups claim, not an access token. For the steps to configure a groups claim for use with an access token, see the [Use a static group allowlist with a custom authorization server](#use-a-static-group-allowlist-with-a-custom-authorization-server) section.
 
 1. In the Admin Console, go to **Applications** > **Applications**.
 1. Select the OpenID Connect client application that you want to configure.
