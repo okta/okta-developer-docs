@@ -145,7 +145,9 @@ Authorization: Bearer ${access_token}
 
 Create a child org of the parent org using the Org creator API. This creates a child org with features synced from the parent org. In the API response, you receive an API token tied to the super admin. Use the token to provision more resources on the child org like policies, apps, or groups.
 
-This isn't the token that's used for Okta Aerial. The API token that the Org creator API creates has the same automatic expiration and deactivation as API tokens created using the [Admin Console](/docs/guides/create-an-api-token/main/#token-expiration-and-deactivation).
+>**Note:** Before creating a child org, ensure you give consent to the parent org with the [Grant Okta Aerial access to your Org API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingSupport/#tag/OrgSettingSupport/operation/grantAerialConsent).
+
+The API token isn't the token that's used for Okta Aerial. The token that the Org creator API creates has the same automatic expiration and deactivation as API tokens created using the [Admin Console](/docs/guides/create-an-api-token/main/#token-expiration-and-deactivation).
 
 However, the Org creator API token doesn’t appear in the Admin Console. You can’t use the Admin Console to revoke the token. If you deactivate the super admin (the first admin created during org creation), the token is deactivated.
 
