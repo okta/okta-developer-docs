@@ -238,8 +238,6 @@ After adding the sign-out function, the sample app is ready to test. Your sample
 <br /><button onclick="authClient.signOut();">Close Okta Session</button>
 </div>
 </body>
-
-
 </html>
 ```
 
