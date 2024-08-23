@@ -72,6 +72,10 @@ export const concepts = [
             path: "/docs/concepts/oie-intro/",
          },
          {
+          title: "Org Creator",
+          path: "/docs/concepts/org-creator/",
+         },
+         {
             title: "Okta organizations",
             path: "/docs/concepts/okta-organizations/",
          },
