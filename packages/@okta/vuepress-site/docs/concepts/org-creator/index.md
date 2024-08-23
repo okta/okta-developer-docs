@@ -28,7 +28,6 @@ There are three levels of Okta org configurations.
 You need the following requirements before you use the Org Creator API:
 
  - A parent org that has all the products and features for the child orgs that you want to create
-- A dedicated service account with super admin privileges in your parent org to create child orgs. Okta recommends that you have more than one admin account with super admin privileges.
-- Access to the Org Creator API from your service account (using either an OAuth 2.0 bearer or API token)
+- An API services app in your parent org with permissions to call the Org Creator API (Okta grants this permission, which is separate from the `okta.orgs.manage` scope)
 
 See the [Org Creator API](https://preview.redoc.ly/oktadev/tbs-okta-639083-org-creator-api/openapi/okta-management/management/tag/OrgCreation/).
