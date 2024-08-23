@@ -77,6 +77,8 @@ To create your app integration in Okta using the CLI:
 <StackSnippet snippet="redirectvalues" />
 4. Make note of the app configuration printed to the terminal as you use the Client ID and Issuer to configure your SPA.
 
+>**Note:** Edit your **Quickstart** app integration in the Admin Console to add the refresh token grant type. See step 8 in the following procedure.
+
 At this point, you can move to the next step: [Creating your app](#create-an-app). If you want to set up the integration manually, or find out what the CLI just did for you, read on.
 
 1. [Sign in to your Okta organization](https://developer.okta.com/login) with your administrator account.
