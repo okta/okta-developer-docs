@@ -2306,7 +2306,7 @@ redirects:
   - from: /docs/code/java/spring_security_saml.html
     to: /code/java/spring_security_saml/index.html
   - from: /docs/guides/password-import-hook/-/next-steps/index.html
-    to: /docs/guides/password-import-inline-hook/-/test-password-import-hook/
+    to: /docs/guides/password-import-inline-hook/nodejs/main/#test-your-hook
   - from: /docs/reference/api/oie-policy-types/index.html
     to: /docs/reference/api/policy/
   - from: /docs/concepts/ie-intro/index.html
@@ -2314,17 +2314,17 @@ redirects:
   - from: /docs/concepts/ie-intro
     to: https://help.okta.com/oie/en-us/okta_help_CSH.htm#ext-get-started-oie
   - from: /docs/guides/sign-into-web-app-remediation/-/before-you-begin/index.html
-    to: /docs/guides/oie-embedded-sdk-use-cases/oie-embedded-sdk-use-case-overview/
+    to: /docs/guides/embedded-sdk-use-cases/
   - from: /docs/guides/sign-into-web-app-remediation/-/configure-packages/index.html
     to: /docs/guides/oie-embedded-common-download-setup-app/main/
   - from: /docs/guides/sign-into-web-app-remediation/-/create-okta-application/index.html
     to: /docs/guides/oie-embedded-common-org-setup/
   - from: /docs/guides/sign-into-web-app-remediation/-/get-tokens/index.html
-    to: /docs/guides/oie-embedded-sdk-use-cases/oie-embedded-sdk-use-case-overview/
+    to: /docs/guides/embedded-sdk-use-cases/
   - from: /docs/guides/sign-into-web-app-remediation/-/handle-remediation/index.html
-    to: /docs/guides/oie-embedded-sdk-use-cases/oie-embedded-sdk-use-case-overview/
+    to: /docs/guides/embedded-sdk-use-cases/
   - from: /docs/guides/sign-into-web-app-remediation/-/next-steps/index.html
-    to: /docs/guides/oie-embedded-sdk-use-cases/oie-embedded-sdk-use-case-overview/
+    to: /docs/guides/embedded-sdk-use-cases/
   - from: /pricing/index.html
     to: https://www.okta.com/pricing/#customer-identity-products
   - from: /docs/index.html
