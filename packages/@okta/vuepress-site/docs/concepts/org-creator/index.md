@@ -1,7 +1,7 @@
 ---
-title: Okta org creator
+title: Okta Org Creator
 ---
-## Org creator
+## Org Creator
 
 > **Note:** You need to have the **Platform - Multi-org Deployment** product to enable the **Org Creator API** feature. Contact your Okta account team to enable this feature.
 
