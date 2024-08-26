@@ -7,6 +7,17 @@ title: Okta Identity Engine API release notes 2024
 
 ## August
 
+### Weekly release 2024.08.3
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| | |
+| [Bugs fixed in 2024.08.3](#bugs-fixed-in-2024-08-3)| |
+
+####
+
+#### Bugs fixed in 2024.08.3
+
 ### Weekly release 2024.08.2
 
 | Change | Expected in Preview Orgs |
