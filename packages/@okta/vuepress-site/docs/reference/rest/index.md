@@ -60,7 +60,7 @@ You need a free Okta Developer Edition org to get started. Don't have one? [Crea
 
 ## Import a collection
 
-Go to the Okta [Postman Collections](https://developer.okta.com/docs/reference/postman-collections/) reference to import the collection you want to test.
+Go to the Okta [Postman Collections](https://developer.okta.com/docs/reference/postman-collections/) reference to import the collection that you want to test.
 
 > **Note:** Alternatively, you can fork a collection from the [Okta Public API Collections](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/overview).
 
