@@ -8,7 +8,7 @@ meta:
     content: Get started with Okta REST APIs and learn how to import a collection and send requests in Postman.
 ---
 
-A great way to learn an Application Programming Interface (API) is to issue requests and inspect the responses. You can use Okta Postman collections to learn how to incorporate Okta APIs into your workflow. To use these collections, complete the following steps:
+A great way to learn an Application Programming Interface (API) is to issue requests and inspect the responses. You can use Okta Postman Collections to learn how to incorporate Okta APIs into your workflow. To use these collections, complete the following steps:
 
 1. [Sign up for Okta](#sign-up-for-okta) if you don't have an existing Okta org.
 1. [Set up your Postman environment](#set-up-your-postman-environment).
@@ -19,7 +19,7 @@ You can then [send test requests](#send-a-request) to your Okta org and verify t
 
 ## Sign up for Okta
 
-You need a free Okta developer-edition org to get started. Don't have one? [Create an org for free](https://developer.okta.com/signup). The developer-edition org is assigned a base URL such as `dev-1234567.okta.com`. This is your unique subdomain in Okta.
+You need a free Okta Developer Edition org to get started. Don't have one? [Create an org for free](https://developer.okta.com/signup). The Okta Developer Edition org is assigned a base URL such as `dev-1234567.okta.com`. This is your unique subdomain in Okta.
 
 > **Note:** Use this unique subdomain whenever you see the `{yourOktaDomain}` variable in this document.
 
@@ -27,7 +27,7 @@ You need a free Okta developer-edition org to get started. Don't have one? [Crea
 
 1. [Install the Postman app](https://www.getpostman.com/apps).
 1. Start Postman if it's not open already.
-1. In the upper-left corner, click **Import**.
+1. In the upper-left corner, click the hamburger menu > **File** > **Import** if you're on Windows or **Import** if you're on MacOS.
 1. In the **Import** dialog, paste the following link into the **Paste cURL, Raw text or URL...** textbox: `https://developer.okta.com/docs/api/postman/example.oktapreview.com.environment`.
    > **Note:** You can also download this environment locally and import it as a file.
 1. In the upper-right corner, click the box that lists the environments, and then select **`{yourOktaDomain}`** from the list. The initial value is `No Environment` if you just installed Postman.
@@ -42,7 +42,7 @@ You need a free Okta developer-edition org to get started. Don't have one? [Crea
 
     </div>
 
-1. In the upper-right corner, next to `{yourOktaDomain}`, click **Environment quick look** ![Postman environment quick look button](/img/postman/postman_eye_icon_button.png  "Displays the eye icon button").
+1. In the upper-right corner, next to `{yourOktaDomain}`, click **Environment quick look** ![Postman environment quick look button](/img/postman/postman_eye_icon_button.jpg  "Displays the quick look eye icon button").
 1. In the upper-right corner of the `{yourOktaDomain}` dialog, click **Edit**.
 
     <!--
@@ -60,7 +60,7 @@ You need a free Okta developer-edition org to get started. Don't have one? [Crea
 
 ## Import a collection
 
-Go to the Okta [Postman collections](https://developer.okta.com/docs/reference/postman-collections/) reference to import the collection you want to test.
+Go to the Okta [Postman Collections](https://developer.okta.com/docs/reference/postman-collections/) reference to import the collection you want to test.
 
 > **Note:** Alternatively, you can fork a collection from the [Okta Public API Collections](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/overview).
 
@@ -325,8 +325,6 @@ If you have an access token (such as the `access_token` value from the [Get an a
 
 1. Click **Send** for the API request. <br>The result pane displays the results of your request. In this `GET /api/v1/users` example, a list of users in your org appears.
 
-
-
 ## Tips
 
 Use the following tips to work more efficiently with your collection.
@@ -343,7 +341,7 @@ Your imported collections contain URLs and JSON request bodies that have sample 
 
   </div>
 
-2. Copy the `id` of the resource, in this example the `id` for Tony Stark, for use in your next request. You can add the `id` value in your Postman environment and use the corresponding variable in your request URL or body.
+1. Copy the `id` of the resource, in this example the `id` for Tony Stark, for use in your next request. You can add the `id` value in your Postman environment and use the corresponding variable in your request URL or body.
 
 ### Retain the headers when you click links
 
@@ -360,5 +358,5 @@ To retain the headers:
 Use Postman to learn more about the Okta APIs:
 
 * Review the [Okta API reference](https://developer.okta.com/docs/api/).
-* Import more API Postman collections.
+* Import more API Postman Collections.
 * Try request examples in the collections to help you understand how the APIs behave.
