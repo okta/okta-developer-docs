@@ -341,7 +341,7 @@ Your imported collections contain URLs and JSON request bodies that have sample 
 
   </div>
 
-1. Copy the `id` of the resource, in this example the `id` for Tony Stark, for use in your next request. You can add the `id` value in your Postman environment and use the corresponding variable in your request URL or body.
+1. Copy the `id` of the resource for use in your next request. In this example, use the `id` for Tony Stark. You can add the `id` value in your Postman environment and use the corresponding variable in your request URL or body.
 
 ### Retain the headers when you click links
 
