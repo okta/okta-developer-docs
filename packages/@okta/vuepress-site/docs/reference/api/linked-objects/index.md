@@ -8,6 +8,11 @@ meta:
 
 # Linked Objects API
 
+The Okta Linked Objects API provides operations to manage Okta relationships between Users.
+
+Explore the Linked Objects API and User Linked Objects API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/e2c0074faecec203e487)
+
+<!--
 Users have relationships to each other, like manager and subordinate or customer and sales representative. You can create users with relationships by using the Linked Objects API to represent the relationship.
 
 1. Create a Linked Object definition such as Manager:Subordinate or Case Worker:Client. These pairs are represented by a `primary` attribute and an `associated` attribute.
@@ -61,19 +66,24 @@ If you created multiple User Types (see [User Types](/docs/reference/api/user-ty
 ## Getting started
 
 Explore the Linked Objects API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/3ab2cf3f197337119d34)
+-->
 
 ## Link definition operations
 
-<ApiAuthMethodWarning />
+<!--<ApiAuthMethodWarning />-->
 
-Link definition operations allow you to manage the creation and removal of the link definitions. If you remove a link definition, links based on that definition are unavailable.
+Link definition operations allow you to manage the creation and removal of the link definitions. If you remove a link definition, links based on that definition are unavailable. These operations are available at the new [Okta API reference portal](https://developer.okta.com/docs/api/) as part of the [Linked Objects API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/LinkedObject/).
 
+<!--
 > **Note:** Links reappear if you recreate the definition. However, Okta is likely to change this behavior so that links don't reappear. Don't rely on this behavior in production environments.
 
 Each org can create up to 200 definitions and assign them to an unlimited number of users.
-
+-->
 ### Add Linked Object definition to User Profile schema
 
+See [Create a Linked Object Definition](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/LinkedObject/#tag/LinkedObject/operation/createLinkedObjectDefinition) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--
 <ApiOperation method="post" url="/api/v1/meta/schemas/user/linkedObjects" />
 
 Adds a Linked Object definition to the User Profile schema. The `name` field found in both the `primary` and `associated` objects can't start with a number and can only contain the following characters: `a-z`, `A-Z`, `0-9`, and `_`.
@@ -138,9 +148,13 @@ curl -X POST \
     }
 }
 ```
+-->
 
 ### Get a Linked Object definition by name
 
+See [Retrieve a Linked Object Definition](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/LinkedObject/#tag/LinkedObject/operation/getLinkedObjectDefinition) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--
 <ApiOperation method="get" url="/api/v1/meta/schemas/user/linkedObjects/${name}" />
 
 Gets a single Linked Object definition
@@ -196,10 +210,12 @@ curl -X GET \
 ```
 
 > **Note:** Regardless of whether you specify the `primary` or `associated` name in the request, the resulting `self` link contains the `primary`.
-
+-->
 ### Get all Linked Object definitions
 
+See [List all Linked Object Definitions](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/LinkedObject/#tag/LinkedObject/operation/listLinkedObjectDefinitions) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
 
+<!--
 <ApiOperation method="get" url="/api/v1/meta/schemas/user/linkedObjects" />
 
 Gets all of the Linked Object definitions for an org
@@ -270,10 +286,13 @@ curl -v -X GET \
     }
 ]
 ```
+-->
 
 ### Remove Linked Object definition
 
+See [Delete a Linked Object Definition](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/LinkedObject/#tag/LinkedObject/operation/deleteLinkedObjectDefinition) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
 
+<!--
 <ApiOperation method="delete" url="/api/v1/meta/schemas/user/linkedObjects/${name}" />
 
 Removes the Linked Object definition specified by either the `primary` or `associated` name. The entire definition is removed, regardless of which name that you specify.
@@ -311,19 +330,24 @@ HTTP/1.1 204 No Content
 ### Deprecated operations
 
 An earlier version of this API included the element `/default/linkedObjects` rather than just `/linkedObjects` in all of the URLs for operations on Linked Object definitions. These earlier endpoints are still supported but are deprecated. As described under [Links between User Types](#links-between-user-types), all Linked Object definitions apply to all User Types, not just to the default type. That is true for the deprecated operations as well. They affect all User Types, just like the corresponding endpoints that omit `/default`.
+-->
 
 ## Link value operations
 
-Use link value operations to assign users to a relationship (a pair of `primary` and `associated` links).
+Use link value operations to assign users to a relationship (a pair of `primary` and `associated` links). These operations are available at the new [Okta API reference portal](https://developer.okta.com/docs/api/) as part of the [User Linked Objects API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserLinkedObject/).
 
+<!--
 For the following operations, the examples use consistent IDs so that you can follow the operations more easily:
 
 * `manager` is the `primary` relationship and is assigned to `00u5t60iloOHN9pBi0h7`
 * `subordinate` is the `associated` relationship and is assigned to `00u5zex6ztMbOZhF50h7`
+-->
 
 ### Set Linked Object value for primary
 
+See [Assign a Linked Object value for primary](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserLinkedObject/#tag/UserLinkedObject/operation/assignLinkedObjectValueForPrimary) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
 
+<!--
 <ApiOperation method="put" url="/api/v1/users/${associated.userId}/linkedObjects/${primary.name}/${primary.userId}" />
 
 Sets the first user as the `associated` and the second user as the `primary` for the specified relationship. If the first user is already associated with a different `primary` for this relationship, the previous link is removed. A Linked Object relationship can specify only one primary user for an associated user.
@@ -359,10 +383,13 @@ curl -v -X PUT \
 ```http
 HTTP/1.1 204 No Content
 ```
+-->
 
 ### Get primary Linked Object value
 
+See [List the primary or all of the associated Linked Object values](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserLinkedObject/#tag/UserLinkedObject/operation/listLinkedObjectsForUser) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
 
+<!--
 <ApiOperation method="get" url="/api/v1/users/${id}/linkedObjects/${primary.name}" />
 
 For the user specified by ID, returns the `self` link for the `primary` user in the relationship specified by `primary.name`. If the user specified isn't the `associated` user in any relationship, an empty array is returned.
@@ -407,10 +434,12 @@ curl -v -X GET \
     }
 ]
 ```
-
+-->
 ### Get associated Linked Object values
 
+See [List the primary or all of the associated Linked Object values](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserLinkedObject/#tag/UserLinkedObject/operation/listLinkedObjectsForUser) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
 
+<!--
 <ApiOperation method="get" url="/api/v1/users/${id}/linkedObjects/${associated.name}" />
 
 For the specified user, gets an array of users who are `associated` for the specified relationship. If the specified user isn't assigned a `primary` relationship, an empty array is returned.
@@ -454,10 +483,12 @@ curl -v -X GET \
     }
 ]
 ```
-
+-->
 ### Delete Linked Object value
 
+See [Delete a Linked Object value](https://developer.okta.com/docs/api/openapi/okta-management/management/UserLinkedObject/#tag/UserLinkedObject/operation/deleteLinkedObjectForUser) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
 
+<!--
  <ApiOperation method="delete" url="/api/v1/users/${id}/linkedObjects/${primary.name}" />
 
 For the `associated` user specified by ID and the relationship specified by `primary` name, deletes any existing relationship between the `associated` and `primary` user
@@ -499,9 +530,12 @@ curl -v -X DELETE \
 ```http
 HTTP/1.1 204 No Content
 ```
-
+-->
 ## Linked Object object
 
+See [Linked Object - response payload](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/LinkedObject/#tag/LinkedObject/operation/listLinkedObjectDefinitions) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--
 The following object contains example values for each attribute.
 
 ```json
@@ -540,3 +574,4 @@ The following object contains example values for each attribute.
 | associated.type        | The object type for this `associated` relationship. Valid value: `USER` | Enum                  | TRUE          |
 
 > **Note:** The `primary.type` and `associated.type` are created as Enums to allow Okta to add more object types in the future. This isn't a guarantee that Okta will do so.
+-->
