@@ -2,15 +2,15 @@
 title: Work with Okta session cookies
 ---
 
-> **Note:** This document is written for Okta Classic Engine. If you're using Okta Identity Engine, see [Understand how sessions work after the upgrade](/docs/guides/oie-upgrade-sessions-api/) and the [Sessions APIs](/docs/guides/ie-limitations/main/#sessions-apis) section of the Identity Engine limitations page. See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.
+> **Note:** This document is written for Okta Classic Engine. If you're using Okta Identity Engine, see [Understand how sessions work after the upgrade](/docs/guides/oie-upgrade-sessions-api/) and this [Sessions APIs](/docs/guides/ie-limitations/main/#sessions-apis) section. See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.
 
-This guide provides examples for programmatically retrieving and setting a session cookie for different deployment scenarios to provide SSO capabilities for custom web apps built on Okta.
+This guide provides examples for retrieving and setting a session cookie for different deployment scenarios. With these scenarios, you can provide SSO capabilities for custom web apps built on Okta.
 
 ---
 
 #### Learning outcomes
 
-Retrieve a session cookie and initiate SSO.
+Retrieve a session cookie and initiate SSO
 
 #### What you need
 
@@ -26,17 +26,17 @@ Okta uses an HTTP session cookie to provide access to your Okta org and apps acr
 
 Okta sessions are created and managed with the [Session API](/docs/reference/api/sessions/). A session token is sent as part of a request, contained in a `sessionToken` parameter. If the request is successful, the session cookie is set with a `Set-Cookie` header in the response.
 
->**Note:**: Use session cookies with browsers only. Using session cookies outside of a browser is subject to change and isn't supported or recommended by Okta.
+>**Note:**: Use session cookies with browsers only. Okta doesn't support or recommend using session cookies outside of a browser because they're subject to change.
 
 > **Important**: By default, Classic Engine orgs ignore the `sessionToken` in a request if there's already a session cookie set in the browser.
 
 ## Retrieve a session cookie through the OpenID Connect authorization endpoint
 
-This scenario is ideal for deployment scenarios where you've implemented both a custom sign-in page and a custom landing page for your app. The sign-in page typically collects the user's credentials through an HTML form submit or POST and the web app validates the credentials against your Okta org by calling the [Authentication API](/docs/reference/api/authn/) to obtain a [session token](/docs/reference/api/sessions/#session-token).
+Use this deployment method in apps where you've implemented both a custom sign-in page and a custom landing page. The sign-in page typically collects the user's credentials through an HTML form submit or POST request. The web app then validates the credentials against your Okta org by calling the [Authentication API](/docs/reference/api/authn/) to obtain a [session token](/docs/reference/api/sessions/#session-token).
 
 After a session token is obtained, it can be passed into the [OpenID Connect authorize endpoint](/docs/reference/api/oidc/#authorize) to get an Okta session cookie. Executing this flow sets a cookie in the end user's browser and then redirects them back to the `redirect_uri` that is passed into the request.
 
-> **Note:** The session token may only be used **once** to establish a session. If the session expires or the user signs out of Okta after using the token, the user won't be able to reuse the same session token to get a new session cookie.
+> **Note:** The session token may only be used once to establish a session. The session token can't be used again if the session expires or if a user signs out of Okta after using the token.
 
 ### Request example
 
@@ -62,16 +62,16 @@ The [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/) uses this flow.
 
 ## Retrieve a session cookie by visiting a session redirect link
 
-> **Note**: This pattern is supported, but not encouraged. The [OpenID Connect](#retrieve-a-session-cookie-through-the-openid-connect-authorization-endpoint) flow described above is the preferred pattern for retrieving a session cookie.
+> **Note**: This pattern is supported, but not encouraged. The [OpenID Connect](#retrieve-a-session-cookie-through-the-openid-connect-authorization-endpoint) flow described previously is the preferred pattern for retrieving a session cookie.
 
-This scenario is ideal for deployment scenarios where you implement both a custom sign-in page and a custom landing page for your app. Your web app solicits and validates the user credentials against your Okta org by calling the [Authentication API](/docs/reference/api/authn/) to obtain a [session token](/docs/reference/api/authn/#session-token).
+Use this deployment method when you implement both a custom sign-in page and a custom landing page for your app. Your web app solicits and validates the user credentials against your Okta org by calling the [Authentication API](/docs/reference/api/authn/) to obtain a [session token](/docs/reference/api/authn/#session-token).
 
 The session token along with the URL for your landing page can then be used to complete the following [URI Template](https://datatracker.ietf.org/doc/html/rfc6570) `https://{yourOktaDomain}/login/sessionCookieRedirect?token={sessionToken}&redirectUrl={redirectUrl}` that retrieves a session cookie for a user's browser when visited.
 
 Be aware of the following requirements:
 
 * You must have your redirect URI listed as a Trusted Origin within Okta. This is required to protect against open redirect attacks.
-* You may only use the session token **once** to establish a session. If the session expires or the user signs out of Okta after using the token, they can't reuse the same session token to get a new session cookie.
+* You may only use the session token once to establish a session. The session token can't be used again if the session expires or if a user signs out of Okta after using the token.
 * When using a GET request to `https://{yourOktaDomain}/login/sessionCookieRedirect`, Internet Explorer is only compatible with redirect URLs that don't grow beyond 255 characters, including request parameters.
     If the `redirectUrl` is only going to Okta and the request parameters are longer, then use a POST request to this API and provide more request parameters as POST form parameters. For more information about the character limitation, see the [Microsoft documentation](https://support.microsoft.com/en-us/help/208427/maximum-url-length-is-2-083-characters-in-internet-explorer).
 
@@ -85,7 +85,7 @@ Set-Cookie: my_app_session_cookie_name=my_apps_session_cookie_value; Path=/
 Location: https://{yourOktaDomain}/login/sessionCookieRedirect?token=0HsohZYpJgMSHwmL9TQy7RRzuY&redirectUrl=https%3A%2F%2Fwww.example.com%2Fportal%2Fhome
 ```
 
-The user's browser sets your app's session cookie and follows the redirect to Okta. Okta validates the session token and returns a 302 status response that sets a session cookie for Okta and redirects the user's browser back to your landing page. After the page loads, the user has an active session with Okta and can SSO into their apps until the session expires or the user closes the session (logout) or browser app.
+The user's browser sets your app's session cookie and follows the redirect to Okta. Okta validates the session token and returns a 302 status response that sets a session cookie for Okta. After validation, Okta redirects the user's browser back to your landing page. After the page loads, the user has an active session with Okta and can SSO into their apps. They can SSO until the session expires or the user closes the session (logout) or browser app.
 
 ### Request example
 
@@ -105,15 +105,15 @@ Location: https://your-app.example.com
 
 ## Retrieve a session cookie by visiting an app embed link
 
-This scenario is ideal for deployment scenarios where you have a custom sign-in page but immediately want to launch an Okta app after a user signs in without returning to a landing page. The sign-in page typically collects the user's credentials through an HTML form submit or POST and validates the credentials against your Okta org by calling the [Authentication API](/docs/reference/api/authn/) to obtain a session token.
+Use this deployment method when you have a custom sign-in page but immediately want to launch an Okta app after a user signs in without returning to a landing page. The sign-in page typically collects the user's credentials through an HTML form submit or POST request. Then, it validates the credentials against your Okta org by calling the [Authentication API](/docs/reference/api/authn/) to obtain a session token.
 
-The session token can then be passed as a query parameter to an Okta app's embed link that sets a session cookie and launches the app in a single web request.
+The session token can then be passed as a query parameter. It can be passed to an Okta app's embed link that sets a session cookie and launches the app in a single web request.
 
-> **Note:** You may only use the session token **once** to establish a session. If the session expires or the user signs out of Okta after using the token, they can't reuse the same session token to get a new session cookie.
+> **Note:** You may only use the session token once to establish a session. The session token can't be used again if the session expires or if a user signs out of Okta after using the token.
 
 ### Visit an embed link with the session token
 
-After your sign-in flow is complete you can launch an Okta app for the user with an [embed link](/docs/reference/api/users/#get-assigned-app-links) that contains the session token as a query parameter: `sessionToken`.
+After your sign-in flow is complete you can launch an Okta app for the user. You can launch the app with an [embed link](/docs/reference/api/users/#get-assigned-app-links) that contains the session token as a query parameter: `sessionToken`.
 
 #### Response example
 
