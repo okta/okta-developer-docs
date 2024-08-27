@@ -2143,7 +2143,7 @@ curl -v -X GET \
 ]
 ```
 
-
+### Get Group Memberships
 
 <ApiOperation method="get" url="/api/v1/users/${userId}/groups" /> <SupportsCors />
 
