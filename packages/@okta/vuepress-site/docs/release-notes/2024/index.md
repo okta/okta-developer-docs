@@ -6,6 +6,20 @@ title: Okta Classic Engine API release notes 2024
 
 ## August
 
+### Weekly release 2024.08.3
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Bugs fixed in 2024.08.3](#bugs-fixed-in-2024-08-3)| August 28, 2024 |
+
+#### Bugs fixed in 2024.08.3
+
+* The API request to [update the default provisioning connection](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationConnections/#tag/ApplicationConnections/operation/updateDefaultProvisioningConnectionForApplication) (`POST /api/v1/apps/{appId}/connections/default?activate=true`) returned generic error messages when the connection update failed. (OKTA-718570)
+
+* A cache issue caused an error when an admin tried to create routing rules using the Policy API (`POST /api/v1/policies/{policyId}/rules`). (OKTA-712397)
+
+* The `q` request parameter was ignored when used in a GET request to the `/policies` endpoint. (OKTA-748131)
+
 ### Weekly release 2024.08.2
 
 | Change | Expected in Preview Orgs |
