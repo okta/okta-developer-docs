@@ -15,9 +15,9 @@ title: Okta Identity Engine API release notes 2024
 
 #### Bugs fixed in 2024.08.3
 
-* The system log displayed an incorrect actor when events were triggered by a [Reset factor](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserLifecycle/#tag/UserLifecycle/operation/resetFactors) API request. (OKTA-752183)
+* The system log displayed an incorrect actor when events were triggered by a Reset factor API request. (OKTA-752183)
 
-* The API request to [update the default provisioning connection](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationConnections/#tag/ApplicationConnections/operation/updateDefaultProvisioningConnectionForApplication) (`POST /api/v1/apps/{appId}/connections/default?activate=true`) returned generic error messages when the connection update failed. (OKTA-718570)
+* The API request to update the default provisioning connection (`POST /api/v1/apps/{appId}/connections/default?activate=true`) returned generic error messages when the connection update failed. (OKTA-718570)
 
 * A cache issue caused an error when an admin tried to create routing rules using the Policy API (`POST /api/v1/policies/{policyId}/rules`). (OKTA-712397)
 
