@@ -45,7 +45,7 @@ There are three similar methods in the widget. `showSignIn` applies to most use 
 ### Sample for a token flow
 
 ```javascript
-var signIn = new OktaSignIn({
+var oktaSignIn = new OktaSignIn({
    // Assumes there is an empty element on the page with an ID of 'osw-container'  el: `#osw-container`,
    el: '#osw-container',
    clientId: `{clientId of your OIDC app integration}`,
@@ -61,7 +61,7 @@ var searchParams = new URL(window.location.href).searchParams;
 oktaSignIn.otp = searchParams.get('otp');
 oktaSignIn.state = searchParams.get('state');
 
-oktaSignIn.showSignIn().then(response
+oktaSignIn.showSignIn().then(res
    => {
    oktaSignIn.authClient.handleLoginRedirect(res.tokens);
 })
