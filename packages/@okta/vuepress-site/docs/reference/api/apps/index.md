@@ -7390,7 +7390,7 @@ curl -v -X PUT \
 
 ### Idp-Initiated Login object
 
-See [dp_initiated_login](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication!path=4/settings/oauthClient/idp_initiated_login&t=request) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+See [Application - dp_initiated_login](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication!path=4/settings/oauthClient/idp_initiated_login&t=request) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
 
 <!--
 The Idp-Initiated Login object is used to configure what, if any, Idp-Initiated Login flows that an OAuth Client supports.
@@ -7877,7 +7877,7 @@ curl -X POST \
 -->
 ### Refresh token object
 
-See [refresh_token](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/getApplication!c=200&path=4/settings/oauthClient/refresh_token&t=response) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+See [Application - oauthClient.refresh_token](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/getApplication!c=200&path=4/settings/oauthClient/refresh_token&t=response) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
 
 <!--
 
@@ -8070,13 +8070,9 @@ The catalog is currently not exposed via an API. While additional apps may be ad
 | template_wsfed      | [Add WS-Federation application](#add-ws-federation-application)               |
 
 The current workaround is to manually configure the desired application via the administrator UI in a preview (sandbox) organization and view the application via [Get Application](#get-application).
--->
 
 ##### App settings
 
-See [Application - settings](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/getApplication!c=200&path=0/settings&t=response) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
-
-<!--
 Each application has a schema that defines the required and optional settings for the application. When adding an application, you must specify the required settings.
 
 Currently, the catalog isn't exposed via an API. The current solution is to manually configure the desired application using the Okta Admin Dashboard and a preview (sandbox) Okta org. You can then view the application details using the [Get Application](#get-application) API.
@@ -8092,21 +8088,13 @@ An additional `notes` object can be passed within the `settings` object. The `no
 
 > **Note:** You can't currently manage app provisioning settings via the API. Use the administrator UI.
 
--->
 
 ###### Identity Store ID
 
-See [Application - identityStoreId](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication!path=4/settings/identityStoreId&t=request) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
-
-<!--
 You can set an additional `identityStoreId` string parameter within the `settings` object if your application supports an identity store. The `identityStoreId` value must be a valid identity store application `id`. This identity store application must be created in the same org as your application.
--->
 
 ##### Features
 
-See [Application - features](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/getApplication!c=200&path=0/features&t=response) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
-
-<!--
 Applications may support optional provisioning features on a per-app basis.
 
 > **Note:** You can't currently configure provisioning features via the API. Use the administrator UI.
@@ -9005,13 +8993,7 @@ Property details
  * `url` can't have query or fragment parameters.
  * `index` has to be a non-negative number and cannot be duplicated in a set of ACS endpoints configured for an app.
 
--->
-
 ### Provisioning Connection object
-
-See [Application Connection - Provisioning response](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationConnections/#tag/ApplicationConnections/operation/getDefaultProvisioningConnectionForApplication!c=200&path=profile&t=response) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
-
-<!--
 
 The provisioning connection object is a read only object that displays the method of authentication used for provisioning.
 
@@ -9091,13 +9073,8 @@ The application provisioning connection profile is used to configure the method 
 | authScheme   | Defines the method of authentication  | `OAUTH2` | FALSE    | FALSE  | FALSE    |
 | clientId     | Unique client identifier for the OAuth 2.0 service app from the target org  | String  | FALSE    | FALSE  | FALSE    |
 
--->
-
 ### Application Feature object
 
-See [Application Feature - response payload](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationFeatures/#tag/ApplicationFeatures/operation/getFeatureForApplication!c=200&path=0/description&t=response) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
-
-<!--
 The Feature object is used to configure settings of the application. For example, the `USER_PROVISIONING` Feature object is used to configure the ability to create, read, update users in Okta accounts, deprovision accounts for deactivated users, and synchronize user attributes.
 
 #### Application Feature example
@@ -9245,7 +9222,7 @@ Okta updates a user's attributes in the application when the application is assi
 | Property | Description | DataType | Nullable | Unique | Readonly | Default |
 | -------- | ----------- | -------- | -------- | ------ | -------- | ------- |
 | status   | Status of the setting | `ENABLED`, `DISABLED` | FALSE    | FALSE   | FALSE    | `DISABLED`  |
--->
+
 
 ### Client Secret Request object
 
@@ -9396,3 +9373,4 @@ The application JSON Web Key object defines a [JSON Web Key](https://tools.ietf.
 | lastUpdated      | Timestamp when the JSON Web Key was last updated             | Date                                                                        | FALSE    | FALSE  | TRUE     |           |
 | status           | Status of the JSON Web Key                                   | `ACTIVE`, `INACTIVE`                                                        | FALSE    | FALSE  | FALSE    | `ACTIVE`  |
 | _links           | Discoverable resources related to JSON Web Keys              | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)              | FALSE    | FALSE  | TRUE     |           |
+-->
