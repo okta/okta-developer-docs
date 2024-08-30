@@ -8,7 +8,16 @@
         banner-id="v1"
         @updateHeight="updateHeaderHeight"
       >
-        <p>
+        <p v-if="shouldShowTimedTopBanner">
+          Join Aaron and Semona to learn more about the OAuth Global Token Revocation standard and how it can impact your applications via Okta's new feature: Universal Logout.
+          <a
+            href="https://a0.to/devday24/okta-dev"
+            target="_blank"
+          >
+            Save your spot now.
+          </a>
+        </p>
+        <p v-else>
           Is it easy or difficult to use our developer documentation?
           <a
             href="#"
@@ -154,6 +163,16 @@ export default {
     };
   },
   computed: {
+    shouldShowTimedTopBanner() {
+      const bannerStartTime = new Date('2024-09-02T01:00:00-04:00');
+      const bannerStartTimeEpoch = Math.floor(bannerStartTime.getTime() / 1000);
+      const bannerEndTime = new Date('2024-09-24T23:59:00-04:00');
+      const bannerEndTimeEpoch = Math.floor(bannerEndTime.getTime() / 1000);
+
+      const currentTimeEpoch = Math.floor(Date.now() / 1000);
+
+      return currentTimeEpoch >= bannerStartTimeEpoch && currentTimeEpoch <= bannerEndTimeEpoch;
+    },
     editLink() {
       if (this.$page.frontmatter.editLink === false) {
         return;
