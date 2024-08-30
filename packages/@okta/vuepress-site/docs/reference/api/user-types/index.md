@@ -353,7 +353,7 @@ HTTP/1.1 204 No Content
 
 ## Specify the User Type of a new user
 
-The [Create User](/docs/reference/api/users/#create-user-with-non-default-user-type) operation accepts a type specification as part of the request body. The specification is a map, but currently the only key permitted is `id`. The type specification is also added to the [User object](/docs/reference/api/users/#user-object), but after user creation, only an administrator can update the type by doing a [full replace of an existing user](/docs/reference/api/users/#update-user), not a partial update.
+The [Create a User](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/createUser) operation accepts a type specification as part of the request body. The specification is a map, but currently the only key permitted is `id`. The type specification is also added to the [User object](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/getUser!c=200&path=activated&t=response), but after user creation, only an administrator can update the type by doing a [full replace of an existing user](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/updateUser), not a partial update.
 
 ##### Example
 

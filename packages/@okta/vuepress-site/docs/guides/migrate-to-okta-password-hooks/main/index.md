@@ -36,7 +36,7 @@ Typically, you run a migration program like this for a set period, such as 60 da
 
 ## Create all the users in Okta
 
-You can create users in Okta, without credentials, in a state ready for migration as outlined in the [Create User with password import inline hook](/docs/reference/api/users/#create-user-with-password-import-inline-hook) section of the docs.
+You can create users in Okta, without credentials, in a state ready for migration as outlined in the Create User with password import inline hook section of the [Users API documentation](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/).
 
 ### Request Example
 
@@ -99,7 +99,7 @@ curl -v -X POST \
 
 > **Note**: Notice that the user status is `ACTIVE`, but the provider type and name are `IMPORT`.
 
-For more on creating users for password import, see this [reference section](/docs/reference/api/users/#create-user-with-password-import-inline-hook).
+For more on creating users for password import, see this [reference section](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createPasswordImportInlineHook).
 
 ## Create an Inline Password Hook Application
 
@@ -142,7 +142,7 @@ During that time, a large percentage of your active users migrate over to Okta w
 
 At the end of the migration program time, you'd do the following to migrate the "stragglers":
 
-1. Use the [Management API](/docs/reference/api/users/#reset-password) to force a password reset for those users still with `credentials.provider.type` set to `IMPORT`.
+1. Use the [User Credentials API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserCred/#tag/UserCred/operation/resetPassword) to force a password reset for those users still with `credentials.provider.type` set to `IMPORT`.
 2. Those users would receive an email to set their password with a link to follow.
 3. Most active users would set a new password in Okta, which would complete their migration.
 

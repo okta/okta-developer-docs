@@ -187,15 +187,15 @@ To learn more about customizing email templates and using the velocity template 
 
 ### Design overview
 
-If you customize your self-service password recovery (SSPR) solution as described in the <StackSnippet snippet="custompwdguide" inline /> and also initiate password recovery using the [/forgot_password API](/docs/reference/api/users/#forgot-password), you need to consider how your users interact with your magic links. Specifically, your design has the following attributes:
+If you customize your self-service password recovery (SSPR) solution as described in the <StackSnippet snippet="custompwdguide" inline /> and also initiate password recovery using the [`/forgot_password` API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserCred/#tag/UserCred/operation/forgotPassword), you need to consider how your users interact with your magic links. Specifically, your design has the following attributes:
 
 * The magic link `href` attribute in the **Forgot Password** template is updated to replace the `${resetPasswordLink}` variable with a URL string that contains the `otp` and `state` parameters using the `${oneTimePassword}` and `${request.relayState}` variables. For example, <StackSnippet snippet="callbackuriwithotpandstate" inline /> .
 
-* Your system supports password recovery using methods other than self-service password recovery. These methods include calling the [/forgot_password API](/docs/reference/api/users/#forgot-password) with the `sendEmail` parameter sent to `true` or enabling password recoveries using the embedded Sign-In Widget. These methods send an email to the user with a magic link that is meant to continue the password recovery.
+* Your system supports password recovery using methods other than self-service password recovery. These methods include calling the [`/forgot_password` API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserCred/#tag/UserCred/operation/forgotPassword) with the `sendEmail` parameter sent to `true` or enabling password recoveries using the embedded Sign-In Widget. These methods send an email to the user with a magic link that is meant to continue the password recovery.
 
 ### Considerations
 
-In this design, you customize the **Forgot Password** email template to include the `${oneTimePassword}` variable per the <StackSnippet snippet="custompwdguide" inline />.  When you use the [/forgot_password API](/docs/reference/api/users/#forgot-password) and Sign-In Widget are used to initiate the password recovery, an email is sent to the user. When the user clicks the magic link, and the request is redirected back to your app, the `otp` value is missing. This is because password recovery wasn't initiated by the embedded SDK and doesn't have context. Since the `otp` value is missing, your app can't complete the password reset using the embedded SDK. Two options are available, however, to complete the password reset with this design.
+In this design, you customize the **Forgot Password** email template to include the `${oneTimePassword}` variable per the <StackSnippet snippet="custompwdguide" inline />.  When you use the [`/forgot_password` API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserCred/#tag/UserCred/operation/forgotPassword) and Sign-In Widget are used to initiate the password recovery, an email is sent to the user. When the user clicks the magic link, and the request is redirected back to your app, the `otp` value is missing. This is because password recovery wasn't initiated by the embedded SDK and doesn't have context. Since the `otp` value is missing, your app can't complete the password reset using the embedded SDK. Two options are available, however, to complete the password reset with this design.
 
 #### Use the `resetPasswordLink` variable
 
@@ -207,9 +207,9 @@ In this option, you set the magic link in the **Forgot Password** template to us
 
 #### Use your own infrastructure to send the password recovery email
 
-In this recommended option, make a call to [/forgot_password API](/docs/reference/api/users/#forgot-password) and use your infrastructure to notify the user to reset their password.
+In this recommended option, make a call to [`/forgot_password` API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserCred/#tag/UserCred/operation/forgotPassword) and use your infrastructure to notify the user to reset their password.
 
-1. Call [/forgot_password API](/docs/reference/api/users/#forgot-password) with `sendEmail=false`. Instead of sending a recovery email to the user, this returns a URL with a recovery token.
+1. Call [`/forgot_password` API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserCred/#tag/UserCred/operation/forgotPassword) with `sendEmail=false`. Instead of sending a recovery email to the user, this returns a URL with a recovery token.
 
 ```json
 {

@@ -86,4 +86,4 @@ Separate from access and refresh tokens, there’s also the Okta session cookie 
 
 See [Close Session](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Session/#tag/Session/operation/revokeSession) in the Sessions API reference for more information on removing a specific session.
 
-See [Clear User Sessions](/docs/reference/api/users/#clear-user-sessions) in the Users API reference for more information on removing all of a user's sessions.
+See [Revoke all User Sessions](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserSessions/#tag/UserSessions/operation/revokeUserSessions) in the User Sessions API reference for more information on removing all of a user's sessions.

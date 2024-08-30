@@ -19,7 +19,6 @@ Explore the [Okta Public API Collections](https://www.postman.com/okta-eng/works
 
 Group operations provide operations to manage Okta groups for your org. These operations are available at the new [Okta API reference portal](https://developer.okta.com/docs/api/) as part of the [Groups API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/).
 
-
 ### Add Group
 
 See [Add a Group](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/#tag/Group/operation/addGroup) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
@@ -32,7 +31,6 @@ Adds a new Group with `OKTA_GROUP` type to your organization
 > **Note:** Application import operations are responsible for syncing Groups with `APP_GROUP` type such as Active Directory Groups. See [About groups](https://help.okta.com/okta_help.htm?id=Directory_Groups) for more information.
 
 ##### Request parameters
-
 
 | Parameter | Description                               | ParamType | DataType                          | Required | Default |
 | --------- | ----------------------------------------- | --------- | --------------------------------- | -------- | ---     |
@@ -100,7 +98,6 @@ curl -v -X POST \
 
 See [Retrieve a Group](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/#tag/Group/operation/getGroup) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
 
-
 <!--
 <ApiOperation method="get" url="/api/v1/groups/${groupId}" />
 
@@ -108,18 +105,15 @@ Fetches a specific Group by `id` from your organization
 
 ##### Request parameters
 
-
 | Parameter | Description     | ParamType | DataType | Required | Default |
 | --------- | --------------- | --------- | -------- | -------- | ------- |
 | id        | `id` of a Group | URL       | String   | TRUE     |         |
 
 ##### Response parameters
 
-
 Fetched [Group](#group-object)
 
 ##### Request example
-
 
 ```bash
 curl -v -X GET \
@@ -130,7 +124,6 @@ curl -v -X GET \
 ```
 
 ##### Response example
-
 
 ```json
 {
@@ -189,7 +182,6 @@ Enumerates Groups in your organization with pagination. A subset of Groups can b
 - [List Groups with Search](#list-groups-with-search)
 
 ##### Request parameters
-
 
 | Parameter | Description                                                                                | ParamType | DataType | Required | Default |
 | --------- | ------------------------------------------------------------------------------------------ | --------- | -------- | -------- | ------- |
@@ -367,7 +359,6 @@ Finds groups by `name` in your organization
 > **Note:** Paging and searching are currently mutually exclusive. You can't page a query. The default limit for a query is `300` results. Query is intended for an auto-complete picker use case where users refine their search string to constrain the results. Search currently performs a `startsWith` match but it should be considered an implementation detail and may change without notice in the future. Exact matches are always returned before partial matches.
 
 ##### Request example
-
 
 ```bash
 curl -v -X GET \
@@ -882,7 +873,6 @@ Application imports are responsible for updating profiles for groups of `APP_GRO
 
 ##### Request parameters
 
-
 | Parameter | Description                   | ParamType | DataType                          | Required | Default |
 | --------- | ----------------------------- | --------- | --------------------------------- | -------- | ------- |
 | id        | ID of the Group to update     | URL       | String                            | TRUE     |         |
@@ -957,7 +947,6 @@ Removes a group of `OKTA_GROUP` or `APP_GROUP` type from your organization
 > **Note:** You can't remove groups of type `APP_GROUP` if they are used in a group push mapping.
 
 ##### Request parameters
-
 
 | Parameter | Description                 | ParamType | DataType | Required | Default |
 | --------- | --------------------------- | --------- | -------- | -------- | ------- |
@@ -1105,7 +1094,6 @@ Adds a [user](/docs/reference/api/users/#user-object) to a group of `OKTA_GROUP`
 
 ##### Request parameters
 
-
 | Parameter | Description     | ParamType | DataType | Required | Default |
 | --------- | --------------- | --------- | -------- | -------- | ------- |
 | groupId   | `id` of the Group | URL       | String   | TRUE     |         |
@@ -1188,7 +1176,6 @@ Creates a Group rule to dynamically add users to the specified Group if they mat
 > **Note:** Group rules are created with status='INACTIVE'.
 
 ##### Request parameters
-
 
 | Parameter                           | Description                                             | ParamType | DataType                          | Required |
 | ----------------------------------- | ------------------------------------------------------- | --------- | --------------------------------- | -------- |
@@ -1291,7 +1278,6 @@ You can't currently update the action section.
 
 ##### Request parameters
 
-
 | Parameter                           | Description                                    | ParamType | DataType                          | Required |
 | ----------------------------------- | ---------------------------------------------- | --------- | --------------------------------- | -------- |
 | actions.assignUserToGroups.groupIds | Array of groupIds to which users would be added| Body      | String                            | TRUE     |
@@ -1393,7 +1379,6 @@ Lists all Group rules for your organization
 > **Note:** If you don't specify any value for `limit`, a maximum of 50 results are returned. The maximum value for `limit` is 200.
 
 ##### Request parameters
-
 
 | Parameter      | Description                                                    | ParamType  | DataType                          | Required | Default |
 | -------------- | -------------------------------------------------------------- | ---------- | --------------------------------- | -------- | ------- |
@@ -1528,7 +1513,6 @@ curl -v -X GET \
 
 ##### Response example
 
-
 ```json
 {
   "type": "group_rule",
@@ -1571,7 +1555,6 @@ Removes a specific Group rule by ID from your organization
 
 ##### Request parameters
 
-
 | Parameter      | Description                                                  | ParamType  | DataType                          | Required | Default |
 | -------------- | ------------------------------------------------------------ | ---------- | --------------------------------- | -------- | ------- |
 | `id`             | ID of a Group Rule                                           | URL        | String                            | TRUE     |   N/A     |
@@ -1583,7 +1566,6 @@ N/A
 
 ##### Request example
 
-
 ```bash
 curl -v -X DELETE \
 -H "Accept: application/json" \
@@ -1593,7 +1575,6 @@ curl -v -X DELETE \
 ```
 
 ##### Response example
-
 
 ```http
 HTTP/1.1 202 Accepted
@@ -1611,18 +1592,15 @@ Activates a specific Group rule by ID from your organization
 
 ##### Request Parameters
 
-
 | Parameter      | Description                                                  | ParamType  | DataType                          | Required | Default |
 | -------------- | ------------------------------------------------------------ | ---------- | --------------------------------- | -------- | ------- |
 | `id`             | ID of a Group Rule                                           | URL        | String                            | TRUE     |         |
 
 ##### Response parameters
 
-
 N/A
 
 ##### Request example
-
 
 ```bash
 curl -v -X POST \
@@ -1633,7 +1611,6 @@ curl -v -X POST \
 ```
 
 ##### Response example
-
 
 ```http
 HTTP/1.1 204 No Content
@@ -1651,18 +1628,15 @@ Deactivates a specific Group rule by ID from your organization
 
 ##### Request parameters
 
-
 | Parameter      | Description                                                  | ParamType  | DataType                          | Required | Default |
 | -------------- | ------------------------------------------------------------ | ---------- | --------------------------------- | -------- | ------- |
 | `id `            | ID of a Group Rule                                           | URL        | String                            | TRUE     |         |
 
 ##### Response parameters
 
-
 N/A
 
 ##### Request example
-
 
 ```bash
 curl -v -X POST \
@@ -1673,7 +1647,6 @@ curl -v -X POST \
 ```
 
 ##### Response example
-
 
 ```http
 HTTP/1.1 204 No Content
@@ -1691,7 +1664,6 @@ See [List all Assigned Applications](https://developer.okta.com/docs/api/openapi
 Enumerates all [Applications](/docs/reference/api/apps/#application-object) that are assigned to a Group. See [Application Group Operations](/docs/reference/api/apps/#application-group-operations).
 
 ##### Request parameters
-
 
 | Parameter | Description                                               | ParamType | DataType | Required | Default |
 | --------- | --------------------------------------------------------- | --------- | -------- | -------- | ------- |
@@ -1716,7 +1688,6 @@ curl -v -X GET \
 ```
 
 ##### Response example
-
 
 ```json
 [

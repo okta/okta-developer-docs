@@ -9,7 +9,7 @@ meta:
 
 A user profile in Okta is the data record where user information is stored. A typical user profile contains information, or attributes, such as a user’s first name, last name, username, and email address. Users can be employees, customers, partners, or end users of apps.
 
-The default Okta user profile has [31 user attributes](/docs/reference/api/users/#default-profile-properties), which you can customize based on client requirements. You can add other custom attributes to the user profile to support most client user needs. Custom profile attribute types enable you to customize the user experience even more, based on your org and app needs.
+The default Okta user profile has [31 user attributes](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/createUser!path=profile&t=request), which you can customize based on client requirements. You can add other custom attributes to the user profile to support most client user needs. Custom profile attribute types enable you to customize the user experience even more, based on your org and app needs.
 
 You can manage user profile design and customization for your org, and individual user updates, from the Admin Console or using specific APIs.
 
@@ -23,7 +23,7 @@ Also, Universal Directory holds app user profiles that define the attributes tha
 
 Universal Directory has a single Okta user profile for every user and an app user profile for each app. The user profile is the primary place to store all user information, and the app user profile is where app-specific information is stored.
 
-You can manage the User profiles in Universal Directory from the Admin Console or use the [User API](/docs/reference/api/users).
+You can manage the User profiles in Universal Directory from the Admin Console or use the [User API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/).
 
 You can manage the Apps user profiles in Universal Directory from the Admin Console or use the [Apps API](/docs/reference/api/apps).
 
@@ -43,7 +43,7 @@ See [About profile types](https://help.okta.com/okta_help.htm?id=ext-usgp-about-
 
 ### Okta user profile type
 
-The Okta user profile type defines the default user record used in the Universal Directory. The default user profile contains 31 attributes in accordance with the [RFC System for Cross-domain Identity Management: Core Schema](https://datatracker.ietf.org/doc/html/rfc7643#section-4.1) and can also be extended with custom attributes. To manage the default user profile, use the [Users API](/docs/reference/api/users), and review the [Profile object](/docs/reference/api/users/#profile-object) and the [User object](/docs/reference/api/users/#user-object) for further information.
+The Okta user profile type defines the default user record used in the Universal Directory. The default user profile contains 31 attributes in accordance with the [RFC System for Cross-domain Identity Management: Core Schema](https://datatracker.ietf.org/doc/html/rfc7643#section-4.1) and can also be extended with custom attributes. To manage the default user profile, use the [Users API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/), and review the [Profile object](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/createUser!path=profile&t=request) and the [User object](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/getUser!c=200&path=activated&t=response) for further information.
 
 #### Group profile type
 
@@ -55,9 +55,9 @@ The custom user profile type is based on the Okta user profile type. It defines 
 
 The [User Types API](/docs/reference/api/user-types/) defines and manages the custom profile types.
 
-User profiles can only belong to one user profile type. The [User object property](/docs/reference/api/users/#user-properties) `type` defines the custom user profile (or default profile) that the user is associated with.
+User profiles can only belong to one user profile type. The User object property [`type`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/createUser!path=type&t=request) defines the custom user profile (or default profile) that the user is associated with.
 
->**Note:** The default [Profile object property](/docs/reference/api/users/#default-profile-properties) `userType` is a user profile attribute and isn’t a reference to the default or custom profile type.
+>**Note:** The default Profile object property [`userType`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/getUser!c=200&path=profile/userType&t=response) is a user profile attribute and isn’t a reference to the default or custom profile type.
 
 ### App user profile type
 
