@@ -7390,7 +7390,7 @@ curl -v -X PUT \
 
 ### Idp-Initiated Login object
 
-See [Application - dp_initiated_login](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication!path=4/settings/oauthClient/idp_initiated_login&t=request) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+See [Application - settings.oauthClient.idp_initiated_login](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication!path=4/settings/oauthClient/idp_initiated_login&t=request) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
 
 <!--
 The Idp-Initiated Login object is used to configure what, if any, Idp-Initiated Login flows that an OAuth Client supports.
@@ -7877,7 +7877,7 @@ curl -X POST \
 -->
 ### Refresh token object
 
-See [Application - oauthClient.refresh_token](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/getApplication!c=200&path=4/settings/oauthClient/refresh_token&t=response) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+See [Application - settings.oauthClient.refresh_token](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/getApplication!c=200&path=4/settings/oauthClient/refresh_token&t=response) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
 
 <!--
 
@@ -8113,13 +8113,10 @@ The list of provisioning features an app may support are:
 | PUSH_PROFILE_UPDATES   | Update User Properties       | Updates a user's profile in the app when the user's profile changes in Okta (the profile source)                                                                                                                                                |
 | PUSH_USER_DEACTIVATION | Deactivate Users             | Deactivates a user's account in the app when unassigned from the app in Okta or deactivated                                                                                                                                                 |
 | REACTIVATE_USERS       | Deactivate Users             | Reactivates an existing inactive user when provisioning a user to the app                                                                                                                                                                   |
--->
+
 
 ##### Sign-on modes
 
-See [Application - signOnMode](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication!path=0/signOnMode&t=request) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
-
-<!--
 Applications support a limited set of sign-on modes that specify how a user is authenticated to the app.
 
 The list of possible modes an app may support are:
@@ -8138,13 +8135,9 @@ The list of possible modes an app may support are:
 | WS_FEDERATION         | Federated Authentication with WS-Federation Passive Requestor Profile  |
 
 This setting modifies the same settings as the **Sign On** tab when editing an application in your Okta Administration app.
--->
 
 ### Accessibility object
 
-See [Application - accessibility](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/getApplication!c=200&path=0/accessibility&t=response) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
-
-<!--
 Specifies access settings for the application
 
 | Property         | Description                                | DataType | Nullable | Default | MinLength | MaxLength | Validation |
@@ -8165,13 +8158,8 @@ Specifies access settings for the application
 ```
 > **Note:** The `loginRedirectUrl` property is deprecated in Identity Engine. This property is used with the custom app login feature. Orgs that actively use this feature can continue to do so. Orgs that don't use custom app login should use the [Okta-hosted sign-in experience](/docs/guides/redirect-authentication/) or [configure IdP routing rules](https://help.okta.com/okta_help.htm?type=oie&id=ext-cfg-routing-rules) that redirect users to the appropriate app to sign in.
 
--->
 
 ### Visibility object
-
-See [Application - visibility](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/getApplication!c=200&path=0/visibility&t=response) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
-
-<!--
 
 Specifies visibility settings for the application
 
@@ -8244,13 +8232,9 @@ Specifies credentials and scheme for the application's `signOnMode`
   }
 }
 ```
--->
 
 #### Authentication schemes
 
-See [Application - scheme](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/getApplication!c=200&path=0/credentials/scheme&t=response) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
-
-<!--
 Applications that are configured with `BASIC_AUTH`, `BROWSER_PLUGIN`, or `SECURE_PASSWORD_STORE` have credentials vaulted by Okta and can be configured with the following schemes:
 
 | Scheme                       | Description                                                               | Shared UserName | Shared Password | App UserName     | App Password            |
@@ -8262,13 +8246,10 @@ Applications that are configured with `BASIC_AUTH`, `BROWSER_PLUGIN`, or `SECURE
 | SHARED_USERNAME_AND_PASSWORD | Users share a single username and password set by administrator           | Admin:`R/W`     | Admin:`W`       |                  |                         |
 
 > **Note:** `BOOKMARK`, `SAML_2_0`, and `WS_FEDERATION` signOnModes don't support an authentication scheme as they use a federated SSO protocol. You should omit the `scheme` property for apps with these signOnModes.
--->
+
 
 #### Username Template object
 
-See [Application - userNameTemplate](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/getApplication!c=200&path=0/credentials/userNameTemplate&t=response) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
-
-<!--
 Specifies the template used to generate a user's username when the application is assigned via a group or directly to a user
 
 | Property   | Description                             | DataType                         | Nullable | Default           | MinLength | MaxLength  | Validation |
@@ -8288,13 +8269,9 @@ Specifies the template used to generate a user's username when the application i
   }
 }
 ```
--->
 
 #### Signing Credential object
 
-See [credentials.signing](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication!path=3/credentials/signing/kid&t=request) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
-
-<!--
 Determines the [key](#application-key-credential-object) used for signing assertions for the `signOnMode`
 
 | Property   | Description                                                                                 | DataType | Nullable |
@@ -8310,13 +8287,9 @@ Determines the [key](#application-key-credential-object) used for signing assert
   }
 }
 ```
--->
 
 #### OAuth Credential object
 
-See [credentials.oauthClient](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/listApplications!c=200&path=4/credentials/oauthClient&t=response) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
-
-<!--
 Determines how to authenticate the OAuth 2.0 client
 
 | Property                   | Description                                                                      | DataType | Nullable |
@@ -8349,14 +8322,9 @@ Determines how to authenticate the OAuth 2.0 client
   }
 }
 ```
--->
 
 ##### Built-in expressions
 
-See [credentials.userNameTemplate.template](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/listApplications!c=200&path=4/credentials/userNameTemplate/template&t=response
-) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
-
-<!--
 The following expressions are built-in and may be used with the `BUILT_IN` template type:
 
 | Name                            | Template Expression                            |
@@ -8373,25 +8341,18 @@ The following expressions are built-in and may be used with the `BUILT_IN` templ
 | Okta username                   | `${source.login}`                              |
 | Okta username prefix            | `${fn:substringBefore(source.login, "@")}`     |
 
--->
 
 ### Password object
 
-See [credentials.password](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication!path=3/credentials/password&t=request) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
-
-<!--
 Specifies a password for a user. A password value is a **write-only** property.  When a user has a valid password and a response object contains a password credential, then the Password object is a bare object without the `value`  property defined (for example: `password: {}`) to indicate that a password value exists.
 
 | Property  | Description | DataType | Nullable | Default | MinLength | MaxLength | Validation |
 | --------- | ----------- | -------- | -------- | ------- | --------- | --------- | ---------- |
 | value     |             | String   | TRUE     |         |           |           |            |
--->
+
 
 ### Application Links object
 
-See [_links](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/getApplication!c=200&path=0/_links&t=response) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
-
-<!--
 Specifies link relations (see [Web Linking](http://tools.ietf.org/html/rfc8288)) available for the current status of an application using the [JSON Hypertext Application Language](http://tools.ietf.org/html/draft-kelly-json-hal-06) specification. This object is used for dynamic discovery of related resources and lifecycle operations.  The Links object is **read-only**.
 
 | Link Relation Type | Description                                                                                |
@@ -8403,13 +8364,9 @@ Specifies link relations (see [Web Linking](http://tools.ietf.org/html/rfc8288))
 | metadata           | Protocol-specific metadata document for the configured `SignOnMode`                        |
 | self               | The actual application                                                                     |
 | users              | [User](#application-user-operations) assignments for application                           |
--->
 
 ### Notifications object
 
-See [notifications](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication!path=4/settings/notifications&t=request) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
-
-<!--
 Specifies notifications settings for the application. The VPN notification feature allows admins to communicate a requirement for signing into VPN-required apps.
 
 | Property          | Description                                        | DataType                                             | Nullable | Default | MinLength | MaxLength | Validation |
@@ -8453,13 +8410,9 @@ There are four choices for the `connection` property.
  - `ON_NETWORK` - Displays VPN connection information only when a browser's client IP matches the configured Public Gateway IPs. The notification appears before the end user can access the app.
  - `OFF_NETWORK` - Displays VPN connection information only when the browser's client IP doesn't match the configured Public Gateway IPs. The notification appears before the end user can access the app.
 
--->
 
 ### Attribute Statements object
 
-See [attributeStatements](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication!path=6/settings/signOn/attributeStatements&t=request) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
-
-<!--
 Specifies (optional) attribute statements for a SAML application
 
 | Property   | Description                                                                                  | DataType     | Nullable |
@@ -8469,13 +8422,9 @@ Specifies (optional) attribute statements for a SAML application
 | type       | The type of attribute statements object. Supported value: `EXPRESSION`                       | String       | FALSE    |
 | values     | The values of the attribute; Supports [Okta EL](/docs/reference/okta-expression-language/)   | Array        | FALSE    |
 
--->
 
 ### Single Logout object
 
-See [slo](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication!path=6/settings/signOn/slo&t=request) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
-
-<!--
 Specifies the Single Logout (SLO) behavior for a Custom SAML application
 
 | Property  | Description                                                                  | Datatype | Nullable |
@@ -8493,13 +8442,9 @@ Specifies the Single Logout (SLO) behavior for a Custom SAML application
   }
 }
 ```
--->
 
 ### Participate Single Logout object
 
-See [participateSlo](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication!path=6/settings/signOn/participateSlo&t=request) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
-
-<!--
 Specifies the Participate Single Logout behavior for a Custom SAML application
 
 | Property  | Description                                                                  | Datatype | Nullable |
@@ -8520,12 +8465,9 @@ Specifies the Participate Single Logout behavior for a Custom SAML application
   }
 }
 ```
--->
+
 ### Service Provider certificate
 
-See [spCertificate]() in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
-
-<!--
 The certificate that the Service Provider uses to sign Single Logout requests
 
 | Property | Description                                               | Datatype       | Nullable |
@@ -8541,13 +8483,8 @@ The certificate that the Service Provider uses to sign Single Logout requests
   }
 }
 ```
--->
 
 #### Group Attribute Statements object
-
-See [GROUP attributeStatements](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication!path=6/settings/signOn/attributeStatements/1/name&t=request) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
-
-<!--
 
 Group Attribute Statements can be used in place of Attribute Statements if your Org supports a large number of groups and you want to filter them into a single SAML assertion.
 
