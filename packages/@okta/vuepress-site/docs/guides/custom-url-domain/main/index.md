@@ -38,7 +38,7 @@ For configuring a custom email address:
 
 You can customize your Okta organization by replacing the Okta domain name with your own domain name. Your customized domain allows you to create a seamless branded experience for your users so that all URLs look like your app.
 
-For example, you use Okta as a user store for your apps. But you don't want your users to know that the app uses Okta as its host. Okta orgs can host pages on subdomains such as `example.okta.com`. You can create a [CNAME record](https://datatracker.ietf.org/doc/html/rfc1035#section-3.2.2) for the Okta domain, allowing you to alias it to another subdomain that you own, like `login.example.com`.
+For example, you use Okta as a user store for your apps, but you don't want your users to know that the app uses Okta as its host. Okta orgs can host pages on subdomains such as `example.okta.com`. You can create a [CNAME record](https://datatracker.ietf.org/doc/html/rfc1035#section-3.2.2) for the Okta domain, allowing you to alias it to another subdomain that you own, like `login.example.com`.
 
 > **Note:** Set up a [custom domain](/docs/guides/custom-url-domain/main/) and customize your [CSP (Content security policy)](https://content-security-policy.com/) if you also want to customize the [sign-in page](/docs/guides/custom-widget/main/#content-security-policy-csp-for-your-custom-domain) and [error pages](/docs/guides/custom-error-pages/main/#content-security-policy-csp-for-your-custom-domain).
 
@@ -52,7 +52,7 @@ You can also [configure a custom email address](#about-custom-email-addresses) t
 
 You can create up to three custom domains with multibrand customizations and up to 200 custom domains by contacting support to increase your limit.
 
-You can only preview or visit a branded page after you map to a custom domain. For example, you can only view brand assets applied to the Okta-hosted sign-in page after you map it to a custom domain. After you create a brand, map it to a custom domain. Then you can make further customizations, preview them, and publish them.
+You can only preview or visit a branded page after you map it to a custom domain. For example, you can only view brand assets applied to the Okta-hosted sign-in page after you map it to a custom domain. After you create a brand, map it to a custom domain. Then you can make further customizations, preview them, and publish them.
 
 #### Redirect URIs
 
@@ -112,7 +112,7 @@ The third generation of the Okta Sign-In Widget doesn’t guarantee the stabilit
 
 * If you sign a user in with your new custom domain, they may need to sign in more than once. If your user tries to SSO into previous OIDC integrations that are made with the org domain, they're prompted to sign in again. To avoid this, you need to change the issuer in these integrations to your custom URL in both the Okta dashboard and your codebase.
 
-* When you implement a custom domain, users aren't automatically rerouted from the original URL to the new custom URL. Make sure to communicate the new custom domain to your users.
+* When you implement a custom domain, users aren't automatically rerouted from the original URL to the new custom URL. Be sure to communicate the new custom domain to your users.
 
 * If you configure the [FIDO2 (WebAuthn) authenticator](https://help.okta.com/okta_help.htm?type=oie&id=csh-configure-webauthn) in your org and create a custom domain, your users first need to sign in with an authenticator that they're already enrolled in. Then, your users can re-enroll with WebAuthn.
 
@@ -163,7 +163,7 @@ You need to add DNS TXT and CNAME records for your domain to prove ownership of 
 
 5. Repeat Steps 3 and 4 for the CNAME record.
 
-6. Wait for the DNS record to propagate, typically one to five minutes, but it may take longer. Then, return to Okta and click **Next** to prove to Okta that you have the rights to use the domain name.
+6. Wait for the DNS record to propagate. Typically, this takes one to five minutes (but it may take longer). Then, return to Okta and click **Next** to prove to Okta that you have the rights to use the domain name.
 
     > **Note:** It may take up to 24 hours for your DNS changes to propagate. If your changes don't appear within 24 hours, return to this step and confirm your settings. Use a tool like [Dig](https://toolbox.googleapps.com/apps/dig/) to check your DNS records.
 
@@ -348,7 +348,7 @@ To fix this, update your authorization server to use your custom domain:
 
 ## About custom email addresses
 
-A custom email address allows you to present a branded experience to your end users. Emails that Okta sends to your end users appears to come from your custom email address instead of `noreply@okta.com`. You can switch to a different custom email address or revert to the default Okta domain. But you can use only one email domain at a time.
+A custom email address allows you to present a branded experience to your end users. Emails that Okta sends to your end users appear to come from your custom email address instead of `noreply@okta.com`. You can switch to a different custom email address or revert to the default Okta domain, but you can use only one email domain at a time.
 
 Okta sends your super admins a confirmation email after your custom email address is configured and operating correctly. To ensure continuous operation, Okta polls your custom email domain once every 24 hours. If a problem occurs, Okta alerts super admins by email, and Okta-generated emails are sent from the default address `noreply@okta.com` until the problem is resolved.
 
