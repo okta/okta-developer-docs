@@ -8,14 +8,8 @@
         banner-id="v1"
         @updateHeight="updateHeaderHeight"
       >
-        <p v-if="shouldShowTimedTopBanner">
-          Join Aaron and Semona to learn more about the OAuth Global Token Revocation standard and how it can impact your applications via Okta's new feature: Universal Logout.
-          <a
-            href="https://a0.to/devday24/okta-dev"
-            target="_blank"
-          >
-            Save your spot now.
-          </a>
+        <p v-if="false">
+          <!-- TODO: Add Redocly THI banner here once text is finalized -->
         </p>
         <p v-else>
           Is it easy or difficult to use our developer documentation?
