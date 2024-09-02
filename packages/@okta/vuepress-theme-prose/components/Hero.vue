@@ -32,8 +32,7 @@
           primary-cta-link="https://a0.to/devday24/okta-dev"
           primary-link-target="_blank"
         >
-          <template #heading>
-          </template>
+          <template #heading />
           <template #description>
             Join Aaron and Semona to learn more about the OAuth Global Token Revocation standard and how it can impact your applications via Okta’s new feature: Universal Logout.
           </template>
