@@ -27,12 +27,12 @@
           For understanding usage of the banner, refer https://oktawiki.atlassian.net/wiki/spaces/DOC/pages/2920874189/Adding+a+banner+on+homepage+in+dev+docs
          -->
         <HomePageBanner
-          v-if="showBanner"
+          v-show="showBanner"
           primary-cta-text="Save your spot now"
           primary-cta-link="https://a0.to/devday24/okta-dev"
           primary-link-target="_blank"
         >
-          <template #heading />
+          <!-- <template #heading /> -->
           <template #description>
             Join Aaron and Semona to learn more about the OAuth Global Token Revocation standard and how it can impact your applications via Okta’s new feature: Universal Logout.
           </template>
