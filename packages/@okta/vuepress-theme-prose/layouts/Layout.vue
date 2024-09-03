@@ -8,10 +8,7 @@
         banner-id="v1"
         @updateHeight="updateHeaderHeight"
       >
-        <p v-if="false">
-          <!-- TODO: Add Redocly THI banner here once text is finalized -->
-        </p>
-        <p v-else>
+        <p>
           Is it easy or difficult to use our developer documentation?
           <a
             href="#"
