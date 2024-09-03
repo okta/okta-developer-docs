@@ -60,9 +60,9 @@
 
 .hero__wrapper {
   display: flex;
+  flex: 1;
   flex-direction: column;
   gap: 12px;
-  flex: 1;
 }
 
 .hero__title,
