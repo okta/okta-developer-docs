@@ -1,6 +1,6 @@
 <template>
   <router-link
-    v-if="entityType === types.link && link.path !== '/'"
+    v-if="entityType === types.link && link.path !== '/' && !link.isExternal"
     v-slot="{ route, href, navigate }"
     :to="link.path"
     class="tree-nav-link"
@@ -22,6 +22,16 @@
       </slot>
     </a>
   </router-link>
+
+  <SmartLink
+    v-else-if="entityType === types.link && link.path !== '/' && link.isExternal"
+    :item="{ link: link.path, target: link.target ? link.target : '_blank' }"
+    classes="tree-nav-link"
+  >
+    <a class="link">
+      {{ link.title }}
+    </a>
+  </SmartLink>
 </template>
 
 <script>
@@ -29,6 +39,7 @@ export default {
   name: "HeaderNavItem",
   components: {
     HeaderNavItem: () => import("../components/HeaderNavItem.vue"),
+    SmartLink: () => import("./SmartLink.vue"),
   },
   inject: ["appContext", "stackSelectorData"],
   props: ["link"],
