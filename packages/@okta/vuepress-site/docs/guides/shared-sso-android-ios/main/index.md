@@ -89,7 +89,7 @@ You need a second mobile app to test with.
 
 ## Optional settings
 
-There are a few other settings that you can play with while testing shared SSO that involve the use of the `prompt` parameter. See [Parameter details](https://developer.okta.com/docs/reference/api/oidc/#parameter-details) for more information on using the `prompt` parameter.
+There are a few other settings that you can play with while testing shared SSO that involve the use of the `prompt` parameter. See [parameter details](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/authorizeCustomAS!in=query&path=prompt&t=request) for more information on using the `prompt` parameter.
 
 ### Always prompt the user regardless of session
 
@@ -99,7 +99,7 @@ If you’re using the same Okta domain for both of your apps, the default behavi
 
 ### Check for a valid session
 
-You can also check if the browser has a valid session by using the `prompt=none` parameter. The `prompt=none` parameter guarantees that the user isn't prompted for credentials. Either the requested tokens are obtained or if the session is invalid or doesn't exist, the app receives an OAuth error response. See [Parameter details](https://developer.okta.com/docs/reference/api/oidc/#parameter-details) for more information on using the `prompt` parameter.
+You can also check if the browser has a valid session by using the `prompt=none` parameter. The `prompt=none` parameter guarantees that the user isn't prompted for credentials. Either the requested tokens are obtained or if the session is invalid or doesn't exist, the app receives an OAuth error response. See [parameter details](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/authorizeCustomAS!in=query&path=prompt&t=request) for more information on using the `prompt` parameter.
 
 If your app requires that the user signs in to the first app first, then you can use the `prompt=none` parameter in the second app. This enables you to check whether the user is already signed in to the first app.
 

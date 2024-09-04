@@ -99,7 +99,7 @@ The values for a configuration object are:
 | Issuer        | The OAuth 2.0 URL for the Okta org, such as `https://oie-123456.oktapreview.com/oauth2/default`. |
 | Client ID     | The ID of the Okta app integration from the Okta Admin Console.  |
 | Redirect URI  | A callback URI for launching the mobile app, such as `com.example.oie-123456:/callback`. |
-| Scopes        | A space separated list of the requested access scopes for the app. For more information, see [Scopes in OpenID Connect & OAuth 2.0 API](https://developer.okta.com/docs/reference/api/oidc/#scopes).|
+| Scopes        | A space separated list of the requested access scopes for the app. For more information, see [Scopes in OpenID Connect & OAuth 2.0 API](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/#scopes).|
 
 The configuration information in a shipping app is usually static. You can initialize the configuration values directly in the code or read them from a file. During development you may want to provide a way to edit configuration values.
 

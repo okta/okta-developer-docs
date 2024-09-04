@@ -127,7 +127,7 @@ export default {
 </script>
 ```
 
-> **Note**: You can extend the set of claims by modifying the Sign-In Widget [scopes](/docs/reference/api/oidc/#scopes) settings to retrieve custom information about the user. This includes `locale`, `address`, `groups`, and [more](/docs/reference/api/oidc/#scope-values).
+> **Note**: You can extend the set of claims by modifying the Sign-In Widget [scopes](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/#scopes) settings to retrieve custom information about the user. This includes `locale`, `address`, `groups`, and [more](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/#scope-values).
 
 ### Connect the routes
 

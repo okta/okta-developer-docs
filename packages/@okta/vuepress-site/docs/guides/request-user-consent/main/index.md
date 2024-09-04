@@ -35,9 +35,9 @@ When an app needs to get a new access token from an authorization server, the us
 
 When a consent dialog appears depends on the values of three elements:
 
-* `prompt`: a query [parameter](/docs/reference/api/oidc/#parameter-details) that is used in requests to `/oauth2/{authorizationServerId}/v1/authorize` (custom authorization server)
+* `prompt`: a query [parameter](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/authorizeCustomAS!in=query&path=prompt&t=request) that's used in requests to `/oauth2/{authorizationServerId}/v1/authorize` (custom authorization server)
 * `consent_method`: an app property listed in the **Settings** [table](/docs/reference/api/apps/#settings-10) in the Apps API doc. This property allows you to determine whether a client is fully trusted (for example, a first-party app) or requires consent (for example, a third-party app).
-* `consent`: a scope property listed in the **Parameter details** [section](/docs/reference/api/oidc/#parameter-details) for the `/authorize` endpoint. This property allows you to enable or disable user consent for an individual scope.
+* `consent`: a scope property listed in the [parameter details](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServerScopes/#tag/AuthorizationServerScopes/operation/createOAuth2Scope!path=consent&t=request) for authorization server scopes. This property allows you to enable or disable user consent for an individual scope.
 
 ## Enable consent for scopes
 
@@ -212,9 +212,9 @@ After you define the scopes that you want to require consent for, prepare an aut
 
     * Values for `state` and `nonce`, which can be anything
 
-    * Optional. The `prompt` parameter. The standard behavior (if you don't include `prompt` in the request) is to prompt the user for consent if they haven't already given consent for the scope(s). When you include `prompt=consent` in the request, the user is prompted for consent every time, even if they have already given consent. You must set the `consent_method` and the consent for the scope(s) to `REQUIRED`. See the [Parameter details](/docs/reference/api/oidc/#parameter-details) section for the `/authorize` endpoint.
+    * Optional. The `prompt` parameter. The standard behavior (if you don't include `prompt` in the request) is to prompt the user for consent if they haven't already given consent for the scope(s). When you include `prompt=consent` in the request, the user is prompted for consent every time, even if they have already given consent. You must set the `consent_method` and the [consent for the scope(s)]9(https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServerScopes/#tag/AuthorizationServerScopes/operation/createOAuth2Scope!path=consent&t=request) to `REQUIRED`. See the [parameter details](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/authorizeCustomAS!in=query&path=prompt&t=request) for the `/authorize` endpoint.
 
-    > **Note:** All of the property values are fully documented in the `/authorize` [endpoint](/docs/reference/api/oidc/#authorize) section of the OpenID Connect & OAuth 2.0 API reference.
+    > **Note:** All of the property values are fully documented in the `/authorize` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/authorizeCustomAS) section of the OpenID Connect & OAuth 2.0 API reference.
 
     The resulting URL to request an access token looks something like this:
 

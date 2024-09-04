@@ -55,7 +55,7 @@ See that guide for more details.
 ### 6 (Optional): Get the user profile information
 
 You can obtain basic user information by making a request to the authorization server.
-Make a call to the [`/v1/userinfo`](/docs/reference/api/oidc/#userinfo) endpoint using the tokens
+Make a call to the [`/v1/userinfo`](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/userinfoCustomAS) endpoint using the tokens
 obtained from the `LoginResponse` object's `Token` property.
 
 ```go

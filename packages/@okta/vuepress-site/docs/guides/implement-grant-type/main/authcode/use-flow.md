@@ -20,7 +20,7 @@ Note the parameters that are being passed:
 * `redirect_uri` is the callback location where the user agent is directed to along with the `code`. This URI must match one of the **Sign-in redirect URIs** that you specified when you created your app integration earlier.
 * `state` is an arbitrary alphanumeric string that the authorization server reproduces when redirecting the user agent back to the client. This is used to help prevent cross-site request forgery.
 
-See [the OAuth 2.0 API reference](/docs/reference/api/oidc/#authorize) for more information on these parameters.
+See [the OAuth 2.0 API reference](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/authorizeCustomAS) for more information on these parameters.
 
 If the user doesn't have an existing session, this request opens the Okta sign-in page. If they have an existing session, or after they authenticate, they arrive at the specified `redirect_uri` along with a `code`. For example:
 
@@ -43,7 +43,7 @@ curl --request POST \
   --data 'grant_type=authorization_code&redirect_uri=http%3A%2F%2Flocalhost%3A8080&code=P59yPm1_X1gxtdEOEZjn'
 ```
 
-> **Important:** The call to the `/token` endpoint requires authentication. In this case, it's Basic Authentication with the client ID and secret [Base64-encoded](/docs/guides/implement-grant-type/clientcreds/main/#base64-encode-the-client-id-and-client-secret). You can find the client ID and secret on your app integration's **General** tab. This requirement is why this call is only appropriate for applications that can guarantee the confidentiality of the client secret. See [Client Authentication Methods](/docs/reference/api/oidc/#client-authentication-methods).
+> **Important:** The call to the `/token` endpoint requires authentication. In this case, it's Basic Authentication with the client ID and secret [Base64-encoded](/docs/guides/implement-grant-type/clientcreds/main/#base64-encode-the-client-id-and-client-secret). You can find the client ID and secret on your app integration's **General** tab. This requirement is why this call is only appropriate for applications that can guarantee the confidentiality of the client secret. See [Client Authentication Methods](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/client-auth/#client-authentication-methods).
 
 Note the parameters that are being passed:
 
@@ -51,7 +51,7 @@ Note the parameters that are being passed:
 * `redirect_uri` is the URI that was used to get the authorization code.
 * `code` is the authorization code that you got from the `/authorize` endpoint.
 
-See the [OAuth 2.0 API reference](/docs/reference/api/oidc/#token) for more information on these parameters.
+See the [OAuth 2.0 API reference](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/tokenCustomAS) for more information on these parameters.
 
 If the code is still valid, your application receives back access and ID tokens:
 

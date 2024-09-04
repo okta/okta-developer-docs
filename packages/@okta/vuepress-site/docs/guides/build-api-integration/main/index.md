@@ -156,7 +156,7 @@ Follow these steps to use a Basic Authorization header in a `/token` request:
    Authorization: Basic {Base64({clientId}:{clientSecret})}
    ```
 
-1. Make a request to the [/token](/docs/reference/api/oidc/#token) endpoint with these query parameters:
+1. Make a request to the [/token](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/tokenOptionsCustomAS) endpoint with these query parameters:
    * `grant_type`: set to `client_credentials`
    * `scope`: set to a space-separated list of the [Okta API scopes](/docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints) required by the app. This parameter can't be empty.
 
@@ -194,7 +194,7 @@ Follow these steps to use a Basic Authorization header in a `/token` request:
    }
    ```
 
-   See the [list of token endpoint errors](/docs/reference/api/oidc/#possible-errors-4).
+   See the [list of token endpoint errors](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/tokenCustomAS!c=400&path=error&t=response).
 
 > **Note:** By default, the access token expires in an hour. Request a new access token after your token expires.
 

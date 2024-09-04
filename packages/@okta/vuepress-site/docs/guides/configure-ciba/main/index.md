@@ -219,11 +219,11 @@ The OIDC client sends the CIBA challenge request to an Okta authorization server
 | `binding_message`| (Optional) A human-readable message that appears on the authentication device to identify the transaction |
 | `id_token_hint` | An ID token that was issued during initial user authentication. The token is passed back as a hint to identify the user for whom more authentication is being requested. You can specify either `login_hint` or `id_token_hint` in the authentication request, not both. This parameter isn’t used in this example. |
 | `login_hint` | Information that identifies the user for whom authentication is being requested. This is typically the user’s email address. You can specify either `login_hint` or `id_token_hint` in the authentication request, not both. |
-| `request`| If you're using `private_key_jwt` as the [token endpoint authentication method](/docs/reference/api/apps/#credentials), this is the JWT created by the client that enables you to pass requests as a single, self-contained parameter. See [Parameter details](/docs/reference/api/oidc/#client-initiated-backchannel-authentication-parameter-details). |
+| `request`| If you're using `private_key_jwt` as the [token endpoint authentication method](/docs/reference/api/apps/#credentials), this is the JWT created by the client that enables you to pass requests as a single, self-contained parameter. See [Parameter details](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/bcAuthorizeCustomAS!path=request&t=request). |
 | `request_expiry`| (Optional) A positive integer that allows the client to request how long (in seconds) the authentication request is valid. This value is returned in the response from the authorization server as the `expires_in` parameter. If your request doesn’t contain this parameter, the default time that the request is valid is 300 seconds. |
-| `scope` | The `openid` scope is required for authentication requests. You can also include other [scopes](/docs/reference/api/oidc/#access-token-scopes-and-claims).|
+| `scope` | The `openid` scope is required for authentication requests. You can also include other [scopes](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/#access-token-scopes-and-claims).|
 
-> **Note:** For more request examples using different parameters and a public key/private key [client authentication](/docs/reference/api/oidc/#client-authentication-methods) example, see [CIBA request examples](/docs/reference/api/oidc/#ciba-request-examples).
+> **Note:** For more request examples using different parameters and a public key/private key [client authentication](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/client-auth/#client-authentication-methods) example, see [CIBA request examples](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/bcAuthorizeCustomAS).
 
 **Example request**
 
@@ -267,7 +267,7 @@ The next step in the CIBA authentication flow is to send a request for tokens to
 | `grant_type`| `urn:openid:params:grant-type:ciba` |
 | `auth_req_id` | Required if the `grant_type` is `urn:openid:params:grant-type:ciba` |
 | `scope` | This is a list of scopes that the client wants in the access token. |
-| `request` | If you're using `private_key_jwt` as the [client authentication method](/docs/reference/api/apps/#credentials), this is the JWT created by the client that enables you to pass requests as a single, self-contained parameter. See [Parameter details](/docs/reference/api/oidc/#client-initiated-backchannel-authentication-parameter-details). |
+| `request` | If you're using `private_key_jwt` as the [client authentication method](/docs/reference/api/apps/#credentials), this is the JWT created by the client that enables you to pass requests as a single, self-contained parameter. See [Parameter details](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/bcAuthorizeCustomAS!path=request&t=request). |
 
 1. Send a request for tokens to the `/token` endpoint:
 
@@ -282,7 +282,7 @@ The next step in the CIBA authentication flow is to send a request for tokens to
      --data 'grant_type=urn:openid:params:grant-type:ciba&scope=openid email&auth_req_id=ftuPCF1eZ0ujBBC3RlRPwTXucFfFQ1M3bh&login_hint=test.user@email.com'
    ```
 
-   > **Note:** For more request examples using different parameters and a public key/private key [client authentication](/docs/reference/api/oidc/#client-authentication-methods) example, see [CIBA request examples](/docs/reference/api/oidc/#ciba-request-examples).
+   > **Note:** For more request examples using different parameters and a public key/private key [client authentication](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/client-auth/#client-authentication-methods) example, see [CIBA request examples](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/bcAuthorizeCustomAS).
 
    An authorization error response is sent to the client when the authorization server hasn’t received the user consent yet:
 

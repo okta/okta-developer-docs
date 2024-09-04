@@ -44,7 +44,7 @@ Other important terms:
 * **access token**: The token issued by the authorization server (Okta) in exchange for the grant.
 * **refresh token**: An optional token that is exchanged for a new access token if the access token has expired.
 
-> **Note:** For more information on hard-coded and configurable token lifetimes, see [Token lifetime](/docs/reference/api/oidc/#token-lifetime).
+> **Note:** For more information on hard-coded and configurable token lifetimes, see [Token lifetime](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/#token-lifetime).
 
 The following describes the usual OAuth 2.0 Authorization Code flow.
 
@@ -57,7 +57,7 @@ The following describes the usual OAuth 2.0 Authorization Code flow.
 
 At the core of both OAuth 2.0 and OIDC is the authorization server. An authorization server is simply an OAuth 2.0 token minting engine. Each authorization server has a unique issuer URI and its own signing key for tokens to keep a proper boundary between security domains. In the context of this guide, Okta is your authorization server.
 
-The authorization server also acts as an OIDC provider. This means you can request [ID tokens](/docs/reference/api/oidc/#id-token) in addition to [access tokens](/docs/reference/api/oidc/#access-token) from the authorization server endpoints.
+The authorization server also acts as an OIDC provider. This means you can request [ID tokens](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/#id-token) in addition to [access tokens](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/#access-token) from the authorization server endpoints.
 
 > **Note:** For information on authorization servers, how they work, and how you can use them, see [Authorization servers](/docs/concepts/auth-servers).
 

@@ -42,7 +42,7 @@ Before you code your forms and routes, use the required [configuration settings]
 
 * `clientId`: Your client ID &mdash; `{yourClientId}`
 * `issuer`: The authorization server in your Okta org (for example, `https://{yourOktaDomain}/oauth2/default`)
-* `scopes`: The required OAuth 2.0 [scopes](/docs/reference/api/oidc/#scopes) for your app
+* `scopes`: The required OAuth 2.0 [scopes](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/#scopes) for your app
 * `redirectUri`: Set your callback redirect URI. This value must be configured in your Okta app **Sign-in redirect URIs** and **Trusted Origins** lists.
 
 You can create a `src/config.js` file to define your configuration settings. For example:

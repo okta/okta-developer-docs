@@ -44,7 +44,7 @@ The following is a high-level overview of validating an ID token:
 
 Retrieve the JSON Web Key Set (JWKS) from your [Okta authorization server](/docs/guides/customize-authz-server/). Your app may have it cached. Specifically, your authorization server's Metadata endpoint contains the `jwks_uri`, which you can use to get the JWKS.
 
-> **Note:** See [Retrieve authorization server metadata](/docs/reference/api/oidc/#well-knownoauth-authorization-server).
+> **Note:** See [Retrieve authorization server metadata](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/getWellKnownOAuthConfigurationCustomAS).
 
 ### Decode the ID token
 
@@ -68,7 +68,7 @@ Verify the following:
 
 ## Validate a token remotely with Okta
 
-You can also validate an ID token using the [Token Introspection endpoint](/docs/reference/api/oidc/#introspect). This endpoint takes your token as a URL query and returns a JSON response with a boolean `active` property. If `active` is `true`, then more information about the token is also returned.
+You can also validate an ID token using the [Token Introspection endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/introspectCustomAS). This endpoint takes your token as a URL query and returns a JSON response with a boolean `active` property. If `active` is `true`, then more information about the token is also returned.
 
 This method incurs a network request that results in slower verification of the token. Use this method when you want to guarantee that the access token hasn't been revoked.
 
@@ -85,4 +85,4 @@ The Okta JWT verifier is available for the following languages:
 * [Overview of OpenID Connect](/docs/concepts/oauth-openid/#openid-connect)
 * [JSON Web Token specification](https://tools.ietf.org/html/rfc7519)
 * [JSON Web Keys specification](https://tools.ietf.org/html/rfc7517)
-* [OIDC & OAuth 2.0 API Reference](/docs/reference/api/oidc/#id-token)
+* [OIDC & OAuth 2.0 API Reference](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/#id-token)

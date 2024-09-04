@@ -34,7 +34,7 @@ Okta sessions are created and managed with the [Session API](/docs/reference/api
 
 This scenario is ideal for deployment scenarios where you've implemented both a custom sign-in page and a custom landing page for your app. The sign-in page typically collects the user's credentials through an HTML form submit or POST and the web app validates the credentials against your Okta org by calling the [Authentication API](/docs/reference/api/authn/) to obtain a [session token](/docs/reference/api/sessions/#session-token).
 
-After a session token is obtained, it can be passed into the [OpenID Connect authorize endpoint](/docs/reference/api/oidc/#authorize) to get an Okta session cookie. Executing this flow sets a cookie in the end user's browser and then redirects them back to the `redirect_uri` that is passed into the request.
+After a session token is obtained, it can be passed into the [OpenID Connect authorize endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/authorizeCustomAS) to get an Okta session cookie. Executing this flow sets a cookie in the end user's browser and then redirects them back to the `redirect_uri` that is passed into the request.
 
 > **Note:** The session token may only be used **once** to establish a session. If the session expires or the user signs out of Okta after using the token, the user won't be able to reuse the same session token to get a new session cookie.
 
@@ -56,9 +56,9 @@ Set-Cookie: sid=lGj4FPxaG63Wm89TpJnaDF6; Path=/
 Location: https://your-app.example.com?id_token=S4sx3uixdsalasd&state=Af0ifjslDkj&nonce=n-0S6_WzA2Mj
 ```
 
-The response also includes an [ID token](/docs/reference/api/oidc/#id-token) that describes the authenticated user and can contain more claims such as user profile attributes or email.
+The response also includes an [ID token](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/#id-token) that describes the authenticated user and can contain more claims such as user profile attributes or email.
 
-The [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/) uses this flow. Single Page Applications can also use this flow with the [`okta_post_messsage`](/docs/reference/api/oidc/#parameter-details) response type, which doesn't require a browser redirect.
+The [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/) uses this flow. Single Page Applications can also use this flow with the [`okta_post_messsage`](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/authorizeCustomAS!in=query&path=response_mode&t=request) `response_mode` type, which doesn't require a browser redirect.
 
 ## Retrieve a session cookie by visiting a session redirect link
 

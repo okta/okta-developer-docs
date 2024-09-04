@@ -106,7 +106,7 @@ At this point you can keep reading to find out how to create custom scopes and c
 
 ## Create Scopes
 
-Scopes specify what access privileges are being requested as part of the authorization. For example, the `email` scope requests access to the user's email address. There are certain reserved scopes that are created with any Okta authorization server that are listed on the OpenID Connect & OAuth 2.0 [Scopes](/docs/reference/api/oidc/#scopes) section.
+Scopes specify what access privileges are being requested as part of the authorization. For example, the `email` scope requests access to the user's email address. There are certain reserved scopes that are created with any Okta authorization server that are listed on the OpenID Connect & OAuth 2.0 [Scopes](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/#scopes) section.
 
 If you need scopes in addition to the reserved scopes provided, you can create them. Custom scopes can have corresponding claims that tie them to some sort of user information.
 
@@ -122,7 +122,7 @@ If you need scopes in addition to the reserved scopes provided, you can create t
     > **Note:** You can configure individual clients to ignore this setting and skip consent.
 
 1. Select **Set as a default scope** if you want Okta to grant authorization requests to apps that don't specify scopes on an authorization request. If the client omits the scope parameter in an authorization request, Okta returns all default scopes that are permitted in the access token by the access policy rule.
-1. Select **Include in public metadata** if you want the scope to be [publicly discoverable](/docs/reference/api/oidc/#well-known-oauth-authorization-server).
+1. Select **Include in public metadata** if you want the scope to be [publicly discoverable](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/getWellKnownOAuthConfigurationCustomAS).
 1. Click **Create**.
 
 The [**Claims** dialog box](#create-claims) references the scopes that you add.
@@ -167,7 +167,7 @@ The following are a few things that you can try to ensure that your authorizatio
 
 You can send an API request to the server's OpenID Connect Metadata URI to verify that your server was created and has the expected configuration values: `https://{yourOktaDomain}/oauth2/{authorizationServerId}/.well-known/openid-configuration` using an HTTP client or by typing the URI inside a browser. This returns information about the OpenID configuration of your authorization server.
 
-For more information on this endpoint, see how to [retrieve authorization server OpenID Connect metadata](/docs/reference/api/oidc/#well-known-openid-configuration).
+For more information on this endpoint, see how to [retrieve authorization server OpenID Connect metadata](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/getWellKnownOpenIDConfigurationCustomAS).
 
 ### Custom scopes and claims
 
@@ -213,7 +213,7 @@ Add the following URL query parameters to the URL:
 
 > **Note:** A `nonce` value isn't required if the `response_type` is `code`.
 
-All values are fully documented here: [Obtain an Authorization Grant from a user](/docs/reference/api/oidc/#authorize).
+All values are fully documented here: [Obtain an Authorization Grant from a user](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/authorizeCustomAS).
 
 The resulting URL looks like this:
 
@@ -260,5 +260,5 @@ This example includes the `nonce` with value `YsG76jo` and the custom claim `pre
 ## See also
 
 * [OAuth 2.0 Overview](/docs/concepts/oauth-openid/) for a high-level explanation of OAuth 2.0 and OpenID Connect.
-* [Scopes](/docs/reference/api/oidc/#scopes) for further information on using scopes.
-* [Claims](/docs/reference/api/oidc/#tokens-and-claims) for more information on what claims are and how to use them.
+* [Scopes](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/#scopes) for further information on using scopes.
+* [Claims](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/#tokens-and-claims) for more information on what claims are and how to use them.

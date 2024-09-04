@@ -61,7 +61,7 @@ Decode the access token, which is in JWT format. This involves the following ste
 
 ## Validate a token remotely with Okta
 
-Alternatively, you can also validate an access or refresh token using the Token Introspection endpoint: [Introspection request](/docs/reference/api/oidc/#introspect). This endpoint takes your token as a URL query parameter and returns a simple JSON response with a Boolean `active` property.
+Alternatively, you can also validate an access or refresh token using the Token Introspection endpoint: [Introspection request](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/introspectCustomAS). This endpoint takes your token as a URL query parameter and returns a simple JSON response with a Boolean `active` property.
 
 This involves a network request that is slower for performing validation. But, you can use it when you want to guarantee that the access token hasn't been revoked.
 
@@ -69,4 +69,4 @@ This involves a network request that is slower for performing validation. But, y
 
 * [High-level overview of OpenID Connect](/docs/concepts/oauth-openid/#openid-connect)
 * [JSON Web Token (JWT)](https://tools.ietf.org/html/rfc7519) and [JSON Web Keys (JWK)](https://tools.ietf.org/html/rfc7517)
-* [OIDC & OAuth 2.0 API Reference](/docs/reference/api/oidc/#id-token)
+* [OIDC & OAuth 2.0 API Reference](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/#id-token)

@@ -145,7 +145,7 @@ Note the parameters that are being passed:
 * `code_challenge_method`: The hash method used to generate the challenge, which is always `S256`.
 * `code_challenge`: The code challenge used for PKCE.
 
-> **Note:** See the [OAuth 2.0 API reference](/docs/reference/api/oidc/#authorize) for more information on these parameters.
+> **Note:** See the [OAuth 2.0 API reference](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/authorizeCustomAS) for more information on these parameters.
 
 If the user doesn't have an existing session, this request opens the Okta sign-in page. If they have an existing session, or after they authenticate, the user arrives at the specified `redirect_uri` along with an authorization `code`:
 

@@ -96,7 +96,7 @@ Let's test your access policy and get back an access token.
 
 3. Add the following `/authorize` endpoint query parameters to the URL:
 
-     > **Note:** All of the values are fully documented in the [OpenID Connect & OAuth 2.0 API](/docs/reference/api/oidc/#authorize) documentation.
+     > **Note:** All of the values are fully documented in the [OpenID Connect & OAuth 2.0 API](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/authorizeCustomAS) documentation.
 
      * The OpenID Connect application's `client_id` and `redirect_uri`
      * Scopes, which for the purposes of this example are `openid` and `email`
@@ -191,7 +191,7 @@ Let's test your access policy and get back an access token.
      * A `response_mode`, which you can set to `fragment`
      * A `state` and a `nonce` value
 
-     > **Note:** All of the values are fully documented in the [OpenID Connect & OAuth 2.0 API](/docs/reference/api/oidc/#authorize) documentation.
+     > **Note:** All of the values are fully documented in the [OpenID Connect & OAuth 2.0 API](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/authorizeCustomAS) documentation.
 
      The resulting URL looks like this:
 
