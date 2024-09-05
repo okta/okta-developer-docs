@@ -13,17 +13,6 @@ The OpenID Connect & OAuth 2.0 API reference is available at the [Okta API refer
 
 Explore the [Okta Public API Collections](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/overview) workspace to get started with the OpenID Connect & OAuth 2.0 API Postman collection.
 
-https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/
-
-https://developer.okta.com/docs/reference/api/oidc/
-
-/docs/reference/api/oidc/
-
-
-custom authorization server [introspection endpoint](/https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/introspectCustomAS) or the Okta org authorization server [introspection endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/OrgAS/#tag/OrgAS/operation/introspect).
-
-
-
 <!--
 Okta is a standards-compliant [OAuth 2.0](http://oauth.net/documentation) authorization server and a certified [OpenID Connect provider](http://openid.net/certification).
 

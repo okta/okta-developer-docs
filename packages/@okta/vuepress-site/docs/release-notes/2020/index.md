@@ -169,7 +169,7 @@ When the `expiresAt` property value of the [Authentication transaction object](/
 
 #### Bug fixed in 2020.10.2
 
-When accessing the `/authorize` [endpoint](/docs/reference/api/oidc/#authorize) with a scope parameter requiring consent, users not assigned to the application received a consent prompt rather than an error message.  (OKTA-335476)
+When accessing the `/authorize` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/authorizeCustomAS) with a scope parameter requiring consent, users not assigned to the application received a consent prompt rather than an error message.  (OKTA-335476)
 
 
 ### Weekly Release 2020.10.1
@@ -224,7 +224,7 @@ The [Groups API](/docs/reference/api/groups/) now supports extended search. Also
 
 #### Bugs fixed in 2020.09.4
 
-* When an OAuth service client called the `/authorize` [endpoint](/docs/reference/api/oidc/#authorize), the returned error description was inaccurate. (OKTA-252750)
+* When an OAuth service client called the `/authorize` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/authorizeCustomAS), the returned error description was inaccurate. (OKTA-252750)
 
 * If a user was assigned to two groups that have identical roles, then a call to the `/users/${userId}/roles` endpoint to [list the administrator roles assigned](/docs/reference/api/roles/#list-roles) to the user failed with an HTTP 400 error. (OKTA-325187)
 
@@ -540,7 +540,7 @@ Okta will now return CORS headers for [requests made with OAuth 2.0 Bearer token
 
 #### Bugs fixed in 2020.03.2
 
-* In some cases, an OAuth 2.0 [`/authorize`](/docs/reference/api/oidc/#authorize) request would incorrectly redirect if the client App had an App Sign-On Policy configured. (OKTA-269116)
+* In some cases, an OAuth 2.0 [`/authorize`](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/authorizeCustomAS) request would incorrectly redirect if the client App had an App Sign-On Policy configured. (OKTA-269116)
 
 * The [`_links`](/docs/reference/core-okta-api/#links) attribute for `groups` sent by Okta in the request body for a SAML inline hook was incorrect. (OKTA-269553)
 
@@ -629,7 +629,7 @@ The Schemas API and the Linked Objects API now have OAuth for Okta enabled. See 
 #### Bugs Fixed in 2020.02.1
 
 * When an admin's last role was revoked using the [Roles API](/docs/reference/api/roles/), it would sometimes not trigger a System Log event. (OKTA-276093)
-* In certain situations the [`/keys`](/docs/reference/api/oidc/#keys) endpoint would incorrectly return that the current key was expired and needed to be rolled over when the rollover hadn't occurred yet. (OKTA-227062)
+* In certain situations the [`/keys`](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/oauthKeysCustomAS) endpoint would incorrectly return that the current key was expired and needed to be rolled over when the rollover hadn't occurred yet. (OKTA-227062)
 * Expired AD users received different authentication errors depending on whether the Passwordless Policy was enabled or disabled. (OKTA-268306)
 
 

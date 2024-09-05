@@ -150,7 +150,7 @@ Okta provides the API Access Management administrator role to manage authorizati
 #### API Gateway (optional)
 
 * Use access tokens exclusively through an HTTP Authorization header instead of encoded into a payload or URL that could be logged or cached.
-* When a gateway successfully validates an access token, cache the result until the expiration time (`exp` claim). Do this for validation that is either [local](/docs/guides/validate-access-tokens/) or through the custom authorization server [introspection endpoint](/https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/introspectCustomAS) or the Okta org authorization server [introspection endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/OrgAS/#tag/OrgAS/operation/introspect).
+* When a gateway successfully validates an access token, cache the result until the expiration time (`exp` claim). Do this for validation that is either [local](/docs/guides/validate-access-tokens/) or through the custom authorization server [introspection endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/introspectCustomAS) or the Okta org authorization server [introspection endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/OrgAS/#tag/OrgAS/operation/introspect).
 * When a gateway retrieves the JWKS (public keys) to validate a token, it should cache the result until a new or unknown key is referenced in a token.
 * If the gateway performs endpoint or HTTP verb-level authorization using scopes, define and grant the scopes in the org authorization server or custom authorization server before using them in the gateway.
 
@@ -161,7 +161,7 @@ Okta provides the API Access Management administrator role to manage authorizati
 * Protect access tokens and refresh tokens. They contain sensitive information. Don't ever store them in client-side or front-end code.
 * A client (application) should never inspect the contents of an access token. For example, don't customize the client's UI based on scopes in the access token. The access token isn't meant for the client to read, it's meant for the client to use. However, there's still a large amount of metadata that Okta can attach to a token. For example, Okta may include metadata such as current validity, approved scopes, and information about the context in which Okta issues the token.
 
-  Use the custom authorization server [introspection endpoint](/https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/introspectCustomAS) or the Okta org authorization server [introspection endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/OrgAS/#tag/OrgAS/operation/introspect) to access this data.
+  Use the custom authorization server [introspection endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/introspectCustomAS) or the Okta org authorization server [introspection endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/OrgAS/#tag/OrgAS/operation/introspect) to access this data.
 
 * Use access tokens exclusively through an HTTP Authorization header instead of encoded into a payload or URL that may be logged or cached.
 * A client secret is a password and you should protect it. Therefore, don't embed access tokens in mobile applications, front-end JavaScript applications, or any other scenario where an attacker could access it.
@@ -170,7 +170,7 @@ Okta provides the API Access Management administrator role to manage authorizati
 * For Android or iOS applications, use [Okta Mobile SDK for Kotlin](https://github.com/okta/okta-mobile-kotlin) or [Okta Mobile SDK for Swift](https://github.com/okta/okta-mobile-swift).
 * When an application successfully validates an access token, cache the result until the expiration time (`exp`).
 
-  Do this for a validation that's either [local](/docs/guides/validate-access-tokens/) or through the custom authorization server [introspection endpoint](/https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/introspectCustomAS) or the Okta org authorization server [introspection endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/OrgAS/#tag/OrgAS/operation/introspect).
+  Do this for a validation that's either [local](/docs/guides/validate-access-tokens/) or through the custom authorization server [introspection endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/introspectCustomAS) or the Okta org authorization server [introspection endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/OrgAS/#tag/OrgAS/operation/introspect).
 
 * When an application retrieves the JWKS (public keys) to validate a token, it should cache the result until a new or unknown key is referenced in a token.
 
@@ -184,4 +184,4 @@ Okta provides the API Access Management administrator role to manage authorizati
 * A resource server must confirm that the audience claim (`aud`) and client ID claim (`cid`) match the expected audience and client ID.
 * When a resource server successfully validates an access token, cache the result until the expiration time (`exp`).
 
-  Do this for a validation that is either [local](/docs/guides/validate-access-tokens/) or through the custom authorization server [introspection endpoint](/https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/introspectCustomAS) or the Okta org authorization server [introspection endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/OrgAS/#tag/OrgAS/operation/introspect).
+  Do this for a validation that is either [local](/docs/guides/validate-access-tokens/) or through the custom authorization server [introspection endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/introspectCustomAS) or the Okta org authorization server [introspection endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/OrgAS/#tag/OrgAS/operation/introspect).
