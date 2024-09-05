@@ -358,11 +358,11 @@ redirects:
   - from: /3rd_party_notices/Android_Mobile.html
     to: /3rd_party_notices/Android_Mobile/
   - from: /docs/reference/api/oidc.html
-    to: https://developer.okta.com/docs/api/openapi/okta-oauth/guides/
+    to: https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/
   - from: /docs/reference/api/oauth2.html
-    to: https://developer.okta.com/docs/api/openapi/okta-oauth/guides/
+    to: https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/
   - from: /standards/OIDC/index.html
-    to: https://developer.okta.com/docs/api/openapi/okta-oauth/guides/
+    to: https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/
   - from: /docs/api/getting_started/design_principles.html
     to: /docs/reference/core-okta-api/#design-principles
   - from: /standards/SAML/index
