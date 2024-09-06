@@ -5,6 +5,13 @@ category: management
 
 # Policy API
 
+The Policy API reference is now available at the new [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy).
+
+Explore the [Okta Public API Collections](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/overview) workspace to get started with the ${apiName} API Postman collection.
+
+https://developer.okta.com/docs/reference/api/policy/
+
+<!--
 The Okta Policy API enables an administrator to perform Policy and Policy Rule operations. The Policy framework is used by Okta to control Rules and settings that govern, among other things, user session lifetime, whether multi-factor authentication is required when logging in, what MFA factors may be employed, password complexity requirements, what types of self-service operations are permitted under various circumstances, and what identity provider to route users to.
 
 Policy settings for a particular Policy type, such as Sign On Policy, consist of one or more Policy objects, each of which contains one or more Policy Rules. Policies and Rules contain conditions that determine whether they're applicable to a particular user at a particular time.
@@ -58,6 +65,8 @@ HTTP 200:
 <ApiOperation method="get" url="/api/v1/policies/${policyId}?expand=rules" />
 
 For Okta Classic Engine orgs only. Retrieves a policy and its associated rules. For Okta Identity Engine, see [List Policy Rules](#list-policy-rules). <!--OKTA-622770-->
+
+<!--
 
 ##### Request parameters
 
@@ -1382,6 +1391,8 @@ The entity risk detection conditions object specifies the detected risk events t
 * `USER_REPORTED_SUSPICIOUS_ACTIVITY`
 * `SECURITY_EVENTS_PROVIDER_REPORTED_RISK` <!-- Will be changing for 2024.06.0 release -->
 
+<!--
+
 #### Entity detection condition object example
 
 ```json
@@ -1664,7 +1675,7 @@ The Multifactor (MFA) Enrollment Policy controls which MFA methods are available
 <!-- # Consent object isn't used. This object is returned for backward compatibility.
 | consent   | Consent requirements for the Factor    | [Policy Factor Consent object](#policy-factor-consent-object) | No       |
 -->
-
+<!--
 #### Policy Factor Enroll object
 
 | Parameter | Description                               | Data Type                               | Required | Default       |
@@ -1691,7 +1702,7 @@ Currently, the Policy Factor Consent terms settings are ignored.
 | format    | The format of the Consent dialog box to be presented. | `TEXT`, `RTF`, `MARKDOWN` or `URL` | No       | N/A     |
 | value     | The contents of the Consent dialog box.               | String                             | No       | N/A     |
 -->
-
+<!--
 ### Policy conditions
 
 The following conditions may be applied to Multifactor Policy:
@@ -3017,3 +3028,4 @@ This `failureActions` object defines the options for the `TERMINATE_SESSION` act
     }
 }
 ```
+-->

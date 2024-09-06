@@ -54,7 +54,7 @@ The difference between persistent SSO and session SSO is that you can maintain p
 
 ### Enable the parameter
 
-To enable persistent SSO for **Stay signed in**, you need to update the [`usePersistentCookie`](/docs/reference/api/policy/#signon-action-object) parameter in the appropriate global session policy. These steps use the Okta [Policy Postman collection](/docs/reference/postman-collections/) to enable the parameter.
+To enable persistent SSO for **Stay signed in**, you need to update the [`usePersistentCookie`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule!path=4/actions/signon/session/usePersistentCookie&t=request) parameter in the appropriate global session policy. These steps use the Okta [Policy Postman collection](/docs/reference/postman-collections/) to enable the parameter.
 
 Before you begin, complete the following steps:
 
