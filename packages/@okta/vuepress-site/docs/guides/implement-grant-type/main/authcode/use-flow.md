@@ -14,11 +14,11 @@ https://{yourOktaDomain}/oauth2/v1/authorize?
 
 Note the parameters that are being passed:
 
-* `client_id` is the client ID of the app integration that you created earlier. Find it in the Admin Console on your app integration's **General** tab.
-* `response_type` is `code`, indicating that you're using the Authorization Code grant type.
-* `scope` is `openid`, which means that the `/token` endpoint returns an ID token. For custom scopes, see the **Create Scopes** section of the [Create an authorization server guide](/docs/guides/customize-authz-server/main/#create-scopes).
-* `redirect_uri` is the callback location where the user agent is directed to along with the `code`. This URI must match one of the **Sign-in redirect URIs** that you specified when you created your app integration earlier.
-* `state` is an arbitrary alphanumeric string that the authorization server reproduces when redirecting the user agent back to the client. This is used to help prevent cross-site request forgery.
+* `client_id`: The client ID of the app integration that you created earlier. Find it in the Admin Console on your app integration's **General** tab.
+* `response_type`: The value is `code`, which indicates that you're using the Authorization Code grant type.
+* `scope`: The value is `openid`, which means that the `/token` endpoint returns an ID token. For custom scopes, see the **Create Scopes** section of the [Create an authorization server guide](/docs/guides/customize-authz-server/main/#create-scopes).
+* `redirect_uri`: The callback location where the user agent is directed to along with the `code`. This URI must match one of the **Sign-in redirect URIs** that you specified when you created your app integration earlier.
+* `state`: An arbitrary alphanumeric string that the authorization server reproduces when redirecting the user agent back to the client. This is used to help prevent cross-site request forgery.
 
 See [the OAuth 2.0 API reference](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/authorizeCustomAS) for more information on these parameters.
 

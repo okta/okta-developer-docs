@@ -1,6 +1,6 @@
 Before you can begin this flow, you must collect the SAML assertion from the Identity Provider and make sure that it’s Base64-encoded. You can then use the assertion in the API call to the [authorization server's](/docs/concepts/auth-servers/#custom-authorization-server) `/token` endpoint.
 
-> **Note:** The example request in the next section shows you the direct [OIDC & OAuth 2.0 API](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/) call. Typically, you don't need to make direct calls to the API if you're using one of the Okta authentication SDKs that support SAML 2.0 Assertion flow.
+> **Note:** The example request in the next section displays a direct [OIDC & OAuth 2.0 API](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/) call. You don't usually need to make direct calls when you use an Okta authentication SDK that supports the SAML 2.0 Assertion flow.
 
 ### Request example
 
@@ -16,13 +16,13 @@ curl --location --request POST 'https://{yourOktaDomain}/oauth2/v1/token' \
 --data-urlencode 'assertion=<Base64-encoded assertion>'
 ```
 
-> **Note:** The call to your authorization server's `/token` endpoint requires authentication. In this case, it’s a Basic Authentication digest of the client ID and secret. You made note of these during [set up your app](#set-up-your-app). See [Client Authentication Methods](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/client-auth/#client-authentication-methods).
+> **Note:** The call to your authorization server's `/token` endpoint requires authentication. In this case, it’s a Basic Authentication digest of the client ID and secret. You made note of these when you [set up your app](#set-up-your-app). See [Client Authentication Methods](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/client-auth/#client-authentication-methods).
 
 Note the parameters that are being passed:
 
-- `grant_type`: `urn:ietf:params:oauth:grant-type:saml2-bearer`
+- `grant_type`: The value is `urn:ietf:params:oauth:grant-type:saml2-bearer`
 - `assertion`: A single SAML 2.0 assertion that is Base64-encoded
-- `scope`: `openid` and `offline_access`. The `openid` scope is required. Include `offline_access` if you want a refresh token included. You can also request other scopes. See the **Create Scopes** section of the [Create an authorization server guide](/docs/guides/customize-authz-server/main/#create-scopes).
+- `scope`: The values are `openid` and `offline_access`. The `openid` scope is required. Include `offline_access` if you want a refresh token included. You can also request other scopes. See the **Create Scopes** section of the [Create an authorization server guide](/docs/guides/customize-authz-server/main/#create-scopes).
 
 ### Response example
 

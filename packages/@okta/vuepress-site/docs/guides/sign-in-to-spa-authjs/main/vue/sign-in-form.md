@@ -2,7 +2,7 @@ This section helps you build a basic password-only sign-in use case for your app
 
 <div class="full">
 
-![Sequence diagram that displays the back and forth between the resource owner, sdk, authorization server, and resource server for a basic SPA password sign-in flow.](/img/oie-embedded-sdk/password-only-spa-authjs-flow.svg)
+![Sequence diagram that displays the back and forth between the resource owner, SDK, authorization server, and resource server for a basic SPA password sign-in flow.](/img/oie-embedded-sdk/password-only-spa-authjs-flow.svg)
 
 </div>
 
@@ -61,11 +61,11 @@ export default {
 }
 ```
 
-> **Note**: See the [Okta Auth JS configuration reference](https://github.com/okta/okta-auth-js#configuration-reference) for additional Auth JS client configurations.
+> **Note**: See the [Okta Auth JS configuration reference](https://github.com/okta/okta-auth-js#configuration-reference) for more Auth JS client configurations.
 
 ### Create the sign-in component
 
-Create a Vue component that displays the sign-in form and submits the authentication request to Okta. You need to handle the response from the authentication request, which follows the [Interaction Code flow](/docs/guides/implement-grant-type/interactioncode/main/#interaction-code-flow). For Auth JS Interaction Code methods, see the [Auth JS Identity Engine module readme](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#usage).
+Create a Vue component that displays the sign-in form and submits the authentication request to Okta. Handle the response from the authentication request, which follows the [Interaction Code flow](/docs/guides/implement-grant-type/interactioncode/main/#interaction-code-flow). For Auth JS Interaction Code methods, see the [Auth JS Identity Engine module readme](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#usage).
 
 For example, create a `src/components/Login.vue` file with the following content:
 
