@@ -50,9 +50,14 @@
                 <a
                   class="workforce__list-link dont-break-out"
                   :href="list.url"
+                  :target="list.isExternal ? '_blank': ''"
                 >
                   {{ list.text }}
                 </a>
+                <div 
+                  v-if="list.isExternal" 
+                  class="resources__list-icon" 
+                />
               </li>
             </ul>
           </li>
