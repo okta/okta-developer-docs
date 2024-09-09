@@ -1,10 +1,10 @@
 ---
 title: Enable Terraform access for your Okta org
-excerpt: Create an Okta application and credentials that Terraform uses to manage the objects in your organization.
+excerpt: Create an Okta app and credentials that Terraform uses to manage the objects in your org.
 layout: Guides
 ---
 
-Create an Okta application and credentials that Terraform uses to manage the objects in your organization.
+Create an Okta app and credentials that Terraform uses to manage the objects in your org.
 
 ---
 
@@ -30,13 +30,13 @@ Terraform is a tool that allows admins to automate your Okta org. Terraform requ
 
 An Okta API service app uses the OAuth 2.0 [Client Credentials authorization flow](/docs/guides/implement-oauth-for-okta-serviceapp/main/) to authorize Terraform. You create a public/private key pair as the client credentials for this flow. Okta stores the public key, and Terraform uses the private key in the configuration for access to your org.
 
-In the Okta API service app that controls your Terraform integration, you specify the Okta objects that Terraform can access using API scopes. Scopes are like permissions to do a certain action on a type of resource. For example, the Terraform configuration in this article creates a test group in Okta, which requires the `okta.groups.manage` API scope.
+In the Okta API service app that controls your Terraform integration, you specify the Okta objects that Terraform can access using scopes. Scopes are like permissions to do a certain action on a type of resource. For example, the Terraform configuration in this article creates a test group in Okta, which requires the `okta.groups.manage` scope.
 
-One way to determine the required scopes for the service app is to consider which ones an admin needs to perform the same kind of action. Next, find the corresponding scopes in the list of [OAuth Admin Management scopes](/docs/api/oauth2/#okta-admin-management) and add them to your service app. For example, adding a group in the Okta Admin console requires the `groups.manage`. In the table, the corresponding scope is `okta.groups.manage`.
+One way to determine the required scopes for the service app is to determine which actions an admin needs to perform. Next, find the corresponding scopes in the list of [OAuth Admin Management scopes](/docs/api/oauth2/#okta-admin-management) and add them to your service app. For example, adding a group in the Okta Admin console requires the `groups.manage` action. In the table, the corresponding scope is `okta.groups.manage`.
 
 You'll also add any required scopes to your Terraform configuration.
 
-Separate from granting API scopes, you must assign admin permissions to the app through groups of permissions called admin roles.
+Separate from granting scopes to an app, you must assign it admin permissions through groups of permissions called admin roles.
 
 > **Note:** See [Control Terraform access to Okta](/docs/guides/terraform-design-access-security).
 
@@ -54,7 +54,7 @@ Create an Okta service app that authorizes Terraform to make changes to your org
 
 To use the Okta Terraform provider, you must update your Okta API service app to enable some admin permissions that correspond to the resources and actions you will manage in Terraform. Some admin permissions apply to the whole organization. Some admin permissions can be assigned to specific users and groups.
 
-The example in this article for initial testing creates an Okta group using Terraform. To run this example code, add the `Organization Administrator` admin role to your API service app.
+The example in this article for initial testing creates an Okta group using Terraform. To run this example code, add the **Organization Administrator** admin role to your API service app.
 
 To simplify assigning sets of admin permissions, Okta provides built-in admin roles that encapsulate permissions with a similar purpose. For example, the Organization Admin role includes admin permissions that are commonly needed by org administrators, including adding new groups. Just as you would add the admin role to a person or group that you're onboarding for admin tasks, assign the Organization Admin role to the API service app for your Terraform integration to allow it to control Okta.
 
@@ -75,11 +75,11 @@ Use a built-in admin role to assign permissions:
 For more information on custom roles, see [Custom admin roles](https://help.okta.com/okta_help.htm?type=oie&id=ext-cstm-admin-roles).
 
 
-## Grant API scopes
+## Grant scopes
 
-Okta _API scopes_ define permissions for an external API client like Terraform. For a full reference, see [the Okta list of Auth 2.0 API scopes](/docs/api/oauth2/#oauth-20-scopes).
+OAuth scopes define permissions for an external API client like Terraform. For a full reference, see [OAuth 2.0 Scopes](/docs/api/oauth2/#oauth-20-scopes).
 
-> **Note:** Granting new API scopes to a service app requires that the admin has Super Administrator permission.
+> **Note:** Granting new scopes to a service app requires that the admin has Super Administrator permission.
 
 1. Open the Okta API service app that you created in the previous section.
 1. Click the **Okta API Scopes** tab.
@@ -87,13 +87,13 @@ Okta _API scopes_ define permissions for an external API client like Terraform. 
 1. Click **Grant** for the desired scope.
 1. For some scopes, Okta requests confirmation. To confirm, click **Grant Scope**.
 
-Repeat these steps for any other desired API scopes.
+Repeat these steps for any other desired scopes.
 
-> **Important**: When you add other resource types to your Terraform configuration, you must make several changes. Grant the new API scopes to the app. Modify your Terraform provider setup to request the new API scopes. Depending on your existing setup, you may need to add more admin roles to the app. For more information, see [Assign admin roles](#assign-admin-roles).
+> **Important**: When you add other resource types to your Terraform configuration, you must make several changes. Grant the new scopes to the app. Modify your Terraform provider setup to request the new scopes. Depending on your existing setup, you may need to add more admin roles to the app. See [Assign admin roles](#assign-admin-roles).
 
 ## Create access credentials
 
-Use a public/private key pair to control access to the service app used by Terraform. Store the public key in the API service app, and use the private key in your Terraform configuration. You can use Okta to generate the public/private key pair or use an external tool to create the key pair.
+Use a public/private key pair to control access to the service app used by Terraform. Store the public key in the API service app, and use the private key in your Terraform configuration. You can use either Okta or an external tool to generate the public/private key pair.
 
 > **Important:** Choose an access method based on the level of security required for your service app.
 
@@ -115,17 +115,17 @@ Use a public/private key pair to control access to the service app used by Terra
 
 Audit your external tool to generate a key pair for security. Follow organization best practices and audit any code beforehand to maintain org security. Never use an untrusted third-party web site to generate keys for production systems.
 
-Check that the generated private key is in PKCS#1 format, which is the format required by the Okta Terraform provider. In that format, the file that contains the private key begins with `-----BEGIN RSA PRIVATE KEY-----`. If the key isn't in the right format, convert it to the correct format using the OpenSSL command line program:
+Check that the generated private key is in **PKCS#1** format, which is the format required by the Okta Terraform provider. In that format, the file that contains the private key begins with `-----BEGIN RSA PRIVATE KEY-----`. If the key isn't in the right format, convert it to the correct format using the OpenSSL command line program:
 
 1. In a terminal, go to the file path where you saved the original private key.
 1. Run OpenSSL to convert the key. One of the following command lines should work depending on your operating system and version of OpenSSL:
-   `openssl rsa -in {ORIGINAL_PRIVATE_KEY} -out {CONVERTED_PRIVATE_KEY} -traditional`
-   `openssl rsa -in {ORIGINAL_PRIVATE_KEY} -out {CONVERTED_PRIVATE_KEY}`
-   `openssl-rsa -in {ORIGINAL_PRIVATE_KEY} -out {CONVERTED_PRIVATE_KEY}`
+   * `openssl rsa -in {ORIGINAL_PRIVATE_KEY} -out {CONVERTED_PRIVATE_KEY} -traditional`
+   * `openssl rsa -in {ORIGINAL_PRIVATE_KEY} -out {CONVERTED_PRIVATE_KEY}`
+   * `openssl-rsa -in {ORIGINAL_PRIVATE_KEY} -out {CONVERTED_PRIVATE_KEY}`
 
    In this command:
-   * `ORIGINAL_PRIVATE_KEY`: Set this to the file path of the original key.
-   * `CONVERTED_PRIVATE_KEY`: Set this to the file path for the converted key.
+   * Set `{ORIGINAL_PRIVATE_KEY}` to the file path of the original key.
+   * Set `{CONVERTED_PRIVATE_KEY}` to the file path for the converted key.
 1. Confirm the converted key begins with `-----BEGIN RSA PRIVATE KEY-----`. If not, try these steps again.
 1. Save the converted private key file. By convention, the file extension for a private key file is `.pem`.
 1. For a production deployment, securely store the private key in a Terraform secrets management system or other key management system.
@@ -172,10 +172,10 @@ Create a Terraform configuration that uses the credentials that you created earl
    In the previous code sample, add your values to the following fields:
 
    * `org_name`: Your Okta org name, which is the first part of your organization's Okta domain before `.okta.com`, `.oktapreview.com`, or `.okta-emea.com`. For example, if your Okta domain is `example-org.oktapreview.com`, the org name is `example-org`. Don't include the `-admin` suffix, which corresponds to your Admin Console URL. To confirm your Okta domain in the Admin Console, click your username in the upper-right corner and look for the text below your email address. An Okta Developer org has an org name with the form `dev-<number>`, such as `dev-000001`.
-   * `base_url`: Your Okta org domain. This is the end part of your domain URL: `.okta.com`, `.oktapreview.com`, or `.okta-emea.com`.
+   * `base_url`: Your Okta org domain. This is the end part of your domain URL: `okta.com`, `oktapreview.com`, or `okta-emea.com`.
    * `client_id`: The client ID of the API service app that you created. In the Admin Console, click **Applications**, then click the name of your API service app. In the app editor, click **General**. Under **Client Credentials**, copy the **Client ID** value.
    * `private_key`: Either the path to the private key file or the private key itself. Okta recommends storing the key in a separate location and using a secrets and encryption management system, such as HashiCorp Vault.
-   * `scopes`: The list of API scopes required by your Terraform configuration. The example below creates a group, which requires the `okta.groups.manage` scope.
+   * `scopes`: The list of scopes required by your Terraform configuration. The following example creates a group, which requires the `okta.groups.manage` scope.
 
      > **Note:** Grant the same API scopes to the service app you created for Terraform. In the Admin Console view your app, click the **API Scopes** tab, and grant the desired scopes from the list.
 
