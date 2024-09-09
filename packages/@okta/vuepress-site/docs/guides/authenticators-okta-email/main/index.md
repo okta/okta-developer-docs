@@ -10,7 +10,7 @@ Learn how to integrate the Okta Email authenticator into your app with the embed
 #### Learning outcomes
 
 * Configure your Okta org to use the email authenticator.
-* Enroll and challenge a user with email one-time passcode (OTP) and magic links.
+* Enroll and challenge a user with an email one-time passcode (OTP) and magic links.
 * Enable OTP only for the email authenticator.
 
 #### What you need
@@ -40,7 +40,7 @@ This guide discusses the email authenticator user journeys for both magic links 
 
 **Magic links**
 
-1. [Integrate email challenge with magic links](#integrate-email-challenge-with-magic-links): Integrate email challenge using magic links with step-by-step instructions.
+1. [Integrate email challenge with magic links](#integrate-email-challenge-with-magic-links): Integrate the email challenge using magic links with step-by-step instructions.
 1. [Integrate different browser and device scenario with magic links](#integrate-different-browser-and-device-scenario-with-magic-links): Integrate the different browser and device scenarios with step-by-step instructions.
 
 **OTP**
@@ -87,7 +87,7 @@ First, add the email authenticator to your org and enable it for both authentica
 
 ### Set your app integration to use the email authenticator
 
-New app integrations are automatically assigned the shared default [authentication policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-asop). This policy has a catch-all rule that allows a user access to the app using either one or two factors, depending on your org setup. In production, multiple app integrations can share the same application policy. In testing however, you should create a policy specifically for your test application.
+New app integrations are automatically assigned the shared default [authentication policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-asop). This policy has a catch-all rule that allows a user access to the app using either one or two factors, depending on your org setup. In production, multiple app integrations can share the same app policy. In testing however, you should create a policy specifically for your test app.
 
 1. Open the **Admin Console** for your org and choose **Security > Authentication Policies** to show the available authentication policies.
 2. Click **Add a Policy**, give the policy a name, and then click **Save**.
@@ -123,7 +123,7 @@ The following instructions detail integrating the email challenge into your app.
 
 ## Integrate different browser and device scenario with magic links
 
-The Email Magic Links feature is designed with security in mind. It only works when there’s complete assurance that the person who started the request is the same one who clicked the magic link.
+The Email Magic Links feature is designed with security in mind. It only works when there's complete assurance that the person who started the request is the same one who clicked the magic link.
 
 For example, a user who signed in to your app in a web browser must be in the same browser when they click the magic link. If the user's browser or device is different, the magic link is disabled. The user needs to use OTP or return to the original browser to complete the email verification. The following flowchart illustrates this logic.
 
@@ -173,7 +173,7 @@ To disable magic link functionality, open the Admin Console and select **Customi
 * Other > Email Factor Verification
 * Password > Forgot password
 
-In each template, find the anchor tag and remove it from the template HTML. The following image identifies the magic link anchor tag (identified by `email-authentication-button` id) for the **Email Challenge** template.
+In each template, find the anchor tag and remove it from the template HTML. The following image identifies the magic link anchor tag (identified by the `email-authentication-button` ID) for the **Email Challenge** template.
 
 <div class="full">
 
