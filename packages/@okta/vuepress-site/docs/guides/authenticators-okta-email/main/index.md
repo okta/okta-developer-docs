@@ -191,7 +191,7 @@ If you customize your self-service password recovery (SSPR) solution as describe
 
 * The magic link `href` attribute in the **Forgot Password** template is updated to replace the `${resetPasswordLink}` variable with a URL string that contains the `otp` and `state` parameters using the `${oneTimePassword}` and `${request.relayState}` variables. For example, <StackSnippet snippet="callbackuriwithotpandstate" inline /> .
 
-* Your system supports password recovery using methods other than self-service password recovery. These methods include calling the [`/forgot_password` API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserCred/#tag/UserCred/operation/forgotPassword) with the `sendEmail` parameter sent to `true` or enabling password recoveries using the embedded Sign-In Widget. These methods send an email to the user with a magic link that is meant to continue the password recovery.
+* Your system supports password recovery using methods other than self-service password recovery. These methods include calling the [`/forgot_password` API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserCred/#tag/UserCred/operation/forgotPassword) with the `sendEmail` parameter sent to `true` or enabling password recoveries using the embedded Sign-In Widget. These methods send an email to the user with a magic link that continues the password recovery.
 
 ### Considerations
 
