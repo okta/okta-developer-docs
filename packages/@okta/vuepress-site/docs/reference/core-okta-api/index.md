@@ -21,11 +21,11 @@ API endpoints to authenticate your users, challenge for factors, recover passwor
 REST endpoints to configure objects whenever you need. For example:
 
 - The [Apps API](/docs/reference/api/apps/) is used to manage Apps and their association with Users and Groups.
-- The [Users API](/docs/reference/api/users) is used for CRUD operations on Users.
+- The [Users API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/) is used for CRUD operations on Users.
 - The [Sessions API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Session/) creates and manages user's authentication sessions.
 - The [Policy API](/docs/reference/api/policy/) creates and manages settings such as a user's session lifetime.
-- The [Factors API](/docs/reference/api/factors/) is used to enroll, manage, and verify factors for multi-factor authentication (MFA).
-- The [Devices API](/docs/reference/api/devices) is used to manage Device identity and lifecycle.
+- The [User Factors API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/) is used to enroll, manage, and verify factors for Multifactor Authentication (MFA).
+- The [Devices API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Device/) is used to manage device identity and lifecycle.
 
 ## Design principles
 
@@ -303,7 +303,7 @@ Filters must be evaluated using the standard order of operations. Attribute oper
 
 ### Hypermedia
 
-Objects in the Okta API use hypermedia for discoverability. Hypermedia enables API clients to navigate objects by following links like a web browser instead of hard-coding URLs in your application. Links are identified by link relations that are named keys. Link relations describe what objects are available and how API clients can interact with them. Each object may publish a set of link relationships based on the state of the object. For example, the status of a user in the [User API](/docs/reference/api/users/#links-object) governs which lifecycle operations are permitted. Only the permitted operations are published as lifecycle operations.
+Objects in the Okta API use hypermedia for discoverability. Hypermedia enables API clients to navigate objects by following links like a web browser instead of hard-coding URLs in your app. Links are identified by link relations that are named keys. Link relations describe what objects are available and how API clients can interact with them. Each object may publish a set of link relationships based on the state of the object. For example, the status of a user in the [User API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/) governs which lifecycle operations are permitted. Only the permitted operations are published as lifecycle operations.
 
 The Okta API incorporates [JSON Hypertext Application Language](https://datatracker.ietf.org/doc/html/draft-kelly-json-hal-06) or HAL format as the foundation for hypermedia discoverability. HAL provides a set of conventions for expressing hyperlinks in JSON responses that represent two simple concepts: Resources and Links.
 

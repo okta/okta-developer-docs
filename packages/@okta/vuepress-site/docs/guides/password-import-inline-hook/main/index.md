@@ -86,7 +86,7 @@ The password import inline hook is now set up with a status of "Active".
 
 ## Import test users
 
-Upload some users into your Okta org using the [Password import inline hook API](/docs/reference/api/users/#create-user-with-password-import-inline-hook). These users provide data to test your inline hook.
+Upload some users into your Okta org using the [Password import inline hook API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createPasswordImportInlineHook). These users provide data to test your inline hook.
 
 The following example uses sample data from the data store in the `users.js` file of your project.
 

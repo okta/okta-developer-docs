@@ -360,12 +360,12 @@ There are several ways to verify that you've successfully created a user grant:
 
 To revoke consent for a user, you can revoke one consent that is granted or all consents that are granted. Before you begin, you need the following:
 
-* `userId` for the user that you want to revoke a grant for. Do a [List Users](/docs/reference/api/users/#list-users) to locate the user and the `userId` that you need.
-* `grantId` for the grant that you want to revoke. Do a [List Grants](/docs/reference/api/users/#list-grants) with the `userId` to locate the `grantID` that you need.
+* `userId` for the user that you want to revoke a grant for. Use the [List all Users](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/listUsers) endpoint to locate the user and the `userId` that you need.
+* `grantId` for the grant that you want to revoke. Use the [List all User Grants](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserGrant/#tag/UserGrant/operation/listUserGrants) endpoint with the `userId` to locate the `grantID` that you need.
 
 ### Revoke one Grant
 
-To [revoke one grant for a user](/docs/reference/api/users/#revoke-a-grant-for-a-user), use the `grantId` that you want to revoke for a user in a DELETE request:
+To [revoke one grant for a user](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserGrant/#tag/UserGrant/operation/revokeUserGrant), use the `grantId` that you want to revoke for a user in a DELETE request:
 
 **Example request**
 
@@ -379,7 +379,7 @@ curl -v -X DELETE \
 
 ### Revoke all Grants
 
-To [revoke all grants for a user](/docs/reference/api/users/#revoke-all-grants-for-a-user), just use the `userId` for the user in a DELETE request:
+To [revoke all grants for a user](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserGrant/#tag/UserGrant/operation/revokeUserGrants), just use the `userId` for the user in a DELETE request:
 
 **Example request**
 
@@ -395,7 +395,7 @@ curl -v -X DELETE \
 
 If you don't see the consent prompt when expected:
 
-* Verify that you haven't already provided consent for that combination of app and scope(s). Use the `/grants`[endpoint](/docs/reference/api/users/#list-grants) to see which grants have been given and to revoke grants.
+* Verify that you haven't already provided consent for that combination of app and scope(s). Use the `/grants`[endpoint](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserGrant/#tag/UserGrant/operation/listGrantsForUserAndClient) to see which grants have been given and to revoke grants.
 * Check the settings for `prompt`, `consent`, and `consent_method` in the [Apps API table](/docs/reference/api/apps/#add-oauth-20-client-application).
 * Make sure that in your app configuration, the `redirect_uri` is an absolute URI and that it is allowed by specifying it in [Trusted Origins](/docs/reference/api/trusted-origins/).
 * If you aren't using the `default` [authorization server](/docs/concepts/auth-servers/), check that you've created at least one policy with one rule that applies to any scope or the scope(s) in your test.

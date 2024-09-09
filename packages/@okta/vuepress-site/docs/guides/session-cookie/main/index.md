@@ -111,7 +111,7 @@ The session token can then be passed as a query parameter. It can be passed to a
 
 ### Visit an embed link with the session token
 
-After your sign-in flow is complete you can launch an Okta app for the user. You can launch the app with an [embed link](/docs/reference/api/users/#get-assigned-app-links) that contains the session token as a query parameter: `sessionToken`.
+After your sign-in flow is complete you can launch an Okta app for the user. You can launch the app with an [embed link](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/listAppLinks) that contains the session token as a query parameter: `sessionToken`.
 
 #### Response example
 
