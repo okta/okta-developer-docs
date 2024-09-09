@@ -57,7 +57,7 @@ The [User Types API](/docs/reference/api/user-types/) defines and manages the cu
 
 User profiles can only belong to one user profile type. The User object property [`type`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/createUser!path=type&t=request) defines the custom user profile (or default profile) that the user is associated with.
 
->**Note:** The default Profile object property [`userType`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/getUser!c=200&path=profile/userType&t=response) is a user profile attribute and isn’t a reference to the default or custom profile type.
+>**Note:** The default profile object property [`userType`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/getUser!c=200&path=profile/userType&t=response) is a user profile attribute and isn’t a reference to the default or custom profile type.
 
 ### App user profile type
 
