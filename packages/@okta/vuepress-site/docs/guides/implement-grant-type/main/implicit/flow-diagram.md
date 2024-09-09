@@ -40,7 +40,7 @@ At a high level, this flow has the following steps:
     For Okta to authenticate the user credentials, Okta needs user profile data.
     See [Add a user using the Admin Console](https://help.okta.com/okta_help.htm?id=ext-usgp-add-users), [Import Users](/docs/guides/password-import-inline-hook/), and the [Users API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/). Alternatively, you can [set up self-service registration](/docs/guides/oie-embedded-sdk-use-case-self-reg/) to allow users to register their membership with the app.
 
-4. Okta redirects the browser back to the specified redirect URI. Access and ID tokens are included as a hash fragment in the URI. Your application extracts the tokens from the URI. See [Extract tokens from redirect URI](#extract-tokens-from-redirect-URI).
+4. Okta redirects the browser back to the specified redirect URI. Access and ID tokens are included as a hash fragment in the URI. Your app extracts the tokens from the URI. See [Extract tokens from redirect URI](#extract-tokens-from-redirect-URI).
 
 5. Your app can now use these tokens to call the resource server (for example an API) on behalf of the user.
 
