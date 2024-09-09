@@ -5,16 +5,17 @@
       class="fixed-header"
     >
       <HeaderBanner
-        banner-id="v1"
+        v-show="showBanner"
+        banner-id="v2"
         @updateHeight="updateHeaderHeight"
       >
         <p>
-          Is it easy or difficult to use our developer documentation?
+          Check out our new and improved
           <a
-            href="#"
-            @click="openSurvey()"
+            href="https://developer.okta.com/docs/api/"
+            target="_blank"
           >
-            Let us know in this short survey ↗
+            API documentation! ↗
           </a>
         </p>
       </HeaderBanner>
@@ -154,6 +155,17 @@ export default {
     };
   },
   computed: {
+    showBanner() {
+      const bannerStartTime = new Date('2024-09-06T09:00:00-07:00'); // 9:00 AM PT
+      const bannerEndTime = new Date('2024-09-30T17:00:00-07:00'); // 5:00 PM PT
+      
+      const bannerStartEpochSeconds = Math.floor(bannerStartTime.getTime() / 1000);
+      const bannerEndEpochSeconds = Math.floor(bannerEndTime.getTime() / 1000);
+
+      const currentTimeEpochSeconds = Math.floor(Date.now() / 1000);
+
+      return currentTimeEpochSeconds >= bannerStartEpochSeconds && currentTimeEpochSeconds <= bannerEndEpochSeconds;
+    },
     editLink() {
       if (this.$page.frontmatter.editLink === false) {
         return;

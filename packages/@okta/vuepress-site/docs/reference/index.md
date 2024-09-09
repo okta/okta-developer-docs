@@ -2,7 +2,7 @@
 title: Reference overview
 ---
 
-> **We've got a new API reference in the works!** With a fresh look and feel, our new API content features a more logical navigation and a wider variety of code examples. [Try the beta now](https://developer.okta.com/docs/api/) and help us improve the site by [providing feedback](https://forms.gle/Y9XmNNTF2rPQwive7).
+> Try the new look and feel of our [API documentation](https://developer.okta.com/docs/api/)! API content in the References section will be moved after September 30, 2024.
 
 # Reference overview
 

@@ -7,6 +7,20 @@ title: Okta Identity Engine API release notes 2024
 
 ## August
 
+### Weekly release 2024.08.3
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Bugs fixed in 2024.08.3](#bugs-fixed-in-2024-08-3)| August 28, 2024 |
+
+#### Bugs fixed in 2024.08.3
+
+* The system log displayed an incorrect actor when events were triggered by a Reset factor API request. (OKTA-752183)
+
+* The API request to update the default provisioning connection (`POST /api/v1/apps/{appId}/connections/default?activate=true`) returned generic error messages when the connection update failed. (OKTA-718570)
+
+* A cache issue caused an error when an admin tried to create routing rules using the Policy API (`POST /api/v1/policies/{policyId}/rules`). (OKTA-712397)
+
 ### Weekly release 2024.08.2
 
 | Change | Expected in Preview Orgs |

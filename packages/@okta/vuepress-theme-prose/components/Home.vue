@@ -70,8 +70,9 @@ export default {
               text: "Build apps and services that interact directly with WIC for a completely integrated experience.",
               list: [
                 {
-                  url: "https://developer.okta.com/docs/reference",
+                  url: "https://developer.okta.com/docs/api/",
                   text: "Explore reference APIs",
+                  isExternal: true
                 },
                 {
                   url: "https://developer.okta.com/code",

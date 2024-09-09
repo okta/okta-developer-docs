@@ -14,7 +14,7 @@ After your org is upgraded to Okta Identity Engine, there are a few things you s
 * The use of the session ID cookie (`sid`) isn't supported in Identity Engine. The new `idx` cookie is used with Identity Engine.
 * Okta recommends that you move away from session ID-based (`sid` cookie) restful services and use the `/api/v1/sessions/me` endpoint to get session information for the current user and to determine if the user is signed in.
 
->**Note:**: Use session cookies with browsers only. Using session cookies outside of a browser is subject to change and isn't supported or recommended by Okta.
+>**Note:** Use session cookies with browsers only. Using session cookies outside of a browser is subject to change and isn't supported or recommended by Okta.
 
 >**Note:** Some browsers block third-party cookies by default, which disrupts Okta functionality in certain flows. See [Mitigate the impact of third-party cookie deprecation](https://help.okta.com/okta_help.htm?type=oie&id=ext-third-party-cookies).
 

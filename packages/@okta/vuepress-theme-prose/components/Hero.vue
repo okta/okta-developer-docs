@@ -27,24 +27,14 @@
           For understanding usage of the banner, refer https://oktawiki.atlassian.net/wiki/spaces/DOC/pages/2920874189/Adding+a+banner+on+homepage+in+dev+docs
          -->
         <HomePageBanner
-          v-if="showBanner"
-          primary-cta-text="Primary button"
-          primary-cta-link="/docs/guides/"
-          primary-link-target="_self"
-          secondary-cta-text="Secondary button"
-          secondary-cta-link="https://www.yahoo.com"
+          v-show="showBanner"
+          primary-cta-text="Save your spot now"
+          primary-cta-link="https://a0.to/devday24/okta-dev"
+          primary-link-target="_blank"
         >
-          <template #heading>
-            Banner heading
-          </template>
+          <!-- <template #heading /> -->
           <template #description>
-            Get your app
-            <a
-              href="https://regionalevents.okta.com/enterprisereadyworkshops"
-              target="_blank"
-            >
-              enterprise-ready with free virtual workshops
-            </a>!
+            Join Aaron and Semona to learn more about the OAuth Global Token Revocation standard and how it can impact your applications via Okta’s new feature: Universal Logout.
           </template>
         </HomePageBanner>
       </div>
@@ -55,10 +45,17 @@
 <script>
 export default {
   name: "Hero",
-  data() {
-    return {
-      showBanner: false
-    }
-  }
+  computed: {
+    showBanner() {
+      const bannerStartTime = new Date('2024-09-03T01:00:00-04:00');
+      const bannerStartTimeEpoch = Math.floor(bannerStartTime.getTime() / 1000);
+      const bannerEndTime = new Date('2024-09-24T23:59:00-04:00');
+      const bannerEndTimeEpoch = Math.floor(bannerEndTime.getTime() / 1000);
+
+      const currentTimeEpoch = Math.floor(Date.now() / 1000);
+
+      return currentTimeEpoch >= bannerStartTimeEpoch && currentTimeEpoch <= bannerEndTimeEpoch;
+    },
+  },
 };
 </script>
