@@ -36,7 +36,7 @@ Typically, you run a migration program like this for a set period, such as 60 da
 
 ## Create all the users in Okta
 
-You can create users in Okta, without credentials, in a state ready for migration as outlined in the Create User with password import inline hook section of the [Users API documentation](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/).
+You can create users in Okta, without credentials, in a state ready for migration as outlined in the **Create user with password import inline hook** section of the [Users API documentation](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/).
 
 ### Request Example
 
