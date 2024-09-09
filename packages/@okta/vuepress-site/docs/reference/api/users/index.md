@@ -2865,7 +2865,7 @@ Content-Type: application/json
 
 ## User sessions
 
-The User Sessions API provides operations to manage User sessions in your org. These operations are available at the new [Okta API reference portal](https://developer.okta.com/docs/api/) as part of the [User Sessions API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserSessions/).
+The User Sessions API provides operations to manage user sessions in your org. These operations are available at the new [Okta API reference portal](https://developer.okta.com/docs/api/) as part of the [User Sessions API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserSessions/).
 
 ### Clear User sessions
 
