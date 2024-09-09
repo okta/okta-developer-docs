@@ -25,7 +25,7 @@ REST endpoints to configure objects whenever you need. For example:
 - The [Sessions API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Session/) creates and manages user's authentication sessions.
 - The [Policy API](/docs/reference/api/policy/) creates and manages settings such as a user's session lifetime.
 - The [User Factors API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/) is used to enroll, manage, and verify factors for Multifactor Authentication (MFA).
-- The [Devices API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Device/) is used to manage Device identity and lifecycle.
+- The [Devices API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Device/) is used to manage device identity and lifecycle.
 
 ## Design principles
 
