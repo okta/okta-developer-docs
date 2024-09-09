@@ -1,3 +1,5 @@
+> **Note:** The steps in this flow assume that you've already made a request to the `/authorize` endpoint to obtain the authorization code for the [Authorization Code with PKCE](/docs/guides/implement-grant-type/authcodepkce/main/) flow.
+
 <div class="three-quarter">
 
 ![Sequence diagram that displays communication between the client, authorization server, and Okta for Demonstrating Proof-of-Possession](/img/authorization/DPoPOktaResource.png)
@@ -29,8 +31,6 @@ okta -> client: Validates the DPoP-bound access token and grants access to resou
 @enduml
 
 -->
-
-> **Note:** These steps assume that you've already made a request to the `/authorize` endpoint to obtain the authorization code for the [Authorization Code with PKCE](/docs/guides/implement-grant-type/authcodepkce/main/) flow.
 
 1. The client generates a public/private key pair for use with DPoP.
 1. The client adds the public key in the header of the JWT and signs the JWT with the private key.
