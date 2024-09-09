@@ -46,7 +46,7 @@ app -> client: Response
     For Okta to authenticate the user credentials, Okta needs user profile data.
     See [Add a user using the Admin Console](https://help.okta.com/okta_help.htm?id=ext-usgp-add-users), [Import Users](/docs/guides/password-import-inline-hook/), and the [Users API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/). Alternatively, you can [set up self-service registration](/docs/guides/oie-embedded-sdk-use-case-self-reg/) to allow users to register their membership with the app.
 
-5. Okta redirects back to your application with an authorization code.
+5. Okta redirects the browser back to your app with an authorization code.
 6. Your application sends this code, along with the code verifier, to Okta. See [Exchange the code for tokens](#exchange-the-code-for-tokens).
 7. Okta evaluates the PKCE code.
 8. Okta returns access and ID tokens, and optionally a refresh token.
