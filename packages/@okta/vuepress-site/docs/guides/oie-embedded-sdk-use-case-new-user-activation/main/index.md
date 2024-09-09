@@ -283,7 +283,7 @@ curl -v -X POST \
 }
 ```
 
-> **Note:** The `id` property is the user ID of the newly created user. See the Create user without credentials section in the [Users API documentation](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/) for more details on the response.
+> **Note:** The `id` property is the user ID of the newly created user. See the **Create user without credentials** section in the [Users API documentation](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/) for more details on the response.
 
 #### Start user activation and get activation token
 
