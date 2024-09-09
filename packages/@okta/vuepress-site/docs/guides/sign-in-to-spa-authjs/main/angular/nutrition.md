@@ -6,7 +6,7 @@ This guide discusses building a password sign-in Angular app that uses the Okta 
 
 #### Learning outcomes
 
-* Understand the sequence of steps required to implement Okta [embedded authentication](/docs/concepts/redirect-vs-embedded/#embedded-authentication) with Okta Auth JS and Angular libraries for your Angular app.
+Understand the sequence of steps required to implement Okta [embedded authentication](/docs/concepts/redirect-vs-embedded/#embedded-authentication) with Okta Auth JS and Angular libraries for your Angular app.
 
 #### What you need
 
