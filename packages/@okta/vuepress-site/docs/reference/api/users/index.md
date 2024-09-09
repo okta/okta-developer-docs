@@ -3754,7 +3754,7 @@ HTTP/1.1 204 No Content
 
 ## User Client resource operations
 
-The User Resources API provides operations related to User resources. These operations are available at the new [Okta API reference portal](https://developer.okta.com/docs/api/) as part of the [User Resources API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserResources/).
+The User Resources API provides operations related to user resources. These operations are available at the new [Okta API reference portal](https://developer.okta.com/docs/api/) as part of the [User Resources API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserResources/).
 
 <!--<ApiLifecycle access="ea" />-->
 
