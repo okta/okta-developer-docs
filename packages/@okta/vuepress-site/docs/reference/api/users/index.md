@@ -3485,7 +3485,7 @@ HTTP/1.1 204 No Content
 
 ## User OAuth 2.0 Token management operations
 
-The User OAuth 2.0 Token Management API provides operations to manage tokens issued by an Authorization Server for a particular User and Client in your org. These operations are available at the new [Okta API reference portal](https://developer.okta.com/docs/api/) as part of the [User OAuth 2.0 Token Management API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserOAuth/).
+The User OAuth 2.0 Token Management API provides operations to manage tokens issued by an authorization server for a particular user and client in your org. These operations are available at the new [Okta API reference portal](https://developer.okta.com/docs/api/) as part of the [User OAuth 2.0 Token Management API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserOAuth/).
 
 <!--
 * [List Refresh Tokens](#list-refresh-tokens)
