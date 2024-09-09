@@ -3135,7 +3135,7 @@ curl -v -X POST \
 
 ## User-consent Grant operations
 
-The User Grants API provides operations to manage user consent Grants in your org. These operations are available at the new [Okta API reference portal](https://developer.okta.com/docs/api/) as part of the [User Grants API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserGrant/).
+The User Grants API provides operations to manage user consent grants in your org. These operations are available at the new [Okta API reference portal](https://developer.okta.com/docs/api/) as part of the [User Grants API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserGrant/).
 
 <!--<ApiLifecycle access="ea" />
 
