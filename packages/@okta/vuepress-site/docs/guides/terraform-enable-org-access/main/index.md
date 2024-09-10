@@ -32,7 +32,7 @@ An Okta API service app uses the OAuth 2.0 [Client Credentials authorization flo
 
 In the Okta API service app that controls your Terraform integration, you specify the Okta objects that Terraform can access using API scopes. Scopes are like permissions to do a certain action on a type of resource. For example, the Terraform configuration in this article creates a test group in Okta, which requires the `okta.groups.manage` API scope.
 
-One way to determine the required scopes for the service app is to determine which actions an admin needs to perform the same kind of action. Next, find the corresponding scopes in the list of [OAuth Admin Management scopes](/docs/api/oauth2/#okta-admin-management) and add them to your service app. For example, adding a group in the Okta Admin console requires the `groups.manage` action. In the table, the corresponding scope is `okta.groups.manage`. Add the same scopes to your Terraform configuration.
+One way to determine the required scopes for the service app is to determine which permissions an admin needs to perform the same kind of action. Next, find the corresponding scopes in the list of [OAuth Admin Management scopes](/docs/api/oauth2/#okta-admin-management) and add them to your service app. For example, adding a group in the Okta Admin console requires the `groups.manage` action. In the table, the corresponding scope is `okta.groups.manage`. Add the same scopes to your Terraform configuration.
 
 Separate from granting API scopes, you must assign admin permissions to the app through groups of permissions called admin roles.
 
@@ -42,7 +42,7 @@ Separate from granting API scopes, you must assign admin permissions to the app 
 
 Create an Okta service app that authorizes Terraform to update your org:
 
-1. In the Admin Console, select **Applications** > **Applications**.
+1. In the Admin Console, go to **Applications** > **Applications**.
 1. Click **Create App Integration**, and then select **API Services**.
 1. Click **Next**.
 1. Enter a name for the app, and then click **Save**.
