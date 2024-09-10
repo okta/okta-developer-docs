@@ -1,6 +1,6 @@
 ### Download the sample Angular application
 
-To view a simple example of an Angular application, clone the Okta Angular Identity Engine sample app and follow the set up procedure:
+To view a simple example of an Angular application, clone the Okta Angular Identity Engine sample app and follow the setup procedure:
 
 #### Clone the Angular sample repository
 
@@ -21,7 +21,7 @@ npm ci
 
 #### Update the application configuration file
 
-Update the Okta sample application configuration file (`src/app/okta-config.ts `) in the project root folder. The `okta-config.ts` file contains the configuration values for your Okta app integration. See [Create an app integration](#create-an-app-integration) for details on these values.
+Update the configuration file of the Okta sample application (`src/app/okta-config.ts `) in the project root folder. The `okta-config.ts` file contains the configuration values for your Okta app integration. See [Create an app integration](#create-an-app-integration) for details on these values.
 
 ```javascript
 const oidcConfig = {
@@ -43,7 +43,7 @@ npm start
 
 Open a new browser and navigate to the default local host port (`http://localhost:4200`). Click **Login** and sign in with a user from your Okta org. After a successful authentication, the user's ID token appears on the page.
 
-### Create a new Angular app (optional)
+### Create an Angular app (optional)
 
 To create an Angular app, open a terminal and install the Angular CLI:
 
@@ -51,7 +51,7 @@ To create an Angular app, open a terminal and install the Angular CLI:
 npm install -g @angular/cli
 ```
 
-Now, create a new application using the Angular CLI:
+Now, create an app using the Angular CLI:
 
 ```bash
 ng new okta-app
@@ -59,7 +59,7 @@ ng new okta-app
 
 When asked `Would you like to add Angular routing?`, press **y**.
 
-After all prompts are answered, the Angular CLI creates a new project in a folder named `okta-app` and installs all required dependencies.
+After all prompts are answered, the Angular CLI creates a project in a folder named `okta-app` and installs all required dependencies.
 
 ```bash
 cd okta-app

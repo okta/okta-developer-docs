@@ -38,7 +38,7 @@ The steps in the following sections focus on the interaction between your client
 
 ### Set up the Okta configuration settings
 
-Before you code your forms and routes, use the required [configuration settings](#okta-org-app-integration-configuration-settings) to initialize your Okta Auth JS instance:
+Before you code your forms and routes, use the required [configuration settings](#app-integration-settings) to initialize your Okta Auth JS instance:
 
 * `clientId`: Your client ID &mdash; `{yourClientId}`
 * `issuer`: The authorization server in your Okta org (for example, `https://{yourOktaDomain}/oauth2/default`)
