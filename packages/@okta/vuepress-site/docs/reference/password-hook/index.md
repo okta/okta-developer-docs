@@ -25,7 +25,7 @@ The password import inline hook is triggered when the end user tries to sign in 
 
 If your service returns a response that indicates that the password is valid, Okta sets the password for the user and won't normally need to call your service again. However, if your Okta org is in read-only mode, it might not be possible to set the password. Okta then needs to call your external service again when the end user attempts to signs in. See [Password inline hook and Okta read-only mode](#password-inline-hook-and-okta-read-only-mode) and [Removing Password from Existing User Store](#removing-password-from-existing-user-store) for details.
 
->**Note:** Password policies do not apply to the password import inline hook. That is, if your external service validates the password, the password imports even if it does not meet the Okta [password policy](/docs/reference/api/policy/#password-policy) requirements.
+>**Note:** Password policies do not apply to the password import inline hook. That is, if your external service validates the password, the password imports even if it does not meet the Okta [password policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy!path=4/type&t=request) requirements.
 
 ## Objects in the request from Okta
 

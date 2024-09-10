@@ -423,7 +423,7 @@ Certain system log events now contain a new property called `changeDetails` in t
 
 #### Multiple Identifiers is EA in Preview
 
-Today, end users must sign in to Okta with a username or email address only. With the Multiple Identifiers feature, admins can configure identifiers, or user attributes from Universal Directory, that an end user can enter to authenticate. Multiplier identifiers work in sign-in, recovery, self-service registration, and unlock flows. Admins can configure up to three identifiers, including email (which is still a required identifier). See [Profile enrollment policy](/docs/reference/api/policy/#profile-enrollment-policy). <!-- OKTA-687191 FF: MULTIPLE_IDENTIFIERS -->
+Today, end users must sign in to Okta with a username or email address only. With the Multiple Identifiers feature, admins can configure identifiers, or user attributes from Universal Directory, that an end user can enter to authenticate. Multiplier identifiers work in sign-in, recovery, self-service registration, and unlock flows. Admins can configure up to three identifiers, including email (which is still a required identifier). See [Profile enrollment policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy!path=5/type&t=request). <!-- OKTA-687191 FF: MULTIPLE_IDENTIFIERS -->
 
 #### Developer documentation update in 2024.05.0
 
@@ -506,7 +506,7 @@ Identity Threat Protection with Okta AI is a powerful risk assessment and respon
 
 See the [Shared Signals Framework (SSF) Receiver](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SSFReceiver/) and [SSF SET](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SSFSecurityEventToken/) APIs.
 
-See also the [Entity risk policy](/docs/reference/api/policy/#entity-risk-policy) and [Continuous Access evaluation policy](/docs/reference/api/policy/#continuous-access-evaluation-policy) API updates. <!-- OKTA-683713 ENABLE_ITP_FEATURES_FOR_EA -->
+See also the [Entity risk policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy!path=7/type&t=request) and [Continuous Access evaluation policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy!path=6/type&t=request) API updates. <!-- OKTA-683713 ENABLE_ITP_FEATURES_FOR_EA -->
 
 #### Enhanced app API contracts is GA in Production
 
