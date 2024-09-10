@@ -4,6 +4,58 @@ title: Okta Classic Engine API release notes 2024
 
 # Okta Classic Engine API release notes (2024)
 
+## September
+
+### Monthly release 2024.08.0
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [xx](#xx) | September 11, 2024 |
+| [xx](#xx) | September 11, 2024 |
+| [xx](#xx) | September 11, 2024 |
+| [Bugs fixed in 2024.09.0](#bugs-fixed-in-2024-09-0)| September 11, 2024 |
+
+#### Descriptions for Entitlement and Role objects
+
+SCIM 2.0 with entitlements now supports a `description` field for Entitlement and Role objects.
+<!--OKTA-741183-->
+
+#### Enhanced Dynamic Network Zones is self-service GA
+
+Use enhanced dynamic network zones to define IP service categories (proxies, VPNs), locations, and Autonomous System Numbers (ASNs) that are allowed or blocked in a zone. See the [Network Zones API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/NetworkZone/). <!--ENHANCED_DYNAMIC_NETWORK_ZONE OKTA-727934-->
+
+#### Event hook System Log update
+
+The `user.account.unlock_by_admin` event type is now event hook eligible. See [Event types](/docs/reference/api/event-types/). <!--OKTA-802486-->
+
+#### Okta Personal Settings API is GA in Preview
+
+The [Okta Personal Settings API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OktaPersonalSettings/) allows you to manage [Okta Personal](https://www.okta.com/products/okta-personal/workforce/) admin settings.
+
+Okta Personal for Workforce is a free account that helps users separate their work apps from non-work apps. Okta Personal makes it easy for users to switch between their personal and work accounts, and to migrate their personal apps from an existing Okta enterprise tenant. When you enable Okta Personal for Workforce in your org, users receive a notification that encourages them to use Okta Personal for personal apps and Okta enterprise for work apps. See [Okta Personal for Workforce user experience](https://help.okta.com/oie/en-us/content/topics/okta-personal/okta-personal-for-workforce/user-experience.htm). <!--OKTA-794131-->
+
+#### System log events added for Okta Workflows
+
+The `workflows.user.flow.move` and `workflows.user.table.move` Okta Workflows events have been added to the System Log to record the changes that occur due to reorganization of folder-level resources. <!--OKTA-669131-->
+
+#### Developer documentation update in 2024.09.0
+
+Our [API documentation](https://developer.okta.com/docs/api/) has a new look and feel that features a more logical navigation which aligns with industry standards. See **API Docs** in the menu.
+
+<div class="three-quarter">
+
+![Developer docs top menu bar](/img/homepage/APIDocs-menu.png)
+
+</div>
+
+The API docs in the **References** section will be removed after September 30, 2024.
+
+#### Bugs fixed in 2024.09.0
+
+* When creating or updating a profile, user first or last names that contained a dot (`last.name`) triggered malformed field error messages. (OKTA-798884)
+
+* The Custom Token Scopes endpoints (`/api/v1/authorizationServers/{authServerId}/scopes`) for the Authorization Server API didn't support pagination. (OKTA-734223)
+
 ## August
 
 ### Weekly release 2024.08.3
