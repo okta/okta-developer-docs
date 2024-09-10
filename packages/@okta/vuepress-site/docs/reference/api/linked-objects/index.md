@@ -10,9 +10,11 @@ meta:
 
 The Okta Linked Objects API provides operations to manage Okta relationships between Users.
 
-Explore the Linked Objects API and User Linked Objects API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/e2c0074faecec203e487)
+Explore the [Okta Public API Collections](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/overview) workspace to get started with the Linked Objects API.
 
-<!--
+<!--Explore the Linked Objects API and User Linked Objects API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/e2c0074faecec203e487)
+
+
 Users have relationships to each other, like manager and subordinate or customer and sales representative. You can create users with relationships by using the Linked Objects API to represent the relationship.
 
 1. Create a Linked Object definition such as Manager:Subordinate or Case Worker:Client. These pairs are represented by a `primary` attribute and an `associated` attribute.

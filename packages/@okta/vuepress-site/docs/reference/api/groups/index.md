@@ -7,9 +7,11 @@ category: management
 
 The Okta Groups API provides operations to manage Okta groups and their user members for your org.
 
-Explore the Groups API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/e2c0074faecec203e487)
+Explore the [Okta Public API Collections](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/overview) workspace to get started with the Groups API.
 
-<!--<ApiAuthMethodWarning />
+<!--Explore the Groups API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/e2c0074faecec203e487)
+
+<ApiAuthMethodWarning />
 
 ## Get started with the Groups API
 
