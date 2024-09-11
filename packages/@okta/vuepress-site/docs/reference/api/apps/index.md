@@ -1447,7 +1447,7 @@ You can change the `issuer_mode` value using the API or the Admin Console. To en
   | `NONE`           | `REQUIRED`              | `IMPLICIT`                           | Not prompted |
 
 > **Note:** When a scope is requested during a Client Credentials grant flow and `CONSENT` is set to `FLEXIBLE`, the scope is granted in the access token with no consent prompt. This occurs because there is no user involved in a two-legged OAuth [Client Credentials](/docs/guides/implement-grant-type/clientcreds/main/) grant flow.
-<!-- If you change this section, change it in authorization-servers.md (/docs/reference/api/authorization-servers/#scope-properties) and oidc.md (https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/#scopes) as well. Add 'LOGIN' to the first three rows when supported -->
+<!-- If you change this section, change it in authorization-servers.md (/docs/reference/api/authorization-servers/#scope-properties) and oidc.md (https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/#scopes) as well. Add 'LOGIN' to the first three rows when supported. -->
 
 > **Note:** The `refresh_token` <ApiLifecycle access="ea" /> parameter is visible only if the client has `refresh_token` defined as one of its allowed `grant_types`. See [Refresh token object](#refresh-token-object).
 

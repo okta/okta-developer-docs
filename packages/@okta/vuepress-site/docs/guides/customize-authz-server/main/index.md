@@ -106,7 +106,7 @@ At this point you can keep reading to find out how to create custom scopes and c
 
 ## Create Scopes
 
-Scopes specify what access privileges are being requested as part of the authorization. For example, the `email` scope requests access to the user's email address. There are certain reserved scopes that are created with any Okta authorization server that are listed on the OpenID Connect & OAuth 2.0 [Scopes](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/#scopes) section.
+Scopes specify what access privileges are being requested as part of the authorization. For example, the `email` scope requests access to the user's email address. Reserved scopes that are created with any Okta authorization server are listed in the OpenID Connect & OAuth 2.0 [Scopes](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/#scopes) section.
 
 If you need scopes in addition to the reserved scopes provided, you can create them. Custom scopes can have corresponding claims that tie them to some sort of user information.
 
@@ -197,7 +197,7 @@ You need the following values from your Okta OpenID Connect application, both of
 - Client ID
 - A valid Redirect URI
 
-Once you have an OpenID Connect application set up, and a user assigned to it, you can try the authentication flow.
+After you have an OpenID Connect application set up, and a user assigned to it, you can try the authentication flow.
 
 First, you need the authorization server's authorization endpoint, which you can retrieve using the server's Metadata URI: `https://{yourOktaDomain}/oauth2/{authorizationServerId}/.well-known/openid-configuration`.
 
@@ -213,7 +213,7 @@ Add the following URL query parameters to the URL:
 
 > **Note:** A `nonce` value isn't required if the `response_type` is `code`.
 
-All values are fully documented here: [Obtain an Authorization Grant from a user](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/authorizeCustomAS).
+All values are fully documented in [Obtain an Authorization Grant from a user](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/authorizeCustomAS).
 
 The resulting URL looks like this:
 
