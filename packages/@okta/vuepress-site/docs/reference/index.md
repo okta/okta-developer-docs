@@ -2,7 +2,7 @@
 title: Reference overview
 ---
 
-> Try the new look and feel of our [API documentation](https://developer.okta.com/docs/api/)! API content in the **References** section will be moved after September 30, 2024.
+> Try the new look and feel of our [API documentation](https://developer.okta.com/docs/api/)! API content in this section will be moved after September 30, 2024.
 
 # Reference overview
 
