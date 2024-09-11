@@ -449,7 +449,7 @@ Include this section if there are known issues that apply to the entire configur
 
 ##### SCIM examples
 
-* [Contentful](https://www.contentful.com/help/okta-user-provisioning-integration-with-scim/)
+* [Contentful](https://www.contentful.com/help/admin/access-tools/okta-user-provisioning-integration-with-scim/)
 * [Reftab](https://www.reftab.com/faq/scim-okta/)
 * [TrackTik](https://support.tracktik.com/hc/en-us/articles/12421581629463-Set-up-and-use-provisioning-for-Okta)
 

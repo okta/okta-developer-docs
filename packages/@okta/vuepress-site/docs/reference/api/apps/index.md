@@ -4723,7 +4723,7 @@ curl -v -X DELETE \
 
 ## Application key store operations
 
-The Application key store operations reference is now available at the new [Okta API reference portal](https://developer.okta.com/docs/api/) as the [Application Credentials API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationCredentials/).
+The Application key store operations reference is now available at the new [Okta API reference portal](https://developer.okta.com/docs/api/) as the [Application Key Credentials API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationSSOCredentialKey/).
 
 <!--
 
