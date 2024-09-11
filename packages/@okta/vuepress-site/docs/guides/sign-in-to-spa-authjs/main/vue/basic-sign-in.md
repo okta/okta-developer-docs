@@ -1,14 +1,14 @@
 ### Create routes
 
-Use the [Vue Router](https://router.vuejs.org/) and the [Okta Vue SDK](https://github.com/okta/okta-vue) libraries to simplify your component and route definitions. Some routes require authentication in order to render and others don't. The following are some basic routes that you need to configure for your app:
+Use the [Vue Router](https://router.vuejs.org/) and the [Okta Vue SDK](https://github.com/okta/okta-vue) libraries to simplify your component and route definitions. Some routes require authentication to render and other routes don't. The following are some basic routes that you need to configure for your app:
 
-* A [default page](#default-page-route) to handle the landing page of the app
+* A [default page route](#default-page-route) to handle the landing page of the app
 * A [login route](#login-route) to show your app sign-in page
 * A [protected route](#protected-route) for authenticated users to access protected content
 
 #### Default page route
 
-To create the default `/index` page, update the `src/App.vue` file to provide links to relevant locations in your app. You need to provide a link to your sign-in page, a link to sign-out of your authenticated session, and links to authenticated pages by using the `authState` object (see [`authStateManager` in Auth JS SDK](https://github.com/okta/okta-auth-js#authstatemanager)).
+To create the default `/index` page, update the `src/App.vue` file to provide links to relevant locations in your app. Then, provide a link to your sign-in page, a link to sign-out of your authenticated session, and links to authenticated pages by using the `authState` object (see [`authStateManager` in Auth JS SDK](https://github.com/okta/okta-auth-js#authstatemanager)).
 
 You can use the following condition to hide or show specific elements:
 
@@ -63,7 +63,7 @@ Create a protected route that is only available to users with a valid `accessTok
 
 * You can provide access to a protected route when the `requiresAuth` metadata is added in the [route definition](#connect-the-routes).
 
-  For example, this snippet from the `src/router/index.js` router file provides access to the `/dashboard` component only if `requiresAuth` metadata is true:
+  For example, this snippet from the `src/router/index.js` router file provides access to the `/dashboard` component only if the `requiresAuth` metadata is true:
 
   ```js
   { path: '/dashboard', name: 'Dashboard', component: Dashboard, meta: { requiresAuth: true } },
@@ -155,7 +155,7 @@ export default router;
 
 ```
 
-> **Note** The [Okta Vue SDK](https://github.com/okta/okta-vue#readme) provides navigation guard logic to circumvent navigational guard mixins issue in `vue-router-next`.
+> **Note:** The [Okta Vue SDK](https://github.com/okta/okta-vue#readme) provides navigation guard logic to circumvent the navigational guard mixins issue in `vue-router-next`.
 
 ### Start your app
 
@@ -165,4 +165,4 @@ To run and test your app, execute:
 npm run serve
 ```
 
-Open a browser and navigate to your app URL. Try to sign in to your app with an existing user from your Okta org.
+Open a browser and go to your app URL. Try to sign in to your app with an existing user from your Okta org.

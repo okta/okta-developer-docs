@@ -1,8 +1,8 @@
-This section helps you build a basic password-only sign-in use case for your app. This use case is outlined in the following sequence diagram with your single-page app as the client:
+Build a basic password-only sign-in use case for your app. This use case is outlined in the following sequence diagram with your single-page app as the client:
 
 <div class="full">
 
-![Sequence diagram that displays the back and forth between the resource owner, sdk, authorization server, and resource server for a basic SPA password sign-in flow.](/img/oie-embedded-sdk/password-only-spa-authjs-flow.svg)
+![Sequence diagram that displays the interactions between the resource owner, SDK, authorization server, and resource server for a basic SPA password sign-in flow.](/img/oie-embedded-sdk/password-only-spa-authjs-flow.svg)
 
 </div>
 
@@ -40,7 +40,7 @@ The steps in the following sections focus on the interaction between your client
 
 Before you code your forms and routes, use the required [configuration settings](#app-integration-settings) to initialize your Okta Auth JS instance:
 
-* `clientId`: Your client ID &mdash; `{yourClientId}`
+* `clientId`: Your client ID, `{yourClientId}`
 * `issuer`: The authorization server in your Okta org (for example, `https://{yourOktaDomain}/oauth2/default`)
 * `scopes`: The required OAuth 2.0 [scopes](/docs/reference/api/oidc/#scopes) for your app
 * `redirectUri`: Set your callback redirect URI. This value must be configured in your Okta app **Sign-in redirect URIs** and **Trusted Origins** lists.
@@ -61,11 +61,11 @@ export default {
 }
 ```
 
-> **Note**: See the [Okta Auth JS configuration reference](https://github.com/okta/okta-auth-js#configuration-reference) for additional Auth JS client configurations.
+> **Note**: See the [Okta Auth JS configuration reference](https://github.com/okta/okta-auth-js#configuration-reference) for more Auth JS client configurations.
 
 ### Create the sign-in component
 
-Create a Vue component that displays the sign-in form and submits the authentication request to Okta. You need to handle the response from the authentication request, which follows the [Interaction Code flow](/docs/guides/implement-grant-type/interactioncode/main/#interaction-code-flow). For Auth JS Interaction Code methods, see the [Auth JS Identity Engine module readme](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#usage).
+Create a Vue component that displays the sign-in form and submits the authentication request to Okta. Then, handle the response from the authentication request, which follows the [Interaction Code flow](/docs/guides/implement-grant-type/interactioncode/main/#interaction-code-flow). For Auth JS Interaction Code methods, see the [Auth JS Identity Engine module readme](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#usage).
 
 For example, create a `src/components/Login.vue` file with the following content:
 

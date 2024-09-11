@@ -1,8 +1,8 @@
-This section helps you review the simple password-only sign-in use case from the sample app. This use case is outlined in the following sequence diagram with your single-page app as the client:
+Review the simple password-only sign-in use case from the sample app. This use case is outlined in the following sequence diagram with your single-page app as the client:
 
 <div class="full">
 
-![Sequence diagram that displays the back and forth between the resource owner, sdk, authorization server, and resource server for a basic SPA password sign-in flow.](/img/oie-embedded-sdk/password-only-spa-authjs-flow.svg)
+![Sequence diagram that displays the interactions between the resource owner, SDK, authorization server, and resource server for a basic SPA password sign-in flow.](/img/oie-embedded-sdk/password-only-spa-authjs-flow.svg)
 
 </div>
 
@@ -94,7 +94,7 @@ public authenticateFlow(): Observable<NextStep | undefined> {
 }
 ```
 
-The sample app includes other flow states as well as authentication:
+The sample app includes other flow states and authentication:
 
 ```TypeScript
 ....
