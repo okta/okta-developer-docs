@@ -51,7 +51,7 @@ Our [API documentation](https://developer.okta.com/docs/api/) has a new look and
 
 </div>
 
-API content in the **References** section will be removed after September 30, 2024.
+API content in the **References** section will be moved after September 30, 2024.
 
 #### Bugs fixed in 2024.09.0
 
