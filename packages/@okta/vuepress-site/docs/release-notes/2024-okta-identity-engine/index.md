@@ -21,7 +21,7 @@ title: Okta Identity Engine API release notes 2024
 | [New User Risk API is GA in Production](#new-user-risk-api-is-ga-in-production) | September 11, 2024 |
 | [Okta Personal Settings API is GA in Preview](#okta-personal-settings-api-is-ga-in-preview) | September 11, 2024 |
 | [System Log events added for Okta Workflows](#system-log-events-added-for-okta-workflows) | September 11, 2024 |
-| [System Log event update for user risk](#system-log-events-added-for-okta-workflows) | September 11, 2024 |
+| [System Log event update for user risk is GA in Production](#system-log-event-update-for-user-risk-is-ga-in-production) | September 11, 2024 |
 | [Developer documentation update in 2024.09.0](#developer-documentation-update-in-2024-09-0) | September 11, 2024 |
 | [Bugs fixed in 2024.09.0](#bugs-fixed-in-2024-09-0)| September 11, 2024 |
 
@@ -61,11 +61,11 @@ See [Event types](/docs/reference/api/event-types/).
 
 #### New User Risk API is GA in Production
 
-The new [User Risk API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserRisk/#tag/UserRisk) enables you to manage and view a user's risk level using an API. Previously, you could only elevate a user’s risk level using the Admin Console. <!-- OKTA-736701 -->
+The new User Risk API<!--(https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserRisk/#tag/UserRisk)--> enables you to manage and view a user's risk level using an API. Previously, you could only elevate a user’s risk level using the Admin Console. <!-- OKTA-736701 -->
 
 #### Okta Personal Settings API is GA in Preview
 
-The [Okta Personal Settings API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OktaPersonalSettings/) allows you to manage [Okta Personal](https://www.okta.com/products/okta-personal/workforce/) admin settings.
+The Okta Personal Settings API<!--(https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OktaPersonalSettings/)--> allows you to manage [Okta Personal](https://www.okta.com/products/okta-personal/workforce/) admin settings.
 
 Okta Personal for Workforce is a free account that helps users separate their work apps from non-work apps. Okta Personal makes it easy for users to switch between their personal and work accounts, and to migrate their personal apps from an existing Okta enterprise tenant. When you enable Okta Personal for Workforce in your org, users receive a notification that encourages them to use Okta Personal for personal apps and Okta enterprise for work apps. See [Okta Personal for Workforce user experience](https://help.okta.com/oie/en-us/content/topics/okta-personal/okta-personal-for-workforce/user-experience.htm). <!--OKTA-794131-->
 
@@ -73,7 +73,7 @@ Okta Personal for Workforce is a free account that helps users separate their wo
 
 The `workflows.user.flow.move` and `workflows.user.table.move` Okta Workflows events have been added to the System Log to record the changes that occur due to reorganization of folder-level resources. <!--OKTA-669131-->
 
-#### System Log event update for user risk
+#### System Log event update for user risk is GA in Production
 
 In the [System Log](https://developer.okta.com/docs/reference/api/event-types/?q=user.risk.change), the `user.risk.detect` event now appears instead of the `user.risk.change` event when Okta detects an entity that's associated with a risk level. <!-- ENABLE_USER_RISK_DETECT_EVENT OKTA-735117 -->
 
