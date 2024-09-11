@@ -21,7 +21,7 @@ title: Okta Identity Engine API release notes 2024
 | [New User Risk API is GA in Production](#new-user-risk-api-is-ga-in-production) | September 11, 2024 |
 | [Okta Personal Settings API is GA in Preview](#okta-personal-settings-api-is-ga-in-preview) | September 11, 2024 |
 | [System Log events added for Okta Workflows](#system-log-events-added-for-okta-workflows) | September 11, 2024 |
-| [System Log event update for user risk is GA in Production](#system-log-event-update-for-user-risk-is-ga-in-production) | September 11, 2024 |
+| [System Log event update for user risk is GA in Production](#system-log-event-update-for-user-risk-is-ga-in-production) | August 7, 2024 |
 | [Developer documentation update in 2024.09.0](#developer-documentation-update-in-2024-09-0) | September 11, 2024 |
 | [Bugs fixed in 2024.09.0](#bugs-fixed-in-2024-09-0)| September 11, 2024 |
 
