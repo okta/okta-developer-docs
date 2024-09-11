@@ -930,7 +930,7 @@ Passwords are weak authenticators and prone to security issues. Currently all us
 
 #### Bugs fixed in 2022.05.0
 
-* Web and SPA app integrations using the [OIDC API](/docs/reference/api/oidc/) with the `Login Initiated By` feature incorrectly returned an error if they were created using an `authorization_code` or `interaction_code` grant type. (OKTA-435855)
+* Web and SPA app integrations using the [OIDC API](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/) with the `Login Initiated By` feature incorrectly returned an error if they were created using an `authorization_code` or `interaction_code` grant type. (OKTA-435855)
 
 * If the Administrator Roles API ([users](/docs/reference/api/roles/#remove-a-group-target-from-a-group-administrator-role-given-to-a-user) and [groups](/docs/reference/api/roles/#remove-a-group-target-from-a-group-administrator-role-given-to-a-group)) endpoints contained an invalid role type, an HTTP 500 Internal Server Error was returned. (OKTA-393032)
 
@@ -1008,7 +1008,7 @@ The Rate Limit Dashboard, available from the Admin Console, now includes data on
 
 #### OAuth 2.0 Push Authorization Requests
 
-Okta authorization servers now support push authorization requests in the `/par` endpoint to enhance OAuth security. This feature allows clients to push the payload of an OAuth 2.0 authorization request to the authorization server through a direct `/par` request and, in return, a request URI that is used to reference the payload data is provided by the authorization server. The request URI is then used in a subsequent `/authorize` request to reference the initial authorization payload. See the [/par](/docs/reference/api/oidc/#par) OAuth 2.0 API endpoint.
+Okta authorization servers now support push authorization requests in the `/par` endpoint to enhance OAuth security. This feature allows clients to push the payload of an OAuth 2.0 authorization request to the authorization server through a direct `/par` request and, in return, a request URI that is used to reference the payload data is provided by the authorization server. The request URI is then used in a subsequent `/authorize` request to reference the initial authorization payload. See the [/par](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/parCustomAS) OAuth 2.0 API endpoint.
 
 #### Signed request support for generic OIDC IdP is GA in Preview
 
@@ -1036,7 +1036,7 @@ Performing a POST request on the `/apps/{applicationId}` [endpoint](/docs/refere
 
 #### Bug fixed in 2022.03.3
 
-The `auth_time` [claim](/docs/reference/api/oidc/#reserved-claims-in-the-header-section) wasn't defined as a reserved system claim. (OKTA-478924)
+The `auth_time` [claim](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/#reserved-claims-in-the-payload-section) wasn't defined as a reserved system claim. (OKTA-478924)
 
 ### Weekly release 2022.03.2
 
@@ -1076,7 +1076,7 @@ The `auth_time` [claim](/docs/reference/api/oidc/#reserved-claims-in-the-header-
 
 #### Authentication timestamp is added as an access token claim
 
-The user-authenticated epoch timestamp is provided as the `auth_time` [claim in the access token](/docs/reference/api/oidc/#reserved-claims-in-the-payload-section).
+The user-authenticated epoch timestamp is provided as the `auth_time` [claim in the access token](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/#reserved-claims-in-the-payload-section).
 
 #### Custom Administrator Roles is GA in Production
 
@@ -1102,7 +1102,7 @@ When customers [integrate Okta with an OpenID Connect-based Identity Provider](/
 
 * When ThreatInsight evaluated sign-in attempts for unknown users, the threat level was incorrectly displayed as `threatLevel=UNKNOWN` in the System Log. (OKTA-471299)
 
-* The OAuth 2.0 [`/token`](/docs/reference/api/oidc/#token) and [`/authorize`](/docs/reference/api/oidc/#authorize) endpoints accepted requests that included the `resource` parameter. (OKTA-476549)
+* The OAuth 2.0 [`/token`](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/tokenCustomAS) and [`/authorize`](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/authorizeCustomAS) endpoints accepted requests that included the `resource` parameter. (OKTA-476549)
 
 ## February
 
@@ -1131,7 +1131,7 @@ To view an example of this new event detail, [create a user by API](/docs/guides
 
 #### Bug fixed in 2022.02.1
 
-The [OAuth token endpoint](/docs/reference/api/oidc/#response-example-error-2) didn't reject requests that included a `code_verifier` parameter if the [authorization call](/docs/reference/api/oidc/#authorize) was issued without the PKCE `code_challenge` parameter. (OKTA-461970)
+The [OAuth token endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/tokenCustomAS!path=0/code_verifier&t=request) didn't reject requests that included a `code_verifier` parameter if the [authorization call](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/authorizeCustomAS!in=query&path=code_challenge&t=request) was issued without the PKCE `code_challenge` parameter. (OKTA-461970)
 
 ### Monthly release 2022.02.0
 

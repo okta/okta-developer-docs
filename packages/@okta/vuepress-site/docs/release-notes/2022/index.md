@@ -822,7 +822,7 @@ Performing a POST request on the `/apps/{applicationId}` [endpoint](/docs/refere
 
 #### Bug fixed in 2022.03.3
 
-The `auth_time` [claim](/docs/reference/api/oidc/#reserved-claims-in-the-header-section) wasn't defined as a reserved system claim. (OKTA-478924)
+The `auth_time` [claim](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/#reserved-claims-in-the-payload-section) wasn't defined as a reserved system claim. (OKTA-478924)
 
 ### Weekly release 2022.03.2
 
@@ -860,7 +860,7 @@ When the [List email templates](https://developer.okta.com/docs/api/openapi/okta
 
 #### Authentication timestamp is added as an access token claim
 
-The user-authenticated epoch timestamp is provided as the `auth_time` [claim in the access token](/docs/reference/api/oidc/#reserved-claims-in-the-payload-section).
+The user-authenticated epoch timestamp is provided as the `auth_time` [claim in the access token](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/#reserved-claims-in-the-payload-section).
 
 #### Custom Administrator Roles is GA in Production
 
@@ -888,7 +888,7 @@ When you use the [AuthN APIs](/docs/reference/api/authn/#request-parameters-for-
 
 * When ThreatInsight evaluated sign-in attempts for unknown users, the threat level was incorrectly displayed as `threatLevel=UNKNOWN` in the System Log. (OKTA-471299)
 
-* The OAuth 2.0 [`/token`](/docs/reference/api/oidc/#token) and [`/authorize`](/docs/reference/api/oidc/#authorize) endpoints accepted requests that included the `resource` parameter. (OKTA-476549)
+* The OAuth 2.0 [`/token`](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/tokenCustomAS) and [`/authorize`](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/authorizeCustomAS) endpoints accepted requests that included the `resource` parameter. (OKTA-476549)
 
 ## February
 
@@ -922,7 +922,7 @@ To view an example of this new event detail, [create a user by API](/docs/guides
 
 #### Bug fixed in 2022.02.1
 
-The [OAuth token endpoint](/docs/reference/api/oidc/#response-example-error-2) didn’t reject requests that included a `code_verifier` parameter if the [authorization call](/docs/reference/api/oidc/#authorize) was issued without the PKCE `code_challenge` parameter. (OKTA-461970)
+The [OAuth token endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/tokenCustomAS!path=0/code_verifier&t=request) didn’t reject requests that included a `code_verifier` parameter if the [authorization call](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/authorizeCustomAS!in=query&path=code_challenge&t=request) was issued without the PKCE `code_challenge` parameter. (OKTA-461970)
 
 ### Monthly release 2022.02.0
 

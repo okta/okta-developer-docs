@@ -102,7 +102,7 @@ See [the User Model documentation](/docs/reference/api/users/#user-model) for mo
 
 A new parameter, `request` is available for all `/authorize` endpoints. The parameter contains a JWT created by the client, enabling requests to be passed in a single, self-contained parameter. This JWT must be signed.
 
-For details about using `request`, see [Oauth 2.0](/docs/reference/api/oidc/#request-parameters-1) or [OpenID Connect](/docs/reference/api/oidc/#request-parameters-3) documentation. <!-- OKTA-78476 -->
+For details about using `request`, see [parameter details](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/authorizeCustomAS!in=query&path=request&t=request). <!-- OKTA-78476 -->
 
 ### API Bug Fixes
 
@@ -605,11 +605,11 @@ To enable an Early Availability (EA) feature, contact [Support](https://support.
 #### OpenID Connect
 <!-- OKTA-132049  -->
 
-[OpenID Connect](/docs/reference/api/oidc/) is a simple identity layer on top of the OAuth 2.0 protocol, which allows computing clients to verify the identity of an end user based on the authentication performed by an authorization server, as well as to obtain basic profile information about the end user in an interoperable and REST-like manner. In technical terms, OpenID Connect specifies a RESTful HTTP API, using JSON as a data format.
+[OpenID Connect](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/) is a simple identity layer on top of the OAuth 2.0 protocol, which allows computing clients to verify the identity of an end user based on the authentication performed by an authorization server, as well as to obtain basic profile information about the end user in an interoperable and REST-like manner. In technical terms, OpenID Connect specifies a RESTful HTTP API, using JSON as a data format.
 
 OpenID Connect allows a range of clients, including Web-based, mobile, and JavaScript clients, to request and receive information about authenticated sessions and end users. The specification suite is extensible, supporting optional features such as encryption of identity data, discovery of OpenID Providers, and session management.
 
-Okta is [certified for OpenID Connect](http://openid.net/certification/). For more information, see [OpenID Connect and Okta](/docs/reference/api/oidc/).
+Okta is [certified for OpenID Connect](http://openid.net/certification/). For more information, see [OpenID Connect and Okta](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/).
 
 #### Key Rollover
 <!-- OKTA-132045  -->
@@ -647,11 +647,11 @@ For information about Early Access (EA) and General Availability (GA), see [Okta
 
 #### OpenID Connect
 
-[OpenID Connect](/docs/reference/api/oidc/) is a simple identity layer on top of the OAuth 2.0 protocol, which allows computing clients to verify the identity of an end user based on the authentication performed by an authorization server, as well as to obtain basic profile information about the end user in an interoperable and REST-like manner. In technical terms, OpenID Connect specifies a RESTful HTTP API, using JSON as a data format.
+[OpenID Connect](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/) is a simple identity layer on top of the OAuth 2.0 protocol, which allows computing clients to verify the identity of an end user based on the authentication performed by an authorization server, as well as to obtain basic profile information about the end user in an interoperable and REST-like manner. In technical terms, OpenID Connect specifies a RESTful HTTP API, using JSON as a data format.
 
  OpenID Connect allows a range of clients, including Web-based, mobile, and JavaScript clients, to request and receive information about authenticated sessions and end users. The specification suite is extensible, supporting optional features such as encryption of identity data, discovery of OpenID Providers, and session management.
 
- Okta is [certified for OpenID Connect](http://openid.net/certification/). For more information, see [OpenID Connect and Okta](/docs/reference/api/oidc/).<!-- OKTA-132049  -->
+ Okta is [certified for OpenID Connect](http://openid.net/certification/). For more information, see [OpenID Connect and Okta](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/).<!-- OKTA-132049  -->
 
 
 
@@ -688,11 +688,11 @@ The following platform features are Generally Available (GA) in preview orgs (as
 
 #### OpenID Connect
 
-[OpenID Connect](/docs/reference/api/oidc/) is a simple identity layer on top of the OAuth 2.0 protocol, which allows computing clients to verify the identity of an end user based on the authentication performed by an authorization server, as well as to obtain basic profile information about the end user in an interoperable and REST-like manner. In technical terms, OpenID Connect specifies a RESTful HTTP API, using JSON as a data format.
+[OpenID Connect](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/) is a simple identity layer on top of the OAuth 2.0 protocol, which allows computing clients to verify the identity of an end user based on the authentication performed by an authorization server, as well as to obtain basic profile information about the end user in an interoperable and REST-like manner. In technical terms, OpenID Connect specifies a RESTful HTTP API, using JSON as a data format.
 
  OpenID Connect allows a range of clients, including Web-based, mobile, and JavaScript clients, to request and receive information about authenticated sessions and end users. The specification suite is extensible, supporting optional features such as encryption of identity data, discovery of OpenID Providers, and session management.
 
- Okta is [certified for OpenID Connect](http://openid.net/certification/). For more information, see [OpenID Connect and Okta](/docs/reference/api/oidc/).<!-- OKTA-132049  -->
+ Okta is [certified for OpenID Connect](http://openid.net/certification/). For more information, see [OpenID Connect and Okta](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/).<!-- OKTA-132049  -->
 
 #### Key Rollover
 
@@ -747,7 +747,7 @@ The following feature enhancement is available on GitHub:
 
  OpenID Connect allows a range of clients, including Web-based, mobile, and JavaScript clients, to request and receive information about authenticated sessions and end users. The specification suite is extensible, supporting optional features such as encryption of identity data, discovery of OpenID Providers, and session management.
 
- Okta is [certified for OpenID Connect](http://openid.net/certification/). For more information, see [OpenID Connect and Okta](/docs/reference/api/oidc/).<!-- OKTA-132049  -->
+ Okta is [certified for OpenID Connect](http://openid.net/certification/). For more information, see [OpenID Connect and Okta](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/).<!-- OKTA-132049  -->
 
 
 #### Key Rollover
@@ -810,7 +810,7 @@ You can export data before Okta deletes it. We recommend using Security Informat
 
 #### Additional Scopes Available for Social Authentication
 
-When using a Social Identity Provider, you can request information in stages. The initial request to `/oauth2/v1/authorize` can ask for a minimal set of scopes, and you can add scopes to collect additional user data in a subsequent request to the Social Identity Provider. This reduces friction during sign-in when users don't yet trust your app. For more information, see the descriptions of `idp_scope` in the [OAuth 2.0 API](/docs/reference/api/oidc/#request-parameters-1 ) and [OpenID Connect API](/docs/reference/api/oidc/#request-parameters-3) parameter tables.<!-- (OKTA-117521) -->
+When using a Social Identity Provider, you can request information in stages. The initial request to `/oauth2/v1/authorize` can ask for a minimal set of scopes, and you can add scopes to collect additional user data in a subsequent request to the Social Identity Provider. This reduces friction during sign-in when users don't yet trust your app. For more information, see the descriptions of `idp_scope` in the [parameter details](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/authorizeCustomAS!in=query&path=idp_scope&t=request).<!-- (OKTA-117521) -->
 
 #### New Versions of Sign-In Widget and Auth SDK for JS
 
@@ -849,7 +849,7 @@ You can export data before Okta deletes it. We recommend using Security Informat
 ### Platform Enhancement: New Authentication Method for OpenID Connect and API Access Management
 For OpenID Connect and API Access Management, Okta supports the `client_secret_jwt` method for token endpoint authentication (`token_endpoint_auth_method`).
 This method is specified in the [OpenID Connect specification](http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication)
-and allows you to use JWT and HMAC to authenticate a client for [OAuth 2.0 and OpenID Connect](/docs/reference/api/oidc/#token-authentication-methods) requests.<!-- (OKTA-101074) -->
+and allows you to use JWT and HMAC to authenticate a client for [OAuth 2.0 and OpenID Connect](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/client-auth/#client-authentication-methods) requests.<!-- (OKTA-101074) -->
 
 ### Platform Bugs Fixed
 

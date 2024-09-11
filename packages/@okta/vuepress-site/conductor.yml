@@ -102,11 +102,11 @@ redirects:
   - from: /docs/api/rest/oauth-clients.html
     to: https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/Client/index.html
   - from: /docs/reference/api/oauth2
-    to: /docs/reference/api/oidc/index.html
+    to: https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/index.html
   - from: /docs/how-to/beta-auth-service/api-access-management-troubleshooting
-    to: /docs/reference/api/oidc/index.html
+    to: https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/index.html
   - from: /reference/authentication_reference
-    to: /docs/reference/api/oidc/index.html
+    to: https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/index.html
   - from: /docs/getting_started/policy.html
     to: /docs/reference/api/policy/index.html
   - from: /docs/api/rest/sessions.html
@@ -358,11 +358,11 @@ redirects:
   - from: /3rd_party_notices/Android_Mobile.html
     to: /3rd_party_notices/Android_Mobile/
   - from: /docs/reference/api/oidc.html
-    to: /docs/reference/api/oidc/
+    to: https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/
   - from: /docs/reference/api/oauth2.html
-    to: /docs/reference/api/oidc/
+    to: https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/
   - from: /standards/OIDC/index.html
-    to: /docs/reference/api/oidc/
+    to: https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/
   - from: /docs/api/getting_started/design_principles.html
     to: /docs/reference/core-okta-api/#design-principles
   - from: /standards/SAML/index
@@ -448,9 +448,9 @@ redirects:
   - from: /docs/api/resources/authn/index.html
     to: /docs/reference/api/authn/
   - from: /docs/api/resources/oidc/index.html
-    to: /docs/reference/api/oidc/
+    to: https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/
   - from: /docs/api/resources/oidc
-    to: /docs/reference/api/oidc/
+    to: https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/
   - from: /docs/api/resources/roles/index.html
     to: /docs/reference/api/roles/
   - from: /docs/api/resources/authorization-servers/index.html
@@ -886,7 +886,7 @@ redirects:
   - from: /docs/api/resources/authn.html
     to: /docs/reference/api/authn/
   - from: /docs/api/resources/oidc.html
-    to: /docs/reference/api/oidc/
+    to: https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/
   - from: /docs/api/resources/roles.html
     to: /docs/reference/api/roles/
   - from: /docs/api/resources/authorization-servers.html
@@ -1254,13 +1254,13 @@ redirects:
   - from: /docs/reference/api/index.html
     to: /docs/reference/
   - from: /docs/api/resources/oauth2/index.html
-    to: /docs/reference/api/oidc/
+    to: https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/
   - from: /docs/api/resources/oauth2
-    to: /docs/reference/api/oidc/
+    to: https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/
   - from: /docs/api/resources/oauth2.html
-    to: /docs/reference/api/oidc/
+    to: https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/
   - from: /docs/api/resources/oauth2/index.html
-    to: /docs/reference/api/oidc/
+    to: https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/
   - from: /docs/api/resources/social_authentication.html
     to: /docs/concepts/social-login/
   - from: /docs/api/resources/tokens
@@ -1956,7 +1956,7 @@ redirects:
   - from: /docs/guides/build-provisioning-integration/prepare-guide/index.html
     to: /docs/guides/scim-provisioning-integration-test/main/#next-steps
   - from: /docs/api/resources/oidc.html/index.html
-    to: /docs/reference/api/oidc/
+    to: https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/
   - from: /docs/api/resources/authn.html/index.html
     to: /docs/reference/api/authn/
   - from: /docs/guides/saml-application-setup/-/overview

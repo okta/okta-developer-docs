@@ -94,7 +94,7 @@ You can get an access token and make a request to an endpoint after you have the
 
 Request an access token by making a request to your Okta [org authorization server](/docs/concepts/auth-servers/) `/authorize` endpoint. Only the org authorization server can mint access tokens that contain Okta API scopes.
 
-> **Note:** See [Token lifetime](/docs/reference/api/oidc/#token-lifetime) for more information on hard-coded and configurable token lifetimes.
+> **Note:** See [Token lifetime](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/#token-lifetime) for more information on hard-coded and configurable token lifetimes.
 
 This page helps you build a request in Postman. You can also manually build the request URL and paste it into a private browser window. After you authenticate, the browser returns the access token in the address bar. Your request URL should look something like this:
 

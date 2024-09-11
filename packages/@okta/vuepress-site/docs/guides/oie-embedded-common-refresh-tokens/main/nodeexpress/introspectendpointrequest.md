@@ -1,6 +1,6 @@
 ### Web applications
 
-Web applications request for token information by calling the [`/introspect`](/docs/reference/api/oidc/#introspect) endpoint and passing in a required [`Authorization`](/docs/reference/api/oidc/#client-authentication-methods) header. This header is computed from the client ID and secret.
+Web apps request token information by calling the [`/introspect`](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/introspectCustomAS) endpoint and passing in a required [`Authorization`](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/client-auth/#client-authentication-methods) header. This header is computed from the client ID and secret.
 
 #### Request example
 

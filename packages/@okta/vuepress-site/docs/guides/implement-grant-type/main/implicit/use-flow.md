@@ -1,4 +1,4 @@
-The following sections outline the main requests required to implement the Implicit flow using direct requests to the [OIDC & OAuth 2.0 API](/docs/reference/api/oidc/) `/authorize` endpoint.
+The following sections outline the main requests required to implement the Implicit flow using direct requests to the [OIDC & OAuth 2.0 API](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/authorizeCustomAS) `/authorize` endpoint.
 
 ### Request for tokens
 
@@ -23,7 +23,7 @@ Note the parameters that are being passed:
 * `redirect_uri` is the callback location where the user agent is directed to along with the `access_token`. This must match one of the **Sign-in redirect URIs** that you specified when you created your app integration earlier.
 * `state` is an arbitrary alphanumeric string that the authorization server reproduces when redirecting the user agent back to the client. This is used to help prevent cross-site request forgery.
 
-See the [OAuth 2.0 API reference](/docs/reference/api/oidc/#authorize) for more information on these parameters.
+See the [OAuth 2.0 API reference](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/authorizeCustomAS) for more information on these parameters.
 
 ### Extract tokens from redirect URI
 

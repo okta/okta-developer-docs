@@ -34,7 +34,7 @@ This guide shows you how to rotate and manage your client secrets without servic
 
 Just like periodically changing passwords, regularly rotating the client secret that your app uses to authenticate is a security best practice. The challenge with rotating the client secret is to facilitate a seamless client secret rotation without service or app downtime. You need the ability to create overlapping client secrets.
 
-Also, depending on what type of credentials that a [client uses to authenticate](/docs/reference/api/oidc/#client-authentication-methods), the use of a JSON Web Key (JWK) public/private key pair may be required. Apps that use private/public key pairs for client authentication have substantially higher security. This is because only the client can access the private key. But, private/public key pair generation is laborious and time-consuming, and using the API can lead to errors.
+Also, depending on what type of credentials that a [client uses to authenticate](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/client-auth/#client-authentication-methods), the use of a JSON Web Key (JWK) public/private key pair may be required. Apps that use private/public key pairs for client authentication have substantially higher security. This is because only the client can access the private key. But, private/public key pair generation is laborious and time-consuming, and using the API can lead to errors.
 
 ### Generate more secrets and JWKS
 
@@ -160,5 +160,5 @@ To add more keys, deactivate a key, or delete a key, follow these steps:
 ## See also
 
 * [Build a JWT for client authentication](/docs/guides/build-self-signed-jwt/java/main/)
-* [OpenID Connect and OAuth 2.0 API /key endpoint](/docs/reference/api/oidc/#keys)
+* [OpenID Connect and OAuth 2.0 API /key endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/oauthKeysCustomAS)
 * [Implement OAuth for Okta with a service app](/docs/guides/implement-oauth-for-okta-serviceapp/main/)
