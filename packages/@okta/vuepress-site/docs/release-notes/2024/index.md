@@ -10,9 +10,12 @@ title: Okta Classic Engine API release notes 2024
 
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
-| [xx](#xx) | September 11, 2024 |
-| [xx](#xx) | September 11, 2024 |
-| [xx](#xx) | September 11, 2024 |
+| [Descriptions for Entitlement and Role objects](#descriptions-for-entitlement-and-role-objects) | September 11, 2024 |
+| [Enhanced Dynamic Network Zones is self-service GA](#enhanced-dynamic-network-zones-is-self-service-ga) | May 15, 2024 |
+| [Event hook System Log update](#event-hook-system-log-update) | September 11, 2024 |
+| [Okta Personal Settings API is GA in Preview](#okta-personal-settings-api-is-ga-in-preview) | September 11, 2024 |
+| [System Log events added for Okta Workflows](#system-log-events-added-for-okta-workflows) | September 11, 2024 |
+| [Developer documentation update in 2024.09.0](#developer-documentation-update-in-2024-09-0) | September 11, 2024 |
 | [Bugs fixed in 2024.09.0](#bugs-fixed-in-2024-09-0)| September 11, 2024 |
 
 #### Descriptions for Entitlement and Role objects
@@ -26,7 +29,7 @@ Use enhanced dynamic network zones to define IP service categories (proxies, VPN
 
 #### Event hook System Log update
 
-The `user.account.unlock_by_admin` event type is now event hook eligible. See [Event types](/docs/reference/api/event-types/). <!--OKTA-802486-->
+The `user.account.unlock_by_admin` event type is now event hook eligible. See [Event types](/docs/reference/api/event-types/). <!--OKTA-802486 OKTA-715243-->
 
 #### Okta Personal Settings API is GA in Preview
 
@@ -34,7 +37,7 @@ The [Okta Personal Settings API](https://developer.okta.com/docs/api/openapi/okt
 
 Okta Personal for Workforce is a free account that helps users separate their work apps from non-work apps. Okta Personal makes it easy for users to switch between their personal and work accounts, and to migrate their personal apps from an existing Okta enterprise tenant. When you enable Okta Personal for Workforce in your org, users receive a notification that encourages them to use Okta Personal for personal apps and Okta enterprise for work apps. See [Okta Personal for Workforce user experience](https://help.okta.com/oie/en-us/content/topics/okta-personal/okta-personal-for-workforce/user-experience.htm). <!--OKTA-794131-->
 
-#### System log events added for Okta Workflows
+#### System Log events added for Okta Workflows
 
 The `workflows.user.flow.move` and `workflows.user.table.move` Okta Workflows events have been added to the System Log to record the changes that occur due to reorganization of folder-level resources. <!--OKTA-669131-->
 
@@ -48,13 +51,17 @@ Our [API documentation](https://developer.okta.com/docs/api/) has a new look and
 
 </div>
 
-The API docs in the **References** section will be removed after September 30, 2024.
+API content in the **References** section will be removed after September 30, 2024.
 
 #### Bugs fixed in 2024.09.0
 
 * When creating or updating a profile, user first or last names that contained a dot (`last.name`) triggered malformed field error messages. (OKTA-798884)
 
+* Admins couldn't configure the `okta.myAccount.sessions.manage` scope as a custom scope on custom authorization servers. (OKTA-748880)
+
 * The Custom Token Scopes endpoints (`/api/v1/authorizationServers/{authServerId}/scopes`) for the Authorization Server API didn't support pagination. (OKTA-734223)
+
+* Deleted apps weren't removed from routing rules and were returned by calls to the `/policies` endpoint if the call used `IDP_DISCOVERY` as the `type`. (OKTA-734045)
 
 ## August
 
