@@ -12,4 +12,4 @@ private void updateUser(User user, string newEmail)
 }
 ```
 
-> **Note**: The <StackSnippet snippet="mgmtsdklink" inline/> uses the [Users API](https://developer.okta.com/docs/reference/api/users/#update-user) to update the user's profile information.
+> **Note**: The <StackSnippet snippet="mgmtsdklink" inline/> uses the [Users API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/updateUser) to update the user's profile information.

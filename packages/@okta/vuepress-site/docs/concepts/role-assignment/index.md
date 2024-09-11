@@ -147,7 +147,7 @@ If the resource has a corresponding Okta API, you can specify the resource by it
 
 | Service                 | Resource                                                            |  ORN identifier                                                               | REST URL                                                                                                                                                |
 | :---------------------- | :------------------------------------------------------------------ | :---------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Directory               | All users                                                           | `orn:{partition}:directory:{yourOrgId}:users`                                       | [`https://{yourOktaDomain}/api/v1/users`](/docs/reference/api/users/#list-users)                                                                       |
+| Directory               | All users                                                           | `orn:{partition}:directory:{yourOrgId}:users`                                       | [`https://{yourOktaDomain}/api/v1/users`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/listUsers)                                                                       |
 |                         | All groups                                                          | `orn:{partition}:directory:{yourOrgId}:groups`                                      | [`https://{yourOktaDomain}/api/v1/groups`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/#tag/Group/operation/listGroups)                                                                    |
 |                         | A specific group                                                    | `orn:{partition}:directory:{yourOrgId}:groups:{groupId}`                           | [`https://{yourOktaDomain}/api/v1/groups/{groupId}`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/#tag/Group/operation/getGroup)                                                           |
 |                         | All users within a specific group                                   | `orn:{partition}:directory:{yourOrgId}:groups:{groupId}:contained_resources`       | [`https://{yourOktaDomain}/api/v1/groups/{groupId}/users`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/#tag/Group/operation/listGroupUsers)                                            |
@@ -170,7 +170,7 @@ If the resource has a corresponding Okta API, you can specify the resource by it
 
 To specify binding members, use the REST URL of the corresponding Okta API:
 
-* [A specific user](/docs/reference/api/users/#get-user)
+* [A specific user](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/getUser)
 
   ```bash
   https://{yourOktaDomain}/api/v1/users/{memberUserId}

@@ -7,6 +7,55 @@ title: Okta Identity Engine API release notes 2024
 
 ## August
 
+### Weekly release 2024.08.3
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Bugs fixed in 2024.08.3](#bugs-fixed-in-2024-08-3)| August 28, 2024 |
+
+#### Bugs fixed in 2024.08.3
+
+* The system log displayed an incorrect actor when events were triggered by a Reset factor API request. (OKTA-752183)
+
+* The API request to update the default provisioning connection (`POST /api/v1/apps/{appId}/connections/default?activate=true`) returned generic error messages when the connection update failed. (OKTA-718570)
+
+* A cache issue caused an error when an admin tried to create routing rules using the Policy API (`POST /api/v1/policies/{policyId}/rules`). (OKTA-712397)
+
+### Weekly release 2024.08.2
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Updated MyAccount API System Log events](#updated-myaccount-api-system-log-events) | August 21, 2024 |
+| [Custom domain and custom email domain System Log events updates](#custom-domain-and-custom-email-domain-system-log-events-updates) | August 21, 2024 |
+| [Bugs fixed in 2024.08.2](#bugs-fixed-in-2024-08-2) | August 21, 2024 |
+
+#### Updated MyAccount API System Log events
+
+The following System Log events are generated when these endpoints are called:
+
+* POST `/idp/myaccount/emails`: `user.account.update_profile`, `system.email.send_factor_verify_message`
+* DELETE `/idp/myaccount/emails/{id}`: `user.account.update_profile`
+* POST `/idp/myaccount/phones/{id}/verify`: `user.mfa.factor.activate`
+* DELETE `/idp/myaccount/phones/{id}`: `user.mfa.factor.deactivate`
+
+See [Event types](/docs/reference/api/event-types/). <!--OKTA-790035-->
+
+#### Custom domain and custom email domain System Log events updates
+
+In the System Log, the `system.custom_url_domain.verify` and `system.email_domain.verify` events now appear when a verification succeeds or fails. <!--OKTA-790610-->
+
+#### Bugs fixed in 2024.08.2
+
+* When `/api/v1/principal-rate-limits` was called to create or update a principal rate limit for an OAuth app, and a 404 server error was returned, the rate limit was still created or updated. (OKTA-652674)
+
+* In orgs with the Okta account management policy configured for recovery, requests to update a password policy rule (`/policies/{policyId}/rules/{ruleId}`) without authenticators received an API validation error response. (OKTA-738910)
+
+* When Authentication Method Reference (AMR) claims were sent as comma-separated values, AMR claims mapping for SAML failed. (OKTA-791512)
+
+* The `honorPersistentNameId` parameter default setting for SAML IdPs was set to `false` if it was omitted from IdP API requests. (OKTA-791891)
+
+* Some Group API users experienced inconsistent pagination when the `limit` was higher than 200. (OKTA-795107)
+
 ### Weekly release 2024.08.1
 
 | Change | Expected in Preview Orgs |
@@ -20,7 +69,7 @@ With this feature, you can require users to verify with multiple authentication 
 
 #### Bug fixed in 2024.08.1
 
-Requests to list client secrets (`/api/v1/apps/{appId}/credentials/secrets`) and get a client secret (`/api/v1/apps/{appId}/credentials/secrets/{id}`) didn't fire a System Log event when the client secrets were returned in the response. <!-- OKTA-692600 -->
+Requests to list client secrets (`/api/v1/apps/{appId}/credentials/secrets`) and get a client secret (`/api/v1/apps/{appId}/credentials/secrets/{id}`) didn't fire a System Log event when the client secrets were returned in the response. (OKTA-692600)
 
 ### Monthly release 2024.08.0
 

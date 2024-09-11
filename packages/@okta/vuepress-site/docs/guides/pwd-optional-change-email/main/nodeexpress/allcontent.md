@@ -9,4 +9,4 @@ client.getUser('johndoe@okta.com').then(user => {
 });
 ```
 
->**Note**: The <StackSnippet snippet="mgmtsdklink" inline/> uses the [Users API](/docs/reference/api/users/) to update the user's profile information.
+>**Note**: The <StackSnippet snippet="mgmtsdklink" inline/> uses the [Users API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/updateUser) to update the user's profile information.

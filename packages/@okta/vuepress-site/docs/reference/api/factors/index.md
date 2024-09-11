@@ -9,7 +9,6 @@ The Factors API reference is available at the [Okta API reference portal](https:
 
 Explore the [Okta Public API Collections](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/overview) workspace to get started with the Factors API Postman collection.
 
-<!--
 The Okta Factors API provides operations to enroll, manage, and verify factors for multifactor authentication (MFA). Manage both administration and end-user accounts, or verify an individual factor at any time.
 
 <ApiAuthMethodWarning />
@@ -4388,4 +4387,3 @@ Specifies the status of a Factor verification attempt
 | `TIMEOUT`              | Okta was unable to verify the Factor within the allowed time window.                                                                       |
 | `TIME_WINDOW_EXCEEDED` | The Factor was successfully verified, but outside of the computed time window. Another verification is required in the current time window.|
 | `WAITING`              | The Factor verification has started, but not yet completed (for example: The user hasn't answered the phone call yet).                     |
--->

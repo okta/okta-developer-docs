@@ -6,6 +6,39 @@ title: Okta Classic Engine API release notes 2024
 
 ## August
 
+### Weekly release 2024.08.3
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Bugs fixed in 2024.08.3](#bugs-fixed-in-2024-08-3)| August 28, 2024 |
+
+#### Bugs fixed in 2024.08.3
+
+* The API request to update the default provisioning connection (`POST /api/v1/apps/{appId}/connections/default?activate=true`) returned generic error messages when the connection update failed. (OKTA-718570)
+
+* A cache issue caused an error when an admin tried to create routing rules using the Policy API (`POST /api/v1/policies/{policyId}/rules`). (OKTA-712397)
+
+* The `q` request parameter was ignored when used in a GET request to the `/policies` endpoint. (OKTA-748131)
+
+### Weekly release 2024.08.2
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Custom domain and custom email domain System Log events updates](#custom-domain-and-custom-email-domain-system-log-events-updates) | August 21, 2024 |
+| [Bugs fixed in 2024.08.2](#bugs-fixed-in-2024-08-2) | August 21, 2024 |
+
+#### Custom domain and custom email domain System Log events updates
+
+In the System Log, the `system.custom_url_domain.verify` and `system.email_domain.verify` events now appear when a verification succeeds or fails. <!--OKTA-790610-->
+
+#### Bugs fixed in 2024.08.2
+
+* When `/api/v1/principal-rate-limits` was called to create or update a principal rate limit for an OAuth app, and a 404 server error was returned, the rate limit was still created or updated. (OKTA-652674)
+
+* The `honorPersistentNameId` parameter default setting for SAML IdPs was set to `false` if it was omitted from IdP API requests. (OKTA-791891)
+
+* Some Group API users experienced inconsistent pagination when the `limit` was higher than 200. (OKTA-795107)
+
 ### Weekly release 2024.08.1
 
 | Change | Expected in Preview Orgs |
