@@ -16,7 +16,7 @@ Control the creation order of resources and reduce code in your Terraform config
 
 #### What you need
 
-* Familiarity with the Terraform terms: configuration, resources, state, and commands. For more information, see the [Terraform overview](/docs/guides/terraform-overview).
+* Familiarity with the Terraform terms: configuration, resources, state, and commands. See the [Terraform overview](/docs/guides/terraform-overview).
 
 * An Okta organization
 
@@ -26,7 +26,7 @@ Control the creation order of resources and reduce code in your Terraform config
 
 Resource definitions usually contain enough information for Terraform to create or destroy objects. However, some Okta resources, such as policies or rules, require creating or modifying other objects first.
 
-Use the `depends_on` Terraform attribute in your configuration to define these explicit dependencies. Note that Hashicorp recommends only [using depends_on in the rare cases that require it](https://developer.hashicorp.com/terraform/language/meta-arguments/depends_on).
+Use the `depends_on` Terraform attribute in your configuration to define these explicit dependencies. Note that HashiCorp recommends only [using depends_on in the rare cases that require it](https://developer.hashicorp.com/terraform/language/meta-arguments/depends_on).
 
 ### Managing policy and rule dependencies
 
@@ -86,7 +86,7 @@ variable "groups_to_create" {
 }
 ```
 
-2. Create a new file for variable values, in this case, a list of group objects to create. If you are not using the central `terraform.tfvars` file to set variable values, name the file with the suffix `.auto.tfvars`. For example, `users_and_groups.auto.tfvars`.
+2. Create a file for variable values, in this case, a list of group objects to create. If you aren't using the central `terraform.tfvars` file to set variable values, name the file with the suffix `.auto.tfvars`. For example, `users_and_groups.auto.tfvars`.
 
 Add this example to the file:
 
@@ -107,7 +107,7 @@ groups_to_create = [
 ]
 ```
 
-3. In your original Terraform `.tf` file, create a new group resource definition:
+3. In your original Terraform `.tf` file, create a group resource definition:
 
 ```hcl
 resource "okta_group" "group_create_using_list" {

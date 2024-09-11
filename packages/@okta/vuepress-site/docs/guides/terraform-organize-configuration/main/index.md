@@ -1,10 +1,10 @@
 ---
 title: Organize your Terraform configuration
-excerpt: Create and update your automation script source files to make them more secure and easier to maintain.
+excerpt: Create and update the source files for your automation scripts to make them more secure and easier to maintain.
 layout: Guides
 ---
 
-Create and update your automation script source files to make them more secure and easier to maintain.
+Create and update the source files for your automation scripts to make them more secure and easier to maintain.
 
 ---
 
@@ -22,7 +22,7 @@ Create and update your automation script source files to make them more secure a
 
 #### What you need
 
-* Familiarity with the Terraform terms: configuration, resources, state, and commands. For more information, see the [Terraform overview](/docs/guides/terraform-overview).
+* Familiarity with the Terraform terms: configuration, resources, state, and commands. See the [Terraform overview](/docs/guides/terraform-overview).
 
 * An Okta organization.
 
@@ -32,11 +32,11 @@ Create and update your automation script source files to make them more secure a
 
 ## Overview
 
-Whether you're already using Terraform to automate the management of your Okta org or are just starting, how you organize your files can make a difference. Follow the best practices in this article for code that's more concise, easier to understand and maintain, reduces the risk of creating an incorrect configuration, and has better security.
+Maintaining your Terraform configuration can become more challenging as the amount of code increases. Follow the best practices in this article to create more concise code that's easier to understand and maintain, reduces the risk of errors, and increases security.
 
 ## Organize files by resource type and purpose
 
-To increase the maintainability of your Terraform configuration, instead of using one file, use one Terraform script file for each resource type or related purpose. For example, define Okta device security assurance policies in a file called `Devices.tf`.
+To increase the maintainability of your Terraform configuration, instead of using one file, use one Terraform script file for each resource type or related purpose. For example, define device assurance policies in a file called `Devices.tf`.
 
 Some benefits of using multiple files for your Terraform configuration are:
 
@@ -50,7 +50,7 @@ Some benefits of using multiple files for your Terraform configuration are:
 
 ## Modularize files for reuse and maintainability
 
-Use [Terraform resource modules](https://developer.hashicorp.com/terraform/language/modules/syntax) to group related resources and facilitate reuse. Design self-contained modules that focus on a single task or area. For example, if multiple Okta orgs use the same corporate branding assets, you can create a module with those assets and share it across Terraform configurations. See the [Terraform article on developing modules](https://developer.hashicorp.com/terraform/language/modules/develop).
+Use [Terraform resource modules](https://developer.hashicorp.com/terraform/language/modules/syntax) to group related resources and facilitate reuse. Design self-contained modules that focus on a single task or area. For example, when multiple Okta orgs use the same corporate branding assets, you can create a shared module that contains those assets. See the [Terraform article on developing modules](https://developer.hashicorp.com/terraform/language/modules/develop).
 
 You can write one script that works in multiple places by using input and output variables. For example, a script for adding groups can use a variable for the list of group names. You can also use variables to create shared modules for different Terraform configurations. See the [Terraform article on input and output variables](https://developer.hashicorp.com/terraform/language/values/variables).
 
@@ -86,7 +86,7 @@ module "hipaa" {
 }
 ```
 
-Consider adding explicit versioning and version tags or branches to reference a specific version of your modules. Explicit versioning reduces the risk of importing unexpected and untested changes from the remote module.
+Consider identifying specific versions of your modules using branches or version tags. Explicit versioning reduces the risk of importing unexpected and untested changes from the remote module.
 
 ## Securely store secrets and credentials
 
@@ -94,7 +94,7 @@ Store credentials and other secrets securely. This section describes some best p
 
 * Use separate files for your global variables and their values. See [Organize files by resource type and purpose](#organize-files-by-resource-type-and-purpose).
 
-* Identify sensitive fields in variable definitions with the `sensitive` keyword, so that it doesn't appear in the Terraform output:
+* Identify sensitive fields in variable definitions with the `sensitive` keyword so that it doesn't appear in the Terraform output:
 
 ```hcl
 variable "private_key" {
@@ -109,7 +109,7 @@ Note that tagging a variable as sensitive prevents you from using it in loops wi
 
 * Don’t store secrets in plaintext in variable values files.
 
-    * Use key vault solutions that integrate with Terraform, such as the key vaults native to each cloud provider or other key management products.
+    * Use key vault solutions that integrate with Terraform, such as the key vaults for each cloud provider or other key management products.
 
     * Define secrets in system environment variables and reference them from Terraform. Set a system environment variable in a setup script with the prefix `TF_VAR_`. For related information, see [the Terraform article on environment variables](https://developer.hashicorp.com/terraform/cli/config/environment-variables).
 
@@ -136,15 +136,15 @@ provider "okta" {
 
 For more strategies for secret storage in Terraform, see this [third-party article](https://blog.gruntwork.io/a-comprehensive-guide-to-managing-secrets-in-your-terraform-code-1d586955ace1).
 
-On a related note, several ways of performing authentication with Okta from Terraform and other SDKs exist. Okta recommends using key pairs. For more detail, see [Enable Terraform access for your Okta org](/docs/guides/terraform-enable-org-access/main). Although Okta provides a feature called API keys, which work for authentication from external tools, Okta strongly recommends using key pairs instead. Store the private key securely with one of the mechanisms described in this article to reduce the risk of unauthorized access. For related discussion, see [Why You Should Migrate to OAuth 2.0 From Static API Tokens](https://developer.okta.com/blog/2023/09/25/oauth-api-tokens).
+On a related note, several ways of performing authentication with Okta from Terraform and other SDKs exist. Okta recommends using key pairs. See [Enable Terraform access for your Okta org](/docs/guides/terraform-enable-org-access/main). Although Okta provides a feature called API keys, which work for authentication from external tools, Okta strongly recommends using key pairs instead. Store the private key securely with one of the mechanisms described in this article to reduce the risk of unauthorized access. For related discussion, see [Why You Should Migrate to OAuth 2.0 From Static API Tokens](https://developer.okta.com/blog/2023/09/25/oauth-api-tokens).
 
 ## Avoid problems caused by configuration drift
 
 The real-world state of your infrastructure can differ from the updated state files updated during a `terraform apply` command. When this occurs, it's called configuration drift.
 
-Configuration drift usually occurs when an organization uses multiple strategies or tools to modify resources. Drift can also happen due to external factors, such as a resource unexpectedly terminating or failing and being out of sync with the Terraform-based resource definitions and state files.
+Configuration drift usually occurs when an organization uses multiple strategies or tools to modify resources. External factors can also cause drift. These include a resource unexpectedly terminating, failing, or being out of sync with the Terraform-based resource definitions and state files.
 
-For Okta resources that you manage with Terraform, never modify them with Admin Console or other APIs.
+For Okta resources you manage with Terraform, never modify them with Admin Console or other APIs.
 
 ## Configure a basic Okta Terraform configuration
 
@@ -177,7 +177,7 @@ This example sets the required major and minor release version of the Okta Terra
 
 ### Use variables and variable values
 
-Variable values can be set in multiple ways to make them available in your Terraform files. For example, you can set OS environment variables, just-in-time variable drop-ins, or variables in container tools, such as Docker. This article demonstrates using standard Terraform variable definitions with their values in `.tfvars` files. This approach is typical for initial work with Terraform but is not recommended for sensitive values. Always follow your organization's best practices for securely setting Terraform variables for production systems and values for sensitive fields.
+Variable values can be set in multiple ways to make them available in your Terraform files. For example, you can set OS environment variables, just-in-time variable drop-ins, or variables in container tools, such as Docker. This article demonstrates using standard Terraform variable definitions with their values in `.tfvars` files. This approach is typical for initial work with Terraform but isn't recommended for sensitive values. Always follow your organization's best practices for securely setting Terraform variables for production systems and values for sensitive fields.
 
 > **Caution** Including sensitive values in your `.tf` files, such as provider details or private keys, is a significant security risk. See [Securely store secrets and credentials](#securely-store-secrets-and-credentials).
 
@@ -233,7 +233,7 @@ resource "okta_group" "Finance" {
 
 ### Manage your list of API scopes
 
-Your Terraform configuration must include a list of the Okta API scopes required to perform the associated tasks. For example, Terraform needs the `okta.groups.manage` API scope to create an Okta group in the Okta org’s directory. For more information, see the [scopes reference](/docs/api/oauth2/).
+Your Terraform configuration must include a list of the Okta API scopes required to perform the associated tasks. For example, Terraform needs the `okta.groups.manage` API scope to create an Okta group in the Okta org’s directory. See the [scopes reference](/docs/api/oauth2/) for more information.
 
 1. Define a `scopes` variable in your `main.tf` file:
 
@@ -269,9 +269,9 @@ provider "okta" {
 }
 ```
 
-As you manage additional resource types in Terraform, make changes in multiple places:
+As you add other resource types to Terraform, make changes in multiple places:
 
-1. Review the [reference of Okta admin scopes](/docs/api/oauth2/). Look for scopes that mention that resource. For full read/write access, choose the scope with `manage` in the name. For example, to manage groups, add `okta.groups.manage`.
+1. Review the [reference of Okta admin scopes](/docs/api/oauth2/). Look for scopes that mention that resource. For full read/write access, choose the scope with `manage` in the name. For example, add `okta.groups.manage` to manage groups.
 
 2. Enable new scopes on your the application that controls your Terraform integration:
 
@@ -281,9 +281,9 @@ As you manage additional resource types in Terraform, make changes in multiple p
 
     3. Click **Okta API Scopes**.
 
-   4. Find the new scope. If it's not already granted, click **Grant** then click **Grant Access**.
+   4. Find the new scope. If it hasn't already been granted, click **Grant** and then click **Grant Access**.
 
-3. Update the list of requested Okta API OAuth 2.0 scopes in your `values.auto.tfvars` file.
+3. Update the requested Okta API OAuth 2.0 scopes list in your `values.auto.tfvars` file.
 
-4. You may also need to add admin roles to Terraform's API service app. You can apply built-in admin roles in the Admin Console to enable common groups of permissions by department or role in the organization, such as the Organization Admin role or the Super Administrator role. For fine-grained access control, create a custom role and include only the minimal set of permissions. Note that Okta admin roles (which encapsulate permissions) differ from the Okta API scopes. For instructions, see [Enable Terraform access for your Okta organization](/docs/guides/terraform-enable-org-access/main/).
+4. You may also need to add admin roles to Terraform's API service app. Enable groups of permissions by department or role in the organization. Use the Admin Console to apply common permissions groups by assigning built-in admin roles, such as Organization Admin or Super Administrator. For fine-grained access control, create a custom role and include only the minimal set of permissions. Note that Okta admin roles (which encapsulate permissions) differ from the Okta API scopes. For instructions, see [Enable Terraform access for your Okta organization](/docs/guides/terraform-enable-org-access/main/).
 
