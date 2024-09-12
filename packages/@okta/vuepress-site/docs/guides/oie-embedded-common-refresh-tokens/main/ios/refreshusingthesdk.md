@@ -1,4 +1,4 @@
-The Swift SDK has built-in support for refreshing tokens through the use of the `Token` class's `refresh` method.
+The Swift SDK has built-in support for refreshing tokens by using the `Token` class's `refresh` method.
 
 ```javascript
 token.refresh { (newToken, error) in
