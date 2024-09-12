@@ -178,7 +178,7 @@ Native SSO allows you to protect native OpenID Connect applications, such as des
 
 #### The Okta Org API is now GA in Production
 
-The [Okta Org API](/docs/reference/api/org/) allows you to manage your org account settings, contact information, logo, Okta support settings, Okta communication settings, and preferences.<!--OKTA-436524-->
+The [Okta Org API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingGeneral/) allows you to manage your org account settings, contact information, logo, Okta support settings, Okta communication settings, and preferences.<!--OKTA-436524-->
 
 #### Bugs fixed in 2021.11.0
 
@@ -801,7 +801,7 @@ The SAML 2.0 Assertion grant flow is now Self-Service EA. You can use the SAML 2
 
 #### The Okta Org API is now GA
 
-The Okta [Org API](/docs/reference/api/org/) is now GA. This API allows you to manage your org account settings, contact information, logo, Okta support settings, Okta communication settings, and preferences. <!--OKTA-369570-->
+The Okta [Org API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingGeneral/) is now GA. This API allows you to manage your org account settings, contact information, logo, Okta support settings, Okta communication settings, and preferences. <!--OKTA-369570-->
 
 #### The /login/token/redirect endpoint now has a dedicated rate limit
 
@@ -832,7 +832,7 @@ The new LDAP Interface `authType` is now GA. When you create a [Sign On Policy](
 
 #### Okta Org API now available in Self-Service Early Access (EA)
 
-The Okta Org API is now available in Self-Service EA. This API allows you to manage your org account settings, contact information, logo, Okta support settings, Okta communication settings, and preferences. See [Org API](/docs/reference/api/org/).<!--OKTA-325713-->
+The Okta Org API is now available in Self-Service EA. This API allows you to manage your org account settings, contact information, logo, Okta support settings, Okta communication settings, and preferences. See [Org API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingGeneral/).<!--OKTA-325713-->
 
 #### Automatically mark a flow hook as "VERIFIED"
 

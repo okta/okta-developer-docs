@@ -834,7 +834,7 @@ Content-Type: application/json
 }
 ```
 
-> **Note:** If you've enabled the theme builder feature, the [/api/v1/org/logo endpoint](/docs/reference/api/org/#org-logo-operations) still works, but pages use the logo from the theme.
+> **Note:** If you've enabled the theme builder feature, the [/api/v1/org/logo endpoint](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingCustomization/#tag/OrgSettingCustomization/operation/uploadOrgLogo) still works, but pages use the logo from the theme.
 >
 > See [Logo scenarios](#logo-scenarios) for more information.
 

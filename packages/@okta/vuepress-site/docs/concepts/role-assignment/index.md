@@ -118,7 +118,7 @@ The partition is specific to your Okta environment. The following are the suppor
 
 ###### tenantId
 
-The identifier for the tenant that is using the service. This is typically your [org ID](/docs/reference/api/org/#org-setting-properties).
+The identifier for the tenant that is using the service. This is typically your [org ID]( https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingGeneral/#tag/OrgSettingGeneral/operation/getOrgSettings!c=200&path=id&t=response).
 
 ###### objectType
 
