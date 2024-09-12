@@ -63,7 +63,7 @@ OAuth 2.0 Demonstrating Proof-of-Possession (DPoP) is a security feature that ad
 
 #### New possession constraint property available for Policy API
 
-A new `userVerification` property is available for the `constraints` object of the [Policy API](/docs/reference/api/policy/#constraints). This setting can ensure the verification of a possession factor through a PIN or biometrics. <!-- OKTA-669846 -->
+A new `userVerification` property is available for the `constraints` object of the [Policy API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule!path=0/actions/appSignOn/verificationMethod/0/constraints/possession/userVerification&t=request). This setting can ensure the verification of a possession factor through a PIN or biometrics. <!-- OKTA-669846 -->
 
 #### Bugs fixed in 2023.12.0
 
@@ -376,7 +376,7 @@ Front-channel Single Logout (SLO) allows a user to sign out of an SLO participat
 
 #### Google Authenticator for account recovery is GA in Production
 
-The Policy API Self-Service Password Reset object can now use Google Authenticator to initiate recovery scenarios. Previously, the object could only use the Email, Phone, or Okta Verify authenticators to initiate recovery. This addition enhances the user experience by increasing the number of options available for recovery.  See [Policy API](/docs/reference/api/policy/#self-service-password-reset-action-object). <!-- OKTA-609191 IDX_SSPR_EXTENDED_PRIMARY_FACTORS-->
+The Policy API Self-Service Password Reset object can now use Google Authenticator to initiate recovery scenarios. Previously, the object could only use the Email, Phone, or Okta Verify authenticators to initiate recovery. This addition enhances the user experience by increasing the number of options available for recovery.  See [Policy API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule!path=1/actions/selfServicePasswordReset&t=request). <!-- OKTA-609191 IDX_SSPR_EXTENDED_PRIMARY_FACTORS-->
 
 #### Okta-generated client secret length increase
 
@@ -479,7 +479,7 @@ The [Create User with password import inline hook](/docs/reference/api/users/#cr
 
 #### Google Authenticator for account recovery is now EA in Preview
 
-The Policy API Self-Service Password Reset object can now use Google Authenticator to initiate recovery scenarios. Previously, the object could only use the Email, Phone, or Okta Verify authenticators to initiate recovery. This addition enhances the user experience by increasing the number of options available for recovery.  See [Policy API](/docs/reference/api/policy/#self-service-password-reset-action-object). <!-- OKTA-599821 -->
+The Policy API Self-Service Password Reset object can now use Google Authenticator to initiate recovery scenarios. Previously, the object could only use the Email, Phone, or Okta Verify authenticators to initiate recovery. This addition enhances the user experience by increasing the number of options available for recovery.  See [Policy API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule!path=1/actions/selfServicePasswordReset&t=request). <!-- OKTA-599821 -->
 
 #### Policy Simulation API is EA in Preview
 
@@ -888,7 +888,7 @@ When an admin used a group limit in an expression that was greater than 100 (for
 
 #### Allowlist for FIDO2 (WebAuthn) authenticators is Self-Service EA in Preview
 
-Okta now enables you to manage which FIDO2 WebAuthn authenticators are allowed in your org for new enrollments. This feature allows you to create an allow list of specific FIDO2 WebAuthn authenticators (based on FIDO Metadata Service) that can be used in enrollment policies. This allows admins to have greater control over which authenticators may be used in their orgs and determine which users may access them in a granular way.  See `settings.authenticators.constraints` in the `MFA_ENROLL` [Policies API](/docs/reference/api/policy/#policy-authenticator-object). <!--OKTA-559662-->
+Okta now enables you to manage which FIDO2 WebAuthn authenticators are allowed in your org for new enrollments. This feature allows you to create an allow list of specific FIDO2 WebAuthn authenticators (based on FIDO Metadata Service) that can be used in enrollment policies. This allows admins to have greater control over which authenticators may be used in their orgs and determine which users may access them in a granular way.  See `settings.authenticators.constraints` in the `MFA_ENROLL` [Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy!path=2/settings/authenticators&t=request). <!--OKTA-559662-->
 
 #### Applications API support for SAML metadata attributes
 

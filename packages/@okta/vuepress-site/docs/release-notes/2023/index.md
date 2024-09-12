@@ -822,7 +822,7 @@ OAuth 2.0 Optional Consent provides an optional property that enables a user to 
 
 #### Password history policy enforced in strict mode is GA in Production
 
-When an admin [updates passwords](/docs/reference/api/users/#update-user) and sets the `strict` parameter to `true`, the [password history policy](/docs/reference/api/policy/#age-object) is now enforced.<!-- OKTA-563910-->
+When an admin [updates passwords](/docs/reference/api/users/#update-user) and sets the `strict` parameter to `true`, the [password history policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy!path=4/settings/password/age&t=request) is now enforced.<!-- OKTA-563910-->
 
 #### PBKDF2 Hashing Algorithm support is GA in Production
 

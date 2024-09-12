@@ -28,7 +28,7 @@ This guide explains how to add and configure Okta sign-on policies and app sign-
 
 An Okta sign-on policy helps you control who can sign in and how a user is allowed to sign in to Okta, including whether they are challenged for MFA and how long they are allowed to remain signed in before re-authenticating. Additionally, you can configure app sign-on policies for each application for extra levels of authentication that you may want performed before an application can be accessed.
 
-Add a rule to the Okta sign-on policy, for example, when you need to make sure that only users who are inside your [corporate network](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule!path=8/conditions/network&t=request) can access your application, or you need to exclude certain roles in your organization from accessing it. Add a rule for an app sign-on policy, for example, to prompt groups that are assigned to your app to re-authenticate after 60 minutes. There is only one app sign-on policy, but you can add as many rules to it as you need.
+Add a rule to the Okta sign-on policy, for example, when you need to make sure that only users who are inside your [corporate network](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule!path=0/conditions/network&t=request) can access your application, or you need to exclude certain roles in your organization from accessing it. Add a rule for an app sign-on policy, for example, to prompt groups that are assigned to your app to re-authenticate after 60 minutes. There is only one app sign-on policy, but you can add as many rules to it as you need.
 
 You can specify any number of Okta sign-on policies and the order in which they are executed. If a policy in the list doesn't apply to the user trying to sign in, the system moves to the next policy. There is one required organization-wide policy named **Default**. By definition, the Default policy applies to all users.
 
@@ -91,7 +91,7 @@ The following are step-by-step instructions to configure an Okta sign-on policy 
 
 9. For this use case example, leave the default **Session Expires After** setting of **2 hours**. Use these fields to specify the maximum idle time before an authentication prompt is triggered. The maximum allowed time for this option is 90 days. This isn't the total connect time. This is idle time before users see a countdown timer at the 5-minute mark of remaining session time.
 
-    > **Note:** You can set the [maximum session lifetime value](/docs/reference/api/policy/#signon-session-object) using the Okta APIs. If you previously set this value using the API, you can't exceed that maximum in the UI. Setting a value over the API maximum results in an error.
+    > **Note:** You can set the [maximum session lifetime value](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule!path=4/actions/signon/session&t=request) using the Okta APIs. If you previously set this value using the API, you can't exceed that maximum in the UI. Setting a value over the API maximum results in an error.
 
 10. Click **Create Rule**.
 
