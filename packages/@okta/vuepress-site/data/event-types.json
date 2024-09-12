@@ -1,6 +1,6 @@
 {
-  "release" : "2024.08.1",
-  "build" : "2024.08.1-begin-194-g7e8a09ad9c75",
+  "release" : "2024.09.1",
+  "build" : "2024.09.1-begin-205-g501a7b46dea4",
   "categories" : [ {
     "id" : "access-gateway",
     "name" : "Access Gateway"
@@ -52,6 +52,9 @@
   }, {
     "id" : "cleavers",
     "name" : "Cleavers"
+  }, {
+    "id" : "cloudmaker",
+    "name" : "CloudMaker"
   }, {
     "id" : "core",
     "name" : "Core"
@@ -214,6 +217,9 @@
   }, {
     "id" : "performance",
     "name" : "Performance"
+  }, {
+    "id" : "plg",
+    "name" : "Product Lead Growth"
   }, {
     "id" : "plugins",
     "name" : "Plugins"
@@ -994,6 +1000,10 @@
     "description" : "",
     "tags" : [ ]
   }, {
+    "id" : "dr",
+    "description" : "",
+    "tags" : [ ]
+  }, {
     "id" : "uncategorized",
     "description" : "",
     "tags" : [ ]
@@ -1305,6 +1315,24 @@
         "actor" : null,
         "targets" : [ "OrgResourceDetails" ],
         "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "account.user.classify",
+      "category" : "ud-core",
+      "description" : "Update user classification. A user can be classified as lite or standard. A change in classification may impact Okta license consumption. The previous and new user classification is reflected in the target entry.",
+      "info" : {
+        "created" : "2024-08-08",
+        "release" : "2024.08.3"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "cvd", "directory", "user-classification" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "OrgResourceDetails" ],
+        "changeDetails" : [ "LiteUserClassificationChangeDetails" ]
       }
     }, {
       "id" : "analytics.feedback.provide",
@@ -2709,6 +2737,24 @@
         "actor" : null,
         "targets" : [ "ResourceDetails" ],
         "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "app.oauth2.client.read_client_secret",
+      "category" : "federation",
+      "description" : "Read OAuth client's secret(s). Use this event to verify that an OAuth client's secret(s) have been read when the client is returned in certain API responses. For example, an admin might use this event to audit if a client's secrets were read when using the client credentials management API. When fired, this event indicates that an OAuth client's secrets were read. The targets array may include references to multiple client secrets.",
+      "info" : {
+        "created" : "2024-07-26",
+        "release" : "2024.08.1"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "oauth2", "oauth2-client" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null,
+        "changeDetails" : null
       }
     }, {
       "id" : "app.oauth2.client_id_rate_limit_warning",
@@ -6815,6 +6861,114 @@
         "changeDetails" : [ ]
       }
     }, {
+      "id" : "device.assurance.policy.add",
+      "category" : "device-assurance",
+      "description" : "Add device assurance policy. Use this event to monitor when a device assurance policy is created. The name and platform of the new policy are included in the event.",
+      "info" : {
+        "created" : "2024-08-08",
+        "release" : "2024.08.3"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "device-identity", "oie-only" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "DeviceAssuranceResourceDetails" ],
+        "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "device.assurance.policy.delete",
+      "category" : "device-assurance",
+      "description" : "Delete device assurance policy. Use this event to monitor when a device assurance policy is deleted. The name of the deleted policy is included in the event.",
+      "info" : {
+        "created" : "2024-08-08",
+        "release" : "2024.08.3"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "device-identity", "oie-only" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "DeviceAssuranceResourceDetails" ],
+        "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "device.assurance.policy.update",
+      "category" : "device-assurance",
+      "description" : "Update device assurance policy. Use this event to monitor when a device assurance policy is updated, and what changed. The details of what is changed in the policy are included in the event.",
+      "info" : {
+        "created" : "2024-08-08",
+        "release" : "2024.08.3"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "device-identity", "oie-only" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "DeviceAssuranceResourceDetails" ],
+        "changeDetails" : [ "DeviceAssuranceChangeDetailsEntry" ]
+      }
+    }, {
+      "id" : "device.check.add",
+      "category" : "device-assurance",
+      "description" : "Add device check. Use this event to monitor when a custom device check is created. The platform, name, variable name, description, and query of the new device check are included in the event.",
+      "info" : {
+        "created" : "2024-08-23",
+        "release" : "2024.09.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "device-identity", "oie-only" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "DeviceCheckResourceDetails" ],
+        "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "device.check.delete",
+      "category" : "device-assurance",
+      "description" : "Delete device check. Use this event to monitor when a device check is deleted. The name of the deleted device check is included in the event.",
+      "info" : {
+        "created" : "2024-08-23",
+        "release" : "2024.09.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "device-identity", "oie-only" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "DeviceCheckResourceDetails" ],
+        "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "device.check.update",
+      "category" : "device-assurance",
+      "description" : "Update device check. Use this event to monitor when a device check is updated, and what changed. The details of what is changed in the device check are included in the event.",
+      "info" : {
+        "created" : "2024-08-23",
+        "release" : "2024.09.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "device-identity", "oie-only" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "DeviceCheckResourceDetails" ],
+        "changeDetails" : [ "DeviceCheckChangeDetailsEntry" ]
+      }
+    }, {
       "id" : "device.custom_push.send_notification",
       "category" : "enterprise-auth",
       "description" : "Fired when a Push notification sent to a device for custom app. Used to log success and failure for the push notifications  with relevant information to allow org developers to troubleshoot push configurations for custom push authenticator. Note that this event is fired whenever a Push is sent.",
@@ -6848,7 +7002,7 @@
         "debugData" : "SystemDebugData",
         "actor" : null,
         "targets" : [ "ResourceDetails" ],
-        "changeDetails" : [ "DesktopMFARecoveryPINSettingChangeDetailsEntry" ]
+        "changeDetails" : [ "DesktopMFASettingsChangeDetailsEntry" ]
       }
     }, {
       "id" : "device.desktop_mfa.enrollment.create",
@@ -7177,7 +7331,7 @@
     }, {
       "id" : "device.platform.update",
       "category" : "device-assurance",
-      "description" : "Triggered when an admin updates a device management platform configuration. You can use the event to audit device management platform configuration change. An admin can only update some fields in the device management platform configuration.",
+      "description" : "Triggered when an admin updates a device management platform configuration. Also triggered when anRA configuration or SCEP challenge is updated in the CA Renewal Activation framework (triggered by admin or automated job). You can use the event to audit device management platform configuration change. An admin can update some fields in the device management platform configuration. Additionally the CA Renewalactivation framework can update RA Configurations or SCEP Challenges.",
       "info" : {
         "created" : "2021-06-24",
         "release" : "2021.07.1"
@@ -8235,6 +8389,24 @@
         "actor" : null,
         "targets" : null,
         "changeDetails" : null
+      }
+    }, {
+      "id" : "iam.resourceset.resources.update",
+      "category" : "dda",
+      "description" : "Resources updated in a resource set. Used this event to audit resources updated in a resource set. This event contains information about resources that were updated in a resource set.",
+      "info" : {
+        "created" : "2024-08-29",
+        "release" : "2024.09.0"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "admin-role" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "ResourceDetails" ],
+        "changeDetails" : [ "IAMPolicyResourceChangeDetailsEntry" ]
       }
     }, {
       "id" : "iam.role.create",
@@ -11497,7 +11669,7 @@
     }, {
       "id" : "pki.cert.lifecycle.activate",
       "category" : "client-foundations",
-      "description" : "Triggered when a certificate marked as hold is removed from the CRL. You can use the event to audit certificate lifecycle change. When an admin activates/unsuspends a device, the certificate associated with the device is activated when used in Okta Verify flow next time.",
+      "description" : "Triggered when a certificate marked as hold is removed from the CRL or when renewed Okta CA certificates marked as inactive are activated. You can use the event to audit certificate lifecycle change. When an admin activates/unsuspends a device, the certificate associated with the device is activated when used in the next Okta Verify flow. Additionally when an admin or activation job activates an inactive certificate it can then be used to issue client certificates in SCEP.",
       "info" : {
         "created" : "2021-06-24",
         "release" : "2021.09.1"
@@ -11795,7 +11967,7 @@
       "tags" : [ "policy" ],
       "mappings" : [ ],
       "schema" : {
-        "debugData" : "SystemDebugData",
+        "debugData" : "UserAuthenticationDebugData",
         "actor" : null,
         "targets" : [ "UserAuthenticationResourceDetails" ],
         "changeDetails" : [ ]
@@ -13277,6 +13449,24 @@
         "changeDetails" : [ ]
       }
     }, {
+      "id" : "system.agent.ad.config_change_detected",
+      "category" : "directories",
+      "description" : "A monitored variable in an AD agent configuration file has changed. This can be used to audit that a customer's AD agent configuration file has changed. This event occurs when a monitored variable in an AD agent configuration file has changed.",
+      "info" : {
+        "created" : "2024-08-07",
+        "release" : "2024.09.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "ad-agent" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "AdAgentGenericDebugData",
+        "actor" : null,
+        "targets" : [ "ResourceDetails" ],
+        "changeDetails" : [ "ADAgentConfigChangeDetailsEntry" ]
+      }
+    }, {
       "id" : "system.agent.ad.connect",
       "category" : "directories",
       "description" : "Connect AD agent to Okta.",
@@ -14467,7 +14657,7 @@
     }, {
       "id" : "system.custom_url_domain.verify",
       "category" : "developer-platform",
-      "description" : "Custom domain name ownership successfully verified by Okta. Identifies when an admin has successfully verified the ownership of the domain name. When fired, the event contains information about the domain name, certificate source type and domain validation status.",
+      "description" : "Verify custom domain ownership. Identifies whether an admin has succeeded or failed to verify the ownership of the domain name. When fired, the event contains information about the domain name, certificate source type and domain validation status.",
       "info" : {
         "created" : "2020-11-09",
         "release" : "2020.12.0"
@@ -14553,6 +14743,42 @@
         "actor" : null,
         "targets" : null,
         "changeDetails" : null
+      }
+    }, {
+      "id" : "system.dr.failback",
+      "category" : "honey-badger",
+      "description" : "The Disaster Recovery (DR) failback operation for the org domains were initiated. Triggered when the Disaster Recovery (DR) failback operation for the org domains were initiated. This event is fired when the Disaster Recovery (DR) failover operation for the org domains were initiated. If failback is successful, the outcome for this event will be SUCCESS. If failback is not successful, the outcome for this event will be FAILURE.",
+      "info" : {
+        "created" : "2024-07-19",
+        "release" : "2024.09.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "dr" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "DRDebugData",
+        "actor" : null,
+        "targets" : [ "DRResourceDetails" ],
+        "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "system.dr.failover",
+      "category" : "honey-badger",
+      "description" : "The Disaster Recovery (DR) failover operation for the org domains were initiated. Triggered when the Disaster Recovery (DR) failover operation for the org domains were initiated. This event is fired when the Disaster Recovery (DR) failover operation for the org domains were initiated. If failover is successful, the outcome for this event will be SUCCESS. If failover is not successful, the outcome for this event will be FAILURE.",
+      "info" : {
+        "created" : "2024-07-19",
+        "release" : "2024.09.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "dr" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "DRDebugData",
+        "actor" : null,
+        "targets" : [ "DRResourceDetails" ],
+        "changeDetails" : [ ]
       }
     }, {
       "id" : "system.email.account_unlock.sent_message",
@@ -14827,7 +15053,7 @@
     }, {
       "id" : "system.email_domain.verify",
       "category" : "developer-platform",
-      "description" : "Email domain is successfully verified by Okta. Identifies when an admin has successfully verified the email domain. When fired, the event contains information about the email domain that was verified.",
+      "description" : "Verify email domain. Identifies whether an admin has succeeded or failed to verify the email domain. When fired, the event contains information about the email domain that is being verified.",
       "info" : {
         "created" : "2022-12-09",
         "release" : "2023.01.0"
@@ -17336,7 +17562,7 @@
       },
       "beta" : false,
       "internal" : false,
-      "tags" : [ "account", "user" ],
+      "tags" : [ "account", "event-hook-eligible", "user" ],
       "mappings" : [ "core.user_auth.account_unlocked_by_admin" ],
       "schema" : {
         "debugData" : null,
@@ -25634,6 +25860,195 @@
             "customer" : true,
             "format" : "enum",
             "examples" : [ "APNS", "FCM" ]
+          }
+        }
+      },
+      "DRDebugData" : {
+        "name" : "DRDebugData",
+        "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
+          "oag_app" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
+          "webhooks" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ ]
+          },
+          "risk_change" : {
+            "type" : "RiskChangeSecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
+          },
+          "log_only_security_data" : {
+            "type" : "LogOnlySecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"risk\":{\"reasons\":\"Anomalous Device\",\"level\":\"MEDIUM\"}, \"behaviors\":{\"New Geo-Location\":\"NEGATIVE\",\"New Device\":\"POSITIVE\",\"New IP\":\"NEGATIVE\",\"New State\":\"BAD_REQUEST\",\"New Country\":\"NEGATIVE\",\"Velocity\":\"NEGATIVE\",\"New City\":\"BAD_REQUEST\"}}", "{\"risk\":{\"reasons\":\"Anomalous Device\",\"level\":\"MEDIUM\"},\"behaviors\":{}}", "{\"risk\":{},\"behaviors\":{\"New Geo-Location\":\"NEGATIVE\",\"New Device\":\"POSITIVE\",\"New IP\":\"NEGATIVE\",\"New State\":\"BAD_REQUEST\",\"New Country\":\"NEGATIVE\",\"Velocity\":\"NEGATIVE\",\"New City\":\"BAD_REQUEST\"}}", "{\"risk\":{},\"behaviors\":{}}" ]
+          },
+          "threat_detections" : {
+            "type" : "ObjectNode",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"Password Spray\":\"HIGH\"}", "{\"Password Spray\":\"MEDIUM\"}", "{\"Login Failures\":\"HIGH\"}", "{\"Login Failures\":\"MEDIUM\"}", "{\"Password Spray\":\"HIGH\",\"Login Failures\":\"HIGH\"}", "{\"Password Spray\":\"HIGH\",\"Login Failures\":\"MEDIUM\"}", "{\"Password Spray\":\"MEDIUM\",\"Login Failures\":\"HIGH\"}", "{\"Password Spray\":\"MEDIUM\",\"Login Failures\":\"MEDIUM\"}", "{\"Login Failures\":\"HIGH\",\"Password Spray\":\"HIGH\"}", "{\"Login Failures\":\"HIGH\",\"Password Spray\":\"MEDIUM\"}", "{\"Login Failures\":\"MEDIUM\",\"Password Spray\":\"HIGH\"}", "{\"Login Failures\":\"MEDIUM\",\"Password Spray\":\"MEDIUM\"}" ]
+          },
+          "threat_suspected" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
+          "security_conditions" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
+          },
+          "tunnels" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[{\"operator\":\"HOTSPOT_VPN\",\"type\":\"VPN\",\"anonymous\":true}]" ]
+          },
+          "anonymizer_status" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "private" ]
+          },
+          "proxy_type" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "tor", "service" ]
+          },
+          "behaviors" : {
+            "type" : "Map",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "{New Geo-Location=NEGATIVE, New Device=POSITIVE, New IP=NEGATIVE, New State=BAD_REQUEST, New Country=NEGATIVE, Velocity=NEGATIVE, New City=BAD_REQUEST}", "{Anomalous Location: Country=NEGATIVE, 857d6e8a-1418-483b-9bed-19753635b1bc_1529707130=NEGATIVE, 89cfb2b1-39df-4ab2-9083-cfc743ec95fb=NEGATIVE, 9123fc2e-e5c7-47c4-920b-afecc8571d93=NEGATIVE, 1be3ee59-d12c-42ff-b04e-cc9de57c9a1d=NEGATIVE, bff2f33e-0d48-40e1-8add-a0dd9bc1a587=POSITIVE, 35fd8813-7bb3-4387-b6db-03b5ae95422a=BAD_REQUEST}" ]
+          },
+          "partner_risk" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[{reasons=malware detected, malicious proxy, level=HIGH, name=sig-sci}, {reasons=malware suspected, level=MEDIUM, name=perimeter-x}]", "[{name=sig-sci, level=HIGH}]" ]
+          },
+          "risk" : {
+            "type" : "Map",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "{reasons=Anomalous Device, level=MEDIUM}", "{reasons=Anomalous Location, Anomalous Device, level=HIGH}", "{level=LOW}" ]
+          },
+          "url" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "url",
+            "examples" : [ "/login/do-login?" ]
+          },
+          "request_uri" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "uri",
+            "examples" : [ "/api/v1/authn", "/api/v1/users", "/idp/idx/identify" ]
+          },
+          "request_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "X0S8xnvcK5njK7m0q@zzQQAAAAo" ]
+          },
+          "redirect_uri" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "uri",
+            "examples" : [ "http://httpbin.org" ]
+          },
+          "original_principal" : {
+            "type" : "Resource",
+            "sensitive" : false,
+            "personal" : true,
+            "customer" : false,
+            "format" : "",
+            "examples" : [ "debug_context.debug_data.original_principal.alternate_id=RadiusAge**@******.***", "debug_context.debug_data.original_principal.display_name=RadiusAge**@******.***", "debug_context.debug_data.original_principal.id=00u43fi43mLCWz0rW1t7", "debug_context.debug_data.original_principal.type=User" ]
+          },
+          "device_fingerprint" : {
+            "type" : "String",
+            "sensitive" : true,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
+          },
+          "dt_hash" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "fc735b3e2a613ad06e315578b8d94e289475ab1c4cdf83512f3f18d0536a13e1" ]
+          },
+          "authn_request_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "X2VCdlgDiOx8wuRzdWiZ6gAABOk", "X04hrZh4mEb9dgc6GkD5@AAACPU" ]
+          },
+          "message" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ "The failover operation failed due to an inability to perform DNS updates for domains at testSubDomain.customdomains.okta.com.(route53).", "The failback operation failed due to an inability to perform DNS updates for domains at testSubDomain.customdomains.okta.com.(clouddns)." ]
           }
         }
       },
@@ -40122,6 +40537,14 @@
             "format" : "url",
             "examples" : [ "https://company.okta.com", "https://login.company.com" ]
           },
+          "idv_reference_id" : {
+            "type" : "String",
+            "sensitive" : true,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "inq_1q7JQBP61nqP1rVPoo6vFrSfD354", "inq_6fnEUeStMKiLEiyRodobngrDtmkR" ]
+          },
           "username_typing_pattern" : {
             "type" : "String",
             "sensitive" : true,
@@ -43282,6 +43705,43 @@
           }
         }
       },
+      "DRResourceDetails" : {
+        "name" : "DRResourceDetails",
+        "properties" : {
+          "failed_domains" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ "atko.okta.com", "atko.mtls.okta.com" ]
+          },
+          "successful_domains" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ "atko.okta.com", "atko-admin.okta.com" ]
+          },
+          "rescue_cell" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "ok12", "tc2" ]
+          },
+          "native_cell" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "ok1", "tc1" ]
+          }
+        }
+      },
       "DesktopPasswordSyncResourceDetails" : {
         "name" : "DesktopPasswordSyncResourceDetails",
         "properties" : {
@@ -43292,6 +43752,56 @@
             "customer" : false,
             "format" : "text",
             "examples" : [ "1.0", "2.0" ]
+          }
+        }
+      },
+      "DeviceAssuranceResourceDetails" : {
+        "name" : "DeviceAssuranceResourceDetails",
+        "properties" : {
+          "policyPlatform" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "MACOS", "ANDROID", "IOS", "WINDOWS", "CHROMEOS" ]
+          },
+          "policyName" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "name",
+            "examples" : [ "groupA policy, Team B policy, Windows devices Policy" ]
+          }
+        }
+      },
+      "DeviceCheckResourceDetails" : {
+        "name" : "DeviceCheckResourceDetails",
+        "properties" : {
+          "deviceCheckVariableName" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "name",
+            "examples" : [ "macOSFirewall" ]
+          },
+          "deviceCheckName" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "name",
+            "examples" : [ "MacOS Firewall Device Check" ]
+          },
+          "deviceCheckPlatform" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "WINDOWS", "MACOS" ]
           }
         }
       },
@@ -43310,8 +43820,8 @@
             "type" : "String",
             "sensitive" : false,
             "personal" : false,
-            "customer" : true,
-            "format" : "name",
+            "customer" : false,
+            "format" : "enum",
             "examples" : [ "WINDOWS", "MACOS" ]
           }
         }
@@ -43920,6 +44430,14 @@
       "OktaCAResourceDetails" : {
         "name" : "OktaCAResourceDetails",
         "properties" : {
+          "cert_type" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "displayName",
+            "examples" : [ "Root Certificate Authority", "Intermediate Certificate Authority", "Registration Authority" ]
+          },
           "authority_instance_id" : {
             "type" : "String",
             "sensitive" : false,
@@ -45298,6 +45816,163 @@
           }
         }
       },
+      "ADAgentConfigChangeDetailsEntry" : {
+        "name" : "ADAgentConfigChangeDetailsEntry",
+        "properties" : {
+          "ip_address" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "192.158.1.38" ]
+          },
+          "stream_logs_until" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "iso8601",
+            "examples" : [ "2024-08-17T13:45:30" ]
+          },
+          "ssl_pinning_enabled" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
+          "send_scan_data_max_retries" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "integer",
+            "examples" : [ "2" ]
+          },
+          "del_auth_post_timeout" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "integer",
+            "examples" : [ "100000" ]
+          },
+          "max_retry_limit_sleep" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "integer",
+            "examples" : [ "480000" ]
+          },
+          "connection_limit" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "integer",
+            "examples" : [ "10" ]
+          },
+          "verbose_logging" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
+          "polling_threads" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "integer",
+            "examples" : [ "2" ]
+          },
+          "proxy_uri" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "uri",
+            "examples" : [ "http://proxy.mycorp.com:8080" ]
+          },
+          "proxy_password" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "Redacted" ]
+          },
+          "proxy_username" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "Redacted" ]
+          },
+          "app_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "Redacted" ]
+          },
+          "agent_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "Redacted" ]
+          },
+          "base_okta_uri" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "Redacted" ]
+          },
+          "client_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "Redacted" ]
+          },
+          "agent_name" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "Redacted" ]
+          },
+          "agent_key" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "Redacted" ]
+          },
+          "entropy" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "Redacted" ]
+          }
+        }
+      },
       "AccessRequestConditionChangeDetailsEntry" : {
         "name" : "AccessRequestConditionChangeDetailsEntry",
         "properties" : {
@@ -45929,9 +46604,17 @@
           }
         }
       },
-      "DesktopMFARecoveryPINSettingChangeDetailsEntry" : {
-        "name" : "DesktopMFARecoveryPINSettingChangeDetailsEntry",
+      "DesktopMFASettingsChangeDetailsEntry" : {
+        "name" : "DesktopMFASettingsChangeDetailsEntry",
         "properties" : {
+          "desktop_mfa_enforce_number_matching_challenge_setting" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "ENABLED", "DISABLED" ]
+          },
           "desktop_mfa_device_recovery_pin_setting" : {
             "type" : "String",
             "sensitive" : false,
@@ -45939,6 +46622,112 @@
             "customer" : false,
             "format" : "enum",
             "examples" : [ "ENABLED", "DISABLED" ]
+          }
+        }
+      },
+      "DeviceAssuranceChangeDetailsEntry" : {
+        "name" : "DeviceAssuranceChangeDetailsEntry",
+        "properties" : {
+          "thirdPartySignalProviders" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[{ name: 'dtc', signals: { ... } }]" ]
+          },
+          "screenLockType" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "BIOMETRIC", "PASSCODE" ]
+          },
+          "diskEncryptionType" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "USER", "FULL", "ALL_INTERNAL_VOLUMES", "SYSTEM_VOLUME" ]
+          },
+          "jailbreak" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
+          "secureHardwarePresent" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
+          "osVersion" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "version",
+            "examples" : [ "15.5.3", "10.15.7" ]
+          },
+          "name" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ "groupA policy, Team B policy, Windows devices Policy" ]
+          }
+        }
+      },
+      "DeviceCheckChangeDetailsEntry" : {
+        "name" : "DeviceCheckChangeDetailsEntry",
+        "properties" : {
+          "deviceCheckPlatform" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "WINDOWS", "MACOS" ]
+          },
+          "deviceCheckQuery" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ "SELECT CASE WHEN global_state = 0 THEN 0 ELSE 1 END AS firewall_enabled FROM  alf;" ]
+          },
+          "deviceCheckDescription" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "name",
+            "examples" : [ "Query macOS devices to check if firewall is enabled" ]
+          },
+          "deviceCheckVariableName" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "name",
+            "examples" : [ "macOSFirewall" ]
+          },
+          "deviceCheckName" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "name",
+            "examples" : [ "MacOS Firewall Device Check" ]
           }
         }
       },
@@ -45964,6 +46753,19 @@
             "customer" : false,
             "format" : "integer",
             "examples" : [ "1", "60" ]
+          }
+        }
+      },
+      "IAMPolicyResourceChangeDetailsEntry" : {
+        "name" : "IAMPolicyResourceChangeDetailsEntry",
+        "properties" : {
+          "conditions" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{'Exclude': {'okta:ORN':'orn:okta:idp:orgId:apps:appName'}}", "{'Exclude': {'okta:ORN':'orn:okta:idp:orgId:apps:appName:appInstanceId'}}" ]
           }
         }
       },
@@ -46286,6 +47088,19 @@
             "customer" : false,
             "format" : "text",
             "examples" : [ "source.login eq target.login", "source.email eq target.email" ]
+          }
+        }
+      },
+      "LiteUserClassificationChangeDetails" : {
+        "name" : "LiteUserClassificationChangeDetails",
+        "properties" : {
+          "classification" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "",
+            "examples" : [ "LITE", "STANDARD" ]
           }
         }
       },

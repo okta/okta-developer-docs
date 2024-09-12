@@ -1,6 +1,6 @@
 {
-  "release" : "2024.08.1",
-  "build" : "2024.08.1-begin-194-g7e8a09ad9c75",
+  "release" : "2024.09.1",
+  "build" : "2024.09.1-begin-205-g501a7b46dea4",
   "errors" : [ {
     "title" : "Access denied",
     "statusCode" : 403,
@@ -127,6 +127,13 @@
     "internalErrorCode" : "mfa_attestation_login_hint_invalid",
     "errorCode" : "access_denied",
     "errorDescription" : "'login_hint' did not match a user assigned to the client app."
+  }, {
+    "title" : "Access denied by aerial",
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "internalErrorCode" : "access_denied_by_aerial",
+    "errorCode" : "access_denied",
+    "errorDescription" : "The Aerial service denied the request."
   }, {
     "title" : "Associated server not exists",
     "statusCode" : 403,
@@ -295,6 +302,13 @@
     "internalErrorCode" : "password_expired",
     "errorCode" : "access_denied",
     "errorDescription" : "The user's password is expired."
+  }, {
+    "title" : "SecURIty method setup not allowed",
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "internalErrorCode" : "security_method_setup_not_allowed",
+    "errorCode" : "access_denied",
+    "errorDescription" : "Security method can't be set up at this time."
   }, {
     "title" : "Ciba feature not supported",
     "statusCode" : 400,

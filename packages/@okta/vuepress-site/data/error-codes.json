@@ -1,6 +1,6 @@
 {
-  "release" : "2024.08.1",
-  "build" : "2024.08.1-begin-194-g7e8a09ad9c75",
+  "release" : "2024.09.1",
+  "build" : "2024.09.1-begin-205-g501a7b46dea4",
   "errors" : [ {
     "title" : "API validation exception",
     "includesExceptionMessage" : true,
@@ -1266,7 +1266,7 @@
     "errorSummary" : "CAPTCHA count limit reached. At most one CAPTCHA instance is allowed per Org. Please remove existing CAPTCHA to create a new one.",
     "errorDescription" : null
   }, {
-    "title" : "Deactivate idp in use exception",
+    "title" : "Deactivate idp in use by authenticator exception",
     "includesExceptionMessage" : true,
     "statusCode" : 403,
     "statusReasonPhrase" : "Forbidden",
@@ -1824,6 +1824,22 @@
     "statusReasonPhrase" : "Forbidden",
     "errorCode" : "E0000246",
     "errorSummary" : "This action can't be completed because the authentication method is in use by one or more authentication policies: {0}",
+    "errorDescription" : null
+  }, {
+    "title" : "Okta telephony disabled exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "errorCode" : "E0000247",
+    "errorSummary" : "Your organization doesn't support SMS or Voice authentication at this time. Select another authentication method.",
+    "errorDescription" : null
+  }, {
+    "title" : "Deactivate idp in use by okta account management policy exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "errorCode" : "E0000248",
+    "errorSummary" : "The current Id Proofing Identity Provider is configured to be used in one or more Okta Account Management Policy rules. {0}",
     "errorDescription" : null
   } ]
 }
