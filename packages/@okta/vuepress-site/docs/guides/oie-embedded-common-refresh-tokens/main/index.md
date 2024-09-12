@@ -43,7 +43,7 @@ You can refresh access and ID tokens using the [`/token`](/docs/reference/api/oi
 
 #### Native and SPA apps
 
-OIDC and OAuth 2.0 requests for built-in and single-page apps (SPAs) don't include the `Authorization` header with the client ID and secret. Instead, these apps include the `client_id` query parameter in their requests.
+OIDC and OAuth 2.0 requests for native and single-page apps (SPAs) don't include the `Authorization` header with the client ID and secret. Instead, these apps include the `client_id` query parameter in their requests.
 
 ##### Request example
 
@@ -80,7 +80,7 @@ To get information on a current token, such as if the token is active or has exp
 
 ### Native and SPA apps
 
-OIDC and OAuth 2.0 requests for built-in and single-page apps (SPAs) don't include the `Authorization` header with the client ID and secret. Instead, these apps include the `client_id` query parameter in their requests.
+OIDC and OAuth 2.0 requests for native and single-page apps (SPAs) don't include the `Authorization` header with the client ID and secret. Instead, these apps include the `client_id` query parameter in their requests.
 
 #### Request example
 
