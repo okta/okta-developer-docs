@@ -585,7 +585,7 @@ Org admins can now consolidate multiple IdP routing rules into a single dynamic 
 
 #### Email Address Bounces API is GA in Production
 
-Okta admins can now control the bounced email address list through the [Email Address Bounces API](/docs/reference/api/org/#email-address-bounces-operations). When Okta-sent email addresses are blocked from an email service (the bounced email list), admins can use this API to create a list of blocked email addresses to be removed from the email service. Note: This API is not available in Free Trial and Developer orgs. <!-- OKTA-482000 -->
+Okta admins can now control the bounced email address list through the [Email Address Bounces API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/EmailCustomization/#tag/EmailCustomization/operation/bulkRemoveEmailAddressBounces). When Okta-sent email addresses are blocked from an email service (the bounced email list), admins can use this API to create a list of blocked email addresses to be removed from the email service. Note: This API is not available in Free Trial and Developer orgs. <!-- OKTA-482000 -->
 
 #### Generic OIDC IdP nonce validation enforced
 
@@ -868,7 +868,7 @@ The Okta [Custom Administrator Roles](/docs/reference/api/roles/) API provides o
 
 #### Email Address Bounces API is EA in Preview
 
-Okta admins can now control the bounced email address list through the [Email Address Bounces API](/docs/reference/api/org/#email-address-bounces-operations). When Okta-sent email addresses are blocked from an email service (the bounced email list), admins can use this API to create a list of blocked email addresses to be removed from the email service.
+Okta admins can now control the bounced email address list through the [Email Address Bounces API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/EmailCustomization/#tag/EmailCustomization/operation/bulkRemoveEmailAddressBounces). When Okta-sent email addresses are blocked from an email service (the bounced email list), admins can use this API to create a list of blocked email addresses to be removed from the email service.
 
 #### Enhanced email macros for email template customization
 
