@@ -41,9 +41,9 @@ You can refresh access and ID tokens using the [`/token`](/docs/reference/api/oi
 
 <StackSnippet snippet="refreshendpointrequest" />
 
-#### Native and SPA apps
+#### Platform-specifc and SPA apps
 
-OIDC and OAuth 2.0 requests for native and single-page apps (SPAs) don't include the `Authorization` header with the client ID and secret. Instead, these apps include the `client_id` query parameter in their requests.
+OIDC and OAuth 2.0 requests for platform-specific and single-page apps (SPAs) don't include the `Authorization` header with the client ID and secret. Instead, these apps include the `client_id` query parameter in their requests.
 
 ##### Request example
 
@@ -78,9 +78,9 @@ To get information on a current token, such as if the token is active or has exp
 
 <StackSnippet snippet="introspectendpointrequest" />
 
-### Native and SPA apps
+### Platform-specific and SPA apps
 
-OIDC and OAuth 2.0 requests for native and single-page apps (SPAs) don't include the `Authorization` header with the client ID and secret. Instead, these apps include the `client_id` query parameter in their requests.
+OIDC and OAuth 2.0 requests for platform-specific and single-page apps (SPAs) don't include the `Authorization` header with the client ID and secret. Instead, these apps include the `client_id` query parameter in their requests.
 
 #### Request example
 
