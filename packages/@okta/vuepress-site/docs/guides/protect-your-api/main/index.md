@@ -176,7 +176,7 @@ Start Postman if it's not open already. First, you request an access token from 
 
 #### Request an access token for the API
 
-Make an HTTP POST request to [/token](http://localhost:8080/docs/reference/api/oidc/#token) using the client ID and secret you noted earlier.
+Make an HTTP POST request to [/token](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/tokenCustomAS) using the client ID and secret you noted earlier.
 
 1. Select **+** in the Postman workbench to open a new request tab.
 1. Select **GET** and change it to **POST**.

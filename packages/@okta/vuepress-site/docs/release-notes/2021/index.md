@@ -178,7 +178,7 @@ Native SSO allows you to protect native OpenID Connect applications, such as des
 
 #### The Okta Org API is now GA in Production
 
-The [Okta Org API](/docs/reference/api/org/) allows you to manage your org account settings, contact information, logo, Okta support settings, Okta communication settings, and preferences.<!--OKTA-436524-->
+The [Okta Org API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingGeneral/) allows you to manage your org account settings, contact information, logo, Okta support settings, Okta communication settings, and preferences.<!--OKTA-436524-->
 
 #### Bugs fixed in 2021.11.0
 
@@ -202,7 +202,7 @@ The [Okta Org API](/docs/reference/api/org/) allows you to manage your org accou
 
 * The `endUserDashboardTouchPointVariant` property on the [Brands API Theme object](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Themes/#tag/Themes/operation/replaceBrandTheme) didn’t include a variant for LOGO_ON_FULL_WHITE_BACKGROUND. (OKTA-425798)
 
-* When an application used the Resource Owner Password authentication flow, an [authorization call](/docs/reference/api/oidc/#token) for a user with an expired password previously returned an error message that stated: “The credentials provided were invalid." (OKTA-423090)
+* When an application used the Resource Owner Password authentication flow, an [authorization call](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/tokenCustomAS) for a user with an expired password previously returned an error message that stated: “The credentials provided were invalid." (OKTA-423090)
 
 * When a [List Group Rules](/docs/reference/api/groups/#list-group-rules) endpoint was called using the `expand` parameter, the response didn’t include the group name in the `self` and `next` links. (OKTA-435099)
 
@@ -336,7 +336,7 @@ The Okta [Custom Administrator Roles](/docs/reference/api/roles/index.md) API pr
 
 #### Bugs fixed in 2021.08.1
 
-- When a native SSO [token exchange](/docs/reference/api/oidc/#token) call was created, an invalid scope was accepted and tokens were returned. (OKTA-417808)
+- When a native SSO [token exchange](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/tokenCustomAS) call was created, an invalid scope was accepted and tokens were returned. (OKTA-417808)
 
 - Registration inline hooks didn’t correctly display an error message to the end user when the response included the `errorCauses` object with an `error-summary` [parameter](/docs/reference/registration-hook/#error). (OKTA-409142)
 
@@ -376,11 +376,11 @@ Developers can use the `pushStatus` [parameter](/docs/reference/api/apps/#userna
 
 Advancements in internet technology have seen an explosion of smart devices and the Internet of Things. Consumers need to sign in to applications that run on these devices, but the devices either lack support for a web browser or have limited ability for input, such as smart TVs, car consoles, and thermostats. As a result, users resort to insecure authentication solutions that are error-prone and time-consuming.
 
-The [Device Authorization grant](/docs/reference/api/oidc/#device-authorize) feature is an OAuth 2.0 grant type that allows users to sign in to input-constrained devices and also to devices that lack web browsers. This feature enables users to use a secondary device, such as a laptop or mobile phone, to complete sign-in to applications that run on such devices. See [Configure Device Authorization](/docs/guides/device-authorization-grant/main/). <!-- OKTA-411412 -->
+The [Device Authorization grant](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/deviceAuthorizeCustomAS) feature is an OAuth 2.0 grant type that allows users to sign in to input-constrained devices and also to devices that lack web browsers. This feature enables users to use a secondary device, such as a laptop or mobile phone, to complete sign-in to applications that run on such devices. See [Configure Device Authorization](/docs/guides/device-authorization-grant/main/). <!-- OKTA-411412 -->
 
 #### Token-based SSO between native apps is Self-Service EA
 
-Single-Sign On (SSO) between browser-based web applications is achieved by leveraging shared cookies. Unlike web applications, native applications can't use web cookies. With Native SSO, Okta offers a token-based approach to [achieve SSO between native applications](/docs/reference/api/oidc/#scopes).
+Single-Sign On (SSO) between browser-based web applications is achieved by leveraging shared cookies. Unlike web applications, native applications can't use web cookies. With Native SSO, Okta offers a token-based approach to [achieve SSO between native applications](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/#scopes).
 
 Native SSO allows you to protect native OpenID Connect applications, such as desktop apps and mobile apps, and achieve SSO and Single Logout (SLO) between these applications. See [Configure SSO for native apps](/docs/guides/configure-native-sso/main/). <!-- OKTA-411335 -->
 
@@ -607,7 +607,7 @@ For details about this release, see the Okta [Sign-In Widget release notes](http
 
 #### Bugs fixed in 2021.05.1
 
-* Duplicate parameter names were passed in requests to the following [OAuth endpoints](/docs/reference/api/oidc/#possible-errors), and no error message was sent. (OKTA-132318)
+* Duplicate parameter names were passed in requests to the following [OAuth endpoints](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS), and no error message was sent. (OKTA-132318)
 
   * `/token`
   * `/authorize`
@@ -801,7 +801,7 @@ The SAML 2.0 Assertion grant flow is now Self-Service EA. You can use the SAML 2
 
 #### The Okta Org API is now GA
 
-The Okta [Org API](/docs/reference/api/org/) is now GA. This API allows you to manage your org account settings, contact information, logo, Okta support settings, Okta communication settings, and preferences. <!--OKTA-369570-->
+The Okta [Org API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingGeneral/) is now GA. This API allows you to manage your org account settings, contact information, logo, Okta support settings, Okta communication settings, and preferences. <!--OKTA-369570-->
 
 #### The /login/token/redirect endpoint now has a dedicated rate limit
 
@@ -832,7 +832,7 @@ The new LDAP Interface `authType` is now GA. When you create a [Sign On Policy](
 
 #### Okta Org API now available in Self-Service Early Access (EA)
 
-The Okta Org API is now available in Self-Service EA. This API allows you to manage your org account settings, contact information, logo, Okta support settings, Okta communication settings, and preferences. See [Org API](/docs/reference/api/org/).<!--OKTA-325713-->
+The Okta Org API is now available in Self-Service EA. This API allows you to manage your org account settings, contact information, logo, Okta support settings, Okta communication settings, and preferences. See [Org API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingGeneral/).<!--OKTA-325713-->
 
 #### Automatically mark a flow hook as "VERIFIED"
 

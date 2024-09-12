@@ -210,7 +210,7 @@ To extend the local sample Node.js Express app, you need to update the `sample-w
 2. In an editor, open the `sample-web-server.js` page.
 3. Locate the routing function `app.get('/profile'` and modify the function as in the code below. The inline token hook code extension appears after the `const` declarations and before the `res.render` function.
 
-This extension renders the [ID token](/docs/reference/api/oidc/#id-token), and if it contains the claim added by the token inline hook, adds this claim to the attributes array. This array displays claims on the user's My Profile page.
+This extension renders the [ID token](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/#id-token), and if it contains the claim added by the token inline hook, adds this claim to the attributes array. This array displays claims on the user's My Profile page.
 
 <StackSelector snippet="extend-application" noSelector/>
 

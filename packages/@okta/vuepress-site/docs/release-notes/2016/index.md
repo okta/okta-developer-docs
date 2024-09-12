@@ -134,7 +134,7 @@ Before the fix, the minimum security answer length was assumed to always be 4, r
 
 ### Enhanced Well-Known Endpoint for OpenID Connect
 
-The [OpenID Connect discovery endpoint](/docs/reference/api/oidc/#well-knownopenid-configuration) `.well-known` includes the introspection and revocation endpoints.
+The [OpenID Connect discovery endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/getWellKnownOpenIDConfigurationCustomAS) `.well-known` includes the introspection and revocation endpoints.
 
 Request Example:
 
@@ -430,7 +430,7 @@ The Okta Sign-In Widget release 1.5.0 contains the following enhancements:
 The `expires_in` response parameter tells you the number of seconds before a `token` (Access Token) expires. If your
 response from the `/oauth2/v1/authorize` endpoint includes an Access Token, `expires_in` is included in the response.
 
-For more information, see the `/oauth2/v1/authorize` [Response Properties](/docs/reference/api/oidc/#response-properties).
+For more information, see the `/oauth2/v1/authorize` [Response Properties](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/OrgAS/#tag/OrgAS/operation/authorize).
 
 #### SHA256 Certificate for New SAML IdP Instances
 
@@ -591,7 +591,7 @@ For more information, see [SMS Templates API](https://developer.okta.com/docs/ap
 
 The `/oauth2/v1/token` endpoint includes a Refresh Token if:
 
-* The request contains a `grant_type` with the value `password` and your client supports the `grant_type` value `refresh_token`. For more information, see [Token Request](/docs/reference/api/oidc/#request-parameters-1).
+* The request contains a `grant_type` with the value `password` and your client supports the `grant_type` value `refresh_token`. For more information, see [Token Request](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/OrgAS/#tag/OrgAS/operation/token).
 * You request the `offline_access` scope. For more information, see [Refresh Tokens](/docs/guides/refresh-tokens/).
 
 ### Bugs Fixed
@@ -606,7 +606,7 @@ The `/oauth2/v1/token` endpoint includes a Refresh Token if:
 To protect against arbitrarily large numbers of groups matching the group filter, the group claim has a limit of 100.
 If more than 100 groups match the filter, then the request fails.
 
-* For more information about configuring an app for OpenID Connect, including group claims, see [Using OpenID Connect](/docs/reference/api/oidc/).
+* For more information about configuring an app for OpenID Connect, including group claims, see [Using OpenID Connect](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/).
 * For more information about group claims in the API, see Scope-dependent claims.
 
 ### Bugs Fixed
@@ -637,7 +637,7 @@ The Links object, `_links`, is available in the Policy object. For more informat
 The error descriptions related to OAuth provide more helpful information about invalid clients for OpenID Connect flows.
 
 #### Disable Automatic Key Rotation
-If you need to disable automatic key rotation for an OpenID Connect flow, you can do so in General Settings section under the General tab for an app, and then use the `/oauth2/v1/keys` endpoint to fetch public keys for your app. For more information, see [OpenID Connect](/docs/reference/api/oidc/).
+If you need to disable automatic key rotation for an OpenID Connect flow, you can do so in General Settings section under the General tab for an app, and then use the `/oauth2/v1/keys` endpoint to fetch public keys for your app. For more information, see [OpenID Connect](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/).
 
 ### Bugs Fixed
 

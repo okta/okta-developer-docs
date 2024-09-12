@@ -394,7 +394,7 @@ You can send yourself a test email to see how a custom email template looks and 
 
 ## Known Issues
 
-- Users with free.fr email addresses may not receive emails delivered by Okta. This is due to free.fr enforcing non-standard email processing. The Okta Org API allows you to [retry blocked](/docs/reference/api/org/#email-address-bounces-operations) emails, but the free.fr inbox provider continues to block retries. There’s no known workaround beyond asking the user to retrigger the email with a different email address.
+- Users with free.fr email addresses may not receive emails delivered by Okta. This is due to free.fr enforcing non-standard email processing. The Okta Org API allows you to [retry blocked](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/EmailCustomization/#tag/EmailCustomization/operation/bulkRemoveEmailAddressBounces) emails, but the free.fr inbox provider continues to block retries. There’s no known workaround beyond asking the user to retrigger the email with a different email address.
 
 ## See also
 

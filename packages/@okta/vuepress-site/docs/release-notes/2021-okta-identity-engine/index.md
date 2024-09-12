@@ -13,7 +13,7 @@ title: Okta Identity Engine API Products release notes 2021
 
 #### Bug fixed in 2021.12.2
 
-The [`login_hint`](/docs/reference/api/oidc/#request-parameters) didn't appear in the **Username** box even though the admin had already set up the sign-in flow with the [Org2Org](/docs/concepts/multi-tenancy/#diagram) OIDC [app](/docs/reference/api/apps/). (OKTA-445843)
+The [`login_hint`](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/authorizeCustomAS!in=query&path=login_hint&t=request) didn't appear in the **Username** box even though the admin had already set up the sign-in flow with the [Org2Org](/docs/concepts/multi-tenancy/#diagram) OIDC [app](/docs/reference/api/apps/). (OKTA-445843)
 
 ### Monthly release 2021.12.0
 

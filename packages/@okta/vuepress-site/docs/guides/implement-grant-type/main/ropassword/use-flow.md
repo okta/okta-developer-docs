@@ -1,4 +1,4 @@
-If implementing the Resource Owner Password flow is your only option, you need to make direct calls to the [OIDC & OAuth 2.0 API](/docs/reference/api/oidc/). See the following sections for requests required in the flow.
+If implementing the Resource Owner Password flow is your only option, you need to make direct calls to the [OIDC & OAuth 2.0 API](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/). See the following sections for requests required in the flow.
 
 ### Request for tokens
 
@@ -13,7 +13,7 @@ curl --request POST \
   --data 'grant_type=password&username=testuser1%40example.com&password=%7CmCovrlnU9oZU4qWGrhQSM%3Dyd&scope=openid'
 ```
 
-> **Important:** The call to your [authorization server's](/docs/concepts/auth-servers/) `/token` endpoint requires authentication. In this case, it's a Basic Authentication digest of the client ID and secret. You can find the client ID and secret on your application's **General** tab. See [Client Authentication Methods](/docs/reference/api/oidc/#client-authentication-methods).
+> **Important:** The call to your [authorization server's](/docs/concepts/auth-servers/) `/token` endpoint requires authentication. In this case, it's a Basic Authentication digest of the client ID and secret. You can find the client ID and secret on your application's **General** tab. See [Client Authentication Methods](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/client-auth/#client-authentication-methods).
 
 Note the parameters that are being passed:
 
@@ -22,7 +22,7 @@ Note the parameters that are being passed:
 * `password` is the password of a user registered with Okta.
 * `scope` is at least `openid`. For custom scopes, see the **Create Scopes** section of the [Create an authorization server guide](/docs/guides/customize-authz-server/main/#create-scopes).
 
-For more information on these parameters, see the [OAuth 2.0 API reference](/docs/reference/api/oidc/#token).
+For more information on these parameters, see the [OAuth 2.0 API reference](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/tokenCustomAS).
 
 If the credentials are valid, your application receives back access and ID tokens:
 

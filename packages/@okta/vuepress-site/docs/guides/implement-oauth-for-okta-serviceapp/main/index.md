@@ -248,7 +248,7 @@ For testing purposes, use [this tool](https://www.jsonwebtoken.dev/) to generate
 
 > **Note:** After the service app has Okta-scoped grants, only an admin with Super Admin role permissions can rotate the keys.
 
-Use the following [JWT claims](/docs/reference/api/oidc/#token-claims-for-client-authentication-with-client-secret-or-private-key-jwt) in the request for a scoped access token:
+Use the following [JWT claims](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/client-auth/#token-claims-for-client-authentication-with-client-secret-or-private-key-jwt) in the request for a scoped access token:
 
 * `alg`: One of the supported algorithm values (RS256, RS384, RS512, ES256, ES384, or ES512). This is required for Okta to successfully verify the token by using the signing keys provided in the [previous step](#generate-the-jwk-using-the-admin-console). The `alg` parameter goes in the JWT header rather than a claim in the payload of the body.
 * `aud`: The full URL of the resource that you're using the JWT to authenticate to

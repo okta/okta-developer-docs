@@ -1,4 +1,4 @@
-The following sections outline the main components required to implement the Authorization Code with PKCE flow using direct calls to the [OIDC & OAuth 2.0 API](/docs/reference/api/oidc/). Typically, you don't need to make direct calls if you're using one of the Okta SDKs.
+The following sections outline the main components required to implement the Authorization Code with PKCE flow using direct calls to the [OIDC & OAuth 2.0 API](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/). Typically, you don't need to make direct calls if you're using one of the Okta SDKs.
 
 ### Create the Proof Key for Code Exchange
 
@@ -43,7 +43,7 @@ Note the parameters that are being passed:
 * `code_challenge_method`: The hash method used to generate the challenge, which is always `S256`
 * `code_challenge`: The code challenge used for PKCE
 
-See [the OAuth 2.0 API reference](/docs/reference/api/oidc/#authorize) for more information on these parameters.
+See [the OAuth 2.0 API reference](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/authorizeCustomAS) for more information on these parameters.
 
 If the user doesn't have an existing session, this request opens the Okta sign-in page. If they have an existing session, or after they authenticate, the user arrives at the specified `redirect_uri` along with an authorization `code`:
 
@@ -76,7 +76,7 @@ Note the parameters that are being passed:
 * `code_verifier`: The PKCE code verifier that your app generated at the beginning of this flow
 * `client_id`: The client ID of the app integration that you created earlier
 
-See the [OIDC & OAuth 2.0 API reference](/docs/reference/api/oidc/#token) for more information on these parameters.
+See the [OIDC & OAuth 2.0 API reference](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/tokenCustomAS) for more information on these parameters.
 
 If the code is still valid, and the code verifier matches, your application receives back access and ID tokens:
 

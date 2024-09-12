@@ -20,7 +20,7 @@ This guide explains what refresh tokens are and how to configure your app to use
 
 ## About refresh tokens
 
-Access and ID [tokens](/docs/reference/api/oidc/#tokens-and-claims) are JSON web tokens that are valid for a specific number of seconds. A user needs a new access token when they attempt to access a resource for the first time. The user also needs a new access token after the previously granted access token expires.
+Access and ID [tokens](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/#tokens-and-claims) are JSON web tokens that are valid for a specific number of seconds. A user needs a new access token when they attempt to access a resource for the first time. The user also needs a new access token after the previously granted access token expires.
 
 A refresh token is a special token that is used to obtain more access tokens. This allows you to have short-lived access tokens without having to collect credentials every time one expires. You request a refresh token alongside the access and/or ID tokens as part of a user's initial authentication and authorization flow. Apps must then securely store refresh tokens since they allow users to remain authenticated.
 
@@ -30,7 +30,7 @@ For clients such as mobile apps, persistent refresh tokens help improve a user's
 
 Whether Okta returns a new refresh token with a new access token depends on the [refresh token lifetime](#refresh-token-lifetime) setting. If the lifetime setting hasn't expired, when a client makes a request for a new access token, Okta only returns the new access token. After the lifetime setting expires, Okta returns a new refresh token and a new access token.
 
-> **Note:** See [Token lifetime](/docs/reference/api/oidc/#token-lifetime) for more information on hard-coded and configurable token lifetimes.
+> **Note:** See [Token lifetime](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/#token-lifetime) for more information on hard-coded and configurable token lifetimes.
 
 ### Persistent token risk
 
@@ -151,7 +151,7 @@ The only grant type flows that support refresh tokens are the Authorization Code
 
 In the case of the Authorization Code flow, you use the authorization server's `/authorize` endpoint to get an Authorization Code, specifying an `offline_access` scope. You then use the `authorization_code` grant with this code in a request to the `/token` endpoint to get an access token and a refresh token.
 
-See [Obtain an authorization grant from a User](/docs/reference/api/oidc/#authorize) and [Implementing the Authorization Code flow](/docs/guides/implement-grant-type/authcode/main/) for more information on the `/authorize` endpoint and the Authorization Code flow.
+See [Obtain an authorization grant from a User](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/authorizeCustomAS) and [Implementing the Authorization Code flow](/docs/guides/implement-grant-type/authcode/main/) for more information on the `/authorize` endpoint and the Authorization Code flow.
 
 #### Example request for an Authorization Code and refresh token
 
@@ -227,7 +227,7 @@ curl --location --request POST 'https://{yourOktaDomain}/oauth2/v1/token' \
 
 For the Resource Owner Password flow, you use the authorization server's `/token` endpoint directly.
 
-See [Request a token](/docs/reference/api/oidc/#token) and [Implementing the Resource Owner Password flow](/docs/guides/implement-grant-type/ropassword/main/) for more information on the `/token` endpoint and the Resource Owner Password flow.
+See [Request a token](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/tokenCustomAS) and [Implementing the Resource Owner Password flow](/docs/guides/implement-grant-type/ropassword/main/) for more information on the `/token` endpoint and the Resource Owner Password flow.
 
 #### Example request
 
@@ -247,7 +247,7 @@ curl --location --request POST 'https://{yourOktaDomain}/oauth2/v1/token' \
 
 #### Example response
 
-You would then get back an ID token and your access and refresh tokens. See the [Okta OAuth 2.0 reference page](/docs/reference/api/oidc/#response-properties).
+You would then get back an ID token and your access and refresh tokens. See the [Okta OAuth 2.0 reference page](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/tokenCustomAS!c=200&path=access_token&t=response).
 
 > **Note:** The access and ID tokens are truncated for brevity.
 

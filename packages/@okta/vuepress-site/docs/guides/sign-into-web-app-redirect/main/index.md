@@ -116,7 +116,7 @@ In both cases, the app redirects the browser to the Okta-hosted sign-in page. Se
 
 After the user signs in, Okta redirects the browser to the sign-in redirect URI that you entered earlier. Similarly, after a user signs out, Okta redirects the browser to the sign-out redirect URI. Both sign-in and sign-out redirect URIs are called **callback routes**. Users don't see callback routes, and they aren't the user's final destination. However, your app does need to implement them. See [Define a callback route](#define-a-callback-route).
 
-After the user signs in, Okta returns some of their profile information to your app. The default profile items (called **claims**) returned by Okta include the user's email address, name, and preferred username. These are sent in an [ID token](/docs/reference/api/oidc/#id-token-payload) as part of the redirect to the sign-in redirect URL. See [Get the user's information](#get-the-users-information).
+After the user signs in, Okta returns some of their profile information to your app. The default profile items (called **claims**) returned by Okta include the user's email address, name, and preferred username. These are sent in an [ID token](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/#id-token-payload) as part of the redirect to the sign-in redirect URL. See [Get the user's information](#get-the-users-information).
 
 #### Redirect to the sign-in page
 
@@ -132,7 +132,7 @@ After the user signs in, Okta returns some of their profile information to your 
 
 <StackSnippet snippet="getuserinfo" />
 
-> **Note:** The claims that you see may differ depending on the scopes requested by your app. See [Configure your app to use Okta](#configure-your-app-to-use-okta) and [Scopes](/docs/reference/api/oidc/#scopes).
+> **Note:** The claims that you see may differ depending on the scopes requested by your app. See [Configure your app to use Okta](#configure-your-app-to-use-okta) and [Scopes](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/#scopes).
 
 ## Test that a user can sign in and sign out
 
