@@ -23,9 +23,9 @@ This guide shows you how to refresh access and ID tokens by using either the Ide
 
 ## Overview
 
-Access tokens often have limited lifetimes. If you allow access tokens to expire, their usefulness is limited in the event an attacker discovers them. For your app to continue to use the appropriate resources when an access token expires, the app can refresh them without user intervention by using a refresh token.
+Access tokens often have limited lifetimes. If you allow access tokens to expire, their usefulness is limited in the event an attacker discovers them. Your app can refresh expired tokens by using a refresh token. The app can then continue using the appropriate resources without user intervention.
 
-All the SDKs expose functionality that allows you to obtain access, ID, and refresh tokens. Each SDK (Swift, JavaScript, and so on) has a different set of convenience methods and other functionality that provide you with built-in support for token refresh, auto-renewal, and storage. Minimally, all the SDKs allow you to obtain the refresh token and call the authorization server's token endpoint to renew the access token.
+All the SDKs expose functionality that allows you to obtain access, ID, and refresh tokens. Each SDK (Swift, JavaScript, and so on) has a different set of methods and functionality that provide built-in support for token refresh, auto-renewal, and storage. Minimally, all the SDKs allow you to obtain the refresh token and call the authorization server's token endpoint to renew the access token.
 
 ## Refresh the tokens
 
@@ -41,9 +41,9 @@ You can refresh access and ID tokens using the [`/token`](/docs/reference/api/oi
 
 <StackSnippet snippet="refreshendpointrequest" />
 
-#### Native and SPA applications
+#### Native and SPA apps
 
-OIDC and OAuth 2.0 requests for native and single-page applications (SPAs) don't include the `Authorization` header with the client ID and secret. Instead, these apps include the `client_id` query parameter in their requests.
+OIDC and OAuth 2.0 requests for built-in and single-page apps (SPAs) don't include the `Authorization` header with the client ID and secret. Instead, these apps include the `client_id` query parameter in their requests.
 
 ##### Request example
 
@@ -78,9 +78,9 @@ To get information on a current token, such as if the token is active or has exp
 
 <StackSnippet snippet="introspectendpointrequest" />
 
-### Native and SPA applications
+### Native and SPA apps
 
-OIDC and OAuth 2.0 requests for native and single-page applications (SPAs) don't include the `Authorization` header with the client ID and secret. Instead, these apps include the `client_id` query parameter in their requests.
+OIDC and OAuth 2.0 requests for built-in and single-page apps (SPAs) don't include the `Authorization` header with the client ID and secret. Instead, these apps include the `client_id` query parameter in their requests.
 
 #### Request example
 

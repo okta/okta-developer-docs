@@ -1,6 +1,6 @@
-### Web applications
+### Web apps
 
-Web applications refresh access tokens by calling the [`/token`](/docs/reference/api/oidc/#token) endpoint and passing in a required [`Authorization`](/docs/reference/api/oidc/#client-authentication-methods) header. This header is computed from the client ID and secret.
+Web apps refresh access tokens by calling the [`/token`](/docs/reference/api/oidc/#token) endpoint and passing in a required [`Authorization`](/docs/reference/api/oidc/#client-authentication-methods) header. This header is computed from the client ID and secret.
 
 #### Request example
 
