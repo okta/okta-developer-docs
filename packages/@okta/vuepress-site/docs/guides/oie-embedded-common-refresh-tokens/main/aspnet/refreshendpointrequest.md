@@ -1,6 +1,6 @@
-### Web applications
+### Web apps
 
-Web applications refresh access tokens by calling the [`/token`](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/tokenCustomAS) endpoint and passing in a required [`Authorization`](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/client-auth/#client-authentication-methods) header. This header is computed from the client ID and secret.
+Web apps refresh access tokens by calling the [`/token`](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/tokenCustomAS) endpoint and passing in a required [`Authorization`](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/client-auth/#client-authentication-methods) header. This header is computed from the client ID and secret.
 
 ### Request example
 
