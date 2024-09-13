@@ -1,4 +1,4 @@
-After you create a basic sign-in flow for your Angular app, you can extend your app's sign-in experience. You can add features such as multifactor, self-registration, or social IdP authentication.
+After you create a basic sign-in flow for your Angular app, you can extend your app's sign-in experience. You can add features such as Multifactor Authentication, self-registration, or social IdP authentication.
 
 For each of those features, ensure you understand the [Interaction Code flow](/docs/guides/implement-grant-type/interactioncode/main/#interaction-code-flow) so that you can handle possible remediation steps of the interaction. In addition to implementing the remediation steps for those features in your app code, you need to configure authenticators and authentication policies for your app.
 

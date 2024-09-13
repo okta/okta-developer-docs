@@ -1,6 +1,6 @@
 ### Download the sample React application
 
-To view a simple example of a React application, clone the Auth JS repository and follow the setup procedure:
+To view a simple example of a React app, clone the Auth JS repository and follow the setup procedure:
 
 #### Clone the Auth JS repository
 
@@ -21,7 +21,7 @@ yarn install
 
 #### Add a configuration file
 
-Create and add a configuration file (`testenv`) to the `okta-auth-js` root folder. The `testenv` file contains the configuration values for your Okta app integration. See [Create an Okta app integration](#create-an-okta-app-integration) for details on these values.
+Create and add a configuration file (`testenv`) to the `okta-auth-js` root folder. The `testenv` file contains the configuration values for your app integration. See [Create an Okta app integration](#create-an-okta-app-integration) for details on these values.
 
 ```txt
 ISSUER=https://{yourOktaDomain}/oauth2/default

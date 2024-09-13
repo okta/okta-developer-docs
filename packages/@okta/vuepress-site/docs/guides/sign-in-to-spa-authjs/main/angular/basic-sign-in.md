@@ -8,7 +8,7 @@ Review the simple password-only sign-in use case from the sample app. This use c
 
 ### Review the Okta configuration settings
 
-Review the `src/app/okta-config.ts` file that references the required [app integration settings](#app-integration-settings) to initialize your Okta Auth JS instance. The `okta-config.ts` file references the values from your Okta app integration.
+Review the `src/app/okta-config.ts` file that references the required [app integration settings](#app-integration-settings) to initialize your Auth JS instance. The `okta-config.ts` file references the values from your app integration.
 
 ```TypeScript
 import { OktaAuth } from '@okta/okta-auth-js';

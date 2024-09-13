@@ -1,4 +1,4 @@
-Review the simple password-only sign-in use case from the sample app. This use case is outlined in the following sequence diagram with your single-page app as the client:
+Review the simple password-only sign-in use case from the sample app. This use case is outlined in the following sequence diagram with your single-page app (SPA) as the client:
 
 <div class="full">
 

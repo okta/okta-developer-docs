@@ -1,7 +1,7 @@
-Before you integrate Okta authentication into your Angular app, you need to register your app in your Okta org. This provides you with the OpenID Connect client ID for authentication requests from your app. Register your app by creating an Okta app integration through the [Okta CLI](https://cli.okta.com/), the [Okta Apps API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application), or the [Admin Console](/docs/concepts/okta-organizations/#admin-console) with the following steps:
+Before you integrate authentication into your Angular app, you need to register your app in your Okta org. This provides you with the OpenID Connect client ID for authentication requests from your app. Register your app by creating an app integration through the [Okta CLI](https://cli.okta.com/), the [Okta Apps API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application), or the [Admin Console](/docs/concepts/okta-organizations/#admin-console) with the following steps:
 
-1. To create an Okta app integration that represents your Angular app, sign in to [your Admin Console](https://login.okta.com).
-2. From the side navigation, select **Applications** > **Applications**, and then click **Create App Integration**.
+1. To create an app integration for your Angular app, sign in to [your Admin Console](https://login.okta.com).
+2. Select **Applications** > **Applications**, and then click **Create App Integration**.
 3. In the dialog that appears, select **OIDC - OpenID Connect** as the **Sign-on method**, **Single-Page Application** as the **Application type**, and then click **Next**.
 4. Fill in the following new app integration settings, and then click **Save**:
 

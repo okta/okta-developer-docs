@@ -1,4 +1,4 @@
-Build a basic password-only sign-in use case for your app. This use case is outlined in the following sequence diagram with your single-page app as the client:
+Build a basic password-only sign-in use case for your app. This use case is outlined in the following sequence diagram with your single-page app (SPA) as the client:
 
 <div class="full">
 
@@ -38,12 +38,12 @@ The steps in the following sections focus on the interaction between your client
 
 ### Set up the Okta configuration settings
 
-Before you code your forms and routes, use the required [configuration settings](#app-integration-settings) to initialize your Okta Auth JS instance:
+Before you code your forms and routes, use the required [configuration settings](#app-integration-settings) to initialize your Auth JS instance:
 
 * `clientId`: Your client ID, `{yourClientId}`
-* `issuer`: The authorization server in your Okta org (for example, `https://{yourOktaDomain}/oauth2/default`)
+* `issuer`: The authorization server in your org (for example, `https://{yourOktaDomain}/oauth2/default`)
 * `scopes`: The required OAuth 2.0 [scopes](/docs/reference/api/oidc/#scopes) for your app
-* `redirectUri`: Set your callback redirect URI. This value must be configured in your Okta app **Sign-in redirect URIs** and **Trusted Origins** lists.
+* `redirectUri`: Set your callback redirect URI. This value must be configured in your app **Sign-in redirect URIs** and **Trusted Origins** lists.
 
 You can create a `src/config.js` file to define your configuration settings. For example:
 

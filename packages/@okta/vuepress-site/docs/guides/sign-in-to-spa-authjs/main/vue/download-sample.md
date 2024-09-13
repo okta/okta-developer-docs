@@ -19,7 +19,7 @@ cd okta-app
 
 ### Install dependencies
 
-Add the following to your React app:
+Add the following information to your React app:
 
 * The [latest version of Okta Auth JS](https://github.com/okta/okta-auth-js/releases), `@okta/okta-auth-js`
 
