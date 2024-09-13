@@ -1141,7 +1141,7 @@ export const reference = [
          },
          {
             title: "Release lifecycle",
-            path: "/docs/reference/releases-at-okta/",
+            path: "https://developer.okta.com/docs/api/openapi/okta-management/guides/release-lifecycle/",
          },
          {
             title: 'Architecture Center',
