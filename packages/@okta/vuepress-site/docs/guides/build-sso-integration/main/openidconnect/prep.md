@@ -89,7 +89,7 @@ Other optional scopes available (these are returned from the `/userinfo` endpoin
 
 > **Note**: The following scopes aren't supported for integrations published in the OIN:
 >   * `offline_access` scope (since refresh tokens aren't supported)
->   * Custom scopes (such as the `groups` scope). You can only request the [OIDC scopes](/docs/reference/api/oidc/#scopes). You can't configure custom scopes.
+>   * Custom scopes (such as the `groups` scope). You can only request the [OIDC scopes](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/#scopes). You can't configure custom scopes.
 
 Okta uses access policies to decide whether to grant scopes. If any of the requested scopes are rejected by the access policies, Okta rejects the request.
 
@@ -103,7 +103,7 @@ There are three URIs that you need to consider when creating an OIDC app for the
 
 ### Token validation
 
-For checking access tokens, the `/introspect` [endpoint](/docs/reference/api/oidc/#introspect) takes your token as a URL query parameter and then returns a simple JSON response with the boolean `active` property.
+For checking access tokens, the `/introspect` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/introspectCustomAS) takes your token as a URL query parameter and then returns a simple JSON response with the boolean `active` property.
 
 As OIN app integrations can't use custom authorization servers, you must use remote token validation (through the Introspection API endpoint) for access tokens and local validation for ID tokens.
 
@@ -117,7 +117,7 @@ The standard behavior in identity and access management is to rotate the keys us
 
 Your OIDC client should periodically query the `/keys` endpoint and retrieve the JSON Web Key Set. This key set contains the public keys used to verify the signatures of the tokens received from Okta. You can cache the keys to improve performance, but be aware that verification fails when Okta automatically rotates the keys.
 
-See [key rotation](/docs/concepts/key-rotation/) or the `/keys` [API endpoint](/docs/reference/api/oidc/#keys) for specific details on handling queries and responses.
+See [key rotation](/docs/concepts/key-rotation/) or the `/keys` [API endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/oauthKeysCustomAS) for specific details on handling queries and responses.
 
 ### Rate limit considerations
 

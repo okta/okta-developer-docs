@@ -154,13 +154,13 @@ After Okta authenticates a user, they're redirected back to your app through the
 
 ### Get info about the user
 
-After the user signs in, Okta returns some of their profile information to your app (see [/userinfo response example](/docs/reference/api/oidc/#response-example-success-6)). You can use this information to update your UI, for example to show the customer's name.
+After the user signs in, Okta returns some of their profile information to your app (see [/userinfo response example](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/userinfoCustomAS)). You can use this information to update your UI, for example to show the customer's name.
 
 The default profile items (called `claims`) returned by Okta include the user's email address, name, and preferred username. The claims that you see may differ depending on what scopes your app has requested.
 
 <StackSnippet snippet="getuserinfo" />
 
-> **Note**: To get user information beyond the default profile claims, you can call the [/userinfo endpoint](/docs/reference/api/oidc/#userinfo), or call the `getUser()` method in `OktaAuth`.
+> **Note**: To get user information beyond the default profile claims, you can call the [/userinfo endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/userinfoCustomAS), or call the `getUser()` method in `OktaAuth`.
 
 ## Sign in a user
 

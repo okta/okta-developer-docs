@@ -400,7 +400,7 @@ Multibrand customizations allow customers to use one org to manage multiple bran
 
 #### Password hooks global availability is GA in Preview
 
-The [Create User with password import inline hook](/docs/reference/api/users/#create-user-with-password-import-inline-hook) operation is now available for all users. Previously, password hooks required a user to be in the `STAGED` status. This change helps better support migration efforts from DelAuth to Okta. <!--OKTA-604521--> <!--FF: ENG_ALLOW_PASSWORD_IMPORT_HOOKS_FOR_USERS_IN_ANY_STATUS--> <!--Originally available in December 2020-->
+The [Create User with password import inline hook](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createPasswordImportInlineHook) operation is now available for all users. Previously, password hooks required a user to be in the `STAGED` status. This change helps better support migration efforts from DelAuth to Okta. <!--OKTA-604521--> <!--FF: ENG_ALLOW_PASSWORD_IMPORT_HOOKS_FOR_USERS_IN_ANY_STATUS--> <!--Originally available in December 2020-->
 
 #### Event hook filtering is EA in Preview
 
@@ -822,7 +822,7 @@ OAuth 2.0 Optional Consent provides an optional property that enables a user to 
 
 #### Password history policy enforced in strict mode is GA in Production
 
-When an admin [updates passwords](/docs/reference/api/users/#update-user) and sets the `strict` parameter to `true`, the [password history policy](/docs/reference/api/policy/#age-object) is now enforced.<!-- OKTA-563910-->
+When an admin [updates passwords](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/updateUser) and sets the `strict` parameter to `true`, the [password history policy](/docs/reference/api/policy/#age-object) is now enforced.<!-- OKTA-563910-->
 
 #### PBKDF2 Hashing Algorithm support is GA in Production
 
@@ -830,7 +830,7 @@ Okta now supports Password-Based Key Derivation Function 2 (PBKDF2) for hashing 
 
 #### Revoke user sessions is GA in Production
 
-You can end all Okta sessions for a user when resetting their password. All sessions of the specified user are revoked except for the current session. This option protects the user account from unauthorized access. See the `revokeSessions` parameter in the [Users API](/docs/reference/api/users/#change-password). <!-- OKTA-542646-->
+You can end all Okta sessions for a user when resetting their password. All sessions of the specified user are revoked except for the current session. This option protects the user account from unauthorized access. See the [][`revokeSessions`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserCred/#tag/UserCred/operation/changePassword!path=revokeSessions&t=request) parameter in the User Credentials API. <!-- OKTA-542646-->
 
 #### Unusual telephony requests blocked by machine-learning measures
 

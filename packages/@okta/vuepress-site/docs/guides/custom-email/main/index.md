@@ -263,7 +263,7 @@ To delete all custom translations and revert to the Okta template, click **Reset
 [Velocity Templating Language (VTL)](https://velocity.apache.org/engine/2.3/user-guide.html) allows you to customize your org's email templates so that you can use the following:
 
 - Enhanced conditional logic
-- All attributes in the Okta [User Profile object](/docs/reference/api/users/#profile-object)
+- All attributes in the Okta [User Profile object](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/createUser!path=profile&t=request)
 - Some of the org attributes in the VTL variables
 
 Email templates use both common and unique VTL variables. When you interpolate variables in the template, precede them with a dollar sign. Use dot notation to reference subobjects. For example, reference the first name of a user with `${user.profile.firstName}`.
@@ -394,7 +394,7 @@ You can send yourself a test email to see how a custom email template looks and 
 
 ## Known Issues
 
-- Users with free.fr email addresses may not receive emails delivered by Okta. This is due to free.fr enforcing non-standard email processing. The Okta Org API allows you to [retry blocked](/docs/reference/api/org/#email-address-bounces-operations) emails, but the free.fr inbox provider continues to block retries. There’s no known workaround beyond asking the user to retrigger the email with a different email address.
+- Users with free.fr email addresses may not receive emails delivered by Okta. This is due to free.fr enforcing non-standard email processing. The Okta Org API allows you to [retry blocked](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/EmailCustomization/#tag/EmailCustomization/operation/bulkRemoveEmailAddressBounces) emails, but the free.fr inbox provider continues to block retries. There’s no known workaround beyond asking the user to retrigger the email with a different email address.
 
 ## See also
 

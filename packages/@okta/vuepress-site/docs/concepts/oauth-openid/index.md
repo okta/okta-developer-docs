@@ -20,8 +20,8 @@ OAuth 2.0 and OpenID Connect (OIDC) are industry standard protocols for user aut
 
 OAuth 2.0 and OpenID Connect (OIDC) are complementary protocols. They define how a server authenticates a user, and then grants the user access to resources.
 
-* [OAuth 2.0](/docs/reference/api/oidc/) controls and delegates authorization to access a protected resource, like your web app, native app, or API service. It provides API security through scoped access tokens.
-* [OIDC](/docs/reference/api/oidc/) extends OAuth 2.0 with user authentication and Single Sign-On (SSO) functionality. It enables you to retrieve and store authentication information about your end users. It also defines several OAuth 2.0 scopes to enable apps to access user profile information.
+* [OAuth 2.0](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/) controls and delegates authorization to access a protected resource, like your web app, native app, or API service. It provides API security through scoped access tokens.
+* [OIDC](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/) extends OAuth 2.0 with user authentication and Single Sign-On (SSO) functionality. It enables you to retrieve and store authentication information about your end users. It also defines several OAuth 2.0 scopes to enable apps to access user profile information.
 
 Okta recommends using one of its authentication deployment models for your app's authentication needs. Each model abstracts over the OAuth 2.0 and OIDC protocols, so you don't have to use them directly. To get started and to find sample apps, see [Sign users in](/docs/guides/sign-in-overview/).
 
@@ -44,7 +44,7 @@ Other important terms:
 * **access token**: The token issued by the authorization server (Okta) in exchange for the grant.
 * **refresh token**: An optional token that is exchanged for a new access token if the access token has expired.
 
-> **Note:** For more information on hard-coded and configurable token lifetimes, see [Token lifetime](/docs/reference/api/oidc/#token-lifetime).
+> **Note:** For more information on hard-coded and configurable token lifetimes, see [Token lifetime](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/#token-lifetime).
 
 The following describes the usual OAuth 2.0 Authorization Code flow.
 
@@ -57,7 +57,7 @@ The following describes the usual OAuth 2.0 Authorization Code flow.
 
 At the core of both OAuth 2.0 and OIDC is the authorization server. An authorization server is simply an OAuth 2.0 token minting engine. Each authorization server has a unique issuer URI and its own signing key for tokens to keep a proper boundary between security domains. In the context of this guide, Okta is your authorization server.
 
-The authorization server also acts as an OIDC provider. This means you can request [ID tokens](/docs/reference/api/oidc/#id-token) in addition to [access tokens](/docs/reference/api/oidc/#access-token) from the authorization server endpoints.
+The authorization server also acts as an OIDC provider. This means you can request [ID tokens](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/#id-token) in addition to [access tokens](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/#access-token) from the authorization server endpoints.
 
 > **Note:** For information on authorization servers, how they work, and how you can use them, see [Authorization servers](/docs/concepts/auth-servers).
 

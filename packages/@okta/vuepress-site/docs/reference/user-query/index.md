@@ -16,7 +16,7 @@ Searching for and returning Okta users is a standard Users API lifecycle operati
 
 > **Note:** Okta recommends using the `search` parameter when querying for users.
 
-For details on user operations, see the [Users API](/docs/reference/api/users/) reference.
+For details on user operations, see the [Users API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/) reference.
 
 ## Search users
 
@@ -371,7 +371,7 @@ For brevity, only the user information and custom profile attribute are shown.
 
 ```
 
-For further search expression examples and reference material, see [Find Users](/docs/reference/api/users/#find-users) in the Users API reference.
+For further search expression examples and reference material, see [`search`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/listUsers!in=query&path=search&t=request) in the Users API reference.
 
 ## Filter users
 
@@ -379,7 +379,7 @@ The filter query parameter (`filter`) returns one or more users that match a fil
 
 > **Note:** For optimal performance, Okta recommends using a `search` parameter instead. See [Search users](#search-users).
 
-The filter query parameter only uses the equal (`eq`) operator of the standard Okta API filtering semantics. The `lastUpdated` property, however, can also implement the inequality operators greater than (`gt`), greater than or equal to (`ge`), less than (`lt`), and less than or equal to (`le`). For example, you can use these operators to filter users updated before or after a specific date and time. You can combine multiple expressions using the logical operators `and` and `or`, and parentheses. The `not` operator isn't supported. See [List users with a filter](/docs/reference/api/users/#list-users-with-a-filter) for example expressions.
+The filter query parameter only uses the equal (`eq`) operator of the standard Okta API filtering semantics. The `lastUpdated` property, however, can also implement the inequality operators greater than (`gt`), greater than or equal to (`ge`), less than (`lt`), and less than or equal to (`le`). For example, you can use these operators to filter users updated before or after a specific date and time. You can combine multiple expressions using the logical operators `and` and `or`, and parentheses. The `not` operator isn't supported. See [`filter`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/listUsers!in=query&path=filter&t=request) for example expressions.
 
 The filter query parameter is case-sensitive and also supports the `limit` and `after` parameters, see [Limits and pagination](#limits-and-pagination).
 
@@ -537,11 +537,11 @@ curl -v -X GET \
 
 ```
 
-For further filter expression examples and reference material, see [Find Users](/docs/reference/api/users/#find-users) in the Users API reference.
+For further filter expression examples and reference material, see [`filter`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/listUsers!in=query&path=filter&t=request) in the Users API reference.
 
 ## Find users
 
-The find users query parameter (`q`) returns one or more users matched against the user profile properties of `firstName`, `lastName`, or `email`, and is designed for simple lookup implementations, such as a people picker. This query parameter excludes users with a `DEPROVISIONED` status, doesn't support pagination, and isn't designed for large data sets.
+The find users [query parameter (`q`)](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/listUsers!in=query&path=q&t=request)) returns one or more users matched against the user profile properties of `firstName`, `lastName`, or `email`, and is designed for simple lookup implementations, such as a people picker. This query parameter excludes users with a `DEPROVISIONED` status, doesn't support pagination, and isn't designed for large data sets.
 
 > **Note:** For optimal performance, Okta recommends using a [search](#search-users) parameter instead. See [Search users](#search-users).
 
@@ -686,8 +686,6 @@ curl -v -X GET \
     }
 ```
 
-See [Find Users](/docs/reference/api/users/#find-users) in the Users API reference.
-
 ## List all users
 
 If a query doesn't include the `search`, `filter`, or `q` parameter, it returns all users (except those with DEPROVISIONED status), with a default limit of 200 records. For this simple use case, the list-all query performance is superior to other search options.
@@ -708,9 +706,7 @@ curl -v -X GET \
 "https://${yourOktaDomain}/api/v1/users?limit=25
 ```
 
-See [Find Users](/docs/reference/api/users/#list-users) in the Users API reference.
-
 ## See also
 
-- [Users API](/docs/reference/api/users)
+- [Users API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/)
 - [User profiles](/docs/concepts/user-profiles/)

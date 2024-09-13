@@ -4,11 +4,11 @@ You can customize the sign-in experience for your app with minimal use of low-le
 
 The authentication interaction between the authorization server and your client app follows the [Interaction Code](/docs/concepts/interaction-code/) flow. This flow is an extension to the [OAuth 2.0 and OpenID Connect](/docs/concepts/oauth-openid/) standard. It allows you to customize the user authentication experience for your app without redirecting to an authentication component outside of your app. See [Implement authorization by Interaction Code grant type](/docs/guides/implement-grant-type/interactioncode/main/) to understand the Interaction Code flow and necessary interactions between the authorization server and your app.
 
-> **Note**: You can use the [Okta Sign-In Widget](/docs/guides/embedded-siw) to quickly add embedded authentication if you don't need full customization capabilities for your sign-in user experience. The Sign-In Widget handles the Interaction Code flow in authentication use cases offered by Okta. See [Sign in to your SPA with embedded Okta Sign-In Widget](/docs/guides/sign-in-to-spa-embedded-widget/vue/main/).
+> **Note**: You can use the [Okta Sign-In Widget](/docs/guides/embedded-siw) to quickly add embedded authentication if you don't need full customization capabilities for your sign-in user experience. The Sign-In Widget handles the Interaction Code flow in authentication use cases offered by Okta. See [Sign in to your SPA with the embedded Okta Sign-In Widget](/docs/guides/sign-in-to-spa-embedded-widget/vue/main/).
 
 ### Build Okta authentication with Auth JS in your SPA app
 
-This guide explains how to build a password-only sign-in use case for your Vue.js app. See [Next steps](#next-steps) for resources to other use cases.
+This guide explains how to build a password-only sign-in use case for your Vue.js app. See [Next steps](#next-steps) for other use cases.
 
 Before you build or integrate your Vue.js app, ensure that you:
 * [enable the Interaction Code grant on your default custom authorization server](/docs/guides/oie-embedded-common-org-setup/android/main/#update-the-default-custom-authorization-server)

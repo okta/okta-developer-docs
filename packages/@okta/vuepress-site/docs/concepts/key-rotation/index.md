@@ -31,7 +31,7 @@ If you're using the org authorization server, configure and perform key rollover
 
 * For security purposes, Okta automatically rotates keys used to sign the ID token.
 
-* Okta doesn't expose the public keys used to sign the access token minted by the org authorization server. You can use the [`/introspect`](/docs/reference/api/oidc/#introspect) endpoint to validate the access token.
+* Okta doesn't expose the public keys used to sign the access token minted by the org authorization server. To validate the access token, you can use the org authorization server [introspection endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/OrgAS/#tag/OrgAS/operation/introspect).
 
 * You can't manually rotate the org authorization server's signing keys.
 

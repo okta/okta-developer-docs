@@ -73,7 +73,7 @@ To test the full authentication flow that returns an ID token or an access token
     * Your OpenID Connect application's `redirect_uri`
     * Values for `state` and `nonce`, which can be anything
 
-    > **Note:** All of the values are fully documented on the [Obtain an Authorization Grant from a user](/docs/reference/api/oidc/#authorize) page.
+    > **Note:** All of the values are fully documented on the [Obtain an Authorization Grant from a user](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/authorizeCustomAS) page.
 
     The resulting URL looks something like this:
 
@@ -124,7 +124,7 @@ To test the full authentication flow that returns an ID token, build your reques
 
 > **Note:** The examples in this guide use the [Implicit flow](/docs/concepts/oauth-openid/#implicit-flow) for quick testing. In the following example, request only `id_token` as the `response_type` value. This means that the requests are for a [fat ID token](/docs/concepts/api-access-management/#tokens-and-scopes), and the ID token is the only token included in the response. The ID token contains any groups assigned to the user that signs in when you include the `groups` scope in the request.
 >
->If you make a request to the org authorization server for both the ID token and the access token, that's considered a [thin ID token](/docs/concepts/api-access-management/#tokens-and-scopes) and contains only base claims. Profile attributes and groups aren't returned, even if those scopes are included in the request. You can use the access token to get the groups claim from the `/userinfo` [endpoint](/docs/reference/api/oidc/#userinfo).
+>If you make a request to the org authorization server for both the ID token and the access token, that's considered a [thin ID token](/docs/concepts/api-access-management/#tokens-and-scopes) and contains only base claims. Profile attributes and groups aren't returned, even if those scopes are included in the request. You can use the access token to get the groups claim from the `/userinfo` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/userinfoCustomAS).
 >
 
 The resulting URL looks something like this:

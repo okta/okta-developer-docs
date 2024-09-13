@@ -23,7 +23,7 @@ When you create an Okta expression, you can reference any attribute that lives o
 
 ### Okta user profile
 
-Every user has an Okta user profile. The Okta user profile is the central source of truth for the core attributes of a user. To reference an Okta user profile attribute, specify `user.` and the attribute variable name. For a list of core user profile attributes, see [Default profile properties](/docs/reference/api/users/#default-profile-properties).
+Every user has an Okta user profile. The user profile is the central source of truth for the core attributes of a user. To reference a user profile attribute, specify `user.` and the attribute variable name. For a list of core user profile attributes, see the [`profile` parameter properties](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/getUser!c=200&path=profile&t=response).
 
 | Syntax            | Definitions                                                                   | examples                                                       |
 | --------          | ----------                                                                    | ------------                                                   |

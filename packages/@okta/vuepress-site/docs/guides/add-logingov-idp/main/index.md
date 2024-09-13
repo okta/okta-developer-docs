@@ -232,7 +232,7 @@ In the URL, replace `{yourOktaDomain}` with your org's base URL, and then replac
 
 > **Note:** When Okta sends the authorize request to Login.gov, it adds the required `acr_values` based on the type of identity verification that you specified in the Login.gov IdP configuration.
 
-For a full explanation of all of these parameters, see: [/authorize Request parameters](/docs/reference/api/oidc/#request-parameters).
+For a full explanation of all of these parameters, see: [/authorize Request parameters](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/authorizeCustomAS!in=path&path=authorizationServerId&t=request).
 
 Create a link that the user clicks to sign in. The HREF for that link is the authorize URL with your specified values. For example:
 

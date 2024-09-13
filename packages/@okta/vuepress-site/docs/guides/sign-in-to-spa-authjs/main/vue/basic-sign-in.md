@@ -126,7 +126,7 @@ export default {
 
 ```
 
-> **Note**: You can extend the set of claims by modifying the [scope settings in your Okta configuration](#set-up-the-okta-configuration-settings) to retrieve custom information about the user. This includes `locale`, `address`, `groups`, and [more](/docs/reference/api/oidc/#scope-values).
+> **Note**: You can extend the set of claims by modifying the [scope settings in your Okta configuration](#set-up-the-okta-configuration-settings) to retrieve custom information about the user. This includes `locale`, `address`, `groups`, and [more](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/#scope-values).
 
 ### Connect the routes
 

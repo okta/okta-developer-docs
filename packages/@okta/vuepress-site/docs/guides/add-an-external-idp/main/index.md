@@ -91,7 +91,7 @@ In the URL, replace `{yourOktaDomain}` with your org's base URL, and then replac
 
 * `nonce`: A string included in the returned ID token. Use it to associate a client session with an ID token and to mitigate replay attacks. Can be any value.
 
-For a full explanation of all of these parameters, see: [/authorize Request parameters](/docs/reference/api/oidc/#request-parameters).
+For a full explanation of all of these parameters, see: [/authorize Request parameters](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/authorizeCustomAS!in=query&path=acr_values&t=request).
 
 An example of a complete URL looks like this:
 
