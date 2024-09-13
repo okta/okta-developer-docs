@@ -15,7 +15,13 @@ This guide discusses how to create sender-constrained access tokens that are an 
 
 #### What you need
 
-<StackSnippet snippet="whatyouneed" />
+* [Okta Developer Edition organization](https://developer.okta.com/signup)
+* [Glitch](https://glitch.com/) project or account
+* An [OAuth 2.0 client app](/docs/concepts/oauth-openid/#oauth-2-0) that has the **Require Demonstrating Proof of Possession (DPoP) header in token requests** checkbox for **Proof of possession** enabled. If you are using the API, add the [DPoP parameter](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication!path=4/settings/oauthClient/dpop_bound_access_tokens&t=request) (`dpop_bound_access_tokens: true`) to `settings.oauthClient` in your app.
+* Be able to [build a request](/docs/guides/implement-grant-type/authcode/main/#flow-specifics) and obtain an access token for your app.
+* Be able to create a [JSON Web Key](https://www.rfc-editor.org/rfc/rfc7517). In a production environment, use your internal instance of a key pair generator to generate the JWK for use with DPoP. See this [key pair generator](https://github.com/mitreid-connect/mkjwk.org) for an example. For testing purposes only, you can use this [simple JWK generator](https://mkjwk.org/) to generate a key pair for an example setup. Use only asymmetric keys with DPoP. See [Asymmetric Encryption: Definition, Architecture, Usage](https://www.okta.com/identity-101/asymmetric-encryption/).
+
+  > **Note:** The JWK that's used for DPoP authentication is separate from the JWK used for client authentication.
 
 ---
 
@@ -35,64 +41,17 @@ DPoP enables a client to prove possession of a public/private key pair by includ
 
 ## Before you begin
 
-Create or update an app to include the DPoP parameter. Then, create a JSON Web Key to sign the JSON Web Token (JWT) with for use with DPoP.
+Create a [DPoP proof JWT](https://www.rfc-editor.org/rfc/rfc7519). A DPoP proof JWT includes a header and payload with claims, and then you sign the JWT with the private key from [your JSON Web Key](#what-you-need) (JWK). You use the DPoP proof JWT to obtain a DPoP-bound access token. Use your internal instance to sign the JWT for a production org. See this [JWT generator](https://github.com/jwtk/njwt) for an example of how to make and use JWTs in Node.js apps. For testing purposes only, you can use this [JWT tool](https://jwt.io/) to build, sign, and decode JWTs.
 
-### Configure your app with the DPoP parameter
-
-Whether you create an app or update one, be sure to use the following parameters:
-
-> **Note:** The app examples in this guide use a native app.
-
-* Use the `authorization_code` and `refresh_token` grant types.
-* Select the **Require Demonstrating Proof of Possession (DPoP) header in token requests** checkbox for **Proof of possession**. If using the API, add the DPoP parameter (`dpop_bound_access_tokens: true`) to `settings.oauthClient`.
-
-> **Note:** See [Implement the Authorization Code grant type](https://developer.okta.com/docs/guides/implement-grant-type/authcode/main/) for more information on configuring your app to use the Authorization Code grant type.>
->
-> See the [Request Body Schema](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication!path=4/settings/oauthClient/dpop_bound_access_tokens&t=request) section of the Applications API reference for more information on the DPoP parameter.
-
-### Create a JSON Web Key
-
-Create a [JSON Web Key](https://www.rfc-editor.org/rfc/rfc7517) (JWK) for use with DPoP. A JWK is a cryptographic key or key pair expressed in JSON format. Use the generated public and private keys to sign the JSON Web Token (JWT) for use with DPoP in the next section.
-
-> **Note:** The JWK that's used for DPoP authentication is separate from the JWK used for client authentication.
-
-Use your internal instance of a key pair generator to generate the public/private key pair for use with DPoP in a production org. See this [key pair generator](https://github.com/mitreid-connect/mkjwk.org) for an example. For testing purposes only, you can use this [simple JWK generator](https://mkjwk.org/) to generate a key pair for an example setup.
-
-1. Use the following values when you use the simple JWK generator, and then click **Generate**.
-
-    * **Key Use**: Signature
-    * **Algorithm**: RS256
-    * **Key ID**: SHA-256
-    * **Show X.509**: Yes
-
-2. Copy the **Public Key**, the **Private Key (X.509 PEM Format)**, and the **Public Key (X.509 PEM Format)** for use in the next steps.
-
-> **Note:** Use only asymmetric keys with DPoP. See [Asymmetric Encryption: Definition, Architecture, Usage](https://www.okta.com/identity-101/asymmetric-encryption/).
-
-### Create the JSON Web Token
-
-A JWT is a compact, URL-safe way to represent claims transferred between two parties. A common use case example for JWTs is to declare the scope of the access token. Create a DPoP proof [JWT](https://www.rfc-editor.org/rfc/rfc7519). A DPoP proof JWT includes a header and payload with claims, and then you sign the JWT with the private key from the [previous section](#create-a-json-web-key). Use use the DPoP proof JWT to obtain a DPoP-bound access token.
-
-Use your internal instance to sign the JWT for a production org. See this [JWT generator](https://github.com/jwtk/njwt) for an example of how to make and use JWTs in Node.js apps. For testing purposes only, you can use this [JWT tool](https://jwt.io/) to build, sign, and decode JWTs. See [Use the JWT tool](#use-the-jwt-tool).
-
-#### Parameters and claims
+### Parameters and claims
 
 Include the following required parameters in the JWT header:
 
 * `typ`: Type header. Declares that the encoded object is a JWT and meant for use with DPoP. This must be `dpop+jwt`.
 * `alg`: Algorithm. Indicates that the asymmetric algorithm is RS256 (RSA using SHA256). This algorithm uses a private key to sign the JWT and a public key to verify the signature. Must not be `none` or an identifier for a symmetric algorithm. This example uses `RS256`.
-* `jwk`: JSON Web Key. Include the public key (in JWK string format) that you create in the [Create a JSON Web Key](#create-a-json-web-key) section. Okta uses this public key to verify the JWT signature. See the [Application JSON Web Key Response properties](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/Client/#tag/Client/operation/createClient!c=201&path=jwks&t=response) for a description of the public key properties.
+* `jwk`: JSON Web Key. Include the public key (in JWK string format). Okta uses this public key to verify the JWT signature. See the [Application JSON Web Key Response properties](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/Client/#tag/Client/operation/createClient!c=201&path=jwks&t=response) for a description of the public key properties.
 
-Include the following required claims in the JWT payload:
-
-<StackSnippet snippet="claims" />
-
-#### Use the JWT tool
-
-Follow these steps if you use the [JWT tool](https://jwt.io/). See the [previous section](#parameters-and-claims) for parameter and claim descriptions.
-
-1. Select **RS256** as the **Algorithm**.
-2. Build the JWT header in the **HEADER** section. Include the public key from the public/private key pair generated in the [previous section](#create-a-json-web-key).
+**Example JWT header**
 
   ```json
     {
@@ -108,22 +67,19 @@ Follow these steps if you use the [JWT tool](https://jwt.io/). See the [previous
       }
     }
   ```
+Include the following required claims in the JWT payload:
 
-3. In the **PAYLOAD** section, build the JWT payload and include the following claims:
+<StackSnippet snippet="claims" />
 
-  <StackSnippet snippet="payload" />
+**Example JWT payload**
 
-4. In the **VERIFY SIGNATURE** section:
+<StackSnippet snippet="payload" />
 
-    * **First box:** Paste the public key (X.509 PEM format) from the previous section.
-    * **Second box:** Paste the private key (X.509 PEM format).
+## Configure DPoP
 
-5. Copy the JWT that appears in the **Encoded** section.
+This section explains how to configure DPoP.
 
-
-## Implement DPoP
-
-This section explains how to implement DPoP.
+> **Note** This guide uses a native app with the `authorization_code` with PKCE and `refresh_token` [grant types](https://developer.okta.com/docs/guides/implement-grant-type/authcode/main/) enabled for the examples.
 
 ### Build the request
 
@@ -182,18 +138,9 @@ You can use the [JWT tool](https://jwt.io/) to decode the access token to view t
 
 > **Note:** If your client has DPoP enabled, then you can't add or modify the `cnf` claim using token inline hooks.
 
-## Make a request to a non-Okta resource
+## Make a request to a DPoP-protected resource
 
-Now that you have a DPoP-bound access token, you can make requests to DPoP-protected resources. The following example request displays the DPoP-bound access token in the `Authorization` header and the DPoP proof JWT in the `DPoP` header. Values are truncated for brevity.
-
-```bash
-curl -v -X GET \
-  --header 'Accept: application/json' \
-  --header 'Content-Type: application/json' \
-  --header 'Authorization: DPoP eyJraWQiOiJRVX.....wt7oSakPDUg' \
-  --header 'DPoP: eyJ0eXAiOiJkcG9w.....H8-u9gaK2-oIj8ipg' \
-  "https://resource.example.org"
-```
+Now that you have a DPoP-bound access token, you can make requests to DPoP-protected resources.
 
 <StackSnippet snippet="requestresource" />
 

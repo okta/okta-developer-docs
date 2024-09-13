@@ -1,6 +1,4 @@
-## Make a request to an Okta resource
-
-Access to an Okta resource requires more steps.
+When you make requests to an Okta resource, there are a few more steps required than when you make requests to a [non-Okta resource](/docs/guides/dpop/nonoktaresourceserver/main/):
 
 1. Hash and base64url-encode the DPoP-bound access token for use as the `ath` value.
 1. Use the [Create the JSON Web Token](#create-the-json-web-token) section to create a DPoP proof JWT with the following claims:
