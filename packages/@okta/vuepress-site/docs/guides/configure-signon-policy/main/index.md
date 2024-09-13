@@ -46,6 +46,8 @@ You can configure a global session policy to require any of the [factors that yo
 
 You can specify any number of global session policies and the order in which they’re executed. If a policy in the list doesn't apply to the user trying to sign in, the system moves to the next policy. There’s one required organization-wide policy named default. By definition, the default policy applies to all users.
 
+> **Note:** You can't change the **Maximum Okta global session lifetime** setting of the default global session policy rule.
+
 ### Authentication policies
 
 In addition to the global session policy, you can configure authentication policies for each app for extra levels of authentication. You can also [share authentication policies across multiple apps](https://help.okta.com/okta_help.htm?type=oie&id=ext-share-auth-policy).
