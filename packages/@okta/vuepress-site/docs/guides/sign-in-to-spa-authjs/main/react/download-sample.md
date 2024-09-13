@@ -21,7 +21,7 @@ yarn install
 
 #### Add a configuration file
 
-Create and add a configuration file (`testenv`) to the `okta-auth-js` root folder. The `testenv` file contains the configuration values for your Okta app integration. See [Create an app integration](#create-an-app-integration) for details on these values.
+Create and add a configuration file (`testenv`) to the `okta-auth-js` root folder. The `testenv` file contains the configuration values for your Okta app integration. See [Create an Okta app integration](#create-an-okta-app-integration) for details on these values.
 
 ```txt
 ISSUER=https://{yourOktaDomain}/oauth2/default
@@ -54,7 +54,7 @@ cd okta-app
 
 ### Install dependencies
 
-Add the following to your React app:
+Add the following dependencies to your React app:
 
 * The [latest version of Okta Auth JS](https://github.com/okta/okta-auth-js/releases), `@okta/okta-auth-js`
 

@@ -21,7 +21,7 @@ npm ci
 
 #### Update the application configuration file
 
-Update the configuration file of the Okta sample application (`src/app/okta-config.ts `) in the project root folder. The `okta-config.ts` file contains the configuration values for your Okta app integration. See [Create an app integration](#create-an-app-integration) for details on these values.
+Update the configuration file of the Okta sample application (`src/app/okta-config.ts `) in the project root folder. The `okta-config.ts` file contains the configuration values for your Okta app integration. See [Create an Okta app integration](#create-an-okta-app-integration) for details on these values.
 
 ```javascript
 const oidcConfig = {
