@@ -26,13 +26,15 @@ Control the creation order of resources and reduce code in your Terraform config
 
 Resource definitions usually contain enough information for Terraform to create or destroy objects. However, some Okta resources, such as policies or rules, require creating or modifying other objects first.
 
-Use the `depends_on` Terraform attribute in your configuration to define these explicit dependencies. Note that HashiCorp recommends only [using depends_on in the rare cases that require it](https://developer.hashicorp.com/terraform/language/meta-arguments/depends_on).
+Use the `depends_on` Terraform attribute in your configuration to define these explicit dependencies.
+
+> *Note:* that HashiCorp recommends only [using depends_on in the rare cases that require it](https://developer.hashicorp.com/terraform/language/meta-arguments/depends_on).
 
 ### Managing policy and rule dependencies
 
 Terraform doesn't create policy and rule resources in the order specified in the `priority` field. This non-deterministic creation order may result in incorrect deployment behavior.
 
-Add a `depends_on` field to each policy or rule with a priority lower than `1`. Set the field's value to a resource with the next highest priority. For example, [Okta policy rules](https://registry.terraform.io/providers/okta/okta/latest/docs/resources/auth_server_policy_rule) can include a priority field. All rules in the same policy with a priority lower than `1` must include a `depends_on` declaration:
+Add a `depends_on` field to each policy or rule with a priority lower than `1`. Set the field's value to a resource with the next highest priority.
 
 For example, [Okta policy rules](https://registry.terraform.io/providers/okta/okta/latest/docs/resources/auth_server_policy_rule) can include a priority field. All rules in the same policy with a priority greater than `1` must include a `depends_on` declaration:
 
@@ -58,7 +60,7 @@ resource "okta_auth_server_policy_rule" "rule_3" {
 
 ### Managing email customization
 
-The email customization resource also requires using `depends_on` when multiple email templates use the same `template_name`. This usually occurs when there are localized versions of the template. When that happens, create the default template with `is_default set` to `true` first. For more information, see [the Okta Terraform provider](https://registry.terraform.io/providers/okta/okta/latest/docs/resources/email_customization).
+The email customization resource also requires using `depends_on` when multiple email templates use the same `template_name`. This usually occurs when there are localized versions of the template. When that happens, create the default template with `is_default set` to `true` first. For more information, see [the Okta email customization resources](https://registry.terraform.io/providers/okta/okta/latest/docs/resources/email_customization).
 
 ## Reduce code duplication with loops
 
@@ -66,11 +68,11 @@ Consider using a Terraform loop when your code assigns different values to the s
 
 Using a loop enables you to reduce duplication of your Terraform code. This approach makes your Okta Terraform code readable, maintainable, and less prone to deployment errors and inconsistencies.
 
-Within a resource definition, set the `for_each` meta-argument to a set or map of your list-like data. The example below shows converting array data to a map.
+Within a resource definition, set the `for_each` meta-argument to a set or map of your list-like data.
 
 After assigning the `for_each` meta-argument, use the special phrase `each.value` to represent the current item in the loop across the input map or set. Set properties on each object, such as `each.value.name`.
 
-> **Note**: Attribute values tagged as sensitive aren’t permitted as arguments to `for_each`. See [](/docs/guides/terraform-organize-configuration/main/#store-secrets-and-credentials-securely).
+> **Note**: Attribute values tagged as sensitive aren't permitted as arguments to `for_each`. See [Store secrets and credentials securely](/docs/guides/terraform-organize-configuration/main/#store-secrets-and-credentials-securely).
 
 This example creates groups from a list of group names:
 
@@ -86,7 +88,7 @@ variable "groups_to_create" {
 }
 ```
 
-2. Create a file for variable values, in this case, a list of group objects to create. If you aren't using the central `terraform.tfvars` file to set variable values, name the file with the suffix `.auto.tfvars`. For example, `users_and_groups.auto.tfvars`.
+1. Create a file for variable values, in this case, a list of group objects to create. If you aren't using the central `terraform.tfvars` file to set variable values, name the file with the suffix `.auto.tfvars`. For example, `users_and_groups.auto.tfvars`.
 
 Add this example to the file:
 
@@ -107,7 +109,7 @@ groups_to_create = [
 ]
 ```
 
-3. In your original Terraform `.tf` file, create a group resource definition:
+1. In your original Terraform `.tf` file, create a group resource definition:
 
 ```hcl
 resource "okta_group" "group_create_using_list" {
@@ -115,21 +117,21 @@ resource "okta_group" "group_create_using_list" {
 }
 ```
 
-4. In that resource definition, set `for_each` to a map or set. You can convert array content to a map before setting the meta-argument:
+1. In that resource definition, set `for_each` to a map or set. You can convert array content to a map before setting the meta-argument:
 
 ```hcl
-for_each = { for group in var.&lt;your-variable-name&gt;
-  : group.name =&gt; group}
+for_each = { for group in var<your-variable-name>
+  : group.name => group}
 ```
 
 Using the previous examples:
 
 ```hcl
 for_each = { for group in var.groups_to_create
-  : group.name =&gt; group}
+  : group.name => group}
 ```
 
-5. Add additional lines where you use `each.value` to access the current group in the loop.
+1. Add additional lines where you use `each.value` to access the current group in the loop.
 
 Example of the resource definition that creates one group for each member of the original list:
 
@@ -138,7 +140,7 @@ resource "okta_group" "group_create_using_list" {
 
   # Convert the array to a map
     for_each = { for group in var.groups_to_create
-    : group.name =&gt; group}
+    : group.name => group}
    # Use `each.value` to access each member of your list
   name        = each.value.name
   description = each.value.description
