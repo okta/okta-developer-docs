@@ -1,10 +1,10 @@
 ---
 title: Manage device connection requirements using Terraform
-excerpt: Require users to authenticate only with phones and computers that meet your organization's requirements.
+excerpt: Require users to authenticate only with phones and computers that meet your org's requirements.
 layout: Guides
 ---
 
-Require users to authenticate only with phones and computers that meet your organization's requirements.
+Require users to authenticate only with phones and computers that meet your org's requirements.
 
 ---
 
@@ -28,17 +28,17 @@ Require users to authenticate only with phones and computers that meet your orga
 
 * An Okta pricing plan that [enables Device Assurance in your organization](#confirm-your-org-supports-device-assurance).
 
-* An Okta user account with the super administrator role.
+* An Okta user account with the super admin role.
 
-* A list of your organization's requirements for user devices.
+* A list of your org's requirements for user devices.
 
 ## Overview
 
-Using a device's attributes to control access to your organization requires configuring two sets of policies. Device assurance policies configure device requirements, such as a minimum OS version. Authentication policies include rules that use the assurance policies to authorize a connection.
+Using a device's attributes to control access to your org requires configuring two sets of policies. Device assurance policies configure device requirements, such as a minimum OS version. Authentication policies include rules that use the assurance policies to authorize a connection.
 
 You can manage both types of policies with Terraform.
 
-The benefits of device assurance policies include:
+These are the benefits of device assurance policies:
 
 * Improve security by checking that devices meet minimum requirements, such as the latest OS updates.
 
@@ -52,9 +52,9 @@ For user instructions on how to check device compliance, see the [main Okta arti
 
 ## Confirm your org supports Device Assurance
 
-Some of the steps in this article require that your Okta org and pricing plan support Device Assurance.
+Some of the steps in this article require that your Okta org and pricing plan support device assurance.
 
-1. [Sign in to your Okta organization](https://developer.okta.com/login) with your administrator account.
+1. [Sign in to your Okta org](https://developer.okta.com/login) with an admin account.
 
 1. Open the **Admin** menu.
 
@@ -66,7 +66,7 @@ Some of the steps in this article require that your Okta org and pricing plan su
 
 1. Click **Add rule**.
 
-1. Set `AND Device state is` to Registered.
+1. Set `AND Device state is` to **Registered**.
 
 1. Search for a field with the content:
 
@@ -76,7 +76,6 @@ Some of the steps in this article require that your Okta org and pricing plan su
 
    If the field exists then you can create device assurance policies and reference them in authentication policies. Otherwise, contact Okta Support about feature availability.
 
-   If it doesn't exist, contact Okta Support about feature availability.
 
 1. Click **Cancel** to exit the policy editor.
 
@@ -205,7 +204,7 @@ Create a macOS device assurance policy:
 
     * `screenlock_type`: A set of required screen lock actions and behaviors.  The supported options are `BIOMETRIC` (biometric locking) and `PASSCODE` (passcode locking).
 
-Your policy can also check signals on devices from a supported third-party signal provider, such as the Google Chrome Device Trust Connector in the Chrome browser. Specify its device signals in your Terraform code with the fields with the prefix `tpsp_`. For example, `tpsp_os_version` instead of `os_version`.  Okta for device assurance for ChromeOS requires using [Workforce Identity Adaptive Multi-factor Authentication (AMFA)](https://www.okta.com/learn/adaptive-mfa/). Developer Edition Okta orgs don't support the Google Chrome Device Trust Connector by default. If you're a paying customer, contact Okta developer support to enable third-party signal support on a Developer Edition Okta org.
+Your policy can also check signals on devices from a supported third-party signal provider, such as the Google Chrome Device Trust Connector in the Chrome browser. Specify its device signals in your Terraform code with the fields with the prefix `tpsp_`. For example, `tpsp_os_version` instead of `os_version`.  Okta for device assurance for ChromeOS requires using [Workforce Identity Adaptive Multi-factor Authentication (AMFA)](https://www.okta.com/learn/adaptive-mfa/). Developer Edition orgs don't support the Google Chrome Device Trust Connector by default. If you're a paying customer, contact Okta developer support to enable third-party signal support on a Developer Edition org.
 
 The following code shows a typical macOS device assurance policy:
 
@@ -231,11 +230,11 @@ Create a Windows device assurance policy:
 
     * `os_version`: The minimum operating system for a device.
 
-    * `disk_encryption_type`: The set of required encryption settings for the device. The only option is `ALL_INTERNAL_VOLUMES` ( all internal volumes are encrypted).
+    * `disk_encryption_type`: The set of required encryption settings for the device. The only option is `ALL_INTERNAL_VOLUMES` (all internal volumes are encrypted).
 
     * `screenlock_type`: A set of required screen lock actions and behaviors. The supported options are `BIOMETRIC` (biometric locking) and `PASSCODE` (passcode locking).
 
-Your policy can also check signals on devices from a supported third-party signal provider, such as the Google Chrome Device Trust Connector in the Chrome browser. Specify its device signals in your Terraform code with the fields with the prefix `tpsp_`. For example, `tpsp_os_version` instead of `os_version`.  Okta for device assurance for ChromeOS requires using [Workforce Identity Adaptive Multi-factor Authentication (AMFA)](https://www.okta.com/learn/adaptive-mfa/). Developer Edition Okta orgs don't support the Google Chrome Device Trust Connector by default. If you're a paying customer, contact Okta developer support to enable third-party signal on a Developer Edition Okta org.
+Your policy can also check signals on devices from a supported third-party signal provider, such as the Google Chrome Device Trust Connector in the Chrome browser. Specify its device signals in your Terraform code with the fields with the prefix `tpsp_`. For example, `tpsp_os_version` instead of `os_version`.  Okta for device assurance for ChromeOS requires using [Workforce Identity Adaptive Multi-factor Authentication (AMFA)](https://www.okta.com/learn/adaptive-mfa/). Developer Edition orgs don't support the Google Chrome Device Trust Connector by default. If you're a paying customer, contact Okta developer support to enable third-party signal on a Developer Edition org.
 
 
 
@@ -253,7 +252,7 @@ resource okta_policy_device_assurance_windows windows_example {
 
 ### ChromeOS
 
-Some Okta device assurance policies support ChromeOS configurations. Okta for device assurance for ChromeOS requires using [Workforce Identity Adaptive Multi-factor Authentication (AMFA)](https://www.okta.com/learn/adaptive-mfa/). Developer Edition Okta orgs don't support the Google Chrome Device Trust Connector by default. If you're a paying customer, contact Okta developer support to enable ChromeOS support on a Developer Edition Okta org.
+Some Okta device assurance policies support ChromeOS configurations. Okta for device assurance for ChromeOS requires using [Workforce Identity Adaptive Multi-factor Authentication (AMFA)](https://www.okta.com/learn/adaptive-mfa/). Developer Edition orgs don't support the Google Chrome Device Trust Connector by default. If you're a paying customer, contact Okta developer support to enable ChromeOS support on a Developer Edition org.
 
 1. Add the `okta_policy_device_assurance_chromeos` resource to your configuration.
 
@@ -290,23 +289,23 @@ To use device assurance, add one or more device assurance policies to an authent
 
 There are two approaches to defining an authentication policy:
 
-* Use the built-in default authentication policy representing your Okta app, such as an OAuth web app. In this case, use a Terraform data source to find the ID for the default authentication policy and then add a rule referencing that policy. For an example, see this [policy rule example in the Terraform git repository](https://github.com/okta/terraform-provider-okta/blob/master/examples/resources/okta_app_signon_policy_rule/basic.tf).
+* Use the default authentication policy representing your Okta app, such as an OAuth web app. In this case, use a Terraform data source to find the ID for the default authentication policy and then add a rule referencing that policy. For an example, see this [policy rule example in the Terraform git repository](https://github.com/okta/terraform-provider-okta/blob/master/examples/resources/okta_app_signon_policy_rule/basic.tf).
 
-* Create an authentication policy for your Okta app and set the policy ID in a field in your app resource in Terraform.
+* Create an authentication policy for your app and set the policy ID in a field in your app resource in Terraform.
 
 The high-level steps to enforce device minimum standards:
 
 1. Create device assurance policies for your supported platforms.
 
-1. If you don't already have one, create an Okta application for which you want access control, such as an OAuth web app. See the provider for resources with the name `okta_app_<type_name>`.
+1. If you don't already have one, create an app for which you want access control, such as an OAuth web app. See the provider for resources with the name `okta_app_<type_name>`.
 
 1. Create an authentication policy resource of type [okta_app_signon_policy](https://registry.terraform.io/providers/okta/okta/latest/docs/resources/app_signon_policy).
 
 1. Create an authentication policy rule of type [okta_app_signon_policy_rule](https://registry.terraform.io/providers/okta/okta/latest/docs/resources/app_signon_policy_rule) that specifies your device assurance policies. Each rule references its associated policy in its argument `policy_id`. One rule can reference multiple device assurance policies using a list of their IDs.
 
-1. Attach the authentication policy to your Okta application by setting the app's policy ID in the `authentication_policy` field.
+1. Attach the authentication policy to your app by setting the policy ID in the `authentication_policy` field.
 
-The following example creates an OAuth application using an `okta_app_oauth` resource and then adds an authentication policy (a sign-on policy) that contains two policy rules:
+The following example creates an OAuth app using an `okta_app_oauth` resource and then adds an authentication policy (a sign-on policy) that contains two policy rules:
 
 * One policy rule references the device assurance policy as a matching criterion for authentication.
 

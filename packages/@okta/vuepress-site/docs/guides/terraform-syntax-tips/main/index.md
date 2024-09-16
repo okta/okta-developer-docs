@@ -1,5 +1,5 @@
 ---
-title: Terraform syntax tips for Okta automation
+title: Terraform syntax tips for automation
 excerpt: Control the creation order of resources and reduce code in your Terraform configuration.
 layout: Guides
 ---
@@ -18,7 +18,7 @@ Control the creation order of resources and reduce code in your Terraform config
 
 * Familiarity with the Terraform terms: configuration, resources, state, and commands. See the [Terraform overview](/docs/guides/terraform-overview).
 
-* An Okta organization
+* An Okta org
 
 * A [Terraform configuration](/docs/guides/terraform-enable-org-access/main) that can access your Okta org.
 
@@ -165,7 +165,7 @@ data "okta_app" "test_application" {
 }
 
 resource "okta_app_user" "by_resource" {
-  for_each = { for user_ref in data.okta_group.everyone_group.users : user_ref =&gt; user_ref }
+  for_each = { for user_ref in data.okta_group.everyone_group.users : user_ref => user_ref }
   app_id = data.okta_app.test_application.id
   user_id = each.value
 }
