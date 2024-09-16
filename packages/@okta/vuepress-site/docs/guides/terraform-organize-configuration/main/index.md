@@ -237,38 +237,38 @@ Your Terraform configuration must include a list of the Okta API scopes required
 
 1. Define a `scopes` variable in your `main.tf` file:
 
-```hcl
-variable "scopes" {
-  description = "Scopes for the client"
-  type = list(string)
-}
-```
+   ```hcl
+   variable "scopes" {
+     description = "Scopes for the client"
+     type = list(string)
+   }
+   ```
 
 1. In your `values.auto.tfvars` file, set the `scopes` variable value to the scopes you need, for example:
 
-```hcl
-# This list of scopes must match the set of scopes
-# required to manage the included Okta resource types
-scopes = [
-  "okta.groups.manage",
-  "okta.users.manage",
-  "okta.apps.read",
-  "okta.policies.manage",
-  "okta.authenticators.manage"
-]
-```
+   ```hcl
+   # This list of scopes must match the set of scopes
+   # required to manage the included Okta resource types
+   scopes = [
+     "okta.groups.manage",
+     "okta.users.manage",
+     "okta.apps.read",
+     "okta.policies.manage",
+     "okta.authenticators.manage"
+   ]
+   ```
 
 1. In your Okta Terraform provider setup, reference your `var.scopes` variable:
 
-```hcl
-provider "okta" {
-  org_name = "exampleorg"
-  base_url = "oktapreview.com"
-  client_id = "0oae98s6dfnqwkj1sa1d7"
-  scopes = var.scopes
-  private_key = "./keys/terraform-app-private-key.pem"
-}
-```
+    ```hcl
+    provider "okta" {
+      org_name = "exampleorg"
+      base_url = "oktapreview.com"
+      client_id = "0oae98s6dfnqwkj1sa1d7"
+      scopes = var.scopes
+      private_key = "./keys/terraform-app-private-key.pem"
+    }
+    ```
 
 As you add other resource types to Terraform, make changes in multiple places:
 

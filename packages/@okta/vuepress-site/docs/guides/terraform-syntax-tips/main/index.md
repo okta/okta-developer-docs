@@ -78,62 +78,62 @@ This example creates groups from a list of group names:
 
 1. In your Terraform file for groups, define a variable for your group definitions. For this example, assume this is in a file called `users_and_groups.tf`:
 
-```hcl
-variable "groups_to_create" {
-  description = "List of group objects"
-  type = list(object({
-    name = string
-    description = string
-   }))
-}
-```
+    ```hcl
+    variable "groups_to_create" {
+      description = "List of group objects"
+      type = list(object({
+        name = string
+        description = string
+       }))
+    }
+    ```
 
 1. Create a file for variable values, in this case, a list of group objects to create. If you aren't using the central `terraform.tfvars` file to set variable values, name the file with the suffix `.auto.tfvars`. For example, `users_and_groups.auto.tfvars`.
 
-Add this example to the file:
+   Add this example to the file:
 
-```hcl
-groups_to_create = [
-  {
-    "name": "Group 1",
-    "description": "Group 1 description"
-  },
-  {
-    "name": "Group 2",
-    "description": "Group 2 description"
-  },
-  {
-    "name": "Group 3",
-    "description": "Group 3 description"
-  }
-]
-```
+    ```hcl
+    groups_to_create = [
+      {
+        "name": "Group 1",
+        "description": "Group 1 description"
+      },
+      {
+        "name": "Group 2",
+        "description": "Group 2 description"
+      },
+      {
+        "name": "Group 3",
+        "description": "Group 3 description"
+      }
+    ]
+    ```
 
 1. In your original Terraform `.tf` file, create a group resource definition:
 
-```hcl
-resource "okta_group" "group_create_using_list" {
+    ```hcl
+    resource "okta_group" "group_create_using_list" {
 
-}
-```
+    }
+    ```
 
 1. In that resource definition, set `for_each` to a map or set. You can convert array content to a map before setting the meta-argument:
 
-```hcl
-for_each = { for group in var<your-variable-name>
-  : group.name => group}
-```
+    ```hcl
+    for_each = { for group in var<your-variable-name>
+      : group.name => group}
+    ```
 
-Using the previous examples:
+   Using the previous examples:
 
-```hcl
-for_each = { for group in var.groups_to_create
-  : group.name => group}
-```
+    ```hcl
+    for_each = { for group in var.groups_to_create
+      : group.name => group}
+    ```
 
 1. Add additional lines where you use `each.value` to access the current group in the loop.
 
-Example of the resource definition that creates one group for each member of the original list:
+Here is an example of the resource definition that creates one group for each member of the original list:
 
 ```hcl
 resource "okta_group" "group_create_using_list" {
