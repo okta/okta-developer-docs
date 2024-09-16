@@ -9,52 +9,8 @@ redirects:
     to: /docs/guides/add-saml-idp/
   - from: /docs/reference/api/social_authentication
     to: /docs/concepts/social-login/
-  - from: /code/dotnet/index.html
-    to: /code/dotnet/aspnetcore/index.html
-  - from: /code/dotnet/index.html
-    to: /code/dotnet/aspnetcore/
-  - from: /code/dotnet/okta-oidc-spa-osw-aspnet
-    to: /code/dotnet/index.html
-  - from: /code/dotnet/okta-oauth-spa-authjs-osw
-    to: /code/dotnet/index.html
-  - from: /code/dotnet/okta-oauth-aspnet-codeflow
-    to: /code/dotnet/aspnetcore/
-  - from: /docs/examples/dotnet_sample_application.html
-    to: /code/dotnet/sample_application/index.html
-  - from: /code/dotnet/sdk/index.html
-    to: https://github.com/okta/okta-sdk-dotnet
-  - from: /code/swift/index.html
-    to: /code/ios/index.html
-  - from: /code/java/jwt-validation/index.html
-    to: https://github.com/okta/okta-jwt-verifier-java
-  - from: /docs/examples/spring_security_saml.html
-    to: /code/java/spring_security_saml/index.html
-  - from: /docs/guides/spring_security_saml.html
-    to: /code/java/spring_security_saml/index.html
-  - from: /docs/guides/okta_auth_sdk.html
-    to: /code/javascript/okta_auth_sdk/index.html
-  - from: /docs/guides/okta_auth_sdk
-    to: /code/javascript/okta_auth_sdk/
-  - from: /code/javascript/okta_auth_sdk_ref/index.html
-    to: https://github.com/okta/okta-auth-js
-  - from: /code/javascript/okta_auth_sdk_external_ref.html
-    to: /code/javascript/okta_auth_sdk_ref/index.html
-  - from: /docs/guides/okta_sign-in_widget.html
-    to: /code/javascript/okta_sign-in_widget/
-  - from: /code/javascript/okta_sign-in_widget_ref.html
-    to: /code/javascript/okta_sign-in_widget/
-  - from: /code/javascript/okta_sign-in_widget_ref/index.html
-    to: /code/javascript/okta_sign-in_widget/
-  - from: /code/javascript/okta_sign-in_widget_external_ref.html
-    to: /code/javascript/okta_sign-in_widget/
   - from: /docs/reference/api/okta_signin_widget.html
-    to: /code/javascript/okta_sign-in_widget_ref/index.html
-  - from: /docs/examples/pysaml2.html
-    to: /code/python/pysaml2/index.html
-  - from: /docs/guides/pysaml2.html
-    to: /code/python/pysaml2/index.html
-  - from: /code/python/sdk/index.html
-    to: https://github.com/okta/okta-sdk-python
+    to: /docs/guides/embedded-siw/
   - from: /docs/getting_started/api_test_client.html
     to: /docs/reference/rest/index.html
   - from: /docs/api/getting_started/api_test_client.html
@@ -1403,12 +1359,6 @@ redirects:
     to: /docs/reference/api/factor-admin/
   - from: /guides/validate-id-tokens/index.html
     to: /docs/guides/validate-id-tokens/
-  - from: /code
-    to: /docs/
-  - from: /code.html
-    to: /docs/
-  - from: /code/swift
-    to: /code/swift/
   - from: /docs/api/getting_started
     to: /docs/api/getting_started/
   - from: /docs/api/reference
@@ -1717,18 +1667,10 @@ redirects:
     to: /docs/guides/implement-grant-type/clientcreds/main/
   - from: /docs/sdk/opp/javadoc/index.html
     to: /okta-sdk-java/
-  - from: /code/react/okta_react.html
-    to: /code/react/okta_react/
-  - from: /code/javascript/okta_auth_sdk.html
-    to: /code/javascript/okta_auth_sdk/
-  - from: /code/javascript/okta_sign-in_widget.html
-    to: /code/javascript/okta_sign-in_widget/
   - from: /docs/change-log.html
     to: /docs/release-notes/
   - from: /docs/change-log
     to: /docs/release-notes/
-  - from: /code/javascript/oauth-clients
-    to: /docs/
   - from: /docs/guides/byo_saml/index.html
     to: /docs/guides/sign-your-own-saml-csr/
   - from: /docs/guides/byo-saml/overview/index.html
@@ -2147,12 +2089,6 @@ redirects:
     to: /docs/reference/rest/
   - from: /docs/rest/index.html
     to: /docs/reference/rest/
-  - from: /code/rest/index.html
-    to: /docs/reference/rest/
-  - from: /code/rest
-    to: /docs/reference/rest/
-  - from: /docs/code/python/pysaml2.html
-    to: /code/python/pysaml2/
   - from: /integrate-with-okta/index.html
     to: /docs/guides/okta-integration-network/
   - from: /integrate-with-okta
@@ -2303,8 +2239,6 @@ redirects:
     to: /docs/reference/api/system-log/
   - from: /docs/reference/api/systemlog/index.html
     to: /docs/reference/api/system-log/
-  - from: /docs/code/java/spring_security_saml.html
-    to: /code/java/spring_security_saml/index.html
   - from: /docs/guides/password-import-hook/-/next-steps/index.html
     to: /docs/guides/password-import-inline-hook/nodejs/main/#test-your-hook
   - from: /docs/reference/api/oie-policy-types/index.html
@@ -4751,10 +4685,6 @@ redirects:
     to: /docs/guides/deployment-checklist/
   - from: /docs/guides/production-deployment/deployment-checklist/index.html
     to: /docs/guides/deployment-checklist/
-  - from: /code/oie/
-    to: /code/
-  - from: /code/oie/index.html
-    to: /code/
   - from: /docs/concepts/authentication/
     to: /docs/guides/sign-in-overview/
   - from: /docs/concepts/authentication/index.html
@@ -5491,38 +5421,6 @@ redirects:
     to: /docs/guides/quickstart/
   - from: /docs/guides/quickstart/cli/main/index.html/#next-steps
     to: /docs/guides/quickstart/
-  - from: /code/angular/okta_angular_sign-in_widget/index.html
-    to: /docs/guides/sign-in-to-spa-embedded-widget/angular/main/
-  - from: /code/angular/okta_angular_sign-in_widget
-    to: /docs/guides/sign-in-to-spa-embedded-widget/angular/main/
-  - from: /code/angular/okta_angular_auth_js/index.html
-    to: /docs/guides/sign-in-to-spa-embedded-widget/angular/main/
-  - from: /code/angular/okta_angular_auth_js
-    to: /docs/guides/archive-sign-in-to-spa-authjs/angular/main/
-  - from: /code/javascript/okta_sign-in_widget/index.html
-    to: /docs/guides/embedded-siw
-  - from: /code/javascript/okta_sign-in_widget
-    to: /docs/guides/embedded-siw
-  - from: /code/javascript/okta_auth_sdk/index.html
-    to: /docs/guides/auth-js
-  - from: /code/javascript/okta_auth_sdk
-    to: /docs/guides/auth-js
-  - from: /code/react/okta_react_sign-in_widget/index.html
-    to: /docs/guides/sign-in-to-spa-embedded-widget/react/main/
-  - from: /code/react/okta_react_sign-in_widget
-    to: /docs/guides/sign-in-to-spa-embedded-widget/react/main/
-  - from: /code/react/okta_react/index.html
-    to: /docs/guides/sign-in-to-spa-authjs/react/main/
-  - from: /code/react/okta_react
-    to: /docs/guides/sign-in-to-spa-authjs/react/main/
-  - from: /code/vue/okta_vue_sign-in_widget/index.html
-    to: /docs/guides/sign-in-to-spa-embedded-widget/vue/main
-  - from: /code/vue/okta_vue_sign-in_widget
-    to: /docs/guides/sign-in-to-spa-embedded-widget/vue/main
-  - from: /code/vue/okta_vue/index.html
-    to: /docs/guides/sign-in-to-spa-authjs/vue/main/
-  - from: /code/vue/okta_vue
-    to: /docs/guides/sign-in-to-spa-authjs/vue/main/
   - from: /docs/guides/oie-intro
     to: /docs/concepts/oie-intro/
   - from: /docs/guides/oie-intro/index.html
@@ -5555,3 +5453,175 @@ redirects:
     to: https://github.com/okta/okta-sdk-dotnet
   - from: /docs/guides/sign-into-mobile-app-redirect/react-native/main/index.html
     to: /docs/guides/sampleapp-oie-redirectauth/reactnativedroid/main/
+  - from: /code.html
+    to: /code/
+  - from: /code/android/
+    to: /code/
+  - from: /code/android/index.html
+    to: /code/
+  - from: /code/angular/
+    to: /code/
+  - from: /code/angular/index.html
+    to: /code/
+  - from: /code/angular/okta_angular_auth_js
+    to: /docs/guides/sign-in-to-spa-authjs/angular/main/
+  - from: /code/angular/okta_angular_auth_js/index.html
+    to: /docs/guides/sign-in-to-spa-authjs/angular/main/
+  - from: /code/angular/okta_angular_sign-in_widget
+    to: /docs/guides/sign-in-to-spa-embedded-widget/angular/main/
+  - from: /code/angular/okta_angular_sign-in_widget/index.html
+    to: /docs/guides/sign-in-to-spa-embedded-widget/angular/main/
+  - from: /code/dotnet/
+    to: /code/
+  - from: /code/dotnet/index.html
+    to: /code/
+  - from: /code/dotnet/aspnet/
+    to: /code/
+  - from: /code/dotnet/aspnet//index.html
+    to: /code/
+  - from: /code/dotnet/aspnetcore/
+    to: /code/
+  - from: /code/dotnet/aspnetcore/index.html
+    to: /code/
+  - from: /code/dotnet/blazor/
+    to: /code/
+  - from: /code/dotnet/blazor/index.html
+    to: /code/
+  - from: /code/dotnet/okta-oauth-aspnet-codeflow
+    to: /code/
+  - from: /code/dotnet/okta-oauth-spa-authjs-osw
+    to: /code/
+  - from: /code/dotnet/okta-oidc-spa-osw-aspnet
+    to: /code/
+  - from: /code/dotnet/sample_application/
+    to: /code/
+  - from: /code/dotnet/sample_application/index.html
+    to: /code/
+  - from: /code/dotnet/sdk/
+    to: /code/
+  - from: /code/dotnet/sdk/index.html
+    to: /code/
+  - from: /code/go/
+    to: /code/
+  - from: /code/go/index.html
+    to: /code/
+  - from: /code/ios/
+    to: /code/
+  - from: /code/ios/index.html
+    to: /code/
+  - from: /code/ios/quickstart-appauth-swift/
+    to: /code/
+  - from: /code/ios/quickstart-appauth-swift/index.html
+    to: /code/
+  - from: /code/java/
+    to: /code/
+  - from: /code/java/index.html
+    to: /code/
+  - from: /code/java/spring/
+    to: /code/
+  - from: /code/java/spring/index.html
+    to: /code/
+  - from: /code/java/jwt-validation/
+    to: /code/
+  - from: /code/java/jwt-validation/index.html
+    to: /code/
+  - from: /code/javascript/
+    to: /code/
+  - from: /code/javascript/index.html
+    to: /code/
+  - from: /code/javascript/oauth-clients
+    to: /code/
+  - from: /code/javascript/okta_auth_sdk
+    to: /docs/guides/auth-js
+  - from: /code/javascript/okta_auth_sdk.html
+    to: /docs/guides/auth-js
+  - from: /code/javascript/okta_auth_sdk/index.html
+    to: /docs/guides/auth-js
+  - from: /code/javascript/okta_auth_sdk_external_ref.html
+    to: https://github.com/okta/okta-auth-js/
+  - from: /code/javascript/okta_auth_sdk_ref/index.html
+    to: /code/
+  - from: /code/javascript/okta_auth_sdk_ref/
+    to: /code/
+  - from: /code/javascript/okta_sign-in_widget
+    to: /docs/guides/embedded-siw
+  - from: /code/javascript/okta_sign-in_widget.html
+    to: /docs/guides/embedded-siw
+  - from: /code/javascript/okta_sign-in_widget/index.html
+    to: /docs/guides/embedded-siw
+  - from: /code/javascript/okta_sign-in_widget_external_ref.html
+    to: /docs/guides/embedded-siw
+  - from: /code/javascript/okta_sign-in_widget_ref.html
+    to: /docs/guides/embedded-siw
+  - from: /code/javascript/okta_sign-in_widget_ref/index.html
+    to: /docs/guides/embedded-siw
+  - from: /code/nodejs/
+    to: /code/
+  - from: /code/nodejs/index.html
+    to: /code/
+  - from: /code/oie/
+    to: /code/
+  - from: /code/oie/index.html
+    to: /code/
+  - from: /code/python/
+    to: /code/
+  - from: /code/python/index.html
+    to: /code/
+  - from: /code/python/sdk/
+    to: /code/
+  - from: /code/python/sdk/index.html
+    to: /code/
+  - from: /code/react/okta_react
+    to: /docs/guides/sign-in-to-spa-authjs/react/main/
+  - from: /code/react/okta_react.html
+    to: /docs/guides/sign-in-to-spa-authjs/react/main/
+  - from: /code/react/okta_react/index.html
+    to: /docs/guides/sign-in-to-spa-authjs/react/main/
+  - from: /code/react/okta_react_sign-in_widget
+    to: /docs/guides/sign-in-to-spa-embedded-widget/react/main/
+  - from: /code/react/okta_react_sign-in_widget/index.html
+    to: /docs/guides/sign-in-to-spa-embedded-widget/react/main/
+  - from: /code/react-native/
+    to: /code/
+  - from: /code/react-native/index.html
+    to: /code/
+  - from: /code/rest
+    to: /docs/reference/rest/
+  - from: /code/rest/index.html
+    to: /docs/reference/rest/
+  - from: /code/swift
+    to: /code/
+  - from: /code/swift/index.html
+    to: /code/
+  - from: /code/vue
+    to: /code/
+  - from: /code/vue/index.html
+    to: /code/
+  - from: /code/vue/okta_vue
+    to: /docs/guides/sign-in-to-spa-authjs/vue/main/
+  - from: /code/vue/okta_vue/index.html
+    to: /docs/guides/sign-in-to-spa-authjs/vue/main/
+  - from: /code/vue/okta_vue_sign-in_widget
+    to: /docs/guides/sign-in-to-spa-embedded-widget/vue/main
+  - from: /code/vue/okta_vue_sign-in_widget/index.html
+    to: /docs/guides/sign-in-to-spa-embedded-widget/vue/main
+  - from: /docs/code/java/spring_security_saml.html
+    to: /code/java/spring_security_saml/index.html
+  - from: /docs/code/python/pysaml2.html
+    to: /code/python/pysaml2/
+  - from: /docs/examples/dotnet_sample_application.html
+    to: /code/
+  - from: /docs/examples/pysaml2.html
+    to: /code/python/pysaml2/
+  - from: /docs/examples/spring_security_saml.html
+    to: /code/java/spring_security_saml/
+  - from: /docs/guides/okta_auth_sdk
+    to: /docs/guides/auth-js
+  - from: /docs/guides/okta_auth_sdk.html
+    to: /docs/guides/auth-js
+  - from: /docs/guides/okta_sign-in_widget.html
+    to: /docs/guides/embedded-siw
+  - from: /docs/guides/pysaml2.html
+    to: /code/python/pysaml2/
+  - from: /docs/guides/spring_security_saml.html
+    to: /code/java/spring_security_saml/
