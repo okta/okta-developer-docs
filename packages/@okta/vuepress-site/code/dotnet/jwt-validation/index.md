@@ -1,7 +1,7 @@
 ---
 title: JWT Validation Guide
 language: .NET
-excerpt: 'How to manually validate Okta JWTs with .NET (C#).'
+excerpt: Manually validate Okta JWTs with .NET (C#).
 icon: code-dotnet
 ---
 

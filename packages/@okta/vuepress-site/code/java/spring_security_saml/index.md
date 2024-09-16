@@ -2,12 +2,14 @@
 title: Spring Security SAML
 language: Java
 icon: code-spring
-excerpt: >-
-  Guidance on how to SAML-enable your application using open source Spring
-  Security library.
+excerpt: SAML-enable your application using the open source Spring Security library.
 ---
 
 This guide describes how to use Spring Security SAML to add support for Okta to Java applications that use Spring Boot.
+
+<ApiLifecycle access="deprecated" />
+
+> **Note:** We strongly recommend that you use OpenID Connect rather than SAML. See [What's the difference between OAuth, OpenID Connect, and SAML](https://www.okta.com/identity-101/whats-the-difference-between-oauth-openid-connect-and-saml/).
 
 ---
 

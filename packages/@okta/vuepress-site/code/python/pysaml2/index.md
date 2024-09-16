@@ -2,9 +2,10 @@
 title: SAML-enable your Python application
 language: Python
 icon: code-python
-excerpt: >-
-  Guidance on how to SAML-enable your Python application using open source PySAML2.
+excerpt: SAML-enable your Python application using open source PySAML2.
 ---
+
+<ApiLifecycle access="deprecated" />
 
 > **Note:** This guide works only with Python 2, a version of Python that is no longer supported. We strongly recommend that you use OpenID Connect rather than SAML. See [What's the difference between OAuth, OpenID Connect, and SAML](https://www.okta.com/identity-101/whats-the-difference-between-oauth-openid-connect-and-saml/).
 
