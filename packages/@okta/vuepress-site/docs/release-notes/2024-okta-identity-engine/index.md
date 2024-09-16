@@ -61,11 +61,11 @@ See [Event types](/docs/reference/api/event-types/).
 
 #### New User Risk API is GA in Production
 
-The new User Risk API<!--(https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserRisk/#tag/UserRisk)--> enables you to manage and view a user's risk level using an API. Previously, you could only elevate a user’s risk level using the Admin Console. <!-- OKTA-736701 -->
+The new [User Risk API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserRisk/#tag/UserRisk) enables you to manage and view a user's risk level using an API. Previously, you could only elevate a user’s risk level using the Admin Console. <!-- OKTA-736701 -->
 
 #### Okta Personal Settings API is GA in Preview
 
-The Okta Personal Settings API<!--(https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OktaPersonalSettings/)--> allows you to manage [Okta Personal](https://www.okta.com/products/okta-personal/workforce/) admin settings.
+The [Okta Personal Settings API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OktaPersonalSettings/) allows you to manage [Okta Personal](https://www.okta.com/products/okta-personal/workforce/) admin settings.
 
 Okta Personal for Workforce is a free account that helps users separate their work apps from non-work apps. Okta Personal makes it easy for users to switch between their personal and work accounts, and to migrate their personal apps from an existing Okta enterprise tenant. When you enable Okta Personal for Workforce in your org, users receive a notification that encourages them to use Okta Personal for personal apps and Okta enterprise for work apps. See [Okta Personal for Workforce user experience](https://help.okta.com/oie/en-us/content/topics/okta-personal/okta-personal-for-workforce/user-experience.htm). <!--OKTA-794131-->
 
