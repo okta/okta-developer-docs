@@ -436,7 +436,7 @@
                     class="signup__form__button"
                     @click="openTermsConditionsDialog(uris.github)"
                   >
-                    <i class="fa fa-github" /> Continue with GitHub
+                  <!--  <i class="fa fa-github" /> Continue with GitHub
                   </button>
                   <button
                     id="continue-google"
@@ -449,7 +449,7 @@
                     v-if="isShowTermsConditionsDialog"
                     :social-url="socialUrl"
                     @close="closeTermsConditionsDialog()"
-                  />
+                  /> -->
                 </div>
               </form>
             </div>
