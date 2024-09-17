@@ -1,7 +1,8 @@
 ---
 title: Hooks best practices guide
-excerpt: >-
-  Understand the best practices to implement and secure Okta event hooks or inline hooks.
+meta:
+  - name: A guide on best practices when implementing Okta Hooks
+    content: A guide on best practices when implementing Okta Hooks
 ---
 
 # Hooks best practices

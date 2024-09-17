@@ -809,7 +809,7 @@ export const guides = [
           },
           {
             title: "Hooks best practices",
-            guideName: "hooks-best-practices",
+            path: "/docs/guides/hooks-best-practices/",
           },
           {
             title: "Event hook",
