@@ -787,6 +787,10 @@ export const guides = [
             guideName: "terraform-manage-external-authenticators",
           },
           {
+            title: "Manage device connection requirements",
+            guideName: "terraform-configure-device-signin-standards"
+          },
+          {
             title: "Customize end-user experience",
             guideName: "terraform-manage-end-user-experience",
           },
@@ -797,6 +801,14 @@ export const guides = [
           {
             title: "Optimize Terraform access",
           guideName: "terraform-design-rate-limits"
+          },
+          {
+            title: "Organize your configuration",
+            guideName: "terraform-organize-configuration"
+          },
+          {
+            title: "Terraform syntax tips",
+            guideName: "terraform-syntax-tips"
           },
         ],
       },
