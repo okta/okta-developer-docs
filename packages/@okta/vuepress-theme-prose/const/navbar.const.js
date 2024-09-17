@@ -1128,11 +1128,7 @@ export const reference = [
                         path: "/docs/reference/import-hook/",
                      },
                   ],
-               },
-               {
-                  title: "Hooks best practices",
-                  path: "/docs/reference/hooks-best-practices/",
-               },
+               }
             ],
          },
          {

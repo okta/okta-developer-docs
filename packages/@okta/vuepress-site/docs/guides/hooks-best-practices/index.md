@@ -5,8 +5,6 @@ meta:
     content: A guide on best practices when implementing Okta Hooks
 ---
 
-# Hooks best practices
-
 Event hooks and inline hooks are outbound calls from Okta to an external service. These outbound calls integrate custom functionality into your Okta processes. See [event hooks](/docs/concepts/event-hooks) and [inline hooks](/docs/concepts/inline-hooks).
 
 The following sections review best practices to implement and secure Okta event hooks or inline hooks.
