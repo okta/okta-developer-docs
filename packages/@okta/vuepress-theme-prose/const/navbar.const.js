@@ -670,10 +670,6 @@ export const guides = [
                 title: "OIN Manager: Submit an LCM integration",
                 guideName: "submit-app",
               },
-              {
-                title: "OIN Manager: Submit an SSO integration (to remove) ",
-                guideName: "submit-sso-app",
-              },
             ]
           },
         ],
