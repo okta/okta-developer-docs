@@ -15,7 +15,7 @@ To prevent a malicious actor from making requests to the endpoint where your Okt
 
 * Configure Okta to send an authentication header in the hook and validate it in every request by one of two ways:
 
-  * Using [HTTP Basic Authentication](/books/api-security/authn/api-authentication-options/#http-basic-authentication). When activating and enabling your hooks on the Okta org, set the **Authorization field** as `Authorization` and the **Authentication secret** in the Base64-encoded `user:password` format.
+  * Using [HTTP Basic Authentication](/books/api-security/authn/api-authentication-options/#http-basic-authentication). When activating and enabling hooks in an org, set the **Authorization field** to `Authorization`, and ensure that the **Authentication secret** is in the Base64-encoded `user:password` format.
 
     >**Note:** You must include the authentication scheme as part of the **Authentication secret**. For Basic Authentication, your secret must appear similar to: `Basic Base64(user:password)`. See the following partial hook header as an example:
 
