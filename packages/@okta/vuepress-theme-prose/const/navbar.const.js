@@ -791,6 +791,10 @@ export const guides = [
             guideName: "terraform-configure-device-signin-standards"
           },
           {
+            title: "Manage authorization servers",
+            guideName: "terraform-create-custom-auth-server"
+          },
+          {
             title: "Customize end-user experience",
             guideName: "terraform-manage-end-user-experience",
           },
