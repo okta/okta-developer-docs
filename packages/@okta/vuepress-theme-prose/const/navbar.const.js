@@ -808,6 +808,10 @@ export const guides = [
             guideName: "common-hook-set-up-steps",
           },
           {
+            title: "Hooks best practices",
+            guideName: "hooks-best-practices",
+          },
+          {
             title: "Event hook",
             guideName: "event-hook-implementation",
           },

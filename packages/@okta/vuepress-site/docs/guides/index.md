@@ -44,6 +44,7 @@ guides:
  - event-hook-ngrok
  - find-your-app-credentials
  - find-your-domain
+ - hooks-best-practices
  - password-import-inline-hook
  - implement-oauth-for-okta
  - implement-oauth-for-okta-serviceapp
