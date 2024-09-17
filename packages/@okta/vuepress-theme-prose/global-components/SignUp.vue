@@ -429,7 +429,7 @@
                   </label>
                   <div class="signup__form__splitter">
                     <!-- or-->
-                   </div>
+                  </div>
                   <span>Already signed up? <a href="/login">Log in here.</a></span>
                   <!--<button
                     id="continue-github"
