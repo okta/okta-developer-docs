@@ -38,7 +38,7 @@ To prevent a malicious actor from making requests to the endpoint where your Okt
 
 ## Protect your hook content from external viewers
 
-Okta requires HTTPS to encrypt communications to your hook endpoint. This requirement prevents unauthorized parties from reading the contents of an Okta hook. When using HTTPS, ensure you keep your SSL certificate updated and the Domain Name System (DNS) secured, so that someone can’t reroute your calls to another location.
+Okta requires HTTPS to encrypt communications to your hook endpoint. This requirement prevents unauthorized parties from reading the contents of a hook. When using HTTPS, ensure you keep your SSL certificate updated and the Domain Name System (DNS) secured, so that someone can’t reroute your calls to another location.
 
 >**Note:** Adding an HTTP URL when enabling a hook in the Admin Console displays an invalid URL provided error.
 
