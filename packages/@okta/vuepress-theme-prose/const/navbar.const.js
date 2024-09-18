@@ -820,6 +820,10 @@ export const guides = [
             guideName: "common-hook-set-up-steps",
           },
           {
+            title: "Hooks best practices",
+            path: "/docs/guides/hooks-best-practices/",
+          },
+          {
             title: "Event hook",
             guideName: "event-hook-implementation",
           },
@@ -1136,11 +1140,7 @@ export const reference = [
                         path: "/docs/reference/import-hook/",
                      },
                   ],
-               },
-               {
-                  title: "Hooks best practices",
-                  path: "/docs/reference/hooks-best-practices/",
-               },
+               }
             ],
          },
          {

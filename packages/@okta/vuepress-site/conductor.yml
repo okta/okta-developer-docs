@@ -5553,5 +5553,9 @@ redirects:
     to: https://github.com/okta/okta-sdk-dotnet
   - from: /okta-sdk-dotnet
     to: https://github.com/okta/okta-sdk-dotnet
+  - from: /docs/reference/hooks-best-practices/index.html
+    to: /docs/guides/hooks-best-practices/
+  - from: /docs/reference/hooks-best-practices/
+    to: /docs/guides/hooks-best-practices/
   - from: /docs/guides/sign-into-mobile-app-redirect/react-native/main/index.html
     to: /docs/guides/sampleapp-oie-redirectauth/reactnativedroid/main/

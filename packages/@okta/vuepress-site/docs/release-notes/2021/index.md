@@ -144,7 +144,7 @@ Custom [error page templates](/docs/guides/custom-error-pages/main/#use-macros/)
 
 #### Event hooks daily limit
 
-The maximum allowable daily limit of event hooks for all orgs has increased from 100,000 to 200,000. A higher daily allocation of event hooks reduces the likelihood that orgs will exceed their daily limits. See [Limits, duplicates, and order of Hook calls](/docs/reference/hooks-best-practices/#limits-duplicates-and-order-of-hook-calls).<!--OKTA-441433-->
+The maximum allowable daily limit of event hooks for all orgs has increased from 100,000 to 200,000. A higher daily allocation of event hooks reduces the likelihood that orgs will exceed their daily limits. See [Limits, duplicates, and order of Hook calls](/docs/guides/hooks-best-practices/#limits-duplicates-and-order-of-hook-calls).<!--OKTA-441433-->
 
 #### Device Authorization grant type is now GA in Preview
 
