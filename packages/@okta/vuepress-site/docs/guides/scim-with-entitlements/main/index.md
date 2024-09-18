@@ -6,7 +6,7 @@ meta:
 layout: Guides
 ---
 
-This guide teaches you how to create a SCIM 2.0 server that supports provisioning entitlements to an app integration in Okta.
+This guide teaches you how to create a System for Cross-domain Identity Management (SCIM) 2.0 server that supports provisioning entitlements to an app integration.
 
 ---
 
@@ -17,8 +17,9 @@ This guide teaches you how to create a SCIM 2.0 server that supports provisionin
 
 #### What you need
 
-* [Okta Developer Edition organization](https://developer.okta.com/signup).
-* Some basic development experience with the System for Cross-domain Identity Management (SCIM) [core schema](https://datatracker.ietf.org/doc/html/rfc7643) and [protocol](https://datatracker.ietf.org/doc/html/rfc7644)
+* [Okta Developer Edition organization](https://developer.okta.com/signup)
+* Some basic development experience with the SCIM [core schema](https://datatracker.ietf.org/doc/html/rfc7643) and [protocol](https://datatracker.ietf.org/doc/html/rfc7644)
+* [Okta Identity Governance](https://help.okta.com/okta_help.htm?type=oie&id=ext-iga) in order to use [entitlements](https://help.okta.com/okta_help.htm?type=oie&id=ext-entitlement-mgt)
 
 ---
 
@@ -106,11 +107,11 @@ The `urn:okta:scim:schemas:core:1.0:Entitlement` schema contains the following i
 |Parameter | Type | Description | Notes |
 |---|---|---|---|
 | `id` | String | The ID of the entitlement | Required |
-| `displayName` | String | The display name in the UI for the entitlement | Required|
+| `displayName` | String | The name displayed in the UI for the entitlement | Required|
 | `type` | String | Corresponds with the `ResourceType` name field for the entitlement, such as "License" or "Permission set" | Required |
-| `description` | String | A description for readability of the entitlement. Appears in the Governance tab. | Optional, max length 1000 characters |
+| `description` | String | A human-readable description of the entitlement. This appears in the Governance tab. | Optional, max length 1000 characters |
 
-See [Custom entitelement with extensions](#custom-entitlement-with-extensions) for an example schema.
+See [Custom entitlement with extensions](#custom-entitlement-with-extensions) for an example schema.
 
 #### Roles schema
 
@@ -119,8 +120,8 @@ The `urn:okta:scim:schemas:core:1.0:Entitlement` schema contains the following i
 |Parameter | Type | Description | Notes |
 |---|---|---|---|
 | `id` | String | The ID of the role | Required |
-| `displayName` | String | The display name in the UI for the role | Required|
-| `description` | String | A description for readability of the entitlement. Appears in the Governance tab. | Optional, max length 1000 characters |
+| `displayName` | String | The name displayed in the UI for the role | Required|
+| `description` | String | A human-readable description of the entitlement. This appears in the Governance tab. | Optional, max length 1000 characters |
 
 See [Role example](#role-example) for an example schema.
 
@@ -213,7 +214,7 @@ The following `ResourceTypes` example includes a sample `Role` resource with no 
 
 The following sample demonstrates a schema for an entitlement property schema extension, where a custom profile property is defined for the profile resource type.
 
-> **Note**: `isvname` is used as a placeholder in this schema. To ensure the uniqueness of your URNs and locations, replace it with the name of your org or similar.
+> **Note**: The following schema uses `isvname` as a placeholder. To ensure the uniqueness of your URNs and locations, replace it with the name of your org or similar.
 
 ```JSON
 {
