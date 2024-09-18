@@ -8,6 +8,16 @@ title: Okta Identity Engine API release notes 2024
 
 ## September
 
+### Weekly release 2024.09.1
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Bugs fixed in 2024.09.1](#bugs-fixed-in-2024-09-1)| September 18, 2024 |
+
+#### Bugs fixed in 2024.09.1
+
+* If the Okta account management policy was used, GET calls to the `/idp/myaccount/authenticators/{authenticatorId}/enrollments` endpoint returned incomplete values. (OKTA-794253)
+
 ### Monthly release 2024.09.0
 
 | Change | Expected in Preview Orgs |
