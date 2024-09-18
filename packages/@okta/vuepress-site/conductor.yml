@@ -304,7 +304,7 @@ redirects:
   - from: /use_cases/events-api-deprecation/index.html
     to: /docs/reference/api/system-log/index.html
   - from: /use_cases/inline_hooks/api_am_hook/api_am_hook
-    to: /docs/reference/token-hook/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createTokenInlineHook/
   - from: /use_cases/integrate_with_okta/index.html
     to: https://www.okta.com/integrate/
   - from: /docs/api/getting_started/oan_guidance
@@ -424,7 +424,7 @@ redirects:
   - from: /use_cases/inline_hooks/import_hook/import_hook/index.html
     to: /docs/reference/import-hook/
   - from: /use_cases/inline_hooks/token_hook/token_hook/index.html
-    to: /docs/reference/token-hook/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createTokenInlineHook/
   - from: /use_cases/mfa/index.html
     to: /docs/guides/mfa/
   - from: /use_cases/relationships/index.html
@@ -762,7 +762,7 @@ redirects:
   - from: /use_cases/inline_hooks/import_hook/import_hook
     to: /docs/reference/import-hook/
   - from: /use_cases/inline_hooks/token_hook/token_hook
-    to: /docs/reference/token-hook/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createTokenInlineHook/
   - from: /use_cases/mfa
     to: /docs/guides/mfa/
   - from: /use_cases/relationships
