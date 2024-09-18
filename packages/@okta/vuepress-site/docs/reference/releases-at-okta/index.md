@@ -1,6 +1,9 @@
 ---
 title: Release lifecycle
 ---
+
+The Release lifecycle is now available at the new [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-management/guides/release-lifecycle/).
+
 <!--
 # Release lifecycle
 
