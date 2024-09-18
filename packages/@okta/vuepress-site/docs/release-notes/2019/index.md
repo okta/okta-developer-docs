@@ -287,7 +287,7 @@ The public metadata endpoints for Authorization Servers are now each assigned se
 
 #### Bugs Fixed in 2019.08.3
 
-* The [Update inline hook call](/docs/reference/api/inline-hooks/#update-inline-hook) wasn't replacing the whole object. (OKTA-229337)
+* The [Update inline hook call](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/updateInlineHook) wasn't replacing the whole object. (OKTA-229337)
 
 * IP addresses identified as malicious by Okta ThreatInsight were missing from Events API ("security.threat.detected") event messages. See the [Event Types catalog](/docs/reference/api/event-types/#catalog) for more information on this event message. (OKTA-242795)
 

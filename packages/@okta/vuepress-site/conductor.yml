@@ -472,7 +472,7 @@ redirects:
   - from: /docs/api/resources/idps/index.html
     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/
   - from: /docs/api/resources/inline-hooks/index.html
-    to: /docs/reference/api/inline-hooks/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook
   - from: /docs/api/resources/linked-objects/index.html
     to: /docs/reference/api/linked-objects/
   - from: /docs/api/resources/policy/index.html
@@ -800,7 +800,7 @@ redirects:
   - from: /docs/api/resources/groups
     to: /docs/reference/api/groups/
   - from: /docs/api/resources/inline-hooks
-    to: /docs/reference/api/inline-hooks/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook
   - from: /docs/api/resources/linked-objects
     to: /docs/reference/api/linked-objects/
   - from: /docs/api/resources/policy
