@@ -102,7 +102,7 @@ Set up and verify the event hook within your Admin Console.
 
 9. You can complete the one-time verification Okta call now or verify the event hook later. If you're using the Glitch example, proceed to verification.
 
-> **Note:** You can also set up an event hook using an API. See [Event Hooks Management](/docs/reference/api/event-hooks/#create-event-hook).
+> **Note:** You can also set up an event hook using an API. See [Event Hooks Management](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/EventHook/#tag/EventHook/operation/createEventHook).
 
 ### Verify the event hook
 
