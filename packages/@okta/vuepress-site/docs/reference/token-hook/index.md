@@ -3,11 +3,9 @@ title: Token inline hook reference
 excerpt: Customize tokens returned by the Okta API Access Management process flow.
 ---
 
-# Token inline hook reference
-
 The Token Inline Hook API reference is now available at the new [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createTokenInlineHook).
 
-Explore the [Okta Public API Collections](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/overview) workspace to get started with the Inline Hook API Postman collection.
+Explore the [Okta Public API Collections](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/overview) workspace to get started with the Inline Hook API Postman Collection.
 
 <!--
 This page provides reference documentation for token inline hooks, one type of inline hook supported by Okta. It provides sample JSON objects that are contained in the outbound request from Okta to your external service, and sample JSON objects that you can include in your response.
