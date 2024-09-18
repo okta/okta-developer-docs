@@ -22,13 +22,13 @@ Configure single sign-on and control resource permissions for an OAuth app.
 
 * An Okta org and pricing plan that includes support for authorization servers. [Okta's Developer Edition](https://developer.okta.com/signup/) does not include [API Access Management](/docs/concepts/api-access-management/), which is required to use custom authorization servers.
 
-* An Okta app that’s configured to access Terraform. See [Enabling your organization for Terraform access](/docs/guides/terraform-enable-org-access/main).
+* A [Terraform configuration](/docs/guides/terraform-enable-org-access/main) that can access your Okta org.
 
 * Admin permissions that enable you to add a scope to your org.
 
-* Understand your OAuth app’s needs for proving identity and resource access.
+* Understand your OAuth app's needs for proving identity and resource access.
 
-* Familiarity with concepts and terminology of OAuth and OIDC, such as audience, scopes, claims, and grants. See the [introduction article to OAuth and OIDC](/docs/concepts/oauth-openid/).
+* Familiarity with concepts and terminology of OAuth and OIDC, such as audience, scopes, claims, and grants. See [OAuth 2.0 and OpenID Connect overview](/docs/concepts/oauth-openid/).
 
 ---
 
@@ -40,7 +40,7 @@ OAuth 2.0 and OpenID Connect (OIDC) are the industry standard user authenticatio
 
 You can implement single sign-on (SSO) with Okta for OIDC apps to secure your APIs and provide user authorization for web services. This article describes how to create a custom authorization server to issue an OAuth identity token, an OAuth resource access token, or both types of tokens.
 
-This article focuses on the most common use case: the Authorization Code flow with optional support for [Proof Key for Code Exchange](https://oauth.net/2/pkce/) (PKCE). If the request includes the PKCE challenge, no extra PKCE support is required in the configuration.
+This article focuses on the most common use case: the [Authorization Code flow](/docs/concepts/oauth-openid/#authorization-code-flow-with-pkce-flow) with optional support for [Proof Key for Code Exchange](https://oauth.net/2/pkce/) (PKCE). If the request includes the PKCE challenge, no extra PKCE support is required in the configuration.
 
 For related conceptual information, see [Authorization server overview](/docs/concepts/auth-servers/).
 
@@ -48,11 +48,11 @@ For related conceptual information, see [Authorization server overview](/docs/co
 
 There are two types of Okta authorization servers:
 
-* **Org authorization server.** Every Okta org has a built-in authorization server called the org authorization server. The base URL for the org authorization server is `https://{<yourOktaDomain}`. This server provides basic functionality for Single Sign-On (SSO) using OpenID Connect apps or to get an access token that uses the Okta API scopes. You can't customize OAuth audience, claims, policies, or scopes, except [group claims](/docs/guides/customize-tokens-groups-claim/main/#add-a-groups-claim-for-the-org-authorization-server) and [user attributes](https://support.okta.com/help/s/article/How-to-add-custom-attributes-of-user-profile-as-claims-in-token?language=en_US).
+* **Org authorization server.** Every Okta org has a built-in authorization server called the org authorization server. The base URL for the org authorization server is `https://{yourOktaDomain}`. This server provides basic functionality for Single Sign-On (SSO) using OpenID Connect to apps or to get an access token that uses the Okta API scopes. You can't customize OAuth audience, claims, policies, or scopes, except [group claims](/docs/guides/customize-tokens-groups-claim/main/#add-a-groups-claim-for-the-org-authorization-server) and [user attributes](https://support.okta.com/help/s/article/How-to-add-custom-attributes-of-user-profile-as-claims-in-token?language=en_US).
 
 * **Custom authorization server.** Create your own server to support custom OAuth scopes, rules for granting scopes, and customizing the claims and policies.
 
-> **Note:** Okta creates a custom authorization server for every org named `default`. That default custom authorization server is **not** the org authorization server. Although it’s possible to manage the *default custom authorization server* in Terraform using the resource `okta_auth_server_default`, this article focuses on creating a new custom authorization server. A new authorization server addresses a broader range of use cases and encourages complete resource lifecycle management in Terraform.
+> **Note:** Okta creates a custom authorization server for every org named `default`. That default custom authorization server is **not** the org authorization server. Although it's possible to manage the **default custom authorization server** in Terraform using the resource `okta_auth_server_default`, this article focuses on creating a new custom authorization server. A new authorization server addresses a broader range of use cases and encourages complete resource lifecycle management in Terraform.
 
 The first step is to understand the requirements for the custom server. These requirements include:
 
@@ -60,24 +60,11 @@ The first step is to understand the requirements for the custom server. These re
 
 * Custom scopes for custom APIs or other private resources that are accessible by only some users.
 
-* Access to pre-defined Okta API scopes?
+* Access to pre-defined Okta API scopes.
 
-The following table compares the capabilities of the org authorization server and custom authorization servers.
+See [Which authorization server should you use](https://developer.okta.com/docs/concepts/auth-servers/#which-authorization-server-should-you-use) for a comparison of the capabilities of the org authorization server and custom authorization servers.
 
-| Capabilities | Org authorization server | Custom authorization server |
-| ------------ | ------------------------ | --------------------------- |
-| SSO with OpenID Connect | Yes | Yes |
-| Use Okta Developer SDKs & Widgets for SSO | Yes | Yes |
-| Retrieve the user profile in an identity token | Yes | Yes |
-| Apply authorization policies to custom APIs | – | Yes |
-| Add custom group or user attribute claims to tokens | – | Yes |
-| Add custom scopes or claims to tokens | – | Yes |
-| Integrate with an API Gateway | – | Yes |
-| Machine-to-machine or microservices | – | Yes |
-| Mint resource access tokens with the pre-defined Okta API scopes | Yes | – |
-
-
-Because the default org auth server is not configurable, the Okta Terraform provider supports only custom authorization servers.
+The Okta Terraform provider only supports custom authorization servers because the org authorization server is not configurable.
 
 If you decide to use the org authorization server rather than a custom authorization server, the rest of this article does not apply. Instead, see [OAuth 2.0 and OpenID Connect overview](/docs/concepts/oauth-openid/).
 
@@ -85,15 +72,15 @@ If you decide to use the org authorization server rather than a custom authoriza
 
 To create a custom authorization server, you must create several types of Terraform resources:
 
-* **Okta authorization server:** Mints new OAuth tokens. An authorization server is represented in Terraform by the [okta_auth_server](https://registry.terraform.io/providers/oktadeveloper/okta/latest/docs/resources/auth_server) resource. Create multiple external OIDC apps with different authorization requirements if you have multiple authorization servers.
+* **Okta authorization server:** Mints new OAuth tokens. An authorization server is represented in Terraform by the [okta_auth_server](https://registry.terraform.io/providers/oktadeveloper/okta/latest/docs/resources/auth_server) resource. Create multiple authorization servers if you have multiple external OIDC apps with different authorization requirements.
 
 * **OAuth claim:** One piece of relevant information about the end user who is requesting access. A claim must either be an identity claim (authentication) or a resource access claim (authorization). If you must mint both token types, create two claims with different `claim_type` attributes. A claim is represented in Terraform by the [okta_auth_server_claim](https://registry.terraform.io/providers/okta/okta/latest/docs/resources/auth_server_claim) resource.
 
-* **OAuth scope:** An access permission for a resource or class of resources. For a custom API with different levels of access by the user’s group, create multiple scopes that represent different APIs or levels of access. A scope is represented in Terraform by the [okta_auth_server_scope](https://registry.terraform.io/providers/okta/okta/latest/docs/resources/auth_server_scope) resource. The scopes granted by a custom authorization server may be different from the Terraform integration API service app.
+* **OAuth scope:** An access permission for a resource or class of resources. For a custom API with different levels of access by the user's group, create multiple scopes that represent different APIs or levels of access. A scope is represented in Terraform by the [okta_auth_server_scope](https://registry.terraform.io/providers/okta/okta/latest/docs/resources/auth_server_scope) resource. The scopes granted by a custom authorization server may be different from the Terraform integration Service API app.
 
-* **Okta authorization server policy:** The policies are the rules for minting tokens for one or more Okta apps. Okta recommends that an authorization server include at least one policy. Multiple policies are required if different OIDC apps require different behaviors. A policy is represented in Terraform by the [okta_auth_server_policy](https://registry.terraform.io/providers/okta/okta/latest/docs/resources/auth_server_policy) resource. A policy requires one or more rules.
+* **Okta authorization server policy:** A set of rules for minting tokens for one or more Okta apps. Okta recommends that an authorization server include at least one policy. Multiple policies are required if different OIDC apps require different behaviors. A policy is represented in Terraform by the [okta_auth_server_policy](https://registry.terraform.io/providers/okta/okta/latest/docs/resources/auth_server_policy) resource. A policy requires one or more rules.
 
-* **Okta authorization server policy rules:** Decide when to mint a token based on group membership or other factors. APIs with different access levels include a rule for each unique granted scope. A policy rule is represented in Terraform by the [okta_auth_server_policy_rule](https://registry.terraform.io/providers/okta/okta/latest/docs/resources/auth_server_policy_rule) resource.
+* **Okta authorization server policy rules:** A rule in a policy that describes the criteria for minting a token. Criteria can include group membership and other factors. APIs with different access levels include a rule for each unique granted scope. A policy rule is represented in Terraform by the [okta_auth_server_policy_rule](https://registry.terraform.io/providers/okta/okta/latest/docs/resources/auth_server_policy_rule) resource.
 
 For more information about OAuth claims and scopes, see the [introduction to OAuth article](/docs/concepts/oauth-openid/).
 
@@ -107,7 +94,7 @@ Your Terraform integration app must include the following API scope:
 
 * `okta.authorizationServers.manage`
 
-To grant scopes in the Admin Console and include them in your Terraform code, see the articles on [enabling your API service application for Terraform access](/docs/guides/terraform-enable-org-access/main) and [setting up a typical Okta Terraform configuration](/docs/guides/terraform-organize-configuration/main).
+To grant scopes in the Okta Admin Console and include them in your Terraform code, see the articles on [enabling your API service application for Terraform access](/docs/guides/terraform-enable-org-access/main) and [setting up a typical Okta Terraform configuration](/docs/guides/terraform-organize-configuration/main).
 
 These API scopes differ from the OAuth scopes that your custom authorization server grants.
 
@@ -121,7 +108,7 @@ Follow these steps to create an authorization server and the related objects in 
 
 1. Set its name and description in the `name` and `description` attributes.
 
-1. Set the `audiences` array to the OAuth audience. The audiences identify the intended recipients of the JWT. Each system that intends to process the JWT must identify itself with a value in the audience claim, which must match one element in this array. See the [RFC7519 definition of audience in JWT claims](https://datatracker.ietf.org/doc/html/rfc7519#section-4.1.3).
+1. Set the `audiences` array to the OAuth audience. The audiences identify the intended recipients of the identity and resource tokens. Each system that intends to process the a token must identify itself with a value in the audience claim, which must match one element in this array. See the [RFC7519 definition of audience in JWT claims](https://datatracker.ietf.org/doc/html/rfc7519#section-4.1.3).
 
 1. Set `issuer_mode` to `DYNAMIC` for typical use. The issuer mode specifies the OAuth issuer on tokens based on the domain of the request, including support for custom domains. For more options, see the [provider documentation](https://registry.terraform.io/providers/okta/okta/latest/docs/resources/auth_server).
 
@@ -131,11 +118,11 @@ For example:
 
 ```hcl
 resource "okta_auth_server" "api_server" {
-  audiences   = ["api://api_server.mycompany.com"]
-  description = "My Custom API Auth Server"
-  name        = "api_server"
-  issuer_mode = "DYNAMIC"
-  status      = "ACTIVE"
+  audiences   = ["api://api_server.mycompany.com"]
+  description = "My Custom API Auth Server"
+  name        = "api_server"
+  issuer_mode = "DYNAMIC"
+  status      = "ACTIVE"
 }
 ```
 
@@ -157,18 +144,18 @@ For each claim:
 
 1. Set `claim_type` to the desired claim type. Each claim can mint an identity token (`IDENTITY`) or a resource access token (`RESOURCE`). If you need both, create a claim for each of the different values of this attribute.
 
-    > *Note:* The custom authorization server generates *OAuth refresh tokens*, which request extending the duration of access provided by a previous access token (the token type when the value of `claim_type` is `RESOURCE`). Okta mints the refresh tokens automatically and does not require additional Terraform claim resources. You can configure the timeouts for refresh token timeout values in your policy rules that use this claim.
+    > **Note:** The custom authorization server generates **OAuth refresh tokens**, which request extending the duration of access provided by a previous access token (the token type when the value of `claim_type` is `RESOURCE`). Okta mints the refresh tokens automatically and does not require additional Terraform claim resources. You can configure the timeouts for refresh token timeout values in your policy rules that use this claim.
 
 1. For a resource token, set `scopes` to the array of granted OAuth scopes.
 
 1. Set the `value` to the value that your OAuth app client expects for this claim, which could be dynamic expressions or based on group membership.
 
-    * For a dynamic value from an expression, set the related field `value_type` to `EXPRESSION` (the default). Set `value` to a query string in [Okta Expression Language](/docs/reference/okta-expression-language/) that evaluates to the desired value. For example, this code snippet sets the value to `true` only if the user's email address matches the company’s domain name:
+    * For a dynamic value from an expression, set the related field `value_type` to `EXPRESSION` (the default). Set `value` to a query string in [Okta Expression Language](/docs/reference/okta-expression-language/) that evaluates to the desired value. For example, this code snippet sets the value to `true` only if the user's email address matches the company's domain name:
 
       ``` hcl
-       value_type = "EXPRESSION"
-       value      = "String.substringAfter(user.email, \"@\") ==
-                    \"mycompany.com\""
+       value_type = "EXPRESSION"
+       value      = "String.substringAfter(user.email, \"@\\") ==
+                      \\"mycompany.com\\""
       ```
 
     * To specify a list of user groups in the `value` field, set `value_type` to `GROUPS`. If you specify this value, set the related attribute `group_filter_type` to the type of filtering: the group name starts with this string (`STARTS_WITH`), matches the specified string (`EQUALS`), contains the specified string (`CONTAINS`), a regular expression that matches the group name (`REGEX`). Separate the groups with commas if there is more than one.
@@ -180,27 +167,27 @@ For example:
 ```hcl
 # access token
 resource "okta_auth_server_claim" "example" {
-  auth_server_id = okta_auth_server.api_server.id
-  name           = "staff"
-  value_type     = "EXPRESSION"
-  value          = "String.substringAfter(user.email, \"@\") ==
-                    \"mycompany.com\""
-  scopes         = [
-    okta_auth_server_scope.create_obj.name,
-    okta_auth_server_scope.read_obj.name,
-    okta_auth_server_scope.replace_obj.name,
-  ]
-  claim_type     = "RESOURCE"
+  auth_server_id = okta_auth_server.api_server.id
+  name           = "staff"
+  value_type     = "EXPRESSION"
+  value          = "String.substringAfter(user.email, \"@\") ==
+                    \"mycompany.com\""
+  scopes         = [
+    okta_auth_server_scope.create_obj.name,
+    okta_auth_server_scope.read_obj.name,
+    okta_auth_server_scope.replace_obj.name,
+  ]
+  claim_type     = "RESOURCE"
 }
 
 # identity token
 resource "okta_auth_server_claim" "example2" {
-  auth_server_id = okta_auth_server.api_server.id
-  name           = "staff"
-  value_type     = "EXPRESSION"
-  value          = "String.substringAfter(user.email, \"@\") ==
-                    \"mycompany.com\""
-  claim_type     = "IDENTITY"
+  auth_server_id = okta_auth_server.api_server.id
+  name           = "staff"
+  value_type     = "EXPRESSION"
+  value          = "String.substringAfter(user.email, \"@\") ==
+                    \"mycompany.com\""
+  claim_type     = "IDENTITY"
 }
 ```
 
@@ -216,36 +203,38 @@ For each scope:
 
 1. Set `metadata_publish` to `NO_CLIENTS` to prevent publishing the OIDC scope metadata for clients for this scope to the Okta-hosted [OIDC metadata](https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata) for this authorization server. To publish OIDC scope metadata, set `metadata_publish` to `ALL_CLIENTS`. The URL, the issuer URI with a special suffix, is unique for each authorization provider on the Okta server. If you publish the metadata, the authorization server includes it in the metadata generated for the URI.
 
-1. Set `consent` to `REQUIRED` to require the end user to approve granting the scope. Okta displays a consent dialog to allow the release of information. For example, when you sign in to a third-party app, Okta displays a consent prompt to enable the app access to details such as your email address. If the user chooses to opt-out, authorization fails. To skip the consent dialog, set `consent` to `IMPLICIT`.
+1. Set `consent` to `REQUIRED` to require the end user to approve granting the scope. Okta displays a consent dialog to allow the release of information. For example, when you sign in to a third-party app, Okta displays a consent prompt to enable the app access to details such as your email address. If the user chooses to opt out, authorization fails. To skip the consent dialog, set `consent` to `IMPLICIT`.
 
    Optionally, you can set `display_name` to the name of this scope that's displayed in the consent dialog. Otherwise the value of the `named` field is displayed.
 
 1. Optionally set `default` to `true` to support requests with empty scope lists from the requestor. This adds the scope to an access token when the client omits the scope parameter in a token request. It also requires an authorization server policy rule that permits the behavior.
 
-1. Set `optional` to `false` if this scope is required. Otherwise, set it to `false`. It's unsupported to set both optional and default to `true`, as they are mutually exclusive.
+1. Set `optional` to `false` if this scope is required. Otherwise, set it to `true`.
+
+    > **Tip:** It's unsupported to set both optional and default to `true`, as they are mutually exclusive.
 
 This example creates three scopes for the API operations create, read, and replace:
 
 ```hcl
 resource "okta_auth_server_scope" "create_obj" {
-  auth_server_id = okta_auth_server.api_server.id
-  metadata_publish = "NO_CLIENTS"
-  name             = "apicreate"
-  consent          = "REQUIRED"
+  auth_server_id = okta_auth_server.api_server.id
+  metadata_publish = "NO_CLIENTS"
+  name             = "apicreate"
+  consent          = "REQUIRED"
 }
 
 resource "okta_auth_server_scope" "read_obj" {
-  auth_server_id = okta_auth_server.api_server.id
-  metadata_publish = "NO_CLIENTS"
-  name             = "apiread"
-  consent          = "REQUIRED"
+  auth_server_id = okta_auth_server.api_server.id
+  metadata_publish = "NO_CLIENTS"
+  name             = "apiread"
+  consent          = "REQUIRED"
 }
 
 resource "okta_auth_server_scope" "replace_obj" {
-  auth_server_id = okta_auth_server.api_server.id
-  metadata_publish = "NO_CLIENTS"
-  name             = "apireplace"
-  consent          = "REQUIRED"
+  auth_server_id = okta_auth_server.api_server.id
+  metadata_publish = "NO_CLIENTS"
+  name             = "apireplace"
+  consent          = "REQUIRED"
 }
 ```
 
@@ -273,12 +262,12 @@ For example:
 
 ```hcl
 resource "okta_auth_server_policy" "example" {
-  auth_server_id = okta_auth_server.api_server.id
-  status           = "ACTIVE"
-  name             = "My OIDC App Authorization Policy"
-  description      = "example OIDC App Authorization Policy"
-  priority         = 1
-  client_whitelist = [okta_app_oauth.MyOIDCApp.id]
+  auth_server_id = okta_auth_server.api_server.id
+  status           = "ACTIVE"
+  name             = "My OIDC App Authorization Policy"
+  description      = "example OIDC App Authorization Policy"
+  priority         = 1
+  client_whitelist = [okta_app_oauth.MyOIDCApp.id]
 }
 ```
 
@@ -296,7 +285,7 @@ resource "okta_auth_server_policy" "example" {
 
 1. Set `scope_whitelist` to the list of allowed scopes for this rule's app. Specify them as an array of IDs in the scope resource.
 
-   Optionally, you can pass the special value `["*"]` to grant all custom scopes defined in Terraform resources. Okta recommends using caution, especially if there may be multiple app integrations with different scopes in the future.
+   Optionally, you can pass the special value `["*"]` to grant all custom scopes defined in Terraform resources. Okta recommends using caution, especially if there may be multiple apps with different scopes in the future.
 
 1. Define one or more criteria for granting a requestor the specified scopes. You can set several fields:
 
@@ -313,7 +302,7 @@ resource "okta_auth_server_policy" "example" {
       ["a@b.com", "[c@d.com]"]
       ```
 
-   It’s important to understand how these fields interact. All users are authorized unless you include both `user_whitelist` and `group_whitelist`. Otherwise, users are authorized if they are on the `user_whitelist` or in a group on the `group_whitelist`.
+   It's important to understand how these fields interact. All users are authorized unless you include both `user_whitelist` and `group_whitelist`. Otherwise, users are authorized if they are on the `user_whitelist` or in a group on the `group_whitelist`.
 
    Next, if the user is in an excluded group or the `user_blacklist`, they're excluded because exclusion takes precedence over inclusion. However, if the include group field explicitly includes the `"Everyone"` group, there's a special behavior. The rule applies to all users; adding excluded groups or users is ignored.
 
@@ -338,40 +327,40 @@ The following example adds two rules. The first rule grants all claim scopes (pl
 ```hcl
 # For users in group writable_permissions_api, grant ALL scopes
 resource "okta_auth_server_policy_rule"
-    "rule_for_staff_with_writable_permissions" {
-  auth_server_id       = okta_auth_server.api_server.id
-  policy_id            = okta_auth_server_policy.example.id
-  status               = "ACTIVE"
-  name                 = "rule_for_staff_with_writable_permissions"
-  priority             = 1
-  group_whitelist      = [ okta_group.writable_permissions_api.id ]
-  grant_type_whitelist = ["authorization_code"]
-  scope_whitelist      = ["*"]
+    "rule_for_staff_with_writable_permissions" {
+  auth_server_id       = okta_auth_server.api_server.id
+  policy_id            = okta_auth_server_policy.example.id
+  status               = "ACTIVE"
+  name                 = "rule_for_staff_with_writable_permissions"
+  priority             = 1
+  group_whitelist      = [ okta_group.writable_permissions_api.id ]
+  grant_type_whitelist = ["authorization_code"]
+  scope_whitelist      = ["*"]
 }
 
 # For users in group readonly_permissions_api, grant ONLY the readapi scope
 resource "okta_auth_server_policy_rule"
-    "rule_for_staff_with_readonly_permissions" {
-  auth_server_id = okta_auth_server.api_server.id
-  policy_id            = okta_auth_server_policy.example.id
-  status               = "ACTIVE"
-  name                 = "rule_for_staff_with_readonly_permissions"
-  priority             = 2
-  group_whitelist      = [ okta_group.readonly_permissions_api.id ]
-  grant_type_whitelist = ["authorization_code"]
-  scope_whitelist      = [ okta_auth_server_scope.read_obj.name , "openid"]
-  depends_on = [
-    okta_auth_server_policy_rule.rule_for_staff_with_writable_permissions ]
+    "rule_for_staff_with_readonly_permissions" {
+  auth_server_id = okta_auth_server.api_server.id
+  policy_id            = okta_auth_server_policy.example.id
+  status               = "ACTIVE"
+  name                 = "rule_for_staff_with_readonly_permissions"
+  priority             = 2
+  group_whitelist      = [ okta_group.readonly_permissions_api.id ]
+  grant_type_whitelist = ["authorization_code"]
+  scope_whitelist      = [ okta_auth_server_scope.read_obj.name , "openid"]
+  depends_on = [
+    okta_auth_server_policy_rule.rule_for_staff_with_writable_permissions ]
 }
 ```
 
-Because there’s more than one rule, all rules with a `priority` greater than `1` must declare explicit creation order with the `depends_on` meta attribute. See [link to the new syntax article, ideally the heading]
+Because there's more than one rule, all rules with a `priority` greater than `1` must declare explicit creation order with the `depends_on` meta attribute. See [link to the new syntax article, ideally the heading]
 
 ### Help an external OAuth app validate the token issuer
 
 For a production system, it is a best practice for an external app that receives the token to confirm that the right issuer issued the token.
 
-There are multiple ways that external apps can verify that Okta minted tokens:
+There are multiple ways that external apps can verify that Okta minted the tokens:
 
 * Use the Okta REST API to call the [authorization server introspect operation](/docs/reference/api/oidc/#introspect). The request takes an access token, ID token, refresh token, or device secret and returns a boolean that indicates whether the token is active.
 
@@ -381,7 +370,7 @@ There are multiple ways that external apps can verify that Okta minted tokens:
 
 Test your external app with your new authorization server. For initial testing, you can use Okta sample code to implement OAuth. See the [sample page](/docs/guides/sampleapp-oie-redirectauth/go/main/) and choose the platform from the selector in the upper right.
 
-The Okta configuration has no extra steps to support the OAuth Authorization Code flow with [Proof Key for Code Exchange](https://oauth.net/2/pkce/) (PKCE). Okta handles PKCE automatically if the OAuth request includes the challenge. However, you must properly configure your external OAuth app to add the challenge field in the authorization request and validate it in the response.
+The Okta configuration has no extra steps to support the OAuth Authorization Code flow with [Proof Key for Code Exchange](/docs/concepts/oauth-openid/#authorization-code-flow-with-pkce-flow) (PKCE). Okta handles PKCE automatically if the OAuth request includes the challenge. However, you must properly configure your external OAuth app to add the challenge field in the authorization request and validate it in the response.
 
 Be sure to set the issuer correctly in the request from your OAuth app. The issuer is the complete URL for your custom authorization server, which is essential so that your external systems can include it in requests. If you use Okta custom domains, use the custom domains as appropriate to ensure that branding customizations occur.
 
@@ -389,7 +378,7 @@ You can get the issuer from the `issuer` attribute. After creating the resource,
 
 Your issuer URI includes your Okta domain and authorization server ID. It has the format `https://<okta-domain>/oauth2/<auth-server-ID>`. For the Okta domain, be careful to correctly set the base URL of your domain, which ends in `okta.com`, `oktapreview.com`, or `okta-emea.com`.
 
-For servers that you create using the instructions in this article, the URI ends with the authorization server's ID. Note that this differs from issuer URIs that end in `default` to indicate the default custom authorization server. If you aren’t using custom domains, the issuer might look like one of these examples:
+For servers that you create using the instructions in this article, the URI ends with the authorization server's ID. Note that this differs from issuer URIs that end in `default` to indicate the default custom authorization server. If you aren't using custom domains, the issuer might look like one of these examples:
 
 * `https://mycompany.okta.com/oauth2/ause865vcvrGz6MxP1ee`
 
@@ -401,7 +390,7 @@ If you use custom domains, use your custom domain in the issuer as the domain, f
 
 * `https://sso.mycompany.com/oauth2/ause865vcvrGz6MxP1ee`
 
-## Review resources in the Admin Console
+## Review resources in the Admin Console
 
 You can confirm your authorization servers and their associated policies and rules in the Admin Console. In the Admin Console, go to **Security** > **API** > **Authorization servers**. Remember that if you manage these objects in Terraform, never modify authorization servers or related resources in the Admin Console. See [Avoid problems caused by configuration drift](/docs/guides/terraform-organize-configuration/main/#avoid-problems-caused-by-configuration-drift).
 
