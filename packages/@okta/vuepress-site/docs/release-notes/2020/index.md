@@ -517,7 +517,7 @@ The [previously announced logging behavior](/docs/release-notes/2017/#additional
 
 #### User Types API GA in Production
 
-The [User Types API](/docs/reference/api/user-types/) is Generally Available in Production. <!-- OKTA-286349 -->
+The [User Types API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserType/) is Generally Available in Production. <!-- OKTA-286349 -->
 
 #### CORS headers in more API responses
 
@@ -661,7 +661,7 @@ The [Policy API](/docs/reference/api/policy/) now has [OAuth for Okta](/docs/gui
 
 #### User Types API in General Availability in Preview
 
-The [User Types API](/docs/reference/api/user-types/) is in General Availability (GA) in Preview. <!--OKTA-275379-->
+The [User Types API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserType/) is in General Availability (GA) in Preview. <!--OKTA-275379-->
 
 #### SAML Assertion Inline Hook Now Supports URI Formatting in Claims
 
@@ -683,7 +683,7 @@ The [Apps API](/docs/reference/api/apps/) now supports specifying SAML attribute
 
 * When using the [SAML assertion inline hook](/docs/reference/saml-hook/), if there was an optional attribute statement configured for the app and the attribute statement had no value specified, commands returned from SAML inline hook responses were not applied. (OKTA-263494)
 
-* The [Update User Types API](/docs/reference/api/user-types/#update-user-type) previously allowed the existing name of a User Type to be changed. (OKTA-241788)
+* The [Update User Types API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserType/#tag/UserType/operation/updateUserType) previously allowed the existing name of a User Type to be changed. (OKTA-241788)
 
 
 ## January
