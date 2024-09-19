@@ -13,7 +13,7 @@ describe("tree nav panel(left section)", () => {
   it("scrolls to selected item on URL navigation", () => {
     const selectedItemTitle = "User Types";
 
-    treeNav.visit("/docs/reference/api/user-types");
+    treeNav.visit("/docs/guides/authorization");
     treeNav
       .getTreeNavLinkByItemText(selectedItemTitle)
       .parent("a")
