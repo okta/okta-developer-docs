@@ -6,6 +6,10 @@ meta:
 excerpt: Okta maintains the following recommended SDKs for developers.
 ---
 
+<style>
+   td > img { vertical-align : middle;}
+</style>
+
 # Recommended Okta SDKs
 
 Okta provides SDKs for many languages and frameworks to add an Okta sign-in experience to your application, manage your users and groups, and more.
@@ -33,11 +37,11 @@ You can use the Okta Auth Javascript SDK (auth.js) to handle the sign-in experie
 
 |   |         |         |         |   |
 |---|---------|---------|---------|---|
-| ![Javascript](/img/sdks/javascript.png) | Any Javascript framework | [Auth Javascript SDK (Auth.js)](https://github.com/okta/okta-auth-js) |  | [Guide](/docs/guides/auth-js-redirect/) |
+| ![Javascript](/img/sdks/javascript.png) | Javascript | [Auth Javascript SDK (Auth.js)](https://github.com/okta/okta-auth-js) |  | [Guide](/docs/guides/auth-js-redirect/) |
 | ![React](/img/sdks/react.png) | React | [React SDK](https://github.com/okta/okta-react) | [Sample App](https://github.com/okta/samples-js-react/tree/master/okta-hosted-login) | [Guide](/docs/guides/sign-into-spa-redirect/react/main/) |
 | ![Angular](/img/sdks/angular.png) | Angular | [Angular SDK](https://github.com/okta/okta-angular) | [Sample App](https://github.com/okta/samples-js-angular/tree/master/okta-hosted-login) | [Guide](/docs/guides/sign-into-spa-redirect/angular/main/) |
 | ![Vue](/img/sdks/vue.png) | Vue | [Vue SDK](https://github.com/okta/okta-vue) | [Sample App](https://github.com/okta/samples-js-vue/tree/master/okta-hosted-login) | [Guide](/docs/guides/sign-into-spa-redirect/vue/main/) |
-| ![Blazor](/img/sdks/dotnet.png) | Blazor WebAssembly |  | [Sample App](https://github.com/okta/samples-blazor/tree/master/web-assembly/okta-hosted-login) |  |
+| ![Blazor](/img/sdks/dotnet.png) | Blazor<br />WebAssembly |  | [Sample App](https://github.com/okta/samples-blazor/tree/master/web-assembly/okta-hosted-login) |  |
 
 > **Note:** All Okta JS libraries are hosted on [npm](https://www.npmjs.com/search?q=%40okta).
 
@@ -52,16 +56,16 @@ To initiate the OIDC exchange, use your preferred OIDC library. The following ta
 
 |   |         |         |         |   |
 |---|---------|---------|---------|---|
-| ![ASP.NET Standard](/img/sdks/dotnet.png) | ASP.NET Standard 2.0 | [Okta ASP.NET middleware](https://github.com/okta/okta-aspnet) | [Sample App](https://github.com/okta/samples-aspnetcore) | [Guide](/docs/guides/sign-into-web-app-redirect/asp-net-core-3/main/) |
+| ![ASP.NET Standard](/img/sdks/dotnet.png) | ASP.NET<br />Standard 2.0 | [Okta ASP.NET middleware](https://github.com/okta/okta-aspnet) | [Sample App](https://github.com/okta/samples-aspnetcore) | [Guide](/docs/guides/sign-into-web-app-redirect/asp-net-core-3/main/) |
 | ![Python](/img/sdks/python.png) | Python | Flask-login | [Sample App](https://github.com/okta-samples/okta-flask-sample) | [Guide](/docs/guides/sign-into-web-app-redirect/python/main/) |
 | ![Spring](/img/sdks/spring.png) | Spring | [Okta Spring Boot Starter](https://github.com/okta/okta-spring-boot) | [Sample App](https://github.com/okta/samples-java-spring/tree/master/okta-hosted-login) | [Guide](/docs/guides/sign-into-web-app-redirect/spring-boot/main/) |
 | ![node.js](/img/sdks/nodejs.png) | node.js | passport-openidconnect | [Sample App](https://github.com/okta-samples/okta-express-sample) <br />[Sample App 2](https://github.com/okta/samples-nodejs-express-4/tree/master/okta-hosted-login) | [Guide](/docs/guides/sign-into-web-app-redirect/node-express/main/) |
-| ![ASP.NET Framework](/img/sdks/dotnet.png) | ASP.NET Framework 4.8 | [Okta ASP.NET middleware](https://github.com/okta/okta-aspnet) | [MVC Sample App](https://github.com/okta/samples-aspnet/tree/master/okta-hosted-login)<br />[Webforms Sample App](https://github.com/okta/samples-aspnet-webforms/tree/master/okta-hosted-login) |  |
+| ![ASP.NET Framework](/img/sdks/dotnet.png) | ASP.NET<br />Framework 4.8 | [Okta ASP.NET middleware](https://github.com/okta/okta-aspnet) | [MVC Sample App](https://github.com/okta/samples-aspnet/tree/master/okta-hosted-login)<br />[Webforms Sample App](https://github.com/okta/samples-aspnet-webforms/tree/master/okta-hosted-login) |  |
 | ![Java](/img/sdks/java.png) | Java | Micronaut | [Sample App](https://github.com/okta/samples-java-micronaut/tree/master/okta-hosted-login)  |  |
 | ![Blazor](/img/sdks/dotnet.png) | Blazor | [Okta ASP.NET middleware](https://github.com/okta/okta-aspnet) | [Sample App](https://github.com/okta/samples-blazor/tree/master/server-side/okta-hosted-login) |  |
 | ![Go](/img/sdks/go.png) | Go | Gorilla | [Sample App](https://github.com/okta/samples-golang/tree/master/okta-hosted-login) | [Guide](/docs/guides/sign-into-web-app-redirect/go/main/) |
 
-> **Note:** [Okta ASP.NET Middleware](ASP.NET) is available for .NET Framework, .NET Core, and .NET 5+. The [samples-aspnetcore](https://github.com/okta/samples-aspnetcore) repo contains sample apps for .NET Core 3.1, .NET 6.0, and .NET 7.0.
+> **Note:** [Okta ASP.NET Middleware](https://github.com/okta/okta-aspnet) is available for .NET Framework, .NET Core, and .NET 5+. The [samples-aspnetcore](https://github.com/okta/samples-aspnetcore) repo contains sample apps for .NET Core 3.1, .NET 6.0, and .NET 7.0.
 
 ### Validate tokens locally
 
@@ -111,11 +115,11 @@ To initiate the OIDC exchange, use your preferred OIDC SDK. The following table 
 
 |   |         |         |         |   |
 |---|---------|---------|---------|---|
-| ![ASP.NET Standard 2.0](/img/sdks/dotnet.png) | ASP.NET Standard 2.0 | [Okta Identity Engine SDK for .NET](https://github.com/okta/okta-idx-dotnet) | [Sample App](https://github.com/okta-samples/okta-dotnetcore3-api-quickstart) | [Guide](/docs/guides/protect-your-api/aspnetcore3/main/) |
+| ![ASP.NET Standard 2.0](/img/sdks/dotnet.png) | ASP.NET<br />Standard 2.0 | [Okta Identity Engine SDK for .NET](https://github.com/okta/okta-idx-dotnet) | [Sample App](https://github.com/okta-samples/okta-dotnetcore3-api-quickstart) | [Guide](/docs/guides/protect-your-api/aspnetcore3/main/) |
 | ![Python](/img/sdks/python.png) | Python | Flask-login | [Sample App](https://github.com/okta-samples/okta-flask-api-sample) | [Guide](/docs/guides/protect-your-api/python/main/) |
 | ![Spring](/img/sdks/spring.png) | Spring Boot | [Okta Spring Boot Starter](https://github.com/okta/okta-spring-boot) | [Sample App](https://github.com/oktadev/okta-spring-boot-client-credentials-example) | [Guide](/docs/guides/protect-your-api/springboot/main/) |
 | ![Express](/img/sdks/javascript.png) | Express | Express | [Sample App](https://github.com/okta-samples/okta-express-js-api-quickstart)<br />[Sample App 2](https://github.com/okta/samples-nodejs-express-4/tree/master/resource-server) | [Guide](/docs/guides/protect-your-api/nodeexpress/main/) |
-| ![ASP.NET Framework 4.8](/img/sdks/dotnet.png) | ASP.NET Framework 4.8 | [Okta ASP.NET middleware](https://github.com/okta/okta-aspnet) | [Sample App](https://github.com/okta/samples-aspnet/blob/master/resource-server) |  |
+| ![ASP.NET Framework 4.8](/img/sdks/dotnet.png) | ASP.NET<br />Framework 4.8 | [Okta ASP.NET middleware](https://github.com/okta/okta-aspnet) | [Sample App](https://github.com/okta/samples-aspnet/blob/master/resource-server) |  |
 | ![Go](/img/sdks/go.png) | Go | Gin | [Sample App](https://github.com/okta-samples/okta-go-api-sample)<br />[Sample App 2](https://github.com/okta/samples-golang/blob/master/resource-server) | [Guide](/docs/guides/protect-your-api/go/main/) |
 
 > **Note:** [Okta ASP.NET Middleware](https://github.com/okta/okta-aspnet) is available for .NET Framework, .NET Core, and .NET 5+. The [samples-aspnetcore](https://github.com/okta/samples-aspnetcore) repo contains additional sample apps for .NET Core 3.1, .NET 6.0, and .NET 7.0.
@@ -135,7 +139,7 @@ The [Okta Core Management APIs](/docs/reference/core-okta-api/) allow you to man
 
 |   |         |         |         |
 |---|---------|---------|---------|
-| ![ASP.NET Standard 2.0](/img/sdks/dotnet.png) | ASP.NET Standard 2.0 | [Okta Management SDK for .NET](https://github.com/okta/okta-sdk-dotnet) | [Guide](https://github.com/okta/okta-sdk-dotnet#getting-started) |
+| ![ASP.NET Standard 2.0](/img/sdks/dotnet.png) | ASP.NET<br />Standard 2.0 | [Okta Management SDK for .NET](https://github.com/okta/okta-sdk-dotnet) | [Guide](https://github.com/okta/okta-sdk-dotnet#getting-started) |
 | ![Python](/img/sdks/python.png) | Python | [Okta Management SDK for Python](https://github.com/okta/okta-sdk-python) | [Guide](https://github.com/okta/okta-sdk-python#getting-started) |
 | ![Java](/img/sdks/java.png) | Java | [Okta Management SDK for Java](https://github.com/okta/okta-sdk-java) | [Guide](https://github.com/okta/okta-sdk-java#getting-started) |
 | ![node.js](/img/sdks/nodejs.png) | node.js | [Okta Management SDK for node.js](https://github.com/okta/okta-sdk-nodejs) | [Guide](https://github.com/okta/okta-sdk-nodejs#getting-started) |

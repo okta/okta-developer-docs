@@ -63,7 +63,7 @@ npm install @okta/okta-auth-js
 ## Create an Authentication Service
 
 Users can sign in to your Angular application a number of different ways.
-The easiest, and most secure way is to use the **default login page**. This page renders the [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/), equipped to handle User Lifecycle operations, MFA, and more.
+The easiest, and most secure way is to use the **default login page**. This page renders the [Okta Sign-In Widget](/docs/guides/embedded-siw/), equipped to handle User Lifecycle operations, MFA, and more.
 
 First, create `src/app/app.service.ts` as an authorization utility file and use it to bootstrap the required fields to login:
 

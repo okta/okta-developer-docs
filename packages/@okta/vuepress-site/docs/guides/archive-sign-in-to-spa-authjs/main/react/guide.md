@@ -58,7 +58,7 @@ cd okta-app
 
 ## Install Dependencies
 
-A simple way to add authentication to a React app is using the [Okta Auth JS](/code/javascript/okta_auth_sdk/) library. You can install it using `npm`:
+A simple way to add authentication to a React app is using the [Okta Auth JS](/docs/guides/auth-js) library. You can install it using `npm`:
 
 ```bash
 npm install @okta/okta-auth-js
@@ -71,7 +71,7 @@ npm install @okta/okta-react react-router-dom
 ```
 
 ## Create a Custom Sign-In Form
-If the [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/) doesn't fit your needs, [Okta Auth JS](/code/javascript/okta_auth_sdk/) provides lower-level access to User Lifecycle operations, MFA, and more. For this example, you create a simple username and password form without MFA.
+If the [Okta Sign-In Widget](/docs/guides/embedded-siw/) doesn't fit your needs, [Okta Auth JS](/docs/guides/auth-js) provides lower-level access to User Lifecycle operations, MFA, and more. For this example, you create a simple username and password form without MFA.
 
 Create a `src/SignInForm.jsx` file:
 

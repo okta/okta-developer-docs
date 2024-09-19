@@ -5481,7 +5481,7 @@ redirects:
     to: /code/
   - from: /code/dotnet/aspnet/
     to: /code/
-  - from: /code/dotnet/aspnet//index.html
+  - from: /code/dotnet/aspnet/index.html
     to: /code/
   - from: /code/dotnet/aspnetcore/
     to: /code/
@@ -5547,7 +5547,7 @@ redirects:
     to: /code/
   - from: /code/javascript/okta_auth_sdk_ref/
     to: /code/
-  - from: /code/javascript/okta_sign-in_widget
+  - from: /code/javascript/okta_sign-in_widget/
     to: /docs/guides/embedded-siw
   - from: /code/javascript/okta_sign-in_widget.html
     to: /docs/guides/embedded-siw

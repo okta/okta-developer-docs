@@ -50,14 +50,14 @@ cd okta-vue-auth-example
 ```
 
 ## Install Dependencies
-A simple way to add authentication to a Vue app is using the [Okta Auth JS](/code/javascript/okta_auth_sdk/) library. You can install it via `npm`:
+A simple way to add authentication to a Vue app is using the [Okta Auth JS](/docs/guides/auth-js) library. You can install it via `npm`:
 
 ```bash
 npm install @okta/okta-auth-js
 ```
 
 ## Create a Custom Sign-In Form
-If the [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/) does not fit your needs, [AuthJS](/code/javascript/okta_auth_sdk/) provides lower-level access to User Lifecycle operations, MFA, and more. For this example, you'll create a simple username and password form without MFA.
+If the [Okta Sign-In Widget](/docs/guides/embedded-siw/) does not fit your needs, [AuthJS](/docs/guides/auth-js) provides lower-level access to User Lifecycle operations, MFA, and more. For this example, you'll create a simple username and password form without MFA.
 
 Create `src/components/About.vue` with the following HTML:
 

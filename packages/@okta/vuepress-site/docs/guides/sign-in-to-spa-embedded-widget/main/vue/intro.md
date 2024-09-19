@@ -1,4 +1,4 @@
-If you want to deploy a Vue.js single-page app (SPA) in the [embedded authentication](/docs/concepts/redirect-vs-embedded/#embedded-authentication) model, where your app retains authentication control without redirection to Okta, then you can use the [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/) to quickly add authentication. The Okta Sign-In Widget is a JavaScript library that includes support for full sign-in features with Okta so that the amount of authentication code you have to write for your app is minimal.
+If you want to deploy a Vue.js single-page app (SPA) in the [embedded authentication](/docs/concepts/redirect-vs-embedded/#embedded-authentication) model, where your app retains authentication control without redirection to Okta, then you can use the [Okta Sign-In Widget](/docs/guides/embedded-siw/) to quickly add authentication. The Okta Sign-In Widget is a JavaScript library that includes support for full sign-in features with Okta so that the amount of authentication code you have to write for your app is minimal.
 
 ### Integrate the Sign-In Widget with your SPA app
 

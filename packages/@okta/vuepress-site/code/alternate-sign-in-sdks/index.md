@@ -5,6 +5,10 @@ meta:
     content: Okta maintains the following SDKs for developers who don't want to use the recommended sign-in experience in their apps, which is redirecting users to sign in using the Okta-hosted Sign-In Widget.
 ---
 
+<style>
+   td > img { vertical-align : middle;}
+</style>
+
 # SDKs for alternate sign-in methods
 
 Okta maintains the following SDKs for developers who don't want to use the recommended sign-in experience in their apps, which is redirecting users to sign in using the Okta-hosted Sign-In Widget. However, when using these solutions, you should know that some aspects of [Identity Threat Protection](https://www.okta.com/products/identity-threat-protection/) will not be as fully integrated with the sign-in process as the recommended experience.
@@ -102,10 +106,10 @@ There are two ways to create a custom sign-in page. In both cases, enable the fl
 
    |   |         |         |         |   |
    |---|---------|---------|---------|---|
-   | ![Javascript](/img/sdks/javascript.png) | Any Javascript framework | [Auth Javascript SDK (Auth.js)](https://github.com/okta/okta-auth-js) |  |  |
-   | ![React](/img/sdks/react.png) | React | [React SDK](https://github.com/okta/okta-react) |  | [Guide](/docs/guides/archive-sign-in-to-spa-embedded-widget/react/main/) |
-   | ![Angular](/img/sdks/angular.png) | Angular | [Angular SDK](https://github.com/okta/okta-angular) |  | [Guide](/docs/guides/archive-sign-in-to-spa-embedded-widget/angular/main/) |
-   | ![Vue](/img/sdks/vue.png) | Vue | [Vue SDK](https://github.com/okta/okta-vue) |  | [Guide](/docs/guides/archive-sign-in-to-spa-embedded-widget/vue/main/) |
+   | ![Javascript](/img/sdks/javascript.png) | Any Javascript framework | [Auth Javascript SDK (Auth.js)](https://github.com/okta/okta-auth-js) |  | [Guide](/docs/guides/archive-embedded-siw/main) |
+   | ![React](/img/sdks/react.png) | React | [React SDK](https://github.com/okta/okta-react) | [Sample App](https://github.com/okta/samples-js-react/tree/master/custom-login) | [Guide](/docs/guides/archive-embedded-siw/main) |
+   | ![Angular](/img/sdks/angular.png) | Angular | [Angular SDK](https://github.com/okta/okta-angular) | [Sample App](https://github.com/okta/samples-js-angular/tree/master/custom-login)  | [Guide](/docs/guides/archive-embedded-siw/main) |
+   | ![Vue](/img/sdks/vue.png) | Vue | [Vue SDK](https://github.com/okta/okta-vue) | [Sample App](https://github.com/okta/samples-js-vue/tree/master/custom-login) | [Guide](/docs/guides/archive-embedded-siw/main) |
 
 1. Create a custom sign-in page.
 
