@@ -1137,7 +1137,7 @@ export const reference = [
                      { title: "Token Hook", path: "https://developer.okta.com/docs/reference/token-hook/" },
                      {
                         title: "User Import Hook",
-                        path: "/docs/reference/import-hook/",
+                        path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createUserImportInlineHook",
                      },
                   ],
                }

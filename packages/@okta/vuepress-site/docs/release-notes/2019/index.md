@@ -677,7 +677,7 @@ Extended search capabilities for the `/users` endpoint is now Generally Availabl
 
 #### The Import Inline Hook is in EA
 
-The [import inline hook](/docs/reference/import-hook/) enables you to add custom logic to the process of importing new users into Okta from an app. <!--OKTA-211788-->
+The [import inline hook](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createUserImportInlineHook) enables you to add custom logic to the process of importing new users into Okta from an app. <!--OKTA-211788-->
 
 #### Previously Released Early Access Features 2019.03.0 Update
 
