@@ -12,9 +12,9 @@ title: Okta Identity Engine API release notes 2024
 
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
-| [Bugs fixed in 2024.09.1](#bugs-fixed-in-2024-09-1)| September 18, 2024 |
+| [Bug fixed in 2024.09.1](#bug-fixed-in-2024-09-1)| September 18, 2024 |
 
-#### Bugs fixed in 2024.09.1
+#### Bug fixed in 2024.09.1
 
 * If the Okta account management policy was used, GET calls to the `/idp/myaccount/authenticators/{authenticatorId}/enrollments` endpoint returned incomplete values. (OKTA-794253)
 
