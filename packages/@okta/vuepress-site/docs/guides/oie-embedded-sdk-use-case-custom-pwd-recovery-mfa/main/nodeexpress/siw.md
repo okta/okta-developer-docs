@@ -47,7 +47,7 @@ Call `OktaAuth.idx.canProceed()` and pass in the`state` parameter to verify that
 
 ### 5: Set up and render widget with otp and state
 
-After you validate the `state` parameter, the final step is to set up the `otp` and `state` in the widget configurations. Set up the configurations based on the following snippet. Replace `{widgetVersion}` with the [latest version](https://github.com/okta/okta-signin-widget/releases/) of the widget (-=OKTA_REPLACE_WITH_WIDGET_VERSION=-).
+After you validate the `state` parameter, the final step is to set up the `otp` and `state` in the widget configurations. Set up the configurations based on the following snippet. Use the [latest version](https://github.com/okta/okta-signin-widget/releases/) of the widget: -=OKTA_REPLACE_WITH_WIDGET_VERSION=-.
 
 ```javascript
     const widgetConfig = {
@@ -61,7 +61,7 @@ After you validate the `state` parameter, the final step is to set up the `otp` 
       otp
     };
     res.render('login', {
-      siwVersion: '{widgetVersion}',
+      siwVersion: '-=OKTA_REPLACE_WITH_WIDGET_VERSION=-',
       widgetConfig: JSON.stringify(widgetConfig),
       selfHosted: !!process.env.SELF_HOSTED_WIDGET
     });

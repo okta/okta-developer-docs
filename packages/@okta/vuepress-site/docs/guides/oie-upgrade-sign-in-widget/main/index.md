@@ -80,14 +80,14 @@ To update the Sign-In Widget:
 
 ## Upgrade process for an embedded widget
 
-Upgrade your embedded widget by referencing the Okta CDN in your sign-in page. Replace `{widgetVersion}` with the [latest version](https://github.com/okta/okta-signin-widget/releases/) of the Sign-In Widget:
+Upgrade your embedded widget by referencing the Okta CDN in your sign-in page. Use the [latest version](https://github.com/okta/okta-signin-widget/releases/) of the Sign-In Widget: -=OKTA_REPLACE_WITH_WIDGET_VERSION=-
 
 ```html
-<script src="https://global.oktacdn.com/okta-signin-widget/{widgetVersion}/js/okta-sign-in.min.js" type="text/javascript"></script>
-<link href="https://global.oktacdn.com/okta-signin-widget/{widgetVersion}/css/okta-sign-in.min.css" type="text/css" rel="stylesheet"/>
+<script src="https://global.oktacdn.com/okta-signin-widget/-=OKTA_REPLACE_WITH_WIDGET_VERSION=-/js/okta-sign-in.min.js" type="text/javascript"></script>
+<link href="https://global.oktacdn.com/okta-signin-widget/-=OKTA_REPLACE_WITH_WIDGET_VERSION=-/css/okta-sign-in.min.css" type="text/css" rel="stylesheet"/>
 ```
 
-See also [Using the Okta CDN](https://github.com/okta/okta-signin-widget#using-the-okta-cdn). The latest version of the Sign-In Widget is -=OKTA_REPLACE_WITH_WIDGET_VERSION=-.
+See also [Using the Okta CDN](https://github.com/okta/okta-signin-widget#using-the-okta-cdn).
 
 In addition to version upgrade, you need to adjust your widget configuration for new or deprecated settings. See the next section.
 

@@ -26,12 +26,12 @@ public async Task<ActionResult> Index()
 
 > **Note:** In the preceding MVC setup, the response's `SignInWidgetConfiguration` property is passed to the view as a model.
 
-The `StartWidgetSigninAsync` call returns a `WidgetSigninResponse` response object. The `SignInWidgetConfiguration` property of this response object contains information that you need to pass to the Sign-In Widget to initialize the page. The following example shows the object structure in JSON format. Replace `{widgetVersion}` with the [latest version](https://github.com/okta/okta-signin-widget/releases/) of the widget (-=OKTA_REPLACE_WITH_WIDGET_VERSION=-).
+The `StartWidgetSigninAsync` call returns a `WidgetSigninResponse` response object. The `SignInWidgetConfiguration` property of this response object contains information that you need to pass to the Sign-In Widget to initialize the page. The following example shows the object structure in JSON format. Use the [latest version](https://github.com/okta/okta-signin-widget/releases/) of the widget: -=OKTA_REPLACE_WITH_WIDGET_VERSION=-.
 
 ```json
 {
    "interactionHandle":"epXgGYZHsYErPLfw8aLpCvWZOgVtYx25_OYCmQc0z2s",
-   "version":"{widgetVersion}",
+   "version":"-=OKTA_REPLACE_WITH_WIDGET_VERSION=-",
    "baseUrl":"https://dev-12345678.okta.com",
    "clientId":"{clientId}",
    "redirectUri":"https://localhost:44314/interactioncode/callback/",
@@ -67,13 +67,13 @@ If using an MVC setup (as in the sample), the namespaces and model need to be de
 
 #### 2b: Add the Okta CDN link
 
-Add the Sign-In Widget source to your page by referencing the Okta CDN, replacing `{widgetVersion}` with the [latest version](https://github.com/okta/okta-signin-widget/releases/) of the widget:
+Add the Sign-In Widget source to your page by referencing the Okta CDN, using the [latest version](https://github.com/okta/okta-signin-widget/releases/) of the widget: -=OKTA_REPLACE_WITH_WIDGET_VERSION=-
 
 ```razor
 @section head
 {
-   <script src="https://global.oktacdn.com/okta-signin-widget/{widgetVersion}/js/okta-sign-in.min.js" type="text/javascript"></script>
-   <link href="https://global.oktacdn.com/okta-signin-widget/{widgetVersion}/css/okta-sign-in.min.css" type="text/css" rel="stylesheet" />
+   <script src="https://global.oktacdn.com/okta-signin-widget/-=OKTA_REPLACE_WITH_WIDGET_VERSION=-/js/okta-sign-in.min.js" type="text/javascript"></script>
+   <link href="https://global.oktacdn.com/okta-signin-widget/-=OKTA_REPLACE_WITH_WIDGET_VERSION=-/css/okta-sign-in.min.css" type="text/css" rel="stylesheet" />
 }
 ```
 
