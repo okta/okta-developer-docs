@@ -27,7 +27,7 @@ Preview orgs allow you to see the next release early and play with Beta features
 
 > **Note:** Preview orgs can't be converted into Production orgs, and Production orgs can't be converted into Preview orgs.
 
-Production orgs are always a known-stable release, covered by our Software License Agreement, and don't include [Beta](https://developer.okta.com/docs/api/openapi/okta-management/guides/release-lifecycle/#beta) features. Production orgs include EA features by request and include all features that are GA.
+Production orgs are always a stable release, covered by our Software License Agreement, and don't include [Beta](https://developer.okta.com/docs/api/openapi/okta-management/guides/release-lifecycle/#beta) features. Production orgs include EA features by request and include all features that are GA.
 
 > **Tip:** To verify which type of org you have, look at the footer of any page of your Okta Admin. Preview org footers have the word `Preview` in the cell name (for example: `OP1 Preview Cell (US)`) and include `oktapreview` as part of the org URL (for example: `companyname.oktapreview.com`). Production orgs don't have production indicators in their URLs or cells.
 
