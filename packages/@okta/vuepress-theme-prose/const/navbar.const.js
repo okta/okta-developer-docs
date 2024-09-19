@@ -1129,7 +1129,7 @@ export const reference = [
                         title: "Registration Hook",
                         path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/create-registration-hook",
                      },
-                     { title: "SAML Hook", path: "/docs/reference/saml-hook/" },
+                     { title: "SAML Hook", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createSAMLAssertionInlineHook" },
                      {
                         title: "Telephony Hook",
                         path: "/docs/reference/telephony-hook/",
