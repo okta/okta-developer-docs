@@ -1069,7 +1069,7 @@ export const reference = [
                { title: "System Log", path: "/docs/reference/api/system-log/" },
                { title: "Templates", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Template/" },
                { title: "ThreatInsight", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ThreatInsight/" },
-               { title: "Trusted Origins", path: "/docs/reference/api/trusted-origins/" },
+               { title: "Trusted Origins", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/TrustedOrigin/" },
                { title: "UI Schema", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UISchema/" },
                { title: "User Types", path: "/docs/reference/api/user-types/" },
                { title: "Users", path: "/docs/reference/api/users/" }

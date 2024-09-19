@@ -488,7 +488,7 @@ redirects:
   - from: /docs/api/resources/threat-insight/index.html
     to: /docs/reference/api/threat-insight/
   - from: /docs/api/resources/trusted-origins/index.html
-    to: /docs/reference/api/trusted-origins/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/TrustedOrigin/
   - from: /docs/api/resources/users/index.html
     to: /docs/reference/api/users/
   - from: /docs/api/resources/zones/index.html
@@ -814,7 +814,7 @@ redirects:
   - from: /docs/api/resources/templates
     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Template/
   - from: /docs/api/resources/trusted-origins
-    to: /docs/reference/api/trusted-origins/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/TrustedOrigin/
   - from: /docs/api/resources/users
     to: /docs/reference/api/users/
   - from: /docs/api/resources/zones
@@ -914,7 +914,7 @@ redirects:
   - from: /docs/api/resources/templates.html
     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Template/
   - from: /docs/api/resources/trusted-origins.html
-    to: /docs/reference/api/trusted-origins/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/TrustedOrigin/
   - from: /docs/api/resources/zones.html
     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/NetworkZone/
   - from: /docs/reference/csi-delauth-hook

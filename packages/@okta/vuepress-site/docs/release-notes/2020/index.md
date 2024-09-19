@@ -466,7 +466,7 @@ Rate limits do not apply to these OAuth public metadata endpoints, so rate limit
 
 #### OAuth for Okta enabled for Trusted Origins, Sessions, and Custom Templates APIs
 
-OAuth for Okta is now enabled for the [Trusted Origins API](/docs/reference/api/trusted-origins/), the [Sessions API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Session/), and the [SMS Templates API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Template/). See [Scopes & supported endpoints](/docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints). <!-- OKTA-286819 -->
+OAuth for Okta is now enabled for the [Trusted Origins API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/TrustedOrigin/), the [Sessions API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Session/), and the [SMS Templates API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Template/). See [Scopes & supported endpoints](/docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints). <!-- OKTA-286819 -->
 
 #### Updated behavior for logging of invalid use by OAuth 2.0 Client
 
@@ -544,7 +544,7 @@ Okta will now return CORS headers for [requests made with OAuth 2.0 Bearer token
 
 * The [`_links`](/docs/reference/core-okta-api/#links) attribute for `groups` sent by Okta in the request body for a SAML inline hook was incorrect. (OKTA-269553)
 
-* Responses from OpenID Connect and OAuth 2.0 public metadata endpoints incorrectly omitted the return of CORS headers if the calling URL wasn't in the list of [trusted origins](/docs/reference/api/trusted-origins/) defined for the org. (OKTA-283549)
+* Responses from OpenID Connect and OAuth 2.0 public metadata endpoints incorrectly omitted the return of CORS headers if the calling URL wasn't in the list of [trusted origins](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/TrustedOrigin/) defined for the org. (OKTA-283549)
 
 * When a Workflow was called, all headers that weren't white listed had text prepended in the response, which broke redirects. (OKTA-282294)
 
