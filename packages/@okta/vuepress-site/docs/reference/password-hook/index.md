@@ -11,7 +11,7 @@ This page provides reference documentation for password import inline hooks, one
 
 For a general introduction to Okta inline hooks, see [inline hooks](/docs/concepts/inline-hooks/).
 
-For information on the API for registering external service endpoints with Okta, see [Inline Hooks Management API](/docs/reference/api/inline-hooks/).
+For information on the API for registering external service endpoints with Okta, see [Inline Hooks Management API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/).
 
 For steps to enable this inline hook, see below, [Enabling a password import inline hook](#enabling-a-password-import-inline-hook).
 

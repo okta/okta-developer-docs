@@ -1116,7 +1116,7 @@ export const reference = [
                },
                {
                   title: "Inline Hooks Management API",
-                  path: "/docs/reference/api/inline-hooks/",
+                  path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/",
                },
                {
                   title: "Inline Hook Types",

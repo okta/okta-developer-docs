@@ -8,6 +8,12 @@ excerpt:
 
 # Inline Hooks Management API
 
+The Inline Hooks Management API reference is now available at the new [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook).
+
+Explore the [Okta Public API Collections](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/overview) workspace to get started with the Inline Hooks Management API Postman collection.
+
+<!--
+
 For general information on inline hooks and how to create and use them, see [inline hooks](/docs/concepts/inline-hooks/). The following documentation is only for the management API, which provides a CRUD interface for registering inline hooks.
 
 ## Get started
@@ -900,3 +906,4 @@ When registering an inline hook, you need to specify what type it is. The follow
 | `com.okta.telephony.provider`      | [Telephony inline hook](/docs/reference/telephony-hook/) |
 | `com.okta.user.credential.password.import` | [Password import inline hook](/docs/reference/password-hook/) |
 | `com.okta.user.pre-registration`   | [Registration inline hook](/docs/reference/registration-hook/) |
+-->

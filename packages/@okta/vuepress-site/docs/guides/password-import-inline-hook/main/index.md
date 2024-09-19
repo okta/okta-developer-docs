@@ -82,7 +82,7 @@ To set up and activate the password import inline hook:
 
 The password import inline hook is now set up with a status of "Active".
 
-> **Note:** You can also set up an inline hook using an API. See [Inline Hooks Management API](/docs/reference/api/inline-hooks/#create-inline-hook).
+> **Note:** You can also set up an inline hook using an API. See [Inline Hooks Management API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createInlineHook).
 
 ## Import test users
 
