@@ -11,7 +11,7 @@ describe("tree nav panel(left section)", () => {
   });
 
   it("scrolls to selected item on URL navigation", () => {
-    const selectedItemTitle = "User Types";
+    const selectedItemTitle = "Authorization servers";
 
     treeNav.visit("/docs/concepts/auth-servers/");
     treeNav
