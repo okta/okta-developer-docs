@@ -667,6 +667,10 @@ export const guides = [
                 guideName: "submit-oin-app",
               },
               {
+                title: "OIN Wizard: Submit a SCIM integration",
+                guideName: "submit-scim-app",
+              },
+              {
                 title: "OIN Manager: Submit an LCM integration",
                 guideName: "submit-app",
               },
