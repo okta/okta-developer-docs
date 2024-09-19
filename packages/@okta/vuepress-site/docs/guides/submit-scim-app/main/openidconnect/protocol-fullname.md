@@ -1,1 +1,1 @@
-OIDC
+OpenID Connect (OIDC)

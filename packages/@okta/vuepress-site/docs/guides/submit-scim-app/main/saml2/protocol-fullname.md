@@ -1,1 +1,1 @@
-SAML 2.0
+Security Assertion Markup Language (SAML)
