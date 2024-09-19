@@ -1048,7 +1048,7 @@ The `auth_time` [claim](https://developer.okta.com/docs/api/openapi/okta-oauth/g
 
 * An error was returned when a valid [update request](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServerScopes/#tag/AuthorizationServerScopes/operation/replaceOAuth2Scope) was made for the `device_sso` or `online_access` system scopes. (OKTA-417477)
 
-* Sending an [error object](/docs/reference/registration-hook/#error) in the response message of an Inline Registration Hook resulted in an error message that included domain details and didn't target attributes. (OKTA-473152)
+* Sending an [error object](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/create-registration-hook!c=200&path=Error&t=response) in the response message of an Inline Registration Hook resulted in an error message that included domain details and didn't target attributes. (OKTA-473152)
 
 ### Weekly release 2022.03.1
 

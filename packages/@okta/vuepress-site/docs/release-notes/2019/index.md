@@ -504,7 +504,7 @@ The [token inline hook](https://developer.okta.com/docs/api/openapi/okta-managem
 
 #### The Registration Inline Hook is in Early Access (EA)
 
-The [registration inline hook](/docs/reference/registration-hook/) allows you to integrate your own custom logic into Okta's Self-Service Registration flow. <!-- (OKTA-215773) -->
+The [registration inline hook](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/create-registration-hook) allows you to integrate your own custom logic into Okta's Self-Service Registration flow. <!-- (OKTA-215773) -->
 
 #### Bugs Fixed in 2019.05.0
 

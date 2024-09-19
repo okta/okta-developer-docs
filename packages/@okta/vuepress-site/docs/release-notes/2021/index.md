@@ -338,7 +338,7 @@ The Okta [Custom Administrator Roles](/docs/reference/api/roles/index.md) API pr
 
 - When a native SSO [token exchange](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/tokenCustomAS) call was created, an invalid scope was accepted and tokens were returned. (OKTA-417808)
 
-- Registration inline hooks didn’t correctly display an error message to the end user when the response included the `errorCauses` object with an `error-summary` [parameter](/docs/reference/registration-hook/#error). (OKTA-409142)
+- Registration inline hooks didn’t correctly display an error message to the end user when the response included the `errorCauses` object with an `error-summary` [parameter](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/create-registration-hook!c=200&path=Error&t=response). (OKTA-409142)
 
 ### Monthly release 2021.08.0
 

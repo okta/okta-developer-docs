@@ -28,7 +28,7 @@ Okta defines several different types of inline hooks. Each type of inline hook m
 | [Token inline hook](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createTokenInlineHook)               | Customizes tokens returned by Okta API Access Management                       |
 | [User import inline hook](/docs/reference/import-hook/)        | Adds custom logic to the user import process                                   |
 | [SAML assertion inline hook](/docs/reference/saml-hook/)       | Customizes SAML assertions returned by Okta                                    |
-| [Registration inline hook](/docs/reference/registration-hook/) | Customizes handling of Self-Service Registration (SSR) and Progressive Enrollment support |
+| [Registration inline hook](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/create-registration-hook) | Customizes handling of Self-Service Registration (SSR) and Progressive Enrollment support |
 | [Password import inline hook](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createPasswordImportInlineHook)  | Verifies a user-supplied password to support migration of users to Okta        |
 | [Telephony inline hook](/docs/reference/telephony-hook/) | Customizes the Okta flows that send SMS or voice messages |
 

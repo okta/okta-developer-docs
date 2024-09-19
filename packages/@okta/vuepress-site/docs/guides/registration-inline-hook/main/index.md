@@ -65,7 +65,7 @@ The following is a high-level workflow for a progressive profile enrollment scen
 
 The following is an example of a JSON request received from Okta. The request properties contain data submitted by the end user who is trying to self-register.
 
-See the [request properties](/docs/reference/registration-hook/#objects-in-the-request-from-okta) of a registration inline hook for full details.
+See the [request properties](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/create-registration-hook) of a registration inline hook for full details.
 
 >**Note:** The `requestType` is `self.service.registration`.
 
@@ -105,7 +105,7 @@ See the [request properties](/docs/reference/registration-hook/#objects-in-the-r
 
 The following JSON example provides the end user's profile data to the external service for evaluation.
 
-See the [request properties](/docs/reference/registration-hook/#objects-in-the-request-from-okta) of a registration inline hook for full details.
+See the [request properties](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/create-registration-hook) of a registration inline hook for full details.
 
 >**Note:** The `requestType` is `progressive.profile`.
 
@@ -613,7 +613,7 @@ Possible registration scenarios:
 * If you use an allowable email domain and employee number, the end user registration goes through the profile and progressive profile enrollment scenario.
 * If you use an incorrect email domain or employee number (depending on the scenario), the end user registration is denied.
 
-Review the error message that displays the error summary from the external service code and is passed back to the Okta sign-in page. See [error](/docs/reference/registration-hook/#error). You can also review the console output from your Glitch app's **Logs**.
+Review the error message that displays the error summary from the external service code and is passed back to the Okta sign-in page. See [error](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/create-registration-hook!c=200&path=Error&t=response). You can also review the console output from your Glitch app's **Logs**.
 
 ### Test the progressive enrollment inline hook
 
@@ -626,7 +626,7 @@ Possible outcomes:
 
 Sign back in as your org admin to review the profile of the user. Also, confirm that the user's profile was updated and the employee number value exists.
 
-For invalid employee numbers, review the error message that displays the error summary from the external service code and is passed back to the Okta sign-in page. See [error](/docs/reference/registration-hook/#error). You can also review the console output from your Glitch app's **Logs**.
+For invalid employee numbers, review the error message that displays the error summary from the external service code and is passed back to the Okta sign-in page. See [error](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/create-registration-hook!c=200&path=Error&t=response). You can also review the console output from your Glitch app's **Logs**.
 
 > **Note:** Review [Troubleshooting hook implementations](/docs/guides/common-hook-set-up-steps/nodejs/main/#troubleshoot-hook-implementations) for help with any difficulties during setup or configuration.
 
@@ -642,4 +642,5 @@ Review the following guides to implement other inline or event hook examples:
 
 ## See also
 
-For a complete description of this inline hook type, see [Registration inline hook](/docs/reference/registration-hook/).
+For a complete description of this inline hook type, see [Registration inline hook](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/create-registration-hook).
+

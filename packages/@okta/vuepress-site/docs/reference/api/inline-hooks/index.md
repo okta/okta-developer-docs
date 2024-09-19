@@ -905,5 +905,5 @@ When registering an inline hook, you need to specify what type it is. The follow
 | `com.okta.saml.tokens.transform`   | [SAML assertion inline hook](/docs/reference/saml-hook/)       |
 | `com.okta.telephony.provider`      | [Telephony inline hook](/docs/reference/telephony-hook/) |
 | `com.okta.user.credential.password.import` | [Password import inline hook](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createPasswordImportInlineHook) |
-| `com.okta.user.pre-registration`   | [Registration inline hook](/docs/reference/registration-hook/) |
+| `com.okta.user.pre-registration`   | [Registration inline hook](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/create-registration-hook) |
 -->
