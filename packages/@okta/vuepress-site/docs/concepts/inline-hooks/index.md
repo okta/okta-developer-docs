@@ -30,7 +30,7 @@ Okta defines several different types of inline hooks. Each type of inline hook m
 | [SAML assertion inline hook](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createSAMLAssertionInlineHook)       | Customizes SAML assertions returned by Okta                                    |
 | [Registration inline hook](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/create-registration-hook) | Customizes handling of Self-Service Registration (SSR) and Progressive Enrollment support |
 | [Password import inline hook](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createPasswordImportInlineHook)  | Verifies a user-supplied password to support migration of users to Okta        |
-| [Telephony inline hook](/docs/reference/telephony-hook/) | Customizes the Okta flows that send SMS or voice messages |
+| [Telephony inline hook](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createTelephonyInlineHook) | Customizes the Okta flows that send SMS or voice messages |
 
 ## Inline hook process flow
 

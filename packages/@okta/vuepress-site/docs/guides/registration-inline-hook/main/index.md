@@ -638,7 +638,7 @@ Review the following guides to implement other inline or event hook examples:
 * [Password import inline hook](/docs/guides/password-import-inline-hook/)
 * [Token inline hook](/docs/guides/token-inline-hook/)
 * [SAML inline hook](/docs/guides/saml-inline-hook/)
-* [Telephony inline hook](/docs/reference/telephony-hook/)
+* [Telephony inline hook](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createTelephonyInlineHook)
 
 ## See also
 
