@@ -2,6 +2,9 @@
 title: Release lifecycle
 ---
 
+The Release lifecycle is now available at the new [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-management/guides/release-lifecycle/).
+
+<!--
 # Release lifecycle
 
 Okta features travel through a regular lifecycle:
@@ -103,4 +106,4 @@ Other exceptions include:
 Such features may spend more than one month between Preview and Production for their GA release.
 - Features exposed in the Admin Console may be EA or GA without the corresponding API being in the same lifecycle stage, or available at all.
 
-As with all changes that affect our customers, changes outside the regular Beta-EA-GA lifecycle are reported in the [Okta API Release Notes](/docs/release-notes/).
+As with all changes that affect our customers, changes outside the regular Beta-EA-GA lifecycle are reported in the [Okta API Release Notes](/docs/release-notes/).-->

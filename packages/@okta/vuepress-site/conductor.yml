@@ -430,7 +430,7 @@ redirects:
   - from: /use_cases/relationships/index.html
     to: /docs/reference/api/linked-objects/
   - from: /docs/api/getting_started/releases-at-okta/index.html
-    to: /docs/reference/releases-at-okta/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/guides/release-lifecycle/
   - from: /docs/api/getting_started/rate-limits/index.html
     to: /docs/reference/rate-limits/
   - from: /docs/api/getting_started/finding_your_app_credentials/index.html
@@ -768,7 +768,7 @@ redirects:
   - from: /use_cases/relationships
     to: /docs/reference/api/linked-objects/
   - from: /docs/api/getting_started/releases-at-okta
-    to: /docs/reference/releases-at-okta/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/guides/release-lifecycle/
   - from: /docs/api/getting_started/rate-limits
     to: /docs/reference/rate-limits/
   - from: /docs/api/getting_started/finding_your_app_credentials

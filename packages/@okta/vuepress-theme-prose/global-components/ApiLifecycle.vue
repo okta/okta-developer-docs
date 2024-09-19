@@ -40,10 +40,10 @@
 </template>
 
 <script>
-const DEFAULT_LINK = "/docs/reference/releases-at-okta/";
+const DEFAULT_LINK = "https://developer.okta.com/docs/api/openapi/okta-management/guides/release-lifecycle/";
 const IE_LINK = "/docs/concepts/oie-intro/";
-const DEPRECATED_LINK = "/docs/reference/releases-at-okta/#deprecation";
-const EA_LINK = "/docs/reference/releases-at-okta/#early-access-ea"
+const DEPRECATED_LINK = "https://developer.okta.com/docs/api/openapi/okta-management/guides/release-lifecycle/#deprecation";
+const EA_LINK = "https://developer.okta.com/docs/api/openapi/okta-management/guides/release-lifecycle/#early-access-ea"
 
 export default {
   name: "ApiLifecycle",
