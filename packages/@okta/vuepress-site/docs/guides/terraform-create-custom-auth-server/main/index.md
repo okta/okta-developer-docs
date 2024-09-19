@@ -54,7 +54,7 @@ There are two types of Okta authorization servers:
 
 > **Note:** Okta creates a custom authorization server for every org named `default`. That default custom authorization server is **not** the org authorization server. Although it's possible to manage the **default custom authorization server** in Terraform using the resource `okta_auth_server_default`, this article focuses on creating a new custom authorization server. A new authorization server addresses a broader range of use cases and encourages complete resource lifecycle management in Terraform.
 
-The first step is to understand the requirements for the custom server. These requirements include:
+The first step is to understand your requirements for the custom server. These requirements include:
 
 * An identity token (authentication), resource access token (authorization), or both types of tokens.
 
@@ -108,7 +108,7 @@ Follow these steps to create an authorization server and the related objects in 
 
 1. Set its name and description in the `name` and `description` attributes.
 
-1. Set the `audiences` array to the OAuth audience. The audiences identify the intended recipients of the identity and resource tokens. Each system that intends to process the a token must identify itself with a value in the audience claim, which must match one element in this array. See the [RFC7519 definition of audience in JWT claims](https://datatracker.ietf.org/doc/html/rfc7519#section-4.1.3).
+1. Set the `audiences` array to the OAuth audience. The audiences identify the intended recipients of the identity and resource tokens. Each system that intends to process a token must identify itself with a value in the audience claim, which must match one element in this array. See the [RFC7519 definition of audience in JWT claims](https://datatracker.ietf.org/doc/html/rfc7519#section-4.1.3).
 
 1. Set `issuer_mode` to `DYNAMIC` for typical use. The issuer mode specifies the OAuth issuer on tokens based on the domain of the request, including support for custom domains. For more options, see the [provider documentation](https://registry.terraform.io/providers/okta/okta/latest/docs/resources/auth_server).
 
@@ -211,7 +211,7 @@ For each scope:
 
 1. Set `optional` to `false` if this scope is required. Otherwise, set it to `true`.
 
-    > **Tip:** It's unsupported to set both optional and default to `true`, as they are mutually exclusive.
+    > **Tip:** It's unsupported to set both `optional` and `default` to `true`, as they are mutually exclusive.
 
 This example creates three scopes for the API operations create, read, and replace:
 
@@ -370,7 +370,7 @@ There are multiple ways that external apps can verify that Okta minted the token
 
 Test your external app with your new authorization server. For initial testing, you can use Okta sample code to implement OAuth. See the [sample page](/docs/guides/sampleapp-oie-redirectauth/go/main/) and choose the platform from the selector in the upper right.
 
-The Okta configuration has no extra steps to support the OAuth Authorization Code flow with [Proof Key for Code Exchange](/docs/concepts/oauth-openid/#authorization-code-flow-with-pkce-flow) (PKCE). Okta handles PKCE automatically if the OAuth request includes the challenge. However, you must properly configure your external OAuth app to add the challenge field in the authorization request and validate it in the response.
+The Okta configuration has no extra steps to support the [OAuth Authorization Code flow with Proof Key for Code Exchange](/docs/concepts/oauth-openid/#authorization-code-flow-with-pkce-flow) (PKCE). Okta handles PKCE automatically if the OAuth request includes the challenge. However, you must properly configure your external OAuth app to add the challenge field in the authorization request and validate it in the response.
 
 Be sure to set the issuer correctly in the request from your OAuth app. The issuer is the complete URL for your custom authorization server, which is essential so that your external systems can include it in requests. If you use Okta custom domains, use the custom domains as appropriate to ensure that branding customizations occur.
 
