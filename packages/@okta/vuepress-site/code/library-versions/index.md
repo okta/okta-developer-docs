@@ -4,7 +4,7 @@ title: Library versions
 
 # Library versions
 
-Okta publishes a number of officially-supported libraries and SDKs on [GitHub](https://github.com/okta). These libraries follow a consistent versioning and release pattern, described here. Note that this is separate from how Okta;s HTTP APIs are [versioned and released](https://developer.okta.com/docs/api/openapi/okta-management/guides/release-lifecycle/).
+Okta publishes a number of officially-supported libraries and SDKs on [GitHub](https://github.com/okta). These libraries follow a consistent versioning and release pattern, described here. Note that this is separate from how Okta's HTTP APIs are [versioned and released](https://developer.okta.com/docs/api/openapi/okta-management/guides/release-lifecycle/).
 
 The most up-to-date version information for each library and SDK is always available from the project GitHub readmes.
 
