@@ -1112,7 +1112,7 @@ export const reference = [
             subLinks: [
                {
                   title: "Event Hooks Management API",
-                  path: "/docs/reference/api/event-hooks/",
+                  path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/EventHook/#tag/EventHook/",
                },
                {
                   title: "Inline Hooks Management API",

@@ -182,7 +182,7 @@ The maximum length of the `client.userAgent.rawUserAgent` property value was inc
 
 #### Event Hooks API is Generally Available
 
-The [Event Hooks API](/docs/reference/api/event-hooks/) is Generally Available (GA) in Production.
+The [Event Hooks API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/EventHook/#tag/EventHook/operation/createEventHook) is Generally Available (GA) in Production.
 
 #### User Types API in Early Access
 

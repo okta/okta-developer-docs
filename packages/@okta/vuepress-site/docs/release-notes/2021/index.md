@@ -448,7 +448,7 @@ You can use the SAML 2.0 Assertion flow to request an access token when you want
 
 #### Event hook preview tab is now GA in Preview
 
-Event hooks that you configure in the Admin Console or by [Event Hooks Management API](/docs/reference/api/event-hooks/) can now preview the JSON body of the event hook in the Admin Console, as well as delivering the preview request to your external service without manually triggering an actual event. See [Event Hook Preview](https://help.okta.com/okta_help.htm?id=ext-event-hooks-preview).
+Event hooks that you configure in the Admin Console or by [Event Hooks Management API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/EventHook/#tag/EventHook/operation/createEventHook) can now preview the JSON body of the event hook in the Admin Console, as well as delivering the preview request to your external service without manually triggering an actual event. See [Event Hook Preview](https://help.okta.com/okta_help.htm?id=ext-event-hooks-preview).
 
 #### Bugs fixed in 2021.07.0
 
@@ -836,11 +836,11 @@ The Okta Org API is now available in Self-Service EA. This API allows you to man
 
 #### Automatically mark a flow hook as "VERIFIED"
 
-When a request is made to `/api/v1/eventHooks/{eventHookId}/lifecycle/verify` for an [Event hook](/docs/reference/api/event-hooks/) that has an Okta Workflows endpoint configured, the event hook is automatically marked as "VERIFIED". The verification step isn't required.<!--OKTA-364393-->
+When a request is made to `/api/v1/eventHooks/{eventHookId}/lifecycle/verify` for an [Event hook](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/EventHook/#tag/EventHook/) that has an Okta Workflows endpoint configured, the event hook is automatically marked as "VERIFIED". The verification step isn't required.<!--OKTA-364393-->
 
 #### Event Hook preview tab now in Early Access (EA)
 
-Event hooks configured in the Admin Console or by [Event Hooks Management API](/docs/reference/api/event-hooks/) can now preview the JSON body of the event hook in the Admin Console, as well as delivering the preview request to your external service without manually triggering an actual event.
+Event hooks configured in the Admin Console or by [Event Hooks Management API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/EventHook/#tag/EventHook/operation/createEventHook) can now preview the JSON body of the event hook in the Admin Console, as well as delivering the preview request to your external service without manually triggering an actual event.
 
 Previewing the JSON body of the event hook assists developers or administrators create or troubleshoot the request syntax. The JSON body can also be edited for different request scenarios.
 
