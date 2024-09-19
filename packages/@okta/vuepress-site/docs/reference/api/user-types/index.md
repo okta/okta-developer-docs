@@ -7,7 +7,7 @@ category: management
 
 The User Types API reference is now available at the new [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserType/).
 
-Explore the [Okta Public API Collections](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/overview) workspace to get started with the User Types API Postman collection.
+Explore the [Okta Public API Collections](https://www.postman.com/okta-eng/okta-public-api-collections/folder/rnm6t8c/user-types) workspace to get started with the User Types API Postman collection.
 
 <!-- The User Types API provides operations to manage User Types. See the [User Schema API reference](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/#tag/Schema/operation/getUserSchema).
 
