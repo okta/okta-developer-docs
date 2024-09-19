@@ -1134,7 +1134,7 @@ export const reference = [
                         title: "Telephony Hook",
                         path: "/docs/reference/telephony-hook/",
                      },
-                     { title: "Token Hook", path: "/docs/reference/token-hook/" },
+                     { title: "Token Hook", path: "https://developer.okta.com/docs/reference/token-hook/" },
                      {
                         title: "User Import Hook",
                         path: "/docs/reference/import-hook/",
