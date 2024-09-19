@@ -43,23 +43,23 @@ You can assign IAM-based standard roles using [standard](#standard-role-assignme
 Perform a standard role assignment:
 
 1. Assign a role to a user or group. The user now has access to the admin permissions and resources for the role.
-2. (Optional) If the role supports targets, use one of the [target operations](/docs/reference/api/roles/#role-target-operations) to indicate which specific resource the admin can manage.
+2. (Optional) If the role supports targets, use one of the target operations ([user role targets](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RoleBTargetAdmin/) or [group role targets](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RoleBTargetBGroup/)) to indicate which specific resource the admin can manage.
 
 The following are the entities involved in a standard role assignment:
 
-* Role: Identified either by type or ID returned from the [listing API](/docs/reference/api/roles/#list-roles)
+* Role: Identified either by type or ID returned from the [listing API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RoleECustom/#tag/RoleECustom/operation/listRoles)
 * Principal: Either a group or a user
-* Resource (optional): When using [target operations](/docs/reference/api/roles/#role-target-operations), the resource can be either an app or a group
+* Resource (optional): When using target operations ([user role targets](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RoleBTargetAdmin/), [group role targets](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RoleBTargetBGroup/), or [client role targets](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RoleBTargetClient/)), the resource can be either an app or a group
 
 ## Custom role assignment
 
-You can build custom roles by selecting [Permissions](/docs/reference/api/roles/#permission-types). After a custom role is built, you can use its `id` or `label` to assign to admins:
+You can build custom roles by selecting [Permissions](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#permissions). After a custom role is built, you can use its `id` or `label` to assign to admins:
 
 1. Create a custom role.
 2. Create a resource set.
 3. Bind the admin with the role from step one that targets the resource set from step two.
 
-An assignment of a role to an admin is called a [Binding](/docs/reference/api/roles/#binding-object), which you can identify by its unique ID. A binding represents a single unique combination of principal, resource set, and custom role. A given resource set can have multiple bindings. The resource allows for different combinations of principals and roles to grant permissions to the encompassing resource.
+An assignment of a role to an admin is called a [Binding](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RoleDResourceSetBinding/), which you can identify by its unique ID. A binding represents a single unique combination of principal, resource set, and custom role. A given resource set can have multiple bindings. The resource allows for different combinations of principals and roles to grant permissions to the encompassing resource.
 
 Therefore, when dealing with custom roles, these three entities always exist:
 
@@ -164,7 +164,7 @@ If the resource has a corresponding Okta API, you can specify the resource by it
 |                         | All access requests               <br><ApiLifecycle access="ea" />  | `orn:partition:governance:orgId:requests`                                         |                                                                                                                                                         |
 > **Note:** If you use a role with permissions that don't apply to the resources in the resource set, it doesn't affect the admin role. For example, the `okta.users.userprofile.manage` permission gives the admin no privileges if it’s granted to a resource set that only includes `https://{yourOktaDomain}/api/v1/groups/{targetGroupId}` resources. If you want the admin to be able to manage the users within the group, the resource set must include the corresponding `https://{yourOktaDomain}/api/v1/groups/{targetGroupId}/users` resource.
 
-> **Note:** Governance resources are currently only supported as part of the [Standard Resource Sets](#standard-resource-sets). You can't use these to create or update other resource sets.
+> **Note:** Governance resources are currently only supported as part of the [Standard Resource Sets](#custom-vs-standard). You can't use these to create or update other resource sets.
 
 #### Binding member identifiers
 
@@ -209,7 +209,7 @@ Standard resource sets are managed by Okta only and can't be updated or deleted.
 
   As a result, if an admin was granted a standard role that is limited to a single group, and received group management privileges on all groups in the org through a custom role, the ultimate outcome is group management on all groups.
 
-* You can't assign a custom role without a resource set. The custom role is applicable only to a subset of resources. Standard roles, however, are initially granted to the entire org. You can only scope standard roles to specific resources by invoking [target operations](/docs/reference/api/roles/#role-target-operations).
+* You can't assign a custom role without a resource set. The custom role is applicable only to a subset of resources. Standard roles, however, are initially granted to the entire org. You can only scope standard roles to specific resources by invoking target operations ([user role targets](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RoleBTargetAdmin/), [group role targets](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RoleBTargetBGroup/), or [client role targets](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RoleBTargetClient/)).
 
 ### Permission types
 
