@@ -95,6 +95,7 @@ guides:
  - sign-your-own-saml-csr
  - social-login
  - telephony-inline-hook
+ - terraform-configure-device-signin-standards
  - terraform-design-access-security
  - terraform-design-rate-limits
  - terraform-enable-org-access
@@ -103,7 +104,9 @@ guides:
  - terraform-manage-external-authenticators
  - terraform-manage-groups
  - terraform-manage-user-access
+ - terraform-organize-configuration
  - terraform-overview
+ - terraform-syntax-tips
  - token-inline-hook
  - third-party-risk-integration
  - unlock-mobile-app-with-biometrics
@@ -214,9 +217,12 @@ If you're using Okta as an identity layer for the first time, start with [How Ok
     * [Manage user access with Terraform](/docs/guides/terraform-manage-user-access/)
     * [Manage groups of users with Terraform](/docs/guides/terraform-manage-groups/)
     * [Manage external authentication services with Terraform](/docs/guides/terraform-manage-external-authenticators/)
+    * [Manage device connection requirements](/docs/guides/terraform-configure-device-signin-standards/)
     * [Customize the end-user experience with Terraform](/docs/guides/terraform-manage-end-user-experience/)
     * [Control Terraform access to Okta](/docs/guides/terraform-design-access-security/)
     * [Minimize Terraform rate limit errors](/docs/guides/terraform-design-rate-limits/)
+    * [Organize your configuration](/docs/guides/terraform-organize-configuration/)
+    * [Terraform syntax tips](/docs/guides/terraform-syntax-tips)
 
 7. Customize Okta process flows with event or inline hooks
 

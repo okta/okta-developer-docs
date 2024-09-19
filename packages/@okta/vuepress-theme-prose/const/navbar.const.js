@@ -787,6 +787,10 @@ export const guides = [
             guideName: "terraform-manage-external-authenticators",
           },
           {
+            title: "Manage device connection requirements",
+            guideName: "terraform-configure-device-signin-standards"
+          },
+          {
             title: "Customize end-user experience",
             guideName: "terraform-manage-end-user-experience",
           },
@@ -798,6 +802,14 @@ export const guides = [
             title: "Optimize Terraform access",
           guideName: "terraform-design-rate-limits"
           },
+          {
+            title: "Organize your configuration",
+            guideName: "terraform-organize-configuration"
+          },
+          {
+            title: "Terraform syntax tips",
+            guideName: "terraform-syntax-tips"
+          },
         ],
       },
       {
@@ -806,6 +818,10 @@ export const guides = [
           {
             title: "Common hook set-up steps",
             guideName: "common-hook-set-up-steps",
+          },
+          {
+            title: "Hooks best practices",
+            path: "/docs/guides/hooks-best-practices/",
           },
           {
             title: "Event hook",
@@ -1098,11 +1114,7 @@ export const reference = [
                         path: "/docs/reference/import-hook/",
                      },
                   ],
-               },
-               {
-                  title: "Hooks best practices",
-                  path: "/docs/reference/hooks-best-practices/",
-               },
+               }
             ],
          },
          {

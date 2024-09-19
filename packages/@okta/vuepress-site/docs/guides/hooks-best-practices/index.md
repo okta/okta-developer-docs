@@ -1,10 +1,9 @@
 ---
 title: Hooks best practices guide
-excerpt: >-
-  Understand the best practices to implement and secure Okta event hooks or inline hooks.
+meta:
+  - name: A guide on best practices when implementing Okta Hooks
+    content: A guide on best practices when implementing Okta Hooks
 ---
-
-# Hooks best practices
 
 Event hooks and inline hooks are outbound calls from Okta to an external service. These outbound calls integrate custom functionality into your Okta processes. See [event hooks](/docs/concepts/event-hooks) and [inline hooks](/docs/concepts/inline-hooks).
 
@@ -16,7 +15,7 @@ To prevent a malicious actor from making requests to the endpoint where your Okt
 
 * Configure Okta to send an authentication header in the hook and validate it in every request by one of two ways:
 
-  * Using [HTTP Basic Authentication](/books/api-security/authn/api-authentication-options/#http-basic-authentication). When activating and enabling your hooks on the Okta org, set the **Authorization field** as `Authorization` and the **Authentication secret** in the Base64 `user:password` format.
+  * Using [HTTP Basic Authentication](/books/api-security/authn/api-authentication-options/#http-basic-authentication). When activating and enabling hooks in an org, set the **Authorization field** to `Authorization`, and ensure that the **Authentication secret** is in the Base64-encoded `user:password` format.
 
     >**Note:** You must include the authentication scheme as part of the **Authentication secret**. For Basic Authentication, your secret must appear similar to: `Basic Base64(user:password)`. See the following partial hook header as an example:
 
@@ -39,7 +38,7 @@ To prevent a malicious actor from making requests to the endpoint where your Okt
 
 ## Protect your hook content from external viewers
 
-Okta requires HTTPS to encrypt communications to your hook endpoint to prevent unauthorized parties from reading the contents of an Okta hook. When using HTTPS, ensure you keep your SSL certificate updated and the Domain Name System (DNS) secured, so that someone can’t reroute your calls to another location.
+Okta requires HTTPS to encrypt communications to your hook endpoint. This requirement prevents unauthorized parties from reading the contents of a hook. When using HTTPS, ensure you keep your SSL certificate updated and the Domain Name System (DNS) secured, so that someone can’t reroute your calls to another location.
 
 >**Note:** Adding an HTTP URL when enabling a hook in the Admin Console displays an invalid URL provided error.
 
@@ -54,7 +53,7 @@ Okta event hooks also require a response. To prevent unnecessary delays or timeo
 
 A timeout of three seconds is enforced on all outbound requests for event and inline hooks. One request retry is sent in the event of a timeout or an error response from the external service. If a successful response isn't received after that, an HTTP 400 error is returned with more information about the failure.
 
-See inline hook [Timeout and retry](/docs/concepts/inline-hooks/#timeout-and-retry) and event hook [Time out and retry](/docs/concepts/event-hooks/#timeout-and-retry).
+See inline hook [Time out and retry](/docs/concepts/inline-hooks/#timeout-and-retry) and event hook [Time out and retry](/docs/concepts/event-hooks/#timeout-and-retry).
 
 ## Limits, duplicates, and order of hook calls
 
@@ -62,12 +61,12 @@ The number of hook calls and the limits per org are available in the following t
 
 Your external service that processes hook requests must consider that the order of events or inline hook calls aren't guaranteed. Also, to avoid processing duplicate requests, use the `eventId` property to identify unique requests.
 
-| Hook Type | Limit Type | Limit | Description |
+| Hook type | Limit type | Limit | Description |
 | --------- | -----------| ----- | ----------- |
-| Event hook | Number of daily events | 400,000 | A maximum of 400,000 applicable events, per org, per day, that trigger event hooks. Event hooks aren't recorded or replayed after this point. If a request times out after three seconds, event hooks are retried once. Retries don't count toward the org limit.
+| Event hook | Number of daily events | 400,000 | A maximum of 400,000 applicable events that trigger event hooks, per org, per day. Event hooks aren't recorded or replayed after this point. If a request times out after three seconds, event hooks are retried once. Retries don't count toward the org limit.
 |            | Maximum number of event hooks per org | 25 | A maximum of 25 active event hooks can be configured per org. You can configure each event hook to deliver multiple event types. |
-| Inline hook | Timeout | 3 seconds | Inline hooks have a completion timeout of three seconds with a single retry. However, a request isn't retried if your endpoint returns a 4xx HTTP error code. Any 2xx code is considered successful, and the request is not retried. If the external service endpoint responds with a redirect, it isn't followed. |
-|             | Maximum number of inline hooks per org | 100 | The maximum number of inline hooks that you can configure per org is 100, which is a combined total for any combination of inline hook types. |
+| Inline hook | Timeout | 3 seconds | Inline hooks have a completion timeout of three seconds with a single retry. However, a request isn't retried if your endpoint returns a 4xx HTTP error code. Any 2xx code is considered successful, and the request isn’t retried. If the external service endpoint responds with a redirect, it isn't followed. |
+|             | Maximum number of inline hooks per org | 100 | The maximum number of inline hooks that you can configure per org is 100, which is a total for any combination of inline hook types. |
 |             | Concurrent rate limit | Variable | The maximum number of inline hooks that can be sent concurrently based on org type. See [Concurrent rate limits](/docs/reference/rl-additional-limits/#concurrent-rate-limits).|
 
 ## Troubleshoot your hook implementations

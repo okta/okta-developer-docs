@@ -6391,7 +6391,7 @@ If the delete request is received for an active JSON Web Key, you receive an err
 
 ## Application OAuth 2.0 role assignment operations
 
-The Application OAuth 2.0 role assignment operations reference is now available at the new [Okta API reference portal](https://developer.okta.com/docs/api/) as the [Client Role Assignments API](https://preview.redoc.ly/oktadev/ss-OKTA-605465-app-credentials-api/openapi/okta-management/management/tag/RoleAssignmentClient/).
+The Application OAuth 2.0 role assignment operations reference is now available at the new [Okta API reference portal](https://developer.okta.com/docs/api/) as the [Client Role Assignments API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RoleAssignmentClient/).
 
 ## Application OAuth 2.0 scope consent grant operations
 
