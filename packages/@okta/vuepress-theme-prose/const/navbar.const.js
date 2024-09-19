@@ -1123,7 +1123,7 @@ export const reference = [
                   subLinks: [
                      {
                         title: "Password Import Hook",
-                        path: "/docs/reference/password-hook/",
+                        path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createPasswordImportInlineHook",
                      },
                      {
                         title: "Registration Hook",

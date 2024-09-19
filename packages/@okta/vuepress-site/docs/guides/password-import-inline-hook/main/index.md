@@ -120,4 +120,5 @@ Review the following guides to implement other inline or event hook examples:
 
 ## See also
 
-For further reference data on the password import inline hook, see: [Password import inline hook](/docs/reference/password-hook/).
+For further reference data on the password import inline hook, see: [Password import inline hook](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createPasswordImportInlineHook).
+
