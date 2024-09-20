@@ -73,8 +73,6 @@ Include the following required claims in the JWT payload:
 
 <StackSnippet snippet="claims" />
 
-MAY TAKE THIS OUT ALL TOGETHER AND THE NOTE IN THE FLOW DIAGRAM> **Note** This guide uses a native app with the `authorization_code` with PKCE and `refresh_token` [grant types](https://developer.okta.com/docs/guides/implement-grant-type/authcode/main/) enabled for the examples.
-
 ## Configure DPoP
 
 This section discusses the initial POST `/token` [request](/docs/guides/implement-grant-type/authcode/main/#flow-specifics) that you need to make, the JWT payload update, and the second POST `/token` request that includes the updated JWT.
