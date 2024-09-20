@@ -363,7 +363,7 @@ curl -v -X POST \
 
 Creates a user with a [Password Hook](#password-hook-object) object specifying that a password inline hook should be used to handle password verification.
 
-The password inline hook is triggered to handle verification of the end user's password the first time the user tries to sign in, with Okta calling the password inline hook to check that the password the user supplied is valid. If the password is valid, Okta stores the hash of the password that was provided and can authenticate the user independently from then on. See [Password import inline hook](/docs/reference/password-hook/) for more details.
+The password inline hook is triggered to handle verification of the end user's password the first time the user tries to sign in, with Okta calling the password inline hook to check that the password the user supplied is valid. If the password is valid, Okta stores the hash of the password that was provided and can authenticate the user independently from then on. See [Password import inline hook](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createPasswordImportInlineHook) for more details.
 
 The new user is able to sign in after activation with the valid password. This flow supports migrating users from another data store in cases where we wish to allow the users to retain their current passwords.
 
@@ -4205,7 +4205,7 @@ See [`hash`](https://developer.okta.com/docs/api/openapi/okta-management/managem
 
 See [`hook`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/updateUser!path=credentials/password/hook&t=request) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
 
-<!--Specifies that a [password import inline hook](/docs/reference/password-hook/) should be triggered to handle verification of the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly from some other store. See [Create User with Password Hook](#create-user-with-password-import-inline-hook) for information on using this object when creating a user.
+<!--Specifies that a [password import inline hook](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createPasswordImportInlineHook) should be triggered to handle verification of the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly from some other store. See [Create User with Password Hook](#create-user-with-password-import-inline-hook) for information on using this object when creating a user.
 
 > **Note:** Because the plain text password isn't specified when a password hook is specified, password policy isn't applied.
 

@@ -338,7 +338,7 @@ The Okta [Custom Administrator Roles](/docs/reference/api/roles/index.md) API pr
 
 - When a native SSO [token exchange](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/tokenCustomAS) call was created, an invalid scope was accepted and tokens were returned. (OKTA-417808)
 
-- Registration inline hooks didn’t correctly display an error message to the end user when the response included the `errorCauses` object with an `error-summary` [parameter](/docs/reference/registration-hook/#error). (OKTA-409142)
+- Registration inline hooks didn’t correctly display an error message to the end user when the response included the `errorCauses` object with an `error-summary` [parameter](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/create-registration-hook!c=200&path=Error&t=response). (OKTA-409142)
 
 ### Monthly release 2021.08.0
 
@@ -366,7 +366,7 @@ The Okta [Risk Providers API](https://developer.okta.com/docs/api/openapi/okta-m
 
 #### SAML parameter SessionNotOnOrAfter is GA in Preview
 
-The SAML parameter `SessionNotOnOrAfter` for SAML assertions is available for use with Okta's [SAML inline hooks](/docs/reference/saml-hook/). This optional parameter specifies the session lifetime, in seconds, and is included in the SAML assertion. The `SessionNotOnOrAfter` parameter allows the Identity Provider to control the session of the Service Provider. Most SAML applications manage their own sessions. However, some SAML applications require this parameter from the Identity Provider for session management. <!--OKTA-406633-->
+The SAML parameter `SessionNotOnOrAfter` for SAML assertions is available for use with Okta's [SAML inline hooks](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createSAMLAssertionInlineHook). This optional parameter specifies the session lifetime, in seconds, and is included in the SAML assertion. The `SessionNotOnOrAfter` parameter allows the Identity Provider (IdP) to control the session of the Service Provider. Most SAML apps manage their own sessions. However, some SAML apps require this parameter from the IdP for session management. <!--OKTA-406633-->
 
 #### Support for Push Status using the Apps API is GA in Production
 
@@ -673,7 +673,7 @@ For details about this release, see the Okta [Sign-In Widget release notes](http
 
 #### SAML parameter SessionNotOnOrAfter is GA in Preview
 
-The SAML parameter `SessionNotOnOrAfter` is now Generally Available in Preview for SAML assertions and is available for use with Okta’s [SAML inline hooks](/docs/reference/saml-hook/). This optional parameter specifies the session lifetime, in seconds, and is included in the SAML assertion. The `SessionNotOnOrAfter` parameter allows the Identity Provider to control the session of the Service Provider. Most SAML applications manage their own sessions. However, some SAML applications require this parameter from the Identity Provider for session management. <!--OKTA-390950-->
+The SAML parameter `SessionNotOnOrAfter` is now Generally Available in Preview for SAML assertions and is available for use with Okta’s [SAML inline hooks](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createSAMLAssertionInlineHook). This optional parameter specifies the session lifetime, in seconds, and is included in the SAML assertion. The `SessionNotOnOrAfter` parameter allows the Identity Provider to control the session of the Service Provider. Most SAML applications manage their own sessions. However, some SAML applications require this parameter from the Identity Provider for session management. <!--OKTA-390950-->
 
 #### System Log API SCIM filter expression update
 

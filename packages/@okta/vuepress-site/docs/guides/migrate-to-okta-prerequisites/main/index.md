@@ -18,7 +18,7 @@ Also, being aware of any risks in your plan guides you toward successfully testi
 
 A **one-time migration** moves your users with their credentials over to Okta all at once. It’s expected that the legacy system could (and should) be taken offline after this migration process completes.
 
-A **migration program** is one where, for a period of time, the legacy system and Okta run in parallel to migrate users in a more impromptu fashion. You can accomplish this using the Okta [Inline Password Hook](/docs/reference/password-hook/) feature.
+A **migration program** is one where, for a period of time, the legacy system and Okta run in parallel to migrate users in a more impromptu fashion. You can accomplish this using the [Password import inline hook](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createPasswordImportInlineHook) feature.
 
 It's important to note that this information is about a migration strategy and not integration.
 

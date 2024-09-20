@@ -7,6 +7,12 @@ excerpt: Add custom logic to the user import process.
 
 <ApiLifecycle access="ea" />
 
+The User Import Inline Hook API reference is now available at the new [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createUserImportInlineHook)
+
+Explore the [Okta Public API Collections](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/overview) workspace to get started with the Inline Hook API Postman Collection.
+
+<!--
+
 This page provides reference documentation for user import inline hooks, one type of inline hook supported by Okta. It provides sample JSON objects that are contained in the outbound request from Okta, and sample JSON objects that you can include in your response.
 
 ## See also
@@ -296,4 +302,4 @@ You then need to associate the registered inline hook with an app by completing 
 
 1. Click **Save**.
 
-> **Note:** The above procedure for associating a user import inline hook with an app using Admin Console cannot be used with AD or LDAP.
+> **Note:** The above procedure for associating a user import inline hook with an app using Admin Console cannot be used with AD or LDAP. -->

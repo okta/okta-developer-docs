@@ -1127,21 +1127,21 @@ export const reference = [
                   subLinks: [
                      {
                         title: "Password Import Hook",
-                        path: "/docs/reference/password-hook/",
+                        path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createPasswordImportInlineHook",
                      },
                      {
                         title: "Registration Hook",
-                        path: "/docs/reference/registration-hook/",
+                        path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/create-registration-hook",
                      },
-                     { title: "SAML Hook", path: "/docs/reference/saml-hook/" },
+                     { title: "SAML Hook", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createSAMLAssertionInlineHook" },
                      {
                         title: "Telephony Hook",
-                        path: "/docs/reference/telephony-hook/",
+                        path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createTelephonyInlineHook",
                      },
                      { title: "Token Hook", path: "https://developer.okta.com/docs/reference/token-hook/" },
                      {
                         title: "User Import Hook",
-                        path: "/docs/reference/import-hook/",
+                        path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createUserImportInlineHook",
                      },
                   ],
                }
