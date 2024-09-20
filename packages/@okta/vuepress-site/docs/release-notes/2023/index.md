@@ -237,7 +237,7 @@ A new [Terraform section](/docs/guides/terraform-landing-page/main/) is availabl
 #### Bugs fixed in 2023.08.0
 
 - Custom Push Factors used the same `provider` and `vendorName` properties as Okta Verify. These factors now return the `provider` as `CUSTOM` and the `vendorName` as the name of the authenticator. (OKTA-598598)
-- Some of the endpoints of the [Resource Sets API](/docs/reference/api/roles/#resource-set-operations) didn't support `self` and `next` link relation types. (OKTA-571339)
+- Some of the endpoints of the [Resource Sets API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RoleCResourceSet/) didn't support `self` and `next` link relation types. (OKTA-571339)
 - The Users API didn't validate the `saltOrder` property when creating or updating users with salted hashed passwords. (OKTA-602124)
 - Users that were provisioned through an IdP could be assigned the Super Admin role due to previous permission checks in group assignments. (OKTA-597974)
 

@@ -78,13 +78,13 @@ As an [Okta super administrator](https://help.okta.com/okta_help.htm?type=oie&id
 | Parameter |  Description/Value   |
 | --------- |  ------------- |
 | `yourServiceAppId`  |  Specify the client ID value from the response when the [service app was created](#create-a-service-app-integration).|
-| `type`  |  Specify the admin role to assign to the service app. See [Role types](/docs/reference/api/roles/#role-types). |
-| `resource-set`  |  Custom role only. Specify the resource set ID. See [Resource set object](/docs/reference/api/roles/#resource-set-object). |
-| `role`  |  Custom role only. Specify the custom role ID. See [Custom role object](/docs/reference/api/roles/#custom-role-object). |
+| `type`  |  Specify the admin role to assign to the service app. See [Role types](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#standard-roles). |
+| `resource-set`  |  Custom role only. Specify the resource set ID. See [Resource set object](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RoleCResourceSet/#tag/RoleCResourceSet/operation/listResourceSets!c=200&path=resource-sets&t=response). |
+| `role`  |  Custom role only. Specify the custom role ID. See [Custom role object](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RoleECustom/#tag/RoleECustom/operation/listRoles!c=200&path=roles&t=response). |
 
 > **Note:** Admin roles determine which resources the admin can perform the actions on, such as a specific group of users or a specific set of apps. Scopes determine the action that the admin can perform, such as manage users or read apps. Therefore, the admin roles need to have enough permissions for the scopes provided.
 
-See [Assign a Role to a client application](/docs/reference/api/roles/#assign-a-role-to-a-client-application) in the Role Assignment API reference.
+See [Assign a Role to a client app](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RoleAssignmentClient/#tag/RoleAssignmentClient/operation/assignRoleToClient) in the Role Assignment API reference.
 
 #### Request example - standard role
 

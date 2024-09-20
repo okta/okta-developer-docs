@@ -294,7 +294,7 @@ When configuring an API Service Integration (either through the Admin Console or
 
 #### Custom admin roles with device permissions is EA in Preview
 
-You can now create custom admin roles with permissions to view and manage devices. You can add the [Devices resource](/docs/reference/api/roles/#supported-resources)&nbsp;to your resource set and then specify [device permissions](/docs/reference/api/roles/#permission-types)&nbsp;for your custom admin. <!-- OKTA-636437 CUSTOM_ADMIN_ROLE_DEVICES -->
+You can now create custom admin roles with permissions to view and manage devices. You can add the [Devices resource](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#supported-resources)&nbsp;to your resource set and then specify [device permissions](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#permissions)&nbsp;for your custom admin. <!-- OKTA-636437 CUSTOM_ADMIN_ROLE_DEVICES -->
 
 #### Bugs fixed in 2023.08.1
 
@@ -342,7 +342,7 @@ With the Policy API `/simulate` endpoint, you can quickly and easily test polici
 #### Bugs fixed in 2023.08.0
 
 - Custom Push Factors used the same `provider` and `vendorName` properties as Okta Verify. These factors now return the `provider` as `CUSTOM` and the `vendorName` as the name of the authenticator. (OKTA-598598)
-- Some of the endpoints of the [Resource Sets API](/docs/reference/api/roles/#resource-set-operations) didn't support `self` and `next` link relation types. (OKTA-571339)
+- Some of the endpoints of the [Resource Sets API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RoleCResourceSet/) didn't support `self` and `next` link relation types. (OKTA-571339)
 - The Users API didn't validate the `saltOrder` property when creating or updating users with salted hashed passwords. (OKTA-602124)
 - Users that were provisioned through an IdP could be assigned the Super Admin role due to previous permission checks in group assignments. (OKTA-597974)
 

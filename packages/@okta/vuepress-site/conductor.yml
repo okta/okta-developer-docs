@@ -452,7 +452,7 @@ redirects:
   - from: /docs/api/resources/oidc
     to: https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/
   - from: /docs/api/resources/roles/index.html
-    to: /docs/reference/api/roles/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/
   - from: /docs/api/resources/authorization-servers/index.html
     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServer/
   - from: /docs/api/resources/oauth-clients/index.html
@@ -786,7 +786,7 @@ redirects:
   - from: /docs/api/resources/authn
     to: /docs/reference/api/authn/
   - from: /docs/api/resources/roles
-    to: /docs/reference/api/roles/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/
   - from: /docs/api/resources/authorization-servers
     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServer/
   - from: /docs/api/resources/oauth-clients
@@ -888,7 +888,7 @@ redirects:
   - from: /docs/api/resources/oidc.html
     to: https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/
   - from: /docs/api/resources/roles.html
-    to: /docs/reference/api/roles/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/
   - from: /docs/api/resources/authorization-servers.html
     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServer/
   - from: /docs/api/resources/oauth-clients.html
