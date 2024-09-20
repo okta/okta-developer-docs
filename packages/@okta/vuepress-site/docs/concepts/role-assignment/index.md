@@ -122,7 +122,7 @@ The identifier for the tenant that is using the service. This is typically your 
 
 ###### objectType
 
-The object type that is specific to the service. For example, object types `groups` or `users` are used for the `directory` service. For examples of object types, see [Supported resources](#supported-resources).
+The object type that's specific to the service. For example, object types `groups` or `users` are used for the `directory` service. For examples of object types, see [Supported resources](#supported-resources).
 
 ###### objectId
 
