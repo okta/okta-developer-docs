@@ -84,7 +84,7 @@ As an [Okta super administrator](https://help.okta.com/okta_help.htm?type=oie&id
 
 > **Note:** Admin roles determine which resources the admin can perform the actions on, such as a specific group of users or a specific set of apps. Scopes determine the action that the admin can perform, such as manage users or read apps. Therefore, the admin roles need to have enough permissions for the scopes provided.
 
-See [Assign a Role to a client application](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RoleAssignmentClient/#tag/RoleAssignmentClient/operation/assignRoleToClient) in the Role Assignment API reference.
+See [Assign a Role to a client app](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RoleAssignmentClient/#tag/RoleAssignmentClient/operation/assignRoleToClient) in the Role Assignment API reference.
 
 #### Request example - standard role
 
