@@ -166,7 +166,7 @@ Example:
 
 #### <span v-pre>`{{{OktaUtil}}}`</span>
 
-Defines a global `OktaUtil` JavaScript object that contains methods used to complete the Okta sign-in flow. When an app uses the sign-in page to sign a user in, information called request context is available. The request context describes the target application and the request.
+Defines a global `OktaUtil` JavaScript object that contains methods used to complete the Okta sign-in flow. When an app uses the sign-in page to sign a user in, information called request context is available. The request context describes the target app and the request.
 
 ### Use request context
 
