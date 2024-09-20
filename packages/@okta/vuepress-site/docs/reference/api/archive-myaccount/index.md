@@ -75,7 +75,7 @@ curl -v -X GET \
 
 <ApiOperation method="get" url="/api/v1/myaccount/profile/schema" />
 
-Fetches the appropriate User Profile Schema for the caller's [User Type](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserType/).
+Fetches the appropriate user profile schema for the caller's [user type](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserType/).
 
 > **Note:** If a property's value is not visible to an end user (because it is hidden or [sensitive](https://help.okta.com/okta_help.htm?id=ext-hide-sensitive-attributes) then the property's definition will also be hidden in the output of this API.
 
