@@ -764,55 +764,77 @@ export const guides = [
       },
       {
         title: "Automate org management with Terraform",
-        guideName: "terraform-landing-page",
+//         guideName: "terraform-landing-page",
         subLinks: [
           {
-            title: "Terraform overview",
-            guideName: "terraform-overview",
+            title: "Essentials",
+            subLinks: [
+              {
+                title: "Terraform overview",
+                guideName: "terraform-overview",
+              },
+              {
+                title: "Enable Terraform access",
+                guideName: "terraform-enable-org-access",
+              },
+              {
+                title: "Control Terraform access",
+                guideName: "terraform-design-access-security",
+              },
+            ],
           },
           {
-            title: "Enable Terraform access",
-            guideName: "terraform-enable-org-access",
+            title: "Create and manage resources",
+            subLinks: [
+              {
+                title: "Manage groups",
+                guideName: "terraform-manage-groups",
+              },
+              {
+                title: "Manage user access",
+                guideName: "terraform-manage-user-access",
+              },
+              {
+                title: "Manage authentication services",
+                guideName: "terraform-manage-external-authenticators",
+              },
+              {
+                title: "Manage device requirements",
+                guideName: "terraform-configure-device-signin-standards"
+              },
+              {
+                title: "Manage authorization servers",
+                guideName: "terraform-create-custom-auth-server"
+              },
+              {
+                title: "Customize end-user experience",
+                guideName: "terraform-manage-end-user-experience",
+              },
+              {
+                title: "Manage multiple brands",
+                guideName: "terraform-customize-for-multiple-brands"
+              },
+              {
+                title: "Import existing resources",
+                guideName: "terraform-import-existing-resources"
+              },
+            ],
           },
-          {
-            title: "Manage user access",
-            guideName: "terraform-manage-user-access",
-          },
-          {
-            title: "Manage groups",
-            guideName: "terraform-manage-groups",
-          },
-          {
-            title: "Manage authentication services",
-            guideName: "terraform-manage-external-authenticators",
-          },
-          {
-            title: "Manage device connection requirements",
-            guideName: "terraform-configure-device-signin-standards"
-          },
-          {
-            title: "Manage authorization servers",
-            guideName: "terraform-create-custom-auth-server"
-          },
-          {
-            title: "Customize end-user experience",
-            guideName: "terraform-manage-end-user-experience",
-          },
-          {
-            title: "Control Terraform access",
-            guideName: "terraform-design-access-security",
-          },
-          {
-            title: "Optimize Terraform access",
-          guideName: "terraform-design-rate-limits"
-          },
-          {
-            title: "Organize your configuration",
-            guideName: "terraform-organize-configuration"
-          },
-          {
-            title: "Terraform syntax tips",
-            guideName: "terraform-syntax-tips"
+          {title: "Optimize your configuration",
+          subLinks: [
+              {
+                title: "Optimize Terraform access",
+                guideName: "terraform-design-rate-limits"
+              },
+              {
+                title: "Organize your configuration",
+                guideName: "terraform-organize-configuration"
+              },
+              {
+                title: "Terraform syntax tips",
+                guideName: "terraform-syntax-tips"
+              },
+            ],
           },
         ],
       },
