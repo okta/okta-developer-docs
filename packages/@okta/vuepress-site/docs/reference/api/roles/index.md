@@ -2550,7 +2550,7 @@ HTTP/1.1 204 No Content
 
 ## Role target operations
 
-The Role target operations reference is now available at the new [Okta API reference portal](https://developer.okta.com/docs/api/) as the [User Role Targets API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RoleBTargetAdmin/), the [Group Role Targets](hhttps://developer.okta.com/docs/api/openapi/okta-management/management/tag/RoleBTargetBGroup/), and the [Client Role Targets API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RoleBTargetClient/).
+The Role target operations reference is now available at the new [Okta API reference portal](https://developer.okta.com/docs/api/) as the [User Role Targets API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RoleBTargetAdmin/), the [Group Role Targets](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RoleBTargetBGroup/), and the [Client Role Targets API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RoleBTargetClient/).
 
 <!--
 Role targets are a way of defining permissions for admin roles into a smaller subset of Groups or Apps within your org. Targets limit an admin's permissions to a targeted area of the org. You can define admin roles to target Groups, Applications, and Application Instances.
