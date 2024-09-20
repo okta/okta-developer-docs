@@ -29,7 +29,7 @@ This guide explains how to customize the sign-in page for both redirect and embe
 
 ## About the sign-in page
 
-The sign-in page is a JavaScript library that gives you a fully featured and customizable sign-in experience that you can use to authenticate users on any website. How you customize the sign-in page depends on whether Okta hosts it (redirect authentication) or you embed it in your app (embedded authentication).
+The sign-in page is a JavaScript library that gives you a fully featured and customizable sign-in experience. Use it to authenticate users on any website. How you customize the sign-in page depends on whether Okta hosts it (redirect authentication) or you embed it in your app (embedded authentication).
 
 * Redirect authentication: Okta hosts the sign-in page that appears when your applications redirect to Okta to sign users in. You can customize the page using easy controls or a code editor that is provided. See [Style for redirect authentication](#style-for-redirect-authentication).
 
@@ -109,11 +109,16 @@ Use the code editor to modify any HTML, CSS, or JavaScript on the sign-in page. 
 
 ### Use the Brands API
 
-The [Brands API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Brands/) is a feature that allows you to set icons, images, and colors across your Okta-hosted sign-in page, error pages, email templates, and End-User Dashboard all at once, without needing to set a customized Okta URL domain.
+The [Brands API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Brands/) allows you to set icons, images, and colors without needing to set a custom Okta URL domain. You can update the following:
+
+* The Okta-hosted sign-in page
+* Error pages
+* Email templates
+* The End-User Dashboard
 
 ### Bypass the custom sign-in page
 
-Use the `/login/default` backdoor sign-in URL to bypass the custom sign-in page. If, for example, something goes wrong with your customizations and your sign-in page won't load, add `/login/default` to the end of your Okta URL to bring up the default sign-in page and enter your credentials:
+Use the `/login/default` backdoor sign-in URL to bypass the custom sign-in page. If, for example, something goes wrong with your customizations and your sign-in page doesn't load, add `/login/default` to the end of your Okta URL. It brings up the default sign-in page, then you can enter your credentials:
 
 ```
 https://{yourOktaDomain}/login/default
@@ -123,7 +128,7 @@ This URL only bypasses changes that you have made to the HTML in the HTML editor
 
 ### Use variables
 
-The Okta sign-in page template is written with [Mustache](http://mustache.github.io/mustache.5.html) and uses predefined variables to insert relevant values into the sign-in page. To see the variables in a code sample, refer to the error page default code in the code editor. See [Use the code editor](#use-the-code-editor).
+The Okta sign-in page template is written with [Mustache](http://mustache.github.io/mustache.5.html) and uses predefined variables to insert relevant values into the sign-in page. To see variables in a code sample, refer to the default code of the error page. See [Use the code editor](#use-the-code-editor).
 
 Variables with double curly braces (`{{`) return escaped HTML by default. Escaping allows you to show "special" characters in HTML. For example, `<p>hello</p>` displays as a paragraph element and the `<p>` tags don't render. For the `<p>` tags to render, escape or replace the `<p>` tags by using `&lt;p&gt; hello &lt;/p&gt;`. In this example, `&lt;p&gt;` escapes `<` and `&lt;/p&gt;` escapes `>`.
 
@@ -161,11 +166,14 @@ Example:
 
 #### <span v-pre>`{{{OktaUtil}}}`</span>
 
-Defines a global `OktaUtil` JavaScript object that contains methods used to complete the Okta sign-in flow. When an application uses the Okta-hosted sign-in page to sign a user in, information (called request context) is available about the target application and the request.
+Defines a global `OktaUtil` JavaScript object that contains methods used to complete the Okta sign-in flow. When an app uses the sign-in page to sign a user in, information called request context is available. The request context describes the target application and the request.
 
 ### Use request context
 
-By calling the `OktaUtil.getRequestContext()` method, JavaScript code on your sign-in page can inspect the current request and make decisions based on the target application or other details.
+By calling the `OktaUtil.getRequestContext()` method, JavaScript code on your sign-in page can do the following:
+
+* Inspect the current request
+* Act based on the target app or other details
 
 Identity Engine users get the following object returned from `OktaUtil.getRequestContext()`:
 
@@ -291,7 +299,7 @@ To suppress the brief appearance of the Sign-In Widget, use a [custom domain](/d
 <style> #okta-login-container{ opacity:0; transition-delay:200ms; transition:opacity 500ms; -webkit-transition:opacity 500ms; /* Safari */ }</style>
 ```
 
-- (Optional) In the HTML header as part of the JavaScript code block, add the following to allow for additional context that you could use for build-out:
+- (Optional) You can add more context for build-out. In the HTML header as part of the JavaScript code block, add the following:
 
 ```javascript
 var myContext = {
@@ -310,16 +318,16 @@ var urlParams = new URLSearchParams(window.location.search);
 
 // Detect the IDP param
 if (urlParams.has("idp")) {
-    console.log(urlParams.get('idp')); // just to capture... if additional logic needed
+    console.log(urlParams.get('idp')); // just to capture... if more logic needed
     // Let the Default opacity remain;
 } else {
     // Allow the login container to be seen;
     loginContainer.style.opacity = 1;
-    myContext.isLoginHidden = false; // (OPTIONAL - if additional Logic needed (would not set opacity)
+    myContext.isLoginHidden = false; // (OPTIONAL - if more Logic needed (would not set opacity)
 }
 ```
 
-- (Optional) In the HTML body, add the following if you need the additional context and there isn't any display of the Sign-In Widget at the bottom of the page build-out:
+- (Optional) You might need more context and there isn't any display of the Sign-In Widget at the bottom of the page. In the HTML body, add the following:
 
 ```javascript
 if (myContext.isLoginHidden) {
@@ -332,7 +340,7 @@ if (myContext.isLoginHidden) {
 
 **Solutions for the programmatic impact**
 
-Consider alternative integrations within your application. Since the IdP is known, you can redirect for IdP verification for all authentication flows, or leverage the [Web Finger API](/docs/reference/api/webfinger/). However, your integration may be limited based on context.
+Consider alternative integrations within your application. Since the IdP is known, you can redirect for IdP verification for all authentication flows, or use the [Web Finger API](/docs/reference/api/webfinger/). However, your integration may be limited based on context.
 
 > **Note:** In OIE, [authentication policy rules](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-auth-policy) include conditions about the device platform and the target application. The WebFinger API doesn't include device and application details in its responses.
 
