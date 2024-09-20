@@ -791,6 +791,10 @@ export const guides = [
             guideName: "terraform-configure-device-signin-standards"
           },
           {
+            title: "Manage authorization servers",
+            guideName: "terraform-create-custom-auth-server"
+          },
+          {
             title: "Customize end-user experience",
             guideName: "terraform-manage-end-user-experience",
           },
@@ -1069,9 +1073,9 @@ export const reference = [
                { title: "System Log", path: "/docs/reference/api/system-log/" },
                { title: "Templates", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Template/" },
                { title: "ThreatInsight", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ThreatInsight/" },
-               { title: "Trusted Origins", path: "/docs/reference/api/trusted-origins/" },
+               { title: "Trusted Origins", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/TrustedOrigin/" },
                { title: "UI Schema", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UISchema/" },
-               { title: "User Types", path: "/docs/reference/api/user-types/" },
+               { title: "User Types", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserType/" },
                { title: "Users", path: "/docs/reference/api/users/" }
             ]
          },
@@ -1112,11 +1116,11 @@ export const reference = [
             subLinks: [
                {
                   title: "Event Hooks Management API",
-                  path: "/docs/reference/api/event-hooks/",
+                  path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/EventHook/#tag/EventHook/",
                },
                {
                   title: "Inline Hooks Management API",
-                  path: "/docs/reference/api/inline-hooks/",
+                  path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/",
                },
                {
                   title: "Inline Hook Types",
@@ -1134,7 +1138,7 @@ export const reference = [
                         title: "Telephony Hook",
                         path: "/docs/reference/telephony-hook/",
                      },
-                     { title: "Token Hook", path: "/docs/reference/token-hook/" },
+                     { title: "Token Hook", path: "https://developer.okta.com/docs/reference/token-hook/" },
                      {
                         title: "User Import Hook",
                         path: "/docs/reference/import-hook/",
@@ -1153,7 +1157,7 @@ export const reference = [
          },
          {
             title: "Release lifecycle",
-            path: "/docs/reference/releases-at-okta/",
+            path: "https://developer.okta.com/docs/api/openapi/okta-management/guides/release-lifecycle/",
          },
          {
             title: 'Architecture Center',

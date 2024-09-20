@@ -466,7 +466,7 @@ Rate limits do not apply to these OAuth public metadata endpoints, so rate limit
 
 #### OAuth for Okta enabled for Trusted Origins, Sessions, and Custom Templates APIs
 
-OAuth for Okta is now enabled for the [Trusted Origins API](/docs/reference/api/trusted-origins/), the [Sessions API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Session/), and the [SMS Templates API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Template/). See [Scopes & supported endpoints](/docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints). <!-- OKTA-286819 -->
+OAuth for Okta is now enabled for the [Trusted Origins API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/TrustedOrigin/), the [Sessions API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Session/), and the [SMS Templates API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Template/). See [Scopes & supported endpoints](/docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints). <!-- OKTA-286819 -->
 
 #### Updated behavior for logging of invalid use by OAuth 2.0 Client
 
@@ -517,7 +517,7 @@ The [previously announced logging behavior](/docs/release-notes/2017/#additional
 
 #### User Types API GA in Production
 
-The [User Types API](/docs/reference/api/user-types/) is Generally Available in Production. <!-- OKTA-286349 -->
+The [User Types API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserType/) is Generally Available in Production. <!-- OKTA-286349 -->
 
 #### CORS headers in more API responses
 
@@ -544,7 +544,7 @@ Okta will now return CORS headers for [requests made with OAuth 2.0 Bearer token
 
 * The [`_links`](/docs/reference/core-okta-api/#links) attribute for `groups` sent by Okta in the request body for a SAML inline hook was incorrect. (OKTA-269553)
 
-* Responses from OpenID Connect and OAuth 2.0 public metadata endpoints incorrectly omitted the return of CORS headers if the calling URL wasn't in the list of [trusted origins](/docs/reference/api/trusted-origins/) defined for the org. (OKTA-283549)
+* Responses from OpenID Connect and OAuth 2.0 public metadata endpoints incorrectly omitted the return of CORS headers if the calling URL wasn't in the list of [trusted origins](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/TrustedOrigin/) defined for the org. (OKTA-283549)
 
 * When a Workflow was called, all headers that weren't white listed had text prepended in the response, which broke redirects. (OKTA-282294)
 
@@ -661,7 +661,7 @@ The [Policy API](/docs/reference/api/policy/) now has [OAuth for Okta](/docs/gui
 
 #### User Types API in General Availability in Preview
 
-The [User Types API](/docs/reference/api/user-types/) is in General Availability (GA) in Preview. <!--OKTA-275379-->
+The [User Types API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserType/) is in General Availability (GA) in Preview. <!--OKTA-275379-->
 
 #### SAML Assertion Inline Hook Now Supports URI Formatting in Claims
 
@@ -683,7 +683,7 @@ The [Apps API](/docs/reference/api/apps/) now supports specifying SAML attribute
 
 * When using the [SAML assertion inline hook](/docs/reference/saml-hook/), if there was an optional attribute statement configured for the app and the attribute statement had no value specified, commands returned from SAML inline hook responses were not applied. (OKTA-263494)
 
-* The [Update User Types API](/docs/reference/api/user-types/#update-user-type) previously allowed the existing name of a User Type to be changed. (OKTA-241788)
+* The [Update User Types API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserType/#tag/UserType/operation/updateUserType) previously allowed the existing name of a User Type to be changed. (OKTA-241788)
 
 
 ## January

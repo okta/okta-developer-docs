@@ -33,7 +33,7 @@ The [Features API](/docs/reference/api/features/) allows operations to manage se
 
 #### Token inline hook is Generally Available in Production
 
-The [Token inline hook](/docs/reference/token-hook/) enables you to integrate your own custom functionality into the process of minting OAuth 2.0 and OpenID Connect tokens. <!-- OKTA-244859 -->
+The [Token inline hook](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createTokenInlineHook) enables you to integrate your own custom functionality into the process of minting OAuth 2.0 and OpenID Connect tokens. <!-- OKTA-244859 -->
 
 #### SAML inline hook is Generally Available in Production
 
@@ -119,7 +119,7 @@ The [SAML inline hook](/docs/reference/saml-hook/) enables you to customize SAML
 
 #### Token inline hook is Generally Available in Preview
 
-The [Token inline hook](/docs/reference/token-hook/) enables you to integrate your own custom functionality into the process of minting OAuth 2.0 and OpenID Connect tokens. <!-- OKTA-244855 -->
+The [Token inline hook](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createTokenInlineHook) enables you to integrate your own custom functionality into the process of minting OAuth 2.0 and OpenID Connect tokens. <!-- OKTA-244855 -->
 
 #### OAuth for Okta is Early Access in Preview
 
@@ -149,7 +149,7 @@ When the token inline hook feature was enabled and the claim couldn't be evaluat
 
 #### User Types Error Message Change
 
-Error messages returned by the [User Types API](/docs/reference/api/user-types/) have changed. Omitting display name or variable name when attempting to create a User Type, or specifying a variable name that is already in use, results in a more specific error message being returned. <!-- OKTA-241017 -->
+Error messages returned by the [User Types API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserType/) have changed. Omitting display name or variable name when attempting to create a User Type, or specifying a variable name that is already in use, results in a more specific error message being returned. <!-- OKTA-241017 -->
 
 #### Bugs Fixed in 2019.10.2
 
@@ -182,11 +182,11 @@ The maximum length of the `client.userAgent.rawUserAgent` property value was inc
 
 #### Event Hooks API is Generally Available
 
-The [Event Hooks API](/docs/reference/api/event-hooks/) is Generally Available (GA) in Production.
+The [Event Hooks API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/EventHook/#tag/EventHook/operation/createEventHook) is Generally Available (GA) in Production.
 
 #### User Types API in Early Access
 
-The [User Types API](/docs/reference/api/user-types/) is in Early Access (EA) in both Preview and Production. <!-- OKTA-251182 -->
+The [User Types API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserType/) is in Early Access (EA) in both Preview and Production. <!-- OKTA-251182 -->
 
 #### Tokens transform events no longer available
 
@@ -239,7 +239,7 @@ OAuth Scopes are not allowed to start with the `okta.` prefix. See the note unde
 
 #### Bugs Fixed in 2019.09.2
 
-* When users signed in using IdP Discovery or a Default IdP, any [outgoing Hooks](/docs/reference/token-hook/#sample-json-payload-of-a-request) related to that sign-in event contained an incorrect request URL `value`. (OKTA-243190)
+* When users signed in using IdP Discovery or a Default IdP, any [outgoing Hooks](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createTokenInlineHook) related to that sign-in event contained an incorrect request URL `value`. (OKTA-243190)
 * `GET` requests to the `/users/me` [endpoint](/docs/reference/api/users/#get-current-user) would return hidden standard attributes. (OKTA-243864)
 
 
@@ -287,7 +287,7 @@ The public metadata endpoints for Authorization Servers are now each assigned se
 
 #### Bugs Fixed in 2019.08.3
 
-* The [Update inline hook call](/docs/reference/api/inline-hooks/#update-inline-hook) wasn't replacing the whole object. (OKTA-229337)
+* The [Update inline hook call](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/updateInlineHook) wasn't replacing the whole object. (OKTA-229337)
 
 * IP addresses identified as malicious by Okta ThreatInsight were missing from Events API ("security.threat.detected") event messages. See the [Event Types catalog](/docs/reference/api/event-types/#catalog) for more information on this event message. (OKTA-242795)
 
@@ -425,11 +425,11 @@ The [refresh token expiration window](https://developer.okta.com/docs/api/openap
 
 #### Token Inline Hook Can Modify Sub-Objects and Array Elements
 
-The [Token Inline Hook](/docs/reference/token-hook/) now lets you modify particular sub-objects or array elements within objects contained in claims, without needing to update the rest of the object. <!-- OKTA-227364 -->
+The [Token Inline Hook](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createTokenInlineHook) now lets you modify particular sub-objects or array elements within objects contained in claims, without needing to update the rest of the object. <!-- OKTA-227364 -->
 
 #### Bugs Fixed in 2019.06.3
 
-* When a customer used a [token inline hook](/docs/reference/token-hook/) and returned an `error` object to Okta, Okta failed to pass the error to the token requester. (OKTA-231397)
+* When a customer used a [token inline hook](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createTokenInlineHook) and returned an `error` object to Okta, Okta failed to pass the error to the token requester. (OKTA-231397)
 
 * The issuer claim inside JWT tokens was erroneously changing to all lowercase causing JWT verification failure when the application was case-sensitive. (OKTA-235710)
 
@@ -463,7 +463,7 @@ Users can now be [unassigned](/docs/reference/api/apps/#remove-user-from-applica
 
 #### Token Inline Hook Can Modify or Remove Existing Claims (Early Access)
 
-The [token inline hook](/docs/reference/token-hook/) now supports changing or removing existing claims in tokens minted by the Okta Custom Authorization Server. <!-- (OKTA-218305) -->
+The [token inline hook](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createTokenInlineHook) now supports changing or removing existing claims in tokens minted by the Okta Custom Authorization Server. <!-- (OKTA-218305) -->
 
 #### Bugs Fixed in 2019.05.3
 
@@ -719,7 +719,7 @@ Use of imported hashed passwords when creating or updating users in the [Users A
 
 #### Token inline hook
 
-The [token inline hook](/docs/reference/token-hook/) enables you to integrate your own custom functionality into the process of minting OAuth 2.0 and OpenID Connect tokens. <!--OKTA-206634-->
+The [token inline hook](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createTokenInlineHook) enables you to integrate your own custom functionality into the process of minting OAuth 2.0 and OpenID Connect tokens. <!--OKTA-206634-->
 
 #### Signature and Digest Algorithms for Template WS-Fed Apps
 

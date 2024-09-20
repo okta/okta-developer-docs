@@ -132,7 +132,7 @@ For Okta to use your app, you must register the external service endpoint.
 
 In the Admin Console, go to **Workflow** > **Inline Hooks**. Click **Add Inline Hook**.
 
-You can also accomplish this using the [Inline Hooks Management API](/docs/reference/api/inline-hooks/).
+You can also accomplish this using the [Inline Hooks Management API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook).
 
 ## End the migration program
 

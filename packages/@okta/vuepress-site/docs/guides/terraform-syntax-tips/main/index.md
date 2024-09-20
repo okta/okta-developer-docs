@@ -120,11 +120,11 @@ This example creates groups from a list of group names:
 1. In that resource definition, set `for_each` to a map or set. You can convert array content to a map before setting the meta-argument:
 
     ```hcl
-    for_each = { for group in var<your-variable-name>
+    for_each = { for group in var.{yourGroupNamesVariable}
       : group.name => group}
     ```
 
-   Using the previous examples:
+   The following code uses the `groups_to_create` variable created in a previous step:
 
     ```hcl
     for_each = { for group in var.groups_to_create
