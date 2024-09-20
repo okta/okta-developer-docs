@@ -9,7 +9,7 @@ Key rotation is when a signing key is retired and replaced by generating a new c
 
 If you're using a custom authorization server, configure and perform key rollover/rotation at the [Authorization Server level](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServerKeys/#tag/AuthorizationServerKeys/operation/rotateAuthorizationServerKeys).
 
-If you're using the org authorization server, configure and perform key rollover/rotation at the [client level](/docs/reference/api/apps/#generate-new-application-key-credential).
+If you're using the org authorization server, configure and perform key rollover/rotation at the [client level](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationSSOCredentialKey/).
 
 ## Key rotation for custom authorization servers
 
@@ -25,7 +25,7 @@ If you're using the org authorization server, configure and perform key rollover
 
 > **Caution:** Keys used to sign tokens automatically rotate and should always be resolved dynamically against the published JWKS. Your app might fail if you hardcode public keys in your apps. Be sure to include key rollover in your implementation.
 
-> **Note:** When using a custom authorization server, you may work with a client that can't call the `/keys` endpoint to dynamically fetch the JWKS. You can pin that specific client to a specific key by [generating a key credential](/docs/reference/api/apps/#generate-new-application-key-credential) and [updating the application](/docs/reference/api/apps/#update-key-credential-for-application) to use it for signing. This overrides the custom authorization server rollover/pinning behavior for that client. To turn off automatic key rotation for the entire custom authorization server, switch the **Signing Key Rotation** value to **Manual** in the Admin Console.
+> **Note:** When using a custom authorization server, you may work with a client that can't call the `/keys` endpoint to dynamically fetch the JWKS. You can pin that specific client to a specific key by [generating a key credential](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationSSOCredentialKey/#tag/ApplicationSSOCredentialKey/operation/generateApplicationKey) and [updating the application](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/replaceApplication) to use it for signing. This overrides the custom authorization server rollover/pinning behavior for that client. To turn off automatic key rotation for the entire custom authorization server, switch the **Signing Key Rotation** value to **Manual** in the Admin Console.
 
 ## Key rotation for the org authorization server
 
@@ -35,4 +35,4 @@ If you're using the org authorization server, configure and perform key rollover
 
 * You can't manually rotate the org authorization server's signing keys.
 
-> **Note:** If your application can't retrieve keys dynamically, you can pin that specific client to a specific key by [generating a key credential](/docs/reference/api/apps/#generate-new-application-key-credential) and [updating the application](/docs/reference/api/apps/#update-key-credential-for-application) to use it for signing.
+> **Note:** If your application can't retrieve keys dynamically, you can pin that specific client to a specific key by [generating a key credential](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationSSOCredentialKey/#tag/ApplicationSSOCredentialKey/operation/generateApplicationKey) and [updating the application](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/replaceApplication) to use it for signing.

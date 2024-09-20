@@ -115,7 +115,7 @@ Create an Okta OIDC client app integration to represent the consumption device. 
 
 #### Use the API
 
-You can also use the [Apps API](/docs/reference/api/apps/#add-oauth-2-0-client-application) to create the OAuth 2.0 client app with the CIBA grant type. Use the following parameters in the request:
+You can also use the [Apps API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication!path=4/name&t=request) to create the OAuth 2.0 client app with the CIBA grant type. Use the following parameters in the request:
 
 **Supported parameters**
 
@@ -126,7 +126,7 @@ You can also use the [Apps API](/docs/reference/api/apps/#add-oauth-2-0-client-a
 | `backchannel_custom_authenticator_id` | The ID of the Custom Authenticator that authenticates the user           |
 | `backchannel_token_delivery_mode`| (Optional) How CIBA is delivered. Supported value: `poll`. Since `poll` is the only value supported, this parameter is optional. |
 
-> **Note:** The parameters `backchannel_token_delivery_mode`, `backchannel_authentication_request_signing_alg`, and `backchannel_custom_authenticator_id` are only available if the client has `urn:openid:params:grant-type:ciba` defined as one of its allowed `grant_types`. See the [Settings](/docs/reference/api/apps/#settings-10) table on the Apps API Reference page for more information on these new parameters.
+> **Note:** The parameters `backchannel_token_delivery_mode`, `backchannel_authentication_request_signing_alg`, and `backchannel_custom_authenticator_id` are only available if the client has `urn:openid:params:grant-type:ciba` defined as one of its allowed `grant_types`. See the [Settings](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication!path=4/settings/oauthClient/grant_types&t=request) table on the Apps API Reference page for more information on these new parameters.
 
 **Example request**
 
@@ -165,7 +165,7 @@ You can also use the [Apps API](/docs/reference/api/apps/#add-oauth-2-0-client-a
 }
 ```
 
-> **Note:** You can also use the Apps API to [update an OAuth 2.0 client app to use CIBA](/docs/reference/api/apps/#update-application). See the **Supported parameters** table for the parameters to use.
+> **Note:** You can also use the Apps API to [update an OAuth 2.0 client app to use CIBA](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/replaceApplication!path=4/settings/oauthClient/grant_types&t=request). See the **Supported parameters** table for the parameters to use.
 
 ### Configure an authorization server access policy to use CIBA
 
@@ -219,7 +219,7 @@ The OIDC client sends the CIBA challenge request to an Okta authorization server
 | `binding_message`| (Optional) A human-readable message that appears on the authentication device to identify the transaction |
 | `id_token_hint` | An ID token that was issued during initial user authentication. The token is passed back as a hint to identify the user for whom more authentication is being requested. You can specify either `login_hint` or `id_token_hint` in the authentication request, not both. This parameter isn’t used in this example. |
 | `login_hint` | Information that identifies the user for whom authentication is being requested. This is typically the user’s email address. You can specify either `login_hint` or `id_token_hint` in the authentication request, not both. |
-| `request`| If you're using `private_key_jwt` as the [token endpoint authentication method](/docs/reference/api/apps/#credentials), this is the JWT created by the client that enables you to pass requests as a single, self-contained parameter. See [Parameter details](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/bcAuthorizeCustomAS!path=request&t=request). |
+| `request`| If you're using `private_key_jwt` as the [token endpoint authentication method](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication!path=4/credentials/oauthClient/token_endpoint_auth_method&t=request), this is the JWT created by the client that enables you to pass requests as a single, self-contained parameter. See [Parameter details](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/bcAuthorizeCustomAS!path=request&t=request). |
 | `request_expiry`| (Optional) A positive integer that allows the client to request how long (in seconds) the authentication request is valid. This value is returned in the response from the authorization server as the `expires_in` parameter. If your request doesn’t contain this parameter, the default time that the request is valid is 300 seconds. |
 | `scope` | The `openid` scope is required for authentication requests. You can also include other [scopes](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/#access-token-scopes-and-claims).|
 
