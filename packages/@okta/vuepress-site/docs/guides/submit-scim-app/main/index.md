@@ -6,14 +6,13 @@ meta:
 layout: Guides
 ---
 
-Use this guide to learn how to submit an integration to the Okta Integration Network (OIN) team using the OIN Wizard.
-
 ---
 
 #### Learning outcomes
 
 * Learn how to submit an SSO and SCIM integration using the OIN Wizard.
 * Learn how to test your SSO integration with the OIN Submission Tester before submission.
+* Learn how to test your SCIM integration before submission.
 * Learn how to update a published SSO integration.
 
 #### What you need
@@ -51,9 +50,9 @@ This guide covers submissions that use the following protocols:
 
 * [OpenID Connect (OIDC)](https://openid.net/connect/)
 
-* [Security Assertion Markup Language (SAML)](http://docs.oasis-open.org/security/saml/Post2.0/sstc-saml-tech-overview-2.0.html)
+* [Security Assertion Markup Language (SAML) 2.0](http://docs.oasis-open.org/security/saml/Post2.0/sstc-saml-tech-overview-2.0.html)
 
-* [System for Cross-domain Identity Management (SCIM)](https://scim.cloud)
+* [System for Cross-domain Identity Management (SCIM) 2.0](https://scim.cloud)
 
 > **Notes:**
     > * SWA app integrations are no longer accepted for publication in the OIN catalog. However, the OIN team still maintains existing SWA apps.
@@ -63,13 +62,13 @@ This guide covers submissions that use the following protocols:
 
 Review the [OIN submission requirements](/docs/guides/submit-app-prereq) before you start your submission. There are artifacts and technical details that you need to provide during the submission process.
 
-> **Note:** As a best practice, add two or three extra admin users in your Okta org to manage the integration. This ensures that your team can access the integration for updates in the future. See [Add users manually](https://help.okta.com/okta_help.htm?type=oie&id=ext-usgp-add-users) and ensure that the super admin or the app admin role is assigned to the admin users.
+> **Note:** As a best practice, add two or three extra admin users in your Okta org to manage the integration. This ensures that your team can access the integration for updates in the future. See [Add users manually](https://help.okta.com/okta_help.htm?type=oie&id=ext-usgp-add-users) and ensure that the super admin, or the app and org admin roles are assigned to your admin users.
 
 Start your integration submission for OIN publication:
 
-1. Sign in to your [Developer Edition org](/login/) as a user with either the super admin role, or the app and org admin roles.
+1. Sign in to your [Developer Edition org](/login/) as a user with either the super admin (`SUPER_ADMIN`) role , or the app (`APP_ADMIN`) and org (`ORG_ADMIN`) admin [roles](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#standard-roles).
 
-    Submit your integration from an Okta account that has your company domain in the email address. You can't use an account with a personal email address. The OIN team doesn't review submissions from a personal email account.
+    > **Note:** Submit your integration from an Okta account that has your company domain in the email address. You can't use an account with a personal email address. The OIN team doesn't review submissions from a personal email account.
 
 1. Go to **Applications** > **Your OIN Integrations** in the Admin Console.
 1. Click **Build new OIN integration**. The OIN Wizard appears.
