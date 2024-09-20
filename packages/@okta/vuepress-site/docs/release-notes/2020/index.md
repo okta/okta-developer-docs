@@ -681,7 +681,7 @@ The [Apps API](/docs/reference/api/apps/) now supports specifying SAML attribute
 
 #### Bugs Fixed in 2020.02.0
 
-* When using the [SAML assertion inline hook](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createSAMLAssertionInlineHook), if there was an optional attribute statement configured for the app and the attribute statement had no value specified, commands returned from SAML inline hook responses were not applied. (OKTA-263494)
+* When using the [SAML assertion inline hook](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createSAMLAssertionInlineHook), if there was an optional attribute statement configured for the app and the attribute statement had no value specified, commands returned from SAML inline hook responses weren't applied. (OKTA-263494)
 
 * The [Update User Types API](/docs/reference/api/user-types/#update-user-type) previously allowed the existing name of a User Type to be changed. (OKTA-241788)
 
