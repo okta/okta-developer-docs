@@ -79,7 +79,7 @@ The Upload Logo for Org endpoint (`/org/logo`) is deprecated. Use the [Upload th
 
 #### User Types API and Mappings API support OAuth 2.0
 
-The [User Types API](/docs/reference/api/user-types/) and [Profile Mappings API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ProfileMapping/) have been updated to support OAuth 2.0. You can grant access to the User Types API by using the `okta.userTypes.manage` and `okta.userTypes.read` scopes. You can grant access to the Mappings API by using the `okta.profileMappings.manage` and `okta.profileMappings.read scopes`. See [Scopes and supported endpoints](/docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints). <!--OKTA-436385-->
+The [User Types API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserType/) and [Profile Mappings API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ProfileMapping/) have been updated to support OAuth 2.0. You can grant access to the User Types API by using the `okta.userTypes.manage` and `okta.userTypes.read` scopes. You can grant access to the Mappings API by using the `okta.profileMappings.manage` and `okta.profileMappings.read scopes`. See [Scopes and supported endpoints](/docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints). <!--OKTA-436385-->
 
 #### Bugs fixed in 2021.12.0
 
@@ -502,7 +502,7 @@ When the [Features endpoint of the Apps API](/docs/reference/api/apps/#update-fe
 
 #### Bugs fixed in 2021.06.1
 
-* User credential updates failed and returned an error message if the [User Type](/docs/reference/api/user-types/) was set to a non-email username. (OKTA-334754)
+* User credential updates failed and returned an error message if the [User Type](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserType/) was set to a non-email username. (OKTA-334754)
 
 * When an `/authorize` request with an [IdP parameter](/docs/reference/api/idps/#add-identity-provider) that referenced a SAML Identity Provider (IdP) was sent, an internal server error was returned because it was assumed that all IdPs are social IdPs. (OKTA-385800)
 

@@ -53,7 +53,7 @@ Okta groups simplify management of multiple users of the same type. See [About g
 
 The custom user profile type is based on the Okta user profile type. It defines different types of users, like admins, contractors, and help desk. Similar to the default Okta profile, the custom user profile type contains 31 attributes and you can extend it with custom attributes. See [About custom user types in Universal Directory](https://help.okta.com/okta_help.htm?id=ext-custom-user-types).
 
-The [User Types API](/docs/reference/api/user-types/) defines and manages the custom profile types.
+The [User Types API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserType/) defines and manages the custom profile types.
 
 User profiles can only belong to one user profile type. The User object property [`type`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/createUser!path=type&t=request) defines the custom user profile (or default profile) that the user is associated with.
 

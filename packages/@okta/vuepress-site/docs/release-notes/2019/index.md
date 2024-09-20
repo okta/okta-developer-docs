@@ -149,7 +149,7 @@ When the token inline hook feature was enabled and the claim couldn't be evaluat
 
 #### User Types Error Message Change
 
-Error messages returned by the [User Types API](/docs/reference/api/user-types/) have changed. Omitting display name or variable name when attempting to create a User Type, or specifying a variable name that is already in use, results in a more specific error message being returned. <!-- OKTA-241017 -->
+Error messages returned by the [User Types API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserType/) have changed. Omitting display name or variable name when attempting to create a User Type, or specifying a variable name that is already in use, results in a more specific error message being returned. <!-- OKTA-241017 -->
 
 #### Bugs Fixed in 2019.10.2
 
@@ -186,7 +186,7 @@ The [Event Hooks API](https://developer.okta.com/docs/api/openapi/okta-managemen
 
 #### User Types API in Early Access
 
-The [User Types API](/docs/reference/api/user-types/) is in Early Access (EA) in both Preview and Production. <!-- OKTA-251182 -->
+The [User Types API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserType/) is in Early Access (EA) in both Preview and Production. <!-- OKTA-251182 -->
 
 #### Tokens transform events no longer available
 

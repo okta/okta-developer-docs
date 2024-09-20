@@ -30,17 +30,17 @@ Explore the Schemas API: [![Run in Postman](https://run.pstmn.io/button.svg)](ht
 
 ## User Schema operations
 
-Each of the operations described here affects the Schema associated with a single [User Type](/docs/reference/api/user-types). The `${typeId}` element in the URL specifies which type. It can be the literal `default` to operate on the Schema of the default User Type, which is created when the org is initialized, or it can be a schema ID.
+Each of the operations described here affects the Schema associated with a single [user type](/docs/reference/api/user-types). The `${typeId}` element in the URL specifies which type. It can be the literal `default` to operate on the Schema of the default user type, which is created when the org is initialized, or it can be a schema ID.
 
-Each User Type has an associated Schema. In the future, the link between Schema and User Type may be extended (for example, to allow multiple Types to share a Schema) but for now this is a 1:1 relationship. You can obtain the schema ID for the Schema associated with a [User Type](/docs/reference/api/user-types/#user-type-object) object from its `schema` link. The `schema` link is also included in individual [User](/docs/reference/api/users/#user-object) objects.
+Each user type has an associated Schema. In the future, the link between Schema and user type may be extended (for example, to allow multiple Types to share a Schema) but for now this is a 1:1 relationship. You can obtain the schema ID for the Schema associated with a [user type](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserType/#tag/UserType) object from its `schema` link. The `schema` link is also included in individual [User](/docs/reference/api/users/#user-object) objects.
 
-The request examples below all use the `default` form, as all orgs include a default User Type.
+The request examples below all use the `default` form, as all orgs include a default user type.
 
 ### Get User Schema
 
 <ApiOperation method="get" url="/api/v1/meta/schemas/user/${typeId}" />
 
-Fetches the schema for a User Type
+Fetches the schema for a user type
 
 ##### Request parameters
 
@@ -653,7 +653,7 @@ The following response is only a subset of properties for brevity.
 
 ## App User Schema operations
 
-The [User Types](/docs/reference/api/user-types) feature doesn't extend to applications. All users assigned to a given application use the same [App User Schema](#app-user-schema-object). Thus, unlike the User Schema operations, the App User Schema operations all specify `default` and don't accept a Schema ID.
+The [user types](/docs/reference/api/user-types) feature doesn't extend to applications. All users assigned to a given application use the same [App User Schema](#app-user-schema-object). Thus, unlike the User Schema operations, the App User Schema operations all specify `default` and don't accept a Schema ID.
 
 ### Get App User Schema
 
@@ -1032,7 +1032,7 @@ curl -v -X POST \
 
 ## Group Schema operations
 
-The [User Types](/docs/reference/api/user-types) feature doesn't extend to groups. All groups use the same [Group Schema](#group-schema-object). Unlike User Schema operations, Group Schema operations all specify `default` and don't accept a Schema ID.
+The [user types](/docs/reference/api/user-types) feature doesn't extend to groups. All groups use the same [Group Schema](#group-schema-object). Unlike User Schema operations, Group Schema operations all specify `default` and don't accept a Schema ID.
 
 ### Get Group Schema
 
@@ -2040,7 +2040,7 @@ The base User Profile is based on the [System for Cross-domain Identity Manageme
 | managerId         | `id` of the User's manager                                                                                                     | String   | TRUE     | FALSE  | FALSE    |           |           |                                                                                                                   |
 | manager           | `displayName` of the User's manager                                                                                            | String   | TRUE     | FALSE  | FALSE    |           |           |                                                                                                                   |
 
-> **Note:** The `userType` field is an arbitrary string value and isn't related to the newer [User Types](/docs/reference/api/user-types) feature.
+> **Note:** The `userType` field is an arbitrary string value and isn't related to the newer [user types](/docs/reference/api/user-types) feature.
 
 ##### Locale format
 

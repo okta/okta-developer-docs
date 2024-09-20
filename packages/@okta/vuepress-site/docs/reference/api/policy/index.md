@@ -1048,7 +1048,7 @@ Specifies a set of Groups whose Users are to be included or excluded
 
 <ApiLifecycle access="ie" />
 
-Specifies which [User Types](/docs/reference/api/user-types/#user-type-object) to include and/or exclude. You can use the [User Types API](/docs/reference/api/user-types/) to manage User Types.
+Specifies which [User Types](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserType/#tag/UserType) to include or exclude.
 
 | Parameter | Description                  | Data Type | Required |
 | ---       | ---                          | ---       | ---      |
