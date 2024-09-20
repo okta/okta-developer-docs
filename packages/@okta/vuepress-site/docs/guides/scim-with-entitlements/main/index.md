@@ -17,9 +17,9 @@ This guide teaches you how to create a System for Cross-domain Identity Manageme
 
 #### What you need
 
-* [Okta Developer Edition organization](https://developer.okta.com/signup)
+* [Okta Developer Edition org](https://developer.okta.com/signup)
 * Some basic development experience with the SCIM [core schema](https://datatracker.ietf.org/doc/html/rfc7643) and [protocol](https://datatracker.ietf.org/doc/html/rfc7644)
-* [Okta Identity Governance](https://help.okta.com/okta_help.htm?type=oie&id=ext-iga) in order to use [entitlements](https://help.okta.com/okta_help.htm?type=oie&id=ext-entitlement-mgt)
+* [Okta Identity Governance](https://help.okta.com/okta_help.htm?type=oie&id=ext-iga) to use [entitlements](https://help.okta.com/okta_help.htm?type=oie&id=ext-entitlement-mgt)
 
 ---
 
@@ -107,9 +107,9 @@ The `urn:okta:scim:schemas:core:1.0:Entitlement` schema contains the following i
 |Parameter | Type | Description | Notes |
 |---|---|---|---|
 | `id` | String | The ID of the entitlement | Required |
-| `displayName` | String | The name displayed in the UI for the entitlement | Required|
+| `displayName` | String | The name that appears in the Admin Console for the entitlement | Required|
 | `type` | String | Corresponds with the `ResourceType` name field for the entitlement, such as "License" or "Permission set" | Required |
-| `description` | String | A human-readable description of the entitlement. This appears in the Governance tab. | Optional, max length 1000 characters |
+| `description` | String | A human-readable description of the entitlement. This appears in the **Governance** tab. | Optional, max length 1000 characters |
 
 See [Custom entitlement with extensions](#custom-entitlement-with-extensions) for an example schema.
 
@@ -120,8 +120,8 @@ The `urn:okta:scim:schemas:core:1.0:Entitlement` schema contains the following i
 |Parameter | Type | Description | Notes |
 |---|---|---|---|
 | `id` | String | The ID of the role | Required |
-| `displayName` | String | The name displayed in the UI for the role | Required|
-| `description` | String | A human-readable description of the entitlement. This appears in the Governance tab. | Optional, max length 1000 characters |
+| `displayName` | String | The name that appears in the Admin Console for the role | Required|
+| `description` | String | A human-readable description of the entitlement. This appears in the **Governance** tab. | Optional, max length 1000 characters |
 
 See [Role example](#role-example) for an example schema.
 
