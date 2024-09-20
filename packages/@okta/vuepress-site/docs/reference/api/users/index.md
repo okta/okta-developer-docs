@@ -3919,7 +3919,7 @@ Metadata properties such as `id`, `status`, timestamps, `_links`, and `_embedded
 * The `activated` timestamp will only be available for users activated after 06/30/2013.
 * The`statusChanged` and `lastLogin` timestamps will be missing for users created before 06/30/2013 and updated on next status change or login.
 
-The `type` property is a map that identifies the user type of the user (see [user types](/docs/reference/api/user-types)). Currently it contains a single element, `id`, as shown in the Example. It can be specified when creating a new User, and may be updated by an administrator on a [full replace of an existing user](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserType/#tag/UserType/operation/updateUserType) (but not a partial update).
+The `type` property is a map that identifies the user type of the user (see [user types](/docs/reference/api/user-types)). Currently it contains a single element, `id`, as shown in the example. It can be specified when creating a new user, and may be updated by an administrator on a [full replace of an existing user](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserType/#tag/UserType/operation/updateUserType) (but not a partial update).
 
 ### User status
 
