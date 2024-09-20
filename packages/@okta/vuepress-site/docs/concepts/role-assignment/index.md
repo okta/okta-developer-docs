@@ -36,7 +36,7 @@ Okta also supports the following IAM-based standard roles:
 | `ACCESS_CERTIFICATIONS_ADMIN` <ApiLifecycle access="ea" /> | Access certifications administrator | `okta.governance.accessCertifications.manage` |
 | `ACCESS_REQUESTS_ADMIN`       <ApiLifecycle access="ea" /> | Access requests administrator       | `okta.governance.accessRequests.manage`       |
 
-You can assign IAM-based standard roles using assignment operations for [standard](#standard-role-assignment-steps) or [custom](#custom-role-assignment) roles. These roles are immutable and can't be updated or deleted.
+You can assign IAM-based standard roles using assignment operations for [standard](#standard-role-assignment-steps) or [custom](#custom-role-assignment) roles. These roles are immutable, and you can't update or delete them.
 
 ### Standard Role Assignment steps
 
