@@ -220,7 +220,7 @@ To include, for example, the app `label` parameter in a token claim:
 
 ### Create an app with the Profile object
 
-Create an app with the Profile object using the [Apps API](/docs/reference/api/apps/).
+Create an app with the Profile object using the [Apps API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication!path=4/credentials/oauthClient&t=request).
 
 ```json
 {

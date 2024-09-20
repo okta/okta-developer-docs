@@ -258,7 +258,7 @@ Note the response parameters that are passed:
 
 The next step in the CIBA authentication flow is to send a request for tokens to the `/token` endpoint.
 
-> **Note:** Currently `poll` is the only supported [backchannel token delivery method](/docs/reference/api/apps/#settings-10).
+> **Note:** Currently `poll` is the only supported [backchannel token delivery method](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication!path=4/settings/oauthClient/backchannel_token_delivery_mode&t=request).
 
 **CIBA request parameters**
 
@@ -267,7 +267,7 @@ The next step in the CIBA authentication flow is to send a request for tokens to
 | `grant_type`| `urn:openid:params:grant-type:ciba` |
 | `auth_req_id` | Required if the `grant_type` is `urn:openid:params:grant-type:ciba` |
 | `scope` | This is a list of scopes that the client wants in the access token. |
-| `request` | If you're using `private_key_jwt` as the [client authentication method](/docs/reference/api/apps/#credentials), this is the JWT created by the client that enables you to pass requests as a single, self-contained parameter. See [Parameter details](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/bcAuthorizeCustomAS!path=request&t=request). |
+| `request` | If you're using `private_key_jwt` as the [client authentication method](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication!path=4/credentials/oauthClient/token_endpoint_auth_method&t=request), this is the JWT created by the client that enables you to pass requests as a single, self-contained parameter. See [Parameter details](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/bcAuthorizeCustomAS!path=request&t=request). |
 
 1. Send a request for tokens to the `/token` endpoint:
 
