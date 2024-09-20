@@ -36,7 +36,7 @@ Okta also supports the following IAM-based standard roles:
 | `ACCESS_CERTIFICATIONS_ADMIN` <ApiLifecycle access="ea" /> | Access certifications administrator | `okta.governance.accessCertifications.manage` |
 | `ACCESS_REQUESTS_ADMIN`       <ApiLifecycle access="ea" /> | Access requests administrator       | `okta.governance.accessRequests.manage`       |
 
-You can assign IAM-based standard roles using [standard](#standard-role-assignment-steps) or [custom role](#custom-role-assignment) assignment operations. These roles are immutable and can't be updated or deleted.
+You can assign IAM-based standard roles using assignment operations for [standard](#standard-role-assignment-steps) or [custom](#custom-role-assignment) roles. These roles are immutable and can't be updated or deleted.
 
 ### Standard Role Assignment steps
 
@@ -83,7 +83,7 @@ When using IAM-based standard roles the same concepts as custom roles apply with
 
 ### Resource sets
 
-A resource set is simply a collection of resources. There are two types of resource identifiers. Resources can either be identified by an Okta Resource Name (ORN) or by a REST URL format.
+A resource set is simply a collection of resources. There are two types of resource identifiers: an [Okta Resource Name (ORN)](#okta-resource-name-orn) or by a [REST URL](#rest-url) format.
 
 #### Okta Resource Name (ORN)
 
@@ -122,8 +122,7 @@ The identifier for the tenant that is using the service. This is typically your 
 
 ###### objectType
 
-The object type that is specific to the service. For example, object types `groups` or `users` are used for the `directory` service. For examples of object types, see
-[Supported resources](#supported-resources).
+The object type that is specific to the service. For example, object types `groups` or `users` are used for the `directory` service. For examples of object types, see [Supported resources](#supported-resources).
 
 ###### objectId
 
@@ -162,6 +161,7 @@ If the resource has a corresponding Okta API, you can specify the resource by it
 |                         | A specific delegated flow                                           | `orn:{partition}:workflow:{yourOrgId}:flows:{flowId}`                              |                                                                                                                                                         |
 | Governance              | All access certifications         <br><ApiLifecycle access="ea" />  | `orn:partition:governance:orgId:certifications`                                   |                                                                                                                                                         |
 |                         | All access requests               <br><ApiLifecycle access="ea" />  | `orn:partition:governance:orgId:requests`                                         |                                                                                                                                                         |
+
 > **Note:** If you use a role with permissions that don't apply to the resources in the resource set, it doesn't affect the admin role. For example, the `okta.users.userprofile.manage` permission gives the admin no privileges if it’s granted to a resource set that only includes `https://{yourOktaDomain}/api/v1/groups/{targetGroupId}` resources. If you want the admin to be able to manage the users within the group, the resource set must include the corresponding `https://{yourOktaDomain}/api/v1/groups/{targetGroupId}/users` resource.
 
 > **Note:** Governance resources are currently only supported as part of the Standard Resource Sets. You can't use these to create or update other resource sets. See [IAM-based standard roles](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#iam-based-standard-roles)
@@ -193,11 +193,13 @@ To specify binding members, use the REST URL of the corresponding Okta API:
 
 The following resource sets are currently supported out of the box and can be used to assign admins only when used with
 their associated roles. Standard resource sets and roles are always identified using their type as `id`.
-| Resource set id/type                                              | Applicable role id/type    | Resources                                              |
+
+| Resource set ID/type                                              | Applicable role ID/type    | Resources                                              |
 | :---------------------------------------------------------------- | :------------------------- | ------------------------------------------------------ |
 | `ACCESS_CERTIFICATIONS_IAM_POLICY` <ApiLifecycle access="ea" /> | `ACCESS_CERTIFICATIONS_ADMIN` | All users, all groups, all Apps, all access certifications    |
 | `ACCESS_REQUESTS_IAM_POLICY`       <ApiLifecycle access="ea" /> | `ACCESS_REQUESTS_ADMIN`       | all users, all groups, all access requests, access request app |
-Standard resource sets are managed by Okta only and can't be updated or deleted.
+
+Only Okta manages standard resource sets and can't be updated or deleted.
 
 ## Custom vs. standard
 
