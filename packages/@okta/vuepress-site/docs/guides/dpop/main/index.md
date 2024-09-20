@@ -40,14 +40,14 @@ DPoP enables a client to prove possession of a public/private key pair by includ
 
 <StackSnippet snippet="diagram" />
 
-## Before you begin
+## Before you configure DPoP
 
 Create a [DPoP proof JWT](https://www.rfc-editor.org/rfc/rfc7519). A DPoP proof JWT includes a header and payload with claims. Then, sign the JWT with the private key from [your JSON Web Key](#what-you-need) (JWK). Use the DPoP proof JWT to obtain a DPoP-bound access token. To create a DPoP proof JWT, use your internal instance to sign the JWT for a production org. See this [JWT generator](https://github.com/jwtk/njwt) for an example of how to make and use JWTs in Node.js apps. For testing purposes only, you can use this [JWT tool](https://jwt.io/) to build, sign, and decode JWTs.
 
-### Parameters and claims
+### DPoP proof parameters and claims
 
 Include the following required parameters in the JWT header:
-
+ß
 * `typ`: Type header. Declares that the encoded object is a JWT and meant for use with DPoP. This must be `dpop+jwt`.
 * `alg`: Algorithm. Indicates that the asymmetric algorithm is RS256 (RSA using SHA256). This algorithm uses a private key to sign the JWT and a public key to verify the signature. Must not be `none` or an identifier for a symmetric algorithm. This example uses `RS256`.
 * `jwk`: JSON Web Key. Include the public key (in JWK string format). Okta uses this public key to verify the JWT signature. See the [Application JSON Web Key Response properties](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/Client/#tag/Client/operation/createClient!c=201&path=jwks&t=response) for a description of the public key properties.
@@ -77,9 +77,9 @@ Include the following required claims in the JWT payload:
 
 This section discusses the initial POST `/token` [request](/docs/guides/implement-grant-type/authcode/main/#flow-specifics) that you need to make, the JWT payload update, and the second POST `/token` request that includes the updated JWT.
 
-1. Make the initial request. Include an additional `DPoP` header (`--header 'DPoP: eyJ0eXAiOiJkcG9w.....H8-u9gaK2-oIj8ipg'`) in your `/token` request. The value for the DPOP header is the DPoP proof JWT from the [Before you Begin](#before-you-begin) section.
+1. Make the initial request. Include the additional `DPoP` header (`--header 'DPoP: eyJ0eXAiOiJkcG9w.....H8-u9gaK2-oIj8ipg'`) in your `/token` request. The value for the DPOP header is the DPoP proof JWT from the [Before you configure DPoP](#before-you-configure-dpop) section.
 
-    The <StackSnippet snippet="buildreq" inline /> authorization server verifies the JWT in the request and sends back an "Authorization server requires nonce in DPoP proof" error. The `dpop-nonce` header and value are included with the headers in the response. The authorization server provides the `dpop-nonce` value to limit the lifetime of DPoP proof JWTs and renews the value every 24 hours. The old `dpop-nonce` value continues to work for three days after generation. Be sure to save the `dpop-nonce` value from the token response header and refresh it every 24 hours.
+    The <StackSnippet snippet="buildreq" inline /> authorization server verifies the JWT in the request and sends back an "Authorization server requires nonce in DPoP proof" error. The `dpop-nonce` header and value are included in the headers of that response. The authorization server provides the `dpop-nonce` value to limit the lifetime of DPoP proof JWTs and renews the value every 24 hours. The old `dpop-nonce` value continues to work for three days after generation. Be sure to save the `dpop-nonce` value from the token response header and refresh it every 24 hours.
 
     Example response
 
@@ -135,7 +135,7 @@ Now that you have a DPoP-bound access token, you can make requests to DPoP-prote
 
 <StackSnippet snippet="requestresource" />
 
-## Validate token and DPoP header
+### Validate token and DPoP header
 
 The resource server must perform validation on the access token to complete the flow and grant access. When the client sends an access request with the access token, validation should verify that the `cnf` claim is present. Then validation should compare the `jkt` in the access token with the public key in the JWT value of the `DPoP` header.
 

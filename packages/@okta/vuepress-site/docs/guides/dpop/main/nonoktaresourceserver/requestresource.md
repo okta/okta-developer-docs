@@ -1,5 +1,7 @@
 The following non-Okta resource request displays the DPoP-bound access token in the `Authorization` header and the DPoP proof JWT in the `DPoP` header. In this example, values are truncated for brevity.
 
+Example request
+
 ```bash
 curl -v -X GET \
   --header 'Accept: application/json' \
