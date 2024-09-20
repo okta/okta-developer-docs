@@ -164,7 +164,7 @@ If the resource has a corresponding Okta API, you can specify the resource by it
 |                         | All access requests               <br><ApiLifecycle access="ea" />  | `orn:partition:governance:orgId:requests`                                         |                                                                                                                                                         |
 > **Note:** If you use a role with permissions that don't apply to the resources in the resource set, it doesn't affect the admin role. For example, the `okta.users.userprofile.manage` permission gives the admin no privileges if it’s granted to a resource set that only includes `https://{yourOktaDomain}/api/v1/groups/{targetGroupId}` resources. If you want the admin to be able to manage the users within the group, the resource set must include the corresponding `https://{yourOktaDomain}/api/v1/groups/{targetGroupId}/users` resource.
 
-> **Note:** Governance resources are currently only supported as part of the [Standard Resource Sets](#custom-vs-standard). You can't use these to create or update other resource sets.
+> **Note:** Governance resources are currently only supported as part of the Standard Resource Sets. You can't use these to create or update other resource sets. See [IAM-based standard roles](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#iam-based-standard-roles)
 
 #### Binding member identifiers
 
