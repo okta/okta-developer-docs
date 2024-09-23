@@ -11,7 +11,13 @@ Next, register the device to receive identity verification notifications for the
 
 If needed, you can also unenroll the device, either locally, or both locally and on the server.
 
-> **Note:** The iOS code snippets assume that there's a singleton class called `DeviceSDKManager` that manages interactions with the Devices SDK. The singleton contains any required state information, such as the current SDK client, the APNs token for the current launch of the app, utility functions, and more. Your app may use a different way to interact with the Devices SDK.
+> **Note:** The iOS code snippets assume that there's a singleton class called `DeviceSDKManager` that manages interactions with the Devices SDK. The singleton contains any required state information, such as the following:
+
+* Thecurrent SDK client
+* The APNs token for the current launch of the app
+* Utility functions
+
+Your app may use a different way to interact with the Devices SDK.
 
 The following image shows how data flows through the Devices SDK:
 
@@ -48,19 +54,19 @@ https://github.com/okta/okta-devices-swift.
 There are two ways for your app to receive notifications from a custom authenticator:
 
 - As a push notification that's delivered whether your app is closed, in the background, or in the foreground
-- By requesting any queued notifications when your app is in the foreground
+- As a request for any queued notifications when your app is in the foreground
 
-Although your app doesn't need to receive push notifications to use the Devices SDK, we suggest that you do this for the best user experience. To receive notifications, add the Push Notification Capability to your app. At runtime, register your app with the notification manager, and retrieve the current APNs token. Use this token in the next step.
+Although your app doesn't need to receive push notifications to use the Devices SDK, we suggest that you do this for the best user experience. To receive notifications, add the push notification capability to your app. At runtime, register your app with the notification manager, and retrieve the current APNs token. Use this token in the next step.
 
 For more information, see [Registering Your App with APNs](https://developer.apple.com/documentation/usernotifications/registering_your_app_with_apns) in Apple developer documentation. The examples in this guide assume that the end user registered the app to receive notifications.
 
 The token is returned by the system in [`application(_:didRegisterForRemoteNotificationsWithDeviceToken:)`](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1622958-application). Use a property to store the token, though don't save the token between app launches as it can change. If there's an error registering for notifications, the system calls [`application(_:didFailToRegisterForRemoteNotificationsWithError:)`](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1622962-application). In this case, your app can still [load undelivered challenges](#load-undelivered-challenges).
 
-Add an App Group Capability to your app if it doesn't already have one. You'll use the group identifier in the next step. See [Configuring App Groups](https://developer.apple.com/documentation/xcode/configuring-app-groups/) in Apple developer documentation.
+Add an App group capability to your app if it doesn't already have one. You'll use the group identifier in the next step. See [Configuring App Groups](https://developer.apple.com/documentation/xcode/configuring-app-groups/) in Apple developer documentation.
 
 ### Initialize the client
 
-You must initialize the SDK client when your app launches as it configures some Push Notification settings. The following function is an example of configuring and initializing the client that is called from [`application(_:didFinishLaunchingWithOptions:)`](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1622921-application). The call can go before or after the code to register for push notifications that you added earlier.
+You must initialize the SDK client when your app launches as it configures some push Notification settings. The following function is an example of configuring and initializing the client that is called from [`application(_:didFinishLaunchingWithOptions:)`](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1622921-application). The call can go before or after the code to register for push notifications that you added earlier.
 
 ```swift
 func initOktaDeviceAuthenticator() {
@@ -83,7 +89,7 @@ func initOktaDeviceAuthenticator() {
 }
 ```
 
-Use the name of the group that you included when you added the App Group Capability earlier. The compiler conditional ensures that Device Authenticator uses the appropriate APNs environment.
+Use the name of the group that you included when you added the app group capability earlier. The compiler conditional ensures that Device Authenticator uses the appropriate APNs environment.
 
 ### Register the device
 
@@ -96,7 +102,7 @@ To enroll a device, you need:
 - A configured and enabled custom authenticator in your Okta org
 - The current APNs token if your app is registered for push notifications
 
-Alternatively, you can enroll the device by using the [MyAccount App Authenticators API](https://developer.okta.com/docs/api/openapi/okta-myaccount/myaccount/tag/AppAuthenticator/#tag/AppAuthenticator/operation/createAppAuthenticatorEnrollment).
+Alternatively, you can enroll the device by using the [MyAccount app authenticators API](https://developer.okta.com/docs/api/openapi/okta-myaccount/myaccount/tag/AppAuthenticator/#tag/AppAuthenticator/operation/createAppAuthenticatorEnrollment).
 
 There are many different ways that your app may start the flow for enrolling a device, such as the user setting a preference or adding an authentication method. No matter how the enrollment flow starts, it follows the same steps:
 
@@ -174,7 +180,7 @@ func updateEnrollments(with notificationToken: Data) {
 
 The function assumes a valid access token. In a production app, consider adding a function that either updates the token if it's invalid, or gets a new token using a user sign-in flow.
 
-Alternatively, you can update the registration token by using the [MyAccount App Authenticators API](https://developer.okta.com/docs/api/openapi/okta-myaccount/myaccount/tag/AppAuthenticator/#tag/AppAuthenticator/operation/updateAppAuthenticatorEnrollment).
+Alternatively, you can update the registration token by using the [MyAccount app authenticators API](https://developer.okta.com/docs/api/openapi/okta-myaccount/myaccount/tag/AppAuthenticator/#tag/AppAuthenticator/operation/updateAppAuthenticatorEnrollment).
 
 ### Unenroll the device
 
@@ -211,7 +217,7 @@ func unenrollDevice(_ enrollment: AuthenticatorEnrollmentProtocol, localOnly: Bo
 }
 ```
 
-Alternatively, you can delete an enrollment by using the [MyAccount App Authenticators API](https://developer.okta.com/docs/api/openapi/okta-myaccount/myaccount/tag/AppAuthenticator/#tag/AppAuthenticator/operation/deleteAppAuthenticatorEnrollment).
+Alternatively, you can delete an enrollment by using the [MyAccount app authenticators API](https://developer.okta.com/docs/api/openapi/okta-myaccount/myaccount/tag/AppAuthenticator/#tag/AppAuthenticator/operation/deleteAppAuthenticatorEnrollment).
 
 ### Process a custom authenticator notification
 
@@ -303,7 +309,7 @@ func handleUserConsent(_ consentStep: RemediationStepUserConsent,
 }
 ```
 
-Alternatively, you can respond to a challenge by using the [MyAccount App Authenticators API](https://developer.okta.com/docs/api/openapi/okta-myaccount/myaccount/tag/AppAuthenticator/#tag/AppAuthenticator/operation/verifyAppAuthenticatorPushNotificationChallenge).
+Alternatively, you can respond to a challenge by using the [MyAccount app authenticators API](https://developer.okta.com/docs/api/openapi/okta-myaccount/myaccount/tag/AppAuthenticator/#tag/AppAuthenticator/operation/verifyAppAuthenticatorPushNotificationChallenge).
 
 #### Load undelivered challenges
 
@@ -334,7 +340,7 @@ func retrievePushChallenges(accessToken: String) {
 
 The code assumes that each enrollment uses the same access token. Use the appropriate access token if your app handles multiple user accounts.
 
-Alternatively, you can retrieve undelivered challenges by using the [MyAccount App Authenticators API](https://developer.okta.com/docs/api/openapi/okta-myaccount/myaccount/tag/AppAuthenticator/#tag/AppAuthenticator/operation/listAppAuthenticatorPendingPushNotificationChallenges).
+Alternatively, you can retrieve undelivered challenges by using the [MyAccount app authenticators API](https://developer.okta.com/docs/api/openapi/okta-myaccount/myaccount/tag/AppAuthenticator/#tag/AppAuthenticator/operation/listAppAuthenticatorPendingPushNotificationChallenges).
 
 ## Access token management
 
