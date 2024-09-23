@@ -8,6 +8,17 @@ title: Okta Identity Engine API release notes 2024
 
 ## September
 
+### Weekly release 2024.09.2
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Bugs fixed in 2024.09.2](#bugs-fixed-in-2024-09-2)| September 25, 2024 |
+
+#### Bugs fixed in 2024.09.2
+
+* Users weren't prompted for MFA when they attempted to reauthenticate with *Keep Me Signed In* enabled and the `prompt` parameter set to `login consent`. (OKTA-746325)
+* When making a partial update with the Profile Mappings API, the call validated both incoming data and existing property mappings instead of only the incoming request. (OKTA-798638)
+
 ### Weekly release 2024.09.1
 
 | Change | Expected in Preview Orgs |
@@ -16,7 +27,7 @@ title: Okta Identity Engine API release notes 2024
 
 #### Bug fixed in 2024.09.1
 
-* If the Okta account management policy was used, GET calls to the `/idp/myaccount/authenticators/{authenticatorId}/enrollments` endpoint returned incomplete values. (OKTA-794253)
+If the Okta account management policy was used, GET calls to the `/idp/myaccount/authenticators/{authenticatorId}/enrollments` endpoint returned incomplete values. (OKTA-794253)
 
 ### Monthly release 2024.09.0
 
