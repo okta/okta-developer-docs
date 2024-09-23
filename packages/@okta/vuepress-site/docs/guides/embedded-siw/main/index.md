@@ -169,7 +169,7 @@ Create an app integration in the Okta org that represents the application you wa
 1. For this use case, Okta wants to use only the password factor. Click **Edit** and select the **Password only** [preset policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-preset-auth-policies) to assign it to your app.
 1. Click **Save**.
 
-   > **Note:** You must also [update the password authenticator policy rule](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#update-the-password-authenticator-to-password-only) to not require any additional verification.
+   > **Note:** You must also [update the policy rule for the password authenticator](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#update-the-password-authenticator-to-password-only) to not require any additional verification.
 
 #### Configure the authorization server
 
