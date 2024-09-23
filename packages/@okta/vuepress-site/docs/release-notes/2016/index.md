@@ -258,7 +258,7 @@ For more information, see [Expression Language: String Functions](/docs/referenc
 Once you have shared a credential between apps, you can list all the applications that are using
 the same application key credential. <!-- OKTA-100925 -->
 
-For more information, see the [Apps API reference](/docs/reference/api/apps/#list-applications-using-a-key).
+For more information, see the [Apps API reference](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/listApplications).
 
 
 ## 2016.39
@@ -276,8 +276,8 @@ To share a certificate among app instances:
 3. Share the credential (`kid`) with one or more target apps.
 4. Use the new credential in the target app.
 
-For more detailed instructions, see ["Clone Key Credential for Application"](/docs/reference/api/apps/#clone-application-key-credential)
-and ["Update Key Credential for Application"](/docs/reference/api/apps/#update-key-credential-for-application).
+For more detailed instructions, see ["Clone Key Credential for Application"](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationSSOCredentialKey/#tag/ApplicationSSOCredentialKey/operation/cloneApplicationKey)
+and ["Update Key Credential for Application"](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationSSOCredentialKey/#tag/ApplicationSSOCredentialKey/operation/generateApplicationKey).
 
 ### Bug Fixed
 
@@ -295,7 +295,7 @@ The WWW-Authenticate header couldn't be read when the `/oauth2/v1/userinfo` endp
 
 ### System Log Enhancement
 
-The names of [AppUser properties](/docs/reference/api/apps/#application-user-properties)
+The names of [AppUser properties](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationUsers/#tag/ApplicationUsers/operation/listApplicationUsers)
 that have changed during an import are included in the system log. <!-- (OKTA-96525) -->
 
 
@@ -389,7 +389,7 @@ You can now create SAML and SWA custom apps using the Apps API. Previously you h
 using the [**App Integration Wizard**](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-saml)
 in the administrator UI.
 
-For more information about creating custom apps with the API, see [Apps API: Add Custom SAML Application](/docs/reference/api/apps/#add-custom-saml-application).
+For more information about creating custom apps with the API, see [Apps API: Add Custom SAML Application](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication).
 
 ### Feature Enhancements
 

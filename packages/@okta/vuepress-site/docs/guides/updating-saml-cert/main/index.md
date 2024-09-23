@@ -21,7 +21,7 @@ A SAML app to upgrade. See [Building a SAML SSO integration](/docs/guides/build-
 
 Okta recommends that you upgrade SAML 2.0 app integrations that use SHA1 certificates to use SHA256 certificates instead. SHA256 is a more secure cryptographic hash function that superseded SHA1 in 2002. If your ISV doesn't accept certificates with an SHA256 signature, you can continue to use the previous SHA1 certificate. This guide also covers how to revert your app integration back to its original SHA1 certificate if there’s an issue.
 
-You can upgrade and revert certificates in the Admin Console, and also programmatically using the [Applications API](/docs/reference/api/apps/). This guide covers both options.
+You can upgrade and revert certificates in the Admin Console, and also programmatically using the [Applications API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/). This guide covers both options.
 
 > **Note:**  New SAML 2.0 app integrations automatically use SHA256 certificates. Those created with this guide are self-signed.
 
@@ -70,7 +70,7 @@ Then, if the certificate is SHA1, update the app:
 
 ### Get the app's ID, name, label, and current certificate
 
-Return a [list of all the apps](/docs/reference/api/apps/#list-applications) in your org. Find your app in the list, and note its `id`, `name`, and `label` elements. You see them referred to as `{appId}`, `{appName}`, and `{appLabel}` later on.
+Return a [list of all the apps](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/listApplications) in your org. Find your app in the list, and note its `id`, `name`, and `label` elements. You see them referred to as `{appId}`, `{appName}`, and `{appLabel}` later on.
 
 ```bash
 curl -v -X GET \
@@ -138,7 +138,7 @@ If the "Signature Algorithm" is *sha256WithRSAEncryption*, your app's certificat
 
 ### Generate a new app key credential
 
-[Generate a new X.509 certificate for an application key credential](/docs/reference/api/apps/#generate-new-application-key-credential), and make a note of the key ID `kid` value that is returned.
+[Generate a new X.509 certificate for an application key credential](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationSSOCredentialKey/#tag/ApplicationSSOCredentialKey/operation/generateApplicationKey), and make a note of the key ID `kid` value that is returned.
 
 ```bash
 curl -v -X POST \
@@ -180,7 +180,11 @@ Response:
 
 ### Update the key credential for the app with the new signing key ID
 
-After you create a new key credential for the app, you must update the app to use it. The following is an example request to [update the key credential for the app](/docs/reference/api/apps/#update-key-credential-for-application):
+After you create a new key credential for the app, you must update the app to use it.
+
+> **Note:** To update an application with the newly generated key credential, use the [Replace an Application](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/replaceApplication) request with the new [credentials.signing.kid](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/replaceApplication!path=4/credentials/signing/kid&t=request) value in the request body. You can provide just the [Signing Credential object](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/replaceApplication!path=4/credentials/signing&t=request) instead of the entire [Application Credential object](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/replaceApplication!path=4/credentials&t=request).
+
+The following is an example request to [update the key credential for the app](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationSSOCredentialKey/#tag/ApplicationSSOCredentialKey/operation/generateApplicationKey):
 
 ```bash
 curl -v -X PUT \
@@ -231,7 +235,7 @@ Steps 1, 2, and 4 are the same as for upgrading a certificate to SHA256.
 
 ### Locate the SHA1 certificate associated with the app
 
-1. [List all the credentials for the app](/docs/reference/api/apps/#list-key-credentials-for-application).
+1. [List all the credentials for the app](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationSSOCredentialKey/#tag/ApplicationSSOCredentialKey/operation/listApplicationKeys).
 1. For each certificate returned in an `x5c` element, [check if the certificate is SHA1 or SHA256](#check-if-the-certificate-is-sha1-or-sha256) until you find the SHA1 certificate.
 1. Note the signing key id, `kid`, for the SHA1 certificate.
 

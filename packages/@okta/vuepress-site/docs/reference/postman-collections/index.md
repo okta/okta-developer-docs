@@ -9,7 +9,7 @@ meta:
 
 Learn how to [use Postman with the Okta REST APIs](/docs/reference/rest/).
 
-> **Note:** These buttons are also available at the top of each [API reference page](/docs/reference/api/apps/).
+<!-- > **Note:** These buttons are also available at the top of each [API reference page](/docs/reference/api/apps/). -->
 
 Import any Okta API collection for Postman from the following list:
 

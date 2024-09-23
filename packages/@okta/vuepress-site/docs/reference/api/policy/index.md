@@ -291,9 +291,9 @@ HTTP 204:
 
 Retrieves a list of applications mapped to a policy
 
-> **Note:** To retrieve a list of applications mapped to a policy, use [List all resources mapped to a Policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/listPolicyMappings). If you need to assign an application to a specific policy, use the [Update application policy](/docs/reference/api/apps/#update-application-policy) operation of the Apps API.
+> **Note:** To retrieve a list of applications mapped to a policy, use [List all resources mapped to a Policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/listPolicyMappings). If you need to assign an application to a specific policy, use the [Assign an authentication policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationPolicies/#tag/ApplicationPolicies/operation/assignApplicationPolicy) operation of the Apps API.
 
-> **Note:** To assign an application to a specific policy, use the [Update application policy](/docs/reference/api/apps/#update-application-policy) operation of the Apps API.
+> **Note:** To assign an application to a specific policy, use the [Update application policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationPolicies/#tag/ApplicationPolicies/operation/assignApplicationPolicy) operation of the Apps API.
 
 ##### Request parameters
 
@@ -311,7 +311,7 @@ curl -v -X GET \
 ##### Response types
 
 HTTP 200:
-Array of [Application objects](/docs/reference/api/apps/#application-object)
+Array of [Application objects](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/listApplications)
 
 ## Policy simulation operations
 <ApiLifecycle access="ie" />

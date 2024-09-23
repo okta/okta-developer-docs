@@ -291,7 +291,7 @@ curl -X POST \
 In each spoke (source) org, assign the users and groups to the Org2Org app integration by using the [Okta Application Users API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationUsers/#tag/ApplicationUsers/operation/assignUserToApplication):
 
 * [`POST /api/v1/apps/{yourOrg2OrgAppId}/users` (Assign user to an app for SSO and provisioning)](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationUsers/#tag/ApplicationUsers/operation/assignUserToApplication)
-* [`POST /api/v1/apps/{yourOrg2OrgAppId}/groups/{groupId}` (Assign group to an app)](/docs/reference/api/apps/#assign-group-to-application)
+* [`POST /api/v1/apps/{yourOrg2OrgAppId}/groups/{groupId}` (Assign group to an app)](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationGroups/#tag/ApplicationGroups/operation/assignGroupToApplication)
 
 Alternatively, you can assign users and groups for provisioning using the Okta Admin Console. See [Assign an app integration to a user](https://help.okta.com/okta_help.htm?type=oie&id=ext-lcm-assign-app-user) and [Assign an app integration to a group](https://help.okta.com/okta_help.htm?type=oie&id=ext-lcm-assign-app-groups).
 
@@ -309,7 +309,7 @@ An advantage to using the OAuth 2.0 connection is that you can [rotate keys](/do
 
 ### Generate a new key for the Org2Org app
 
-From your spoke org, make a request to [generate a new app key credential](/docs/reference/api/apps/#generate-new-application-key-credential) as an Okta admin.
+From your spoke org, make a request to [generate a new app key credential](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationSSOCredentialKey/#tag/ApplicationSSOCredentialKey/operation/generateApplicationKey) as an Okta admin.
 
 ##### Request example
 
@@ -388,7 +388,7 @@ curl -X PUT \
 
 ### Update the current credentials for the Org2Org app
 
-From the response of the [previous generate key POST request](#generate-a-new-key-for-the-org2org-app), copy the `kid` property and [activate the new key by updating the Org2Org app](/docs/reference/api/apps/#update-key-credential-for-application).
+From the response of the [previous generate key POST request](#generate-a-new-key-for-the-org2org-app), copy the `kid` property and [activate the new key by updating the Org2Org app](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/schema/Org2OrgApplication).
 
 ##### Request example
 
