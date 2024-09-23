@@ -8,6 +8,12 @@ excerpt:
 
 # Key Management API
 
+The Hook Keys API reference is now available at the new [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/HookKey/#tag/HookKey).
+
+Explore the [Okta Public API Collections](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/overview) workspace to get started with the Hook Key API Postman collection.
+
+<!--
+
 The Okta Key Management API provides a CRUD interface for JSON Web Keys (JWK) used with other parts of the application, such as inline hooks. For information on how to create inline hooks, see [Inline hooks management API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook).
 
 <ApiAuthMethodWarning />
@@ -359,4 +365,4 @@ The Public Key Details are defined in the `_embedded` property of the Key object
     "n": "2naqCnv6r4xNQs7207lRtKQvdtnlVND-8k5iYBIiqoKGY3CqUmRm1jleoOniiQoMkFX8Wj2DmVqr002efF3vOQ7_gjtTatBTVUNbNIQLybun4dkVoUtfP7pRc5SLpcP3eGPRVar734ZrpQXzmCEdpqBt3jrVjwYjNE5DqOjbYXFJtMsy8CWE9LRJ3kyHEoHPzo22dG_vMrXH0_sAQoCk_4TgNCbvyzVmGVYXI_BkUnp0hv2pR4bQVRYzGB9dKJdctOh8zULqc_EJ8tiYsS05YnF7whrWEyARK0rH-e4d4W-OmBTga_zhY4kJ4NsoQ4PyvcatZkxjPO92QHQOFDnf3w"
   }
 }
-```
+```-->
