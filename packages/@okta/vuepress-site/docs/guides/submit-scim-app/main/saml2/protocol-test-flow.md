@@ -1,3 +1,5 @@
+In the **SAML tests** section, specify the following sign-in flow details:
+
 | <div style="width:150px">Property</div> | &nbsp; | Description  |
 | ----------------- | --: | ------------ |
 | **Supported sign-in flows** | | Indicate which sign-in flow your integration supports. You must select at least one of the following flows. |
