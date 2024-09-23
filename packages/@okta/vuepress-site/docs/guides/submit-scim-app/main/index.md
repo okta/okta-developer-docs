@@ -140,40 +140,37 @@ Continue with the OIN Wizard and configure your protocol settings:
 
 ### Enter test information
 
-From the OIN Wizard **Test your integration experience** page, specify the information required for testing your integration. An OIN analyst uses this information to verify your integration after submission.
+From the OIN Wizard **Test your integration** page, specify the information required for testing your integration. The OIN team uses this information to verify your integration after submission.
 
 #### Test information
 
 A dedicated test admin account in your app is required for Okta integration testing. This test account needs to be active beyond the submission period in case Okta needs to update or troubleshoot your app integration. Ensure that the test admin account has:
 
-* Privileges to configure SSO in your test app
+* Privileges to configure admin settings in your test app
 * Privileges to administer test users in your test app
 
 See [Test account guidelines](/docs/guides/submit-app-prereq/main/#test-account-guidelines).
 
 > **Note**: This admin account is in your app and not an account in Okta.
 
-1. In the **Testing information** section, specify the following test account details:
+In the **Testing information** section, specify the following test account details:
 
-    | <div style="width:100px">Property</div> | Description  |
-    | --------------- | ------------ |
-    | **Test account URL** `*`  | A static URL to sign in to your app. An OIN analyst goes to this URL and uses the account credentials you provide in the subsequent fields to sign in to your app. |
-    | **Username** `*`  | The username for your test admin account. The OIN analyst signs in with this username to execute test cases. The preferred account username is `isvtest@okta.com`. |
-    | **Password** `*`  | The password for your test admin account |
-    | **Support contact** `*`  | Provide an email for Okta to contact your company about your integration. This email isn't exposed in the OIN catalogs or to your customers. Okta uses this email to contact your company for issues during the QA testing phase or for ongoing maintenance of your integration in the OIN. See [Escalation support contact](/docs/guides/submit-app-prereq/main/#customer-support-contact-guidelines) in the customer support-contact guidelines. |
-    | **Testing instructions** | Include any other information that you think the OIN analyst needs to know about your integration (such as the admin account or the testing configuration). You can also provide instructions on how to add test user accounts. |
+| <div style="width:100px">Property</div> | Description  |
+| --------------- | ------------ |
+| **Test account URL** `*`  | A static URL to sign in to your app. An OIN analyst goes to this URL and uses the account credentials you provide in the subsequent fields to sign in to your app. |
+| **Username** `*`  | The username for your test admin account. The OIN analyst signs in with this username to execute test cases. The preferred account username is `isvtest@okta.com`. |
+| **Password** `*`  | The password for your test admin account |
+| **Support contact** `*`  | Provide an email for Okta to contact your company about your integration. This email isn't exposed in the OIN catalogs or to your customers. Okta uses this email to contact your company for integration status updates, issues during the QA testing phase, or for ongoing maintenance. See [Escalation support contact](/docs/guides/submit-app-prereq/main/#customer-support-contact-guidelines) in the customer support-contact guidelines. |
+| **Testing instructions** | Include any other information that you think the OIN analyst needs to know about your integration (such as the admin account or the testing configuration). You can also provide instructions on how to add test user accounts. |
 
-    `*` Required properties
+`*` Required properties
 
 #### <StackSnippet snippet="protocol-name" inline/> tests
 
-Continue with the OIN Wizard and specify your supported SSO flows:
+<StackSnippet snippet="protocol-test-flow" />
+<br>
 
-1. In the **<StackSnippet snippet="protocol-name" inline/> tests** section, specify the following sign-in flow details:
-
-    <StackSnippet snippet="protocol-test-flow" />
-
-1. Click **Test your integration** to save your test information and begin the testing phase.
+Click **Test your integration** to save your test information and begin the integration testing phase.
 
 ## Test your integration
 
