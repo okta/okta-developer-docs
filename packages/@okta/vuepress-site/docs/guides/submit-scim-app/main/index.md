@@ -6,13 +6,15 @@ meta:
 layout: Guides
 ---
 
+Use this guide to learn how to submit an OIDC, SAML 2.0, and SCIM 2.0 integration to the Okta Integration Network (OIN) using the OIN Wizard.
+
 ---
 
 #### Learning outcomes
 
-* Learn how to submit an SSO and SCIM integration using the OIN Wizard.
-* Learn how to test your SSO integration with the OIN Submission Tester before submission.
-* Learn how to test your SCIM integration before submission.
+* Learn how to submit an Single Sign-On (SSO) and a SCIM 2.0 Lifecycle Management (LCM) integration using the OIN Wizard.
+* Learn how to test your SSO integration with the OIN Submission Tester.
+* Learn how to test your SCIM 2.0 integration.
 * Learn how to update a published SSO integration.
 
 #### What you need
@@ -74,7 +76,7 @@ Start your integration submission for OIN publication:
 1. Click **Build new OIN integration**. The OIN Wizard appears.
 1. Select the protocols that your integration supports from the **Select protocol** section.
 
-    > **Note:** The current instructions on this page is for the **<StackSnippet snippet="protocol-fullname" inline/>** protocol. <br>
+    > **Note:** The current instructions on this page are for the **<StackSnippet snippet="protocol-fullname" inline/>** protocol. <br>
     > If you want to change the protocol instructions on this page, select the protocol you want from the **Instructions for** dropdown list on the right.
 
 1. Click **Configure your integration**.
@@ -112,6 +114,9 @@ Configure integration variables if your URLs are dynamic for each tenant. The va
 
 1. If you need to delete a variable, click the delete icon (![trash can; delete icon](/img/icons/odyssey/delete.svg)) next to it.
 <!--Odyssey icons sourced from: https://github.com/okta/odyssey/blob/main/packages/odyssey-icons/src/figma.generated/ -->
+
+ > **Note:** The current instructions on this page are for the **<StackSnippet snippet="protocol-fullname" inline/>** protocol. <br>
+    > If you want to change the protocol instructions on this page, select the protocol you want from the **Instructions for** dropdown list on the right.
 
 #### <StackSnippet snippet="protocol-name" inline/> properties
 
