@@ -4421,6 +4421,16 @@ redirects:
     to: /docs/guides/submit-oin-app/saml2/main/
   - from: /docs/guides/submit-app/saml2/main/index.html
     to: /docs/guides/submit-oin-app/saml2/main/
+  - from: /docs/guides/submit-sso-app/openidconnect/main/index.html
+    to: /docs/guides/submit-oin-app/openidconnect/main/
+  - from: /docs/guides/submit-sso-app/openidconnect/main
+    to: /docs/guides/submit-oin-app/openidconnect/main/
+  - from: /docs/guides/submit-sso-app/saml2/main/index.html
+    to: /docs/guides/submit-oin-app/saml2/main/
+  - from: /docs/guides/submit-sso-app/saml2/main
+    to: /docs/guides/submit-oin-app/saml2/main/
+  - from: /docs/guides/submit-sso-app
+    to: /docs/guides/submit-oin-app/
   - from: /docs/guides/deploy-your-app/overview
     to: /docs/guides/deploy-your-app/java/main/
   - from: /docs/guides/deploy-your-app/java

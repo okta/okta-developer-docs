@@ -492,6 +492,6 @@ You can't publish integrations with the following Okta features in the OIN catal
 
 Ready to submit your app? See the following submission guides:
 
-* [Submit an SSO integration](/docs/guides/submit-sso-app/)
+* [Submit an SSO integration](/docs/guides/submit-oin-app/)
 * [Submit an LCM integration](/docs/guides/submit-app/)
 * [Submit an API service integration](/docs/guides/build-api-integration/main/#register-your-api-service-integration)
