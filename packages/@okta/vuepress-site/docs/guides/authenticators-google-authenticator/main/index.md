@@ -24,15 +24,15 @@ Understand the Google Authenticator flow
 
 ## Why choose Google Authenticator
 
-Google Authenticator is an authenticator app developed by Google used to verify the identity of a user. The app is often used with a password to strengthen user accounts from security attacks. This approach is considered more secure than other authenticators such as SMS because it's resistant to SIM swap attacks. It doesn't require a cellular or wireless network to use and setup can be as easy as a snapshot of a QR Code.
+Google Authenticator is an authenticator app developed by Google used to verify the identity of a user. The app is often used with a password to strengthen user accounts from security attacks. This approach is considered more secure than other authenticators such as SMS. It's resistant to SIM swap attacks and it doesn't require a cellular or wireless network to use. Setup can be as easy as a snapshot of a QR Code.
 
 ### Authentication flow
 
-After a user is enrolled in Google Authenticator, the Service Provider (for example, a website) presents a challenge to provide a time-based one-time passcode (TOTP) during authentication. Google Authenticator generates the TOTP, which the user submits to the Service Provider for verification. The Service Provider independently generates the password and validates that the submitted password is identical to the generated one.
+After a user is enrolled in Google Authenticator, the service provider (for example, a website) presents a challenge. The challenge asks for a time-based one-time passcode (TOTP) during authentication. Google Authenticator generates the TOTP, and the user submits it to the service provider for verification. The service provider independently generates the password and validates that the submitted password is identical to the generated one.
 
-A shared key linking the Google Authenticator app and Service Provider allows for both entities to generate the same password. The Service Provider generates the shared key and adds it to the app during enrollment.
+A shared key linking the Google Authenticator app and service provider allows for both entities to generate the same password. The service provider generates the shared key. Then the service provider adds the key to the app during enrollment.
 
-As the Service Provider, you can provide Google Authenticator support to your users. Enable Google Authenticator in your Okta org and use the embedded SDK to build support for it in your application.
+As the service provider, you can provide Google Authenticator support to your users. Enable Google Authenticator in your Okta org. Use the embedded SDK to build support for it in your app.
 
 The following diagram illustrates how the Google Authenticator enrollment and challenge flows can work in your application.
 
@@ -68,7 +68,7 @@ New apps are automatically assigned the shared default [authentication policy](h
 2. Choose **Security > Authentication Policies** to show the available authentication policies.
 3. Click **Add a Policy**.
 4. Give the policy a name, and then click **Save**.
-5. Locate the Catch-all Rule of the new policy and select **Actions > Edit**.
+5. Locate the catch-all rule of the new policy and select **Actions > Edit**.
 6. Select **Allowed after successful authentication**.
 7. Set **User must authenticate with** to **Password + Another factor**.
 8. For **Possession factor constraints**
@@ -83,11 +83,11 @@ New apps are automatically assigned the shared default [authentication policy](h
 
 ## Install Google Authenticator
 
-Install the Google Authenticator app on your mobile device either using either the Google Play Store (Android) or Apple App Store (iOS).
+Install the Google Authenticator app on your mobile device either using either the Google Play (Android) or the Apple App Store (iOS).
 
 ## Integrate SDK for authenticator enrollment
 
-### Summary of steps
+### Summary of enrollment flow
 
 The following summarizes the Google Authenticator enrollment flow using a user sign-in use case.
 
@@ -97,7 +97,7 @@ The following summarizes the Google Authenticator enrollment flow using a user s
 
 ## Integrate SDK for authenticator challenge
 
-### Summary of steps
+### Summary of challenge flow
 
 The following summarizes the Google Authenticator challenge flow using a user sign-in use case.
 

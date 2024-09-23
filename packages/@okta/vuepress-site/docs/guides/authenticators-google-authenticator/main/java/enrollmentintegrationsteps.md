@@ -1,4 +1,4 @@
-### 1: Build a sign-in page on the client
+### Build a sign-in page on the client
 
 Build a sign-in page that captures the user's name and password.
 
@@ -8,7 +8,7 @@ Build a sign-in page that captures the user's name and password.
 
 </div>
 
-### 2: Authenticate the user credentials
+### Authenticate the user credentials
 
 Add the following code to initiate the sign-in flow using the credentials collected from the user.
 
@@ -32,7 +32,7 @@ AuthenticationOptions authenticationOptions = new AuthenticationOptions(username
 AuthenticationResponse authenticationResponse = idxAuthenticationWrapper.authenticate(authenticationOptions, proceedContext);
 ```
 
-### 3: Handle the response from the sign-in flow
+### Handle the response from the sign-in flow
 
 Call `AuthenticationResponse.getAuthenticationStatus()` to retrieve the current state of the authentication process. The return value indicates either a successful authentication (`SUCCESS`) or that more information is required, such as an additional authenticator.
 
@@ -52,7 +52,7 @@ switch (authenticationStatus) {
 }
 ```
 
-### 4: Display a list of possible authenticators
+### Display a list of possible authenticators
 
 The names of the available authenticators are found in the `authenticators` collection of the `AuthenticationResponse`.
 
@@ -72,7 +72,7 @@ Authenticator authenticator = authenticationResponse.getAuthenticators().stream(
       });
 ```
 
-### 5: Retrieve shared secret and QR code
+### Retrieve shared secret and QR code
 
 When the user selects the Google Authenticator factor, call `selectAuthenticator()`, passing in the current context object and authenticator choice as parameters.
 
@@ -83,7 +83,7 @@ authenticationResponse = idxAuthenticationWrapper.selectAuthenticator(proceedCon
 
 The returned `AuthenticationResponse` object contains a QR Code and shared secret.
 
-### 6: Display shared secret and QR Code
+### Display shared secret and QR Code
 
 Display the QR code and/or shared secret to the user, so they can register the factor with Google Authenticator.
 
@@ -100,11 +100,11 @@ For example
 
 </div>
 
-> **NOTE:** The shared secret is typically used when a QR code cannot be displayed or scanned.
+> **NOTE:** The shared secret is typically used when a QR code can’t be displayed or scanned.
 
-### 7: Copy shared secret to Google Authenticator
+### Copy shared secret to Google Authenticator
 
-After the shared secret appears, the user installs the Google Authenticator app on their mobile device if it's not already installed. Next, they add the secret code to the Google Authenticator app by either taking a photo of the QR code or manually entering the secret string. Once added, Google Authenticator displays the time-based one-time passcode (TOTP) for the newly added account.
+After the shared secret appears, the user installs the Google Authenticator app on their mobile device if it's not already installed. Next, they add the secret code to the Google Authenticator app. They can either a photo of the QR code or manually enter the secret string. Once added, Google Authenticator displays the TOTP for the newly added account.
 
 <div class="half">
 
@@ -112,7 +112,7 @@ After the shared secret appears, the user installs the Google Authenticator app 
 
 </div>
 
-### 8: Challenge user for TOTP
+### Challenge user for TOTP
 
 Prompt the user for the TOTP. Call `verifyAuthenticator()` passing in the TOTP as a parameter to verify it with Identity Engine:
 
@@ -123,7 +123,7 @@ case AWAITING_AUTHENTICATOR_VERIFICATION:
         .verifyAuthenticator(proceedContext, new VerifyAuthenticatorOptions(code));
 ```
 
-### 9: Sign user in
+### Sign user in
 
 After successful user authentication, Identity Engine returns an `AuthenticationStatus` of `SUCCESS`. Call `getTokenResponse()` to retrieve the user's ID and access tokens.
 
