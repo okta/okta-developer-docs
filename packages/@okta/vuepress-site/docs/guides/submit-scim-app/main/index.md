@@ -174,14 +174,14 @@ Click **Test your integration** to save your test information and begin the inte
 
 ## Test your integration
 
-The OIN Wizard journey includes the **Test your integration experience** page to help you configure and test your integration within the same org before submission. This page functions in a top-down approach, where you need to do the following:
+The OIN Wizard journey includes the **Test your integration** experience page to help you configure and test your integration within the same org before submission. This page functions in a top-down approach, where you need to do the following:
 
 1. Generate instances for testing.
 2. Test the required flows in the OIN Submission Tester with your generated test instances.
 3. Fix any test failures from the OIN Submission Tester, then regenerate the app instance (if necessary) and retest.
 4. Submit your integration after all required tests ran successfully in the OIN Submission Tester.
 
-> **Note:** You must have the Okta Browser Plugin installed with **Allow in Incognito** enabled before you begin the **Test your integration experience** journey. See [OIN Wizard requirements](/docs/guides/submit-app-prereq/main/#oin-wizard-requirements).
+> **Note:** You must have the Okta Browser Plugin installed with **Allow in Incognito** enabled before you use the  **OIN Submission Tester**. See [OIN Wizard requirements](/docs/guides/submit-app-prereq/main/#oin-wizard-requirements).
 
 ### Generate instances for testing
 
@@ -474,7 +474,9 @@ To update a previously published OIN integration:
 
 ### Update integration considerations
 
-* If you have an existing SAML SSO integration and you want to update advanced properties that aren't available in the OIN Wizard, contact <oin@okta.com>.
+* For published integrations migrated from the OIN Manager, if you need to update configured properties that aren't available the OIN Wizard, contact <oin@okta.com>.
+
+* If you edit a published SCIM integration migrated from the OIN Manager, the **Import users** (and **Import groups** if groups are managed) capability is automatically enabled in the OIN Wizard. You must support and test this capability if your previous SCIM integration didn't support it. If you need help with implementing this feature, contact <developers@okta.com>.
 
 * When you update an integration that's already published, be mindful to preserve backwards compatibility for your integration. Older instances of your integration could be in use by Okta customers.
 
