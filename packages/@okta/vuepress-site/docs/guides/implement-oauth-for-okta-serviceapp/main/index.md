@@ -53,7 +53,7 @@ Create an OAuth 2.0 service app integration using the Admin Console.
 
   > **Note:** You can also use the `/oauth2/v1/clients` endpoint to [create your service app using the API](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/Client/#tag/Client/operation/createClient). If you use the API, follow the [Generate the JWK using the API](#generate-the-jwk-using-the-api) section first, because you need the `JWKS` parameter value when you create the client using the API.
   >
-  >You can also add more JWKS to the app later using the [Add a new JSON Web Key](https://developer.okta.com/docs/reference/api/apps/#add-new-json-web-key) API.
+  >You can also add more JWKS to the app later using the [Add a new JSON Web Key](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationSSOCredentialOAuth2ClientAuth/#tag/ApplicationSSOCredentialOAuth2ClientAuth/operation/addJwk) API.
 
 1. Sign in to your Okta organization as a user with administrative privileges.
 
