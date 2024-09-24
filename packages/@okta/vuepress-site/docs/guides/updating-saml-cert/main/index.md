@@ -136,7 +136,7 @@ After you have a PEM file for your certificate, you can determine if the certifi
 
 If the "Signature Algorithm" is *sha256WithRSAEncryption*, your app's certificate is up to date. If it’s *sha1WithRSAEncryption*, you should upgrade it to a new SHA256 certificate.
 
-### Generate a new app key credential
+### Generate a new application key credential
 
 [Generate a new X.509 certificate for an application key credential](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationSSOCredentialKey/#tag/ApplicationSSOCredentialKey/operation/generateApplicationKey), and make a note of the key ID `kid` value that is returned.
 
