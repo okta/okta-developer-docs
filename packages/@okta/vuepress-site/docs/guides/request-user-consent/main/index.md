@@ -85,7 +85,7 @@ The following section provides example requests for enabling the consent dialog 
 1. Verify that the `consent_method` parameter for the app is set to `REQUIRED`:
 
     * Do a [List apps](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/listApplications) to locate the `applicationId` of the app.
-    * Do a [Get application](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/getApplication) using the `applicationId` and verify that the `consent_method` parameter is set to `REQUIRED`.
+    * Do a [Get app](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/getApplication) using the `applicationId` and verify that the `consent_method` parameter is set to `REQUIRED`.
 
 2. If the `consent_method` is set to `TRUSTED`, you need to update that parameter. The following example shows the JSON body of a PUT request to an existing OpenID Connect app (`https://{yourOktaDomain}/api/v1/apps/{applicationId}`). The request updates the `consent_method` parameter from `TRUSTED` to `REQUIRED`. The value that you specify for `consent_method` depends on the values for `prompt` and `consent`.
 
