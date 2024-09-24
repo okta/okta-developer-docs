@@ -21,7 +21,7 @@ A couple of existing Okta apps already set up so that application key credential
 
 ## About application key credentials
 
-[Application Key Credential objects](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationSSOCredentialKey/#tag/ApplicationSSOCredentialKey/operation/listApplicationKeys) contain an opaque key ID (`kid`) and a corresponding certificate. To use the [API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationSSOCredentialKey/#tag/ApplicationSSOCredentialKey/operation/cloneApplicationKey) to share application key credentials between apps, you need to clone an application key credential. You create and use a new credential in one app, and then share and update the credential in another app.
+[Application key credential objects](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationSSOCredentialKey/#tag/ApplicationSSOCredentialKey/operation/listApplicationKeys) contain an opaque key ID (`kid`) and a corresponding certificate. To use the [API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationSSOCredentialKey/#tag/ApplicationSSOCredentialKey/operation/cloneApplicationKey) to share application key credentials between apps, you need to clone an application key credential. You create and use a new credential in one app, and then share and update the credential in another app.
 
 Sharing certificates is useful for Okta orgs that have apps with [sign-on modes](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/listApplications!c=200&path=0/signOnMode&t=response) such as `SAML_2_0`, `SAML_1_1`, or `WS_FEDERATION`.
 
