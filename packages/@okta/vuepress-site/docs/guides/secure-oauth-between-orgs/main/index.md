@@ -258,7 +258,7 @@ curl -X POST \
 
 ### Enable provisioning in the Org2Org app
 
-In each spoke org, set and activate provisioning for the Org2Org app integration by using the [Okta Apps API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationConnections/#tag/ApplicationConnections/operation/updateDefaultProvisioningConnectionForApplication).
+In each spoke org, set and activate provisioning for the Org2Org app integration by using the [Apps API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationConnections/#tag/ApplicationConnections/operation/updateDefaultProvisioningConnectionForApplication).
 
 > **Note**: Currently, you can only enable OAuth 2.0-based provisioning with the Okta API.
 
