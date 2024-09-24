@@ -265,7 +265,7 @@ After the shared secret appears, the user installs the Google Authenticator app 
 
 ### Display challenge page
 
-Build a form that allows the user to enter the TOTP they’ve received from their Authenticator app. This should appear once the user selects the **Next** button underneath the QR code and sample secret.
+Build a form that allows the user to enter the TOTP they’ve received from their Authenticator app. This should appear after the user selects the **Next** button underneath the QR code and sample secret.
 
 ```razor
 @using (Html.BeginForm("VerifyAuthenticatorAsync", "Manage",
