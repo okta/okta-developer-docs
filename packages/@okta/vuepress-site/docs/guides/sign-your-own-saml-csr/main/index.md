@@ -7,7 +7,7 @@ layout: Guides
 This guide explains how to complete the following steps:
 
 * Upload your Security Assertion Markup Language (SAML) certificates to sign the assertion for outbound SAML apps.
-* Sign the AuthN request
+* Sign the AuthN request.
 * Decrypt the assertion for inbound SAML
 
 ---
