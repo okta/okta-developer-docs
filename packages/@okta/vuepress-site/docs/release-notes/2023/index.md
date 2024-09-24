@@ -689,7 +689,7 @@ When an admin used a group limit in an expression that was greater than 100 (for
 
 #### Applications API support for SAML metadata attributes
 
-The Applications API now supports metadata dynamic SAML attributes inherited from the SAML app. The SAML attributes are used to manage configured group attributes. The Admin Console displays the dynamic SAML attributes as **Configure SAML Attributes**, and the API returns these attributes as the `settings.signOn.configuredAttributeStatements` property in the [SAML application object](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication!path=6/settings/signOn/configuredAttributeStatements&t=request). <!--OKTA-573057,OKTA-549695-->
+The Apps API now supports metadata dynamic SAML attributes inherited from the SAML app. The SAML attributes are used to manage configured group attributes. The Admin Console displays the dynamic SAML attributes as **Configure SAML Attributes**, and the API returns these attributes as the `settings.signOn.configuredAttributeStatements` property in the [SAML application object](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication!path=6/settings/signOn/configuredAttributeStatements&t=request). <!--OKTA-573057,OKTA-549695-->
 
 #### Custom app login deprecated is GA in Production
 
