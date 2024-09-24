@@ -23,8 +23,8 @@ This guide explains how to build a self-signed JSON Web Token (JWT) that's used 
 
 There are two types of self-signed JWT assertions that you can build for use when you make requests to endpoints that require client authentication:
 
-* JWT with a Shared Key (`client_secret_jwt`)
-* JWT with a Private Key (`private_key_jwt`)
+* JWT with a shared key (`client_secret_jwt`)
+* JWT with a private key (`private_key_jwt`)
 
 The difference between building these two types of assertions is the algorithm and key used to sign the JWT.
 
@@ -44,7 +44,7 @@ When you create a JWT assertion claim for client authentication (`client_secret_
 | `exp`      | Required. The token expiration time in seconds since January 1, 1970 UTC (UNIX timestamp), for example, `1555594819`. This claim fails the request if the expiration time is more than one hour in the future or if the token is already expired.            | Integer     |
 | `iss`      | Required. The issuer of the token. This value must be the same as the `client_id` of the application that you’re accessing.  | String      |
 | `sub`      | Required. The subject of the token. This value must be the same as the `client_id` of the application that you’re accessing. | String       |
-| `jti`      | Optional. The unique token identifier. If you specify this parameter, the token can only be used once and, as a result, subsequent token requests won't succeed. | String    |
+| `jti`      | Optional. The unique token identifier. If you specify this parameter, the token can only be used once and, as a result, subsequent token requests don't succeed. | String    |
 | `iat`      | Optional. When the token was issued in seconds since January 1, 1970 UTC (UNIX timestamp), for example, `1555591219`. If specified, it must be a time before the request is received. | Integer     |
 
 ## Build a JWT with a shared key
