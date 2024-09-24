@@ -24,7 +24,7 @@ Understand the Google Authenticator flow
 
 ## Why choose Google Authenticator
 
-Google Authenticator is an authenticator app developed by Google used to verify the identity of a user. The app is often used with a password to strengthen user accounts from security attacks. This approach is considered more secure than other authenticators such as SMS. It's resistant to SIM swap attacks and it doesn't require a cellular or wireless network to use. Setup can be as easy as a snapshot of a QR Code.
+Google Authenticator is an authenticator app developed by Google that's used to verify the identity of a user. The app is often used with a password to strengthen user accounts from security attacks. This approach is considered more secure than other authenticators such as SMS. It's resistant to SIM swap attacks, and it doesn't require a cellular or wireless network to use. Setup can be as easy as a snapshot of a QR Code.
 
 ### Authentication flow
 
