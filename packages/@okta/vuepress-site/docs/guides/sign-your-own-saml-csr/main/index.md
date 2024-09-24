@@ -230,7 +230,7 @@ Content-Type: application/json;charset=UTF-8
 
 Update the key credential for the app or IdP to specify the new signing Key ID.
 
-* For outbound SAML, call the [Update Application API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/replaceApplication). Pass the app ID that you obtained in the [List your apps](#list-your-apps) step in the URL. In the body, include the app name and the app label that you obtained when you listed your apps and the Key ID that you obtained in the [Sign the CSR](#sign-the-csr) step.
+* For outbound SAML, call the [Replace an app endpoint](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/replaceApplication). Pass the app ID that you obtained in the [List your apps](#list-your-apps) step in the URL. In the body, include the app name and the app label that you obtained when you listed your apps and the Key ID that you obtained in the [Sign the CSR](#sign-the-csr) step.
 
 * For inbound SAML, call the [Update IdP API](/docs/reference/api/idps/#update-identity-provider). Pass the entire [IdP](/docs/reference/api/idps/#update-identity-provider) that you obtained in the [List your apps](#list-your-apps) step and use the Key ID value that you obtained in the [Sign the CSR](#sign-the-csr) step. Partial updates aren't supported by the `Updated IdP API`.
 
