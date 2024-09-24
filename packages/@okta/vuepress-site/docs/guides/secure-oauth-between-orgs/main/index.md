@@ -64,7 +64,7 @@ You can push user and group information from a spoke org to a centralized hub or
 
 ### Add an Org2Org app integration in a spoke org
 
-You use the spoke org to push users and groups to the central hub org. In the spoke org, add an instance of the Org2Org app integration by using the [Okta Apps API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/schema/Org2OrgApplication). This generates an integration instance with the key certificates required to connect to the hub org.
+You use the spoke org to push users and groups to the central hub org. In the spoke org, add an instance of the Org2Org app integration by using the [Apps API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/schema/Org2OrgApplication). This generates an integration instance with the key certificates required to connect to the hub org.
 
 > **Note:** You can't use an Okta Developer Edition org as a spoke org since the Okta Org2Org app integration isn't available. If you need to test this feature in your developer org, contact your Okta account team.
 
