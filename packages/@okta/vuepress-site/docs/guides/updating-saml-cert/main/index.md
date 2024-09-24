@@ -138,7 +138,7 @@ If the "Signature Algorithm" is *sha256WithRSAEncryption*, your app's certificat
 
 ### Generate a new application key credential
 
-[Generate a new X.509 certificate for an application key credential](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationSSOCredentialKey/#tag/ApplicationSSOCredentialKey/operation/generateApplicationKey), and make a note of the key ID `kid` value that is returned.
+[Generate a new X.509 certificate for an application key credential](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationSSOCredentialKey/#tag/ApplicationSSOCredentialKey/operation/generateApplicationKey) and make a note of the key ID `kid` value that's returned.
 
 ```bash
 curl -v -X POST \
