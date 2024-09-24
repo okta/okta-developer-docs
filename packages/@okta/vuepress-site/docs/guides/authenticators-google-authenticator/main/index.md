@@ -68,7 +68,7 @@ New apps are automatically assigned the shared default [authentication policy](h
 2. Choose **Security > Authentication Policies** to show the available authentication policies.
 3. Click **Add a Policy**.
 4. Give the policy a name, and then click **Save**.
-5. Locate the catch-all rule of the new policy and select **Actions > Edit**.
+5. Locate the catch-all rule of the new policy and select **Actions** > **Edit**.
 6. Select **Allowed after successful authentication**.
 7. Set **User must authenticate with** to **Password + Another factor**.
 8. For **Possession factor constraints**
