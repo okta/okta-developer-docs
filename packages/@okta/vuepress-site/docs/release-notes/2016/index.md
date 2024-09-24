@@ -258,7 +258,7 @@ For more information, see [Expression Language: String Functions](/docs/referenc
 Once you have shared a credential between apps, you can list all the applications that are using
 the same application key credential. <!-- OKTA-100925 -->
 
-For more information, see the [Apps API reference](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/listApplications).
+See the [Apps API reference](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/listApplications).
 
 
 ## 2016.39
