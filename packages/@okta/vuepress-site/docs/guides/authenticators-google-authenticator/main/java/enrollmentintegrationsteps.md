@@ -104,7 +104,7 @@ For example
 
 ### Copy shared secret to Google Authenticator
 
-After the shared secret appears, the user installs the Google Authenticator app on their mobile device if it's not already installed. Next, they add the secret code to the Google Authenticator app. They can either a photo of the QR code or manually enter the secret string. Once added, Google Authenticator displays the TOTP for the newly added account.
+After the shared secret appears, the user installs the Google Authenticator app on their mobile device if it's not already installed. Next, they add the secret code to the Google Authenticator app. They can either take a photo of the QR code or manually enter the secret string. After it's added, Google Authenticator displays the TOTP for the newly added account.
 
 <div class="half">
 
