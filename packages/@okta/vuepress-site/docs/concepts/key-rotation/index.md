@@ -35,4 +35,4 @@ If you're using the org authorization server, configure and perform key rollover
 
 * You can't manually rotate the org authorization server's signing keys.
 
-> **Note:** If your application can't retrieve keys dynamically, you can pin that specific client to a specific key by [generating a key credential](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationSSOCredentialKey/#tag/ApplicationSSOCredentialKey/operation/generateApplicationKey) and [updating the application](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/replaceApplication) to use it for signing.
+> **Note:** If your app can't retrieve keys dynamically, you can pin that specific client to a specific key by [generating a key credential](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationSSOCredentialKey/#tag/ApplicationSSOCredentialKey/operation/generateApplicationKey) and [updating the app](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/replaceApplication) to use it for signing.
