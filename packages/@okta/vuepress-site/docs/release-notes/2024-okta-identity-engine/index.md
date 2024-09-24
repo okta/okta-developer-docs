@@ -18,6 +18,7 @@ title: Okta Identity Engine API release notes 2024
 
 * Users weren't prompted for MFA when they attempted to reauthenticate with *Keep Me Signed In* enabled and the `prompt` parameter set to `login consent`. (OKTA-746325)
 * When making a partial update with the Profile Mappings API, the call validated both incoming data and existing property mappings instead of only the incoming request. (OKTA-798638)
+* User verification settings were returned in `AUTH_METHOD_CHAIN` responses, even though the Assurance User Verification feature wasn't enabled in the org. (OKTA-798274)
 
 ### Weekly release 2024.09.1
 
