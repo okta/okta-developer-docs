@@ -83,7 +83,7 @@ New apps are automatically assigned the shared default [authentication policy](h
 
 ## Install Google Authenticator
 
-Install the Google Authenticator app on your mobile device either using either the Google Play (Android) or the Apple App Store (iOS).
+Install the Google Authenticator app on your mobile device using either the Google Play (Android) or the Apple App Store (iOS).
 
 ## Integrate SDK for authenticator enrollment
 
