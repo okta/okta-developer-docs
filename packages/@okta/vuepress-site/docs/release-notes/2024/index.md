@@ -14,7 +14,7 @@ title: Okta Classic Engine API release notes 2024
 
 #### Bug fixed in 2024.09.2
 
-When making a partial update with the Profile Mappings API, the call validated both incoming data and existing property mappings instead of only the incoming request. (OKTA-798638)
+When an admin made a partial update using the Profile Mappings API, both incoming data and existing property mappings were validated instead of only the incoming request. (OKTA-798638)
 
 ### Monthly release 2024.09.0
 
