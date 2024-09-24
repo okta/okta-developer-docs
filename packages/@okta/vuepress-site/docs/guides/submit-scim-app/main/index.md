@@ -6,16 +6,9 @@ meta:
 layout: Guides
 ---
 
-Use this guide to learn how to submit an OIDC, SAML 2.0, and SCIM 2.0 integration to the Okta Integration Network (OIN) using the OIN Wizard.
+Learn how to submit an OIDC, SAML 2.0, and SCIM 2.0 integration to the Okta Integration Network (OIN) using the OIN Wizard.
 
 ---
-
-#### Learning outcomes
-
-* Learn how to submit an Single Sign-On (SSO) and a SCIM 2.0 Lifecycle Management (LCM) integration using the OIN Wizard.
-* Learn how to test your SSO integration with the OIN Submission Tester.
-* Learn how to test your SCIM 2.0 integration.
-* Learn how to update a published SSO integration.
 
 #### What you need
 
@@ -37,7 +30,7 @@ The OIN Wizard is a full-service tool in the Admin Console for you to do the fol
 * Generate an app instance in your org for testing:
 
   * Test your SSO integration with the OIN Submission Tester.
-  * Test your SCIM integration with manual test cases and a Runscope CRUD test suite.
+  * Test your SCIM integration with manual test cases and Runscope test suites.
 
 * Submit your integration directly to the OIN team when you're satisfied with your test results.
 * Monitor the status of your submissions through the **Your OIN Integrations** dashboard.
@@ -174,22 +167,26 @@ Click **Test your integration** to save your test information and begin the inte
 
 ## Test your integration
 
-The OIN Wizard journey includes the **Test your integration** experience page to help you configure and test your integration within the same org before submission. This page functions in a top-down approach, where you need to do the following:
+The OIN Wizard journey includes the **Test integration** experience page to help you configure and test your integration within the same org before submission. This page functions in a top-down approach, where you need to do the following:
 
-1. Generate instances for testing.
-2. Test the required flows in the OIN Submission Tester with your generated test instances.
-3. Fix any test failures from the OIN Submission Tester, then regenerate the app instance (if necessary) and retest.
-4. Submit your integration after all required tests ran successfully in the OIN Submission Tester.
+1. Generate instances for testing. You need to create a test instance for each protocol that your integration supports.
+    * For SSO integrations, configure SSO and assign test users for the instance.
+    * For SCIM integrations, configure **Provisioning** > **Enable API integration** on the instance and map user profile attributes.
+
+1. Test your integration.
+   * For SSO integrations, test the required flows in the OIN Submission Tester with your generated test instances. Fix any test failures from the OIN Submission Tester, then regenerate the test instance (if necessary) and retest.
+   * For SCIM integrations, execute the Okta-Runscope CRUD test suite and the Okta manual test cases with your generated instance.
+1. Submit your integration after all required tests are successful.
 
 > **Note:** You must have the Okta Browser Plugin installed with **Allow in Incognito** enabled before you use the  **OIN Submission Tester**. See [OIN Wizard requirements](/docs/guides/submit-app-prereq/main/#oin-wizard-requirements).
 
 ### Generate instances for testing
 
-Generate instances for testing in your Okta Developer Edition org directly from the OIN Wizard. The Wizard takes the configuration and test information from your OIN submission and allows you to configure a specific integration instance to your test app. The generated instance allows you to test your customer admin experience and end-user sign-in experience. Generate an instance for each SSO protocol that your integration supports.
+Generate instances for testing in your Okta Developer Edition org directly from the OIN Wizard. The Wizard takes the configuration and test information from your OIN submission and allows you to configure a specific integration instance to your test app. The generated instance allows you to test your customer admin experience and end-user sign-in experience. Generate an instance for each protocol that your integration supports.
 
 To generate an integration instance:
 
-1. From the **Test your integration experience** page, click **Generate instance**.
+1. From the **Test integration** page, click **Generate instance**.
 
     A page appears to add your instance details. See [Add existing app integrations](https://help.okta.com/okta_help.htm?type=oie&id=csh-apps-add-app).
 
@@ -200,16 +197,7 @@ To generate an integration instance:
     > **Note:** There's a limit of five app instances in a Developer Edition org. **Generate instance** is deactivated when you reach this limit. Deactivate unused instances to make room for new instances in your org. See [Deactivate app instances in your org](#deactivate-an-app-instance-in-your-org).
 
 <StackSnippet snippet="test-instance" />
-<br>
 
-7. Follow these steps if you have an Identity Engine <ApiLifecycle access="ie" /> &nbsp;Developer Edition org:
-   1. Click the **Sign On** tab, scroll to the **User authentication** section and click **Edit**.
-   1. Select **Password only** from the **Authentication policy** dropdown menu.
-   [[style="list-style-type:lower-alpha"]]
-   1. Click **Save**.
-   > **Note:** Most recent Okta Developer Edition orgs are Identity Engine orgs. See [OIN Wizard authentication policy for testing](/docs/guides/submit-app-prereq/main/#oin-wizard-authentication-policy-for-testing).
-
-8. [Assign test users to your instance](#assign-test-users-to-your-integration-instance) before you start testing your SSO flows.
 
 #### Assign test users to your integration instance
 
@@ -221,14 +209,14 @@ For SSO flow tests without JIT provisioning, you also need to create the same te
 
 To assign test users to your integration:
 
-1. Continue from the OIN Wizard > **Test your integration experience** > **Generate instance** > your app instance page.
+1. Continue from the OIN Wizard > **Test integration** > **Generate instance** > your app instance page.
 1. Click the **Assignments** tab.
 1. Click **Assign** and then select either **Assign to People** or **Assign to Groups**.
 1. Enter the appropriate people or groups that you want to have SSO into your app, and then click **Assign** for each.
 1. Verify the user-specific attributes for any people that you add, and then select **Save and Go Back**.
 1. Click **Done**.
-1. Click **Begin testing** (upper-right corner) from the OIN Wizard. The **Test your integration experience** page appears. Continue to the [Application instances for testing](#application-instances-for-testing) section to include your instance for testing in the OIN Submission Tester.
-   > **Note:** If you're not in the OIN Wizard, go to **Your OIN Integration** > **Select your protocol**  > **Configure your integration** > **Test your integration experience**.
+1. Click **Begin testing** (upper-right corner) from the OIN Wizard. The **Test integration** page appears. Continue to the [Application instances for testing](#application-instances-for-testing) section to include your instance for testing in the OIN Submission Tester.
+   > **Note:** If you're not in the OIN Wizard, go to **Your OIN Integration** > **Select protocol**  > **Configure your integration** > **Test integration**.
 
 ### Required app instances
 
@@ -251,11 +239,13 @@ There's a maximum of five active instances allowed in a Developer Edition org, s
 
 #### Add to Tester
 
-* Click **Add to Tester** next to the instance from the **Application instances for testing** list to include it for testing with the OIN Submission Tester. The **Add to Tester** option only appears for instances that are active and eligible for testing.
+> **Note:** The OIN Submission Tester only supports SSO integrations. The **Add to Tester** option isn't available for SCIM integrations.
+
+* Click **Add to Tester** next to the instance from the **Application instances for testing** list to include it for testing with the OIN Submission Tester. The **Add to Tester** option only appears for SSO instances that are active and eligible for testing.
 
     The corresponding test cases are populated with the instance name and the **Run test** option is enabled in the OIN Submission Tester.
 
-* Click **Remove from Tester** to disable the test cases associated with the instance from the OIN Submission Tester.
+* Click **Remove from Tester** to disable the test cases associated with the SSO instance from the OIN Submission Tester.
 
     The instance name and test results are removed for the corresponding test cases in the OIN Submission Tester. The **Run test** option is also disabled.
 
@@ -265,7 +255,7 @@ Since the Okta Developer Edition org has a limit of five active app instances, d
 
 To deactivate an instance from the OIN Wizard:
 
-1. Go to **Test your integration experience** > **Application instances for testing**.
+1. Go to **Test integration** > **Application instances for testing**.
 1. Click **Clear filters** to see all instances in your org.
 1. Disable the **ACTIVE** toggle next to the app instance you want to deactivate.
 
@@ -294,7 +284,9 @@ To edit the app instance from the OIN Wizard, follow these steps:
 
 ### OIN Submission Tester
 
-The **Test your integration experience** page includes the integrated OIN Submission Tester, which is a plugin app that runs the minimal tests required to ensure that your sign-in flow works as expected. Ideally, you want to execute other variations of these test cases without the OIN Submission Tester. Try negative and edge test cases. You can't submit your integration in the OIN Wizard until all required tests in the OIN Submission Tester pass.
+The **Test integration** page includes the integrated OIN Submission Tester, which is a plugin app that runs the minimal tests required to ensure that your sign-in flow works as expected. Ideally, you want to execute other variations of these test cases without the OIN Submission Tester. Try negative and edge test cases. You can't submit your integration in the OIN Wizard until all required tests in the OIN Submission Tester pass.
+
+> **Note:** The OIN Submission Tester only supports SSO integrations.
 
 Before you start testing with the OIN Submission Tester, see [OIN Wizard test requirements](/docs/guides/submit-app-prereq/main/#oin-wizard-test-requirements).
 
