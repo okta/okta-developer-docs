@@ -311,7 +311,7 @@ curl -v -X GET \
 ##### Response types
 
 HTTP 200:
-Array of [Application objects](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/listApplications)
+Array of [app objects](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/listApplications)
 
 ## Policy simulation operations
 <ApiLifecycle access="ie" />
