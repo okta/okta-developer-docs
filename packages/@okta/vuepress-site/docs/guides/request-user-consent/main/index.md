@@ -89,7 +89,7 @@ The following section provides example requests for enabling the consent dialog 
 
 2. If the `consent_method` is set to `TRUSTED`, you need to update that parameter. The following example shows the JSON body of a PUT request to an existing OpenID Connect app (`https://{yourOktaDomain}/api/v1/apps/{applicationId}`). The request updates the `consent_method` parameter from `TRUSTED` to `REQUIRED`. The value that you specify for `consent_method` depends on the values for `prompt` and `consent`.
 
-    > **Note:** Check the **Settings** [table](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication!path=4/signOnMode&t=request) in the **Add OAuth 2.0 Client Application** section of the Apps API reference for information on these properties. In most cases, `REQUIRED` is the correct value.
+    > **Note:** Check the **Settings** [table](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication!path=4/signOnMode&t=request) of the Apps API reference for information on these properties. In most cases, `REQUIRED` is the correct value.
 
     ```json
     {
