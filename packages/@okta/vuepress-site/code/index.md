@@ -63,7 +63,7 @@ To initiate the OIDC exchange, use your preferred OIDC library. The following ta
 | ![ASP.NET Framework](/img/sdks/dotnet.png) | ASP.NET<br />Framework 4.8 | [Okta ASP.NET middleware](https://github.com/okta/okta-aspnet) | [MVC Sample App](https://github.com/okta/samples-aspnet/tree/master/okta-hosted-login)<br />[Webforms Sample App](https://github.com/okta/samples-aspnet-webforms/tree/master/okta-hosted-login) |  |
 | ![Java](/img/sdks/java.png) | Java | Micronaut | [Sample App](https://github.com/okta/samples-java-micronaut/tree/master/okta-hosted-login)  |  |
 | ![Blazor](/img/sdks/dotnet.png) | Blazor | [Okta ASP.NET middleware](https://github.com/okta/okta-aspnet) | [Sample App](https://github.com/okta/samples-blazor/tree/master/server-side/okta-hosted-login) |  |
-| ![Go](/img/sdks/go.png) | Go | Gorilla | [Sample App](https://github.com/okta/samples-golang/tree/master/okta-hosted-login) | [Guide](/docs/guides/sign-into-web-app-redirect/go/main/) |
+| ![Go](/img/sdks/go.png) | Go | Gorilla |  | [Guide](/docs/guides/sign-into-web-app-redirect/go/main/) |
 
 > **Note:** [Okta ASP.NET Middleware](https://github.com/okta/okta-aspnet) is available for .NET Framework, .NET Core, and .NET 5+. The [samples-aspnetcore](https://github.com/okta/samples-aspnetcore) repo contains sample apps for .NET Core 3.1, .NET 6.0, and .NET 7.0.
 
@@ -120,7 +120,7 @@ To initiate the OIDC exchange, use your preferred OIDC SDK. The following table 
 | ![Spring](/img/sdks/spring.png) | Spring Boot | [Okta Spring Boot Starter](https://github.com/okta/okta-spring-boot) | [Sample App](https://github.com/oktadev/okta-spring-boot-client-credentials-example) | [Guide](/docs/guides/protect-your-api/springboot/main/) |
 | ![Express](/img/sdks/javascript.png) | Express | Express | [Sample App](https://github.com/okta-samples/okta-express-js-api-quickstart)<br />[Sample App 2](https://github.com/okta/samples-nodejs-express-4/tree/master/resource-server) | [Guide](/docs/guides/protect-your-api/nodeexpress/main/) |
 | ![ASP.NET Framework 4.8](/img/sdks/dotnet.png) | ASP.NET<br />Framework 4.8 | [Okta ASP.NET middleware](https://github.com/okta/okta-aspnet) | [Sample App](https://github.com/okta/samples-aspnet/blob/master/resource-server) |  |
-| ![Go](/img/sdks/go.png) | Go | Gin | [Sample App](https://github.com/okta-samples/okta-go-api-sample)<br />[Sample App 2](https://github.com/okta/samples-golang/blob/master/resource-server) | [Guide](/docs/guides/protect-your-api/go/main/) |
+| ![Go](/img/sdks/go.png) | Go | Gin | [Sample App](https://github.com/okta-samples/okta-go-api-sample) | [Guide](/docs/guides/protect-your-api/go/main/) |
 
 > **Note:** [Okta ASP.NET Middleware](https://github.com/okta/okta-aspnet) is available for .NET Framework, .NET Core, and .NET 5+. The [samples-aspnetcore](https://github.com/okta/samples-aspnetcore) repo contains additional sample apps for .NET Core 3.1, .NET 6.0, and .NET 7.0.
 
