@@ -66,7 +66,7 @@ Add an app group capability to your app if it doesn't already have one. You'll u
 
 ### Initialize the client
 
-You must initialize the SDK client when your app launches as it configures some push Notification settings. The following function is an example of configuring and initializing the client that is called from [`application(_:didFinishLaunchingWithOptions:)`](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1622921-application). The call can go before or after the code to register for push notifications that you added earlier.
+You must initialize the SDK client when your app launches as it configures some push notification settings. The following function is an example of configuring and initializing the client that's called from [`application(_:didFinishLaunchingWithOptions:)`](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1622921-application). The call can go before or after the code to register for push notifications that you added earlier.
 
 ```swift
 func initOktaDeviceAuthenticator() {
