@@ -123,7 +123,7 @@ After you enable refresh token rotation, the `refresh_token` property appears wi
 
 > **Note:** A leeway of `0` doesn't necessarily mean that the previous token is immediately invalidated. The previous token is invalidated after the new token is generated and returned in the response.
 
-See [Refresh token object](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/getApplication!c=200&path=4/settings/oauthClient/refresh_token&t=response).
+See the [refresh token object](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/getApplication!c=200&path=4/settings/oauthClient/refresh_token&t=response).
 
 ### Refresh token lifetime
 
