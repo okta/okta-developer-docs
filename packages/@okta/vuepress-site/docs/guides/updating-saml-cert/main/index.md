@@ -21,7 +21,7 @@ A SAML app to upgrade. See [Building a SAML SSO integration](/docs/guides/build-
 
 Okta recommends that you upgrade SAML 2.0 app integrations that use SHA1 certificates to use SHA256 certificates instead. SHA256 is a more secure cryptographic hash function that superseded SHA1 in 2002. If your ISV doesn't accept certificates with an SHA256 signature, you can continue to use the previous SHA1 certificate. This guide also covers how to revert your app integration back to its original SHA1 certificate if there’s an issue.
 
-You can upgrade and revert certificates in the Admin Console, and also programmatically using the [Applications API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/). This guide covers both options.
+You can upgrade and revert certificates in the Admin Console, and also programmatically using the [Apps API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/). This guide covers both options.
 
 > **Note:**  New SAML 2.0 app integrations automatically use SHA256 certificates. Those created with this guide are self-signed.
 
