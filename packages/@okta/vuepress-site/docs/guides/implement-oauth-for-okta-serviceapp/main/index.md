@@ -214,7 +214,7 @@ This option allows you to host your public key in a URI and paste the link to th
 
 Now that you've created the service app and registered the public key with that service app, you need to [define the allowed scopes](/docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints). When a request is sent to the org authorization server's `/token` endpoint, it validates all requested scopes in the request against the service app's grants collection. If the scope exists in the grants collection, the scope is granted.
 
-> **Note:** Only the Super Admin role has permissions to grant scopes to an app.
+> **Note:** Only the Super Admin role has the permissions to grant scopes to an app.
 
 1. From the service app page, select the **Okta API Scopes** tab.
 2. Click **Grant** for each of the scopes that you want to add to the app's grant collection.
