@@ -1013,6 +1013,7 @@ export const reference = [
                },
                { title: "Error Codes", path: "/docs/reference/error-codes/" },
                { title: "User query options", path: "/docs/reference/user-query/" },
+               { title: "System log query", path: "/docs/reference/system-log-query/" },
                { title: 'Sign in Your Users', path: 'empty' },
                { title: "Authentication", path: "/docs/reference/api/authn/" },
                { title: "Identity Providers", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/" },
