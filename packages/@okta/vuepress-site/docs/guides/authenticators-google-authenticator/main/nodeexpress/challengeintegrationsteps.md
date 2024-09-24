@@ -68,7 +68,7 @@ UI showing the one-time passcode input field.
 
 </div>
 
-### Get one-time passcode from Google authenticator
+### Get one-time passcode from Google Authenticator
 
 Next, the user opens Google Authenticator on their mobile device and finds the one-time passcode for their account.
 
