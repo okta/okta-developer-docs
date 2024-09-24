@@ -1,4 +1,4 @@
-### Build a sign-in page on the client
+### Build a sign-in page for the client
 
 Build a sign-in page that captures the user's name and password.
 
