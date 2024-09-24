@@ -4,7 +4,7 @@ excerpt: How to use a custom SAML certificate for apps
 layout: Guides
 ---
 
-This guide explains how to do the following:
+This guide explains how to complete the following steps:
 
 * Upload your Security Assertion Markup Language (SAML) certificates to sign the assertion for outbound SAML apps
 * Sign the AuthN request
