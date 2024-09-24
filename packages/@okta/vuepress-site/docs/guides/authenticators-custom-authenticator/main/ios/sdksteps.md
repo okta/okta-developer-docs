@@ -13,7 +13,7 @@ If needed, you can also unenroll the device, either locally, or both locally and
 
 > **Note:** The iOS code snippets assume that there's a singleton class called `DeviceSDKManager` that manages interactions with the Devices SDK. The singleton contains any required state information, such as the following:
 
-* Thecurrent SDK client
+* The current SDK client
 * The APNs token for the current launch of the app
 * Utility functions
 
