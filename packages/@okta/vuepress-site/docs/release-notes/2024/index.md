@@ -6,6 +6,16 @@ title: Okta Classic Engine API release notes 2024
 
 ## September
 
+### Weekly release 2024.09.2
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Bug fixed in 2024.09.2](#bug-fixed-in-2024-09-2)| September 25, 2024 |
+
+#### Bug fixed in 2024.09.2
+
+When an admin made a partial update using the Profile Mappings API, both incoming data and existing property mappings were validated instead of only the incoming request. (OKTA-798638)
+
 ### Monthly release 2024.09.0
 
 | Change | Expected in Preview Orgs |
