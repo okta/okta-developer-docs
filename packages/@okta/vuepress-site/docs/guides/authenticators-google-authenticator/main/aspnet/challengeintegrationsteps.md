@@ -7,7 +7,7 @@ The challenge flow follows the same first four steps as the [enrollment flow](#i
 * Handle the response from the sign-in flow
 * Display a list of possible authenticator factors
 
-### Check Authenticator Status
+### Check authenticator status
 
 When the user selects Google Authenticator to authenticate themselves and clicks **Submit**, the application checks whether the user is in challenge flow or in enrollment flow by posting back to `SelectAuthenticatorAsync`.
 
