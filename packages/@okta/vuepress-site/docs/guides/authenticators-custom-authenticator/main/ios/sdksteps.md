@@ -62,7 +62,7 @@ For more information, see [Registering Your App with APNs](https://developer.app
 
 The token is returned by the system in [`application(_:didRegisterForRemoteNotificationsWithDeviceToken:)`](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1622958-application). Use a property to store the token, though don't save the token between app launches as it can change. If there's an error registering for notifications, the system calls [`application(_:didFailToRegisterForRemoteNotificationsWithError:)`](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1622962-application). In this case, your app can still [load undelivered challenges](#load-undelivered-challenges).
 
-Add an App group capability to your app if it doesn't already have one. You'll use the group identifier in the next step. See [Configuring App Groups](https://developer.apple.com/documentation/xcode/configuring-app-groups/) in Apple developer documentation.
+Add an app group capability to your app if it doesn't already have one. You'll use the group identifier in the next step. See [Configuring App Groups](https://developer.apple.com/documentation/xcode/configuring-app-groups/) in the Apple developer documentation.
 
 ### Initialize the client
 
