@@ -7,7 +7,7 @@ The challenge flow follows the same first four steps as the [enrollment flow](#i
 * Handle the response from the sign-in flow
 * Display a list of possible authenticator factors
 
-### Check Authenticator Status
+### Check authenticator status
 
 When the user selects Google Authenticator, update Identity Engine with the chosen factor by calling `selectAuthenticator()`.
 
