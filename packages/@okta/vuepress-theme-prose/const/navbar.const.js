@@ -1026,6 +1026,7 @@ export const reference = [
           },
         ]
       },
+      { title: "System log query", path: "/docs/reference/system-log-query/" },
       {
         title: "Test APIs with Postman",
         path: "/docs/reference/rest/",
