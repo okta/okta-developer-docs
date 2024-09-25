@@ -68,7 +68,7 @@ When a request is sent to the org authorization server's `/authorize` endpoint, 
 1. Select the OpenID Connect (OIDC) or OAuth 2.0 app that needs grants added.
 1. Select the **Okta API Scopes** tab, and then click **Grant** for each scope that you want to add to the app's grants collection. For this example, make sure to grant access to `okta.users.read`.
 
-Alternatively, you can add grants using the [Apps API](/docs/reference/api/apps/#application-oauth-2-0-scope-consent-grant-operations). The following is an example request to create a grant for the `okta.users.read` scope.
+Alternatively, you can add grants using the [Apps API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationGrants/). The following is an example request to create a grant for the `okta.users.read` scope.
 
 ```bash
 curl --location --request POST 'https://{yourOktaDomain}/api/v1/apps/{appInstanceId}/grants' \

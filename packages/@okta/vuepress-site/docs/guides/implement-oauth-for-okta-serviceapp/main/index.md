@@ -26,13 +26,13 @@ This guide explains how to interact with Okta APIs by using scoped OAuth 2.0 acc
 
 ## About scoped OAuth 2.0 access tokens
 
-Most Okta API endpoints require that you include an API token with your request. Currently, this API token takes the form of an SSWS token that you generate in the Admin Console. With OAuth for Okta, you’re able to interact with Okta APIs using scoped OAuth 2.0 access tokens. Each access token enables the bearer to perform specific actions on specific Okta endpoints, with that ability controlled by which scopes the access token contains.
+Most Okta API endpoints require that you include an API token with your request. Currently, this API token takes the form of an SSWS token that you generate in the Admin Console. With OAuth for Okta, you’re able to interact with Okta APIs using scoped OAuth 2.0 access tokens. Each access token enables the bearer to perform specific actions on specific Okta endpoints. These actions are controlled by the scopes contained in the access token.
 
 Scoped access tokens have several advantages:
 
 * More access granularity
 * Shorter token lifespans
-* Can be generated and retrieved using an API
+* Ability to be generated and retrieved using an API
 
 ## Use the Client Credentials grant flow
 
@@ -53,7 +53,7 @@ Create an OAuth 2.0 service app integration using the Admin Console.
 
   > **Note:** You can also use the `/oauth2/v1/clients` endpoint to [create your service app using the API](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/Client/#tag/Client/operation/createClient). If you use the API, follow the [Generate the JWK using the API](#generate-the-jwk-using-the-api) section first, because you need the `JWKS` parameter value when you create the client using the API.
   >
-  >You can also add more JWKS to the app later using the [Add a new JSON Web Key](https://developer.okta.com/docs/reference/api/apps/#add-new-json-web-key) API.
+  >You can also add more JWKS to the app later using the [Add a new JSON Web Key](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationSSOCredentialOAuth2ClientAuth/#tag/ApplicationSSOCredentialOAuth2ClientAuth/operation/addJwk) API.
 
 1. Sign in to your Okta organization as a user with administrative privileges.
 
@@ -118,7 +118,7 @@ The `private_key_jwt` client authentication method is the only supported method 
 
 The private key that you use to sign the JWT must have the corresponding public key registered in the [JWKSet](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/Client/#tag/Client/operation/createClient) of the OAuth service app. Okta recommends generating the public/private key pair first before creating the OAuth service app.
 
-1. Use a tool such as this [JSON Web Key Generator](https://mkjwk.org/) to generate a JWKS public/private key pair for testing. Okta supports both RSA and Elliptic Curve (EC) keys. In this example, select **RSA** as the encryption algorithm. Select the following values:
+1. Use a tool such as this [JSON Web Key Generator](https://mkjwk.org/) to generate a JWKS public/private key pair for testing. Okta supports both RSA and elliptic curve (EC) keys. In this example, select **RSA** as the encryption algorithm. Select the following values:
 
     * Key size: 2048
     * Key use: signature
@@ -191,7 +191,7 @@ This option allows you to host your public key in a URI and paste the link to th
 
 1. Click **Save**.
 
-1. Make note of the Client ID. You need this in the [Get an access token](#get-an-access-token) section.
+1. Make note of the client ID. You need this in the [Get an access token](#get-an-access-token) section.
 
     The JWKS should look something like this:
 
@@ -214,12 +214,12 @@ This option allows you to host your public key in a URI and paste the link to th
 
 Now that you've created the service app and registered the public key with that service app, you need to [define the allowed scopes](/docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints). When a request is sent to the org authorization server's `/token` endpoint, it validates all requested scopes in the request against the service app's grants collection. If the scope exists in the grants collection, the scope is granted.
 
-> **Note:** Only the Super Admin role has permissions to grant scopes to an app.
+> **Note:** Only the Super Admin role has the permissions to grant scopes to an app.
 
 1. From the service app page, select the **Okta API Scopes** tab.
 2. Click **Grant** for each of the scopes that you want to add to the app's grant collection.
 
-    > **Note:** You can also use the `/grants` API to add a grant for an allowed scope to your service app. The following POST example below creates a grant for the `okta.users.read` scope.
+    > **Note:** You can also use the `/grants` API to add a grant for an allowed scope to your service app. The following POST example creates a grant for the `okta.users.read` scope.
 
     Provide values for these parameters in your request:
 
@@ -252,7 +252,7 @@ Use the following [JWT claims](https://developer.okta.com/docs/api/openapi/okta-
 
 * `alg`: One of the supported algorithm values (RS256, RS384, RS512, ES256, ES384, or ES512). This is required for Okta to successfully verify the token by using the signing keys provided in the [previous step](#generate-the-jwk-using-the-admin-console). The `alg` parameter goes in the JWT header rather than a claim in the payload of the body.
 * `aud`: The full URL of the resource that you're using the JWT to authenticate to
-* `exp`: The expiration time of the token in seconds since January 1, 1970 UTC (current UNIX timestamp). This value must be a maximum of only one hour in the future.
+* `exp`: The expiration time of the token is in seconds since January 1, 1970 UTC (the current UNIX timestamp). This value must be a maximum of only one hour in the future.
 * `jti`: (Optional) The token's unique identifier. Use this value to prevent the JWT from being replayed. The claim is a case-sensitive string.
 * `iat`: (Optional) The issuing time of the token in seconds since January 1, 1970 UTC (current UNIX timestamp)
 * `iss`: The issuer of the token. This value must be the same as the `client_id`.
