@@ -7,11 +7,29 @@ meta:
 
 # System log query
 
-Intro - links to API and HOC
+This guide is intended as a companion guide for use with the Okta [System Log API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/), and provides additional details and examples on how to query the system log effectively.
+
+The System Log API provides near real-time, read-only access to your organization's system log and is the programmatic counterpart of the [System Log UI](https://help.okta.com/okta_help.htm?type=oie&id=ext_Reports_SysLog).
+
+The log records system events that are related to your organization. These records provide detailed information on events, activities, and performance metrics critical to the operations between your Okta org, apps, and users. You can use the system log to:
+
+* provide an audit trail
+* diagnose errors or problems
+* ensure security and compliance
+* optimize performance
+* investigate and troubleshoot incidents
+
+For the full request and response schemas of the system log API, see [System Log](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/#tag/SystemLog).
+
+>**Note:** The System Log API isn't intended for use as a Database as a Service (DBaaS) or to serve data directly to downstream consumers without an intermediate data store.
+
+#### Authentication and authorization
+
+The system log API uses standard protocols for authentication and authorization, including the proprietary Okta SSWS API tokens. However, Okta recommends using scoped OAuth 2.0 and OIDC access tokens to authenticate with the system log api and other management APIs. OAuth 2.0 and OIDC access tokens provide fine-grain control over the bearer's actions on specific endpoints. See [Okta API authentication methods](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/).
 
 ## Event types
 
-Event types categorize event instances by action and are recorded in a LogEvent's [`eventType`](#attributes) attribute. They are key to navigating the system log through [Expression Filters](#expression-filter).
+Event types categorize event instances by action and are recorded in the response to a [system log API query](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/#tag/SystemLog/operation/listLogEvents). They are key to navigating the system log through [Expression Filters](#expression-filter).
 
 The following sections outline the key event types that are captured by the system log. See [Event Types catalog](/docs/reference/api/event-types/#catalog) for a complete list.
 
@@ -91,7 +109,7 @@ Rate limit violations are sent when a rate limit is exceeded.
 
 When looking through the System Log, it is often useful to correlate events so that you can understand the thread of events that have occurred at a particular time.
 
-The `LogResponse` object offers two identifiers in this respect:
+The response object offers two identifiers in this respect:
   - `authenticationContext.externalSessionId`: Identifies events that occurred in the same user session
   - `transaction.id`: Identifies events that have occurred together as part of an operation (for example, a request to Okta's servers)
 
@@ -134,58 +152,67 @@ As evidenced by the `null` `authenticationContext.externalSessionId` field in th
 ##### Request types
 
 All requests to the `/api/v1/logs` endpoint fall into one of these two categories:
-  - [Polling Requests](#polling-requests)
-  - [Bounded Requests](#bounded-requests)
+
+* [Polling Requests](#polling-requests)
+* [Bounded Requests](#bounded-requests)
 
 ###### Polling requests
+
 Polling requests are for situations when you want to consume an ongoing stream of events from Okta.
 
 Example use cases include:
-  - [Ingesting System Log data into an external SIEM system](#transferring-data-to-a-separate-system).
-  - Using System Log data for real-time monitoring.
 
-For a request to be a _polling_ request, it must meet the following request parameter criteria:
-  - `until` must be unspecified.
-  - `sortOrder` must be `ASCENDING`.
+* [Ingesting System Log data into an external SIEM system](#transferring-data-to-a-separate-system).
+* Using System Log data for real-time monitoring.
+
+For a request to be a polling request, it must meet the following request parameter criteria:
+
+* `until` must be unspecified.
+* `sortOrder` must be `ASCENDING`.
 
 Polling requests to the `/api/v1/logs` API have the following semantics:
-  - They return every event that occurs in your organization.
-  - The returned events are time filtered by their internal "persistence time" to avoid skipping records due to system delays (unlike [Bounded Requests](#bounded-requests)).
-  - They may return events out of order according to the `published` field.
-  - They have an infinite number of pages. That is, a [`next` `link` relation header](#next-link-response-header) is always present, even if there are no new events (the event list may be empty).
+
+* They return every event that occurs in your organization.
+* The returned events are time filtered by their internal "persistence time" to avoid skipping records due to system delays (unlike [Bounded Requests](#bounded-requests)).
+* They may return events out of order according to the `published` field.
+* They have an infinite number of pages. That is, a [`next` `link` relation header](#next-link-response-header) is always present, even if there are no new events (the event list may be empty).
 
 ###### Bounded requests
+
 Bounded requests are for situations when you know the definite time period of logs you want to retrieve.
 
 Example use cases include:
-  - [Debugging or troubleshooting system behavior](#debugging).
-  - Auditing events that happened at a particular time.
 
-For a request to be a _bounded_ request, it must meet the following request parameter criteria:
-  - `since` must be specified.
-  - `until` must be specified.
+* [Debugging or troubleshooting system behavior](#debugging).
+* Auditing events that happened at a particular time.
+
+For a request to be a bounded request, it must meet the following request parameter criteria:
+
+* `since` must be specified.
+* `until` must be specified.
 
 Bounded requests to the `/api/v1/logs` API have the following semantics:
-  - The returned events are time filtered by their associated `published` field (unlike [Polling Requests](#polling-requests)).
-  - The returned events are guaranteed to be in order according to the `published` field.
-  - They have a finite number of pages. That is, the last page doesn't contain a [`next` `link` relation header](#next-link-response-header).
-  - Not all events for the specified time range may be present — events may be delayed. Such delays are rare but possible.
+
+* The returned events are time filtered by their associated `published` field (unlike [Polling Requests](#polling-requests)).
+* The returned events are guaranteed to be in order according to the `published` field.
+* They have a finite number of pages. That is, the last page doesn't contain a [`next` `link` relation header](#next-link-response-header).
+* Not all events for the specified time range may be present. Some events may be delayed. Such delays are rare but possible.
 
 ##### Filtering results
 
 ###### Expression filter
 
-An expression filter is useful for performing structured queries where constraints on LogEvent attribute values can be explicitly targeted.
+An expression filter is useful for performing structured queries where constraints on the response object's attribute values can be explicitly targeted.
 
 The following example expressions are supported for events with the `filter` query parameter:
 
 | Filter                                       | Description                                                                    |
 | -------------------------------------------- | ------------------------------------------------------------------------------ |
-| `eventType eq ":eventType"`                  | Events that have a specific action [eventType](#attributes)                    |
-| `target.id eq ":id"`                         | Events that are published with a specific target ID                                     |
-| `actor.id eq ":id"`                          | Events that are published with a specific actor ID                                      |
+| `eventType eq ":eventType"`                  | Events that have a specific action [eventType](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/#tag/SystemLog/operation/listLogEvents!c=200&path=eventType&t=response)                    |
+| `target.id eq ":id"`                         | Events that are published with a specific [target](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/#tag/SystemLog/operation/listLogEvents!c=200&path=target&t=response) ID                                     |
+| `actor.id eq ":id"`                          | Events that are published with a specific [actor](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/#tag/SystemLog/operation/listLogEvents!c=200&path=actor&t=response) ID                                      |
 
-> **Note:** SCIM filter expressions can't use the `published` attribute since it may conflict with the logic of the `since`, `after`, and `until` query params.
+> **Note:** SCIM filter expressions can't use the `published` attribute since it may conflict with the logic of the `since`, `after`, and `until` query parameters.
 > In addition, a SCIM filter expression that uses the `co` (contains) operator with the `debugContext.debugData.url` or the `debugContext.debugData.requestUri` attribute is not supported.
 > A request with an invalid SCIM filter expression returns an HTTP 400 API response.
 
@@ -194,53 +221,62 @@ See [Filtering](/docs/reference/core-okta-api/#filter) for more information on e
 The following are examples of filter expressions:
 
 * Events that are published for a target user
+
 ```javascript
 filter=target.id eq "00uxc78lMKUMVIHLTAXY"
 ```
 
 * Events that are published for all actors except for a specific user
+
 ```javascript
 filter=actor.id ne "00uxc78lMKUMVIHLTAXY"
 ```
 
 * Failed sign-in events
+
 ```javascript
 filter=eventType eq "user.session.start" and outcome.result eq "FAILURE"
 ```
 
 * Events that are published for a target user and application
+
 ```javascript
 filter=target.id eq "00uxc78lMKUMVIHLTAXY" and target.id eq "0oabe82gnXOFVCDUMVAK"
 ```
 
 * App SSO events for a target user and application
+
 ```javascript
 filter=eventType eq "app.auth.sso" and target.id eq "00uxc78lMKUMVIHLTAXY" and target.id eq "0oabe82gnXOFVCDUMVAK"
 ```
 
 * Events that are published for a given IP address
+
 ```javascript
 filter=client.ipAddress eq "184.73.186.14"
 ```
 
 * Events that start with event_hook
+
 ```javascript
 filter=eventType sw "event_hook"
 ```
 
 * Events that contain session
+
 ```javascript
 filter=eventType co "session"
 ```
 
 * Events that end with token
+
 ```javascript
 filter=eventType ew "token"
 ```
 
 ###### Keyword filter
 
-The query parameter `q` can be used to perform keyword matching against a LogEvents object's attribute values. To satisfy the constraint, all supplied keywords must be matched exactly.
+The query parameter `q` can be used to perform keyword matching against a response object's attribute values. To satisfy the constraint, all supplied keywords must be matched exactly.
 
 >**Note:** Keyword matching is case-insensitive.
 
@@ -252,9 +288,9 @@ The following are examples of common keyword filtering:
 
 > **Note:** When hyphens are present in an event instance's attribute value, they are split and added to the list of matching candidates, in addition to the full hyphenated value. Therefore, events that contain the text `XOxBw-2JIRnCFd0gG0GjHAAABjY` are matched with a `q` value of `XOxBw`, `2JIRnCFd0gG0GjHAAABjY`, or `XOxBw-2JIRnCFd0gG0GjHAAABjY`.
 
-###### Datetime filter
+###### Date and time filter
 
-LogEvent objects can be filtered by [`published`](#attributes) attribute value with the following combination of parameters:
+The system log response objects can be filtered by the response object's [published](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/#tag/SystemLog/operation/listLogEvents!c=200&path=published&t=response) attribute value with the following combination of parameters:
 
 * `since`
 * `until`
@@ -265,9 +301,9 @@ LogEvent objects can be filtered by [`published`](#attributes) attribute value w
 
 The `after` parameter is system generated for use in ["next" links](#next-link-response-header). Don't attempt to craft requests that use this value. Rely on the system-generated links instead.
 
-##### Response
+##### System log API response
 
-The response contains a JSON array of [LogEvent objects](#logevent-object).
+The system log API response contains a JSON array of [response](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/#tag/SystemLog/operation/listLogEvents!c=200&path=actor&t=response) objects.
 
 ###### Self link response header
 
@@ -275,13 +311,13 @@ The response always includes a `self` `link` header, which is a link to the curr
 
 The header has the following format:
 
-```
+```bash
 link: <url>; rel="self"
 ```
 
 For example:
 
-```
+```bash
 link: <https://{yourOktaDomain}/api/v1/logs?q=&sortOrder=DESCENDING&limit=20&until=2017-09-17T23%3A59%3A59%2B00%3A00&since=2017-06-10T00%3A00%3A00%2B00%3A00>; rel="self"
 ```
 
@@ -292,23 +328,47 @@ The response may include a `next` `link` header, which is a link to the next pag
 >**Note:** While the `self` `link` always exists, the `next` `link` may not exist.
 
 The header has the following format:
-```
+
+```bash
 link: <url>; rel="next"
 ```
 
 For example:
-```
+
+```bash
 link: <https://{yourOktaDomain}/api/v1/logs?q=&sortOrder=DESCENDING&limit=20&until=2017-09-17T15%3A41%3A12.994Z&after=349996bd-5091-45dc-a39f-d357867a30d7&since=2017-06-10T00%3A00%3A00%2B00%3A00>; rel="next"
 ```
 
 #### Timeouts
+
 Individual queries have a timeout of 30 seconds.
 
+## Transferring data to a separate system
+
+You can export your log events to a separate system for analysis or compliance. To obtain the entire dataset, query from the appropriate point of time in the past.
+
+```bash
+curl -v -X GET \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://${yourOktaDomain}/api/v1/logs?since=2023-10-01T00:00:00.000Z"
+```
+
+Then retrieve the next page of events through the [link response header](/docs/reference/core-okta-api/#link-header) value with the `next` link relation. Continue this process until no events are returned.
+
+>**Note:** Don't transfer data by manually paginating using `since` and `until`, as this may lead to skipped or duplicated events. Instead, always follow the `next` links.
+
+For further information on exporting system log events to external platforms, see [Log streaming](https://help.okta.com/okta_help.htm?type=oie&id=csh-log-streams) and the [Log Streaming API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/LogStream/#tag/LogStream).
+
 ### Errors
+
+The system log API provides errors of the following types:
+
 ```json
 {
   "errorCode": "E0000001",
-  "errorSummary": "Api validation failed: 'until': The date format in your query is not recognized. Please enter dates using ISO8601 string format.. 'until': must be a valid date-time or empty.",
+  "errorSummary": "Api validation failed: 'until': The date format in your query is not recognized. Please enter dates using ISO8601 string format. 'until': must be a valid date-time or empty.",
   "errorId": "dd4998a1-2267-499b-9e4d-ec821fcc5ca9",
   "errorCauses": [
     {
@@ -322,6 +382,7 @@ Individual queries have a timeout of 30 seconds.
 ```
 
 An invalid SCIM filter returns the HTTP 400 error with a description of the issue with the SCIM filter, for example:
+
 ```json
 {
   "errorCode": "E0000053",
@@ -331,6 +392,7 @@ An invalid SCIM filter returns the HTTP 400 error with a description of the issu
 ```
 
 An invalid field returns the HTTP 400 error with a message that indicates which field is invalid, for example:
+
 ```json
 {
   "errorCode": "E0000053",
@@ -340,6 +402,7 @@ An invalid field returns the HTTP 400 error with a message that indicates which 
 ```
 
 The following is another example, where the parameters are invalid:
+
 ```json
 {
   "errorCode": "E0000053",
@@ -349,6 +412,7 @@ The following is another example, where the parameters are invalid:
 ```
 
 An invalid SCIM field and operator combination within a `filter` request parameter (for example, `debugContext.debugData.url co "/oauth/"`) returns an HTTP 400 error with a message that indicates the unsupported combination, for example:
+
 ```json
 {
   "errorCode": "E0000031",
@@ -358,6 +422,7 @@ An invalid SCIM field and operator combination within a `filter` request paramet
 ```
 
 An internal service error returns the HTTP 500 error with the message:
+
 ```json
 {
   "errorCode": "E0000053",
@@ -367,6 +432,7 @@ An internal service error returns the HTTP 500 error with the message:
 ```
 
 A timeout returns the HTTP 500 error with the message:
+
 ```json
 {
   "errorCode": "E0000009",
@@ -375,6 +441,7 @@ A timeout returns the HTTP 500 error with the message:
 ```
 
 A free-form query that is too long returns the following error message:
+
 ```json
 {
   "errorCode": "E0000001",
@@ -383,6 +450,7 @@ A free-form query that is too long returns the following error message:
 ```
 
 Exceeding the rate limit returns the following error message:
+
 ```json
 {
   "errorCode": "E0000047",
@@ -392,14 +460,13 @@ Exceeding the rate limit returns the following error message:
 
 ## Data retention
 
-Log data older than 90 days isn't returned, in accordance with Okta's [Data Retention Policy](https://support.okta.com/help/Documentation/Knowledge_Article/Okta-Data-Retention-Policy). Queries that exceed the retention period succeed, but only those results that have a `published` timestamp within the window are returned.
+System log data older than 90 days isn't returned, in accordance with Okta's [Data Retention Policy](https://support.okta.com/help/Documentation/Knowledge_Article/Okta-Data-Retention-Policy). Queries that exceed the retention period succeed, but only those results that have a `published` timestamp within the window are returned.
 
 ## Examples
 
 ### Debugging
 
-The System Log API can be used to troubleshoot user problems. For example, you
-can use the following `curl` command to see events from user "Jane Doe":
+The system log API can be used to troubleshoot user problems. For example, you can use the following `curl` command to see events from user "Jane Doe":
 
 ```bash
 curl -v -X GET \
@@ -409,7 +476,7 @@ curl -v -X GET \
 "https://${yourOktaDomain}/api/v1/logs?q=Jane+Doe"
 ```
 
-You can also use this API to search for particular types of events:
+You can also use this API to search for particular type of event:
 
 ```bash
 curl -v -X GET \
@@ -419,20 +486,23 @@ curl -v -X GET \
 "https://${yourOktaDomain}/api/v1/logs?filter=event_type+eq+%22user.session.start%22"
 ```
 
-### Transferring data to a separate system
-
-You can export your log events to a separate system for analysis or compliance. To obtain the entire dataset, query from the appropriate point of time in the past.
+Use the following call to search for system log records that contain a specified keyword:
 
 ```bash
 curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/logs?since=2017-10-01T00:00:00.000Z"
+"https://${yourOktaDomain}/api/v1/logs?q=logout"
+
 ```
 
-Then retrieve the next page of events through the [link response header](/docs/reference/core-okta-api/#link-header) value with the `next` link relation. Continue this process until no events are returned.
+and use the following call to search for records from a specific date:
 
->**Note:** Don't transfer data by manually paginating using `since` and `until`, as this may lead to skipped or duplicated events. Instead, always follow the `next` links.
-
-
+```bash
+curl -v -X GET \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://${yourOktaDomain}/api/v1/logs?since=2014-09-01T00:00:00.000Z"
+```
