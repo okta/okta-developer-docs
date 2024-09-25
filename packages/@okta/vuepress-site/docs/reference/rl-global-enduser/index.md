@@ -18,7 +18,6 @@ See the following list of per-minute limits. If an endpoint isn't in this list, 
 
 | Action and Okta API Endpoint                                                                                           | Developer (free) | Developer (paid) | One App | Enterprise | Workforce Identity    |
 | ---------------------------------------------------------------------------------------------------------------------- | ----------------: | ----------------: | -------: | ----------: | ---------------------: |
-| **Cumulative rate limit**                                                                                              | **2,100**        | **13,000**        | **13,000**| **13,000**| **18,250**            |
 | **Authenticate different end users:**<br>`/api/v1/authn`<br>Eligible for dynamic scale and workforce multiplier                                                               | 100              | 600              | 600     | 600        | 500                   |
 | **Verify a factor:**<br>`/api/v1/authn/factors/{factorIdOrFactorType}/verify` only<br>Eligible for dynamic scale and workforce multiplier                                     | 100              | 600              | 600     | 600        | 500                   |
 | **Get session information:**<br>`/api/v1/sessions`<br>Eligible for dynamic scale and workforce multiplier                                                                     | 100              | 600              | 600     | 600        | 750                   |

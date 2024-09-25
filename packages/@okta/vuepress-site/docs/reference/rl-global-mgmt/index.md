@@ -21,7 +21,6 @@ See the following list of per-minute limits. If an endpoint isn't in this list, 
 
 | Action and Okta API Endpoint                                                                                                       | Developer (free) | Developer (paid) | One App | Enterprise | Workforce Identity    |
 | ---------------------------------------------------------------------------------------------------------------------------------- | ----------------: | ----------------: | -------: | ----------: | ---------------------: |
-| **Cumulative rate limit**                                                                                                          | **980**          | **5,200**        | **5,200**| **5,200** | **7,000**             |
 | **Create, list, or other application actions:**<br> Calls to the `/api/v1/apps` endpoint and all other endpoints of the form `/api/v1/apps/*` including `/api/v1/apps/{id}/*`                                                     | 20               | 100              | 100     | 100        | 100                   |
 | **Get, update, or delete an application by ID:**<br> Explicit calls to the application instance: `/api/v1/apps/{id}`                                                    | 100              | 600              | 600     | 600        | 500                   |
 | **Create or list groups:**<br>`/api/v1/groups` except `/api/v1/groups/{id}`                                                       | 100              | 600              | 600     | 600        | 500                   |

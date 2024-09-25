@@ -12,15 +12,11 @@ The Okta API rate limits are divided into three categories: authentication/end u
 
 ## API rate limit categories and cumulative rate limits
 
-To access the individual API limits, visit a category page by clicking the appropriate category link in the table.
+To access the individual API limits, visit one of the following category pages or see the [APIs table](docs/reference/rl-dashboard/#apis-table) in the Rate Limits dashboard:
 
-> Okta enforces the following per-minute limits.
-
-| Category                                                          | Developer (free) | Developer (paid) | One App | Enterprise | Workforce identity    |
-| ----------------------------------------------------------------- | ----------------:| ----------------:| -------:| ----------:| ---------------------:|
-| [Authentication/End user](/docs/reference/rl-global-enduser/)     | 2,100            | 13,000           | 13,000  | 13,000     | 18,250                |
-| [Management](/docs/reference/rl-global-mgmt/)                     | 980              | 5,200            | 5,200   | 5,200      | 7,000                 |
-| Other endpoints    | 1,000            | 6,000            | 6,000   | 6,000      | 10,000                |
+[Authentication/End user](/docs/reference/rl-global-enduser/)
+[Management](/docs/reference/rl-global-mgmt/)
+[Additional limits](/docs/reference/rl-additional-limits)
 
 If any org-wide rate limit is exceeded, an HTTP 429 status code is returned. You can anticipate hitting the rate limit by checking the [Okta rate limiting headers](/docs/reference/rl-best-practices/#check-your-rate-limits-with-okta-s-rate-limit-headers). Also, you’re sent an email notification when your org approaches its rate limit.
 
