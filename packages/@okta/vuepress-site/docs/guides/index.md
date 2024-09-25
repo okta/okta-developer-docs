@@ -66,7 +66,6 @@ guides:
  - custom-sms-messaging
  - submit-app
  - submit-sso-app
- - submit-scim-app
  - submit-app-prereq
  - submit-oin-app
  - add-private-app
