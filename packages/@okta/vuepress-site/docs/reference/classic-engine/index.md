@@ -7,7 +7,7 @@ meta:
 
 # Classic Engine APIs
 
-You can only use these APIs if you're using Classic Engine:
+You can only use these APIs with Classic Engine:
 
 - **WebFinger**: The [WebFinger](/docs/reference/api/webfinger/) interface allows a client app to determine the Identity Provider that a given username (or identifier) should be routed to. This is based on your org's Identity Provider Routing Rules (IdP Discovery Policy). For an introduction to the topic, see [IdP Discovery](/docs/concepts/identity-providers/#idp-discovery).
 
