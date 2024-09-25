@@ -463,6 +463,8 @@ You can't publish integrations with the following Okta features in the OIN catal
 
 * **Unsupported multi-tenancy**: Your app integration must support multi-tenancy to be listed in the public OIN catalog. See [OIN multi-tenancy](#oin-multi-tenancy).
 
+* **Integration variables**: You can add up to three variables for per-tenant app-instance properties in the [OIN Wizard](/docs/guides/submit-oin-app/openidconnect/main/#integration-variables). If you need to edit more than three variables for a published integration, contact the OIN team at <oin@okta.com>.
+
 * **OIDC/OAuth 2.0 integration limitations:**
   * You can't use a [custom authorization server](/docs/concepts/auth-servers/#custom-authorization-server), including the `default` server for an OIDC or API service integration. You can only use the [org authorization server](/docs/concepts/auth-servers/#org-authorization-server).
 
