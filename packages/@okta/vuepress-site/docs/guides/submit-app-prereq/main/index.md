@@ -483,7 +483,7 @@ You can't publish integrations with the following Okta features in the OIN catal
     * No RelayState support
     * No force authentication (`ForceAuthn`) support
 
-    The OIN team maintains existing SAML integrations with these advanced features. If you need to update your existing advanced SAML integration, contact the OIN team at <oin@okta.com>.
+    The OIN team maintains existing SAML integrations with advanced features not supported in the OIN Wizard. If you need to update your existing advanced SAML integration, contact the OIN team at <oin@okta.com>.
 
 * **SCIM integration limitations:**
   * You can only submit SCIM 2.0 integrations in the OIN Wizard.
