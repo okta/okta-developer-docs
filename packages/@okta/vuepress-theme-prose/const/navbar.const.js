@@ -1026,7 +1026,6 @@ export const reference = [
           },
         ]
       },
-      { title: "User query options", path: "/docs/reference/user-query/" },
       {
         title: "Test APIs with Postman",
         path: "/docs/reference/rest/",
@@ -1036,7 +1035,8 @@ export const reference = [
             path: "/docs/reference/postman-collections/",
           },
         ],
-      },
+      },      
+      { title: "User query options", path: "/docs/reference/user-query/" },
       {
         title: "Core Okta API",
         path: "/docs/reference/core-okta-api/",
