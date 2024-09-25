@@ -1,17 +1,17 @@
 ---
-title: System log query
+title: System Log query
 meta:
   - name: description
     content: Learn how to query the System Log using the API and filters.
 ---
 
-# System log query
+# System Log query
 
-This guide is intended as a companion guide for use with the Okta [System Log API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/), and provides additional details and examples on how to query the system log effectively.
+This guide is intended as a companion guide for use with the Okta [System Log API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/). It provides extra details and examples on how to query the System Log effectively.
 
-The System Log API provides near real-time, read-only access to your organization's system log and is the programmatic counterpart of the [System Log UI](https://help.okta.com/okta_help.htm?type=oie&id=ext_Reports_SysLog).
+The System Log API provides near real-time, read-only access to your organization's System Log and is the programmatic counterpart of the [System Log UI](https://help.okta.com/okta_help.htm?type=oie&id=ext_Reports_SysLog).
 
-The log records system events that are related to your organization. These records provide detailed information on events, activities, and performance metrics critical to the operations between your Okta org, apps, and users. You can use the system log to:
+The log records system events that are related to your organization. These records provide detailed information on events, activities, and performance metrics critical to the operations between your Okta org, apps, and users. You can use the System Log to:
 
 * provide an audit trail
 * diagnose errors or problems
@@ -19,19 +19,19 @@ The log records system events that are related to your organization. These recor
 * optimize performance
 * investigate and troubleshoot incidents
 
-For the full request and response schemas of the system log API, see [System Log](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/#tag/SystemLog).
+For the full request and response schemas of the System Log API, see [System Log](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/#tag/SystemLog).
 
 >**Note:** The System Log API isn't intended for use as a Database as a Service (DBaaS) or to serve data directly to downstream consumers without an intermediate data store.
 
 #### Authentication and authorization
 
-The system log API uses standard protocols for authentication and authorization, including the proprietary Okta SSWS API tokens. However, Okta recommends using scoped OAuth 2.0 and OIDC access tokens to authenticate with the system log api and other management APIs. OAuth 2.0 and OIDC access tokens provide fine-grain control over the bearer's actions on specific endpoints. See [Okta API authentication methods](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/).
+The System Log API uses standard protocols for authentication and authorization, including the proprietary Okta SSWS API tokens. However, Okta recommends using scoped OAuth 2.0 and OIDC access tokens to authenticate with the System Log API and other management APIs. OAuth 2.0 and OIDC access tokens provide fine-grain control over the bearer's actions on specific endpoints. See [Okta API authentication methods](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/).
 
-## Event types
+## Event Types
 
-Event types categorize event instances by action and are recorded in the response to a [system log API query](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/#tag/SystemLog/operation/listLogEvents). They are key to navigating the system log through [Expression Filters](#expression-filter).
+Event Types categorize event instances by action and are recorded in the response to a [System Log API query](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/#tag/SystemLog/operation/listLogEvents). They’re the key to navigating the System Log through [Expression Filters](#expression-filter).
 
-The following sections outline the key event types that are captured by the system log. See [Event Types catalog](/docs/reference/api/event-types/#catalog) for a complete list.
+The following sections outline the key Event Types that the System Log captures. See the [Event Types catalog](/docs/reference/api/event-types/#catalog) for a complete list.
 
 ### Application event
 
@@ -75,7 +75,7 @@ The following sections outline the key event types that are captured by the syst
 
 ### Rate limit events
 
-See [System Log events for rate limits](/docs/reference/rl-system-log-events/) for information on rate limit event types.
+See [System Log events for rate limits](/docs/reference/rl-system-log-events/) for information on rate limit Event Types.
 
 Rate limit warnings are sent at different times, depending on the org type. For One App and Enterprise orgs, the warning is sent when the org is at 60% of its limit.
 
@@ -107,7 +107,7 @@ Rate limit violations are sent when a rate limit is exceeded.
 
 ## Event correlation
 
-When looking through the System Log, it is often useful to correlate events so that you can understand the thread of events that have occurred at a particular time.
+When reviewing the System Log, it's often useful to correlate events to understand the thread of events that have occurred at a particular time.
 
 The response object offers two identifiers in this respect:
   - `authenticationContext.externalSessionId`: Identifies events that occurred in the same user session
@@ -123,7 +123,7 @@ The following table shows 18 events produced from 13 transactions over six diffe
 
 **Note:** `authenticationContext.externalSessionId` is abbreviated to `sessionId` in this table.
 
-| sessionId                   | transaction.id                | uuid                                   | eventType                                     | displayMessage                        |
+| sessionId                   | transaction.id                | uuid                                   | Event Type                                     | displayMessage                        |
 | :-------------------------- | :---------------------------- | :------------------------------------- | :-------------------------------------------- | :--------------------------------     |
 | trs5JnlvlaIQTOqOj9imLy7lA   | WcKPxq1f8QLfFvv3UPHhhgAACGM   | f24790d0-d324-47f8-aac5-c27a31ab928d   | user.session.access_admin_app                 | User accessing Okta administrator app |
 |                             | WcKPxq1f8QLfFvv3UPHhhgAACGM   | ed317758-8776-4240-a540-277c44dcb408   | application.lifecycle.update                  | Update application                    |
@@ -136,16 +136,16 @@ The following table shows 18 events produced from 13 transactions over six diffe
 |                             | Wij-95eCbHF7In2MKNavlgAAD9I   | 45f71ac2-e8b2-4c19-b4cc-d2560108c889   | application.lifecycle.update                  | Update application                    |
 |                             |                               | 46b85d65-01c6-44d2-86d2-25704804b1c5   | application.lifecycle.update                  | Update application                    |
 | 102GALFw8CzRT2KXoqnca8Jdg   | Wij-AJeCbHF7In2MKNaOpAAAEC4   | b9ab9263-a4ae-4780-9981-377ec8f2da86   | user.session.start                            | User login to Okta                    |
-|                             | Wij-7q4YuniRd9yTmWHrBQAAAKQ   | ff325685-0220-484c-82cf-5f8dc596acbe   | user.authentication.sso                       | User single sign on to app            |
+|                             | Wij-7q4YuniRd9yTmWHrBQAAAKQ   | ff325685-0220-484c-82cf-5f8dc596acbe   | user.authentication.sso                       | User single sign on to the app            |
 | trsf8nlpDJZTZeFlcc8nszbjw   | Wij-7a4YuniRd9yTmWHqqAAAAKY   | 5526a4c4-7f68-4b2a-bab7-2d10ebaeeb1c   | mim.checkOSXAccessEligibility.true            | *blank*                               |
 |                             | Wij-764YuniRd9yTmWHrkAAAAGw   | 232774ba-8feb-4b00-a732-e0ec99a24434   | user.session.start                            | User login to Okta                    |
 | trswPONv4wIRaKDNWVVcmtceg   | Wij-6K4YuniRd9yTmWHo9wAAAAY   | d31d819a-1427-45b0-a8b4-8a8fb40c72f1   | user.session.start                            | User login to Okta                    |
 |                             | Wij-564YuniRd9yTmWHoaQAAAII   | 0cc6f4c8-9b91-4a70-b5c4-09d6ad159d32   | mim.checkOSXAccessEligibility.true            | *blank*                               |
-|                             | Wij-2q4YuniRd9yTmWHjRAAAADA   | 92606da8-7eeb-4ad7-8ffb-502dd0ec64cc   | user.authentication.sso                       | User single sign on to app            |
+|                             | Wij-2q4YuniRd9yTmWHjRAAAADA   | 92606da8-7eeb-4ad7-8ffb-502dd0ec64cc   | user.authentication.sso                       | User single sign on to the app            |
 | *null*                      | Wm@-R2s5lEMbNIB03krtvAAACyo   | 566671be-ec0b-400d-ad2e-6fc73ed12fb1   | user.session.start                            | User login to Okta                    |
 [[.table-word-break]]
 
-As evidenced by the `null` `authenticationContext.externalSessionId` field in the last row, neither `transaction.id` nor `uuid` maintain a many-to-one relationship with `authenticationContext.externalSessionId`. In this particular case, the `null` `authenticationContext.externalSessionId` field can be explained by a user sign-in failure. There is no session granted to the user's client since the sign-in failure.
+As evidenced by the `null` `authenticationContext.externalSessionId` field in the last row, neither `transaction.id` nor `uuid` maintain a many-to-one relationship with `authenticationContext.externalSessionId`. In this particular case, the `null` `authenticationContext.externalSessionId` is a user sign-in failure. There’s no session granted to the user's client since the sign-in failure.
 
 ## List events
 
@@ -198,7 +198,7 @@ Bounded requests to the `/api/v1/logs` API have the following semantics:
 * They have a finite number of pages. That is, the last page doesn't contain a [`next` `link` relation header](#next-link-response-header).
 * Not all events for the specified time range may be present. Some events may be delayed. Such delays are rare but possible.
 
-##### Filtering results
+##### Filter results
 
 ###### Expression filter
 
@@ -213,7 +213,7 @@ The following example expressions are supported for events with the `filter` que
 | `actor.id eq ":id"`                          | Events that are published with a specific [actor](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/#tag/SystemLog/operation/listLogEvents!c=200&path=actor&t=response) ID                                      |
 
 > **Note:** SCIM filter expressions can't use the `published` attribute since it may conflict with the logic of the `since`, `after`, and `until` query parameters.
-> In addition, a SCIM filter expression that uses the `co` (contains) operator with the `debugContext.debugData.url` or the `debugContext.debugData.requestUri` attribute is not supported.
+> In addition, a SCIM filter expression that uses the `co` (contains) operator with the `debugContext.debugData.url` or the `debugContext.debugData.requestUri` attribute isn’t supported.
 > A request with an invalid SCIM filter expression returns an HTTP 400 API response.
 
 See [Filtering](/docs/reference/core-okta-api/#filter) for more information on expressions.
@@ -256,7 +256,7 @@ filter=eventType eq "app.auth.sso" and target.id eq "00uxc78lMKUMVIHLTAXY" and t
 filter=client.ipAddress eq "184.73.186.14"
 ```
 
-* Events that start with event_hook
+* Events that start with `event_hook`
 
 ```javascript
 filter=eventType sw "event_hook"
@@ -268,7 +268,7 @@ filter=eventType sw "event_hook"
 filter=eventType co "session"
 ```
 
-* Events that end with token
+* Events that end with a token
 
 ```javascript
 filter=eventType ew "token"
@@ -276,7 +276,7 @@ filter=eventType ew "token"
 
 ###### Keyword filter
 
-The query parameter `q` can be used to perform keyword matching against a response object's attribute values. To satisfy the constraint, all supplied keywords must be matched exactly.
+The query parameter `q` can be used to perform keyword matching against a response object's attribute values. All supplied keywords must be matched exactly.
 
 >**Note:** Keyword matching is case-insensitive.
 
@@ -286,11 +286,11 @@ The following are examples of common keyword filtering:
 * Events that mention a specific URL: `q=interestingURI.com`
 * Events that mention a specific person: `q=firstName lastName`
 
-> **Note:** When hyphens are present in an event instance's attribute value, they are split and added to the list of matching candidates, in addition to the full hyphenated value. Therefore, events that contain the text `XOxBw-2JIRnCFd0gG0GjHAAABjY` are matched with a `q` value of `XOxBw`, `2JIRnCFd0gG0GjHAAABjY`, or `XOxBw-2JIRnCFd0gG0GjHAAABjY`.
+> **Note:** When hyphens are present in an event instance's attribute value, they’re split and added to the list of matching candidates, in addition to the full hyphenated value. Therefore, events that contain the text `XOxBw-2JIRnCFd0gG0GjHAAABjY` are matched with a `q` value of `XOxBw`, `2JIRnCFd0gG0GjHAAABjY`, or `XOxBw-2JIRnCFd0gG0GjHAAABjY`.
 
 ###### Date and time filter
 
-The system log response objects can be filtered by the response object's [published](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/#tag/SystemLog/operation/listLogEvents!c=200&path=published&t=response) attribute value with the following combination of parameters:
+The System Log response objects can be filtered by the response object's [published](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/#tag/SystemLog/operation/listLogEvents!c=200&path=published&t=response) attribute value with the following combination of parameters:
 
 * `since`
 * `until`
@@ -301,9 +301,9 @@ The system log response objects can be filtered by the response object's [publis
 
 The `after` parameter is system generated for use in ["next" links](#next-link-response-header). Don't attempt to craft requests that use this value. Rely on the system-generated links instead.
 
-##### System log API response
+##### System Log API response
 
-The system log API response contains a JSON array of [response](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/#tag/SystemLog/operation/listLogEvents!c=200&path=actor&t=response) objects.
+The System Log API response contains a JSON array of [response](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/#tag/SystemLog/operation/listLogEvents!c=200&path=actor&t=response) objects.
 
 ###### Self link response header
 
@@ -323,7 +323,7 @@ link: <https://{yourOktaDomain}/api/v1/logs?q=&sortOrder=DESCENDING&limit=20&unt
 
 ###### Next link response header
 
-The response may include a `next` `link` header, which is a link to the next page of results, if there is one.
+The response may include a `next` `link` header, which is a link to the next page of results, if there’s one.
 
 >**Note:** While the `self` `link` always exists, the `next` `link` may not exist.
 
@@ -343,9 +343,9 @@ link: <https://{yourOktaDomain}/api/v1/logs?q=&sortOrder=DESCENDING&limit=20&unt
 
 Individual queries have a timeout of 30 seconds.
 
-## Transferring data to a separate system
+## Transfer data to a separate system
 
-You can export your log events to a separate system for analysis or compliance. To obtain the entire dataset, query from the appropriate point of time in the past.
+You can export your log events to a separate system for analysis or compliance. To obtain the entire dataset, query from the appropriate time in the past.
 
 ```bash
 curl -v -X GET \
@@ -363,7 +363,7 @@ For further information on exporting system log events to external platforms, se
 
 ### Errors
 
-The system log API provides errors of the following types:
+The System Log API provides errors of the following types:
 
 ```json
 {
@@ -460,13 +460,13 @@ Exceeding the rate limit returns the following error message:
 
 ## Data retention
 
-System log data older than 90 days isn't returned, in accordance with Okta's [Data Retention Policy](https://support.okta.com/help/Documentation/Knowledge_Article/Okta-Data-Retention-Policy). Queries that exceed the retention period succeed, but only those results that have a `published` timestamp within the window are returned.
+System Log data older than 90 days isn't returned, in accordance with Okta's [Data Retention Policy](https://support.okta.com/help/Documentation/Knowledge_Article/Okta-Data-Retention-Policy). Queries that exceed the retention period succeed, but only those results that have a `published` timestamp within the window are returned.
 
 ## Examples
 
 ### Debugging
 
-The system log API can be used to troubleshoot user problems. For example, you can use the following `curl` command to see events from user "Jane Doe":
+The System Log API can be used to troubleshoot user problems. For example, you can use the following `curl` command to see events from user "Jane Doe":
 
 ```bash
 curl -v -X GET \
@@ -476,7 +476,7 @@ curl -v -X GET \
 "https://${yourOktaDomain}/api/v1/logs?q=Jane+Doe"
 ```
 
-You can also use this API to search for particular type of event:
+You can also use this API to search for a particular type of event:
 
 ```bash
 curl -v -X GET \
@@ -486,7 +486,7 @@ curl -v -X GET \
 "https://${yourOktaDomain}/api/v1/logs?filter=event_type+eq+%22user.session.start%22"
 ```
 
-Use the following call to search for system log records that contain a specified keyword:
+Use the following call to search for System Log records that contain a specified keyword:
 
 ```bash
 curl -v -X GET \
@@ -497,7 +497,7 @@ curl -v -X GET \
 
 ```
 
-and use the following call to search for records from a specific date:
+And use the following call to search for records from a specific date:
 
 ```bash
 curl -v -X GET \
