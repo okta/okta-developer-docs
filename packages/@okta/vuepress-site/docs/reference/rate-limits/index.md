@@ -20,7 +20,7 @@ To access the individual API limits, visit a category page by clicking the appro
 | ----------------------------------------------------------------- | ----------------:| ----------------:| -------:| ----------:| ---------------------:|
 | [Authentication/End user](/docs/reference/rl-global-enduser/)     | 2,100            | 13,000           | 13,000  | 13,000     | 18,250                |
 | [Management](/docs/reference/rl-global-mgmt/)                     | 980              | 5,200            | 5,200   | 5,200      | 7,000                 |
-| [Other endpoints](/docs/reference/rl-global-other-endpoints/)     | 1,000            | 6,000            | 6,000   | 6,000      | 10,000                |
+| Other endpoints    | 1,000            | 6,000            | 6,000   | 6,000      | 10,000                |
 
 If any org-wide rate limit is exceeded, an HTTP 429 status code is returned. You can anticipate hitting the rate limit by checking the [Okta rate limiting headers](/docs/reference/rl-best-practices/#check-your-rate-limits-with-okta-s-rate-limit-headers). Also, you’re sent an email notification when your org approaches its rate limit.
 

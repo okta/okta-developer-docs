@@ -982,10 +982,6 @@ export const reference = [
                         path: "/docs/reference/rl-global-mgmt/",
                      },
                      {
-                        title: "Other endpoint rate limits",
-                        path: "/docs/reference/rl-global-other-endpoints/",
-                     },
-                     {
                         title: "Additional limits",
                         path: "/docs/reference/rl-additional-limits/",
                      },
