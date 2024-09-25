@@ -149,6 +149,8 @@ As evidenced by the `null` `authenticationContext.externalSessionId` field in th
 
 ## List events
 
+Use the [List all System Log Events](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/#tag/SystemLog/operation/listLogEvents) endpoint to retrieve a list of events from your org. By default, this request returns a limit of 100 response objects.
+
 ##### Request types
 
 All requests to the `/api/v1/logs` endpoint fall into one of these two categories:
@@ -183,13 +185,13 @@ Bounded requests are for situations when you know the definite time period of lo
 
 Example use cases include:
 
-* [Debugging or troubleshooting system behavior](#debugging).
-* Auditing events that happened at a particular time.
+* [Debugging or troubleshooting system behavior](#debugging)
+* Auditing events that happened at a particular time
 
 For a request to be a bounded request, it must meet the following request parameter criteria:
 
-* `since` must be specified.
-* `until` must be specified.
+* `since` must be specified
+* `until` must be specified
 
 Bounded requests to the `/api/v1/logs` API have the following semantics:
 
