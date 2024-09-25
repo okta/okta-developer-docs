@@ -37,36 +37,36 @@ The following sections outline the key Event Types that the System Log captures.
 
 | Event                                          | Description                                                |
 | :--------------------------------------------- | :--------------------------------------------------------- |
-| application.lifecycle.activate                 | An application is activated.                              |
-| application.lifecycle.create                   | An application is created.                                |
-| application.lifecycle.deactivate               | An application is deactivated.                            |
-| application.lifecycle.delete                   | An application is deleted.                                |
-| application.lifecycle.update                   | An application is updated.                                |
-| application.user_membership.add                | A user is assigned to an application.                     |
-| application.user_membership.change_username    | The name of a user who is assigned to an application is changed. |
-| application.user_membership.remove             | A user is removed from an application.                    |
+| application.lifecycle.activate                 | An application is activated                              |
+| application.lifecycle.create                   | An application is created                                |
+| application.lifecycle.deactivate               | An application is deactivated                            |
+| application.lifecycle.delete                   | An application is deleted                                |
+| application.lifecycle.update                   | An application is updated                                |
+| application.user_membership.add                | A user is assigned to an application.                    |
+| application.user_membership.change_username    | The name of a user who is assigned to an application is changed |
+| application.user_membership.remove             | A user is removed from an application                    |
 
 ### Group event
 
 | Event                          | Description                      |
 | :----------------------------- | :------------------------------- |
-| group.user_membership.add      | A user is added to a group.     |
-| group.user_membership.remove   | A user is removed from a group. |
+| group.user_membership.add      | A user is added to a group     |
+| group.user_membership.remove   | A user is removed from a group |
 
 ### Policy events
 
 | Event                         | Description                         |
 | :---------------------------- | :---------------------------------- |
-| policy.lifecycle.activate     | A lifecycle policy is activated.   |
-| policy.lifecycle.create       | A lifecycle policy is created.     |
-| policy.lifecycle.deactivate   | A lifecycle policy is deactivated. |
-| policy.lifecycle.delete       | A lifecycle policy is deleted.     |
-| policy.lifecycle.update       | A lifecycle policy is updated.     |
-| policy.rule.activate          | A rule in a policy is activated.   |
-| policy.rule.add               | A rule is added to a policy.       |
-| policy.rule.deactivate        | A rule in a policy is deactivated. |
-| policy.rule.delete            | A rule is deleted from a policy.   |
-| policy.rule.update            | A rule in a policy is updated.     |
+| policy.lifecycle.activate     | A lifecycle policy is activated   |
+| policy.lifecycle.create       | A lifecycle policy is created     |
+| policy.lifecycle.deactivate   | A lifecycle policy is deactivated |
+| policy.lifecycle.delete       | A lifecycle policy is deleted     |
+| policy.lifecycle.update       | A lifecycle policy is updated     |
+| policy.rule.activate          | A rule in a policy is activated   |
+| policy.rule.add               | A rule is added to a policy       |
+| policy.rule.deactivate        | A rule in a policy is deactivated |
+| policy.rule.delete            | A rule is deleted from a policy   |
+| policy.rule.update            | A rule in a policy is updated     |
 
 #### Policy event details
 
@@ -94,12 +94,12 @@ Rate limit violations are sent when a rate limit is exceeded.
 | Event                       | Description                                               |
 | :-------------------------- | :-------------------------------------------------------- |
 | user.authentication.sso     | A user attempts a Single Sign-On (SSO) to an application managed in Okta |
-| user.lifecycle.activate     | A user account is activated.                             |
-| user.lifecycle.create       | A user account is created.                               |
-| user.lifecycle.deactivate   | A user account is deactivated.                           |
-| user.lifecycle.suspend      | A user account is suspended.                             |
-| user.lifecycle.unsuspend    | A user account is moved from suspended status.           |
-| user.session.start          | Okta issues a session to a user who is authenticating.     |
+| user.lifecycle.activate     | A user account is activated                             |
+| user.lifecycle.create       | A user account is created                               |
+| user.lifecycle.deactivate   | A user account is deactivated                           |
+| user.lifecycle.suspend      | A user account is suspended                             |
+| user.lifecycle.unsuspend    | A user account is moved from suspended status           |
+| user.session.start          | Okta issues a session to a user who is authenticating    |
 
 #### User event details
 
@@ -164,7 +164,7 @@ Polling requests are for situations when you want to consume an ongoing stream o
 
 Example use cases include:
 
-* [Ingesting System Log data into an external SIEM system](#transferring-data-to-a-separate-system).
+* [Ingesting System Log data into an external SIEM system](#transfer-data-to-a-separate-system).
 * Using System Log data for real-time monitoring.
 
 For a request to be a polling request, it must meet the following request parameter criteria:
