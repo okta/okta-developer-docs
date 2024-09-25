@@ -178,7 +178,7 @@ The OAuth 2.0 private key method sends a signed JWT to your external service. To
 1. In the table, click your key name.
 1. Click **Copy public key**. You need this public key in the next step.
 
-> **Note:** You can also create a key with the [Key Management API](/docs/reference/api/hook-keys/).
+> **Note:** You can also create a key with the [Key Management API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/HookKey/#tag/HookKey).
 
 #### Create an app integration
 

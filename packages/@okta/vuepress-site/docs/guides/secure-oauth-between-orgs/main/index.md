@@ -208,7 +208,7 @@ As an Okta super admin, make a `POST /oauth2/v1/clients/{yourServiceAppId}/roles
 | `yourServiceAppId`  |  Specify the `client_id` value from the previous response when the service app was created. In the following role assignment example, the `{yourServiceAppId}` variable name is used instead of `client_id`.|
 | `type`  |  Specify the admin role to assign to the service app. Use the recommended standard admin roles (`USER_ADMIN`, `GROUP_MEMBERSHIP_ADMIN`). |
 
-See [Assign a Role to a client app](/docs/reference/api/roles/#assign-a-role-to-a-client-application) in the Role Assignment API reference.
+See [Assign a Role to a client app](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RoleAssignmentClient/#tag/RoleAssignmentClient/operation/assignRoleToClient) in the Role Assignment API reference.
 
 > **Note:** Only Okta [super admins](https://help.okta.com/okta_help.htm?type=oie&id=ext_superadmin) can assign roles.
 

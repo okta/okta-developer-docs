@@ -379,7 +379,7 @@ You can now make PUT requests to the `/api-tokens/{apiTokenId}` endpoint to upda
 
 #### Permissions for custom admins to manage agents is GA in Production
 
-Custom admins can now view, register, and manage agents. See [Permission types](/docs/reference/api/roles/#permission-properties). <!-- OKTA-706310 -->
+Custom admins can now view, register, and manage agents. See [Permission types](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#permissions). <!-- OKTA-706310 -->
 
 #### New System Log API property for target object is GA Preview
 
@@ -436,7 +436,7 @@ The Telephony Inline Hook allows customers to generate one-time passcodes within
 
 #### Permissions for custom admins to manage agents is GA in Preview
 
-Custom admins can now view, register, and manage agents. See [Permission types](/docs/reference/api/roles/#permission-properties). <!-- OKTA-706310 ALLOW_CUSTOM_ADMIN_TO_MANAGE_REGISTER_AGENTS -->
+Custom admins can now view, register, and manage agents. See [Permission types](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#permissions). <!-- OKTA-706310 ALLOW_CUSTOM_ADMIN_TO_MANAGE_REGISTER_AGENTS -->
 
 #### Enhanced app API contracts is GA in Production
 

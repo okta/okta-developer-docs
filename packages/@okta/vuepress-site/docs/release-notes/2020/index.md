@@ -649,7 +649,7 @@ The Schemas API and the Linked Objects API now have OAuth for Okta enabled. See 
 
 #### Password Import Inline Hook in General Availability in Preview and Production
 
-The [password import inline hook](/docs/reference/password-hook/) lets you interface with an external service to verify a user-supplied password when the user signs in to Okta for the first time. This supports scenarios in which users are migrated from an existing user store while allowing them to retain their passwords. <!-- OKTA-275019 -->
+The [password import inline hook](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createPasswordImportInlineHook) lets you interface with an external service to verify a user-supplied password when the user signs in to Okta for the first time. This supports scenarios in which users are migrated from an existing user store while allowing them to retain their passwords. <!-- OKTA-275019 -->
 
 #### OAuth for Okta Enabled for User Consent Grant Operations
 
@@ -665,7 +665,7 @@ The [User Types API](https://developer.okta.com/docs/api/openapi/okta-management
 
 #### SAML Assertion Inline Hook Now Supports URI Formatting in Claims
 
-Okta now supports URI claims with the [SAML assertion inline hook](/docs/reference/saml-hook/). When you need to replace or add a URI claim, you must encode the claim name within the command based on the [JSON Pointer](https://tools.ietf.org/html/rfc6901) specification. <!--OKTA-266619-->
+Okta now supports URI claims with the [SAML assertion inline hook](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createSAMLAssertionInlineHook). When you need to replace or add a URI claim, you must encode the claim name within the command based on the [JSON Pointer](https://tools.ietf.org/html/rfc6901) specification. <!--OKTA-266619-->
 
 #### Support Added in List Users API for Sort Parameters
 
@@ -681,7 +681,7 @@ The [Apps API](/docs/reference/api/apps/) now supports specifying SAML attribute
 
 #### Bugs Fixed in 2020.02.0
 
-* When using the [SAML assertion inline hook](/docs/reference/saml-hook/), if there was an optional attribute statement configured for the app and the attribute statement had no value specified, commands returned from SAML inline hook responses were not applied. (OKTA-263494)
+* When using the [SAML assertion inline hook](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createSAMLAssertionInlineHook), if there was an optional attribute statement configured for the app and the attribute statement had no value specified, commands returned from SAML inline hook responses weren't applied. (OKTA-263494)
 
 * The [Update User Types API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserType/#tag/UserType/operation/updateUserType) previously allowed the existing name of a User Type to be changed. (OKTA-241788)
 

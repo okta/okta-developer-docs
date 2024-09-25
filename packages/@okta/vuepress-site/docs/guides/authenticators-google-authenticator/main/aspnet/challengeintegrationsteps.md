@@ -1,4 +1,4 @@
-### 1 - 4: Start flow and display authenticator list
+### Start the flow and display the authenticator list
 
 The challenge flow follows the same first four steps as the [enrollment flow](#integrate-sdk-for-authenticator-enrollment):
 
@@ -7,7 +7,7 @@ The challenge flow follows the same first four steps as the [enrollment flow](#i
 * Handle the response from the sign-in flow
 * Display a list of possible authenticator factors
 
-### 5: Check Authenticator Status
+### Check authenticator status
 
 When the user selects Google Authenticator to authenticate themselves and clicks **Submit**, the application checks whether the user is in challenge flow or in enrollment flow by posting back to `SelectAuthenticatorAsync`.
 
@@ -49,9 +49,9 @@ switch (selectAuthenticatorResponse?.AuthenticationStatus)
 
 ```
 
-### 6: Get one-time passcode from Google Authenticator
+### Get the one-time passcode from Google Authenticator
 
-The user’s copy of Google Authenticator now displays the time-based one-time passcode for the newly added account which they will enter into a challenge page.
+The user’s copy of Google Authenticator now displays the time-based one-time passcode for the newly added account that they enter into a challenge page.
 
 <div class="half">
 
@@ -59,7 +59,7 @@ The user’s copy of Google Authenticator now displays the time-based one-time p
 
 </div>
 
-### 7 - 8: Display challenge page and process passcode
+### Display challenge page and process passcode
 
 The challenge flow now follows the same final steps as the [Enrollment flow](/docs/guides/authenticators-google-authenticator/aspnet/main/#integrate-sdk-for-authenticator-enrollment):
 

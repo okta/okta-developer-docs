@@ -5,6 +5,12 @@ excerpt: Customize handling of user registration requests in Profile Enrollment
 
 # Registration inline hook reference
 
+The Registration Inline Hook API reference is now available at the new [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/create-registration-hook)
+
+Explore the [Okta Public API Collections](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/overview) workspace to get started with the Inline Hook API Postman Collection.
+
+<!--
+
 This page provides reference documentation for registration import inline hooks, one type of inline hook supported by Okta. It provides sample JSON objects that are contained in the outbound request from Okta to your external service, and sample JSON objects that you can include in your response.
 
 ## See also
@@ -85,13 +91,15 @@ There are two possible values:
 
 The action is `ALLOW` by default (in practice, `DENY` will never be sent to your external service).
 
-Using the `com.okta.action.update` [command](#supported-commands) in your response, you can change the action that Okta will take.
+Using the `com.okta.action.update` [command](#supported-commands) in your response, you can change the action that Okta will take.-->
 
 <!-- Need to clarify if we need to include this in the docs. right now, it has no content. in the context of the registration inline hook guide, it allows customers to include the object in the console.log().
 
 ### data.context.user
 
 <ApiLifecycle access="ie" /><br> -->
+
+<!--
 
 ## Response objects that you send
 
@@ -420,4 +428,4 @@ The following sample response uses the `DENY` value and a custom error caused by
         ]
     }
 }
-```
+``` -->
