@@ -14,9 +14,9 @@ The Okta API rate limits are divided into three categories: authentication/end u
 
 To access the individual API limits, visit one of the following category pages or see the [APIs table](/docs/reference/rl-dashboard/#apis-table) in the Rate Limits dashboard:
 
-[Authentication/End user](/docs/reference/rl-global-enduser/)
-[Management](/docs/reference/rl-global-mgmt/)
-[Additional limits](/docs/reference/rl-additional-limits)
+* [Authentication/End user](/docs/reference/rl-global-enduser/)
+* [Management](/docs/reference/rl-global-mgmt/)
+* [Additional limits](/docs/reference/rl-additional-limits)
 
 If any org-wide rate limit is exceeded, an HTTP 429 status code is returned. You can anticipate hitting the rate limit by checking the [Okta rate limiting headers](/docs/reference/rl-best-practices/#check-your-rate-limits-with-okta-s-rate-limit-headers). Also, you’re sent an email notification when your org approaches its rate limit.
 
@@ -90,4 +90,4 @@ The email is sent to the same admin who received the `system.org.warning` and `s
 
 * [Okta API endpoints and per-user limits](/docs/reference/rl-additional-limits/#okta-api-endpoints-and-per-user-limits): API endpoints that take username and password credentials, including the [Authentication API](/docs/reference/api/authn/) and the [OAuth 2.0 Resource Owner Password flow](/docs/guides/implement-grant-type/ropassword/main/), have a per-username rate limit to prevent brute force attacks with the user's password. [SMS and Call factor endpoints](/docs/reference/rl-additional-limits/#sms-and-call-rate-limits) also have a per-username rate limit.
 
-* [Okta-generated email message rate limits](/docs/reference/rl-additional-limits/#okta-generated-email-message-rate-limits): These rate limits vary by email type. Okta enforces rate limits on the number of Okta-generated email messages that are sent to customers and customer users. For example, if the number of emails sent to a given user exceeds the per-minute limit for a given email type, subsequent emails of that type are dropped for that user until that minute elapses.
+* [Okta-generated email rate limits](/docs/reference/rl-additional-limits/#okta-generated-email-rate-limits): These rate limits vary by email type. Okta enforces rate limits on the number of Okta-generated email messages that are sent to customers and customer users. For example, if the number of emails sent to a given user exceeds the per-minute limit for a given email type, subsequent emails of that type are dropped for that user until that minute elapses.
