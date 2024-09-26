@@ -468,7 +468,7 @@ System Log data older than 90 days isn't returned, in accordance with Okta's [Da
 
 ### Debugging
 
-The System Log API can be used to troubleshoot user problems. For example, you can use the following `curl` command to see events from user "Jane Doe":
+Use the System Log API to troubleshoot user problems. For example, you can use the following `curl` command to see events from user "Jane Doe":
 
 ```bash
 curl -v -X GET \
