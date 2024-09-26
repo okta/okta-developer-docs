@@ -292,7 +292,7 @@ The following are examples of common keyword filtering:
 
 ###### Date and time filter
 
-The System Log response objects can be filtered by the response object's [published](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/#tag/SystemLog/operation/listLogEvents!c=200&path=published&t=response) attribute value with the following combination of parameters:
+You can filter the System Log response objects by the response object's [published](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/#tag/SystemLog/operation/listLogEvents!c=200&path=published&t=response) attribute value with the following combination of parameters:
 
 * `since`
 * `until`
