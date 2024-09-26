@@ -12,7 +12,7 @@ The Okta API rate limits are divided into three categories: authentication/end u
 
 ## API rate limit categories and cumulative rate limits
 
-To access the individual API limits, visit one of the following category pages or see the [APIs table](docs/reference/rl-dashboard/#apis-table) in the Rate Limits dashboard:
+To access the individual API limits, visit one of the following category pages or see the [APIs table](/docs/reference/rl-dashboard/#apis-table) in the Rate Limits dashboard:
 
 [Authentication/End user](/docs/reference/rl-global-enduser/)
 [Management](/docs/reference/rl-global-mgmt/)
