@@ -38,7 +38,7 @@ The following sections outline the key Event Types that the System Log captures.
 | Event                                          | Description                                                |
 | :--------------------------------------------- | :--------------------------------------------------------- |
 | application.lifecycle.activate                 | An app is activated                              |
-| application.lifecycle.create                   | An application is created                                |
+| application.lifecycle.create                   | An app is created                                |
 | application.lifecycle.deactivate               | An application is deactivated                            |
 | application.lifecycle.delete                   | An application is deleted                                |
 | application.lifecycle.update                   | An application is updated                                |
