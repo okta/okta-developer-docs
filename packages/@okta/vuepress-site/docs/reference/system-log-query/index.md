@@ -113,7 +113,7 @@ The response object offers two identifiers in this respect:
   - `authenticationContext.externalSessionId`: Identifies events that occurred in the same user session
   - `transaction.id`: Identifies events that have occurred together as part of an operation (for example, a request to Okta's servers)
 
-### Correlating events based on API Token
+### Correlating events based on API token
 
 It may be useful to identify multiple events that are the result of an action made using a specific API token. For example, when investigating a [rate limit warning](/docs/reference/rate-limits/), the events made by a specific token may be helpful in identifying the cause of the warning. The filter `filter=transaction.detail.requestApiTokenId eq "00T94e3cn9kSEO3c51s5"` returns all events that were the result of an action made using the token `00T94e3cn9kSEO3c51s5`, subject to other parameters of the query.
 
