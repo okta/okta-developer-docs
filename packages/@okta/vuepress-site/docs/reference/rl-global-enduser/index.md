@@ -7,16 +7,16 @@ excerpt: >-
 
 # Authentication/End-user rate limits
 
-This page provides the API rate limits for authentication and end-user activities, which is part of Okta [rate limits](/docs/reference/rate-limits). To learn more about rate limits, visit our [Overview](/docs/reference/rate-limits) and [Best practices](/docs/reference/rl-best-practices) pages.
+This page provides the API rate limits for authentication and end user activities, which is part of the Okta [rate limits](/docs/reference/rate-limits). To learn more about rate limits, visit the [Overview](/docs/reference/rate-limits) and [Best practices](/docs/reference/rl-best-practices) pages.
 
 > * In addition to the rate limit per API, Okta implements limits on concurrent requests, Okta-generated email messages, end user requests, and home page endpoints. These limits are described on the [Additional limits](/docs/reference/rl-additional-limits/) page.
-> * [DynamicScale rate limits](/docs/reference/rl-dynamic-scale/) apply to a variety of endpoints across different APIs for customers that purchased this add-on.
+> * [DynamicScale rate limits](/docs/reference/rl-dynamic-scale/) apply to various endpoints across different APIs for customers that purchased this add-on.
 > * You can expand Okta rate limits upon request. To learn how, see [Request exceptions](/docs/reference/rl-best-practices/#request-rate-limit-exceptions) and [DynamicScale rate limits](/docs/reference/rl-dynamic-scale/).
 >
 
 See the following list of per-minute limits. If an endpoint isn't in this list, you can review it using the Admin Console, in the rate limit dashboard's APIs table. See [APIs table](/docs/reference/rl-dashboard/#apis-table).
 
-| Action and Okta API Endpoint                                                                                           | Developer (free) | Developer (paid) | One App | Enterprise | Workforce Identity    |
+| Action and Okta API endpoint                                                                                           | Developer (free) | Developer (paid) | One App | Enterprise | Workforce identity    |
 | ---------------------------------------------------------------------------------------------------------------------- | ----------------: | ----------------: | -------: | ----------: | ---------------------: |
 | **Authenticate different end users:**<br>`/api/v1/authn`<br>Eligible for dynamic scale and workforce multiplier                                                               | 100              | 600              | 600     | 600        | 500                   |
 | **Verify a factor:**<br>`/api/v1/authn/factors/{factorIdOrFactorType}/verify` only<br>Eligible for dynamic scale and workforce multiplier                                     | 100              | 600              | 600     | 600        | 500                   |
@@ -36,20 +36,21 @@ See the following list of per-minute limits. If an endpoint isn't in this list, 
 | `/login/sso_iwa_auth`<br>Eligible for workforce multiplier                                                                                                  | 100              | 600              | 600     | 600        | 500                   |
 | `/api/{apiVersion}/radius`<br>Eligible for workforce multiplier                                                                                             | 100              | 600              | 600     | 600        | 600                   |
 | `/login/token/redirect`<br>Eligible for dynamic scale and workforce multiplier                                                                                                             | 100              | 600              | 600     | 600        | 600                   |
-| <ApiLifecycle access="ie" /> **Identity Engine APIs:**</br>Identity Engine rate limits are configured to support 1000 Identity Engine authentication flows per minute. That is, depending on authentication flows, some endpoint limits may differ.                                                                                                        |
+| <ApiLifecycle access="ie" /> **Identity Engine APIs:**</br> Identity Engine rate limits are configured to support 1000 Identity Engine authentication flows per minute. That is, depending on authentication flows, some endpoint limits may differ.                                                                                                        |
 | `/idp/idx`                                                                                                     | 100              | 1000              | 1000     | 1000        | 1000                   |
 | `/idp/idx/identify`<br>Eligible for dynamic scale and workforce multiplier                                                                                                     | 100              | 1000              | 1000     | 1000        | 1000                   |
 | `/idp/idx/introspect`<br>Eligible for dynamic scale and workforce multiplier                                                                                                     | 200              | 2000              | 2000     | 2000        | 2000                   |
-| Identity Engine App Intent<br>Eligible for dynamic scale and workforce multiplier                                                                                                     | 200              | 2000              | 2000     | 2000        | 2000                   |
+| Identity Engine App intent<br>Eligible for dynamic scale and workforce multiplier                                                                                                     | 200              | 2000              | 2000     | 2000        | 2000                   |
 
 ## Endpoints without rate limiting
 
 The following public metadata endpoints aren't subjected to rate limiting.
 
  Public metadata endpoints for the Org Authorization Server are:
- * `/oauth2/v1/keys`
- * `/.well-known/openid-configuration`
- * `/.well-known/oauth-authorization-server`
+
+* `/oauth2/v1/keys`
+* `/.well-known/openid-configuration`
+* `/.well-known/oauth-authorization-server`
 
 Public metadata endpoints for the Custom Authorization Servers are:
 * `/oauth2/{authorizationServerId}/v1/keys`
