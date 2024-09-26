@@ -240,7 +240,7 @@ filter=actor.id ne "00uxc78lMKUMVIHLTAXY"
 filter=eventType eq "user.session.start" and outcome.result eq "FAILURE"
 ```
 
-* Events that are published for a target user and application
+* Events that are published for a target user and app
 
 ```javascript
 filter=target.id eq "00uxc78lMKUMVIHLTAXY" and target.id eq "0oabe82gnXOFVCDUMVAK"
