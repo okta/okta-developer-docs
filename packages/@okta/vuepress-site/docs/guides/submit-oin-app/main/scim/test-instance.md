@@ -57,8 +57,8 @@ After you've enabled the provisioning API connection in your test instance, conf
 
      5. After you update the mappings from Okta to your app, click **To Okta** in the **Settings** section.
 
-     6. Scroll to the **Attribute Mappings** section. Look for the attribute that you want to update and click **Edit**.
+     6. Scroll to the **{yourApp} Attribute Mappings** section. Look for the attribute that you want to update and click **Edit**.
 
-     7. In the dialog that appears, there are two dropdown fields. In the first dropdown menu, select **Map from {App Name} App Profile**. In the second dropdown menu, choose the Okta profile attribute that you want to map the SCIM attribute to. Click **Save**.
+     7. In the dialog that appears, there are two dropdown fields. In the first dropdown menu, select **Map from {yourApp} App Profile**. In the second dropdown menu, choose the Okta profile attribute that you want to map the SCIM attribute to. Click **Save**.
 
           Repeat this step for all SCIM attributes that you want to map (from your app to Okta).
