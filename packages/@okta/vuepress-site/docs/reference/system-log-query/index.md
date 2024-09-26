@@ -442,7 +442,7 @@ A timeout returns the HTTP 500 error with the message:
 }
 ```
 
-A free-form query that is too long returns the following error message:
+A free-form query that's too long returns the following error message:
 
 ```json
 {
