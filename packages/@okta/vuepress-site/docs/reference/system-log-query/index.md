@@ -174,7 +174,7 @@ For a request to be a polling request, it must meet the following request parame
 
 Polling requests to the `/api/v1/logs` API have the following semantics:
 
-* They return every event that occurs in your organization.
+* They return every event that occurs in your org.
 * The returned events are time filtered by their internal "persistence time" to avoid skipping records due to system delays (unlike [Bounded Requests](#bounded-requests)).
 * They may return events out of order according to the `published` field.
 * They have an infinite number of pages. That is, a [`next` `link` relation header](#next-link-response-header) is always present, even if there are no new events (the event list may be empty).
