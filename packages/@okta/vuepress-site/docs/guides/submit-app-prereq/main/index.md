@@ -12,7 +12,7 @@ This guide provides you with a list of the requirements needed before submitting
 
 #### Learning outcome
 
-Understand the requirements necessary to submit your integration using the [OIN Wizard](/docs/guides/submit-oin-app/) or the [OIN Manager](https://oinmanager.okta.com).
+Understand the requirements necessary to submit your integration using the [OIN Wizard](/docs/guides/submit-oin-app/) or the [OIN Manager](/docs/guides/submit-app/wfconnector/main/).
 
 #### What you need
 
@@ -510,6 +510,7 @@ You can't publish integrations with the following Okta features in the OIN catal
 
 Ready to submit your app? See the following submission guides:
 
-* [Submit an SSO integration](/docs/guides/submit-oin-app/)
-* [Submit an LCM integration](/docs/guides/submit-app/)
+* [Submit an SSO integration](/docs/guides/submit-oin-app/openidconnect/main/)
+* [Submit a SCIM integration](/docs/guides/submit-oin-app/scim/main/)
+* [Submit a Workflows connector integration](/docs/guides/submit-app/wfconnector/main/)
 * [Submit an API service integration](/docs/guides/build-api-integration/main/#register-your-api-service-integration)

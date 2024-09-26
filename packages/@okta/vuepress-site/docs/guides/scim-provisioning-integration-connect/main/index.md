@@ -7,7 +7,7 @@ meta:
 layout: Guides
 ---
 
-This guide teaches you how to configure Okta to make SCIM requests to your SCIM API service.
+Use this guide to create a private SCIM integration from your Okta org to your SCIM API service. This guide also shows you how to test the private integration in your org. To test and submit your SCIM integration to the Okta Integration Network (OIN) for public use, see [Submit an integration with the OIN Wizard](/docs/guides/submit-oin-app/scim/main/).
 
 ---
 
@@ -24,9 +24,13 @@ This guide teaches you how to configure Okta to make SCIM requests to your SCIM 
 
 ---
 
-## Getting connected
+## Connect to your SCIM service
 
-Make sure that your SCIM implementation passes all the runscope tests before integrating it with Okta. For more information on testing your SCIM implementation, see [Prepare your SCIM API service](/docs/guides/scim-provisioning-integration-prepare/main/#test-your-scim-api)
+The instructions in this guide show you how to create a private SCIM integration instance in Okta to test your SCIM service. This integration instance is considered private because it's only available in the org from where the integration instance was created. To create a public SCIM integration, see [Submit an integration with the OIN Wizard](/docs/guides/submit-oin-app/scim/main/) for SCIM.
+
+> **Note:** An app integration is considered public if it's available in the [Okta Integration Network (OIN) catalog](https://www.okta.com/integrations/) for all Okta customers.
+
+Make sure that your SCIM implementation passes all the Runscope tests before integrating it with Okta. For more information on testing your SCIM service, see [Prepare your SCIM API service](/docs/guides/scim-provisioning-integration-prepare/main/#test-your-scim-api).
 
 Begin by signing in to your Okta Developer Edition org. If you don't have one, sign up for an [Okta developer account](https://developer.okta.com/signup/).
 
@@ -45,7 +49,7 @@ Begin by signing in to your Okta Developer Edition org. If you don't have one, s
     - HTTP Header: Enter a bearer token for accessing your SCIM implementation.
     - OAuth: Enter the OAuth token for accessing your SCIM implementation.
 
-    Test the credentials by clicking **Test API Credentials**. The server attempts to connect to Okta. If there's an error, check the credentials entered above.
+    Test the credentials by clicking **Test API Credentials**. The server attempts to connect to Okta. If there's an error, check the entered credentials.
 
     Click **Save** to complete the API integration.
 1. On the **Assignments** tab, ensure that the right users and groups in your org are assigned to the app integration. For instructions on how to assign the app integration to individual users and groups, see the [Assign app integrations](https://help.okta.com/okta_help.htm?id=ext_Apps_Apps_Page-assign) topic in the Okta product documentation.
@@ -104,7 +108,7 @@ On the **Provisioning** tab of your Okta integration page, there are now three o
 
 This page contains settings for all information that flows from Okta user profiles and through this integration downstream to your app.
 
-Click **Edit** to make changes to the following sections.
+Click **Edit** to change the following sections.
 
 * **Create Users**: Assigns a new account in your downstream app for each user managed by Okta. Okta doesn't create an account if it detects that the username specified in Okta exists in your app. The user's Okta username is assigned by default.
 
@@ -126,7 +130,7 @@ Click **Edit** to make changes to the following sections.
 
 This page contains settings for all information that flows from your app upstream into Okta.
 
-Click **Edit** to make changes to the following sections.
+Click **Edit** to change the following sections.
 
 * **General**: Schedules imports and dictates a username format for imported users. You can also define a percentage of acceptable assignments before the [import safeguards](https://help.okta.com/okta_help.htm?id=csh-eu-import-safeguard) feature is automatically triggered.
 
@@ -136,7 +140,7 @@ Click **Edit** to make changes to the following sections.
 
   * **Imported user is an exact match to Okta user if**: Sets the matching criteria to determine when an imported user matches to an existing Okta user. To consider the new imported user an exact match, each option that you select must be true. If you choose the third option, the first and second choices are disabled.
 
-  * **Allow partial matches**: Permits partial matching when the first and last name of an imported user match those of an existing Okta user, but not the username or email address.
+  * **Allow partial matches**: Permits partial matching when the first and last names of an imported user match those of an existing Okta user, but not the username or email address.
 
   * **Confirm matched users**: Automates the confirmation or activation of existing users. If the option isn't selected, matches are confirmed manually.
 
