@@ -9,7 +9,7 @@ Begin to integrate the Sign-In Widget into your own embedded app by following th
 
 #### Source the Sign-In Widget from the Okta CDN
 
-Add the Sign-In Widget source to your sign-in page by referencing the Okta CDN, using the [latest version](https://github.com/okta/okta-signin-widget/releases/) of the widget: -=OKTA_REPLACE_WITH_WIDGET_VERSION=-
+Add the Sign-In Widget source to your sign-in page by referencing the Okta CDN, using the [latest version](https://github.com/okta/okta-signin-widget/releases/) of the Widget: -=OKTA_REPLACE_WITH_WIDGET_VERSION=-
 
 ```html
 <script src="https://global.oktacdn.com/okta-signin-widget/-=OKTA_REPLACE_WITH_WIDGET_VERSION=-/js/okta-sign-in.min.js" type="text/javascript"></script>
@@ -56,6 +56,6 @@ Initialize the Sign-In Widget with `OktaSignIn()` and the required Widget config
 </script>
 ```
 
-> **Important**: In Okta Sign-In Widget version 7+, Identity Engine is enabled by default. If you are using an earlier version than 7, you must explicitly enable Identity Engine features by setting `config.useInteractionCodeFlow = true;` in the configuration settings shown above. If you are using version 7+ and you want to use Okta Classic Engine rather than Identity Engine, specify `config.useClassicEngine = true;` in the configuration settings.
+> **Important**: In Okta Sign-In Widget version 7+, Identity Engine is enabled by default. If you’re using an earlier version than 7, you must explicitly enable Identity Engine features by setting `config.useInteractionCodeFlow = true;` in the configuration settings in the previous code snippet. If you’re using version 7+ and you want to use Okta Classic Engine rather than Identity Engine, specify `config.useClassicEngine = true;` in the configuration settings.
 
 See [Load the Widget](/docs/guides/oie-embedded-widget-use-case-load/go/main) for further details on integrating the Sign-In Widget into your app.

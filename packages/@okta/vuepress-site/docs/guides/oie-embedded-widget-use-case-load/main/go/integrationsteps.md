@@ -1,19 +1,18 @@
-### 1: The user clicks the sign-in page link
+### The user clicks the sign-in page link
 
-The first step occurs when the user clicks the sign-in link. This link
-directs the user to the sign-in page where the Widget is embedded. On the sample application's landing page, this link is labelled **Login** and located in the upper-right corner of the page.
+The first step is when the user clicks the sign-in link. This link directs the user to the sign-in page where the Widget is embedded. On the sample app's landing page, this link is labeled **Login** and is in the upper-right corner of the page.
 
-### 2: Get the data to initialize the Widget
+### Get the data to initialize the Widget
 
 Obtain the parameters required to display the Widget when the sign-in page loads. Source these
 parameters using different methods. The main parameters include:
 
-* Client ID, issuer, scopes &mdash; sourced from the [configuration settings](/docs/guides/oie-embedded-common-download-setup-app/go/main/#configuration-settings)
-* Interaction Handle &mdash; obtained from the `/interact` endpoint
-* PKCE parameters, otp, state, and nonce &mdash; generated values
-* Base URL &mdash; derived from the issuer URL
+* Client ID, issuer, scopes&mdash;sourced from the [configuration settings](/docs/guides/oie-embedded-common-download-setup-app/go/main/#configuration-settings)
+* Interaction Handle&mdash;obtained from the `/interact` endpoint
+* PKCE parameters, otp, state, and nonce&mdash;generated values
+* Base URL&mdash;derived from the issuer URL
 
-These parameter are passed to the Widget during page load. The sample application sets most
+These parameters are passed to the Widget during page load. The sample app sets most
 of these values in the `LoginHandler` method.
 
 ```go
@@ -70,9 +69,9 @@ func (s *Server) LoginHandler(w http.ResponseWriter, r *http.Request) {
  }
 ```
 
-### 3: Display the Widget using initialization data
+### Display the Widget using initialization data
 
-Add the Sign-In Widget source to your sign-in page by referencing the Okta CDN, using the [latest version](https://github.com/okta/okta-signin-widget/releases/) of the widget: -=OKTA_REPLACE_WITH_WIDGET_VERSION=-
+Add the Sign-In Widget source to your sign-in page by referencing the Okta CDN, using the [latest version](https://github.com/okta/okta-signin-widget/releases/) of the Widget: -=OKTA_REPLACE_WITH_WIDGET_VERSION=-
 
 ```html
 <script src="https://global.oktacdn.com/okta-signin-widget/-=OKTA_REPLACE_WITH_WIDGET_VERSION=-/js/okta-sign-in.min.js" type="text/javascript"></script>
@@ -122,9 +121,9 @@ Finally, add the JavaScript that loads the Widget into the `div` element. The pa
 </script>
 ```
 
-> **Important**: In Okta Sign-In Widget version 7+, Identity Engine is enabled by default. If you are using an earlier version than 7, you must explicitly enable Identity Engine features by setting `config.useInteractionCodeFlow = "true";` in the configuration settings shown above. If you are using version 7+ and you want to use Okta Classic Engine rather than Identity Engine, specify `config.useClassicEngine = "true";` in the configuration settings.
+> **Important**: In Okta Sign-In Widget version 7+, Identity Engine is enabled by default. If you’re using an earlier version than 7, you must explicitly enable Identity Engine features by setting `config.useInteractionCodeFlow = "true";` in the configuration settings in the previous code snippet. If you’re using version 7+ and you want to use Okta Classic Engine rather than Identity Engine, specify `config.useClassicEngine = "true";` in the configuration settings.
 
-### 4: Complete the sign-in page load
+### Complete the sign-in page load
 
 After the sign-in page is successfully loaded, the embedded Sign-In Widget appears:
 
