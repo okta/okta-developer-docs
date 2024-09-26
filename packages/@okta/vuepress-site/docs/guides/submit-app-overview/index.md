@@ -24,24 +24,25 @@ Before you submit your integration, in either the OIN Wizard or Manager, review 
 Consider the following questions to help you choose which pathway to use for submission:
 
 * Are you submitting a new or published SSO integration?
-  * [Use the OIN Wizard for SSO integrations](#submission-process-for-sso-integrations).
-    > **Note:** Published SSO integrations that were submitted through the OIN Manager have been migrated to the OIN Wizard and appear in the **Your OIN Integrations** dashboard.
-* Are you submitting a new or published SCIM or Workflows integration?
-  * [Use the OIN Manager for LCM integrations](#submission-process-for-lcm-integrations).
+  * [Use the OIN Wizard for SSO and SCIM integrations](#submission-process-for-sso-and-scim-integrations).
+    > **Note:** Published SSO integrations that were submitted through the OIN Manager were moved to the OIN Wizard and appear in the **Your OIN Integrations** dashboard.
+* Are you submitting a new or published SCIM integration?
+  * [Use the OIN Wizard for SSO and SCIM integrations](#submission-process-for-sso-and-scim-integrations).
+    > **Note:** Published SCIM integrations that were submitted through the OIN Manager are being migrated to the OIN Wizard. If you have an in-progress submission, continue using the [OIN Manager for submission](/docs/guides/submit-app/scim/main/). If you see your published integration in the **Your OIN Integrations** dashboard, use the [OIN Wizard if you need to make updates](/docs/guides/submit-oin-app/scim/main/#update-your-integration).
+* Are you submitting a new SSO and SCIM integration?
+  1. [Use the OIN Wizard](#submission-process-for-sso-and-scim-integrations) to submit the SSO and SCIM integration.
+* Are you submitting a new or published Workflows integration?
+  * [Use the OIN Manager for Workflows integrations](#submission-process-for-workflows-integrations).
 * Are you submitting a new or published API service integration?
   * [Use the OIN Manager for API services](#submission-process-for-api-service-integrations).
-* Are you submitting a new SSO and SCIM integration?
-  1. [Use the OIN Wizard](#submission-process-for-sso-integrations) to submit the SSO integration component.
-  1. [Use the OIN Manager](#submission-process-for-lcm-integrations) to submit your SCIM integration component.
-     > **Note:** Submit the SSO integration in the OIN Wizard first before you submit the SCIM integration in the OIN Manager.
 
 Submit your integration to Okta and work with the Okta OIN team as they test and review your submission. If the Okta OIN team identifies any issues in the review and QA testing phases, you're sent an email with the specific details. At any point in the process, you can check the status of your submission in the OIN Wizard or OIN Manager.
 
 The Okta OIN team reviews and prioritizes all submissions.
 
-### Submission process for SSO integrations
+### Submission process for SSO and SCIM integrations
 
-The following steps outline the submission process for SSO integrations with the OIN Wizard:
+The following steps outline the submission process for SSO and SCIM integrations with the OIN Wizard:
 
 1. Build the integration in your app.
 1. Sign in to your Developer Edition org Admin Console.
@@ -79,14 +80,14 @@ The following steps outline the submission process for API service integrations 
 1. Publish to OIN catalog.
    - The OIN team publishes your integration after they verify that your integration works as intended for your Okta customers.
 
-### Submission process for LCM integrations
+### Submission process for Workflows integrations
 
-The following steps and flowchart outline the submission process for SCIM or Workflows integrations with the OIN Manager:
+The following steps and flowchart outline the submission process for Workflows integrations with the OIN Manager:
 
-1. Build the SCIM integration or Workflows capabilities in your app.
+1. Build the Workflows capabilities in your app.
    - Sign in to your Developer Edition org Admin Console.
-   - Create the SCIM integration instance or build your Workflows connector.
-   - Test the integration.
+   - Build your Workflows connector.
+   - Test the Workflows capabilities.
 1. Sign in to the OIN Manager with your Developer Edition org credentials.
    - Add integration details in the OIN Manager.
    - Submit the integration.
@@ -137,12 +138,7 @@ Okta accepts integrations that use the following protocols or tools into the OIN
 
 * [System for Cross-domain Identity Management (SCIM)](https://scim.cloud)
 
-   > **Note:** All integrations in the OIN catalog are public. If you want to create a private integration for an app that uses SCIM, then use the [SCIM App Integration Wizard](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-scim). <br>
-   > You can also use the following template integrations from the OIN if they meet your app SCIM capabilities:
-   > * [SCIM 1.1 test apps](https://www.okta.com/integrations/?search=SCIM%201.1%20test%20app) for SCIM 1.1
-   > * [SCIM 2.0 test apps](https://www.okta.com/integrations/?search=SCIM%202.0%20Test%20App) for SCIM 2.0
-   > * [SCIM 1.1 Test App (Header Auth)](https://www.okta.com/integrations/scim-1-1-test-app-header-auth/) for SCIM 1.1 apps that use custom header expression for Header Auth
-   > * [SCIM 2.0 Test App (Header Auth)](https://www.okta.com/integrations/scim-2-0-test-app-header-auth/) for SCIM 2.0 apps that use custom header expression for Header Auth
+   > **Note:** All integrations in the OIN catalog are public. If you want to create a private integration for an app that uses SCIM, then use the [SCIM App Integration Wizard](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-scim). See [Connect your SCIM service to Okta](/docs/guides/scim-provisioning-integration-connect/main/).
 
 * [Workflows Connector Builder](https://help.okta.com/okta_help.htm?type=wf&id=ext-connector-builderz)
 
@@ -160,7 +156,7 @@ Getting your app integration in the OIN catalog involves two phases: creating a 
 
 1. Submit an integration phase
 
-   * If you need help with using the OIN Wizard during the submission process, see [Submit an SSO integration using the OIN Wizard](/docs/guides/submit-oin-app/). If you can't find an answer in the documentation, post a question on the [Okta Developer Forum](https://devforum.okta.com/).
+   * If you need help with using the OIN Wizard during the submission process, see [Submit an integration using the OIN Wizard](/docs/guides/submit-oin-app/). If you can't find an answer in the documentation, post a question on the [Okta Developer Forum](https://devforum.okta.com/).
 
    * If you need help with using the OIN Manager during the submission process, use the **Get Support** section on the OIN Manager **My App Integrations** page. This section provides resources from the Okta developer portal.
 
@@ -178,7 +174,7 @@ Ready to make your integration public? Submit an integration with the following 
 
 <Card href="/docs/guides/submit-app/wfconnector/main/" headerImage="/img/icons/WEB_Icon_Platform_Workflows_40x40.svg" cardTitle="Workflows" :showFooter=false>Submit a Workflow connector integration</Card>
 
-<Card href="/docs/guides/submit-app/scim/main/" headerImage="/img/icons/scim.svg" cardTitle="SCIM" :showFooter=false>Submit a SCIM integration</Card>
+<Card href="/docs/guides/submit-oin-app/scim/main/" headerImage="/img/icons/scim.svg" cardTitle="SCIM" :showFooter=false>Submit a SCIM integration</Card>
 
 <Card href="/docs/guides/build-api-integration/main/#register-your-api-service-integration" headerImage="/img/icons/icon--tool.svg" cardTitle="API service" :showFooter=false>Submit an API service integration</Card>
 

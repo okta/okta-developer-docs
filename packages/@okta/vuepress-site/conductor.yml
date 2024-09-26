@@ -4390,29 +4390,29 @@ redirects:
   - from: /docs/guides/submit-app/saml2/update-submission/index.html
     to: /docs/guides/submit-oin-app/saml2/main/#update-your-integration
   - from: /docs/guides/submit-app/scim/overview
-    to: /docs/guides/submit-app/scim/main
+    to: /docs/guides/submit-oin-app/scim/main/
   - from: /docs/guides/submit-app/scim/create-guide
     to: /docs/guides/submit-app-prereq/main/#customer-configuration-document-guidelines
   - from: /docs/guides/submit-app/scim/submission1-general
-    to: /docs/guides/submit-app/scim/main/#configure-general-settings
+    to: /docs/guides/submit-oin-app/scim/main/#configure-your-integration
   - from: /docs/guides/submit-app/scim/submission2-specific
-    to: /docs/guides/submit-app/scim/main/#configure-protocol-or-tool-specific-settings
+    to: /docs/guides/submit-oin-app/scim/main/#properties
   - from: /docs/guides/submit-app/scim/submission3-process
     to: /docs/guides/submit-app-overview/#understand-the-submission-review-process
   - from: /docs/guides/submit-app/scim/update-submission
-    to: /docs/guides/submit-app/scim/main/#update-your-published-integration
+    to: /docs/guides/submit-oin-app/scim/main/#update-your-integration
   - from: /docs/guides/submit-app/scim/overview/index.html
-    to: /docs/guides/submit-app/scim/main
+    to: /docs/guides/submit-oin-app/scim/main/
   - from: /docs/guides/submit-app/scim/create-guide/index.html
     to: /docs/guides/submit-app-prereq/main/#customer-configuration-document-guidelines
   - from: /docs/guides/submit-app/scim/submission1-general/index.html
-    to: /docs/guides/submit-app/scim/main/#configure-general-settings
+    to: /docs/guides/submit-oin-app/scim/main/#configure-your-integration
   - from: /docs/guides/submit-app/scim/submission2-specific/index.html
-    to: /docs/guides/submit-app/scim/main/#configure-protocol-specific-settings
+    to: /docs/guides/submit-oin-app/scim/main/#properties
   - from: /docs/guides/submit-app/scim/submission3-process/index.html
     to: /docs/guides/submit-app-overview/#understand-the-submission-review-process
   - from: /docs/guides/submit-app/scim/update-submission/index.html
-    to: /docs/guides/submit-app/scim/main/#update-your-published-integration
+    to: /docs/guides/submit-oin-app/scim/main/#update-your-integration
   - from: /docs/guides/submit-app/openidconnect/main
     to: /docs/guides/submit-oin-app/openidconnect/main/
   - from: /docs/guides/submit-app/openidconnect/main/index.html

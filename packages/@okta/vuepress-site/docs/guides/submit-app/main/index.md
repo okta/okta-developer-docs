@@ -1,5 +1,5 @@
 ---
-title: Submit an LCM integration
+title: Submit an LCM integration with the OIN Manager
 meta:
   - name: description
     content: Use this guide to learn how to submit your Okta Lifecycle management integration for publication with the Okta Integration Network (OIN) Manager.
