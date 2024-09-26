@@ -10,7 +10,7 @@ To protect the service for all customers, Okta APIs are subject to rate limits. 
 
 The Okta API rate limits are divided into three categories: authentication/end user, management, and other endpoints. Each category has APIs with rate limits that are enforced individually and as a cumulative rate limit. The rate limits vary by [service subscription](https://developer.okta.com/pricing/).
 
-## API rate limit categories and cumulative rate limits
+## API rate limit categories
 
 To access the individual API limits, visit one of the following category pages or see the [APIs table](/docs/reference/rl-dashboard/#apis-table) in the Rate Limits dashboard:
 
