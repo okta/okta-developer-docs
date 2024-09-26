@@ -135,7 +135,7 @@ The following table shows 18 events produced from 13 transactions over six diffe
 |                             | Wij-964YuniRd9yTmWHu1AAAAEA   | 5f98d062-05a9-4ede-89a0-8a2ce27efdd4   | user.session.access_admin_app                 | User accessing Okta Admin Console app |
 |                             | Wij-95eCbHF7In2MKNavlgAAD9I   | 45f71ac2-e8b2-4c19-b4cc-d2560108c889   | application.lifecycle.update                  | Update app                    |
 |                             |                               | 46b85d65-01c6-44d2-86d2-25704804b1c5   | application.lifecycle.update                  | Update app                    |
-| 102GALFw8CzRT2KXoqnca8Jdg   | Wij-AJeCbHF7In2MKNaOpAAAEC4   | b9ab9263-a4ae-4780-9981-377ec8f2da86   | user.session.start                            | User login to Okta                    |
+| 102GALFw8CzRT2KXoqnca8Jdg   | Wij-AJeCbHF7In2MKNaOpAAAEC4   | b9ab9263-a4ae-4780-9981-377ec8f2da86   | user.session.start                            | User signs in to Okta                    |
 |                             | Wij-7q4YuniRd9yTmWHrBQAAAKQ   | ff325685-0220-484c-82cf-5f8dc596acbe   | user.authentication.sso                       | User single sign on to the app            |
 | trsf8nlpDJZTZeFlcc8nszbjw   | Wij-7a4YuniRd9yTmWHqqAAAAKY   | 5526a4c4-7f68-4b2a-bab7-2d10ebaeeb1c   | mim.checkOSXAccessEligibility.true            | *blank*                               |
 |                             | Wij-764YuniRd9yTmWHrkAAAAGw   | 232774ba-8feb-4b00-a732-e0ec99a24434   | user.session.start                            | User login to Okta                    |
