@@ -31,7 +31,7 @@ Okta manages the connection to the Identity Provider (IdP) for your application.
 
 Login.gov requires you to [test your app integration](https://developers.login.gov/testing/) in their identity sandbox before you can enable it in production. As a result, you have to first create a **Login.gov IdP (Sandbox)** configuration in Okta to test your app integration. When you're ready for [Login.gov production deployment](https://developers.login.gov/production/), you can then create the production **Login.gov IdP** configuration in Okta.
 
-> **Note:** See the [Identity Providers API](/docs/reference/api/idps/#add-identity-provider) for request and response examples of creating an Identity Provider in Okta using the API.
+> **Note:** See the [Identity Providers API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/#tag/IdentityProvider/operation/createIdentityProvider) for request and response examples of creating an Identity Provider in Okta using the API.
 
 1. In the Admin Console, go to **Security** > **Identity Providers**.
 
@@ -84,7 +84,7 @@ To remove an existing account link or validate account linking with every sign-i
 
 If **Account Link Policy** is disabled, no account linking occurs. You can manually create an account link without a transaction by making a `POST` call to the `/api/v1/idps/{idps}/users/{userId}` [endpoint](/docs/reference/api/idps/#link-a-user-to-a-social-provider-without-a-transaction).
 
-See [Add an Identity Provider](/docs/reference/api/idps/#add-identity-provider) for API examples of account-linking JSON payloads.
+See [Add an Identity Provider](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/#tag/IdentityProvider/operation/createIdentityProvider) for API examples of account-linking JSON payloads.
 
 For security best practices, consider disabling account linking after all existing users from the external IdP have signed in to your Okta org. At this point, all links have been created. After you disable linking and JIT provisioning is enabled, Okta adds new users that are created in the external IdP.
 

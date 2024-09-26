@@ -105,7 +105,7 @@ Account linking is configured at the Identity Provider level. When you create an
 
 To enable account linking, select `Automatic` from the **Account Link Policy** dropdown list, and then leave the other two defaults. With these settings, when a user signs in with an external IdP, Okta searches the Universal Directory for a user's profile to link. The user profile is found when the **IdP username** value (email) passed by the IdP matches the **Match against** value (username).
 
-> **Note:** See [Add an Identity Provider](/docs/reference/api/idps/#add-identity-provider) for API examples of creating an Identity Provider and the `policy.accountLink` parameter values needed to configure account linking.
+> **Note:** See [Create an Identity Provider](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/#tag/IdentityProvider/operation/createIdentityProvider) for API examples of creating an Identity Provider and the `policy.accountLink` parameter values needed to configure account linking.
 
 ### JIT provisioning
 

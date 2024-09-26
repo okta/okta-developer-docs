@@ -504,7 +504,7 @@ When the [Features endpoint of the Apps API](/docs/reference/api/apps/#update-fe
 
 * User credential updates failed and returned an error message if the [User Type](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserType/) was set to a non-email username. (OKTA-334754)
 
-* When an `/authorize` request with an [IdP parameter](/docs/reference/api/idps/#add-identity-provider) that referenced a SAML Identity Provider (IdP) was sent, an internal server error was returned because it was assumed that all IdPs are social IdPs. (OKTA-385800)
+* When an `/authorize` request with an [IdP parameter](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/authorizeCustomAS!in=query&path=idp&t=request) that referenced a SAML Identity Provider (IdP) was sent, an internal server error was returned because it was assumed that all IdPs are social IdPs. (OKTA-385800)
 
 * Service clients were unable to update [SAML apps](/docs/reference/api/apps/#update-application) due to a user context check that failed to pass. (OKTA-395492)
 
