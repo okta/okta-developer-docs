@@ -9,7 +9,7 @@ meta:
 
 This guide is intended as a companion guide for use with the Okta [System Log API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/). It provides extra details and examples on how to query the System Log effectively.
 
-The System Log API provides near real-time, read-only access to your organization's System Log and is the programmatic counterpart of the [System Log UI](https://help.okta.com/okta_help.htm?type=oie&id=ext_Reports_SysLog).
+The System Log API provides near real-time, read-only access to your org's System Log and is the programmatic counterpart of the [System Log UI](https://help.okta.com/okta_help.htm?type=oie&id=ext_Reports_SysLog).
 
 The log records system events that are related to your organization. These records provide detailed information on events, activities, and performance metrics critical to the operations between your Okta org, apps, and users. You can use the System Log to:
 
