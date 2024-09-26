@@ -18,7 +18,7 @@ Select the task that you want to perform to access more information on the **Okt
 
 * [Sign a user in from a web app](#sign-a-user-in-from-a-web-app)
 * [Sign a user in from a mobile app](#sign-a-user-in-from-a-mobile-app)
-* [Validate Okta's OAuth access tokens and ID tokens locally](#validate-tokens-locally)
+* [Validate OAuth access tokens and ID tokens locally](#validate-tokens-locally)
 * [Enable machine-to-machine authentication between APIs and apps](#enable-machine-to-machine-authentication-between-apis-and-apps)
 * [Enable your mobile apps to act as a custom Okta authenticator](#enable-your-mobile-apps-to-act-as-a-custom-okta-authenticator)
 * [Manage your users, groups, apps, and other administrative tasks](#manage-your-users-groups-and-apps)
@@ -33,7 +33,7 @@ Okta's recommended way to authenticate users from a web app is to redirect them 
 
 ### For single-page apps (SPA)
 
-You can use the Okta Auth Javascript SDK (auth.js) to handle the sign-in experience for any Javascript-based SPA. Okta also maintains SDKs for React, Angular, and Vue developers that wrap auth.js for ease of use.
+To handle the sign-in experience for any javascript-based SPA, use the Okta Auth JavaScript SDK (auth.js). Okta also maintains SDKs for React, Angular, and Vue developers that wrap auth.js for ease of use.
 
 |   |         |         |         |   |
 |---|---------|---------|---------|---|
@@ -50,7 +50,7 @@ You can use the Okta Auth Javascript SDK (auth.js) to handle the sign-in experie
 When you redirect users to an Okta-hosted sign-in page from a server-side web app, you need an SDK for two tasks:
 
 * To execute an OIDC exchange with Identity Engine that checks if the user signed in successfully.
-* To validate user ID and access tokens locally after they are retrieved from Okta. See [Validate tokens locally](#validate-tokens-locally).
+* To validate user ID and access tokens locally after they’re retrieved from Okta. See [Validate tokens locally](#validate-tokens-locally).
 
 To initiate the OIDC exchange, use your preferred OIDC library. The following table identifies the SDK used in the sample app and guide.
 
@@ -69,7 +69,7 @@ To initiate the OIDC exchange, use your preferred OIDC library. The following ta
 
 ### Validate tokens locally
 
-Okta provides token (JWT) verification libraries for server-side web apps to validate ID and access tokens locally after they are retrieved from Okta. You can use the Okta JWT Verifiers in products that don't have existing OAuth 2.0 support. These libraries support validating Okta's OAuth 2.0 access and ID tokens.
+Okta provides token (JWT) verification libraries for server-side web apps to validate ID and access tokens locally after they’re retrieved from Okta. Use the Okta JWT verifiers in products that don't have existing OAuth 2.0 support. These libraries support validating Okta's OAuth 2.0 access and ID tokens.
 
 |   |         |         |         |
 |---|---------|---------|---------|
@@ -93,7 +93,7 @@ To authenticate users, Android and iOS developers should use the latest Okta Mob
 | ![Android](/img/sdks/android.png) | Android | [Okta Mobile SDK for Kotlin](https://github.com/okta/okta-mobile-kotlin) | [Sample App](https://github.com/okta-samples/okta-android-kotlin-sample) | [Guide](/docs/guides/sign-into-mobile-app-redirect/android/main/) |
 | ![iOS](/img/sdks/ios.png) | iOS | [Okta Mobile SDK for Swift](https://github.com/okta/okta-mobile-swift) | [Sample App](https://github.com/okta/okta-mobile-swift/tree/master/Samples) | [Guide](/docs/guides/sign-into-mobile-app-redirect/ios/main/) |
 
-To authenticate users with **native forms in your app that call Okta directly**, Android and iOS developers should use the Identity Engine SDK for their respective platforms.
+To authenticate users with **native forms in your app that call Okta directly**, Android and iOS developers should use the Identity Engine SDKs.
 
 |   |         |         |         |   |
 |---|---------|---------|---------|---|
@@ -109,7 +109,7 @@ To authenticate users with **native forms in your app that call Okta directly**,
 Background services and third-party APIs that access your APIs require the same levels of authentication and authorization as users who access your web apps. However, a machine-to-machine sign-in flow is silent and requires no user interaction. In this situation, you need an SDK to perform two tasks:
 
 * Execute an [OIDC Client Credentials](/docs/guides/implement-grant-type/clientcreds/main/) exchange with Identity Engine and perform the authentication.
-* Validate access tokens locally once they are retrieved from Okta. See [Validate Tokens Locally](#validate-tokens-locally).
+* Validate access tokens locally once they’re retrieved from Okta. See [Validate Tokens Locally](#validate-tokens-locally).
 
 To initiate the OIDC exchange, use your preferred OIDC SDK. The following table names the SDK used in the sample app and guide.
 
@@ -122,7 +122,7 @@ To initiate the OIDC exchange, use your preferred OIDC SDK. The following table 
 | ![ASP.NET Framework 4.8](/img/sdks/dotnet.png) | ASP.NET<br />Framework 4.8 | [Okta ASP.NET middleware](https://github.com/okta/okta-aspnet) | [Sample App](https://github.com/okta/samples-aspnet/blob/master/resource-server) |  |
 | ![Go](/img/sdks/go.png) | Go | Gin | [Sample App](https://github.com/okta-samples/okta-go-api-sample) | [Guide](/docs/guides/protect-your-api/go/main/) |
 
-> **Note:** [Okta ASP.NET Middleware](https://github.com/okta/okta-aspnet) is available for .NET Framework, .NET Core, and .NET 5+. The [samples-aspnetcore](https://github.com/okta/samples-aspnetcore) repo contains additional sample apps for .NET Core 3.1, .NET 6.0, and .NET 7.0.
+> **Note:** [Okta ASP.NET Middleware](https://github.com/okta/okta-aspnet) is available for .NET Framework, .NET Core, and .NET 5+. The [samples-aspnetcore](https://github.com/okta/samples-aspnetcore) repo contains other sample apps for .NET Core 3.1, .NET 6.0, and .NET 7.0.
 
 ## Enable your mobile apps to act as a custom Okta authenticator
 
