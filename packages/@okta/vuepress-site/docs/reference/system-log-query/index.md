@@ -145,7 +145,7 @@ The following table shows 18 events produced from 13 transactions over six diffe
 | *null*                      | Wm@-R2s5lEMbNIB03krtvAAACyo   | 566671be-ec0b-400d-ad2e-6fc73ed12fb1   | user.session.start                            | User signs in to Okta                    |
 [[.table-word-break]]
 
-As evidenced by the `null` `authenticationContext.externalSessionId` field in the last row, neither `transaction.id` nor `uuid` maintain a many-to-one relationship with `authenticationContext.externalSessionId`. In this particular case, the `null` `authenticationContext.externalSessionId` is a user sign-in failure. There’s no session granted to the user's client since the sign-in failure.
+As evidenced by the `null` `authenticationContext.externalSessionId` field in the last row, neither `transaction.id` nor `uuid` maintain a many-to-one relationship with `authenticationContext.externalSessionId`. In this particular case, the `null` `authenticationContext.externalSessionId` is a user sign-in failure. There’s no session granted to the user's client because of the sign-in failure.
 
 ## List events
 
