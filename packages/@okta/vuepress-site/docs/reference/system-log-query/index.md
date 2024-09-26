@@ -130,7 +130,7 @@ The following table shows 18 events produced from 13 transactions over six diffe
 |                             |                               | 421c1551-71b2-4ebe-a70d-b5f7d3698429   | application.lifecycle.update                  | Update app                    |
 |                             |                               | 06a50bbe-44fd-40de-83e6-2e4cc2a17d16   | application.lifecycle.update                  | Update app                    |
 | trsUz2TG3wKS6ar1lvWzHo71w   | Wij-6q4YuniRd9yTmWHpfwAAADc   | 3e240ff4-6af7-47f2-b107-a2ef661ffc01   | application.user_membership.change_username   | Change user's app username     |
-|                             |                               | 572b05e9-b6be-4dfe-8bc3-01bb3a5a1af5   | application.user_membership.add               | Add user to application membership    |
+|                             |                               | 572b05e9-b6be-4dfe-8bc3-01bb3a5a1af5   | application.user_membership.add               | Add user to app membership    |
 |                             |                               | 30f29bbf-3218-429b-827a-0a93809591db   | application.user_membership.remove            | Remove users application membership   |
 |                             | Wij-964YuniRd9yTmWHu1AAAAEA   | 5f98d062-05a9-4ede-89a0-8a2ce27efdd4   | user.session.access_admin_app                 | User accessing Okta administrator app |
 |                             | Wij-95eCbHF7In2MKNavlgAAD9I   | 45f71ac2-e8b2-4c19-b4cc-d2560108c889   | application.lifecycle.update                  | Update application                    |
