@@ -204,7 +204,7 @@ Bounded requests to the `/api/v1/logs` API have the following semantics:
 
 ###### Expression filter
 
-An expression filter is useful for performing structured queries where constraints on the response object's attribute values can be explicitly targeted.
+An expression filter is useful for performing structured queries where you can explicitly target constraints on the response object's attribute values.
 
 The following example expressions are supported for events with the `filter` query parameter:
 
