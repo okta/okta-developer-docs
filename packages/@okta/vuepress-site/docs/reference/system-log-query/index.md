@@ -246,7 +246,7 @@ filter=eventType eq "user.session.start" and outcome.result eq "FAILURE"
 filter=target.id eq "00uxc78lMKUMVIHLTAXY" and target.id eq "0oabe82gnXOFVCDUMVAK"
 ```
 
-* App SSO events for a target user and application
+* App SSO events for a target user and app
 
 ```javascript
 filter=eventType eq "app.auth.sso" and target.id eq "00uxc78lMKUMVIHLTAXY" and target.id eq "0oabe82gnXOFVCDUMVAK"
