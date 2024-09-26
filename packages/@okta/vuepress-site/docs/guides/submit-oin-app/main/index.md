@@ -174,11 +174,11 @@ The OIN Wizard journey includes the **Test integration** experience page to help
 
 1. Generate instances for testing. You need to create a test instance for each protocol that your integration supports.
     * For SSO integrations, configure SSO and assign test users for the instance.
-    * For SCIM integrations, configure **Provisioning** > **Enable API integration** on the instance and map user profile attributes.
+    * For SCIM integrations, configure provisioning on the instance and map user profile attributes.
 
 1. Test your integration.
    * For SSO integrations, test the required flows in the OIN Submission Tester with your generated test instances. Fix any test failures from the OIN Submission Tester, then regenerate the test instance (if necessary) and retest.
-   * For SCIM integrations, execute the Okta-Runscope CRUD test suite and the Okta manual test cases with your generated instance.
+   * For SCIM integrations, execute the Runscope CRUD tests and the Okta manual integration tests with your generated instance.
 1. Submit your integration after all required tests are successful.
 
 > **Note:** You must have the Okta Browser Plugin installed with **Allow in Incognito** enabled before you use the  **OIN Submission Tester**. See [OIN Wizard requirements](/docs/guides/submit-app-prereq/main/#oin-wizard-requirements).
@@ -208,13 +208,13 @@ Okta recommends that you generate an instance for each protocol supported by you
 
 #### Assign test users to your integration instance
 
+For SCIM provisioning, you can assign imported users to your app. In most cases, the users are already assigned to your app from the import.
+
 For SSO-only flow tests, create your test users in Okta before you assign them to your integration. See [Add users manually](https://help.okta.com/okta_help.htm?type=oie&id=ext-usgp-add-users) and [Assign app integrations](https://help.okta.com/okta_help.htm?id=ext_Apps_Apps_Page-assign) topics in the Okta product documentation.
 
 For SSO flow tests without JIT provisioning, you need to create the same test user in your app. If your integration supports JIT provisioning, Okta provisions the test user on your app automatically.
 
 > **Note:** You need to have the org admin role assigned to you before you can create users in Okta.
-
-For SCIM provisioning, you can assign imported users to your app. In most cases, the users are already assigned to your app from the import.
 
 To assign test users to your integration:
 
@@ -275,15 +275,16 @@ Alternatively, to deactivate an app instance without the OIN Wizard, see [Deacti
 
 To edit the app instance from the OIN Wizard, follow these steps:
 
-1. Go to **Test your integration experience** > **Application instances for testing**.
+1. Go to **Test integration** > **Application instances for testing**.
 1. Click **Clear filters** to see all instances in your org if you don't see the instance that you want to edit.
 1. Select **Update instance details** from the more icon (![three-dot more icon](/img/icons/odyssey/more.svg)) next to the app instance you want to update. The instance details page appears.
-1. Edit the app instance. You can edit app instance settings or [assign users to your app instance](https://help.okta.com/okta_help.htm?type=oie&id=ext_Apps_Apps_Page-assign).
+1. Edit the app instance. You can [edit app instance settings](#generate-instances-for-testing) or [assign users to your app instance](https://help.okta.com/okta_help.htm?type=oie&id=ext_Apps_Apps_Page-assign).
+
 1. Return to the OIN Wizard:
 
     * Click **Begin testing** (upper-right corner) for the current submission instance.
 
-        The **Test your integration experience** page appears.
+        The **Test integration** page appears.
 
     *  Click **Go to integrations** (upper-right corner) for the backwards-compatible instance.
 
@@ -431,6 +432,54 @@ If you have questions or need more support, email Okta developer support at <dev
 1. From the OIN Submission Tester, click **Export results** (upper-right corner) to download a JSON-formatted file of all your test results.
 
 All required tests in the OIN Submission Tester must have passed within 48 hours of submitting your integration.
+
+### Test your SCIM integration
+
+For SCIM integrations, you need to run two sets of Okta integration tests before you can submit it to the OIN:
+
+1. [Runscope create, read, update, and delete (CRUD) user profile tests](#runscope-crud-tests)
+1. [Manual Okta admin and user scenario test cases](#manual-okta-scim-integration-tests)
+
+#### Runscope CRUD tests
+
+1. Download the [Okta SCIM 2.0 CRUD test file](/standards/SCIM/SCIMFiles/Okta-SCIM-20-CRUD-Test.json).
+
+   This CRUD test file is built for the [BlazeMeter Runscope](https://www.runscope.com/) API monitoring tool. If you don't have a Runscope account, you can sign up with a [free trial to Runscope](https://www.runscope.com/okta) for Okta developers.
+1. From Runscope, click **Import Test**.
+1. Select **API Monitoring Tests** as the import format.
+1. Click **Choose File** and select the "Okta SCIM 2.0 CRUD JSON" test file.
+1. Click **Import API Test**. In this new test bucket, click **Editor** from the left-navigation menu.
+1. Click **Test Settings** and then click **Initial Variables**.
+1. Add the following variables with values that match your SCIM integration:
+    * `oktaAppId`: The unique identifier that's assigned to your Okta app instance. You can see this value in the **App Embed Link** panel under the **General** tab for your Okta integration.
+    * `oktaOrgUrl`: The base URL for your Okta org. Include the `https://` prefix.
+    * `oktaToken`: The Okta API token used for Runscope to connect to Okta APIs. You can generate an API token inside your Okta org. See [Create an API token](/docs/guides/create-an-api-token/main/).
+    * `SCIMUrl`: The base URL of the SCIM implementation on your server. For example: `https://example.com/scim/v2`
+    * `SCIMAuth`: The **Basic** or **OAuth** authorization token used to access your SCIM API.
+
+    The final Runscope values should look similar to the following:
+
+    <div class="three-quarter border">
+
+    ![Sample values for CRUD test variables. Runscope initial variables](/img/oin/scim_crud-variables-d.png)
+
+    </div>
+
+1. Click **Test Settings** and then click **Initial Script**.
+1. Copy the contents of the [Okta CRUD Initial Script](/standards/SCIM/SCIMFiles/Initial_Script_CRUD.txt) text file and paste into this Runscope console.
+1. Click **Save & Run**.
+
+**Review test results**
+
+On the left of your Runscope page, the test appears in the **Recent Test Runs** section.
+
+1. Click **View Progress** inside the **Recent Test Runs** section.
+As the test suite runs, Runscope displays live updates of the test in progress. After the test suite completes execution, the main panel displays the results of your test.
+1. Click the name of each particular test case to see the test details. The details show you the **Request**, **Response**, and **Connection** information for each test.
+
+#### Manual Okta SCIM integration tests
+
+Execute the test cases in the [Okta SCIM Test Plan](/standards/SCIM/SCIMFiles/okta-scim-test-plan-v2.xlsx). Your integration has to pass the test cases in the Okta SCIM Test Plan before you can submit it.
 
 ## Update your integration
 
