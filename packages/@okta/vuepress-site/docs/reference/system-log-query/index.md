@@ -181,7 +181,7 @@ Polling requests to the `/api/v1/logs` API have the following semantics:
 
 ###### Bounded requests
 
-Bounded requests are for situations when you know the definite time period of logs you want to retrieve.
+Bounded requests are for situations when you know the definite time period of logs that you want to retrieve.
 
 Example use cases include:
 
