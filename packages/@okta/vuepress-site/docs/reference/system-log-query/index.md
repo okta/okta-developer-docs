@@ -44,7 +44,7 @@ The following sections outline the key Event Types that the System Log captures.
 | application.lifecycle.update                   | An app is updated                                |
 | application.user_membership.add                | A user is assigned to an app.                    |
 | application.user_membership.change_username    | The name of a user who is assigned to an app is changed |
-| application.user_membership.remove             | A user is removed from an application                    |
+| application.user_membership.remove             | A user is removed from an app                    |
 
 ### Group event
 
