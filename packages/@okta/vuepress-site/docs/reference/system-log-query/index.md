@@ -278,7 +278,7 @@ filter=eventType ew "token"
 
 ###### Keyword filter
 
-The query parameter `q` can be used to perform keyword matching against a response object's attribute values. All supplied keywords must be matched exactly.
+You can use the query parameter `q` to perform keyword matching against a response object's attribute values. All supplied keywords must be matched exactly.
 
 >**Note:** Keyword matching is case-insensitive.
 
