@@ -77,7 +77,7 @@ Add the Sign-In Widget source to your page by referencing the Okta CDN, using th
 }
 ```
 
-See also [Using the Okta CDN](https://github.com/okta/okta-signin-widget#using-the-okta-cdn). The latest version of the widget is -=OKTA_REPLACE_WITH_WIDGET_VERSION=-.
+See also [Using the Okta CDN](https://github.com/okta/okta-signin-widget#using-the-okta-cdn).
 
 #### 2c: Add JavaScript to initialize and load the widget
 
