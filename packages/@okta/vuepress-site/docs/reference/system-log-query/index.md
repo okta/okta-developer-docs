@@ -142,7 +142,7 @@ The following table shows 18 events produced from 13 transactions over six diffe
 | trswPONv4wIRaKDNWVVcmtceg   | Wij-6K4YuniRd9yTmWHo9wAAAAY   | d31d819a-1427-45b0-a8b4-8a8fb40c72f1   | user.session.start                            | User sign in to Okta                    |
 |                             | Wij-564YuniRd9yTmWHoaQAAAII   | 0cc6f4c8-9b91-4a70-b5c4-09d6ad159d32   | mim.checkOSXAccessEligibility.true            | *blank*                               |
 |                             | Wij-2q4YuniRd9yTmWHjRAAAADA   | 92606da8-7eeb-4ad7-8ffb-502dd0ec64cc   | user.authentication.sso                       | User SSOs to the app            |
-| *null*                      | Wm@-R2s5lEMbNIB03krtvAAACyo   | 566671be-ec0b-400d-ad2e-6fc73ed12fb1   | user.session.start                            | User login to Okta                    |
+| *null*                      | Wm@-R2s5lEMbNIB03krtvAAACyo   | 566671be-ec0b-400d-ad2e-6fc73ed12fb1   | user.session.start                            | User signs in to Okta                    |
 [[.table-word-break]]
 
 As evidenced by the `null` `authenticationContext.externalSessionId` field in the last row, neither `transaction.id` nor `uuid` maintain a many-to-one relationship with `authenticationContext.externalSessionId`. In this particular case, the `null` `authenticationContext.externalSessionId` is a user sign-in failure. There’s no session granted to the user's client since the sign-in failure.
