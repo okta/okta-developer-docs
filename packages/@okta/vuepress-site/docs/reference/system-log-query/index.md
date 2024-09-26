@@ -93,7 +93,7 @@ Rate limit violations are sent when a rate limit is exceeded.
 
 | Event                       | Description                                               |
 | :-------------------------- | :-------------------------------------------------------- |
-| user.authentication.sso     | A user attempts a Single Sign-On (SSO) to an application managed in Okta |
+| user.authentication.sso     | A user attempts a Single Sign-On (SSO) to an app managed in Okta |
 | user.lifecycle.activate     | A user account is activated                             |
 | user.lifecycle.create       | A user account is created                               |
 | user.lifecycle.deactivate   | A user account is deactivated                           |
