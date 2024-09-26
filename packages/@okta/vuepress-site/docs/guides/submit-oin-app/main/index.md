@@ -185,13 +185,17 @@ The OIN Wizard journey includes the **Test integration** experience page to help
 
 ### Generate instances for testing
 
-Generate instances for testing in your Okta Developer Edition org directly from the OIN Wizard. The Wizard takes the configuration and test information from your OIN submission and allows you to configure a specific integration instance to your test app. The generated instance allows you to test your customer admin experience and end-user sign-in experience.
+Generate instances for testing in your Okta Developer Edition org directly from the OIN Wizard. The Wizard takes the configuration and test information from your OIN submission and allows you to configure a specific integration instance to your test app. You can test your customer admin experience and your end-user sign-in experience with the generated instance flow.
 
-Okta recommends that you generate an instance for each protocol supported by your integration. You must generate separate instances for testing if you support two SSO protocols (one for OIDC and one for SAML). However, you can create one test instance for an integration that supports both SCIM provisioning and one SSO protocol. If you use one instance to test SCIM and either SAML or OIDC protocols, you need to have complementary features configured. For example:
-* You can't have SSO JIT enabled when SCIM provisioning is enabled.
-* You need to have the **Create User** SCIM operation enabled to create users in Okta.
+Okta recommends that you generate an instance for each protocol supported by your integration for testing:
 
-> **Note:** The steps in this section are for generating an instance to test the **<StackSnippet snippet="protocol-name" inline/>** protocol. <br>
+* You must generate separate instances for testing if you support two SSO protocols (one for OIDC and one for SAML). The OIN Submission Tester can only test one protocol at a time.
+* If your integration supports SCIM and SSO protocols, then create one instance for SCIM testing and one instance for each SSO protocol testing.
+* If your integration supports SCIM and one SSO protocol, then you can create one instance for testing if your SSO integration doesn't support SSO JIT, and the **Create User** SCIM operation is enabled. In this scenario, you can use one instance for SSO testing with the OIN Submission Tester, Runscope CRUD testing, and Okta-SCIM manual integration testing.
+
+There's a maximum of five active instances allowed in a Developer Edition org, so manage your test instances accordingly. See [Deactivate an app instance in your org](#deactivate-an-app-instance-in-your-org) to deactivate any instances you aren't using.
+
+> **Note:** The steps in this section are for generating one instance to test the **<StackSnippet snippet="protocol-name" inline/>** protocol. <br>
 > If you want to change the generate instance instructions, select the protocol you want from the **Instructions for** dropdown list on the right.
 
 1. From the **Test integration** page, click **Generate instance**.
@@ -202,17 +206,17 @@ Okta recommends that you generate an instance for each protocol supported by you
 
     If you need to change any labels or properties, go back to edit your submission.
 
-    > **Note:** There's a limit of five app instances in a Developer Edition org. **Generate instance** is deactivated when you reach this limit. Deactivate unused instances to make room for new instances in your org. See [Deactivate app instances in your org](#deactivate-an-app-instance-in-your-org).
+    > **Note:** There's a limit of five app instances in a Okta Developer Edition org. **Generate instance** is deactivated when you reach this limit. Deactivate unused instances to make room for new instances in your org. See [Deactivate app instances in your org](#deactivate-an-app-instance-in-your-org).
 
 <StackSnippet snippet="test-instance" />
 
 #### Assign test users to your integration instance
 
-For SCIM provisioning, you can assign imported users to your app. In most cases, the users are already assigned to your app from the import.
-
 For SSO-only flow tests, create your test users in Okta before you assign them to your integration. See [Add users manually](https://help.okta.com/okta_help.htm?type=oie&id=ext-usgp-add-users) and [Assign app integrations](https://help.okta.com/okta_help.htm?id=ext_Apps_Apps_Page-assign) topics in the Okta product documentation.
 
 For SSO flow tests without JIT provisioning, you need to create the same test user in your app. If your integration supports JIT provisioning, Okta provisions the test user on your app automatically.
+
+For SCIM provisioning, you can assign an imported users to your app. Alternatively, you can create a user in Okta that can be pushed to your app by SCIM before you assign the user to your app.
 
 > **Note:** You need to have the org admin role assigned to you before you can create users in Okta.
 

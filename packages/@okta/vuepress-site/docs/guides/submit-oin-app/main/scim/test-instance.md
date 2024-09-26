@@ -5,8 +5,7 @@
    * For custom or bearer authentication, specify the **API token** for your instance.
    * For OAuth 2.0 authentication, click **Authenticate with {your_integration}** and provide credentials for your test instance.
 1. Click **Test API Credentials** to test authentication to your SCIM service. If there's an error, check the credentials entered.
-1. Click **Save**.
-1. On the **Assignments** tab, ensure that the right users and groups in your org are assigned to the test instance. For instructions on how to assign the app integration to individual users and groups, see [Assign test users to your instance](#assign-test-users-to-your-integration-instance).
+1. Click **Save**. Next, configure provisioning settings and attribute mappings.
 
 #### Configure provisioning attribute mappings
 
@@ -62,3 +61,8 @@ After you've enabled the provisioning API connection in your test instance, conf
      7. In the dialog that appears, there are two dropdown fields. In the first dropdown menu, select **Map from {yourApp} App Profile**. In the second dropdown menu, choose the Okta profile attribute that you want to map the SCIM attribute to. Click **Save**.
 
           Repeat this step for all SCIM attributes that you want to map (from your app to Okta).
+
+
+
+
+1. On the **Assignments** tab, ensure that the right users and groups in your org are assigned to the test instance. For instructions on how to assign the app integration to individual users and groups, see [Assign test users to your instance](#assign-test-users-to-your-integration-instance).
