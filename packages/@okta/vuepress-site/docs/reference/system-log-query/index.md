@@ -169,7 +169,7 @@ Example use cases include:
 
 For a request to be a polling request, it must meet the following request parameter criteria:
 
-* `until` must be unspecified.
+* `until` is unspecified.
 * `sortOrder` must be `ASCENDING`.
 
 Polling requests to the `/api/v1/logs` API have the following semantics:
