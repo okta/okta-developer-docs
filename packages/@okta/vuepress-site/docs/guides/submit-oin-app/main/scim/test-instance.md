@@ -3,13 +3,19 @@
 4. Click the **Provisioning** tab and click **Configure API Integration**.
 5. Select **Enable API integration**.
    * For custom or bearer authentication, specify the **API token** for your instance.
-   * For OAuth 2.0 authentication, click **Authenticate with {your_integration}** and provide credentials for your test instance.
+   * For OAuth 2.0 authentication, click **Authenticate with {yourApp}** and provide credentials for your test instance.
 1. Click **Test API Credentials** to test authentication to your SCIM service. If there's an error, check the credentials entered.
-1. Click **Save**. Next, configure provisioning settings and attribute mappings.
+1. Click **Save**.
+1. Select **Settings** > **To Okta** from the updated **Provisioning** tab.
+1. Click **Edit** to schedule imports and configure username format for imported users in the **General** section.
 
-#### Configure provisioning attribute mappings
+   You can also define a percentage of acceptable assignments before the [import safeguards](https://help.okta.com/okta_help.htm?id=csh-eu-import-safeguard) feature is automatically triggered. If the Okta username is overridden due to mapping from a provisioning-enabled app, the custom mapping appears in this section.
 
-> **Note:** Configure provisioning attribute-mapping instructions are only for SCIM integrations.
+1. Click **Save**. Next, [configure attribute mappings](#configure-attribute-mappings).
+
+#### Configure attribute mappings
+
+> **Note:** Configure attribute-mapping instructions are only for SCIM integrations.
 
 SCIM integrations submitted through the OIN Wizard come with a default set of user attribute mappings. The user schema in your SCIM app might not support all of these attributes. Ensure that the integration you're submitting to Okta for review reflects the attributes supported by your app. The OIN team uses the attribute mappings in your test instance for your integration provisioning settings in the OIN catalog.
 
@@ -62,7 +68,4 @@ After you've enabled the provisioning API connection in your test instance, conf
 
           Repeat this step for all SCIM attributes that you want to map (from your app to Okta).
 
-
-
-
-1. On the **Assignments** tab, ensure that the right users and groups in your org are assigned to the test instance. For instructions on how to assign the app integration to individual users and groups, see [Assign test users to your instance](#assign-test-users-to-your-integration-instance).
+After you complete your attribute mappings, you're ready to test your SCIM integration. Jump to [Test your SCIM integration](#test-your-scim-integration) for SCIM testing guidance.
