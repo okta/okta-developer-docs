@@ -39,7 +39,7 @@ The following sections outline the key Event Types that the System Log captures.
 | :--------------------------------------------- | :--------------------------------------------------------- |
 | application.lifecycle.activate                 | An app is activated                              |
 | application.lifecycle.create                   | An app is created                                |
-| application.lifecycle.deactivate               | An application is deactivated                            |
+| application.lifecycle.deactivate               | An app is deactivated                            |
 | application.lifecycle.delete                   | An application is deleted                                |
 | application.lifecycle.update                   | An application is updated                                |
 | application.user_membership.add                | A user is assigned to an application.                    |
