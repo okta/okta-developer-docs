@@ -8,7 +8,7 @@ excerpt: >-
 
 To protect the service for all customers, Okta APIs are subject to rate limits. These limits mitigate denial-of-service attacks and abusive actions such as rapidly updating configurations, aggressive polling and concurrency, or excessive API calls.
 
-The Okta API rate limits are divided into three categories: authentication/end user, management, and other endpoints. Each category has APIs with rate limits that are enforced individually and as a cumulative rate limit. The rate limits vary by [service subscription](https://developer.okta.com/pricing/).
+The Okta API rate limits are divided into the following categories: authentication/end user and management. Each category has APIs with rate limits that are enforced individually. The rate limits vary by [service subscription](https://developer.okta.com/pricing/).
 
 ## API rate limit categories
 
