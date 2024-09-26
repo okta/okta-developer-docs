@@ -70,7 +70,7 @@ The following sections outline the key Event Types that the System Log captures.
 
 #### Policy event details
 
-* `policy.evaluate_sign_on` provides context on the values that are used and evaluated in the context of the Okta sign-in policy. For example, you can determine which network zones are matched for this event.
+* `policy.evaluate_sign_on` provides context on the values that are used and evaluated in the context of the Okta sign-on policy. For example, you can determine which network zones are matched for this event.
 * For `policy.lifecycle` and `policy.rule` events, the corresponding policy is listed in the target object.
 
 ### Rate limit events
