@@ -5565,7 +5565,15 @@ redirects:
     to: https://github.com/okta/okta-sdk-dotnet
   - from: /docs/reference/hooks-best-practices/index.html
     to: /docs/guides/hooks-best-practices/
-  - from: /docs/reference/hooks-best-practices/
+  - from: /docs/reference/hooks-best-practices
     to: /docs/guides/hooks-best-practices/
+  - from: /docs/reference/rl-previous/index.html
+    to: /docs/reference/rate-limits/
+  - from: /docs/reference/rl-previous
+    to: /docs/reference/rate-limits/
+  - from: /docs/reference/rl-global-other-endpoints/index.html
+    to: /docs/reference/rate-limits/
+  - from: /docs/reference/rl-global-other-endpoints
+    to: /docs/reference/rate-limits/
   - from: /docs/guides/sign-into-mobile-app-redirect/react-native/main/index.html
     to: /docs/guides/sampleapp-oie-redirectauth/reactnativedroid/main/
