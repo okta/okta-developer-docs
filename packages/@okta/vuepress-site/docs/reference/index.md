@@ -34,7 +34,7 @@ Expressions allow you to reference, transform, and combine attributes before you
 
 ## Expression Language in Identity Engine
 
-This expression language reference is specific to Identity Engine.
+This Expression Language reference is specific to Identity Engine.
 
 [Learn more](/docs/reference/okta-expression-language-in-identity-engine/)
 
