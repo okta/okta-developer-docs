@@ -55,13 +55,15 @@ To connect your org to the Identity Provider, add and configure that Identity Pr
 
 ### Account link
 
-You can automatically link external IdP accounts to Okta accounts when the user signs in using the external IdP. <StackSnippet snippet="accountlink" inline /> When **Account Link Policy** is set to automatic (`AUTO`), Okta searches the Universal Directory for a user's profile to link. The user profile is found when the **IdP username** value (email) passed by the IdP matches the **Match against** value (username). See [Account Linking and JIT Provisioning](/docs/concepts/identity-providers/#account-linking-and-just-in-time-provisioning).
+You can automatically link external IdP accounts to Okta accounts when the user signs in using the external IdP. <StackSnippet snippet="accountlink" inline />
+
+When **Account Link Policy** is set to automatic (`AUTO`), Okta searches the Universal Directory for a user's profile to link. The user profile is found when the **IdP username** value (email) passed by the IdP matches the **Match against** value (username). See [Account Linking and JIT Provisioning](/docs/concepts/identity-providers/#account-linking-and-just-in-time-provisioning).
 
 To remove an existing account link or validate account linking with every sign-in flow, Okta recommends that you make a `DELETE` call to the `/api/v1/idps/{idpId}/users/{userId}` [endpoint](/docs/reference/api/idps/#unlink-user-from-idp) to remove the link between the Okta user and the IdP user before authentication.
 
 See [Create an Identity Provider](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/#tag/IdentityProvider/operation/createIdentityProvider) for API examples of account-linking JSON payloads.
 
-For security best practices, consider disabling account linking after all existing users from the external IdP have signed in to your Okta org. At this point, all links have been created. After you disable linking, and JIT provisioning is enabled, Okta adds new users that are created in the external IdP.
+<StackSnippet snippet="accountlinking2.md" />
 
 ## Test the integration
 
