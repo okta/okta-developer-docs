@@ -5,7 +5,7 @@ excerpt: Integrate Okta with an Angular application using the Sign-In Widget.
 icon: code-angular
 ---
 
-This guide walks you through integrating authentication into an Angular application with Okta by performing these steps:
+This guide walks you through integrating authentication into an Angular app with Okta by performing these steps:
 
 - [Prerequisites](#prerequisites)
 - [Add an OpenID Connect Client](#add-an-openid-connect-client)
@@ -22,28 +22,28 @@ This guide walks you through integrating authentication into an Angular applicat
 
 ## Prerequisites
 
-If you don't already have a  **Developer Edition Account**, you can create one at [https://developer.okta.com/signup/](https://developer.okta.com/signup/).
+If you don't already have a **Okta Developer Edition Account**, you can create one at [https://developer.okta.com/signup/](https://developer.okta.com/signup/).
 
 ## Add an OpenID Connect Client
 
 * Sign in to the Admin Console, and select **Create New App**. <br/>
-You can sign in to the Admin Console using <https://login.okta.com>, and then click **Admin**.
-* Choose **Single-Page Application** as the platform, and then populate your new OpenID Connect application with values similar to:
+Sign in to the [Admin Console](https://login.okta.com), and then click **Admin**.
+* Choose **Single-Page Application** as the platform, and then populate your new OpenID Connect app with values similar to:
 
 | Setting              | Value                                               |
 | -------------------  | --------------------------------------------------- |
-| Application Name     | OpenId Connect App (must be unique)                 |
+| Application Name     | OpenID Connect App (must be unique)                 |
 | Login redirect URIs  | `http://localhost:4200/login/callback`              |
 | Logout redirect URIs | `http://localhost:4200/login`                       |
 | Allowed grant types  | Authorization Code                                  |
 
-Replace `${clientId}` placeholders further in this tutorial with the `Client ID` of the created application.
+Replace `${clientId}` placeholders further in this tutorial with the `Client ID` of the created app.
 
-> **Note:** It's important to choose the appropriate application type for apps that are public clients. Failing to do so may result in Okta API endpoints attempting to verify an app's client secret that public clients aren't designed to have, hence breaking the sign-in or sign-out flow.
+> **Note:** It's important to choose the appropriate app type for apps that are public clients. Failing to do so may result in Okta API endpoints attempting to verify an app's client secret that public clients aren't designed to have. This breaks the sign-in or sign-out flow.
 
 ## Create an Angular App
 
-To quickly create an Angular app, we recommend the **Angular CLI**.
+To quickly create an Angular app, use the **Angular CLI**.
 
 ```bash
 npm install -g @angular/cli
@@ -54,14 +54,14 @@ If you need more information, see [the Angular CLI installation guide](https://g
 
 ## Install dependencies
 
-A simple way to add authentication into an Angular app is using the library [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/). We can install it through `npm`:
+A simple way to add authentication into an Angular app is using the library [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/). Install it through `npm`:
 
 ```bash
 cd okta-app
 npm install @okta/okta-signin-widget
 ```
 
-To easily interact with the [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/), we also need [`@okta/okta-angular`](https://github.com/okta/okta-angular/):
+To easily interact with the [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/), use [`@okta/okta-angular`](https://github.com/okta/okta-angular/):
 
 ```bash
 npm install @okta/okta-angular
@@ -75,7 +75,7 @@ npm install rxjs-compat
 
 ## Create Routes
 
-Some routes require authentication to render. Defining these protected routes is easy with the `OktaAuthGuard` from `@okta/okta-angular`. Let's take a look at what routes are required for this example, using [Angular Router](https://angular.io/guide/router):
+Some routes require authentication to render. Defining these protected routes is easy with the `OktaAuthGuard` from `@okta/okta-angular`. Review the routes that are required for this example, using the [Angular Router](https://angular.io/guide/router):
 
 * `/`: A default page to handle basic control of the app.
 * `/protected`: A protected route that only the authenticated user can access.
@@ -83,14 +83,14 @@ Some routes require authentication to render. Defining these protected routes is
 
 ### `/ - index page`
 
-First, update `src/app/app.component.html` to provide the Login logic, replacing `${widgetVersion}` with the [latest version](https://github.com/okta/okta-signin-widget/releases/) of the widget (-=OKTA_REPLACE_WITH_WIDGET_VERSION=-):
+First, update `src/app/app.component.html` to provide the Login logic, using the [latest version](https://github.com/okta/okta-signin-widget/releases/) of the Sign-In Widget: -=OKTA_REPLACE_WITH_WIDGET_VERSION=-
 
 ```html
 <!-- src/app/app.component.html -->
 
 
 <!-- Latest CDN production CSS -->
-<link href="https://global.oktacdn.com/okta-signin-widget/${widgetVersion}/css/okta-sign-in.min.css" type="text/css" rel="stylesheet"/>
+<link href="https://global.oktacdn.com/okta-signin-widget/$-=OKTA_REPLACE_WITH_WIDGET_VERSION=-/css/okta-sign-in.min.css" type="text/css" rel="stylesheet"/>
 
 <button routerLink="/"> Home </button>
 <button *ngIf="!isAuthenticated" routerLink="/login"> Login </button>
@@ -147,7 +147,7 @@ export class AppComponent implements OnInit {
 
 This route is only visible to users with a valid `accessToken` or `idToken`.
 
-Create a new component `src/app/protected.component.ts`:
+Create a component `src/app/protected.component.ts`:
 
 
 ```typescript
@@ -172,9 +172,9 @@ When a user attempts to access a route that is protected by `OktaAuthGuard`, it 
 
 ### `/login`
 
-This route hosts the Sign-In Widget and redirects if the user is already signed in. If the user is coming from a protected page, they are redirected back to the page upon completing the sign-in flow.
+This route hosts the Sign-In Widget and redirects if the user is already signed in. If the user is coming from a protected page, they’re redirected back to the page upon completing the sign-in flow.
 
-Create a new component `src/app/login.component.ts`:
+Create a component `src/app/login.component.ts`:
 
 ```typescript
 // src/app/login.component.ts
@@ -242,7 +242,7 @@ export class LoginComponent implements OnInit {
 
 ### Connect the Routes
 
-The `OktaAuthModule` handles different authentication flows for your application, so it requires your OpenID Connect configuration. By default `okta/okta-angular` redirects to the Okta Sign-In Page when the user isn't authenticated. We override this behavior by passing an `onAuthRequired` function to the `OktaAuthGuard`. See [Using a custom login-page](https://github.com/okta/okta-angular#using-a-custom-login-page).
+The `OktaAuthModule` handles different authentication flows for your app, so it requires your OpenID Connect configuration. By default `okta/okta-angular` redirects to the Okta Sign-In Page when the user isn't authenticated. Override this behavior by passing an `onAuthRequired` function to the `OktaAuthGuard`. See [Using a custom login-page](https://github.com/okta/okta-angular#using-a-custom-login-page).
 
 Update `src/app/app.module.ts` to include your project components and routes. Your completed file should look similar to:
 
@@ -318,7 +318,7 @@ export class AppModule { }
 
 ## Start your App
 
-Finally, start your application by running:
+Finally, start your app by running:
 
 ```bash
 npm start
