@@ -996,10 +996,7 @@ export const reference = [
             title: "Management rate limits",
             path: "/docs/reference/rl-global-mgmt/",
           },
-          {
-            title: "Other endpoint rate limits",
-            path: "/docs/reference/rl-global-other-endpoints/",
-          },
+
           {
             title: "Additional limits",
             path: "/docs/reference/rl-additional-limits/",
@@ -1015,10 +1012,6 @@ export const reference = [
           {
             title: "DynamicScale",
             path: "/docs/reference/rl-dynamic-scale/",
-          },
-          {
-            title: "Previous rate limits",
-            path: "/docs/reference/rl-previous/",
           },
           {
             title: "System Log events for rate limits",
