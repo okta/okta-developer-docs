@@ -6,7 +6,7 @@ excerpt: >-
 
 # Additional rate limits
 
-This page provides additional rate limits on:
+This page provides additional rate limits:
 
 * [Concurrent requests](#concurrent-rate-limits)
 * [End user rate limit](#end-user-rate-limits)
