@@ -4,7 +4,7 @@ excerpt: How to configure an Okta Sign-On policy and an app sign-on policy.
 layout: Guides
 ---
 
-> **Note:** This document is only for Okta Classic Engine. If you’re using Identity Engine, see [Configure a global session policy and authentication policies](/docs/guides/configure-signon-policy). See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.”
+> **Note:** This document is only for Okta Classic Engine. If you’re using Identity Engine, see [Configure a global session policy and authentication policies](/docs/guides/configure-signon-policy). See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.
 
 This guide explains what policies are, and how to add and configure Okta sign-on policies and app sign-on policies to your [Okta organization](/docs/concepts/okta-organizations/).
 
@@ -28,11 +28,11 @@ This guide explains what policies are, and how to add and configure Okta sign-on
 
 An Okta sign-on policy helps you control who can sign in and how a user is allowed to sign in to Okta. Sign-on policies control whether users are challenged for MFA and how long they’re allowed to remain signed in before reauthenticating. You can also configure app sign-on policies for each app for extra levels of authentication before an app can be accessed.
 
-Add a rule to the Okta sign-on policy. For example, add a rule that ensures that only users who are inside your [corporate network](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule!path=0/conditions/network&t=request) can access your app. Or add a rule that excludes certain roles in your organization from accessing your app. Add a rule for an app sign-on policy, for example, to prompt groups that are assigned to your app to reauthenticate after 60 minutes. There’s only one app sign-on policy, but you can add as many rules to it as you need.
+Add a rule to the Okta sign-on policy. For example, add a rule that ensures that only users who are inside your [corporate network](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule!path=0/conditions/network&t=request) can access your app. Or add a rule that excludes certain roles in your org from accessing your app. Add a rule for an app sign-on policy, for example, to prompt groups that are assigned to your app to reauthenticate after 60 minutes. There’s only one app sign-on policy, but you can add as many rules to it as you need.
 
-You can specify any number of Okta sign-on policies and the order in which they’re executed. If a policy in the list doesn't apply to the user trying to sign in, the system moves to the next policy. There’s one required organization-wide policy named **Default**. By definition, the default policy applies to all users.
+You can specify any number of Okta sign-on policies and the order in which they’re executed. If a policy in the list doesn't apply to the user trying to sign in, the system moves to the next policy. There’s one required org-wide policy named **Default**. By definition, the default policy applies to all users.
 
-In addition to the default policy, which you can't delete, there may be another organization-wide policy named **Legacy**. That policy is present only if you have already configured MFA. This policy reflects the MFA settings that were in place when you enabled your sign-on policy. And it ensures that no changes in MFA behavior occur unless you modify your policy. If required, you can delete it.
+In addition to the default policy, which you can't delete, there may be another org-wide policy named **Legacy**. That policy is present only if you have already configured MFA. This policy reflects the MFA settings that were in place when you enabled your sign-on policy. And it ensures that no changes in MFA behavior occur unless you modify your policy. If required, you can delete it.
 
 > **Note:** See [Policies](/docs/concepts/policies) for an overview of the supported Okta policies and how they work.
 
@@ -45,7 +45,7 @@ This guide provides step-by-step instructions to configure an Okta sign-on polic
 
 ## Prompt for an MFA factor for a certain group
 
-The following are step-by-step instructions to configure an Okta sign-on policy. Use this policy to prompt a user for a factor (multifactor authentication (MFA)) when the user is a member of a certain group.
+The following are step-by-step instructions to configure an Okta sign-on policy. Use this policy to prompt a user for Multifactor Authentication (MFA) when the user is a member of a certain group.
 
 ### Create the policy container
 
