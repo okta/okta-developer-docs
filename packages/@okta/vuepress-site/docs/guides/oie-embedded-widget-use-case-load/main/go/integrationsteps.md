@@ -1,10 +1,10 @@
 ### The user clicks the sign-in page link
 
-The first step is when the user clicks the sign-in link. This link directs the user to the sign-in page where the Widget is embedded. On the sample app's landing page, this link is labeled **Login** and is in the upper-right corner of the page.
+The first step is when the user clicks the sign-in link. This link directs the user to the sign-in page where the Sign-In Widget is embedded. On the sample app's landing page, this link is labeled **Login** and is in the upper-right corner of the page.
 
-### Get the data to initialize the Widget
+### Get the data to initialize the Sign-In Widget
 
-Obtain the parameters required to display the Widget when the sign-in page loads. Source these
+Obtain the parameters required to display the Sign-In Widget when the sign-in page loads. Source these
 parameters using different methods. The main parameters include:
 
 * Client ID, issuer, scopes&mdash;sourced from the [configuration settings](/docs/guides/oie-embedded-common-download-setup-app/go/main/#configuration-settings)
@@ -12,7 +12,7 @@ parameters using different methods. The main parameters include:
 * PKCE parameters, otp, state, and nonce&mdash;generated values
 * Base URL&mdash;derived from the issuer URL
 
-These parameters are passed to the Widget during page load. The sample app sets most
+These parameters are passed to the Sign-In Widget during page load. The sample app sets most
 of these values in the `LoginHandler` method.
 
 ```go
@@ -50,7 +50,7 @@ func (s *Server) LoginHandler(w http.ResponseWriter, r *http.Request) {
   issuerParts, err := url.Parse(issuerURL)
   baseUrl := issuerParts.Scheme + "://" + issuerParts.Hostname()
 
-  //Setup the data for the Widget
+  //Setup the data for the Sign-In Widget
   data := customData{
     IsAuthenticated:   s.isAuthenticated(r),
     BaseUrl:           baseUrl,
@@ -63,15 +63,15 @@ func (s *Server) LoginHandler(w http.ResponseWriter, r *http.Request) {
     InteractionHandle: interactionHandle,
   }
 
-  //Load the page with the Widget and data
+  //Load the page with the Sign-In Widget and data
   err = s.tpl.ExecuteTemplate(w, "login.gohtml", data)
 
  }
 ```
 
-### Display the Widget using initialization data
+### Display the Sign-In Widget using initialization data
 
-Add the Sign-In Widget source to your sign-in page by referencing the Okta CDN, using the [latest version](https://github.com/okta/okta-signin-widget/releases/) of the Widget: -=OKTA_REPLACE_WITH_WIDGET_VERSION=-
+Add the Sign-In Widget source to your sign-in page by referencing the Okta CDN, using the [latest version](https://github.com/okta/okta-signin-widget/releases/) of the Sign-In Widget: -=OKTA_REPLACE_WITH_WIDGET_VERSION=-
 
 ```html
 <script src="https://global.oktacdn.com/okta-signin-widget/-=OKTA_REPLACE_WITH_WIDGET_VERSION=-/js/okta-sign-in.min.js" type="text/javascript"></script>
@@ -80,13 +80,13 @@ Add the Sign-In Widget source to your sign-in page by referencing the Okta CDN, 
 
 See also [Using the Okta CDN](https://github.com/okta/okta-signin-widget#using-the-okta-cdn).
 
-Next, add a container `div` element for the Widget.
+Next, add a container `div` element for the Sign-In Widget.
 
 ```html
 <div id="okta-signin-widget-container"></div>
 ```
 
-Finally, add the JavaScript that loads the Widget into the `div` element. The parameters set in
+Finally, add the JavaScript that loads the Sign-In Widget into the `div` element. The parameters set in
 [step 2](#_2-get-the-data-to-initialize-the-widget) are being used to initialize the `OktaSignIn` object.
 
 ```html

@@ -10,13 +10,13 @@ This guide explains how to upgrade the Okta Sign-In Widget. The upgrade depends 
 
 **Learning outcome**
 
-Update your widget based on your user deployment model.
+Update your Sign-In Widget based on your user deployment model.
 
 #### What you need
 
 * An [Identity Engine-upgraded Okta org](/docs/guides/oie-upgrade-overview/)
 * An existing app that uses the Sign-In Widget
-* [Latest available widget release](https://github.com/okta/okta-signin-widget/releases)
+* [Latest available Sign-In Widget release](https://github.com/okta/okta-signin-widget/releases)
 
 ---
 
@@ -41,15 +41,15 @@ This article teaches you how to upgrade the Sign-In Widget when it’s used in a
 
 After you've completed the Sign-In Widget upgrade, review the [Okta Identity Engine overview](/docs/concepts/oie-intro/) to take advantage of the new features in Identity Engine.
 
-## Best practice for widget maintenance
+## Best practice for Sign-In Widget maintenance
 
-For best practices, keep your [widget](https://github.com/okta/okta-signin-widget/releases) up to date. This maintenance is essential so that you can use the latest Identity Engine features and benefit from ongoing improvements to the codebase.
+For best practices, keep your [Sign-In Widget](https://github.com/okta/okta-signin-widget/releases) up to date. This maintenance is essential so that you can use the latest Identity Engine features and benefit from ongoing improvements to the codebase.
 
-The specific steps to upgrade your widget depend on your [user authentication deployment model](/docs/concepts/redirect-vs-embedded/), which can be one of the following:
+The specific steps to upgrade your Sign-In Widget depend on your [user authentication deployment model](/docs/concepts/redirect-vs-embedded/), which can be one of the following:
 
 * [Redirect authentication](#upgrade-process-for-a-redirect-sign-in-flow): Okta-hosted with no custom URL domain
 * [Redirect authentication](#upgrade-process-for-a-redirect-sign-in-flow): Okta-hosted with custom URL domain
-* [Embedded authentication](#upgrade-process-for-an-embedded-widget): Self-hosted. The embedded widget is able to perform the OIDC flow and return OAuth tokens directly within the app.
+* [Embedded authentication](#upgrade-process-for-an-embedded-widget): Self-hosted. The embedded Sign-In Widget is able to perform the OIDC flow and return OAuth tokens directly within the app.
 
 ## Upgrade process for a redirect sign-in flow
 
@@ -78,9 +78,9 @@ To update the Sign-In Widget:
 
   > **Note:** The third generation of the Okta Sign-In Widget doesn’t guarantee the stability of CSS selectors. Instead, customization in the third generation gets better support through branding. See [Style the Sign-In Widget (third generation)](/docs/guides/custom-widget-gen3/).
 
-## Upgrade process for an embedded widget
+## Upgrade process for an embedded Sign-In Widget
 
-Upgrade your embedded widget by referencing the Okta CDN in your sign-in page. Use the [latest version](https://github.com/okta/okta-signin-widget/releases/) of the Sign-In Widget: -=OKTA_REPLACE_WITH_WIDGET_VERSION=-
+Upgrade your embedded Sign-In Widget by referencing the Okta CDN in your sign-in page. Use the [latest version](https://github.com/okta/okta-signin-widget/releases/) of the Sign-In Widget: -=OKTA_REPLACE_WITH_WIDGET_VERSION=-
 
 ```html
 <script src="https://global.oktacdn.com/okta-signin-widget/-=OKTA_REPLACE_WITH_WIDGET_VERSION=-/js/okta-sign-in.min.js" type="text/javascript"></script>
@@ -89,13 +89,13 @@ Upgrade your embedded widget by referencing the Okta CDN in your sign-in page. U
 
 See also [Using the Okta CDN](https://github.com/okta/okta-signin-widget#using-the-okta-cdn).
 
-In addition to version upgrade, you need to adjust your widget configuration for new or deprecated settings. See the next section.
+In addition to version upgrade, you need to adjust your Sign-In Widget configuration for new or deprecated settings. See the next section.
 
 > **Note:** The third generation of the Okta Sign-In Widget doesn’t support embedded authentication. See [Sign-In Widget, third generation](https://help.okta.com/okta_help.htm?type=oie&id=ext-compare-siw).
 
 > **Note:** If you're currently using the Sign-In Widget major version 4 or earlier, consult the [Okta Sign-In Widget migration guide](https://github.com/okta/okta-signin-widget/blob/master/MIGRATING.md).
 
-## Changes to widget configuration for Identity Engine
+## Changes to Sign-In Widget configuration for Identity Engine
 
 For Identity Engine, the Sign-In Widget is configured differently. You can remove some specific objects that were previously in the Sign-In Widget configuration from the JavaScript, as described in the following sections.
 
@@ -145,7 +145,7 @@ var signIn = new OktaSignIn({
     }
   },
   features: {
-    // Used to enable registration feature on the widget
+    // Used to enable registration feature on the Sign-In Widget
     // https://github.com/okta/okta-signin-widget#feature-flags
     registration: true
   }
@@ -188,7 +188,7 @@ If you're initializing Sign-In Widget with a recovery token, the `recoveryToken`
 recoveryToken: 'x0whAcR02i0leKtWMZVc'
 ```
 
-The recovery token is dynamic and is automatically passed into the initialization of the Sign-In Widget. A value in the `recoveryToken` setting currently doesn't impact widget function, though the setting takes effect in the future.
+The recovery token is dynamic and is automatically passed into the initialization of the Sign-In Widget. A value in the `recoveryToken` setting currently doesn't impact Sign-In Widget function, though the setting takes effect in the future.
 
 ### Okta dashboard or custom dashboard sign-in flow
 
@@ -240,9 +240,9 @@ The following specific features are no longer supported, and you can't configure
 
 ### i18n properties
 
-After you upgrade your org to Identity Engine, you can override existing text strings in the interface. Use Identity Engine i18n strings so that you can create localized widgets. See [Updates to Sign-In Widget i18n properties](/docs/guides/oie-upgrade-sign-in-widget-i18n).
+After you upgrade your org to Identity Engine, you can override existing text strings in the interface. Use Identity Engine i18n strings so that you can create localized Sign-In Widgets. See [Updates to Sign-In Widget i18n properties](/docs/guides/oie-upgrade-sign-in-widget-i18n).
 
-## Changes to widget customization for Identity Engine
+## Changes to Sign-In Widget customization for Identity Engine
 
 ### Help title link and Need help signing in string
 

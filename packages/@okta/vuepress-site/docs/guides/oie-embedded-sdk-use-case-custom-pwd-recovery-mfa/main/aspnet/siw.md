@@ -45,9 +45,9 @@ After clicking the link, it's possible that the `otp` and `state` values aren't 
 }
 ```
 
-### Set up and render Widget with OTP and state
+### Set up and render Sign-In Widget with OTP and state
 
-Consume the session `state` and `otp` values in a Razor page that contains the Sign-In Widget. In the code, use the [latest version](https://github.com/okta/okta-signin-widget/releases/) of the Widget: -=OKTA_REPLACE_WITH_WIDGET_VERSION=-
+Consume the session `state` and `otp` values in a Razor page that contains the Sign-In Widget. In the code, use the [latest version](https://github.com/okta/okta-signin-widget/releases/) of the Sign-In Widget: -=OKTA_REPLACE_WITH_WIDGET_VERSION=-
 
 ```razor
 @model SignInWidgetConfiguration
@@ -79,7 +79,7 @@ Consume the session `state` and `otp` values in a Razor page that contains the S
 
 ### Display password reset page
 
-After the Widget is loaded, it checks whether the state and OTP are valid with Okta. Assuming they are, either the following reset page appears, or a prompt appears for the user to enter the OTP code. After the user enters the OTP code, the reset page appears. The user continues the password recovery flow described in the [User password recovery guide](/docs/guides/oie-embedded-sdk-use-case-pwd-recovery-mfa/aspnet/main/).
+After the Sign-In Widget is loaded, it checks whether the state and OTP are valid with Okta. Assuming they are, either the following reset page appears, or a prompt appears for the user to enter the OTP code. After the user enters the OTP code, the reset page appears. The user continues the password recovery flow described in the [User password recovery guide](/docs/guides/oie-embedded-sdk-use-case-pwd-recovery-mfa/aspnet/main/).
 
 <div class="half border">
 

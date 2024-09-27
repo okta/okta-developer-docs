@@ -1,6 +1,6 @@
 ### Source the Sign-In Widget to your sign-in page
 
-Add the Sign-In Widget source to your sign-in page by referencing the Okta CDN, using the [latest version](https://github.com/okta/okta-signin-widget/releases/) of the widget: -=OKTA_REPLACE_WITH_WIDGET_VERSION=-
+Add the Sign-In Widget source to your sign-in page by referencing the Okta CDN, using the [latest version](https://github.com/okta/okta-signin-widget/releases/) of the Sign-In Widget: -=OKTA_REPLACE_WITH_WIDGET_VERSION=-
 
 ```html
 <script src="https://global.oktacdn.com/okta-signin-widget/-=OKTA_REPLACE_WITH_WIDGET_VERSION=-/js/okta-sign-in.min.js" type="text/javascript"></script>
@@ -9,9 +9,9 @@ Add the Sign-In Widget source to your sign-in page by referencing the Okta CDN, 
 
 See also [Using the Okta CDN](https://github.com/okta/okta-signin-widget#using-the-okta-cdn).
 
-### Add JavaScript to initialize and load the widget
+### Add JavaScript to initialize and load the Sign-In Widget
 
-Load the widget on the sign-in page, similar to the following snippet:
+Load the Sign-In Widget on the sign-in page, similar to the following snippet:
 
 ```html
 <div id="content" class="ui padded relaxed">
@@ -64,7 +64,7 @@ The `WidgetConfig` uses values defined in the `config.js` file and is referenced
 
 > **Important**: In Okta Sign-In Widget version 7+, Identity Engine is enabled by default. If you’re using an earlier version than 7, you must explicitly enable Identity Engine features by setting `useInteractionCodeFlow: true` in the configuration settings. If you’re using version 7+ and you want to use Classic Engine rather than Identity Engine, specify `useClassicEngine: true` in the configuration settings.
 
-The widget renders in the sign-in page when the `router.get('/login', (req, res, next) =>` call is triggered.
+The Sign-In Widget renders in the sign-in page when the `router.get('/login', (req, res, next) =>` call is triggered.
 
 ```JavaScript
         res.render('login', {
@@ -75,7 +75,7 @@ The widget renders in the sign-in page when the `router.get('/login', (req, res,
 
 ### Run your app
 
-The final step is to run your app. If the widget and your Okta org are properly configured, then the Okta Sign-In Widget appears in your sign-in page:
+The final step is to run your app. If the Sign-In Widget and your Okta org are properly configured, then the Okta Sign-In Widget appears in your sign-in page:
 
 <div class="half">
 

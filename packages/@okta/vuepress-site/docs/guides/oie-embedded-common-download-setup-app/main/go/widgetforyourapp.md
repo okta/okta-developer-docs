@@ -1,4 +1,4 @@
-> **Note:** [Run the embedded Widget sample app](/docs/guides/oie-embedded-common-run-samples/go/main/#run-the-embedded-widget-sample-app) and explore the available [embedded Widget use cases](/docs/guides/oie-embedded-widget-use-case-basic-sign-in/go/main/) to get familiar with the Identity Engine and Sign-In Widget flow.
+> **Note:** [Run the embedded Sign-In Widget sample app](/docs/guides/oie-embedded-common-run-samples/go/main/#run-the-embedded-widget-sample-app) and explore the available [embedded Sign-In Widget use cases](/docs/guides/oie-embedded-widget-use-case-basic-sign-in/go/main/) to get familiar with the Identity Engine and Sign-In Widget flow.
 
 Begin to integrate the Sign-In Widget into your own embedded app by following these steps:
 
@@ -9,7 +9,7 @@ Begin to integrate the Sign-In Widget into your own embedded app by following th
 
 #### Source the Sign-In Widget from the Okta CDN
 
-Add the Sign-In Widget source to your sign-in page by referencing the Okta CDN, using the [latest version](https://github.com/okta/okta-signin-widget/releases/) of the Widget: -=OKTA_REPLACE_WITH_WIDGET_VERSION=-
+Add the Sign-In Widget source to your sign-in page by referencing the Okta CDN, using the [latest version](https://github.com/okta/okta-signin-widget/releases/) of the Sign-In Widget: -=OKTA_REPLACE_WITH_WIDGET_VERSION=-
 
 ```html
 <script src="https://global.oktacdn.com/okta-signin-widget/-=OKTA_REPLACE_WITH_WIDGET_VERSION=-/js/okta-sign-in.min.js" type="text/javascript"></script>
@@ -22,7 +22,7 @@ See also [Using the Okta CDN](https://github.com/okta/okta-signin-widget#using-t
 
 When you initialize the Sign-In Widget on your sign-in page, you must configure it with all the required [configuration settings](#configuration-settings) for your app.
 
-Initialize the Sign-In Widget with `OktaSignIn()` and the required Widget configurations (`config`). Call `showSignInAndRedirect()` to render the Widget on the sign-in page.
+Initialize the Sign-In Widget with `OktaSignIn()` and the required Sign-In Widget configurations (`config`). Call `showSignInAndRedirect()` to render the Sign-In Widget on the sign-in page.
 
 ```html
 <div id="okta-signin-widget-container"></div>
@@ -58,4 +58,4 @@ Initialize the Sign-In Widget with `OktaSignIn()` and the required Widget config
 
 > **Important**: In Okta Sign-In Widget version 7+, Identity Engine is enabled by default. If you’re using an earlier version than 7, you must explicitly enable Identity Engine features by setting `config.useInteractionCodeFlow = true;` in the configuration settings in the previous code snippet. If you’re using version 7+ and you want to use Okta Classic Engine rather than Identity Engine, specify `config.useClassicEngine = true;` in the configuration settings.
 
-See [Load the Widget](/docs/guides/oie-embedded-widget-use-case-load/go/main) for further details on integrating the Sign-In Widget into your app.
+See [Load the Sign-In Widget](/docs/guides/oie-embedded-widget-use-case-load/go/main) for further details on integrating the Sign-In Widget into your app.

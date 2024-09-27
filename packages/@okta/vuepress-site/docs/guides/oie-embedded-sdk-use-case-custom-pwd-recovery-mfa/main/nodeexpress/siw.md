@@ -45,9 +45,9 @@ Call `OktaAuth.idx.canProceed()` and pass in the`state` parameter to verify that
       return;
 ```
 
-### Set up and render Widget with otp and state
+### Set up and render Sign-In Widget with otp and state
 
-After you validate the `state` parameter, the final step is to set up the `otp` and `state` in the Widget configurations. Set up the configurations based on the following snippet. Use the [latest version](https://github.com/okta/okta-signin-widget/releases/) of the Widget: -=OKTA_REPLACE_WITH_WIDGET_VERSION=-.
+After you validate the `state` parameter, the final step is to set up the `otp` and `state` in the Sign-In Widget configurations. Set up the configurations based on the following snippet. Use the [latest version](https://github.com/okta/okta-signin-widget/releases/) of the Widget: -=OKTA_REPLACE_WITH_WIDGET_VERSION=-.
 
 ```javascript
     const widgetConfig = {
@@ -69,7 +69,7 @@ After you validate the `state` parameter, the final step is to set up the `otp` 
 
 > **Important**: In Okta Sign-In Widget version 7+, Identity Engine is enabled by default. If you’re using an earlier version than 7, you must explicitly enable Identity Engine features by setting `useInteractionCodeFlow: true` in the `widgetConfig` object in the previous code snippet. If you’re using version 7+ and you want to use Okta Classic Engine rather than Identity Engine, specify `useClassicEngine: true` in the `widgetConfig` object.
 
-After set up, render the client site page and pass the configurations to the Widget during initialization.
+After set up, render the client site page and pass the configurations to the Sign-In Widget during initialization.
 
 ```html
 <script type="text/javascript">
@@ -87,7 +87,7 @@ After set up, render the client site page and pass the configurations to the Wid
 
 ### Display the password reset page
 
-After the Widget is loaded, the following reset page appears and the password recovery flow continues.
+After the Sign-In Widget is loaded, the following reset page appears and the password recovery flow continues.
 
 <div class="half border">
 
