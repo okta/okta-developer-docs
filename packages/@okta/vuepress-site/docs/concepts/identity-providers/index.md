@@ -4,9 +4,9 @@ title: External Identity Providers
 
 # External Identity Providers
 
-As a developer building a custom app, you want to give users the freedom to choose which Identity Provider they use to sign in to your app. But first you should understand how Identity Providers connect to Okta.
+As a developer building a custom app, you want to give users the freedom to choose which Identity Provider (IdP) they use to sign in to your app. But first you should understand how IdPs connect to Okta.
 
-What is an Identity Provider? It's a service that creates and maintains identity information and then provides authentication services to your apps. Identity Providers can significantly reduce sign-in and registration friction. This allows your users to easily access apps without needing to create passwords or remember usernames.
+What's an IdP? It's a service that creates and maintains identity information and then provides authentication services to your apps. IdPs can significantly reduce sign-in and registration friction. This allows your users to easily access apps without needing to create passwords or remember usernames.
 
 <a href='/docs/guides/identity-providers/' class='Button--blueDarkOutline card' data-proofer-ignore>
    <span>Add an Identity Provider integration</span>
@@ -14,29 +14,29 @@ What is an Identity Provider? It's a service that creates and maintains identity
 
 ## The big picture
 
-Okta manages connections to other Identity Providers for your app and sits between your app and the Identity Provider that authenticates your users.
+Okta manages connections to other IdPs for your app and sits between your app and the IdP that authenticates your users.
 
 * You can use Okta as the [user store](/docs/concepts/user-profiles/) for your apps. Then, users can sign in with their email and password by default. See our guides for how to sign in users to your [web](/docs/guides/sign-into-web-app-redirect/), [mobile](/docs/guides/sign-into-mobile-app-redirect/), and [single-page](/docs/guides/sign-into-spa-redirect/) apps.
 
-* You can add connections to social Identity Providers like Apple or Facebook. This is called social login or social login. It allows your users to sign in to your app using credentials from their existing social Identity Providers. After users authenticate, you sync their existing Identity Provider credentials into your Okta Universal Directory while continuing to use that Identity Provider for user authentication. This eliminates the need to store an additional username and password for that user.
+* You can add connections to social IdPs like Apple or Facebook. This is called social login or social login. It allows your users to sign in to your app using credentials from their existing social IdPs. After users authenticate, you sync their existing IdP credentials into your Okta Universal Directory while continuing to use that IdP for user authentication. This eliminates the need to store an additional username and password for that user.
 
-* You can add connections to Identity Providers that you build in-house that support OpenID Connect or SAML protocols. This is also referred to as Inbound Federation or inbound SAML. The SAML flow is initiated with the Service Provider (in this case, Okta) that redirects the user to the Identity Provider for authentication. After authentication, a user is created inside Okta, and the user is redirected back to your app along with an ID token. This allows you to use Okta to proxy between SAML-only Identity Providers and OpenID Connect-only apps that are normally incompatible.
+* You can add connections to IdPs that you build in-house that support OpenID Connect (OIDC) or SAML protocols. This is also referred to as Inbound Federation or inbound SAML. The SAML flow is initiated with the Service Provider (SP) (in this case, Okta) that redirects the user to the IdP for authentication. After authentication, a user is created inside Okta, and the user is redirected back to your app along with an ID token. This allows you to use Okta to proxy between SAML-only IdPs and OIDC-only apps that are normally incompatible.
 
-  > **Note:** Social and OpenID Connect Identity Providers store access tokens that allow subsequent calls to Identity Providers after the user is authorized. For example, the token may contain the permission to add events to a user's Google calendar. After authentication, your app can use the token on more calls to add events to the user's Google calendar on the user's behalf.
+  > **Note:** Social and OIDC IdPs store access tokens that allow subsequent calls to IdPs after the user is authorized. For example, the token may contain the permission to add events to a user's Google calendar. After authentication, your app can use the token on more calls to add events to the user's Google calendar on the user's behalf.
 
-* You can also configure federation [between Okta orgs](/docs/guides/add-an-external-idp/oktatookta/main/) using OpenID Connect or SAML.
+* You can also configure federation [between Okta orgs](/docs/guides/add-an-external-idp/oktatookta/main/) using OIDC or SAML.
 
-Adding any of these Identity Providers allows users to sign in to your app using their credentials from a specific Identity Provider.
+Adding any of these IdPs allows users to sign in to your app using their credentials from a specific IdP.
 
 ## Benefits of using Okta to manage Identity Providers
 
-You could connect your app directly to an Identity Provider (for example, using an SDK to add a button for **Sign in with Google**). However, using Okta as the user store for your app and letting Okta manage the Identity Provider connections has some benefits:
+You could connect your app directly to an IdP (for example, using an SDK to add a button for **Sign in with Google**). However, using Okta as the user store for your app and letting Okta manage the IdP connections has some benefits:
 
 * **No custom code:** Your app only needs to talk to Okta, and Okta does the rest.
 
-* **One protocol:** Your app uses OpenID Connect to talk to Okta. Okta handles whatever protocols the other Identity Providers use, and this is transparent to your app.
+* **One protocol:** Your app uses OIDC to talk to Okta. Okta handles whatever protocols the other IdPs use, and this is transparent to your app.
 
-* **Single user store:** All users are stored in Okta. You can capture the profile attributes from an Identity Provider user and store those attributes in the Okta Universal Directory.
+* **Single user store:** All users are stored in Okta. You can capture the profile attributes from an IdP user and store those attributes in the Okta Universal Directory.
 
 * **Profile sync:** If a user updates their profile at the Identity Provider, those changes appear in Okta the next time they use the provider to sign in.
 
@@ -56,8 +56,8 @@ The sign-in process starts at the `/authorize` endpoint, and then goes out to th
 
 1. In your app, the user clicks a button similar to: **Sign in with (Identity Provider)**.
 2. Your app redirects the browser to Okta.
-3. Okta redirects the browser to the Identity Provider.
-4. The user is prompted to sign in at the Identity Provider (if they aren't already) and to accept the permissions required by your app.
+3. Okta redirects the browser to the IdP.
+4. The user is prompted to sign in at the IdP (if they aren't already) and to accept the permissions that are required by your app.
 5. The Identity Provider redirects the browser back to Okta.
 6. Okta processes the sign-in request and adds the user to your Okta organization's Universal Directory.
 7. Okta redirects the browser back to your app, just like any other sign-in request.
@@ -91,7 +91,7 @@ ok -> ua: 302 to redirect_uri
 
 ## Account Linking and Just-In-Time provisioning
 
-Use account linking to help create a unified view of your users within your org. You can also use Just-In-Time (JIT) provisioning to create a seamless experience for users. User can sign in to your app for the first time using their credentials from another Identity Provider.
+Use account linking to help create a unified view of your users within your org. You can also use Just-In-Time (JIT) provisioning to create a seamless experience for users. User can sign in to your app for the first time using their credentials from another IdP.
 
 ### Account Linking
 
