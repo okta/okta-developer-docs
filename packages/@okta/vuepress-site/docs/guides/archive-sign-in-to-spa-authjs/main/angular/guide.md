@@ -1,23 +1,23 @@
 ---
-title: Okta Auth JS and Angular
+title: Okta Auth JavaScript SDK and Angular
 language: Angular
 excerpt: Integrate Okta with an Angular application using Auth JS.
 icon: code-angular
 ---
 
 
-This guide will walk you through integrating authentication and authorization into an Angular application using the [Okta Auth SDK](https://github.com/okta/okta-auth-js).
+This guide walks you through integrating authentication and authorization into an Angular app using the [Okta Auth JavaScript SDK](https://github.com/okta/okta-auth-js) (auth.js).
 
-> The Auth SDK is a lower level SDK than the [Okta Angular SDK](https://github.com/okta/okta-angular), which builds upon the Auth SDK to implement many of the features shown in this guide. Our complete [Angular Sample Apps](https://github.com/okta/samples-js-angular) are built using the Angular SDK. For a simple integration, we generally recommend using the Angular SDK. However, in certain cases it may be preferable to use the Auth SDK directly, as shown here.
+> **Note**: The [Okta Angular SDK](https://github.com/okta/okta-angular) builds on auth.js to implement many of the features shown in this guide. Our complete [Angular Sample Apps](https://github.com/okta/samples-js-angular) are built using the Angular SDK. For a simple integration, Okta generally recommends using the Angular SDK. However, in certain cases it may be preferable to use auth.js directly, as shown here.
 
 ## Prerequisites
 
-If you do not already have a  **Developer Edition Account**, you can create one at [https://developer.okta.com/signup/](https://developer.okta.com/signup/).
+If you don't already have a Developer Edition org, you can create one at [https://developer.okta.com/signup/](https://developer.okta.com/signup/).
 
 ### Add an OpenID Connect Client
 
-* Sign in to the Okta Developer Dashboard, and select **Create New App**
-* Choose **Single Page App (SPA)** as the platform, then populate your new OpenID Connect application with appropriate values for your app. For example:
+* Sign in to the Okta developer dashboard, and select **Create New App**
+* Choose **Single Page App (SPA)** as the platform, then populate your new OpenID Connect app with appropriate values for your app. For example:
 
 | Setting              | Value                                               |
 | -------------------  | --------------------------------------------------- |
@@ -26,8 +26,8 @@ If you do not already have a  **Developer Edition Account**, you can create one 
 | Logout redirect URIs | `http://localhost:4200`                             |
 | Allowed grant types  | Authorization Code                                  |
 
-> **Note:** It is important to choose the appropriate application type for apps which are public clients. Failing to do so may result in Okta API endpoints attempting to verify an app's client secret, which public clients are not designed to have, hence breaking the sign-in or sign-out flow.
-
+> **Note:** It’s important to choose the appropriate app type for apps that are public clients. Failing to do so may result in Okta API endpoints attempting to verify an app's client secret. Public clients aren’t designed to a client secret, hence breaking the sign-in or sign-out flow.
+>
 > **Note:** CORS is automatically enabled for the granted login redirect URIs.
 
 ## Create an Angular App
@@ -38,7 +38,7 @@ To create an Angular app, open a terminal and install the Angular CLI:
 npm install -g @angular/cli
 ```
 
-Now, create a new application using the Angular CLI:
+Now, create an app using the Angular CLI:
 
 ```bash
 ng new okta-app
@@ -46,15 +46,15 @@ ng new okta-app
 
 When asked `Would you like to add Angular routing?`, press "y"
 
-For this example we are using `CSS` as the style engine. If you would like to use `SCSS` or another style engine, you may need to make a few adjustments to the code snippets shown in this guide.
+For this example use `CSS` as the style engine. If you would like to use `SCSS` or another style engine, you may need to make a few adjustments to the code snippets shown in this guide.
 
-After all prompts have been answered, the Angular CLI will create a new project in a folder named `okta-app` and installs all required dependencies.
+After all prompts have been answered, the Angular CLI will create a project in a folder named `okta-app` and installs all required dependencies.
 
 ```bash
 cd okta-app
 ```
 
-Install the [Okta Auth SDK](https://github.com/okta/okta-auth-js) using `npm`:
+Install [auth.js](https://github.com/okta/okta-auth-js) using `npm`:
 
 ```bash
 npm install @okta/okta-auth-js
@@ -62,12 +62,12 @@ npm install @okta/okta-auth-js
 
 ## Create an Authentication Service
 
-Users can sign in to your Angular application a number of different ways.
-The easiest, and most secure way is to use the **default login page**. This page renders the [Okta Sign-In Widget](/docs/guides/embedded-siw/), equipped to handle User Lifecycle operations, MFA, and more.
+Users can sign in to your Angular app various different ways.
+The easiest, and most secure, way is to use the default sign-in page. This page renders the [Okta Sign-In Widget](/docs/guides/embedded-siw/), equipped to handle User Lifecycle operations, MFA, and more.
 
-First, create `src/app/app.service.ts` as an authorization utility file and use it to bootstrap the required fields to login:
+First, create `src/app/app.service.ts` as an authorization utility file and use it to bootstrap the required fields to sign in:
 
-> Important: We're using Okta's organization authorization server to make setup easy, but it's less flexible than a custom authorization server. Many SPAs send access tokens to access APIs. If you're building an API that will need to accept access tokens, [create an authorization server](/docs/guides/customize-authz-server/).
+> Important: We're using the org authorization server to make setup easy, but it's less flexible than a custom authorization server. Many SPAs send access tokens to access APIs. If you're building an API that needs to accept access tokens, [create a custom authorization server](/docs/guides/customize-authz-server/).
 
 ```typescript
 import { Observable, Observer } from 'rxjs';
@@ -170,11 +170,11 @@ export class OktaAuthGuard implements CanActivate {
 }
 ```
 
-Whenever a user attempts to access a route that is protected by `OktaAuthGuard`, it first checks to see if the user has been authenticated. If `isAuthenticated()` returns `false`, the login flow will be started.
+Whenever a user attempts to access a route that is protected by `OktaAuthGuard`, it checks to see if the user has been authenticated. If `isAuthenticated()` returns `false`, the sign-in flow begins.
 
 ## Add Routes
 
-Let's take a look at what routes are needed:
+Let's look at what routes are needed:
 
 * `/`: A default page to handle basic control of the app.
 * `/callback`: Handle the response back from Okta and store the returned tokens.
@@ -182,7 +182,7 @@ Let's take a look at what routes are needed:
 
 ### `/`
 
-First, update `src/app/app.component.ts` to inject the `OktaAuthService` into the component. This will make the service available within the component's template as the variable `oktaAuth`. Subscribe to the `Observable` exposed by the `OktaAuthService`. This will keep the variable `isAuthenticated` updated. We will use this variable within the template to control visibility of the login and logout buttons.
+First, update `src/app/app.component.ts` to inject the `OktaAuthService` into the component. This makes the service available within the component's template as the variable `oktaAuth`. Subscribe to the `Observable` exposed by the `OktaAuthService`. This keeps the variable `isAuthenticated` updated. Use this variable within the template to control the visibility of the sign-in and sign-out buttons.
 
 ```typescript
 import { Component, OnInit } from '@angular/core';
@@ -217,9 +217,9 @@ Next, update `src/app/app.component.html` with some buttons to trigger login or 
 
 ### `/callback`
 
-In order to handle the redirect back from Okta, we need to capture the token values from the URL. Use the `/callback` route to handle the logic of storing these tokens and redirecting back to the main page.
+To handle the redirect back from Okta, capture the token values from the URL. Use the `/callback` route to handle the logic of storing these tokens and redirecting back to the main page.
 
-Create a new component `src/app/callback.component.ts`:
+Create a component `src/app/callback.component.ts`:
 
 ```typescript
 import { Component, OnInit } from '@angular/core';
@@ -239,9 +239,9 @@ export class CallbackComponent implements OnInit {
 
 ### `/protected`
 
-This route will be protected by the `OktaAuthGuard`, only permitting authenticated users with a valid `accessToken`.
+This route is protected by `OktaAuthGuard`, only permitting authenticated users with a valid `accessToken`.
 
-Create a new component `src/app/protected.component.ts`:
+Create a component `src/app/protected.component.ts`:
 
 ```typescript
 import { Component } from '@angular/core';
@@ -327,4 +327,4 @@ After the server starts, this message appears in your terminal:
 
 ## Conclusion
 
-You have now successfully authenticated with Okta! Now what? With a user's `id_token`, you have basic claims for the user's identity. You can extend the set of claims by modifying the `scopes` to retrieve custom information about the user. This includes `locale`, `address`, `groups`, and [more](/docs/reference/api/oidc/).
+You have now successfully authenticated with Okta. With a user's `id_token`, you have basic claims for the user's identity. You can extend the set of claims by modifying the `scopes` to retrieve custom information about the user. This includes `locale`, `address`, `groups`, and [more](/docs/reference/api/oidc/).
