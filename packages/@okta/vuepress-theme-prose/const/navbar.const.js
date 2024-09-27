@@ -621,15 +621,15 @@ export const guides = [
                 path: "/docs/guides/scim-provisioning-integration-overview/main/",
                 subLinks: [
                   {
-                    title: "Prepare your SCIM service",
+                    title: "Build your SCIM service",
                     path: "/docs/guides/scim-provisioning-integration-prepare/main/",
                   },
                   {
-                    title: "Connect your SCIM service to Okta",
+                    title: "Add a private SCIM integration",
                     guideName: "scim-provisioning-integration-connect",
                   },
                   {
-                    title: "Test your SCIM integration",
+                    title: "Test your private SCIM integration",
                     path: "/docs/guides/scim-provisioning-integration-test/main/",
                   },
                 ],
