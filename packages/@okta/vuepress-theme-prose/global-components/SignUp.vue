@@ -428,23 +428,23 @@
                     >
                   </label>
                   <div class="signup__form__splitter">
-                    or
+                    <!-- or-->
                   </div>
                   <span>Already signed up? <a href="/login">Log in here.</a></span>
-                  <button
+                  <!--<button
                     id="continue-github"
                     class="signup__form__button"
                     @click="openTermsConditionsDialog(uris.github)"
                   >
-                    <i class="fa fa-github" /> Continue with GitHub
-                  </button>
-                  <button
+                  <i class="fa fa-github" /> Continue with GitHub
+                  </button>-->
+                  <!--<button
                     id="continue-google"
                     class="signup__form__button"
                     @click="openTermsConditionsDialog(uris.google)"
                   >
                     <span class="google-logo" /> Continue with Google
-                  </button>
+                  </button>-->
                   <TermsAndConditionsDialog
                     v-if="isShowTermsConditionsDialog"
                     :social-url="socialUrl"

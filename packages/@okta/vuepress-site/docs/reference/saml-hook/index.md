@@ -5,6 +5,12 @@ excerpt: Customize SAML assertions returned by Okta.
 
 # SAML assertion inline hook reference
 
+The SAML Assertion Inline Hook API reference is now available at the new [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createSAMLAssertionInlineHook)
+
+Explore the [Okta Public API Collections](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/overview) workspace to get started with the Inline Hook API Postman Collection.
+
+<!--
+
 This page provides reference documentation for SAML assertion inline hooks, one type of inline hook supported by Okta. It provides sample JSON objects that are contained in the outbound request from Okta to your external service, and sample JSON objects that you can include in your response.
 
 ## See also
@@ -344,7 +350,7 @@ Okta supports URI claims with SAML assertion hooks. When you need to replace or 
 
 ### SessionNotOnOrAfter support
 
-In some scenarios, your service provider may require the `SessionNotOnOrAfter` attribute for the `<saml:AuthnStatement>` in the SAML assertion, which sets the provider session time correctly. Use `add` op with the path `/authentication/sessionLifetime` and a value for session lifetime in seconds to add this attribute. See the [Sample listing of JSON payload response](/docs/reference/saml-hook/#sample-listing-of-json-payload-of-response) for an example. Okta calculates `SessionNotOnOrAfter` by adding the `/authentication/sessionLifetime` value to the `issueInstant` attribute and returns it in the SAML assertion.
+In some scenarios, your service provider may require the `SessionNotOnOrAfter` attribute for the `<saml:AuthnStatement>` in the SAML assertion, which sets the provider session time correctly. Use `add` op with the path `/authentication/sessionLifetime` and a value for session lifetime in seconds to add this attribute. See the [Sample listing of JSON payload response](/https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createSAMLAssertionInlineHook!c=200&path=commands&t=response) for an example. Okta calculates `SessionNotOnOrAfter` by adding the `/authentication/sessionLifetime` value to the `issueInstant` attribute and returns it in the SAML assertion.
 
 ### error
 
@@ -483,4 +489,4 @@ You then need to associate the registered inline hook with a SAML app by complet
 
 1. In the **Assertion Inline Hook** field, select your registered inline hook.
 
-> **Note:** You can associate only one inline hook with each app.
+> **Note:** You can associate only one inline hook with each app. -->

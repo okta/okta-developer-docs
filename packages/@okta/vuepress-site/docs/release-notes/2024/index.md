@@ -4,6 +4,75 @@ title: Okta Classic Engine API release notes 2024
 
 # Okta Classic Engine API release notes (2024)
 
+## September
+
+### Weekly release 2024.09.2
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Bug fixed in 2024.09.2](#bug-fixed-in-2024-09-2)| September 25, 2024 |
+
+#### Bug fixed in 2024.09.2
+
+When an admin made a partial update using the Profile Mappings API, both incoming data and existing property mappings were validated instead of only the incoming request. (OKTA-798638)
+
+### Monthly release 2024.09.0
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Descriptions for Entitlement and Role objects](#descriptions-for-entitlement-and-role-objects) | September 11, 2024 |
+| [Enhanced Dynamic Network Zones is self-service GA](#enhanced-dynamic-network-zones-is-self-service-ga) | May 15, 2024 |
+| [Event hook System Log update](#event-hook-system-log-update) | September 11, 2024 |
+| [Okta Personal Settings API is GA in Preview](#okta-personal-settings-api-is-ga-in-preview) | September 11, 2024 |
+| [System Log events added for Okta Workflows](#system-log-events-added-for-okta-workflows) | September 11, 2024 |
+| [Developer documentation update in 2024.09.0](#developer-documentation-update-in-2024-09-0) | September 11, 2024 |
+| [Bugs fixed in 2024.09.0](#bugs-fixed-in-2024-09-0)| September 11, 2024 |
+
+#### Descriptions for Entitlement and Role objects
+
+SCIM 2.0 with entitlements now supports a `description` field for Entitlement and Role objects.
+<!--OKTA-741183-->
+
+#### Enhanced Dynamic Network Zones is self-service GA
+
+Use enhanced dynamic network zones to define IP service categories (proxies, VPNs), locations, and Autonomous System Numbers (ASNs) that are allowed or blocked in a zone. See the [Network Zones API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/NetworkZone/). <!--ENHANCED_DYNAMIC_NETWORK_ZONE OKTA-727934-->
+
+#### Event hook System Log update
+
+The `user.account.unlock_by_admin` event type is now event hook eligible. See [Event types](/docs/reference/api/event-types/). <!--OKTA-802486 OKTA-715243-->
+
+#### Okta Personal Settings API is GA in Preview
+
+The [Okta Personal Settings API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OktaPersonalSettings/) allows you to manage [Okta Personal](https://www.okta.com/products/okta-personal/workforce/) admin settings.
+
+Okta Personal for Workforce is a free account that helps users separate their work apps from non-work apps. Okta Personal makes it easy for users to switch between their personal and work accounts, and to migrate their personal apps from an existing Okta enterprise tenant. When you enable Okta Personal for Workforce in your org, users receive a notification that encourages them to use Okta Personal for personal apps and Okta enterprise for work apps. See [Okta Personal for Workforce user experience](https://help.okta.com/oie/en-us/content/topics/okta-personal/okta-personal-for-workforce/user-experience.htm). <!--OKTA-794131-->
+
+#### System Log events added for Okta Workflows
+
+The `workflows.user.flow.move` and `workflows.user.table.move` Okta Workflows events have been added to the System Log to record the changes that occur due to reorganization of folder-level resources. <!--OKTA-669131-->
+
+#### Developer documentation update in 2024.09.0
+
+Our [API documentation](https://developer.okta.com/docs/api/) has a new look and feel that features a more logical navigation which aligns with industry standards. See **API Docs** in the menu.
+
+<div class="three-quarter">
+
+![Developer docs top menu bar](/img/homepage/APIDocs-menu.png)
+
+</div>
+
+API content in the **References** section will be moved after September 30, 2024.
+
+#### Bugs fixed in 2024.09.0
+
+* When creating or updating a profile, user first or last names that contained a dot (`last.name`) triggered malformed field error messages. (OKTA-798884)
+
+* Admins couldn't configure the `okta.myAccount.sessions.manage` scope as a custom scope on custom authorization servers. (OKTA-748880)
+
+* The Custom Token Scopes endpoints (`/api/v1/authorizationServers/{authServerId}/scopes`) for the Authorization Server API didn't support pagination. (OKTA-734223)
+
+* Deleted apps weren't removed from routing rules and were returned by calls to the `/policies` endpoint if the call used `IDP_DISCOVERY` as the `type`. (OKTA-734045)
+
 ## August
 
 ### Weekly release 2024.08.3
@@ -320,7 +389,7 @@ You can now make PUT requests to the `/api-tokens/{apiTokenId}` endpoint to upda
 
 #### Permissions for custom admins to manage agents is GA in Production
 
-Custom admins can now view, register, and manage agents. See [Permission types](/docs/reference/api/roles/#permission-properties). <!-- OKTA-706310 -->
+Custom admins can now view, register, and manage agents. See [Permission types](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#permissions). <!-- OKTA-706310 -->
 
 #### New System Log API property for target object is GA Preview
 
@@ -377,7 +446,7 @@ The Telephony Inline Hook allows customers to generate one-time passcodes within
 
 #### Permissions for custom admins to manage agents is GA in Preview
 
-Custom admins can now view, register, and manage agents. See [Permission types](/docs/reference/api/roles/#permission-properties). <!-- OKTA-706310 ALLOW_CUSTOM_ADMIN_TO_MANAGE_REGISTER_AGENTS -->
+Custom admins can now view, register, and manage agents. See [Permission types](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#permissions). <!-- OKTA-706310 ALLOW_CUSTOM_ADMIN_TO_MANAGE_REGISTER_AGENTS -->
 
 #### Enhanced app API contracts is GA in Production
 
@@ -536,7 +605,7 @@ You can now use OAuth 2.0 Demonstrating Proof-of-Possession (DPoP) access tokens
 
 #### New attribute to manage SAML app session lifetimes is EA in Preview
 
-The `samlAssertionLifetimeSeconds` parameter is an optional SAML parameter that allows the IdP to control the session at the SP. This parameter allows users to add `samlAssertionLifetimeSeconds` as an attribute in the SAML assertion to control the session lifetimes of SP apps using the Okta IdP. See the [Settings table](/docs/reference/api/apps/#settings-9) in the **Add custom SAML application** section. <!-- OKTA-690479 SAML_ASSERTION_LIFETIME_SECONDS_ON_APPS_API -->
+The `samlAssertionLifetimeSeconds` parameter is an optional SAML parameter that allows the IdP to control the session at the SP. This parameter allows users to add `samlAssertionLifetimeSeconds` as an attribute in the SAML assertion to control the session lifetimes of SP apps using the Okta IdP. See the [Settings table](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication!path=6/settings/signOn/samlAssertionLifetimeSeconds&t=request) in the **Add custom SAML application** section. <!-- OKTA-690479 SAML_ASSERTION_LIFETIME_SECONDS_ON_APPS_API -->
 
 #### New function for email templates is EA in Preview
 

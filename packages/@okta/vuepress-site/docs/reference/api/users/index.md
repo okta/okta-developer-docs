@@ -5,18 +5,23 @@ category: management
 
 # Users API
 
-The Okta User API provides operations to manage users in your organization.
+Explore the [Okta Public API Collections](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/overview) workspace to get started with the Users API.
 
-<ApiAuthMethodWarning />
+<!--<ApiAuthMethodWarning />
 
 ## Getting started
 
-Explore the Users API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/9daeb4b935a423c39009)
+Explore the Users API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/9daeb4b935a423c39009)-->
 
 ## User operations
 
+The Users API provides operations to manage users in your org. These operations are available at the new [Okta API reference portal](https://developer.okta.com/docs/api/) as part of the [Users API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/).
+
 ### Create User
 
+See [Create a User](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/createUser) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--
 <ApiOperation method="post" url="/api/v1/users" />
 
 Creates a new user in your Okta organization with or without credentials
@@ -29,7 +34,7 @@ Creates a new user in your Okta organization with or without credentials
 - [Create User with Password & Recovery Question](#create-user-with-password-recovery-question)
 - [Create User with Authentication Provider](#create-user-with-authentication-provider)
 - [Create User in Group](#create-user-in-group)
-- [Create User with Non-Default User Type](#create-user-with-non-default-user-type)
+- [Create User with Non-Default user type](#create-user-with-non-default-user-type)
 
 > **Legal Disclaimer** <br><br>
 After a user is added to the Okta directory, they receive an activation email. As part of signing up for this service, you agreed not to use Okta's service/product to spam and/or send unsolicited messages. Please refrain from adding unrelated accounts to the directory as Okta is not responsible for, and disclaims any and all liability associated with, the activation email's content. You, and you alone, bear responsibility for the emails sent to any recipients.
@@ -46,7 +51,6 @@ After a user is added to the Okta directory, they receive an activation email. A
 | nextLogin     | With `activate=true`, if `nextLogin=changePassword`, a user is created, activated, and the password is set to `EXPIRED`, so user must change it the next time they log in. | Query        | String                                       | FALSE      | FALSE   |
 
 ##### Response parameters
-
 
 All responses return the created [User](#user-object).  Activation of a user is an asynchronous operation.  The system performs group reconciliation during activation and assigns the user to all applications via direct or indirect relationships (group memberships).
 
@@ -85,14 +89,12 @@ If the enrollment policy that applies to the groups specified for the newly crea
 
 #### Create User without credentials
 
-
 Creates a user without a [password](#password-object) or [recovery question & answer](#recovery-question-object)
 
 If appropriate, when the user is activated, an email is sent to the user with an activation token that the user can use to complete the activation process.
 This is the default flow for new user registration using the administrator UI.
 
 ##### Request example
-
 
 ```bash
 curl -v -X POST \
@@ -111,7 +113,6 @@ curl -v -X POST \
 ```
 
 ##### Response example
-
 
 ```json
 {
@@ -149,14 +150,12 @@ curl -v -X POST \
 
 #### Create User with recovery question
 
-
 Creates a user without a [password](#password-object)
 
 When the user is activated, an email is sent to the user with an activation token that can be used to complete the activation process.
 This flow is useful if migrating users from an existing user store.
 
 ##### Request example
-
 
 ```bash
 curl -v -X POST \
@@ -181,7 +180,6 @@ curl -v -X POST \
 ```
 
 ##### Response example
-
 
 ```json
 {
@@ -222,7 +220,6 @@ curl -v -X POST \
 
 #### Create User with password
 
-
 Creates a user without a [recovery question & answer](#recovery-question-object)
 
 The new user is able to sign in after activation with the assigned password.
@@ -231,7 +228,6 @@ This flow is common when developing a custom user registration experience.
 > **Important:** Do not generate or send a one-time activation token when activating users with an assigned password.  Users should sign in with their assigned password.
 
 ##### Request example
-
 
 ```bash
 curl -v -X POST \
@@ -253,7 +249,6 @@ curl -v -X POST \
 ```
 
 ##### Response example
-
 
 ```json
 {
@@ -292,7 +287,6 @@ curl -v -X POST \
 
 #### Create User with imported hashed password
 
-
 Creates a user with a specified [hashed password](#hashed-password-object).
 
 The new user is able to sign in after activation with the specified password.
@@ -301,7 +295,6 @@ This flow is common when migrating users from another data store in cases where 
 > **Important:** Do not generate or send a one-time activation token when activating users with an imported password.  Users should login with their imported password.
 
 ##### Request example
-
 
 ```bash
 curl -v -X POST \
@@ -330,7 +323,6 @@ curl -v -X POST \
 ```
 
 ##### Response example
-
 
 ```json
 {
@@ -369,17 +361,15 @@ curl -v -X POST \
 
 #### Create User with password import inline hook
 
-
 Creates a user with a [Password Hook](#password-hook-object) object specifying that a password inline hook should be used to handle password verification.
 
-The password inline hook is triggered to handle verification of the end user's password the first time the user tries to sign in, with Okta calling the password inline hook to check that the password the user supplied is valid. If the password is valid, Okta stores the hash of the password that was provided and can authenticate the user independently from then on. See [Password import inline hook](/docs/reference/password-hook/) for more details.
+The password inline hook is triggered to handle verification of the end user's password the first time the user tries to sign in, with Okta calling the password inline hook to check that the password the user supplied is valid. If the password is valid, Okta stores the hash of the password that was provided and can authenticate the user independently from then on. See [Password import inline hook](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createPasswordImportInlineHook) for more details.
 
 The new user is able to sign in after activation with the valid password. This flow supports migrating users from another data store in cases where we wish to allow the users to retain their current passwords.
 
 > **Important:** Don't generate or send a one-time activation token when activating users with an password inline hook. Users should sign in with their existing password to be imported using the password import inline hook.
 
 ##### Request example
-
 
 ```bash
 curl -v -X POST \
@@ -405,7 +395,6 @@ curl -v -X POST \
 ```
 
 ##### Response example
-
 
 ```json
 {
@@ -441,7 +430,6 @@ curl -v -X POST \
 
 #### Create User with Password & Recovery Question
 
-
 Creates a new user with a [password](#password-object) and [recovery question & answer](#recovery-question-object)
 
 The new user is able to log in with the assigned password after activation.
@@ -450,7 +438,6 @@ This flow is common when developing a custom user-registration experience.
 > **Important:** Don't generate or send a one-time activation token when activating users with an assigned password.  Users should login with their assigned password.
 
 ##### Request example
-
 
 ```bash
 curl -v -X POST \
@@ -476,7 +463,6 @@ curl -v -X POST \
 ```
 
 ##### Response example
-
 
 ```json
 {
@@ -518,11 +504,9 @@ curl -v -X POST \
 
 #### Create User with Authentication Provider
 
-
 Creates a new passwordless user with a `SOCIAL` or `FEDERATION` [authentication provider](#provider-object) that must be authenticated via a trusted Identity Provider
 
 ##### Request example
-
 
 ```bash
 curl -v -X POST \
@@ -547,7 +531,6 @@ curl -v -X POST \
 ```
 
 ##### Response example
-
 
 ```json
 {
@@ -601,7 +584,6 @@ Use this in conjunction with other create operations for a Group Administrator t
 
 ##### Request example
 
-
 ```bash
 curl -v -X POST \
 -H "Accept: application/json" \
@@ -623,7 +605,6 @@ curl -v -X POST \
 ```
 
 ##### Response example
-
 
 ```json
 {
@@ -659,11 +640,11 @@ curl -v -X POST \
 }
 ```
 
-#### Create User with non-default User Type
+#### Create User with non-default user type
 
-Creates a user with a specified User Type (see [User Types](/docs/reference/api/user-types)). The type specification may be included with any of the above Create User operations; this example demonstrates creating a user without credentials.
+Creates a user with a specified user type (see [user types](/docs/reference/api/user-types)). The type specification may be included with any of the above Create User operations; this example demonstrates creating a user without credentials.
 
-The User Type determines which [Schema](/docs/reference/api/schemas) applies to that user. After a user has been created, the user can be assigned a different User Type only by an administrator via a full replacement [PUT operation](/docs/reference/api/user-types/#update-user-type).
+The user type determines which [schema](/docs/reference/api/schemas) applies to that user. After a user has been created, the user can be assigned a different user type only by an administrator via a full replacement [PUT operation](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserType/#tag/UserType/operation/updateUserType).
 
 ##### Request example
 
@@ -730,10 +711,13 @@ curl -v -X POST \
   }
 }
 ```
+--->
 
 ### Get User
 
+See [Retrieve a User](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/getUser).
 
+<!--
 <ApiOperation method="get" url="/api/v1/users/${userId}" /> <SupportsCors />
 
 Fetches a user from your Okta organization
@@ -762,12 +746,10 @@ The performance optimization will only be applied when all three parameters are 
 **Header:** `Content-Type: application/json; okta-response=omitCredentials,omitCredentialsLinks`<br>
 **Result:** Omits the credentials subobject and credentials links from the response.  Does not apply performance optimization.
 
-
 **Header:** `Content-Type: application/json; okta-response="omitCredentials,omitCredentialsLinks, omitTransitioningToStatus"`<br>
 **Result:** Omits the credentials, credentials links, and `transitioningToStatus` field from the response.  Applies performance optimization.
 
 ##### Request parameters
-
 
 Fetch a user by `id`, `login`, or `login shortname` if the short name is unambiguous.
 
@@ -783,7 +765,6 @@ Fetch a user by `id`, `login`, or `login shortname` if the short name is unambig
 >**Note:** Some browsers block third-party cookies by default, which disrupts Okta functionality in certain flows. See [Mitigate the impact of third-party cookie deprecation](https://help.okta.com/okta_help.htm?type=oie&id=ext-third-party-cookies).
 
 ##### Response parameters
-
 
 Fetched [User](#user-object)
 
@@ -801,11 +782,15 @@ Content-Type: application/json
     "errorCauses": []
 }
 ```
+-->
 
 #### Get current User
 
-Fetches the current user linked to an API token or a session cookie
+<!--Fetches the current user linked to an API token or a session cookie-->
 
+See [Retrieve a User](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/getUser) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--
 ##### Request example
 
 The following example fetches the current user linked to a session cookie:
@@ -888,15 +873,18 @@ curl -v -X GET \
   }
 }
 ```
+-->
 
 #### Get User with ID
 
-Fetches a specific user when you know the user's `id`
+<!--Fetches a specific user when you know the user's `id`-->
+
+See [Retrieve a User](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/getUser) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
 
 > **Hint:** If you don't know the user `id`, [list the users](#list-users) to find the correct ID.
 
+<!--
 ##### Request example
-
 
 ```bash
 curl -v -X GET \
@@ -908,7 +896,6 @@ curl -v -X GET \
 
 ##### Response example
 
-
 ```json
 {
   "id": "00ub0oNGTSWTBKOLGLNR",
@@ -961,17 +948,18 @@ curl -v -X GET \
   }
 }
 ```
+-->
 
 #### Get User with login
 
+See [Retrieve a User](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/getUser) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
 
-Fetches a specific user when you know the user's `login`
+<!--Fetches a specific user when you know the user's `login`
 
 When fetching a user by `login`, [URL encode](https://developer.mozilla.org/en-US/docs/Glossary/Percent-encoding) the request parameter to ensure that special characters are escaped properly.
 Logins with a `/` character can only be fetched by `id` due to URL issues with escaping the `/` character.
 
 ##### Request example
-
 
 ```bash
 curl -v -X GET \
@@ -983,7 +971,6 @@ curl -v -X GET \
 
 ##### Response example
 
-
 ```json
 {
   "id": "00ub0oNGTSWTBKOLGLNR",
@@ -1036,17 +1023,19 @@ curl -v -X GET \
   }
 }
 ```
+-->
 
 #### Get User with Login Shortname
 
+See [Retrieve a User](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/getUser) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
 
+<!--
 Fetches a specific user when you know the user's `login shortname` and the shortname is unique within the organization
 
 When fetching a user by `login shortname`, [URL encode](https://developer.mozilla.org/en-US/docs/Glossary/Percent-encoding) the request parameter to ensure that special characters are escaped properly.
 Logins with a `/` character can only be fetched by `id` due to URL issues with escaping the `/` character.
 
 ##### Request example
-
 
 ```bash
 curl -v -X GET \
@@ -1058,7 +1047,6 @@ curl -v -X GET \
 
 ##### Response example
 
-
 ```json
 {
   "id": "00ub0oNGTSWTBKOLGLNR",
@@ -1111,9 +1099,11 @@ curl -v -X GET \
   }
 }
 ```
+-->
 
 ### List Users
 
+<!--
 <ApiOperation method="get" url="/api/v1/users" />
 
 Lists users in your organization with pagination in most cases
@@ -1193,7 +1183,7 @@ This operation:
 - Searches many properties:
   - Any user profile property, including custom-defined properties
   - The top-level properties `id`, `status`, `created`, `activated`, `statusChanged`, and `lastUpdated`
-  - The [User Type](/docs/reference/api/user-types) accessed as `type.id`
+  - The [user type](/docs/reference/api/user-types) accessed as `type.id`
 - Accepts `sortBy` and `sortOrder` parameters.
   - `sortBy` can be any single property, for example `sortBy=profile.lastName`
   - `sortOrder` is optional and defaults to ascending
@@ -1206,7 +1196,7 @@ This operation:
 | `status eq "STAGED"`                            | Users that have a `status` of `STAGED`          |
 | `lastUpdated gt "yyyy-MM-dd'T'HH:mm:ss.SSSZ"`   | Users last updated after a specific timestamp   |
 | `id eq "00u1ero7vZFVEIYLWPBN"`                  | Users with a specified `id`                     |
-| `type.id eq "otyfnjfba4ye7pgjB0g4"`             | Users with a specified User Type ID             |
+| `type.id eq "otyfnjfba4ye7pgjB0g4"`             | Users with a specified user type ID             |
 | `profile.department eq "Engineering"`           | Users that have a `department` of `Engineering` |
 | `profile.occupation eq "Leader"`                | Users that have an `occupation` of `Leader`     |
 | `profile.lastName sw "Smi" `                    | Users whose `lastName` starts with `Smi`        |
@@ -1269,9 +1259,13 @@ curl -v -X GET \
   }
 ]
 ```
+-->
 
 ##### Searching arrays
 
+For more information, see the [`search`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/listUsers!in=query&path=search&t=request) parameter description.
+
+<!--
 You can search properties that are arrays. If any element matches the search term, the entire array (object) is returned. For examples, see [Request example for array](#request-example-for-array) and [Response example for array](#response-example-for-array).
 
 - Okta follows the [SCIM Protocol Specification](https://tools.ietf.org/html/rfc7644#section-3.4.2.2) for searching arrays.
@@ -1344,10 +1338,13 @@ curl -v -X GET \
     }
 ]
 ```
+-->
 
 #### List Users with a filter
 
-Lists all users that match the filter criteria. To ensure optimal performance, Okta recommends using a [search parameter](#list-users-with-search) instead of a filter.
+See [List all Users](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/listUsers) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--Lists all users that match the filter criteria. To ensure optimal performance, Okta recommends using a [search parameter](#list-users-with-search) instead of a filter.
 
 > **Note:** Results from the filter parameter are driven from an eventually consistent datasource. The synchronization lag is typically less than one second.
 
@@ -1503,18 +1500,18 @@ curl -v -X GET \
   }
 ]
 ```
-
+-->
 
 #### Find Users
 
+See [List all Users](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/listUsers) in the new [Okta API reference portal](https://developer.okta.com/docs/api/), specifically with the [`q`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/listUsers!in=query&path=q&t=request) parameter and the [`search`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/listUsers!in=query&path=search&t=request) parameter.
 
-Finds users who match the specified query.  To ensure optimal performance, Okta recommends using a [search parameter](#list-users-with-search) instead.
+<!--Finds users who match the specified query.  To ensure optimal performance, Okta recommends using a [search parameter](#list-users-with-search) instead.
 
 Use the `q` parameter for a simple lookup of users by name, for example when creating a people picker.
 The value of `q` is matched against `firstName`, `lastName`, or `email`.
 
 > **Note:** Results from the query parameter are driven from an eventually consistent datasource. The synchronization lag is typically less than one second.
-
 
 This operation:
 
@@ -1523,7 +1520,6 @@ This operation:
  * Performs a `startsWith` match but this is an implementation detail and may change without notice. You don't need to specify `firstName`, `lastName`, or `email`.
 
 ##### Request example
-
 
 ```bash
 curl -v -X GET \
@@ -1534,7 +1530,6 @@ curl -v -X GET \
 ```
 
 ##### Response example
-
 
 ```json
 [
@@ -1575,17 +1570,18 @@ curl -v -X GET \
 ```
 
 > **Note:** This omits users that have a status of `DEPROVISIONED`. To return all users, use a [filter query](#list-users-with-a-filter) instead.
+-->
 
 #### List all Users
 
+See [List all Users](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/listUsers) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
 
+<!--
 Returns a list of all users that do not have a status of `DEPROVISIONED`, up to the maximum (200 for most orgs)
 
 Different results are returned depending on specified queries in the request.
 
-
 ##### Request example
-
 
 ```bash
 curl -v -X GET \
@@ -1596,7 +1592,6 @@ curl -v -X GET \
 ```
 
 ##### Response example
-
 
 ```http
 HTTP/1.1 200 OK
@@ -1668,10 +1663,13 @@ Link: <https://${yourOktaDomain}/api/v1/users?after=00ud4tVDDXYVKPXKVLCO&limit=2
   }
 ]
 ```
-
+-->
 
 ### Update User
 
+See [Update a User](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/updateUser) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--
 > **Note:** Use the `POST` method to make a partial update and the `PUT` method to delete unspecified properties.
 
 <ApiOperation method="put" url="/api/v1/users/${userId}" />
@@ -1685,7 +1683,6 @@ in the request is deleted.
 
 ##### Request parameters
 
-
 | Parameter     | Description                                                          | Param Type   | DataType                                    | Required |
 | :------------ | :------------------------------------------------------------------- | :----------- | :------------------------------------------ | :------- |
 | userId        | ID of user to update                                                 | URL          | String                                      | TRUE     |
@@ -1695,20 +1692,22 @@ in the request is deleted.
 
 `profile` and `credentials` can be updated independently or together with a single request.
 
->**Note:** Currently, the User Type of a user can only be changed via a full replacement PUT operation. If the request parameters of a partial update include the `type` element from the [User object](#user-object), the value must match the existing type of the user. Only administrators are permitted to change the user type of a user; end users are not allowed to change their own user type.
+>**Note:** Currently, the user type of a user can only be changed via a full replacement PUT operation. If the request parameters of a partial update include the `type` element from the [User object](#user-object), the value must match the existing type of the user. Only administrators are permitted to change the user type of a user; end users are not allowed to change their own user type.
 
 ##### Response parameters
 
 Updated [User](#user-object)
+-->
 
 #### Update current User's Profile
 
-<ApiOperation method="post" url="/api/v1/users/me" /> <SupportsCors />
+See [Update a User](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/updateUser) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--<ApiOperation method="post" url="/api/v1/users/me" /> <SupportsCors />
 
 Updates current user's profile with partial update semantics
 
 ##### Request parameters
-
 
 | Parameter     | Description                                                          | Param Type   | DataType                                    | Required |
 | :------------ | :------------------------------------------------------------------- | :----------- | :------------------------------------------ | :------- |
@@ -1717,14 +1716,13 @@ Updates current user's profile with partial update semantics
 End user can only update `profile` with this request. Within the profile, if the end user tries to update the primary or the secondary email IDs, verification emails are sent to those email IDs, and the fields are updated only upon verification. To update credentials, use [Update Profile with ID](#update-profile-with-id).
 
 >**Note:** An end user can only update profile properties for which the user has write access. To update user permissions for a schema property,
-use [Update a User Schema endpoint](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/#tag/Schema/operation/updateUserProfile)
+use [Update a user schema endpoint](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/#tag/Schema/operation/updateUserProfile)
 
 ##### Response parameters
 
 Updated [User](#user-object)
 
 ##### Request example
-
 
 ```bash
 curl -v -X POST \
@@ -1741,7 +1739,6 @@ curl -v -X POST \
 ```
 
 ##### Response example
-
 
 ```json
 {
@@ -1795,18 +1792,19 @@ curl -v -X POST \
   }
 }
 ```
+-->
 
 #### Update Profile with ID
 
+See [Update a User](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/updateUser) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
 
-<ApiOperation method="post" url="/api/v1/users/${userId}" />
+<!--<ApiOperation method="post" url="/api/v1/users/${userId}" />
 
 Updates a user's profile or credentials with partial update semantics
 
 > **Important:** Use the `POST` method for partial updates. Unspecified properties are set to null with `PUT`.
 
 ##### Request parameters
-
 
 | Parameter     | Description                                                          | Param Type   | DataType                                    | Required |
 | :------------ | :------------------------------------------------------------------- | :----------- | :------------------------------------------ | :------- |
@@ -1819,11 +1817,9 @@ Updates a user's profile or credentials with partial update semantics
 
 ##### Response parameters
 
-
 Updated [User](#user-object)
 
 ##### Request example
-
 
 ```bash
 curl -v -X POST \
@@ -1840,7 +1836,6 @@ curl -v -X POST \
 ```
 
 ##### Response example
-
 
 ```json
 {
@@ -1897,13 +1892,11 @@ curl -v -X POST \
 
 #### Set password
 
-
 Sets passwords without validating existing user credentials
 
 This is an administrative operation.  For operations that validate credentials refer to [Reset Password](#reset-password), [Forgot Password](#forgot-password), and [Change Password](#change-password).
 
 ##### Request example
-
 
 ```bash
 curl -v -X POST \
@@ -1918,7 +1911,6 @@ curl -v -X POST \
 ```
 
 ##### Response example
-
 
 ```json
 {
@@ -1981,7 +1973,6 @@ This is an administrative operation. For an operation that requires validation, 
 
 ##### Request example
 
-
 ```bash
 curl -v -X POST \
 -H "Accept: application/json" \
@@ -1998,7 +1989,6 @@ curl -v -X POST \
 ```
 
 ##### Response example
-
 
 ```json
 {
@@ -2052,12 +2042,15 @@ curl -v -X POST \
   }
 }
 ```
+-->
 
 ## Related resources
 
 ### Get Assigned App Links
 
+See [List all Assigned Application Links](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/listAppLinks) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
 
+<!--
 <ApiOperation method="get" url="/api/v1/users/${userId}/appLinks" />
 
 <SupportsCors />
@@ -2066,18 +2059,15 @@ Fetches appLinks for all direct or indirect (via group membership) assigned appl
 
 ##### Request parameters
 
-
 | Parameter | Description  | Param Type | DataType | Required |
 | --------- | ------------ | ---------- | -------- | -------- |
 | id        | `id`, `login`, or `login shortname` (as long as it is unambiguous) of user | URL        | String   | TRUE     |
 
 ##### Response parameters
 
-
 Array of App Links
 
 ##### Request example
-
 
 ```bash
 curl -v -X GET \
@@ -2088,7 +2078,6 @@ curl -v -X GET \
 ```
 
 ##### Response example
-
 
 ```json
 [
@@ -2142,15 +2131,17 @@ curl -v -X GET \
   }
 ]
 ```
+-->
 
+### Get Group Memberships
 
+See [List all Groups](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/listUserGroups) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
 
-<ApiOperation method="get" url="/api/v1/users/${userId}/groups" /> <SupportsCors />
+<!--<ApiOperation method="get" url="/api/v1/users/${userId}/groups" /> <SupportsCors />
 
 Fetches the groups of which the user is a member
 
 ##### Request parameters
-
 
 | Parameter | Description  | Param Type | DataType | Required |
 | --------- | ------------ | ---------- | -------- | -------- |
@@ -2158,11 +2149,9 @@ Fetches the groups of which the user is a member
 
 ##### Response parameters
 
-
 Array of [Groups](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/)
 
 ##### Request example
-
 
 ```bash
 curl -v -X GET \
@@ -2173,7 +2162,6 @@ curl -v -X GET \
 ```
 
 ##### Response example
-
 
 ```json
 [
@@ -2193,15 +2181,19 @@ curl -v -X GET \
   }
 ]
 ```
+-->
 
 ## Lifecycle operations
 
-Lifecycle operations are non-idempotent operations that initiate a state transition for a user's status.
-Some operations are asynchronous while others are synchronous. The user's current status limits what operations are allowed.
+Lifecycle operations are non-idempotent operations that initiate a state transition for a user's status. These operations are available at the new [Okta API reference portal](https://developer.okta.com/docs/api/) as part of the [User Lifecycle API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserLifecycle/).
+
+<!--Some operations are asynchronous while others are synchronous. The user's current status limits what operations are allowed.-->
 
 ### Activate User
 
-<ApiOperation method="post" url="/api/v1/users/${userId}/lifecycle/activate" />
+See [Activate a User](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserLifecycle/#tag/UserLifecycle/operation/activateUser) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--<ApiOperation method="post" url="/api/v1/users/${userId}/lifecycle/activate" />
 
 Activates a user
 
@@ -2243,7 +2235,6 @@ If a password was set before the user was activated, then user must login with w
 
 ##### Request example
 
-
 ```bash
 curl -v -X POST \
 -H "Accept: application/json" \
@@ -2254,17 +2245,19 @@ curl -v -X POST \
 
 ##### Response example
 
-
 ```json
 {
   "activationUrl": "https://{yourOktaDomain}/welcome/XE6wE17zmphl3KqAPFxO",
   "activationToken": "XE6wE17zmphl3KqAPFxO"
 }
 ```
+-->
 
 ### Reactivate User
 
+See [Reactivate a User](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserLifecycle/#tag/UserLifecycle/operation/reactivateUser) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
 
+<!--
 <ApiOperation method="post" url="/api/v1/users/${userId}/lifecycle/reactivate" />
 
 Reactivates a user
@@ -2275,14 +2268,12 @@ Users that don't have a password must complete the flow by completing [Reset Pas
 
 ##### Request parameters
 
-
 | Parameter | Description                                                                | Param Type | DataType | Required |
 | --------- | -------------------------------------------------------------------------- | ---------- | -------- | -------- |
 | id        | `id`, `login`, or `login shortname` (as long as it is unambiguous) of user                                                               | URL        | String   | TRUE     |
 | sendEmail | Sends an activation email to the user if `true`. Default value is `false`. | Query      | Boolean  | FALSE    |
 
 ##### Response parameters
-
 
 * Returns empty object by default.
 * If `sendEmail` is `false`, returns an activation link for the user to set up their account. The activation token can be used to create a custom activation link.
@@ -2296,7 +2287,6 @@ Users that don't have a password must complete the flow by completing [Reset Pas
 
 ##### Request example
 
-
 ```bash
 curl -v -X POST \
 -H "Accept: application/json" \
@@ -2307,7 +2297,6 @@ curl -v -X POST \
 
 ##### Response example (success)
 
-
 ```json
 {
   "activationUrl": "https://{yourOktaDomain}/welcome/XE6wE17zmphl3KqAPFxO",
@@ -2316,7 +2305,6 @@ curl -v -X POST \
 ```
 
 ##### Response example (unexpected user status)
-
 
 ```http
 HTTP/1.1 403 Forbidden
@@ -2330,9 +2318,13 @@ Content-Type: application/json
   "errorCauses": []
 }
 ```
+-->
 
 ### Deactivate User
 
+See [Deactivate a User](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserLifecycle/#tag/UserLifecycle/operation/deactivateUser) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--
 <ApiOperation method="post" url="/api/v1/users/${userId}/lifecycle/deactivate" />
 
 Deactivates a user
@@ -2346,7 +2338,6 @@ This operation can only be performed on users that do not have a `DEPROVISIONED`
 
 ##### Request parameters
 
-
 | Parameter | Description                                                                           | Param Type | DataType | Required |
 | --------- | ------------------------------------------------------------------------------------- | ---------- | -------- | -------- |
 | userId    | ID of user                                                                            | URL        | String   | TRUE     |
@@ -2357,15 +2348,11 @@ This operation can only be performed on users that do not have a `DEPROVISIONED`
 
 ##### Response parameters
 
-
 Returns an empty object.
 
 #### Deactivate user synchronously
 
-
-
 ##### Request example
-
 
 ```bash
 curl -v -X POST \
@@ -2377,7 +2364,6 @@ curl -v -X POST \
 
 ##### Response example
 
-
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/json
@@ -2385,9 +2371,7 @@ Content-Type: application/json
 
 #### Deactivate user asynchronously
 
-
 ##### Request example
-
 
 ```bash
 curl -v -X POST \
@@ -2400,15 +2384,17 @@ curl -v -X POST \
 
 ##### Response example
 
-
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/json
 ```
+-->
 
 ### Suspend User
 
+See [Suspend a User](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserLifecycle/#tag/UserLifecycle/operation/suspendUser) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
 
+<!--
 <ApiOperation method="post" url="/api/v1/users/${userId}/lifecycle/suspend" />
 
 Suspends a user
@@ -2422,13 +2408,11 @@ Suspended users:
 
 ##### Request parameters
 
-
 | Parameter | Description  | Param Type | DataType | Required |
 | --------- | ------------ | ---------- | -------- | -------- |
 | id        | `id` of user | URL        | String   | TRUE     |
 
 ##### Response parameters
-
 
 Returns an empty object
 
@@ -2436,7 +2420,6 @@ Returns an empty object
 * Passing an `id` that is not in the `ACTIVE` state returns a `400 Bad Request` status code with error code `E0000001`.
 
 ##### Request example
-
 
 ```bash
 curl -v -X POST \
@@ -2448,24 +2431,23 @@ curl -v -X POST \
 
 ##### Response example
 
-
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/json
 ```
+-->
 
 ### Unsuspend User
 
+See [Unsuspend a User](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserLifecycle/#tag/UserLifecycle/operation/unsuspendUser) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
 
-<ApiOperation method="post" url="/api/v1/users/${userId}/lifecycle/unsuspend" />
+<!--<ApiOperation method="post" url="/api/v1/users/${userId}/lifecycle/unsuspend" />
 
 Unsuspends a user and returns them to the `ACTIVE` state
 
 This operation can only be performed on users that have a `SUSPENDED` status.
 
-
 ##### Request parameters
-
 
 | Parameter | Description  | Param Type | DataType | Required |
 | --------- | ------------ | ---------- | -------- | -------- |
@@ -2473,14 +2455,12 @@ This operation can only be performed on users that have a `SUSPENDED` status.
 
 ##### Response parameters
 
-
 Returns an empty object.
 
 Passing an invalid `id` returns a `404 Not Found` status code with error code `E0000007`.
 Passing an `id` that is not in the `SUSPENDED` state returns a `400 Bad Request` status code with error code `E0000001`.
 
 ##### Request example
-
 
 ```bash
 curl -v -X POST \
@@ -2492,15 +2472,17 @@ curl -v -X POST \
 
 ##### Response example
 
-
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/json
 ```
+-->
 
 ### Delete User
 
+See [Delete a User](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserLifecycle/#tag/UserLifecycle/operation/unsuspendUser) in the new Okta API reference portal as part of the [Users API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/).
 
+<!--
 <ApiOperation method="delete" url="/api/v1/users/${userId}" />
 
 Deletes a user permanently.  This operation can only be performed on users that have a `DEPROVISIONED` status.  **This action cannot be recovered!**
@@ -2509,7 +2491,6 @@ This operation on a user that hasn't been deactivated causes that user to be dea
 is required to delete the user.
 
 ##### Request parameters
-
 
 | Parameter | Description                                                                           | Param Type | DataType | Required | Default |
 | --------- | ------------------------------------------------------------------------------------- | ---------- | -------- | -------- | ------- |
@@ -2522,7 +2503,6 @@ is required to delete the user.
 
 ##### Response parameters
 
-
 ```http
 HTTP/1.1 204 No Content
 ```
@@ -2531,9 +2511,7 @@ Passing an invalid `id` returns a `404 Not Found` status code with error code `E
 
 #### Delete user synchronously
 
-
 ##### Request example
-
 
 ```bash
 curl -v -X DELETE \
@@ -2545,16 +2523,13 @@ curl -v -X DELETE \
 
 ##### Response example
 
-
 ```http
 HTTP/1.1 204 No Content
 ```
 
 #### Delete user asynchronously
 
-
 ##### Request example
-
 
 ```bash
 curl -v -X DELETE \
@@ -2567,15 +2542,16 @@ curl -v -X DELETE \
 
 ##### Response example
 
-
 ```http
 HTTP/1.1 204 No Content
 ```
+-->
 
 ### Unlock User
 
+See [Unlock a User](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserLifecycle/#tag/UserLifecycle/operation/unlockUser) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
 
-<ApiOperation method="post" url="/api/v1/users/${userId}/lifecycle/unlock" />
+<!--<ApiOperation method="post" url="/api/v1/users/${userId}/lifecycle/unlock" />
 
 Unlocks a user with a `LOCKED_OUT` status or unlocks a user with an `ACTIVE` status that is blocked from unknown devices. Unlocked users have an `ACTIVE` status and can sign in with their current password.
 
@@ -2583,18 +2559,15 @@ Unlocks a user with a `LOCKED_OUT` status or unlocks a user with an `ACTIVE` sta
 
 ##### Request parameters
 
-
 | Parameter | Description  | Param Type | DataType | Required | Default |
 | --------- | ------------ | ---------- | -------- | -------- | ------- |
 | id        | `id` of user | URL        | String   | TRUE     |         |
 
 ##### Response parameters
 
-
 Returns an empty object
 
 ##### Request example
-
 
 ```bash
 curl -v -X POST \
@@ -2606,16 +2579,17 @@ curl -v -X POST \
 
 ##### Response example
 
-
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/json
 ```
+-->
 
 ### Reset password
 
+See [Reset password](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserCred/#tag/UserCred/operation/resetPassword) in the new Okta API reference portal as part of the [User Credentials API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserCred/).
 
-<ApiOperation method="post" url="/api/v1/users/${userId}/lifecycle/reset_password" />
+<!--<ApiOperation method="post" url="/api/v1/users/${userId}/lifecycle/reset_password" />
 
 Generates a one-time token (OTT) that can be used to reset a user's password.  The OTT link can be automatically emailed to the user or returned to the API caller and distributed using a custom flow.
 
@@ -2626,7 +2600,6 @@ This operation provides an option to delete all the user' sessions.  However, if
 >**Note:** You can also use this API to convert a user with the Okta Credential Provider to a use a Federated Provider. After this conversion, the user can't directly sign in with a password. The second example demonstrates this usage. To convert a federated user back to an Okta user, use the default API call. See the final example.
 
 ##### Request parameters
-
 
 | Parameter | Description                                      | Param Type | DataType | Required | Default |
 | --------- | ------------------------------------------------ | ---------- | -------- | -------- | ------- |
@@ -2641,7 +2614,6 @@ To ensure a successful password recovery lookup if an email address is associate
 
 ##### Response parameters
 
-
 * Returns an empty object by default.
 * If`sendEmail` is `false`, returns a link for the user to reset their password.
 
@@ -2653,7 +2625,6 @@ To ensure a successful password recovery lookup if an email address is associate
 
 ##### Request example
 
-
 ```bash
 curl -v -X POST \
 -H "Accept: application/json" \
@@ -2663,7 +2634,6 @@ curl -v -X POST \
 ```
 
 ##### Response example
-
 
 ```json
 {
@@ -2707,11 +2677,13 @@ curl -v -X POST \
 ```json
 {}
 ```
+-->
 
 ### Expire password
 
+See [Expire Password](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserCred/#tag/UserCred/operation/expirePassword) in the new Okta API reference portal as part of the [User Credentials API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserCred/).
 
-<ApiOperation method="post" url="/api/v1/users/${userId}/lifecycle/expire_password" />
+<!--<ApiOperation method="post" url="/api/v1/users/${userId}/lifecycle/expire_password" />
 
 This operation transitions the user status to `PASSWORD_EXPIRED` so that the user is required to change their password at their next login.
 If `tempPassword` is included in the request, the user's password is reset to a temporary password that is returned, and then the temporary password is expired.
@@ -2722,14 +2694,12 @@ and the user is presented with the password-expired page where he or she can cha
 
 ##### Request parameters
 
-
 | Parameter    | Description                                                        | Param Type | DataType | Required | Default |
 | ------------ | ------------------------------------------------------------------ | ---------- | -------- | -------- | ------- |
 | id           | `id` of user                                                       | URL        | String   | TRUE     |         |
 | tempPassword | Sets the user's password to a temporary password,  if `true`       | Query      | Boolean  | FALSE    | FALSE   |
 
 ##### Response parameters
-
 
 * Returns the complete user object by default
 * If `tempPassword` is `true`, returns the temporary password
@@ -2742,7 +2712,6 @@ and the user is presented with the password-expired page where he or she can cha
 
 ##### Request example
 
-
 ```bash
 curl -v -X POST \
 -H "Accept: application/json" \
@@ -2752,7 +2721,6 @@ curl -v -X POST \
 ```
 
 ##### Response example
-
 
 ```json
 {
@@ -2806,11 +2774,13 @@ curl -v -X POST \
   }
 }
 ```
+-->
 
 ### Reset Factors
 
+See [Reset Factors](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserLifecycle/#tag/UserLifecycle/operation/resetFactors) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
 
-<ApiOperation method="post" url="/api/v1/users/${userId}/lifecycle/reset_factors" />
+<!--<ApiOperation method="post" url="/api/v1/users/${userId}/lifecycle/reset_factors" />
 
 This operation resets all factors for the specified user. All MFA factor enrollments returned to the unenrolled state. The user's status remains ACTIVE. This link is present only if the user is currently enrolled in one or more MFA factors.
 
@@ -2822,7 +2792,7 @@ This operation resets all factors for the specified user. All MFA factor enrollm
 
 <!-- REMOVED THIS PARAMETER in 2022.07.0; release mgmt disabled with kill switch - June 30, 2022 Katherine Chan
 
-| removeRecoveryEnrollment       | An optional parameter that allows removal of the the phone factor (SMS/Voice) as both a recovery method and a factor. | QUERY      | Boolean  | FALSE    | FALSE   | -->
+| removeRecoveryEnrollment       | An optional parameter that allows removal of the the phone factor (SMS/Voice) as both a recovery method and a factor. | QUERY      | Boolean  | FALSE    | FALSE   | 
 
 ##### Response parameters
 
@@ -2840,36 +2810,33 @@ curl -v -X POST \
 
 ##### Response example
 
-
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/json
 ```
+-->
 
 ### Clear current User sessions
 
-Clears Okta sessions for the currently logged in user. By default, the current session remains active. Use this method in a browser-based application.
+See [End a current User session](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserSessions/#tag/UserSessions/operation/endUserSessions) in the new Okta API reference portal as part of the [User Sessions API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserCred/).
+
+<!--Clears Okta sessions for the currently logged in user. By default, the current session remains active. Use this method in a browser-based application.
 
 > **Note:** This operation requires a session cookie for the user. The API token isn't allowed for this operation.
 
 <ApiOperation method="post" url="/api/v1/users/me/lifecycle/delete_sessions" /> <SupportsCors />
 
-
 ##### Request parameters
-
 
 | Parameter    | Description                                                  | Param Type | DataType | Required | Default |
 | ------------ | ------------------------------------------------------------ | ---------- | -------- | -------- | ------- |
 | keepCurrent  | Skip deleting user's current session when set to true          | Body       | boolean  | FALSE    |  true   |
 
-
 ##### Response
 
 Returns an empty object.
 
-
 ##### Request example
-
 
 ```bash
 curl -v -X POST \
@@ -2894,20 +2861,23 @@ Content-Type: application/json
 
 {}
 ```
-
+-->
 
 ## User sessions
 
+The User Sessions API provides operations to manage user sessions in your org. These operations are available at the new [Okta API reference portal](https://developer.okta.com/docs/api/) as part of the [User Sessions API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserSessions/).
+
 ### Clear User sessions
 
-<ApiOperation method="delete" url="/api/v1/users/${userId}/sessions" />
+See [Revoke all User sessions](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserSessions/#tag/UserSessions/operation/revokeUserSessions) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--<ApiOperation method="delete" url="/api/v1/users/${userId}/sessions" />
 
 Removes all active identity provider sessions. This forces the user to authenticate on the next operation. Optionally revokes OpenID Connect and OAuth refresh and access tokens issued to the user.
 
 >**Note:** This operation doesn't clear the sessions created for web sign in or native applications.
 
 #### Request parameters
-
 
 | Parameter    | Description                                                      | Param Type | DataType | Required | Default |
 | ------------ | ---------------------------------------------------------------- | ---------- | -------- | -------- | ------- |
@@ -2916,13 +2886,11 @@ Removes all active identity provider sessions. This forces the user to authentic
 
 #### Response parameters
 
-
 ```http
 HTTP/1.1 204 No Content
 ```
 
 #### Request example
-
 
 ```bash
 curl -v -X DELETE \
@@ -2934,15 +2902,20 @@ curl -v -X DELETE \
 
 #### Response example
 
-
 ```http
 HTTP/1.1 204 No Content
 ```
+-->
 
 ## Credential operations
 
+The User Credentials API provides operations to manage user credentials in your org. These operations are available at the new [Okta API reference portal](https://developer.okta.com/docs/api/) as part of the [User Credentials API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserCred/).
+
 ### Forgot password
 
+See [Start forgot password flow](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserCred/#tag/UserCred/operation/forgotPassword) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--
 <ApiOperation method="post" url="/api/v1/users/${userId}/credentials/forgot_password" />
 
 Generates a one-time token (OTT) that can be used to reset a user's password
@@ -2953,7 +2926,6 @@ The user will be required to validate their security question's answer when visi
 ><ApiLifecycle access="ie" />
 
 ##### Request parameters
-
 
 | Parameter    | Description                                         | Param Type | DataType | Required | Default |
 | ------------ | --------------------------------------------------- | ---------- | -------- | -------- | ------- |
@@ -2966,7 +2938,6 @@ To ensure a successful password recovery lookup if an email address is associate
 * The lookup searches login IDs first, then primary email addresses, and then secondary email addresses.
 
 ##### Response parameters
-
 
 * Returns an empty object by default
 * If `sendEmail` is `false`, returns a link for the user to reset their password.
@@ -2981,7 +2952,6 @@ This operation does not affect the status of the user.
 
 ##### Request example
 
-
 ```bash
 curl -v -X POST \
 -H "Accept: application/json" \
@@ -2991,7 +2961,6 @@ curl -v -X POST \
 ```
 
 ##### Response example
-
 
 ```json
 {
@@ -3009,7 +2978,6 @@ This operation can only be performed on users with an `ACTIVE` status and a vali
 
 ##### Request parameters
 
-
 | Parameter         | Description                                      | Param Type | DataType                                              | Required |
 | ----------------- | ------------------------------------------------ | ---------- | ----------------------------------------------------- | -------- |
 | id                | `id` of user                                     | URL        | String                                                | TRUE     |
@@ -3018,13 +2986,11 @@ This operation can only be performed on users with an `ACTIVE` status and a vali
 
 ##### Response parameters
 
-
 [Credentials](#credentials-object) of the user
 
 This operation does not affect the status of the user.
 
 ##### Request example
-
 
 ```bash
 curl -v -X POST \
@@ -3039,7 +3005,6 @@ curl -v -X POST \
 
 ##### Response example
 
-
 ```json
 {
   "password": {},
@@ -3052,10 +3017,13 @@ curl -v -X POST \
   }
 }
 ```
+-->
 
 ### Change password
 
-<ApiOperation method="post" url="/api/v1/users/${userId}/credentials/change_password" />
+See [Update Password](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserCred/#tag/UserCred/operation/changePassword) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--<ApiOperation method="post" url="/api/v1/users/${userId}/credentials/change_password" />
 
 Changes a user's password by validating the user's current password
 
@@ -3064,7 +3032,6 @@ This operation provides an option to delete all the sessions of the specified us
 This operation can only be performed on users in `STAGED`, `ACTIVE`, `PASSWORD_EXPIRED`, or `RECOVERY` status that have a valid [password credential](#password-object)
 
 ##### Request parameters
-
 
 | Parameter    | Description                                             | Param Type | DataType                             | Required | Default |
 | ------------ | ------------------------------------------------------- | ---------- | ------------------------------------ | -------- |---------|
@@ -3076,13 +3043,11 @@ This operation can only be performed on users in `STAGED`, `ACTIVE`, `PASSWORD_E
 
 ##### Response parameters
 
-
 [Credentials](#credentials-object) of the user
 
 The user transitions to `ACTIVE` status when successfully invoked in `RECOVERY` status.
 
 ##### Request example
-
 
 ```bash
 curl -v -X POST \
@@ -3098,7 +3063,6 @@ curl -v -X POST \
 
 ##### Response example
 
-
 ```json
 {
   "password": {},
@@ -3111,18 +3075,19 @@ curl -v -X POST \
   }
 }
 ```
+-->
 
 ### Change recovery question
 
+See [Update Recovery Question](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserCred/#tag/UserCred/operation/changeRecoveryQuestion) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
 
-<ApiOperation method="post" url="/api/v1/users/${userId}/credentials/change_recovery_question" />
+<!--<ApiOperation method="post" url="/api/v1/users/${userId}/credentials/change_recovery_question" />
 
 Changes a user's recovery question & answer credential by validating the user's current password
 
 This operation can only be performed on users in **STAGED**, **ACTIVE** or **RECOVERY** `status` that have a valid [password credential](#password-object)
 
 ##### Request parameters
-
 
 | Parameter         | Description                             | Param Type | DataType                                              | Required |
 | ----------------- | --------------------------------------- | ---------- | ----------------------------------------------------- | -------- |
@@ -3132,13 +3097,11 @@ This operation can only be performed on users in **STAGED**, **ACTIVE** or **REC
 
 ##### Response parameters
 
-
 [Credentials](#credentials-object) of the user
 
 > **Note:** This operation doesn't affect the status of the user.
 
 ##### Request example
-
 
 ```bash
 curl -v -X POST \
@@ -3156,7 +3119,6 @@ curl -v -X POST \
 
 ##### Response example
 
-
 ```json
 {
   "password": {},
@@ -3169,10 +3131,13 @@ curl -v -X POST \
   }
 }
 ```
+-->
 
 ## User-consent Grant operations
 
-<ApiLifecycle access="ea" />
+The User Grants API provides operations to manage user consent grants in your org. These operations are available at the new [Okta API reference portal](https://developer.okta.com/docs/api/) as part of the [User Grants API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserGrant/).
+
+<!--<ApiLifecycle access="ea" />
 
 A consent represents a user's explicit permission to allow an application to access resources protected by scopes. Consent grants are different from tokens because a consent can outlast a token, and there can be multiple tokens with varying sets of scopes derived from a single consent. When an application comes back and needs to get a new access token, it may not need to prompt the user for consent if they have already consented to the specified scopes.
 Consent grants remain valid until the user manually revokes them, or until the user, application, authorization server or scope is deactivated or deleted.
@@ -3180,18 +3145,19 @@ Consent grants remain valid until the user manually revokes them, or until the u
 > **Hint:** For all grant operations, you can use `me` instead of the `userId` in an endpoint that contains `/users`, in an active session with no SSWS token (API token). For example: `https://${yourOktaDomain}/api/v1/users/me/grants` returns all the grants for the active session user.
 
 >**Note:** Some browsers have begun blocking third-party cookies by default, disrupting Okta functionality in certain flows. For information see [FAQ: How Blocking Third Party Cookies Can Potentially Impact Your Okta Environment](https://support.okta.com/help/s/article/FAQ-How-Blocking-Third-Party-Cookies-Can-Potentially-Impact-Your-Okta-Environment).
+-->
 
 ### List Grants
 
+See [List all User Grants](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserGrant/#tag/UserGrant/operation/listUserGrants) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
 
-<ApiLifecycle access="ea" />
+<!--<ApiLifecycle access="ea" />
 
 <ApiOperation method="get" url="/api/v1/users/${userId}/grants" />
 
 Lists all grants for the specified user
 
 #### Request parameters
-
 
 | Parameter   | Description                                                                                    | Param Type   | DataType   | Required   | Default |
 | :---------- | :--------------------------------------------------------------------------------------------- | :----------- | :--------- | :--------- | :------ |
@@ -3203,9 +3169,7 @@ Lists all grants for the specified user
 
 > **Note:** `after` should be treated as a cursor (an opaque value) and obtained through [the next link relation](/docs/reference/core-okta-api/#pagination).
 
-
 #### Request example
-
 
 ```bash
 curl -v -X GET \
@@ -3216,7 +3180,6 @@ curl -v -X GET \
 ```
 
 #### Response example
-
 
 ```json
 [
@@ -3263,17 +3226,19 @@ curl -v -X GET \
     }
 ]
 ```
+-->
 
 ### Get a Grant
 
-<ApiLifecycle access="ea" />
+See [Retrieve a Grant](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserGrant/#tag/UserGrant/operation/getUserGrant) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--<ApiLifecycle access="ea" />
 
 <ApiOperation method="get" url="/api/v1/users/${userId}/grants/${grantId}" />
 
 Gets a grant for the specified user
 
 #### Request parameters
-
 
 | Parameter   | Description                                                                                    | Param Type   | DataType   | Required |
 | :---------- | :--------------------------------------------------------------------------------------------- | :----------- | :--------- | :------- |
@@ -3282,7 +3247,6 @@ Gets a grant for the specified user
 | expand      | Valid value: `scope`. If specified, scope details are included in the `_embedded` attribute.   | Query        | String     | FALSE    |
 
 #### Request example
-
 
 ```bash
 curl -v -X GET \
@@ -3293,7 +3257,6 @@ curl -v -X GET \
 ```
 
 #### Response example
-
 
 ```json
 {
@@ -3338,18 +3301,19 @@ curl -v -X GET \
     }
 }
 ```
+-->
 
 ### List Grants for a User-Client combination
 
+See [List all Grants for a Client](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserGrant/#tag/UserGrant/operation/listGrantsForUserAndClient) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
 
-<ApiLifecycle access="ea" />
+<!--<ApiLifecycle access="ea" />
 
 <ApiOperation method="get" url="/api/v1/users/${userId}/clients/${clientId}/grants" />
 
 Lists all grants for a specified user and client
 
 #### Request parameters
-
 
 | Parameter   | Description                                                                                    | Parameter Type   | DataType   | Required   | Default |
 | :---------- | :--------------------------------------------------------------------------------------------- | :--------------- | :--------- | :--------- | :------ |
@@ -3361,7 +3325,6 @@ Lists all grants for a specified user and client
 
 #### Request example
 
-
 ```bash
 curl -v -X GET \
 -H "Accept: application/json" \
@@ -3371,7 +3334,6 @@ curl -v -X GET \
 ```
 
 #### Response example
-
 
 ```json
 [
@@ -3418,11 +3380,13 @@ curl -v -X GET \
     }
 ]
 ```
+-->
 
 ### Revoke all Grants for a User
 
+See [Revoke all User Grants](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserGrant/#tag/UserGrant/operation/revokeUserGrants) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
 
-<ApiLifecycle access="ea" />
+<!--<ApiLifecycle access="ea" />
 
 <ApiOperation method="delete" url="/api/v1/users/${userId}/grants" />
 
@@ -3430,13 +3394,11 @@ Revokes all grants for a specified user
 
 #### Request parameters
 
-
 | Parameter   | Description                                   | Parameter Type   | DataType   | Required |
 | :---------- | :-------------------------------------------- | :--------------- | :--------- | :------- |
 | userId      | ID of the user whose grant is being revoked   | URL              | String     | TRUE     |
 
 #### Request example
-
 
 ```bash
 curl -v -X DELETE \
@@ -3448,15 +3410,16 @@ curl -v -X DELETE \
 
 #### Response example
 
-
 ```http
 HTTP/1.1 204 No Content
 ```
+-->
 
 ### Revoke a Grant for a User
 
+See [Revoke a User Grant](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserGrant/#tag/UserGrant/operation/revokeUserGrant) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
 
-<ApiLifecycle access="ea" />
+<!--<ApiLifecycle access="ea" />
 
 <ApiOperation method="delete" url="/api/v1/users/${userId}/grants/${grantId}" />
 
@@ -3464,14 +3427,12 @@ Revokes one grant for a specified user
 
 #### Request parameters
 
-
 | Parameter   | Description                                   | Parameter Type   | DataType   | Required |
 | :---------- | :-------------------------------------------- | :--------------- | :--------- | :------- |
 | userId      | ID of the user whose grant is being revoked   | URL              | String     | TRUE     |
 | grantId     | ID of the grant being revoked                 | URL              | String     | TRUE     |
 
 #### Request example
-
 
 ```bash
 curl -v -X DELETE \
@@ -3483,15 +3444,16 @@ curl -v -X DELETE \
 
 #### Response example
 
-
 ```http
 HTTP/1.1 204 No Content
 ```
+-->
 
 ### Revoke Grants for User and Client
 
+See [Revoke all Grants for a Client](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserGrant/#tag/UserGrant/operation/revokeGrantsForUserAndClient) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
 
-<ApiLifecycle access="ea" />
+<!--<ApiLifecycle access="ea" />
 
 <ApiOperation method="delete" url="/api/v1/users/${userId}/clients/${clientId}/grants" />
 
@@ -3499,14 +3461,12 @@ Revokes all grants for the specified user and client
 
 #### Request parameters
 
-
 | Parameter   | Description                                                              | Parameter Type   | DataType   | Required |
 | :---------- | :----------------------------------------------------------------------- | :--------------- | :--------- | :------- |
 | userId      | ID of the user whose grants are being revoked for the specified client   | URL              | String     | TRUE     |
 | clientId    | ID of the client who was granted consent by the specified user           | URL              | String     | TRUE     |
 
 #### Request example
-
 
 ```bash
 curl -v -X DELETE \
@@ -3518,13 +3478,16 @@ curl -v -X DELETE \
 
 #### Response example
 
-
 ```http
 HTTP/1.1 204 No Content
 ```
+-->
 
 ## User OAuth 2.0 Token management operations
 
+The User OAuth 2.0 Token Management API provides operations to manage tokens issued by an authorization server for a particular user and client in your org. These operations are available at the new [Okta API reference portal](https://developer.okta.com/docs/api/) as part of the [User OAuth 2.0 Token Management API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserOAuth/).
+
+<!--
 * [List Refresh Tokens](#list-refresh-tokens)
 * [Get Refresh Token](#get-refresh-token)
 * [Revoke All Refresh Tokens](#revoke-all-refresh-tokens)
@@ -3534,16 +3497,17 @@ These endpoints allow you to manage tokens issued by an Authorization Server for
 
 Read [Validate Access Tokens](/docs/guides/validate-access-tokens/) to understand more about how OAuth 2.0 tokens work.
 
+-->
 
 ### List Refresh Tokens
 
+See [List all Refresh Tokens for a Client](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserOAuth/#tag/UserOAuth/operation/listRefreshTokensForUserAndClient) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
 
-<ApiOperation method="get" url="/api/v1/users/${userId}/clients/${clientId}/tokens" />
+<!--<ApiOperation method="get" url="/api/v1/users/${userId}/clients/${clientId}/tokens" />
 
 Lists all refresh tokens issued for the specified User and Client.
 
 #### Request parameters
-
 
 | Parameter   | Description                                                                                    | Param Type   | DataType   | Required   | Default |
 | :---------- | :--------------------------------------------------------------------------------------------- | :----------- | :--------- | :--------- | :------ |
@@ -3555,9 +3519,7 @@ Lists all refresh tokens issued for the specified User and Client.
 
 > **Note:** `after` should be treated as a cursor (an opaque value) and obtained through [the next link relation](/docs/reference/core-okta-api/#pagination).
 
-
 #### Request example
-
 
 ```bash
 curl -v -X GET \
@@ -3568,7 +3530,6 @@ curl -v -X GET \
 ```
 
 #### Response example
-
 
 ```json
 [
@@ -3617,16 +3578,17 @@ curl -v -X GET \
   }
 ]
 ```
+-->
 
 ### Get Refresh Token
 
+See [Retrieve a Refresh Token for a Client](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserOAuth/#tag/UserOAuth/operation/getRefreshTokenForUserAndClient) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
 
-<ApiOperation method="get" url="/api/v1/users/${userId}/clients/${clientId}/tokens/${tokenId}" />
+<!--<ApiOperation method="get" url="/api/v1/users/${userId}/clients/${clientId}/tokens/${tokenId}" />
 
 Gets a refresh token issued for the specified User and Client.
 
 #### Request parameters
-
 
 | Parameter   | Description                                                                                    | Param Type   | DataType   | Required   | Default |
 | :---------- | :--------------------------------------------------------------------------------------------- | :----------- | :--------- | :--------- | :------ |
@@ -3639,9 +3601,7 @@ Gets a refresh token issued for the specified User and Client.
 
 > **Note:** `after` should be treated as a cursor (an opaque value) and obtained through [the next link relation](/docs/reference/core-okta-api/#pagination).
 
-
 #### Request example
-
 
 ```bash
 curl -v -X GET \
@@ -3652,7 +3612,6 @@ curl -v -X GET \
 ```
 
 #### Response example
-
 
 ```json
 {
@@ -3726,16 +3685,17 @@ curl -v -X GET \
   }
 }
 ```
+-->
 
 ### Revoke All Refresh Tokens
 
+See [Revoke all Refresh Tokens for a Client](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserOAuth/#tag/UserOAuth/operation/revokeTokensForUserAndClient) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
 
-<ApiOperation method="delete" url="/api/v1/users/${userId}/clients/${clientId}/tokens" />
+<!--<ApiOperation method="delete" url="/api/v1/users/${userId}/clients/${clientId}/tokens" />
 
 Revokes all refresh tokens issued for the specified User and Client. Any access tokens issued with these refresh tokens will also be revoked, but access tokens issued without a refresh token will not be affected.
 
 #### Request parameters
-
 
 | Parameter   | Description                                                              | Parameter Type   | DataType   | Required |
 | :---------- | :----------------------------------------------------------------------- | :--------------- | :--------- | :------- |
@@ -3743,7 +3703,6 @@ Revokes all refresh tokens issued for the specified User and Client. Any access 
 | clientId    | ID of the client who was granted consent by the specified user           | URL              | String     | TRUE     |
 
 #### Request example
-
 
 ```bash
 curl -v -X DELETE \
@@ -3755,20 +3714,20 @@ curl -v -X DELETE \
 
 #### Response example
 
-
 ```http
 HTTP/1.1 204 No Content
 ```
+-->
 
 ### Revoke Refresh Token
 
+See [Revoke a Token for a Client](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserOAuth/#tag/UserOAuth/operation/revokeTokenForUserAndClient) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
 
-<ApiOperation method="delete" url="/api/v1/users/${userId}/clients/${clientId}/tokens/${tokenId}" />
+<!--<ApiOperation method="delete" url="/api/v1/users/${userId}/clients/${clientId}/tokens/${tokenId}" />
 
 Revokes the specified refresh token. If an access token was issued with this refresh token, it will also be revoked.
 
 #### Request parameters
-
 
 | Parameter   | Description                                                              | Parameter Type   | DataType   | Required |
 | :---------- | :----------------------------------------------------------------------- | :--------------- | :--------- | :------- |
@@ -3777,7 +3736,6 @@ Revokes the specified refresh token. If an access token was issued with this ref
 | tokenId     | ID of the token                                                          | URL              | String     | TRUE     |
 
 #### Request example
-
 
 ```bash
 curl -v -X DELETE \
@@ -3789,19 +3747,22 @@ curl -v -X DELETE \
 
 #### Response example
 
-
 ```http
 HTTP/1.1 204 No Content
 ```
+-->
 
 ## User Client resource operations
 
-<ApiLifecycle access="ea" />
+The User Resources API provides operations related to user resources. These operations are available at the new [Okta API reference portal](https://developer.okta.com/docs/api/) as part of the [User Resources API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserResources/).
+
+<!--<ApiLifecycle access="ea" />-->
 
 ### List Client resources for a User
 
+See [List all Clients](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserResources/#tag/UserResources/operation/listUserClients) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
 
-<ApiLifecycle access="ea" />
+<!--<ApiLifecycle access="ea" />
 
 <ApiOperation method="get" url="/api/v1/users/${userId}/clients" />
 
@@ -3809,13 +3770,11 @@ Lists all client resources for which the specified user has grants or tokens.
 
 #### Request parameters
 
-
 | Parameter   | Description                                       | Parameter Type   | DataType   | Required |
 | :---------- | :------------------------------------------------ | :--------------- | :--------- | :------- |
 | userId      | ID of the user                                    | URL              | String     | TRUE     |
 
 #### Request example
-
 
 ```bash
 curl -v -X GET \
@@ -3845,10 +3804,13 @@ curl -v -X GET \
     }
 ]
 ```
-
+-->
 
 ## User object
 
+See [User - response payload](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/getUser!c=200&path=activated&t=response) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--
 ### Example
 
 ```json
@@ -3957,7 +3919,7 @@ Metadata properties such as `id`, `status`, timestamps, `_links`, and `_embedded
 * The `activated` timestamp will only be available for users activated after 06/30/2013.
 * The`statusChanged` and `lastLogin` timestamps will be missing for users created before 06/30/2013 and updated on next status change or login.
 
-The `type` property is a map that identifies the User Type of the user (see [User Types](/docs/reference/api/user-types)). Currently it contains a single element, `id`, as shown in the Example. It can be specified when creating a new User, and may be updated by an administrator on a [full replace of an existing user](/docs/reference/api/user-types/#update-user-type) (but not a partial update).
+The `type` property is a map that identifies the user type of the user (see [user types](/docs/reference/api/user-types)). Currently it contains a single element, `id`, as shown in the example. It can be specified when creating a new user, and may be updated by an administrator on a [full replace of an existing user](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserType/#tag/UserType/operation/updateUserType) (but not a partial update).
 
 ### User status
 
@@ -3975,9 +3937,11 @@ The status of a user changes in response to explicit events, such as admin-drive
 Okta doesn't asynchronously sweep through users and update their password expiry state, for example.
 Instead, Okta evaluates password policy at login time, notices the password has expired, and moves the user to the expired state.
 When running reports, remember that the data is valid as of the last login or lifecycle event for that user.
+-->
 
 ### Profile object
 
+<!--
 Specifies [standard](#default-profile-properties) and [custom](#custom-profile-properties) profile properties for a user.
 
 ```json
@@ -4064,6 +4028,7 @@ Okta has a default ambiguous name resolution policy for usernames that include @
 For more information about `login`, see [Get User by ID](#get-user-with-id).
 
 ##### Modifying default Profile properties
+
 The only permitted customization of the default profile is to update permissions, to change whether the `firstName` and `lastName` properties are nullable, or to specify a [pattern](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/#tag/Schema/operation/getUserSchema!c=200&path=definitions/base/properties/login&t=response) for `login`.  Use the Profile Editor in the Admin Console or the [Schemas API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/) to make schema modifications.
 
 #### Custom Profile properties
@@ -4071,10 +4036,13 @@ The only permitted customization of the default profile is to update permissions
 You can extend user profiles with custom properties, but you must first add the property to the user profile schema before you can reference it.  Use the Profile Editor in the Admin Console or the [Schemas API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/) to manage schema extensions.
 
 Custom attributes may contain HTML tags. It is the client's responsibility to escape or encode this data before displaying it. Use [best-practices](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html) to prevent cross-site scripting.
+--> 
 
 ### Credentials object
 
-Specifies primary authentication and recovery credentials for a user.  Credential types and requirements vary depending on the provider and security policy of the organization.
+See [`credentials`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/createUser!path=credentials&t=request) in the new [Okta API reference portal](https://developer.okta.com/docs/api/)..
+
+<!--Specifies primary authentication and recovery credentials for a user.  Credential types and requirements vary depending on the provider and security policy of the organization.
 
 | Property            | DataType                                                 | Nullable   | Unique   | Readonly |
 | :------------------ | :------------------------------------------------------- | :--------- | :------- | :------- |
@@ -4097,10 +4065,13 @@ Specifies primary authentication and recovery credentials for a user.  Credentia
   }
 }
 ```
+-->
 
 #### Password object
 
-Specifies a password for a user
+See [`password`]https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/createUser!path=credentials&t=request) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--Specifies a password for a user
 
 | Property   | DataType                                          | Nullable   | Unique   | Readonly   | MinLength         | MaxLength   | Validation      |
 | :--------- | :---------                                        | :--------- | :------- | :--------- | :---------------- | :---------- | :-------------- |
@@ -4114,25 +4085,27 @@ A password hook is a **write-only** property.
 
 When a user has a valid password, or imported hashed password, or password hook, and a response object contains a password credential, then the Password object is a bare object without the `value` property defined (for example, `password: {}`), to indicate that a password value exists.
 
-
 ##### Default Password Policy
 
 The password specified in the value property must meet the default password policy requirements:
 
-- Must be a minimum of eight characters
-- Must have a character from the following groups:
-  - Upper case
-  - Lower case
-  - Digit
-- Must not contain the user's sign-in ID or parts of the sign-in ID when split on the following characters: `,`, `.`, `_`, `#`, `@`, `-`. Okta only considers the parts of the sign-in ID that contain at least four characters. Additionally, the parent domain (such as `com` in the following example) isn't considered.<br>
+* Must be a minimum of eight characters
+* Must have a character from the following groups:
+  * Upper case
+  * Lower case
+  * Digit
+* Must not contain the user's sign-in ID or parts of the sign-in ID when split on the following characters: `,`, `.`, `_`, `#`, `@`, `-`. Okta only considers the parts of the sign-in ID that contain at least four characters. Additionally, the parent domain (such as `com` in the following example) isn't considered.<br>
 <br>
   **For example:** A user with a sign-in ID such as `isaac.brock@example.com` can't set their password as `brockR0cks!` since the password contains part of the sign-in ID: `brock`.
 
 > **Note:** You can modify password policy requirements in the Admin Console at **Security** > **Policies**.
+-->
 
 ##### Hashed Password object
 
-Specifies a hashed password to import into Okta. This allows an existing password to be imported into Okta directly from some other store. Okta supports the BCRYPT, SHA-512, SHA-256, SHA-1, MD5 and PBKDF2 hashing functions for password import. A hashed password may be specified in a Password object when creating or updating a user, but not for other operations.  See [Create User with Imported Hashed Password](#create-user-with-imported-hashed-password) for information on using this object when creating a user. When updating a user with a hashed password the user must be in the `STAGED` status.
+See [`hash`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/updateUser!path=credentials/password/hash&t=request) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--Specifies a hashed password to import into Okta. This allows an existing password to be imported into Okta directly from some other store. Okta supports the BCRYPT, SHA-512, SHA-256, SHA-1, MD5 and PBKDF2 hashing functions for password import. A hashed password may be specified in a Password object when creating or updating a user, but not for other operations.  See [Create User with Imported Hashed Password](#create-user-with-imported-hashed-password) for information on using this object when creating a user. When updating a user with a hashed password the user must be in the `STAGED` status.
 
 > **Note:** Because the plain text password isn't specified when a hashed password is provided, password policy isn't applied.
 
@@ -4226,10 +4199,13 @@ Specifies a hashed password to import into Okta. This allows an existing passwor
   }
 }
 ```
+-->
 
 ##### Password Hook object
 
-Specifies that a [password import inline hook](/docs/reference/password-hook/) should be triggered to handle verification of the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly from some other store. See [Create User with Password Hook](#create-user-with-password-import-inline-hook) for information on using this object when creating a user.
+See [`hook`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/updateUser!path=credentials/password/hook&t=request) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--Specifies that a [password import inline hook](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createPasswordImportInlineHook) should be triggered to handle verification of the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly from some other store. See [Create User with Password Hook](#create-user-with-password-import-inline-hook) for information on using this object when creating a user.
 
 > **Note:** Because the plain text password isn't specified when a password hook is specified, password policy isn't applied.
 
@@ -4246,19 +4222,25 @@ Specifies that a [password import inline hook](/docs/reference/password-hook/) s
   }
 }
 ```
+-->
 
 #### Recovery Question object
 
-Specifies a secret question and answer that is validated (case insensitive) when a user forgets their password or unlocks their account.  The answer property is **write-only**.
+See [`recovery_question`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/updateUser!path=credentials/recovery_question&t=request) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--Specifies a secret question and answer that is validated (case insensitive) when a user forgets their password or unlocks their account.  The answer property is **write-only**.
 
 | Property  | DataType | Nullable | Unique | Readonly | MinLength | MaxLength |
 | --------- | -------- | -------- | ------ | -------- | --------- | --------- |
 | question  | String   | TRUE     | FALSE  | FALSE    | 1         | 100       |
 | answer    | String   | TRUE     | FALSE  | FALSE    | 1         | 100       |
+-->
 
 #### Provider object
 
-Specifies the authentication provider that validates the user's password credential. The user's current provider is managed by the Delegated Authentication settings for your organization. The provider object is **read-only**.
+See [`recovery_question`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/createUser!path=credentials/provider&t=request) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--Specifies the authentication provider that validates the user's password credential. The user's current provider is managed by the Delegated Authentication settings for your organization. The provider object is **read-only**.
 
 | Property   | DataType                                                              | Nullable   | Unique   | Readonly |
 | :--------- | :-------------------------------------------------------------        | :--------- | :------- | :------- |
@@ -4270,10 +4252,13 @@ Specifies the authentication provider that validates the user's password credent
 > **Note:** Users with a `FEDERATION` or `SOCIAL` authentication provider don't support a `password` or `recovery_question` credential and must authenticate through a trusted Identity Provider.
 
 > **Note:** `IMPORT` specifies a hashed password that was imported from an external source.
+-->
 
 ### Links object
 
-The Links object specifies link relations (see [Web Linking](http://tools.ietf.org/html/rfc8288) available for the current status of a user). The Links object is used for dynamic discovery of related resources, lifecycle operations, and credential operations. The Links object is read-only.
+See the Links object section in the [Users API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--The Links object specifies link relations (see [Web Linking](http://tools.ietf.org/html/rfc8288) available for the current status of a user). The Links object is used for dynamic discovery of related resources, lifecycle operations, and credential operations. The Links object is read-only.
 
 #### Individual Users vs. collection of Users
 
@@ -4350,10 +4335,13 @@ Here are some links that may be available on a User, as determined by your polic
     }
 }
 ```
+-->
 
 #### User Block object
 
-The User Block object describes how the account is blocked from access. If `appliesTo` is `ANY_DEVICES`, then the account is blocked for all devices. If `appliesTo` is `UNKNOWN_DEVICES`, then the account is only blocked for unknown devices.
+See [User block - response payload](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/listUserBlocks!c=200&path=appliesTo&t=response) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--The User Block object describes how the account is blocked from access. If `appliesTo` is `ANY_DEVICES`, then the account is blocked for all devices. If `appliesTo` is `UNKNOWN_DEVICES`, then the account is only blocked for unknown devices.
 
 | Property  | Description | Datatype |
 | :---------| :---------- | :------- |
@@ -4376,10 +4364,13 @@ The User Block object describes how the account is blocked from access. If `appl
 | scopeId       | ID of the scope to which this grant applies                                                                                      | String                                                          |
 | _links        | Discoverable resources related to the grant                                                                                      | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)  |
 | _embedded     | If `expand`=`scope` is included in the request, information about the scope specified by `scopeId` is included in the response.  | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)  |
+-->
 
 ### Client Grant object
 
-<ApiLifecycle access="ea" />
+See [User Grant - response payload](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserGrant/#tag/UserGrant/operation/getUserGrant!c=200&path=issuer&t=response) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--<ApiLifecycle access="ea" />
 
 ```bash
 {
@@ -4410,3 +4401,4 @@ The User Block object describes how the account is blocked from access. If `appl
 | client_uri    | The URI of the OAuth 2.0 client               | String                                                            | FALSE  |
 | logo_uri      | The logo URI of the OAuth 2.0 client          | String                                                            | FALSE  |
 | _links        | Discoverable resources related to the grant   | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)    | FALSE  |
+-->

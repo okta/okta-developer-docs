@@ -71,7 +71,7 @@ To test the full authentication flow that returns an ID token or an access token
     * Your OpenID Connect application's `redirect_uri`
     * Values for `state` and `nonce`, which can be anything
 
-    > **Note:** All of the values are fully documented on the [Obtain an Authorization Grant from a user](/docs/reference/api/oidc/#authorize) page.
+    > **Note:** All of the values are fully documented on the [Obtain an Authorization Grant from a user](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/authorizeCustomAS) page.
 
     The resulting URL looks something like this:
 
@@ -220,7 +220,7 @@ To include, for example, the app `label` parameter in a token claim:
 
 ### Create an app with the Profile object
 
-Create an app with the Profile object using the [Apps API](/docs/reference/api/apps/).
+Create an app with the profile object using the [Apps API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication!path=4/credentials/oauthClient&t=request).
 
 ```json
 {

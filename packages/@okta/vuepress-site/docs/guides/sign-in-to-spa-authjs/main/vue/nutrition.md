@@ -1,12 +1,12 @@
 > **Note:** This document is only for Identity Engine. If you’re using Classic Engine, see [Sign in to SPA with Auth JS]( /docs/guides/archive-sign-in-to-spa-authjs/vue/main). See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.
 
-This guide walks you through building a password sign-in Vue.js app that uses the Okta Auth JS and Vue.js libraries for Okta embedded authentication.
+This guide walks you through building a password sign-in Vue.js app that uses the Auth JS and Vue.js libraries for Okta [embedded authentication](/docs/concepts/redirect-vs-embedded/#embedded-authentication).
 
 ---
 
 #### Learning outcomes
 
-* Understand the sequence of steps required to implement Okta embedded authentication with Okta Auth JS and Vue.js libraries for your Vue.js app.
+Understand the sequence of steps required to implement Okta [embedded authentication](/docs/concepts/redirect-vs-embedded/#embedded-authentication) with the Auth JS and Vue.js libraries for your Vue.js app.
 
 #### What you need
 

@@ -20,7 +20,7 @@ This guide explains what refresh tokens are and how to configure your app to use
 
 ## About refresh tokens
 
-Access and ID [tokens](/docs/reference/api/oidc/#tokens-and-claims) are JSON web tokens that are valid for a specific number of seconds. A user needs a new access token when they attempt to access a resource for the first time. The user also needs a new access token after the previously granted access token expires.
+Access and ID [tokens](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/#tokens-and-claims) are JSON web tokens that are valid for a specific number of seconds. A user needs a new access token when they attempt to access a resource for the first time. The user also needs a new access token after the previously granted access token expires.
 
 A refresh token is a special token that is used to obtain more access tokens. This allows you to have short-lived access tokens without having to collect credentials every time one expires. You request a refresh token alongside the access and/or ID tokens as part of a user's initial authentication and authorization flow. Apps must then securely store refresh tokens since they allow users to remain authenticated.
 
@@ -30,7 +30,7 @@ For clients such as mobile apps, persistent refresh tokens help improve a user's
 
 Whether Okta returns a new refresh token with a new access token depends on the [refresh token lifetime](#refresh-token-lifetime) setting. If the lifetime setting hasn't expired, when a client makes a request for a new access token, Okta only returns the new access token. After the lifetime setting expires, Okta returns a new refresh token and a new access token.
 
-> **Note:** See [Token lifetime](/docs/reference/api/oidc/#token-lifetime) for more information on hard-coded and configurable token lifetimes.
+> **Note:** See [Token lifetime](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/#token-lifetime) for more information on hard-coded and configurable token lifetimes.
 
 ### Persistent token risk
 
@@ -44,7 +44,7 @@ Whether Okta returns a new refresh token with a new access token depends on the 
 
 Refresh tokens are available for a subset of Okta OAuth 2.0 client apps, specifically web, single-page, and mobile apps. See our [OAuth 2.0 and OIDC overview](/docs/concepts/oauth-openid/#recommended-flow-by-application-type) for more about creating an OpenID Connect app.
 
-Be sure to specify `refresh_token` as a `data_type` value for the `grant_type` parameter when adding an [OAuth client app](/docs/reference/api/apps/#add-oauth-2-0-client-application) using the `/apps` API.
+Be sure to specify `refresh_token` as a `data_type` value for the `grant_type` parameter when adding an [OAuth client app](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication!path=4/signOnMode&t=request) using the `/apps` API.
 
 If you're using the Admin Console to create an app, select **Refresh Token** as a **Grant type** in the **General Settings** section.
 
@@ -123,7 +123,7 @@ After you enable refresh token rotation, the `refresh_token` property appears wi
 
 > **Note:** A leeway of `0` doesn't necessarily mean that the previous token is immediately invalidated. The previous token is invalidated after the new token is generated and returned in the response.
 
-See [Refresh token object](/docs/reference/api/apps/#refresh-token-object).
+See the [refresh token object](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/getApplication!c=200&path=4/settings/oauthClient/refresh_token&t=response).
 
 ### Refresh token lifetime
 
@@ -151,7 +151,7 @@ The only grant type flows that support refresh tokens are the Authorization Code
 
 In the case of the Authorization Code flow, you use the authorization server's `/authorize` endpoint to get an Authorization Code, specifying an `offline_access` scope. You then use the `authorization_code` grant with this code in a request to the `/token` endpoint to get an access token and a refresh token.
 
-See [Obtain an authorization grant from a User](/docs/reference/api/oidc/#authorize) and [Implementing the Authorization Code flow](/docs/guides/implement-grant-type/authcode/main/) for more information on the `/authorize` endpoint and the Authorization Code flow.
+See [Obtain an authorization grant from a User](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/authorizeCustomAS) and [Implementing the Authorization Code flow](/docs/guides/implement-grant-type/authcode/main/) for more information on the `/authorize` endpoint and the Authorization Code flow.
 
 #### Example request for an Authorization Code and refresh token
 
@@ -227,7 +227,7 @@ curl --location --request POST 'https://{yourOktaDomain}/oauth2/v1/token' \
 
 For the Resource Owner Password flow, you use the authorization server's `/token` endpoint directly.
 
-See [Request a token](/docs/reference/api/oidc/#token) and [Implementing the Resource Owner Password flow](/docs/guides/implement-grant-type/ropassword/main/) for more information on the `/token` endpoint and the Resource Owner Password flow.
+See [Request a token](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/tokenCustomAS) and [Implementing the Resource Owner Password flow](/docs/guides/implement-grant-type/ropassword/main/) for more information on the `/token` endpoint and the Resource Owner Password flow.
 
 #### Example request
 
@@ -247,7 +247,7 @@ curl --location --request POST 'https://{yourOktaDomain}/oauth2/v1/token' \
 
 #### Example response
 
-You would then get back an ID token and your access and refresh tokens. See the [Okta OAuth 2.0 reference page](/docs/reference/api/oidc/#response-properties).
+You would then get back an ID token and your access and refresh tokens. See the [Okta OAuth 2.0 reference page](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/tokenCustomAS!c=200&path=access_token&t=response).
 
 > **Note:** The access and ID tokens are truncated for brevity.
 

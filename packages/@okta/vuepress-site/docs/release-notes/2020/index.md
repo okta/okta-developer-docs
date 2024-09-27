@@ -169,7 +169,7 @@ When the `expiresAt` property value of the [Authentication transaction object](/
 
 #### Bug fixed in 2020.10.2
 
-When accessing the `/authorize` [endpoint](/docs/reference/api/oidc/#authorize) with a scope parameter requiring consent, users not assigned to the application received a consent prompt rather than an error message.  (OKTA-335476)
+When accessing the `/authorize` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/authorizeCustomAS) with a scope parameter requiring consent, users not assigned to the application received a consent prompt rather than an error message.  (OKTA-335476)
 
 
 ### Weekly Release 2020.10.1
@@ -224,7 +224,7 @@ The [Groups API](/docs/reference/api/groups/) now supports extended search. Also
 
 #### Bugs fixed in 2020.09.4
 
-* When an OAuth service client called the `/authorize` [endpoint](/docs/reference/api/oidc/#authorize), the returned error description was inaccurate. (OKTA-252750)
+* When an OAuth service client called the `/authorize` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/authorizeCustomAS), the returned error description was inaccurate. (OKTA-252750)
 
 * If a user was assigned to two groups that have identical roles, then a call to the `/users/${userId}/roles` endpoint to [list the administrator roles assigned](/docs/reference/api/roles/#list-roles) to the user failed with an HTTP 400 error. (OKTA-325187)
 
@@ -466,7 +466,7 @@ Rate limits do not apply to these OAuth public metadata endpoints, so rate limit
 
 #### OAuth for Okta enabled for Trusted Origins, Sessions, and Custom Templates APIs
 
-OAuth for Okta is now enabled for the [Trusted Origins API](/docs/reference/api/trusted-origins/), the [Sessions API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Session/), and the [SMS Templates API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Template/). See [Scopes & supported endpoints](/docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints). <!-- OKTA-286819 -->
+OAuth for Okta is now enabled for the [Trusted Origins API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/TrustedOrigin/), the [Sessions API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Session/), and the [SMS Templates API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Template/). See [Scopes & supported endpoints](/docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints). <!-- OKTA-286819 -->
 
 #### Updated behavior for logging of invalid use by OAuth 2.0 Client
 
@@ -517,7 +517,7 @@ The [previously announced logging behavior](/docs/release-notes/2017/#additional
 
 #### User Types API GA in Production
 
-The [User Types API](/docs/reference/api/user-types/) is Generally Available in Production. <!-- OKTA-286349 -->
+The [User Types API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserType/) is Generally Available in Production. <!-- OKTA-286349 -->
 
 #### CORS headers in more API responses
 
@@ -540,11 +540,11 @@ Okta will now return CORS headers for [requests made with OAuth 2.0 Bearer token
 
 #### Bugs fixed in 2020.03.2
 
-* In some cases, an OAuth 2.0 [`/authorize`](/docs/reference/api/oidc/#authorize) request would incorrectly redirect if the client App had an App Sign-On Policy configured. (OKTA-269116)
+* In some cases, an OAuth 2.0 [`/authorize`](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/authorizeCustomAS) request would incorrectly redirect if the client App had an App Sign-On Policy configured. (OKTA-269116)
 
 * The [`_links`](/docs/reference/core-okta-api/#links) attribute for `groups` sent by Okta in the request body for a SAML inline hook was incorrect. (OKTA-269553)
 
-* Responses from OpenID Connect and OAuth 2.0 public metadata endpoints incorrectly omitted the return of CORS headers if the calling URL wasn't in the list of [trusted origins](/docs/reference/api/trusted-origins/) defined for the org. (OKTA-283549)
+* Responses from OpenID Connect and OAuth 2.0 public metadata endpoints incorrectly omitted the return of CORS headers if the calling URL wasn't in the list of [trusted origins](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/TrustedOrigin/) defined for the org. (OKTA-283549)
 
 * When a Workflow was called, all headers that weren't white listed had text prepended in the response, which broke redirects. (OKTA-282294)
 
@@ -629,7 +629,7 @@ The Schemas API and the Linked Objects API now have OAuth for Okta enabled. See 
 #### Bugs Fixed in 2020.02.1
 
 * When an admin's last role was revoked using the [Roles API](/docs/reference/api/roles/), it would sometimes not trigger a System Log event. (OKTA-276093)
-* In certain situations the [`/keys`](/docs/reference/api/oidc/#keys) endpoint would incorrectly return that the current key was expired and needed to be rolled over when the rollover hadn't occurred yet. (OKTA-227062)
+* In certain situations the [`/keys`](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/oauthKeysCustomAS) endpoint would incorrectly return that the current key was expired and needed to be rolled over when the rollover hadn't occurred yet. (OKTA-227062)
 * Expired AD users received different authentication errors depending on whether the Passwordless Policy was enabled or disabled. (OKTA-268306)
 
 
@@ -649,7 +649,7 @@ The Schemas API and the Linked Objects API now have OAuth for Okta enabled. See 
 
 #### Password Import Inline Hook in General Availability in Preview and Production
 
-The [password import inline hook](/docs/reference/password-hook/) lets you interface with an external service to verify a user-supplied password when the user signs in to Okta for the first time. This supports scenarios in which users are migrated from an existing user store while allowing them to retain their passwords. <!-- OKTA-275019 -->
+The [password import inline hook](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createPasswordImportInlineHook) lets you interface with an external service to verify a user-supplied password when the user signs in to Okta for the first time. This supports scenarios in which users are migrated from an existing user store while allowing them to retain their passwords. <!-- OKTA-275019 -->
 
 #### OAuth for Okta Enabled for User Consent Grant Operations
 
@@ -661,11 +661,11 @@ The [Policy API](/docs/reference/api/policy/) now has [OAuth for Okta](/docs/gui
 
 #### User Types API in General Availability in Preview
 
-The [User Types API](/docs/reference/api/user-types/) is in General Availability (GA) in Preview. <!--OKTA-275379-->
+The [User Types API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserType/) is in General Availability (GA) in Preview. <!--OKTA-275379-->
 
 #### SAML Assertion Inline Hook Now Supports URI Formatting in Claims
 
-Okta now supports URI claims with the [SAML assertion inline hook](/docs/reference/saml-hook/). When you need to replace or add a URI claim, you must encode the claim name within the command based on the [JSON Pointer](https://tools.ietf.org/html/rfc6901) specification. <!--OKTA-266619-->
+Okta now supports URI claims with the [SAML assertion inline hook](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createSAMLAssertionInlineHook). When you need to replace or add a URI claim, you must encode the claim name within the command based on the [JSON Pointer](https://tools.ietf.org/html/rfc6901) specification. <!--OKTA-266619-->
 
 #### Support Added in List Users API for Sort Parameters
 
@@ -681,9 +681,9 @@ The [Apps API](/docs/reference/api/apps/) now supports specifying SAML attribute
 
 #### Bugs Fixed in 2020.02.0
 
-* When using the [SAML assertion inline hook](/docs/reference/saml-hook/), if there was an optional attribute statement configured for the app and the attribute statement had no value specified, commands returned from SAML inline hook responses were not applied. (OKTA-263494)
+* When using the [SAML assertion inline hook](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createSAMLAssertionInlineHook), if there was an optional attribute statement configured for the app and the attribute statement had no value specified, commands returned from SAML inline hook responses weren't applied. (OKTA-263494)
 
-* The [Update User Types API](/docs/reference/api/user-types/#update-user-type) previously allowed the existing name of a User Type to be changed. (OKTA-241788)
+* The [Update User Types API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserType/#tag/UserType/operation/updateUserType) previously allowed the existing name of a User Type to be changed. (OKTA-241788)
 
 
 ## January

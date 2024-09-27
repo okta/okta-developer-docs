@@ -1,4 +1,4 @@
-### 1: Initiate use case requiring authentication
+### Initiate use case requiring authentication
 
 The first step is to initiate a use case that requires authentication. This guide uses a sign-in with username and password flow that is initiated with a call to `OktaAuth.idx.authenticate()`.
 
@@ -9,7 +9,7 @@ The first step is to initiate a use case that requires authentication. This guid
   });
 ```
 
-### 2: Display Google Authenticator challenge
+### Display Google Authenticator challenge
 
 If you configure your Okta org as detailed in [Configuration updates](#update-configurations) and the Google Authenticator is already [enrolled](#integrate-sdk-for-authenticator-enrollment) for the user, `authenticate()` returns a response indicating that Google Authenticator is required for verification. Specifically, `IdxTransaction` is returned with a `status` of `PENDING`, `nextStep.name` set to `challenge-authenticator`, and `nextStep.authenticator` filled with Google Authenticator details. See the following `IdxTransaction` example.
 
@@ -68,7 +68,7 @@ UI showing the one-time passcode input field.
 
 </div>
 
-### 3: Get one-time passcode from Google authenticator
+### Get one-time passcode from Google Authenticator
 
 Next, the user opens Google Authenticator on their mobile device and finds the one-time passcode for their account.
 
@@ -78,7 +78,7 @@ Next, the user opens Google Authenticator on their mobile device and finds the o
 
 </div>
 
-### 4: Submit one-time passcode in your app
+### Submit one-time passcode in your app
 
 When the user enters and submits this one-time passcode, call `OktaAuth.idx.proceed()` and pass in the password.
 

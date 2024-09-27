@@ -5,13 +5,19 @@ excerpt: Verify a user-supplied password during migration of the user to Okta
 
 # Password import inline hook reference
 
+The Password Import Inline Hook API reference is now available at the new [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createPasswordImportInlineHook)
+
+Explore the [Okta Public API Collections](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/overview) workspace to get started with the Inline Hook API Postman Collection.
+
+<!--
+
 This page provides reference documentation for password import inline hooks, one type of inline hook supported by Okta. It provides sample JSON objects that are contained in the outbound request from Okta to your external service, and sample JSON objects that you can include in your response.
 
 ## See also
 
 For a general introduction to Okta inline hooks, see [inline hooks](/docs/concepts/inline-hooks/).
 
-For information on the API for registering external service endpoints with Okta, see [Inline Hooks Management API](/docs/reference/api/inline-hooks/).
+For information on the API for registering external service endpoints with Okta, see [Inline Hooks Management API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/).
 
 For steps to enable this inline hook, see below, [Enabling a password import inline hook](#enabling-a-password-import-inline-hook).
 
@@ -167,4 +173,4 @@ Because of the possibility of your org being in read-only mode, don't attempt to
 
 You can configure an [Event hook](/docs/concepts/event-hooks/) to send this event type to you, to use to trigger automated cleanup of end user passwords after successful migration.
 
-> **Note:** Only one password import inline hook can be created per org.
+> **Note:** Only one password import inline hook can be created per org. -->

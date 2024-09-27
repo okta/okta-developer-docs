@@ -18,13 +18,13 @@ When you sign up for Okta, a private data space is created for you that's repres
 
 A top-level directory resource is available for your user base in your org. You can host directories either inside Okta or replicate outside user directories, as in the case of Active Directory or LDAP.
 
-Your end users are modeled inside Okta as [Users](/docs/reference/api/users/). Users are associated with an email address and a username. The username must be unique, but it can be changed (and often is when, for example, someone changes their name). The email address doesn't need to be unique and often isn't. The Okta user ID determines the uniqueness for a user.
+Your end users are modeled inside Okta as [Users](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/). Users are associated with an email address and a username. The username must be unique, but it can be changed (and often is when, for example, someone changes their name). The email address doesn't need to be unique and often isn't. The Okta user ID determines the uniqueness for a user.
 
 A [Group](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/) is made up of users within a directory. It can be thought of as a label that's applied to a set of users. A user can be a member of multiple groups. Groups are useful for representing roles, relationships, and can even be used for subscription tiers.
 
-An [Application](/docs/reference/api/apps/) holds information about the protocol in which it wants Okta to communicate, policies for accessing the app, and which users can use the app after identifying themselves.
+An [app](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/) holds information about the protocol in which it wants Okta to communicate, policies for accessing the app, and which users can use the app after identifying themselves.
 
-The relationship between an app and a user is stored in Okta as an [AppUser](/docs/reference/api/apps/#assign-user-to-application-for-sso). This allows for mappings between profile values where they're different. For example, app1 may refer to a user's last name as `lastName` and app2 may refer to last name as `surname`. The AppUser stores the value as necessary for the app.
+The relationship between an app and a user is stored in Okta as an [AppUser](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationUsers/). This allows for mappings between profile values where they're different. For example, app1 may refer to a user's last name as `lastName` and app2 may refer to last name as `surname`. The AppUser stores the value as necessary for the app.
 
 A [Policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy) specifies the rules of how your org behaves for certain actions. Policies have conditions that need to be met to apply actions. Your Okta org contains policies for how to gain access to an app, what the user needs to do to reset their password, and to enroll into multifactor authentication, for example.
 

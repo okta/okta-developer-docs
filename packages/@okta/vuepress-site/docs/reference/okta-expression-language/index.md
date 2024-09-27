@@ -23,7 +23,7 @@ When you create an Okta expression, you can reference any attribute that lives o
 
 ### Okta user profile
 
-Every user has an Okta user profile. The Okta user profile is the central source of truth for the core attributes of a user. To reference an Okta user profile attribute, specify `user.` and the attribute variable name. For a list of core user profile attributes, see [Default profile properties](/docs/reference/api/users/#default-profile-properties).
+Every user has an Okta user profile. The user profile is the central source of truth for the core attributes of a user. To reference a user profile attribute, specify `user.` and the attribute variable name. For a list of core user profile attributes, see the [`profile` parameter properties](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/getUser!c=200&path=profile&t=response).
 
 | Syntax            | Definitions                                                                   | examples                                                       |
 | --------          | ----------                                                                    | ------------                                                   |
@@ -37,7 +37,7 @@ In addition to an Okta user profile, all users have a separate app user profile 
 
 To reference a profile attribute of an app user, specify the app variable and the attribute variable in the user profile of the app. In specifying the app, you can either name the specific app you're referencing or use an implicit reference to an in-context app.
 
-> **Note:** The app reference is usually the `name` of the app, as distinct from the `label` (display name). See [Application properties](/docs/reference/api/apps/#app-properties). If your organization configures multiple instances of the same app, a randomly assigned suffix differentiates the names of the subsequent instances, for example: `zendesk_9ao1g13`. The name of any specific app instance in the Profile Editor appears in lighter text beneath the label of the app.
+> **Note:** The app reference is usually the `name` of the app, as distinct from the `label` (display name). See [Application properties](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/listApplications). If your org configures multiple instances of the same app, a randomly assigned suffix differentiates the names of the subsequent instances, for example: `zendesk_9ao1g13`. The name of any specific app instance in the Profile Editor appears in lighter text beneath the label of the app.
 
 | Syntax                | Definitions                                                                                | examples                                                              |
 | --------              | ----------                                                                                 | ------------                                                          |

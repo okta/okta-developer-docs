@@ -10,17 +10,25 @@ meta:
 
 The Okta Administrator Roles API provides operations to manage both standard and custom administrative Role assignments for a User.
 
+<!--
 This document includes the operations of the standard Roles API and the Custom Roles API, and where they intersect.
 
 <ApiAuthMethodWarning />
+-->
 
 ## Get started
 
+<!--
 Explore the Administrator Roles API:  [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/63c73546214177bae3bf)
+-->
+
+Explore the [Okta Public API Collections](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/overview) workspace to get started with the [Roles](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/) API.
 
 ## Custom Role operations
 
-These operations allow the creation and manipulation of Custom Roles as custom collections of [permissions](#permission-types).
+The Custom Role operations reference is now available at the new [Okta API reference portal](https://developer.okta.com/docs/api/) as the [Custom Roles API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RoleECustom/) and the [Custom Role Permissions API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RoleECustomPermission/).
+
+<!--These operations allow the creation and manipulation of Custom Roles as custom collections of [permissions](#permission-types).
 
 ### Create Role
 
@@ -581,8 +589,13 @@ curl -v -X DELETE \
 HTTP/1.1 204 No Content
 ```
 
+-->
+
 ## Resource Set operations
 
+The Resource Set operations reference is now available at the new [Okta API reference portal](https://developer.okta.com/docs/api/) as the [Resource Sets API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RoleCResourceSet/) and the [Resource Set Resources API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RoleCResourceSetResource/).
+
+<!--
 These operations allow the creation and manipulation of Resource Sets as custom collections of resources. You can use Resource Sets to assign [Custom Roles](#custom-role-operations) to administrators who are scoped to the designated resources.
 
 ### Create Resource Set
@@ -1059,9 +1072,13 @@ curl -v -X DELETE \
 ```http
 HTTP/1.1 204 No Content
 ```
+-->
 
 ## Custom Role assignment operations
 
+The Custom Role assignment operations reference is now available at the new [Okta API reference portal](https://developer.okta.com/docs/api/) as the [Role Resource Set Bindings API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RoleDResourceSetBinding/) and the [Role Resource Set Binding Members API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RoleDResourceSetBindingMember/).
+
+<!--
 These operations allow the assignment and unassignment of Custom Roles. This is done by creating a Binding.
 A Binding represents an association where the `bindingId` identifies the Principal, Role, and Resource Set.
 
@@ -1585,9 +1602,13 @@ curl -v -X DELETE \
 ```http
 HTTP/1.1 204 No Content
 ```
+-->
 
 ## Role assignment operations
 
+The Role assignment operations reference is now available at the new [Okta API reference portal](https://developer.okta.com/docs/api/) as the [User Role Assignments API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RoleAssignmentAUser/), the [Group Role Assignments API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RoleAssignmentBGroup/), and the [Client Role Assignments API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RoleAssignmentClient/).
+
+<!--
 #### Grant third-party admin status to a User
 
 <ApiOperation method="post" url="/api/v1/users/${userId}/roles?disableNotifications=true" />
@@ -2525,9 +2546,13 @@ curl -v -X DELETE \
 ```http
 HTTP/1.1 204 No Content
 ```
+-->
 
 ## Role target operations
 
+The Role target operations reference is now available at the new [Okta API reference portal](https://developer.okta.com/docs/api/) as the [User Role Targets API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RoleBTargetAdmin/), the [Group Role Targets](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RoleBTargetBGroup/), and the [Client Role Targets API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RoleBTargetClient/).
+
+<!--
 Role targets are a way of defining permissions for admin roles into a smaller subset of Groups or Apps within your org. Targets limit an admin's permissions to a targeted area of the org. You can define admin roles to target Groups, Applications, and Application Instances.
 
 * **Group targets:** Grant an admin permission to manage only a specified Group. For example, an admin role may be assigned to manage only the IT Group.
@@ -4150,15 +4175,15 @@ The following are the supported resources.
 
 | Service                 | Resource                                                            |  ORN Identifier                                                               | REST URL                                                                                                                                                |
 | :---------------------- | :------------------------------------------------------------------ | :---------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Directory               | All Users                                                           | `orn:${partition}:directory:${yourOrgId}:users`                                       | [`https://${yourOktaDomain}/api/v1/users`](/docs/reference/api/users/#list-users)                                                                       |
+| Directory               | All Users                                                           | `orn:${partition}:directory:${yourOrgId}:users`                                       | [`https://${yourOktaDomain}/api/v1/users`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/listUsers)                                                                       |
 |                         | All Groups                                                          | `orn:${partition}:directory:${yourOrgId}:groups`                                      | [`https://${yourOktaDomain}/api/v1/groups`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/#tag/Group/operation/listGroups)                                                                    |
 |                         | A specific Group                                                    | `orn:${partition}:directory:${yourOrgId}:groups:${groupId}`                           | [`https://${yourOktaDomain}/api/v1/groups/${groupId}`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/#tag/Group/operation/getGroup)                                                           |
 |                         | All Users within a specific Group                                   | `orn:${partition}:directory:${yourOrgId}:groups:${groupId}:contained_resources`       | [`https://${yourOktaDomain}/api/v1/groups/${groupId}/users`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/#tag/Group/operation/listGroupUsers)                                            |
-|                         | All Devices     <br><ApiLifecycle access="ea" />                                                     | `orn:${partition}:directory:${yourOrgId}:devices`                                     | [`https://${yourOktaDomain}/api/v1/devices`](/docs/reference/api/devices)            
-| Identity Provider       | All Apps                                                            | `orn:${partition}:idp:${yourOrgId}:apps`                                              | [`https://${yourOktaDomain}/api/v1/apps`](/docs/reference/api/apps/#list-applications)                                                                  |
+|                         | All Devices     <br><ApiLifecycle access="ea" />                                                     | `orn:${partition}:directory:${yourOrgId}:devices`                                     | [`https://${yourOktaDomain}/api/v1/devices`](/docs/reference/api/devices)
+| Identity Provider       | All Apps                                                            | `orn:${partition}:idp:${yourOrgId}:apps`                                              | [`https://${yourOktaDomain}/api/v1/apps`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/listApplications)                                                                  |
 |                         | All Identity Providers    <ApiLifecycle access="ea" />    | `orn:${partition}:idp:${yourOrgId}:identity_provider`  | [`https://${yourOktaDomain}/api/v1/idps`](/docs/reference/api/idps/#list-identity-providers)                                                                  |
-|                         | All Apps of a specific type                                         | `orn:${partition}:idp:${yourOrgId}:apps:${appType}`                                   | [`https://${yourOktaDomain}/api/v1/apps/?filter=name+eq+%22${targetAppType}%22`](/docs/reference/api/apps/#list-apps-by-name)                             |
-|                         | A specific App                                                      | `orn:${partition}:idp:${yourOrgId}:apps:${appType}:${appId}`                          | [`https://${yourOktaDomain}/api/v1/apps/${appId}`](/docs/reference/api/apps/#get-application)                                                           |
+|                         | All Apps of a specific type                                         | `orn:${partition}:idp:${yourOrgId}:apps:${appType}`                                   | [`https://${yourOktaDomain}/api/v1/apps/?filter=name+eq+%22${targetAppType}%22`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/listApplications)                             |
+|                         | A specific App                                                      | `orn:${partition}:idp:${yourOrgId}:apps:${appType}:${appId}`                          | [`https://${yourOktaDomain}/api/v1/apps/${appId}`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/getApplication)                                                           |
 |                         | All Authorization Servers                                           | `orn:${partition}:idp:${yourOrgId}:authorization_servers`                             | [`https://${yourOktaDomain}/api/v1/authorizationServers`](/docs/reference/api/authorization-servers/#list-authorization-servers)                        |
 |                         | A specific Authorization Server                                     | `orn:${partition}:idp:${yourOrgId}:authorization_servers:${authorizationServerId}`    | [`https://${yourOktaDomain}/api/v1/authorizationServers/${authorizationServerId}`](/docs/reference/api/authorization-servers/#get-authorization-server) |
 |                         | All customizations                                                  | `orn:${partition}:idp:${yourOrgId}:customizations`                                    |                                                                                                                                                         |
@@ -4406,3 +4431,4 @@ Use a Condition object to further restrict a permission in a Custom Admin Role. 
   }
 }
 ```
+-->

@@ -1,1 +1,1 @@
-See the [response properties](/docs/reference/registration-hook/#response-objects-that-you-send) of a registration inline hook for full details.
+See the [response properties](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/create-registration-hook!c=200&path=commands&t=response) of a registration inline hook for full details.

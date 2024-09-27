@@ -71,7 +71,7 @@ curl --request POST \
 The device authorization request passes the following parameters:
 
 * `client_id`: Matches the Client ID of the OAuth 2.0 app that you created.
-* `scope`: Specifies which access privileges are being requested for the access token. See [Scopes](/docs/reference/api/oidc/#scopes) for a list of supported scopes.
+* `scope`: Specifies which access privileges are being requested for the access token. See [Scopes](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/#scopes) for a list of supported scopes.
 
 **Example response**
 

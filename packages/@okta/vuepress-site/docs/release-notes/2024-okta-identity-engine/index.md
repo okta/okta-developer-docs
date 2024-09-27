@@ -3,7 +3,125 @@ title: Okta Identity Engine API release notes 2024
 ---
 
 <ApiLifecycle access="ie" />
+
 # Okta Identity Engine API release notes (2024)
+
+## September
+
+### Weekly release 2024.09.2
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Bugs fixed in 2024.09.2](#bugs-fixed-in-2024-09-2)| September 25, 2024 |
+
+#### Bugs fixed in 2024.09.2
+
+* Users weren't prompted for MFA when they attempted to reauthenticate with *Keep Me Signed In* enabled and the `prompt` parameter set to `login consent`. (OKTA-746325)
+* When an admin made a partial update using the Profile Mappings API, both incoming data and existing property mappings were validated instead of only the incoming request. (OKTA-798638)
+* User verification settings were returned in authentication method chain responses, even though the Assurance User Verification feature wasn't enabled in the org. (OKTA-798274)
+
+### Weekly release 2024.09.1
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Bug fixed in 2024.09.1](#bug-fixed-in-2024-09-1)| September 18, 2024 |
+
+#### Bug fixed in 2024.09.1
+
+If the Okta account management policy was used, GET calls to the `/idp/myaccount/authenticators/{authenticatorId}/enrollments` endpoint returned incomplete values. (OKTA-794253)
+
+### Monthly release 2024.09.0
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Descriptions for Entitlement and Role objects](#descriptions-for-entitlement-and-role-objects) | September 11, 2024 |
+| [Enhanced Dynamic Network Zones is self-service GA](#enhanced-dynamic-network-zones-is-self-service-ga) | May 15, 2024 |
+| [Event hook System Log update](#event-hook-system-log-update) | September 11, 2024 |
+| [Global token revocation for wizard SAML and OIDC apps](#global-token-revocation-for-wizard-saml-and-oidc-apps) | September 11, 2024 |
+| [Granular configuration for Keep Me Signed In is EA in Preview](#granular-configuration-for-keep-me-signed-in-is-ea-in-preview) | September 11, 2024 |
+| [New Device Assurance Policy API System Log events](#new-device-assurance-policy-api-system-log-events) | September 11, 2024 |
+| [New User Risk API is GA in Production](#new-user-risk-api-is-ga-in-production) | September 11, 2024 |
+| [Okta Personal Settings API is GA in Preview](#okta-personal-settings-api-is-ga-in-preview) | September 11, 2024 |
+| [System Log events added for Okta Workflows](#system-log-events-added-for-okta-workflows) | September 11, 2024 |
+| [System Log event update for user risk is GA in Production](#system-log-event-update-for-user-risk-is-ga-in-production) | August 7, 2024 |
+| [Developer documentation update in 2024.09.0](#developer-documentation-update-in-2024-09-0) | September 11, 2024 |
+| [Bugs fixed in 2024.09.0](#bugs-fixed-in-2024-09-0)| September 11, 2024 |
+
+#### Descriptions for Entitlement and Role objects
+
+SCIM 2.0 with entitlements now supports a `description` field for Entitlement and Role objects.
+<!--OKTA-741183-->
+
+#### Enhanced Dynamic Network Zones is self-service GA
+
+Use enhanced dynamic network zones to define IP service categories (proxies, VPNs), locations, and Autonomous System Numbers (ASNs) that are allowed or blocked in a zone. See the [Network Zones API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/NetworkZone/). <!--ENHANCED_DYNAMIC_NETWORK_ZONE OKTA-727934-->
+
+#### Event hook System Log update
+
+The `user.account.unlock_by_admin` event type is now event hook eligible. See [Event types](/docs/reference/api/event-types/). <!--OKTA-802486 OKTA-715243-->
+
+#### Global token revocation for wizard SAML and OIDC apps
+
+Universal Logout clears sessions and tokens for wizard SAML and OIDC apps. This enhancement extends Universal Logout functionality to more types of apps and provides greater flexibility to admins. <!--OKTA-797187 GLOBAL_TOKEN_REVOCATION_SUPPORT-->
+
+#### Granular configuration for Keep Me Signed In is EA in Preview
+
+Admins can now configure the post-authentication prompt for Keep Me Signed In (KMSI) at a granular level in authentication policies. This allows admins to selectively enable post-authentication KMSI on a per-user, per-group, or per-app basis. When enabled, this feature exposes a frequency setting that lets admins control how often the post-authentication prompt is presented to users. See [Keep me signed in](https://help.okta.com/okta_help.htm?type=oie&id=ext-stay-signed-in).
+
+The post-authentication prompt text (title, subtitle, accept button, and reject button) is now customizable through the Brands API. See [Brands API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/CustomPages/#tag/CustomPages/operation/replaceCustomizedSignInPage). <!--OKTA-791596 POST_AUTH_KMSI_IN_AUTH_POLICY-->
+
+#### New Device Assurance Policy API System Log events
+
+New System Log events are generated when the following methods are used on the `/device-assurances` endpoint:
+
+* POST: `device.assurance.policy.add`
+* PUT: `device.assurance.policy.update`
+* DELETE: `device.assurance.policy.delete`
+
+See [Event types](/docs/reference/api/event-types/).
+<!--OKTA-795306-->
+
+#### New User Risk API is GA in Production
+
+The new [User Risk API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserRisk/#tag/UserRisk) enables you to manage and view a user's risk level using an API. Previously, you could only elevate a user’s risk level using the Admin Console. <!-- OKTA-736701 -->
+
+#### Okta Personal Settings API is GA in Preview
+
+The [Okta Personal Settings API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OktaPersonalSettings/) allows you to manage [Okta Personal](https://www.okta.com/products/okta-personal/workforce/) admin settings.
+
+Okta Personal for Workforce is a free account that helps users separate their work apps from non-work apps. Okta Personal makes it easy for users to switch between their personal and work accounts, and to migrate their personal apps from an existing Okta enterprise tenant. When you enable Okta Personal for Workforce in your org, users receive a notification that encourages them to use Okta Personal for personal apps and Okta enterprise for work apps. See [Okta Personal for Workforce user experience](https://help.okta.com/oie/en-us/content/topics/okta-personal/okta-personal-for-workforce/user-experience.htm). <!--OKTA-794131-->
+
+#### System Log events added for Okta Workflows
+
+The `workflows.user.flow.move` and `workflows.user.table.move` Okta Workflows events have been added to the System Log to record the changes that occur due to reorganization of folder-level resources. <!--OKTA-669131-->
+
+#### System Log event update for user risk is GA in Production
+
+In the [System Log](https://developer.okta.com/docs/reference/api/event-types/?q=user.risk.change), the `user.risk.detect` event now appears instead of the `user.risk.change` event when Okta detects an entity that's associated with a risk level. <!-- ENABLE_USER_RISK_DETECT_EVENT OKTA-735117 -->
+
+#### Developer documentation update in 2024.09.0
+
+Our [API documentation](https://developer.okta.com/docs/api/) has a new look and feel that features a more logical navigation which aligns with industry standards. See **API Docs** in the menu.
+
+<div class="three-quarter">
+
+![Developer docs top menu bar](/img/homepage/APIDocs-menu.png)
+
+</div>
+
+API content in the **References** section will be moved after September 30, 2024.
+
+#### Bugs fixed in 2024.09.0
+
+* When creating or updating a profile, user first or last names that contained a dot (`last.name`) triggered malformed field error messages. (OKTA-798884)
+
+* The `AUTH_METHOD_CHAIN` verification type allowed users to save duplicate IdP authentication methods. (OKTA-796280)
+
+* Admins couldn't configure the `okta.myAccount.sessions.manage` scope as a custom scope on custom authorization servers. (OKTA-748880)
+
+* The Custom Token Scopes endpoints (`/api/v1/authorizationServers/{authServerId}/scopes`) for the Authorization Server API didn't support pagination. (OKTA-734223)
+
+* Deleted apps weren't removed from routing rules and were returned by calls to the `/policies` endpoint if the call used `IDP_DISCOVERY` as the `type`. (OKTA-734045)
 
 ## August
 
@@ -407,7 +525,7 @@ You can now make PUT requests to the `/api-tokens/{apiTokenId}` endpoint to upda
 
 #### Permissions for custom admins to manage agents is GA in Production
 
-Custom admins can now view, register, and manage agents. See [Permission types](/docs/reference/api/roles/#permission-properties). <!-- OKTA-706310 -->
+Custom admins can now view, register, and manage agents. See [Permission types](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#permissions). <!-- OKTA-706310 -->
 
 #### Username supported as optional request query parameter
 
@@ -494,7 +612,7 @@ Redirects to applications from the Sign-In Widget were blocked in Android browse
 
 #### Permissions for custom admins to manage agents is GA in Preview
 
-Custom admins can now view, register, and manage agents. See [Permission types](/docs/reference/api/roles/#permission-properties). <!-- OKTA-706310 ALLOW_CUSTOM_ADMIN_TO_MANAGE_REGISTER_AGENTS -->
+Custom admins can now view, register, and manage agents. See [Permission types](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#permissions). <!-- OKTA-706310 ALLOW_CUSTOM_ADMIN_TO_MANAGE_REGISTER_AGENTS -->
 
 #### Okta now supports the NotonOrAfter property for SLO apps
 
@@ -671,7 +789,7 @@ You can configure OS version compliance by using device assurance. However, you 
 
 #### New attribute to manage SAML app session lifetimes is EA in Preview
 
-The `samlAssertionLifetimeSeconds` parameter is an optional SAML parameter that allows the IdP to control the session at the SP. This parameter allows users to add `samlAssertionLifetimeSeconds` as an attribute in the SAML assertion to control the session lifetimes of SP apps using the Okta IdP. See the [Settings table](/docs/reference/api/apps/#settings-9) in the **Add custom SAML application** section. <!-- OKTA-690479 SAML_ASSERTION_LIFETIME_SECONDS_ON_APPS_API -->
+The `samlAssertionLifetimeSeconds` parameter is an optional SAML parameter that allows the IdP to control the session at the SP. This parameter allows users to add `samlAssertionLifetimeSeconds` as an attribute in the SAML assertion to control the session lifetimes of SP apps using the Okta IdP. See the [Settings table](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication!path=6/settings/signOn/samlAssertionLifetimeSeconds&t=request) in the **Add custom SAML application** section. <!-- OKTA-690479 SAML_ASSERTION_LIFETIME_SECONDS_ON_APPS_API -->
 
 #### New email domain for free trial orgs
 

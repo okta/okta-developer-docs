@@ -35,7 +35,7 @@ http --form POST https://{yourOktaDomain}/oauth2/v1/revoke \
 
 > **Note:** Revoking a token that is invalid, expired, or already revoked returns a `200 OK` status code to prevent any information leaks.
 
-See [Revoke a token](/docs/reference/api/oidc/#revoke) in the Okta OpenID Connect & OAuth 2.0 API reference.
+See [Revoke a token](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/revokeCustomAS) in the Okta OpenID Connect & OAuth 2.0 API reference.
 
 ## Revoke an access token or a refresh token
 
@@ -86,4 +86,4 @@ Separate from access and refresh tokens, there’s also the Okta session cookie 
 
 See [Close Session](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Session/#tag/Session/operation/revokeSession) in the Sessions API reference for more information on removing a specific session.
 
-See [Clear User Sessions](/docs/reference/api/users/#clear-user-sessions) in the Users API reference for more information on removing all of a user's sessions.
+See [Revoke all User Sessions](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserSessions/#tag/UserSessions/operation/revokeUserSessions) in the User Sessions API reference for more information on removing all of a user's sessions.

@@ -13,7 +13,7 @@ title: Okta Identity Engine API Products release notes 2021
 
 #### Bug fixed in 2021.12.2
 
-The [`login_hint`](/docs/reference/api/oidc/#request-parameters) didn't appear in the **Username** box even though the admin had already set up the sign-in flow with the [Org2Org](/docs/concepts/multi-tenancy/#diagram) OIDC [app](/docs/reference/api/apps/). (OKTA-445843)
+The [`login_hint`](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/authorizeCustomAS!in=query&path=login_hint&t=request) didn't appear in the **Username** box even though the admin had already set up the sign-in flow with the [Org2Org](/docs/concepts/multi-tenancy/#diagram) OIDC [app](/docs/reference/api/apps/). (OKTA-445843)
 
 ### Monthly release 2021.12.0
 
@@ -134,7 +134,7 @@ Custom [error page templates](/docs/guides/custom-error-pages/main/#use-macros/)
 
 #### Event hooks daily limit
 
-The maximum allowable daily limit of event hooks for all orgs has increased from 100,000 to 200,000. A higher daily allocation of event hooks reduces the likelihood that orgs will exceed their daily limits. See [Limits, duplicates, and order of Hook calls](/docs/reference/hooks-best-practices/#limits-duplicates-and-order-of-hook-calls).<!--OKTA-441433-->
+The maximum allowable daily limit of event hooks for all orgs has increased from 100,000 to 200,000. A higher daily allocation of event hooks reduces the likelihood that orgs will exceed their daily limits. See [Limits, duplicates, and order of Hook calls](/docs/guides/hooks-best-practices/#limits-duplicates-and-order-of-hook-calls).<!--OKTA-441433-->
 
 #### Token-based SSO between native apps is now GA in Production
 

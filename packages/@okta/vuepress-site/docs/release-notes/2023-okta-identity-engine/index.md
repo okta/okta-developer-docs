@@ -294,7 +294,7 @@ When configuring an API Service Integration (either through the Admin Console or
 
 #### Custom admin roles with device permissions is EA in Preview
 
-You can now create custom admin roles with permissions to view and manage devices. You can add the [Devices resource](/docs/reference/api/roles/#supported-resources)&nbsp;to your resource set and then specify [device permissions](/docs/reference/api/roles/#permission-types)&nbsp;for your custom admin. <!-- OKTA-636437 CUSTOM_ADMIN_ROLE_DEVICES -->
+You can now create custom admin roles with permissions to view and manage devices. You can add the [Devices resource](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#supported-resources)&nbsp;to your resource set and then specify [device permissions](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#permissions)&nbsp;for your custom admin. <!-- OKTA-636437 CUSTOM_ADMIN_ROLE_DEVICES -->
 
 #### Bugs fixed in 2023.08.1
 
@@ -342,7 +342,7 @@ With the Policy API `/simulate` endpoint, you can quickly and easily test polici
 #### Bugs fixed in 2023.08.0
 
 - Custom Push Factors used the same `provider` and `vendorName` properties as Okta Verify. These factors now return the `provider` as `CUSTOM` and the `vendorName` as the name of the authenticator. (OKTA-598598)
-- Some of the endpoints of the [Resource Sets API](/docs/reference/api/roles/#resource-set-operations) didn't support `self` and `next` link relation types. (OKTA-571339)
+- Some of the endpoints of the [Resource Sets API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RoleCResourceSet/) didn't support `self` and `next` link relation types. (OKTA-571339)
 - The Users API didn't validate the `saltOrder` property when creating or updating users with salted hashed passwords. (OKTA-602124)
 - Users that were provisioned through an IdP could be assigned the Super Admin role due to previous permission checks in group assignments. (OKTA-597974)
 
@@ -475,7 +475,7 @@ CIBA extends OpenID Connect to define a decoupled flow where the authentication 
 
 #### Password hooks global availability is GA in Production
 
-The [Create User with password import inline hook](/docs/reference/api/users/#create-user-with-password-import-inline-hook) operation is now available for all users. Previously, password hooks required a user to be in the `STAGED` status. This change helps better support migration efforts from DelAuth to Okta. <!-- OKTA-604521 -->
+The [Create User with password import inline hook](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createUserImportInlineHook) operation is now available for all users. Previously, password hooks required a user to be in the `STAGED` status. This change helps better support migration efforts from DelAuth to Okta. <!-- OKTA-604521 -->
 
 #### Google Authenticator for account recovery is now EA in Preview
 
@@ -569,7 +569,7 @@ Multibrand customizations allow customers to use one org to manage multiple bran
 
 #### Password hooks global availability is GA in Preview
 
-The [Create User with password import inline hook](/docs/reference/api/users/#create-user-with-password-import-inline-hook) operation is now available for all users. Previously, password hooks required a user to be in the `STAGED` status. This change helps better support migration efforts from DelAuth to Okta. <!--OKTA-604521--> <!--FF: ENG_ALLOW_PASSWORD_IMPORT_HOOKS_FOR_USERS_IN_ANY_STATUS--> <!--Originally available in December 2020-->
+The [Create User with password import inline hook](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createUserImportInlineHook) operation is now available for all users. Previously, password hooks required a user to be in the `STAGED` status. This change helps better support migration efforts from DelAuth to Okta. <!--OKTA-604521--> <!--FF: ENG_ALLOW_PASSWORD_IMPORT_HOOKS_FOR_USERS_IN_ANY_STATUS--> <!--Originally available in December 2020-->
 
 #### Event hook filtering is EA in Preview
 
@@ -585,7 +585,7 @@ The [Direct Authentication API](https://developer.okta.com/docs/api/openapi/okta
 
 #### Identity store property for the Applications API
 
-A new `identityStoreId` property is now available in the Applications API resource (`/api/v1/apps`) to store an identity store app associated with your app. You can set the `identityStoreId` value to the `id` of the identity store app you previously created in the same org. See the [optional `settings.identityStoreId` property](/docs/reference/api/apps/#identity-store-id). <!--OKTA-595777--> <!--FF: DYNAMIC_UI_APPS_API_AUGMENT--> <!--Orig avail 2023.04.2-->
+A new `identityStoreId` property is now available in the App API resource (`/api/v1/apps`) to store an identity store app associated with your app. You can set the `identityStoreId` value to the `id` of the identity store app you previously created in the same org. See the [optional `settings.identityStoreId` property](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication!c=200&path=0/settings/identityStoreId&t=response). <!--OKTA-595777--> <!--FF: DYNAMIC_UI_APPS_API_AUGMENT--> <!--Orig avail 2023.04.2-->
 
 #### Unique refresh token ID added to token inline hook requests
 
@@ -813,7 +813,7 @@ Previously, the self-service unlock (SSU) and self-service password reset (SSPR)
 
 #### Honor force authentication support for SAML Apps API
 
-Previously, the **Honor Force Authentication** parameter (`honorForceAuthn`) could only be set from the [SAML 2.0 App Integration Wizard](https://help.okta.com/okta_help.htm?type=oie&id=csh-apps-aiw-saml). When this property is set to `true`, users are prompted for their credentials when a SAML request has the `ForceAuthn` attribute set to `true`. You can now set this property for your SAML app without using the app integration wizard. See the [SAML 2.0 settings parameters in the Apps API](/docs/reference/api/apps/#add-saml-2-0-authentication-application). <!--OKTA-550077-->
+Previously, the **Honor Force Authentication** parameter (`honorForceAuthn`) could only be set from the [SAML 2.0 App Integration Wizard](https://help.okta.com/okta_help.htm?type=oie&id=csh-apps-aiw-saml). When this property is set to `true`, users are prompted for their credentials when a SAML request has the `ForceAuthn` attribute set to `true`. You can now set this property for your SAML app without using the app integration wizard. See the [SAML 2.0 settings parameters in the Apps API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication!path=6/settings/signOn/honorForceAuthn&t=request). <!--OKTA-550077-->
 
 #### OIN Manager support for Workflow Connector submission is GA in Preview
 
@@ -892,7 +892,7 @@ Okta now enables you to manage which FIDO2 WebAuthn authenticators are allowed i
 
 #### Applications API support for SAML metadata attributes
 
-The Applications API now supports metadata dynamic SAML attributes inherited from the SAML app. The SAML attributes are used to manage configured group attributes.The Admin Console displays the dynamic SAML attributes as **Configure SAML Attributes**, and the API returns these attributes as the `settings.signOn.configuredAttributeStatements` property in the [SAML application object](/docs/reference/api/apps/#add-saml-2-0-authentication-application). <!--OKTA-573057,OKTA-549695-->
+The Apps API now supports metadata dynamic SAML attributes inherited from the SAML app. The SAML attributes are used to manage configured group attributes. The Admin Console displays the dynamic SAML attributes as **Configure SAML Attributes**, and the API returns these attributes as the `settings.signOn.configuredAttributeStatements` property in the [SAML application object](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication!path=6/settings/signOn/configuredAttributeStatements&t=request). <!--OKTA-573057,OKTA-549695-->
 
 #### Authenticator enrollment using the /authorize endpoint is GA in Preview
 
@@ -1058,7 +1058,7 @@ OAuth 2.0 Optional Consent provides an optional property that enables a user to 
 
 #### Revoke user sessions is GA in Production
 
-You can end all Okta sessions for a user when resetting their password. All sessions of the specified user are revoked except for the current session. This option protects the user account from unauthorized access. See the `revokeSession` parameter in the [Users API](/docs/reference/api/users/#change-password). <!-- OKTA-542646-->
+You can end all Okta sessions for a user when resetting their password. All sessions of the specified user are revoked except for the current session. This option protects the user account from unauthorized access. See the [`revokeSession`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserCred/#tag/UserCred/operation/changePassword!path=revokeSessions&t=request) parameter in the User Credentials API. <!-- OKTA-542646-->
 
 #### Unusual telephony requests blocked by machine-learning measures
 

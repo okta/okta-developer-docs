@@ -36,30 +36,30 @@ Okta also supports the following IAM-based standard roles:
 | `ACCESS_CERTIFICATIONS_ADMIN` <ApiLifecycle access="ea" /> | Access certifications administrator | `okta.governance.accessCertifications.manage` |
 | `ACCESS_REQUESTS_ADMIN`       <ApiLifecycle access="ea" /> | Access requests administrator       | `okta.governance.accessRequests.manage`       |
 
-You can assign IAM-based standard roles using [standard](#standard-role-assignment-steps) or [custom role](#custom-role-assignment) assignment operations. These roles are immutable and can't be updated or deleted.
+You can assign IAM-based standard roles using assignment operations for [standard](#standard-role-assignment-steps) or [custom](#custom-role-assignment) roles. These roles are immutable, and you can't update or delete them.
 
 ### Standard Role Assignment steps
 
 Perform a standard role assignment:
 
 1. Assign a role to a user or group. The user now has access to the admin permissions and resources for the role.
-2. (Optional) If the role supports targets, use one of the [target operations](/docs/reference/api/roles/#role-target-operations) to indicate which specific resource the admin can manage.
+2. (Optional) If the role supports targets, use one of the target operations ([user role targets](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RoleBTargetAdmin/) or [group role targets](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RoleBTargetBGroup/)) to indicate which specific resource the admin can manage.
 
 The following are the entities involved in a standard role assignment:
 
-* Role: Identified either by type or ID returned from the [listing API](/docs/reference/api/roles/#list-roles)
+* Role: Identified either by type or ID returned from the [listing API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RoleECustom/#tag/RoleECustom/operation/listRoles)
 * Principal: Either a group or a user
-* Resource (optional): When using [target operations](/docs/reference/api/roles/#role-target-operations), the resource can be either an app or a group
+* Resource (optional): When using target operations ([user role targets](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RoleBTargetAdmin/), [group role targets](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RoleBTargetBGroup/), or [client role targets](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RoleBTargetClient/)), the resource can be either an app or a group
 
 ## Custom role assignment
 
-You can build custom roles by selecting [Permissions](/docs/reference/api/roles/#permission-types). After a custom role is built, you can use its `id` or `label` to assign to admins:
+You can build custom roles by selecting [Permissions](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#permissions). After a custom role is built, you can use its `id` or `label` to assign to admins:
 
 1. Create a custom role.
 2. Create a resource set.
 3. Bind the admin with the role from step one that targets the resource set from step two.
 
-An assignment of a role to an admin is called a [Binding](/docs/reference/api/roles/#binding-object), which you can identify by its unique ID. A binding represents a single unique combination of principal, resource set, and custom role. A given resource set can have multiple bindings. The resource allows for different combinations of principals and roles to grant permissions to the encompassing resource.
+An assignment of a role to an admin is called a [Binding](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RoleDResourceSetBinding/), which you can identify by its unique ID. A binding represents a single unique combination of principal, resource set, and custom role. A given resource set can have multiple bindings. The resource allows for different combinations of principals and roles to grant permissions to the encompassing resource.
 
 Therefore, when dealing with custom roles, these three entities always exist:
 
@@ -83,7 +83,7 @@ When using IAM-based standard roles the same concepts as custom roles apply with
 
 ### Resource sets
 
-A resource set is simply a collection of resources. There are two types of resource identifiers. Resources can either be identified by an Okta Resource Name (ORN) or by a REST URL format.
+A resource set is simply a collection of resources. There are two types of resource identifiers: an [Okta Resource Name (ORN)](#okta-resource-name-orn) or by a [REST URL](#rest-url) format.
 
 #### Okta Resource Name (ORN)
 
@@ -118,12 +118,11 @@ The partition is specific to your Okta environment. The following are the suppor
 
 ###### tenantId
 
-The identifier for the tenant that is using the service. This is typically your [org ID](/docs/reference/api/org/#org-setting-properties).
+The identifier for the tenant that is using the service. This is typically your [org ID]( https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingGeneral/#tag/OrgSettingGeneral/operation/getOrgSettings!c=200&path=id&t=response).
 
 ###### objectType
 
-The object type that is specific to the service. For example, object types `groups` or `users` are used for the `directory` service. For examples of object types, see
-[Supported resources](#supported-resources).
+The object type that's specific to the service. For example, object types `groups` or `users` are used for the `directory` service. For examples of object types, see [Supported resources](#supported-resources).
 
 ###### objectId
 
@@ -147,14 +146,14 @@ If the resource has a corresponding Okta API, you can specify the resource by it
 
 | Service                 | Resource                                                            |  ORN identifier                                                               | REST URL                                                                                                                                                |
 | :---------------------- | :------------------------------------------------------------------ | :---------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Directory               | All users                                                           | `orn:{partition}:directory:{yourOrgId}:users`                                       | [`https://{yourOktaDomain}/api/v1/users`](/docs/reference/api/users/#list-users)                                                                       |
+| Directory               | All users                                                           | `orn:{partition}:directory:{yourOrgId}:users`                                       | [`https://{yourOktaDomain}/api/v1/users`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/listUsers)                                                                       |
 |                         | All groups                                                          | `orn:{partition}:directory:{yourOrgId}:groups`                                      | [`https://{yourOktaDomain}/api/v1/groups`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/#tag/Group/operation/listGroups)                                                                    |
 |                         | A specific group                                                    | `orn:{partition}:directory:{yourOrgId}:groups:{groupId}`                           | [`https://{yourOktaDomain}/api/v1/groups/{groupId}`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/#tag/Group/operation/getGroup)                                                           |
 |                         | All users within a specific group                                   | `orn:{partition}:directory:{yourOrgId}:groups:{groupId}:contained_resources`       | [`https://{yourOktaDomain}/api/v1/groups/{groupId}/users`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/#tag/Group/operation/listGroupUsers)                                            |
 |                         | All devices     <br><ApiLifecycle access="ea" />                                                     | `orn:{partition}:directory:{yourOrgId}:devices`                                     | [`https://{yourOktaDomain}/api/v1/devices`](/docs/reference/api/devices)                                            |
-| Identity Provider       | All apps                                                            | `orn:{partition}:idp:{yourOrgId}:apps`                                              | [`https://{yourOktaDomain}/api/v1/apps`](/docs/reference/api/apps/#list-applications)                                                                  |
-|                         | All apps of a specific type                                         | `orn:{partition}:idp:{yourOrgId}:apps:{appType}`                                   | [`https://{yourOktaDomain}/api/v1/apps/?filter=name+eq+\"{targetAppType}\"`](/docs/reference/api/apps/#list-apps-by-name)                             |
-|                         | A specific app                                                      | `orn:{partition}:idp:{yourOrgId}:apps:{appType}:{appId}`                          | [`https://{yourOktaDomain}/api/v1/apps/{appId}`](/docs/reference/api/apps/#get-application)                                                           |
+| Identity Provider       | All apps                                                            | `orn:{partition}:idp:{yourOrgId}:apps`                                              | [`https://{yourOktaDomain}/api/v1/apps`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/listApplications)                                                                  |
+|                         | All apps of a specific type                                         | `orn:{partition}:idp:{yourOrgId}:apps:{appType}`                                   | [`https://{yourOktaDomain}/api/v1/apps/?filter=name+eq+\"{targetAppType}\"`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/listApplications)                             |
+|                         | A specific app                                                      | `orn:{partition}:idp:{yourOrgId}:apps:{appType}:{appId}`                          | [`https://{yourOktaDomain}/api/v1/apps/{appId}`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/getApplication)                                                           |
 |                         | All authorization servers                                           | `orn:{partition}:idp:{yourOrgId}:authorization_servers`                             | [`https://{yourOktaDomain}/api/v1/authorizationServers`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServer/#tag/AuthorizationServer/operation/listAuthorizationServers)                     |
 |                         | A specific authorization server                                     | `orn:{partition}:idp:{yourOrgId}:authorization_servers:{authorizationServerId}`    | [`https://{yourOktaDomain}/api/v1/authorizationServers/{authorizationServerId}`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServer/#tag/AuthorizationServer/operation/getAuthorizationServer) |
 |                         | All customizations                                                  | `orn:{partition}:idp:{yourOrgId}:customizations`                                    |                                                                                                                                                         |
@@ -162,15 +161,16 @@ If the resource has a corresponding Okta API, you can specify the resource by it
 |                         | A specific delegated flow                                           | `orn:{partition}:workflow:{yourOrgId}:flows:{flowId}`                              |                                                                                                                                                         |
 | Governance              | All access certifications         <br><ApiLifecycle access="ea" />  | `orn:partition:governance:orgId:certifications`                                   |                                                                                                                                                         |
 |                         | All access requests               <br><ApiLifecycle access="ea" />  | `orn:partition:governance:orgId:requests`                                         |                                                                                                                                                         |
+
 > **Note:** If you use a role with permissions that don't apply to the resources in the resource set, it doesn't affect the admin role. For example, the `okta.users.userprofile.manage` permission gives the admin no privileges if it’s granted to a resource set that only includes `https://{yourOktaDomain}/api/v1/groups/{targetGroupId}` resources. If you want the admin to be able to manage the users within the group, the resource set must include the corresponding `https://{yourOktaDomain}/api/v1/groups/{targetGroupId}/users` resource.
 
-> **Note:** Governance resources are currently only supported as part of the [Standard Resource Sets](#standard-resource-sets). You can't use these to create or update other resource sets.
+> **Note:** Governance resources are currently only supported as part of the Standard Resource Sets. You can't use these to create or update other resource sets. See [IAM-based standard roles](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#iam-based-standard-roles).
 
 #### Binding member identifiers
 
 To specify binding members, use the REST URL of the corresponding Okta API:
 
-* [A specific user](/docs/reference/api/users/#get-user)
+* [A specific user](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/getUser)
 
   ```bash
   https://{yourOktaDomain}/api/v1/users/{memberUserId}
@@ -193,11 +193,13 @@ To specify binding members, use the REST URL of the corresponding Okta API:
 
 The following resource sets are currently supported out of the box and can be used to assign admins only when used with
 their associated roles. Standard resource sets and roles are always identified using their type as `id`.
-| Resource set id/type                                              | Applicable role id/type    | Resources                                              |
+
+| Resource set ID/type                                              | Applicable role ID/type    | Resources                                              |
 | :---------------------------------------------------------------- | :------------------------- | ------------------------------------------------------ |
 | `ACCESS_CERTIFICATIONS_IAM_POLICY` <ApiLifecycle access="ea" /> | `ACCESS_CERTIFICATIONS_ADMIN` | All users, all groups, all Apps, all access certifications    |
 | `ACCESS_REQUESTS_IAM_POLICY`       <ApiLifecycle access="ea" /> | `ACCESS_REQUESTS_ADMIN`       | all users, all groups, all access requests, access request app |
-Standard resource sets are managed by Okta only and can't be updated or deleted.
+
+Only Okta manages standard resource sets, so you can't update or delete them.
 
 ## Custom vs. standard
 
@@ -209,7 +211,7 @@ Standard resource sets are managed by Okta only and can't be updated or deleted.
 
   As a result, if an admin was granted a standard role that is limited to a single group, and received group management privileges on all groups in the org through a custom role, the ultimate outcome is group management on all groups.
 
-* You can't assign a custom role without a resource set. The custom role is applicable only to a subset of resources. Standard roles, however, are initially granted to the entire org. You can only scope standard roles to specific resources by invoking [target operations](/docs/reference/api/roles/#role-target-operations).
+* You can't assign a custom role without a resource set. The custom role is applicable only to a subset of resources. Standard roles, however, are initially granted to the entire org. You can only scope standard roles to specific resources by invoking target operations ([user role targets](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RoleBTargetAdmin/), [group role targets](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RoleBTargetBGroup/), or [client role targets](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RoleBTargetClient/)).
 
 ### Permission types
 

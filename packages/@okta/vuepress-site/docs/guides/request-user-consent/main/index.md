@@ -35,9 +35,9 @@ When an app needs to get a new access token from an authorization server, the us
 
 When a consent dialog appears depends on the values of three elements:
 
-* `prompt`: a query [parameter](/docs/reference/api/oidc/#parameter-details) that is used in requests to `/oauth2/{authorizationServerId}/v1/authorize` (custom authorization server)
-* `consent_method`: an app property listed in the **Settings** [table](/docs/reference/api/apps/#settings-10) in the Apps API doc. This property allows you to determine whether a client is fully trusted (for example, a first-party app) or requires consent (for example, a third-party app).
-* `consent`: a scope property listed in the **Parameter details** [section](/docs/reference/api/oidc/#parameter-details) for the `/authorize` endpoint. This property allows you to enable or disable user consent for an individual scope.
+* `prompt`: a query [parameter](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/authorizeCustomAS!in=query&path=prompt&t=request) that's used in requests to `/oauth2/{authorizationServerId}/v1/authorize` (custom authorization server)
+* `consent_method`: an app property listed in the **Settings** [table](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication!path=4/signOnMode&t=request) in the Apps API doc. This property allows you to determine whether a client is fully trusted (for example, a first-party app) or requires consent (for example, a third-party app).
+* `consent`: a scope property listed in the [parameter details](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServerScopes/#tag/AuthorizationServerScopes/operation/createOAuth2Scope!path=consent&t=request) for authorization server scopes. This property allows you to enable or disable user consent for an individual scope.
 
 ## Enable consent for scopes
 
@@ -84,12 +84,12 @@ The following section provides example requests for enabling the consent dialog 
 
 1. Verify that the `consent_method` parameter for the app is set to `REQUIRED`:
 
-    * Do a [List applications](/docs/reference/api/apps/#list-applications-with-defaults) to locate the `applicationId` of the app.
-    * Do a [Get application](/docs/reference/api/apps/#get-application) using the `applicationId` and verify that the `consent_method` parameter is set to `REQUIRED`.
+    * Do a [List apps](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/listApplications) to locate the `applicationId` of the app.
+    * Do a [Get app](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/getApplication) using the `applicationId` and verify that the `consent_method` parameter is set to `REQUIRED`.
 
 2. If the `consent_method` is set to `TRUSTED`, you need to update that parameter. The following example shows the JSON body of a PUT request to an existing OpenID Connect app (`https://{yourOktaDomain}/api/v1/apps/{applicationId}`). The request updates the `consent_method` parameter from `TRUSTED` to `REQUIRED`. The value that you specify for `consent_method` depends on the values for `prompt` and `consent`.
 
-    > **Note:** Check the **Settings** [table](/docs/reference/api/apps/#settings-10) in the **Add OAuth 2.0 Client Application** section of the Apps API reference for information on these properties. In most cases, `REQUIRED` is the correct value.
+    > **Note:** Check the **Settings** [table](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication!path=4/signOnMode&t=request) of the Apps API reference for information on these properties. In most cases, `REQUIRED` is the correct value.
 
     ```json
     {
@@ -212,9 +212,9 @@ After you define the scopes that you want to require consent for, prepare an aut
 
     * Values for `state` and `nonce`, which can be anything
 
-    * Optional. The `prompt` parameter. The standard behavior (if you don't include `prompt` in the request) is to prompt the user for consent if they haven't already given consent for the scope(s). When you include `prompt=consent` in the request, the user is prompted for consent every time, even if they have already given consent. You must set the `consent_method` and the consent for the scope(s) to `REQUIRED`. See the [Parameter details](/docs/reference/api/oidc/#parameter-details) section for the `/authorize` endpoint.
+    * Optional. The `prompt` parameter. The standard behavior (if you don't include `prompt` in the request) is to prompt the user for consent if they haven't already given consent for the scopes. When you include `prompt=consent` in the request, the user is prompted for consent every time, even if they have already given consent. You must set the `consent_method` and the [consent for the scopes](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServerScopes/#tag/AuthorizationServerScopes/operation/createOAuth2Scope!path=consent&t=request) to `REQUIRED`. See the [parameter details](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/authorizeCustomAS!in=query&path=prompt&t=request) for the `/authorize` endpoint.
 
-    > **Note:** All of the property values are fully documented in the `/authorize` [endpoint](/docs/reference/api/oidc/#authorize) section of the OpenID Connect & OAuth 2.0 API reference.
+    > **Note:** All of the property values are fully documented in the `/authorize` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/authorizeCustomAS) section of the OpenID Connect & OAuth 2.0 API reference.
 
     The resulting URL to request an access token looks something like this:
 
@@ -360,12 +360,12 @@ There are several ways to verify that you've successfully created a user grant:
 
 To revoke consent for a user, you can revoke one consent that is granted or all consents that are granted. Before you begin, you need the following:
 
-* `userId` for the user that you want to revoke a grant for. Do a [List Users](/docs/reference/api/users/#list-users) to locate the user and the `userId` that you need.
-* `grantId` for the grant that you want to revoke. Do a [List Grants](/docs/reference/api/users/#list-grants) with the `userId` to locate the `grantID` that you need.
+* `userId` for the user that you want to revoke a grant for. Use the [List all Users](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/listUsers) endpoint to locate the user and the `userId` that you need.
+* `grantId` for the grant that you want to revoke. Use the [List all User Grants](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserGrant/#tag/UserGrant/operation/listUserGrants) endpoint with the `userId` to locate the `grantID` that you need.
 
 ### Revoke one Grant
 
-To [revoke one grant for a user](/docs/reference/api/users/#revoke-a-grant-for-a-user), use the `grantId` that you want to revoke for a user in a DELETE request:
+To [revoke one grant for a user](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserGrant/#tag/UserGrant/operation/revokeUserGrant), use the `grantId` that you want to revoke for a user in a DELETE request:
 
 **Example request**
 
@@ -379,7 +379,7 @@ curl -v -X DELETE \
 
 ### Revoke all Grants
 
-To [revoke all grants for a user](/docs/reference/api/users/#revoke-all-grants-for-a-user), just use the `userId` for the user in a DELETE request:
+To [revoke all grants for a user](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserGrant/#tag/UserGrant/operation/revokeUserGrants), just use the `userId` for the user in a DELETE request:
 
 **Example request**
 
@@ -395,8 +395,8 @@ curl -v -X DELETE \
 
 If you don't see the consent prompt when expected:
 
-* Verify that you haven't already provided consent for that combination of app and scope(s). Use the `/grants`[endpoint](/docs/reference/api/users/#list-grants) to see which grants have been given and to revoke grants.
-* Check the settings for `prompt`, `consent`, and `consent_method` in the [Apps API table](/docs/reference/api/apps/#add-oauth-20-client-application).
-* Make sure that in your app configuration, the `redirect_uri` is an absolute URI and that it is allowed by specifying it in [Trusted Origins](/docs/reference/api/trusted-origins/).
+* Verify that you haven't already provided consent for that combination of app and scope(s). Use the `/grants`[endpoint](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserGrant/#tag/UserGrant/operation/listGrantsForUserAndClient) to see which grants have been given and to revoke grants.
+* Check the settings for `prompt`, `consent`, and `consent_method` in the [Apps API table](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication!path=4/signOnMode&t=request).
+* Make sure that in your app configuration, the `redirect_uri` is an absolute URI and that it is allowed by specifying it in [Trusted Origins](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/TrustedOrigin/).
 * If you aren't using the `default` [authorization server](/docs/concepts/auth-servers/), check that you've created at least one policy with one rule that applies to any scope or the scope(s) in your test.
 * Check the [System Log](/docs/reference/api/system-log/) to see what went wrong.

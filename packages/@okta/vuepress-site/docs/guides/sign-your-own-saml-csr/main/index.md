@@ -4,7 +4,11 @@ excerpt: How to use a custom SAML certificate for apps
 layout: Guides
 ---
 
-This guide explains how to upload your SAML certificates to sign the assertion for outbound SAML apps, sign the AuthN request, and decrypt the assertion for inbound SAML.
+This guide explains how to complete the following steps:
+
+* Upload your Security Assertion Markup Language (SAML) certificates to sign the assertion for outbound SAML apps.
+* Sign the AuthN request.
+* Decrypt the assertion for inbound SAML.
 
 ---
 
@@ -27,7 +31,7 @@ See [Get Started with the Okta REST APIs](/docs/reference/rest/) for information
 
 ## List your apps
 
-* For Outbound SAML, use the [Apps API](/docs/reference/api/apps/#list-applications) to return a list of all the apps and to collect the app `id` for each app that you want to update.
+* For Outbound SAML, use the [Apps API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/listApplications) to return a list of all the apps and to collect the app `id` for each app that you want to update.
 
 * For inbound SAML, use the [IdPs API](/docs/reference/api/idps/#list-identity-providers-with-defaults) to return a list of all the Identity Providers (IdP) and to collect the full response for each IdP that you want to update.
 
@@ -92,7 +96,7 @@ Truncated response:
 
 ## Generate a CSR
 
-* Use the [Apps API](/docs/reference/api/apps/#list-csrs-for-application) to return a list of all apps to use with outbound SAML apps.
+* Use the [Apps API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationSSOCredentialKey/#tag/ApplicationSSOCredentialKey/operation/listCsrsForApplication) to return a list of all apps to use with outbound SAML apps.
 * Use the [IdPs API](/docs/reference/api/idps/#list-signing-csrs-for-idp) to return a list of all IdPs to use with inbound SAML apps.
 
 You can generate a CSR and receive the response in either JSON or [PKCS#10](https://tools.ietf.org/html/rfc2986) format.
@@ -175,7 +179,7 @@ Okta generates the CSR in Base64-encoded DER format. If your process requires a 
 
 ## Publish a CSR with a certificate
 
-* Use the [Apps API](/docs/reference/api/apps/#publish-csr-for-application) to publish the certificate for outbound SAML apps.
+* Use the [Apps API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationSSOCredentialKey/#tag/ApplicationSSOCredentialKey/operation/publishCsrFromApplication) to publish the certificate for outbound SAML apps.
 
 * Use the [IdPs API](/docs/reference/api/idps/#publish-signing-csr-for-idp) to publish the certificate for inbound SAML apps.
 
@@ -230,9 +234,9 @@ Content-Type: application/json;charset=UTF-8
 
 Update the key credential for the app or IdP to specify the new signing Key ID.
 
-* For outbound SAML, call the [Update Application API](/docs/reference/api/apps/#update-application). Pass the app ID that you obtained in the [List your apps](#list-your-apps) step in the URL. In the body, include the app name and the app label that you obtained when you listed your apps and the Key ID that you obtained in the [Sign the CSR](#sign-the-csr) step.
+* For outbound SAML, call the [Replace an app endpoint](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/replaceApplication). Pass the app ID that you obtained in the [List your apps](#list-your-apps) step in the URL. In the body, include the app name and the app label that you obtained when you listed your apps. Include the Key ID that you obtained in the [Sign the CSR](#sign-the-csr) step.
 
-* For inbound SAML, call the [Update IdP API](/docs/reference/api/idps/#update-identity-provider). Pass the entire [IdP](/docs/reference/api/idps/#update-identity-provider) that you obtained in the [List your apps](#list-your-apps) step and use the Key ID value that you obtained in the [Sign the CSR](#sign-the-csr) step. Partial updates aren't supported by the `Updated IdP API`.
+* For inbound SAML, call the [Update IdP API](/docs/reference/api/idps/#update-identity-provider). Pass the entire [IdP](/docs/reference/api/idps/#update-identity-provider) that you obtained in the [List your apps](#list-your-apps) step and use the Key ID value that you obtained in the [Sign the CSR](#sign-the-csr) step. The `Updated IdP API` doesn't support partial updates.
 
 > **Caution:** After you update the key credential, your users can't access the SAML app or the Identity Provider until you upload the new certificate to the Service Provider (SP).
 
@@ -337,7 +341,7 @@ Content-Type: application/json
 ## Clone the certificate (optional)
 
 To share the certificate that you created across multiple apps, clone it with the
-[Apps API](/docs/reference/api/apps/#clone-application-key-credential) by using the key `id` that you generated.
+[Apps API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationSSOCredentialKey/#tag/ApplicationSSOCredentialKey/operation/cloneApplicationKey) by using the key `id` that you generated.
 
 To share the certificate that you created across multiple IdPs, clone it with the [IdPs API](/docs/reference/api/idps/) by using the key `id` that you generated.
 

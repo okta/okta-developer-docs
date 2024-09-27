@@ -82,11 +82,11 @@ To set up and activate the password import inline hook:
 
 The password import inline hook is now set up with a status of "Active".
 
-> **Note:** You can also set up an inline hook using an API. See [Inline Hooks Management API](/docs/reference/api/inline-hooks/#create-inline-hook).
+> **Note:** You can also set up an inline hook using an API. See [Inline Hooks Management API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createInlineHook).
 
 ## Import test users
 
-Upload some users into your Okta org using the [Password import inline hook API](/docs/reference/api/users/#create-user-with-password-import-inline-hook). These users provide data to test your inline hook.
+Upload some users into your Okta org using the [Password import inline hook API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createPasswordImportInlineHook). These users provide data to test your inline hook.
 
 The following example uses sample data from the data store in the `users.js` file of your project.
 
@@ -120,4 +120,5 @@ Review the following guides to implement other inline or event hook examples:
 
 ## See also
 
-For further reference data on the password import inline hook, see: [Password import inline hook](/docs/reference/password-hook/).
+For further reference data on the password import inline hook, see [Password import inline hook](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createPasswordImportInlineHook).
+

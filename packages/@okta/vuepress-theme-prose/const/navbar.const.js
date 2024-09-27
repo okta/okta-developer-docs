@@ -72,6 +72,10 @@ export const concepts = [
             path: "/docs/concepts/oie-intro/",
          },
          {
+          title: "Org Creator",
+          path: "/docs/concepts/org-creator/",
+         },
+         {
             title: "Okta organizations",
             path: "/docs/concepts/okta-organizations/",
          },
@@ -666,10 +670,6 @@ export const guides = [
                 title: "OIN Manager: Submit an LCM integration",
                 guideName: "submit-app",
               },
-              {
-                title: "OIN Manager: Submit an SSO integration (to remove) ",
-                guideName: "submit-sso-app",
-              },
             ]
           },
         ],
@@ -783,6 +783,14 @@ export const guides = [
             guideName: "terraform-manage-external-authenticators",
           },
           {
+            title: "Manage device connection requirements",
+            guideName: "terraform-configure-device-signin-standards"
+          },
+          {
+            title: "Manage authorization servers",
+            guideName: "terraform-create-custom-auth-server"
+          },
+          {
             title: "Customize end-user experience",
             guideName: "terraform-manage-end-user-experience",
           },
@@ -794,6 +802,14 @@ export const guides = [
             title: "Optimize Terraform access",
           guideName: "terraform-design-rate-limits"
           },
+          {
+            title: "Organize your configuration",
+            guideName: "terraform-organize-configuration"
+          },
+          {
+            title: "Terraform syntax tips",
+            guideName: "terraform-syntax-tips"
+          },
         ],
       },
       {
@@ -802,6 +818,10 @@ export const guides = [
           {
             title: "Common hook set-up steps",
             guideName: "common-hook-set-up-steps",
+          },
+          {
+            title: "Hooks best practices",
+            path: "/docs/guides/hooks-best-practices/",
           },
           {
             title: "Event hook",
@@ -996,7 +1016,7 @@ export const reference = [
                { title: 'Sign in Your Users', path: 'empty' },
                { title: "Authentication", path: "/docs/reference/api/authn/" },
                { title: "Identity Providers", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/" },
-               { title: "OpenID Connect & OAuth 2.0 API", path: "/docs/reference/api/oidc/" },
+               { title: "OpenID Connect & OAuth 2.0 API", path: "https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/" },
                { title: "WebFinger", path: "/docs/reference/api/webfinger/" },
                { title: "Manage Okta Objects", path: "empty" },
                { title: "Administrator Roles", path: "/docs/reference/api/roles/" },
@@ -1025,7 +1045,7 @@ export const reference = [
                { title: "Groups", path: "/docs/reference/api/groups/" },
                { title: "Groups Owners", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/GroupOwner/" },
                { title: "Identity Sources", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/" },
-               { title: "Key Management", path: "/docs/reference/api/hook-keys/" },
+               { title: "Key Management", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/HookKey/#tag/HookKey" },
                { title: "Linked Objects", path: "/docs/reference/api/linked-objects/" },
                { title: "Log Streaming", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/LogStream/#tag/LogStream" },
                { title: "MyAccount", path: "https://developer.okta.com/docs/api/openapi/okta-myaccount/guides/overview/" },
@@ -1049,9 +1069,9 @@ export const reference = [
                { title: "System Log", path: "/docs/reference/api/system-log/" },
                { title: "Templates", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Template/" },
                { title: "ThreatInsight", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ThreatInsight/" },
-               { title: "Trusted Origins", path: "/docs/reference/api/trusted-origins/" },
+               { title: "Trusted Origins", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/TrustedOrigin/" },
                { title: "UI Schema", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UISchema/" },
-               { title: "User Types", path: "/docs/reference/api/user-types/" },
+               { title: "User Types", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserType/" },
                { title: "Users", path: "/docs/reference/api/users/" }
             ]
          },
@@ -1092,39 +1112,35 @@ export const reference = [
             subLinks: [
                {
                   title: "Event Hooks Management API",
-                  path: "/docs/reference/api/event-hooks/",
+                  path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/EventHook/#tag/EventHook/",
                },
                {
                   title: "Inline Hooks Management API",
-                  path: "/docs/reference/api/inline-hooks/",
+                  path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/",
                },
                {
                   title: "Inline Hook Types",
                   subLinks: [
                      {
                         title: "Password Import Hook",
-                        path: "/docs/reference/password-hook/",
+                        path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createPasswordImportInlineHook",
                      },
                      {
                         title: "Registration Hook",
-                        path: "/docs/reference/registration-hook/",
+                        path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/create-registration-hook",
                      },
-                     { title: "SAML Hook", path: "/docs/reference/saml-hook/" },
+                     { title: "SAML Hook", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createSAMLAssertionInlineHook" },
                      {
                         title: "Telephony Hook",
-                        path: "/docs/reference/telephony-hook/",
+                        path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createTelephonyInlineHook",
                      },
-                     { title: "Token Hook", path: "/docs/reference/token-hook/" },
+                     { title: "Token Hook", path: "https://developer.okta.com/docs/reference/token-hook/" },
                      {
                         title: "User Import Hook",
-                        path: "/docs/reference/import-hook/",
+                        path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createUserImportInlineHook",
                      },
                   ],
-               },
-               {
-                  title: "Hooks best practices",
-                  path: "/docs/reference/hooks-best-practices/",
-               },
+               }
             ],
          },
          {
@@ -1137,7 +1153,7 @@ export const reference = [
          },
          {
             title: "Release lifecycle",
-            path: "/docs/reference/releases-at-okta/",
+            path: "https://developer.okta.com/docs/api/openapi/okta-management/guides/release-lifecycle/",
          },
          {
             title: 'Architecture Center',

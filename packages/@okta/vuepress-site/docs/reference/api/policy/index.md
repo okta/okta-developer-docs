@@ -298,9 +298,9 @@ HTTP 204:
 
 Retrieves a list of applications mapped to a policy
 
-> **Note:** To retrieve a list of applications mapped to a policy, use [List all resources mapped to a Policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/listPolicyMappings). If you need to assign an application to a specific policy, use the [Update application policy](/docs/reference/api/apps/#update-application-policy) operation of the Apps API.
+> **Note:** To retrieve a list of apps mapped to a policy, use [List all resources mapped to a policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/listPolicyMappings). If you need to assign an app to a specific policy, use the [Assign an authentication policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationPolicies/#tag/ApplicationPolicies/operation/assignApplicationPolicy) operation of the Apps API.
 
-> **Note:** To assign an application to a specific policy, use the [Update application policy](/docs/reference/api/apps/#update-application-policy) operation of the Apps API.
+> **Note:** To assign an app to a specific policy, use the [Update app policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationPolicies/#tag/ApplicationPolicies/operation/assignApplicationPolicy) operation of the Apps API.
 
 ##### Request parameters
 
@@ -318,7 +318,7 @@ curl -v -X GET \
 ##### Response types
 
 HTTP 200:
-Array of [Application objects](/docs/reference/api/apps/#application-object)
+Array of [app objects](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/listApplications)
 
 ## Policy simulation operations
 <ApiLifecycle access="ie" />
@@ -1055,7 +1055,7 @@ Specifies a set of Groups whose Users are to be included or excluded
 
 <ApiLifecycle access="ie" />
 
-Specifies which [User Types](/docs/reference/api/user-types/#user-type-object) to include and/or exclude. You can use the [User Types API](/docs/reference/api/user-types/) to manage User Types.
+Specifies which [User Types](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserType/#tag/UserType) to include or exclude.
 
 | Parameter | Description                  | Data Type | Required |
 | ---       | ---                          | ---       | ---      |

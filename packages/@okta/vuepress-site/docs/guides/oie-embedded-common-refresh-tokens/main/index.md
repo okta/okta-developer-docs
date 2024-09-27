@@ -23,9 +23,9 @@ This guide shows you how to refresh access and ID tokens by using either the Ide
 
 ## Overview
 
-Access tokens often have limited lifetimes. If you allow access tokens to expire, their usefulness is limited in the event an attacker discovers them. For your app to continue to use the appropriate resources when an access token expires, the app can refresh them without user intervention by using a refresh token.
+Access tokens often have limited lifetimes. If you allow access tokens to expire, their usefulness is limited in the event an attacker discovers them. Your app can refresh expired tokens by using a refresh token. The app can then continue using the appropriate resources without user intervention.
 
-All the SDKs expose functionality that allows you to obtain access, ID, and refresh tokens. Each SDK (Swift, JavaScript, and so on) has a different set of convenience methods and other functionality that provide you with built-in support for token refresh, auto-renewal, and storage. Minimally, all the SDKs allow you to obtain the refresh token and call the authorization server's token endpoint to renew the access token.
+All the SDKs expose functionality that allows you to obtain access, ID, and refresh tokens. Each SDK (Swift, JavaScript, and so on) has a different set of methods and functionality that provide built-in support for token refresh, auto-renewal, and storage. Minimally, all the SDKs allow you to obtain the refresh token and call the authorization server's token endpoint to renew the access token.
 
 ## Refresh the tokens
 
@@ -37,13 +37,13 @@ You can refresh tokens with the SDK or with the OAuth token endpoint.
 
 ### Refresh the tokens with the OAuth token endpoint
 
-You can refresh access and ID tokens using the [`/token`](/docs/reference/api/oidc/#token) endpoint with the `grant_type` set to `refresh_token`. Before calling this endpoint, obtain the refresh token from the SDK and ensure that you've included `offline_access` as a scope in the SDK configurations. For further details on access token refresh with this endpoint, see [Use a refresh token](/docs/guides/refresh-tokens/main/#use-a-refresh-token).
+You can refresh access and ID tokens using the [`/token`](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/tokenCustomAS) endpoint with the `grant_type` set to `refresh_token`. Before calling this endpoint, obtain the refresh token from the SDK and ensure that you've included `offline_access` as a scope in the SDK configurations. For further details on access token refresh with this endpoint, see [Use a refresh token](/docs/guides/refresh-tokens/main/#use-a-refresh-token).
 
 <StackSnippet snippet="refreshendpointrequest" />
 
-#### Native and SPA applications
+#### Platform-specifc and SPA apps
 
-OIDC and OAuth 2.0 requests for native and single-page applications (SPAs) don't include the `Authorization` header with the client ID and secret. Instead, these apps include the `client_id` query parameter in their requests.
+OIDC and OAuth 2.0 requests for platform-specific and single-page apps (SPAs) don't include the `Authorization` header with the client ID and secret. Instead, these apps include the `client_id` query parameter in their requests.
 
 ##### Request example
 
@@ -74,13 +74,13 @@ client_id=0oa94el1z4nUDxx0z5d7
 
 ## Use the introspect endpoint to get token info
 
-To get information on a current token, such as if the token is active or has expired, use the [`/introspect`](/docs/reference/api/oidc/#introspect) endpoint.
+To get information on a current token, such as if the token is active or has expired, use the [`/introspect`](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/introspectCustomAS) endpoint.
 
 <StackSnippet snippet="introspectendpointrequest" />
 
-### Native and SPA applications
+### Platform-specific and SPA apps
 
-OIDC and OAuth 2.0 requests for native and single-page applications (SPAs) don't include the `Authorization` header with the client ID and secret. Instead, these apps include the `client_id` query parameter in their requests.
+OIDC and OAuth 2.0 requests for platform-specific and single-page apps (SPAs) don't include the `Authorization` header with the client ID and secret. Instead, these apps include the `client_id` query parameter in their requests.
 
 #### Request example
 

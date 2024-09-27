@@ -68,7 +68,7 @@ When a request is sent to the org authorization server's `/authorize` endpoint, 
 1. Select the OpenID Connect (OIDC) or OAuth 2.0 app that needs grants added.
 1. Select the **Okta API Scopes** tab, and then click **Grant** for each scope that you want to add to the app's grants collection. For this example, make sure to grant access to `okta.users.read`.
 
-Alternatively, you can add grants using the [Apps API](/docs/reference/api/apps/#application-oauth-2-0-scope-consent-grant-operations). The following is an example request to create a grant for the `okta.users.read` scope.
+Alternatively, you can add grants using the [Apps API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationGrants/). The following is an example request to create a grant for the `okta.users.read` scope.
 
 ```bash
 curl --location --request POST 'https://{yourOktaDomain}/api/v1/apps/{appInstanceId}/grants' \
@@ -94,7 +94,7 @@ You can get an access token and make a request to an endpoint after you have the
 
 Request an access token by making a request to your Okta [org authorization server](/docs/concepts/auth-servers/) `/authorize` endpoint. Only the org authorization server can mint access tokens that contain Okta API scopes.
 
-> **Note:** See [Token lifetime](/docs/reference/api/oidc/#token-lifetime) for more information on hard-coded and configurable token lifetimes.
+> **Note:** See [Token lifetime](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/#token-lifetime) for more information on hard-coded and configurable token lifetimes.
 
 This page helps you build a request in Postman. You can also manually build the request URL and paste it into a private browser window. After you authenticate, the browser returns the access token in the address bar. Your request URL should look something like this:
 

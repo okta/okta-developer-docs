@@ -31,7 +31,7 @@ Today an authorization server relies on [authentication policies](https://develo
 
 Okta has created predefined `acr_values` that are described in the [Predefined parameter values](#predefined-parameter-values) section. You can include one of these values, based on your use case, in the client authorization request to request a different authentication assurance. The authorization server returns an access token and/or an ID token that contains the `acr` claim. This claim conveys information about the level of assurance that the user verified at the time of authentication. The resource server can then validate these parameters to ensure that the user verified the required level of assurance.
 
-> **Note:** You can specify a `max_age` parameter value to require an elapsed time frame. Also, if you want to ignore the existing session and reauthenticate the user each time, pass `max_age=0` in the request. For Classic Engine, pass `max_age=1`. See the [Request parameters table](/docs/reference/api/oidc/#request-parameters) for the `/authorize` endpoint for more information on `max_age`.
+> **Note:** You can specify a `max_age` parameter value to require an elapsed time frame. Also, if you want to ignore the existing session and reauthenticate the user each time, pass `max_age=0` in the request. For Classic Engine, pass `max_age=1`. See the [Request parameters table](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/authorizeCustomAS!in=query&path=max_age&t=request) for the `/authorize` endpoint for more information on `max_age`.
 
 The Okta [redirect and embedded](/docs/concepts/redirect-vs-embedded/) deployment models support the use of the `acr_values` parameter. The parameter works with any OpenID Connect app, such as web, native, or SPA, and both the [org authorization server and custom authorization servers](/docs/concepts/auth-servers/) support it.
 
@@ -159,11 +159,11 @@ To check the returned ID token payload, copy the values and paste them into any 
 
 ### Refresh token behavior
 
-When you use the refresh token to refresh access and ID tokens, the tokens reflect the `acr_values` parameter value sent in the original authentication request. Use the `auth_time` [parameter value](/docs/reference/api/oidc/#request-parameters) to validate when the original authentication occurred.
+When you use the refresh token to refresh access and ID tokens, the tokens reflect the `acr_values` parameter value sent in the original authentication request. Use the `auth_time` [parameter value](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/#reserved-claims-in-the-payload-section) to validate when the original authentication occurred.
 
 ## Next steps
 
-* Read more about Okta access tokens in the [OIDC & OAuth 2.0 API Reference](/docs/reference/api/oidc/#id-token).
+* Read more about Okta access tokens in the [OIDC & OAuth 2.0 API Reference](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/#id-token).
 
 * Read more about policies on the [Policies](/docs/concepts/policies/) concept page.
 

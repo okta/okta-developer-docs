@@ -53,7 +53,7 @@ To find these values:
 
 1. Call the [Groups API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/#tag/Group/operation/listGroups) with the query parameter as follows: `https://{yourOktaDomain}/api/v1/groups?q=Sales`. Save the `id` value from the response.
 
-1. Call the [Apps API](/docs/reference/api/apps/#list-applications) with the query parameter as follows: `https://{yourOktaDomain}/api/v1/apps?q={YourAppName}`. Save the `id` value from the response. Alternatively, the client ID available in the Admin Console is the `id` of your app.
+1. Call the [Apps API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/listApplications) with the query parameter as follows: `https://{yourOktaDomain}/api/v1/apps?q={YourAppName}`. Save the `id` value from the response. Alternatively, the client ID available in the Admin Console is the `id` of your app.
 
 To simulate the first scenario, use the following call but replace the following values:
 

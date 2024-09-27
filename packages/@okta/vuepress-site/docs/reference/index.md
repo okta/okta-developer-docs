@@ -2,7 +2,7 @@
 title: Reference overview
 ---
 
-> Try the new look and feel of our [API documentation](https://developer.okta.com/docs/api/)! API content in the References section will be moved after September 30, 2024.
+> Try the new look and feel of our [API documentation](https://developer.okta.com/docs/api/)! API content in this section will be moved after September 30, 2024.
 
 # Reference overview
 
@@ -18,7 +18,7 @@ The Core Okta API is the primary way that apps and services interact with Okta. 
 
 ## Okta hooks
 
-Okta event and inline hooks allow you to integrate custom functionality into specific Okta process flows. Event hooks send Okta events of interest to your systems as they occur, just like a webhook. Inline hooks allow developers to modify in-flight Okta processes with custom logic and data from a non-Okta source. For example, you can migrate users from another data store and keep the user’s current password with a [password inline hook](/docs/reference/password-hook/).
+Okta event and inline hooks allow you to integrate custom functionality into specific Okta process flows. Event hooks send Okta events of interest to your systems as they occur, just like a webhook. Inline hooks allow developers to modify in-flight Okta processes with custom logic and data from a non-Okta source. For example, you can migrate users from another data store and keep the user’s current password with a [password inline hook](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createPasswordImportInlineHook).
 
 ## Okta Expression Language
 

@@ -7373,7 +7373,7 @@ The Links object is read-only.
 
 ### User object
 
-A subset of [user properties](/docs/reference/api/users/#user-object) published in an authentication or recovery transaction after the user successfully completes primary authentication.
+A subset of [user properties](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/getUser!c=200&path=activated&t=response) published in an authentication or recovery transaction after the user successfully completes primary authentication.
 
 | Property          | Description                                       | DataType                                              | Nullable | Unique | Readonly |
 | ----------------- | ------------------------------------------------- | ----------------------------------------------------- | -------- | ------ | -------- |
@@ -7401,7 +7401,7 @@ A subset of [user properties](/docs/reference/api/users/#user-object) published 
 
 #### User profile object
 
-Subset of [profile properties](/docs/reference/api/users/#profile-object) for a user
+Subset of [profile properties](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/getUser!c=200&path=profile&t=response) for a user
 
 | Property  | Description                                                                                                                        | DataType  | Nullable | Unique | Readonly | Validation                                                            |
 | --------- | ---------------------------------------------------------------------------------------------------------------------------------- | --------- | -------- | ------ | -------- | --------------------------------------------------------------------- |
