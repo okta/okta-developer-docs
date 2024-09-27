@@ -26,15 +26,14 @@ Configure a resource created outside of Terraform.
 
 ## Overview
 
-It is easiest to manage Okta resources from Terraform if you fully manage the lifecycle of resources from Terraform. However, in some cases, your Okta org may have resources created in the admin console or with other automation tools. You can use several techniques to import these resources into a Terraform configuration.
+Your goal may be to use Terraform to manage all or most of your infrastructure. This may require managing resources that were created in the Okta Admin Console or by some other method. You can use several techniques to import these resources into your Terraform configuration.
 
-## What does import mean?
+## Types of import
 
-Terraform supports managing existing infrastructure. Importing resources into Terraform allows you to manage your infrastructure using a consistent workflow.
+An object you create in Terraform includes default values for each field. This includes imported objects. You must set the value for any fields that are different from the default.
+The values for fields in imported objects may be different than the default. However, when you import That requires knowing the current state of an object before it's imported.
 
-An object you create in Terraform includes default values for each field. Imported objects may have values that are different from the default. To start managing the imported object, you first must determine and set the current state.
-
-There are different approaches to accomplishing this. This article uses the `import` block feature introduced in Terraform 1.5, instead of the older `terraform import` CLI command. Even with the `import` block, there are two strategies that you can choose from.
+There are different approaches to accomplishing this. This article uses the `import` block feature introduced in Terraform 1.5, instead of the older `terraform import` CLI command. Even with the `import` block, there are two strategies:
 
 * **Minimal import:** Import an object in your Terraform configuration and set the value of any desired fields. You must also set the value of fields that differ from the Terraform provider defaults.
 
@@ -44,7 +43,7 @@ There are different approaches to accomplishing this. This article uses the `imp
 
 An imported Okta user object is much larger than other types of objects. The users' group memberships and app assignments add more size. In most circumstances, the best practice is to avoid importing users.
 
-Group resources are much smaller. Importing those into your configuration lets you use group names and IDs for other Terraform contexts. For example, [defining group assignments by ID for access to an Okta application](https://registry.terraform.io/providers/okta/okta/latest/docs/resources/app_group_assignment).
+Group resources are much smaller. Importing those into your configuration enables using group names and IDs for other Terraform contexts. For example, [defining group assignments by ID for access to an Okta application](https://registry.terraform.io/providers/okta/okta/latest/docs/resources/app_group_assignment).
 
 ## Find the ID of an existing object
 
@@ -52,27 +51,27 @@ To import an object, Terraform requires the Okta ID of the existing infrastructu
 
 There are several approaches to find the ID:
 
-* Find the ID from the URL of an admin console page.
+* Examine the URL of an admin console page.
 
-* Find the ID with the REST API.
+* Use the REST API.
 
-* Find the ID using some other Okta SDK.
+* Use some other Okta SDK.
 
 The following subsections describe the first two approaches.
 
 ### Find an ID in an admin console page URL
 
-For most types of objects, you can get their ID by using the Okta admin console, navigating to the resource's detail page, and extracting the ID from the URL. The ID is a long string of alphanumeric characters before the `#` symbol.
+For most object types you can navigate to their detail page in the Admin Console. The ID is in the URL for the detail page. It's a long string of alphanumeric characters that occurs before the pound (`#`) symbol.
 
 For example, navigate to the details page for an app of type `oidc_client`. Its URL has the form:
 
 ```http
-https://{domain}/admin/app/oidc_client/client/0oaf9phym0JffFbdo1d7#tab-general
+https://{yourOktaOrgDomain}/admin/app/oidc_client/client/0oaf9phym0JffFbdo1d7#tab-general
 ```
 
 In this example, the ID is `0oaf9phym0JffFbdo1d7`.
 
-This technique does **not** work for policy rules or networks. In those cases, the URL contains the ID for the parent object but not the individual rule, even if it's being edited. You must use the Okta REST API SDK to get the ID for these object types. See, [Find an ID with the REST API](#find-an-id-with-the-rest-api).
+> **Important:** Don't use the ID in the URL for policy rules and networks, even when you're editing them. It's the ID of the parent object, not the individual rule. You must use the Okta REST API SDK to find the ID for these object types. See, [Find an ID with the REST API](#find-an-id-with-the-rest-api).
 
 Some imported Okta objects are represented by only a single instance, such as the health insights and general settings. These singletons don't have an associated ID. To import these objects, specify the fake ID `singleton`, the period (`.`) symbol, or an underscore (`_`) instead of a regular ID.
 
@@ -80,13 +79,13 @@ Note that the object for Okta feature settings can't be imported into Terraform.
 
 ### Find an ID with the REST API
 
-You can also find IDs by using the Okta Core REST API. Using the REST API instead of the admin console to get the IDs may be preferable if you have many Okta objects to import using automation. You must use the REST API approach if you need to import policy rules or networks that don't expose their IDs in the URLs in the admin console.
+You can also find IDs by using the Okta Core REST API. This method enables you to write code to automate the import of many Okta objects. You must use the REST API to find the ID for policy rules or networks.
 
 1. Review the [Okta Core REST API](/docs/reference/) for the desired resource type.
 
-1. Use the `LIST` operation for each resource type REST API endpoint to get a list of those objects, from which you can extract the relevant IDs from the JSON response.
+1. Use the `LIST` operation for each resource type REST API endpoint to return a list of those objects. The IDs are in the JSON response.
 
-For example, to get the list of Okta apps:
+For example, this call requests a list of Okta apps:
 
 ```curl
 curl -v -X GET \
@@ -96,7 +95,7 @@ curl -v -X GET \
   [https://${yourOktaDomain}/api/v1/apps](https://${yourOktaDomain}/api/v1/apps)
 ```
 
-This is an example of the return value from the API:
+The return value is an array of JSON objects, one for each app. This example shows an app object (though not the enclosing array):
 
 ```json
 {
@@ -113,11 +112,11 @@ This is an example of the return value from the API:
 }
 ```
 
-Use the name field to confirm which object it is. When you find it, copy the value of the `id` field to use as the object's ID.
+Use the `name` field to find the desired object. The `id` fields contains the ID of the object.
 
 ## Minimal import
 
-The simplest import approach involves the following steps:
+The simplest method is to import an object into a separate file, and then copy it into your configuration:
 
 1. Identify the existing infrastructure you want to import.
 
@@ -129,9 +128,9 @@ The simplest import approach involves the following steps:
 
 For example, to import an OAuth app integration object:
 
-1. Identify the existing resource's type and name. This example imports an `okta_app_oauth` resource with the name `AppCreatedInUI`.
+1. Find the existing resource's type and name. This example imports a resource named `AppCreatedInUI` of type `okta_app_oauth`. These are used as part of creating the object.
 
-1. Follow the instructions in [Find the ID of an existing object](#find-the-id-of-an-existing-object). You can extract the ID from the URL using the admin console approach. In this example, the ID is `0oaf9phym0JffFbdo1d7`.
+1. Find the ID in the Admin Console detail URL or the OAuth app. The ID used in this example is `0oaf9phym0JffFbdo1d7`.
 
 1. Create a Terraform resource manually and include all required arguments. For initial testing, always use the same values as the existing resource. In this example:
 
@@ -151,11 +150,11 @@ For example, to import an OAuth app integration object:
     }
     ```
 
-    In the rare case that you are using an Okta settings object with no ID because there is only one of them, just specify the ID as the fake ID `singleton`, the period (`.`) symbol, or an underscore (`_`).
+    If the object is a singleton with no ID, set `id` to one of `singleton`, a period (`.`) symbol, or an underscore (`_`).
 
 1. Run `terraform plan`.
 
-1. Carefully review all the output for any fields that Terraform identified as changed. Look for the characters at the start of each line that indicate added (`+`), removed (`-`), or changed (`~`) fields.
+1. Carefully review all the output for any fields that Terraform identified as changed. Look for the characters at the start of each line that indicate a field that was added (`+`), removed (`-`), or changed (`~`).
 
     The right-arrow characters (`->`) identify values that Terraform will change on the remote. For example, the following line indicates that the remote server uses issuer mode `DYNAMIC`, but your configuration indicates that it should be changed to `ORG_URL`.
 
@@ -163,9 +162,9 @@ For example, to import an OAuth app integration object:
     issuer_mode  = "DYNAMIC" -> "ORG_URL"
     ```
 
-    The problem may be that a field was changed in the admin console or other automation tool, so it no longer has the default value. It's also possible that the default field value when using the admin console or other tools differs from the same value used in the Okta Terraform provider. Review the [Okta provider documentation](https://registry.terraform.io/providers/okta/okta/latest/docs/) as needed.
+    Fields in the output may contain values that you don't expect. One possibility is that the field was changed from the default value in the Admin Console or other automation tool. Another is that the default field value set in Admin Console or other tool differs from the one used in the Okta Terraform provider. You can find the default values for the Okta Terraform provider in the [Okta provider documentation](https://registry.terraform.io/providers/okta/okta/latest/docs/).
 
-    Modify your configuration to match the remote server for all unexpected added, removed, or updated fields. You might need to add multiple resource arguments to ensure that your local configuration matches the server:
+1. Modify the values for fields in your configuration to match those on the server. You may need to add multiple resource arguments to ensure that your local configuration matches the server:
 
     ```hcl
     resource "okta_app_oauth" "AppCreatedInUI" {
@@ -188,33 +187,30 @@ For example, to import an OAuth app integration object:
 
 ## Import the generated configuration
 
-Terraform can generate Terraform configuration code for the resources you define in import blocks that do not already exist in your configuration. Terraform produces [code in the HCL syntax](https://developer.hashicorp.com/terraform/language/syntax/configuration) that is Terraform's best guess at the appropriate value for each resource argument to match the remote configuration.
+If a resources defined in an import block doesn't already exist in your configuration, Terraform can generate the [code in the HCL syntax](https://developer.hashicorp.com/terraform/language/syntax/configuration). For complete instructions, [see the Terraform documentation](https://developer.hashicorp.com/terraform/language/import/generating-configuration).
 
-For complete instructions, [see the Terraform documentation](https://developer.hashicorp.com/terraform/language/import/generating-configuration).
-
-You must include the `-generate-config-out={newConfigurationFile}` option when you run `terraform plan`. For example:
-
+To generate the code, include the `-generate-config-out={newConfigurationFile}` option when you run `terraform plan`. For example:
 ```sh
 terraform plan -generate-config-out=generated_resources.tf
 ```
 
 > **Important:** `{newConfigurationFile}` must be a new file path. Terraform throws an error if you specify an existing file.
 
-This technique involves the following steps:
+To generate and import an object, follow these steps:
 
-1. Identify the existing infrastructure you will import.
+1. Identify the desired objects for importing into your configuration.
 
-1. Get the Okta IDs for all imported objects. See [Find the ID of an existing object](#find-the-id-of-an-existing-object).
+1. Find and note down the Okta IDs for each imported object. See [Find the ID of an existing object](#find-the-id-of-an-existing-object).
 
-1. Define an `import` block for the resources.
+1. Define an `import` block for the resources in your configuration.
 
 1. Run `terraform plan` with the `-generate-config-out=<filename>` flag.
 
-1. Copy the generated code to your configuration.
+1. Copy the generated code into your configuration.
 
 1. Prune the generated configuration to include only the required arguments.
 
-1. Fix raw full IDs that reference other declared objects to use a more maintainable syntax instead.
+1. Fix raw full IDs that reference other declared objects to use a more maintainable syntax instead. Usually this is using the object name.
 
 1. Run `terraform plan` to confirm no changes to the remote server.
 
@@ -222,11 +218,11 @@ This technique involves the following steps:
 
 For example, to import an OAuth app integration object:
 
-1. Identify the existing resource's type and name. This example imports an `okta_app_oauth` resource with the name `AppCreatedInUI`.
+1. Find the existing resource's type and name. This example imports a resource named `AppCreatedInUI` of type `okta_app_oauth`. These are used as part of creating the object.
 
-1. Follow the instructions in [Find the ID of an existing object](#find-the-id-of-an-existing-object). You can extract the ID from the URL using the admin console approach. In this example, it is `0oaf9phym0JffFbdo1d7`.
+1. Find the ID in the Admin Console detail URL or the OAuth app. The ID used in this example is `0oaf9phym0JffFbdo1d7`.
 
-1. Add an `import` block. Set the `to` argument to reference your new resource. Choose an appropriate name for the resource even though this Terraform resource does not yet exist. Set the ID for the existing object in the `id` argument. For example:
+1. Add an `import` block. Set the `to` argument to reference your new resource. Set the ID for the existing object in the `id` argument. For example:
 
     ```hcl
     import {
@@ -235,9 +231,9 @@ For example, to import an OAuth app integration object:
     }
     ```
 
-    In the rare case that you are using an Okta settings object with no ID because there is only one of them, just specify the fake ID `singleton`, the period (`.`) symbol, or an underscore (`_`).
+    If the object is a singleton with no ID, set `id` to one of `singleton`, a period (`.`) symbol, or an underscore (`_`).
 
-1. Run this command:
+1. Run this `terraform plan` to generate an output file with the imported resources:
 
     ```sh
     terraform plan -generate-config-out=generated_resources.tf
@@ -245,7 +241,7 @@ For example, to import an OAuth app integration object:
 
 1. Review the generated code in the `generated_resources.tf` file.
 
-    You might notice that it is verbose and includes all fields, including ones that match the Terraform provider default values for optional fields.
+    The output may be quite extensive with values for all fields, This may include fields that match the Terraform provider default values for optional fields.
 
     ```hcl
     # Please review these resources and move them into your main configuration files.
@@ -301,7 +297,7 @@ For example, to import an OAuth app integration object:
     }
     ```
 
-1. Trim the generated code to **omit** optional fields using the Terraform provider defaults.
+1. Delete optional fields that are set to the Terraform provider defaults.
 
 1. Change fields that use a raw ID to reference another object to increase maintainability. Set them to the name of the desired object.
 
@@ -317,13 +313,14 @@ For example, to import an OAuth app integration object:
     policy_id = okta_policy.my_policy.id
     ```
 
-1. Move the generated code where you defined the import command.
+1. Copy the modified code into your configuration.
 
 1. Delete the `generated_resources.tf` file so you do not duplicate the generated resources.
 
 1. Run `terraform plan` and review all the output for any fields that Terraform identified as changed. Look for the `+` (added), `-` (removed), or `~` (changed) characters at the beginning of each line.
 
-    Because Terraform got the state information from the remote server, there should be no changes. Review your configuration and modify it to match the remote server state for all unexpected added, removed, or updated fields.
+    Review your configuration for all unexpected added, removed, or updated fields
+    and modify it to match the state of the remote server.
 
 1. Continue to run `terraform plan` and make minor changes until the console indicates no fields changed in the new object.
 
