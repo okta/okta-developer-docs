@@ -13,15 +13,12 @@ The System Log API provides near real-time, read-only access to your org's Syste
 
 The log records system events that are related to your org. These records provide detailed information on events, activities, and performance metrics critical to the operations between your Okta org, apps, and users. You can use the System Log to:
 
-* provide an audit trail
 * diagnose errors or problems
 * ensure security and compliance
 * optimize performance
 * investigate and troubleshoot incidents
 
 For the full request and response schemas of the System Log API, see [System Log](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/#tag/SystemLog).
-
->**Note:** The System Log API isn't intended for use as a Database as a Service (DBaaS) or to serve data directly to downstream consumers without an intermediate data store.
 
 #### Authentication and authorization
 
@@ -31,7 +28,7 @@ The System Log API uses standard protocols for authentication and authorization,
 
 Event Types categorize event instances by action and are recorded in the response to a [System Log API query](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/#tag/SystemLog/operation/listLogEvents). They’re the key to navigating the System Log through [Expression Filters](#expression-filter).
 
-The following sections outline the key Event Types that the System Log captures. See the [Event Types catalog](/docs/reference/api/event-types/#catalog) for a complete list.
+The following sections outline a representative sample of Event Types. See the [Event Types catalog](/docs/reference/api/event-types/#catalog) for a complete list.
 
 ### Application event
 
@@ -77,10 +74,6 @@ The following sections outline the key Event Types that the System Log captures.
 
 See [System Log events for rate limits](/docs/reference/rl-system-log-events/) for information on rate limit Event Types.
 
-Rate limit warnings are sent at different times, depending on the org type. For One App and Enterprise orgs, the warning is sent when the org is at 60% of its limit.
-
-> **Note:** For orgs created before 2018-05-17, the warning is sent at 90%.
-
 Rate limit violations are sent when a rate limit is exceeded.
 
 ### Security events
@@ -101,17 +94,15 @@ Rate limit violations are sent when a rate limit is exceeded.
 | user.lifecycle.unsuspend    | A user account is moved from suspended status           |
 | user.session.start          | Okta issues a session to a user who is authenticating    |
 
-#### User event details
-
-`user.authentication.sso` doesn't capture whether the SSO attempt is successful or has failed, because Okta can't collect the subsequent authentication attempt status from the third-party service.
-
 ## Event correlation
 
 When reviewing the System Log, it's often useful to correlate events to understand the thread of events that have occurred at a particular time.
 
-The response object offers two identifiers in this respect:
-  - `authenticationContext.externalSessionId`: Identifies events that occurred in the same user session
-  - `transaction.id`: Identifies events that have occurred together as part of an operation (for example, a request to Okta's servers)
+The response object offers the following identifiers in this respect:
+
+* `authenticationContext.externalSessionId`: Identifies events that occurred in the same user session
+* `transaction.id`: Identifies events that have occurred together as part of an operation (for example, a request to Okta's servers)
+* `authenticationContext.rootSessionId`: Identifies events from all sessions that share a common root session. Some actions that can be attributed to a user, such as those taken by an Okta system actor on behalf of a user may have a different `externalSessionId` value. The `rootSessionId` field allows all of those to be identified and grouped together.
 
 ### Correlating events based on API token
 
@@ -175,7 +166,7 @@ For a request to be a polling request, it must meet the following request parame
 Polling requests to the `/api/v1/logs` API have the following semantics:
 
 * They return every event that occurs in your org.
-* The returned events are time filtered by their internal "persistence time" to avoid skipping records due to system delays (unlike [Bounded Requests](#bounded-requests)).
+* The returned events are ordered by the internal persistence time, which reflects when an event is actually committed to the log, and not necessarily the timestamp when the event occurred. The persistence time may differ from the externally available published timestamp.
 * They may return events out of order according to the `published` field.
 * They have an infinite number of pages. That is, a [`next` `link` relation header](#next-link-response-header) is always present, even if there are no new events (the event list may be empty).
 
@@ -195,7 +186,7 @@ For a request to be a bounded request, it must meet the following request parame
 
 Bounded requests to the `/api/v1/logs` API have the following semantics:
 
-* The returned events are time filtered by their associated `published` field (unlike [Polling Requests](#polling-requests)).
+* The returned events are ordered and filtered by their associated `published` field (unlike [Polling Requests](#polling-requests)).
 * The returned events are guaranteed to be in order according to the `published` field.
 * They have a finite number of pages. That is, the last page doesn't contain a [`next` `link` relation header](#next-link-response-header).
 * Not all events for the specified time range may be present. Some events may be delayed. Such delays are rare but possible.
@@ -249,7 +240,7 @@ filter=target.id eq "00uxc78lMKUMVIHLTAXY" and target.id eq "0oabe82gnXOFVCDUMVA
 * App SSO events for a target user and app
 
 ```javascript
-filter=eventType eq "app.auth.sso" and target.id eq "00uxc78lMKUMVIHLTAXY" and target.id eq "0oabe82gnXOFVCDUMVAK"
+filter=eventType eq "user.authentication.sso" and target.id eq "00uxc78lMKUMVIHLTAXY" and target.id eq "0oabe82gnXOFVCDUMVAK"
 ```
 
 * Events that are published for a given IP address
