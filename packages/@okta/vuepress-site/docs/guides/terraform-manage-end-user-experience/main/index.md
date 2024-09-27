@@ -265,7 +265,7 @@ You can customize the appearance and behavior of the site using optional brand a
 
 ### Set the language
 
-To change the language for a brand, set the `locale` argument to the [IETF BCP 47 language tag](https://en.wikipedia.org/wiki/IETF_language_tag) for the locale. The following example sets the language to French.
+To change the language for a brand, set the `locale` argument to the [BCP 47 format](https://www.rfc-editor.org/info/bcp47) for the locale. The following example sets the language to French.
 
 ```hcl
 resource "okta_brand" "name_of_brand" {

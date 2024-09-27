@@ -62,7 +62,7 @@ Your Okta org pricing plan must include multibrand customization to complete all
 
 ### Set up your Terraform files
 
-For guidance on organizing your files, see [setting up a typical Okta Terraform configuration](/docs/guides/terraform-organize-configuration/main). Consider organizing your Terraform code in a way that groups related resources together. For example, you could create a Terraform file called `brands.tf` that contains custom domains, brands, and themes.
+For guidance on organizing your files, see [setting up a typical Okta Terraform configuration](/docs/guides/terraform-organize-configuration/main/#configure-a-basic-okta-terraform-configuration). Consider organizing your Terraform code in a way that groups related resources together. For example, you could create a Terraform file called `brands.tf` that contains custom domains, brands, and themes.
 
 ## Add or confirm the API scopes
 
@@ -104,12 +104,12 @@ Creating a custom domain consists of three high-level steps: create an `okta-dom
 
     The following code shows an example resource for an Okta-managed certificate for the brand `company1`:
 
-```hcl
-resource "okta_domain" "company1" {
-  name = "company1.letsauth0.com"
-  certificate_source_type = "OKTA_MANAGED"
-}
-```
+    ```hcl
+    resource "okta_domain" "company1" {
+      name = "company1.letsauth0.com"
+      certificate_source_type = "OKTA_MANAGED"
+    }
+    ```
 
 > **Note:** If you maintain the custom domain's [Certificate Authority Authorization (CAA)](https://datatracker.ietf.org/doc/html/rfc6844) record, add `letsencrypt.org` to the issuers list. This enables Okta to obtain and renew the TLS certificate. You must also do this if you start maintaining the CAA record after first only using the Okta certificate. For more information, see [Let's Encrypt—Using CAA](https://letsencrypt.org/docs/caa/).
 
