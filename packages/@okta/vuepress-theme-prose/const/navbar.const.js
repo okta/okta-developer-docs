@@ -1072,7 +1072,7 @@ export const reference = [
           { title: "MyAccount", path: "https://developer.okta.com/docs/api/openapi/okta-myaccount/guides/overview/" },
           { title: "Network Zones", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/NetworkZone/" },
           { title: "Org", path: "/docs/reference/api/org/" },
-          { title: "Policy", path: "/docs/reference/api/policy/" },
+          { title: "Policy", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/" },
           { title: "Principal Rate Limits", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/PrincipalRateLimit/" },
           { title: "Profile Mappings", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ProfileMapping/" },
           { title: "Push Providers", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/PushProvider/" },

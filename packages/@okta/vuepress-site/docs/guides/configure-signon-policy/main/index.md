@@ -40,7 +40,7 @@ Global session policies help control who can have access and how a user gains ac
 
 #### Multiple options
 
-You can configure a global session policy to require any of the [factors that you set up](https://help.okta.com/okta_help.htm?type=oie&id=csh-configure-authenticators). Then use the primary and secondary factor conditions in a rule to define which factors are evaluated. For example, add a rule that prompts for more factors when you want only users who are inside your [corporate network](/docs/reference/api/policy/#network-condition-object) to have access.
+You can configure a global session policy to require any of the [factors that you set up](https://help.okta.com/okta_help.htm?type=oie&id=csh-configure-authenticators). Then use the primary and secondary factor conditions in a rule to define which factors are evaluated. For example, add a rule that prompts for more factors when you want only users who are inside your [corporate network](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule!path=0/conditions/network&t=request) to have access.
 
 > **Note:** If you select **Any factor used to meet the Authentication Policy requirements**, you remove the global password requirement from the global session policy. This transfers responsibility for defining and enforcing authentication to each of your [authentication policies](#authentication-policies) instead. See [Configure passwordless authentication](https://help.okta.com/okta_help.htm?type=oie&id=ext-passwordless-auth).
 
@@ -100,7 +100,7 @@ Configure a global session policy to prompt a user for a factor [authenticator](
 
 1. Click **Set time limit** and leave the default time settings.
 
-    > **Note:** You can also set the [maximum session lifetime value](/docs/reference/api/policy/#signon-session-object) using the Okta APIs. If you previously set this value using the API, you can't exceed that maximum in the Admin Console. Setting a value over the API maximum results in an error.
+    > **Note:** You can also set the [maximum session lifetime value](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule!path=4/actions/signon/session/maxSessionLifetimeMinutes&t=request) using the Okta APIs. If you previously set this value using the API, you can't exceed that maximum in the Admin Console. Setting a value over the API maximum results in an error.
 
 1. Click **Create Rule**.
 
@@ -183,5 +183,5 @@ In this example, create a policy that allows a specific group, **Full time emplo
 ## See also
 
 * [Policies concept](/docs/concepts/policies/)
-* [Policy API reference](/docs/reference/api/policy/)
+* [Policy API reference](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy)
 * [Configure an access policy](/docs/guides/configure-access-policy/)
