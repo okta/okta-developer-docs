@@ -102,7 +102,7 @@ The response object offers the following identifiers in this respect:
 
 * `authenticationContext.externalSessionId`: Identifies events that occurred in the same user session
 * `transaction.id`: Identifies events that have occurred together as part of an operation (for example, a request to the Okta servers)
-* `authenticationContext.rootSessionId`: Identifies events from all sessions that share a common root session. Some actions that can be attributed to a user, such as those taken by an Okta system actor on behalf of a user may have a different `externalSessionId` value. The `rootSessionId` field allows all of those to be identified and grouped together.
+* `authenticationContext.rootSessionId`: Identifies events from all sessions that share a common root session. Some actions that can be attributed to a user, such as those taken by an Okta system actor on behalf of a user, may have a different `externalSessionId` value. The `rootSessionId` field allows all of those to be identified and grouped together.
 
 ### Correlating events based on API token
 
