@@ -6,6 +6,16 @@ title: Okta Classic Engine API release notes 2024
 
 ## September
 
+### Weekly release 2024.09.2
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Bug fixed in 2024.09.2](#bug-fixed-in-2024-09-2)| September 25, 2024 |
+
+#### Bug fixed in 2024.09.2
+
+When an admin made a partial update using the Profile Mappings API, both incoming data and existing property mappings were validated instead of only the incoming request. (OKTA-798638)
+
 ### Monthly release 2024.09.0
 
 | Change | Expected in Preview Orgs |
@@ -595,7 +605,7 @@ You can now use OAuth 2.0 Demonstrating Proof-of-Possession (DPoP) access tokens
 
 #### New attribute to manage SAML app session lifetimes is EA in Preview
 
-The `samlAssertionLifetimeSeconds` parameter is an optional SAML parameter that allows the IdP to control the session at the SP. This parameter allows users to add `samlAssertionLifetimeSeconds` as an attribute in the SAML assertion to control the session lifetimes of SP apps using the Okta IdP. See the [Settings table](/docs/reference/api/apps/#settings-9) in the **Add custom SAML application** section. <!-- OKTA-690479 SAML_ASSERTION_LIFETIME_SECONDS_ON_APPS_API -->
+The `samlAssertionLifetimeSeconds` parameter is an optional SAML parameter that allows the IdP to control the session at the SP. This parameter allows users to add `samlAssertionLifetimeSeconds` as an attribute in the SAML assertion to control the session lifetimes of SP apps using the Okta IdP. See the [Settings table](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication!path=6/settings/signOn/samlAssertionLifetimeSeconds&t=request) in the **Add custom SAML application** section. <!-- OKTA-690479 SAML_ASSERTION_LIFETIME_SECONDS_ON_APPS_API -->
 
 #### New function for email templates is EA in Preview
 

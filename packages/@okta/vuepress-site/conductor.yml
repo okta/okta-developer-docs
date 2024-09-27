@@ -78,9 +78,9 @@ redirects:
   - from: /docs/api/reference/index.html
     to: /docs/reference/
   - from: /docs/api/rest/apps.html
-    to: /docs/reference/api/apps/index.html
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/
   - from: /docs/reference/api/apps.html
-    to: /docs/reference/api/apps/index.html
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/
   - from: /docs/api/rest/authn.html
     to: /docs/reference/api/authn/
   - from: /docs/reference/api/index.html
@@ -336,7 +336,7 @@ redirects:
   - from: /use_cases/mobile/okta_mobile_connect/index.html
     to: https://help.okta.com/en-us/okta_help_CSH.htm#ext_Okta_Mobile_Connect
   - from: /docs/api/reference/apps.html
-    to: /docs/reference/api/apps/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/
   - from: /docs/reference/api/users.html
     to: /docs/reference/api/users/
   - from: /docs/reference/api/authn.html
@@ -444,7 +444,7 @@ redirects:
   - from: /docs/api/getting_started/design_principles/index.html
     to: /docs/reference/core-okta-api/#design-principles
   - from: /docs/api/resources/apps/index.html
-    to: /docs/reference/api/apps/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/
   - from: /docs/api/resources/authn/index.html
     to: /docs/reference/api/authn/
   - from: /docs/api/resources/oidc/index.html
@@ -728,7 +728,7 @@ redirects:
   - from: /docs/api/resources/sessions.html
     to: /docs/reference/api/sessions/
   - from: /docs/api/resources/apps.html
-    to: /docs/reference/api/apps/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/
   - from: /reference/error_codes
     to: /docs/reference/error-codes/
   - from: /reference/okta_expression_language
@@ -782,7 +782,7 @@ redirects:
   - from: /docs/api/getting_started/design_principles
     to: /docs/reference/core-okta-api/#design-principles
   - from: /docs/api/resources/apps
-    to: /docs/reference/api/apps/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/
   - from: /docs/api/resources/authn
     to: /docs/reference/api/authn/
   - from: /docs/api/resources/roles
@@ -5565,7 +5565,15 @@ redirects:
     to: https://github.com/okta/okta-sdk-dotnet
   - from: /docs/reference/hooks-best-practices/index.html
     to: /docs/guides/hooks-best-practices/
-  - from: /docs/reference/hooks-best-practices/
+  - from: /docs/reference/hooks-best-practices
     to: /docs/guides/hooks-best-practices/
+  - from: /docs/reference/rl-previous/index.html
+    to: /docs/reference/rate-limits/
+  - from: /docs/reference/rl-previous
+    to: /docs/reference/rate-limits/
+  - from: /docs/reference/rl-global-other-endpoints/index.html
+    to: /docs/reference/rate-limits/
+  - from: /docs/reference/rl-global-other-endpoints
+    to: /docs/reference/rate-limits/
   - from: /docs/guides/sign-into-mobile-app-redirect/react-native/main/index.html
     to: /docs/guides/sampleapp-oie-redirectauth/reactnativedroid/main/
