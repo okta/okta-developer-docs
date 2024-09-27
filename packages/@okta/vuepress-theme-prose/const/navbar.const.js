@@ -807,12 +807,12 @@ export const guides = [
                 guideName: "terraform-create-custom-auth-server"
               },
               {
-                title: "Customize end-user experience",
+                title: "Manage branding",
                 guideName: "terraform-manage-end-user-experience",
               },
               {
-                title: "Manage multiple brands",
-                guideName: "terraform-customize-for-multiple-brands"
+                title: "Manage custom domains",
+                guideName: "terraform-mange-multiple-domains"
               },
               {
                 title: "Import existing resources",

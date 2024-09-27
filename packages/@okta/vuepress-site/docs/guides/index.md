@@ -97,7 +97,7 @@ guides:
  - telephony-inline-hook
  - terraform-configure-device-signin-standards
  - terraform-create-custom-auth-server
- - terraform-customize-for-multiple-brands
+ - terraform-mange-multiple-domains
  - terraform-design-access-security
  - terraform-design-rate-limits
  - terraform-enable-org-access
@@ -220,14 +220,14 @@ If you're using Okta as an identity layer for the first time, start with [How Ok
       * [Enable Terraform access for your Okta org](/docs/guides/terraform-enable-org-access/)
       * [Control Terraform access to Okta](/docs/guides/terraform-design-access-security/)
     * Create and manage resources
-    * [Manage groups of users with Terraform](/docs/guides/terraform-manage-groups/)
-    * [Manage user access with Terraform](/docs/guides/terraform-manage-user-access/)
-    * [Manage external authentication services with Terraform](/docs/guides/terraform-manage-external-authenticators/)
-    * [Manage device connection requirements](/docs/guides/terraform-configure-device-signin-standards/)
-    * [Create a custom authorization server](/docs/guides/terraform-create-custom-auth-server/)
-    * [Customize the end-user experience with Terraform](/docs/guides/terraform-manage-end-user-experience/)
-    * [Customize Okta for multiple brands using Terraform](/docs/guides/terraform-customize-for-multiple-brands/)
-    * [Import existing Okta objects into Terraform](/docs/guides/terraform-import-existing-resources/)
+      * [Manage groups of users with Terraform](/docs/guides/terraform-manage-groups/)
+      * [Manage user access with Terraform](/docs/guides/terraform-manage-user-access/)
+      * [Manage external authentication services with Terraform](/docs/guides/terraform-manage-external-authenticators/)
+      * [Manage device connection requirements](/docs/guides/terraform-configure-device-signin-standards/)
+      * [Create a custom authorization server](/docs/guides/terraform-create-custom-auth-server/)
+      * [Manage branding with Terraform](/docs/guides/terraform-manage-end-user-experience/)
+      * [Manage custom domains with Terraform](/docs/guides/terraform-mange-multiple-domains/)
+      * [Import existing Okta objects into Terraform](/docs/guides/terraform-import-existing-resources/)
     * Optimize your configuration
       * [Minimize Terraform rate limit errors](/docs/guides/terraform-design-rate-limits/)
       * [Organize your configuration](/docs/guides/terraform-organize-configuration/)

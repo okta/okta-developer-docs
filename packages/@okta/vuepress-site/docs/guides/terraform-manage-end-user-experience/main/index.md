@@ -1,6 +1,33 @@
+
+You can create up to three custom domains. You can contact Okta Support to request an increase in the limit.
+
+For general information about brands, see the [main article for brands](/docs/concepts/brands). For more custom domain options and certificate information, see the [article for brand customization in the UI](https://developer.okta.com/docs/guides/brand-and-customize/). For information on domain customization, see [Customize domain and email address](/docs/guides/custom-url-domain/). You can manage all these customizations using the Okta Terraform provider.
+
+
+
+### Confirm your org supports multibrand customization
+
+Your Okta org pricing plan must include multibrand customization to complete all the steps in this article. To check if your Okta org supports multibrand customization:
+
+1. Log in to the Admin Console for your Okta organization.
+
+1. In the left navigation, click **Security.**
+
+1. Review the items under **Security**.
+
+    * If it includes **Brands**, your org supports multibrand customization.
+
+    * If it includes **Branding**, your org does not support multibrand customization. Contact Okta Support about feature availability. However, you can customize the *default brand*. See [Customize the end-user experience with Terraform](/docs/guides/terraform-manage-end-user-experience/).
+
+
+## Add or confirm the API scopes
+Note that to manage brands, themes, and email templates, your Terraform integration must also include the API scopes: `okta.brands.manage` and `okta.templates.manage`, For more information, see [Add or confirm the API Scopes in Manage branding with Terraform](/docs/guides/terraform-manage-end-user-experience/main/#add-or-confirm-the-api-scopes).
+
+
+
 ---
 
-title: Customize the end-user experience with Terraform
+title: Manage branding with Terraform
 
 excerpt: Change the appearance of Okta sign-in pages, outgoing emails, and dashboard.
 
@@ -26,7 +53,7 @@ Change the appearance of Okta sign-in pages, outgoing emails, and dashboard.
 
 * An Okta organization.
 
-* A [Terraform configuration](/docs/guides/terraform-enable-org-access/main) that can access your Okta org.
+* A [Terraform configuration](/docs/guides/terraform-enable-org-access/) that can access your Okta org.
 
 * An Okta user account with the Super Administrator role.
 
@@ -40,7 +67,7 @@ Change the appearance of Okta sign-in pages, outgoing emails, and dashboard.
 
 The Okta Brands feature enables you to customize parts of your org's end-user experience. For example, you can customize the colors and images on your Okta sign-in pages, error pages, and Okta End-User Dashboard. You can customize email templates in multiple languages and create custom email domains for outgoing Okta emails. For general information, see the [main article on brands](/docs/concepts/brands).
 
-If your org is part of a paid Okta account, you can use Terraform to [customize the look and feel of sign-in pages and Okta templates for multiple brands](/docs/guides/terraform-customize-for-multiple-brands/main/). You can still modify the default brand if your organization doesn't support multibrand customization (such as Developer Edition orgs).
+If your org is part of a paid Okta account, you can use Terraform to [customize the look and feel of sign-in pages and Okta templates for multiple brands](/docs/guides/terraform-mange-multiple-domains/). You can still modify the default brand if your organization doesn't support multibrand customization (such as Developer Edition orgs).
 
 ## Set up your configuration
 
@@ -60,7 +87,7 @@ Confirm that your Okta org supports multibrand customization:
 
 ### Set up your Terraform files
 
-For guidance on organizing your files, see [Configure a basic Okta Terraform configuration](/docs/guides/terraform-organize-configuration/main/#configure-a-basic-okta-terraform-configuration). Consider organizing your Terraform code in a way that groups related resources together. For example, you could create a Terraform file called `brands.tf` that contains brands and themes.
+For guidance on organizing your files, see [Configure a basic Okta Terraform configuration](/docs/guides/terraform-organize-configuration/main/#configure-a-basic-okta-terraform-configuation). Consider organizing your Terraform code in a way that groups related resources together. For example, you could create a Terraform file called `brands.tf` that contains brands and themes.
 
 ### Add or confirm the API scopes
 
@@ -74,7 +101,7 @@ Your Terraform integration must have the following API scopes for specific tasks
 
 * `okta.emailDomains.manage` — Add custom email domains
 
-To grant scopes in the Admin Console and to include them in your Terraform code, see the articles on [enabling your API service application for Terraform access](/docs/guides/terraform-enable-org-access/main) and [Configure a basic Okta Terraform configuration](/docs/guides/terraform-organize-configuration/main/#configure-a-basic-okta-terraform-configuration).
+To grant scopes in the Admin Console and to include them in your Terraform code, see the articles on [enabling your API service application for Terraform access](/docs/guides/terraform-enable-org-access/) and [Configure a basic Okta Terraform configuration](/docs/guides/terraform-organize-configuration/main/#configure-a-basic-okta-terraform-configuration).
 
 ## Create or import the brand resource
 
@@ -86,7 +113,7 @@ There are two primary customization resources from Terraform:
 
     The instructions for working with these in Terraform differ if your org type supports multibrand customization.
 
-* Okta recommends [creating custom domains](/docs/guides/terraform-customize-for-multiple-brands/main/#create-a-custom-domain-resource) first, and then [new brand resources](#create-a-new-brand-requires-multibrand-customization) if your organization supports multibrand customization. However, you can modify the default brand to support application integrations that don't use a custom domain.
+* Okta recommends [creating custom domains](/docs/guides/terraform-mange-multiple-domains/main/#create-a-custom-domain-resource) first, and then [new brand resources](#create-a-new-brand-requires-multibrand-customization) if your organization supports multibrand customization. However, you can modify the default brand to support application integrations that don't use a custom domain.
 
 * You must modify the default brand if your org doesn't support multibrand customization (such as Developer Edition orgs).
 
