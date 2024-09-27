@@ -108,7 +108,7 @@ Source link : https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 
 ### Understand the submission review process
 
-The submission review process begins when you click **Submit for Review** in the [OIN Wizard](/docs/guides/submit-oin-app/) or **Submit integration** in the [OIN Manager](https://oinmanager.okta.com). Okta sends you an email notification that your integration is now queued for review and also includes the date when the initial review is expected to finish.
+The submission review process begins when you click **Submit integration** in the [OIN Wizard](/docs/guides/submit-oin-app/) or [OIN Manager](https://oinmanager.okta.com). Okta sends you an email notification that your integration is now queued for review and also includes the date when the initial review is expected to finish.
 
 The status of your integration is shown in the **Your OIN Integrations** dashboard from the Admin Console or on the **My App Integrations** page from the OIN Manager.
 

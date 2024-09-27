@@ -1,17 +1,17 @@
 ---
-title: Prepare your SCIM API service
-excerpt: Prepare a SCIM-compliant API server to host your SCIM service, and test it to make sure it is working correctly.
+title: Build your SCIM API service
+excerpt: Build a SCIM-compliant API server to host your SCIM service, and test it to make sure it is working correctly.
 meta:
   - name: description
-    content: Prepare a SCIM-compliant API server to host your SCIM service, and test it to make sure it is working correctly.
+    content: Build a SCIM-compliant API server to host your SCIM service, and test it to make sure it is working correctly.
 layout: Guides
 ---
 
-Use this guide to prepare a SCIM-compliant (System for Cross-domain Identity Management) API server to host your SCIM service. Then, test your server to ensure that it's functional.
+Use this guide to build a SCIM-compliant (System for Cross-domain Identity Management) API server to host your SCIM service. Then, test your server to ensure that it's functional.
 
 ## Preparation
 
-The first step in delivering your SCIM integration is preparing a SCIM-compliant API server to host your SCIM service.
+The first step in delivering your SCIM integration is building a SCIM-compliant API server to host your SCIM service.
 
 Okta supports lifecycle provisioning using either version 2.0 and version 1.1 of the SCIM protocol.
 
@@ -260,6 +260,20 @@ As you refine your SCIM implementation, you can share API test results with your
     `https://www.runscope.com/radar/abcdefghijkl/m01nopq2-3456-7r8s-9012-t34567uvw890/history/123ef4gh-i567-89j0-1k2l-3m4n5o678901`.
     The test results can be viewed in detail, but the test can't be edited or rerun by people outside of your team.
 
+> **Note:** If you plan to submit your SCIM integration to the OIN, save this test results URL for the integration submission. See [Submit your integration](/docs/guides/submit-oin-app/scim/main/#submit-your-integration) for SCIM.
+
 ## Next steps
 
-Now that you have a SCIM-compliant API server on which to host your SCIM service, the next step is to [configure Okta to your SCIM API service](/docs/guides/scim-provisioning-integration-connect/).
+Now that you have a SCIM-compliant API server on which to host your SCIM service, the next step is to connect Okta to your SCIM API service:
+
+* If you want to publish your SCIM integration to the Okta Integration Network (OIN):
+
+    * Review the [Publish an OIN integration](/docs/guides/submit-app-overview/) overview to understand the submission process for publishing an integration.
+    * Review the [OIN submission requirements](/docs/guides/submit-app-prereq/) before starting the submission process.
+    * Use the [OIN Wizard: Submit an integration](/docs/guides/submit-oin-app/scim/main/) guide to connect, test, and submit your Okta SCIM integration it to the OIN.
+
+* If you want to create a SCIM integration only in your org, see [Add a private SCIM integration](/docs/guides/scim-provisioning-integration-connect/).
+
+    * An integration is considered private if it's only available in the org from where the integration instance was created.
+    * An integration is considered public if it's available in the [OIN catalog](https://www.okta.com/integrations/) for all Okta customers.
+    * Private integrations are useful for developing and testing integrations, or for providing access to users on one org.

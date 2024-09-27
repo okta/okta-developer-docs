@@ -187,11 +187,16 @@ The OIN Wizard journey includes the **Test integration** experience page to help
 
 Generate instances for testing in your Okta Developer Edition org directly from the OIN Wizard. The Wizard takes the configuration and test information from your OIN submission and allows you to configure a specific integration instance to your test app. You can test your customer admin experience and your end-user sign-in experience with the generated instance flow.
 
-Okta recommends that you generate an instance for each protocol supported by your integration for testing:
+Okta recommends that you generate an instance for testing each protocol supported by your integration:
 
 * You must generate separate instances for testing if you support two SSO protocols (one for OIDC and one for SAML). The OIN Submission Tester can only test one protocol at a time.
 * If your integration supports SCIM and SSO protocols, then create one instance for SCIM testing and one instance for each SSO protocol testing.
-* If your integration supports SCIM and one SSO protocol, then you can create one instance for testing if your SSO integration doesn't support SSO JIT, and the **Create User** SCIM operation is enabled. In this scenario, you can use one instance for SSO testing with the OIN Submission Tester, Runscope CRUD testing, and Okta-SCIM manual integration testing.
+
+However, there are certain conditions where you can test two protocols on one instance. You can create one instance for testing two protocols if your integration meets all of these conditions:
+
+* Supports SCIM and one SSO protocol
+* Doesn't support SSO JIT
+* Enabled the **Create User** SCIM operation
 
 There's a maximum of five active instances allowed in a Developer Edition org, so manage your test instances accordingly. See [Deactivate an app instance in your org](#deactivate-an-app-instance-in-your-org) to deactivate any instances you aren't using.
 
@@ -208,7 +213,7 @@ There's a maximum of five active instances allowed in a Developer Edition org, s
 
     If you need to change any labels or properties, go back to edit your submission.
 
-    > **Note:** There's a limit of five app instances in a Okta Developer Edition org. **Generate instance** is deactivated when you reach this limit. Deactivate unused instances to make room for new instances in your org. See [Deactivate app instances in your org](#deactivate-an-app-instance-in-your-org).
+    > **Note:** There's a limit of five app instances in a Okta Developer Edition org. The **Generate instance** option is deactivated when you reach this limit. Deactivate unused instances to make room for new instances in your org. See [Deactivate app instances in your org](#deactivate-an-app-instance-in-your-org).
 
 <StackSnippet snippet="test-instance" />
 
@@ -218,7 +223,7 @@ For SSO-only flow tests, create your test users in Okta before you assign them t
 
 For SSO flow tests without JIT provisioning, you need to create the same test user in your app. If your integration supports JIT provisioning, Okta provisions the test user on your app automatically.
 
-For SCIM provisioning, you can assign an imported users to your app. Alternatively, you can create a user in Okta that can be pushed to your app by SCIM before you assign the user to your app.
+For SCIM provisioning, you can assign an imported users to your app. Alternatively, you can create a user in Okta that can be pushed to your app by SCIM before you assign the user to your app. See [About adding provisioned users](https://help.okta.com/okta_help.htm?type=oie&id=lcm-about-user-management).
 
 > **Note:** You need to have the org admin role assigned to you before you can create users in Okta.
 
@@ -292,7 +297,7 @@ To edit the app instance from the OIN Wizard, follow these steps:
 
         The **Test integration** page appears.
 
-    *  Click **Go to integrations** (upper-right corner) for the backwards-compatible instance.
+    * Click **Go to integrations** (upper-right corner) for the backwards-compatible instance.
 
         The **Your OIN Integrations** dashboard appears.
         Go to your integration submission > **Configure your integration** > **Get started with testing** to continue with testing your integration.
@@ -441,12 +446,19 @@ All required tests in the OIN Submission Tester must have passed within 48 hours
 
 ### Test your SCIM integration
 
-For SCIM integrations, you need to run two sets of Okta integration tests before you can submit it to the OIN:
+You need to run three sets of tests for SCIM integrations:
+
+1. [SCIM API specification tests](/docs/guides/scim-provisioning-integration-prepare/main/#test-your-scim-api)
+
+    You need to first test your SCIM API service before you conduct Okta-SCIM integration tests. Okta provides you with a SCIM API specification test suite to execute in Runscope. See [Test your SCIM API](/docs/guides/scim-provisioning-integration-prepare/main/#test-your-scim-api) for instructions on how to run this test suite. Provide the test results URL in the **Link to Runscope spec test results** field when you submit your integration to the OIN.
 
 1. [Runscope create, read, update, and delete (CRUD) user profile tests](#runscope-crud-tests)
+
+    Provide the results URL from these tests in the **Link to Runscope CRUD test results** field when you submit your integration to the OIN.
+
 1. [Manual Okta SCIM integration tests](#manual-okta-scim-integration-tests)
 
-Depending on your test scenario, you can import users from the **Import** tab (see [Import users](https://help.okta.com/okta_help.htm?id=ext_Importing_People)) or create users in Okta before assigning them to your test instance. See [Assign test users to your integration instance](#assign-test-users-to-your-integration-instance).
+    You're required to certify that you've completed these tests when you submit your integration to the OIN.
 
 #### Runscope CRUD tests
 
@@ -492,25 +504,32 @@ On the left of your Runscope page, the test appears in the **Recent Test Runs** 
 As the test suite runs, Runscope displays live updates of the test in progress. After the test suite completes execution, the main panel displays the results of your test.
 1. Click the name of each particular test case to see the test details. The details show you the **Request**, **Response**, and **Connection** information for each test.
 
-When you're satisfied with your Runscope CRUD test results, share your test results with Okta in **Link to Runscope CRUD test results** field :
+When you're satisfied with your Runscope CRUD test results, share your test results with Okta in the **Link to Runscope CRUD test results** field:
 
 1. From your Runscope dashboard, open the test results that you want to share.
 2. At the top of the test result, change the **Private | Shareable** toggle from **Private** to **Shareable**.
-3. Copy the URL for the test result.
-    For example, it looks similar to:
+3. Copy the URL for the test result. The test results can be viewed in detail, but the test can't be edited or rerun by people outside of your team.
+
+    Example of test result URL:
     `https://www.runscope.com/radar/abcdefghijkl/m01nopq2-3456-7r8s-9012-t34567uvw890/history/123ef4gh-i567-89j0-1k2l-3m4n5o678901`.
-    The test results can be viewed in detail, but the test can't be edited or rerun by people outside of your team.
-4. Paste the test results URL to the **Link to Runscope CRUD test results** field in the OIN Wizard's **Test integration** page.
+
+1. Paste the test results URL to the **Link to Runscope CRUD test results** field in the OIN Wizard **Test integration** > **SCIM integration testing step** section.
 
 #### Manual Okta SCIM integration tests
 
-Execute the test cases in the [Okta SCIM Test Plan](/standards/SCIM/SCIMFiles/okta-scim-test-plan-v2.xlsx). Your integration has to pass the test cases in the Okta SCIM Test Plan before you can submit it.
+Execute the test cases in the [Okta SCIM Test Plan](/standards/SCIM/SCIMFiles/okta-scim-test-plan-v2.xlsx). Skip the test cases for the features that your integration doesn't support. All the other supported-feature test cases must pass before you can submit your integration to the OIN.
+
+Depending on your test scenario, you can import users from the **Import** tab (see [Import users](https://help.okta.com/okta_help.htm?id=ext_Importing_People)) or create users in Okta before assigning them to your test instance. See [About adding provisioned users](https://help.okta.com/okta_help.htm?type=oie&id=lcm-about-user-management) and [Assign test users to your integration instance](#assign-test-users-to-your-integration-instance).
+
+After you've successfully completed the manual SCIM integration tests, see [Submit your integration](#submit-your-integration).
 
 ## Update your integration
 
-You can modify your published SSO integration from the OIN Wizard.
+You can modify your published SSO and SCIM integration from the OIN Wizard.
 
-When you edit a published OIN integration, test the SSO flow for the updated version and the published version for backwards compatibility. Testing the published version for backwards compatibility ensures that SSO to your app still works for customers who have already installed your published OIN integration. See [Update integration considerations](#update-integration-considerations) before you edit your published SSO integration. After you successfully test the updated and published versions of your integration, resubmit it to the OIN team.
+> **Note:** All SSO integrations, previously published from the OIN Manager, have been migrated to the OIN Wizard. Okta is in the process of migrating SCIM integrations previously published from the OIN Manager to the OIN Wizard. If you don't see your published SCIM integration in the **Your OIN Integrations** dashboard, go to the [OIN Manager](/docs/guides/submit-app/scim/main/#update-your-published-integration) to make any updates.
+
+When you edit a published OIN integration, test the flows for the updated version and the published version for backwards compatibility. Testing the published version for backwards compatibility ensures that your integration still works for customers who have already installed it. See [Update integration considerations](#update-integration-considerations) before you edit your published integration. After you successfully test the updated and published versions of your integration, resubmit it to the OIN team.
 
 > **Note:** When you edit your published OIN integration, your previous PUBLISHED status and date are overwritten with the DRAFT status and current date.
 
@@ -523,12 +542,11 @@ To update a previously published OIN integration:
 1. From the **This integration is read-only** information box, click **Edit integration**.
     > **Note:** If you open a submission in DRAFT status, it's not in read-only mode and the **Edit integration** option isn't available. Continue to edit your draft submission as a new submission. See [Start a submission](#start-a-submission).
 1. If the OIN Wizard doesn't detect an instance to test your published integration in the org, then an **Application instance not detected** dialog appears. Click **Generate instance** to create an app instance based on your published OIN integration. See [Add existing app integrations](https://help.okta.com/okta_help.htm?type=oie&id=csh-apps-add-app) to create an instance for backwards-compatibility testing.
-    > **Note:** **Generate instance** is disabled if you have five active instances in your org. [Deactivate instances](#deactivate-an-app-instance-in-your-org) that you're not using.
+    > **Note:** The **Generate instance** option is disabled if you have five active instances in your org. [Deactivate instances](#deactivate-an-app-instance-in-your-org) that you're not using.
 
     If the OIN Wizard detects an instance based on your published integration, the dialog doesn't appear. This is usually the case if you tested and submitted your published integration from the same org.
 
-1. Continue to update your integration in the **Select your protocol**, **Configure your integration**, and **Test your integration experience** > **Testing information** pages. See [Update integration considerations](#update-integration-considerations) for backwards compatibility with integration variables.
-1. Click **Test your integration** to open the **Test your integration experience** > OIN Submission Tester.
+1. Continue to update your integration in the **Select protocol**, **Configure your integration**, and **Test integration** pages. See [Update integration considerations](#update-integration-considerations) for backwards compatibility with integration variables.
 
     The **Required app instances** box contains the following items:
     * The instances that you need to test the **PUBLISHED VERSION** of your OIN integration.
@@ -544,9 +562,13 @@ To update a previously published OIN integration:
     See [Generate an instance for testing](#generate-an-instance-for) to create instances for your current submission.
     > **Note:** There's a maximum of five active app instances allowed in a Developer Edition org. Deactivate any instances that you don't need for testing.
 
-1. Click **Add to Tester** for each required test instance. See [Add to Tester](#add-to-tester). The required tests appear for each test instance.
-1. Run your tests from the OIN Submission Tester. See [OIN Submission Tester](#oin-submission-tester).
-1. [Submit your integration](#submit-your-integration) if all your tests passed. If you have errors, see [Failed tests](#failed-tests) to resolve the issues.
+1. Test your integration protocol:
+
+    * For SSO testing, click **Add to Tester** for each required test instance. See [Add to Tester](#add-to-tester).<br> The required tests appear for each test instance. Run your tests from the OIN Submission Tester. See [OIN Submission Tester](#oin-submission-tester). If you have errors, see [Failed tests](#failed-tests) to resolve the issues.
+
+    * For SCIM testing, see [Test your SCIM integration](#test-your-scim-integration) for all the test requirements.
+
+1. [Submit your integration](#submit-your-integration) if all your tests passed.
 
 ### Update integration considerations
 
@@ -564,7 +586,9 @@ To update a previously published OIN integration:
         * Published integrations can have variable names with uppercase letters
         * Published integrations can use `http` (instead of enforced `https`) in URLs and Expression Language-supported properties
 
-    * If your update introduces new variables and you're using dynamic URLs, ensure that your tests cover various scenarios with different possible values for those variables.  See [Dynamic properties with Okta Expression Language](#dynamic-properties-with-okta-expression-language). The newly introduced variables aren't populated for older instances of your integration. For example:
+    * If your update introduces new variables and you're using dynamic URLs, ensure that your tests cover various scenarios with different possible values for those variables.  See [Dynamic properties with Okta Expression Language](#dynamic-properties-with-okta-expression-language). The newly introduced variables aren't populated for older instances of your integration.
+
+        For example:
 
        <StackSnippet snippet="backward-compatible-eg" />
 
@@ -572,14 +596,24 @@ To update a previously published OIN integration:
 
 After you successfully test your integration, you're ready to submit.
 
-The OIN Wizard checks the following:
+The OIN Wizard checks the following for SSO submissions:
 
-* All required instances are detected
-* All required instances are active
-* All required tests passed within the last 48 hours
+* All required instances are detected.
+* All required instances are active.
+* All required tests passed within the last 48 hours.
+
+The OIN Wizard checks the following for SCIM submissions:
+
+* All required instances are detected.
+* All required instances are active.
+* The **Link to Runscope spec test results** field is specified.
+* The **Link to Runscope CRUD test results** field is specified.
+
+> **Note:** See [Test your SCIM integration](#test-your-scim-integration) for SCIM submission requirements.
 
 **Submit integration** is enabled after all these requirements are met.
 
+1. Select **I certify that I have successfully completed required tests**.
 1. Click **Submit integration** to submit your integration.
 1. Click **Close wizard**.
     The **Your OIN Integration** dashboard appears.
