@@ -1,5 +1,6 @@
 # .wokeignore
 
+
 # # files we can not change
 packages/@okta/vuepress-site/data/event-types.json
 packages/@okta/vuepress-site/docs/guides/hooks-best-practices/index.md
