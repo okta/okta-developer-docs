@@ -6,7 +6,7 @@ meta:
 layout: Guides
 ---
 
-Learn how to submit an OIDC, SAML 2.0, and SCIM 2.0 integration to the Okta Integration Network (OIN) using the OIN Wizard.
+Learn how to submit an OIDC, SAML 2.0, or SCIM 2.0 integration to the Okta Integration Network (OIN) using the OIN Wizard.
 
 ---
 
