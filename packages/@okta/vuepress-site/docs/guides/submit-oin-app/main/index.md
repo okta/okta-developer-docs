@@ -138,7 +138,7 @@ Continue with the OIN Wizard and configure your protocol settings:
 
 From the OIN Wizard **Test your integration** page, specify the information required for testing your integration. The OIN team uses this information to verify your integration after submission.
 
-#### Test information
+#### Test information for Okta review
 
 A dedicated test admin account in your app is required for Okta integration testing. This test account needs to be active beyond the submission period in case Okta needs to update or troubleshoot your app integration. Ensure that the test admin account has:
 
@@ -149,11 +149,11 @@ See [Test account guidelines](/docs/guides/submit-app-prereq/main/#test-account-
 
 > **Note**: This admin account is in your app and not an account in Okta.
 
-In the **Testing information** section, specify the following test account details:
+In the **Testing information for Okta review** section, specify the following **Test account** details:
 
 | <div style="width:100px">Property</div> | Description  |
 | --------------- | ------------ |
-| **Test account URL** `*`  | A static URL to sign in to your app. An OIN analyst goes to this URL and uses the account credentials you provide in the subsequent fields to sign in to your app. |
+| **Account URL** `*`  | A static URL to sign in to your app. An OIN analyst goes to this URL and uses the account credentials you provide in the subsequent fields to sign in to your app. |
 | **Username** `*`  | The username for your test admin account. The OIN analyst signs in with this username to execute test cases. The preferred account username is `isvtest@okta.com`. |
 | **Password** `*`  | The password for your test admin account |
 | **Support contact** `*`  | Provide an email for Okta to contact your company about your integration. This email isn't exposed in the OIN catalogs or to your customers. Okta uses this email to contact your company for integration status updates, issues during the QA testing phase, or for ongoing maintenance. See [Escalation support contact](/docs/guides/submit-app-prereq/main/#customer-support-contact-guidelines) in the customer support-contact guidelines. |
@@ -326,7 +326,7 @@ The OIN Submission Tester includes the mechanism to test the following flows:
 
 > **Note:** The **JIT provisioning (with SP flow)** test case appears in the OIN Submission Tester if your integration supports JIT and only the SP flow. If your integration supports JIT, IdP, and SP flows, then a successful **JIT provisioning (with IdP flow)** test is sufficient for submission.
 
-The test cases for these flows appear in the **Test integration using the OIN Submission Tester** section depending on your OIN Wizard [test information](#test-information).
+The test cases for these flows appear in the **Test integration using the OIN Submission Tester** section depending on your OIN Wizard [test information](#test-information-for-okta-review).
 
 > **Note:** See [Run test](#run-tests) for the steps on how to run each test case.
 
