@@ -172,14 +172,14 @@ Click **Test your integration** to save your test information and begin the inte
 
 The OIN Wizard journey includes the **Test integration** experience page to help you configure and test your integration within the same org before submission. This page functions in a top-down approach, where you need to do the following:
 
-1. Generate instances for testing. You need to create a test instance for each protocol that your integration supports.
+1. [Generate instances for testing](#generate-instances-for-testing). You need to create a test instance for each protocol that your integration supports.
     * For SSO integrations, configure SSO and assign test users for the instance.
     * For SCIM integrations, configure provisioning on the instance and map user profile attributes.
 
 1. Test your integration.
-   * For SSO integrations, test the required flows in the OIN Submission Tester with your generated test instances. Fix any test failures from the OIN Submission Tester, then regenerate the test instance (if necessary) and retest.
-   * For SCIM integrations, execute the Runscope CRUD tests and the Okta manual integration tests with your generated instance.
-1. Submit your integration after all required tests are successful.
+   * For SSO integrations, test the required flows in the [OIN Submission Tester](#oin-submission-tester) with your generated test instances. Fix any test failures from the OIN Submission Tester, then regenerate the test instance (if necessary) and retest.
+   * For SCIM integrations, execute the [Runscope CRUD tests](#runscope-crud-tests) and the [Okta manual integration tests](#manual-okta-scim-integration-tests) with your generated instance.
+1. [Submit your integration](#submit-your-integration) after all required tests are successful.
 
 > **Note:** You must have the Okta Browser Plugin installed with **Allow in Incognito** enabled before you use the  **OIN Submission Tester**. See [OIN Wizard requirements](/docs/guides/submit-app-prereq/main/#oin-wizard-requirements).
 
@@ -192,7 +192,7 @@ Okta recommends that you generate an instance for testing each protocol supporte
 * You must generate separate instances for testing if you support two SSO protocols (one for OIDC and one for SAML). The OIN Submission Tester can only test one protocol at a time.
 * If your integration supports SCIM and SSO protocols, then create one instance for SCIM testing and one instance for each SSO protocol testing.
 
-However, there are certain conditions where you can test two protocols on one instance. You can create one instance for testing two protocols if your integration meets all of these conditions:
+However, there are certain conditions where you can test two protocols on one instance. You can create one instance for SSO and SCIM testing if your integration meets all of these conditions:
 
 * Supports SCIM and one SSO protocol
 * Doesn't support SSO JIT

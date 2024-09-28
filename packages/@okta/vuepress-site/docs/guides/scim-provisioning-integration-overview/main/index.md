@@ -47,7 +47,7 @@ This guide series contains the following parts:
 
 ## See also
 
-If you want to expose your SCIM integration to your customers who also use Okta, submit it to the Okta Integration Network (OIN). Integrations listed in the [OIN catalog](https://www.okta.com/integrations/) are available to all Okta customers to use.
+When you go through all the guides in this series, you have a functional SCIM integration to use in your specific org. If you want to expose your SCIM integration to your customers who also use Okta, submit it to the Okta Integration Network (OIN). Integrations listed in the [OIN catalog](https://www.okta.com/integrations/) are available to all Okta customers to use.
 
 * See [Publish an OIN integration](/docs/guides/submit-app-overview/) to understand the submission process for publishing an integration.
 * Review the [OIN submission requirements](/docs/guides/submit-app-prereq/) before starting the submission process.
