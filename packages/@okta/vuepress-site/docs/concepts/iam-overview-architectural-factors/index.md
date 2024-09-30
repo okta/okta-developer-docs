@@ -27,9 +27,9 @@ See [**IAM Terminology**](/docs/concepts/iam-overview-iam-terminology/) for defi
 
 Design your IAM solution to be highly available. Consider strategies such as these to help meet your availability goals:
 
-- Architect and design your solution with the collective availability requirements of your apps and customers in mind. Your objective is to meet or exceed their combined needs. Consider new availability requirements likely to emerge with business growth and other changes in the next few years.
+- Architect and design your solution with the collective availability requirements of your apps and customers in mind. Your objective is to meet or exceed their combined needs. Consider any new availability requirements likely to emerge with business growth and other changes in the next few years.
 
-- Provide redundancy, backup, monitoring, failure detection and recovery, notifications, and support procedures to avoid outages and recover quickly from planned or unplanned outages.
+- Provide redundancy, backup, monitoring, failure detection and recovery, notifications, and support procedures. This helps you avoid outages and recover quickly from planned or unplanned outages.
 
 - Meet requirements in [Reliability](#reliability) and [Scalability](#scalability), listed in the following sections. Your solution is only available when it's operating correctly and can handle its workload.
 

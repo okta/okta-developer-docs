@@ -33,25 +33,25 @@ Event types include user lifecycle changes, the completion by a user of a specif
 
 <ApiLifecycle access="ea" />
 
-You can reduce the number of event hook calls by defining filters on specific instances of the subscribed event type. For example, if you want an event hook call triggered by user sign-in events for a specific group of users, you can filter on that group, rather than having an event hook call for every user sign in. See [Create an event hook filter](#create-an-event-hook-filter).
+You can reduce the number of event hook calls by defining filters on specific instances of the subscribed event type. For example, if you want an event hook call triggered by user sign-in events for a specific group of users, you can filter on that group, rather than having an event hook call for every user sign-in. See [Create an event hook filter](#create-an-event-hook-filter).
 
 <EventHookEANote/>
 
 ## Requests sent by Okta
 
-When events occur in your org that match an event type monitored by your event hook, the event hook is automatically triggered and sends a request to your external service. The JSON payload of the request provides information on the event. A sample JSON payload is provided in [Sample event delivery payload](#sample-event-delivery-payload).
+When events occur in your org that match an event type monitored by your event hook, the event hook is automatically triggered. It then sends a request to your external service. The JSON payload of the request provides information on the event. A sample JSON payload is provided in [Sample event delivery payload](#sample-event-delivery-payload).
 
 The requests sent from Okta to your external service are HTTPS requests. POST requests are used for the ongoing delivery of events, and a one-time GET request is used for verifying your endpoint.
 
 ### One-time verification request
 
-After registering an event hook, you need to have Okta make a one-time GET verification request to your endpoint, passing your service a verification value that your service needs to send back. This verification serves as a test to confirm that you control the endpoint.
+After registering an event hook, you need to have Okta make a one-time GET verification request to your endpoint. The request should pass your service a verification value that your service needs to send back. This verification serves as a test to confirm that you control the endpoint.
 
 This one-time verification request is the only GET request Okta sends to your external service. Ongoing requests to notify your service of event occurrences are HTTPS POST requests. Your web service can use the GET versus POST distinction to implement logic to handle this special one-time request.
 
 The way your service needs to handle this one-time verification is as follows: The request from Okta contains an HTTP header named `x-okta-verification-challenge`. Your service needs to read the value of that header and return it in the response body, in a JSON object named `verification`: that is: `{ "verification" : "value_from_header" }`. The `value_from_header` is found in the request HTTP header, but you need to send it back in a JSON object.
 
-See [Event hooks](/docs/guides/event-hook-implementation) for a working example of an event hook setup, including code that completes the one-time verification step.
+See [Event hooks](/docs/guides/event-hook-implementation) for an example of an event hook setup, including code that completes the one-time verification step.
 
 ### Ongoing event delivery
 
@@ -59,11 +59,11 @@ After verification, for ongoing notification of events, Okta sends HTTPS POST re
 
 Information is encapsulated in the JSON payload in the `data.events` object. The `data.events` object is an array that contains multiple events in a single POST request. Events that occur within a short time of each other are amalgamated in the array, and each array element contains information on one event.
 
-The content of each array element is an object of the `LogEvent` type. This is the same object that the System Log API defines for system log events. See [System Log API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/) for information on the object and its sub-objects.
+The content of each array element is an object of the `LogEvent` type. This is the same object that the System Log API defines for system log events. See the [System Log API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/) for information on the object and its sub-objects.
 
-Okta delivers events on a best-effort basis. Events are delivered at least once. Delivery can be delayed by network conditions. Sometimes, multiple requests may arrive at the same time after a delay, or events may arrive out of order. To establish ordering, you can use the time stamp contained in the `data.events.published` property of each event. To detect duplicated delivery, you can compare the `eventId` value of incoming events against the values for events previously received.
+Okta delivers events on a best-effort basis. Events are delivered at least once. Network conditions can delay delivery. Sometimes, multiple requests may arrive at the same time after a delay, or events may arrive out of order. To establish ordering, you can use the time stamp contained in the `data.events.published` property of each event. To detect duplicated delivery, you can compare the `eventId` value of incoming events against the values for events previously received.
 
-There is no guarantee of maximum delay between event occurrence and delivery.
+There's no guarantee of maximum delay between event occurrence and delivery.
 
 > **Note:** Contact Okta support only if you're seeing event hook call delays greater than 60 minutes. In most cases, these delays are resolved before that time.
 
@@ -136,7 +136,7 @@ After implementing your external service, you need to register it with Okta. To 
 
 ### Verify your endpoint
 
-After registering the event hook, you need to trigger a one-time verification process by clicking the **Verify** button in the Admin Console. When you trigger a verification, Okta calls out to your external service, making the one-time verification request to it. You need to have implemented functionality in your service to handle the expected request and response. The purpose of this step is to prove that you control the endpoint. See [One-time verification request](/docs/concepts/event-hooks/#one-time-verification-request).
+After registering the event hook, you need to trigger a one-time verification process by clicking **Verify** in the Admin Console. When you trigger a verification, Okta calls out to your external service, making the one-time verification request to it. You need to have implemented functionality in your service to handle the expected request and response. The purpose of this step is to prove that you control the endpoint. See [One-time verification request](/docs/concepts/event-hooks/#one-time-verification-request).
 
 ### Create an event hook filter
 

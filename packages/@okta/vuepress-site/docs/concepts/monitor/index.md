@@ -7,18 +7,18 @@ meta:
 
 # Monitor Okta
 
-Okta offers monitoring and alerting capabilities through Okta's APIs, SDKs, and Admin Console. All [supported eventful](/docs/reference/api/event-types/) activities within your Okta organization (org) are captured and available through system logs and allow you to:
+Okta offers monitoring and alerting capabilities through Okta's APIs, SDKs, and Admin Console. All [supported events](/docs/reference/api/event-types/) within your Okta organization (org) are captured and available through system logs. This allows you to do the following:
 
-* determine connectivity status from global internet locations to your Okta org
-* identify trends related to Users, Apps, Policies, and other Okta entities
-* detect tasks that require action, such as unlocking a User or restarting an agent
-* detect suspicious activities
-* review user-reported suspicious activities
-* detect and augment certain events
-* avoid exceeding API usage limits
-* view and block IP addresses identified by the greater Okta community as threatening
-* determine the risk of an anomalous sign-in event
-* confirm that validation is working
+* Determine connectivity status from global internet locations to your Okta org
+* Identify trends related to Users, Apps, Policies, and other Okta entities
+* Detect tasks that require action, such as unlocking a User or restarting an agent
+* Detect suspicious activities
+* Review user-reported suspicious activities
+* Detect and augment certain events
+* Avoid exceeding API usage limits
+* View and block IP addresses identified by the greater Okta community as threatening
+* Determine the risk of an anomalous sign-in event
+* Confirm that validation is working
 
 The Admin Console contains predefined reports, system log filters, and notification tools to achieve most of these tasks. If you have external commercial or custom monitoring tools, you can integrate them with your Okta org. Okta sends the integrated tools a continuous flow of event logs or alerts for specific configured events.
 
