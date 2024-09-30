@@ -15,11 +15,11 @@ To handle event hook calls from Okta, you need to implement a web service with a
 
 Okta event hooks are an implementation of the industry concept of webhooks. Okta event hooks are related to, but different from, Okta [inline hooks](/docs/concepts/inline-hooks/): Event hooks are meant to deliver information about events that occurred, not to provide a way to affect the execution of the underlying Okta process flow. Event hooks are asynchronous calls, meaning that the process flow that triggered the event hook continues without stopping or waiting for any response from your external service.
 
-Before the introduction of event hooks, polling the [System Log API](/docs/reference/api/system-log/) was the only method your external software systems could use to detect the occurrence of specific events in your Okta org. Event hooks provide an Okta-initiated push notification.
+Before the introduction of event hooks, polling the [System Log API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/) was the only method your external software systems could use to detect the occurrence of specific events in your Okta org. Event hooks provide an Okta-initiated push notification.
 
 You can have a maximum of 25 active and verified event hooks set up in your org at any time. Each event hook can be configured to deliver multiple event types.
 
-> **Note:** To deliver event information, event hooks use the data structure associated with the [System Log API](/docs/reference/api/system-log/).
+> **Note:** To deliver event information, event hooks use the data structure associated with the [System Log API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/).
 
 ## Which events are eligible?
 
@@ -27,7 +27,7 @@ During the initial configuration procedure for an event hook, you specify which 
 
 To see the list of event types currently eligible for use in event hooks, use the [Event types catalog](/docs/reference/api/event-types/#catalog) and search with the parameter `event-hook-eligible`.
 
-For general information on how Okta encapsulates events, see the [System Log API](/docs/reference/api/system-log/) documentation.
+For general information on how Okta encapsulates events, see the [System Log API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/) documentation.
 
 Event types include user lifecycle changes, the completion by a user of a specific stage in an Okta process flow, and changes in Okta objects. You can configure an event hook, for example, to deliver notifications of user deactivation events. You can use hooks to trigger processes that you need to execute internally every time a user is deactivated. For example, updating a record in an HR system, creating a ticket in a support system, or generating an email message.
 
@@ -59,7 +59,7 @@ After verification, for ongoing notification of events, Okta sends HTTPS POST re
 
 Information is encapsulated in the JSON payload in the `data.events` object. The `data.events` object is an array that contains multiple events in a single POST request. Events that occur within a short time of each other are amalgamated in the array, and each array element contains information on one event.
 
-The content of each array element is an object of the [LogEvent](/docs/reference/api/system-log/#example-logevent-object) type. This is the same object that the System Log API defines for system log events. See [System Log API](/docs/reference/api/system-log/) for information on the object and its sub-objects.
+The content of each array element is an object of the `LogEvent` type. This is the same object that the System Log API defines for system log events. See [System Log API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/) for information on the object and its sub-objects.
 
 Okta delivers events on a best-effort basis. Events are delivered at least once. Delivery can be delayed by network conditions. Sometimes, multiple requests may arrive at the same time after a delay, or events may arrive out of order. To establish ordering, you can use the time stamp contained in the `data.events.published` property of each event. To detect duplicated delivery, you can compare the `eventId` value of incoming events against the values for events previously received.
 
@@ -107,7 +107,7 @@ Okta limits each org to 400,000 applicable events within a 24-hour period. After
 
 ### Debugging
 
-The Okta [System Log](/docs/reference/api/system-log/) is the best resource for helping you debug your event hooks. Events delivered by event hooks are, by definition, also system log events. You can compare events delivered to your external service with events logged in the system log. You can also check for event hook delivery failures that Okta detected, which are themselves recorded in the system log.
+The Okta [System Log](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/) is the best resource for helping you debug your event hooks. Events delivered by event hooks are, by definition, also system log events. You can compare events delivered to your external service with events logged in the system log. You can also check for event hook delivery failures that Okta detected, which are themselves recorded in the system log.
 
 When looking at an event in the system log, the `debugData` property includes the specific ID of any event hooks configured to deliver it. The existence of an event hook ID in this property doesn't indicate that delivery was successful, but that it was only configured to happen for the event.
 

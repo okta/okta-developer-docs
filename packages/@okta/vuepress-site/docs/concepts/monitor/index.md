@@ -36,7 +36,7 @@ The Okta Admin Console provides a rich set of visuals and tools for you to monit
 
 ## Integrate with external monitoring tools
 
-You can integrate commercial log monitoring tools, such as Splunk, Sumo Logic, or Datadog, with your Okta org to monitor and analyze all your applications and web traffic. The commercial monitoring tools are typically integrated with Okta using the Okta [System Log API](/docs/reference/api/system-log/).
+You can integrate commercial log monitoring tools, such as Splunk, Sumo Logic, or Datadog, with your Okta org to monitor and analyze all your applications and web traffic. The commercial monitoring tools are typically integrated with Okta using the Okta [System Log API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/).
 At a high level, the API integration process includes:
 
 1. Obtaining an API token from your Okta org
@@ -46,7 +46,7 @@ At a high level, the API integration process includes:
    * Okta API token
    * Okta API service account username and credentials (not required for all integrated tools)
 
-These configuration properties allow the external tool to request system logs from the Okta [System Log API](/docs/reference/api/system-log/).
+These configuration properties allow the external tool to request system logs from the Okta [System Log API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/).
 See [Exporting Okta Log Data](https://support.okta.com/help/s/article/Exporting-Okta-Log-Data) for details.
 
 For external integration examples, refer to:
@@ -67,7 +67,7 @@ For a working example of an end-to-end event hook setup, see the [Event hooks gu
 
 You can build custom applications to monitor and analyze events in Okta using Okta SDKs and APIs.
 
-* For a [REST API](/docs/reference/rest/) implementation, use the [System Log API](/docs/reference/api/system-log/) to retrieve any of the system logs in your Okta org for the last 90 days
+* For a [REST API](/docs/reference/rest/) implementation, use the [System Log API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/) to retrieve any of the system logs in your Okta org for the last 90 days
 * For a [Node.js](https://github.com/okta/okta-sdk-nodejs) implementation, use the [getLog()](https://github.com/okta/okta-sdk-nodejs#get-logs) method to retrieve any of the system logs in your Okta org for the last 90 days
 * For an [okta-sdk-java](https://github.com/okta/okta-sdk-java) implementation, use the [getLogs()](https://github.com/okta/okta-sdk-java#list-system-logs) method to retrieve any of the system logs in your Okta org for the last 90 days
 
