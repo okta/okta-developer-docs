@@ -125,7 +125,7 @@ When you have multiple IdPs configured in your org, define logic to determine wh
 
 The Widget (version 2.5.0 or above) interacts with the IdP Discovery policy to redirect end users as needed to the IdP determined by the policy.
 
-> **Note:** Version one of the Okta API supports IdP Discovery with the Okta-hosted Widget only.
+> **Note:** Version 1 of the Okta API supports IdP Discovery with the Okta-hosted Widget only.
 
 Orgs that interact directly with the [Okta Authentication API](/docs/reference/api/authn/) to implement the user sign-in flow rather than using the Widget, can still integrate IdP Discovery. Integrate IdP Discovery into your sigh-in flow by including a call to the Okta [WebFinger](/docs/reference/api/webfinger/) endpoint. This endpoint returns the IdP name that should be used for a given user, as determined by the org's defined IdP Discovery Policy.
 
