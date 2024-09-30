@@ -161,7 +161,7 @@ curl -v -X GET \
 
 The `search` parameter can also search array data types for custom user profile properties. Okta follows the [SCIM Protocol Specification](https://datatracker.ietf.org/doc/html/rfc7644#section-3.4.2.2) for searching arrays. If any element of the array matches the search term, the entire array (object) is returned.
 
-You can create expressions that search multiple arrays, multiple values in an array, as well as using the standard logical and filtering operators such as starts with (`sw`), greater than (`gt`), and so on. See [Filtering](/docs/reference/core-okta-api#filter).
+You can create expressions that search multiple arrays, multiple values in an array, as well as using the standard logical and filtering operators such as starts with (`sw`), greater than (`gt`), and so on. See [Filtering](https://developer.okta.com/docs/api/#filter).
 
 #### Request example
 
