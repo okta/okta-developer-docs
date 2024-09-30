@@ -62,7 +62,7 @@ redirects:
   - from: /docs/api/getting_started/index.html
     to: /docs/reference/rest/index.html
   - from: /docs/getting_started/design_principles.html
-    to: /docs/reference/core-okta-api/#design-principles
+    to: https://developer.okta.com/docs/api/
   - from: /docs/api
     to: /docs/reference/
   - from: /docs/api/index.html
@@ -72,7 +72,7 @@ redirects:
   - from: /docs/getting_started/getting_a_token
     to: /docs/guides/create-an-api-token/
   - from: /docs/getting_started/design_principles
-    to: /docs/reference/core-okta-api/#design-principles
+    to: https://developer.okta.com/docs/api/
   - from: /docs/reference/api/index.html
     to: /docs/reference/
   - from: /docs/api/reference/index.html
@@ -364,7 +364,7 @@ redirects:
   - from: /standards/OIDC/index.html
     to: https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/
   - from: /docs/api/getting_started/design_principles.html
-    to: /docs/reference/core-okta-api/#design-principles
+    to: https://developer.okta.com/docs/api/
   - from: /standards/SAML/index
     to: /docs/concepts/saml/
   - from: /docs/reference/api/sessions.html
@@ -442,7 +442,7 @@ redirects:
   - from: /docs/api/getting_started/getting_a_token/index.html
     to: /docs/guides/create-an-api-token/
   - from: /docs/api/getting_started/design_principles/index.html
-    to: /docs/reference/core-okta-api/#design-principles
+    to: https://developer.okta.com/docs/api/
   - from: /docs/api/resources/apps/index.html
     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/
   - from: /docs/api/resources/authn/index.html
@@ -780,7 +780,7 @@ redirects:
   - from: /docs/api/getting_started/getting_a_token
     to: /docs/guides/create-an-api-token/
   - from: /docs/api/getting_started/design_principles
-    to: /docs/reference/core-okta-api/#design-principles
+    to: https://developer.okta.com/docs/api/
   - from: /docs/api/resources/apps
     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/
   - from: /docs/api/resources/authn
@@ -2386,7 +2386,7 @@ redirects:
   - from: /docs/guides/migrate-to-oie
     to: /docs/guides/oie-upgrade-overview/
   - from: /docs/reference/api-overview
-    to: /docs/reference/core-okta-api/
+    to: https://developer.okta.com/docs/api/
   - from: /docs/guides/oie-embedded-sdk-overview/main
     to: /docs/guides/oie-embedded-common-run-samples/-/main/
   - from: /docs/guides/oie-embedded-sdk-overview/main/index.html
@@ -2404,7 +2404,7 @@ redirects:
   - from: /docs/guides/oie-embedded-widget-run-sample/-/main/index.html
     to: /docs/guides/oie-embedded-common-run-samples/-/main/
   - from: /docs/reference/api-overview/index.html
-    to: /docs/reference/core-okta-api/
+    to: https://developer.okta.com/docs/api/
   - from: /docs/concepts/social-login/
     to: /docs/concepts/identity-providers/
   - from: /docs/concepts/social-login/index.html
