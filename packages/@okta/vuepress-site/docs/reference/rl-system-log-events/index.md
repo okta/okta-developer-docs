@@ -45,7 +45,7 @@ This event is fired when a specific client, IP address, device token combination
 
 ### OAuth 2.0 client rate limit
 
-The following System Log event fires when OAuth 2.0 requests from a single client ID have consumed most of the applicable rate limit for the org:
+The following event fires when OAuth 2.0 requests from a single client ID have consumed most of the applicable rate limit for the org:
 
 * [`app.oauth2.client_id_rate_limit_warning`](/docs/reference/api/event-types/?q=app.oauth2.client_id_rate_limit_warning)<br>
 This event contains information about the responsible client ID, which you can use to discover and deactivate or reconfigure the client if necessary.
