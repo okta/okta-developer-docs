@@ -63,7 +63,7 @@ To remove an existing account link or validate account linking with every sign-i
 
 See [Create an Identity Provider](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/#tag/IdentityProvider/operation/createIdentityProvider) for API examples of account-linking JSON payloads.
 
-<StackSnippet snippet="accountlinking2.md" />
+<StackSnippet snippet="accountlinking2" />
 
 ## Test the integration
 
