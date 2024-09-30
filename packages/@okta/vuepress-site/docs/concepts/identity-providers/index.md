@@ -6,7 +6,8 @@ title: External Identity Providers
 
 As a developer building a custom app, you want your users to choose which Identity Provider (IdP) they use to sign in to your app. But first you should understand how IdPs connect to Okta.
 
-What is an IdP? It's a service that creates and maintains identity information and then provides authentication services to your apps. IdPs can significantly reduce sign-in and registration friction. This allows your users to easily access apps without needing to create passwords or remember usernames.
+What's an IdP? It's a service that creates and maintains identity information and then provides authentication services to your apps. IdPs can significantly reduce sign-in and registration friction. This allows your users to easily access apps without needing to create passwords or remember usernames.
+
 
 <a href='/docs/guides/identity-providers/' class='Button--blueDarkOutline card' data-proofer-ignore>
    <span>Add an Identity Provider integration</span>
@@ -24,7 +25,7 @@ Okta manages connections to other IdPs for your app and sits between your app an
 
   > **Note:** Social and OpenID Connect IdPs store access tokens that allow subsequent calls to IdPs after the user is authorized. For example, the token may contain the permission to add events to a user's Google calendar. After authentication, your app can use the token on more calls to add events to the user's Google calendar on the user's behalf.
 
-* You can also configure federation [between Okta orgs](/docs/guides/add-an-external-idp/oktatookta/main/) using OpenID Connect or SAML.
+* You can also configure federation [between Okta orgs](/docs/guides/add-an-external-idp/oktatookta/main/) using OIDC or SAML.
 
 Adding any of these IdPs allows users to sign in to your app using their credentials from a specific IdP.
 
@@ -60,6 +61,7 @@ The sign-in process starts at the `/authorize` endpoint, and then goes out to th
 4. The user is prompted to sign in at the IdP (if they aren't already) and to accept the permissions required by your app.
 5. The IdP redirects the browser back to Okta.
 6. Okta processes the sign-in request and adds the user to your Okta org's Universal Directory.
+
 7. Okta redirects the browser back to your app, just like any other sign-in request.
 
 <div class="three-quarter">

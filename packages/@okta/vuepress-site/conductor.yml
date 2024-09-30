@@ -108,7 +108,7 @@ redirects:
   - from: /reference/authentication_reference
     to: https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/index.html
   - from: /docs/getting_started/policy.html
-    to: /docs/reference/api/policy/index.html
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/
   - from: /docs/api/rest/sessions.html
     to: /docs/reference/api/sessions/
   - from: /docs/api/rest/templates.html
@@ -476,7 +476,7 @@ redirects:
   - from: /docs/api/resources/linked-objects/index.html
     to: /docs/reference/api/linked-objects/
   - from: /docs/api/resources/policy/index.html
-    to: /docs/reference/api/policy/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/
   - from: /docs/api/resources/schemas/index.html
     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/
   - from: /docs/api/resources/sessions/index.html
@@ -804,7 +804,7 @@ redirects:
   - from: /docs/api/resources/linked-objects
     to: /docs/reference/api/linked-objects/
   - from: /docs/api/resources/policy
-    to: /docs/reference/api/policy/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/
   - from: /docs/api/resources/schemas
     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/
   - from: /docs/api/resources/sessions
@@ -906,7 +906,7 @@ redirects:
   - from: /docs/api/resources/linked-objects.html
     to: /docs/reference/api/linked-objects/
   - from: /docs/api/resources/policy.html
-    to: /docs/reference/api/policy/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/
   - from: /docs/api/resources/schemas.html
     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/
   - from: /docs/api/resources/system_log.html
@@ -2308,7 +2308,7 @@ redirects:
   - from: /docs/guides/password-import-hook/-/next-steps/index.html
     to: /docs/guides/password-import-inline-hook/nodejs/main/#test-your-hook
   - from: /docs/reference/api/oie-policy-types/index.html
-    to: /docs/reference/api/policy/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/
   - from: /docs/concepts/ie-intro/index.html
     to: https://help.okta.com/oie/en-us/okta_help_CSH.htm#ext-get-started-oie
   - from: /docs/concepts/ie-intro
@@ -5565,7 +5565,15 @@ redirects:
     to: https://github.com/okta/okta-sdk-dotnet
   - from: /docs/reference/hooks-best-practices/index.html
     to: /docs/guides/hooks-best-practices/
-  - from: /docs/reference/hooks-best-practices/
+  - from: /docs/reference/hooks-best-practices
     to: /docs/guides/hooks-best-practices/
+  - from: /docs/reference/rl-previous/index.html
+    to: /docs/reference/rate-limits/
+  - from: /docs/reference/rl-previous
+    to: /docs/reference/rate-limits/
+  - from: /docs/reference/rl-global-other-endpoints/index.html
+    to: /docs/reference/rate-limits/
+  - from: /docs/reference/rl-global-other-endpoints
+    to: /docs/reference/rate-limits/
   - from: /docs/guides/sign-into-mobile-app-redirect/react-native/main/index.html
     to: /docs/guides/sampleapp-oie-redirectauth/reactnativedroid/main/

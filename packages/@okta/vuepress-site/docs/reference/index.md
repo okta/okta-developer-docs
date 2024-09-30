@@ -6,19 +6,25 @@ title: Reference overview
 
 # Reference overview
 
-Details on parameters, requests, and responses for Okta API endpoints.
+This section provides reference information related to the [Okta API](https://developer.okta.com/docs/api/) endpoints.
 
-## Core Okta API
+## Classic Engine content
 
-The Core Okta API is the primary way that apps and services interact with Okta. You can use it to implement basic auth functions such as signing in your users and programmatically managing your Okta objects.
+These references are specific to Classic Engine only.
 
-[Explore the core Okta API](/docs/reference/core-okta-api/)
+[Learn more](/reference/classic-engine/)
 
-<Cards><Card href="/docs/reference/postman-collections/" cardTitle="Postman Collections" :showFooter=true>Import any Okta API collection for Postman.</Card><Card href="/docs/reference/api/asa/introduction/" cardTitle="Advanced Server Access API" :showFooter=true>Scale your control of servers with automation.</Card></Cards>
+## Error codes
 
-## Okta hooks
+This document contains a complete list of all errors that the Okta API returns.
 
-Okta event and inline hooks allow you to integrate custom functionality into specific Okta process flows. Event hooks send Okta events of interest to your systems as they occur, just like a webhook. Inline hooks allow developers to modify in-flight Okta processes with custom logic and data from a non-Okta source. For example, you can migrate users from another data store and keep the user’s current password with a [password inline hook](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createPasswordImportInlineHook).
+[Learn more](/docs/reference/error-codes/)
+
+## Event types
+
+Event types are the primary method of categorization within the Okta events platform. They allow consumers to easily group notable system occurrences based on behavior. This resource contains the complete event type catalog of this platform.
+
+[Learn more](/docs/reference/api/event-types/)
 
 ## Okta Expression Language
 
@@ -26,8 +32,32 @@ Expressions allow you to reference, transform, and combine attributes before you
 
 [Learn more](/docs/reference/okta-expression-language/)
 
-## System for Cross-domain Identity Management
+## Expression Language in Identity Engine
 
-SCIM is an industry-standard protocol for automating the exchange of user identity information and is part of the Okta Lifecycle Management feature. For example, as your company onboards employees, new user accounts are created in your application so they can connect immediately. Okta supports SCIM versions 1.1 and 2.0.
+This Expression Language reference is specific to Identity Engine.
 
-[Learn more](https://developer.okta.com/docs/api/openapi/okta-scim/guides/)
+[Learn more](/docs/reference/okta-expression-language-in-identity-engine/)
+
+## Rate limits
+
+To protect the service for all customers, Okta APIs are subject to rate limits. These limits mitigate denial-of-service attacks and abusive actions such as rapidly updating configurations, aggressive polling and concurrency, or excessive API calls.
+
+[Learn more](/docs/reference/rate-limits/)
+
+## System Log query options
+
+Additional information about using various query options, including searching and filtering, within the [System Log API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/).
+
+[Learn more](/docs/reference/system-log-query)
+
+## Test APIs with Postman
+
+Directions on setting up your Postman environment and pointers to the various Postman Collections available for you to test.
+
+[Learn more](/docs/reference/rest/)
+
+## User query options
+
+Additional information about using various query options, including searching and filtering, within the [Users API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/).
+
+[Learn more](/docs/reference/user-query/)
