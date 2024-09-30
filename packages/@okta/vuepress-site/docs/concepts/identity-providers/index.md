@@ -103,7 +103,7 @@ Account linking is configured at the IdP level. When you create an IdP, these va
 * **Account Link Policy**: `Disabled`
 * **Match Against**: `Okta Username`
 * **IdP username**: `idpuser.email`
-  > **Note:** For a SAML IdP, enter either an expression or select an IdP username from the dropdown list.
+  > **Note:** For a SAML IdP, select an IdP username from the dropdown list or enter an expression.
 
 To enable account linking, select `Automatic` from the **Account Link Policy** dropdown list, and then leave the other two defaults. With these settings, when a user signs in with an external IdP, Okta searches the Universal Directory for a user's profile to link. The user profile is found when the **IdP username** value (email) passed by the IdP matches the **Match against** value (username).
 
