@@ -124,7 +124,7 @@ After you create your app integration in Okta, configure the provisioning connec
       }'
     ```
 
-    > **Note:** The bearer token (`{yourOktaAccessToken}`) in the header of this example is your token to access Okta APIs. See [Open ID Connect & OAuth 2.0](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/).
+    > **Note:** The bearer token (`{yourOktaAccessToken}`) in the header of this example is your token to access Okta APIs. See [OpenID Connect & OAuth 2.0](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/).
 
     In this `office365` app example, you need to specify Microsoft Office 365 admin user credentials in the `profile` payload.
 
@@ -219,7 +219,7 @@ After you create your app integration in Okta, configure the provisioning connec
 
     A `204 No content` response is returned after the OAuth 2.0 provisioning connection is set up. This means Okta obtained the OAuth 2.0 bearer token to access the third-party app for provisioning users.
 
-    > **Note:** The bearer token (`{yourOktaAccessToken}`) in the header of this example is your token to access Okta APIs. See [Open ID Connect & OAuth 2.0](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/). The example request with the `code` and `state` parameters allows Okta to obtain another bearer token from the third-party app for the provisioning connection.
+    > **Note:** The bearer token (`{yourOktaAccessToken}`) in the header of this example is your token to use to access Okta APIs. See [OpenID Connect & OAuth 2.0](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/). The example request with the `code` and `state` parameters allows Okta to obtain another bearer token from the third-party app for the provisioning connection.
 
 1. Activate the connection in Okta after the provisioning connection is configured with the saved token:
 

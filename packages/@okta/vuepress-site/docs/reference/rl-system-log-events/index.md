@@ -9,7 +9,7 @@ category: rate limits
 
 ### Web request rate limits (org level)
 
-The following org-based System Log events record system events related to your org to provide an audit trail. You can use this to understand platform activity and to diagnose problems.
+The following org-based System Log events record system events related to your org to provide an audit trail. Use this to understand platform activity and to diagnose problems.
 
 * [`system.org.rate_limit.warning`](/docs/reference/api/event-types/?q=system.org.rate_limit.warning)<br>
 This event is sent when an endpoint is nearing its rate limit.
@@ -25,7 +25,7 @@ This event is sent when a request exceeds the org's allotted concurrent limit.
 
 ### Web request rate limits (client level)
 
-The following client-based System Log events are fired when an individual client exceeds its assigned limit for the OAuth `/authorize` endpoint. The event that fires depends on the client-based rate limit mode that is set.
+The following client-based System Log events are fired when an individual client exceeds its assigned limit for the OAuth `/authorize` endpoint. The event that fires depends on the client-based rate limit mode that's set.
 
 If the framework is in **Enforce and log per client** mode, the following events fire:
 
@@ -38,7 +38,7 @@ This event is fired when a specific client, IP address, or device identifier com
 If the framework is in **Log per client**&&** mode, the following events fire:
 
 * [`system.client.rate_limit.notification`](/docs/reference/api/event-types/?q=system.client.rate_limit.notification)<br>
-This event is fired when a specific client, IP address, or device identifier combination exceeds the total limit of 60 requests per minute. However, the end user won't see a rate limit violation. Okta fires only a `notification` System Log event. The System Log contains information about the client ID, IP address, device identifier, and the actual user if the user already has a valid session.
+This event is fired when a specific client, IP address, or device identifier combination exceeds the total limit of 60 requests per minute. However, the user won't see a rate limit violation. Okta fires only a `notification` System Log event. The System Log contains information about the client ID, IP address, device identifier, and the actual user if the user already has a valid session.
 
 * [`system.client.concurrency_rate_limit.notification`](/docs/reference/api/event-types/?q=system.client.concurrency_rate_limit.notification)<br>
 This event is fired when a specific client, IP address, device token combination makes more than two concurrent requests. However, the end user won't see a rate limit violation. Okta fires only a `notification` System Log event. The System Log contains information about the client ID, IP address, device identifier, and the actual user if the user already has a valid session.

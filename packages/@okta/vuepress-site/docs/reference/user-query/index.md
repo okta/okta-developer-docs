@@ -29,7 +29,7 @@ The search query parameter (`search`) returns one or more users matched against 
 
 This query parameter provides the largest range of search options and optimal performance. The `search` parameter requires URL encoding for applicable search expressions, supports pagination, and accepts sorting parameters.
 
-The search query parameter uses standard Okta API filtering semantics to create search criteria that includes mathematical operators such as equal to (`eq`), greater than or equal to (`ge`), and so on. You can combine multiple expressions using logical operators and parentheses. The `ne` (not equal) operator isn't supported, but you can obtain the same result by using `lt ... or ... gt`. For example, to see all users except those that have a status of "STAGED", use `https://${yourOktaDomain}/api/v1/users?search=status+lt+%22STAGED%22+or+status+gt+%22STAGED%22`. See [Filtering](https://developer.okta.com/docs/api/#filter).
+The search query parameter uses standard Okta API filtering semantics to create search criteria. This criteria includes mathematical operators such as equal to (`eq`), greater than or equal to (`ge`), and so on. You can combine multiple expressions using logical operators and parentheses. The `ne` (not equal) operator isn't supported, but you can obtain the same result by using `lt ... or ... gt`. For example, to see all users except those that have a status of "STAGED", use `https://${yourOktaDomain}/api/v1/users?search=status+lt+%22STAGED%22+or+status+gt+%22STAGED%22`. See [Filtering](https://developer.okta.com/docs/api/#filter).
 
 ### URL encoding
 
