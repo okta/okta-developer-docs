@@ -69,7 +69,6 @@ There are two ways to create a custom sign-in page:
    | ![Spring](/img/sdks/spring.png) | Spring | [Okta Spring Boot Starter](https://github.com/okta/okta-spring-boot) | [Sample App](https://github.com/okta/samples-java-spring/tree/master/custom-login) | [Guide](/docs/guides/oie-embedded-widget-use-case-basic-sign-in/java/main/) |
    | ![Node JS](/img/sdks/nodejs.png) | node.js | [Auth Javascript SDK (Auth.js)](https://github.com/okta/okta-auth-js) | [Sample App](https://github.com/okta/okta-auth-js/tree/master/samples/generated/express-embedded-sign-in-widget) | [Guide](/docs/guides/oie-embedded-widget-use-case-basic-sign-in/nodejs/main/) |
    | ![Java](/img/sdks/java.png) | Java | [Okta Identity Engine for Java](https://github.com/okta/okta-idx-java) | [Sample App](https://github.com/okta/okta-idx-java/tree/master/samples/embedded-sign-in-widget) | [Guide](/docs/guides/oie-embedded-widget-use-case-basic-sign-in/java/main/) |
-   | ![Go](/img/sdks/go.png) | Go | [Okta Identity Engine SDK for Go](https://github.com/okta/okta-idx-golang) |  | [Guide](/docs/guides/oie-embedded-widget-use-case-basic-sign-in/go/main/) |
 
 1. [**Not recommended**] Create the custom sign-in form yourself.
 
@@ -79,7 +78,6 @@ There are two ways to create a custom sign-in page:
    | ![Node JS](/img/sdks/nodejs.png) | node.js | [Auth Javascript SDK (Auth.js)](https://github.com/okta/okta-auth-js) | [Sample App](https://github.com/okta/okta-auth-js/tree/master/samples/generated/express-embedded-auth-with-sdk) | [Guide](/docs/guides/oie-embedded-sdk-use-case-sign-in-pwd-email/nodejs/main/) |
    | ![ASP.NET Framework 4.8](/img/sdks/dotnet.png) | ASP.NET <br />Framework 4.8 | [Okta ASP.NET middleware](https://github.com/okta/okta-aspnet/tree/master) | [MVC Sample App](https://github.com/okta/samples-aspnet/blob/master/self-hosted-login) <br /> [Webforms Sample App](https://github.com/okta/samples-aspnet-webforms/blob/master/self-hosted-login) |  |
    | ![Java](/img/sdks/java.png) | Java | [Okta Identity Engine SDK for Java](https://github.com/okta/okta-idx-java) | [Sample App](https://github.com/okta/okta-idx-java/tree/master/samples/embedded-auth-with-sdk) | [Guide](/docs/guides/oie-embedded-sdk-use-case-sign-in-pwd-email/java/main/) |
-   | ![Go](/img/sdks/go.png) | Go | [Okta Identity Engine SDK for Go](https://github.com/okta/okta-idx-golang) |  | [Guide](/docs/guides/oie-embedded-sdk-use-case-sign-in-pwd-email/go/main/) |
 
 ## Sign in to Identity Engine from a mobile app
 
