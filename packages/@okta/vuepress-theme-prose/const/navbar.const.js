@@ -964,7 +964,7 @@ export const reference = [
     path: "/docs/reference/",
     subLinks: [
       {
-        title: 'Classic Engine APIs',
+        title: 'Classic Engine Content',
         path: "/docs/reference/classic-engine/",
         subLinks: [
           { title: "Authentication", path: "/docs/reference/api/authn/" },
