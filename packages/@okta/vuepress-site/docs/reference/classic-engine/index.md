@@ -1,11 +1,11 @@
 ---
-title: Classic Engine APIs
+title: Classic Engine Content
 meta:
   - name: description
     content: Learn how the Okta API works for Classic Engine.
 ---
 
-# Classic Engine APIs
+# Classic Engine Content
 
 You can only use these APIs with Classic Engine:
 
