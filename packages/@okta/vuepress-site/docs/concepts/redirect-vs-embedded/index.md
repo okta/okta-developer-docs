@@ -7,7 +7,7 @@ meta:
 
 # Okta deployment models - redirect vs. embedded
 
-When you develop apps that require the customer to sign in and authenticate, the user authentication deployment model is a critical design consideration. This page looks at the Okta authentication options and what the differences are between them.
+When you develop apps that require the customer to sign in and authenticate, the deployment model for user authentication is a critical design consideration. This page looks at the Okta authentication options and what the differences are between them.
 
 ## Redirect vs. embedded
 
@@ -56,7 +56,7 @@ Consider, for example, when an organization uses Okta as its Identity Provider:
 * The user is authenticated and Okta provides a token or assertion to the original app to grant the user access. Okta also creates an Okta session for the user.
 * The user accesses the app.
 
-Using SSO with the existing Okta session, the user is automatically signed in to any other of the org's Service Provider apps (CRM, IT, HR, and so on).
+Using SSO with the existing Okta session, the user is automatically signed in to any other of the org's Service Provider apps. Some examples of those apps include CRM, IT, HR, and so on.
 
 The interactions and communication with the Identity Provider are as follows:
 
@@ -92,29 +92,30 @@ is -> cl: Return assertion to client
 
 ### Redirect summary
 
-* Use it straight out of the box.
-* Use it easily with no maintenance and no updates as Okta hosts and secures.
-* [XSS](https://developer.okta.com/books/api-security/sanitizing/common-attacks/#xss-cross-site-scripting) (cross-site scripting) attacks on your app don't affect the sign-in experience.
+* Use it straight out of the box, with no maintenance and no updates as Okta hosts and secures.
+* Minimize [XSS](https://developer.okta.com/books/api-security/sanitizing/common-attacks/#xss-cross-site-scripting) (cross-site scripting) attacks on your app so they don't affect the sign-in experience.
 * Integrate it easily either manually or with a generic OpenID Connect client.
 * Customize it through HTML, CSS, and JavaScript.
-* Complex logic changes that require source code access are limited.
+* Limit the complex logic changes that require source code access.
 * Redirects the user out of the app to Okta, and then back to the app.
 * Handles most client deployment requirements.
 
-### Use the redirect deployment model when you
+### When to use the redirect deployment model
 
-* Have multiple apps or use third-party apps and need SSO.
-* Want Okta to control the authentication flows through policy configuration.
-* Want Okta to control upgrades to take advantage of new functionality.
-* Have an app that already uses an OAuth 2.0 or SAML provider to sign in.
+* You have multiple apps or use third-party apps and need SSO.
+* You want Okta to control the authentication flows through policy configuration.
+* You want Okta to control upgrades to take advantage of new functionality.
+* You have an app that already uses an OAuth 2.0 or SAML provider to sign in.
 
 ## Embedded authentication
 
 Embedded authentication authenticates user credentials directly at the client app site using an embedded Sign-In Widget, authentication SDK, or direct API calls. Redirection to Okta isn't required. The client app's code determines the methods and processes necessary to authenticate, and then uses SDKs to validate the credentials. Client apps create their own app sessions for user access.
 
-Client apps may also exchange tokens with a Security Token Service (STS) to provide SSO access to other Service Providers (CRM, IT, HR, and so on). Using this deployment model, the client’s sign-in page can render mobile user experiences and use mobile platform APIs.
+Client apps may also exchange tokens with a Security Token Service (STS) to provide SSO access to other Service Providers (like CRM, IT, and HR). Using this deployment model, the client’s sign-in page can render mobile user experiences and use mobile platform APIs.
 
 <EmbeddedBrowserWarning />
+
+### Why use embedded authentication
 
 The customer-hosted embedded widget is the best balance of flexibility and effort to integrate. Use the customer-hosted embedded widget if an integration requires a deeper level of customization than is available through an Okta-hosted widget. The embedded widget works by embedding the open source [Okta Sign-In Widget](https://github.com/okta/okta-signin-widget) into the app's web page.
 
@@ -129,6 +130,8 @@ Okta builds and updates the widget. The widget uses an industry best practice se
 The look is customized directly through HTML/CSS/SASS and JavaScript. Features are configured within the Admin Console and enabled through JavaScript.
 
 The SDK and API options allow for even more control over customization of the entire experience, but they do have their drawbacks. They're more complex to implement and maintain, and the security is your responsibility. They're available if you need that level of customization.
+
+### Authorization server and resource owner interactions
 
 The following are the detailed interactions at the client level between a client’s authorization server and resource owner:
 
@@ -168,8 +171,8 @@ as -> cl: Tokens
 ### Embedded summary
 
 * Moderate maintenance may be required. If using a CDN, maintenance is more limited as Okta keeps it up to date. NPM packages a specific version of the widget, which means that it may need to be updated in the project periodically. Customized or local versions of the Sign-In Widget source code require regular updating.
-* A great level of source code customization control is offered while being drastically easier and more secure than building from scratch.
-* There's a slightly increased risk in security due to Okta not being able to guarantee that the Sign-In Widget has been implemented correctly. The app code may be able to access the credentials that the user enters into the Sign-In Widget, which needs to be kept secure.
+* A great level of customization control for source code is offered while being drastically easier and more secure than building from scratch.
+* A slightly increased risk in security exists due to Okta not being able to guarantee that the Sign-In Widget has been implemented correctly. The app code may be able to access the credentials that the user enters into the Sign-In Widget, which needs to be kept secure.
 * XSS (cross-site scripting) attacks on your app may result in stolen sign-in credentials.
 * A higher level of effort to integrate and maintain is required compared to the Okta-hosted Sign-In Widget.
 * The user is kept in the app, which reduces redirects to and from Okta.
@@ -184,14 +187,14 @@ See the `/challenge` [endpoint](https://developer.okta.com/docs/api/openapi/okta
 
 ## Deployment models and the Authentication API
 
-The following table details the configurations that define which Authentication API (either Classic Engine or Identity Engine) your app is using based on your deployment model.
+The following table details the configurations that define which Authentication API (Classic Engine or Identity Engine) your app uses based on your deployment model.
 
 | Deployment Model | Classic Engine Authentication API | Identity Engine Authentication API |
 | ---------------- | --------------------------------- | ---------------------------------- |
 | **Redirect:<br>Okta Hosted Sign-In Widget**<br>To verify that the redirect deployment is used in your app code,<br>check that you're using one of these SDKs:<br>[Android](https://github.com/okta/okta-mobile-kotlin), [Angular](https://github.com/okta/okta-angular), [ASP.NET](https://github.com/okta/okta-aspnet), [iOS](https://github.com/okta/okta-mobile-swift), [React](https://github.com/okta/okta-react), [React Native](https://github.com/okta/okta-react-native), [Vue](https://github.com/okta/okta-vue)| The API type depends on your [org configuration](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version). | The API type depends on your [org configuration](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version). |
 | **Embedded:<br>Customer Hosted Sign-In Widget** | <strong>Okta Sign-In Widget version 7+:</strong><br>`useClassicEngine` set to `true`<br><br><strong>Okta Sign-In Widget version < 7:</strong><br>Classic Engine used by default | <strong>Okta Sign-In Widget version 7+:</strong><br>Identity Engine used by default<br><br><strong>Okta Sign-In Widget version < 7:</strong><br>`useInteractionCodeFlow` set to `true` |
 | **Embedded: SDKs** | To verify that the embedded deployment is used in<br>your app code, check that you're using one of these Classic Engine SDKs:<br>[Java](https://github.com/okta/okta-auth-java), [JavaScript](https://github.com/okta/okta-auth-js), [.NET](https://github.com/okta/okta-auth-dotnet), [Swift](https://github.com/okta/okta-auth-swift) | To verify that the embedded deployment is used in<br>your app code, check that you're using one of these Identity Engine SDKs:<br>[Android](https://github.com/okta/okta-idx-android), [ASP.NET](https://github.com/okta/okta-idx-dotnet), [Go](https://github.com/okta/okta-idx-golang), [iOS](https://github.com/okta/okta-idx-swift), [Java](https://github.com/okta/okta-idx-java), [Node.js](https://github.com/okta/okta-auth-js) |
-| **Embedded: APIs** | Your app is using [Classic Authentication API](/docs/reference/api/authn/). | N/A  |
+| **Embedded: APIs** | Your app uses the [Classic Authentication API](/docs/reference/api/authn/). | N/A  |
 
 ## See also
 

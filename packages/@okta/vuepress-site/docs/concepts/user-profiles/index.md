@@ -53,7 +53,7 @@ Okta groups simplify management of multiple users of the same type. See [About g
 
 The custom user profile type is based on the Okta user profile type. It defines different types of users, like admins, contractors, and help desk. Similar to the default Okta profile, the custom user profile type contains 31 attributes and you can extend it with custom attributes. See [About custom user types in Universal Directory](https://help.okta.com/okta_help.htm?id=ext-custom-user-types).
 
-The [User Types API](/docs/reference/api/user-types/) defines and manages the custom profile types.
+The [User Types API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserType/) defines and manages the custom profile types.
 
 User profiles can only belong to one user profile type. The User object property [`type`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/createUser!path=type&t=request) defines the custom user profile (or default profile) that the user is associated with.
 
@@ -63,7 +63,7 @@ User profiles can only belong to one user profile type. The User object property
 
 The app user profile type defines the attributes available for a user of that app in the Universal Directory. The app user profile attributes are mapped to the user profile and determine the data that you can send to or import from an app. Similar to user profiles, the app user profile has base attributes and custom attributes.
 
-The available custom attributes, however, are determined by the app. You can manage the app user profile type with the [Apps API](/docs/reference/api/apps/). Review the [Application User Profile](/docs/reference/api/apps/#application-user-profile-object) object and the [Application User](/docs/reference/api/apps/#application-user-object) object for further details.
+The available custom attributes, however, are determined by the app. You can manage the app user profile type with the [Apps API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/). Review the [application user profile](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationUsers/#tag/ApplicationUsers/operation/getApplicationUser!c=200&path=profile&t=response) object and the [application user](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationUsers/) object for further details.
 
 ## Universal Directory schemas
 

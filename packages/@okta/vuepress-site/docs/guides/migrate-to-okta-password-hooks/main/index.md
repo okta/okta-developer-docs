@@ -25,7 +25,7 @@ This guide explains how to use password import inline hooks to migrate users int
 
 ## Migration Program Plan
 
-A migration program uses the Okta [password import inline hook](/docs/reference/password-hook/) feature to seamlessly migrate users as they authenticate:
+A migration program uses the Okta [password import inline hook](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createPasswordImportInlineHook) feature to seamlessly migrate users as they authenticate:
 
 1. Create all the users from the legacy system in Okta with a provider set to: `IMPORT`. **NOTE:** This can be done in bulk and does NOT require individual user credentials.
 2. Optional: Create groups and apps in Okta. Assign users to groups and assign groups and users to apps.
@@ -122,7 +122,7 @@ If your application determines the credentials are correct against the legacy sy
 
 Okta then sets the supplied password in its backend (properly hashed) and transition the `credentials.provider.type` value from `IMPORT` to `OKTA`. This user is now fully migrated to Okta. From this point forward, when that particular user authenticates, your password hook is no longer called.
 
-For more information on the Request from Okta and types of Responses your application can return to Okta, visit the [Password import inline hook reference](/docs/reference/password-hook/).
+For more information on the request from Okta and types of responses your app can return, visit the [Password import inline hook reference](/https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createPasswordImportInlineHook).
 
 ## Register the inline password hook application
 
@@ -132,7 +132,7 @@ For Okta to use your app, you must register the external service endpoint.
 
 In the Admin Console, go to **Workflow** > **Inline Hooks**. Click **Add Inline Hook**.
 
-You can also accomplish this using the [Inline Hooks Management API](/docs/reference/api/inline-hooks/).
+You can also accomplish this using the [Inline Hooks Management API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook).
 
 ## End the migration program
 

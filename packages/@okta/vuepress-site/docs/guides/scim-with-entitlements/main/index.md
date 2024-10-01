@@ -6,7 +6,7 @@ meta:
 layout: Guides
 ---
 
-This guide teaches you how to create a SCIM 2.0 server that supports provisioning entitlements to an app integration in Okta.
+This guide teaches you how to create a System for Cross-domain Identity Management (SCIM) 2.0 server that supports provisioning entitlements to an app integration.
 
 ---
 
@@ -17,8 +17,9 @@ This guide teaches you how to create a SCIM 2.0 server that supports provisionin
 
 #### What you need
 
-* [Okta Developer Edition organization](https://developer.okta.com/signup).
-* Some basic development experience with the System for Cross-domain Identity Management (SCIM) [core schema](https://datatracker.ietf.org/doc/html/rfc7643) and [protocol](https://datatracker.ietf.org/doc/html/rfc7644)
+* [Okta Developer Edition org](https://developer.okta.com/signup)
+* Some basic development experience with the SCIM [core schema](https://datatracker.ietf.org/doc/html/rfc7643) and [protocol](https://datatracker.ietf.org/doc/html/rfc7644)
+* [Okta Identity Governance](https://help.okta.com/okta_help.htm?type=oie&id=ext-iga) to use [entitlements](https://help.okta.com/okta_help.htm?type=oie&id=ext-entitlement-mgt)
 
 ---
 
@@ -35,6 +36,7 @@ You can also create custom schema extensions to support custom attributes for us
 > **Note:** [Okta Identity Governance](https://help.okta.com/okta_help.htm?type=oie&id=ext-iga) is required to use [entitlements](https://help.okta.com/okta_help.htm?type=oie&id=ext-entitlement-mgt).
 
 ---
+
 ### Endpoint call sequence
 
 The following sequence of calls begins when you enable provisioning for your SCIM 2.0 app with entitlements:
@@ -60,10 +62,10 @@ The SCIM server should be updated to maintain parity with the downstream app. Us
 
 1. [Create a SCIM app integration with entitlement management](https://help.okta.com/okta_help.htm?type=oie&id=ext-aiw-scim-entitlements).
 1. Ensure that your SCIM 2.0 server exposes the following endpoints:
-    - `/ResourceTypes`
-    - Any resource-specific endpoints for entitlements (for example: `/Licenses`, `/Roles`, and so on)
+    * `/ResourceTypes`
+    * Any resource-specific endpoints for entitlements (for example: `/Licenses`, `/Roles`, and so on)
 1. Optional. If your app requires custom entitlement, role, or user schema extensions, expose the following endpoint:
-    - `/Schemas`
+    * `/Schemas`
 1. Configure your app in Okta.
 
 ### User operations
@@ -78,10 +80,10 @@ Okta calls this endpoint to gather a list of available resources with any associ
 
 Common resource types include the following:
 
-- `Users`
-- `Groups`
-- `Entitlements`
-- `Roles`
+* `Users`
+* `Groups`
+* `Entitlements`
+* `Roles`
 
 Okta doesn't offer custom handling for groups.
 
@@ -93,10 +95,35 @@ For any required custom schema extensions, implement the `/Schemas` endpoint. Se
 
 You don't need a `/Schemas` endpoint for apps that don't use custom schema extensions. Okta handles the base definitions for the following resources and objects:
 
-- `Entitlements`
-- `Roles`
-- `User:Core`
-- `User:Enterprise`
+* [`Entitlements`](#entitlements-schema)
+* [`Roles`](#roles-schema)
+* `User:Core`
+* `User:Enterprise`
+
+#### Entitlements schema
+
+The `urn:okta:scim:schemas:core:1.0:Entitlement` schema contains the following information:
+
+|Parameter | Type | Description | Notes |
+|---|---|---|---|
+| `id` | String | The ID of the entitlement | Required |
+| `displayName` | String | The name that appears in the Admin Console for the entitlement | Required|
+| `type` | String | Corresponds with the `ResourceType` name field for the entitlement, such as "License" or "Permission set" | Required |
+| `description` | String | A human-readable description of the entitlement. This appears in the **Governance** tab. | Optional, max length 1000 characters |
+
+See [Custom entitlement with extensions](#custom-entitlement-with-extensions) for an example schema.
+
+#### Roles schema
+
+The `urn:okta:scim:schemas:core:1.0:Entitlement` schema contains the following information:
+
+|Parameter | Type | Description | Notes |
+|---|---|---|---|
+| `id` | String | The ID of the role | Required |
+| `displayName` | String | The name that appears in the Admin Console for the role | Required|
+| `description` | String | A human-readable description of the entitlement. This appears in the **Governance** tab. | Optional, max length 1000 characters |
+
+See [Role example](#role-example) for an example schema.
 
 ### Example user discovery data
 
@@ -111,9 +138,9 @@ Each resource includes the following fields:
 * `endpoint`: The endpoint that Okta calls to gather entitlements for this resource.
 * `description`: A description for the resource.
 * `schema`: A Uniform Resource Name (URN) that conforms to the Okta Role/Entitlement URN for Okta Identity Governance:
-    - Role: `urn:okta:scim:schemas:core:1.0:Role`
-    - Entitlement: `urn:okta:scim:schemas:core:1.0:Entitlement`
-    - The schema for users is the standard: `urn:ietf:params:scim:schemas:core:2.0:User`
+  * Role: `urn:okta:scim:schemas:core:1.0:Role`
+  * Entitlement: `urn:okta:scim:schemas:core:1.0:Entitlement`
+  * The schema for users is the standard: `urn:ietf:params:scim:schemas:core:2.0:User`
 * Schema extensions: List any extensions required for other properties. Generally, entitlements and roles don't need to have extensions, while it's common for users to have highly customized extensions. For example, a user might have a schema extension to store a custom attribute for a particular app.
 
 The default location for `ResourceTypes` definitions is `BaseURL/scim/v2/ResourceTypes`. For example, if your server is hosted on `https://example.com`, then you can retrieve the available `ResourceTypes` from `https://example.com/scim/v2/ResourceTypes`.
@@ -187,7 +214,7 @@ The following `ResourceTypes` example includes a sample `Role` resource with no 
 
 The following sample demonstrates a schema for an entitlement property schema extension, where a custom profile property is defined for the profile resource type.
 
-> **Note**: `isvname` is used as a placeholder in this schema. To ensure the uniqueness of your URNs and locations, replace it with the name of your org or similar.
+> **Note**: The following schema uses `isvname` as a placeholder. To ensure the uniqueness of your URNs and locations, replace it with the name of your org or similar.
 
 ```JSON
 {
@@ -246,6 +273,7 @@ The following example demonstrates what the SCIM server might include in the res
             "type": "Profile",
             "id": "profile-123",
             "displayName": "Profile 123",
+            "description": "Sample text description for Profile 123",
             "urn:<isvname>:scim:schemas:extension:<appname>:1.0:Profile": {
                 "customProfileProperty": "test-value"
             }
@@ -285,6 +313,7 @@ The following example demonstrates what the SCIM server might include in the res
             ],
             "id": "role-1",
             "displayName": "First Role",
+            "description": "Sample text description of First Role"
         },
         {
             "schemas": [
@@ -292,6 +321,7 @@ The following example demonstrates what the SCIM server might include in the res
             ],
             "id": "role-2",
             "displayName": "Second Role",
+            "description": "Sample text description of Second Role"
         }
     ]
 }

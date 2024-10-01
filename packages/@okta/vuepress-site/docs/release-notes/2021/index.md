@@ -79,7 +79,7 @@ The Upload Logo for Org endpoint (`/org/logo`) is deprecated. Use the [Upload th
 
 #### User Types API and Mappings API support OAuth 2.0
 
-The [User Types API](/docs/reference/api/user-types/) and [Profile Mappings API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ProfileMapping/) have been updated to support OAuth 2.0. You can grant access to the User Types API by using the `okta.userTypes.manage` and `okta.userTypes.read` scopes. You can grant access to the Mappings API by using the `okta.profileMappings.manage` and `okta.profileMappings.read scopes`. See [Scopes and supported endpoints](/docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints). <!--OKTA-436385-->
+The [User Types API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserType/) and [Profile Mappings API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ProfileMapping/) have been updated to support OAuth 2.0. You can grant access to the User Types API by using the `okta.userTypes.manage` and `okta.userTypes.read` scopes. You can grant access to the Mappings API by using the `okta.profileMappings.manage` and `okta.profileMappings.read scopes`. See [Scopes and supported endpoints](/docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints). <!--OKTA-436385-->
 
 #### Bugs fixed in 2021.12.0
 
@@ -338,7 +338,7 @@ The Okta [Custom Administrator Roles](/docs/reference/api/roles/index.md) API pr
 
 - When a native SSO [token exchange](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/tokenCustomAS) call was created, an invalid scope was accepted and tokens were returned. (OKTA-417808)
 
-- Registration inline hooks didn’t correctly display an error message to the end user when the response included the `errorCauses` object with an `error-summary` [parameter](/docs/reference/registration-hook/#error). (OKTA-409142)
+- Registration inline hooks didn’t correctly display an error message to the end user when the response included the `errorCauses` object with an `error-summary` [parameter](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/create-registration-hook!c=200&path=Error&t=response). (OKTA-409142)
 
 ### Monthly release 2021.08.0
 
@@ -366,7 +366,7 @@ The Okta [Risk Providers API](https://developer.okta.com/docs/api/openapi/okta-m
 
 #### SAML parameter SessionNotOnOrAfter is GA in Preview
 
-The SAML parameter `SessionNotOnOrAfter` for SAML assertions is available for use with Okta's [SAML inline hooks](/docs/reference/saml-hook/). This optional parameter specifies the session lifetime, in seconds, and is included in the SAML assertion. The `SessionNotOnOrAfter` parameter allows the Identity Provider to control the session of the Service Provider. Most SAML applications manage their own sessions. However, some SAML applications require this parameter from the Identity Provider for session management. <!--OKTA-406633-->
+The SAML parameter `SessionNotOnOrAfter` for SAML assertions is available for use with Okta's [SAML inline hooks](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createSAMLAssertionInlineHook). This optional parameter specifies the session lifetime, in seconds, and is included in the SAML assertion. The `SessionNotOnOrAfter` parameter allows the Identity Provider (IdP) to control the session of the Service Provider. Most SAML apps manage their own sessions. However, some SAML apps require this parameter from the IdP for session management. <!--OKTA-406633-->
 
 #### Support for Push Status using the Apps API is GA in Production
 
@@ -448,7 +448,7 @@ You can use the SAML 2.0 Assertion flow to request an access token when you want
 
 #### Event hook preview tab is now GA in Preview
 
-Event hooks that you configure in the Admin Console or by [Event Hooks Management API](/docs/reference/api/event-hooks/) can now preview the JSON body of the event hook in the Admin Console, as well as delivering the preview request to your external service without manually triggering an actual event. See [Event Hook Preview](https://help.okta.com/okta_help.htm?id=ext-event-hooks-preview).
+Event hooks that you configure in the Admin Console or by [Event Hooks Management API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/EventHook/#tag/EventHook/operation/createEventHook) can now preview the JSON body of the event hook in the Admin Console, as well as delivering the preview request to your external service without manually triggering an actual event. See [Event Hook Preview](https://help.okta.com/okta_help.htm?id=ext-event-hooks-preview).
 
 #### Bugs fixed in 2021.07.0
 
@@ -502,7 +502,7 @@ When the [Features endpoint of the Apps API](/docs/reference/api/apps/#update-fe
 
 #### Bugs fixed in 2021.06.1
 
-* User credential updates failed and returned an error message if the [User Type](/docs/reference/api/user-types/) was set to a non-email username. (OKTA-334754)
+* User credential updates failed and returned an error message if the [User Type](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserType/) was set to a non-email username. (OKTA-334754)
 
 * When an `/authorize` request with an [IdP parameter](/docs/reference/api/idps/#add-identity-provider) that referenced a SAML Identity Provider (IdP) was sent, an internal server error was returned because it was assumed that all IdPs are social IdPs. (OKTA-385800)
 
@@ -673,7 +673,7 @@ For details about this release, see the Okta [Sign-In Widget release notes](http
 
 #### SAML parameter SessionNotOnOrAfter is GA in Preview
 
-The SAML parameter `SessionNotOnOrAfter` is now Generally Available in Preview for SAML assertions and is available for use with Okta’s [SAML inline hooks](/docs/reference/saml-hook/). This optional parameter specifies the session lifetime, in seconds, and is included in the SAML assertion. The `SessionNotOnOrAfter` parameter allows the Identity Provider to control the session of the Service Provider. Most SAML applications manage their own sessions. However, some SAML applications require this parameter from the Identity Provider for session management. <!--OKTA-390950-->
+The SAML parameter `SessionNotOnOrAfter` is now Generally Available in Preview for SAML assertions and is available for use with Okta’s [SAML inline hooks](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createSAMLAssertionInlineHook). This optional parameter specifies the session lifetime, in seconds, and is included in the SAML assertion. The `SessionNotOnOrAfter` parameter allows the Identity Provider to control the session of the Service Provider. Most SAML applications manage their own sessions. However, some SAML applications require this parameter from the Identity Provider for session management. <!--OKTA-390950-->
 
 #### System Log API SCIM filter expression update
 
@@ -836,11 +836,11 @@ The Okta Org API is now available in Self-Service EA. This API allows you to man
 
 #### Automatically mark a flow hook as "VERIFIED"
 
-When a request is made to `/api/v1/eventHooks/{eventHookId}/lifecycle/verify` for an [Event hook](/docs/reference/api/event-hooks/) that has an Okta Workflows endpoint configured, the event hook is automatically marked as "VERIFIED". The verification step isn't required.<!--OKTA-364393-->
+When a request is made to `/api/v1/eventHooks/{eventHookId}/lifecycle/verify` for an [Event hook](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/EventHook/#tag/EventHook/) that has an Okta Workflows endpoint configured, the event hook is automatically marked as "VERIFIED". The verification step isn't required.<!--OKTA-364393-->
 
 #### Event Hook preview tab now in Early Access (EA)
 
-Event hooks configured in the Admin Console or by [Event Hooks Management API](/docs/reference/api/event-hooks/) can now preview the JSON body of the event hook in the Admin Console, as well as delivering the preview request to your external service without manually triggering an actual event.
+Event hooks configured in the Admin Console or by [Event Hooks Management API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/EventHook/#tag/EventHook/operation/createEventHook) can now preview the JSON body of the event hook in the Admin Console, as well as delivering the preview request to your external service without manually triggering an actual event.
 
 Previewing the JSON body of the event hook assists developers or administrators create or troubleshoot the request syntax. The JSON body can also be edited for different request scenarios.
 
@@ -922,7 +922,7 @@ See [System Log events for rate limits](/docs/reference/rl-system-log-events).<!
 
 #### WebAuthn feature validation updates with Trusted Origins API
 
-The WebAuthn feature now supports trusted cross-origin and cross-Relying Party Identifier (RP ID) validation when using the [Trusted Origins API](/docs/reference/api/trusted-origins/). Trusted Origins are configured in the Okta Trusted Origins framework either through the Admin Console or using the API. These Trusted Origins, configured with the CORS scope, now support orgs using WebAuthn for sign-in pages hosted at Trusted Origins distinct from the org's Okta URL (that is, different from the org's Okta or custom domain URL).
+The WebAuthn feature now supports trusted cross-origin and cross-Relying Party Identifier (RP ID) validation when using the [Trusted Origins API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/TrustedOrigin/). Trusted Origins are configured in the Okta Trusted Origins framework either through the Admin Console or using the API. These Trusted Origins, configured with the CORS scope, now support orgs using WebAuthn for sign-in pages hosted at Trusted Origins distinct from the org's Okta URL (that is, different from the org's Okta or custom domain URL).
 <!--OKTA-352629-->
 
 #### Bug fixed in 2021.01.0

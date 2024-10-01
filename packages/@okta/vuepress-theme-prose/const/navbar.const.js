@@ -1,145 +1,145 @@
 export const concepts = [
-   {
-      title: "Concepts",
-      path: "/docs/concepts/",
-      subLinks: [
-         {
-            title: "API Access Management",
-            path: "/docs/concepts/api-access-management/",
-         },
-         {
-            title: "Authorization servers",
-            path: "/docs/concepts/auth-servers/",
-         },
+  {
+    title: "Concepts",
+    path: "/docs/concepts/",
+    subLinks: [
+      {
+        title: "API Access Management",
+        path: "/docs/concepts/api-access-management/",
+      },
+      {
+        title: "Authorization servers",
+        path: "/docs/concepts/auth-servers/",
+      },
       {
         title: "Brands",
         path: "/docs/concepts/brands/",
       },
-         {
-            title: "Event hooks",
-            path: "/docs/concepts/event-hooks/",
-         },
-        {
-            title: "External Identity Providers",
-            path: "/docs/concepts/identity-providers/",
-         },
-         {
-            title: "Feature lifecycle management",
-            path: "/docs/concepts/feature-lifecycle-management/",
-         },
-         {
-            title: "Role assignment",
-            path: "/docs/concepts/role-assignment/",
-         },
-         {
-            title: "How Okta works",
-            path: "/docs/concepts/how-okta-works/",
-         },
-         {
-            title: "Inline hooks",
-            path: "/docs/concepts/inline-hooks/",
-         },
-         {
-            title: "Interaction Code grant type",
-            path: "/docs/concepts/interaction-code/",
-         },
-         {
-            title: "Key rotation",
-            path: "/docs/concepts/key-rotation/",
-         },
-         {
-            title: "Monitor Okta",
-            path: "/docs/concepts/monitor/",
-         },
-         {
-            title: "Multi-tenant solutions",
-            path: "/docs/concepts/multi-tenancy/",
-         },
-         {
-            title: "OAuth 2.0 and OIDC overview",
-            path: "/docs/concepts/oauth-openid/",
-         },
-         {
-            title: "Redirect vs. embedded deployment",
-            path: "/docs/concepts/redirect-vs-embedded/",
-         },
-         {
-            title: "Okta data model",
-            path: "/docs/concepts/okta-data-model/",
-         },
-         {
-            title: "Okta Identity Engine overview",
-            path: "/docs/concepts/oie-intro/",
-         },
-         {
-          title: "Org Creator",
-          path: "/docs/concepts/org-creator/",
-         },
-         {
-            title: "Okta organizations",
-            path: "/docs/concepts/okta-organizations/",
-         },
-         {
-            title: "Policies",
-            path: "/docs/concepts/policies/",
-         },
-         {
-            title: "Session management",
-            path: "/docs/concepts/session/",
-         },
-         {
-            title: "User profiles",
-            path: "/docs/concepts/user-profiles/",
-         },
-         {
-            title: "Understanding IAM",
-            path: "/docs/concepts/iam-overview/",
-            subLinks: [
-               {
-                  title: "Identity management factors",
-                  path: "/docs/concepts/iam-overview-identity-management-factors/"
-               },
-               {
-                  title: "Authentication factors",
-                  path: "/docs/concepts/iam-overview-authentication-factors/"
-               },
-               {
-                  title: "Authorization factors",
-                  path: "/docs/concepts/iam-overview-authorization-factors/"
-               },
-               {
-                  title: "Architectural factors",
-                  path: "/docs/concepts/iam-overview-architectural-factors/"
-               },
-               {
-                  title: "IAM terminology",
-                  path: "/docs/concepts/iam-overview-iam-terminology/",
-                  description: true,
-               }
-            ]
-         },
-         {
-            title: "Understanding SAML",
-            path: "/docs/concepts/saml/",
-            subLinks: [
-               {
-                  title: "SAML FAQ",
-                  path: "/docs/concepts/saml/faqs/",
-               },
-            ],
-         },
-         {
-            title: "Understanding SCIM",
-            path: "/docs/concepts/scim/",
-            subLinks: [
-               {
-                  title: "SCIM FAQ",
-                  path: "/docs/concepts/scim/faqs/",
-               },
-            ],
-         },
-      ],
-   },
+      {
+        title: "Event hooks",
+        path: "/docs/concepts/event-hooks/",
+      },
+      {
+        title: "External Identity Providers",
+        path: "/docs/concepts/identity-providers/",
+      },
+      {
+        title: "Feature lifecycle management",
+        path: "/docs/concepts/feature-lifecycle-management/",
+      },
+      {
+        title: "Role assignment",
+        path: "/docs/concepts/role-assignment/",
+      },
+      {
+        title: "How Okta works",
+        path: "/docs/concepts/how-okta-works/",
+      },
+      {
+        title: "Inline hooks",
+        path: "/docs/concepts/inline-hooks/",
+      },
+      {
+        title: "Interaction Code grant type",
+        path: "/docs/concepts/interaction-code/",
+      },
+      {
+        title: "Key rotation",
+        path: "/docs/concepts/key-rotation/",
+      },
+      {
+        title: "Monitor Okta",
+        path: "/docs/concepts/monitor/",
+      },
+      {
+        title: "Multi-tenant solutions",
+        path: "/docs/concepts/multi-tenancy/",
+      },
+      {
+        title: "OAuth 2.0 and OIDC overview",
+        path: "/docs/concepts/oauth-openid/",
+      },
+      {
+        title: "Redirect vs. embedded deployment",
+        path: "/docs/concepts/redirect-vs-embedded/",
+      },
+      {
+        title: "Okta data model",
+        path: "/docs/concepts/okta-data-model/",
+      },
+      {
+        title: "Okta Identity Engine overview",
+        path: "/docs/concepts/oie-intro/",
+      },
+      {
+        title: "Org Creator",
+        path: "/docs/concepts/org-creator/",
+      },
+      {
+        title: "Okta organizations",
+        path: "/docs/concepts/okta-organizations/",
+      },
+      {
+        title: "Policies",
+        path: "/docs/concepts/policies/",
+      },
+      {
+        title: "Session management",
+        path: "/docs/concepts/session/",
+      },
+      {
+        title: "User profiles",
+        path: "/docs/concepts/user-profiles/",
+      },
+      {
+        title: "Understanding IAM",
+        path: "/docs/concepts/iam-overview/",
+        subLinks: [
+          {
+            title: "Identity management factors",
+            path: "/docs/concepts/iam-overview-identity-management-factors/"
+          },
+          {
+            title: "Authentication factors",
+            path: "/docs/concepts/iam-overview-authentication-factors/"
+          },
+          {
+            title: "Authorization factors",
+            path: "/docs/concepts/iam-overview-authorization-factors/"
+          },
+          {
+            title: "Architectural factors",
+            path: "/docs/concepts/iam-overview-architectural-factors/"
+          },
+          {
+            title: "IAM terminology",
+            path: "/docs/concepts/iam-overview-iam-terminology/",
+            description: true,
+          }
+        ]
+      },
+      {
+        title: "Understanding SAML",
+        path: "/docs/concepts/saml/",
+        subLinks: [
+          {
+            title: "SAML FAQ",
+            path: "/docs/concepts/saml/faqs/",
+          },
+        ],
+      },
+      {
+        title: "Understanding SCIM",
+        path: "/docs/concepts/scim/",
+        subLinks: [
+          {
+            title: "SCIM FAQ",
+            path: "/docs/concepts/scim/faqs/",
+          },
+        ],
+      },
+    ],
+  },
 ];
 
 export const guides = [
@@ -348,8 +348,8 @@ export const guides = [
                 guideName: "email-magic-links-overview"
               },
               {
-                 title: "Device context",
-                 guideName: "device-context"
+                title: "Device context",
+                guideName: "device-context"
               },
               {
                 title: "Custom password recovery",
@@ -400,7 +400,7 @@ export const guides = [
               },
             ],
           },
-          {title: "Configure AMR claims mapping", guideName: "configure-amr-claims-mapping", hidden: true},
+          { title: "Configure AMR claims mapping", guideName: "configure-amr-claims-mapping", hidden: true },
           { title: "Sign users out", guideName: "oie-embedded-sdk-use-case-basic-sign-out" },
           { title: "Delete all Stay signed in sessions", guideName: "delete-all-stay-signed-in-sessions" },
           { title: "Single Logout", guideName: "single-logout" },
@@ -513,8 +513,10 @@ export const guides = [
             title: "Create an authorization server",
             guideName: "customize-authz-server",
           },
-          { title: "Request user consent",
-          guideName: "request-user-consent" },
+          {
+            title: "Request user consent",
+            guideName: "request-user-consent"
+          },
           {
             title: "Rotate secrets and manage keys",
             guideName: "client-secret-rotation-key",
@@ -670,10 +672,6 @@ export const guides = [
                 title: "OIN Manager: Submit an LCM integration",
                 guideName: "submit-app",
               },
-              {
-                title: "OIN Manager: Submit an SSO integration (to remove) ",
-                guideName: "submit-sso-app",
-              },
             ]
           },
         ],
@@ -791,6 +789,10 @@ export const guides = [
             guideName: "terraform-configure-device-signin-standards"
           },
           {
+            title: "Manage authorization servers",
+            guideName: "terraform-create-custom-auth-server"
+          },
+          {
             title: "Customize end-user experience",
             guideName: "terraform-manage-end-user-experience",
           },
@@ -800,7 +802,7 @@ export const guides = [
           },
           {
             title: "Optimize Terraform access",
-          guideName: "terraform-design-rate-limits"
+            guideName: "terraform-design-rate-limits"
           },
           {
             title: "Organize your configuration",
@@ -849,7 +851,7 @@ export const guides = [
           },
           {
             title: "SAML assertion inline hook",
-          guideName: "saml-inline-hook"
+            guideName: "saml-inline-hook"
           },
           {
             title: "Telephony inline hook",
@@ -890,8 +892,8 @@ export const guides = [
           {
             title: "Registration inline hook",
             guideName: "archive-registration-inline-hook"
-           },
-           {
+          },
+          {
             title: "Set up self-service registration",
             guideName: "archive-set-up-self-service-registration",
           },
@@ -931,233 +933,234 @@ export const languagesSdk = [
 ];
 
 export const reference = [
-   {
-      title: "References",
-      path: "/docs/reference/",
-      subLinks: [
-         {
-            title: "Core Okta API",
-            path: "/docs/reference/core-okta-api/",
-            subLinks: [
-               {
-                  title: "Rate Limits",
-                  path: "/docs/reference/rate-limits/",
-                  subLinks: [
-                     {
-                        title: "Rate limit dashboard",
-                        path: "/docs/reference/rl-dashboard/",
-                     },
-                     {
-                        title: "Authn/End-user rate limits",
-                        path: "/docs/reference/rl-global-enduser/",
-                     },
-                     {
-                        title: "Management rate limits",
-                        path: "/docs/reference/rl-global-mgmt/",
-                     },
-                     {
-                        title: "Other endpoint rate limits",
-                        path: "/docs/reference/rl-global-other-endpoints/",
-                     },
-                     {
-                        title: "Additional limits",
-                        path: "/docs/reference/rl-additional-limits/",
-                     },
-                     {
-                        title: "Rate limit best practices",
-                        path: "/docs/reference/rl-best-practices/",
-                     },
-                     {
-                        title: "Client-based rate limits",
-                        path: "/docs/reference/rl-clientbased/",
-                     },
-                     {
-                        title: "DynamicScale",
-                        path: "/docs/reference/rl-dynamic-scale/",
-                     },
-                     {
-                        title: "Previous rate limits",
-                        path: "/docs/reference/rl-previous/",
-                     },
-                     {
-                        title: "System Log events for rate limits",
-                        path: "/docs/reference/rl-system-log-events/"
-                     },
-                  ]
-               },
-               { title: "Error Codes", path: "/docs/reference/error-codes/" },
-               { title: "User query options", path: "/docs/reference/user-query/" },
-               { title: 'Sign in Your Users', path: 'empty' },
-               { title: "Authentication", path: "/docs/reference/api/authn/" },
-               { title: "Identity Providers", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/" },
-               { title: "OpenID Connect & OAuth 2.0 API", path: "https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/" },
-               { title: "WebFinger", path: "/docs/reference/api/webfinger/" },
-               { title: "Manage Okta Objects", path: "empty" },
-               { title: "Administrator Roles", path: "/docs/reference/api/roles/" },
-               { title: "Agent Pools", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AgentPools/" },
-               { title: "API Service Integrations", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApiServiceIntegrations/" },
-               { title: "API Tokens", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApiToken/" },
-               { title: "Apps", path: "/docs/reference/api/apps/" },
-               { title: "Attack Protection", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AttackProtection/" },
-               { title: "Authenticators Admin", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/" },
-               { title: "Authorization Servers", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServer/" },
-               { title: "Behavior Rules", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Behavior/" },
-               { title: "Brands", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Brands/" },
-               { title: "CAPTCHAs", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/CAPTCHA/" },
-               { title: "Custom Domains", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/CustomDomain/" },
-               { title: "Custom Error Page", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/CustomPages/#tag/CustomPages/operation/getErrorPage" },
-               { title: "Custom Sign-in Page", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/CustomPages/#tag/CustomPages/operation/getSignInPage" },
-               { title: "Custom Sign-out Page", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/CustomPages/#tag/CustomPages/operation/getSignOutPageSettings" },
-               { title: "Device Assurance Policies", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/DeviceAssurance/" },
-               { title: "Devices", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Device/" },
-               { title: "Dynamic Client Registration", path: "https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/Client/" },
-               { title: "Email Domains", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/EmailDomain/" },
-               { title: "Event Types", path: "/docs/reference/api/event-types/" },
-               { title: "ITP Event Types", path: "/docs/reference/api/itp-et/", hidden: true },
-               { title: "Factors", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/" },
-               { title: "Features", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Feature/" },
-               { title: "Groups", path: "/docs/reference/api/groups/" },
-               { title: "Groups Owners", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/GroupOwner/" },
-               { title: "Identity Sources", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/" },
-               { title: "Key Management", path: "/docs/reference/api/hook-keys/" },
-               { title: "Linked Objects", path: "/docs/reference/api/linked-objects/" },
-               { title: "Log Streaming", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/LogStream/#tag/LogStream" },
-               { title: "MyAccount", path: "https://developer.okta.com/docs/api/openapi/okta-myaccount/guides/overview/" },
-               { title: "Network Zones", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/NetworkZone/" },
-               { title: "Org", path: "/docs/reference/api/org/" },
-               { title: "Policy", path: "/docs/reference/api/policy/" },
-               { title: "Principal Rate Limits", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/PrincipalRateLimit/" },
-               { title: "Profile Mappings", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ProfileMapping/" },
-               { title: "Push Providers", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/PushProvider/" },
-               { title: "Rate Limit Settings", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RateLimitSettings/" },
-               { title: "Realms", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Realm/" },
-               { title: "Realm Assignments", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RealmAssignment/" },
-               { title: "Risk Events", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RiskEvent/" },
-               { title: "Risk Providers", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RiskProvider/" },
-               { title: "SSF Receiver", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SSFReceiver/" },
-               { title: "SSF Security Event Tokens", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SSFSecurityEventToken/" },
-               { title: "Schemas", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/" },
-               { title: "Sessions", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Session/" },
-               { title: "SMS Templates", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Template/" },
-               { title: "Subscriptions", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Subscription/" },
-               { title: "System Log", path: "/docs/reference/api/system-log/" },
-               { title: "Templates", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Template/" },
-               { title: "ThreatInsight", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ThreatInsight/" },
-               { title: "Trusted Origins", path: "/docs/reference/api/trusted-origins/" },
-               { title: "UI Schema", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UISchema/" },
-               { title: "User Types", path: "/docs/reference/api/user-types/" },
-               { title: "Users", path: "/docs/reference/api/users/" }
-            ]
-         },
-         {
-            title: "Okta Privileged Access API",
-            path: "https://developer.okta.com/docs/api/openapi/opa/"
-         },
-         {
-          title: "Advanced Server Access API",
-          path: "https://developer.okta.com/docs/api/openapi/asa/"
-       },
-         {
-            title: "SCIM Protocol",
-            path: "https://developer.okta.com/docs/api/openapi/okta-scim/guides/",
-            subLinks: [
-               {
-                  title: "SCIM V2.0",
-                  path: "https://developer.okta.com/docs/api/openapi/okta-scim/guides/scim-20/",
-               },
-               {
-                  title: "SCIM V1.1",
-                  path: "https://developer.okta.com/docs/api/openapi/okta-scim/guides/scim-11/",
-               },
-            ],
-         },
-         {
-            title: "Test APIs with Postman",
-            path: "/docs/reference/rest/",
+  {
+    title: "References",
+    path: "/docs/reference/",
+    subLinks: [
+      {
+        title: 'Classic Engine Content',
+        path: "/docs/reference/classic-engine/",
+        subLinks: [
+          { title: "Authentication", path: "/docs/reference/api/authn/" },
+          { title: "WebFinger", path: "/docs/reference/api/webfinger/" },
+        ]
+      },
+      { title: "Error Codes", path: "/docs/reference/error-codes/" },
+      { title: "Event Types", path: "/docs/reference/api/event-types/" },
+      {
+        title: "Okta Expression Language",
+        path: "/docs/reference/okta-expression-language/",
+      },
+      {
+        title: "Expression Language in Identity Engine",
+        path: "/docs/reference/okta-expression-language-in-identity-engine/",
+      }, {
+        title: "Rate Limits",
+        path: "/docs/reference/rate-limits/",
+        subLinks: [
+          {
+            title: "Rate limit dashboard",
+            path: "/docs/reference/rl-dashboard/",
+          },
+          {
+            title: "Authn/End-user rate limits",
+            path: "/docs/reference/rl-global-enduser/",
+          },
+          {
+            title: "Management rate limits",
+            path: "/docs/reference/rl-global-mgmt/",
+          },
+
+          {
+            title: "Additional limits",
+            path: "/docs/reference/rl-additional-limits/",
+          },
+          {
+            title: "Rate limit best practices",
+            path: "/docs/reference/rl-best-practices/",
+          },
+          {
+            title: "Client-based rate limits",
+            path: "/docs/reference/rl-clientbased/",
+          },
+          {
+            title: "DynamicScale",
+            path: "/docs/reference/rl-dynamic-scale/",
+          },
+          {
+            title: "System Log events for rate limits",
+            path: "/docs/reference/rl-system-log-events/"
+          },
+        ]
+      },
+      { title: "System Log query", path: "/docs/reference/system-log-query/" },
+      {
+        title: "Test APIs with Postman",
+        path: "/docs/reference/rest/",
+        subLinks: [
+          {
+            title: "Postman Collections",
+            path: "/docs/reference/postman-collections/",
+          },
+        ],
+      },      
+      { title: "User query options", path: "/docs/reference/user-query/" },
+      {
+        title: "Core Okta API",
+        path: "/docs/reference/core-okta-api/",
+        subLinks: [
+          { title: 'Sign in Your Users', path: 'empty' },
+          { title: "Authentication", path: "/docs/reference/api/authn/" },
+          { title: "Identity Providers", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/" },
+          { title: "OpenID Connect & OAuth 2.0 API", path: "https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/" },
+          { title: "WebFinger", path: "/docs/reference/api/webfinger/" },
+          { title: "Manage Okta Objects", path: "empty" },
+          { title: "Administrator Roles", path: "/docs/reference/api/roles/" },
+          { title: "Agent Pools", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AgentPools/" },
+          { title: "API Service Integrations", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApiServiceIntegrations/" },
+          { title: "API Tokens", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApiToken/" },
+          { title: "Apps", path: "/docs/reference/api/apps/" },
+          { title: "Attack Protection", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AttackProtection/" },
+          { title: "Authenticators Admin", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/" },
+          { title: "Authorization Servers", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServer/" },
+          { title: "Behavior Rules", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Behavior/" },
+          { title: "Brands", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Brands/" },
+          { title: "CAPTCHAs", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/CAPTCHA/" },
+          { title: "Custom Domains", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/CustomDomain/" },
+          { title: "Custom Error Page", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/CustomPages/#tag/CustomPages/operation/getErrorPage" },
+          { title: "Custom Sign-in Page", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/CustomPages/#tag/CustomPages/operation/getSignInPage" },
+          { title: "Custom Sign-out Page", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/CustomPages/#tag/CustomPages/operation/getSignOutPageSettings" },
+          { title: "Device Assurance Policies", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/DeviceAssurance/" },
+          { title: "Devices", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Device/" },
+          { title: "Dynamic Client Registration", path: "https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/Client/" },
+          { title: "Email Domains", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/EmailDomain/" },
+          { title: "ITP Event Types", path: "/docs/reference/api/itp-et/", hidden: true },
+          { title: "Factors", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/" },
+          { title: "Features", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Feature/" },
+          { title: "Groups", path: "/docs/reference/api/groups/" },
+          { title: "Groups Owners", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/GroupOwner/" },
+          { title: "Identity Sources", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/" },
+          { title: "Key Management", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/HookKey/#tag/HookKey" },
+          { title: "Linked Objects", path: "/docs/reference/api/linked-objects/" },
+          { title: "Log Streaming", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/LogStream/#tag/LogStream" },
+          { title: "MyAccount", path: "https://developer.okta.com/docs/api/openapi/okta-myaccount/guides/overview/" },
+          { title: "Network Zones", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/NetworkZone/" },
+          { title: "Org", path: "/docs/reference/api/org/" },
+          { title: "Policy", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/" },
+          { title: "Principal Rate Limits", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/PrincipalRateLimit/" },
+          { title: "Profile Mappings", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ProfileMapping/" },
+          { title: "Push Providers", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/PushProvider/" },
+          { title: "Rate Limit Settings", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RateLimitSettings/" },
+          { title: "Realms", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Realm/" },
+          { title: "Realm Assignments", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RealmAssignment/" },
+          { title: "Risk Events", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RiskEvent/" },
+          { title: "Risk Providers", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RiskProvider/" },
+          { title: "SSF Receiver", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SSFReceiver/" },
+          { title: "SSF Security Event Tokens", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SSFSecurityEventToken/" },
+          { title: "Schemas", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/" },
+          { title: "Sessions", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Session/" },
+          { title: "SMS Templates", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Template/" },
+          { title: "Subscriptions", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Subscription/" },
+          { title: "System Log", path: "/docs/reference/api/system-log/" },
+          { title: "Templates", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Template/" },
+          { title: "ThreatInsight", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ThreatInsight/" },
+          { title: "Trusted Origins", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/TrustedOrigin/" },
+          { title: "UI Schema", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UISchema/" },
+          { title: "User Types", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserType/" },
+          { title: "Users", path: "/docs/reference/api/users/" }
+        ]
+      },
+      {
+        title: "Okta Privileged Access API",
+        path: "https://developer.okta.com/docs/api/openapi/opa/"
+      },
+      {
+        title: "Advanced Server Access API",
+        path: "https://developer.okta.com/docs/api/openapi/asa/"
+      },
+      {
+        title: "SCIM Protocol",
+        path: "https://developer.okta.com/docs/api/openapi/okta-scim/guides/",
+        subLinks: [
+          {
+            title: "SCIM V2.0",
+            path: "https://developer.okta.com/docs/api/openapi/okta-scim/guides/scim-20/",
+          },
+          {
+            title: "SCIM V1.1",
+            path: "https://developer.okta.com/docs/api/openapi/okta-scim/guides/scim-11/",
+          },
+        ],
+      },
+      {
+        title: "Hooks",
+        subLinks: [
+          {
+            title: "Event Hooks Management API",
+            path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/EventHook/#tag/EventHook/",
+          },
+          {
+            title: "Inline Hooks Management API",
+            path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/",
+          },
+          {
+            title: "Inline Hook Types",
             subLinks: [
               {
-                 title: "Postman Collections",
-                 path: "/docs/reference/postman-collections/",
+                title: "Password Import Hook",
+                path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createPasswordImportInlineHook",
+              },
+              {
+                title: "Registration Hook",
+                path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/create-registration-hook",
+              },
+              { title: "SAML Hook", path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createSAMLAssertionInlineHook" },
+              {
+                title: "Telephony Hook",
+                path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createTelephonyInlineHook",
+              },
+              { title: "Token Hook", path: "https://developer.okta.com/docs/reference/token-hook/" },
+              {
+                title: "User Import Hook",
+                path: "https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createUserImportInlineHook",
               },
             ],
-         },
-         {
-            title: "Hooks",
-            subLinks: [
-               {
-                  title: "Event Hooks Management API",
-                  path: "/docs/reference/api/event-hooks/",
-               },
-               {
-                  title: "Inline Hooks Management API",
-                  path: "/docs/reference/api/inline-hooks/",
-               },
-               {
-                  title: "Inline Hook Types",
-                  subLinks: [
-                     {
-                        title: "Password Import Hook",
-                        path: "/docs/reference/password-hook/",
-                     },
-                     {
-                        title: "Registration Hook",
-                        path: "/docs/reference/registration-hook/",
-                     },
-                     { title: "SAML Hook", path: "/docs/reference/saml-hook/" },
-                     {
-                        title: "Telephony Hook",
-                        path: "/docs/reference/telephony-hook/",
-                     },
-                     { title: "Token Hook", path: "/docs/reference/token-hook/" },
-                     {
-                        title: "User Import Hook",
-                        path: "/docs/reference/import-hook/",
-                     },
-                  ],
-               }
-            ],
-         },
-         {
-            title: "Okta Expression Language",
-            path: "/docs/reference/okta-expression-language/",
-         },
-         {
-            title: "Expression Language in Identity Engine",
-            path: "/docs/reference/okta-expression-language-in-identity-engine/",
-         },
-         {
-            title: "Release lifecycle",
-            path: "/docs/reference/releases-at-okta/",
-         },
-         {
-            title: 'Architecture Center',
-            path: '/docs/reference/architecture-center/',
-         },
-      ],
-   },
+          }
+        ],
+      },
+      {
+        title: "Release lifecycle",
+        path: "https://developer.okta.com/docs/api/openapi/okta-management/guides/release-lifecycle/",
+      },
+      {
+        title: 'Architecture Center',
+        path: '/docs/reference/architecture-center/',
+      },
+    ],
+  },
 ];
 
 export const releaseNotes = [
-   {
-      title: "Release Notes",
-      path: "/docs/release-notes/",
-      subLinks: [
-         {
-            title: "2024 - Classic Engine",
-            path: "/docs/release-notes/2024/"
-         },
-         {
-            title: "2024 - Identity Engine",
-            path: "/docs/release-notes/2024-okta-identity-engine/",
-         },
-         {
-          title: "2023 - Classic Engine",
-          path: "/docs/release-notes/2023/"
-         },
-         {
-            title: "2023 - Identity Engine",
-            path: "/docs/release-notes/2023-okta-identity-engine/",
-         },
-        ],
-   },
+  {
+    title: "Release Notes",
+    path: "/docs/release-notes/",
+    subLinks: [
+      {
+        title: "2024 - Classic Engine",
+        path: "/docs/release-notes/2024/"
+      },
+      {
+        title: "2024 - Identity Engine",
+        path: "/docs/release-notes/2024-okta-identity-engine/",
+      },
+      {
+        title: "2023 - Classic Engine",
+        path: "/docs/release-notes/2023/"
+      },
+      {
+        title: "2023 - Identity Engine",
+        path: "/docs/release-notes/2023-okta-identity-engine/",
+      },
+    ],
+  },
 ];

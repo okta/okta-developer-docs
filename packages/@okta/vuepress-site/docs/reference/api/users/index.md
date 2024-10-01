@@ -34,7 +34,7 @@ Creates a new user in your Okta organization with or without credentials
 - [Create User with Password & Recovery Question](#create-user-with-password-recovery-question)
 - [Create User with Authentication Provider](#create-user-with-authentication-provider)
 - [Create User in Group](#create-user-in-group)
-- [Create User with Non-Default User Type](#create-user-with-non-default-user-type)
+- [Create User with Non-Default user type](#create-user-with-non-default-user-type)
 
 > **Legal Disclaimer** <br><br>
 After a user is added to the Okta directory, they receive an activation email. As part of signing up for this service, you agreed not to use Okta's service/product to spam and/or send unsolicited messages. Please refrain from adding unrelated accounts to the directory as Okta is not responsible for, and disclaims any and all liability associated with, the activation email's content. You, and you alone, bear responsibility for the emails sent to any recipients.
@@ -363,7 +363,7 @@ curl -v -X POST \
 
 Creates a user with a [Password Hook](#password-hook-object) object specifying that a password inline hook should be used to handle password verification.
 
-The password inline hook is triggered to handle verification of the end user's password the first time the user tries to sign in, with Okta calling the password inline hook to check that the password the user supplied is valid. If the password is valid, Okta stores the hash of the password that was provided and can authenticate the user independently from then on. See [Password import inline hook](/docs/reference/password-hook/) for more details.
+The password inline hook is triggered to handle verification of the end user's password the first time the user tries to sign in, with Okta calling the password inline hook to check that the password the user supplied is valid. If the password is valid, Okta stores the hash of the password that was provided and can authenticate the user independently from then on. See [Password import inline hook](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createPasswordImportInlineHook) for more details.
 
 The new user is able to sign in after activation with the valid password. This flow supports migrating users from another data store in cases where we wish to allow the users to retain their current passwords.
 
@@ -640,11 +640,11 @@ curl -v -X POST \
 }
 ```
 
-#### Create User with non-default User Type
+#### Create User with non-default user type
 
-Creates a user with a specified User Type (see [User Types](/docs/reference/api/user-types)). The type specification may be included with any of the above Create User operations; this example demonstrates creating a user without credentials.
+Creates a user with a specified user type (see [user types](/docs/reference/api/user-types)). The type specification may be included with any of the above Create User operations; this example demonstrates creating a user without credentials.
 
-The User Type determines which [Schema](/docs/reference/api/schemas) applies to that user. After a user has been created, the user can be assigned a different User Type only by an administrator via a full replacement [PUT operation](/docs/reference/api/user-types/#update-user-type).
+The user type determines which [schema](/docs/reference/api/schemas) applies to that user. After a user has been created, the user can be assigned a different user type only by an administrator via a full replacement [PUT operation](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserType/#tag/UserType/operation/updateUserType).
 
 ##### Request example
 
@@ -1183,7 +1183,7 @@ This operation:
 - Searches many properties:
   - Any user profile property, including custom-defined properties
   - The top-level properties `id`, `status`, `created`, `activated`, `statusChanged`, and `lastUpdated`
-  - The [User Type](/docs/reference/api/user-types) accessed as `type.id`
+  - The [user type](/docs/reference/api/user-types) accessed as `type.id`
 - Accepts `sortBy` and `sortOrder` parameters.
   - `sortBy` can be any single property, for example `sortBy=profile.lastName`
   - `sortOrder` is optional and defaults to ascending
@@ -1196,7 +1196,7 @@ This operation:
 | `status eq "STAGED"`                            | Users that have a `status` of `STAGED`          |
 | `lastUpdated gt "yyyy-MM-dd'T'HH:mm:ss.SSSZ"`   | Users last updated after a specific timestamp   |
 | `id eq "00u1ero7vZFVEIYLWPBN"`                  | Users with a specified `id`                     |
-| `type.id eq "otyfnjfba4ye7pgjB0g4"`             | Users with a specified User Type ID             |
+| `type.id eq "otyfnjfba4ye7pgjB0g4"`             | Users with a specified user type ID             |
 | `profile.department eq "Engineering"`           | Users that have a `department` of `Engineering` |
 | `profile.occupation eq "Leader"`                | Users that have an `occupation` of `Leader`     |
 | `profile.lastName sw "Smi" `                    | Users whose `lastName` starts with `Smi`        |
@@ -1692,7 +1692,7 @@ in the request is deleted.
 
 `profile` and `credentials` can be updated independently or together with a single request.
 
->**Note:** Currently, the User Type of a user can only be changed via a full replacement PUT operation. If the request parameters of a partial update include the `type` element from the [User object](#user-object), the value must match the existing type of the user. Only administrators are permitted to change the user type of a user; end users are not allowed to change their own user type.
+>**Note:** Currently, the user type of a user can only be changed via a full replacement PUT operation. If the request parameters of a partial update include the `type` element from the [User object](#user-object), the value must match the existing type of the user. Only administrators are permitted to change the user type of a user; end users are not allowed to change their own user type.
 
 ##### Response parameters
 
@@ -1716,7 +1716,7 @@ Updates current user's profile with partial update semantics
 End user can only update `profile` with this request. Within the profile, if the end user tries to update the primary or the secondary email IDs, verification emails are sent to those email IDs, and the fields are updated only upon verification. To update credentials, use [Update Profile with ID](#update-profile-with-id).
 
 >**Note:** An end user can only update profile properties for which the user has write access. To update user permissions for a schema property,
-use [Update a User Schema endpoint](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/#tag/Schema/operation/updateUserProfile)
+use [Update a user schema endpoint](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/#tag/Schema/operation/updateUserProfile)
 
 ##### Response parameters
 
@@ -3919,7 +3919,7 @@ Metadata properties such as `id`, `status`, timestamps, `_links`, and `_embedded
 * The `activated` timestamp will only be available for users activated after 06/30/2013.
 * The`statusChanged` and `lastLogin` timestamps will be missing for users created before 06/30/2013 and updated on next status change or login.
 
-The `type` property is a map that identifies the User Type of the user (see [User Types](/docs/reference/api/user-types)). Currently it contains a single element, `id`, as shown in the Example. It can be specified when creating a new User, and may be updated by an administrator on a [full replace of an existing user](/docs/reference/api/user-types/#update-user-type) (but not a partial update).
+The `type` property is a map that identifies the user type of the user (see [user types](/docs/reference/api/user-types)). Currently it contains a single element, `id`, as shown in the example. It can be specified when creating a new user, and may be updated by an administrator on a [full replace of an existing user](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserType/#tag/UserType/operation/updateUserType) (but not a partial update).
 
 ### User status
 
@@ -4205,7 +4205,7 @@ See [`hash`](https://developer.okta.com/docs/api/openapi/okta-management/managem
 
 See [`hook`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/updateUser!path=credentials/password/hook&t=request) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
 
-<!--Specifies that a [password import inline hook](/docs/reference/password-hook/) should be triggered to handle verification of the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly from some other store. See [Create User with Password Hook](#create-user-with-password-import-inline-hook) for information on using this object when creating a user.
+<!--Specifies that a [password import inline hook](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createPasswordImportInlineHook) should be triggered to handle verification of the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly from some other store. See [Create User with Password Hook](#create-user-with-password-import-inline-hook) for information on using this object when creating a user.
 
 > **Note:** Because the plain text password isn't specified when a password hook is specified, password policy isn't applied.
 

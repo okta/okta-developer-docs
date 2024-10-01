@@ -5,6 +5,12 @@ category: management
 
 # Trusted Origins API
 
+The Trusted Origins API reference is now available at the new [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/TrustedOrigin/).
+
+Explore the [Okta Public API Collections](https://www.postman.com/okta-eng/okta-public-api-collections/folder/rpbaaw1/trusted-origins) workspace to get started with the Trusted Origins API Postman collection.
+
+<!--
+
 The Okta Trusted Origins API provides operations to manage Trusted Origins and sources.
 
 When external URLs are requested during sign-in, sign-out, or recovery operations, Okta checks those URLs against the allowed list of Trusted Origins. Trusted Origins also enable browser-based applications to access Okta APIs from JavaScript (CORS). If the origins aren't specified, the related operation (redirect or Okta API access) isn't permitted.
@@ -1162,3 +1168,4 @@ Allows you to embed only Okta sign-in pages in an iFrame
     }
 }
 ```
+-->

@@ -96,6 +96,7 @@ guides:
  - social-login
  - telephony-inline-hook
  - terraform-configure-device-signin-standards
+ - terraform-create-custom-auth-server
  - terraform-design-access-security
  - terraform-design-rate-limits
  - terraform-enable-org-access
@@ -218,6 +219,7 @@ If you're using Okta as an identity layer for the first time, start with [How Ok
     * [Manage groups of users with Terraform](/docs/guides/terraform-manage-groups/)
     * [Manage external authentication services with Terraform](/docs/guides/terraform-manage-external-authenticators/)
     * [Manage device connection requirements](/docs/guides/terraform-configure-device-signin-standards/)
+    * [Create a custom authorization server](/docs/guides/terraform-create-custom-auth-server/)
     * [Customize the end-user experience with Terraform](/docs/guides/terraform-manage-end-user-experience/)
     * [Control Terraform access to Okta](/docs/guides/terraform-design-access-security/)
     * [Minimize Terraform rate limit errors](/docs/guides/terraform-design-rate-limits/)

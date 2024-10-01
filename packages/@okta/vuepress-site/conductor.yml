@@ -34,9 +34,9 @@ redirects:
   - from: /docs/api/reference/index.html
     to: /docs/reference/
   - from: /docs/api/rest/apps.html
-    to: /docs/reference/api/apps/index.html
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/
   - from: /docs/reference/api/apps.html
-    to: /docs/reference/api/apps/index.html
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/
   - from: /docs/api/rest/authn.html
     to: /docs/reference/api/authn/
   - from: /docs/reference/api/index.html
@@ -64,7 +64,7 @@ redirects:
   - from: /reference/authentication_reference
     to: https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/index.html
   - from: /docs/getting_started/policy.html
-    to: /docs/reference/api/policy/index.html
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/
   - from: /docs/api/rest/sessions.html
     to: /docs/reference/api/sessions/
   - from: /docs/api/rest/templates.html
@@ -260,7 +260,7 @@ redirects:
   - from: /use_cases/events-api-deprecation/index.html
     to: /docs/reference/api/system-log/index.html
   - from: /use_cases/inline_hooks/api_am_hook/api_am_hook
-    to: /docs/reference/token-hook/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createTokenInlineHook/
   - from: /use_cases/integrate_with_okta/index.html
     to: https://www.okta.com/integrate/
   - from: /docs/api/getting_started/oan_guidance
@@ -292,7 +292,7 @@ redirects:
   - from: /use_cases/mobile/okta_mobile_connect/index.html
     to: https://help.okta.com/en-us/okta_help_CSH.htm#ext_Okta_Mobile_Connect
   - from: /docs/api/reference/apps.html
-    to: /docs/reference/api/apps/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/
   - from: /docs/reference/api/users.html
     to: /docs/reference/api/users/
   - from: /docs/reference/api/authn.html
@@ -380,13 +380,13 @@ redirects:
   - from: /use_cases/inline_hooks/import_hook/import_hook/index.html
     to: /docs/reference/import-hook/
   - from: /use_cases/inline_hooks/token_hook/token_hook/index.html
-    to: /docs/reference/token-hook/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createTokenInlineHook/
   - from: /use_cases/mfa/index.html
     to: /docs/guides/mfa/
   - from: /use_cases/relationships/index.html
     to: /docs/reference/api/linked-objects/
   - from: /docs/api/getting_started/releases-at-okta/index.html
-    to: /docs/reference/releases-at-okta/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/guides/release-lifecycle/
   - from: /docs/api/getting_started/rate-limits/index.html
     to: /docs/reference/rate-limits/
   - from: /docs/api/getting_started/finding_your_app_credentials/index.html
@@ -400,7 +400,7 @@ redirects:
   - from: /docs/api/getting_started/design_principles/index.html
     to: /docs/reference/core-okta-api/#design-principles
   - from: /docs/api/resources/apps/index.html
-    to: /docs/reference/api/apps/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/
   - from: /docs/api/resources/authn/index.html
     to: /docs/reference/api/authn/
   - from: /docs/api/resources/oidc/index.html
@@ -408,7 +408,7 @@ redirects:
   - from: /docs/api/resources/oidc
     to: https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/
   - from: /docs/api/resources/roles/index.html
-    to: /docs/reference/api/roles/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/
   - from: /docs/api/resources/authorization-servers/index.html
     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServer/
   - from: /docs/api/resources/oauth-clients/index.html
@@ -416,7 +416,7 @@ redirects:
   - from: /docs/api/resources/events/index.html
     to: /docs/reference/api/system-log/
   - from: /docs/api/resources/event-hooks/index.html
-    to: /docs/reference/api/event-hooks/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/EventHook/
   - from: /docs/api/resources/event-types/index.html
     to: /docs/reference/api/event-types/
   - from: /docs/api/resources/event-types
@@ -428,11 +428,11 @@ redirects:
   - from: /docs/api/resources/idps/index.html
     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/
   - from: /docs/api/resources/inline-hooks/index.html
-    to: /docs/reference/api/inline-hooks/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook
   - from: /docs/api/resources/linked-objects/index.html
     to: /docs/reference/api/linked-objects/
   - from: /docs/api/resources/policy/index.html
-    to: /docs/reference/api/policy/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/
   - from: /docs/api/resources/schemas/index.html
     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/
   - from: /docs/api/resources/sessions/index.html
@@ -444,7 +444,7 @@ redirects:
   - from: /docs/api/resources/threat-insight/index.html
     to: /docs/reference/api/threat-insight/
   - from: /docs/api/resources/trusted-origins/index.html
-    to: /docs/reference/api/trusted-origins/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/TrustedOrigin/
   - from: /docs/api/resources/users/index.html
     to: /docs/reference/api/users/
   - from: /docs/api/resources/zones/index.html
@@ -684,7 +684,7 @@ redirects:
   - from: /docs/api/resources/sessions.html
     to: /docs/reference/api/sessions/
   - from: /docs/api/resources/apps.html
-    to: /docs/reference/api/apps/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/
   - from: /reference/error_codes
     to: /docs/reference/error-codes/
   - from: /reference/okta_expression_language
@@ -718,13 +718,13 @@ redirects:
   - from: /use_cases/inline_hooks/import_hook/import_hook
     to: /docs/reference/import-hook/
   - from: /use_cases/inline_hooks/token_hook/token_hook
-    to: /docs/reference/token-hook/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createTokenInlineHook/
   - from: /use_cases/mfa
     to: /docs/guides/mfa/
   - from: /use_cases/relationships
     to: /docs/reference/api/linked-objects/
   - from: /docs/api/getting_started/releases-at-okta
-    to: /docs/reference/releases-at-okta/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/guides/release-lifecycle/
   - from: /docs/api/getting_started/rate-limits
     to: /docs/reference/rate-limits/
   - from: /docs/api/getting_started/finding_your_app_credentials
@@ -738,11 +738,11 @@ redirects:
   - from: /docs/api/getting_started/design_principles
     to: /docs/reference/core-okta-api/#design-principles
   - from: /docs/api/resources/apps
-    to: /docs/reference/api/apps/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/
   - from: /docs/api/resources/authn
     to: /docs/reference/api/authn/
   - from: /docs/api/resources/roles
-    to: /docs/reference/api/roles/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/
   - from: /docs/api/resources/authorization-servers
     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServer/
   - from: /docs/api/resources/oauth-clients
@@ -750,17 +750,17 @@ redirects:
   - from: /docs/api/resources/events
     to: /docs/reference/api/system-log/
   - from: /docs/api/resources/event-hooks
-    to: /docs/reference/api/event-hooks/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/EventHook/
   - from: /docs/api/resources/factors
     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/
   - from: /docs/api/resources/groups
     to: /docs/reference/api/groups/
   - from: /docs/api/resources/inline-hooks
-    to: /docs/reference/api/inline-hooks/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook
   - from: /docs/api/resources/linked-objects
     to: /docs/reference/api/linked-objects/
   - from: /docs/api/resources/policy
-    to: /docs/reference/api/policy/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/
   - from: /docs/api/resources/schemas
     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/
   - from: /docs/api/resources/sessions
@@ -770,7 +770,7 @@ redirects:
   - from: /docs/api/resources/templates
     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Template/
   - from: /docs/api/resources/trusted-origins
-    to: /docs/reference/api/trusted-origins/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/TrustedOrigin/
   - from: /docs/api/resources/users
     to: /docs/reference/api/users/
   - from: /docs/api/resources/zones
@@ -844,7 +844,7 @@ redirects:
   - from: /docs/api/resources/oidc.html
     to: https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/
   - from: /docs/api/resources/roles.html
-    to: /docs/reference/api/roles/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/
   - from: /docs/api/resources/authorization-servers.html
     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServer/
   - from: /docs/api/resources/oauth-clients.html
@@ -852,7 +852,7 @@ redirects:
   - from: /docs/api/resources/events.html
     to: /docs/reference/api/system-log/
   - from: /docs/api/resources/event-hooks.html
-    to: /docs/reference/api/event-hooks/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/EventHook/
   - from: /docs/api/resources/factors.html
     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/
   - from: /docs/api/resources/groups.html
@@ -862,7 +862,7 @@ redirects:
   - from: /docs/api/resources/linked-objects.html
     to: /docs/reference/api/linked-objects/
   - from: /docs/api/resources/policy.html
-    to: /docs/reference/api/policy/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/
   - from: /docs/api/resources/schemas.html
     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/
   - from: /docs/api/resources/system_log.html
@@ -870,7 +870,7 @@ redirects:
   - from: /docs/api/resources/templates.html
     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Template/
   - from: /docs/api/resources/trusted-origins.html
-    to: /docs/reference/api/trusted-origins/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/TrustedOrigin/
   - from: /docs/api/resources/zones.html
     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/NetworkZone/
   - from: /docs/reference/csi-delauth-hook
@@ -2242,7 +2242,7 @@ redirects:
   - from: /docs/guides/password-import-hook/-/next-steps/index.html
     to: /docs/guides/password-import-inline-hook/nodejs/main/#test-your-hook
   - from: /docs/reference/api/oie-policy-types/index.html
-    to: /docs/reference/api/policy/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/
   - from: /docs/concepts/ie-intro/index.html
     to: https://help.okta.com/oie/en-us/okta_help_CSH.htm#ext-get-started-oie
   - from: /docs/concepts/ie-intro
@@ -4355,6 +4355,16 @@ redirects:
     to: /docs/guides/submit-oin-app/saml2/main/
   - from: /docs/guides/submit-app/saml2/main/index.html
     to: /docs/guides/submit-oin-app/saml2/main/
+  - from: /docs/guides/submit-sso-app/openidconnect/main/index.html
+    to: /docs/guides/submit-oin-app/openidconnect/main/
+  - from: /docs/guides/submit-sso-app/openidconnect/main
+    to: /docs/guides/submit-oin-app/openidconnect/main/
+  - from: /docs/guides/submit-sso-app/saml2/main/index.html
+    to: /docs/guides/submit-oin-app/saml2/main/
+  - from: /docs/guides/submit-sso-app/saml2/main
+    to: /docs/guides/submit-oin-app/saml2/main/
+  - from: /docs/guides/submit-sso-app
+    to: /docs/guides/submit-oin-app/
   - from: /docs/guides/deploy-your-app/overview
     to: /docs/guides/deploy-your-app/java/main/
   - from: /docs/guides/deploy-your-app/java
@@ -5453,8 +5463,16 @@ redirects:
     to: https://github.com/okta/okta-sdk-dotnet
   - from: /docs/reference/hooks-best-practices/index.html
     to: /docs/guides/hooks-best-practices/
-  - from: /docs/reference/hooks-best-practices/
+  - from: /docs/reference/hooks-best-practices
     to: /docs/guides/hooks-best-practices/
+  - from: /docs/reference/rl-previous/index.html
+    to: /docs/reference/rate-limits/
+  - from: /docs/reference/rl-previous
+    to: /docs/reference/rate-limits/
+  - from: /docs/reference/rl-global-other-endpoints/index.html
+    to: /docs/reference/rate-limits/
+  - from: /docs/reference/rl-global-other-endpoints
+    to: /docs/reference/rate-limits/
   - from: /docs/guides/sign-into-mobile-app-redirect/react-native/main/index.html
     to: /docs/guides/sampleapp-oie-redirectauth/reactnativedroid/main/
   - from: /code.html

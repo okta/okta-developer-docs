@@ -1,4 +1,4 @@
-### 1: Build a sign-in page on the client
+### Build a sign-in page for the client
 
 Build a sign-in page that captures the user's name and password, as shown in the following example.
 
@@ -8,7 +8,7 @@ Build a sign-in page that captures the user's name and password, as shown in the
 
 </div>
 
-### 2: Authenticate the user credentials
+### Authenticate the user credentials
 
 After a user initiates the sign-in flow by entering their username and password and then clicking **Sign In**, create an `AuthenticationOptions` object in your `LogIn` method. Then, set the object's `Username` and `Password` properties to the values set by the user. Pass this object as a parameter to the `AuthenticateAsync` method on the `IdxClient`.
 
@@ -24,9 +24,9 @@ try
    var authnResponse = await _idxClient.AuthenticateAsync(authnOptions).ConfigureAwait(false);
 ```
 
-### 3: Handle the response from the sign-in flow
+### Handle the response from the sign-in flow
 
-Query the `AuthenticationStatus` property of the `AuthenticationResponse` object returned by `AuthenticateAsync` to discover the current status of the authentication process.
+Query the `AuthenticationStatus` property of the `AuthenticationResponse` object returned by `AuthenticateAsync` to discover the status of the authentication process.
 
 ```csharp
   Session["idxContext"] = authnResponse.IdxContext;
@@ -40,8 +40,8 @@ Query the `AuthenticationStatus` property of the `AuthenticationResponse` object
 
 If you configured your Okta org correctly, you need to respond to two specific authenticator statuses to handle this scenario in addition to `Success` and `PasswordExpired`:
 
-* `AwaitingAuthenticatorEnrollment` that is covered in this section
-* `AwaitingChallengeAuthenticatorSelection` that is covered in [the challenge flow section](#integrate-sdk-for-authenticator-challenge).
+* `AwaitingAuthenticatorEnrollment`: covered in this section
+* `AwaitingChallengeAuthenticatorSelection`: covered in [the challenge flow section](#integrate-sdk-for-authenticator-challenge)
 
 The names of the authenticators available for enrollment or challenge can be found in the `AuthenticationResponse` object's `Authenticators` collection. Redirect the user to a list of authenticators to select the Google Authenticator for enrollment.
 
@@ -69,7 +69,7 @@ catch (OktaException exception)
 }
 ```
 
-### 4: Display a list of possible authenticator factors
+### Display a list of possible authenticator factors
 
 Build a page to display the list of authenticators (including Google Authenticator). For example, in the sample application, a new `SelectAuthenticatorViewModel` is populated from the `Authenticators` collection returned by the `AuthenticationResponse` in the previous step.
 
@@ -141,7 +141,7 @@ The `viewModel` parameter is then consumed in a Razor page.
 </section>
 ```
 
-In this use case, only Google Authenticator appears, as shown in the following screenshot.
+In this use case, only Google Authenticator appears, as shown in the following image.
 
 <div class="half border">
 
@@ -149,11 +149,11 @@ In this use case, only Google Authenticator appears, as shown in the following s
 
 </div>
 
-### 5: Retrieve shared secret and QR Code
+### Retrieve shared secret and QR Code
 
 When the user selects the Google Authenticator factor and clicks **Submit**, the form posts back to the `SelectAuthenticatorAsync` method. This checks whether the user is in challenge flow or enrollment flow.
 
-When in Enrollment flow, a call is made to `idxClient.SelectEnrollAuthenticatorAsync`, using its `enrollAuthenticatorOptions` parameter to pass in the Google Authenticator factor ID.
+When in enrollment flow, a call is made to `idxClient.SelectEnrollAuthenticatorAsync`, using its `enrollAuthenticatorOptions` parameter to pass in the Google Authenticator factor ID.
 
 ```csharp
 var enrollAuthenticatorOptions = new SelectEnrollAuthenticatorOptions
@@ -165,7 +165,7 @@ var enrollResponse = await _idxClient.SelectEnrollAuthenticatorAsync(
     enrollAuthenticatorOptions, (IIdxContext)Session["IdxContext"]);
 ```
 
-If the call is successful, the returned `enrollResponse` object has an `AuthenticationStatus` of `AwaitingAuthenticatorVerification` and its `CurrentAuthenticator` property contains the QR code and shared secret string that the user can use to setup their copy of the Google Authenticator app. This needs to be passed to a page to display that information.
+If the call is successful, the returned `enrollResponse` object has an `AuthenticationStatus` of `AwaitingAuthenticatorVerification` and its `CurrentAuthenticator` property contains the QR code and shared secret string that the user can use to set up their copy of the Google Authenticator app. Pass this object to a page to display its information.
 
 ```csharp
 Session["IdxContext"] = enrollResponse.IdxContext;
@@ -198,7 +198,7 @@ switch (enrollResponse?.AuthenticationStatus)
 
 ```
 
-### 6: Display shared secret and QR code
+### Display shared secret and QR code
 
 Build a page to display the shared secret and QR code. For example, in the sample application, a new `EnrollGoogleAuthenticatorViewModel` is populated from the `CurrentAuthenticator` object returned by the `enrollResponse` object in the previous step.
 
@@ -253,9 +253,9 @@ The user sees the following
 
 </div>
 
-### 7: Copy shared secret to Google Authenticator
+### Copy shared secret to Google Authenticator
 
-After the shared secret appears, the user installs the Google Authenticator app on their mobile device if it's not already installed. Next, they add the secret code to the Google Authenticator app by either taking a photo of the QR code or manually entering the secret string. Once added, Google Authenticator displays the time-based one-time passcode (TOTP) for the newly added account.
+After the shared secret appears, the user installs the Google Authenticator app on their mobile device if it's not already installed. Next, they add the secret code to the Google Authenticator app. They can either take a photo of the QR code or manually enter the secret string. After it's added, Google Authenticator displays the time-based one-time passcode (TOTP) for the newly added account.
 
 <div class="half">
 
@@ -263,9 +263,9 @@ After the shared secret appears, the user installs the Google Authenticator app 
 
 </div>
 
-### 8: Display challenge page
+### Display challenge page
 
-Build a form that allows the user to enter the TOTP they have received from their Authenticator app. This should appear once the user clicks on the **Next** button underneath the QR code and sample secret.
+Build a form that allows the user to enter the TOTP they’ve received from their Authenticator app. This should appear after the user selects the **Next** button underneath the QR code and sample secret.
 
 ```razor
 @using (Html.BeginForm("VerifyAuthenticatorAsync", "Manage",
@@ -304,7 +304,7 @@ The user sees the following:
 
 </div>
 
-### 9: Process the one-time passcode
+### Process the one-time passcode
 
 Once a user has entered the TOTP and clicked **Submit**, create a `VerifyAuthenticatorOptions` object and set its `Code` property to the password entered by the user. Pass this object as a parameter to the `IdxClient.VerifyAuthenticatorAsync` method.
 
@@ -320,7 +320,7 @@ try
       verifyAuthenticatorOptions, (IIdxContext)Session["idxContext"]);
 ```
 
-Query the `AuthenticationStatus` property of the `AuthenticationResponse` object returned by `VerifyAuthenticatorAsync` to discover the current status of the authentication process. You need to respond to two specific authenticator statuses:
+Query the `AuthenticationStatus` property of the `AuthenticationResponse` object returned by `VerifyAuthenticatorAsync` to discover the status of the authentication process. Respond to two specific authenticator statuses:
 
 * `AwaitingPasswordReset`
 * `Success`

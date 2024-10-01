@@ -25,12 +25,12 @@ Okta defines several different types of inline hooks. Each type of inline hook m
 
 | Name                                                           | Description                                                                    |
 |----------------------------------------------------------------|--------------------------------------------------------------------------------|
-| [Token inline hook](/docs/reference/token-hook/)               | Customizes tokens returned by Okta API Access Management                       |
-| [User import inline hook](/docs/reference/import-hook/)        | Adds custom logic to the user import process                                   |
-| [SAML assertion inline hook](/docs/reference/saml-hook/)       | Customizes SAML assertions returned by Okta                                    |
-| [Registration inline hook](/docs/reference/registration-hook/) | Customizes handling of Self-Service Registration (SSR) and Progressive Enrollment support |
-| [Password import inline hook](/docs/reference/password-hook/)  | Verifies a user-supplied password to support migration of users to Okta        |
-| [Telephony inline hook](/docs/reference/telephony-hook/) | Customizes the Okta flows that send SMS or voice messages |
+| [Token inline hook](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createTokenInlineHook)               | Customizes tokens returned by Okta API Access Management                       |
+| [User import inline hook](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createUserImportInlineHook)        | Adds custom logic to the user import process                                   |
+| [SAML assertion inline hook](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createSAMLAssertionInlineHook)       | Customizes SAML assertions returned by Okta                                    |
+| [Registration inline hook](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/create-registration-hook) | Customizes handling of Self-Service Registration (SSR) and Progressive Enrollment support |
+| [Password import inline hook](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createPasswordImportInlineHook)  | Verifies a user-supplied password to support migration of users to Okta        |
+| [Telephony inline hook](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createTelephonyInlineHook) | Customizes the Okta flows that send SMS or voice messages |
 
 ## Inline hook process flow
 
@@ -198,7 +198,7 @@ After creating your external service, you need to tell Okta it exists, and enabl
 
 1. Create an external service.
 
-1. Register your service's endpoint with Okta. You can do this in the Admin Console by going to **Workflow > Inline Hooks** and clicking **Add Inline Hook**. Alternatively, you can do this using a REST API call by making a `POST` request to `/api/v1/inlineHooks`; see [Inline Hooks Management API](/docs/reference/api/inline-hooks/) for information.
+1. Register your service's endpoint with Okta. You can do this in the Admin Console by going to **Workflow > Inline Hooks** and clicking **Add Inline Hook**. Alternatively, you can do this using a REST API call by making a `POST` request to `/api/v1/inlineHooks`; see [Inline Hooks Management API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook) for information.
 
 1. Associate the endpoint with a particular Okta process flow. This step varies by inline hook type.
 

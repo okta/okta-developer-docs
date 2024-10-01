@@ -68,7 +68,7 @@ Make sure to have this app running before proceeding with the SAML assertion inl
 
 You can now create the external service code that resides on your third-party site (in this example, the Glitch.com site). The third-party site receives and responds to the SAML assertion inline hook call from Okta. The responses to the SAML assertion inline hook call can customize the SAML assertion in multiple ways, including adding or replacing elements of the assertion.
 
-In this example code, a new claim is added to the assertion. For further information on the SAML assertion commands object and how you can modify the assertion, see the [SAML assertion inline hook reference](/docs/reference/saml-hook) documentation.
+In this example code, a new claim is added to the assertion. For further information on the SAML assertion commands object and how you can modify the assertion, see the [SAML assertion inline hook reference](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createSAMLAssertionInlineHook) documentation.
 
 Copy (remix) the Glitch.com project code, [Okta SAML assertion inline hook example](https://glitch.com/edit/#!/okta-inlinehook-samlhook), to run the scenario right away. Skip to the [Activate and enable the SAML assertion inline hook](#activate-and-enable-the-saml-assertion-inline-hook) section to configure the SAML inline hook.
 
@@ -186,7 +186,7 @@ The variable, `patientID`, can now be returned to Okta as an additional SAML ass
                     }
 ```
 
-For further information on the SAML assertion commands object, see the [SAML assertion inline hook reference](/docs/reference/saml-hook) documentation.
+For further information on the SAML assertion commands object, see the [SAML assertion inline hook reference](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createSAMLAssertionInlineHook) documentation.
 
 The following Node.js code adds the commands object, returns the response to Okta, and completes the sample code:
 
@@ -339,4 +339,4 @@ Review the following guides to implement other inline or event hook examples:
 
 ## See also
 
-For a complete description of this inline hook type, see the [SAML assertion inline hook](/docs/reference/saml-hook) reference.
+For a complete description of this inline hook type, see the [SAML assertion inline hook](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createSAMLAssertionInlineHook) reference.

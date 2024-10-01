@@ -7,13 +7,19 @@ excerpt: Add custom logic to the user import process.
 
 <ApiLifecycle access="ea" />
 
+The User Import Inline Hook API reference is now available at the new [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createUserImportInlineHook)
+
+Explore the [Okta Public API Collections](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/overview) workspace to get started with the Inline Hook API Postman Collection.
+
+<!--
+
 This page provides reference documentation for user import inline hooks, one type of inline hook supported by Okta. It provides sample JSON objects that are contained in the outbound request from Okta, and sample JSON objects that you can include in your response.
 
 ## See also
 
 For a general introduction to Okta inline hooks, see [inline hooks](/docs/concepts/inline-hooks/).
 
-For information on the API for registering external service endpoints with Okta, see [Inline Hooks Management API](/docs/reference/api/inline-hooks/).
+For information on the API for registering external service endpoints with Okta, see [Inline Hooks Management API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook).
 
 For steps to enable this inline hook, see [Enabling a user import inline hook](#enabling-a-user-import-inline-hook).
 
@@ -280,7 +286,7 @@ If the external service times out after receiving an Okta request, the Okta proc
 
 ## Enabling a user import inline hook
 
-To activate the inline hook, you first need to register your external service endpoint with Okta using the [Inline Hooks Management API](/docs/reference/api/inline-hooks/).
+To activate the inline hook, you first need to register your external service endpoint with Okta using the [Inline Hooks Management API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/).
 
 You then need to associate the registered inline hook with an app by completing the following steps in Admin Console:
 
@@ -296,4 +302,4 @@ You then need to associate the registered inline hook with an app by completing 
 
 1. Click **Save**.
 
-> **Note:** The above procedure for associating a user import inline hook with an app using Admin Console cannot be used with AD or LDAP.
+> **Note:** The above procedure for associating a user import inline hook with an app using Admin Console cannot be used with AD or LDAP. -->

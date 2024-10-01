@@ -209,13 +209,13 @@ Okta inline hook calls to third-party external web services previously provided 
 
 To improve the security of inline hooks, Okta now supports authentication with OAuth 2.0 access tokens. Tokens ensure secure calls to external web services.
 
-When creating inline hooks in the Admin Console (or by API), administrators or developers can now select OAuth 2.0 authentication and choose between two methods of OAuth 2.0: Client Secret or Private Key. A new [Key Management API](/docs/reference/api/hook-keys/) and Admin Console page is also available to create public/private key pairs for use with OAuth 2.0 inline hooks. See [Key management](https://help.okta.com/okta_help.htm?type=oie&id=ext-key-management).
+When creating inline hooks in the Admin Console (or by API), admins and developers can now select OAuth 2.0 authentication and choose between two methods of OAuth 2.0: client secret or private key. A new [Key Management API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/HookKey/#tag/HookKey) and Admin Console page is also available to create public/private key pairs for use with OAuth 2.0 inline hooks. See [Key management](https://help.okta.com/okta_help.htm?type=oie&id=ext-key-management).
 
 Using the OAuth 2.0 framework provides better security than Basic Authentication or custom headers, and is less work than setting up an IP allowlisting solution. Clients also have the ability to use access tokens minted by their own custom authorization servers to guarantee that Okta is calling their client web services and isn't triggered by any external actors. See [Add an inline hook](https://help.okta.com/okta_help.htm?type=oie&id=ext-add-inline-hook). <!--OKTA-537306-->
 
 #### Developer documentation updates in 2022.10.0
 
-* A new [Key Management API](/docs/reference/api/hook-keys/) is available under the Core Okta APIs. This reference manages JWKs used with OAuth 2.0 authentication for inline hooks.
+* A new [Key Management API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/HookKey/#tag/HookKey) is available under the Core Okta APIs. This reference manages JWKs used with OAuth 2.0 authentication for inline hooks.
 
 * A new [SAML assertion inline hook](/docs/guides/saml-inline-hook/main/) guide is available at **Guides > Hooks**. Use this guide to implement a working example of a SAML assertion inline hook.
 
@@ -402,7 +402,7 @@ The `system.operation.rate_limit.violation` event is no longer triggered when SM
 
 #### Trusted Origins for iFrame embedding is GA in Production
 
-You can now choose which origins can embed Okta sign-in pages and the Okta End-User Dashboard using Trusted Origins for iFrame embedding. This feature offers a granular control over iFrame embedding compared to the existing embedding option in Customization, which doesn't let you distinguish between secure and non-secure origins. Trusted Origins (**Security** > **API**) allows you to selectively configure the origins that you trust. It also provides enhanced security as it uses a more secure `frame-ancestors` directive in Content Security Policy that protects your data from web attacks such as clickjacking. You can also migrate your existing iFrames to Trusted Origins. See [Trusted Origins API](/docs/reference/api/trusted-origins/). <!-- OKTA-514609 -->
+You can now choose which origins can embed Okta sign-in pages and the Okta End-User Dashboard using Trusted Origins for iFrame embedding. This feature offers a granular control over iFrame embedding compared to the existing embedding option in Customization, which doesn't let you distinguish between secure and non-secure origins. Trusted Origins (**Security** > **API**) allows you to selectively configure the origins that you trust. It also provides enhanced security as it uses a more secure `frame-ancestors` directive in Content Security Policy that protects your data from web attacks such as clickjacking. You can also migrate your existing iFrames to Trusted Origins. See [Trusted Origins API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/TrustedOrigin/). <!-- OKTA-514609 -->
 
 #### Support for Okta Resource Name is GA in Production
 
@@ -492,7 +492,7 @@ The [Okta Resource Name](/docs/concepts/role-assignment/#okta-resource-name-orn)
 
 #### Trusted Origins for iFrame embedding is GA in Preview
 
-You can now choose which origins can embed Okta sign-in pages and the Okta End-User Dashboard using Trusted Origins for iFrame embedding. This feature offers a granular control over iFrame embedding compared to the existing embedding option in Customization, which doesn't let you distinguish between secure and non-secure origins. Trusted Origins (**Security** > **API**) allows you to selectively configure the origins that you trust. It also provides enhanced security as it uses a more secure `frame-ancestors` directive in Content Security Policy that protects your data from web attacks such as clickjacking. You can also migrate your existing iFrames to Trusted Origins. See [Trusted Origins API](/docs/reference/api/trusted-origins/). <!-- OKTA-510180 -->
+You can now choose which origins can embed Okta sign-in pages and the Okta End-User Dashboard using Trusted Origins for iFrame embedding. This feature offers a granular control over iFrame embedding compared to the existing embedding option in Customization, which doesn't let you distinguish between secure and non-secure origins. Trusted Origins (**Security** > **API**) allows you to selectively configure the origins that you trust. It also provides enhanced security as it uses a more secure `frame-ancestors` directive in Content Security Policy that protects your data from web attacks such as clickjacking. You can also migrate your existing iFrames to Trusted Origins. See [Trusted Origins API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/TrustedOrigin/). <!-- OKTA-510180 -->
 
 #### Developer documentation updates in 2022.07.0
 
@@ -703,7 +703,7 @@ Okta admins can now control the bounced email address list through the Email Add
 
 #### Trusted Origins for iFrame embedding is EA in Preview
 
-You can now choose what origins can embed Okta sign-in pages and Okta End-User Dashboard using Trusted Origins for iFrame embedding. This feature offers a granular control over iFrame embedding compared to the existing embedding option in Customization, which doesn't let you distinguish between secure and non-secure origins. Trusted Origins allow you to selectively configure the origins you trust. It also provides enhanced security as it uses a more secure `frame-ancestors` directive in Content Security Policy that protects your data from web attacks such as clickjacking. See [Trusted Origins API](/docs/reference/api/trusted-origins/). <!-- OKTA-494132 -->
+You can now choose what origins can embed Okta sign-in pages and Okta End-User Dashboard using Trusted Origins for iFrame embedding. This feature offers a granular control over iFrame embedding compared to the existing embedding option in Customization, which doesn't let you distinguish between secure and non-secure origins. Trusted Origins allow you to selectively configure the origins you trust. It also provides enhanced security as it uses a more secure `frame-ancestors` directive in Content Security Policy that protects your data from web attacks such as clickjacking. See [Trusted Origins API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/TrustedOrigin/). <!-- OKTA-494132 -->
 
 #### Authorize requests to generic OIDC IdPs now include nonce parameter
 

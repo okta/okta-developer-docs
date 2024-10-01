@@ -63,7 +63,7 @@ OAuth 2.0 Demonstrating Proof-of-Possession (DPoP) is a security feature that ad
 
 #### New possession constraint property available for Policy API
 
-A new `userVerification` property is available for the `constraints` object of the [Policy API](/docs/reference/api/policy/#constraints). This setting can ensure the verification of a possession factor through a PIN or biometrics. <!-- OKTA-669846 -->
+A new `userVerification` property is available for the `constraints` object of the [Policy API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule!path=0/actions/appSignOn/verificationMethod/0/constraints/possession/userVerification&t=request). This setting can ensure the verification of a possession factor through a PIN or biometrics. <!-- OKTA-669846 -->
 
 #### Bugs fixed in 2023.12.0
 
@@ -250,7 +250,7 @@ Users now receive an authentication challenge for each redirect sent to an Ident
 Direct authentication out-of-band (OOB) and multifactor out-of-band (MFA OOB) grant flows now support number challenge for Okta Verify Push. See the [MFA OOB grant](/docs/guides/configure-direct-auth-grants/dmfaoobov/main/) and [OOB grant](/docs/guides/configure-direct-auth-grants/coobov/main/) flows.
 
 #### Policy Simulation API is GA in Preview
-With the Policy API `/simulate` endpoint, you can quickly and easily test policies and validate whether your desired security outcomes are achieved. This endpoint allows you to simulate user access attributes, such as IP address, device, risk, and so on, to test whether the user is granted access to the specified application. This endpoint is implemented in the Admin Console as the [Access Testing Tool](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/policies/access-testing-tool.htm). The `/simulate` endpoint helps you identify potential security risks and compliance issues before you implement a policy. See the [Policy API](/docs/reference/api/policy/#policy-simulation-operations) and [Test your policies with access simulations](/docs/guides/policy-simulation). <!-- OKTA-593826 POLICY_SIMULATION -->
+With the Policy API `/simulate` endpoint, you can quickly and easily test policies and validate whether your desired security outcomes are achieved. This endpoint allows you to simulate user access attributes, such as IP address, device, risk, and so on, to test whether the user is granted access to the specified app. This endpoint is implemented in the Admin Console as the [Access Testing Tool](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/policies/access-testing-tool.htm). The `/simulate` endpoint helps you identify potential security risks and compliance issues before you implement a policy. See the [Policy API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicySimulation) and [Test your policies with access simulations](/docs/guides/policy-simulation). <!-- OKTA-593826 POLICY_SIMULATION -->
 
 #### Developer documentation update in 2023.09.0
 
@@ -294,7 +294,7 @@ When configuring an API Service Integration (either through the Admin Console or
 
 #### Custom admin roles with device permissions is EA in Preview
 
-You can now create custom admin roles with permissions to view and manage devices. You can add the [Devices resource](/docs/reference/api/roles/#supported-resources)&nbsp;to your resource set and then specify [device permissions](/docs/reference/api/roles/#permission-types)&nbsp;for your custom admin. <!-- OKTA-636437 CUSTOM_ADMIN_ROLE_DEVICES -->
+You can now create custom admin roles with permissions to view and manage devices. You can add the [Devices resource](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#supported-resources)&nbsp;to your resource set and then specify [device permissions](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#permissions)&nbsp;for your custom admin. <!-- OKTA-636437 CUSTOM_ADMIN_ROLE_DEVICES -->
 
 #### Bugs fixed in 2023.08.1
 
@@ -302,7 +302,7 @@ You can now create custom admin roles with permissions to view and manage device
 * Federated users were unable to sign in to an app due to incorrect AMR value mapping when **Trust AMR claims from this Identity Provider** was enabled. (OKTA-604248)
 * Removing the `emailAuthenticationLink` variable from the email template didn't update the Sign-In Widget. (OKTA-627533)
 * OpenID Connect `/token` requests using the SAML 2.0 Assertion grant type flow failed if the SAML assertion expiry was greater than 30 days. (OKTA-632131)
-* The Access Testing Tool ([Policy simulation operations](/docs/reference/api/policy/#policy-simulation-operations)) results showed an incorrect value for the profile enrollment self-service registration option. (OKTA-635787)
+* The Access Testing Tool ([Policy simulation operations](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicySimulation)) results showed an incorrect value for the profile enrollment self-service registration option. (OKTA-635787)
 
 ### Monthly release 2023.08.0
 
@@ -331,7 +331,7 @@ Users now receive an authentication challenge for each redirect sent to an Ident
 
 #### Policy Simulation API is GA in Preview
 
-With the Policy API `/simulate` endpoint, you can quickly and easily test policies and validate whether your desired security outcomes are achieved. This endpoint allows you to simulate user access attributes, such as IP address, device, risk, and so on, to test whether the user is granted access to the specified application. This endpoint is implemented in the Admin Console as the [Access Testing Tool](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/policies/access-testing-tool.htm). The `/simulate` endpoint helps you identify potential security risks and compliance issues before you implement a policy. See the [Policy API](/docs/reference/api/policy/#policy-simulation-operations) and [Test your policies with access simulations](/docs/guides/policy-simulation). <!-- OKTA-593826 POLICY_SIMULATION -->
+With the Policy API `/simulate` endpoint, you can quickly and easily test policies and validate whether your desired security outcomes are achieved. This endpoint allows you to simulate user access attributes, such as IP address, device, risk, and so on, to test whether the user is granted access to the specified app. This endpoint is implemented in the Admin Console as the [Access Testing Tool](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/policies/access-testing-tool.htm). The `/simulate` endpoint helps you identify potential security risks and compliance issues before you implement a policy. See the [Policy API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicySimulation) and [Test your policies with access simulations](/docs/guides/policy-simulation). <!-- OKTA-593826 POLICY_SIMULATION -->
 
 #### Developer documentation updates in 2023.08.0
 
@@ -342,7 +342,7 @@ With the Policy API `/simulate` endpoint, you can quickly and easily test polici
 #### Bugs fixed in 2023.08.0
 
 - Custom Push Factors used the same `provider` and `vendorName` properties as Okta Verify. These factors now return the `provider` as `CUSTOM` and the `vendorName` as the name of the authenticator. (OKTA-598598)
-- Some of the endpoints of the [Resource Sets API](/docs/reference/api/roles/#resource-set-operations) didn't support `self` and `next` link relation types. (OKTA-571339)
+- Some of the endpoints of the [Resource Sets API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RoleCResourceSet/) didn't support `self` and `next` link relation types. (OKTA-571339)
 - The Users API didn't validate the `saltOrder` property when creating or updating users with salted hashed passwords. (OKTA-602124)
 - Users that were provisioned through an IdP could be assigned the Super Admin role due to previous permission checks in group assignments. (OKTA-597974)
 
@@ -376,7 +376,7 @@ Front-channel Single Logout (SLO) allows a user to sign out of an SLO participat
 
 #### Google Authenticator for account recovery is GA in Production
 
-The Policy API Self-Service Password Reset object can now use Google Authenticator to initiate recovery scenarios. Previously, the object could only use the Email, Phone, or Okta Verify authenticators to initiate recovery. This addition enhances the user experience by increasing the number of options available for recovery.  See [Policy API](/docs/reference/api/policy/#self-service-password-reset-action-object). <!-- OKTA-609191 IDX_SSPR_EXTENDED_PRIMARY_FACTORS-->
+The Policy API Self-Service Password Reset object can now use Google Authenticator to initiate recovery scenarios. Previously, the object could only use the Email, Phone, or Okta Verify authenticators to initiate recovery. This addition enhances the user experience by increasing the number of options available for recovery.  See [Policy API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule!path=1/actions/selfServicePasswordReset&t=request). <!-- OKTA-609191 IDX_SSPR_EXTENDED_PRIMARY_FACTORS-->
 
 #### Okta-generated client secret length increase
 
@@ -479,11 +479,11 @@ The [Create User with password import inline hook](https://developer.okta.com/do
 
 #### Google Authenticator for account recovery is now EA in Preview
 
-The Policy API Self-Service Password Reset object can now use Google Authenticator to initiate recovery scenarios. Previously, the object could only use the Email, Phone, or Okta Verify authenticators to initiate recovery. This addition enhances the user experience by increasing the number of options available for recovery.  See [Policy API](/docs/reference/api/policy/#self-service-password-reset-action-object). <!-- OKTA-599821 -->
+The Policy API Self-Service Password Reset object can now use Google Authenticator to initiate recovery scenarios. Previously, the object could only use the Email, Phone, or Okta Verify authenticators to initiate recovery. This addition enhances the user experience by increasing the number of options available for recovery.  See [Policy API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule!path=1/actions/selfServicePasswordReset&t=request). <!-- OKTA-599821 -->
 
 #### Policy Simulation API is EA in Preview
 
-With the Policy API `/simulate` endpoint, you can quickly and easily test policies and validate whether your desired security outcomes will be achieved. This endpoint allows you to simulate user access attributes, such as IP address, device, risk, and so on, to test whether the user will be granted access to the specified application. This endpoint is implemented in the Admin Console as the [Access Testing Tool](https://help.okta.com/okta_help.htm?type=oie&id=csh-access-testing-tool). The`/simulate` endpoint helps you identify potential security risks and compliance issues before you implement a policy. See [Policy API](/docs/reference/api/policy/#policy-simulation-operations) and [Test your policies with access simulations](/docs/guides/policy-simulation/). <!--OKTA-593826-->
+With the Policy API `/simulate` endpoint, you can quickly and easily test policies and validate whether your desired security outcomes will be achieved. This endpoint allows you to simulate user access attributes, such as IP address, device, risk, and so on, to test whether the user will be granted access to the specified app. This endpoint is implemented in the Admin Console as the [Access Testing Tool](https://help.okta.com/okta_help.htm?type=oie&id=csh-access-testing-tool). The`/simulate` endpoint helps you identify potential security risks and compliance issues before you implement a policy. See [Policy API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicySimulation) and [Test your policies with access simulations](/docs/guides/policy-simulation/). <!--OKTA-593826-->
 
 #### Universal Directory attribute and enum limits are GA in Production
 
@@ -491,7 +491,7 @@ Universal Directory now has limits to the number of attributes per org and the n
 
 #### Developer documentation update in 2023.06.0
 
-A new policy testing guide is available to demonstrate a new Policy API endpoint used to test access policies. This feature is also available in the Admin Console > Reports as the Access Testing Tool. See the new [simulate endpoint](/docs/reference/api/policy/#policy-simulation-operations) in the API reference and [Test your policies with access simulations](/docs/guides/policy-simulation).
+A new policy testing guide is available to demonstrate a new Policy API endpoint used to test access policies. This feature is also available in the Admin Console > Reports as the Access Testing Tool. See the new [simulate endpoint](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicySimulation) in the API reference and [Test your policies with access simulations](/docs/guides/policy-simulation).
 
 #### Bugs fixed in 2023.06.0
 
@@ -585,7 +585,7 @@ The [Direct Authentication API](https://developer.okta.com/docs/api/openapi/okta
 
 #### Identity store property for the Applications API
 
-A new `identityStoreId` property is now available in the Applications API resource (`/api/v1/apps`) to store an identity store app associated with your app. You can set the `identityStoreId` value to the `id` of the identity store app you previously created in the same org. See the [optional `settings.identityStoreId` property](/docs/reference/api/apps/#identity-store-id). <!--OKTA-595777--> <!--FF: DYNAMIC_UI_APPS_API_AUGMENT--> <!--Orig avail 2023.04.2-->
+A new `identityStoreId` property is now available in the App API resource (`/api/v1/apps`) to store an identity store app associated with your app. You can set the `identityStoreId` value to the `id` of the identity store app you previously created in the same org. See the [optional `settings.identityStoreId` property](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication!c=200&path=0/settings/identityStoreId&t=response). <!--OKTA-595777--> <!--FF: DYNAMIC_UI_APPS_API_AUGMENT--> <!--Orig avail 2023.04.2-->
 
 #### Unique refresh token ID added to token inline hook requests
 
@@ -813,7 +813,7 @@ Previously, the self-service unlock (SSU) and self-service password reset (SSPR)
 
 #### Honor force authentication support for SAML Apps API
 
-Previously, the **Honor Force Authentication** parameter (`honorForceAuthn`) could only be set from the [SAML 2.0 App Integration Wizard](https://help.okta.com/okta_help.htm?type=oie&id=csh-apps-aiw-saml). When this property is set to `true`, users are prompted for their credentials when a SAML request has the `ForceAuthn` attribute set to `true`. You can now set this property for your SAML app without using the app integration wizard. See the [SAML 2.0 settings parameters in the Apps API](/docs/reference/api/apps/#add-saml-2-0-authentication-application). <!--OKTA-550077-->
+Previously, the **Honor Force Authentication** parameter (`honorForceAuthn`) could only be set from the [SAML 2.0 App Integration Wizard](https://help.okta.com/okta_help.htm?type=oie&id=csh-apps-aiw-saml). When this property is set to `true`, users are prompted for their credentials when a SAML request has the `ForceAuthn` attribute set to `true`. You can now set this property for your SAML app without using the app integration wizard. See the [SAML 2.0 settings parameters in the Apps API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication!path=6/settings/signOn/honorForceAuthn&t=request). <!--OKTA-550077-->
 
 #### OIN Manager support for Workflow Connector submission is GA in Preview
 
@@ -888,11 +888,11 @@ When an admin used a group limit in an expression that was greater than 100 (for
 
 #### Allowlist for FIDO2 (WebAuthn) authenticators is Self-Service EA in Preview
 
-Okta now enables you to manage which FIDO2 WebAuthn authenticators are allowed in your org for new enrollments. This feature allows you to create an allow list of specific FIDO2 WebAuthn authenticators (based on FIDO Metadata Service) that can be used in enrollment policies. This allows admins to have greater control over which authenticators may be used in their orgs and determine which users may access them in a granular way.  See `settings.authenticators.constraints` in the `MFA_ENROLL` [Policies API](/docs/reference/api/policy/#policy-authenticator-object). <!--OKTA-559662-->
+Okta now enables you to manage which FIDO2 WebAuthn authenticators are allowed in your org for new enrollments. This feature allows you to create an allow list of specific FIDO2 WebAuthn authenticators (based on FIDO Metadata Service) that can be used in enrollment policies. This allows admins to have greater control over which authenticators may be used in their orgs and determine which users may access them in a granular way.  See `settings.authenticators.constraints` in the `MFA_ENROLL` [Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy!path=2/settings/authenticators&t=request). <!--OKTA-559662-->
 
 #### Applications API support for SAML metadata attributes
 
-The Applications API now supports metadata dynamic SAML attributes inherited from the SAML app. The SAML attributes are used to manage configured group attributes.The Admin Console displays the dynamic SAML attributes as **Configure SAML Attributes**, and the API returns these attributes as the `settings.signOn.configuredAttributeStatements` property in the [SAML application object](/docs/reference/api/apps/#add-saml-2-0-authentication-application). <!--OKTA-573057,OKTA-549695-->
+The Apps API now supports metadata dynamic SAML attributes inherited from the SAML app. The SAML attributes are used to manage configured group attributes. The Admin Console displays the dynamic SAML attributes as **Configure SAML Attributes**, and the API returns these attributes as the `settings.signOn.configuredAttributeStatements` property in the [SAML application object](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication!path=6/settings/signOn/configuredAttributeStatements&t=request). <!--OKTA-573057,OKTA-549695-->
 
 #### Authenticator enrollment using the /authorize endpoint is GA in Preview
 

@@ -107,7 +107,7 @@ CLIENT_SECRET=BrPT0k1bCPgdQpiFU7LX...O6ANpoxm-MvwsY29_G-uzxLwGRbL3yhHFEaK9kn_IX
 
 ## Create the external service code
 
-You can now create the external service code that resides on your third-party site (in this example, the Glitch.com site). The third-party site receives and responds to the token inline hook call from Okta. The responses to the token inline hook call can modify or remove an existing custom claim or an OIDC standard profile claim. You can also update how long an access token or an ID token is valid. In this example, a new claim is added to the identity token. For further information on the token inline hook commands object, see the [Token inline hook reference](/docs/reference/token-hook) documentation.
+You can now create the external service code that resides on your third-party site (in this example, the Glitch.com site). The third-party site receives and responds to the token inline hook call from Okta. The responses to the token inline hook call can modify or remove an existing custom claim or an OIDC standard profile claim. You can also update how long an access token or an ID token is valid. In this example, a new claim is added to the identity token. For further information on the token inline hook commands object, see the [Token inline hook reference](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createTokenInlineHook) documentation.
 
 Copy (re-mix) the Glitch.com project code, [Okta Token Inline Hook](https://glitch.com/edit/#!/okta-inlinehook-tokenhook) and [Customize the external service for your org](#customize-the-external-service-for-your-org) to run the scenario right away. Skip to the [Activate and enable the token inline hook](#activate-and-enable-the-token-inline-hook) section to configure the token inline hook.
 
@@ -137,7 +137,7 @@ In this scenario, a pre-populated static array of patient names and patient IDs 
 
 ### Send a response to Okta
 
-The variable, `patientID`, can now be returned to Okta as an additional token claim using the `commands` object. For further information on the token `commands` object, see the [token inline hook](/docs/reference/token-hook/#commands) reference documentation.
+The variable, `patientID`, can now be returned to Okta as an additional token claim using the `commands` object. For further information on the token `commands` object, see the [token inline hook](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createTokenInlineHook!c=200&path=commands&t=response) reference documentation.
 
 <StackSelector snippet="send-response" noSelector/>
 
@@ -275,7 +275,7 @@ The token inline hook is ready for preview and testing. You now have the followi
     * The user signs in as normal, but now has a patient ID displayed in the Glitch console output. A successful implementation record of the token inline hook is also available for review in your Okta org System Log (**Reports** > **System Log**).
     * If you extended the sample app, click `My Profile` in the left-hand navigation pane. The patient ID is added as part of the claims table.
 
-> **Note:** Review the [Token inline hooks troubleshooting](/docs/reference/token-hook/#troubleshooting) content or the [Troubleshooting hook implementations](/docs/guides/common-hook-set-up-steps/nodejs/main/#troubleshoot-hook-implementations) section for information on any difficulties.
+> **Note:** Review the [Token inline hooks troubleshooting](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createTokenInlineHook) content or the [Troubleshooting hook implementations](/docs/guides/common-hook-set-up-steps/nodejs/main/#troubleshoot-hook-implementations) section for information on any difficulties.
 
 ## Next steps
 
@@ -289,4 +289,4 @@ Review the following guides to implement other inline or event hook examples:
 
 ## See also
 
-For further reference data on the token inline hook, see the [token inline hook](/docs/reference/token-hook/) reference.
+For further reference data on the token inline hook, see the [token inline hook](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createTokenInlineHook) reference.

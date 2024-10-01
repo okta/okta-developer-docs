@@ -44,7 +44,7 @@ Whether Okta returns a new refresh token with a new access token depends on the 
 
 Refresh tokens are available for a subset of Okta OAuth 2.0 client apps, specifically web, single-page, and mobile apps. See our [OAuth 2.0 and OIDC overview](/docs/concepts/oauth-openid/#recommended-flow-by-application-type) for more about creating an OpenID Connect app.
 
-Be sure to specify `refresh_token` as a `data_type` value for the `grant_type` parameter when adding an [OAuth client app](/docs/reference/api/apps/#add-oauth-2-0-client-application) using the `/apps` API.
+Be sure to specify `refresh_token` as a `data_type` value for the `grant_type` parameter when adding an [OAuth client app](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication!path=4/signOnMode&t=request) using the `/apps` API.
 
 If you're using the Admin Console to create an app, select **Refresh Token** as a **Grant type** in the **General Settings** section.
 
@@ -123,7 +123,7 @@ After you enable refresh token rotation, the `refresh_token` property appears wi
 
 > **Note:** A leeway of `0` doesn't necessarily mean that the previous token is immediately invalidated. The previous token is invalidated after the new token is generated and returned in the response.
 
-See [Refresh token object](/docs/reference/api/apps/#refresh-token-object).
+See the [refresh token object](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/getApplication!c=200&path=4/settings/oauthClient/refresh_token&t=response).
 
 ### Refresh token lifetime
 

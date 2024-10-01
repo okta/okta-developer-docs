@@ -8,6 +8,12 @@ excerpt:
 
 # Event Hooks Management API
 
+The Event Hooks Management API reference is now available at the new [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/EventHook/#tag/EventHook/).
+
+Explore the [Okta Public API Collections](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/overview) workspace to get started with the Event Hooks Management API Postman collection.
+
+<!--
+
 For general information on event hooks and how to create and use them, see [Event hooks](/docs/concepts/event-hooks/). The following documentation is only for the management API, which provides a CRUD interface for registering event hooks.
 
 For a step-by-step guide on implementing an example event hook, see the [Event hook](/docs/guides/event-hook-implementation/) guide.
@@ -693,4 +699,4 @@ Explore the event hooks API with filters: [![Run in Postman](https://run.pstmn.i
 
 ## Supported events for subscription
 
-When you register an event hook, you need to specify what events you want to subscribe to. To see the list of event types currently eligible for use in event hooks, use the [Event Types catalog](/docs/reference/api/event-types/#catalog) and search with the parameter `event-hook-eligible`.
+When you register an event hook, you need to specify what events you want to subscribe to. To see the list of event types currently eligible for use in event hooks, use the [Event Types catalog](/docs/reference/api/event-types/#catalog) and search with the parameter `event-hook-eligible`. -->
