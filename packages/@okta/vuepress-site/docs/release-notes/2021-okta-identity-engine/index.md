@@ -66,7 +66,7 @@ The Upload Logo for Org endpoint (`/org/logo`) is deprecated. Use the [Upload th
 
 * When the [Device Authorization Grant flow](/docs/guides/device-authorization-grant/main/) was used, token inline hooks weren't called. (OKTA-445422)
 
-* When users signed in to Okta Identity Engine using the [Sign-In Widget](/code/javascript/okta_sign-in_widget/), the **Username** field wasn't set as a required field. (OKTA-391311)
+* When users signed in to Okta Identity Engine using the [Sign-In Widget](/docs/guides/embedded-siw/), the **Username** field wasn't set as a required field. (OKTA-391311)
 
 ## November
 

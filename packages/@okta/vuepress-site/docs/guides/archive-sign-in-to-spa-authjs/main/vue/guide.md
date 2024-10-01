@@ -1,63 +1,66 @@
 ---
-title: Okta Auth JS and Vue
+title: Okta Auth JavaScript SDK and Vue
 language: Vue
 icon: code-vue
 excerpt: Integrate Okta with a Vue app using Auth JS.
 ---
 
-> **Note:** This document is only for Okta Classic Engine. If you are using Okta Identity Engine, see [Sign in to SPA with Auth JS](/docs/guides/sign-in-to-spa-authjs/vue/main). See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.
+> **Note:** This document is only for Classic Engine. If you’re using Okta Identity Engine, see [Sign in to SPA with Auth JS](/docs/guides/sign-in-to-spa-authjs/vue/main). See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.
 
-This guide will walk you through integrating authentication into a Vue app with Okta by performing these steps:
-- [Prerequisites](#prerequisites)
-- [Add an OpenID Connect Client in Okta](#add-an-openid-connect-client-in-okta)
-- [Create a Vue App](#create-a-vue-app)
-- [Install Dependencies](#install-dependencies)
-- [Create a Custom Sign-In Form](#create-a-custom-sign-in-form)
-- [Create Routes](#create-routes)
-- [Start your app](#start-your-app)
-- [Conclusion](#conclusion)
-- [Support](#support)
+This guide walks you through integrating authentication into a Vue app with Okta by performing these steps:
 
-> This guide is for `@okta/okta-auth-js` >= v5.0.0 and < 6.0.0, `vue` 3.
+* [Prerequisites](#prerequisites)
+* [Add an OpenID Connect Client in Okta](#add-an-openid-connect-client-in-okta)
+* [Create a Vue App](#create-a-vue-app)
+* [Install Dependencies](#install-dependencies)
+* [Create a Custom Sign-In Form](#create-a-custom-sign-in-form)
+* [Create Routes](#create-routes)
+* [Start your app](#start-your-app)
+* [Conclusion](#conclusion)
+
+> **Note**: This guide is for `@okta/okta-auth-js` >= v5.0.0 and < 6.0.0, `vue` 3.
 
 ## Prerequisites
-If you do not already have a **Developer Edition Account**, you can create one at <https://developer.okta.com/signup/>.
 
-## Add an OpenID Connect Client in Okta
-* Sign in to the Okta Developer Dashboard, and select **Create New App**
-* Choose **Single Page App (SPA)** as the platform, then populate your new OpenID Connect application with appropriate values for your app. For example:
+If you don’t already have an Okta Developer Edition org, you can create one at <https://developer.okta.com/signup/>.
 
-| Setting              | Value                                               |
-| -------------------  | --------------------------------------------------- |
-| App Name             | OpenID Connect App (must be unique)                 |
-| Login redirect URIs  | `http://localhost:8080/login/callback`              |
-| Logout redirect URIs | `http://localhost:8080/`                            |
-| Allowed grant types  | Authorization Code                                  |
+## Add an OpenID Connect client in Okta
 
-> **Note:** It is important to choose the appropriate application type for apps which are public clients. Failing to do so may result in Okta API endpoints attempting to verify an app's client secret, which public clients are not designed to have, hence breaking the sign-in or sign-out flow.
+* Sign in to the Okta developer dashboard, and select **Create New App**.
+* Choose **Single Page App (SPA)** as the platform, then populate your new OpenID Connect app with appropriate values for your app. For example:
 
+   | Setting              | Value                                               |
+   | -------------------  | --------------------------------------------------- |
+   | App name             | OpenID Connect App (must be unique)                 |
+   | Login redirect URIs  | `http://localhost:8080/login/callback`              |
+   | Logout redirect URIs | `http://localhost:8080/`                            |
+   | Allowed grant types  | Authorization Code                                  |
+
+> **Note:** It's important to choose the appropriate app type for apps that are public clients. Failing to do so may result in Okta API endpoints attempting to verify an app's client secret. Public clients aren’t designed to a client secret, hence breaking the sign-in or sign-out flow.
+>
 > **Note:** CORS is automatically enabled for the granted login redirect URIs.
 
-## Create a Vue App
-To quickly create a Vue app, we recommend the Vue CLI. Follow [their guide](https://cli.vuejs.org/guide/installation.html) or use the steps below.
+## Create a Vue app
 
-```
+To quickly create a Vue app, Okta recommends the Vue CLI. Follow [their guide](https://cli.vuejs.org/guide/installation.html) or use the following steps.
+
+```bash
 npm install -g @vue/cli
 vue create okta-vue-auth-example
-# Manually select features: choose defaults + Router, Vue.js v3
-# Choose history mode for router
 cd okta-vue-auth-example
 ```
 
-## Install Dependencies
-A simple way to add authentication to a Vue app is using the [Okta Auth JS](/code/javascript/okta_auth_sdk/) library. You can install it via `npm`:
+## Install dependencies
+
+A simple way to add authentication to a Vue app is using the [Okta Auth JavaScript SDK](/docs/guides/auth-js) (auth.js). You can install it through `npm`:
 
 ```bash
 npm install @okta/okta-auth-js
 ```
 
-## Create a Custom Sign-In Form
-If the [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/) does not fit your needs, [AuthJS](/code/javascript/okta_auth_sdk/) provides lower-level access to User Lifecycle operations, MFA, and more. For this example, you'll create a simple username and password form without MFA.
+## Create a custom sign-in form
+
+[Auth.js](/docs/guides/auth-js) provides more options that the Sign-In Widget: user lifecycle operations, MFA, and more. In this example, you create a simple username and password form without multifactor authentication.
 
 Create `src/components/About.vue` with the following HTML:
 
@@ -69,7 +72,7 @@ Create `src/components/About.vue` with the following HTML:
 </template>
 ```
 
-Create `src/components/Dashboard.vue`. This page will only be viewable to authenticated folks.
+Create `src/components/Dashboard.vue`. This page can only be viewed by authenticated users.
 
 ```html
 <template>
@@ -142,7 +145,7 @@ export default {
 }
 ```
 
-You'll need to replace `{yourOktaDomain}` with your Okta domain in the previous code example. Replace `{clientId}` with the client ID from the app you created in the beginning.
+Replace `{yourOktaDomain}` with your Okta domain in the previous code example. Replace `{clientId}` with the client ID from the app that you created earlier.
 
 Change `src/App.vue` to have the following code:
 
@@ -278,15 +281,15 @@ createApp(App)
 .mount('#app')
 ```
 
-## Create Routes
+## Create routes
 
-Some routes require authentication in order to render. Let's take a look at what routes are needed for this example:
+Some routes require authentication before rendering. Let's look at what routes are needed for this example:
 
-- `/`: The default landing page.
-- `/about`: A simple about page.
-- `/dashboard`: A route that's protected.
-- `/login`: The sign-in form.
-- `/logout`: A route to logout and redirect back to the default page.
+* `/`: The default landing page.
+* `/about`: A simple about page.
+* `/dashboard`: A route that's protected.
+* `/login`: The sign-in form.
+* `/logout`: A route to sign out a user and redirect them back to the default page.
 
 Create `src/router/index.js` with the following code.
 
@@ -327,6 +330,7 @@ export default router;
 ```
 
 ## Start your app
+
 Finally, start your app:
 
 ```bash
@@ -342,4 +346,5 @@ The source code for this guide can be found in [in the Vue Samples](https://gith
 -->
 
 ## Conclusion
-You have now successfully authenticated with Okta! Now what? With a user's `id_token`, you have basic claims for the user's identity. You can extend the set of claims by modifying the `scopes` to retrieve custom information about the user. This includes `locale`, `address`, `groups`, and [more](/docs/reference/api/oidc/).
+
+You have now successfully authenticated with Okta. With a user's `id_token`, you have basic claims for the user's identity. You can extend the set of claims by modifying the `scopes` to retrieve custom information about the user. This includes `locale`, `address`, `groups`, and [more](/docs/reference/api/oidc/).

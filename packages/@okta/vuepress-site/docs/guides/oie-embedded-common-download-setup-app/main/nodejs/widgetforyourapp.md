@@ -75,4 +75,4 @@ Load the Sign-In Widget in the sign-in page, similar to the following snippet:
 </div>
 ```
 
-See [Okta Sign-In Widget Guide](/code/javascript/okta_sign-in_widget/) for more details.
+See [Okta Sign-In Widget Guide](/docs/guides/embedded-siw/) for more details.

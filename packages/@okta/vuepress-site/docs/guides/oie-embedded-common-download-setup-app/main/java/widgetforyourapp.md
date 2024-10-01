@@ -58,7 +58,7 @@ When you initialize the Sign-In Widget on your sign-in page, you must configure 
 </script>
 ```
 
-See [Okta Sign-In Widget Guide](/code/javascript/okta_sign-in_widget/) for more details.
+See [Okta Sign-In Widget Guide](/docs/guides/embedded-siw/) for more details.
 
 > **Important**: In Okta Sign-In Widget version 7+, Identity Engine is enabled by default. If you’re using an earlier version than 7, you must explicitly enable Identity Engine features by setting `config.useInteractionCodeFlow = true;` in the configuration settings, as shown previously. If you’re using version 7+ and you want to use Okta Classic Engine rather than Identity Engine, specify `config.useClassicEngine = true;` in the configuration settings.
 

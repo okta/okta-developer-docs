@@ -24,7 +24,7 @@ The behavior of the Okta Authentication API varies depending on the type of your
 
 ### Public application
 
-A public application is an application that anonymously starts an authentication or recovery transaction without an API token, such as the [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/). Public applications are aggressively rate-limited to prevent abuse and require primary authentication to be successfully completed before releasing any metadata about a user.
+A public application is an application that anonymously starts an authentication or recovery transaction without an API token, such as the [Okta Sign-In Widget](/docs/guides/embedded-siw/). Public applications are aggressively rate-limited to prevent abuse and require primary authentication to be successfully completed before releasing any metadata about a user.
 
 ### Trusted application
 
@@ -35,7 +35,7 @@ Trusted applications are backend applications that act as an authentication brok
 
 ## Get started with authentication
 
-* Make sure that you need the API. Check out the [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/) that is built on the Authentication API. The Sign-In Widget is easier to use and supports basic use cases.
+* Make sure that you need the API. Check out the [Okta Sign-In Widget](/docs/guides/embedded-siw/) that is built on the Authentication API. The Sign-In Widget is easier to use and supports basic use cases.
 * For more advanced use cases, learn [the Okta API basics](/docs/reference/rest/).
 * Explore the Authentication API:
 
