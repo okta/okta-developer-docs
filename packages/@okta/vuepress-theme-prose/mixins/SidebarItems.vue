@@ -23,12 +23,12 @@ export default {
         homeLink,
         ...this.getGuides(),
         ..._.cloneDeep(concepts),
+        ..._.cloneDeep(reference),
         {
-          title: "API Docs",
+          title: "APIs",
           path: "https://developer.okta.com/docs/api",
           isExternal: true
         },
-        ..._.cloneDeep(reference),
         ..._.cloneDeep(languagesSdk),
         ..._.cloneDeep(releaseNotes)
       ];
