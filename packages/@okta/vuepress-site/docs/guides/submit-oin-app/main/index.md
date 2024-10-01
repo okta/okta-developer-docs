@@ -172,13 +172,13 @@ Click **Test your integration** to save your test information and begin the inte
 
 The OIN Wizard journey includes the **Test integration** experience page to help you configure and test your integration within the same org before submission. This page functions in a top-down approach, where you need to do the following:
 
-1. [Generate instances for testing](#generate-instances-for-testing). You need to create a test instance for each protocol that your integration supports.
-    * For SSO integrations, configure SSO and assign test users for the instance.
-    * For SCIM integrations, configure provisioning on the instance and map user profile attributes.
+1. [Generate instances for testing](#generate-instances-for-testing). You need to create an app integration instance to test each protocol that your integration supports.
+    * For SSO integrations, configure SSO and assign test users on the test instance.
+    * For SCIM integrations, configure provisioning and map user profile attributes on the test instance.
 
 1. Test your integration.
    * For SSO integrations, test the required flows in the [OIN Submission Tester](#oin-submission-tester) with your generated test instances. Fix any test failures from the OIN Submission Tester, then regenerate the test instance (if necessary) and retest.
-   * For SCIM integrations, execute the [Runscope CRUD tests](#runscope-crud-tests) and the [Okta manual integration tests](#manual-okta-scim-integration-tests) with your generated instance.
+   * For SCIM integrations, execute the [Runscope CRUD tests](#runscope-crud-tests) and the [Okta manual integration tests](#manual-okta-scim-integration-tests) with your generated test instance.
 1. [Submit your integration](#submit-your-integration) after all required tests are successful.
 
 > **Note:** You must have the Okta Browser Plugin installed with **Allow in Incognito** enabled before you use the  **OIN Submission Tester**. See [OIN Wizard requirements](/docs/guides/submit-app-prereq/main/#oin-wizard-requirements).
