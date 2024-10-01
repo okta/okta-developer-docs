@@ -97,11 +97,11 @@ The following features have already been released as Early Access. To enable the
 
 #### System Log API Returns Threat Insight Attribute
 
-The `debugContext` object returned by the [System Log API](/docs/reference/api/system-log/) can now include an `okta_threat_insight` attribute to indicate that an event has been identified as a security risk. <!--OKTA-198102-->
+The `debugContext` object returned by the [System Log API](/docs/reference/https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/#tag/SystemLog/operation/listLogEvents!c=200&path=debugContext&t=responseapi/system-log/) can now include an `okta_threat_insight` attribute to indicate that an event has been identified as a security risk. <!--OKTA-198102-->
 
 #### Bugs Fixed in 2018.48
 
-* Some customers could access log data outside of their allowed retention range through the [System Log API](/docs/reference/api/system-log/). <!--OKTA-196313-->
+* Some customers could access log data outside of their allowed retention range through the [System Log API](/docs/reference/api/systehttps://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/#tag/SystemLogm-log/). <!--OKTA-196313-->
 
 * Responses from the `/oauth2/${authServerId}/.well-known/oauth-authorization-server` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/getWellKnownOAuthConfigurationCustomAS) did not include supported OpenID Connect response types in the content of the `response_types_supported` property. <!--OKTA-114737-->
 
@@ -133,7 +133,7 @@ The [Linked Objects API](/docs/reference/api/linked-objects/) is now available t
 
 #### Bugs Fixed in 2018.45
 
-* The set of roles allowed access to system log information by the [Events API](/docs/reference/api/events) did not match the set of roles allowed access by the [System Log API](/docs/reference/api/system-log/). (OKTA-194899)
+* The set of roles allowed access to system log information by the [Events API](/docs/reference/api/events) did not match the set of roles allowed access by the [System Log API](/docs/referenhttps://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/#tag/SystemLogce/api/system-log/). (OKTA-194899)
 * When a user tried to sign in using the Okta Sign-in Widget, they would not be prompted to enroll an optional factor, despite `multiOptionalFactorEnroll` being set to `true`. (OKTA-195195)
 
 #### Previously Released Early Access Features 2018.45 Update
@@ -161,7 +161,7 @@ The following features have already been released as Early Access. To enable the
 #### Bugs Fixed in 2018.44
 
 * Temporary passwords returned by the `/users/${userId}/lifecycle/expire_password` [endpoint](/docs/reference/api/users/#expire-password) sometimes included hard-to-distinguish characters.
-* Queries to the `/logs` [endpoint](/docs/reference/api/system-log/#list-events) with `since` and `until` values that were both earlier than the customer's data retention period would return an HTTP 500 error.
+* Queries to the `/logs` [endpoint](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/#tag/SystemLog/operation/listLogEvents) with `since` and `until` values that were both earlier than the customer's data retention period would return an HTTP 500 error.
 
 #### Previously Released Early Access Features 2018.44 Update
 
@@ -227,7 +227,7 @@ Editing the [link](/docs/reference/api/users/#links-object) between users now re
 
 #### Bugs Fixed in 2018.41
 
-* Queries to the `/logs` [endpoint](/docs/reference/api/system-log/#list-events) with values for `since` and `until` that did not specify the time to milliseconds would sometimes return events outside of the specified time range. (OKTA-191533)
+* Queries to the `/logs` [endpoint](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/#tag/SystemLog/operation/listLogEvents) with values for `since` and `until` that did not specify the time to milliseconds would sometimes return events outside of the specified time range. (OKTA-191533)
 * Responses from the `/events` endpoint would sometimes omit milliseconds from the `published` field. (OKTA-192568)
 
 #### Previously Released Early Access Features 2018.41 Update
@@ -456,7 +456,7 @@ You can now disable the Okta loading animation that appears during a login redir
 
 #### New System Log Event Type for Denied Events
 
-The [System Log](/docs/reference/api/system-log/#security-events) now reports when requests are denied due to a blocklist rule (such as a IP network zone or location rule). These events are logged with the event type `security.request.blocked`. (OKTA-178982)
+The [System Log](https://developer.okta.com/docs/reference/system-log-query/#security-events) now reports when requests are denied due to a blocklist rule (such as a IP network zone or location rule). These events are logged with the event type `security.request.blocked`. (OKTA-178982)
 
 #### Bugs Fixed in 2018.32
 
@@ -558,9 +558,9 @@ The MFA [call factor](https://developer.okta.com/docs/api/openapi/okta-managemen
 
 #### Bugs Fixed in 2018.28
 
-* Users received an incorrect error message when using the [System Log API](/docs/reference/api/system-log/) and specifying a sort order with an unbounded `until` statement. (OKTA-175411)
+* Users received an incorrect error message when using the [System Log API](/docs/referencehttps://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/#tag/SystemLog/api/system-log/) and specifying a sort order with an unbounded `until` statement. (OKTA-175411)
 
- * Under certain circumstances, the [System Log API](/docs/reference/api/system-log/) did not return events on the first query, but did on subsequent queries. (OKTA-174660)
+* Under certain circumstances, the [System Log API](/docs/refhttps://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/#tag/SystemLogerence/api/system-log/) did not return events on the first query, but did on subsequent queries. (OKTA-174660)
 
 #### Previously Released Early Access Features 2018.28 Update
 
@@ -586,7 +586,7 @@ The following features have already been released as Early Access. To enable the
 
 #### System Log API is Generally Available (GA)
 
-The [System Log API](/docs/reference/api/system-log/) is now Generally Available. Developers of new projects are strongly recommended to use this in lieu of the Events API.
+The [System Log API](/docs/reference/api/systhttps://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/#tag/SystemLogem-log/) is now Generally Available. Developers of new projects are strongly recommended to use this in lieu of the Events API.
 
 #### Bugs Fixed in 2018.27
 
@@ -1061,7 +1061,7 @@ Version 2.7.0 of the Okta Sign-in Widget provides new features, notable changes,
 
 * An incorrect error message was returned when a blank password was specified in a password reset request. (OKTA-144982)
 * If administrators in an org with the Admin Console enabled used the Classic user interface instead, and had no apps assigned, they couldn't access their own user home page. (OKTA-152324)
-* For [the System Log API](/docs/reference/api/system-log/), the `displayName` in the Target object was set to `Unknown` if the `eventType` was `user.authentication.sso` and if the value didn't exist in the profile editor.
+* For [the System Log API](/docs/refehttps://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/#tag/SystemLogrence/api/system-log/), the `displayName` in the Target object was set to `Unknown` if the `eventType` was `user.authentication.sso` and if the value didn't exist in the profile editor.
 This behavior matches the behavior in `/events`. (OKTA-156484)
 
 
@@ -1094,8 +1094,8 @@ Often the terms "event" and "log event" are used interchangeably. In the context
 
 Notes:
 
-* The System Log API contains much more [structured data](/docs/reference/api/system-log/#logevent-object) than the Events API.
-* The System Log API supports [additional SCIM filters](/docs/reference/api/system-log/#request-parameters) and the `q` query parameter, because of the presence of more structured data than the Events API. <!-- OKTA-160902 OKTA-160880 -->
+* The System Log API contains much more [structured data](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/#tag/SystemLog) than the Events API.
+* The System Log API supports [additional SCIM filters](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/#tag/SystemLog/operation/listLogEvents!in=query&path=q&t=request) and the `q` query parameter, because of the presence of more structured data than the Events API. <!-- OKTA-160902 OKTA-160880 -->
 
 #### Password Imports with Salted SHA-256 Algorithm is in Early Access (EA)
 
@@ -1245,9 +1245,9 @@ If you don't want these changes, contact [Support](https://support.okta.com/help
 
 #### Improved System Log Behavior for Date Queries
 
-1. For `/logs`, the request parameters [`since` and `until`](/docs/reference/api/system-log/#request-parameters) require [the RFC 3339 Internet Date/Time Format profile of ISO 8601](https://tools.ietf.org/html/rfc3339#page-8). This allows queries to more accurately target date ranges. <!-- OKTA-149837 -->
+1. For `/logs`, the request parameters [`since` and `until`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/#tag/SystemLog/operation/listLogEvents!in=query&path=since&t=request) require [the RFC 3339 Internet Date/Time Format profile of ISO 8601](https://tools.ietf.org/html/rfc3339#page-8). This allows queries to more accurately target date ranges. <!-- OKTA-149837 -->
 
-2. For /`logs`, [the maximum page size](/docs/reference/api/system-log/#request-parameters) is 1,000 messages (`limit=1000`). The default remains at 100. <!-- OKTA-154711, OKTA-157865 -->
+2. For /`logs`, [the maximum page size](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/#tag/SystemLog/operation/listLogEvents!in=query&path=limit&t=request) is 1,000 messages (`limit=1000`). The default remains at 100. <!-- OKTA-154711, OKTA-157865 -->
 
 #### System Log Message Changes Related to Authorization Servers
 
@@ -1332,13 +1332,13 @@ The following feature enhancement is expected in preview orgs February 14, 2018,
 
 #### Keystore Rollover Events Now Logged
 
-OAuth key store rollover events are now included in both the [Events](/docs/reference/api/events) and [System Log](/docs/reference/api/system-log/) APIs.<!-- OKTA-129535 -->
+OAuth key store rollover events are now included in both the [Events](/docs/reference/api/events) and [System Log](/dhttps://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/#tag/SystemLogocs/reference/api/system-log/) APIs.<!-- OKTA-129535 -->
 
 #### Bug Fixed
 
 The following bug has been fixed and is expected in preview orgs February 14, 2018 and production orgs starting February 27, 2018.
 
-* The error message "Exception while persisting IdpAppUser" wasn't available in the [System Log API](/docs/reference/api/system-log/). (OKTA-153604)
+* The error message "Exception while persisting IdpAppUser" wasn't available in the [System Log API](/docs/reference/api/systehttps://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/#tag/SystemLogm-log/). (OKTA-153604)
 
 
 ### Weekly Release 2018.06

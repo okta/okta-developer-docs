@@ -1348,7 +1348,7 @@ For a full description of the new rate limits, see [API Rate Limits](/docs/refer
 
 ### Platform Feature Improvement: System Log Notifications for OpenID Connect Apps
 
-Notifications are entered in the [System Log](/docs/reference/api/system-log/) when OpenID Connect apps are created or updated.
+Notifications are entered in the [System Log](/docs/reference/aphttps://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/#tag/SystemLogi/system-log/) when OpenID Connect apps are created or updated.
 
 ### Platform Bugs Fixed
 

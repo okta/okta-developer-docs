@@ -781,7 +781,7 @@ You then need to associate the registered inline hook with a custom authorizatio
 
 This section covers what happens when a token inline hook flow fails either due to the external inline hook service returning an error object or not returning a successful response, or the inline hook patch fails.
 
-> **Note:** Administrators can use the [Okta System Log](/docs/reference/api/system-log/) to view errors. See the [Troubleshooting](/docs/concepts/inline-hooks/#troubleshooting) section in the inline hooks concept piece for more information on the events related to inline hooks that the Okta System Log captures.
+> **Note:** Administrators can use the [Okta System Log](/docs/reference/apihttps://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/#tag/SystemLog/system-log/) to view errors. See the [Troubleshooting](/docs/concepts/inline-hooks/#troubleshooting) section in the inline hooks concept piece for more information on the events related to inline hooks that the Okta System Log captures.
 
 - When there's a communication failure with the external service, a timeout for example, the inline hook operation is skipped. The token is generated without any modification from the inline hook.
 

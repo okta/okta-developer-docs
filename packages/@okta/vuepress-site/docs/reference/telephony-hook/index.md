@@ -219,7 +219,7 @@ If the provider response times out, Okta attempts to send the OTP using the Okta
 
 This section explains several common causes of failure for telephony inline hooks.
 
-> **Note:** Administrators can use the [Okta System Log](/docs/reference/api/system-log/) to view errors. See the [Troubleshooting](/docs/concepts/inline-hooks/#troubleshooting) section in the inline hooks topic for details on events captured by the Okta System Log.
+> **Note:** Administrators can use the [Okta System Log](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/#tag/SystemLog/) to view errors. See the [Troubleshooting](/docs/concepts/inline-hooks/#troubleshooting) section in the inline hooks topic for details on events captured by the Okta System Log.
 
 |       Issue      |          Impact            |      Error Visibility       |
 |------------------|----------------------------|-----------------------------|

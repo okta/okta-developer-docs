@@ -166,7 +166,7 @@ Error messages returned by the [User Types API](https://developer.okta.com/docs/
 
 #### Maximum characters increased for the UserAgent string
 
-The maximum length of the `client.userAgent.rawUserAgent` property value was increased from 200 to 500 characters. See [UserAgent Object](https://developer.okta.com/docs/reference/api/system-log/#useragent-object) in the `/logs` API reference content for more information on this property.
+The maximum length of the `client.userAgent.rawUserAgent` property value was increased from 200 to 500 characters. See [UserAgent Object](https://developer.okta.com/docs/api/#user-agent) in the `/logs` API reference content for more information on this property.
 
 
 ### Monthly Release 2019.10.0

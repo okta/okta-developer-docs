@@ -107,7 +107,7 @@ Used for deleting objects
 
 ### Client request context
 
-Okta derives the client request context directly from the HTTP request headers and client TCP socket. The request context is used to evaluate policies such as global session policy and to provide client information for [troubleshooting and auditing](/docs/reference/api/system-log/#client-object) purposes.
+Okta derives the client request context directly from the HTTP request headers and client TCP socket. The request context is used to evaluate policies such as global session policy and to provide client information for [troubleshooting and auditing](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/#tag/SystemLog/operation/listLogEvents!c=200&path=client&t=response) purposes.
 
 ### User Agent
 
@@ -125,7 +125,7 @@ We recommend that you use a template like the following to format the `User-Agen
 
 `User-Agent: Mozilla/5.0 (<system-information>) <platform> (<platform-details>) <extensions>`
 
-Okta recommends making test [authentication requests](/docs/reference/api/authn/#primary-authentication) and then checking for the related entries in the [System Log](/docs/reference/api/system-log/#useragent-object). Testing helps you ensure that Okta can parse both the `OS` and `Browser` fields from the `User-Agent` header that is passed by your application.
+Okta recommends making test [authentication requests](/docs/reference/api/authn/#primary-authentication) and then checking for the related entries in the [User Agent](https://developer.okta.com/docs/api/#user-agent). Testing helps you ensure that Okta can parse both the `OS` and `Browser` fields from the `User-Agent` header that is passed by your application.
 
 If the `OS` and/or `Browser` fields come back as `Unknown` in the System Log, ensure that certain string values (see below) are present in the `User-Agent` string so that the OS and browser are detected.
 
@@ -245,7 +245,7 @@ The possible `rel` values are:
 | `self`             | Specifies the URL of the current page of results         |
 | `next`             | Specifies the URL of the immediate next page of results |
 
-When you first make an API call and get a cursor-paged list of objects, the end of the list is the point where you don't receive another `next` link value with the response. This holds true for all cases, except for the [System Log API](/docs/reference/api/system-log/) where the `next` link always exists in [System Log](/docs/reference/api/system-log/#list-events) polling queries. A polling query is defined as an `ASCENDING` query with an empty or absent `until` parameter, providing a stream of data.
+When you first make an API call and get a cursor-paged list of objects, the end of the list is the point where you don't receive another `next` link value with the response. This holds true for all cases, except for the [System Log API](/docs/reference/api/system-https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/#tag/SystemLoglog/) where the `next` link always exists in [System Log](/docs/reference/system-log-query/#polling-requests) polling queries. A polling query is defined as an `ASCENDING` query with an empty or absent `until` parameter, providing a stream of data.
 
 ### Filter
 
@@ -283,7 +283,7 @@ Most of the operators listed in the [SCIM Protocol Specification](https://www.rf
 > * Some objects don't support all the listed operators.
 > * The `ne` (not equal) operator isn't supported for some objects, but you can obtain the same result by using `lt ... or ... gt`. For example, to see all user agents except for "iOS", use `(client.userAgent.os lt "iOS" or client.userAgent.os gt "iOS")`.
 > * All `Date` values use the ISO 8601 format `YYYY-MM-DDTHH:mm:ss.SSSZ`.
-> * The [System Log API](/docs/reference/api/system-log/#filtering-results) supports the contains (`co`) and ends with (`ew`) operators.
+> * The [System Log API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/#tag/SystemLog/operation/listLogEvents!in=query&path=filter&t=request) supports the contains (`co`) and ends with (`ew`) operators.
 
 #### Attribute operators
 
@@ -349,7 +349,7 @@ Search and list operations are intended to find matching resources and their ide
 
 ### Request debugging
 
-The request ID is always present in every API response and can be used for debugging. You can use this value to correlate events from the [System Log](/docs/reference/api/system-log/) events.
+The request ID is always present in every API response and can be used for debugging. You can use this value to correlate events from the [System Log](/docs/referhttps://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/#tag/SystemLogence/api/system-log/) events.
 
 The following header is set in each response:
 

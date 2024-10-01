@@ -124,7 +124,7 @@ The descriptive information returned on both the invalid redirect URI and invali
 
 #### System Log API adds additional filter expressions
 
-The [System Log API](/docs/reference/api/system-log/) `/logs` endpoint can now use the SCIM filter expression operators: `ew` (ends with), `ne` (not equal), and `not` (not function). <!--OKTA-188737-->
+The [System Log API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/#tag/SystemLog/operation/listLogEvents!in=query&path=filter&t=request) `/logs` endpoint can now use the SCIM filter expression operators: `ew` (ends with), `ne` (not equal), and `not` (not function). <!--OKTA-188737-->
 
 #### Zones API includes `usage` property
 

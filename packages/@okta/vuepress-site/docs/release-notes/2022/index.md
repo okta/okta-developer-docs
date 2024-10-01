@@ -621,7 +621,7 @@ Telephony `system.sms.send.*` and `system.voice.send.*` events are now issued as
 
 Additionally, the way that the `MobilePhoneID` hash is created for all `system.sms.send.*` and `system.voice.send.*` events is changed.
 
-See the [System Log API](/docs/reference/api/system-log/). <!-- OKTA-498664 -->
+See the [System Log API](/docs/reference/ahttps://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/#tag/SystemLogpi/system-log/). <!-- OKTA-498664 -->
 
 #### Bugs fixed in 2022.06.0
 
@@ -905,7 +905,7 @@ The Okta Org2Org integration enables you to push and match both users and groups
 
 #### Bug fixed in 2022.02.2
 
-Resend verification emails for self-service registered users didn't appear in the [System Log](/docs/reference/api/system-log/). (OKTA-456831)
+Resend verification emails for self-service registered users didn't appear in the [System Log](/docs/referhttps://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/#tag/SystemLogence/api/system-log/). (OKTA-456831)
 
 ### Weekly release 2022.02.1
 
@@ -992,7 +992,7 @@ The masking algorithm now reveals fewer digits in API responses for shorter prof
 
 * When the [Upload Theme background image](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Themes/#tag/Themes/operation/uploadBrandThemeBackgroundImage) endpoint was called, the image was converted to PNG format. (OKTA-458260)
 
-* When the [List events](/docs/reference/api/system-log/#list-events) operation was performed on the `/logs` endpoint, some system logs showed the incorrect status for debug behaviors if there was missing data that prevented behavior evaluation. (OKTA-455372)
+* When the [List events](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/#tag/SystemLog/operation/listLogEvents) operation was performed on the `/logs` endpoint, some system logs showed the incorrect status for debug behaviors if there was missing data that prevented behavior evaluation. (OKTA-455372)
 
 ### Monthly release 2022.01.0
 

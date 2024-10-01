@@ -61,7 +61,7 @@ This event type can provide additional information about rate limit decisions. F
 
 #### DebugContext object for operation rate limits
 
-For some event types, the fields provided in other response objects aren't sufficient to adequately describe the operations that the event has performed. In such cases, the [DebugContext](/docs/reference/api/system-log/#debugcontext-object) object provides a way to store additional information.
+For some event types, the fields provided in other response objects aren't sufficient to adequately describe the operations that the event has performed. In such cases, the [DebugContext](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/#tag/SystemLog/operation/listLogEvents!c=200&path=debugContext&t=response) object provides a way to store additional information.
 
 #### DebugContext object properties for operation rate limits
 

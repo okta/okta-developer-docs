@@ -399,4 +399,4 @@ If you don't see the consent prompt when expected:
 * Check the settings for `prompt`, `consent`, and `consent_method` in the [Apps API table](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication!path=4/signOnMode&t=request).
 * Make sure that in your app configuration, the `redirect_uri` is an absolute URI and that it is allowed by specifying it in [Trusted Origins](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/TrustedOrigin/).
 * If you aren't using the `default` [authorization server](/docs/concepts/auth-servers/), check that you've created at least one policy with one rule that applies to any scope or the scope(s) in your test.
-* Check the [System Log](/docs/reference/api/system-log/) to see what went wrong.
+* Check the [System Log](/docs/reference/api/systhttps://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/#tag/SystemLogem-log/) to see what went wrong.

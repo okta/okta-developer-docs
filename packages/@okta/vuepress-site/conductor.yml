@@ -86,7 +86,7 @@ redirects:
   - from: /docs/reference/api/index.html
     to: /docs/reference/
   - from: /docs/api/rest/events.html
-    to: /docs/reference/api/system-log/index.html
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/#tag/SystemLog/
   - from: /docs/api/resources/factor_admin.html
     to: /docs/reference/api/factor-admin/index.html
   - from: /docs/api/resources/factor_admin/index.html
@@ -302,7 +302,7 @@ redirects:
   - from: /docs/examples/session_cookie.html
     to: /docs/guides/session-cookie/index.html
   - from: /use_cases/events-api-deprecation/index.html
-    to: /docs/reference/api/system-log/index.html
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/#tag/SystemLog/
   - from: /use_cases/inline_hooks/api_am_hook/api_am_hook
     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createTokenInlineHook/
   - from: /use_cases/integrate_with_okta/index.html
@@ -342,7 +342,7 @@ redirects:
   - from: /docs/reference/api/authn.html
     to: /docs/reference/api/authn/
   - from: /docs/reference/api/system_log.html
-    to: /docs/reference/api/system-log/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/#tag/SystemLog
   - from: /docs/how-to/creating-token-with-groups-claim.html
     to: /docs/guides/customize-tokens-returned-from-okta/
   - from: /docs/guides/create-token-with-groups-claim/index.html
@@ -414,7 +414,7 @@ redirects:
   - from: /use_cases/event_hooks/index.html
     to: /docs/concepts/event-hooks/
   - from: /use_cases/events-api-migration/index.html
-    to: /docs/reference/api/system-log/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/#tag/SystemLog/
   - from: /use_cases/inline_hooks/index.html
     to: /docs/concepts/inline-hooks/
   - from: /use_cases/inline_hooks/registration_hook/registration_hook/index.html
@@ -458,7 +458,7 @@ redirects:
   - from: /docs/api/resources/oauth-clients/index.html
     to: https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/Client/
   - from: /docs/api/resources/events/index.html
-    to: /docs/reference/api/system-log/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/#tag/SystemLog/
   - from: /docs/api/resources/event-hooks/index.html
     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/EventHook/
   - from: /docs/api/resources/event-types/index.html
@@ -482,7 +482,7 @@ redirects:
   - from: /docs/api/resources/sessions/index.html
     to: /docs/reference/api/sessions/
   - from: /docs/api/resources/system_log/index.html
-    to: /docs/reference/api/system-log/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/#tag/SystemLog/
   - from: /docs/api/resources/templates/index.html
     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Template/
   - from: /docs/api/resources/threat-insight/index.html
@@ -752,7 +752,7 @@ redirects:
   - from: /use_cases/event_hooks
     to: /docs/concepts/event-hooks/
   - from: /use_cases/events-api-migration
-    to: /docs/reference/api/system-log/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/#tag/SystemLog/
   - from: /use_cases/inline_hooks
     to: /docs/concepts/inline-hooks/
   - from: /use_cases/inline_hooks/registration_hook/registration_hook
@@ -792,7 +792,7 @@ redirects:
   - from: /docs/api/resources/oauth-clients
     to: https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/Client/
   - from: /docs/api/resources/events
-    to: /docs/reference/api/system-log/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/#tag/SystemLog/
   - from: /docs/api/resources/event-hooks
     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/EventHook/
   - from: /docs/api/resources/factors
@@ -810,7 +810,7 @@ redirects:
   - from: /docs/api/resources/sessions
     to: /docs/reference/api/sessions/
   - from: /docs/api/resources/system_log
-    to: /docs/reference/api/system-log/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/#tag/SystemLog/
   - from: /docs/api/resources/templates
     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Template/
   - from: /docs/api/resources/trusted-origins
@@ -894,7 +894,7 @@ redirects:
   - from: /docs/api/resources/oauth-clients.html
     to: https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/Client/
   - from: /docs/api/resources/events.html
-    to: /docs/reference/api/system-log/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/#tag/SystemLog/
   - from: /docs/api/resources/event-hooks.html
     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/EventHook/
   - from: /docs/api/resources/factors.html
@@ -910,7 +910,7 @@ redirects:
   - from: /docs/api/resources/schemas.html
     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/
   - from: /docs/api/resources/system_log.html
-    to: /docs/reference/api/system-log/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/#tag/SystemLog/
   - from: /docs/api/resources/templates.html
     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Template/
   - from: /docs/api/resources/trusted-origins.html
@@ -2300,9 +2300,9 @@ redirects:
   - from: /docs/guides/password-import-hook/-/test-password-import-hook/index.html
     to: /docs/guides/password-import-inline-hook/-/main/#test-your-hook
   - from: /docs/reference/api/systemlog
-    to: /docs/reference/api/system-log/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/#tag/SystemLog/
   - from: /docs/reference/api/systemlog/index.html
-    to: /docs/reference/api/system-log/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/#tag/SystemLog/
   - from: /docs/code/java/spring_security_saml.html
     to: /code/java/spring_security_saml/index.html
   - from: /docs/guides/password-import-hook/-/next-steps/index.html
@@ -5542,13 +5542,13 @@ redirects:
   - from: /docs/guides/customize-themes
     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Brands/
   - from: /docs/concepts/events-api-migration/index.html
-    to: /docs/reference/api/system-log/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/#tag/SystemLog/
   - from: /docs/concepts/events-api-migration
-    to: /docs/reference/api/system-log/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/#tag/SystemLog/
   - from: /docs/reference/api/events/index.html
-    to: /docs/reference/api/system-log/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/#tag/SystemLog/
   - from:  /docs/reference/api/events
-    to: /docs/reference/api/system-log/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/#tag/SystemLog/
   - from: /docs/reference/beta-only/index.html
     to: /docs/reference/#apis-documented-only-on-the-new-beta-reference
   - from: /docs/reference/beta-only

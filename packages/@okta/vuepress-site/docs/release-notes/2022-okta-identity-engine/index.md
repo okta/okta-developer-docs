@@ -812,7 +812,7 @@ Using signed SAML requests ensures that incoming requests are from genuine appli
 
 #### System Log events for telephony rate limit violations
 
-Telephony `system.sms.send.*` and `system.voice.send.*` events are now issued as a `DENY` System Log message when SMS or Voice messages are blocked due to telephony operational rate limit violations. The `system.operation.rate_limit.violation` event is still fired, but will be deprecated in the 2022.08.0 release. See the [System Log API](/docs/reference/api/system-log/). <!-- OKTA-498664 -->
+Telephony `system.sms.send.*` and `system.voice.send.*` events are now issued as a `DENY` System Log message when SMS or Voice messages are blocked due to telephony operational rate limit violations. The `system.operation.rate_limit.violation` event is still fired, but will be deprecated in the 2022.08.0 release. See the [System Log API](/docs/reference/apihttps://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/#tag/SystemLog/system-log/). <!-- OKTA-498664 -->
 
 #### Telephony inline hook is GA in Preview
 
@@ -1205,7 +1205,7 @@ The masking algorithm now reveals fewer digits in API responses for shorter prof
 
 * When the [Upload Theme background image](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Themes/#tag/Themes/operation/uploadBrandThemeBackgroundImage) endpoint was called, the image was converted to PNG format. (OKTA-458260)
 
-* When the [List events](/docs/reference/api/system-log/#list-events) operation was performed on the `/logs` endpoint, some system logs showed the incorrect status for debug behaviors if there was missing data that prevented behavior evaluation. (OKTA-455372)
+* When the [List events](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/#tag/SystemLog/operation/listLogEvents) operation was performed on the `/logs` endpoint, some system logs showed the incorrect status for debug behaviors if there was missing data that prevented behavior evaluation. (OKTA-455372)
 
 ### Monthly release 2022.01.0
 

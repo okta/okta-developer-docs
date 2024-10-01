@@ -578,7 +578,7 @@ For details about this release, see the Okta [Sign-In Widget release notes](http
 
 * Array indexing [expressions](/docs/reference/okta-expression-language/#constants-and-operators) (for example: `myArray[0]`) were blocked at validation even when the array and the index were valid. (OKTA-395810)
 
-* SAML requests and responses weren't logged in the [System Log](/docs/reference/api/system-log/) as distinct event fields and lacked detail about the SAML assertion. (OKTA-378981)
+* SAML requests and responses weren't logged in the [System Log](/docs/reference/https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/#tag/SystemLogapi/system-log/) as distinct event fields and lacked detail about the SAML assertion. (OKTA-378981)
 
 ### Weekly release 2021.05.2
 
@@ -677,7 +677,7 @@ The SAML parameter `SessionNotOnOrAfter` is now Generally Available in Preview f
 
 #### System Log API SCIM filter expression update
 
-The [System Log API](/docs/reference/api/system-log/) has been updated to return an HTTP 400 response code when a request is made with a SCIM filter expression using the `co` (contains) operator with the `debugContext.debugData.url` or `debugContext.debugData.requestUri` field values. Use an alternative filter expression field such as `actor.id` or `target.id` to filter events in the System Log API. <!--OKTA-388434-->
+The [System Log API](/docs/referhttps://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/#tag/SystemLogence/api/system-log/) has been updated to return an HTTP 400 response code when a request is made with a SCIM filter expression using the `co` (contains) operator with the `debugContext.debugData.url` or `debugContext.debugData.requestUri` field values. Use an alternative filter expression field such as `actor.id` or `target.id` to filter events in the System Log API. <!--OKTA-388434-->
 
 #### Bug fixed in 2021.05.0
 

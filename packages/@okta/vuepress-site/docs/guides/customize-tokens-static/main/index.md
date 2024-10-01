@@ -328,7 +328,7 @@ The ID token contains the group "IT", so the audience (`aud`) has access to the 
 
 > **Note:** For flows other than implicit, post to the token endpoint `https://{yourOktaDomain}/oauth2/v1/token` with the user or client that you want. Make sure that the user is assigned to the app and to one of the groups from your allowlist.
 
-If the results aren't as expected, start your troubleshooting by inspecting the [System Log](/docs/reference/api/system-log/) to see what went wrong.
+If the results aren't as expected, start your troubleshooting by inspecting the [System Log](/docs/referenchttps://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/#tag/SystemLoge/api/system-log/) to see what went wrong.
 
 ## Use a static group allowlist with a custom authorization server
 
