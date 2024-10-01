@@ -921,41 +921,15 @@ export const guides = [
 ];
 
 export const languagesSdk = [
-  {
-    title: "Languages & SDKs",
-    path: "/code/",
-    subLinks: [
-      {
-        title: "Server-side",
-        subLinks: [
-          { title: "ASP.NET Core", path: "/code/dotnet/aspnetcore/" },
-          { title: "ASP.NET Framework", path: "/code/dotnet/aspnet/" },
-          { title: "Blazor", path: "/code/dotnet/blazor/" },
-          { title: "Go", path: "/code/go/" },
-          { title: "Java", path: "/code/java/" },
-          { title: "Node.js", path: "/code/nodejs/" },
-          { title: "Python", path: "/code/python/" },
-        ],
-      },
-      {
-        title: "Front-end",
-        subLinks: [
-          { title: "Angular", path: "/code/angular/" },
-          { title: "React", path: "/code/react/" },
-          { title: "Vue", path: "/code/vue/" },
-          { title: "JavaScript", path: "/code/javascript/" },
-        ],
-      },
-      {
-        title: "Mobile/native",
-        subLinks: [
-          { title: "Android", path: "/code/android/" },
-          { title: "iOS", path: "/code/ios/" },
-          { title: "React Native", path: "/code/react-native/" },
-        ],
-      },
-    ],
-  },
+   {
+      title: "SDKs",
+      path: "/code/",
+      subLinks: [
+         { title: "Recommended SDKs", path: "/code/" },
+         { title: "Alternate Sign-in SDKs", path: "/code/alternate-sign-in-sdks/" },
+         { title: "Versioning", path: "/code/library-versions/" },
+      ],
+   },
 ];
 
 export const reference = [

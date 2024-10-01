@@ -56,7 +56,7 @@ Location: https://your-app.example.com?id_token=S4sx3uixdsalasd&state=Af0ifjslDk
 
 The response also includes an [ID token](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/#id-token) that describes the authenticated user and can contain more claims such as user profile attributes or email.
 
-The [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/) uses this flow. Single Page Applications can also use this flow with the [`okta_post_messsage`](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/authorizeCustomAS!in=query&path=response_mode&t=request) `response_mode` type, which doesn't require a browser redirect.
+The [Okta Sign-In Widget](/docs/guides/embedded-siw/) uses this flow. Single Page Applications can also use this flow with the [`okta_post_messsage`](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/authorizeCustomAS!in=query&path=response_mode&t=request) `response_mode` type, which doesn't require a browser redirect.
 
 ## Retrieve a session cookie by visiting a session redirect link
 
