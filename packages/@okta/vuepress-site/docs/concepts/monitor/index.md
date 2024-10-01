@@ -15,7 +15,7 @@ Okta offers monitoring and alerting capabilities through Okta's APIs, SDKs, and 
 * Detect suspicious activities
 * Review user-reported suspicious activities
 * Detect and augment certain events
-* Avoid exceeding API usage limits
+* Avoid exceeding API use limits
 * View and block IP addresses identified by the greater Okta community as threatening
 * Determine the risk of an anomalous sign-in event
 * Confirm that validation is functional
@@ -67,9 +67,9 @@ For an example of an end-to-end event hook setup, see the [Event hooks guide](/d
 
 You can build custom apps to monitor and analyze events in Okta using Okta SDKs and APIs.
 
-* For a [REST API](/docs/reference/rest/) implementation, use the [System Log API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/) to retrieve system logs in your Okta org from the last 90 days
-* For a [Node.js](https://github.com/okta/okta-sdk-nodejs) implementation, use the [getLog()](https://github.com/okta/okta-sdk-nodejs#get-logs) method to retrieve system logs in your Okta org from the last 90 days
-* For an [okta-sdk-java](https://github.com/okta/okta-sdk-java) implementation, use the [getLogs()](https://github.com/okta/okta-sdk-java#list-system-logs) method to retrieve system logs in your Okta org from the last 90 days
+* For a [REST API](/docs/reference/rest/) implementation, use the [System Log API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/) to retrieve system logs in your Okta org from the last 90 days.
+* For a [Node.js](https://github.com/okta/okta-sdk-nodejs) implementation, use the [getLog()](https://github.com/okta/okta-sdk-nodejs#get-logs) method to retrieve system logs in your Okta org from the last 90 days.
+* For an [okta-sdk-java](https://github.com/okta/okta-sdk-java) implementation, use the [getLogs()](https://github.com/okta/okta-sdk-java#list-system-logs) method to retrieve system logs in your Okta org from the last 90 days.
 
 Refer to the supported [Event Types catalog](/docs/reference/api/event-types/#catalog) for the list of events you can use to filter for the system logs you're interested in.
 
@@ -79,7 +79,7 @@ See [Useful System Log Queries](https://support.okta.com/help/s/article/Useful-S
 
 ## Download system logs for analysis
 
-You can use the Admin Console to manually download CSV files containing query results of system logs. Use them for analysis or send them to a data warehouse or lake. See [System Logs](https://help.okta.com/okta_help.htm?id=ext_Reports_SysLog).
+You can use the Admin Console to manually download CSV files that contain query results of system logs. Use them for analysis or send them to a data warehouse or lake. See [System Logs](https://help.okta.com/okta_help.htm?id=ext_Reports_SysLog).
 
 ## Enable and configure Okta ThreatInsight
 
@@ -89,9 +89,9 @@ After ThreatInsight is enabled, Okta captures access attempts from malicious IPs
 
 ## Monitor rate limit warnings and violations
 
-To mitigate denial-of-service attacks and abusive actions, Okta enforces rate limits on API requests as well as other user inbound and outbound operations. See [Rate limit overview](/docs/reference/rate-limits/) for details.
+To mitigate denial-of-service attacks and abusive actions, Okta enforces rate limits on API requests as well as other user inbound and outbound operations. See the [Rate limit overview](/docs/reference/rate-limits/).
 
-Monitor and review the [system log events for rate limits](/docs/reference/rl-system-log-events/) to detect rate limit warnings or violations. Use the information in these event logs to investigate access spikes, abusive actions, or traffic trends. You can set up notification emails or notifications displayed in the Admin Console banner for admins. See [Set up rate limit notifications](https://help.okta.com/okta_help.htm?id=ext-set-up-rate-limit-notifs) for details.
+Monitor and review the [system log events for rate limits](/docs/reference/rl-system-log-events/) to detect rate limit warnings or violations. Use the information in these event logs to investigate access spikes, abusive actions, or traffic trends. You can set up notification emails or notifications that appear in the Admin Console banner for admins. See [Set up rate limit notifications](https://help.okta.com/okta_help.htm?id=ext-set-up-rate-limit-notifs).
 
 ## Review Okta system status
 

@@ -339,7 +339,7 @@ To monitor Identity Source Session activity for an identity source, you can use 
 
 #### Retrieve active Identity Source Sessions
 
-The [List all Identity Source Sessions](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/listIdentitySourceSessions) request returns a list of active Identity Source Sessions for an identity source to determine which sessions are currently processing and actively being worked on. An Identity Source Session is considered active if it has the `CREATED` or `TRIGGERED` status. Data processing completed for an identity source if no active session is returned (since a session that contains the `COMPLETED` status isn't considered active).
+The [List all Identity Source Sessions](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/listIdentitySourceSessions) request returns a list of active Identity Source Sessions for an identity source. This list helps determine which sessions are currently processing and actively being worked on. An Identity Source Session is considered active if it has the `CREATED` or `TRIGGERED` status. Data processing is complete for an identity source if no active session is returned (since a session that contains the `COMPLETED` status isn't considered active).
 
 ```bash
 curl -i -X GET \

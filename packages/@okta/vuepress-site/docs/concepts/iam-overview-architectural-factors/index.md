@@ -155,7 +155,7 @@ Okta provides a customizable, secure drop-in solution for managing users, authen
 
 - It supports a Zero Trust security architecture. See [What is Zero Trust Security?](http://okta.com/blog/2019/01/what-is-zero-trust-security/)
 
-- It logs events related to your org to provide an audit trail that you can export to a SIEM system. You can then use this data for monitoring, troubleshooting, event analysis, and audit. See [System Log API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/).
+- It logs events related to your org to provide an audit trail that you can export to a SIEM system. You can then use this data for monitoring, troubleshooting, event analysis, and audit. See the [System Log API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/).
 
 - You can configure it to provide notifications of user authorization issues and proactively respond to such events by temporarily blocking suspicious accounts.
 

@@ -13,7 +13,7 @@ Event types are the primary method of categorization within the Okta eventing pl
 
 ## Catalog
 
-The following is a full listing of event types used in the [System Log API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/) with associated description and related metadata.
+The following is a full list of event types used in the [System Log API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/) with associated descriptions and related metadata.
 
 Download a CSV file with all event types: [Okta Event Types](/docs/okta-event-types.csv).
 

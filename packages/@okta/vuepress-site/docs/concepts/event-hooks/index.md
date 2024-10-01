@@ -33,7 +33,7 @@ Event types include user lifecycle changes, the completion by a user of a specif
 
 <ApiLifecycle access="ea" />
 
-You can reduce the number of event hook calls by defining filters on specific instances of the subscribed event type. For example, if you want an event hook call triggered by user sign-in events for a specific group of users, you can filter on that group, rather than having an event hook call for every user sign-in. See [Create an event hook filter](#create-an-event-hook-filter).
+You can reduce the number of event hook calls by defining filters on specific instances of the subscribed event type. For example, if you want an event hook call triggered by user sign-in events for a specific group of users, you can filter on that group. Do this rather than have an event hook call for every user sign-in flow. See [Create an event hook filter](#create-an-event-hook-filter).
 
 <EventHookEANote/>
 
