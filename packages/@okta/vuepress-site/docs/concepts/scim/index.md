@@ -9,7 +9,7 @@ meta:
 
 This topic covers the concepts and use cases for SCIM and Okta.
 
-When you’re ready to create a SCIM integration, see [Build a SCIM provisioning integration](/docs/guides/scim-provisioning-integration-overview) and [how to implement the SCIM protocol with Okta](https://developer.okta.com/docs/api/openapi/okta-scim/guides/).
+When you're ready to create a SCIM integration, see [Build a SCIM provisioning integration](/docs/guides/scim-provisioning-integration-overview). For reference information on how to implement SCIM with Okta, see [SCIM Protocol](https://developer.okta.com/docs/api/openapi/okta-scim/guides/).
 
 ## What is SCIM for?
 
@@ -17,7 +17,7 @@ SCIM, or the [System for Cross-domain Identity Management](https://scim.cloud) s
 
 The goal of SCIM is to securely automate the exchange of user identity data between your company's cloud apps and any Service Providers (SP).
 
-Managing user lifecycles in your org is a fundamental business problem. Hiring employees is just the first step. You also need to provision apps needed for their job and enforce corporate security policies. Then you need to update user accounts as they advance through your company. At the end of their employment, you need to ensure that all access is quickly and thoroughly revoked across all apps. Handling all of this can be time-consuming and error-prone if done manually.
+Managing user lifecycles in your org is a fundamental business problem. Hiring employees is just step one. You also need to provision apps for their job and enforce corporate security policies. Then you need to update user accounts as they advance through your company. At the end of their employment, you need to ensure that all access is quickly and thoroughly revoked across all apps. Manually handling all of this can be time-consuming and error-prone.
 
 <div class="three-quarter">
 
@@ -49,7 +49,9 @@ Provisioning consists of a set of actions between a Service Provider - like Okta
 
 By implementing support for the SCIM standard, an integration in the Okta Integration Network is notified when a user is created in Okta. An integration is also notified when the user is updated or removed from their app in Okta.
 
-The provisioning actions performed by an integration are described using the database operation acronym "CRUD": Create, Read, Update, and Delete. The four CRUD operations are the building blocks that combine to solve your end-to-end use cases:
+The provisioning actions performed by an integration are described using the database operation acronym "CRUD": Create, Read, Update, and Delete. The four CRUD operations are the building blocks that combine to solve your end-to-end use cases.
+
+For more information about these operations for users and for groups, see the corresponding sections in the [SCIM V2.0](https://developer.okta.com/docs/api/openapi/okta-scim/guides/scim-20/) and [SCIM V1.1](https://developer.okta.com/docs/api/openapi/okta-scim/guides/scim-11/) references.
 
 ### Create
 
@@ -63,7 +65,11 @@ Information about user and group resources can be queried from your app to match
 
 If a resource in your app needs to be updated based on data changed in Okta, this operation updates existing user or group attributes. Alternatively, if your app functions as the source of truth for specific attributes of a user identity, this action updates the Okta user profile.
 
+For example, assume you've updated the `phoneNumber` attribute in Okta. A GET request gets the user information from your SCIM server. The return payload is updated with the new `phoneNumber`. A PUT call back then sends this entire payload (including attributes that weren't updated) back to your SCIM server. See the **Update a specific user (PUT)** section in the [SCIM V2.0](https://developer.okta.com/docs/api/openapi/okta-scim/guides/scim-20/#update-a-specific-user-put) and [SCIM V1.1](https://developer.okta.com/docs/api/openapi/okta-scim/guides/scim-11/#update-a-specific-user-put) references.
+
 User attributes can be mapped from your source into Okta. Conversely, an attribute can be mapped from Okta to a target attribute in your app.
+
+> **Note:** The `active` user attribute, which represents a users status, causes specific provisioning and deprovisioning jobs. As such, it's treated differently than other properties. Okta doesn't check for `active` nor overwrites it, even during a full import. See the **Update a specific user (Patch)** section in the [SCIM V2.0](https://developer.okta.com/docs/api/openapi/okta-scim/guides/scim-20/#update-a-specific-user-patch) and [SCIM V1.1](https://developer.okta.com/docs/api/openapi/okta-scim/guides/scim-11/#update-a-specific-user-patch) references.
 
 ### Delete (Deprovision)
 
@@ -83,7 +89,7 @@ Deleting or deprovisioning user profiles in SCIM operations depends on whether O
 
 Outside of the base CRUD operations, Okta supports other provisioning features like syncing passwords.
 
-Password synchronization helps you coordinate Okta-sourced users to ensure that a user’s Active Directory (AD) password and their Okta password always match. With password synchronization, your users have a single password to access apps and devices.
+Password synchronization helps you coordinate Okta-sourced users to ensure that a user's Active Directory (AD) password and their Okta password always match. With password synchronization, your users have a single password to access apps and devices.
 
 This option sets the user's password for your integration to match the Okta password or to be assigned a randomly generated password. For more information about this functionality and how to configure it in the Okta product, see [Synchronize passwords from Okta to Active Directory](https://help.okta.com/okta_help.htm?id=ext_Security_Using_Sync_Password).
 
@@ -130,7 +136,7 @@ For more information about SCIM and how to use the Admin Console to set up provi
 * [Build a SCIM provisioning integration](/docs/guides/scim-provisioning-integration-overview)
 * [Add SCIM provisioning to app integrations](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-scim)
 * [Provisioning Concepts](https://support.okta.com/help/s/article/okta-provisioning?language=en_US)
-* [Provision on-premises applications](https://help.okta.com/okta_help.htm?id=ext_OPP_configure)
+* [Provision on-premises apps](https://help.okta.com/okta_help.htm?id=ext_OPP_configure)
 * IETF [Overview and Specification of the SCIM Protocol](https://scim.cloud)
 
 For setting up Active Directory or LDAP for profile sourcing:
