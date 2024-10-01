@@ -5,6 +5,12 @@ excerpt: Verify a user-supplied password during migration of the user to Okta
 
 # Password import inline hook reference
 
+The Password Import Inline Hook API reference is now available at the new [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createPasswordImportInlineHook)
+
+Explore the [Okta Public API Collections](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/overview) workspace to get started with the Inline Hook API Postman Collection.
+
+<!--
+
 This page provides reference documentation for password import inline hooks, one type of inline hook supported by Okta. It provides sample JSON objects that are contained in the outbound request from Okta to your external service, and sample JSON objects that you can include in your response.
 
 ## See also
@@ -25,7 +31,7 @@ The password import inline hook is triggered when the end user tries to sign in 
 
 If your service returns a response that indicates that the password is valid, Okta sets the password for the user and won't normally need to call your service again. However, if your Okta org is in read-only mode, it might not be possible to set the password. Okta then needs to call your external service again when the end user attempts to signs in. See [Password inline hook and Okta read-only mode](#password-inline-hook-and-okta-read-only-mode) and [Removing Password from Existing User Store](#removing-password-from-existing-user-store) for details.
 
->**Note:** Password policies do not apply to the password import inline hook. That is, if your external service validates the password, the password imports even if it does not meet the Okta [password policy](/docs/reference/api/policy/#password-policy) requirements.
+>**Note:** Password policies do not apply to the password import inline hook. That is, if your external service validates the password, the password imports even if it does not meet the Okta [password policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy) requirements.
 
 ## Objects in the request from Okta
 
@@ -167,4 +173,4 @@ Because of the possibility of your org being in read-only mode, don't attempt to
 
 You can configure an [Event hook](/docs/concepts/event-hooks/) to send this event type to you, to use to trigger automated cleanup of end user passwords after successful migration.
 
-> **Note:** Only one password import inline hook can be created per org.
+> **Note:** Only one password import inline hook can be created per org. -->

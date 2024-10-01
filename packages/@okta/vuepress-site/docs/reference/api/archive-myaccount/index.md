@@ -9,7 +9,7 @@ category: management
 
 <ApiLifecycle access="deprecated" />
 
-The Okta MyAccount API allows end users (with or without administrator access) to fetch and update their own Okta user profiles.  It implements a subset of the existing [Users API](/docs/reference/api/users/) but with significant differences.  This API does not expose information an end user should not have access to, and it does not support lifecycle operations.
+The Okta MyAccount API allows end users (with or without administrator access) to fetch and update their own Okta user profiles. It implements a subset of the existing [Users API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/) but with significant differences. This API doesn't expose information that a user shouldn't have access to, and it doesn't support lifecycle operations.
 
 All operations in this API implicitly refer to the user making the API call.  No user ID is needed (or even accepted).
 
@@ -233,7 +233,7 @@ curl -v -X GET \
 
 Updates the caller's User Profile.
 
-> **Note:** This API differs from the the existing [Users API](/docs/reference/api/users/) in that only PUT is supported.  This API also does not support partial update.  All values returned from fetching User Profile must be passed to this API, or the update will not pass validation.  This applies even if the omitted schema property is optional. To unset an optional property, explicitly pass the property with a value of `null`.
+> **Note:** This API differs from the the existing [Users API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/) in that only PUT is supported.  This API also doesn't support a partial update. All values returned from fetching the User Profile must be passed to this API, or the update won't pass validation. This applies even if the omitted schema property is optional. To unset an optional property, explicitly pass the property with a value of `null`.
 
 #### Request path parameters
 

@@ -14,6 +14,7 @@ Use this guide to learn how to submit an SSO integration to the Okta Integration
 
 * Learn how to submit an SSO integration using the OIN Wizard.
 * Learn how to test your SSO integration with the OIN Submission Tester before submission.
+* Learn how to update a published SSO integration.
 
 #### What you need
 
@@ -431,11 +432,13 @@ All required tests in the OIN Submission Tester must have passed within 48 hours
 
 ## Update your integration
 
-You can modify your published SSO integration from the OIN Wizard.
+You can modify your published SSO integrations directly from the OIN Wizard.
 
-When you edit a published OIN integration, test the SSO flow for the updated version and the published version for backwards compatibility. Testing the published version for backwards compatibility ensures that SSO to your app still works for customers who have already installed your published OIN integration. See [Update integration considerations](#update-integration-considerations) before you edit your published SSO integration. After you successfully test the updated and published versions of your integration, resubmit it to the OIN team.
+> **Note:** Any published SSO integrations that were previously submitted through the OIN Manager have been migrated to the OIN Wizard and appear in the **Your OIN Integrations** dashboard.
 
-> **Note:** When you edit your published OIN integration, your previous PUBLISHED status and date are overwritten with the DRAFT status and current date.
+When you edit a published OIN integration, you need to test the SSO flow for the updated version and the published version for backwards compatibility. Testing the published version for backwards compatibility ensures that SSO to your app still works for customers who have already installed your OIN integration. See [Update integration considerations](#update-integration-considerations) before you edit your published SSO integration.
+
+After you successfully test the updated and published versions of your integration, resubmit it to the OIN team.
 
 To update a previously published OIN integration:
 
@@ -444,7 +447,10 @@ To update a previously published OIN integration:
 1. Go to **Applications** > **Your OIN Integrations** in the Admin Console.
 1. Click your published integration to update from the dashboard. Your published OIN submission appears in read-only mode.
 1. From the **This integration is read-only** information box, click **Edit integration**.
-    > **Note:** If you open a submission in DRAFT status, it's not in read-only mode and the **Edit integration** option isn't available. Continue to edit your draft submission as a new submission. See [Start a submission](#start-a-submission).
+    > **Notes:**
+    > * When you edit your published OIN integration, your previous PUBLISHED status and date are overwritten with the DRAFT status and current date.
+    > * Submissions in DRAFT status aren't in read-only mode, so you won't see the **This integration is read-only** information box. Continue to edit your draft submission in the OIN Wizard. See [Start a submission](#start-a-submission).
+
 1. If the OIN Wizard doesn't detect an instance to test your published integration in the org, then an **Application instance not detected** dialog appears. Click **Generate instance** to create an app instance based on your published OIN integration. See [Add existing app integrations](https://help.okta.com/okta_help.htm?type=oie&id=csh-apps-add-app) to create an instance for backwards-compatibility testing.
     > **Note:** **Generate instance** is disabled if you have five active instances in your org. [Deactivate instances](#deactivate-an-app-instance-in-your-org) that you're not using.
 
@@ -526,12 +532,12 @@ If you need help during your submission, Okta provides the following support str
 
 1. Building an integration phase
 
-    * When you're constructing your SSO app integration, you can post a question on the [Okta Developer Forum](https://devforum.okta.com/) or submit your question to <developers@okta.com>.
+    * When you're constructing your SSO app integration, you can post questions on the [Okta Developer Forum](https://devforum.okta.com/) or submit your questions to <developers@okta.com>.
 
 1. Using the OIN Wizard to submit an integration phase
 
     * If you need help with the OIN Wizard, review this document or see [Publish an OIN integration](/docs/guides/submit-app-overview/).
-    * Submit your OIN Wizard question to <developers@okta.com> if you can't find an answer in the documentation.
+    * Submit your OIN Wizard questions to <developers@okta.com> if you can't find answers in the documentation.
     * If you have an integration status issue, contact <oin@okta.com>.
 
 1. Testing an integration phase

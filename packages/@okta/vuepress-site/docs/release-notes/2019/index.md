@@ -37,7 +37,7 @@ The [Token inline hook](https://developer.okta.com/docs/api/openapi/okta-managem
 
 #### SAML inline hook is Generally Available in Production
 
-The [SAML inline hook](/docs/reference/saml-hook/) enables you to customize SAML assertions returned by Okta. You can add attributes or modify existing attributes in outbound SAML assertions. <!-- OKTA-244860 -->
+The [SAML inline hook](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createSAMLAssertionInlineHook) enables you to customize SAML assertions returned by Okta. You can add attributes or modify existing attributes in outbound SAML assertions. <!-- OKTA-244860 -->
 
 #### Scope Object Properties Default Values
 
@@ -115,7 +115,7 @@ The [Features API](/docs/reference/api/features/) provides operations to manage 
 
 #### SAML inline hook is Generally Available in Preview
 
-The [SAML inline hook](/docs/reference/saml-hook/) enables you to customize SAML assertions returned by Okta. You can add attributes or modify existing attributes in outbound SAML assertions. <!-- OKTA-244856 -->
+The [SAML inline hook](/https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createSAMLAssertionInlineHook) enables you to customize SAML assertions returned by Okta. You can add attributes or modify existing attributes in outbound SAML assertions. <!-- OKTA-244856 -->
 
 #### Token inline hook is Generally Available in Preview
 
@@ -264,7 +264,7 @@ The Okta Mappings API provides operations to manage the mapping of properties be
 
 #### Error Object in SAML assertion inline hook
 
-For the [SAML assertion inline hook](/docs/reference/saml-hook/), if an external service returns an `error` object, Okta now denies the SAML request and redirects the end user to an error page that displays the text string sent in `error.errorSummary`. <!-- OKTA-195167 -->
+For the [SAML assertion inline hook](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createSAMLAssertionInlineHook), if an external service returns an `error` object, Okta now denies the SAML request and redirects the end user to an error page that displays the text string sent in `error.errorSummary`. <!-- OKTA-195167 -->
 
 #### Rate Limits for Authorization Server Public Metadata
 
@@ -504,7 +504,7 @@ The [token inline hook](https://developer.okta.com/docs/api/openapi/okta-managem
 
 #### The Registration Inline Hook is in Early Access (EA)
 
-The [registration inline hook](/docs/reference/registration-hook/) allows you to integrate your own custom logic into Okta's Self-Service Registration flow. <!-- (OKTA-215773) -->
+The [registration inline hook](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/create-registration-hook) allows you to integrate your own custom logic into Okta's Self-Service Registration flow. <!-- (OKTA-215773) -->
 
 #### Bugs Fixed in 2019.05.0
 
@@ -565,7 +565,7 @@ IdP extensible matching rules allow you to define a regular expression pattern t
 
 #### The SAML Inline Hook is in EA
 
-The SAML inline hook enables you to customize SAML assertions returned by Okta. For details, see our [SAML inline hook](/docs/reference/saml-hook/) page. <!-- OKTA-211665 and OKTA-2202004 -->
+The SAML inline hook enables you to customize SAML assertions returned by Okta. For details, see our [SAML inline hook](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createSAMLAssertionInlineHook) page. <!-- OKTA-211665 and OKTA-2202004 -->
 
 #### Rate Limits Updated
 
@@ -576,7 +576,7 @@ Okta's API rate limits have been updated:
 
 #### The Sign-In Widget Version for the Custom Login Page has been Updated
 
-Custom Sign-in Pages can now use Sign-In Widget version 2.18. When you select the "latest" option, you automatically use 2.18. For more information, see our [Sign-In Widget](/code/javascript/okta_sign-in_widget/) page. <!-- OKTA-2206539 -->
+Custom Sign-in Pages can now use Sign-In Widget version 2.18. When you select the "latest" option, you automatically use 2.18. For more information, see our [Sign-In Widget](/docs/guides/embedded-siw/) page. <!-- OKTA-2206539 -->
 
 #### Bug Fixed in 2019.04.0
 
@@ -677,7 +677,7 @@ Extended search capabilities for the `/users` endpoint is now Generally Availabl
 
 #### The Import Inline Hook is in EA
 
-The [import inline hook](/docs/reference/import-hook/) enables you to add custom logic to the process of importing new users into Okta from an app. <!--OKTA-211788-->
+The [import inline hook](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createUserImportInlineHook) enables you to add custom logic to the process of importing new users into Okta from an app. <!--OKTA-211788-->
 
 #### Previously Released Early Access Features 2019.03.0 Update
 

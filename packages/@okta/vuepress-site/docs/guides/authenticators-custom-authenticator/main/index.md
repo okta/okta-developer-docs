@@ -89,7 +89,7 @@ When you're ready to grant the required scopes, follow these steps:
    * For access to GET endpoints only:
       * `okta.myAccount.appAuthenticator.read`
 
-Alternatively, you can grant scopes using the [Grant consent to scope for application](/docs/reference/api/apps/#application-oauth-2-0-scope-consent-grant-operations) operation of the Apps API.
+Alternatively, you can grant scopes using the [Grant consent to scope for app](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationGrants/#tag/ApplicationGrants/operation/grantConsentToScope) operation of the Apps API.
 
 ### Set up notification services
 

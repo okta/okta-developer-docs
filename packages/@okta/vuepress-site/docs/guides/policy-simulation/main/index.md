@@ -26,7 +26,7 @@ If you need a simple app for testing, see [Sign users in to your SPA using the r
 
 ## About Policy Simulation
 
-You can use the Policy API to simulate real-world user requests to access an app. In the Admin Console, these simulations are run using the Access Testing Tool available from **Reports** > **Access testing tool**. See [Access Testing Tool](https://help.okta.com/okta_help.htm?type=oie&id=ext-access-test-tool). The API endpoint that underpins this tool is also available for developers to simulate policy configurations and to test app access. For full details on the API endpoint, see the [Policy API reference](/docs/reference/api/policy/#access-simulation).
+You can use the Policy API to simulate real-world user requests to access an app. In the Admin Console, these simulations are run using the Access Testing Tool available from **Reports** > **Access testing tool**. See [Access Testing Tool](https://help.okta.com/okta_help.htm?type=oie&id=ext-access-test-tool). The API endpoint that underpins this tool is also available for developers to simulate policy configurations and to test app access. For full details on the API endpoint, see the [Policy API reference](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicySimulation).
 
 The policy simulations run access tests based on existing policy configurations and which rules and settings are matched to create the authentication and enrollment requirements. Results of the tests determine individual or group access to an app. You can simulate matches for the following types of policies and rules:
 
@@ -53,7 +53,7 @@ To find these values:
 
 1. Call the [Groups API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/#tag/Group/operation/listGroups) with the query parameter as follows: `https://{yourOktaDomain}/api/v1/groups?q=Sales`. Save the `id` value from the response.
 
-1. Call the [Apps API](/docs/reference/api/apps/#list-applications) with the query parameter as follows: `https://{yourOktaDomain}/api/v1/apps?q={YourAppName}`. Save the `id` value from the response. Alternatively, the client ID available in the Admin Console is the `id` of your app.
+1. Call the [Apps API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/listApplications) with the query parameter as follows: `https://{yourOktaDomain}/api/v1/apps?q={YourAppName}`. Save the `id` value from the response. Alternatively, the client ID available in the Admin Console is the `id` of your app.
 
 To simulate the first scenario, use the following call but replace the following values:
 

@@ -126,5 +126,5 @@ Review the following guides to implement other inline or event hook examples:
 
 ## See also
 
-* For a complete description of this inline hook type, see the [Registration inline hook reference](/docs/reference/registration-hook/).
+* For a complete description of this inline hook type, see the [Registration inline hook reference](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/create-registration-hook).
 * [Identity Engine upgrade overview](/docs/guides/oie-upgrade-overview/)

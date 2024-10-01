@@ -26,11 +26,11 @@ Okta defines several different types of inline hooks. Each type of inline hook m
 | Name                                                           | Description                                                                    |
 |----------------------------------------------------------------|--------------------------------------------------------------------------------|
 | [Token inline hook](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createTokenInlineHook)               | Customizes tokens returned by Okta API Access Management                       |
-| [User import inline hook](/docs/reference/import-hook/)        | Adds custom logic to the user import process                                   |
-| [SAML assertion inline hook](/docs/reference/saml-hook/)       | Customizes SAML assertions returned by Okta                                    |
-| [Registration inline hook](/docs/reference/registration-hook/) | Customizes handling of Self-Service Registration (SSR) and Progressive Enrollment support |
-| [Password import inline hook](/docs/reference/password-hook/)  | Verifies a user-supplied password to support migration of users to Okta        |
-| [Telephony inline hook](/docs/reference/telephony-hook/) | Customizes the Okta flows that send SMS or voice messages |
+| [User import inline hook](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createUserImportInlineHook)        | Adds custom logic to the user import process                                   |
+| [SAML assertion inline hook](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createSAMLAssertionInlineHook)       | Customizes SAML assertions returned by Okta                                    |
+| [Registration inline hook](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/create-registration-hook) | Customizes handling of Self-Service Registration (SSR) and Progressive Enrollment support |
+| [Password import inline hook](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createPasswordImportInlineHook)  | Verifies a user-supplied password to support migration of users to Okta        |
+| [Telephony inline hook](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createTelephonyInlineHook) | Customizes the Okta flows that send SMS or voice messages |
 
 ## Inline hook process flow
 
@@ -210,6 +210,6 @@ For more information on implementing inline hooks, see the documentation for spe
 
 A hook preview feature is available for the following hooks: SAML, telephony, token, and registration inline hooks. Use this feature to view a sample request body and evaluate and troubleshoot the response from your external service. See [Troubleshoot hook implementations](/docs/guides/common-hook-set-up-steps/nodejs/main/#troubleshoot-hook-implementations) and [Preview an inline hook](https://help.okta.com/okta_help.htm?type=oie&id=ext-preview-inline-hooks).
 
-The [Okta System Log](/docs/reference/api/system-log/) also captures events related to inline hook setup and execution that you can use to troubleshoot your implementation. You can see descriptions of the relevant event types by querying the event types catalog with the `inline_hook` query parameter. See [Event Types](/docs/reference/api/event-types/).
+The [Okta System Log](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/) also captures events related to inline hook setup and execution that you can use to troubleshoot your implementation. You can see descriptions of the relevant event types by querying the event types catalog with the `inline_hook` query parameter. See [Event Types](/docs/reference/api/event-types/).
 
 > **Note:** You can see errors from the error object in the external service response, errors when Okta can't apply an inline hook response, and errors related to communication with the external service, such as network-related failures and responses with HTTP status codes other than `200`.

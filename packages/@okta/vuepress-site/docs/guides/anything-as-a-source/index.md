@@ -64,7 +64,7 @@ You can only process one Identity Source Session at a time (for a specific Custo
 * Okta processes the sessions synchronously (not in parallel) for an identity source. If you trigger multiple sessions for an identity source, then the sessions are queued up for sequential processing.
 * You can't create an Identity Source Session within five minutes of triggering an active session associated with the same identity source. If Okta receives a new Identity Source Session request within five minutes of an active Identity Source Session with the `CREATED` or the `TRIGGERED` status, Okta returns a 400 Bad Request response.
 
-> **Note:** You can use the [List active Identity Source Sessions](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/listIdentitySourceSessions) request to return active Identity Source Sessions for an identity source.
+> **Note:** You can use the [List all Identity Source Sessions](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/listIdentitySourceSessions) request to return active Identity Source Sessions for an identity source.
 
 ### Bulk-load requests
 
@@ -318,7 +318,7 @@ When users are deactivated or deleted from your HR source, you need to reflect t
 
 If there's an Identity Source Session with the `CREATED` status for your identity source and you don't want to run the import process, then you can cancel the session. This operation deletes all loaded data in the Identity Source Session and sets the session status to `CLOSED`.
 
-Use the [Cancel an Identity Source Session](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/deleteIdentitySourceSession) operation to cancel the Identity Source Session and delete all the bulk data associated with the session:
+Use the [Delete an Identity Source Session](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/deleteIdentitySourceSession) operation to cancel the Identity Source Session and delete all the bulk data associated with the session:
 
 ```bash
 curl -i -X DELETE \
@@ -339,7 +339,7 @@ To monitor Identity Source Session activity for an identity source, you can use 
 
 #### Retrieve active Identity Source Sessions
 
-The [List active Identity Source Sessions](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/listIdentitySourceSessions) request returns a list of active Identity Source Sessions for an identity source to determine which sessions are currently processing and actively being worked on. An Identity Source Session is considered active if it has the `CREATED` or `TRIGGERED` status. Data processing completed for an identity source if no active session is returned (since a session that contains the `COMPLETED` status isn't considered active).
+The [List all Identity Source Sessions](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/listIdentitySourceSessions) request returns a list of active Identity Source Sessions for an identity source. This list helps determine which sessions are currently processing and actively being worked on. An Identity Source Session is considered active if it has the `CREATED` or `TRIGGERED` status. Data processing is complete for an identity source if no active session is returned (since a session that contains the `COMPLETED` status isn't considered active).
 
 ```bash
 curl -i -X GET \

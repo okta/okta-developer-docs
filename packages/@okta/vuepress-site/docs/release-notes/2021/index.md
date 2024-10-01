@@ -11,7 +11,7 @@ title: Okta API Products release notes 2021
 
 #### Okta Sign-In Widget, version 5.14.1
 
-See the [Okta Sign-In Widget Release Notes](https://github.com/okta/okta-signin-widget/releases/tag/okta-signin-widget-5.14.1) for more information about this release. See the [Okta Sign-In Widget guide](/code/javascript/okta_sign-in_widget/) for more information about the widget. <!--OKTA-452958-->
+See the [Okta Sign-In Widget Release Notes](https://github.com/okta/okta-signin-widget/releases/tag/okta-signin-widget-5.14.1) for more information about this release. See the [Okta Sign-In Widget guide](/docs/guides/embedded-siw/) for more information about the widget. <!--OKTA-452958-->
 
 
 ### Monthly release 2021.12.0
@@ -33,7 +33,7 @@ See the [Okta Sign-In Widget Release Notes](https://github.com/okta/okta-signin-
 
 #### Okta Sign-In Widget, version 5.14.0
 
-See the Okta [Sign-In Widget Release Notes](https://github.com/okta/okta-signin-widget/releases/tag/okta-signin-widget-5.14.0) for more information about this release. See the Okta [Sign-In Widget guide](/code/javascript/okta_sign-in_widget/) for more information about the widget. <!--OKTA-449551-->
+See the Okta [Sign-In Widget Release Notes](https://github.com/okta/okta-signin-widget/releases/tag/okta-signin-widget-5.14.0) for more information about this release. See the Okta [Sign-In Widget guide](/docs/guides/embedded-siw/) for more information about the widget. <!--OKTA-449551-->
 
 #### Browser-like devices can now use the Device Authorization Grant flow
 
@@ -338,7 +338,7 @@ The Okta [Custom Administrator Roles](/docs/reference/api/roles/index.md) API pr
 
 - When a native SSO [token exchange](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/tokenCustomAS) call was created, an invalid scope was accepted and tokens were returned. (OKTA-417808)
 
-- Registration inline hooks didn’t correctly display an error message to the end user when the response included the `errorCauses` object with an `error-summary` [parameter](/docs/reference/registration-hook/#error). (OKTA-409142)
+- Registration inline hooks didn’t correctly display an error message to the end user when the response included the `errorCauses` object with an `error-summary` [parameter](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/create-registration-hook!c=200&path=Error&t=response). (OKTA-409142)
 
 ### Monthly release 2021.08.0
 
@@ -354,7 +354,7 @@ The Okta [Custom Administrator Roles](/docs/reference/api/roles/index.md) API pr
 
 #### Okta Sign-In Widget, version 5.9.1
 
-For details about this release, see the Okta [Sign-In Widget release notes](https://github.com/okta/okta-signin-widget/releases/tag/okta-signin-widget-5.9.1). For more information about the widget, see the Okta [Sign-In Widget guide](/code/javascript/okta_sign-in_widget/). <!--OKTA-416419-->
+For details about this release, see the Okta [Sign-In Widget release notes](https://github.com/okta/okta-signin-widget/releases/tag/okta-signin-widget-5.9.1). For more information about the widget, see the Okta [Sign-In Widget guide](/docs/guides/embedded-siw/). <!--OKTA-416419-->
 
 #### Brands API is Self-Service EA
 
@@ -366,7 +366,7 @@ The Okta [Risk Providers API](https://developer.okta.com/docs/api/openapi/okta-m
 
 #### SAML parameter SessionNotOnOrAfter is GA in Preview
 
-The SAML parameter `SessionNotOnOrAfter` for SAML assertions is available for use with Okta's [SAML inline hooks](/docs/reference/saml-hook/). This optional parameter specifies the session lifetime, in seconds, and is included in the SAML assertion. The `SessionNotOnOrAfter` parameter allows the Identity Provider to control the session of the Service Provider. Most SAML applications manage their own sessions. However, some SAML applications require this parameter from the Identity Provider for session management. <!--OKTA-406633-->
+The SAML parameter `SessionNotOnOrAfter` for SAML assertions is available for use with Okta's [SAML inline hooks](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createSAMLAssertionInlineHook). This optional parameter specifies the session lifetime, in seconds, and is included in the SAML assertion. The `SessionNotOnOrAfter` parameter allows the Identity Provider (IdP) to control the session of the Service Provider. Most SAML apps manage their own sessions. However, some SAML apps require this parameter from the IdP for session management. <!--OKTA-406633-->
 
 #### Support for Push Status using the Apps API is GA in Production
 
@@ -523,7 +523,7 @@ When the [Features endpoint of the Apps API](/docs/reference/api/apps/#update-fe
 
 #### Okta Sign-In Widget, version 5.7.0
 
-For details about this release, see the Okta [Sign-In Widget release notes](https://github.com/okta/okta-signin-widget/releases/tag/okta-signin-widget-5.7.0). For more information about the widget, see the Okta [Sign-In Widget guide](/code/javascript/okta_sign-in_widget/). <!--OKTA-391046-->
+For details about this release, see the Okta [Sign-In Widget release notes](https://github.com/okta/okta-signin-widget/releases/tag/okta-signin-widget-5.7.0). For more information about the widget, see the Okta [Sign-In Widget guide](/docs/guides/embedded-siw/). <!--OKTA-391046-->
 
 #### Domains API is GA in Production
 
@@ -572,7 +572,7 @@ The [Subscriptions API](https://developer.okta.com/docs/api/openapi/okta-managem
 
 #### Okta Sign-In Widget, version 5.6.4
 
-For details about this release, see the Okta [Sign-In Widget release notes](https://github.com/okta/okta-signin-widget/releases/tag/okta-signin-widget-5.6.4). For more information about the widget, see the Okta [Sign-In Widget guide](/code/javascript/okta_sign-in_widget/). <!--OKTA-397857-->
+For details about this release, see the Okta [Sign-In Widget release notes](https://github.com/okta/okta-signin-widget/releases/tag/okta-signin-widget-5.6.4). For more information about the widget, see the Okta [Sign-In Widget guide](/docs/guides/embedded-siw/). <!--OKTA-397857-->
 
 #### Bugs fixed in 2021.05.3
 
@@ -603,7 +603,7 @@ For details about this release, see the Okta [Sign-In Widget release notes](http
 
 #### Okta Sign-In Widget, version 5.6.1
 
-For details about this release, see the Okta [Sign-In Widget release notes](https://github.com/okta/okta-signin-widget/releases/tag/okta-signin-widget-5.6.1). For more information about the widget, see the Okta [Sign-In Widget guide](/code/javascript/okta_sign-in_widget/). <!--OKTA-393866-->
+For details about this release, see the Okta [Sign-In Widget release notes](https://github.com/okta/okta-signin-widget/releases/tag/okta-signin-widget-5.6.1). For more information about the widget, see the Okta [Sign-In Widget guide](/docs/guides/embedded-siw/). <!--OKTA-393866-->
 
 #### Bugs fixed in 2021.05.1
 
@@ -664,7 +664,7 @@ The [Domains API](https://developer.okta.com/docs/api/openapi/okta-management/ma
 
 #### Okta Sign-In Widget, version 5.6.0
 
-For details about this release, see the Okta [Sign-In Widget release notes](https://github.com/okta/okta-signin-widget/releases/tag/okta-signin-widget-5.6.0). For more information about the widget, see the Okta [Sign-In Widget guide](/code/javascript/okta_sign-in_widget/). <!--OKTA-391046-->
+For details about this release, see the Okta [Sign-In Widget release notes](https://github.com/okta/okta-signin-widget/releases/tag/okta-signin-widget-5.6.0). For more information about the widget, see the Okta [Sign-In Widget guide](/docs/guides/embedded-siw/). <!--OKTA-391046-->
 
 #### Refresh Token Rotation is GA in Preview
 
@@ -673,7 +673,7 @@ For details about this release, see the Okta [Sign-In Widget release notes](http
 
 #### SAML parameter SessionNotOnOrAfter is GA in Preview
 
-The SAML parameter `SessionNotOnOrAfter` is now Generally Available in Preview for SAML assertions and is available for use with Okta’s [SAML inline hooks](/docs/reference/saml-hook/). This optional parameter specifies the session lifetime, in seconds, and is included in the SAML assertion. The `SessionNotOnOrAfter` parameter allows the Identity Provider to control the session of the Service Provider. Most SAML applications manage their own sessions. However, some SAML applications require this parameter from the Identity Provider for session management. <!--OKTA-390950-->
+The SAML parameter `SessionNotOnOrAfter` is now Generally Available in Preview for SAML assertions and is available for use with Okta’s [SAML inline hooks](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createSAMLAssertionInlineHook). This optional parameter specifies the session lifetime, in seconds, and is included in the SAML assertion. The `SessionNotOnOrAfter` parameter allows the Identity Provider to control the session of the Service Provider. Most SAML applications manage their own sessions. However, some SAML applications require this parameter from the Identity Provider for session management. <!--OKTA-390950-->
 
 #### System Log API SCIM filter expression update
 
@@ -694,7 +694,7 @@ The [System Log API](/docs/reference/api/system-log/) has been updated to return
 
 #### Okta Sign-In Widget, version 5.5.4
 
-For details about this release, see the Okta [Sign-In Widget release notes](https://github.com/okta/okta-signin-widget/releases/tag/okta-signin-widget-5.5.4). For more information about the widget, see the Okta [Sign-In Widget guide](/code/javascript/okta_sign-in_widget/). <!--OKTA-387717,OKTA-389358-->
+For details about this release, see the Okta [Sign-In Widget release notes](https://github.com/okta/okta-signin-widget/releases/tag/okta-signin-widget-5.5.4). For more information about the widget, see the Okta [Sign-In Widget guide](/docs/guides/embedded-siw/). <!--OKTA-387717,OKTA-389358-->
 
 #### Bugs fixed in 2021.04.2
 
@@ -712,7 +712,7 @@ For details about this release, see the Okta [Sign-In Widget release notes](http
 
 #### Okta Sign-In Widget, version 5.5.2
 
-For details about this release, see the Okta [Sign-In Widget release notes](https://github.com/okta/okta-signin-widget/releases/tag/okta-signin-widget-5.5.2). For more information about the widget, see the Okta [Sign-In Widget guide](/code/javascript/okta_sign-in_widget/). <!--OKTA-385739-->
+For details about this release, see the Okta [Sign-In Widget release notes](https://github.com/okta/okta-signin-widget/releases/tag/okta-signin-widget-5.5.2). For more information about the widget, see the Okta [Sign-In Widget guide](/docs/guides/embedded-siw/). <!--OKTA-385739-->
 
 #### Increased authorization code lifetime
 
@@ -735,7 +735,7 @@ The OAuth 2.0 authorization code lifetime has increased from one minute to five 
 
 #### Okta Sign-In Widget, version 5.5.0
 
-For details about this release, see the Okta [Sign-In Widget release notes](https://github.com/okta/okta-signin-widget/releases/tag/okta-signin-widget-5.5.0). For more information about the widget, see the Okta [Sign-In Widget guide](/code/javascript/okta_sign-in_widget/).
+For details about this release, see the Okta [Sign-In Widget release notes](https://github.com/okta/okta-signin-widget/releases/tag/okta-signin-widget-5.5.0). For more information about the widget, see the Okta [Sign-In Widget guide](/docs/guides/embedded-siw/).
 
 #### Domains API is now in EA in Preview
 

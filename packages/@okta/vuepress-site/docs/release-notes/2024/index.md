@@ -6,6 +6,16 @@ title: Okta Classic Engine API release notes 2024
 
 ## September
 
+### Weekly release 2024.09.2
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Bug fixed in 2024.09.2](#bug-fixed-in-2024-09-2)| September 25, 2024 |
+
+#### Bug fixed in 2024.09.2
+
+When an admin made a partial update using the Profile Mappings API, both incoming data and existing property mappings were validated instead of only the incoming request. (OKTA-798638)
+
 ### Monthly release 2024.09.0
 
 | Change | Expected in Preview Orgs |
@@ -131,7 +141,7 @@ Each time that a user attempts to update their email, Okta sends an email to ver
 
 #### New System Log API property for target object is GA Production
 
-Certain system log events now contain a new property called `changeDetails` in the `target` object. When this property is populated, it reflects new, changed, or removed attributes of the target resource that has been modified. See [changeDetails property](/docs/reference/api/system-log/#changedetails-property). <!-- OKTA-724000-->
+Certain System Log events now contain a new property called `changeDetails` in the `target` object. When this property is populated, it reflects new, changed, or removed attributes of the target resource that's been modified. See [changeDetails property](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/#tag/SystemLog/operation/listLogEvents!c=200&path=target/changeDetails&t=response). <!-- OKTA-724000-->
 
 #### Request throttling for jwks_uri
 
@@ -383,7 +393,7 @@ Custom admins can now view, register, and manage agents. See [Permission types](
 
 #### New System Log API property for target object is GA Preview
 
-Certain system log events now contain a new property called `changeDetails` in the `target` object. When this property is populated, it reflects new, changed, or removed attributes of the target resource that has been modified. See [changeDetails property](/docs/reference/api/system-log/#changedetails-property). <!-- OKTA-724000 -->
+Certain System Log events now contain a new property called `changeDetails` in the `target` object. When this property is populated, it reflects new, changed, or removed attributes of the target resource that's been modified. See [changeDetails property](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/#tag/SystemLog/operation/listLogEvents!c=200&path=target/changeDetails&t=response). <!-- OKTA-724000 -->
 
 #### Bugs fixed in 2024.05.0
 
@@ -401,7 +411,7 @@ Certain system log events now contain a new property called `changeDetails` in t
 
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
-| [Bugs fixed in 2024.04.3](#bugs-fixed-in-202403)  | May 01, 2024 |
+| [Bugs fixed in 2024.04.3](#bugs-fixed-in-2024-04-3)  | May 01, 2024 |
 
 #### Bugs fixed in 2024.04.3
 
@@ -595,7 +605,7 @@ You can now use OAuth 2.0 Demonstrating Proof-of-Possession (DPoP) access tokens
 
 #### New attribute to manage SAML app session lifetimes is EA in Preview
 
-The `samlAssertionLifetimeSeconds` parameter is an optional SAML parameter that allows the IdP to control the session at the SP. This parameter allows users to add `samlAssertionLifetimeSeconds` as an attribute in the SAML assertion to control the session lifetimes of SP apps using the Okta IdP. See the [Settings table](/docs/reference/api/apps/#settings-9) in the **Add custom SAML application** section. <!-- OKTA-690479 SAML_ASSERTION_LIFETIME_SECONDS_ON_APPS_API -->
+The `samlAssertionLifetimeSeconds` parameter is an optional SAML parameter that allows the IdP to control the session at the SP. This parameter allows users to add `samlAssertionLifetimeSeconds` as an attribute in the SAML assertion to control the session lifetimes of SP apps using the Okta IdP. See the [Settings table](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication!path=6/settings/signOn/samlAssertionLifetimeSeconds&t=request) in the **Add custom SAML application** section. <!-- OKTA-690479 SAML_ASSERTION_LIFETIME_SECONDS_ON_APPS_API -->
 
 #### New function for email templates is EA in Preview
 

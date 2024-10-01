@@ -20,10 +20,10 @@ API endpoints to authenticate your users, challenge for factors, recover passwor
 
 REST endpoints to configure objects whenever you need. For example:
 
-- The [Apps API](/docs/reference/api/apps/) is used to manage Apps and their association with Users and Groups.
+- The [Apps API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/) is used to manage Apps and their association with Users and Groups.
 - The [Users API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/) is used for CRUD operations on Users.
 - The [Sessions API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Session/) creates and manages user's authentication sessions.
-- The [Policy API](/docs/reference/api/policy/) creates and manages settings such as a user's session lifetime.
+- The [Policy API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy) creates and manages settings such as a user's session lifetime.
 - The [User Factors API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/) is used to enroll, manage, and verify factors for Multifactor Authentication (MFA).
 - The [Devices API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Device/) is used to manage device identity and lifecycle.
 
