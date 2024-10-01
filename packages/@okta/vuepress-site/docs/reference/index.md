@@ -12,7 +12,7 @@ This section provides reference information related to the [Okta API](https://de
 
 These references are specific to Classic Engine only.
 
-[Learn more](/reference/classic-engine/)
+[Learn more](/docs/reference/classic-engine/)
 
 ## Error codes
 
