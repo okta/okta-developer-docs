@@ -186,21 +186,40 @@ Acme is a CMR platform that helps modern businesses thrive. A platform that conn
 
 ## Use case guidelines
 
-The OIN catalog organizes integrations into use cases. You can select up to five use cases. Use the following description list to determine the appropriate use case category for your integration:
+The [OIN catalog](https://www.okta.com/integrations/) organizes integrations into [use cases](#use-cases):
+
+* In the [OIN Manager](/docs/guides/submit-app/wfconnector/main/#app-information), you can select up to five [use cases](#use-cases). The [Single Sign-On](https://www.okta.com/integrations/?category=single-sign-on) use case is automatically applied to your integration if it supports SWA, SAML, or OIDC sign-on mode (`signOnMode`).
+     > **Note:** `Single Sign-On` isn't an option in the OIN Manager **App use case** dropdown list.
+
+* In the [OIN Wizard](/docs/guides/submit-oin-app/openidconnect/main/#oin-catalog-properties), use cases are automatically assigned to your integration depending on features that it supports:
+    | Use case | Scenario for automatic assignment |
+    | -------- | ---------------------- |
+    | [Single Sign-On](https://www.okta.com/integrations/?category=single-sign-on) | Assigned to integrations with SWA, SAML, or OIDC sign-on mode (`signOnMode`). |
+    | [Lifecycle Management](https://www.okta.com/integrations/?category=lifecycle-management) | Assigned to integrations with an external IdP configured. |
+    | [Social Login](https://www.okta.com/integrations/?category=social-login) | Assigned to integrations with SWA, SAML, or OIDC sign on mode. |
+    | [Multifactor Authentication (MFA)](https://www.okta.com/integrations/?category=multi-factor-authentication-mfa) | Assigned to integrations with MFA . |
+    | [Centralized Logging](https://www.okta.com/integrations/?category=centralized-logging) | Assigned to integrations with Log Streaming enabled. |
+
+> **Note:** Okta adds the **Apps for Good** and **Okta Security Identity** collection indicators if your integration meets the criteria for these collection categories.
+
+### Use cases
+
+Use the following description list to determine the appropriate use case category for your integration:
 
 | Use case | Integration capability |
 | -------- | ---------------------- |
-| [Single Sign-On](https://www.okta.com/integrations/?category=single-sign-on) (most common) | Enables users to access your app from any device with a single entry of their Okta user credentials. This use case is automatically assigned to Security Assertion Markup Language (SAML) and OpenID Connect (OIDC) integrations. <br><br> **Note:** You don't need to select this use case because `Single Sign-On` isn't an option in the **App use case** dropdown list. |
-| [Automation](https://www.okta.com/integrations/?category=automation)  | Automates business processes and Okta administration tasks. Most integrations in this use case are API service integrations that access Okta APIs using OAuth 2.0.  |
-| [Centralized Logging](https://www.okta.com/integrations/?category=centralized-logging) | Aggregates Okta logs into a central location, like a Security Information and Event Management (SIEM) tool, for optimized searching and alerting capabilities. API service integrations that poll the Okta API for System Logs using OAuth 2.0 support this use case. |
+| [Single Sign-On](https://www.okta.com/integrations/?category=single-sign-on) (most common) | Enables users to access your app from any device with a single entry of their Okta user credentials. This use case is automatically assigned to Security Assertion Markup Language (SAML) and OpenID Connect (OIDC) integrations. |
 | [Directory and HR Sync](https://www.okta.com/integrations/?category=directory-and-hr-sync) | Provides synchronization capabilities for external-sourced user profiles with the Okta Universal Directory. This use case is most common for human resources (HR) solutions using the System for Cross-domain Identity Management (SCIM) or [Okta Workflows](https://help.okta.com/okta_help.htm?type=wf). |
 | [Lifecycle Management](https://www.okta.com/integrations/?category=lifecycle-management) | Enables organizations to securely manage their entire identity lifecycle: from on-boarding to off-boarding, and ensuring that the company meets compliance requirements as user roles evolve and access levels change. This use case is most common with either SCIM or Workflows connector integrations. |
-| [Identity Proofing](https://www.okta.com/integrations/?category=identity-proofing) | Enables user self-verification to improve identity assurance and approve access for authorized individuals using document-based and/or knowledge-based proofs |
-| [Identity Governance and Administration (IGA)](https://www.okta.com/integrations/?category=identity-governance-and-administration-iga) | Simplifies and manages an organization's identity and access lifecycles across multiple systems |
 | [Zero Trust](https://www.okta.com/integrations/?category=zero-trust) | Enables secure access for users regardless of their location, device, or network |
+| [Social Login](https://www.okta.com/integrations/?category=social-login) | Enables secure access to your app from an [external IdP](/docs/guides/social-login/) |
+| [Centralized Logging](https://www.okta.com/integrations/?category=centralized-logging) | Aggregates Okta logs into a central location, like a Security Information and Event Management (SIEM) tool, for optimized searching and alerting capabilities. API service integrations that poll the Okta API for System Logs using OAuth 2.0 support this use case. |
 | [Bot or Fraud Detection](https://www.okta.com/integrations/?category=bot-or-fraud-detection) | Provides protection from inauthentic, forged, or otherwise fraudulent attempts to register, sign in, recover, or perform identity-related transactions. Most integrations in this use case are API service integrations that send risk signals to Okta using OAuth 2.0. |
+| [Automation](https://www.okta.com/integrations/?category=automation)  | Automates business processes and Okta administration tasks. Most integrations in this use case are API service integrations that access Okta APIs using OAuth 2.0.  |
+| [Identity Verification](https://www.okta.com/integrations/?category=identity-verification) | Enables user self-verification to improve identity assurance and approve access for authorized individuals using document-based and/or knowledge-based proofs |
+| [Identity Governance and Administration (IGA)](https://www.okta.com/integrations/?category=identity-governance-and-administration-iga) | Simplifies and manages an organization's identity and access lifecycles across multiple systems |
 | [Multifactor Authentication (MFA)](https://www.okta.com/integrations/?category=multi-factor-authentication-mfa) | Provides an extra layer of security with multifactor authentication for an organization's cloud, mobile, and web apps |
-| [Risk Signal Sharing](https://www.okta.com/integrations/?category=risk-signal-sharing)| Provides enriched context on clients, apps, users, and other first-party subjects to augment and inform Okta adaptive authentication and authorization decisions |
+| [Risk Signal Sharing](https://www.okta.com/integrations/?category=okta-secure-identity)| Provides enriched context on clients, apps, users, and other first-party subjects to augment and inform Okta adaptive authentication and authorization decisions  |
 
 ## Customer support contact guidelines
 
