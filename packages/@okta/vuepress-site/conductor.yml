@@ -5475,7 +5475,7 @@ redirects:
     to: /docs/reference/rate-limits/
   - from: /docs/guides/sign-into-mobile-app-redirect/react-native/main/index.html
     to: /docs/guides/sampleapp-oie-redirectauth/reactnativedroid/main/
-    - from: /code.html
+  - from: /code.html
     to: /code/
   - from: /code/android/
     to: /code/
