@@ -18,7 +18,7 @@ Select the task that you want to perform to access more information on alternate
 * Sign in to Identity Engine
   * [From a single-page app](#sign-in-to-identity-engine-from-a-single-page-app)
   * [From a server-side web app](#sign-in-to-identity-engine-from-a-server-side-web-app)
-  * [From a mobile app](#sign-in-to-identity-engine-from-a-mobile-app
+  * [From a mobile app](#sign-in-to-identity-engine-from-a-mobile-app)
 * Sign in to Classic Engine
   * [From a single-page app](#from-a-single-page-app)
   * [From a server-side web app](#from-a-server-side-web-app)
