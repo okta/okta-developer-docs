@@ -68,7 +68,7 @@ In this example, after parsing the event hook request, the code displays the dea
 
 ### Examine the event hook object
 
-The JSON body sent as part of the Okta request includes the properties accessed in this example, namely `target` and `alternateId`. To see this or other event objects, call your Okta org with the [System Log API](/docs/reference/api/system-log), using the specific event type as a [filter parameter](/docs/reference/api/system-log/#filtering-results). For example:
+The JSON body sent as part of the Okta request includes the properties accessed in this example, namely `target` and `alternateId`. To see this or other event objects, call your Okta org with the [System Log API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/), using the specific event type as a [filter parameter](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/#tag/SystemLog/operation/listLogEvents!in=query&path=filter&t=request). For example:
 
 ```JavaScript
 https://{yourOktaDomain}/api/v1/logs?filter=eventType eq "user.lifecycle.deactivate"

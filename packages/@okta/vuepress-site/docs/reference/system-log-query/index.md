@@ -209,7 +209,7 @@ The following example expressions are supported for events with the `filter` que
 > In addition, a SCIM filter expression that uses the `co` (contains) operator with the `debugContext.debugData.url` or the `debugContext.debugData.requestUri` attribute isn’t supported.
 > A request with an invalid SCIM filter expression returns an HTTP 400 API response.
 
-See [Filtering](/docs/reference/core-okta-api/#filter) for more information on expressions.
+See [Filtering](https://developer.okta.com/docs/api/#filter) for more information on expressions.
 
 The following are examples of filter expressions:
 
@@ -348,7 +348,7 @@ curl -v -X GET \
 "https://${yourOktaDomain}/api/v1/logs?since=2023-10-01T00:00:00.000Z"
 ```
 
-Then retrieve the next page of events through the [link response header](/docs/reference/core-okta-api/#link-header) value with the `next` link relation. Continue this process until no events are returned.
+Then retrieve the next page of events through the [link response header](https://developer.okta.com/docs/api/#link-header) value with the `next` link relation. Continue this process until no events are returned.
 
 >**Note:** Don't transfer data by manually paginating using `since` and `until`, as this may lead to skipped or duplicated events. Instead, always follow the `next` links.
 

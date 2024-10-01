@@ -141,7 +141,7 @@ Each time that a user attempts to update their email, Okta sends an email to ver
 
 #### New System Log API property for target object is GA Production
 
-Certain system log events now contain a new property called `changeDetails` in the `target` object. When this property is populated, it reflects new, changed, or removed attributes of the target resource that has been modified. See [changeDetails property](/docs/reference/api/system-log/#changedetails-property). <!-- OKTA-724000-->
+Certain System Log events now contain a new property called `changeDetails` in the `target` object. When this property is populated, it reflects new, changed, or removed attributes of the target resource that's been modified. See [changeDetails property](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/#tag/SystemLog/operation/listLogEvents!c=200&path=target/changeDetails&t=response). <!-- OKTA-724000-->
 
 #### Request throttling for jwks_uri
 
@@ -393,7 +393,7 @@ Custom admins can now view, register, and manage agents. See [Permission types](
 
 #### New System Log API property for target object is GA Preview
 
-Certain system log events now contain a new property called `changeDetails` in the `target` object. When this property is populated, it reflects new, changed, or removed attributes of the target resource that has been modified. See [changeDetails property](/docs/reference/api/system-log/#changedetails-property). <!-- OKTA-724000 -->
+Certain System Log events now contain a new property called `changeDetails` in the `target` object. When this property is populated, it reflects new, changed, or removed attributes of the target resource that's been modified. See [changeDetails property](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/#tag/SystemLog/operation/listLogEvents!c=200&path=target/changeDetails&t=response). <!-- OKTA-724000 -->
 
 #### Bugs fixed in 2024.05.0
 
@@ -411,7 +411,7 @@ Certain system log events now contain a new property called `changeDetails` in t
 
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
-| [Bugs fixed in 2024.04.3](#bugs-fixed-in-202403)  | May 01, 2024 |
+| [Bugs fixed in 2024.04.3](#bugs-fixed-in-2024-04-3)  | May 01, 2024 |
 
 #### Bugs fixed in 2024.04.3
 
