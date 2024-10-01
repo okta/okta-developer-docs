@@ -92,7 +92,7 @@ Instead of redirecting to the Okta-hosted Sign-In Widget, you can create a custo
 
 ## Sign in to Classic Engine
 
-Okta Identity Engine superseded Classic Engine in 2021. Okta recommends upgrading your apps to Identity Engine to take advantage of its many new features. If an upgrade isn’t possible right now, use the following content to set up a sign-in experience for your users in Classic Engine.
+Okta recommends upgrading your apps from Classic Engine to Identity Engine to take advantage of its many new features. If an upgrade isn’t possible right now, use the following content to set up a sign-in experience for your users in Classic Engine.
 
 ### From a single-page app
 

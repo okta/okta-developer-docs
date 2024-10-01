@@ -65,7 +65,7 @@ Replace each of these property values with ones from your Okta org and applicati
 
 ### Retrieve an ID token
 
-To retrieve an ID token from Okta, you’ll use the `token.getWithRedirect` method, specifying that you want an `id_token` included in the response:
+To retrieve an ID token from Okta, use the `token.getWithRedirect` method, specifying that you want an `id_token` included in the response:
 
 ``` js
 authClient.token.getWithRedirect({

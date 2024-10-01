@@ -204,7 +204,7 @@ For the registration inline hook, the `error` object provides a way of displayin
 
 If you're using the Okta Sign-In Widget for Profile Enrollment, only the `errorSummary` messages of the `errorCauses` objects that your external service returns appear as inline errors, given the following:
 
-* You don't customize the error handling behavior of the Widget.
+* You don't customize the error handling behavior of the widget.
 * The `location` of `errorSummary` in the `errorCauses` object specifies the request object's user profile attribute.
 
 If you don't return a value for the `errorCauses` object, and deny the user's registration attempt through the `commands` object in your response to Okta, one of the following generic messages appears to the end user:

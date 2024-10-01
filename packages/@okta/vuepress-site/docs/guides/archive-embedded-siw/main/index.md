@@ -327,7 +327,7 @@ Using the Sign-In Widget with our SDKs that target the web is fairly straightfor
 
 ### Angular
 
-The [Okta Sign-In Widget and Angular guide](/docs/guides/sign-in-to-spa-embedded-widget/angular/main/) shows the code that you need to embed the Sign-In Widget in an Angular app. (Note: this code doesn’t use the [okta-angular](https://github.com/okta/okta-angular) SDK)
+The [Okta Sign-In Widget and Angular guide](/docs/guides/sign-in-to-spa-embedded-widget/angular/main/) shows the code that you need to embed the Sign-In Widget in an Angular app. (This code doesn’t use the [okta-angular](https://github.com/okta/okta-angular) SDK)
 
 See the [Okta Angular + Custom Login Example](https://github.com/okta/samples-js-angular/tree/master/custom-login) for an example using the [okta-angular](https://github.com/okta/okta-angular) SDK.
 

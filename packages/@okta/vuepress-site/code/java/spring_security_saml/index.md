@@ -9,7 +9,7 @@ This guide describes how to use Spring Security SAML to add support for Okta to 
 
 <ApiLifecycle access="deprecated" />
 
-> **Note:** We strongly recommend that you use OpenID Connect rather than SAML. See [What's the difference between OAuth, OpenID Connect, and SAML](https://www.okta.com/identity-101/whats-the-difference-between-oauth-openid-connect-and-saml/).
+> **Note:** Okta strongly recommends that you use OpenID Connect rather than SAML. See [What's the difference between OAuth, OpenID Connect, and SAML](https://www.okta.com/identity-101/whats-the-difference-between-oauth-openid-connect-and-saml/).
 
 ---
 
