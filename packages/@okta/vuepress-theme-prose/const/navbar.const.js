@@ -967,8 +967,8 @@ export const reference = [
         title: 'Classic Engine Content',
         path: "/docs/reference/classic-engine/",
         subLinks: [
-          { title: "Authentication", path: "/docs/reference/api/authn/" },
-          { title: "WebFinger", path: "/docs/reference/api/webfinger/" },
+          { title: "Authentication API", path: "/docs/reference/api/authn/" },
+          { title: "WebFinger API", path: "/docs/reference/api/webfinger/" },
         ]
       },
       { title: "Error Codes", path: "/docs/reference/error-codes/" },
@@ -1020,6 +1020,7 @@ export const reference = [
         ]
       },
       { title: "System Log query", path: "/docs/reference/system-log-query/" },
+      { title: "User query options", path: "/docs/reference/user-query/" },
       {
         title: "Test APIs with Postman",
         path: "/docs/reference/rest/",
@@ -1029,8 +1030,7 @@ export const reference = [
             path: "/docs/reference/postman-collections/",
           },
         ],
-      },      
-      { title: "User query options", path: "/docs/reference/user-query/" },
+      },
     ],
   },
 ];
