@@ -54,7 +54,7 @@ Creating and adding a custom domain takes several steps that must be completed i
 
 1. [Create an okta-domain resource](#create-a-custom-domain-resource).
 
-1. [Update your domain to include new `CNAME` and `TXT` records](#update-your-domain-to-include-new-cname-and-txt-records).
+1. [Update the domain with the `CNAME` and `TXT` records](#update-the-domain-with-the-cname-and-txt-records).
 
 1. [Request domain verification](#request-domain-verification).
 
@@ -103,7 +103,7 @@ Add a `domain_certificate` resource that links to the certificate to upload the 
 
     > **Note:** The Okta org must verify that you control the DNS records for this domain before you can use it in your Terraform configuration. Follow the steps in [Update your domain to include new `CNAME` and `TXT` records], [Request domain verification], and [Confirm that your custom domain triggers Okta sign-in] to verify the domain.
 
-1. Add this `output` block to print the set of required DNS records available from the custom domain resource after creation on the Okta server.
+1. Add this `output` block to print the set of DNS records required for the domain.
 
     ```hcl
       output dns_records_to_update_company1 {
@@ -113,7 +113,15 @@ Add a `domain_certificate` resource that links to the certificate to upload the 
 
 1. Run `terraform apply`.
 
-1. Review the JSON output for your `output` block. Save this information to another file for your records. The JSON looks similar to the following. For each array element, the `record_type` field indicates the DNS record type. You'll use this output in the next step.
+1. Run `terraform ouput -json {outputVariableName}` to view the configuration information in JSON format. Okta recommends saving the output to a file for your records. For example, the command line for an output variable of `email_dns_records_to_update_company1` is:
+
+    ```sh
+    terraform output -json dns_records_to_update_company1 > dns_records.json
+    ```
+
+1. Review the JSON file for the required content: one object with a `record_type` attribute of `TXT` and another with a `record_type` attribute of `CNAME`. You'll use this output in the next section.
+
+   The content looks similar to the following:
 
   ```json
       "dns_records_to_update_company1" = [
@@ -136,7 +144,7 @@ Add a `domain_certificate` resource that links to the certificate to upload the 
       ]
   ```
 
-### Update your domain to include new CNAME and TXT records
+### Update the domain with the CNAME and TXT records
 
 This step requires adding DNS records to the custom domain using your domains' service provider. This usually requires administrative access. If you do not have this access, contact your system administrator.
 
@@ -144,7 +152,7 @@ The specific user interface or commands for adding the `CNAME` and `TXT` records
 
 The following are the generic steps to add the records. The specific interface will vary.
 
-1. Locate the the JSON output from the [Create an okta-domain resource](#create-a-custom-domain-resource).
+1. Locate the the JSON output from the [Create a custom domain resource](#create-a-custom-domain-resource).
 
 1. Log into your domain provider for your custom domain and navigate to the domain record editor.
 
@@ -250,5 +258,5 @@ To create brand and theme customizations, see [Manage branding with Terraform](/
 
 ## Custom email domains
 
-To configure a brand to send mail using a custom email address, create a different type of domain resource in Okta called an email domain. See [Manage branding with Terraform](/docs/guides/terraform-manage-end-user-experience/main/#email-template-customization).
+To configure a brand to send mail using a custom email address, create a different type of domain resource in Okta called an email domain. See [Create a custom email domain in Manage branding with Terraform](/docs/guides/terraform-manage-end-user-experience/main/#create-a-custom-email-domain).
 
