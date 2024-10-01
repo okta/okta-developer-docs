@@ -8,6 +8,16 @@ title: Okta Identity Engine API release notes 2024
 
 ## September
 
+### Weekly release 2024.09.3
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Bug fixed in 2024.09.3](#bug-fixed-in-2024-09-3)| October 2, 2024 |
+
+#### Bug fixed in 2024.09.3
+
+Sometimes an "Invalid Phone Number" error was incorrectly returned during SMS factor enrollment. (OKTA-807741)
+
 ### Weekly release 2024.09.2
 
 | Change | Expected in Preview Orgs |
