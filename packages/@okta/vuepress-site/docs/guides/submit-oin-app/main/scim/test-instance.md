@@ -13,6 +13,8 @@
 
 1. Click **Save**. Next, [configure attribute mappings](#configure-attribute-mappings).
 
+> **Note:** Your SCIM app must support redirect URIs that include the app name (`{appName}`) that's generated after you create your app instance. See SCIM service [authentication](/docs/guides/scim-provisioning-integration-prepare/main/#authentication) for a list of redirect URIs required. Your app name appears in the **General settings** tab or in the Admin Console URL when you're viewing the instance page.
+
 #### Configure attribute mappings
 
 > **Note:** Configure attribute-mapping instructions are only for SCIM integrations.
