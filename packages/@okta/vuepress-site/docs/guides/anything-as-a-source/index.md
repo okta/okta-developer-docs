@@ -86,6 +86,7 @@ The bulk-load request contains an array of external [Identity Source User Profil
 * `externalId`: The unique identifier from the HR source and is assumed to be immutable (never updated for a specific user). This value is used as a key to determine if a new user needs to be created or if an existing user needs to be updated.
 
 * `profile`: The set of attributes from the HR source to synchronize with the Okta user profile. User profiles are mapped according to the attribute mappings that you specified in your Custom Identity Source configuration. See Declare an identity source schema in [Use Anything-as-a-Source](https://help.okta.com/okta_help.htm?type=oie&id=ext-use-xaas).
+    > **Note:** All attributes in a `profile` object are treated as strings. Arrays are not supported.
 
 > **Note:** You can only load user profile data to an Identity Source Session object with the `"entityType": "USERS"` property. Group data load isn't currently supported.
 
@@ -189,7 +190,7 @@ Use these steps to insert or update a set of user data profiles from your HR sou
 
     Possible returned responses:
     * **202 Accepted**: The bulk-upsert request was successful.
-    * **400 Bad Request**: The `profiles` array is missing or empty in the bulk-upsert request.
+    * **400 Bad Request**: The `profiles` array is missing, malformed, or empty in the bulk-upsert request.
     * **401 Unauthorized**: The API key isn't valid.
 
 3. [Start the data import process](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/startImportFromIdentitySource):
