@@ -9,10 +9,11 @@ excerpt: >-
 
 You can purchase a DynamicScale add-on service if your needs exceed the default rate limits for your base product. The DynamicScale service grants you higher rate limits for the following endpoints. It increases your default rate limits by five times and up to 1000 times depending on the tier multiplier.
 
+>**Note:** The DynamicScale add-on service is only available to Customer Identity Solutions (CIS) customers.
+
 You can purchase this add-on annually for a production tenant or temporarily for testing in a preview or sandbox tenant.
 
 The DynamicScale add-on service includes the following list of endpoints:
-
 
 **Authentication endpoints:**
 
