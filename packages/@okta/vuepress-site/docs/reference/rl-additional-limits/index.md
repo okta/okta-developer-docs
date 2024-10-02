@@ -75,7 +75,7 @@ The following endpoints are used by the Okta home page for authentication and us
 
 ## Okta-generated email rate limits
 
-Email limits are applied on a per-recipient basis and vary by email type. The limit for some email types is no more than 30 emails per-recipient, per-minute, while other email types are configured with higher limits. These limits protect your org against denial-of-service attacks and help ensure that adequate resources are available for all customers.
+Email limits are applied on a per-recipient basis and vary by email type. The limit for some email types is no more than 30 emails per recipient, per minute, while other email types are configured with higher limits. These limits protect your org against denial-of-service attacks and help ensure that adequate resources are available for all customers.
 
 ## Per-user limits
 
