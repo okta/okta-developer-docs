@@ -33,7 +33,7 @@ Okta has created predefined `acr_values` that are described in the [Predefined p
 
 > **Note:** You can specify a `max_age` parameter value to require an elapsed time frame. Also, if you want to ignore the existing session and reauthenticate the user each time, pass `max_age=0` in the request. For Classic Engine, pass `max_age=1`. See the [Request parameters table](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/authorizeCustomAS!in=query&path=max_age&t=request) for the `/authorize` endpoint for more information on `max_age`.
 
-The Okta [redirect and embedded](/docs/concepts/redirect-vs-embedded/) deployment models support the use of the `acr_values` parameter. The parameter works with any OpenID Connect app, such as web, native, or SPA, and both the [org authorization server and custom authorization servers](/docs/concepts/auth-servers/) support it.
+The Okta [redirect and embedded](/docs/concepts/redirect-vs-embedded/) deployment models support the use of the `acr_values` parameter. The parameter works with any OpenID Connect (OIDC) app, such as web, native, or SPA, and both the [org authorization server and custom authorization servers](/docs/concepts/auth-servers/) support it.
 
 ### Evaluation flow
 
@@ -167,4 +167,4 @@ When you use the refresh token to refresh access and ID tokens, the tokens refle
 
 * Read more about policies on the [Policies](/docs/concepts/policies/) concept page.
 
-* Read more about OpenID Connect and OAuth 2.0 in the [OAuth 2.0 and OpenID Connect overview](/docs/concepts/oauth-openid/).
+* Read more about OAuth 2.0 and OIDC in the [OAuth 2.0 and OpenID Connect overview](/docs/concepts/oauth-openid/).
