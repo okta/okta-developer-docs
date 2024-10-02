@@ -188,7 +188,7 @@ Acme is a CMR platform that helps modern businesses thrive. A platform that conn
 
 The [OIN catalog](https://www.okta.com/integrations/) organizes integrations into [use case](#use-cases) categories.
 
-In the [OIN Manager](/docs/guides/submit-app/wfconnector/main/#app-information), you can select up to five [use cases](#use-cases) in the **App use case** dropdown list. The [Single Sign-On](https://www.okta.com/integrations/?category=single-sign-on) use case is automatically applied to your integration if it supports SWA, SAML, or OIDC sign-on mode (`signOnMode`). **Single Sign-On** isn't a selection option in the OIN Manager **App use case** dropdown list.
+In the [OIN Manager](/docs/guides/submit-app/wfconnector/main/#app-information), you can select up to five [use cases](#use-cases) in the **App use case** dropdown list.
 
 In the [OIN Wizard](/docs/guides/submit-oin-app/openidconnect/main/#oin-catalog-properties), use cases are automatically assigned to your integration based on the features that it supports.
 
