@@ -183,7 +183,7 @@ In the System Log, the `system.custom_url_domain.verify` and `system.email_domai
 
 #### Authentication method chain is self-service EA
 
-With this feature, you can require users to verify with multiple authentication methods in a specified sequence using the `AUTH_METHOD_CHAIN` verification method. You can create multiple authentication method chains in an authentication policy rule to cater to different use cases and scenarios. See [Create a Policy Rule](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule!path=0/actions/appSignOn/verificationMethod&t=request) and [Authentication method chain](https://help.okta.com/okta_help.htm?type=oie&id=csh-auth-method-chain). <!-- OKTA-790586 AUTHENTICATION_METHOD_CHAIN FF -->
+With this feature, you can require users to verify with multiple authentication methods in a specified sequence using the `AUTH_METHOD_CHAIN` verification method. You can create multiple authentication method chains in an authentication policy rule to cater to different use cases and scenarios. See [Create a Policy Rule](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy) and [Authentication method chain](https://help.okta.com/okta_help.htm?type=oie&id=csh-auth-method-chain). <!-- OKTA-790586 AUTHENTICATION_METHOD_CHAIN FF -->
 
 #### Bug fixed in 2024.08.1
 
@@ -230,7 +230,7 @@ Admins can now specify a network zone allowlist for each static (SSWS) API token
 
 #### New System Log API property for target object is GA Production
 
-Certain system log events now contain a new property called `changeDetails` in the `target` object. When this property is populated, it reflects new, changed, or removed attributes of the target resource that has been modified. See [changeDetails property](/docs/reference/api/system-log/#changedetails-property). <!-- OKTA-724000-->
+Certain System Log events now contain a new property called `changeDetails` in the `target` object. When this property is populated, it reflects new, changed, or removed attributes of the target resource that's been modified. See [changeDetails property](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/#tag/SystemLog/operation/listLogEvents!c=200&path=target/changeDetails&t=response). <!-- OKTA-724000-->
 
 #### Request throttling for jwks_uri
 
@@ -537,11 +537,11 @@ You can now pin the Sign-In Widget version (third generation) when updating a cu
 
 #### New System Log API property for target object is GA Preview
 
-Certain system log events now contain a new property called `changeDetails` in the `target` object. When this property is populated, it reflects new, changed, or removed attributes of the target resource that has been modified. See [changeDetails property](/docs/reference/api/system-log/#changedetails-property). <!-- OKTA-724000 -->
+Certain System Log events now contain a new property called `changeDetails` in the `target` object. When this property is populated, it reflects new, changed, or removed attributes of the target resource that's been modified. See [changeDetails property](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/#tag/SystemLog/operation/listLogEvents!c=200&path=target/changeDetails&t=response). <!-- OKTA-724000 -->
 
 #### Multiple Identifiers is EA in Preview
 
-Today, end users must sign in to Okta with a username or email address only. With the Multiple Identifiers feature, admins can configure identifiers, or user attributes from Universal Directory, that an end user can enter to authenticate. Multiplier identifiers work in sign-in, recovery, self-service registration, and unlock flows. Admins can configure up to three identifiers, including email (which is still a required identifier). See [Profile enrollment policy](/docs/reference/api/policy/#profile-enrollment-policy). <!-- OKTA-687191 FF: MULTIPLE_IDENTIFIERS -->
+Today, end users must sign in to Okta with a username or email address only. With the Multiple Identifiers feature, admins can configure identifiers, or user attributes from Universal Directory, that an end user can enter to authenticate. Multiplier identifiers work in sign-in, recovery, self-service registration, and unlock flows. Admins can configure up to three identifiers, including email (which is still a required identifier). See [Profile enrollment policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy). <!-- OKTA-687191 FF: MULTIPLE_IDENTIFIERS -->
 
 #### Developer documentation update in 2024.05.0
 
@@ -624,7 +624,7 @@ Identity Threat Protection with Okta AI is a powerful risk assessment and respon
 
 See the [Shared Signals Framework (SSF) Receiver](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SSFReceiver/) and [SSF SET](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SSFSecurityEventToken/) APIs.
 
-See also the [Entity risk policy](/docs/reference/api/policy/#entity-risk-policy) and [Continuous Access evaluation policy](/docs/reference/api/policy/#continuous-access-evaluation-policy) API updates. <!-- OKTA-683713 ENABLE_ITP_FEATURES_FOR_EA -->
+See also the [Entity risk policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy) and [Continuous Access evaluation policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy) API updates. <!-- OKTA-683713 ENABLE_ITP_FEATURES_FOR_EA -->
 
 #### Enhanced app API contracts is GA in Production
 
@@ -697,7 +697,7 @@ The Content Security Policy (CSP) feature lets admins control which URLs may be 
 
 #### New mappings property for Policy API is EA in Preview
 
-A new `mappings` property is available for the `links` object in  `GET /api/v1/policies/{policyId}` and `GET /api/v1/policies?type={type}` responses. This property displays links to policy mappings. See [Policy API](/docs/reference/api/policy/#links-object). <!-- OKTA-637310 -->
+A new `mappings` property is available for the `links` object in  `GET /api/v1/policies/{policyId}` and `GET /api/v1/policies?type={type}` responses. This property displays links to policy mappings. See [Policy API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/getPolicy). <!-- OKTA-637310 -->
 
 #### My Account Authenticators API is GA in Production
 
@@ -709,7 +709,7 @@ The [Login.gov IdP configuration](/docs/guides/add-logingov-idp/main/#create-an-
 
 #### Granular API policy authenticator controls is GA in Preview
 
-The Authentication Policy API now includes three new `constraints` object parameters that provide precise control over what specific authenticators and methods are displayed to end users. Previously, some authenticators were mapped to the same authenticator `types` and `methods`. The parameters `authenticationMethods` and `excludeAuthenticationMethods` now identify (or exclude) the exact authenticator for both `knowledge` and `possession` constraints. The `required` parameter indicates whether the `knowledge` or `possession` constraints are required by the assurance. See the [Policy API](/docs/reference/api/policy/#constraints). <!--OKTA-676880 ASSURANCE_GRANULAR_AUTHENTICATOR_CONSTRAINTS -->
+The Authentication Policy API now includes three new `constraints` object parameters that provide precise control over what specific authenticators and methods are displayed to end users. Previously, some authenticators were mapped to the same authenticator `types` and `methods`. The parameters `authenticationMethods` and `excludeAuthenticationMethods` now identify (or exclude) the exact authenticator for both `knowledge` and `possession` constraints. The `required` parameter indicates whether the `knowledge` or `possession` constraints are required by the assurance. See the [Policy API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule!path=0/actions/appSignOn/verificationMethod/0/constraints&t=request). <!--OKTA-676880 ASSURANCE_GRANULAR_AUTHENTICATOR_CONSTRAINTS -->
 
 #### Externally signed org AS access tokens
 
@@ -840,7 +840,7 @@ The Content Security Policy (CSP) feature lets admins control which URLs may be 
 
 #### Granular API policy authenticator controls is self-service EA in Preview
 
-The Authentication Policy API now includes three new `constraints` object parameters that provide precise control over what specific authenticators and methods are displayed to end users. Previously, some authenticators were mapped to the same authenticator `types` and `methods`. The parameters `authenticationMethods` and `excludeAuthenticationMethods` now identify (or exclude) the exact authenticator for both `knowledge` and `possession` constraints. The `required` parameter indicates whether the `knowledge` or `possession` constraints are required by the assurance. See the [Policy API](/docs/reference/api/policy/#constraints). <!--OKTA-676888 ASSURANCE_GRANULAR_AUTHENTICATOR_CONSTRAINTS -->
+The Authentication Policy API now includes three new `constraints` object parameters that provide precise control over what specific authenticators and methods are displayed to end users. Previously, some authenticators were mapped to the same authenticator `types` and `methods`. The parameters `authenticationMethods` and `excludeAuthenticationMethods` now identify (or exclude) the exact authenticator for both `knowledge` and `possession` constraints. The `required` parameter indicates whether the `knowledge` or `possession` constraints are required by the assurance. See the [Policy API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule!path=0/actions/appSignOn/verificationMethod/0/constraints&t=request). <!--OKTA-676888 ASSURANCE_GRANULAR_AUTHENTICATOR_CONSTRAINTS -->
 
 #### IP restrictions on tokens
 
@@ -896,7 +896,7 @@ The [List all Devices](https://developer.okta.com/docs/api/openapi/okta-manageme
 
 #### New possession constraint property available for Policy API is GA in Production
 
-A new `userVerification` property is available for the `constraints` object of the [Policy API](/docs/reference/api/policy/#constraints). This setting can ensure the verification of a possession factor through a PIN or biometrics. <!-- OKTA-669846 ASSURANCE_USER_VERIFICATION_POSSESSION_CONSTRAINT -->
+A new `userVerification` property is available for the `constraints` object of the [Policy API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule!path=0/actions/appSignOn/verificationMethod/0/constraints&t=request). This setting can ensure the verification of a possession factor through a PIN or biometrics. <!-- OKTA-669846 ASSURANCE_USER_VERIFICATION_POSSESSION_CONSTRAINT -->
 
 #### Read-only permission for admin role assignments is GA in Production
 

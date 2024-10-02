@@ -6,28 +6,28 @@ excerpt: A JavaScript wrapper for Okta's Authentication APIs. Formerly titled "O
 layout: Guides
 ---
 
-> **Note:** This document is only for Okta Classic Engine. If you are using Okta Identity Engine, see [Auth JS fundamentals](/docs/guides/auth-js). See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.
+> **Note:** This document is only for Okta Classic Engine. If you're using Okta Identity Engine, see [Auth JS fundamentals](/docs/guides/auth-js). See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.
 
-The Okta Auth SDK builds on top of our [Authentication API](/docs/reference/api/authn/) and [OpenID Connect API](/docs/reference/api/oidc/) to enable you to create a fully branded sign-in experience using JavaScript.
+The Okta Auth JavaScript SDK (auth.js) enables you to create a fully branded sign-in experience. It is built on top of our [Authentication API](/docs/reference/api/authn/) and [OpenID Connect API](/docs/reference/api/oidc/).
 
-The Okta Auth SDK is used by Okta's [Sign-in Widget](/code/javascript/okta_sign-in_widget/) which powers the default Okta sign-in page. If you're building a JavaScript front end or Single Page App (SPA), the Auth SDK gives you added control and customization beyond what is possible with the Widget.
+Auth.js is used by the [Sign-In Widget](/docs/guides/embedded-siw/) that powers the default Okta sign-in page. If you're building a JavaScript front end or a single-page app (SPA), auth.js gives you more control and customization than the Widget.
 
-In this guide you will learn how to use the Auth SDK on a simple static page to:
+In this guide you learn how to use auth.js on a simple static page to:
 
-- Retrieve and store an OpenID Connect (OIDC) token (id_token)
-- Get an Okta session
+* Retrieve and store an OpenID Connect (OIDC) token (id_token)
+* Get an Okta session
 
 > **Note:** `@okta/okta-auth-js` version 4.5.0 or above is required to run samples in this guide.
-If you'd like to explore the entire Auth SDK, please see the [Okta AuthJS Source &amp; API Reference][authjs-reference].
+If you'd like to explore auth.js, see [API Reference](https://github.com/okta/okta-auth-js?tab=readme-ov-file#api-reference).
 
 ## Prerequisites
 
-You will need the following things for this guide:
+You need the following things for this guide:
 
-- An Okta org - If you don't have an existing org, register for [Okta Developer Edition](https://developer.okta.com/signup/).
-- An OpenID Connect application integration. See the [instructions for creating an application integration](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-oidc).
-- At least one user [assigned to the application integration](https://help.okta.com/okta_help.htm?id=ext_Apps_Apps_Page-assign).
-- An entry in your Org's "Trusted Origins" for your application. To do this, follow the steps found under the "Trusted Origins tab" section in our [API security help page](https://help.okta.com/okta_help.htm?id=Security_API).
+* An Okta org. If you don't have an existing org, register for [Okta Developer Edition](https://developer.okta.com/signup/).
+* An OpenID Connect app integration. See the [instructions for creating an app integration](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-oidc).
+* One or more users [assigned to the app integration](https://help.okta.com/okta_help.htm?id=ext_Apps_Apps_Page-assign).
+* An entry in your Org's "Trusted Origins" for your application. To do this, follow the steps found under the "Trusted Origins tab" section in our [API security help page](https://help.okta.com/okta_help.htm?id=Security_API).
 
 ## Installation
 
@@ -37,21 +37,21 @@ Include the following script tag in your target web page:
 <script src="https://global.oktacdn.com/okta-auth-js/4.5.0/okta-auth-js.min.js" type="text/javascript"></script>
 ```
 
-## Part 1: Retrieve and Store an OpenID Connect Token
+## Part 1: Retrieve and store an OpenID Connect token
 
-In this first section you will learn how to:
+In this first section you learn how to:
 
-- Configure your Okta Auth SDK Client
-- Retrieve an ID Token using a redirect to your Okta org's sign-in page
-- Parse a token from the URL that results from the redirect
-- Store the parsed token inside the SDK's Token Manager
-- Retrieve the stored token from the Token Manager
+* Configure your auth.js client
+* Retrieve an ID token using a redirect to your Okta org's sign-in page
+* Parse a token from the URL that results from the redirect
+* Store the parsed token inside the SDK's token manager
+* Retrieve the stored token from the token manager
 
-If you'd like to see the complete code example, you can find it [below](#complete-openid-connect-token-example).
+For the full example, see [Complete OpenID Connect token example](#complete-openid-connect-token-example).
 
-### Client Configuration
+### Client configuration
 
-To initialize the SDK, create a new instance of the `OktaAuth` object:
+To initialize the SDK, create an instance of the `OktaAuth` object:
 
 ``` js
 var authClient = new OktaAuth({
@@ -63,9 +63,9 @@ var authClient = new OktaAuth({
 
 Replace each of these property values with ones from your Okta org and application. For more information about these properties, see the [Client Configuration section of the Auth SDK reference][authjs-reference-client-configuration].
 
-### Retrieve ID Token from Okta
+### Retrieve an ID token
 
-To retrieve an ID Token from Okta, you will use the `token.getWithRedirect` method, specifying that you want an `id_token` included in the response:
+To retrieve an ID token from Okta, use the `token.getWithRedirect` method, specifying that you want an `id_token` included in the response:
 
 ``` js
 authClient.token.getWithRedirect({
@@ -75,9 +75,9 @@ authClient.token.getWithRedirect({
 
 [Read more about getWithRedirect in the Auth SDK Reference][authjs-reference-token-getwithredirect].
 
-### Parse the Token
+### Parse the token
 
-After the redirect, the URL will contain an ID Token in the form of a JWT. The `token.parseFromUrl` method can be used to parse that token from the URL:
+After the redirect, the URL will contain an ID token in the form of a JWT. The `token.parseFromUrl` method can be used to parse that token from the URL:
 
 ``` js
 authClient.token.parseFromUrl()
@@ -94,9 +94,9 @@ console.log(`Hi ${idToken.claims.email}!`);
 
 [Read more about parseFromUrl in the Auth SDK Reference][authjs-reference-token-parsefromurl].
 
-### Store the Parsed Token
+### Store the parsed token
 
-Once the token has been parsed out of the URL, you can add it to the Token Manager using the `tokenManager.add` method:
+Once the token has been parsed out of the URL, you can add it to the token manager using the `tokenManager.add` method:
 
 ``` js
 authClient.tokenManager.add('idToken', idToken);
@@ -104,7 +104,7 @@ authClient.tokenManager.add('idToken', idToken);
 
 [Read more about tokenManager.add in the Auth SDK Reference][authjs-reference-tokenmanager-add].
 
-The full code to parse the token, display the email from it, and then add it to the SDK's Token Manager looks like this:
+The full code to parse the token, display the email from it, and then add it to the SDK's token manager looks like this:
 
 ``` js
 authClient.token.parseFromUrl()
@@ -115,9 +115,9 @@ authClient.token.parseFromUrl()
   })
 ```
 
-### Retrieve the Stored Token
+### Retrieve the stored token
 
-A token that is stored in the Token Manager can be retrieved using the `tokenManager.get` method:
+A token that is stored in the token manager can be retrieved using the `tokenManager.get` method:
 
 ``` js
 authClient.tokenManager.get('idToken')
@@ -132,7 +132,7 @@ authClient.tokenManager.get('idToken')
 
 [Read more about tokenManager.get in the Auth SDK Reference][authjs-reference-tokenmanager-get].
 
-### Complete OpenID Connect Token Example
+### Complete OpenID Connect token example
 
 Putting it all together, the final example looks like this:
 
@@ -173,9 +173,9 @@ if (authClient.isLoginRedirect()) {
 }
 ```
 
-## Part 2: Get an Okta Session Cookie
+## Part 2: Get an Okta session cookie
 
-In the code example above, the ID Token is retrieved using a redirect to the Okta sign-in page. It is also possible to take a user-inputted `username` and `password` pair and pass them to the `signIn` method. This method then initiates an authentication process which returns an [Okta session cookie](/docs/guides/session-cookie/#retrieving-a-session-cookie-by-visiting-a-session-redirect-link). This Okta session cookie can then be used, along with the `getWithRedirect` method, to get back the ID Token. This means that there is no need to redirect the user to the Okta sign-in page.
+In the code example above, the ID token is retrieved using a redirect to the Okta sign-in page. It’s also possible to take a user-inputted `username` and `password` pair and pass them to the `signIn` method. This method then initiates an authentication process that returns an [Okta session cookie](/docs/guides/session-cookie/#retrieving-a-session-cookie-by-visiting-a-session-redirect-link). This Okta session cookie can then be used, along with the `getWithRedirect` method, to get back the ID token. This means that there’s no need to redirect the user to the Okta sign-in page.
 
 [Read more about signIn in the Auth SDK Reference][authjs-reference-signin].
 
@@ -197,7 +197,8 @@ else {
 ```
 
 > **Note:** This example, like everything else on this page, is for illustrative purposes only. The `prompt()` method isn't considered a secure way of asking for user authentication credentials.
-#### Complete Okta Session and OIDC Token Example
+
+### Complete Okta session and OIDC token example
 
 ``` js
 // Bootstrap the AuthJS Client

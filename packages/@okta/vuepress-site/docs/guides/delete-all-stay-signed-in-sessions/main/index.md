@@ -31,7 +31,7 @@ This guide explains how to delete all sessions of the **Stay signed in** feature
 
 **Stay signed in** lets users establish an Okta session that continues after they close and reopen their browsers. When a user selects this option during authentication, they won't be prompted again for MFA for the amount of time defined in your global session policy.
 
-There are two ways to present the **Stay signed in** option to your users. By default, it's displayed on the Sign-In Widget when users enter their credentials. You can also configure it so that the prompt appears after users authenticate. This option is recommended for orgs that use delegated authentication or identity providers, because their users may bypass the credential entry page of the Sign-In Widget.
+There are two ways to present the **Stay signed in** option to your users. By default, it's displayed on the Sign-In Widget when users enter their credentials. You can also configure it so that the prompt appears after users authenticate. This option is recommended for orgs that use delegated authentication or identity providers (IdP), because their users may bypass the credential entry page of the Sign-In Widget.
 
 **Stay signed in** is only recommended for users on private devices or networks. Users who suspect that their credentials have been compromised can end all sessions in their account settings.
 
@@ -54,7 +54,7 @@ The difference between persistent SSO and session SSO is that you can maintain p
 
 ### Enable the parameter
 
-To enable persistent SSO for **Stay signed in**, you need to update the [`usePersistentCookie`](/docs/reference/api/policy/#signon-action-object) parameter in the appropriate global session policy. These steps use the Okta [Policy Postman collection](/docs/reference/postman-collections/) to enable the parameter.
+To enable persistent SSO for **Stay signed in**, you need to update the [`usePersistentCookie`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule!path=4/actions/signon/session/usePersistentCookie&t=request) parameter in the appropriate global session policy. These steps use the Okta [Policy Postman collection](/docs/reference/postman-collections/) to enable the parameter.
 
 Before you begin, complete the following steps:
 
@@ -131,7 +131,7 @@ Before you begin, complete the following steps:
 
 ## Delete all sessions
 
-This API call revokes all active identity provider sessions of the user. As a result, the user must authenticate on the next operation. Also, this call revokes OpenID Connect and OAuth refresh and access tokens issued to the user. See [My Account Sessions API](https://developer.okta.com/docs/api/openapi/okta-myaccount/myaccount/tag/Sessions/).
+This API call revokes all active IdP sessions of the user. As a result, the user must authenticate on the next operation. Also, this call revokes OpenID Connect and OAuth refresh and access tokens issued to the user. See [My Account Sessions API](https://developer.okta.com/docs/api/openapi/okta-myaccount/myaccount/tag/Sessions/).
 
 > **Note:** The deletion happens at the browser level, not the device level.
 

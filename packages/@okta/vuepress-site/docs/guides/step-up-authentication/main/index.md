@@ -27,13 +27,13 @@ Users want seamless access to certain resources, but organizations want to incre
 
 The `acr_values` parameter refers to authentication context class reference. Each value defines a specific set of assurance level requirements that the protected resource requires from the authentication event associated with the access and ID tokens.
 
-Today an authorization server relies on [authentication policies](/docs/reference/api/policy/#authentication-policy) to authenticate the user. After the user is authenticated, the authorization server evaluates the scopes and the grant types defined for the app, and then issues the tokens. Although this approach works in many situations, there are several circumstances where more is needed. Resource servers (your protected APIs) can require different authentication strengths or elapsed time frames for different use cases. For example, an eCommerce app requires different authentication strengths depending on whether the item being purchased exceeds a certain threshold. Another example is an app that requires a higher level of assurance before making changes to sensitive information.
+Today an authorization server relies on [authentication policies](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule) to authenticate the user. After the user is authenticated, the authorization server evaluates the scopes and the grant types defined for the app, and then issues the tokens. Although this approach works in many situations, there are several circumstances where more is needed. Resource servers (your protected APIs) can require different authentication strengths or elapsed time frames for different use cases. For example, an ecommerce app requires different authentication strengths depending on whether the item being purchased exceeds a certain threshold. Another example is an app that requires a higher level of assurance before making changes to sensitive information.
 
 Okta has created predefined `acr_values` that are described in the [Predefined parameter values](#predefined-parameter-values) section. You can include one of these values, based on your use case, in the client authorization request to request a different authentication assurance. The authorization server returns an access token and/or an ID token that contains the `acr` claim. This claim conveys information about the level of assurance that the user verified at the time of authentication. The resource server can then validate these parameters to ensure that the user verified the required level of assurance.
 
 > **Note:** You can specify a `max_age` parameter value to require an elapsed time frame. Also, if you want to ignore the existing session and reauthenticate the user each time, pass `max_age=0` in the request. For Classic Engine, pass `max_age=1`. See the [Request parameters table](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/authorizeCustomAS!in=query&path=max_age&t=request) for the `/authorize` endpoint for more information on `max_age`.
 
-The Okta [redirect and embedded](/docs/concepts/redirect-vs-embedded/) deployment models support the use of the `acr_values` parameter. The parameter works with any OpenID Connect app, such as web, native, or SPA, and both the [org authorization server and custom authorization servers](/docs/concepts/auth-servers/) support it.
+The Okta [redirect and embedded](/docs/concepts/redirect-vs-embedded/) deployment models support the use of the `acr_values` parameter. The parameter works with any OpenID Connect (OIDC) app, such as web, native, or SPA, and both the [org authorization server and custom authorization servers](/docs/concepts/auth-servers/) support it.
 
 ### Evaluation flow
 
@@ -45,7 +45,7 @@ In both Identity Engine and Classic Engine, if the user has a session, the previ
 
 ### Factor enrollment
 
-If the user hasn't enrolled a factor, during step-up authentication the user is prompted to enroll a factor as long as an [authenticator enrollment policy](/docs/reference/api/policy/#authenticator-enrollment-policy) is configured (or the [Multifactor Enrollment Policy](/docs/reference/api/policy/#multifactor-mfa-enrollment-policy) in Classic Engine).
+If the user hasn't enrolled a factor, during step-up authentication the user is prompted to enroll a factor as long as an [authenticator enrollment policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule) is configured (or the [Multifactor Enrollment Policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule) in Classic Engine).
 
 ## Predefined parameter values
 
@@ -167,4 +167,4 @@ When you use the refresh token to refresh access and ID tokens, the tokens refle
 
 * Read more about policies on the [Policies](/docs/concepts/policies/) concept page.
 
-* Read more about OpenID Connect and OAuth 2.0 in the [OAuth 2.0 and OpenID Connect overview](/docs/concepts/oauth-openid/).
+* Read more about OAuth 2.0 and OIDC in the [OAuth 2.0 and OpenID Connect overview](/docs/concepts/oauth-openid/).
