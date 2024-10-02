@@ -228,7 +228,7 @@ Users now receive an authentication challenge for each redirect sent to an Ident
 
 #### Policy Simulation API is GA in Preview
 
-With the Policy API `/simulate` endpoint, you can quickly and easily test policies and validate whether your desired security outcomes are achieved. This endpoint allows you to simulate user access attributes, such as IP address, device, risk, and so on, to test whether the user is granted access to the specified application. This endpoint is implemented in the Admin Console as the [Access Testing Tool](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/policies/access-testing-tool.htm). The `/simulate` endpoint helps you identify potential security risks and compliance issues before you implement a policy. See the [Policy API](/docs/reference/api/policy/#policy-simulation-operations) and [Test your policies with access simulations](/docs/guides/policy-simulation). <!-- OKTA-593826 POLICY_SIMULATION -->
+With the Policy API `/simulate` endpoint, you can quickly and easily test policies and validate whether your desired security outcomes are achieved. This endpoint allows you to simulate user access attributes, such as IP address, device, risk, and so on, to test whether the user is granted access to the specified app. This endpoint is implemented in the Admin Console as the [Access Testing Tool](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/policies/access-testing-tool.htm). The `/simulate` endpoint helps you identify potential security risks and compliance issues before you implement a policy. See the [Policy API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicySimulation) and [Test your policies with access simulations](/docs/guides/policy-simulation). <!-- OKTA-593826 POLICY_SIMULATION -->
 
 #### Developer documentation update in 2023.08.0
 
@@ -317,7 +317,7 @@ Multibrand customizations allow customers to use one org to manage multiple bran
 
 #### Pagination for the Brands API is GA in Production
 
-The Brands API now supports [pagination](/docs/reference/core-okta-api/#pagination) when returning lists of brands. Previously, users would get a list of all brands in the org. With pagination, users receive 20 records per page. See [Brands](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Brands/). <!-- OKTA-574011 -->
+The Brands API now supports [pagination](https://developer.okta.com/docs/api/#pagination) when returning brand lists. Previously, users would get a list of all brands in the org. With pagination, users receive 20 records per page. See [Brands](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Brands/). <!-- OKTA-574011 -->
 
 #### Unique refresh token ID added to token inline hook requests
 
@@ -822,7 +822,7 @@ OAuth 2.0 Optional Consent provides an optional property that enables a user to 
 
 #### Password history policy enforced in strict mode is GA in Production
 
-When an admin [updates passwords](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/updateUser) and sets the `strict` parameter to `true`, the [password history policy](/docs/reference/api/policy/#age-object) is now enforced.<!-- OKTA-563910-->
+When an admin [updates passwords](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/updateUser) and sets the `strict` parameter to `true`, the [password history policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy!path=4/settings/password/age&t=request) is now enforced.<!-- OKTA-563910-->
 
 #### PBKDF2 Hashing Algorithm support is GA in Production
 

@@ -555,7 +555,7 @@ To improve usability, we've moved some of the panels in the administrator UI rel
 <!-- OKTA-91831, OKTA-93759 -->
 The Okta Sign-In Widget will be updated to version 1.4.0 for Production orgs.
 
-See [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/) for updated sample code.
+See [Okta Sign-In Widget](/docs/guides/embedded-siw/) for updated sample code.
 
 The new release includes several enhancements:
 

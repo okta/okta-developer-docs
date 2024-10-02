@@ -121,7 +121,7 @@ See [key rotation](/docs/concepts/key-rotation/) or the `/keys` [API endpoint](h
 
 ### Rate limit considerations
 
-When you construct your SSO application, be aware of the limits on requests to Okta APIs. For information on the categories and cumulative rate limits, see the [Rate limits overview](/docs/reference/rate-limits/). Okta provides three headers in each response to report on both concurrent and org-wide rate limits.
+When you construct your SSO application, be aware of the limits on requests to Okta APIs. For information on the rate-limit categories, see the [Rate limits overview](/docs/reference/rate-limits/). Okta provides three headers in each response to report on both concurrent and org-wide rate limits.
 
 For org-wide rate limits, the following three headers are provided:
 

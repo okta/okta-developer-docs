@@ -8,19 +8,15 @@ excerpt: >-
 
 To protect the service for all customers, Okta APIs are subject to rate limits. These limits mitigate denial-of-service attacks and abusive actions such as rapidly updating configurations, aggressive polling and concurrency, or excessive API calls.
 
-The Okta API rate limits are divided into three categories: authentication/end user, management, and other endpoints. Each category has APIs with rate limits that are enforced individually and as a cumulative rate limit. The rate limits vary by [service subscription](https://developer.okta.com/pricing/).
+The Okta API rate limits are divided into the following categories: authentication/end user and management. Each category has APIs with rate limits that are enforced individually. The rate limits vary by [service subscription](https://developer.okta.com/pricing/).
 
-## API rate limit categories and cumulative rate limits
+## API rate limit categories
 
-To access the individual API limits, visit a category page by clicking the appropriate category link in the table.
+To access the individual API limits, visit one of the following category pages or see the [APIs table](/docs/reference/rl-dashboard/#apis-table) in the Rate Limits dashboard:
 
-> Okta enforces the following per-minute limits.
-
-| Category                                                          | Developer (free) | Developer (paid) | One App | Enterprise | Workforce identity    |
-| ----------------------------------------------------------------- | ----------------:| ----------------:| -------:| ----------:| ---------------------:|
-| [Authentication/End user](/docs/reference/rl-global-enduser/)     | 2,100            | 13,000           | 13,000  | 13,000     | 18,250                |
-| [Management](/docs/reference/rl-global-mgmt/)                     | 980              | 5,200            | 5,200   | 5,200      | 7,000                 |
-| [Other endpoints](/docs/reference/rl-global-other-endpoints/)     | 1,000            | 6,000            | 6,000   | 6,000      | 10,000                |
+* [Authentication/End user](/docs/reference/rl-global-enduser/)
+* [Management](/docs/reference/rl-global-mgmt/)
+* [Additional limits](/docs/reference/rl-additional-limits)
 
 If any org-wide rate limit is exceeded, an HTTP 429 status code is returned. You can anticipate hitting the rate limit by checking the [Okta rate limiting headers](/docs/reference/rl-best-practices/#check-your-rate-limits-with-okta-s-rate-limit-headers). Also, you’re sent an email notification when your org approaches its rate limit.
 
@@ -94,4 +90,8 @@ The email is sent to the same admin who received the `system.org.warning` and `s
 
 * [Okta API endpoints and per-user limits](/docs/reference/rl-additional-limits/#okta-api-endpoints-and-per-user-limits): API endpoints that take username and password credentials, including the [Authentication API](/docs/reference/api/authn/) and the [OAuth 2.0 Resource Owner Password flow](/docs/guides/implement-grant-type/ropassword/main/), have a per-username rate limit to prevent brute force attacks with the user's password. [SMS and Call factor endpoints](/docs/reference/rl-additional-limits/#sms-and-call-rate-limits) also have a per-username rate limit.
 
+<<<<<<< HEAD
 * [Okta-generated email message rate limits](/docs/reference/rl-additional-limits/#okta-generated-email-rate-limits): These rate limits vary by email type. Okta enforces rate limits on the number of Okta-generated email messages that are sent to customers and customer users. For example, if the number of emails sent to a given user exceeds the per-minute limit for a given email type, subsequent emails of that type are dropped for that user until that minute elapses.
+=======
+* [Okta-generated email rate limits](/docs/reference/rl-additional-limits/#okta-generated-email-rate-limits): These rate limits vary by email type. Okta enforces rate limits on the number of Okta-generated email messages that are sent to customers and customer users. For example, if the number of emails sent to a given user exceeds the per-minute limit for a given email type, subsequent emails of that type are dropped for that user until that minute elapses.
+>>>>>>> 789b2a58d354f02a8e5d825691529853d048fef7

@@ -700,7 +700,7 @@ The following table summarizes the supported query parameters:
 | `since`     | Filters the lower time bound of the log events `published` property for bounded queries or persistence time for polling queries                                                          | The [Internet Date/Time Format profile of ISO 8601](https://tools.ietf.org/html/rfc3339#page-8), for example: `2017-05-03T16:22:18Z`                                                       | 7 days prior to `until` |
 | `until`     | Filters the upper time bound of the log events `published` property for bounded queries or persistence time for polling queries                                                          | The [Internet Date/Time Format profile of ISO 8601](https://tools.ietf.org/html/rfc3339#page-8), for example: `2017-05-03T16:22:18Z`                                                       | Current time            |
 | `after`     | Retrieves the next page of results. Okta returns a link in the HTTP Header (`rel=next`) that includes the after query parameter | Opaque token                                                                                                                                                                              |                         |
-| `filter`    | [Filter Expression](#expression-filter) that filters the results                                                                        | [SCIM Filter expression](/docs/reference/core-okta-api/#filter). All [operators](https://tools.ietf.org/html/rfc7644#section-3.4.2.2) except `[ ]` are supported. |                         |
+| `filter`    | [Filter Expression](#expression-filter) that filters the results                                                                        | [SCIM Filter expression](https://developer.okta.com/docs/api/#filter). All [operators](https://tools.ietf.org/html/rfc7644#section-3.4.2.2) except `[ ]` are supported. |                         |
 | `q`         | Filters the log events results by one or more exact [keywords](#keyword-filter)                                                         | URL encoded string. Max length is 40 characters per keyword, with a maximum of 10 keyword filters per query (before encoding)                                                             |                         |
 | `sortOrder` | The order of the returned events that are sorted by `published`                                                                                  | `ASCENDING` or `DESCENDING`                                                                                                                                                               | `ASCENDING`             |
 | `limit`     | Sets the number of results that are returned in the response                                                                                     | Integer between 0 and 1000                                                                                                                                                                | 100                     |
@@ -763,7 +763,7 @@ The following example expressions are supported for events with the `filter` que
 > In addition, a SCIM filter expression that uses the `co` (contains) operator with the `debugContext.debugData.url` or the `debugContext.debugData.requestUri` attribute is not supported.
 > A request with an invalid SCIM filter expression returns an HTTP 400 API response.
 
-See [Filtering](/docs/reference/core-okta-api/#filter) for more information on expressions.
+See [Filtering](https://developer.okta.com/docs/api/#filter) for more information on expressions.
 
 The following are examples of filter expressions:
 
@@ -1009,6 +1009,6 @@ curl -v -X GET \
 "https://${yourOktaDomain}/api/v1/logs?since=2017-10-01T00:00:00.000Z"
 ```
 
-Then retrieve the next page of events through the [link response header](/docs/reference/core-okta-api/#link-header) value with the `next` link relation. Continue this process until no events are returned.
+Then retrieve the next page of events through the [link response header](https://developer.okta.com/docs/api/#link-header) value with the `next` link relation. Continue this process until no events are returned.
 
 >**Note:** Don't transfer data by manually paginating using `since` and `until`, as this may lead to skipped or duplicated events. Instead, always follow the `next` links.

@@ -27,9 +27,9 @@ See [**IAM Terminology**](/docs/concepts/iam-overview-iam-terminology/) for defi
 
 Design your IAM solution to be highly available. Consider strategies such as these to help meet your availability goals:
 
-- Architect and design your solution with the collective availability requirements of your apps and customers in mind. Your objective is to meet or exceed their combined needs. Consider new availability requirements likely to emerge with business growth and other changes in the next few years.
+- Architect and design your solution with the collective availability requirements of your apps and customers in mind. Your objective is to meet or exceed their combined needs. Consider any new availability requirements likely to emerge with business growth and other changes in the next few years.
 
-- Provide redundancy, backup, monitoring, failure detection and recovery, notifications, and support procedures to avoid outages and recover quickly from planned or unplanned outages.
+- Provide redundancy, backup, monitoring, failure detection and recovery, notifications, and support procedures. This helps you avoid outages and recover quickly from planned or unplanned outages.
 
 - Meet requirements in [Reliability](#reliability) and [Scalability](#scalability), listed in the following sections. Your solution is only available when it's operating correctly and can handle its workload.
 
@@ -155,7 +155,7 @@ Okta provides a customizable, secure drop-in solution for managing users, authen
 
 - It supports a Zero Trust security architecture. See [What is Zero Trust Security?](http://okta.com/blog/2019/01/what-is-zero-trust-security/)
 
-- It logs events related to your org to provide an audit trail that you can export to a SIEM system. You can then use this data for monitoring, troubleshooting, event analysis, and audit. See [System Log API](/docs/reference/api/system-log/).
+- It logs events related to your org to provide an audit trail that you can export to a SIEM system. You can then use this data for monitoring, troubleshooting, event analysis, and audit. See the [System Log API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/).
 
 - You can configure it to provide notifications of user authorization issues and proactively respond to such events by temporarily blocking suspicious accounts.
 

@@ -63,7 +63,7 @@ See [Integrate with Endpoint Detection and Response solutions](https://help.okta
 
 ### Security context
 
-You can specify certain [rule conditions](/docs/reference/api/policy/#conditions) in [authentication policies](/docs/reference/api/policy/#authentication-policy). Use expressions based on the security context of the app sign-on request. Security context is made up of the [risk level](https://help.okta.com/okta_help.htm?id=csh-risk-scoring) and the matching [User behaviors](https://help.okta.com/okta_help.htm?id=ext_proc_security_behavior_detection) for the request.
+You can specify certain [rule conditions](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule!path=0/conditions&t=request) in [authentication policies](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule). Use expressions based on the security context of the app sign-on request. Security context is made up of the [risk level](https://help.okta.com/okta_help.htm?id=csh-risk-scoring) and the matching [User behaviors](https://help.okta.com/okta_help.htm?id=ext_proc_security_behavior_detection) for the request.
 
 | Syntax | Definitions | Type | Examples | Usage   |
 | ------ | ----------- | ---- | -------- | -----   |
@@ -72,7 +72,8 @@ You can specify certain [rule conditions](/docs/reference/api/policy/#conditions
 
 ### Login Context
 <ApiLifecycle access="ea"/>
-You can specify the [dynamic IdP](/docs/reference/api/policy/#policy-action-with-dynamic-IdP-routing). Use expressions based on the login context that holds the user's `username` as the `identifier`.
+
+You can specify the [dynamic IdP](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule). Use expressions based on the login context that holds the user's `username` as the `identifier`.
 
 | Syntax | Definitions | Type |
 | ------ | ----------- | ---- |
@@ -80,13 +81,14 @@ You can specify the [dynamic IdP](/docs/reference/api/policy/#policy-action-with
 
 ### Okta account management
 <ApiLifecycle access="ea"/>
-You can specify certain [Expression Language conditions](/docs/reference/api/policy/#okta-expression-language-condition-object) in [Okta account management policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-oamp).
+
+You can specify certain [Expression Language conditions](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule!path=0/conditions/elCondition&t=request) in [Okta account management policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-oamp).
 
 | Syntax | Definitions | Type |
 | ------ | ----------- | ---- |
 | `accessRequest.$operation`| `accessRequest` references the access context of the request. `operation` references the account management operation: `enroll`, `unenroll`, `recover`, or `unlockAccount`. | String |
 | `accessRequest.authenticator.$id` | `accessRequest` references the access context of the request. `authenticator.id` references an optional authenticator `id`, for example, the `id` of a custom authenticator. | String |
-| `accessRequest.authenticator.$key` | `accessRequest` references the access context of the request. `authenticator.key` references the [authenticator key](/docs/reference/api/policy/#authenticator-key-type-method-and-characteristic-relationships-for-constraints). | String |
+| `accessRequest.authenticator.$key` | `accessRequest` references the access context of the request. `authenticator.key` references the [authenticator key](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule!path=0/actions/appSignOn/verificationMethod/0/constraints/knowledge/authenticationMethods/key&t=request). | String |
 
 ## Functions
 

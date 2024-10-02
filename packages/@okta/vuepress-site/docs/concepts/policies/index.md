@@ -30,7 +30,7 @@ There are many possibilities for policy use:
 
 The [global session policy](#global-session-policies) controls the manner in which a user is allowed to sign in to Okta by identifying the user and specifies the length of their session.
 
-You can [configure a global session policy](/docs/guides/configure-signon-policy/main/) to require any of the [factors you set up](https://help.okta.com/okta_help.htm?type=oie&id=csh-configure-authenticators). Then use the primary and secondary factor conditions in a rule to define which factors are evaluated. For example, add a rule that prompts for additional factors so only users who are inside your [corporate network](/docs/reference/api/policy/#network-condition-object) have access.
+You can [configure a global session policy](/docs/guides/configure-signon-policy/main/) to require any of the [factors you set up](https://help.okta.com/okta_help.htm?type=oie&id=csh-configure-authenticators). Then use the primary and secondary factor conditions in a rule to define which factors are evaluated. For example, add a rule that prompts for additional factors so only users who are inside your [corporate network](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule!path=0/conditions/network&t=request) have access.
 
 ### Control how users access your app
 
@@ -77,11 +77,11 @@ A default policy is automatically created for each type of policy. This ensures 
 
 Default policies also always have one default rule that you can't delete, and that rule is always the last rule in the priority order. When you add rules to the default policy, they have a higher priority than the default rule.
 
-The [`system` attribute](/docs/reference/api/policy/#policy-object) determines whether a system or an admin created the policy. Default policies and default rules are the only policies and rules that have this attribute. The `system` attribute set to `TRUE` on default policies or rules indicates that those policies and rules are system-created policies, and you can't delete them.
+The [`system` attribute](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy!path=1/system&t=request) determines whether a system or an admin created the policy. Default policies and default rules are the only policies and rules that have this attribute. The `system` attribute set to `TRUE` on default policies or rules indicates that those policies and rules are system-created policies, and you can't delete them.
 
 ## Policy types
 
-You can configure policies for sign-on, passwords, enrollment, and API access. You can also use IdP discovery policies to create routing rules.
+You can configure policies for sign-on, passwords, enrollment, and API access. You can also use identity provider (IdP) discovery policies to create routing rules.
 
 ### Sign-on policies
 
@@ -89,11 +89,11 @@ Sign-on policies and rules enforce policies and rules so users sign in with the 
 
 #### Global session policies
 
-A [global session policy](/docs/reference/api/policy/#global-session-policy) controls who has access and how a user gains access to Okta. See [Global session policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-osop) and [Configure a global session policy and an authentication policy](/docs/guides/configure-signon-policy/main/).
+A [global session policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy) controls who has access and how a user gains access to Okta. See [Global session policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-osop) and [Configure a global session policy and an authentication policy](/docs/guides/configure-signon-policy/main/).
 
 #### Authentication policies
 
-An [authentication policy](/docs/reference/api/policy/#authentication-policy) determines the extra levels of authentication performed before a user can access an app, such as enforcing factor requirements. See [Authentication policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-asop).
+An [authentication policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy) determines the extra levels of authentication performed before a user can access an app, such as enforcing factor requirements. See [Authentication policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-asop).
 
 You can create an authentication policy specifically for the app or create a few policies and [share them](https://help.okta.com/okta_help.htm?type=oie&id=ext-share-auth-policy) across multiple apps.
 
@@ -116,7 +116,7 @@ See [Okta account management policy](https://help.okta.com/okta_help.htm?type=oi
 
 ### Password policies
 
-A [password policy](/docs/reference/api/policy/#password-policy) determines the requirements for a user's password length and complexity, and how often a user must change their password. Okta provides a default policy to enforce the use of strong passwords.
+A [password policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy) determines the requirements for a user's password length and complexity, and how often a user must change their password. Okta provides a default policy to enforce the use of strong passwords.
 
 See [Configure the password authenticator](https://help.okta.com/okta_help.htm?type=oie&id=ext-configure-password) for more information on passwords as an authenticator factor.
 
@@ -126,17 +126,17 @@ Enrollment policies determine how users enroll an authenticator and what attribu
 
 #### Authenticator enrollment policies
 
-An [authenticator enrollment policy](/docs/reference/api/policy/#authenticator-enrollment-policy) controls how users enroll an authenticator. The policy controls which of the multifactor authentication (MFA) [methods](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-authenticators) are available for a user and when a user can enroll in a particular factor.
+An [authenticator enrollment policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy) controls how users enroll an authenticator. The policy controls which of the multifactor authentication (MFA) [methods](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-authenticators) are available for a user and when a user can enroll in a particular factor.
 
 Enable factors in your Okta org by creating a policy with one or more authenticators, and then assigning that policy to your app. See [Authenticators](/docs/guides/authenticators-overview/main/) to learn how to increase the security of your app by requiring a user to verify their identity in more than one way.
 
-> **Note:** In Identity Engine, the Multifactor (MFA) Enrollment Policy name has changed to [authenticator enrollment policy](/docs/reference/api/policy/#authenticator-enrollment-policy).
+> **Note:** In Identity Engine, the Multifactor (MFA) Enrollment Policy name has changed to [authenticator enrollment policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy).
 
 See [Authenticator enrollment policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-mfa-enrol-policies) for additional information on MFA authentication, enrollment policies, and rules.
 
 #### Profile enrollment policies
 
-The [Profile enrollment policy](/docs/reference/api/policy/#profile-enrollment-policy) collects the attributes required to validate users when they attempt to access your app. Use this policy for [self-service registration](/docs/guides/oie-embedded-sdk-use-case-self-reg/android/main/) or for [progressive enrollment](https://help.okta.com/okta_help.htm?type=oie&id=ext-pe-policies).
+The [Profile enrollment policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy) collects the attributes required to validate users when they attempt to access your app. Use this policy for [self-service registration](/docs/guides/oie-embedded-sdk-use-case-self-reg/android/main/) or for [progressive enrollment](https://help.okta.com/okta_help.htm?type=oie&id=ext-pe-policies).
 
 With self-service registration flows, users register and activate their profiles by clicking a sign-up link in the Sign-In Widget or through a custom-embedded authentication solution.
 
@@ -148,9 +148,9 @@ With progressive enrollment flows, you can capture the minimum user information 
 
 Identity Threat Protection with Okta AI is an identity threat solution that combines current security practices with continuous real-time risk assessment. See [Identity Threat Protection with Okta AI](https://help.okta.com/okta_help.htm?type=oie&id=ext-itp-overview). Identity Threat Protection uses the entity risk policy and Post auth session evaluation for these threat evaluations.
 
-* [Entity risk policy](/docs/reference/api/policy/#entity-risk-policy): The entity risk policy monitors your org for entity risk changes related to identity-based threats. For Admin Console tasks and further information, see [Entity risk policy](https://help.okta.com/okta_help.htm?type=oie&id=csh-entity-risk-policy).
+* [Entity risk policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy): The entity risk policy monitors your org for entity risk changes related to identity-based threats. For Admin Console tasks and further information, see [Entity risk policy](https://help.okta.com/okta_help.htm?type=oie&id=csh-entity-risk-policy).
 
-* [Post auth session evaluation](/docs/reference/api/policy/#post-auth-session-evaluation-policy): Post auth session evaluation monitors user sessions on your org to identify changes in session context. For Admin Console tasks and further information, see [Post auth session evaluation](https://help.okta.com/okta_help.htm?type=oie&id=csh-continuous-access-evaluation).
+* [Post auth session evaluation](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy): Post auth session evaluation monitors user sessions on your org to identify changes in session context. For Admin Console tasks and further information, see [Post auth session evaluation](https://help.okta.com/okta_help.htm?type=oie&id=csh-continuous-access-evaluation).
 
 ### API access policies
 
@@ -158,7 +158,7 @@ An [OAuth Authorization Policy](https://developer.okta.com/docs/api/openapi/okta
 
 ### Route to other identity providers
 
-The [IdP Discovery Policy](/docs/reference/api/policy/#idp-discovery-policy) determines where to route users when they attempt to sign in to your org. You can route users to various [identity providers](/docs/guides/add-an-external-idp/).
+The [IdP Discovery Policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy) determines where to route users when they attempt to sign in to your org. You can route users to various [identity providers](/docs/guides/add-an-external-idp/).
 
 > **Note:** This policy isn't for performing authentication or authorization. It's used only to determine where a user is routed. You can't control access with an IdP discovery policy.
 

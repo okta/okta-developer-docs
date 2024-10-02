@@ -6,12 +6,20 @@ excerpt: >-
 
 # Additional rate limits
 
+<<<<<<< HEAD
 This page provides limits on:
+=======
+This page provides additional rate limits:
+>>>>>>> 789b2a58d354f02a8e5d825691529853d048fef7
 
 * [Concurrent requests](#concurrent-rate-limits)
 * [End user rate limit](#end-user-rate-limits)
 * [Home page endpoints](#home-page-endpoints-and-per-minute-limits)
+<<<<<<< HEAD
 * [Okta-generated email messages](#okta-generated-email-rate-limits)
+=======
+* [Okta-generated emails](#okta-generated-email-rate-limits)
+>>>>>>> 789b2a58d354f02a8e5d825691529853d048fef7
 * [Per-user limits](#per-user-limits)
 * [SMS and Call rate limits](#sms-and-call-rate-limits)
 * [Org creation rate limits](#org-creation-rate-limits)
@@ -21,9 +29,15 @@ These limits are part of the Okta [Rate limit](/docs/reference/rate-limits) poli
 
 > **Notes:**
 >
+<<<<<<< HEAD
 > * Okta applies rate limits per API, divided into three categories, in addition to the rate limits listed on this page. See the [Rate limit overview](/docs/reference/rate-limits).
 > * [DynamicScale rate limits](/docs/reference/rl-dynamic-scale/) apply to various endpoints across different APIs for customers that purchased this add-on. (The DynamicScale add-on service is only available to Customer Identity Solutions (CIS) customers.)
 > * Best practices are available to manage range limits. See [best practices](/docs/reference/rl-best-practices).
+=======
+> * In addition to the rate limits listed on this page, Okta applies rate limits per API, divided into three categories. See the [Rate limit overview](/docs/reference/rate-limits).
+> * [DynamicScale rate limits](/docs/reference/rl-dynamic-scale/) apply to various endpoints across different APIs for customers that purchased this add-on. (The DynamicScale add-on service is only available to Customer Identity Solutions (CIS) customers.)
+> * To learn more about how to manage rate limits, see our [best practices](/docs/reference/rl-best-practices).
+>>>>>>> 789b2a58d354f02a8e5d825691529853d048fef7
 > * You can expand Okta rate limits upon request. To learn how, see [Request exceptions](/docs/reference/rl-best-practices/#request-rate-limit-exceptions) and [DynamicScale rate limits](/docs/reference/rl-dynamic-scale/).
 >
 
@@ -34,7 +48,11 @@ To protect the service for all customers, Okta enforces concurrent rate limits, 
 For concurrent rate limits, traffic is measured in three different areas. Counts in one area aren't included in counts for the other two:
 
 * For agent traffic, Okta has set the limit based on typical org use. This limit varies from agent to agent.
+<<<<<<< HEAD
 * For Microsoft Office 365 traffic, the limit is 75 concurrent transactions per org.
+=======
+* For Office 365 traffic, the limit is 75 concurrent transactions per org.
+>>>>>>> 789b2a58d354f02a8e5d825691529853d048fef7
 * For all other traffic, including API requests, the limit is described in the following table.
 
 | Developer (free)  | Developer (paid)  | One App  | Enterprise  | Workforce identity  |
@@ -55,7 +73,11 @@ Okta limits the number of requests:
 
 * To the Identity Engine, to 20 requests per user per 5 seconds and 10 requests per state token per 5 seconds. <ApiLifecycle access="ie" />
 
+<<<<<<< HEAD
 If a user exceeds this limit, they receive an HTTP 429 error response. No other users in your org are affected. A message appears in the System Log that indicates the rate limit for end users was encountered.
+=======
+An HTTP 429 error response is returned to users that exceed this limit. No other users in your org are affected. A message appears in the System Log for the user that exceeded this limit.
+>>>>>>> 789b2a58d354f02a8e5d825691529853d048fef7
 
 ## Home page endpoints and per-minute limits
 
@@ -73,17 +95,24 @@ The following endpoints are used by the Okta home page for authentication and us
 | `/bc/image/fileStoreRecord`                                             | 100               | 600               | *600     | *600        | 500                |
 | `/bc/globalFileStoreRecord`                                             | 100               | 600               | *600     | *600        | 500                |
 
+<<<<<<< HEAD
 These rate limits apply to all new Okta organizations. For orgs created before 2018-05-17, the [previous rate limits](/docs/reference/rl-previous/) still apply.
 
 The limits for these endpoints can be increased by purchasing the [High-capacity add-on](/docs/reference/rl-previous/#high-capacity-rate-limits).
 
+=======
+>>>>>>> 789b2a58d354f02a8e5d825691529853d048fef7
 ## Okta-generated email rate limits
 
 Email limits are applied on a per-recipient basis and vary by email type. The limit for some email types is no more than 30 emails per-recipient, per-minute, while other email types are configured with higher limits. These limits protect your org against denial-of-service attacks and help ensure that adequate resources are available for all customers.
 
 ## Per-user limits
 
+<<<<<<< HEAD
 API endpoints that take username and password credentials have a per-username rate limit to prevent brute-force attacks with the user's password. These endpoints include the [Authentication API](/docs/reference/api/authn/) and the [OAuth 2.0 Resource Owner Password flow](/docs/guides/implement-grant-type/ropassword/main/).
+=======
+API endpoints that take username and password credentials, including the [Authentication API](/docs/reference/api/authn/) and the [OAuth 2.0 Resource Owner Password flow](/docs/guides/implement-grant-type/ropassword/main/), have a per-username rate limit. These limits prevent brute force attacks with the user's password:
+>>>>>>> 789b2a58d354f02a8e5d825691529853d048fef7
 
 | Action and Okta API endpoint                                      | Per user limits (all orgs) |
 | ----------------------------------------------------------------- | -------------------------: |
@@ -92,11 +121,19 @@ API endpoints that take username and password credentials have a per-username ra
 
 ## SMS and Call rate limits
 
+<<<<<<< HEAD
 * **Per user/per phone number rate limit:** The 30-second verification rate limit applies to a user's attempt to send an SMS or call enrollment or verification message. The rate limit is one SMS or call challenge per phone number every 30 seconds.
 
 > **Note:** Okta round-robins between SMS providers with every resend request to help ensure delivery of SMS OTP across different carriers.
 
 * **Enrollment and verification rate limits:** This rate limit applies to a user's attempt to enroll or verify an [SMS or a Call factor](/docs/reference/api/factors/) using any phone number. This rate limit applies to only the enrollment or verification operation. See [System Log events for rate limits](/docs/reference/rl-system-log-events/#debugcontext-object-examples-for-operation-rate-limits) for examples of these System Log rate limit events.
+=======
+* **Per user/per phone rate limit:** The 30-second verification rate limit applies to an SMS or call enrollment or verification message to the same phone number. The rate limit is one challenge per phone number every 30 seconds.
+
+> **Note:** Okta round-robins between SMS providers with every resend request to help ensure delivery of SMS OTP across different carriers.
+
+* **Enrollment and verification rate limits:** This rate limit applies to a user's attempt to enroll or verify an [SMS or a Call factor](/docs/reference/api/factors/) using any phone number. This rate limit applies to only the enrollment or verification operation. See [System Log events for rate limits](/docs/reference/rl-system-log-events/#debugcontext-object-examples-for-operation-rate-limits) for examples.
+>>>>>>> 789b2a58d354f02a8e5d825691529853d048fef7
 
 ## Org creation rate limits
 
@@ -106,12 +143,21 @@ API calls to the Org creator endpoint (POST `/api/v1/orgs`) have a limit of 10 o
 
 ## Workforce license rate limit multiplier
 
+<<<<<<< HEAD
 Workforce orgs that are created after January 7, 2021 have increased default rate limits. This increase is for [specific endpoints](#list-of-endpoints) and depends on a Workforce org's license count (Universal Directory or single-sign-on).
 
 | Workforce licenses | Rate limit multiplier      |
 | ------------------ | -------------------------: |
 | < 10,000              | The default rate limit  |
 | 10,000–100,000        | Five times the default rate limit  |
+=======
+Workforce orgs that are created after January 7, 2021 have increased default rate limits. This increase is for [specific endpoints](#list-of-endpoints) and depends on a Workforce org's license count (Universal Directory or Single Sign-On).
+
+| Workforce licenses | Rate limit multiplier      |
+| ------------------ | -------------------------: |
+| < 10,000              | One times the default rate limit  |
+| 10,000–100,000      | Five times the default rate limit  |
+>>>>>>> 789b2a58d354f02a8e5d825691529853d048fef7
 | > 100,000             | 10 times the default rate limit |
 
 ### List of endpoints
@@ -140,7 +186,7 @@ Workforce orgs that are created after January 7, 2021 have increased default rat
 * `/app/template_saml_2_0/{key}/sso/saml`
 * `/idp/idx/introspect` <ApiLifecycle access="ie" />
 * `/idp/idx/identify` <ApiLifecycle access="ie" />
-* Identity Engine App Intent <ApiLifecycle access="ie" />
+* Identity Engine App intent <ApiLifecycle access="ie" />
 * `/oauth2/v1`
 * `/oauth2/v1/authorize`
 * `/oauth2/v1/token`
