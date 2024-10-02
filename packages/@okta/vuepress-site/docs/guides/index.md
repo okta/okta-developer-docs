@@ -97,7 +97,7 @@ guides:
  - telephony-inline-hook
  - terraform-configure-device-signin-standards
  - terraform-create-custom-auth-server
- - terraform-mange-multiple-domains
+ - terraform-manage-multiple-domains
  - terraform-design-access-security
  - terraform-design-rate-limits
  - terraform-enable-org-access
@@ -226,7 +226,7 @@ If you're using Okta as an identity layer for the first time, start with [How Ok
       * [Manage device connection requirements](/docs/guides/terraform-configure-device-signin-standards/)
       * [Create a custom authorization server](/docs/guides/terraform-create-custom-auth-server/)
       * [Manage branding with Terraform](/docs/guides/terraform-manage-end-user-experience/)
-      * [Manage custom domains with Terraform](/docs/guides/terraform-mange-multiple-domains/)
+      * [Manage custom domains with Terraform](/docs/guides/terraform-manage-multiple-domains/)
       * [Import existing Okta objects into Terraform](/docs/guides/terraform-import-existing-resources/)
     * Optimize your configuration
       * [Minimize Terraform rate limit errors](/docs/guides/terraform-design-rate-limits/)

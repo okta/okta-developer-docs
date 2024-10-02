@@ -22,7 +22,7 @@ Change the appearance of Okta sign-in pages, outgoing emails, and dashboard.
 
 #### What you need
 
-* Familiarity with the Terraform terms: configuration, resources, state, and commands. See the [Terraform overview](/docs/guides/terraform-overview).
+* Familiarity with the Terraform terms: configuration, resources, state, and commands. See the Terraform documentation [introductory concepts](https://www.terraform-best-practices.com/key-concepts) article. Also, see the [introduction page for Okta Terraform automation](/docs/guides/terraform-overview/main/).
 
 * An Okta organization.
 
@@ -48,7 +48,7 @@ You can use Terraform to customize the default brand of an Okta organization. Yo
 
 Confirm that your Okta org supports multibrand customization:
 
-1. Log in to the Admin Console for your Okta org.
+1. Go to the Admin Console for your Okta org.
 
 1. In the left navigation, click **Security.**
 
@@ -56,7 +56,7 @@ Confirm that your Okta org supports multibrand customization:
 
     * If it includes **Brands**, your org supports multibrand customization.
 
-    * If it includes **Branding**, your org does not support multibrand customization. Contact Okta Support about feature availability.
+    * If it includes **Branding**, your org doesn't support multibrand customization. Contact Okta Support about feature availability.
 
 ### Set up your configuration
 
@@ -79,19 +79,19 @@ To grant scopes in the Admin Console and to include them in your Terraform code,
 
 There are two main customization resources in the Okta Terraform provider:
 
-* **Brand**: Some settings and defaults for a custom brand. Each brand is associated with a custom domain. See the [Brands concept article](/docs/concepts/brands/) for general information on brands. See [Manage custom domains with Terraform](/docs/guides/terraform-mange-multiple-domains/) for information on creating a custom domain.
+* **Brand**: Some settings and defaults for a custom brand. Each brand is associated with a custom domain. For general brand information, see the [Brands concept article](/docs/concepts/brands/). For information on creating a custom domain, see [Manage custom domains with Terraform](/docs/guides/terraform-manage-multiple-domains/).
 
 * **Theme:** Settings that change the appearance of the user sign-in widget, such as the logo, background image, colors, and how to apply the colors. Each brand has exactly one theme, which is created when Okta creates the brand resource.
 
 The instructions for using with these resources in Terraform differ if your org type supports multibrand customization.
 
-* Okta recommends [creating custom domains](/docs/guides/terraform-mange-multiple-domains/main/#create-a-custom-domain-resource) first, and then [new brand resources](#create-a-new-brand-requires-multibrand-customization) if your organization supports multibrand customization. However, you can modify the default brand to support app integrations that don't use a custom domain.
+* Okta recommends [creating custom domains](/docs/guides/terraform-manage-multiple-domains/main/#create-a-custom-domain-resource) first, and then [new brand resources](#create-a-new-brand-requires-multibrand-customization) if your organization supports multibrand customization. However, you can modify the default brand to support app integrations that don't use a custom domain.
 
 * You must modify the default brand if your org doesn't support multibrand customization.
 
 #### Create a new brand (requires multibrand customization)
 
-1. Create new custom domains as described in [Manage custom domains with Terraform](/docs/guides/terraform-mange-multiple-domains).
+1. Create new custom domains as described in [Manage custom domains with Terraform](/docs/guides/terraform-manage-multiple-domains).
 
 1. Create a brand resource, for example:
 
@@ -103,7 +103,7 @@ The instructions for using with these resources in Terraform differ if your org 
     }
     ```
 
-1. Run a `terraform apply` command. To apply only the new resource at this time, run a *targeted apply* command:
+1. Run a `terraform apply` command. To apply only the new resource at this time, run a **targeted apply** command:
 
     ```sh
     terraform apply -target okta_brand.A
@@ -130,7 +130,7 @@ The instructions for using with these resources in Terraform differ if your org 
     }
     ```
 
-1. Create a Terraform resource that gets a list of themes for a brand. It takes brand ID and returns a list of themes. A brand just contains one theme, so its array of themes always has exactly one element.
+1. Create a Terraform resource that gets a list of themes for a brand. It takes a brand ID and returns a list of themes. A brand just contains one theme, so its array of themes always has exactly one element.
 
     ```hcl
     data "okta_themes" "list_of_themes_A" {
@@ -322,7 +322,7 @@ You can customize the brand images shown in the table. Set the value of the them
 | Favorite icon (favicon)    | `favicon`          |
 | Background image           | `background_image` |
 
-For example, add this configuration code customizes all three attributes:
+For example, add this configuration code to customize all three attributes:
 
 ```hcl
 resource "okta_theme" "image_example" {
@@ -363,7 +363,7 @@ You can also provide multiple template versions for different languages by setti
     brand_id      = okta_brand.A.id
     ```
 
-1. Set the `is_default` attribute if you create multiple languages for the same template. Set `is_default` to `true` in the template for the default language. Set it to `false` for all other language versions of the same template. Also add a `depends_on` attribute set to the default template for the language. The default template must be created first"
+1. Set the `is_default` attribute if you create multiple languages for the same template. Set `is_default` to `true` in the template for the default language. Set it to `false` for all other language versions of the same template. Also add a `depends_on` attribute set to the default template for the language. The default template must be created first.
 
    The following code shows two language versions of the template resource for the forgot password email. The first is the default version in French. The second is in Spanish and depends on the default French version.
 
@@ -507,7 +507,7 @@ There are two limitations to email domain customization:
 
 * Okta can't send an email from a domain that uses [SendGrid.](https://sendgrid.com/) You can configure a subdomain with your DNS provider for custom Okta emails.
 
-* There's a maximum of DNS lookups in an SPF record.
+* There's a maximum of 10 DNS lookups in an SPF record.
 
 Okta recommends that your domain implement the [Sender Policy Framework (SPF) ](https://tools.ietf.org/html/rfc7208)to prevent sender address forgery. If you have already implemented SPF in your custom domain, update the SPF record to include Okta's mail servers.
 
@@ -542,7 +542,7 @@ Okta sends a confirmation email to your super administrators once your custom em
 
 1. Use `terraform plan` and `terraform apply` to deploy the custom domain to Okta.
 
-    > **Note:** The Okta org must verify that you control the DNS records for this domain before you can use it in your Terraform configuration. Follow the steps in [Update your domain to include new `CNAME` and `TXT` records], [Request domain verification], and [Confirm that your custom domain triggers Okta sign-in] to verify the domain.
+    > **Note:** The Okta org must verify that you control the DNS records for this domain before you can use it in your Terraform configuration. Follow the steps in [Update the domain with the `CNAME` and `TXT` records](#update-the-domain-with-the-cname-and-txt-records), [Request email domain verification](#request-email-domain-verification), and [Test your email domain](#test-your-email-domain) to verify the email domain.
 
 1. Add this `output` block to print the set of DNS records required for the domain.
 
@@ -554,7 +554,7 @@ Okta sends a confirmation email to your super administrators once your custom em
 
 1. Run `terraform apply`.
 
-1. Run `terraform ouput -json {outputVariableName}` to view the configuration information in JSON format. Okta recommends saving the output to a file for your records. For example, the command line for an output variable of `email_dns_records_to_update_company1` is:
+1. Run `terraform output -json {outputVariableName}` to view the configuration information in JSON format. Okta recommends saving the output to a file for your records. For example, the command line for an output variable of `email_dns_records_to_update_company1` is:
 
     ```sh
     terraform output -json email_dns_records_to_update_company1 > email_dns_records.json
@@ -597,11 +597,11 @@ Okta sends a confirmation email to your super administrators once your custom em
 
 This step requires adding DNS records to the custom domain using your domains' service provider. This usually requires administrative access. If you do not have this access, contact your system administrator.
 
-The specific user interface or commands for adding the `CNAME` and `TXT` records depend on your service provider. Some may include automation using Terraform.
+The specific user interface or commands for adding the `CNAME` and `TXT` records depends on your service provider. Some may include automation using Terraform.
 
 The following are the generic steps to add the records. The specific interface will vary.
 
-1. Locate the the JSON output from [Create an email domain resource](#create-an-email-domain-resource).
+1. Locate the JSON output from [Create an email domain resource](#create-an-email-domain-resource).
 
 1. Log into your domain provider for your custom domain and navigate to the domain record editor.
 
@@ -609,7 +609,7 @@ The following are the generic steps to add the records. The specific interface w
 
     1. Set the fully qualified domain name (FQDN) of the `CNAME` record to the value of the `fqdn` field in the JSON output.
 
-    1. Set the value of the `CNAME` record to the string in the `values` array of the JSON output. This is the the name for your custom domain, such as `example-org.customdomains.oktapreview.com`.
+    1. Set the value of the `CNAME` record to the string in the `values` array of the JSON output. This is the name for your custom domain, such as `example-org.customdomains.oktapreview.com`.
 
     1. Save the new record in your ISP's control panel for DNS records.
 

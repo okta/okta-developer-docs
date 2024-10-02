@@ -16,7 +16,7 @@ Configure a resource created outside of Terraform.
 
 #### What you need
 
-* Familiarity with the Terraform terms: configuration, resources, state, and commands. For more information, see the [Terraform overview](/docs/guides/terraform-overview).
+* Familiarity with the Terraform terms: configuration, resources, state, and commands.  See the Terraform documentation [introductory concepts](https://www.terraform-best-practices.com/key-concepts) article. Also, see the [introduction page for Okta Terraform automation](/docs/guides/terraform-overview/main/).
 
 * An Okta organization.
 
@@ -41,7 +41,7 @@ There are different approaches to accomplishing this. This article uses the `imp
 
 ## Avoid importing user objects with Terraform
 
-An imported Okta user object is much larger than other types of objects. The users' group memberships and app assignments add more size. In most circumstances, the best practice is to avoid importing users.
+An imported Okta user object is much larger than other types of objects. A users' group memberships and app assignments add more size. In most circumstances, the best practice is to avoid importing users.
 
 Group resources are much smaller. Importing those into your configuration enables using group names and IDs for other Terraform contexts. For example, [defining group assignments by ID for access to an Okta application](https://registry.terraform.io/providers/okta/okta/latest/docs/resources/app_group_assignment).
 
@@ -71,11 +71,11 @@ https://{yourOktaOrgDomain}/admin/app/oidc_client/client/0oaf9phym0JffFbdo1d7#ta
 
 In this example, the ID is `0oaf9phym0JffFbdo1d7`.
 
-> **Important:** Don't use the ID in the URL for policy rules and networks, even when you're editing them. It's the ID of the parent object, not the individual rule. You must use the Okta REST API SDK to find the ID for these object types. See, [Find an ID with the REST API](#find-an-id-with-the-rest-api).
+> **Important:** Don't use the ID in the URL for policy rules and networks, even when you're editing them. It's the ID of the parent object, not the individual rule. You must use the Okta REST API SDK to find the ID for these object types. See [Find an ID with the REST API](#find-an-id-with-the-rest-api).
 
 Some imported Okta objects are represented by only a single instance, such as the health insights and general settings. These singletons don't have an associated ID. To import these objects, specify the fake ID `singleton`, the period (`.`) symbol, or an underscore (`_`) instead of a regular ID.
 
-Note that the object for Okta feature settings can't be imported into Terraform.
+> **Note:** that the object for Okta feature settings can't be imported into Terraform.
 
 ### Find an ID with the REST API
 
@@ -87,12 +87,12 @@ You can also find IDs by using the Okta Core REST API. This method enables you t
 
 For example, this call requests a list of Okta apps:
 
-```curl
+```bash
 curl -v -X GET \
   -H "Accept: application/json" \
   -H "Content-Type: application/json" \
   -H "Authorization: SSWS ${api_token}" \
-  [https://${yourOktaDomain}/api/v1/apps](https://${yourOktaDomain}/api/v1/apps)
+  https://${yourOktaDomain}/api/v1/apps
 ```
 
 The return value is an array of JSON objects, one for each app. This example shows an app object (though not the enclosing array):
@@ -187,7 +187,7 @@ For example, to import an OAuth app integration object:
 
 ## Import the generated configuration
 
-If a resources defined in an import block doesn't already exist in your configuration, Terraform can generate the [code in the HCL syntax](https://developer.hashicorp.com/terraform/language/syntax/configuration). For complete instructions, [see the Terraform documentation](https://developer.hashicorp.com/terraform/language/import/generating-configuration).
+If a resource defined in an import block doesn't already exist in your configuration, Terraform can generate the [code in the HCL syntax](https://developer.hashicorp.com/terraform/language/syntax/configuration). For complete instructions, [see the Terraform documentation](https://developer.hashicorp.com/terraform/language/import/generating-configuration).
 
 To generate the code, include the `-generate-config-out={newConfigurationFile}` option when you run `terraform plan`. For example:
 ```sh

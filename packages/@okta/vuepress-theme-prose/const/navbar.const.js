@@ -809,7 +809,7 @@ export const guides = [
               },
               {
                 title: "Manage custom domains",
-                guideName: "terraform-mange-multiple-domains"
+                guideName: "terraform-manage-multiple-domains"
               },
               {
                 title: "Import existing resources",

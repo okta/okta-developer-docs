@@ -14,7 +14,7 @@ Create and manage multiple domain names in your Okta org.
 
 #### What you need
 
-* Familiarity with Terraform terms: configuration, resources, and commands. For more information, see the [Terraform overview](/docs/guides/terraform-overview).
+* Familiarity with Terraform terms: configuration, resources, and commands. See the Terraform documentation [introductory concepts](https://www.terraform-best-practices.com/key-concepts) article. Also, see the [introduction page for Okta Terraform automation](/docs/guides/terraform-overview/main/).
 
 * An Okta organization that uses the Okta Identity Engine (the default for newer Okta accounts).
 
@@ -32,7 +32,7 @@ Create and manage multiple domain names in your Okta org.
 
 ## Overview
 
-You can customize the domain name of your okta org. You can also create up to three custom domains if your org includes the multibrand feature. For more information on custom domains, see [About Okta domain customization](/guides/custom-url-domain/main/#about-okta-domain-customization) in [Customize domain and email address](/docs/guides/custom-url-domain/).
+You can customize the domain name of your okta org. You can also create up to three custom domains if your org includes the multibrand feature. For more information on custom domains, see [About Okta domain customization](/docs/guides/custom-url-domain/main/#about-okta-domain-customization) in [Customize domain and email address](/docs/guides/custom-url-domain/).
 
 Your customized domain enables creating a seamless branded experience for your users so that all URLs look like your app. For example, you can change the URL domain from the default to `my-example-org.com`.
 
@@ -58,9 +58,9 @@ Creating and adding a custom domain takes several steps that must be completed i
 
 1. [Request domain verification](#request-domain-verification).
 
-1. [Confirm your custom domain triggers Okta sign-in](#confirm-your-custom-domain-triggers-okta-sign-in)
+1. [Confirm your custom domain triggers Okta sign-in](#confirm-your-custom-domain-triggers-okta-sign-in).
 
-1. [Update other objects and systems to use your custom domain](#update-other-objects-and-systems-to-use-your-custom-domain)
+1. [Update other objects and systems to use your custom domain](#update-other-objects-and-systems-to-use-your-custom-domain).
 
 ### Create a custom domain resource
 
@@ -70,7 +70,7 @@ Creating and adding a custom domain takes several steps that must be completed i
 
 1. Set the certificate source type:
 
-   * It's recommended to enable Okta management of the certificate by setting the source-type attribute:
+    It's recommended to enable Okta management of the certificate by setting the source-type attribute:
 
       `certificate_source_type = "OKTA_MANAGED"`
 
@@ -101,7 +101,7 @@ Add a `domain_certificate` resource that links to the certificate to upload the 
 
 1. Use `terraform plan` and `terraform apply` to deploy the custom domain to Okta.
 
-    > **Note:** The Okta org must verify that you control the DNS records for this domain before you can use it in your Terraform configuration. Follow the steps in [Update your domain to include new `CNAME` and `TXT` records], [Request domain verification], and [Confirm that your custom domain triggers Okta sign-in] to verify the domain.
+    > **Note:** The Okta org must verify that you control the DNS records for this domain before you can use it in your Terraform configuration. Follow the steps in [Update the domain with the `CNAME` and `TXT` records](#update-the-domain-with-the-cname-and-txt-records), [Request domain verification](#request-domain-verification), and [Confirm your custom domain triggers Okta sign-in](#confirm-your-custom-domain-triggers-okta-sign-in) to verify the domain.
 
 1. Add this `output` block to print the set of DNS records required for the domain.
 
@@ -113,7 +113,7 @@ Add a `domain_certificate` resource that links to the certificate to upload the 
 
 1. Run `terraform apply`.
 
-1. Run `terraform ouput -json {outputVariableName}` to view the configuration information in JSON format. Okta recommends saving the output to a file for your records. For example, the command line for an output variable of `email_dns_records_to_update_company1` is:
+1. Run `terraform output -json {outputVariableName}` to view the configuration information in JSON format. Okta recommends saving the output to a file for your records. For example, the command line for an output variable of `email_dns_records_to_update_company1` is:
 
     ```sh
     terraform output -json dns_records_to_update_company1 > dns_records.json
@@ -148,11 +148,11 @@ Add a `domain_certificate` resource that links to the certificate to upload the 
 
 This step requires adding DNS records to the custom domain using your domains' service provider. This usually requires administrative access. If you do not have this access, contact your system administrator.
 
-The specific user interface or commands for adding the `CNAME` and `TXT` records depend on your service provider. Some may include automation using Terraform.
+The specific user interface or commands for adding the `CNAME` and `TXT` records depends on your service provider. Some may include automation using Terraform.
 
 The following are the generic steps to add the records. The specific interface will vary.
 
-1. Locate the the JSON output from the [Create a custom domain resource](#create-a-custom-domain-resource).
+1. Locate the JSON output from the [Create a custom domain resource](#create-a-custom-domain-resource).
 
 1. Log into your domain provider for your custom domain and navigate to the domain record editor.
 
@@ -160,7 +160,7 @@ The following are the generic steps to add the records. The specific interface w
 
     1. Set the fully qualified domain name (FQDN) of the `CNAME` record to the value of the `fqdn` field in the JSON output.
 
-    1. Set the value of the `CNAME` record to the string in the `values` array of the JSON output. This is the the name for your custom domain, such as `example-org.customdomains.oktapreview.com`.
+    1. Set the value of the `CNAME` record to the string in the `values` array of the JSON output. This is the name for your custom domain, such as `example-org.customdomains.oktapreview.com`.
 
     1. Save the new record in your ISP's control panel for DNS records.
 
@@ -193,7 +193,7 @@ Request Okta domain verification once the DNS changes have propagated. Okta conf
 ### Confirm your custom domain triggers Okta sign-in
 
 
-Open your custom domain in your browser. The Okta Sign-In page should appear. If the page doesn't appear, it may be because your machine or your DNS providers are caching the old records. You can try flushing the DNS cache using a tool such as [Google DNS ](https://google-public-dns.appspot.com/cache) or [Open DNS](https://cachecheck.opendns.com/).
+Open your custom domain in your browser. The Okta sign-In page should appear. If the page doesn't appear, it may be because your machine or DNS providers are caching the old records. You can try flushing the DNS cache using a tool such as [Google DNS ](https://google-public-dns.appspot.com/cache) or [Open DNS](https://cachecheck.opendns.com/).
 
 When everything works correctly, comment out the `output` block in your configuration that's used to return the DNS records that need changing.
 
@@ -228,9 +228,9 @@ resource "okta_app_oauth" "MyApp" {
 
 #### Update the issuer for any custom authorization servers
 
-Existing existing [custom authorization servers](/docs/concepts/auth-servers/) continue to use the Okta org URL unless you change it. All new custom authorization servers use the custom domain by default.
+Existing [custom authorization servers](/docs/concepts/auth-servers/) continue to use the Okta org URL unless you change it. All new custom authorization servers use the custom domain by default.
 
-Update existing custom authorization servers to return the custom domain as the issuer value. The choices for the issuer_mode attribute are the same as those for [OIDC apps](#update-the-issuer-for-any-openid-connect-oidc-apps).
+Update existing custom authorization servers to return the custom domain as the issuer value. The choices for the `issuer_mode` attribute are the same as those for [OIDC apps](#update-the-issuer-for-any-openid-connect-oidc-apps).
 
 ```hcl
 resource "okta_auth_server" "example" {
@@ -252,7 +252,7 @@ You can customize the look and the behavior of your brands. There are two main c
 
 * **Brand**: A high-level resource that contains some settings, such as a custom privacy policy, is associated with a custom domain. See the [Brands concept article](/docs/concepts/brands/).
 
-* **Theme: **Settings that change the appearance of the user sign-in widget, such as the logo, background image, colors, and how the colors are applied. Each brand has only one theme, which Okta creates automatically when the brand is created.
+* **Theme:** Settings that change the appearance of the user sign-in widget, such as the logo, background image, colors, and how the colors are applied. Each brand has only one theme, which Okta creates automatically when the brand is created.
 
 To create brand and theme customizations, see [Manage branding with Terraform](/docs/guides/terraform-manage-end-user-experience/).
 
