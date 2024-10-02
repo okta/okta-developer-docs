@@ -186,21 +186,25 @@ Acme is a CMR platform that helps modern businesses thrive. A platform that conn
 
 ## Use case guidelines
 
-The [OIN catalog](https://www.okta.com/integrations/) organizes integrations into [use cases](#use-cases):
-
-* In the [OIN Manager](/docs/guides/submit-app/wfconnector/main/#app-information), you can select up to five [use cases](#use-cases). The [Single Sign-On](https://www.okta.com/integrations/?category=single-sign-on) use case is automatically applied to your integration if it supports SWA, SAML, or OIDC sign-on mode (`signOnMode`).
-     > **Note:** `Single Sign-On` isn't an option in the OIN Manager **App use case** dropdown list.
+The [OIN catalog](https://www.okta.com/integrations/) organizes integrations into [use case](#use-cases) categories:
 
 * In the [OIN Wizard](/docs/guides/submit-oin-app/openidconnect/main/#oin-catalog-properties), use cases are automatically assigned to your integration depending on features that it supports:
     | Use case | Scenario for automatic assignment |
     | -------- | ---------------------- |
     | [Single Sign-On](https://www.okta.com/integrations/?category=single-sign-on) | Assigned to integrations with SWA, SAML, or OIDC sign-on mode (`signOnMode`). |
-    | [Lifecycle Management](https://www.okta.com/integrations/?category=lifecycle-management) | Assigned to integrations with an external IdP configured. |
-    | [Social Login](https://www.okta.com/integrations/?category=social-login) | Assigned to integrations with SWA, SAML, or OIDC sign on mode. |
-    | [Multifactor Authentication (MFA)](https://www.okta.com/integrations/?category=multi-factor-authentication-mfa) | Assigned to integrations with MFA . |
-    | [Centralized Logging](https://www.okta.com/integrations/?category=centralized-logging) | Assigned to integrations with Log Streaming enabled. |
+    | [Lifecycle Management](https://www.okta.com/integrations/?category=lifecycle-management) | Assigned to integrations with SCIM provisioning enabled. |
+    | [Social Login](https://www.okta.com/integrations/?category=social-login) | Assigned to integrations with an [external IdP](/docs/guides/social-login/) configured. |
+    | [Multifactor Authentication (MFA)](https://www.okta.com/integrations/?category=multi-factor-authentication-mfa) | Assigned to integrations with [multifactor authentication]((https://help.okta.com/okta_help.htm?type=oie&id=ext-about-authenticators)). |
+    | [Centralized Logging](https://www.okta.com/integrations/?category=centralized-logging) | Assigned to integrations with [Log Streaming](https://help.okta.com/okta_help.htm?type=oie&id=log-streaming) enabled. |
 
-> **Note:** Okta adds the **Apps for Good** and **Okta Security Identity** collection indicators if your integration meets the criteria for these collection categories.
+    You can also add the following optional use cases for your integration in the OIN Wizard: [Zero Trust](https://www.okta.com/integrations/?category=zero-trust), [Identity Verification](https://www.okta.com/integrations/?category=identity-verification), and [Identity Governance and Administration (IGA)](https://www.okta.com/integrations/?category=identity-governance-and-administration-iga).
+
+* In the [OIN Manager](/docs/guides/submit-app/wfconnector/main/#app-information), you can select up to five [use cases](#use-cases).
+
+    The [Single Sign-On](https://www.okta.com/integrations/?category=single-sign-on) use case is automatically applied to your integration if it supports SWA, SAML, or OIDC sign-on mode (`signOnMode`). **Single Sign-On** isn't an option in the OIN Manager **App use case** dropdown list.
+
+
+> **Note:** Okta adds the **Apps for Good** and **Okta Security Identity** collection labels on your integration if it meets the criteria for these collection categories.
 
 ### Use cases
 

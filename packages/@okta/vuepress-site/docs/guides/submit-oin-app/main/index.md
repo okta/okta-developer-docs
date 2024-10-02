@@ -94,7 +94,7 @@ Continue with the OIN Wizard and configure your integration:
     | **Display name** `*` | Provide a name for your integration. This is the main title used for your integration in the OIN.<br>The maximum field length is 64 characters. |
     | **Description** `*` | Give a general description of your app and the benefits of this integration to your customers. See [App description guidelines](/docs/guides/submit-app-prereq/main/#app-description-guidelines). |
     | **Logo** `*` | Upload a PNG, JPG, or GIF file of a logo to accompany your integration in the catalog. The logo file must be less than one MB. See [Logo guidelines](/docs/guides/submit-app-prereq/main/#logo-guidelines). |
-    | **Use Cases** | Add optional use cases for your integration. Default use cases are automatically assigned to your integration based on the features that it supports. See [Use case guidelines](/docs/guides/submit-app-prereq/main/#use-case-guidelines). |
+    | **Use Cases** | Add optional use case categories that apply to your integration: [Zero Trust](https://www.okta.com/integrations/?category=zero-trust), [Identity Verification](https://www.okta.com/integrations/?category=identity-verification), or [Identity Governance and Administration (IGA)](https://www.okta.com/integrations/?category=identity-governance-and-administration-iga).<br>Default use cases are automatically assigned to your integration based on supported features. See [Use case guidelines](/docs/guides/submit-app-prereq/main/#use-case-guidelines). |
 
     `*` Required properties
 
