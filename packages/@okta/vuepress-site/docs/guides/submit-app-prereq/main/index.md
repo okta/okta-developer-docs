@@ -186,24 +186,18 @@ Acme is a CMR platform that helps modern businesses thrive. A platform that conn
 
 ## Use case guidelines
 
-The [OIN catalog](https://www.okta.com/integrations/) organizes integrations into [use case](#use-cases) categories:
+The [OIN catalog](https://www.okta.com/integrations/) organizes integrations into [use case](#use-cases) categories.
 
-* In the [OIN Wizard](/docs/guides/submit-oin-app/openidconnect/main/#oin-catalog-properties), the following use cases are automatically assigned to your integration depending on features that it supports:
-    | Use case | Scenario for automatic assignment |
-    | -------- | ---------------------- |
-    | [Single Sign-On](https://www.okta.com/integrations/?category=single-sign-on) | Assigned to integrations with SWA, SAML, or OIDC sign-on mode (`signOnMode`). |
-    | [Lifecycle Management](https://www.okta.com/integrations/?category=lifecycle-management) | Assigned to integrations with SCIM provisioning enabled. |
-    | [Social Login](https://www.okta.com/integrations/?category=social-login) | Assigned to integrations with an [external IdP](/docs/guides/social-login/) configured. |
-    | [Multifactor Authentication (MFA)](https://www.okta.com/integrations/?category=multi-factor-authentication-mfa) | Assigned to integrations when ???. |
-    | [Centralized Logging](https://www.okta.com/integrations/?category=centralized-logging) | Assigned to integrations when ??? |
+In the [OIN Wizard](/docs/guides/submit-oin-app/openidconnect/main/#oin-catalog-properties), you can select the following optional use cases for your integration: [Zero Trust](https://www.okta.com/integrations/?category=zero-trust), [Identity Verification](https://www.okta.com/integrations/?category=identity-verification), and [Identity Governance and Administration (IGA)](https://www.okta.com/integrations/?category=identity-governance-and-administration-iga). The following use cases are automatically assigned to your integration:
 
-    You can also add the following optional use cases for your integration in the [OIN Wizard](/docs/guides/submit-oin-app/openidconnect/main/#oin-catalog-properties): [Zero Trust](https://www.okta.com/integrations/?category=zero-trust), [Identity Verification](https://www.okta.com/integrations/?category=identity-verification), and [Identity Governance and Administration (IGA)](https://www.okta.com/integrations/?category=identity-governance-and-administration-iga).
+* The [Single Sign-On](https://www.okta.com/integrations/?category=single-sign-on) use case is automatically applied to your integration if it supports the OIDC or SAML 2.0 SSO protocols.
+* The [Lifecycle Management](https://www.okta.com/integrations/?category=lifecycle-management) use case is automatically applied to your integration if it supports the SCIM 2.0 protocol for user lifecycle management.
 
-* In the [OIN Manager](/docs/guides/submit-app/wfconnector/main/#app-information), you can select up to five [use cases](#use-cases) in the **App use case** dropdown list.
+In the [OIN Manager](/docs/guides/submit-app/wfconnector/main/#app-information), you can select up to five [use cases](#use-cases) in the **App use case** dropdown list. The following use case is automatically assigned to your integration:
 
-    The [Single Sign-On](https://www.okta.com/integrations/?category=single-sign-on) use case is automatically applied to your integration if it supports SWA, SAML, or OIDC sign-on mode (`signOnMode`). **Single Sign-On** isn't an option in the OIN Manager **App use case** dropdown list.
+* The [Single Sign-On](https://www.okta.com/integrations/?category=single-sign-on) use case is automatically applied to your integration if it supports SWA, SAML, or OIDC sign-on mode (`signOnMode`). **Single Sign-On** isn't a selection option in the OIN Manager **App use case** dropdown list.
 
-> **Note:** Okta adds the **Apps for Good** and **Okta Security Identity** collection labels on your integration if it meets the criteria for these collection categories.
+> **Note:** Okta automatically applies the [Apps for Good](https://www.okta.com/integrations/?category=apps-for-good) collection, the [Okta Security Identity](https://www.okta.com/integrations/?category=okta-secure-identity) collection, or the [Social Login](https://www.okta.com/integrations/?category=social-login) use case labels on your integration if it meets the criteria for these categories.
 
 ### Use cases
 
