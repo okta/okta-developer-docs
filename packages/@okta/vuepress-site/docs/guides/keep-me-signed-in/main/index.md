@@ -63,7 +63,7 @@ If you want to configure pre-authentication KMSI using the Admin Console, see [K
 
 You can use the Polices API to create a new policy or update an existing one.
 
-To create a new policy, send a POST request to the `/api/v1/policies` endpoint. Consider the following:
+To create a new policy, send a POST request to the `/api/v1/policies` endpoint. Include the following:
 
 * Set the value of `activate` query parameter to `true`.
 * Provide a value for `name`.
@@ -96,9 +96,12 @@ curl --location 'https://{yourOktaDomain}/api/v1/policies?activate=true' \
 
 ### Create a global session policy rule
 
-Create a rule condition for your policy that requires multifactor authentication (MFA). Also, create a condition that prompts users for MFA after its lifetime expires for the device cookie.
+Create a rule with two conditions:
 
-To create a new policy, send a POST request to the `/api/v1/policies/{policyId}/rules` endpoint. Consider the following:
+* Require multifactor authentication (MFA).
+* Prompt users for MFA after its lifetime expires for the device cookie.
+
+To create a new policy rule, send a POST request to the `/api/v1/policies/{policyId}/rules` endpoint. Include the following:
 
 * Set the value of `policyId` to that of the policy you created in [Create a global session policy](#create-a-global-session-policy).
 * Provide a value for `id`.
@@ -140,13 +143,16 @@ To create a new policy, send a POST request to the `/api/v1/policies/{policyId}/
 
 ### Update an authentication policy rule
 
-Create a rule condition for every app where you want to allow KMSI.
+Create a rule for every app where you want to allow KMSI.
 
-Create a rule condition for your authentication policies that requires 2 factor types. Also, create a condition that prompts users for authentication when an Okta global session doesn't exist.
+Add two conditions:
 
+* Require 2 factor types.
+* Prompt users for authentication when an Okta global session doesn't exist.
 
+send a POST request to the `/api/v1/policies/{policyId}/rules` endpoint. Include the following:
 
-
+* 
 
 
 
@@ -160,4 +166,15 @@ Post-authentication KMSI is set at the app level in an authentication policy, so
 
 
 ## Customize post-authentication sign-in prompts
+
+
+
+
+## Reset KMSI in your org
+
+1. In the Admin Console, go to **Directory** > **People**.
+1. Select a user.
+1. Go to **More Actions** and select **Clear User Sessions**.
+
+## See also
 
