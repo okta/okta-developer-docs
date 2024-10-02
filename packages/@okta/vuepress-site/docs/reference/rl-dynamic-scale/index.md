@@ -11,7 +11,7 @@ You can purchase a DynamicScale add-on service if your needs exceed the default 
 
 >**Note:** The DynamicScale add-on service is only available to Customer Identity Solutions (CIS) customers.
 
-You can purchase this add-on annually for a production or preview tenant.
+You can purchase this add-on annually for a Production or Preview tenant.
 
 The DynamicScale add-on service includes the following list of endpoints:
 
