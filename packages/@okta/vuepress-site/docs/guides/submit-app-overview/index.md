@@ -45,7 +45,7 @@ The Okta OIN team reviews and prioritizes all submissions.
 The following steps outline the submission process for SSO and SCIM integrations with the OIN Wizard:
 
 1. Build the integration in your app.
-1. Sign in to your Developer Edition org Admin Console.
+1. Sign in to the Admin Console of your Okta Developer Edition org.
    - Add integration details in the OIN Wizard.
    - Generate the app integration instance.
    - Test the integration.
@@ -138,7 +138,7 @@ Okta accepts integrations that use the following protocols or tools into the OIN
 
 * [System for Cross-domain Identity Management (SCIM)](https://scim.cloud)
 
-   > **Note:** All integrations in the OIN catalog are public. If you want to create a private integration for an app that uses SCIM, then use the [SCIM App Integration Wizard](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-scim). See [Connect your SCIM service to Okta](/docs/guides/scim-provisioning-integration-connect/main/).
+   > **Note:** All integrations in the OIN catalog are public. If you want to create a private integration for an app that uses SCIM, see [Add a private SCIM integration](/docs/guides/scim-provisioning-integration-connect/main/).
 
 * [Workflows Connector Builder](https://help.okta.com/okta_help.htm?type=wf&id=ext-connector-builderz)
 

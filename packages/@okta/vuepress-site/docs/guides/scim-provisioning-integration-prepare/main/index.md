@@ -9,8 +9,6 @@ layout: Guides
 
 Use this guide to build a SCIM-compliant (System for Cross-domain Identity Management) API server to host your SCIM service.
 
-After you build your SCIM API server, you can connect it to Okta for use with a private SCIM integration or with an public integration on the Okta Integration Network (OIN).
-
 ## Preparation
 
 The first step in delivering your SCIM integration is building a SCIM-compliant API server to host your SCIM service.

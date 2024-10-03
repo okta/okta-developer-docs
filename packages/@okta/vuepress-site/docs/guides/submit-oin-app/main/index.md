@@ -58,7 +58,7 @@ This guide covers submissions that use the following protocols:
 
 Review the [OIN submission requirements](/docs/guides/submit-app-prereq) before you start your submission. There are artifacts and technical details that you need to provide during the submission process.
 
-> **Note:** As a best practice, add two or three extra admin users in your Okta org to manage the integration. This ensures that your team can access the integration for updates in the future. See [Add users manually](https://help.okta.com/okta_help.htm?type=oie&id=ext-usgp-add-users) and ensure that the super admin, or the app and org admin roles are assigned to your admin users.
+> **Note:** As a best practice, add two or three extra admin users in your Okta org to manage the integration. This ensures that your team can access the integration for updates in the future. See [Add users manually](https://help.okta.com/okta_help.htm?type=oie&id=ext-usgp-add-users) and ensure that the app and org admin roles are assigned to your admin users. The super admin role also provides the same access, but Okta recommends limiting super admin role assignments.
 
 Start your integration submission for OIN publication:
 
@@ -173,12 +173,12 @@ Click **Test your integration** to save your test information and begin the inte
 The OIN Wizard journey includes the **Test integration** experience page to help you configure and test your integration within the same org before submission. This page functions in a top-down approach, where you need to do the following:
 
 1. [Generate instances for testing](#generate-instances-for-testing). You need to create an app integration instance to test each protocol that your integration supports.
-    * For SSO integrations, configure SSO and assign test users on the test instance.
-    * For SCIM integrations, configure provisioning and map user profile attributes on the test instance.
+    * For an SSO integration, configure SSO and assign test users on the test instance.
+    * For a SCIM integration, configure provisioning and map user profile attributes on the test instance.
 
 1. Test your integration.
-   * For SSO integrations, test the required flows in the [OIN Submission Tester](#oin-submission-tester) with your generated test instances. Fix any test failures from the OIN Submission Tester, then regenerate the test instance (if necessary) and retest.
-   * For SCIM integrations, execute the [Runscope CRUD tests](#runscope-crud-tests) and the [Okta manual integration tests](#manual-okta-scim-integration-tests) with your generated test instance.
+   * For an SSO integration, test the required flows in the [OIN Submission Tester](#oin-submission-tester) with your generated test instance. Fix any test failures from the OIN Submission Tester, then regenerate the test instance (if necessary) and retest.
+   * For a SCIM integration, execute the [Runscope CRUD tests](#runscope-crud-tests) and the [Okta manual integration tests](#manual-okta-scim-integration-tests) with your generated test instance.
 1. [Submit your integration](#submit-your-integration) after all required tests are successful.
 
 > **Note:** You must have the Okta Browser Plugin installed with **Allow in Incognito** enabled before you use the  **OIN Submission Tester**. See [OIN Wizard requirements](/docs/guides/submit-app-prereq/main/#oin-wizard-requirements).
