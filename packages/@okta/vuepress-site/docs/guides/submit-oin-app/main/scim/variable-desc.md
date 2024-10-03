@@ -4,7 +4,7 @@ For example, if you have a SCIM configuration variable called `subdomain`, then 
 
 The following are Expression Language specifics for SCIM properties:
 
-* SCIM [integration variables](#integration-variables) you define in the OIN Wizard are considered [Application properties](/docs/reference/okta-expression-language/#application-properties) and have the `app.` prefix when you reference them in Expression Language. For example, if your integration variable name is `subdomain`, then you can reference that variable with `app.subdomain`.
+* Any SCIM [integration variables](#integration-variables) that you define in the OIN Wizard are considered [application properties](/docs/reference/okta-expression-language/#application-properties). They have an `app.` prefix when you reference them in Expression Language. For example, if your integration variable name is `subdomain`, then you can reference that variable using `app.subdomain`.
 
 * SCIM properties support [Expression Language conditional expressions](/docs/reference/okta-expression-language/#conditional-expressions). For example:
 

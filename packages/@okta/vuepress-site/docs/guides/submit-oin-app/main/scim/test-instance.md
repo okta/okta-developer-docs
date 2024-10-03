@@ -52,7 +52,7 @@ After you've enabled the provisioning API connection in your test instance, conf
 
      1. After adding attributes, go back to the **{yourApp} Attribute Mappings** section and click **Edit** to map your new attributes.
 
-     1. In the dialog that appears, there are two dropdown fields. In the first dropdown menu, select **Map from Okta Profile**. In the second dropdown menu, choose the Okta profile attribute that you want to map the SCIM attribute from. Click **Save**.
+     1. In the dialog that appears, there are two dropdown fields. In the first dropdown list, select **Map from Okta Profile**. In the second dropdown list, choose the Okta profile attribute that you want to map over to the SCIM attribute. Click **Save**.
 
           Repeat this step for all SCIM attributes that you want to map (from Okta to your app).
 
@@ -66,8 +66,8 @@ After you've enabled the provisioning API connection in your test instance, conf
 
      6. Scroll to the **{yourApp} Attribute Mappings** section. Look for the attribute that you want to update and click **Edit**.
 
-     7. In the dialog that appears, there are two dropdown fields. In the first dropdown menu, select **Map from {yourApp} App Profile**. In the second dropdown menu, choose the Okta profile attribute that you want to map the SCIM attribute to. Click **Save**.
+     7. In the dialog that appears, there are two dropdown fields. In the first dropdown list, select **Map from {yourApp} App Profile**. In the second dropdown list, choose the SCIM attribute that you want to map to the Okta attribute. Click **Save**.
 
-          Repeat this step for all SCIM attributes that you want to map (from your app to Okta).
+          Repeat this step for all SCIM attributes that you want to map from your app to Okta.
 
-After you complete your attribute mappings, you're ready to test your SCIM integration. Jump to [Test your SCIM integration](#test-your-scim-integration).
+After you complete your attribute mappings, you're ready to [test your SCIM integration](#test-your-scim-integration).
