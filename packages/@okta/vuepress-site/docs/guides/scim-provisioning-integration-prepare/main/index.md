@@ -9,7 +9,7 @@ layout: Guides
 
 Use this guide to build a SCIM-compliant (System for Cross-domain Identity Management) API server to host your SCIM service.
 
-After you build your SCIM API server, you can connect your SCIM API server to Okta with a private integration or with an integration that's planned for the Okta Integration Network (OIN).
+After you build your SCIM API server, you can connect it to Okta for use with a private SCIM integration or with an public integration on the Okta Integration Network (OIN).
 
 ## Preparation
 
@@ -21,7 +21,7 @@ If your service already supports the SCIM protocol, you should still review the 
 
 If you haven't yet implemented SCIM, Okta recommends that you use [version 2.0 of the SCIM protocol](https://developer.okta.com/docs/api/openapi/okta-scim/guides/scim-20/).
 
-> **Note:** You can only submit SCIM 2.0-compliant integrations to the OIN.
+> **Note:** OIN integration submissions must adhere to the SCIM 2.0 specification.
 
 ## Features
 
@@ -70,7 +70,7 @@ Obtain the `{appName}` from the Admin Console URL when you select **Applications
 https://{orgSubDomain}-admin.{oktaEnvironment}.com/admin/app/{appName}/instance/{instanceID}/#tab-general
 ```
 
-The `{appName}` is the string between `/app/` and `/instance/` in the URL after you [created your app integration instance](/docs/guides/submit-oin-app/scim/main/#generate-an-instance-for) in Okta.
+The `{appName}` is the string between `/app/` and `/instance/` in the URL after you [create your app integration instance](/docs/guides/submit-oin-app/scim/main/#generate-an-instance-for) in Okta.
 
 ### Base URL
 
@@ -262,7 +262,7 @@ As you refine your SCIM implementation, you can share API test results with your
     `https://www.runscope.com/radar/abcdefghijkl/m01nopq2-3456-7r8s-9012-t34567uvw890/history/123ef4gh-i567-89j0-1k2l-3m4n5o678901`.
     The test results can be viewed in detail, but the test can't be edited or rerun by people outside of your team.
 
-> **Note:** If you plan to submit your SCIM integration to the OIN, save this test results URL for the integration submission. See [Submit your integration](/docs/guides/submit-oin-app/scim/main/#submit-your-integration) for SCIM.
+> **Note:** If you plan to submit your SCIM integration to the OIN, save the URL of the test results. See [Submit your integration](/docs/guides/submit-oin-app/scim/main/#submit-your-integration) for SCIM.
 
 ## Next steps
 
@@ -276,5 +276,5 @@ Now that you have a SCIM-compliant API server on which to host your SCIM service
 
 * If you want to create a SCIM integration only in your org, see [Add a private SCIM integration](/docs/guides/scim-provisioning-integration-connect/).
 
-    * An integration is considered private if it's only available in the org from where the integration instance was created.
+    * An integration is considered private if it's only available in the org where the integration instance was created.
     * Private integrations are useful for developing and testing integrations, or for providing access to users on one org.
