@@ -17,7 +17,7 @@ SCIM, or the [System for Cross-domain Identity Management](https://scim.cloud) s
 
 The goal of SCIM is to securely automate the exchange of user identity data between your company's cloud apps and any Service Providers (SP).
 
-Managing user lifecycles in your org is a fundamental business problem. Hiring employees is just step one. You also need to provision apps for their job and enforce corporate security policies. Then you need to update user accounts as they advance through your company. At the end of their employment, you need to ensure that all access is quickly and thoroughly revoked across all apps. Manually handling all of this can be time-consuming and error-prone.
+Managing user lifecycles in your org is a fundamental business problem. Hiring employees is just the first step. You also need to provision apps for their job and enforce corporate security policies. Then you need to update user accounts as they advance through your company. At the end of their employment, you need to ensure that all access is quickly and thoroughly revoked across all apps. Manually handling all of this can be time-consuming and error-prone.
 
 <div class="three-quarter">
 
