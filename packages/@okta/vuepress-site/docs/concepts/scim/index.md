@@ -63,15 +63,15 @@ Information about user and group resources can be queried from your app to match
 
 ### Update
 
-If a resource in your app needs to be updated based on data changed in Okta, this operation updates existing user or group attributes. Alternatively, if your app functions as the source of truth for specific attributes of a user identity, this action updates the Okta user profile.
+If a resource in your app needs to be updated based on data changed in Okta, this operation updates existing user or group attributes. If your SCIM server is out of sync with Okta, then it might not receive updates for the out-of-sync attributes.
 
-For example, assume you've updated the `phoneNumber` attribute in Okta. A GET request gets the user information from your SCIM server. The return payload is updated with the new `phoneNumber`. A PUT call back then sends this entire payload (including attributes that weren't updated) back to your SCIM server. See the **Update a specific user (PUT)** section in the [SCIM V2.0](https://developer.okta.com/docs/api/openapi/okta-scim/guides/scim-20/#update-a-specific-user-put) and [SCIM V1.1](https://developer.okta.com/docs/api/openapi/okta-scim/guides/scim-11/#update-a-specific-user-put) references.
+Alternatively, if your app functions as the source of truth for specific attributes of a user identity, this action updates the Okta user profile.
+
+See the **Update a specific user (PUT)** section in the [SCIM V2.0](https://developer.okta.com/docs/api/openapi/okta-scim/guides/scim-20/#update-a-specific-user-put) and [SCIM V1.1](https://developer.okta.com/docs/api/openapi/okta-scim/guides/scim-11/#update-a-specific-user-put) references.
 
 User attributes can be mapped from your source into Okta. Conversely, an attribute can be mapped from Okta to a target attribute in your app.
 
-> **Note:** The `active` user attribute, which represents a user's status, causes specific provisioning and deprovisioning jobs. As such, it's treated differently than other properties. Okta doesn't pull in a user whose status is set to `active=false`, even in a full import. If Okta is set as a source of truth, updating through a profile push wouldn’t update the user status downstream to the SCIM app.
->
-> See the **Update a specific user (Patch)** section in the [SCIM V2.0](https://developer.okta.com/docs/api/openapi/okta-scim/guides/scim-20/#update-a-specific-user-patch) and [SCIM V1.1](https://developer.okta.com/docs/api/openapi/okta-scim/guides/scim-11/#update-a-specific-user-patch) references.
+> **Note:** The `active` user attribute represents a user's status, and relates to activating, reactivating, and deactivating a user. Okta doesn't pull in a user whose status is set to `active=false`, even in a full import. See the **Update a specific user (Patch)** section in the [SCIM V2.0](https://developer.okta.com/docs/api/openapi/okta-scim/guides/scim-20/#update-a-specific-user-patch) and [SCIM V1.1](https://developer.okta.com/docs/api/openapi/okta-scim/guides/scim-11/#update-a-specific-user-patch) references.
 
 ### Delete (Deprovision)
 
