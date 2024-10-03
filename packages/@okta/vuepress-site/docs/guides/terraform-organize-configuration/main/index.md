@@ -146,7 +146,7 @@ Configuration drift usually occurs when an org uses multiple strategies or tools
 
 For Okta resources that you manage with Terraform, **never** modify them with Admin Console or other APIs.
 
-## Configure a basic Okta Terraform configuration
+## Create a basic Okta Terraform configuration
 
 A basic configuration includes the following files in the root of your Terraform directory.
 

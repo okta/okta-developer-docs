@@ -2,13 +2,13 @@
 
 title: Manage branding with Terraform
 
-excerpt: Change the appearance of Okta sign-in pages, outgoing emails, and dashboard.
+excerpt: Change the appearance of Okta sign-in pages, outgoing emails, and the End-User Dashboard.
 
 layout: Guides
 
 ---
 
-Change the appearance of Okta sign-in pages, outgoing emails, and dashboard.
+Change the appearance of Okta sign-in pages, outgoing emails, and the End-User Dashboard.
 
 ---
 
@@ -16,21 +16,21 @@ Change the appearance of Okta sign-in pages, outgoing emails, and dashboard.
 
 * Import Okta objects that control color, logos, and page styling into your Terraform configuration.
 
-* Customize the appearance of sign-in pages, error pages, and the Okta end-user dashboard, including color, logos, and page styling.
+* Customize the appearance of sign-in pages, error pages, and the Okta End-User Dashboard, including color, logos, and page styling.
 
 * Customize email template content and appearance.
 
 #### What you need
 
-* Familiarity with the Terraform terms: configuration, resources, state, and commands. See the Terraform documentation [introductory concepts](https://www.terraform-best-practices.com/key-concepts) article. Also, see the [introduction page for Okta Terraform automation](/docs/guides/terraform-overview/main/).
+* Familiarity with the Terraform terms: configuration, resources, state, and commands. See the Terraform documentation [introductory concepts](https://www.terraform-best-practices.com/key-concepts). Also, see the [introduction page for Okta Terraform automation](/docs/guides/terraform-overview/main/).
 
-* An Okta organization.
+* An Okta org
 
-* A [Terraform configuration](/docs/guides/terraform-enable-org-access/) that can access your Okta org.
+* A [Terraform configuration](/docs/guides/terraform-enable-org-access/) that can access your Okta org
 
-* An Okta user account with the Super Administrator role.
+* An Okta user account with the super administrator role
 
-* The ability to update the DNS records of your public custom domain to configure a custom email address from which Okta can send mail.
+* The ability to update the DNS records of your public custom domain to configure a custom email address from which Okta can send mail
 
 * Terraform 1.8.5 or later
 
@@ -38,11 +38,11 @@ Change the appearance of Okta sign-in pages, outgoing emails, and dashboard.
 
 ## Overview
 
-The Okta Brands feature enables you to customize parts of your org's end-user experience. For example, you can customize the colors and images on your Okta sign-in pages, error pages, and Okta End-User Dashboard. You can customize email templates in multiple languages and create custom email domains for outgoing Okta emails. For general information, see the [Brands concept article](/docs/concepts/brands).
+The Okta Brands feature enables you to customize parts of your org's end-user experience. For example, you can customize the colors and images on your Okta sign-in pages, error pages, and End-User Dashboard. You can customize email templates in multiple languages and create custom email domains for outgoing Okta emails. For general information, see the [Brands concept article](/docs/concepts/brands).
 
 ## Configure the default brand or add a brand
 
-You can use Terraform to customize the default brand of an Okta organization. You may be able to customize multiple brands if that's supported by your org.
+You can use Terraform to customize the default brand of an Okta org. You may be able to customize multiple brands if that's supported by your org.
 
 ### Check if your org supports multibrand customization
 
@@ -60,7 +60,7 @@ Confirm that your Okta org supports multibrand customization:
 
 ### Set up your configuration
 
-Consider using a separate file in your configuration for code related to branding. For example, you could create a Terraform file called `brands.tf` that contains brands and themes. For guidance on organizing your files, see [Configure a basic Okta Terraform configuration](/docs/guides/terraform-organize-configuration/main/#configure-a-basic-okta-terraform-configuation).
+Consider using a separate file in your configuration for code related to branding. For example, you could create a Terraform file called `brands.tf` that contains brands and themes. For guidance on organizing your files, see [Create a basic Okta Terraform configuration](/docs/guides/terraform-organize-configuration/main/#create-a-basic-okta-terraform-configuation).
 
 ### Add or confirm the API scopes
 
@@ -73,7 +73,7 @@ Your Terraform integration requires the appropriate scopes that depend on what y
 | Add custom email domains  | `okta.domains.manage`      |
 | Add custom email domains  | `okta.emailDomains.manage` |
 
-To grant scopes in the Admin Console and to include them in your Terraform code, see the articles on [enabling your API service application for Terraform access](/docs/guides/terraform-enable-org-access/) and [Configure a basic Okta Terraform configuration](/docs/guides/terraform-organize-configuration/main/#configure-a-basic-okta-terraform-configuration).
+To grant scopes in the Admin Console and to include them in your Terraform code, see the articles on [enabling your API service app for Terraform access](/docs/guides/terraform-enable-org-access/) and [Create a basic Okta Terraform configuration](/docs/guides/terraform-organize-configuration/main/#create-a-basic-okta-terraform-configuration).
 
 ### Create or import the brand resource
 
@@ -81,11 +81,11 @@ There are two main customization resources in the Okta Terraform provider:
 
 * **Brand**: Some settings and defaults for a custom brand. Each brand is associated with a custom domain. For general brand information, see the [Brands concept article](/docs/concepts/brands/). For information on creating a custom domain, see [Manage custom domains with Terraform](/docs/guides/terraform-manage-multiple-domains/).
 
-* **Theme:** Settings that change the appearance of the user sign-in widget, such as the logo, background image, colors, and how to apply the colors. Each brand has exactly one theme, which is created when Okta creates the brand resource.
+* **Theme:** Settings that change the appearance of the Okta Sign-In Widget, such as the logo, background image, colors, and how to apply the colors. Each brand has exactly one theme, which is created when Okta creates the brand resource.
 
-The instructions for using with these resources in Terraform differ if your org type supports multibrand customization.
+The instructions for using these resources in Terraform differ if your org type supports multibrand customization.
 
-* Okta recommends [creating custom domains](/docs/guides/terraform-manage-multiple-domains/main/#create-a-custom-domain-resource) first, and then [new brand resources](#create-a-new-brand-requires-multibrand-customization) if your organization supports multibrand customization. However, you can modify the default brand to support app integrations that don't use a custom domain.
+* Okta recommends [creating custom domains](/docs/guides/terraform-manage-multiple-domains/main/#create-a-custom-domain-resource) first, and then [new brand resources](#create-a-new-brand-requires-multibrand-customization) if your org supports multibrand customization. However, you can modify the default brand to support app integrations that don't use a custom domain.
 
 * You must modify the default brand if your org doesn't support multibrand customization.
 
@@ -119,7 +119,7 @@ The instructions for using with these resources in Terraform differ if your org 
     }
     ```
 
-1. Due to how the core Okta Administration API works, Terraform resources don't directly create the theme object. Instead, your Terraform code gets the theme from the already-created brand object. Your new brand automatically creates an associated theme object on the server. Modifying the theme object from Terraform requires using the Terraform feature called [import](https://developer.hashicorp.com/terraform/tutorials/state/state-import). The import process allows you to get the theme and change its one theme in place.
+1. Due to how the core Okta API works, Terraform resources don't directly create the theme object. Instead, your Terraform code gets the theme from the already-created brand object. Your new brand automatically creates an associated theme object on the server. Modifying the theme object from Terraform requires using the Terraform feature called [import](https://developer.hashicorp.com/terraform/tutorials/state/state-import). The import process allows you to get the theme and change its one theme in place.
 
     There are several ways to import objects. The most common ways are the `terraform import` CLI and the `import` block syntax (requires Terraform 1.5 or later). The following example shows how to use Terraform import block syntax to get the theme. It looks up the theme based on the associated brand, passing the ID to the import command in the format "`<brand-id>/<theme-id>`". In your theme object, include the required fields with `_variant` suffix, as shown in the example.
 
@@ -142,7 +142,7 @@ The instructions for using with these resources in Terraform differ if your org 
 
     1. Set the `brand_id` to the ID of your brand.
 
-    1. Set the theme ID using this syntax, which uses the data source you created in the previous step:
+    1. Set the theme ID using this syntax, which uses the data source that you created in the previous step:
 
         ```hcl
         import {
@@ -153,7 +153,7 @@ The instructions for using with these resources in Terraform differ if your org 
 
     1. Set the required arguments for colors. Set `primary_color_hex` and `secondary_color_hex` to the hex values of the desired colors for your org's primary and secondary colors.
 
-    1. Set the required arguments for visual variants. For now, set `sign_in_page_touch_point_variant`, `end_user_dashboard_touch_point_variant`, `error_page_touch_point_variant`, and `email_template_touch_point_variant` to `"OKTA_DEFAULT"`. See the [okta_theme](https://registry.terraform.io/providers/okta/okta/latest/docs/resources/theme) resource for the definitions and other variants you can use.
+    1. Set the required arguments for visual variants. For now, set `sign_in_page_touch_point_variant`, `end_user_dashboard_touch_point_variant`, `error_page_touch_point_variant`, and `email_template_touch_point_variant` to `"OKTA_DEFAULT"`. See the [okta_theme](https://registry.terraform.io/providers/okta/okta/latest/docs/resources/theme) resource for the definitions and other variants that you can use.
 
 The following example shows the code for the domain, the import, and the theme declaration:
 
@@ -237,9 +237,9 @@ Use Terraform `import` blocks to import Okta objects and automatically generate 
 
 1. Declare the theme resource imported in the previous step. The following shows how to set up the brand and theme IDs. All fields shown in this example are required:
 
-    * Set `primary_color_hex` and `secondary_color_hex` to the hex values of the colors that you want to use for your org (the example for this step shows the default values.)
+    * Set `primary_color_hex` and `secondary_color_hex` to the hex values of the colors that you want to use for your org (the example for this step shows the default values).
 
-    * Set `sign_in_page_touch_point_variant`, `end_user_dashboard_touch_point_variant`, `error_page_touch_point_variant`, and `email_template_touch_point_variant` to `"OKTA_DEFAULT"`. See the [okta_theme](https://registry.terraform.io/providers/okta/okta/latest/docs/resources/theme) resource for the definitions of other user interface customization.
+    * Set `sign_in_page_touch_point_variant`, `end_user_dashboard_touch_point_variant`, `error_page_touch_point_variant`, and `email_template_touch_point_variant` to `"OKTA_DEFAULT"`. See the [okta_theme](https://registry.terraform.io/providers/okta/okta/latest/docs/resources/theme) resource for the definitions of other user interface customizations.
 
       ```hcl
       resource "okta_theme" "theme_default" {
@@ -298,7 +298,7 @@ resource "okta_brand" "name_of_brand" {
 
 ### Set the default app integration
 
-Set the default brand by setting `default_app_app_instance_id` to an Okta app instance ID. This enables you to customize the app name displayed in any links. Set the `default_app_app_link_name` to the customer-facing name for the app integration.
+Set the default brand by setting `default_app_app_instance_id` to an Okta app instance ID. This enables you to customize the app name that appears in any links. Set the `default_app_app_link_name` to the customer-facing name for the app integration.
 
 ```hcl
 resource "okta_brand" "name_of_brand" {
@@ -310,7 +310,7 @@ resource "okta_brand" "name_of_brand" {
 
 ## Customize optional theme settings
 
-Change the colors, logo, and background image of your sign-in page, Okta End User Dashboard, and error pages.
+Change the colors, logo, and background image of your sign-in page, End-User Dashboard, and error pages.
 
 ### Set logos and background images
 
@@ -336,7 +336,7 @@ resource "okta_theme" "image_example" {
 
 You set the primary color settings in the theme resource in the required fields `primary_color_hex` and `secondary_color_hex`.
 
-Additionally, you can set the contrast colors. For the primary contrast, set the color in the argument `primary_color_contrast_hex`. For the secondary color contrast, set `secondary_color_contrast_hex`.
+You can also set the contrast colors. For the primary contrast, set the color in the argument `primary_color_contrast_hex`. For the secondary color contrast, set `secondary_color_contrast_hex`.
 
 ```hcl
 resource "okta_theme" "color_contrast_example" {
@@ -349,11 +349,11 @@ For more information about how Okta uses colors and the customizations in the co
 
 ## Customize an email template
 
-Use the `okta_email_customization` resource to create customized email templates. You specify the type of email in the `template_name` attribute, such as `"ForgotPassword"` for the one sent to reset a forgotten password. See the [Okta Terraform provider documentation](https://registry.terraform.io/providers/okta/okta/latest/docs/resources/email_customization) for the list of supported email templates.
+Use the `okta_email_customization` resource to create customized email templates. Specify the type of email in the `template_name` attribute, such as `"ForgotPassword"`, for the email sent to reset a forgotten password. See the [Okta Terraform provider documentation](https://registry.terraform.io/providers/okta/okta/latest/docs/resources/email_customization) for the list of supported email templates.
 
 You can also provide multiple template versions for different languages by setting the `language` attribute to the desired locale.
 
-1. Add the required template management scope if it's not already granted. Do this by adding the `okta.templates.manage` scope to your configuration and to your orgs Terraform service app. For more information on adding scopes in Okta, see [Add or confirm the API scopes](#add-or-confirm-the-api-scopes).
+1. Add the required template management scope if it's not already granted. Do this by adding the `okta.templates.manage` scope to your configuration and to your org's Terraform service app. For more information on adding scopes in Okta, see [Add or confirm the API scopes](#add-or-confirm-the-api-scopes).
 
 1. Create a new `okta_email_customization` resource.
 
@@ -363,7 +363,7 @@ You can also provide multiple template versions for different languages by setti
     brand_id      = okta_brand.A.id
     ```
 
-1. Set the `is_default` attribute if you create multiple languages for the same template. Set `is_default` to `true` in the template for the default language. Set it to `false` for all other language versions of the same template. Also add a `depends_on` attribute set to the default template for the language. The default template must be created first.
+1. Set the `is_default` attribute if you create multiple languages for the same template. Set `is_default` to `true` in the template for the default language. Set it to `false` for all other language versions of the same template. Also add a `depends_on` attribute set to the default template for the language. You must create the default template first.
 
    The following code shows two language versions of the template resource for the forgot password email. The first is the default version in French. The second is in Spanish and depends on the default French version.
 
@@ -392,7 +392,7 @@ You can also provide multiple template versions for different languages by setti
 
 1. Set the `subject` and `body` fields to the subject and body text.
 
-Use two dollar signs (`$$`) before any Okta variables in the HTML to escape the string interpolation in your configuration file — for example, `$${brand.theme.primaryColor}`. Variables with only one dollar sign `$`, are interpolated by Terraform. See the [provider documentation](https://registry.terraform.io/providers/okta/okta/latest/docs) for the complete list of Okta variables that you can use.
+Use two dollar signs (`$$`) before any Okta variables in the HTML to escape the string interpolation in your configuration file—for example, `$${brand.theme.primaryColor}`. Variables with only one dollar sign `$`, are interpolated by Terraform. See the [provider documentation](https://registry.terraform.io/providers/okta/okta/latest/docs) for the complete list of Okta variables that you can use.
 
 Some types of templates include required variables. For example, the reset password template must contain `$$resetPasswordLink` or `$$oneTimePassword`. For the list of variables for each template name, see [Velocity variables](https://help.okta.com/en-us/content/topics/settings/velocity-variables.htm).
 
@@ -509,24 +509,24 @@ There are two limitations to email domain customization:
 
 * There's a maximum of 10 DNS lookups in an SPF record.
 
-Okta recommends that your domain implement the [Sender Policy Framework (SPF) ](https://tools.ietf.org/html/rfc7208)to prevent sender address forgery. If you have already implemented SPF in your custom domain, update the SPF record to include Okta's mail servers.
+Okta recommends that your domain implement the [Sender Policy Framework (SPF)](https://tools.ietf.org/html/rfc7208) to prevent sender address forgery. If you have already implemented SPF in your custom domain, update the SPF record to include Okta mail servers.
 
 ### Add an email domain in Terraform
 
-Creating and adding a custom email domain takes several steps that must be completed in order. At least one of the steps may require waiting for up to a day. The steps are:
+Creating and adding a custom email domain takes several steps that you must complete in order. At least one of the steps may require waiting for up to a day:
 
 1. [Create an email domain resource](#create-an-email-domain-resource).
 1. [Update the domain with the `CNAME` and `TXT` records](#update-the-domain-with-the-cname-and-txt-records).
 1. [Request email domain verification](#request-email-domain-verification).
 1. [Test your email domain](#test-your-email-domain).
 
-Okta sends a confirmation email to your super administrators once your custom email domain is configured and working.
+Okta sends a confirmation email to your super administrators after your custom email domain is configured and working.
 
 ### Create an email domain resource
 
 1. Add an [email_domain](https://registry.terraform.io/providers/okta/okta/latest/docs/resources/email_domain) resource.
 
-1. Set the `brand_id` to your brand's ID. For multibrand customization, set the `brand_id` argument to the ID for the brand to associate with the new email domain.
+1. Set the `brand_id` to your brand's ID. For multibrand customization, set the `brand_id` argument to the ID for the brand to associate it with the new email domain.
 
     ```hcl
     data "okta_brands" "test" {
@@ -554,15 +554,15 @@ Okta sends a confirmation email to your super administrators once your custom em
 
 1. Run `terraform apply`.
 
-1. Run `terraform output -json {outputVariableName}` to view the configuration information in JSON format. Okta recommends saving the output to a file for your records. For example, the command line for an output variable of `email_dns_records_to_update_company1` is:
+1. Run `terraform output -json {outputVariableName}` to view the configuration information in JSON format. Okta recommends saving the output to a file for your records. For example, the following is the command line for an output variable of `email_dns_records_to_update_company1`:
 
     ```sh
     terraform output -json email_dns_records_to_update_company1 > email_dns_records.json
     ```
 
-1. Review the JSON file for the required content: one object with a `record_type` attribute of `TXT` and three objects with a `record_type` attribute of `CNAME`. You'll use this output in the next section.
+1. Review the JSON file for the required content: one object with a `record_type` attribute of `TXT` and three objects with a `record_type` attribute of `CNAME`. Use this output in the next section.
 
-   The content looks similar to the following:
+   The content looks similar to the following example:
 
     ```json
     "email_dns_records_to_update_company1" = [
@@ -595,15 +595,15 @@ Okta sends a confirmation email to your super administrators once your custom em
 
 ### Update the domain with the CNAME and TXT records
 
-This step requires adding DNS records to the custom domain using your domains' service provider. This usually requires administrative access. If you do not have this access, contact your system administrator.
+This step requires adding DNS records to the custom domain using your domains' service provider. This usually requires administrative access. If you don't have this access, contact your system administrator.
 
 The specific user interface or commands for adding the `CNAME` and `TXT` records depends on your service provider. Some may include automation using Terraform.
 
-The following are the generic steps to add the records. The specific interface will vary.
+The following are the generic steps to add the records. The specific varies.
 
 1. Locate the JSON output from [Create an email domain resource](#create-an-email-domain-resource).
 
-1. Log into your domain provider for your custom domain and navigate to the domain record editor.
+1. Sign in to your domain provider for your custom domain and navigate to the domain record editor.
 
 1. Create three `CNAME` records, one for each of the three objects in the JSON output. The values you need for this step are in the object in the JSON output with a `record_type` of `"CNAME"`.
 
@@ -621,23 +621,23 @@ The following are the generic steps to add the records. The specific interface w
 
     1. Save the new record in your ISP's control panel for DNS records.
 
-1. Add the SPF record to your DNS zone (the root domain). An SPF record specifies the mail servers authorized by your organization to send mail from your domain. If your root domain already has an SPF record, the following update can prevent spoofers from sending mail that mimics your domain. For example, if you only send mail from Microsoft Office 365, your SPF record has an include statement similar to:
+1. Add the SPF record to your DNS zone (the root domain). An SPF record specifies the mail servers authorized by your org to send mail from your domain. If your root domain already has an SPF record, the following update can prevent spoofers from sending mail that mimics your domain. For example, if you only send mail from Microsoft Office 365, your SPF record has an include statement similar to this example:
 
     ```
     example.com TXT    v=spf1 include:spf.protection.outlook.com -all
     ```
 
-   You must add another include statement that specifies your email domain. In the previous example, that would be `mail.example.com`.  If you combine the new include statement with the previous SPF example, it looks similar to this:
+   You must add another include statement that specifies your email domain. In the previous example, that would be `mail.example.com`.  If you combine the new include statement with the previous SPF example, it looks similar to this example:
 
     ```
     example.com TXT    v=spf1 include:mail.example.com include:spf.protection.outlook.com -all
     ```
 
-1. Wait until the DNS records propagate. This step may take up to twenty-four hours, though could take as little as 15 minutes. Check if your DNS records are available using a tool, such as [Dig](https://toolbox.googleapps.com/apps/dig/).
+1. Wait until the DNS records propagate. This step may take up to 24 hours, though could take as little as 15 minutes. Check if your DNS records are available using a tool, such as [Dig](https://toolbox.googleapps.com/apps/dig/).
 
 ### Request email domain verification
 
-Request an email domain verification once the DNS changes have propagated. Okta confirms that the `TXT` records for your domain contain the Okta-generated value proving that you control the domain.
+Request an email domain verification after the DNS changes have propagated. Okta confirms that the `TXT` records for your domain contain the Okta-generated value proving that you control the domain.
 
 1. Add a new email domain verification resource that references your `email_domain_id` object:
 
@@ -656,7 +656,7 @@ Test your email domain integration by triggering an Okta email. See the [referen
 
 If everything works correctly, consider commenting out the output block that extracts the set of DNS records that require changing.
 
-## Error page content cannot be changed in Terraform
+## Error page content can't be changed in Terraform
 
-Although the color/image usage for error pages is customizable in the brand, the actual content of [error pages](/docs/guides/custom-error-pages/main/#edit-the-error-page) is unavailable to customize using Terraform.
+Although the color/image use for error pages is customizable in the brand, the actual content of [error pages](/docs/guides/custom-error-pages/main/#edit-the-error-page) is unavailable to customize using Terraform.
 
