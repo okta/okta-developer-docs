@@ -1,9 +1,9 @@
 ---
 title: Add a private SCIM integration
-excerpt: Create a private SCIM integration instance. Configure and check the attributes and their corresponding mappings in the Admin Console.
+excerpt: Create an instance of a private SCIM integration. Configure and check the attributes and their corresponding mappings in the Admin Console.
 meta:
   - name: description
-    content: Use Okta to make SCIM requests to your SCIM API service by creating and configuring a private SCIM integration instance from the Admin Console.
+    content: Use Okta to make SCIM requests to your SCIM API service by creating and configuring an instance of a private SCIM integration from the Admin Console.
 layout: Guides
 ---
 
@@ -25,11 +25,11 @@ Use this guide to create and test a private SCIM integration from your Okta org 
 
 ## Overview
 
-The instructions in this guide show you how to create a private SCIM integration instance in Okta to test your SCIM service. This integration instance is considered private because it's only available in the org from where the integration instance was created.
+The instructions in this guide show you how to create an instance of a private SCIM integration in Okta so you can test your SCIM service. This integration is considered private because it's only available in the org from where the integration instance was created.
 
 > **Note:** An app integration is considered public if it's available in the [OIN catalog](https://www.okta.com/integrations/) for all Okta customers. See [Publish an OIN integration](/docs/guides/submit-app-overview/) for an overview of the submission process. To create a public SCIM integration, see [Submit an integration with the OIN Wizard](/docs/guides/submit-oin-app/scim/main/).
 
-Make sure that your SCIM implementation passes all the Runscope tests before integrating it with Okta. For more information on testing your SCIM service, see [Prepare your SCIM API service](/docs/guides/scim-provisioning-integration-prepare/main/#test-your-scim-api).
+Make sure that your SCIM service passes all the Runscope tests before integrating it with Okta. For more information on testing your SCIM service, see [Prepare your SCIM API service](/docs/guides/scim-provisioning-integration-prepare/main/#test-your-scim-api).
 
 Begin by signing in to your Okta Developer Edition org. If you don't have one, sign up for an [Okta developer account](https://developer.okta.com/signup/).
 

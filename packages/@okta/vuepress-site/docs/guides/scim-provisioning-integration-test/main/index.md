@@ -1,13 +1,13 @@
 ---
 title: Test your private SCIM integration
-excerpt: Test that your System for Cross-domain Identity Management (SCIM) app can handle actual requests to create, read, update, and delete (CRUD) user profile information, and run through the manual Okta Integration Network (OIN) quality assurance test cases.
+excerpt: Test that your System for Cross-domain Identity Management (SCIM) app can handle actual requests to create, read, update, and delete (CRUD) user profile information, and manually run the Okta Integration Network (OIN) quality assurance test cases.
 meta:
   - name: description
-    content: Test that your SCIM app can handle actual requests to create, read, update and delete (CRUD) user profile information, and run through the manual Okta Integration Network (OIN) quality assurance test cases.
+    content: Test that your SCIM app can handle actual requests to create, read, update and delete (CRUD) user profile information, and manually run the Okta Integration Network (OIN) quality assurance test cases.
 layout: Guides
 ---
 
-This guide teaches you how to test your System for Cross-domain Identity Management (SCIM) app. This includes running an automated Runscope create, read, update, and delete (CRUD) user-profile test suite, in addition to a manual Okta Integration Network (OIN) quality assurance (QA) test suite. You need to create a [private SCIM integration instance](/docs/guides/scim-provisioning-integration-connect/main/#connect-to-your-scim-service) in your org before you run these tests.
+This guide teaches you how to test your System for Cross-domain Identity Management (SCIM) app. This includes an automated Runscope test suite for create, read, update, and delete (CRUD) operations, and a manual Okta Integration Network (OIN) quality assurance (QA) test suite. You need to create a [private SCIM integration instance](/docs/guides/scim-provisioning-integration-connect/main/#connect-to-your-scim-service) in your org before you run these tests.
 
 ## Scope of tests
 

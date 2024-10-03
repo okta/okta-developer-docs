@@ -25,10 +25,10 @@ Consider the following questions to help you choose which pathway to use for sub
 
 * Are you submitting a new or published SSO integration?
   * [Use the OIN Wizard for SSO and SCIM integrations](#submission-process-for-sso-and-scim-integrations).
-    > **Note:** Published SSO integrations that were submitted through the OIN Manager were moved to the OIN Wizard and appear in the **Your OIN Integrations** dashboard.
+    > **Note:** Published SSO integrations submitted through the OIN Manager have been moved to the OIN Wizard and appear in the **Your OIN Integrations** dashboard.
 * Are you submitting a new or published SCIM integration?
   * [Use the OIN Wizard for SSO and SCIM integrations](#submission-process-for-sso-and-scim-integrations).
-    > **Note:** Published SCIM integrations that were submitted through the OIN Manager are being migrated to the OIN Wizard. If you have an in-progress submission, continue using the [OIN Manager for submission](/docs/guides/submit-app/scim/main/). If you see your published integration in the **Your OIN Integrations** dashboard, use the [OIN Wizard if you need to make updates](/docs/guides/submit-oin-app/scim/main/#update-your-integration).
+    > **Note:** Published SCIM integrations that were submitted through the OIN Manager are being migrated to the OIN Wizard. If you have an in-progress submission, continue using the [OIN Manager](/docs/guides/submit-app/scim/main/) for that submission. If you see your published integration in the **Your OIN Integrations** dashboard, use the [OIN Wizard](/docs/guides/submit-oin-app/scim/main/#update-your-integration) if you need to make updates.
 * Are you submitting a new SSO and SCIM integration?
   1. [Use the OIN Wizard](#submission-process-for-sso-and-scim-integrations) to submit the SSO and SCIM integration.
 * Are you submitting a new or published Workflows integration?

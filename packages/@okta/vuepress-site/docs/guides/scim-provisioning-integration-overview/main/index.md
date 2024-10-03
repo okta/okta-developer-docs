@@ -21,7 +21,7 @@ This guide series teaches you how to build an Okta integration that uses the Sys
 
 * An Okta Developer Edition organization. Don't have one? [Create one for free](https://developer.okta.com/signup).
 * A SCIM version 2.0 API design that supports the [minimum feature set](/docs/guides/scim-provisioning-integration-prepare/main/#features).
-* Profile Sourcing activated in your org, if your integration supports feature. See [Profile Sourcing activation](/docs/guides/scim-provisioning-integration-test/main/#profile-sourcing-activation).
+* Profile Sourcing activated in your org, if your integration supports this feature. See [Profile Sourcing activation](/docs/guides/scim-provisioning-integration-test/main/#profile-sourcing-activation).
 
 ---
 
@@ -40,10 +40,10 @@ Your Okta integration should use Single Sign-On (SSO) to initiate end user authe
 This guide series contains the following parts:
 
 * [Build your SCIM API service](/docs/guides/scim-provisioning-integration-prepare/): Build a SCIM-compliant API server to host your SCIM service, and test it to make sure it’s functional.
-* [Configure Okta to your SCIM API service](/docs/guides/scim-provisioning-integration-connect/): Use Okta to make SCIM requests to your SCIM API service by creating and configuring a private SCIM integration from the Admin Console.
+* [Configure Okta to use your SCIM API service](/docs/guides/scim-provisioning-integration-connect/): Use Okta to make SCIM requests to your SCIM API service by creating and configuring a private SCIM integration from the Admin Console.
   > **Note:** If you want to submit your SCIM integration to the [Okta Intgration Network (OIN)](https://www.okta.com/integrations/), skip this guide and go directly to the [OIN Wizard: Submit an integration](/docs/guides/submit-oin-app/scim/main/) guide. The OIN Wizard includes steps to create, configure, and test your SCIM integration to share with your customers.
 * [Test your Okta SCIM integration](/docs/guides/scim-provisioning-integration-test/): Test that your private SCIM app can handle requests to create, read, update, and delete (CRUD) user profile information.
-  > **Note:** These testing steps are included in the [OIN Wizard](/docs/guides/submit-oin-app/scim/main/#test-your-integration) when you use it to submit your SCIM integration to the OIN.
+  > **Note:** When you use [OIN Wizard](/docs/guides/submit-oin-app/scim/main/#test-your-integration) to submit your SCIM integration to the OIN, these testing steps are part of the process.
 
 ## See also
 
