@@ -68,7 +68,7 @@ To create a new policy, send a POST request to the `/api/v1/policies` endpoint. 
 * Set the value of `activate` query parameter to `true`.
 * Provide a value for `name`.
 * Set the value of `type` to `OKTA_SIGN_ON`.
-* In the `OktaSignOnPolicyConditions` object, set `people.groups.include` to the value of a group in your org.
+* Set `people.groups.include` to the value of a group in your org.
 
 ```bash
 curl --location 'https://{yourOktaDomain}/api/v1/policies?activate=true' \
@@ -106,7 +106,7 @@ To create a new policy rule, send a POST request to the `/api/v1/policies/{polic
 * Set the value of `policyId` to that of the policy you created in [Create a global session policy](#create-a-global-session-policy).
 * Provide a value for `id`.
 * Set the value of `type` to `SIGN_ON`.
-* Set the following values in the `OktaSignOnPolicyRuleSignonActions` object:
+* In the `singon` object, set the following values:
   * `access`: `ALLOW`
   * `factorPromptMode`: `DEVICE`
   * `requireFactor`: `true`
@@ -150,9 +150,17 @@ Add two conditions:
 * Require 2 factor types.
 * Prompt users for authentication when an Okta global session doesn't exist.
 
-send a POST request to the `/api/v1/policies/{policyId}/rules` endpoint. Include the following:
+Send a POST request to the `/api/v1/policies/{policyId}/rules` endpoint. Include the following:
 
-* 
+* Include the `policyId` of the authentication policy.
+* Provide a value for `id`.
+* Set the value of `type` to `ACCESS_POLICY`.
+* In the 
+* In the `OktaSignOnPolicyRuleSignonActions` object, set the following values:
+  * `access`: `ALLOW`
+  * `factorPromptMode`: `DEVICE`
+  * `requireFactor`: `true`
+  * `primaryFactor`: `PASSWORD_IDP_ANY_FACTOR`
 
 
 
