@@ -192,7 +192,7 @@ Use these steps to insert or update a set of user data profiles from your HR sou
 
 3. [Start the data import process](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/startImportFromIdentitySource):
 
-    After you loaded all user profiles to insert or update, start the processing job to import users into the Okta Universal Directory:
+    After you loaded all user profiles to insert or update, start the processing job to import users into Universal Directory:
 
     ```bash
     curl -i -X POST \
