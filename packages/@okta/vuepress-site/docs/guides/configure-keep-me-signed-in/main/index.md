@@ -1,5 +1,5 @@
 ---
-title: Configure Keep me signed in
+title: Keep me signed in (KMSI)
 excerpt: How to configure pre-authentication and post-authentication KMSI and customize KMSI UI components
 layout: Guides
 ---
@@ -143,7 +143,7 @@ To create a new policy rule, send a POST request to the `/api/v1/policies/{polic
 
 ### Update an authentication policy rule
 
-Create a rule for every app where you want to allow KMSI.
+Create an authentication policy rule for every app where you want to allow KMSI.
 
 Add two conditions:
 
