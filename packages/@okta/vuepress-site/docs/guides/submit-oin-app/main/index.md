@@ -185,7 +185,7 @@ The OIN Wizard journey includes the **Test integration** experience page to help
 
 ### Generate instances for testing
 
-Generate instances for testing in your Okta Developer Edition org directly from the OIN Wizard. The Wizard takes the configuration and test information from your OIN submission and allows you to configure a specific integration instance to your test app. You can test your customer admin experience and your end-user sign-in experience with the generated instance flow.
+Generate instances for testing in your Okta Developer Edition org directly from the OIN Wizard. The OIN Wizard takes the configuration and test information from your OIN submission and allows you to configure a specific integration instance to your test app. You can test your customer admin experience and your end-user sign-in experience with the generated instance flow.
 
 Okta recommends that you generate an instance for testing each protocol supported by your integration:
 
@@ -256,7 +256,7 @@ An instance is eligible if it was generated from the latest version of the integ
 
 If you modify a published OIN integration, you must generate an instance based on the published integration for backwards-compatibility testing. A backwards-compatible instance is eligible if it was generated from the published version of the integration before any edits are made in the current submission. The OIN Wizard detects if you're modifying a published OIN integration and asks you to generate a backwards-compatible instance before you make any edits.
 
-There's a maximum of five active instances allowed in a Developer Edition org, so [deactivate](#deactivate-an-app-instance-in-your-org) or delete any instances you aren't using. Click **Clear filter** to find instances in your org that may be active and ineligible for testing.
+> **Note:** There's a maximum of five active instances allowed in an Okta Developer Edition org, so [deactivate](#deactivate-an-app-instance-in-your-org) or delete any instances you aren't using. Click **Clear filter** to find instances in your org that may be active and ineligible for testing.
 
 #### Add to Tester
 
@@ -525,7 +525,7 @@ After you've successfully completed the manual SCIM integration tests, see [Subm
 
 ## Update your integration
 
-You can modify your published SSO and SCIM integration from the OIN Wizard.
+You can modify your published SSO and SCIM integration in the OIN Wizard.
 
 > **Note:** All SSO integrations previously published from the OIN Manager have been migrated to the OIN Wizard. Okta is migrating all SCIM integrations previously published from the OIN Manager to the OIN Wizard. If you don't see your published SCIM integration in the **Your OIN Integrations** dashboard, go to the [OIN Manager](/docs/guides/submit-app/scim/main/#update-your-published-integration) to make any updates.
 
