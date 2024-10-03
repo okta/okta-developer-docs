@@ -101,7 +101,9 @@ Create a rule with two conditions:
 * Require multifactor authentication (MFA).
 * Prompt users for MFA after its lifetime expires for the device cookie.
 
-To create a new policy rule, send a POST request to the `/api/v1/policies/{policyId}/rules` endpoint. Include the following:
+To create a new policy rule, send a POST request to the `/api/v1/policies/{policyId}/rules` endpoint. See [Create a policy rule](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule).
+
+Include the following:
 
 * Set the value of `policyId` to that of the policy you created in [Create a global session policy](#create-a-global-session-policy).
 * Provide a value for `id`.
@@ -141,9 +143,9 @@ To create a new policy rule, send a POST request to the `/api/v1/policies/{polic
 '
 ```
 
-### Update an authentication policy rule
+### Create an authentication policy rule
 
-Create an authentication policy rule for every app where you want to allow KMSI.
+Create an authentication policy rule for every app where you want to allow KMSI. See [Create a policy rule](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule).
 
 Add two conditions:
 
@@ -155,8 +157,26 @@ Send a POST request to the `/api/v1/policies/{policyId}/rules` endpoint. Include
 * Include the `policyId` of the authentication policy.
 * Provide a value for `id`.
 * Set the value of `type` to `ACCESS_POLICY`.
-* In the 
-* In the `OktaSignOnPolicyRuleSignonActions` object, set the following values:
+* In the `appSignOn` object, set the following values:
+  * `factorMode`: `2FA`
+  * `reauthenticateIn`: `PT43800H`
+
+See [Create a global session policy rule](#create-a-global-session-policy-rule).
+
+## Configure post-authentication KMSI
+
+Post-authentication KMSI is set at the app level in an authentication policy, so you can configure it on a per-app basis. You also need to modify your default global session policy so that your intended KMSI duration is observed.
+
+### Modify your global session policy
+
+You can use the Polices API to update the rules of your default global session policy. See [Replace a policy rule](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/replacePolicyRule).
+
+In a POST request to the `/api/v1/policies/{policyId}/rules/{ruleId}` endpoint, include the following:
+
+* Set the value of `policyId` to that of your default global session policy. See [List all policies](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/listPolicies).
+* Provide a value for `id`.
+* Set the value of `type` to `SIGN_ON`.
+* In the `singon` object, set the following values:
   * `access`: `ALLOW`
   * `factorPromptMode`: `DEVICE`
   * `requireFactor`: `true`
@@ -165,9 +185,8 @@ Send a POST request to the `/api/v1/policies/{policyId}/rules` endpoint. Include
 
 
 
-## Configure post-authentication KMSI
 
-Post-authentication KMSI is set at the app level in an authentication policy, so you can configure it on a per-app basis. You also need to modify your global session policy so that your intended KMSI duration is observed.
+### Update an authentication policy for post-authentication KMSI
 
 
 
@@ -178,11 +197,13 @@ Post-authentication KMSI is set at the app level in an authentication policy, so
 
 
 
+
 ## Reset KMSI in your org
 
 1. In the Admin Console, go to **Directory** > **People**.
-1. Select a user.
-1. Go to **More Actions** and select **Clear User Sessions**.
+1. Select the user.
+1. In the **More Actions** menu, select **Clear User Sessions**.
+1. Click **Clear Sessions & Revoke Tokens**.
 
 ## See also
 
