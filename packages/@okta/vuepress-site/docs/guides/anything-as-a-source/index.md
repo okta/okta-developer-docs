@@ -5,7 +5,7 @@ meta:
     content: This is an Anything-as-a-Source custom client developer guide to synchronize any HR source with Okta user profiles.
 ---
 
-This guide outlines how to develop a custom client to manage an identity source with Okta for the Anything-as-a-Source (XaaS) integration. The custom client can be a standalone app or a component of an existing app that drives the synchronization between the HR source (the identity source) and the Okta Universal Directory.
+This guide outlines how to develop a custom client to manage an identity source with Okta for the Anything-as-a-Source (XaaS) integration. The custom client can be a standalone app or a component of an existing app. The client drives the synchronization between the HR source (the identity source) and the Okta Universal Directory.
 
 ---
 
@@ -30,41 +30,38 @@ This guide outlines how to develop a custom client to manage an identity source 
 The Okta Anything-as-a-Source (XaaS) integration provides your organization with the ability to source identities from any HR source to your Okta org. The HR source acts as a source of truth, and users are pushed and mapped to Okta user profiles in the Okta Universal Directory. There are two methods to implement the XaaS integration:
 
 * Using Okta Workflows
-
-   or
-
 * Developing a custom client
 
-With either method, you need to first define your HR source in your Okta org. This is referred to as the Custom Identity Source integration. Okta provides you with a Custom Identity Source unique identifier that you can use in your Okta Workflow or custom client to identify the HR source. See Create and configure a Custom Identity Source in [Use Anything-as-a-Source](https://help.okta.com/okta_help.htm?type=oie&id=ext-use-xaas).
+With either method, you need to first define your HR source in your Okta org. This is referred to as the Custom Identity Source integration. Okta provides a Custom Identity Source unique identifier that you can use in your Okta Workflow or custom client to identify the HR source. See Create and configure a Custom Identity Source in [Use Anything-as-a-Source](https://help.okta.com/okta_help.htm?type=oie&id=ext-use-xaas).
 
 This guide outlines the Identity Sources API flow so that you can develop your custom client for the XaaS integration. For XaaS integrations using [Okta Workflows](https://help.okta.com/okta_help.htm?type=wf), see Okta connector action cards for bulk user import and identity-source session management.
 
 ## Identity Sources API concepts
 
-### Identity Source Session
+### Identity source session
 
-The Identity Sources API synchronizing data flow uses an [Identity Source Session](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/getIdentitySourceSession!c=200&path=id&t=response) object to encapsulate the data upload and the data import processing tasks. You need to create an Identity Source Session object each time that you want to synchronize data from the HR source to Okta. The Identity Source Session object uses the following `status` values to indicate each stage of the synchronization process flow.
+The Identity Sources API synchronizing data flow uses an [identity source session](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/getIdentitySourceSession!c=200&path=id&t=response) object to encapsulate the data upload and the data import processing tasks. You need to create an identity source session object each time that you want to synchronize data from the HR source to Okta. The identity source session object uses the following `status` values to indicate each stage of the synchronization process flow.
 
-### Identity Source Session status
+### Identity source session status
 
-* **CREATED**: The Identity Source Session object has been created for a specific Custom Identity Source integration. You can load data to the session at this stage. Data import processing hasn't been invoked, and you can cancel the session at this stage.
-* **TRIGGERED**: Okta is processing the uploaded data in the Identity Source Session. You can't load new data to the Identity Source Session object at this stage, and you can't cancel the session. You can view sessions with this status on the [Import Monitoring](https://help.okta.com/okta_help.htm?id=ext-view-import-monitoring-dashboard) page in the Admin Console.
-* **COMPLETED**: The data in the Identity Source Session object has been processed by Okta. You can't upload new data to the Identity Source Session object if it has this status, because the synchronization data job is considered complete.
-* **CLOSED**: The session is canceled and isn't available for further activity. You can only cancel Identity Source Sessions with the `CREATED` status. You can't cancel a session that has been triggered or completed. Previously loaded data is deleted from a canceled Identity Source Session.
-* **EXPIRED**: This status indicates that the Identity Source Session has timed out during the data loading stage. An Identity Source Session with the `CREATED` status expires after 24 hours of inactivity.
+* **CREATED**: The identity source session object has been created for a specific Custom Identity Source integration. You can load data to the session at this stage. Data import processing hasn't been invoked, and you can cancel the session at this stage.
+* **TRIGGERED**: Okta is processing the uploaded data in the identity source session. You can't load new data to the identity source session object at this stage, and you can't cancel the session. You can view sessions with this status on the [Import Monitoring](https://help.okta.com/okta_help.htm?id=ext-view-import-monitoring-dashboard) page in the Admin Console.
+* **COMPLETED**: The data in the identity source session object has been processed by Okta. You can't upload new data to the identity source session object if it has this status, because the synchronization data job is considered complete.
+* **CLOSED**: The session is canceled and isn't available for further activity. You can only cancel identity source sessions with the `CREATED` status. You can't cancel a session that has been triggered or completed. Previously loaded data is deleted from a canceled identity source session.
+* **EXPIRED**: This status indicates that the identity source session has timed out during the data loading stage. An identity source session with the `CREATED` status expires after 24 hours of inactivity.
 
-### Identity Source Session process
+### Identity source session process
 
-You can only process one Identity Source Session at a time (for a specific Custom Identity Source integration) to avoid conflicts. The following are more Identity Source Session behaviors:
+You can only process one identity source session at a time (for a specific Custom Identity Source integration) to avoid conflicts. The following are more identity source session behaviors:
 
-* You can only load data to an Identity Source Session when it's in the `CREATED` status.
-* There can only be one Identity Source Session in the `CREATED` status for an identity source.
-* An Identity Source Session with the `CREATED` or `TRIGGERED` status is considered active.
-* If there are no API requests in 24 hours for an Identity Source Session that has the `CREATED` status, then the status is set to `EXPIRED` and the session can no longer be used.
+* You can only load data to an identity source session when it's in the `CREATED` status.
+* There can only be one identity source session in the `CREATED` status for an identity source.
+* An identity source session with the `CREATED` or `TRIGGERED` status is considered active.
+* If there are no API requests in 24 hours for an identity source session that has the `CREATED` status, then the status is set to `EXPIRED` and the session can no longer be used.
 * Okta processes the sessions synchronously (not in parallel) for an identity source. If you trigger multiple sessions for an identity source, then the sessions are queued up for sequential processing.
-* You can't create an Identity Source Session within five minutes of triggering an active session associated with the same identity source. If Okta receives a new Identity Source Session request within five minutes of an active Identity Source Session with the `CREATED` or the `TRIGGERED` status, Okta returns a 400 Bad Request response.
+* You can't create an identity source session within five minutes of triggering an active session associated with the same identity source. If Okta receives a new identity source session request within five minutes of an active identity source session with the `CREATED` or the `TRIGGERED` status, Okta returns a 400 Bad Request response.
 
-> **Note:** You can use the [List all Identity Source Sessions](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/listIdentitySourceSessions) request to return active Identity Source Sessions for an identity source.
+> **Note:** You can use the [List all identity source sessions](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/listIdentitySourceSessions) request to return active identity source sessions for an identity source.
 
 ### Bulk-load requests
 
@@ -73,22 +70,22 @@ There are two types of bulk-load requests:
 * `/bulk-upsert`: Insert or update user profiles in the bulk-load request
 * `/bulk-delete`: Deactivate the user profiles in the bulk-load request
 
-You can load up to 200 KB of data in a single bulk-load (`/bulk-upsert` or `/bulk-delete`) request for an Identity Source Session. This equates to 200 user profiles. To load more user profiles, make multiple bulk-load requests to the same session. The maximum number of bulk-load requests for a session is 50.
+You can load up to 200 KB of data in a single bulk-load (`/bulk-upsert` or `/bulk-delete`) request for an identity source session. This equates to 200 user profiles. To load more user profiles, make multiple bulk-load requests to the same session. The maximum number of bulk-load requests for a session is 50.
 
-Create another Identity Source Session object when you exhaust the maximum number of bulk-load requests and need to load more user profiles. Keep in mind that you can only load user data to an Identity Source Session with the `CREATED` status.
+Create another identity source session object when you exhaust the maximum number of bulk-load requests and need to load more user profiles. Keep in mind that you can only load user data to an identity source session with the `CREATED` status.
 
-> **Note:** Only `"importType": "INCREMENTAL"` is currently supported for an Identity Source Session.
+> **Note:** Only `"importType": "INCREMENTAL"` is currently supported for an identity source session.
 
 ### Bulk user profile data
 
-The bulk-load request contains an array of external [Identity Source User Profile For Upsert](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/uploadIdentitySourceDataForUpsert) or [Identity Source User Profile For Delete](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/uploadIdentitySourceDataForDelete) objects that contain the following:
+The bulk-load request contains an array of external [identity source user profiles for upsert](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/uploadIdentitySourceDataForUpsert) or [identity source user profiles for delete](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/uploadIdentitySourceDataForDelete) objects that contain the following:
 
-* `externalId`: The unique identifier from the HR source and is assumed to be immutable (never updated for a specific user). This value is used as a key to determine if a new user needs to be created or if an existing user needs to be updated.
+* `externalId`: The unique identifier from the HR source and is assumed to be immutable (never updated for a specific user). This helps determine if a new user needs to be created or if an existing user needs to be updated.
 
 * `profile`: The set of attributes from the HR source to synchronize with the Okta user profile. User profiles are mapped according to the attribute mappings that you specified in your Custom Identity Source configuration. See Declare an identity source schema in [Use Anything-as-a-Source](https://help.okta.com/okta_help.htm?type=oie&id=ext-use-xaas).
     > **Note:** All attributes in a `profile` object are treated as strings. Arrays are not supported.
 
-> **Note:** You can only load user profile data to an Identity Source Session object with the `"entityType": "USERS"` property. Group data load isn't currently supported.
+> **Note:** You can only load user profile data to an identity source session object with the `"entityType": "USERS"` property. Group data load isn't currently supported.
 
 ## Identity Sources API flow
 
@@ -100,10 +97,10 @@ Before you start to build your XaaS data synchronization client, you need to set
 
 Code your XaaS data synchronization client with the following generalized API flow:
 
-1. Create an Identity Source Session.
-2. Load bulk data into the Identity Source Session (if required, load multiple batches of bulk data).
+1. Create an identity source session.
+2. Load bulk data into the identity source session (if required, load multiple batches of bulk data).
 3. Trigger the data import process.
-4. Monitor the Identity Source Session until the data processing completes.
+4. Monitor the identity source session until the data processing completes.
 
 <div class="full">
 
@@ -123,14 +120,14 @@ For detailed API calls, see the following for specific use case flows:
 
 * [Bulk import user data](#bulk-import-user-data)
 * [Bulk deactivate user data](#bulk-deactivate-user-data)
-* [Cancel an Identity Source Session](#cancel-an-identity-source-session)
-* [Monitor Identity Source Sessions](#monitor-identity-source-sessions)
+* [Cancel an identity source session](#cancel-an-identity-source-session)
+* [Monitor identity source sessions](#monitor-identity-source-sessions)
 
 ### Bulk import user data
 
 Use these steps to insert or update a set of user data profiles from your HR source to Okta:
 
-1. [Create an Identity Source Session](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/createIdentitySourceSession):
+1. [Create an identity source session](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/createIdentitySourceSession):
 
    ```bash
     curl -i -X POST \
@@ -141,7 +138,7 @@ Use these steps to insert or update a set of user data profiles from your HR sou
 
     Possible returned responses:
 
-    * **200 OK**: The Identity Source Session was created successfully, and the `id` property was returned in the response. Save the `id` value to make further API calls.
+    * **200 OK**: The identity source session was created successfully, and the `id` property was returned in the response. Save the `id` value to make further API calls.
 
       ```json
       {
@@ -152,17 +149,17 @@ Use these steps to insert or update a set of user data profiles from your HR sou
       }
       ```
 
-      > **Note:** Only `"importType": "INCREMENTAL"` is supported for an Identity Source Session.
+      > **Note:** Only `"importType": "INCREMENTAL"` is supported for an identity source session.
 
-    * **400 Bad Request**: Another active Identity Source Session exists for the same identity source.
+    * **400 Bad Request**: Another active identity source session exists for the same identity source.
     * **401 Unauthorized**: The API key isn't valid.
 
 2. [Upload bulk-upsert data](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/uploadIdentitySourceDataForUpsert):
 
-    * Use the `id` property value returned from the created Identity Source Session to make the bulk-upsert data request.
+    * Use the `id` property value returned from the created identity source session to make the bulk-upsert data request.
     * Obtain the user profiles from your HR source and add each user profile and their attributes into the `profiles` array. You can have up to a maximum of 200 user profiles in the array.
     * Set `entityType` to `USERS`. Only user data is supported. Group data isn't currently supported.
-    * If you need to add more users, make another bulk-upsert data request with the same `{sessionId}` value. You can make up to 50 bulk-load requests for one Identity Source Session.
+    * If you need to add more users, make another bulk-upsert data request with the same `{sessionId}` value. You can make up to 50 bulk-load requests for one identity source session.
 
     ```bash
     curl -i -X POST \
@@ -216,16 +213,16 @@ Use these steps to insert or update a set of user data profiles from your HR sou
         }
         ```
 
-    * **400 Bad Request**: The Identity Source Session was already triggered and doesn't have the `CREATED` status.
+    * **400 Bad Request**: The identity source session was already triggered and doesn't have the `CREATED` status.
     * **401 Unauthorized**: The API key isn't valid.
 
-4. You can monitor the Identity Source Session until the data processing completes by reviewing the status of the session. See [Monitor Identity Source Sessions](#monitor-identity-source-sessions).
+4. You can monitor the identity source session until the data processing completes by reviewing the status of the session. See [Monitor identity source sessions](#monitor-identity-source-sessions).
 
 ### Bulk deactivate user data
 
 When users are deactivated or deleted from your HR source, you need to reflect that status in Okta. Okta doesn't delete user profile objects, it deactivates the users that are no longer active. Use these steps to deactivate a set of user data profiles from Okta.
 
-1. [Create an Identity Source Session](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/createIdentitySourceSession):
+1. [Create an identity source session](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/createIdentitySourceSession):
 
     ```bash
     curl -i -X POST \
@@ -236,7 +233,7 @@ When users are deactivated or deleted from your HR source, you need to reflect t
 
     Possible returned responses:
 
-    * **200 OK**: The Identity Source Session created successfully and returns an `id` property. Save the `id` value to make further API calls.
+    * **200 OK**: The identity source session created successfully and returns an `id` property. Save the `id` value to make further API calls.
 
       ```json
       {
@@ -247,17 +244,17 @@ When users are deactivated or deleted from your HR source, you need to reflect t
       }
       ```
 
-      > **Note:** Only `"importType": "INCREMENTAL"` is supported for an Identity Source Session.
+      > **Note:** Only `"importType": "INCREMENTAL"` is supported for an identity source session.
 
-    * **400 Bad Request**: Another active Identity Source Session exists for the same identity source.
+    * **400 Bad Request**: Another active identity source session exists for the same identity source.
     * **401 Unauthorized**: The API key isn't valid.
 
 2. [Upload bulk-delete data](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/uploadIdentitySourceDataForDelete):
 
-    * Use the `id` property value returned from the created Identity Source Session to make the bulk-delete data request.
+    * Use the `id` property value returned from the created identity source session to make the bulk-delete data request.
     * Obtain the unique user identifiers from your HR source and add each `externalId` value into the `profiles` array. You can have up to a maximum of 200 user IDs in the array.
     * Set `entityType` to `USERS`. Only user data is supported. Group data isn't currently supported.
-    * If you need to deactivate more users, make another bulk-delete data request with the same `{sessionId}` value. You can make up to 50 bulk-load requests for one Identity Source Session.
+    * If you need to deactivate more users, make another bulk-delete data request with the same `{sessionId}` value. You can make up to 50 bulk-load requests for one identity source session.
 
     ```bash
     curl -i -X POST \
@@ -310,16 +307,16 @@ When users are deactivated or deleted from your HR source, you need to reflect t
         }
         ```
 
-    * **400 Bad Request**: The Identity Source Session was already triggered and doesn't have the `CREATED` status.
+    * **400 Bad Request**: The identity source session was already triggered and doesn't have the `CREATED` status.
     * **401 Unauthorized**: The API key isn't valid.
 
-4. You can monitor the Identity Source Session until the data processing completes by reviewing the status of the session. See [Monitor Identity Source Sessions](#monitor-identity-source-sessions).
+4. You can monitor the identity source session until the data processing completes by reviewing the status of the session. See [Monitor identity source sessions](#monitor-identity-source-sessions).
 
-### Cancel an Identity Source Session
+### Cancel an identity source session
 
-If there's an Identity Source Session with the `CREATED` status for your identity source and you don't want to run the import process, then you can cancel the session. This operation deletes all loaded data in the Identity Source Session and sets the session status to `CLOSED`.
+If there's an identity source session with the `CREATED` status for your identity source and you don't want to run the import process, then you can cancel the session. This operation deletes all loaded data in the identity source session and sets the session status to `CLOSED`.
 
-Use the [Delete an Identity Source Session](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/deleteIdentitySourceSession) operation to cancel the Identity Source Session and delete all the bulk data associated with the session:
+Use the [Delete an identity source session](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/deleteIdentitySourceSession) operation to cancel the identity source session and delete all the bulk data associated with the session:
 
 ```bash
 curl -i -X DELETE \
@@ -330,17 +327,20 @@ curl -i -X DELETE \
 
 Possible returned responses:
 
-* **204 No Content**: The Identity Source Session was canceled successfully. All bulk data is removed from the session.
-* **400 Bad Request**: The Identity Source Session ID is unknown.
+* **204 No Content**: The identity source session was canceled successfully. All bulk data is removed from the session.
+* **400 Bad Request**: The identity source session ID is unknown.
 * **401 Unauthorized**: The API key isn't valid.
 
-### Monitor Identity Source Sessions
+### Monitor identity source sessions
 
-To monitor Identity Source Session activity for an identity source, you can use either [Retrieve active Identity Source Sessions](#retrieve-active-identity-source-sessions) or [Retrieve an Identity Source Session by ID](#retrieve-an-identity-source-session-by-id) requests to retrieve session properties.
+To monitor identity source session activity for an identity source, use one of these methods to retrieve session properties:
 
-#### Retrieve active Identity Source Sessions
+* [Retrieve active identity source sessions](#retrieve-active-identity-source-sessions) 
+* [Retrieve an identity source session by ID](#retrieve-an-identity-source-session-by-id)
 
-The [List all Identity Source Sessions](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/listIdentitySourceSessions) request returns a list of active Identity Source Sessions for an identity source. This list helps determine which sessions are currently processing and actively being worked on. An Identity Source Session is considered active if it has the `CREATED` or `TRIGGERED` status. Data processing is complete for an identity source if no active session is returned (since a session that contains the `COMPLETED` status isn't considered active).
+#### Retrieve active identity source sessions
+
+The [List all identity source sessions](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/listIdentitySourceSessions) request returns a list of active identity source sessions for an identity source. This list helps determine which sessions are currently processing and actively being worked on. An identity source session is considered active if it has the `CREATED` or `TRIGGERED` status. Data processing is complete for an identity source if no active session is returned (since a session that contains the `COMPLETED` status isn't considered active).
 
 ```bash
 curl -i -X GET \
@@ -380,9 +380,9 @@ Possible returned responses:
 
 > **Note:** Alternatively, you can use the [Import Monitoring](https://help.okta.com/okta_help.htm?id=ext-view-import-monitoring-dashboard) page from the Admin Console to monitor the import process job. When the job completes, a summary of the import process appears in the Import Monitoring dashboard.
 
-#### Retrieve an Identity Source Session by ID
+#### Retrieve an identity source session by ID
 
-The [Retrieve an Identity Source Session](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/getIdentitySourceSession) request returns the Identity Source Session properties for a specific session ID. Data processing is completed if the returned session status is `COMPLETED`.
+The [Retrieve an identity source session](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentitySource/#tag/IdentitySource/operation/getIdentitySourceSession) request returns the identity source session properties for a specific session ID. Data processing is completed if the returned session status is `COMPLETED`.
 
 ```bash
 curl -i -X GET \
@@ -404,5 +404,5 @@ Possible returned responses:
   }
   ```
 
-* **400 Bad Request**: The Identity Source Session ID is unknown.
+* **400 Bad Request**: The identity source session ID is unknown.
 * **401 Unauthorized**: The API key isn't valid.
