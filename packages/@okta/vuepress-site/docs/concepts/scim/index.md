@@ -63,9 +63,9 @@ Information about user and group resources can be queried from your app to match
 
 ### Update
 
-If a resource in your app needs to be updated based on data changed in Okta, this operation updates existing user or group attributes. Alternatively, if your app functions as the source of truth for specific attributes of a user identity, this action updates the Okta user profile. See **Update a specific user (PUT)** in [SCIM V2.0](https://developer.okta.com/docs/api/openapi/okta-scim/guides/scim-20/#update-a-specific-user-put) and [SCIM V1.1](https://developer.okta.com/docs/api/openapi/okta-scim/guides/scim-11/#update-a-specific-user-put).
+If a resource in your app needs to be updated based on data changed in Okta, this operation updates existing user or group attributes. Alternatively, if your app functions as the source of truth for specific attributes of a user identity, this action updates the Okta user profile.
 
-> **Note:** If your SCIM server is out of sync with Okta, then it might not receive updates for the out-of-sync attributes.
+> **Note:** If your SCIM server is out of sync with Okta, then it might not receive updates for the out-of-sync attributes. See **Update a specific user (PUT)** in [SCIM V2.0](https://developer.okta.com/docs/api/openapi/okta-scim/guides/scim-20/#update-a-specific-user-put) and [SCIM V1.1](https://developer.okta.com/docs/api/openapi/okta-scim/guides/scim-11/#update-a-specific-user-put).
 
 User attributes can be mapped from your source into Okta. Conversely, an attribute can be mapped from Okta to a target attribute in your app.
 
