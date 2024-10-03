@@ -6,4 +6,4 @@
    'https://fruits.example.com/scim2/' + (String.len(app.companyId) == 0 ? 'myapp/' : 'myapp?connection=' + app.companyId)
    ```
 
-   This expression handles both scenarios where `companyId` is populated or empty.
+   This expression handles scenarios where `companyId` is populated or empty.
