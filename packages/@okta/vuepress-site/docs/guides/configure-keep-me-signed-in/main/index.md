@@ -48,7 +48,7 @@ They can manually reset the KMSI prompt and clear all sessions in their account 
 
 Pre-authentication KMSI is enabled in the Organization Security settings of the Admin Console. Once enabled, it's available to all users in your org.
 
-It uses the [MFA lifetime](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/replacePolicyRule!path=4/actions/signon/session&t=request) from your [global session policy](/docs/guides/configure-signon-policy/main/). You also need to update the authentication policy for all apps where you want to allow KMSI.
+It uses the [MFA lifetime](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/replacePolicyRule!path=4/actions/signon/session&t=request) from your [global session policy](/docs/guides/configure-signon-policy/main/#global-session-policies). You also need to update the [authentication policy](/docs/guides/configure-signon-policy/main/#authentication-policies) for all apps where you want to allow KMSI.
 
 If you want to configure pre-authentication KMSI using the Admin Console, see [Keep me signed in](https://help.okta.com/okta_help.htm?type=oie&id=ext-stay-signed-in).
 
@@ -61,7 +61,7 @@ If you want to configure pre-authentication KMSI using the Admin Console, see [K
 
 ### Create a global session policy
 
-You can use the Polices API to create a new policy or update an existing one.
+You can use the Polices API to create a new policy or update an existing one. See [Create a policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy).
 
 To create a new policy, send a POST request to the `/api/v1/policies` endpoint. Include the following:
 
