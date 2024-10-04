@@ -18,7 +18,7 @@ Okta manages connections to other IdPs for your app and sits between your app an
 
 * You can use Okta as the [user store](/docs/concepts/user-profiles/) for your apps. Then, users can sign in with their email and password by default. See our guides for how to sign in users to your [web](/docs/guides/sign-into-web-app-redirect/), [mobile](/docs/guides/sign-into-mobile-app-redirect/), and [single-page](/docs/guides/sign-into-spa-redirect/) apps.
 
-* You can add connections to social IdPs like Apple or Facebook. This is called social login or social login. It allows your users to sign in to your app using credentials from their existing social IdPs. After users authenticate, you sync their existing IdP credentials into your Okta Universal Directory while continuing to use that IdP for user authentication. This eliminates the need to store an additional username and password for that user.
+* You can add connections to social IdPs like Apple or Facebook. This is called social login or social authentication. It allows your users to sign in to your app using credentials from their existing social IdPs. After users authenticate, you sync their existing IdP credentials into your Okta Universal Directory while continuing to use that IdP for user authentication. This eliminates the need to store an additional username and password for that user.
 
 * You can add connections to IdPs that you build in-house that support OpenID Connect (OIDC) or SAML protocols. This is also referred to as Inbound Federation or inbound SAML. The SAML flow is initiated with the Service Provider (SP) (in this case, Okta) that redirects the user to the IdP for authentication. After authentication, a user is created inside Okta, and the user is redirected back to your app along with an ID token. This allows you to use Okta to proxy between SAML-only IdPs and OIDC-only apps that are normally incompatible.
 
@@ -109,7 +109,7 @@ To enable account linking, select `Automatic` from the **Account Link Policy** d
 
 ### JIT provisioning
 
-If a user signs in to your app for the first time using another IdP, you can implement [JIT provisioning](https://help.okta.com/okta_help.htm?id=ext_Identity_Providers). JIT provisioning creates an Okta account automatically for them. JIT account creation and activation only work for end users who aren't already Okta users.
+If a user signs in to your app for the first time using another IdP, you can implement [JIT provisioning](https://help.okta.com/okta_help.htm?id=ext_Identity_Providers). JIT provisioning automatically creates an Okta account for them. JIT account creation and activation only work for end users who aren't already Okta users.
 
 You can apply granular control over account linking and JIT by defining a policy and then rules for the policy. You can base a policy on various factors, such as location, group definitions, and authentication type. A specific policy rule can then be created for the groups that have been assigned to your app. You can create multiple policies with more or less restrictive rules and apply them to different groups.
 
