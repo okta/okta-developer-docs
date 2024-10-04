@@ -2,17 +2,13 @@
 title: OIN submission requirements
 meta:
   - name: description
-    content: Use this guide to prepare all the requirements prior to submitting your integration to Okta for publication in the Okta Integration Network.
+    content: Use this guide to prepare all the requirements prior to submitting your integration to Okta for publication in the Okta Integration Network (OIN).
 layout: Guides
 ---
 
-This guide provides you with a list of the requirements needed before submitting your integration for publication in the [Okta Integration Network (OIN)](https://www.okta.com/integrations/).
+This guide provides you with a list of the requirements needed before submitting your integration for publication in the [Okta Integration Network (OIN)](https://www.okta.com/integrations/). The requirements apply to both the [OIN Wizard](/docs/guides/submit-oin-app/) or the [OIN Manager](/docs/guides/submit-app/wfconnector/main/).
 
 ---
-
-#### Learning outcome
-
-Understand the requirements necessary to submit your integration using the [OIN Wizard](/docs/guides/submit-oin-app/) or the [OIN Manager](/docs/guides/submit-app/wfconnector/main/).
 
 #### What you need
 
@@ -43,7 +39,7 @@ Your app integration must support multi-tenancy to be listed in the public OIN c
 
 What does this mean?
 
-Multi-tenancy in the OIN refers to the concept that as an ISV, you support several instances of your app, each with a unique credential system for your customers. An instance of an app that contains the infrastructure to support a group of users is considered a tenant. See [Tenants in Okta](/docs/guides/oin-sso-overview/#tenants-in-okta).
+Multi-tenancy in the OIN refers to the concept that as an ISV, you support several instances of your app. Each app instance has a unique credential system for each of your customers. An instance of an app that contains the infrastructure to support a group of users is considered a tenant. See [Tenants in Okta](/docs/guides/oin-sso-overview/#tenants-in-okta).
 
 Provide a method for each of your customer tenants to uniquely connect to their Okta org. This allows your customers to find your app integration from the OIN catalog in their own Okta org. Then, they can instantiate the app integration with their unique tenant credentials, either with your support or on their own.
 
@@ -76,7 +72,7 @@ To access the OIN Wizard and the **Your OIN Integrations** dashboard in your org
 * You must have either the super admin or the app and org admin [roles](https://help.okta.com/okta_help.htm?type=oie&id=ext-administrators-admin-comparison) assigned to you.
 * Use your company domain email as your username for your Okta admin account (submissions from a personal email account aren't reviewed).
 
-> **Note:** The app admin role enables you to view and edit details in the OIN Wizard. To test in the OIN Wizard, if you don't have the super admin role, then you must have both the app admin and the org admin roles assigned to you.
+> **Note:** The app admin role enables you to view and edit details in the OIN Wizard. For OIN Wizard testing, if you don't have the super admin role, then you must have both the app admin and the org admin roles assigned to you.
 
 ### OIN Wizard test requirements
 
@@ -477,14 +473,14 @@ You can't publish integrations with the following Okta features in the OIN catal
 * **Integration variables**: You can add up to three variables for per-tenant app-instance properties in the [OIN Wizard](/docs/guides/submit-oin-app/openidconnect/main/#integration-variables). If you need to edit more than three variables for a published integration, contact the OIN team at <oin@okta.com>.
 
 * **OIDC/OAuth 2.0 integration limitations:**
-  * You can't use a [custom authorization server](/docs/concepts/auth-servers/#custom-authorization-server), that includes the `default` server for an OIDC or API service integration. You can only use the [org authorization server](/docs/concepts/auth-servers/#org-authorization-server).
+  * You can't use a [custom authorization server](/docs/concepts/auth-servers/#custom-authorization-server) that includes the `default` server for an OIDC or API service integration. You can only use the [org authorization server](/docs/concepts/auth-servers/#org-authorization-server).
 
   * You can't use the Okta SDKs to validate access tokens with the [org authorization server](/docs/concepts/auth-servers/#org-authorization-server).
 
   * Refresh tokens aren't supported for SSO OIDC integrations published in the OIN.
   * The `offline_access` scope isn't available because refresh tokens aren't supported for integrations published in the OIN.
   * Custom scopes, such as the `groups` scope, aren't supported for integrations published in the OIN.
-  * You shouldn't rely on the `email_verified` scope-dependent claim that's returned by an OIDC integration to evaluate whether a user has verified ownership of the email address that's associated with their profile.
+  * Don't rely on the `email_verified` scope-dependent claim that an OIDC integration returns to evaluate whether a user has verified ownership of the email address that's associated with their profile.
 
 * **SAML integration limitations**:
 
@@ -501,7 +497,7 @@ You can't publish integrations with the following Okta features in the OIN catal
 * **SCIM integration limitations:**
   * You can only submit SCIM 2.0 integrations through the OIN Wizard.
   * Integrations with basic authentication to the SCIM server aren't supported in the OIN Wizard.
-  * The OIN Wizard only supports integrations wtih header or bearer token authentication or OAuth 2.0 authentication to the SCIM server.
+  * The OIN Wizard only supports integrations with header or bearer token authentication or OAuth 2.0 authentication to the SCIM server.
   * OIN SCIM integrations with OAuth 2.0 authentication don't support dynamic consumer key and secret. The consumer key and secret values are common for all customer tenants.
 
 <ApiAmProdWarning />
