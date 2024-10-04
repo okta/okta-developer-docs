@@ -7,7 +7,7 @@
     * Click **Copy** next to **Metadata URL** to copy the full SAML metadata URL required for the integration.
     * To view specific SAML metadata details, click the **More details** arrow.
 7. Follow these steps if you have an Identity Engine Developer Edition org:
-   1. Click the **Sign On** tab, scroll to the **User authentication** section and click **Edit**.
+   1. Click the **Sign On** tab, scroll to the **User authentication** section, and click **Edit**.
    1. Select **Password only** from the **Authentication policy** dropdown menu.
    [[style="list-style-type:lower-alpha"]]
    1. Click **Save**.

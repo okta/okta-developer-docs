@@ -1,13 +1,13 @@
-2. Specify the **Application label** and any integration properties required in the **General settings** tab.
+2. In the **General settings** tab, enter an **Application label** and any other required integration properties.
 3. Click **Done**. Your generated test instance appears with more tabs for configuration.
-4. Click the **Provisioning** tab and click **Configure API Integration**.
+4. Click **Provisioning** > **Configure API Integration**.
 5. Select **Enable API integration**.
    * For custom or bearer authentication, specify the **API token** for your instance.
    * For OAuth 2.0 authentication, click **Authenticate with {yourApp}** and provide credentials for your test instance.
 1. Click **Test API Credentials** to test authentication to your SCIM service. If there's an error, verify that the credentials are correct.
 1. Click **Save**.
 1. Select **Settings** > **To Okta** from the updated **Provisioning** tab.
-1. Click **Edit** to schedule imports and configure the username format for imported users in the **General** section.
+1. In the **General** section, click **Edit** to schedule imports and configure the username format for imported users.
 
    You can also define a percentage of acceptable assignments before the [import safeguards](https://help.okta.com/okta_help.htm?id=csh-eu-import-safeguard) feature is automatically triggered.
 
@@ -19,7 +19,7 @@
 
 > **Note:** Configure attribute-mapping instructions are only for SCIM integrations.
 
-SCIM integrations submitted through the OIN Wizard come with a default set of user attribute mappings. The user schema in your SCIM app might not support all of these attributes. Ensure the integration that you're submitting to Okta for review reflects the attributes supported by your app. The OIN team uses the attribute mappings in your test instance for your integration provisioning settings in the OIN catalog.
+SCIM integrations that are submitted through the OIN Wizard have a default set of user attribute mappings. The user schema in your SCIM app might not support all of these attributes. Ensure the integration that you're submitting to Okta reflects the attributes that are supported by your app. The OIN team uses the attribute mappings in your test instance for your integration provisioning settings in the OIN catalog.
 
 After you've enabled the provisioning API connection in your test instance, configure user attribute mappings to and from Okta in the **Provisioning** tab of your instance:
 
@@ -38,7 +38,7 @@ After you've enabled the provisioning API connection in your test instance, conf
 
      1. After removing all the mappings for the attributes that you want to delete, click **Go to Profile Editor**.
 
-     1. In the Profile Editor, delete all the corresponding attributes from the mapping: click **X** next to the attribute, and then click **Delete Attribute** to confirm.
+     1. In the Profile Editor, delete all the corresponding attributes from the mapping by clicking **X** next to the attribute and then **Delete Attribute** to confirm.
 
         Repeat this step for all the attributes that you want to delete.
 

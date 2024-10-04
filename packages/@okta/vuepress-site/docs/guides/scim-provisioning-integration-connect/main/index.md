@@ -13,7 +13,7 @@ Use this guide to create and test a private SCIM integration from your Okta org 
 
 #### Learning outcomes
 
-* Learn how to add a private SCIM integration to your Otka org
+* Learn how to add a private SCIM integration to your Otka org.
 * Learn how to configure SCIM provisioning and verify user profile and attribute mappings.
 
 #### What you need

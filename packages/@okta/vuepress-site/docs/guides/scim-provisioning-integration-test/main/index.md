@@ -11,7 +11,7 @@ This guide teaches you how to test your System for Cross-domain Identity Managem
 
 ## Scope of tests
 
-This second suite of [Runscope](https://www.runscope.com) tests checks that your SCIM app can handle actual requests to **c**reate, **r**ead, **u**pdate, and **d**elete (CRUD) user profile information.
+This second suite of [Runscope](https://www.runscope.com) tests checks that your SCIM app can handle actual requests to create, read, update, and delete (CRUD) user profile information.
 
 > **Note:** Okta doesn't delete user profiles in your app, but instead marks the user record with `active=false` to deactivate them. For a detailed explanation on deleting user profiles, see [Delete (Deprovision)](/docs/concepts/scim/#delete-deprovision).
 
@@ -103,6 +103,6 @@ This completes the [Build a SCIM provisioning integration](/docs/guides/scim-pro
 
 If you want to expose your SCIM integration to your customers who also use Okta, submit it to the Okta Integration Network (OIN). Integrations listed in the [OIN catalog](https://www.okta.com/integrations/) are available to all Okta customers to use.
 
-* See [Publish an OIN integration](/docs/guides/submit-app-overview/) to understand the submission process for publishing an integration.
+* See [Publish an OIN integration](/docs/guides/submit-app-overview/) to understand the process for submitting and publishing an integration.
 * Review the [OIN submission requirements](/docs/guides/submit-app-prereq/) before starting the submission process.
-* Use the [OIN Wizard: Submit an integration](/docs/guides/submit-oin-app/scim/main/) guide to connect, test, and submit your Okta SCIM integration it to the OIN.
+* Use the [OIN Wizard: Submit an integration](/docs/guides/submit-oin-app/scim/main/) guide to connect, test, and submit your Okta SCIM integration to the OIN.

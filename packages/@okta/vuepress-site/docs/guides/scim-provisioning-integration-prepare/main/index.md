@@ -1,9 +1,9 @@
 ---
 title: Build your SCIM API service
-excerpt: Build a SCIM-compliant API server to host your SCIM service, and test it to make sure it is working correctly.
+excerpt: Build a SCIM-compliant API server to host your SCIM service, and test it to make sure it works correctly.
 meta:
   - name: description
-    content: Build a SCIM-compliant API server to host your SCIM service, and test it to make sure it is working correctly.
+    content: Build a SCIM-compliant API server to host your SCIM service, and test it to make sure it works correctly.
 layout: Guides
 ---
 
@@ -268,11 +268,11 @@ Now that you have a SCIM-compliant API server on which to host your SCIM service
 
 * If you want to publish your SCIM integration to the Okta Integration Network (OIN):
 
-    * Review the [Publish an OIN integration](/docs/guides/submit-app-overview/) overview to understand the submission process for publishing an integration.
+    * Review the [Publish an OIN integration](/docs/guides/submit-app-overview/) overview to understand the process for submitting and publishing an integration.
     * Review the [OIN submission requirements](/docs/guides/submit-app-prereq/) before starting the submission process.
     * Use the [OIN Wizard: Submit an integration](/docs/guides/submit-oin-app/scim/main/) guide to connect, test, and submit your Okta SCIM integration it to the OIN.
 
-* If you want to create a SCIM integration only in your org, see [Add a private SCIM integration](/docs/guides/scim-provisioning-integration-connect/).
+* If you want to create a SCIM integration that's only available in your org, see [Add a private SCIM integration](/docs/guides/scim-provisioning-integration-connect/).
 
     * An integration is considered private if it's only available in the org where the integration instance was created.
     * Private integrations are useful for developing and testing integrations, or for providing access to users on one org.

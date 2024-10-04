@@ -25,24 +25,24 @@ Consider the following questions to help you choose which pathway to use for sub
 
 * Are you submitting a new or published SSO integration?
   * [Use the OIN Wizard for SSO and SCIM integrations](#submission-process-for-sso-and-scim-integrations).
-    > **Note:** Published SSO integrations submitted through the OIN Manager have been moved to the OIN Wizard and appear in the **Your OIN Integrations** dashboard.
+    > **Note:** Published SSO integrations that were submitted through the OIN Manager have been moved to the OIN Wizard and appear in the **Your OIN Integrations** dashboard.
 * Are you submitting a new or published SCIM integration?
   * [Use the OIN Wizard for SSO and SCIM integrations](#submission-process-for-sso-and-scim-integrations).
-    > **Note:** Published SCIM integrations that were submitted through the OIN Manager are being migrated to the OIN Wizard. If you have an in-progress submission, continue using the [OIN Manager](/docs/guides/submit-app/scim/main/) for that submission. If you see your published integration in the **Your OIN Integrations** dashboard, use the [OIN Wizard](/docs/guides/submit-oin-app/scim/main/#update-your-integration) if you need to make updates.
+    > **Note:** Published SCIM integrations that were submitted through the OIN Manager are migrating to the OIN Wizard. If you have an in-progress submission, continue using the [OIN Manager](/docs/guides/submit-app/scim/main/) for that submission. If you see your published integration in the **Your OIN Integrations** dashboard, use the [OIN Wizard](/docs/guides/submit-oin-app/scim/main/#update-your-integration) to make updates.
 * Are you submitting a new SSO and SCIM integration?
-  1. [Use the OIN Wizard](#submission-process-for-sso-and-scim-integrations) to submit the SSO and SCIM integration.
+  * [Use the OIN Wizard](#submission-process-for-sso-and-scim-integrations) to submit the SSO and SCIM integration.
 * Are you submitting a new or published Workflows integration?
   * [Use the OIN Manager for Workflows integrations](#submission-process-for-workflows-integrations).
 * Are you submitting a new or published API service integration?
   * [Use the OIN Manager for API services](#submission-process-for-api-service-integrations).
 
-Submit your integration to Okta and work with the Okta OIN team as they test and review your submission. If the Okta OIN team identifies any issues in the review and QA testing phases, you're sent an email with the specific details. At any point in the process, you can check the status of your submission in the OIN Wizard or OIN Manager.
+Submit your integration to Okta and work with the OIN team as they test and review your submission. If the OIN team identifies any issues in the review and QA testing phases, you're sent an email with the specific details. At any point in the process, you can check the status of your submission in the OIN Wizard or OIN Manager.
 
 The Okta OIN team reviews and prioritizes all submissions.
 
 ### Submission process for SSO and SCIM integrations
 
-The following steps outline the submission process for SSO and SCIM integrations with the OIN Wizard:
+The following steps outline the process for submitting SSO and SCIM integrations through the OIN Wizard.
 
 1. Build the integration in your app.
 1. Sign in to the Admin Console of your Okta Developer Edition org.
@@ -82,7 +82,7 @@ The following steps outline the submission process for API service integrations 
 
 ### Submission process for Workflows integrations
 
-The following steps and flowchart outline the submission process for Workflows integrations with the OIN Manager:
+The following steps and flowchart explain how to submit Workflows integrations through the OIN Manager:
 
 1. Build the Workflows capabilities in your app.
    - Sign in to your Developer Edition org Admin Console.
@@ -108,7 +108,7 @@ Source link : https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 
 ### Understand the submission review process
 
-The submission review process begins when you click **Submit integration** in the [OIN Wizard](/docs/guides/submit-oin-app/) or [OIN Manager](https://oinmanager.okta.com). Okta sends you an email notification that your integration is now queued for review and also includes the date when the initial review is expected to finish.
+The submission review process begins when you click **Submit integration** in the [OIN Wizard](/docs/guides/submit-oin-app/) or [OIN Manager](https://oinmanager.okta.com). Okta sends you an email notification confirming your integration is queued for review. The email includes the date when the initial review is expected to finish.
 
 The status of your integration is shown in the **Your OIN Integrations** dashboard from the Admin Console or on the **My App Integrations** page from the OIN Manager.
 

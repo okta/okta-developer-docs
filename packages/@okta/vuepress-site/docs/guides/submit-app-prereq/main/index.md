@@ -472,19 +472,19 @@ You can't publish integrations with the following Okta features in the OIN catal
 
 * **SPA apps:** SPA apps aren't accepted in the [OIN Wizard](/docs/guides/submit-oin-app/openidconnect/main/). You can only submit cloud-based SaaS apps (web apps with a back end) in the OIN Wizard.
 
-* **Unsupported multi-tenancy**: Your app integration must support multi-tenancy to be listed in the public OIN catalog. See [OIN multi-tenancy](#oin-multi-tenancy).
+* **Unsupported multi-tenancy**: Your app integration must support multi-tenancy to be available in the public OIN catalog. See [OIN multi-tenancy](#oin-multi-tenancy).
 
 * **Integration variables**: You can add up to three variables for per-tenant app-instance properties in the [OIN Wizard](/docs/guides/submit-oin-app/openidconnect/main/#integration-variables). If you need to edit more than three variables for a published integration, contact the OIN team at <oin@okta.com>.
 
 * **OIDC/OAuth 2.0 integration limitations:**
-  * You can't use a [custom authorization server](/docs/concepts/auth-servers/#custom-authorization-server), including the `default` server for an OIDC or API service integration. You can only use the [org authorization server](/docs/concepts/auth-servers/#org-authorization-server).
+  * You can't use a [custom authorization server](/docs/concepts/auth-servers/#custom-authorization-server), that includes the `default` server for an OIDC or API service integration. You can only use the [org authorization server](/docs/concepts/auth-servers/#org-authorization-server).
 
   * You can't use the Okta SDKs to validate access tokens with the [org authorization server](/docs/concepts/auth-servers/#org-authorization-server).
 
   * Refresh tokens aren't supported for SSO OIDC integrations published in the OIN.
   * The `offline_access` scope isn't available because refresh tokens aren't supported for integrations published in the OIN.
   * Custom scopes, such as the `groups` scope, aren't supported for integrations published in the OIN.
-  * You shouldn't rely on the `email_verified` scope-dependent claim returned by an OIDC integration to evaluate whether a user has verified ownership of the email address associated with their profile.
+  * You shouldn't rely on the `email_verified` scope-dependent claim that's returned by an OIDC integration to evaluate whether a user has verified ownership of the email address that's associated with their profile.
 
 * **SAML integration limitations**:
 
@@ -492,17 +492,17 @@ You can't publish integrations with the following Okta features in the OIN catal
   * You can only submit SAML 2.0 integrations in the OIN Wizard.
   * The [OIN Wizard](/docs/guides/submit-oin-app/openidconnect/main/) places the following limitations on SAML 2.0 integration submissions:
 
-    * Only one to three app instance variables are allowed
-    * No RelayState support
-    * No force authentication (`ForceAuthn`) support
+    * Only one to three app instance variables are allowed.
+    * RelayState isn't supported.
+    * Force authentication (`ForceAuthn`) isn't supported.
 
     The OIN team maintains existing SAML integrations with advanced features not supported in the OIN Wizard. If you need to update your existing advanced SAML integration, contact the OIN team at <oin@okta.com>.
 
 * **SCIM integration limitations:**
-  * You can only submit SCIM 2.0 integrations in the OIN Wizard.
-  * Integrations with basic authentication to the SCIM server isn't supported in the OIN Wizard.
+  * You can only submit SCIM 2.0 integrations through the OIN Wizard.
+  * Integrations with basic authentication to the SCIM server aren't supported in the OIN Wizard.
   * The OIN Wizard only supports integrations wtih header or bearer token authentication or OAuth 2.0 authentication to the SCIM server.
-  * OIN SCIM integrations with OAuth 2.0 authentication doesn't support dynamic consumer key and secret. The consumer key and secret values are common for all customer tenants.
+  * OIN SCIM integrations with OAuth 2.0 authentication don't support dynamic consumer key and secret. The consumer key and secret values are common for all customer tenants.
 
 <ApiAmProdWarning />
 
