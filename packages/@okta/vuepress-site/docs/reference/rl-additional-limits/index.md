@@ -1,12 +1,12 @@
 ---
-title: Additional rate limits
+title: Additional rate limits for Okta orgs
 excerpt: >-
   Understand what other rate limit options there are at Okta and learn how to design for efficient use of resources
 ---
 
 # Additional rate limits
 
-This page provides additional rate limits:
+This page provides limits on:
 
 * [Concurrent requests](#concurrent-rate-limits)
 * [End user rate limit](#end-user-rate-limits)
@@ -19,11 +19,11 @@ This page provides additional rate limits:
 
 These limits are part of the Okta [Rate limit](/docs/reference/rate-limits) policy.
 
-> **Note:**
+> **Notes:**
 >
-> * In addition to the rate limits listed on this page, Okta applies rate limits per API, divided into three categories. See the [Rate limit overview](/docs/reference/rate-limits).
-> * [DynamicScale rate limits](/docs/reference/rl-dynamic-scale/) apply to various endpoints across different APIs for customers that purchased this add-on.
-> * To learn more about how to manage rate limits, see our [best practices](/docs/reference/rl-best-practices).
+> * Okta applies rate limits per API, divided into three categories, in addition to the rate limits listed on this page. See the [Rate limit overview](/docs/reference/rate-limits).
+> * [DynamicScale rate limits](/docs/reference/rl-dynamic-scale/) apply to various endpoints across different APIs for customers that purchased this add-on. (The DynamicScale add-on service is only available to Customer Identity Solutions (CIS) customers.)
+> * Best practices are available to manage range limits. See [best practices](/docs/reference/rl-best-practices).
 > * You can expand Okta rate limits upon request. To learn how, see [Request exceptions](/docs/reference/rl-best-practices/#request-rate-limit-exceptions) and [DynamicScale rate limits](/docs/reference/rl-dynamic-scale/).
 >
 
@@ -34,7 +34,7 @@ To protect the service for all customers, Okta enforces concurrent rate limits, 
 For concurrent rate limits, traffic is measured in three different areas. Counts in one area aren't included in counts for the other two:
 
 * For agent traffic, Okta has set the limit based on typical org use. This limit varies from agent to agent.
-* For Office 365 traffic, the limit is 75 concurrent transactions per org.
+* For Microsoft Office 365 traffic, the limit is 75 concurrent transactions per org.
 * For all other traffic, including API requests, the limit is described in the following table.
 
 | Developer (free)  | Developer (paid)  | One App  | Enterprise  | Workforce identity  |
@@ -75,7 +75,7 @@ The following endpoints are used by the Okta home page for authentication and us
 
 ## Okta-generated email rate limits
 
-Limits are applied on a per-recipient basis and vary by email type. The limit for some email types is no more than 30 emails per-recipient, per-minute, while other email types are configured with higher limits. These limits protect your org against denial-of-service attacks and help ensure that adequate resources are available for all customers.
+Email limits are applied on a per-recipient basis and vary by email type. The limit for some email types is no more than 30 emails per recipient, per minute, while other email types are configured with higher limits. These limits protect your org against denial-of-service attacks and help ensure that adequate resources are available for all customers.
 
 ## Per-user limits
 
@@ -102,12 +102,12 @@ API calls to the Org creator endpoint (POST `/api/v1/orgs`) have a limit of 10 o
 
 ## Workforce license rate limit multiplier
 
-Workforce orgs that are created after January 7, 2021 have increased default rate limits. This increase is for [specific endpoints](#list-of-endpoints) and depends on a Workforce org's license count (Universal Directory or Single Sign-On).
+Workforce orgs that are created after January 7, 2021 have increased default rate limits. This increase is for [specific endpoints](#list-of-endpoints) and depends on a Workforce org's license count (Universal Directory or Single-Sign-On).
 
 | Workforce licenses | Rate limit multiplier      |
 | ------------------ | -------------------------: |
-| < 10,000              | One times the default rate limit  |
-| 10,000–100,000      | Five times the default rate limit  |
+| < 10,000              | The default rate limit  |
+| 10,000–100,000        | Five times the default rate limit  |
 | > 100,000             | 10 times the default rate limit |
 
 ### List of endpoints
