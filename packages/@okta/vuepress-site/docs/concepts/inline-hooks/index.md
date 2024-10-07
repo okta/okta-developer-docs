@@ -130,7 +130,7 @@ You can include any of the following types of objects in the JSON payload:
 
 #### Commands object
 
-It allows you to return commands to Okta to affect the process flow being executed and to modify values within Okta objects. The available commands differ by inline hook type and are defined in the specific documentation for each inline hook type.
+This allows you to return commands to Okta to affect the process flow being executed and to modify values within Okta objects. The available commands differ by inline hook type and are defined in the specific documentation for each inline hook type.
 
 The `commands` object is an array, which allows you to return more than one command in your response. Each element within the array needs to consist of a pair of `type` and `value` elements. Each `type` element needs to be the name of a supported command you want to invoke. The corresponding `value` element is the operand that you want to specify for the command.
 
@@ -138,7 +138,7 @@ The names of the commands follow Java-style reverse DNS name format, beginning w
 
 #### Error object
 
-It allows you to return error messages. How the error data is used varies by inline hook type.
+This allows you to return error messages. How the error data is used varies by inline hook type.
 
 The `error` object has the following structure:
 
@@ -163,7 +163,7 @@ While there are no technical restrictions on the values for any of the fields in
 
 #### debugContext object
 
-It allows you to specify additional information to make available in the Okta System Log with the call to your hook. You can use this object as you want, sending any information that would be useful for debugging purposes. In the System Log, the content sent in this object is populated into the `inline_hook.response.processed` event.
+This allows you to specify additional information to make available in the Okta System Log with the call to your hook. You can use this object as you want, sending any information that would be useful for debugging purposes. In the System Log, the content sent in this object is populated into the `inline_hook.response.processed` event.
 
 ## Time out and retry
 
