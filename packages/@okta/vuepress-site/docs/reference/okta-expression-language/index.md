@@ -430,9 +430,7 @@ For example, given the user profile has a base string attribute called `email`, 
 * `Arrays.contains(user.favoriteColors, "blue")`
 
 The following [expression using a data conversion function](#data-conversion-functions) isn't allowed in group rule conditions, even if the user profile has a custom integer
-attribute called `yearJoined`:
-
-* `Convert.toInt("2018") == user.yearJoined`
+attribute called `yearJoined`: `Convert.toInt("2018") == user.yearJoined`.
 
 ## Appendix: Time zone codes
 
