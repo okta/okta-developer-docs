@@ -8,6 +8,16 @@ title: Okta Identity Engine API release notes 2024
 
 ## September
 
+### Weekly release 2024.09.3
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Bug fixed in 2024.09.3](#bug-fixed-in-2024-09-3)| October 2, 2024 |
+
+#### Bug fixed in 2024.09.3
+
+Sometimes an "Invalid Phone Number" error was incorrectly returned during SMS factor enrollment. (OKTA-807741)
+
 ### Weekly release 2024.09.2
 
 | Change | Expected in Preview Orgs |
@@ -230,7 +240,7 @@ Admins can now specify a network zone allowlist for each static (SSWS) API token
 
 #### New System Log API property for target object is GA Production
 
-Certain system log events now contain a new property called `changeDetails` in the `target` object. When this property is populated, it reflects new, changed, or removed attributes of the target resource that has been modified. See [changeDetails property](/docs/reference/api/system-log/#changedetails-property). <!-- OKTA-724000-->
+Certain System Log events now contain a new property called `changeDetails` in the `target` object. When this property is populated, it reflects new, changed, or removed attributes of the target resource that's been modified. See [changeDetails property](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/#tag/SystemLog/operation/listLogEvents!c=200&path=target/changeDetails&t=response). <!-- OKTA-724000-->
 
 #### Request throttling for jwks_uri
 
@@ -537,7 +547,7 @@ You can now pin the Sign-In Widget version (third generation) when updating a cu
 
 #### New System Log API property for target object is GA Preview
 
-Certain system log events now contain a new property called `changeDetails` in the `target` object. When this property is populated, it reflects new, changed, or removed attributes of the target resource that has been modified. See [changeDetails property](/docs/reference/api/system-log/#changedetails-property). <!-- OKTA-724000 -->
+Certain System Log events now contain a new property called `changeDetails` in the `target` object. When this property is populated, it reflects new, changed, or removed attributes of the target resource that's been modified. See [changeDetails property](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/#tag/SystemLog/operation/listLogEvents!c=200&path=target/changeDetails&t=response). <!-- OKTA-724000 -->
 
 #### Multiple Identifiers is EA in Preview
 

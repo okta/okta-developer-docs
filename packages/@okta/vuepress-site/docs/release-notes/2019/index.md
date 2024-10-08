@@ -576,7 +576,7 @@ Okta's API rate limits have been updated:
 
 #### The Sign-In Widget Version for the Custom Login Page has been Updated
 
-Custom Sign-in Pages can now use Sign-In Widget version 2.18. When you select the "latest" option, you automatically use 2.18. For more information, see our [Sign-In Widget](/code/javascript/okta_sign-in_widget/) page. <!-- OKTA-2206539 -->
+Custom Sign-in Pages can now use Sign-In Widget version 2.18. When you select the "latest" option, you automatically use 2.18. For more information, see our [Sign-In Widget](/docs/guides/embedded-siw/) page. <!-- OKTA-2206539 -->
 
 #### Bug Fixed in 2019.04.0
 

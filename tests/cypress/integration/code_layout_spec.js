@@ -13,16 +13,16 @@ import { CodePage } from "../page-objects/CodePage";
 //   });
 // });
 
-describe('code page spec (nodejs)', () => {
-  const codePage = new CodePage();
+// describe('code page spec (nodejs)', () => {
+//   const codePage = new CodePage();
 
-  beforeEach(() => {
-    codePage.visit('/code/nodejs/');
-    codePage.pageReload();
-  });
+//   beforeEach(() => {
+//     codePage.visit('/code/nodejs/');
+//     codePage.pageReload();
+//   });
 
-  it("has 'Sign users in quickstart' and 'Sample App' buttons", () => {
-    codePage.getSimpleAppButton().should('exist');
-    codePage.getHowToGuide().should('exist');
-  });
-});
+//   it("has 'Sign users in quickstart' and 'Sample App' buttons", () => {
+//     codePage.getSimpleAppButton().should('exist');
+//     codePage.getHowToGuide().should('exist');
+//   });
+// });

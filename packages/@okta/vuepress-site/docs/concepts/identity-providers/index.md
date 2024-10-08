@@ -10,7 +10,7 @@ What's an IdP? It's a service that creates and maintains identity information an
 
 
 <a href='/docs/guides/identity-providers/' class='Button--blueDarkOutline card' data-proofer-ignore>
-   <span>Add an Identity Provider integration</span>
+   <span>Add an IdP integration</span>
 </a>
 
 ## The big picture
@@ -58,10 +58,9 @@ The sign-in process starts at the `/authorize` endpoint, and then goes out to th
 1. In your app, the user clicks a button similar to: **Sign in with (Identity Provider)**.
 2. Your app redirects the browser to Okta.
 3. Okta redirects the browser to the IdP.
-4. The user is prompted to sign in at the IdP (if they aren't already) and to accept the permissions required by your app.
+4. The user is prompted to sign in at the IdP and to accept the permissions required by your app.
 5. The IdP redirects the browser back to Okta.
 6. Okta processes the sign-in request and adds the user to your Okta org's Universal Directory.
-
 7. Okta redirects the browser back to your app, just like any other sign-in request.
 
 <div class="three-quarter">
@@ -115,20 +114,22 @@ To enable account linking, select `Automatic` from the **Account Link Policy** d
 
 When a user initially signs in to your app using another IdP, implement [JIT provisioning](https://help.okta.com/okta_help.htm?id=ext_Identity_Providers) to automatically create them an Okta account. JIT account creation and activation only work for end users who aren't already Okta users.
 
-Also, you can apply granular control over account linking and JIT by defining a policy and then rules for the policy. You can base a policy on various factors, such as location, group definitions, and authentication type. A specific policy rule can then be created for groups that have been assigned to your app. You can create multiple policies with more or less restrictive rules and apply them to different groups.
+> **Note:** See [Add an Identity Provider](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/) for API examples of creating an IdP and the `policy.accountLink` parameter values needed to configure account linking.
 
-You can set up group sync to specify the groups that users should be added to. Also, enable profile sourcing so that a user's profile gets updated each time that the user signs in. This allows you to always have the most recent data about your users.
+You can apply granular control over account linking and JIT by defining a policy and then rules for the policy. You can base a policy on various factors, such as location, group definitions, and authentication type. A specific policy rule can then be created for the groups that have been assigned to your app. You can create multiple policies with more or less restrictive rules and apply them to different groups.
+
+You can also set up group sync to specify the groups that users should be added to. Group sync enables profile sourcing so that a user's profile gets updated each time that the user signs in. This allows you to always have the most recent data about your users.
 
 ## IdP Discovery
 
-When you have multiple IdPs configured in your org, define logic to determine which IdP individual end users are routed to when they authenticate. Having more than one IdP can mean just one external IdP in addition to Okta itself also serving as an IdP. This functionality is called IdP Discovery, or IdP Routing Rules, and you configure it within the [IdP Discovery Policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy).
+You can define logic to determine which IdP individual end users are routed to when they authenticate. You can define that logic only if you have more than one IdP configured in your org. For example, if you have just one external IdP, in addition to Okta itself also serving as an IdP. This functionality is called IdP Discovery, or IdP routing rules. You can configure it by using the [IdP Discovery policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy).
 
-The Widget (version 2.5.0 or above) interacts with the IdP Discovery policy to redirect end users as needed to the IdP determined by the policy.
+The Okta Sign-In Widget (version 2.5.0 or above) interacts with the IdP Discovery policy to redirect end users to the IdP determined by the policy.
 
 > **Note:** Version 1 of the Okta API supports IdP Discovery with the Okta-hosted Widget only.
 
 Orgs that interact directly with the [Okta Authentication API](/docs/reference/api/authn/) to implement the user sign-in flow rather than using the Widget, can still integrate IdP Discovery. Integrate IdP Discovery into your sigh-in flow by including a call to the Okta [WebFinger](/docs/reference/api/webfinger/) endpoint. This endpoint returns the IdP name that should be used for a given user, as determined by the org's defined IdP Discovery Policy.
 
 <a href='/docs/guides/identity-providers/' class='Button--blueDarkOutline card' data-proofer-ignore>
-	<span>Add an Identity Provider integration</span>
+	<span>Add an IdP integration</span>
 </a>

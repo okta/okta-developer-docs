@@ -2,8 +2,6 @@
 title: Reference overview
 ---
 
-> Try the new look and feel of our [API documentation](https://developer.okta.com/docs/api/)! API content in this section will be moved after September 30, 2024.
-
 # Reference overview
 
 This section provides reference information related to the [Okta API](https://developer.okta.com/docs/api/) endpoints.
@@ -12,7 +10,7 @@ This section provides reference information related to the [Okta API](https://de
 
 These references are specific to Classic Engine only.
 
-[Learn more](/reference/classic-engine/)
+[Learn more](/docs/reference/classic-engine/)
 
 ## Error codes
 

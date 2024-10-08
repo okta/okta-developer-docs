@@ -2048,7 +2048,7 @@ curl -v -X POST \
 
 ### Get Assigned App Links
 
-See [List all Assigned Application Links](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/listAppLinks) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+See [List all Assigned Application Links](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserResources/#tag/UserResources/operation/listAppLinks) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
 
 <!--
 <ApiOperation method="get" url="/api/v1/users/${userId}/appLinks" />
@@ -2135,7 +2135,7 @@ curl -v -X GET \
 
 ### Get Group Memberships
 
-See [List all Groups](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/listUserGroups) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+See [List all Groups](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserResources/#tag/UserResources/operation/listUserGroups) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
 
 <!--<ApiOperation method="get" url="/api/v1/users/${userId}/groups" /> <SupportsCors />
 

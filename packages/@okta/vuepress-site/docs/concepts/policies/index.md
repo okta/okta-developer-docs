@@ -81,7 +81,7 @@ The [`system` attribute](https://developer.okta.com/docs/api/openapi/okta-manage
 
 ## Policy types
 
-You can configure policies for sign-on, passwords, enrollment, and API access. You can also use IdP discovery policies to create routing rules.
+You can configure policies for sign-on, passwords, enrollment, and API access. You can also use identity provider (IdP) discovery policies to create routing rules.
 
 ### Sign-on policies
 
