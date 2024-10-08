@@ -42,7 +42,7 @@ You could connect your app directly to an IdP (for example, using an SDK to add 
 
 * **Account linking:** Users can use multiple IdPs to sign in, and Okta links those profiles to a single Okta user.
 
-* **Group sync:** Okta supports group sync between Okta and enterprise SAML IdPs and OpenID Connect IdPs. This allows you to specify the groups that users should be added to.
+* **Group sync:** Okta supports group sync between Okta and enterprise SAML IdPs and OpenID Connect IdPs (<ApiLifecycle access="ea" />). This allows you to specify the groups that users should be added to.
 
 * **OAuth 2.0 Scope Configuration:** Specify [OAuth 2.0 scopes](/docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints) to fully control which social profile attributes are linked to Okta.
 
