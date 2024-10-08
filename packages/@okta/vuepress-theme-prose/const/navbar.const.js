@@ -378,6 +378,10 @@ export const guides = [
             title: "Okta account management policy",
             guideName: "okta-account-management-policy"
           },
+          { 
+            title: "Keep me signed in (KMSI)",
+            guideName: "configure-keep-me-signed-in"
+          },
           {
             title: "Test your access policies",
             guideName: "policy-simulation"
