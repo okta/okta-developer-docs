@@ -18,8 +18,9 @@ title: Okta Identity Engine API release notes 2024
 | [Two System Log event types now provide event outcome reasons](#two-system-log-event-types-now-provide-event-outcome-reasons) | October 9, 2024 |
 | [Seamless ISV experience for SCIM is GA in Preview](#seamless-isv-experience-for-scim-is-ga-in-preview) | October 9, 2024 |
 | [New Okta Secure Identity collection in the OIN catalog](#new-okta-secure-identity-collection-in-the-oin-catalog) | October 9, 2024 |
-| [YubiKey preregistration feature is self-service EA](#yubikey-preregistration-feature-is-self-service-ea-1) |  |
+| [YubiKey preregistration feature is GA](#yubikey-preregistration-feature-is-ga) |  |
 | [New Policies API property for authentication method object](#new-policies-api-property-for-authentication-method-object) | October 9, 2024 |
+| [Enhanced Dynamic Network Zones is GA in Production](#enhanced-dynamic-network-zones-is-ga-in-production) | May 15, 2024 |
 | [Developer documentation update in 2024.10.0](#developer-documentation-update-in-2024-10-0) | October 9, 2024 |
 | [Bug fixed in 2024.10.0](#bug-fixed-in-2024-10-0)| October 9, 2024 |
 
@@ -47,13 +48,17 @@ Okta now provides a seamless ISV experience to optimize the [Okta Integration Ne
 
 A new *Okta Secure Identity* collection is available in the Okta Integration Network (OIN) catalog. This collection identifies integrations that are part of the [Okta Secure Identity commitment](https://www.okta.com/secure-identity-commitment/). See the [OIN catalog](https://www.okta.com/integrations/?category=okta-secure-identity) for a list of integrations assigned to this collection.
 
-#### YubiKey preregistration feature is self-service EA
+#### YubiKey preregistration feature is GA
 
 Customer admins were previously unable to enroll and ship YubiKeys as WebAuthn enrollments in a quick and automated way. The YubiKey preregistration feature enables admins to preregister YubiKey factors as WebAuthn enrollments for both staged and existing (active) users using a Workflows and Yubico integration to seamlessly handle the registration and shipment. <!-- https://oktainc.atlassian.net/browse/OKTA-720689 YUBIKEY_PREREGISTRATION_AS_WEBAUTHN_ENROLLMENT -->
 
 #### New Policies API property for authentication method object
 
 A new `userVerificationMethods` property is available for the `authenticationMethods` object of the Policy API<!--[Policy API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule!path=0/actions/appSignOn/verificationMethod/1/chains/authenticationMethods/userVerificationMethods&t=request)-->. When you create a rule that uses the `AUTH_METHOD_CHAIN` verification method type, you can use this setting to specify the verification method for a user.
+
+#### Enhanced Dynamic Network Zones is GA in Production
+
+Use enhanced dynamic network zones to define IP service categories (proxies, VPNs), locations, and Autonomous System Numbers (ASNs) that are allowed or blocked in a zone. See the [Network Zones API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/NetworkZone/). <!--ENHANCED_DYNAMIC_NETWORK_ZONE (OKTA-727934)-->
 
 #### Developer documentation update in 2024.10.0
 
