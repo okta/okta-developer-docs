@@ -25,7 +25,7 @@ The `system` field is now available for the `filter` query parameter, in additio
 
 #### OIDC Identity Provider options
 
-OIDC Identity Providers can now have both the Account Link and JIT policies set to disabled.
+OpenID Connect Identity Providers can now have both the Account Link and JIT policies set to `disabled`.
 
 #### Two System Log event types now provide event outcome reasons
 
