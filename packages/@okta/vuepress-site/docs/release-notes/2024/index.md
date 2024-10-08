@@ -17,7 +17,7 @@ title: Okta Classic Engine API release notes 2024
 | [New Okta Secure Identity collection in the OIN catalog](#new-okta-secure-identity-collection-in-the-oin-catalog) | October 9, 2024 |
 | [Enhanced Dynamic Network Zones is GA in Production](#enhanced-dynamic-network-zones-is-ga-in-production) | May 15, 2024 |
 | [Developer documentation update in 2024.10.0](#developer-documentation-update-in-2024-10-0) | October 9, 2024 |
-| [Bug fixed in 2024.10.0](#bug-fixed-in-2024-10-0)| October 9, 2024 |
+| [Bugs fixed in 2024.10.0](#bugs-fixed-in-2024-10-0)| October 9, 2024 |
 
 #### New field for filtering zones
 
@@ -53,9 +53,10 @@ Our [SDK documentation](https://developer.okta.com/code/) has been refreshed and
 
 </div>
 
-#### Bug fixed in 2024.10.0
+#### Bugs fixed in 2024.10.0
 
-The `okta.oauthIntegrations.manage`  OAuth 2.0 authentication scope wasn’t supported for the create an API service integration endpoint (`POST /integrations/api/v1/api-services` ).  (OKTA-735510)
+* The `okta.oauthIntegrations.manage`  OAuth 2.0 authentication scope wasn’t supported for the create an API service integration endpoint (`POST /integrations/api/v1/api-services` ).  (OKTA-735510)
+* The SAML IdP `login` property mapping validation was handled incorrectly. (OKTA-812517)
 
 ## September
 
