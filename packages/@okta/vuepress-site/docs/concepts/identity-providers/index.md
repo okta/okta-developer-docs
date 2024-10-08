@@ -121,7 +121,7 @@ You can set up group sync to specify the groups that users should be added to. A
 
 ## IdP Discovery
 
-When you have multiple IdPs configured in your org, define logic to determine which IdP individual end users are routed to when they authenticate. Having more than one IdP can mean just one external IdP in addition to Okta itself also serving as an IdP. This functionality is called IdP Discovery, or IdP Routing Rules, and you configure it within the [IdP Discovery Policy](/docs/reference/api/policy/#idp-discovery-policy).
+When you have multiple IdPs configured in your org, define logic to determine which IdP individual end users are routed to when they authenticate. Having more than one IdP can mean just one external IdP in addition to Okta itself also serving as an IdP. This functionality is called IdP Discovery, or IdP Routing Rules, and you configure it within the [IdP Discovery Policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy).
 
 The Widget (version 2.5.0 or above) interacts with the IdP Discovery policy to redirect end users as needed to the IdP determined by the policy.
 
