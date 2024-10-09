@@ -56,7 +56,7 @@ A new `userVerificationMethods` property is available for the `authenticationMet
 
 Use enhanced dynamic network zones to define IP service categories (proxies, VPNs), locations, and Autonomous System Numbers (ASNs) that are allowed or blocked in a zone. See the [Network Zones API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/NetworkZone/). <!--ENHANCED_DYNAMIC_NETWORK_ZONE (OKTA-727934)-->
 
-#### YubiKey preregistration feature is GA
+#### YubiKey preregistration feature is GA in Preview
 
 You can now assign a fulfillment error status to a WebAuthn Preregistration factor, by making a request to `users/{userId}/enrollments/{authenticatorEnrollmentId}/mark-error`. In a preregistration workflow, use the assigned error status to see if WebAuthn preregistration enrollments encounter an error during fulfillment. See [WebAuthn Preregistration](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/WebAuthnPreregistration/#tag/WebAuthnPreregistration/operation/assignFulfillmentErrorWebAuthnPreregistrationFactor).
 
