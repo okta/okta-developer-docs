@@ -1,3 +1,5 @@
+In the **OIDC tests** section, specify the following sign-in flow details:
+
 | <div style="width:150px">Property</div> | &nbsp; | Description  |
 | ----------------- | --: | ------------ |
 | **Supported sign-in flows** | | Indicates which sign-in flow your integration supports |

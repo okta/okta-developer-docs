@@ -112,4 +112,4 @@ Ready to get started? Choose how you want to implement your lifecycle management
 </Cards>
 <br>
 
-After your Okta lifecycle management integration is built and tested, [submit](/docs/guides/submit-app/scim/main/) it to the Okta OIN team for verification through the OIN Manager.
+After your Okta lifecycle management integration is built and tested, [submit](/docs/guides/submit-oin-app/scim/main/) it through the OIN Manager and the Okta OIN team will verify it. 

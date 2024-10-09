@@ -1,23 +1,25 @@
 ---
-title: Prepare your SCIM API service
-excerpt: Prepare a SCIM-compliant API server to host your SCIM service, and test it to make sure it is working correctly.
+title: Build your SCIM API service
+excerpt: Build a SCIM-compliant API server to host your SCIM service, and test it to make sure it works correctly.
 meta:
   - name: description
-    content: Prepare a SCIM-compliant API server to host your SCIM service, and test it to make sure it is working correctly.
+    content: Build a SCIM-compliant API server to host your SCIM service, and test it to make sure it works correctly.
 layout: Guides
 ---
 
-Use this guide to prepare a SCIM-compliant (System for Cross-domain Identity Management) API server to host your SCIM service. Then, test your server to ensure that it's functional.
+Use this guide to build a SCIM-compliant (System for Cross-domain Identity Management) API server to host your SCIM service.
 
 ## Preparation
 
-The first step in delivering your SCIM integration is preparing a SCIM-compliant API server to host your SCIM service.
+The first step in delivering your SCIM integration is building a SCIM-compliant API server to host your SCIM service.
 
 Okta supports lifecycle provisioning using either version 2.0 and version 1.1 of the SCIM protocol.
 
 If your service already supports the SCIM protocol, you should still review the [Okta SCIM reference](https://developer.okta.com/docs/api/openapi/okta-scim/guides/) documentation. The SCIM reference helps you to understand how Okta implements the SCIM protocol.
 
 If you haven't yet implemented SCIM, Okta recommends that you use [version 2.0 of the SCIM protocol](https://developer.okta.com/docs/api/openapi/okta-scim/guides/scim-20/).
+
+> **Note:** OIN integration submissions must adhere to the SCIM 2.0 specification.
 
 ## Features
 
@@ -43,14 +45,14 @@ Your SCIM API must be secured against anonymous access.
 Okta supports authentication against SCIM APIs using any one of the following methods:
 
 - OAuth 2.0 [Authorization Code grant flow](https://tools.ietf.org/html/rfc6749#section-4.1)
-- [Basic authentication](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication#basic_authentication_scheme)
+- [Basic Authentication](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication#basic_authentication_scheme)
 - A custom HTTP header
 
-If you’re using OAuth 2.0, then after successfully authorizing Okta to use your SCIM API, your app's authorization server redirects the user back to Okta, with either an authorization code or an access token.
+For OAuth 2.0, after you successfully authorize Okta to use your SCIM API, your app's authorization server redirects you back to Okta, with either an authorization code or an access token.
 
 > **Note:**  It's up to your SCIM API authorization server (AS) to support and send a refresh token along with the access token. Okta supports refresh tokens for SCIM connections, if the SCIM API AS also supports refresh tokens.
 
-If you’re going to publish your integration to the OIN catalog, Okta requires that all SCIM apps support the following [redirect URIs](https://tools.ietf.org/html/rfc6749#section-3.1.2):
+If you plan to publish your integration to the OIN, Okta requires that all SCIM apps support the following [redirect URIs](https://tools.ietf.org/html/rfc6749#section-3.1.2):
 
 - `https://system-admin.okta.com/admin/app/cpc/{appName}/oauth/callback`
 - `https://system-admin.okta-emea.com/admin/app/cpc/{appName}/oauth/callback`
@@ -66,9 +68,7 @@ Obtain the `{appName}` from the Admin Console URL when you select **Applications
 https://{orgSubDomain}-admin.{oktaEnvironment}.com/admin/app/{appName}/instance/{instanceID}/#tab-general
 ```
 
-The `{appName}` is the string between `/app/` and `/instance/` in the URL.
-
-> **Note:** If you have issues locating your `{appName}` identifier, send an email to <oin@okta.com>.
+The `{appName}` is the string between `/app/` and `/instance/` in the URL after you [create your app integration instance](/docs/guides/submit-oin-app/scim/main/#generate-an-instance-for) in Okta.
 
 ### Base URL
 
@@ -99,7 +99,7 @@ Okta requires that your SCIM implementation stores the following four user attri
 - Last Name: `name.familyName`
 - Email: `emails`
 
->**Note:** Keep your User ID value distinct from the user's email address. Many systems use an email address as a user identifier, but this isn't recommended, as email addresses often change. Using a distinct User ID to identify user resources prevents future issues.
+>**Note:** Keep your user ID value distinct from the user's email address. Many systems use an email address as a user identifier, but this isn't recommended, as email addresses often change. Using a distinct user ID to identify user resources prevents future issues.
 
 Okta supports more than those four user attributes. However, these are the base attributes that you must support. The full schema of user attributes supported by SCIM 2.0 is described in [section 4 of RFC 7643](https://tools.ietf.org/html/rfc7643#section-4).
 
@@ -260,6 +260,19 @@ As you refine your SCIM implementation, you can share API test results with your
     `https://www.runscope.com/radar/abcdefghijkl/m01nopq2-3456-7r8s-9012-t34567uvw890/history/123ef4gh-i567-89j0-1k2l-3m4n5o678901`.
     The test results can be viewed in detail, but the test can't be edited or rerun by people outside of your team.
 
+> **Note:** If you plan to submit your SCIM integration to the OIN, save the URL of the test results. See [Submit your integration](/docs/guides/submit-oin-app/scim/main/#submit-your-integration) for SCIM.
+
 ## Next steps
 
-Now that you have a SCIM-compliant API server on which to host your SCIM service, the next step is to [configure Okta to your SCIM API service](/docs/guides/scim-provisioning-integration-connect/).
+Now that you have a SCIM-compliant API server on which to host your SCIM service, the next step is to connect Okta to your SCIM API service:
+
+* If you want to publish your SCIM integration to the Okta Integration Network (OIN):
+
+    * Review the [Publish an OIN integration](/docs/guides/submit-app-overview/) overview to understand the process for submitting and publishing an integration.
+    * Review the [OIN submission requirements](/docs/guides/submit-app-prereq/) before starting the submission process.
+    * Use the [OIN Wizard: Submit an integration](/docs/guides/submit-oin-app/scim/main/) guide to connect, test, and submit your Okta SCIM integration it to the OIN.
+
+* If you want to create a SCIM integration that's only available in your org, see [Add a private SCIM integration](/docs/guides/scim-provisioning-integration-connect/).
+
+    * An integration is considered private if it's only available in the org where the integration instance was created.
+    * Private integrations are useful for developing and testing integrations, or for providing access to users on one org.

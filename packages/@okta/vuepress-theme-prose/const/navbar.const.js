@@ -623,15 +623,15 @@ export const guides = [
                 path: "/docs/guides/scim-provisioning-integration-overview/main/",
                 subLinks: [
                   {
-                    title: "Prepare your service",
+                    title: "Build your SCIM service",
                     path: "/docs/guides/scim-provisioning-integration-prepare/main/",
                   },
                   {
-                    title: "Connect your service",
+                    title: "Add a private SCIM integration",
                     guideName: "scim-provisioning-integration-connect",
                   },
                   {
-                    title: "Test your integration",
+                    title: "Test your private SCIM integration",
                     path: "/docs/guides/scim-provisioning-integration-test/main/",
                   },
                 ],
@@ -665,7 +665,7 @@ export const guides = [
                 guideName: "submit-app-prereq",
               },
               {
-                title: "OIN Wizard: Submit an SSO integration",
+                title: "OIN Wizard: Submit an integration",
                 guideName: "submit-oin-app",
               },
               {
