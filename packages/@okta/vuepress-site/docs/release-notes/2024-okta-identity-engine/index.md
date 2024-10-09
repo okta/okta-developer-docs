@@ -14,6 +14,7 @@ title: Okta Identity Engine API release notes 2024
 |--------|--------------------------|
 | [End-of-year deprecation for the Risk Provider and Risk Events APIs](#end-of-year-deprecation-for-the-risk-provider-and-risk-events-apis) | December 31, 2024 |
 | [New field for filtering zones](#new-field-for-filtering-zones) | October 9, 2024 |
+| [Grace period for device assurance is EA in Preview](#grace-period-for-device-assurance-is-ea-in-preview) | October 9, 2024 |
 | [OIDC Identity Provider options](#oidc-identity-provider-options) | October 9, 2024 |
 | [Two System Log event types now provide event outcome reasons](#two-system-log-event-types-now-provide-event-outcome-reasons) | October 9, 2024 |
 | [Seamless ISV experience for SCIM is GA in Preview](#seamless-isv-experience-for-scim-is-ga-in-preview) | October 9, 2024 |
@@ -31,6 +32,10 @@ These APIs will be deprecated on December 31, 2024. Use the [SSF Receiver API](h
 #### New field for filtering zones
 
 The `system` field is now available for the `filter` query parameter, in addition to the `id` and `usage` fields. The values supported are `true` or `false`.
+
+#### Grace period for device assurance is EA in Preview
+
+Occasionally, users’ devices might fall out of compliance with security policies due to temporary conditions such as missed software updates or unapproved network connections. Without a grace period, they would be immediately blocked from accessing critical resources, which disrupts productivity and causes frustration. The grace period for device assurance feature allows you to define a temporary window during which non-compliant devices can still access resources. This gives users time to remediate issues without being locked out, balancing productivity with security standards.See [Device Assurance Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/DeviceAssurance/#tag/DeviceAssurance/operation/createDeviceAssurancePolicy!path=0/gracePeriod&t=request) and the [Add a device assurance policy guide](https://help.okta.com/okta_help.htm?type=oie&id=csh-device-assurance-add). <!-- DEVICE_ASSURANCE_GRACE_PERIOD -->
 
 #### OIDC Identity Provider options
 
