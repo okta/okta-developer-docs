@@ -66,7 +66,7 @@ Admins were previously unable to enroll and ship YubiKeys as WebAuthn enrollment
 
 * We have expanded and updated our Terraform documentation to cover deeper topics.
 
-  * An expanded "Manage" section with an article on importing existing resources into Terraform and new resources.
+  * An expanded **Manage** section with an article on importing existing resources into Terraform and new resources.
 
     * [Manage device connection requirements using Terraform](/docs/guides/terraform-configure-device-signin-standards/)
     * [Manage custom domains with Terraform](/docs/guides/terraform-manage-multiple-domains/main/)
