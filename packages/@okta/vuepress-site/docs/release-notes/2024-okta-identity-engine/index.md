@@ -21,7 +21,7 @@ title: Okta Identity Engine API release notes 2024
 | [YubiKey preregistration feature is GA](#yubikey-preregistration-feature-is-ga) |  |
 | [New Policies API property for authentication method object](#new-policies-api-property-for-authentication-method-object) | October 9, 2024 |
 | [Enhanced Dynamic Network Zones is GA in Production](#enhanced-dynamic-network-zones-is-ga-in-production) | May 15, 2024 |
-|  |  |
+| [#### YubiKey preregistration feature is GA](#yubikey-preregistration-feature-is-ga-1) | July 17, 2024 |
 | [Developer documentation update in 2024.10.0](#developer-documentation-update-in-2024-10-0) | October 9, 2024 |
 | [Bugs fixed in 2024.10.0](#bugs-fixed-in-2024-10-0)| October 9, 2024 |
 
@@ -61,11 +61,11 @@ A new `userVerificationMethods` property is available for the `authenticationMet
 
 Use enhanced dynamic network zones to define IP service categories (proxies, VPNs), locations, and Autonomous System Numbers (ASNs) that are allowed or blocked in a zone. See the [Network Zones API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/NetworkZone/). <!--ENHANCED_DYNAMIC_NETWORK_ZONE (OKTA-727934)-->
 
-#### YubiKey preregistration is GA
+#### YubiKey preregistration feature is GA
 
 You can now assign a fulfillment error status to a WebAuthn Preregistration factor, by making a request to `users/{userId}/enrollments/{authenticatorEnrollmentId}/mark-error`. In a preregistration workflow, use the assigned error status to see if WebAuthn preregistration enrollments encounter an error during fulfillment. See [WebAuthn Preregistration](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/WebAuthnPreregistration/#tag/WebAuthnPreregistration/operation/assignFulfillmentErrorWebAuthnPreregistrationFactor).
 
-Admins were previously unable to enroll and ship YubiKeys as WebAuthn enrollments in a quick and automated way. The [WebAuthn Preregistration](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/WebAuthnPreregistration/) feature enables admins to preregister YubiKey factors as WebAuthn enrollments for both staged and existing (active) users using a Workflows and Yubikey integration to seamlessly handle the registration and shipment. <!-- YUBIKEY_PREREGISTRATION_AS_WEBAUTHN_ENROLLMENT -->
+Admins were previously unable to enroll and ship YubiKeys as WebAuthn enrollments in a quick and automated way. The [WebAuthn Preregistration](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/WebAuthnPreregistration/) feature enables admins to preregister YubiKey factors as WebAuthn enrollments for both staged and existing (active) users using a Workflows and Yubico integration to seamlessly handle the registration and shipment. <!-- YUBIKEY_PREREGISTRATION_AS_WEBAUTHN_ENROLLMENT -->
 
 #### Developer documentation update in 2024.10.0
 
