@@ -1,6 +1,6 @@
 {
-  "release" : "2024.09.1",
-  "build" : "2024.09.1-begin-205-g501a7b46dea4",
+  "release" : "2024.10.1",
+  "build" : "2024.10.1-begin-177-g6de143891e6f",
   "errors" : [ {
     "title" : "Access denied",
     "statusCode" : 403,
@@ -323,6 +323,13 @@
     "internalErrorCode" : "ciba_mfa_challenge_initiation_failure",
     "errorCode" : "access_denied",
     "errorDescription" : "Failed to initiate the MFA challenge for the Client-Initiated Backchannel Authentication flow."
+  }, {
+    "title" : "Online access authentication required",
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "internalErrorCode" : "online_access_authentication_required",
+    "errorCode" : "access_denied",
+    "errorDescription" : "The authorization server requires the user to re-authenticate."
   }, {
     "title" : "Direct auth policy denied",
     "statusCode" : 403,
