@@ -31,7 +31,7 @@ These APIs will be deprecated on December 31, 2024. Use the [SSF Receiver API](h
 
 #### New field for filtering zones
 
-The `system` field is now available for the `filter` query parameter, in addition to the `id` and `usage` fields. The values supported are `true` or `false`.
+The `system` field is now available for the `filter` [Network Zones query parameter](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/NetworkZone/#tag/NetworkZone/operation/listNetworkZones!in=query&path=filter&t=request), in addition to the `id` and `usage` fields. The values supported are `true` or `false`.
 
 #### Grace period for device assurance is EA in Preview
 
