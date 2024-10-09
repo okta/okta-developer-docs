@@ -72,7 +72,7 @@ Use enhanced dynamic network zones to define IP service categories (proxies, VPN
 
 #### Bugs fixed in 2024.10.0
 
-* The `okta.oauthIntegrations.manage`  OAuth 2.0 authentication scope wasn’t supported for the create an API service integration endpoint (`POST /integrations/api/v1/api-services` ).  (OKTA-735510)
+* The `okta.oauthIntegrations.manage` OAuth 2.0 authentication scope wasn’t supported for the create an API service integration endpoint (`POST /integrations/api/v1/api-services`).  (OKTA-735510)
 * The SAML IdP `login` property mapping validation was handled incorrectly. (OKTA-812517)
 
 ## September
