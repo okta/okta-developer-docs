@@ -52,7 +52,7 @@ To add <StackSnippet snippet="idp" inline /> as an Identity Provider in Okta:
 
 <StackSnippet snippet="afterappidpinokta" />
 
-> **Note:** See the [Identity Providers API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/#tag/IdentityProvider/operation/createIdentityProvider) for request and response examples when creating an Identity Provider in Okta using the API.
+> **Note:** See the [Identity Providers API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/#tag/IdentityProvider/operation/createIdentityProvider) for request and response examples when creating an IdP in Okta using the API.
 
 ### Account link
 
