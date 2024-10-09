@@ -29,7 +29,7 @@ OpenID Connect Identity Providers can now have both the Account Link and JIT pol
 
 #### Two System Log event types now provide event outcome reasons
 
-The `Event.Outcome.Reason` field for the `user.authentication.auth_via_IDP` and `user.authentication.auth_via_social` [event types](https://developer.okta.com/docs/reference/api/event-types/) now indicates whether a successful IdP sign-in flow was due to JIT provisioning or account linking. <!-- (https://oktainc.atlassian.net/browse/OKTA-808605) -->
+The `Event.Outcome.Reason` field for the `user.authentication.auth_via_IDP` and `user.authentication.auth_via_social` [event types](https://developer.okta.com/docs/reference/api/event-types/) now indicates whether a successful IdP sign-in flow was due to JIT provisioning or account linking. <!-- (OKTA-808605) -->
 
 #### Seamless ISV experience for SCIM is GA in Preview
 
