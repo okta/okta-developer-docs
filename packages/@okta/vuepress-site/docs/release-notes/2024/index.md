@@ -85,7 +85,7 @@ When an admin made a partial update using the Profile Mappings API, both incomin
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
 | [Descriptions for Entitlement and Role objects](#descriptions-for-entitlement-and-role-objects) | September 11, 2024 |
-| [Enhanced Dynamic Network Zones is self-service GA](#enhanced-dynamic-network-zones-is-self-service-ga) | May 15, 2024 |
+| [Enhanced Dynamic Network Zones is GA in Preview](#enhanced-dynamic-network-zones-is-ga-in-preview) | May 15, 2024 |
 | [Event hook System Log update](#event-hook-system-log-update) | September 11, 2024 |
 | [Okta Personal Settings API is GA in Preview](#okta-personal-settings-api-is-ga-in-preview) | September 11, 2024 |
 | [System Log events added for Okta Workflows](#system-log-events-added-for-okta-workflows) | September 11, 2024 |
@@ -97,7 +97,7 @@ When an admin made a partial update using the Profile Mappings API, both incomin
 SCIM 2.0 with entitlements now supports a `description` field for Entitlement and Role objects.
 <!--OKTA-741183-->
 
-#### Enhanced Dynamic Network Zones is self-service GA
+#### Enhanced Dynamic Network Zones is GA in Preview
 
 Use enhanced dynamic network zones to define IP service categories (proxies, VPNs), locations, and Autonomous System Numbers (ASNs) that are allowed or blocked in a zone. See the [Network Zones API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/NetworkZone/). <!--ENHANCED_DYNAMIC_NETWORK_ZONE OKTA-727934-->
 
