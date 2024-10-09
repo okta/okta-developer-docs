@@ -9,7 +9,11 @@ meta:
 
 This document details the features and syntax of the Okta Expression Language (EL). You can use this language throughout the Admin Console and API for Okta Classic Engine and Okta Identity Engine.
 
-> **Note:** If you're using EL for the [authentication policies](/docs/guides/configure-signon-policy/main/) of the Identity Engine, [Access Certification campaigns](https://help.okta.com/okta_help.htm?id=ext-el-eg), or Entitlement Management policies for Okta Identity Governance, use the features and syntax of the [Okta Expression Language in Okta Identity Engine](/docs/reference/okta-expression-language-in-identity-engine/).
+> **Note:** Use the features and syntax of the [Okta Expression Language in Identity Engine](/docs/reference/okta-expression-language-in-identity-engine/) if you're using EL for the following features:
+>
+> * [Authentication policies](/docs/guides/configure-signon-policy/main/) of the Identity Engine
+> * [Access Certification campaigns](https://help.okta.com/okta_help.htm?id=ext-el-eg) with Okta Identity Governance
+> * [Entitlement Management policies](https://help.okta.com/okta_help.htm?id=csh-create-policy) for Okta Identity Governance
 
 Okta Expression Language is based on [SpEL](https://docs.spring.io/spring-framework/reference/core/expressions.html) and uses a subset of the functionalities offered by SpEL.
 
@@ -157,6 +161,8 @@ The following <ApiLifecycle access="deprecated" /> functions perform some of the
 
 > **Note:** The `Convert.toInt(double)` function rounds the passed numeric value either up or down to the nearest integer. Be sure to consider integer-type range limitations when converting from a number to an integer with this function.
 
+> **Note:**  When using [group rule expressions](#expressions-in-group-rules), the following expression isn't allowed, even if the user profile has a custom integer attribute called `yearJoined`: `Convert.toInt("2018") == user.yearJoined`
+
 #### Country code conversion functions
 
 These functions convert between ISO 3166-1 2-character country codes (Alpha 2), 3-character country codes (Alpha 3), numeric country codes, and full ISO country names.
@@ -215,6 +221,8 @@ Use this function to retrieve the user identified with the specified `primary` r
 * Example result: `Gates`
 
 ### Time functions
+
+Time functions take their input in the form of strings. Inputting empty strings might result in unexpected behavior. Consider checking for empty strings before using these functions.
 
 | Function                    | Input parameter signature          | Return type      | Example                                                                                                            | output                                                                                                  |
 | :-----------                | :--------------------------        | :--------------- | :-----                                                                                                             | :---                                                                                                    |
@@ -347,7 +355,6 @@ The following samples are valid conditional expressions. The actions in these ca
 | IF            | user.primaryPhone matches "(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}"            | allValidPhoneNumberTypes     |
 | IF            | user.title matches '(?i)engineer'            |   allEngineers                        |
 
-
 #### Check for null and blank attributes
 
 To catch user attributes that are null or blank, use the following valid conditional expression:<br>
@@ -422,10 +429,8 @@ For example, given the user profile has a base string attribute called `email`, 
 * `String.stringContains(user.email, "@example.com")`
 * `Arrays.contains(user.favoriteColors, "blue")`
 
-The following expression isn't allowed in group rule conditions, even if the user profile has a custom integer
-attribute called `yearJoined`:
-
-* `Convert.toInt("2018") == user.yearJoined`
+The following [expression using a data conversion function](#data-conversion-functions) isn't allowed in group rule conditions, even if the user profile has a custom integer
+attribute called `yearJoined`: `Convert.toInt("2018") == user.yearJoined`.
 
 ## Appendix: Time zone codes
 
