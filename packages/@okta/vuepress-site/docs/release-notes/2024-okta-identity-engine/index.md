@@ -62,7 +62,7 @@ You can now assign a fulfillment error status to a WebAuthn Preregistration fact
 
 Admins were previously unable to enroll and ship YubiKeys as WebAuthn enrollments in a quick and automated way. The [WebAuthn Preregistration](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/WebAuthnPreregistration/) feature enables admins to preregister YubiKey factors as WebAuthn enrollments for both staged and existing (active) users using a Workflows and Yubico integration to seamlessly handle the registration and shipment.  <!-- https://oktainc.atlassian.net/browse/OKTA-720689 YUBIKEY_PREREGISTRATION_AS_WEBAUTHN_ENROLLMENT -->
 
-#### Developer documentation update in 2024.10.0
+#### Developer documentation updates in 2024.10.0
 
 * We have expanded and updated our Terraform documentation to cover deeper topics.
 
