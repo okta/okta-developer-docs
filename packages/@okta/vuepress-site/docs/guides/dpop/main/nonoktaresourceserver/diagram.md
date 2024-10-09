@@ -26,8 +26,6 @@ rs -> client: Validates the DPoP-bound access token and grants access to client
 
 -->
 
-> **Note:** These steps assume that you've already made a request to the `/authorize` endpoint to obtain the authorization code for the [Authorization Code with PKCE](/docs/guides/implement-grant-type/authcodepkce/main/) flow.
-
 1. Client generates a public/private key pair for use with DPoP.
 1. Client adds the public key in the header of the JWT and signs the JWT with the private key.
 1. Client adds the JWT to the `DPoP` request header and sends the request to the `/token` endpoint for an access token.
