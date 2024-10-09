@@ -13,19 +13,19 @@ This document explains how to configure <StackSnippet snippet="idp" inline /> as
 
 #### Learning outcomes
 
-Configure an external Identity Provider so that your users can quickly sign up or sign in to your application using their Identity Provider account.
+Configure an external Identity Provider so that your users can quickly sign up or sign in to your app using their Identity Provider account.
 
 #### What you need
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
-* An application that you want to add authentication to. You can [create a new app integration using AIW](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard) or use an existing one.
+* An app that you want to add authentication to. You can [create an app integration using AIW](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard) or use an existing one.
 * An account <StackSnippet snippet="idpaccount" inline />.
 
 ---
 
-## About the connection to the IdP for your application
+## About the connection to the IdP for your app
 
-Okta manages the connection to the IdP for your application. The connection sits between your application and the IdP that authenticates your users. The industry-standard term for this is Inbound Federation. When a user signs in, you can link the user's Identity Provider account to an existing Okta user profile or choose to create a user profile using Just-In-Time (JIT) provisioning.
+Okta manages the connection to the IdP for your app. The connection sits between your app and the IdP that authenticates your users. The industry-standard term for this is Inbound Federation. When a user signs in, you can link the user's Identity Provider account to an existing Okta user profile. You can also choose to create a user profile using Just-In-Time (JIT) provisioning.
 
 > **Note:** Okta also support other services such as directories and credential providers. See the [Okta Integration Network Catalog](https://www.okta.com/okta-integration-network/) to browse all integrations by use case.
 
@@ -55,15 +55,15 @@ To connect your org to the Identity Provider, add and configure that Identity Pr
 
 ### Account link
 
-You can automatically link external IdP accounts to Okta accounts when the user signs in using the external IdP. If **Account Link Policy** is set to automatic (`AUTO`), Okta searches the Universal Directory for a user's profile to link. The user profile is found when the **IdP username** value (email) passed by the IdP matches the **Match against** value (username). See [Account Linking and JIT Provisioning](/docs/concepts/identity-providers/#account-linking-and-just-in-time-provisioning).
+You can automatically link external IdP accounts to Okta accounts when the user signs in using the external IdP. <StackSnippet snippet="accountlink" inline />
 
-To remove an existing account link or validate account linking with every sign-in flow, Okta recommends that you make a `DELETE` call to the `/api/v1/idps/{idpId}/users/{userId}` [endpoint](/docs/reference/api/idps/#unlink-user-from-idp) to remove the link between the Okta user and the IdP user before authentication.
+When **Account Link Policy** is set to automatic (`AUTO`), Okta searches the Universal Directory for a user's profile to link. The user profile is found when the **IdP username** value (email) passed by the IdP matches the **Match against** value (username). See [Account Linking and JIT Provisioning](/docs/concepts/identity-providers/#account-linking-and-just-in-time-provisioning).
 
-If **Account Link Policy** is disabled, no account linking occurs. You can manually create an account link without a transaction by making a `POST` call to the `/api/v1/idps/{idps}/users/{userId}` [endpoint](/docs/reference/api/idps/#link-a-user-to-a-social-provider-without-a-transaction).
+To remove an existing account link or validate account linking with every sign-in flow, Okta recommends that you make a `DELETE` call to the `/api/v1/idps/{idpId}/users/{userId}` [endpoint](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProviderUsers/#tag/IdentityProviderUsers/operation/unlinkUserFromIdentityProvider). This removes the link between the Okta user and the IdP user before authentication.
 
-See [Add an Identity Provider](/docs/reference/api/idps/#add-identity-provider) for API examples of account-linking JSON payloads.
+See [Create an Identity Provider](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/#tag/IdentityProvider/operation/createIdentityProvider) for API examples of account-linking JSON payloads.
 
-For security best practices, consider disabling account linking after all existing users from the external IdP have signed in to your Okta org. At this point, all links have been created. After you disable linking, and JIT provisioning is enabled, Okta adds new users that are created in the external IdP.
+<StackSnippet snippet="accountlinking2" />
 
 ## Test the integration
 
@@ -77,7 +77,7 @@ Alternatively, you can use the authorize URL to simulate the authorization flow.
 
 In the URL, replace `{yourOktaDomain}` with your org's base URL, and then replace the following values:
 
-* `client_id`: Use the `client_id` value that you obtained from the OpenID Connect client application in the previous section. This isn't the `client_id` from the Identity Provider.
+* `client_id`: Use the `client_id` value that you obtained from the OpenID Connect client app in the previous section. This isn't the `client_id` from the IdP.
 
 * `response_type`: Determines which flow is used. For the [Implicit](/docs/guides/implement-grant-type/implicit/main/) flow, use `id_token`. For the [Authorization Code](/docs/guides/implement-grant-type/authcode/main/) flow, use `code`.
 
@@ -124,12 +124,12 @@ Create a link that the user clicks to sign in. The HREF for that link is the aut
 
 ```
 
-After the user clicks the link, they're prompted to sign in with the Identity Provider. After successful sign in, the user is returned to the specified `redirect_uri` along with an ID token in JWT format.
+After the user clicks the link, they're prompted to sign in with the IdP. After the user successfully signs in, the user is returned to the specified `redirect_uri` along with an ID token in JWT format.
 
 ### Okta Sign-In Widget
 
-> **Note:** This section only applies to Okta Classic Engine.<br>
-> If you're using Okta Identity Engine, the **Sign in with IdP** option is available on the widget after you [create an Identity Provider in your Okta org](#create-an-identity-provider-in-okta) and configure the [routing rule](https://help.okta.com/okta_help.htm?id=ext-cfg-routing-rules). No additional code is required. See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version and [Upgrade your widget](/docs/guides/oie-upgrade-sign-in-widget/main/#idp-discovery) for upgrade considerations to Identity Engine.
+> **Note:** This section only applies to Classic Engine.<br>
+> If you're using Identity Engine, the **Sign in with IdP** option is available on the widget after you [create an Identity Provider in your Okta org](#create-an-identity-provider-in-okta) and configure the [routing rule](https://help.okta.com/okta_help.htm?id=ext-cfg-routing-rules). No additional code is required. See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version and [Upgrade your widget](/docs/guides/oie-upgrade-sign-in-widget/main/#idp-discovery) for upgrade considerations to Identity Engine.
 
 Okta also offers an easily embeddable JavaScript widget that reproduces the look and behavior of the standard Okta sign-in page. You can add a **Sign in with {IdentityProviderName}** button by adding the following code to your Okta Sign-In Widget configuration:
 
@@ -140,12 +140,12 @@ config.idps= [
 config.idpDisplay = "SECONDARY";
 ```
 
-You can find out more about the Okta Sign-In Widget [on GitHub](https://github.com/okta/okta-signin-widget#okta-sign-in-widget). Implementing sign in with an Identity Provider uses the Widget's [OpenID Connect authentication flow](https://github.com/okta/okta-signin-widget#openid-connect).
+You can find out more about the Okta Sign-In Widget [on GitHub](https://github.com/okta/okta-signin-widget#okta-sign-in-widget). Implementing a sign-in flow with an Identity Provider uses the widget's [OpenID Connect authentication flow](https://github.com/okta/okta-signin-widget#openid-connect).
 
 ### Custom Okta-hosted sign-in page
 
-> **Note:** This section only applies to Okta Classic Engine.<br>
-> If you're using Okta Identity Engine, the **Sign in with IdP** option is available on the widget after you [create an Identity Provider in your Okta org](#create-an-identity-provider-in-okta) and configure the [routing rule](https://help.okta.com/okta_help.htm?id=ext-cfg-routing-rules). See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.
+> **Note:** This section only applies to Classic Engine.<br>
+> If you're using Identity Engine, the **Sign in with IdP** option is available on the widget after you [create an Identity Provider in your Okta org](#create-an-identity-provider-in-okta) and configure the [routing rule](https://help.okta.com/okta_help.htm?id=ext-cfg-routing-rules). See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.
 
 If you configured a [Sign-In Widget](/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget), you can add a **Sign in with {IdentityProviderName}** button by adding the following code beneath the `var config = OktaUtil.getSignInWidgetConfig();` line:
 
@@ -162,8 +162,6 @@ If you don't want pre-built views, or need deeper levels of customization, then 
 
 ## Next steps
 
-You should now understand how to add an external Identity Provider and have successfully added and tested the integration.
+* To map Okta attributes to app attributes, use the [Profile Editor](https://help.okta.com/okta_help.htm?id=ext_app_map).
 
-To map Okta attributes to app attributes, use the [Profile Editor](https://help.okta.com/okta_help.htm?id=ext_app_map).
-
-To add another Identity Provider, start by choosing an [external Identity Provider](/docs/guides/identity-providers/).
+* To add another IdP, start by choosing an [external Identity Provider](/docs/guides/identity-providers/).

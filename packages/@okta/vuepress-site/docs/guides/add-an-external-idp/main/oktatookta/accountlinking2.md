@@ -1,0 +1,1 @@
+For security best practices, consider disabling account linking after all existing users from the external IdP have signed in to your Okta org. At this point, all links have been created. After you disable linking, and JIT provisioning is enabled, Okta adds new users that are created in the external IdP.
