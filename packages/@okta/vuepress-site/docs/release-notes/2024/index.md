@@ -21,7 +21,7 @@ title: Okta Classic Engine API release notes 2024
 
 #### New field for filtering zones
 
-The `system` field is now available for the `filter` query parameter, in addition to the `id` and `usage` fields. The values supported are `true` or `false`.
+The `system` field is now available for the `filter` [Network Zones query parameter](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/NetworkZone/#tag/NetworkZone/operation/listNetworkZones!in=query&path=filter&t=request), in addition to the `id` and `usage` fields. The values supported are `true` or `false`.
 
 #### OIDC Identity Provider options
 
