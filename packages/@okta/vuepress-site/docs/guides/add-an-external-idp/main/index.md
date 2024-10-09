@@ -77,7 +77,7 @@ Alternatively, you can use the authorize URL to simulate the authorization flow.
 
 In the URL, replace `{yourOktaDomain}` with your org's base URL, and then replace the following values:
 
-* `client_id`: Use the `client_id` value that you obtained from the OpenID Connect client app in the previous section. This isn't the `client_id` from the Identity Provider.
+* `client_id`: Use the `client_id` value that you obtained from the OpenID Connect client app in the previous section. This isn't the `client_id` from the IdP.
 
 * `response_type`: Determines which flow is used. For the [Implicit](/docs/guides/implement-grant-type/implicit/main/) flow, use `id_token`. For the [Authorization Code](/docs/guides/implement-grant-type/authcode/main/) flow, use `code`.
 
@@ -124,7 +124,7 @@ Create a link that the user clicks to sign in. The HREF for that link is the aut
 
 ```
 
-After the user clicks the link, they're prompted to sign in with the Identity Provider. After the user successfully signs in, the user is returned to the specified `redirect_uri` along with an ID token in JWT format.
+After the user clicks the link, they're prompted to sign in with the IdP. After the user successfully signs in, the user is returned to the specified `redirect_uri` along with an ID token in JWT format.
 
 ### Okta Sign-In Widget
 
@@ -164,4 +164,4 @@ If you don't want pre-built views, or need deeper levels of customization, then 
 
 * To map Okta attributes to app attributes, use the [Profile Editor](https://help.okta.com/okta_help.htm?id=ext_app_map).
 
-* To add another Identity Provider, start by choosing an [external Identity Provider](/docs/guides/identity-providers/).
+* To add another IdP, start by choosing an [external Identity Provider](/docs/guides/identity-providers/).

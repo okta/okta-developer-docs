@@ -5,13 +5,13 @@ meta:
     content: Okta supports authentication with Login.gov as an external Identity Provider. Set up the Login.gov IdP using OpenID Connect with private key JWT in Okta.
 ---
 
-This document explains how to configure Login.gov as an [external Identity Provider](/docs/concepts/identity-providers/) for your app. You do this by creating an Identity Provider in Okta, creating an app at Login.gov, testing the configuration, and creating a Login.gov sign-in option.
+This document explains how to configure Login.gov as an [external Identity Provider](/docs/concepts/identity-providers/) (IdP) for your app. You do this by creating an IdP in Okta, creating an app at Login.gov, testing the configuration, and creating a Login.gov sign-in option.
 
 ---
 
 #### Learning outcomes
 
-Configure Login.gov as an external Identity Provider so that your users can quickly sign up or sign in to your app using their Login.gov account.
+Configure Login.gov as an external IdP so that your users can quickly sign up or sign in to your app using their Login.gov account.
 
 #### What you need
 
@@ -31,7 +31,7 @@ Okta manages the connection to the Identity Provider (IdP) for your app. The con
 
 Login.gov requires you to [test your app integration](https://developers.login.gov/testing/) in their identity sandbox before you can enable it in production. As a result, you have to first create a **Login.gov IdP (Sandbox)** configuration in Okta to test your app integration. When you're ready for [Login.gov production deployment](https://developers.login.gov/production/), you can then create the production **Login.gov IdP** configuration in Okta.
 
-> **Note:** See the [Identity Providers API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/#tag/IdentityProvider/operation/createIdentityProvider) for request and response examples of creating an Identity Provider in Okta using the API.
+> **Note:** See the [Identity Providers API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/#tag/IdentityProvider/operation/createIdentityProvider) for request and response examples of creating an IdP in Okta using the API.
 
 1. In the Admin Console, go to **Security** > **Identity Providers**.
 
@@ -53,7 +53,7 @@ Login.gov requires you to [test your app integration](https://developers.login.g
 
    In the optional **Authentication Settings** section:
 
-   * **IdP username**: This is the expression (written in Okta Expression Language) that is used to convert an IdP attribute to the app user's `username`. This IdP username is used for matching an app user to an Okta User.
+   * **IdP username**: This is the expression (written in Okta Expression Language) that is used to convert an IdP attribute to the app user's `username`. This IdP username is used for matching an app user to an Okta user.
 
       For example, the value `idpuser.email` means that it takes the email attribute passed by the IdP and maps it to the Okta app user's `username` property.
 
@@ -150,6 +150,7 @@ If you're using Classic Engine, you still need to configure the [routing rule](h
 You can find out more about the Okta Sign-In Widget [on GitHub](https://github.com/okta/okta-signin-widget#okta-sign-in-widget). Implementing sign-in flows with an Identity Provider uses the widget's [OpenID Connect authentication flow](https://github.com/okta/okta-signin-widget#openid-connect).
 
 > **Note:** For a production environment, use the following Okta Sign-In Widget configuration:
+>
 > ```javascript
 >    config.idps= [
 >        { type: 'LOGINGOV', id: 'Your_IDP_ID' }
@@ -172,13 +173,14 @@ If you're using Classic Engine, you still need to configure the [routing rule](h
 Add the following code beneath the `var config = OktaUtil.getSignInWidgetConfig();` line in the **Custom Sign in** tab:
 
 ```js
-config.idps= [
-  {type: 'LOGINGOV_SANDBOX', id: 'Your_IDP_ID'}
-];
-config.idpDisplay ="SECONDARY";
+   config.idps= [
+     {type: 'LOGINGOV_SANDBOX', id: 'Your_IDP_ID'}
+   ];
+   config.idpDisplay ="SECONDARY";
 ```
 
 > **Note:** For a production environment, use the following code beneath the `var config = OktaUtil.getSignInWidgetConfig();` line:
+>
 > ```javascript
 >    config.idps= [
 >        { type: 'LOGINGOV', id: 'Your_IDP_ID' }
@@ -196,7 +198,7 @@ Test this in your browser's privacy or incognito mode to avoid false positive or
 
 If something is configured incorrectly, the authorization response contains error information to help you resolve the issue.
 
-The Okta Identity Provider that you created generates an authorize URL with several blank parameters that you can fill in to test the flow with the Identity Provider. For example:
+The Okta IdP that you created generates an authorize URL with several blank parameters that you can fill in to test the flow with the IdP. For example:
 
 ```bash
 https://{yourOktaDomain}/oauth2/v1/authorize?
@@ -216,7 +218,7 @@ In the URL, replace `{yourOktaDomain}` with your org's base URL, and then replac
 
 * `idp`: Your `{yourIdPId}` value that you obtained from [Create an Identity Provider in Okta](#create-an-identity-provider-in-okta).
 
-* `client_id`: Use the `{clientId}` value that you obtained from your OpenID Connect client app. This isn't the **Client ID** value from the Identity Provider.
+* `client_id`: Use the `{clientId}` value that you obtained from your OpenID Connect client app. This isn't the **Client ID** value from the IdP.
 
 * `response_type`: Determines which flow is used. For the [Implicit](/docs/guides/implement-grant-type/implicit/main/) flow, use `id_token`. For the [Authorization Code](/docs/guides/implement-grant-type/authcode/main/) flow, use `code`.
 
@@ -251,4 +253,4 @@ If you don't want pre-built views, or need deeper levels of customization, then 
 
 * To map Okta attributes to app attributes, use the [Profile Editor](https://help.okta.com/okta_help.htm?id=ext_app_map).
 
-* To add another Identity Provider, start by choosing an [external Identity Provider](/docs/guides/identity-providers/).
+* To add another IdP, start by choosing an [external Identity Provider](/docs/guides/identity-providers/).
