@@ -51,7 +51,7 @@ Okta now provides a seamless ISV experience to optimize the [Okta Integration Ne
 
 #### New Okta Secure Identity collection in the OIN catalog
 
-A new *Okta Secure Identity* collection is available in the Okta Integration Network (OIN) catalog. This collection identifies integrations that are part of the [Okta Secure Identity commitment](https://www.okta.com/secure-identity-commitment/). See the [OIN catalog](https://www.okta.com/integrations/?category=okta-secure-identity) for a list of integrations assigned to this collection.
+A new Okta Secure Identity collection is available in the Okta Integration Network (OIN) catalog. This collection identifies integrations that are part of the [Okta Secure Identity commitment](https://www.okta.com/secure-identity-commitment/). See the [OIN catalog](https://www.okta.com/integrations/?category=okta-secure-identity) for a list of integrations assigned to this collection.
 
 #### New Policies API property for authentication method object
 
