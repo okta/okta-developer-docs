@@ -18,11 +18,10 @@ title: Okta Identity Engine API release notes 2024
 | [Two System Log event types now provide event outcome reasons](#two-system-log-event-types-now-provide-event-outcome-reasons) | October 9, 2024 |
 | [Seamless ISV experience for SCIM is GA in Preview](#seamless-isv-experience-for-scim-is-ga-in-preview) | October 9, 2024 |
 | [New Okta Secure Identity collection in the OIN catalog](#new-okta-secure-identity-collection-in-the-oin-catalog) | October 9, 2024 |
-| [YubiKey preregistration feature is GA](#yubikey-preregistration-feature-is-ga) |  |
 | [New Policies API property for authentication method object](#new-policies-api-property-for-authentication-method-object) | October 9, 2024 |
 | [Enhanced Dynamic Network Zones is GA in Production](#enhanced-dynamic-network-zones-is-ga-in-production) | May 15, 2024 |
-| [#### YubiKey preregistration feature is GA](#yubikey-preregistration-feature-is-ga-1) | July 17, 2024 |
-| [Developer documentation update in 2024.10.0](#developer-documentation-update-in-2024-10-0) | October 9, 2024 |
+| [YubiKey preregistration feature is GA in Preview](#yubikey-preregistration-feature-is-ga-in-preview) | July 17, 2024 |
+| [Developer documentation updates in 2024.10.0](#developer-documentation-updates-in-2024-10-0) | October 9, 2024 |
 | [Bugs fixed in 2024.10.0](#bugs-fixed-in-2024-10-0)| October 9, 2024 |
 
 #### End-of-year deprecation for the Risk Provider and Risk Events APIs
@@ -49,7 +48,7 @@ Okta now provides a seamless ISV experience to optimize the [Okta Integration Ne
 
 A new *Okta Secure Identity* collection is available in the Okta Integration Network (OIN) catalog. This collection identifies integrations that are part of the [Okta Secure Identity commitment](https://www.okta.com/secure-identity-commitment/). See the [OIN catalog](https://www.okta.com/integrations/?category=okta-secure-identity) for a list of integrations assigned to this collection.
 
-#### YubiKey preregistration feature is GA
+#### YubiKey preregistration feature is GA in Preview
 
 Customer admins were previously unable to enroll and ship YubiKeys as WebAuthn enrollments in a quick and automated way. The YubiKey preregistration feature enables admins to preregister YubiKey factors as WebAuthn enrollments for both staged and existing (active) users using a Workflows and Yubico integration to seamlessly handle the registration and shipment. <!-- https://oktainc.atlassian.net/browse/OKTA-720689 YUBIKEY_PREREGISTRATION_AS_WEBAUTHN_ENROLLMENT -->
 
@@ -69,7 +68,24 @@ Admins were previously unable to enroll and ship YubiKeys as WebAuthn enrollment
 
 #### Developer documentation update in 2024.10.0
 
-Our [SDK documentation](https://developer.okta.com/code/) has been refreshed and updated to reflect our modern SDKs and recommended development paths. See **SDKs** in the menu.
+* We have expanded and updated our Terraform documentation to cover deeper topics.
+
+  * An expanded "Manage" section with an article on importing existing resources into Terraform and new resources.
+
+    * [Manage device connection requirements using Terraform](/docs/guides/terraform-configure-device-signin-standards/)
+    * [Manage custom domains with Terraform](/docs/guides/terraform-manage-multiple-domains/main/)
+    * [Manage branding with Terraform](/docs/guides/terraform-manage-end-user-experience/main/) (updated and expanded)
+
+  * An article on making the Terraform connection as secure as possible.
+
+    * [Control Terraform access to Okta](/docs/guides/terraform-design-access-security/main/)
+
+  * Articles to help save time.
+
+    * [Organize your Terraform configuration](/docs/guides/terraform-organize-configuration/main/)
+    * [Terraform syntax tips for automation](/docs/guides/terraform-syntax-tips/)
+
+* Our [SDK documentation](https://developer.okta.com/code/) has been refreshed and updated to reflect our modern SDKs and recommended development paths. See **SDKs** in the menu.
 
 <div class="three-quarter">
 

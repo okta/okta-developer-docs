@@ -16,7 +16,7 @@ title: Okta Classic Engine API release notes 2024
 | [Seamless ISV experience for SCIM is GA in Preview](#seamless-isv-experience-for-scim-is-ga-in-preview) | October 9, 2024 |
 | [New Okta Secure Identity collection in the OIN catalog](#new-okta-secure-identity-collection-in-the-oin-catalog) | October 9, 2024 |
 | [Enhanced Dynamic Network Zones is GA in Production](#enhanced-dynamic-network-zones-is-ga-in-production) | May 15, 2024 |
-| [Developer documentation update in 2024.10.0](#developer-documentation-update-in-2024-10-0) | October 9, 2024 |
+| [Developer documentation updates in 2024.10.0](#developer-documentation-updates-in-2024-10-0) | October 9, 2024 |
 | [Bugs fixed in 2024.10.0](#bugs-fixed-in-2024-10-0)| October 9, 2024 |
 
 #### New field for filtering zones
@@ -43,9 +43,26 @@ A new *Okta Secure Identity* collection is available in the Okta Integration Net
 
 Use enhanced dynamic network zones to define IP service categories (proxies, VPNs), locations, and Autonomous System Numbers (ASNs) that are allowed or blocked in a zone. See the [Network Zones API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/NetworkZone/). <!--ENHANCED_DYNAMIC_NETWORK_ZONE (OKTA-727934)-->
 
-#### Developer documentation update in 2024.10.0
+#### Developer documentation updates in 2024.10.0
 
-Our [SDK documentation](https://developer.okta.com/code/) has been refreshed and updated to reflect our modern SDKs and recommended development paths. See **SDKs** in the menu.
+* We have expanded and updated our Terraform documentation to cover deeper topics.
+
+  * An expanded "Manage" section with an article on importing existing resources into Terraform and new resources.
+
+    * [Manage device connection requirements using Terraform](/docs/guides/terraform-configure-device-signin-standards/)
+    * [Manage custom domains with Terraform](/docs/guides/terraform-manage-multiple-domains/main/)
+    * [Manage branding with Terraform](/docs/guides/terraform-manage-end-user-experience/main/) (updated and expanded)
+
+  * An article on making the Terraform connection as secure as possible.
+
+    * [Control Terraform access to Okta](/docs/guides/terraform-design-access-security/main/)
+
+  * Articles to help save time.
+
+    * [Organize your Terraform configuration](/docs/guides/terraform-organize-configuration/main/)
+    * [Terraform syntax tips for automation](/docs/guides/terraform-syntax-tips/)
+
+* Our [SDK documentation](https://developer.okta.com/code/) has been refreshed and updated to reflect our modern SDKs and recommended development paths. See **SDKs** in the menu.
 
 <div class="three-quarter">
 
