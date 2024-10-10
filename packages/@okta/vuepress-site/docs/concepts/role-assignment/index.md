@@ -4,7 +4,7 @@ title: Role Assignment
 
 # Role assignment
 
-As a super admin, you can assign admin permissions to principals so they're able to perform tasks and access resources. Principals can be users, groups of users, or client apps. You can assign [standard roles](#standard-role-assignment), or create [custom roles](#custom-role-assignment) that limit an admin’s access to a subset of [permissions](#permission-types) and [resources](#supported-resources).
+As a super admin, you can assign admin permissions to principals so they're able to perform tasks and access resources. Principals can be users, groups of users, or client apps. You can assign [standard roles](#standard-role-assignment), or create [custom roles](#custom-role-assignment) that limit an admin’s access to a subset of [permissions](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#permissions) and [resources](#supported-resources).
 
 This page discusses the concepts of role assignment through APIs. See [Custom administrator roles](https://help.okta.com/okta_help.htm?id=ext-cstm-admin-roles) for product documentation through the Admin Console.
 
@@ -210,6 +210,9 @@ Only Okta manages standard resource sets, so you can't update or delete them.
 
 ### Permission types
 
+See [Permissions](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#permissions) in the API documentation.
+
+<!--
 | Permission type                                             | Description                                                                                                                                           | Applicable resource types                    |
 | :---------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------- |
 | `okta.users.manage`                                         | Allows the admin to create and manage users and read all profile and credential information for users. Delegated admins with this permission can only manage user credential fields and not the credential values themselves. | All users, all users within a specific group |
@@ -238,6 +241,7 @@ Only Okta manages standard resource sets, so you can't update or delete them.
 | `okta.groups.read`                                          | Allows the admin to only read information about groups and their members in your Okta org                                                  | All groups, a specific group                 |
 | `okta.groups.appAssignment.manage`                          | Allows the admin to manage a group's app assignment (also need `okta.apps.assignment.manage` to assign to a specific app)                            | All groups, a specific group                 |
 | `okta.apps.read`                                            | Allows the admin to only read information about apps and their members in your Okta org                                                    | All Apps, all apps of a specific type, a specific App |
+| `okta.apps.clientCredentials.read`                                            | Allows the admin to view information about Client Credentials for the app                                                     | All Apps, all apps of a specific type, a specific App |
 | `okta.apps.manage`                                          | Allows the admin to fully manage apps and their members in your Okta org                                                                   | All apps, all apps of a specific type, a specific app |
 | `okta.apps.assignment.manage`                               | Allows the admin to only manage assignment operations of an app in your Okta org                                                                     | All apps, all apps of a specific type, a specific app |
 | `okta.profilesources.import.run`                            | Allows the admin to run imports for apps with a profile source, such as HRaaS and AD/LDAP apps. Admins with this permission can create users through the import. | All apps, all apps of a specific type, a specific app |
@@ -261,9 +265,14 @@ Only Okta manages standard resource sets, so you can't update or delete them.
 | `okta.devices.lifecycle.delete` <br><ApiLifecycle access="ea" />                              | Allows the admin to permanently delete devices                                                                                                 | All devices
 | `okta.devices.read` <br><ApiLifecycle access="ea" />                              | Allows the admin to read device details                                                                                                 | All devices |
 | `okta.iam.read` | Allows the admin to view roles, resources, and admin assignments                                                                  | All Identity and access management resources |
+| `okta.realm.manage` | Allows the admin to view, create, and manage realms | All realm resources |
+| `okta.realm.read` | Allows the admin to view realms | All realm resources |
+| `okta.support.cases.manage` | Allows the admin to view, create, and manage Okta Support cases | All Okta Support cases opened by the admin |
 
 > **Note:** Governance permissions are currently only supported as part of the [Standard IAM-based Roles](#iam-based-standard-role-types). You can't use these to create or update other roles.
 
 > **Note:** The `okta.apps.manageFirstPartyApps` permission is only supported as part of some [Standard IAM-based Roles](/docs/concepts/role-assignment/#iam-based-standard-role-types). You can't use it to create or update other roles.
 
 > **Note:** The `okta.devices.*` permissions are self-service Early Access. Turn on the **Enable custom admin roles for device permissions** feature from the **Settings** > **Feature** page in the Admin Console to access these permissions. See [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features).
+
+-->
