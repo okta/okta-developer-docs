@@ -53,7 +53,7 @@ export default {
     clientId: '{yourClientId}',
     issuer: 'https://{yourOktaDomain}/oauth2/default',
     redirectUri: '{yourLocalAppDomain}/login/callback',
-    scopes: ['openid', 'profile', 'email'],
+    scopes: ['openid', 'offline_access', 'profile', 'email'],
     tokenManager: {
       storage: 'localStorage'
     }
