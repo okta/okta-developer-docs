@@ -1,12 +1,14 @@
 ---
-title: Submit an LCM integration
+title: Submit an LCM integration with the OIN Manager
 meta:
   - name: description
     content: Use this guide to learn how to submit your Okta Lifecycle management integration for publication with the Okta Integration Network (OIN) Manager.
 layout: Guides
 ---
 
-Use this guide to understand the process of submitting a lifecycle management (LCM) integration to the Okta Integration Network (OIN) using the OIN Manager. You can submit a System for Cross-domain Identity Management (SCIM) or a Workflows connector LCM integration. This guide also shows you how to update a previously published LCM integration or delete a draft submission.
+Use this guide to understand the process of submitting a lifecycle management (LCM) integration to the Okta Integration Network (OIN) using the OIN Manager. You can submit a Workflows connector LCM integration. This guide also shows you how to update a previously published LCM integration or delete a draft submission.
+
+> **Note:** As of release 2024.10.0, you can't submit new SCIM integrations using the OIN Manager. Use the new [OIN Wizard](/docs/guides/submit-oin-app/scim/main/) for a seamless ISV submission experience. Okta is migrating previous integrations submitted through the OIN Manager to the OIN Wizard.
 
 ---
 
@@ -56,7 +58,9 @@ If you have questions or need more support to publish your app integration, you 
 
 ## Submit an integration
 
-> **Note:** Review the [OIN submission requirements](/docs/guides/submit-app-prereq) before you start your submission.
+> **Note:** As of release 2024.10.0, you can't submit new SCIM integrations using the OIN Manager. Use the new [OIN Wizard](/docs/guides/submit-oin-app/scim/main/) for a seamless ISV submission experience. Okta is in the process of migrating previous integrations submitted through the OIN Manager to the OIN Wizard.
+
+Review the [OIN submission requirements](/docs/guides/submit-app-prereq) before you start your submission.
 
 Start your integration submission:
 

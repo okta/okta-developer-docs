@@ -4,6 +4,77 @@ title: Okta Classic Engine API release notes 2024
 
 # Okta Classic Engine API release notes (2024)
 
+## October
+
+### Monthly release 2024.10.0
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [New field for filtering zones](#new-field-for-filtering-zones) | October 9, 2024 |
+| [OIDC Identity Provider options](#oidc-identity-provider-options) | October 9, 2024 |
+| [Two System Log event types now provide event outcome reasons](#two-system-log-event-types-now-provide-event-outcome-reasons) | October 9, 2024 |
+| [Seamless ISV experience for SCIM is GA in Preview](#seamless-isv-experience-for-scim-is-ga-in-preview) | October 9, 2024 |
+| [New Okta Secure Identity collection in the OIN catalog](#new-okta-secure-identity-collection-in-the-oin-catalog) | October 9, 2024 |
+| [Enhanced Dynamic Network Zones is GA in Production](#enhanced-dynamic-network-zones-is-ga-in-production) | May 15, 2024 |
+| [Developer documentation updates in 2024.10.0](#developer-documentation-updates-in-2024-10-0) | October 9, 2024 |
+| [Bugs fixed in 2024.10.0](#bugs-fixed-in-2024-10-0)| October 9, 2024 |
+
+#### New field for filtering zones
+
+The `system` field is now available for the `filter` [Network Zones query parameter](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/NetworkZone/#tag/NetworkZone/operation/listNetworkZones!in=query&path=filter&t=request), in addition to the `id` and `usage` fields. The values supported are `true` or `false`.
+
+#### OIDC Identity Provider options
+
+OpenID Connect Identity Providers can now have both the Account Link and JIT policies set to `disabled`.
+
+#### Two System Log event types now provide event outcome reasons
+
+The `Event.Outcome.Reason` field for the `user.authentication.auth_via_IDP` and `user.authentication.auth_via_social` [event types](https://developer.okta.com/docs/reference/api/event-types/) now indicates whether a successful IdP sign-in flow was due to JIT provisioning or account linking. <!-- (OKTA-808605) -->
+
+#### Seamless ISV experience for SCIM is GA in Preview
+
+Okta now provides a seamless ISV experience to optimize the [Okta Integration Network (OIN)](https://www.okta.com/integrations/) submission experience for SCIM integrations. This new experience enables independent software vendors (ISVs) to build and manually test their SCIM integration metadata before submission to the OIN. This reduces the time needed for the OIN team to review and validate that the SCIM integration functions as intended, which shortens the time to publish in the OIN. This experience also incorporates communication processes in Salesforce, enabling improved collaboration internally within Okta teams and externally with ISVs. See [Publish an OIN integration overview](https://developer.okta.com/docs/guides/submit-app-overview/) and [Submit an integration with the OIN Wizard](https://developer.okta.com/docs/guides/submit-oin-app/scim/main/) guide. <!-- SCIM_SUBMISSION -->
+
+#### New Okta Secure Identity collection in the OIN catalog
+
+A new Okta Secure Identity collection is available in the Okta Integration Network (OIN) catalog. This collection identifies integrations that are part of the [Okta Secure Identity commitment](https://www.okta.com/secure-identity-commitment/). See the [OIN catalog](https://www.okta.com/integrations/?category=okta-secure-identity) for a list of integrations assigned to this collection.
+
+#### Enhanced Dynamic Network Zones is GA in Production
+
+Use enhanced dynamic network zones to define IP service categories (proxies, VPNs), locations, and Autonomous System Numbers (ASNs) that are allowed or blocked in a zone. See the [Network Zones API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/NetworkZone/). <!--ENHANCED_DYNAMIC_NETWORK_ZONE (OKTA-727934)-->
+
+#### Developer documentation updates in 2024.10.0
+
+* We have expanded and updated our Terraform documentation to cover deeper topics.
+
+  * An expanded **Manage** section with an article on importing existing resources into Terraform and new resources.
+
+    * [Manage device connection requirements using Terraform](/docs/guides/terraform-configure-device-signin-standards/)
+    * [Manage custom domains with Terraform](/docs/guides/terraform-manage-multiple-domains/main/)
+    * [Manage branding with Terraform](/docs/guides/terraform-manage-end-user-experience/main/) (updated and expanded)
+
+  * An article on making the Terraform connection as secure as possible.
+
+    * [Control Terraform access to Okta](/docs/guides/terraform-design-access-security/main/)
+
+  * Articles to help save time.
+
+    * [Organize your Terraform configuration](/docs/guides/terraform-organize-configuration/main/)
+    * [Terraform syntax tips for automation](/docs/guides/terraform-syntax-tips/)
+
+* Our [SDK documentation](https://developer.okta.com/code/) has been refreshed and updated to reflect our modern SDKs and recommended development paths. See **SDKs** in the menu.
+
+<div class="three-quarter">
+
+![Developer docs top menu bar](/img/homepage/SDKs-menu.png)
+
+</div>
+
+#### Bugs fixed in 2024.10.0
+
+* The `okta.oauthIntegrations.manage` OAuth 2.0 authentication scope wasn’t supported for the create an API service integration endpoint (`POST /integrations/api/v1/api-services`).  (OKTA-735510)
+* The SAML IdP `login` property mapping validation was handled incorrectly. (OKTA-812517)
+
 ## September
 
 ### Weekly release 2024.09.3
@@ -31,7 +102,7 @@ When an admin made a partial update using the Profile Mappings API, both incomin
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
 | [Descriptions for Entitlement and Role objects](#descriptions-for-entitlement-and-role-objects) | September 11, 2024 |
-| [Enhanced Dynamic Network Zones is self-service GA](#enhanced-dynamic-network-zones-is-self-service-ga) | May 15, 2024 |
+| [Enhanced Dynamic Network Zones is GA in Preview](#enhanced-dynamic-network-zones-is-ga-in-preview) | May 15, 2024 |
 | [Event hook System Log update](#event-hook-system-log-update) | September 11, 2024 |
 | [Okta Personal Settings API is GA in Preview](#okta-personal-settings-api-is-ga-in-preview) | September 11, 2024 |
 | [System Log events added for Okta Workflows](#system-log-events-added-for-okta-workflows) | September 11, 2024 |
@@ -43,7 +114,7 @@ When an admin made a partial update using the Profile Mappings API, both incomin
 SCIM 2.0 with entitlements now supports a `description` field for Entitlement and Role objects.
 <!--OKTA-741183-->
 
-#### Enhanced Dynamic Network Zones is self-service GA
+#### Enhanced Dynamic Network Zones is GA in Preview
 
 Use enhanced dynamic network zones to define IP service categories (proxies, VPNs), locations, and Autonomous System Numbers (ASNs) that are allowed or blocked in a zone. See the [Network Zones API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/NetworkZone/). <!--ENHANCED_DYNAMIC_NETWORK_ZONE OKTA-727934-->
 

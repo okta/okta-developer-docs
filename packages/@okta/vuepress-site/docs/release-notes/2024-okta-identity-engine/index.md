@@ -6,6 +6,99 @@ title: Okta Identity Engine API release notes 2024
 
 # Okta Identity Engine API release notes (2024)
 
+## October
+
+### Monthly release 2024.10.0
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [End-of-year deprecation for the Risk Provider and Risk Events APIs](#end-of-year-deprecation-for-the-risk-provider-and-risk-events-apis) | December 31, 2024 |
+| [New field for filtering zones](#new-field-for-filtering-zones) | October 9, 2024 |
+| [Grace period for device assurance is EA in Preview](#grace-period-for-device-assurance-is-ea-in-preview) | October 9, 2024 |
+| [OIDC Identity Provider options](#oidc-identity-provider-options) | October 9, 2024 |
+| [Two System Log event types now provide event outcome reasons](#two-system-log-event-types-now-provide-event-outcome-reasons) | October 9, 2024 |
+| [Seamless ISV experience for SCIM is GA in Preview](#seamless-isv-experience-for-scim-is-ga-in-preview) | October 9, 2024 |
+| [New Okta Secure Identity collection in the OIN catalog](#new-okta-secure-identity-collection-in-the-oin-catalog) | October 9, 2024 |
+| [New Policies API property for authentication method object](#new-policies-api-property-for-authentication-method-object) | October 9, 2024 |
+| [Enhanced Dynamic Network Zones is GA in Production](#enhanced-dynamic-network-zones-is-ga-in-production) | May 15, 2024 |
+| [YubiKey preregistration feature is GA in Preview](#yubikey-preregistration-feature-is-ga-in-preview) | July 17, 2024 |
+| [Developer documentation updates in 2024.10.0](#developer-documentation-updates-in-2024-10-0) | October 9, 2024 |
+| [Bugs fixed in 2024.10.0](#bugs-fixed-in-2024-10-0)| October 9, 2024 |
+
+#### End-of-year deprecation for the Risk Provider and Risk Events APIs
+
+These APIs will be deprecated on December 31, 2024. Use the [SSF Receiver API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SSFReceiver/) instead to receive security-related events and other data-subject signals. Use the [SSF Security Event Tokens API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SSFSecurityEventToken/) for third-party security event providers. <!-- (OKTA-813817) -->
+
+#### New field for filtering zones
+
+The `system` field is now available for the `filter` [Network Zones query parameter](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/NetworkZone/#tag/NetworkZone/operation/listNetworkZones!in=query&path=filter&t=request), in addition to the `id` and `usage` fields. The values supported are `true` or `false`.
+
+#### Grace period for device assurance is EA in Preview
+
+Occasionally, users’ devices might fall out of compliance with security policies due to temporary conditions such as missed software updates or unapproved network connections. Without a grace period, they would be immediately blocked from accessing critical resources, which disrupts productivity and causes frustration. The grace period for the device assurance feature allows you to define a temporary window during which non-compliant devices can still access resources. This gives users time to remediate issues without being locked out, balancing productivity with security standards. See [Device Assurance Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/DeviceAssurance/#tag/DeviceAssurance/operation/createDeviceAssurancePolicy!path=0/gracePeriod&t=request) and the [Add a device assurance policy guide](https://help.okta.com/okta_help.htm?type=oie&id=csh-device-assurance-add). <!-- DEVICE_ASSURANCE_GRACE_PERIOD -->
+
+#### OIDC Identity Provider options
+
+OpenID Connect Identity Providers can now have both the Account Link and JIT policies set to `disabled`.
+
+#### Two System Log event types now provide event outcome reasons
+
+The `Event.Outcome.Reason` field for the `user.authentication.auth_via_IDP` and `user.authentication.auth_via_social` [event types](https://developer.okta.com/docs/reference/api/event-types/) now indicates whether a successful IdP sign-in flow was due to JIT provisioning or account linking. <!-- (OKTA-808605) -->
+
+#### Seamless ISV experience for SCIM is GA in Preview
+
+Okta now provides a seamless ISV experience to optimize the [Okta Integration Network (OIN)](https://www.okta.com/integrations/) submission experience for SCIM integrations. This new experience enables independent software vendors (ISVs) to build and manually test their SCIM integration metadata before submission to the OIN. This reduces the time needed for the OIN team to review and validate that the SCIM integration functions as intended, which shortens the time to publish in the OIN. This experience also incorporates communication processes in Salesforce, enabling improved collaboration internally within Okta teams and externally with ISVs. See [Publish an OIN integration overview](https://developer.okta.com/docs/guides/submit-app-overview/) and [Submit an integration with the OIN Wizard](https://developer.okta.com/docs/guides/submit-oin-app/scim/main/) guide. <!-- SCIM_SUBMISSION -->
+
+#### New Okta Secure Identity collection in the OIN catalog
+
+A new Okta Secure Identity collection is available in the Okta Integration Network (OIN) catalog. This collection identifies integrations that are part of the [Okta Secure Identity commitment](https://www.okta.com/secure-identity-commitment/). See the [OIN catalog](https://www.okta.com/integrations/?category=okta-secure-identity) for a list of integrations assigned to this collection.
+
+#### New Policies API property for authentication method object
+
+A new `userVerificationMethods` property is available for the `authenticationMethods` object of the Policy API<!--[Policy API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule!path=0/actions/appSignOn/verificationMethod/1/chains/authenticationMethods/userVerificationMethods&t=request)-->. When you create a rule that uses the `AUTH_METHOD_CHAIN` verification method type, you can use this setting to specify the verification method for a user.
+
+#### Enhanced Dynamic Network Zones is GA in Production
+
+Use enhanced dynamic network zones to define IP service categories (proxies, VPNs), locations, and Autonomous System Numbers (ASNs) that are allowed or blocked in a zone. See the [Network Zones API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/NetworkZone/). <!--ENHANCED_DYNAMIC_NETWORK_ZONE (OKTA-727934)-->
+
+#### YubiKey preregistration feature is GA in Preview
+
+You can now assign a fulfillment error status to a WebAuthn Preregistration factor, by making a request to `users/{userId}/enrollments/{authenticatorEnrollmentId}/mark-error`. In a preregistration workflow, use the assigned error status to see if WebAuthn preregistration enrollments encounter an error during fulfillment. See [WebAuthn Preregistration](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/WebAuthnPreregistration/#tag/WebAuthnPreregistration/operation/assignFulfillmentErrorWebAuthnPreregistrationFactor).
+
+Admins were previously unable to enroll and ship YubiKeys as WebAuthn enrollments in a quick and automated way. The [WebAuthn Preregistration](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/WebAuthnPreregistration/) feature enables admins to preregister YubiKey factors as WebAuthn enrollments. Admins can preregister these factors for both staged and existing (active) users using a Workflows and Yubico integration to seamlessly handle the registration and shipment.  <!-- https://oktainc.atlassian.net/browse/OKTA-720689 YUBIKEY_PREREGISTRATION_AS_WEBAUTHN_ENROLLMENT -->
+
+#### Developer documentation updates in 2024.10.0
+
+* We have expanded and updated our Terraform documentation to cover deeper topics.
+
+  * An expanded **Manage** section with an article on importing existing resources into Terraform and new resources.
+
+    * [Manage device connection requirements using Terraform](/docs/guides/terraform-configure-device-signin-standards/)
+    * [Manage custom domains with Terraform](/docs/guides/terraform-manage-multiple-domains/main/)
+    * [Manage branding with Terraform](/docs/guides/terraform-manage-end-user-experience/main/) (updated and expanded)
+
+  * An article on making the Terraform connection as secure as possible.
+
+    * [Control Terraform access to Okta](/docs/guides/terraform-design-access-security/main/)
+
+  * Articles to help save time.
+
+    * [Organize your Terraform configuration](/docs/guides/terraform-organize-configuration/main/)
+    * [Terraform syntax tips for automation](/docs/guides/terraform-syntax-tips/)
+
+* Our [SDK documentation](https://developer.okta.com/code/) has been refreshed and updated to reflect our modern SDKs and recommended development paths. See **SDKs** in the menu.
+
+<div class="three-quarter">
+
+![Developer docs top menu bar](/img/homepage/SDKs-menu.png)
+
+</div>
+
+#### Bugs fixed in 2024.10.0
+
+* The `okta.oauthIntegrations.manage`  OAuth 2.0 authentication scope wasn’t supported for the create an API service integration endpoint (`POST /integrations/api/v1/api-services` ).  (OKTA-735510)
+* The SAML IdP `login` property mapping validation was handled incorrectly. (OKTA-812517)
+
 ## September
 
 ### Weekly release 2024.09.3
@@ -45,7 +138,7 @@ If the Okta account management policy was used, GET calls to the `/idp/myaccount
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
 | [Descriptions for Entitlement and Role objects](#descriptions-for-entitlement-and-role-objects) | September 11, 2024 |
-| [Enhanced Dynamic Network Zones is self-service GA](#enhanced-dynamic-network-zones-is-self-service-ga) | May 15, 2024 |
+| [Enhanced Dynamic Network Zones is GA in Preview](#enhanced-dynamic-network-zones-is-ga-in-preview) | May 15, 2024 |
 | [Event hook System Log update](#event-hook-system-log-update) | September 11, 2024 |
 | [Global token revocation for wizard SAML and OIDC apps](#global-token-revocation-for-wizard-saml-and-oidc-apps) | September 11, 2024 |
 | [Granular configuration for Keep Me Signed In is EA in Preview](#granular-configuration-for-keep-me-signed-in-is-ea-in-preview) | September 11, 2024 |
@@ -62,7 +155,7 @@ If the Okta account management policy was used, GET calls to the `/idp/myaccount
 SCIM 2.0 with entitlements now supports a `description` field for Entitlement and Role objects.
 <!--OKTA-741183-->
 
-#### Enhanced Dynamic Network Zones is self-service GA
+#### Enhanced Dynamic Network Zones is GA in Preview
 
 Use enhanced dynamic network zones to define IP service categories (proxies, VPNs), locations, and Autonomous System Numbers (ASNs) that are allowed or blocked in a zone. See the [Network Zones API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/NetworkZone/). <!--ENHANCED_DYNAMIC_NETWORK_ZONE OKTA-727934-->
 

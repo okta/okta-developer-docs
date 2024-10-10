@@ -1,9 +1,9 @@
 ---
-title: Prepare your SCIM API service
-excerpt: Prepare a SCIM-compliant API server to host your SCIM service, and test it to make sure it is working correctly.
+title: Build your SCIM API service
+excerpt: Build a SCIM-compliant API server to host your SCIM service, and test it to make sure it works correctly.
 meta:
   - name: description
-    content: Prepare a SCIM-compliant API server to host your SCIM service, and test it to make sure it is working correctly.
+    content: Build a SCIM-compliant API server to host your SCIM service, and test it to make sure it works correctly.
 layout: Guides
 sections:
  - main
