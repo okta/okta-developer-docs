@@ -10,14 +10,6 @@ To protect the service for all customers, Okta APIs are subject to rate limits. 
 
 The Okta API rate limits are divided into the following categories: authentication/end user and management. Each category has APIs with rate limits that are enforced individually. The rate limits vary by [service subscription](https://developer.okta.com/pricing/).
 
-## API rate limit categories
-
-To access the individual API limits, visit one of the following category pages or see the [APIs table](/docs/reference/rl-dashboard/#apis-table) in the Rate Limits dashboard:
-
-* [Authentication/End user](/docs/reference/rl-global-enduser/)
-* [Management](/docs/reference/rl-global-mgmt/)
-* [Additional limits](/docs/reference/rl-additional-limits)
-
 If any org-wide rate limit is exceeded, an HTTP 429 status code is returned. You can anticipate hitting the rate limit by checking the [Okta rate limiting headers](/docs/reference/rl-best-practices/#check-your-rate-limits-with-okta-s-rate-limit-headers). Also, you’re sent an email notification when your org approaches its rate limit.
 
 > **Notes:**
