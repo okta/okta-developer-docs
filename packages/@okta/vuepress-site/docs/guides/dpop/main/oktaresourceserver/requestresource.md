@@ -8,7 +8,7 @@ When you make requests to an Okta resource, there are a few more steps required 
     * `ath`: Base64-encoded SHA-256 hash [SHS] of the DPoP-bound access token
     * `htm`: HTTP method. The HTTP method of the request that the JWT is attached to. This value is the appropriate HTTP verb for the request. For example: `GET`.
     * `htu`: HTTP URI. The endpoint URL for the resource that you want to access. For example: `http://{yourOktaDomain}/api/v1/{api_endpoint}`.
-    * `iat`: Issued at. The time at which the JWT is issued. The time appears in seconds since the Unix epoch. The Unix epoch is the number of seconds that have elapsed since January 1, 1970 at midnight UTC.
+    * `iat`: Issued at. The time when the JWT is issued. The time appears in seconds since the Unix epoch. The Unix epoch is the number of seconds that have elapsed since January 1, 1970 at midnight UTC.
     * `jti`: JWT ID. A unique [JWT identifier](https://www.rfc-editor.org/rfc/rfc7519#section-4.1.7) for the request.
 
     Example payload:
