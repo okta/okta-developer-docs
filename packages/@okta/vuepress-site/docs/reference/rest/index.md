@@ -265,17 +265,18 @@ In Postman, the initial `/authorize` request is included in the **Authorization*
 
 1. Select the request that you want to make from Postman, such as a `GET` request to the `/api/v1/users` endpoint to get back a list of all users.
 2. On the **Header** tab, remove the **Authorization** parameter if it exists.
-3. Click the **Authorization** tab and from the **Type** dropdown list, select **OAuth 2.0**.
+3. Click the **Authorization** tab and from the **Auth Type** dropdown list, select **OAuth 2.0**.
 4. On the right pane, scroll down to the **Configure New Token** section.
 5. In the first field, enter a name for the token and select **Authorization Code (With PKCE)** as the grant type.
 6. Define the remaining fields for the token request:
 
     * **Callback URL**: Define the callback location where Okta returns the token after the user finishes authenticating. This URL must match one of the redirect URIs that you configured in the [Create an OIDC app in Okta](#create-an-oidc-app-in-okta) task.
-    * **Auth URL**: Enter the authorization endpoint for your org authorization server: `https://{yourOktaDomain}/oauth2/v1/authorize`.
-    * **Access Token URL**: Enter the token endpoint for your org authorization server: `https://{yourOktaDomain}/oauth2/v1/token`.
+    * **Auth URL**: Enter the authorization endpoint for your org authorization server: `https://{yourOktaDomain}/oauth2/v1/authorize`
+    * **Access Token URL**: Enter the token endpoint for your org authorization server: `https://{yourOktaDomain}/oauth2/v1/token`
     * **Client ID**: Specify the client ID value of your Okta OIDC app integration that you created in the [Create an OIDC app in Okta](#create-an-oidc-app-in-okta) task.
 
         Alternatively, you can add the client ID to the `clientId` variable in your Postman environment and use the following **Client ID** value:
+
         ```json
         {{clientId}}
         ```
@@ -283,6 +284,7 @@ In Postman, the initial `/authorize` request is included in the **Authorization*
     * **Client secret**: Specify the client secret of your Okta OIDC app integration that you created in the [Create an OIDC app in Okta](#create-an-oidc-app-in-okta) task.
 
         Alternatively, you can add the client secret to the `clientSecret` variable in your Postman environment and use the following **Client secret** value:
+
         ```json
         {{clientSecret}}
         ```
