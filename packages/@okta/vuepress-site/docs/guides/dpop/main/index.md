@@ -47,7 +47,7 @@ Create a [DPoP proof JWT](https://www.rfc-editor.org/rfc/rfc7519). A DPoP proof 
 ### DPoP proof parameters and claims
 
 Include the following required parameters in the JWT header:
-ß
+
 * `typ`: Type header. Declares that the encoded object is a JWT and meant for use with DPoP. This must be `dpop+jwt`.
 * `alg`: Algorithm. Indicates that the asymmetric algorithm is RS256 (RSA using SHA256). This algorithm uses a private key to sign the JWT and a public key to verify the signature. Must not be `none` or an identifier for a symmetric algorithm. This example uses `RS256`.
 * `jwk`: JSON Web Key. Include the public key (in JWK string format). Okta uses this public key to verify the JWT signature. See the [Application JSON Web Key Response properties](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/Client/#tag/Client/operation/createClient!c=201&path=jwks&t=response) for a description of the public key properties.
@@ -83,11 +83,19 @@ This section discusses the initial POST `/token` [request](/docs/guides/implemen
 
     Example response
 
-    ```JSON
-    {
-      "error": "use_dpop_nonce",
-      "error_description": "Authorization server requires nonce in DPoP proof."
-    }
+    ```bash
+    HTTP/ 1.1 400 Bad Request
+    Cache-Control: no-cache, no-store
+    Pragma: no-cache
+    Content-Type: application/json
+    Server: nginx
+    Date: Tue, 07 Mar 2023 23:43:13 GMT
+    dpop-nonce: 8NLZUUhVawx1ns8AjrC4F6j8D2phvaw7
+
+      {
+        "error": "use_dpop_nonce",
+        "error_description": "Authorization server requires nonce in DPoP proof."
+      }
     ```
 
 2. Update the JWT payload.
