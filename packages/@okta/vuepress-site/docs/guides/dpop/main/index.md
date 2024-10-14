@@ -4,7 +4,7 @@ excerpt: Learn how to implement OAuth 2.0 Demonstrating Proof-of-Possession
 layout: Guides
 ---
 
-This guide discusses how to create sender-constrained access tokens that are an application-level mechanism for preventing token replays at different endpoints.
+This guide discusses how to create sender-constrained access tokens that are an app-level mechanism for preventing token replays at different endpoints.
 
 ---
 
