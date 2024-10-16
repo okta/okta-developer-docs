@@ -1,16 +1,14 @@
-## Make a request to an Okta resource
-
-Access to an Okta resource requires more steps.
+When you make requests to an Okta resource, there are a few more steps required than when you make requests to a [non-Okta resource](/docs/guides/dpop/nonoktaresourceserver/main/):
 
 1. Hash and base64url-encode the DPoP-bound access token for use as the `ath` value.
-1. Use the [Create the JSON Web Token](#create-the-json-web-token) section to create a DPoP proof JWT with the following claims:
+1. Create a DPoP proof JWT with the following claims:
 
     Include the following required claims in the JWT payload:
 
     * `ath`: Base64-encoded SHA-256 hash [SHS] of the DPoP-bound access token
     * `htm`: HTTP method. The HTTP method of the request that the JWT is attached to. This value is the appropriate HTTP verb for the request. For example: `GET`.
     * `htu`: HTTP URI. The endpoint URL for the resource that you want to access. For example: `http://{yourOktaDomain}/api/v1/{api_endpoint}`.
-    * `iat`: <StackSnippet snippet="iat" inline />
+    * `iat`: Issued at. The time when the JWT is issued. The time appears in seconds since the Unix epoch. The Unix epoch is the number of seconds that have elapsed since January 1, 1970 at midnight UTC.
     * `jti`: JWT ID. A unique [JWT identifier](https://www.rfc-editor.org/rfc/rfc7519#section-4.1.7) for the request.
 
     Example payload:
@@ -32,7 +30,7 @@ Access to an Okta resource requires more steps.
     * **Authorization:** The value of the original DPoP-bound access token
     * **DPoP:** The value of the new DPoP proof JWT
 
-    Request example (some values are truncated for brevity):
+    Example request (some values are truncated for brevity):
 
     ```bash
     curl --request GET
