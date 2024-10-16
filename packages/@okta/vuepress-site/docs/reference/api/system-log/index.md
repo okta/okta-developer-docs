@@ -5,6 +5,12 @@ category: management
 
 # System Log API
 
+The System Log API reference is now available at the new [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/#tag/SystemLog).
+
+Explore the [Okta Public API Collections](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/overview) workspace to get started with the System Log API Postman collection. For further information on querying the System Log, see [System Log query](https://developer.okta.com/docs/reference/system-log-query/).
+
+<!--
+
 The Okta System Log records system events that are related to your organization in order to provide an audit trail that can be used to understand platform activity and to diagnose problems.
 
 The Okta System Log API provides near real-time, read-only access to your organization's system log and is the programmatic counterpart of the [System Log UI](https://help.okta.com/okta_help.htm?id=ext_Reports_SysLog).
@@ -1011,4 +1017,4 @@ curl -v -X GET \
 
 Then retrieve the next page of events through the [link response header](https://developer.okta.com/docs/api/#link-header) value with the `next` link relation. Continue this process until no events are returned.
 
->**Note:** Don't transfer data by manually paginating using `since` and `until`, as this may lead to skipped or duplicated events. Instead, always follow the `next` links.
+>**Note:** Don't transfer data by manually paginating using `since` and `until`, as this may lead to skipped or duplicated events. Instead, always follow the `next` links. -->
