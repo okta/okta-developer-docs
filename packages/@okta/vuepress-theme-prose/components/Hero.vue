@@ -23,13 +23,12 @@
           </p>
           <!-- End workshops promo banner -->
         </div>
-        <!-- 
+        <!--
           For understanding usage of the banner, refer https://oktawiki.atlassian.net/wiki/spaces/DOC/pages/2920874189/Adding+a+banner+on+homepage+in+dev+docs
          -->
         <HomePageBanner
           v-show="showBanner"
           primary-cta-text="Save your spot now"
-          primary-cta-link="https://a0.to/devday24/okta-dev"
           primary-link-target="_blank"
         >
           <!-- <template #heading /> -->
