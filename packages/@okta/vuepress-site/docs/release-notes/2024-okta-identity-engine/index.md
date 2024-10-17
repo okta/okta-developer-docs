@@ -19,7 +19,7 @@ title: Okta Identity Engine API release notes 2024
 | [Two System Log event types now provide event outcome reasons](#two-system-log-event-types-now-provide-event-outcome-reasons) | October 9, 2024 |
 | [Seamless ISV experience for SCIM is GA in Preview](#seamless-isv-experience-for-scim-is-ga-in-preview) | October 9, 2024 |
 | [New Okta Secure Identity collection in the OIN catalog](#new-okta-secure-identity-collection-in-the-oin-catalog) | October 9, 2024 |
-| [New Policy API property for authentication method object](#new-policy-api-property-for-authentication-method-object) | October 9, 2024 |
+| [New Policies API property for authentication method object](#new-policies-api-property-for-authentication-method-object) | October 9, 2024 |
 | [Enhanced Dynamic Network Zones is GA in Production](#enhanced-dynamic-network-zones-is-ga-in-production) | May 15, 2024 |
 | [YubiKey preregistration feature is GA in Preview](#yubikey-preregistration-feature-is-ga-in-preview) | July 17, 2024 |
 | [Developer documentation updates in 2024.10.0](#developer-documentation-updates-in-2024-10-0) | October 9, 2024 |
@@ -53,9 +53,9 @@ Okta now provides a seamless ISV experience to optimize the [Okta Integration Ne
 
 A new Okta Secure Identity collection is available in the Okta Integration Network (OIN) catalog. This collection identifies integrations that are part of the [Okta Secure Identity commitment](https://www.okta.com/secure-identity-commitment/). See the [OIN catalog](https://www.okta.com/integrations/?category=okta-secure-identity) for a list of integrations assigned to this collection.
 
-#### New Policy API property for authentication method object
+#### New Policies API property for authentication method object
 
-A new `userVerificationMethods` property is available for the `authenticationMethods` object of the [Policy API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule!path=0/actions/appSignOn/verificationMethod/1/chains/authenticationMethods/userVerificationMethods&t=request). When you create a rule that uses the `AUTH_METHOD_CHAIN` verification method type, you can use this setting to specify the verification method for a user.
+A new `userVerificationMethods` property is available for the `authenticationMethods` object of the [Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule!path=0/actions/appSignOn/verificationMethod/1/chains/authenticationMethods/userVerificationMethods&t=request). When you create a rule that uses the `AUTH_METHOD_CHAIN` verification method type, you can use this setting to specify the verification method for a user.
 
 #### Enhanced Dynamic Network Zones is GA in Production
 
