@@ -55,7 +55,7 @@ A new Okta Secure Identity collection is available in the Okta Integration Netwo
 
 #### New Policies API property for authentication method object
 
-A new `userVerificationMethods` property is available for the `authenticationMethods` object of the Policy API<!--[Policy API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule!path=0/actions/appSignOn/verificationMethod/1/chains/authenticationMethods/userVerificationMethods&t=request)-->. When you create a rule that uses the `AUTH_METHOD_CHAIN` verification method type, you can use this setting to specify the verification method for a user.
+A new `userVerificationMethods` property is available for the `authenticationMethods` object of the [Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule!path=0/actions/appSignOn/verificationMethod/1/chains/authenticationMethods/userVerificationMethods&t=request). When you create a rule that uses the `AUTH_METHOD_CHAIN` verification method type, you can use this setting to specify the verification method for a user.
 
 #### Enhanced Dynamic Network Zones is GA in Production
 
