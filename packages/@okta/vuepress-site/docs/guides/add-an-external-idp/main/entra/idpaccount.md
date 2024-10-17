@@ -1,0 +1,1 @@
+with [Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) that has an active subscription to access the [Microsoft Entra admin center](https://entra.microsoft.com/)
