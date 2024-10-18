@@ -1,4 +1,4 @@
-Use the Identity Provider's documentation to create a client application.
+At the OpenID Connect IdP, create the client app that you want to use for authenticating and authorizing your users. Use the IdP's documentation to create a client app.
 
 You also need to add the redirect URI to the appropriate section. The redirect URI sent in the authorize request from the client needs to match the redirect URI in the OIDC IdP. This is the URL where the IdP returns the authentication response (the access token and the ID token). It needs to be a secure domain that you own. This URL has the same structure for most Identity Providers in Okta and is constructed using your Okta subdomain and then the callback endpoint.
 
