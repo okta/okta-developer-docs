@@ -39,4 +39,4 @@ There are two steps to sign out a user completely when `ephemeralSession` is set
 1. Call the `signOut(from:credential:options:)` or `signOut(from:credential:options:completion:)` function of the `WebAuthentication` class to invalidate the browser window session.
 2. Call the `remove()` function of the `Credential` class to remove any existing authentication tokens.
 
-If you don't do this then when the user next authenticates the token may be updated without requiring any factors. The user experiences this as an immediate authentication to the last account from which they signed-out.
+If you don't do this then when the user next authenticates the token may be updated without requiring any factors. The user experiences this as an immediate authentication to the last account from which they signed out.
