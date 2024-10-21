@@ -158,9 +158,9 @@ Learn how to accomplish a task with step-by-step instructions.
 
 ## Integrate authentication into your app
 
-The following links outline what developers need to know step-by-step to successfully deploy a single app. For custom app developers, it covers planning, designing, building, deploying, and troubleshooting apps that require user management, authentication, and API authorization.
+The following links outline what you need to know to successfully integrate authentication in to your app. The guides cover planning, designing, building, deploying, and troubleshooting apps that require user management, authentication, and API authorization.
 
-If you're using Okta as an identity layer in your app for the first time, we recommend that you start with [How Okta Works](/docs/concepts/how-okta-works/) and the [Okta Data Model](/docs/concepts/okta-data-model/). Then, you can follow the sequence of guides below or jump directly to the content that you need.
+If you're using Okta as an identity layer for the first time, start with [How Okta Works](/docs/concepts/how-okta-works/) and the [Okta Data Model](/docs/concepts/okta-data-model/). Then, review the following guides.
 
 1. Get the basics
 
@@ -187,7 +187,7 @@ If you're using Okta as an identity layer in your app for the first time, we rec
     * [Validate ID tokens](/docs/guides/validate-id-tokens/)
     * [Configure an access policy](/docs/guides/configure-access-policy/)
     * [Customize tokens returned from Okta with custom claims](/docs/guides/customize-tokens-returned-from-okta/)
-    * [Customize tokens returned from Okta with a Groups claim](/docs/guides/customize-tokens-groups-claim/)
+    * [Customize tokens returned from Okta with Groups claim](/docs/guides/customize-tokens-groups-claim/)
     * [Customize tokens returned from Okta with a dynamic allowlist](/docs/guides/customize-tokens-dynamic/)
     * [Customize tokens returned from Okta with a static allowlist](/docs/guides/customize-tokens-static/)
 
@@ -221,14 +221,13 @@ If you're using Okta as an identity layer in your app for the first time, we rec
     * [Password import inline hook example](/docs/guides/password-import-inline-hook/)
     * [Registration inline hook example](/docs/guides/registration-inline-hook/)
 
-
 ## Publish an integration in the OIN
 
-Partner integrations connect your app or service to our mutual customers. One of the most common integrations is Single Sign-On (SSO), which gives Okta users the ability to sign in directly to your application through Okta. Many partners also build provisioning integrations (using the SCIM protocol) to automate lifecycle management use cases for their customers. Integrations can also extend Okta's functionality or integrate with your service in more complex ways.
+Partner integrations connect your app or service to our mutual customers. One of the most common integrations is Single Sign-On (SSO), which gives Okta users the ability to sign in directly to your application through Okta. Many partners also build provisioning integrations (using the SCIM protocol) to automate lifecycle management use cases for their customers. Integrations can also extend Okta functionality or integrate with your service in more complex ways.
 
-You can publish your integration in the Okta Integration Network (OIN) catalog to expose your app to thousands of Okta workforce customers.
+You can publish your integration in the Okta Integration Network (OIN) catalog to expose your app to thousands of Okta Workforce customers.
 
-If you're creating an Okta integration for the first time, we recommend the following sequence of guides:
+If you're creating an Okta integration for the first time, Okta recommends the following sequence of guides:
 
 1. [OIN landing](/docs/guides/okta-integration-network/)
 1. [Overview of Single Sign-On in the OIN](/docs/guides/oin-sso-overview/)
