@@ -13,21 +13,34 @@ title: Okta Identity Engine API release notes 2024
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
 | [IP Exempt Zone is self-service EA in Preview](#ip-exempt-zone-is-self-service-ea-in-preview)| October 23, 2024 |
+| [OpenID Connect Identity Providers now support group sync](#openid-connect-identity-providers-now-support-group-sync)| October 23, 2024 |
 | [Bugs fixed in 2024.10.1](#bugs-fixed-in-2024-10-1)| October 23, 2024 |
 
 #### IP Exempt Zone is self-service EA in Preview
 
 This feature introduces `useAsExemptList` as a read-only Boolean property that distinguishes the new default IP exempt zones from other zones. When you enable this feature and you make a GET `api/v1/zones` request, Okta returns `useAsExemptList` in the response. The value `true` indicates that the zone is an exempt zone. Only system generated exempt zones are available. <!-- DEFAULT_NETWORK_ZONE_IP_EXEMPT_LIST (OKTA-795812) -->
 
+#### OpenID Connect Identity Providers now support group sync
+
+OpenID Connect Identity Providers now support full group sync and adding a user to a group that they don't already belong to. A user who authenticates with an external IdP is added to all available groups when **Full sync of groups** is enabled. The user is added to any groups that they don't already belong to when **Add user to missing groups** is enabled. This allows you to specify certain groups that users should be added to. <!-- GROUP_SYNC_FEATURE_OIDC_IDP_ENABLED (OKTA-817450) -->
+
 #### Bugs fixed in 2024.10.1
 
+* A 500 error was returned when a malformed interaction handle was passed to the `/introspect` endpoint. (OKTA-593499)
+
+* Deleting a pre-registered YubiKey enrollment with the WebAuthn Preregistration (`api/v1/users/{userId}/enrollments/{authenticatorEnrollmentId}`) didn't send an email notification or register a System Log event. (OKTA-750155)
+
 * No System Log event occurred when the Interaction Code grant flow failed due to no matching policy on the authorization server. (OKTA-795711)
+
+* The System Log displayed an incorrect actor when events were triggered by an Activate a factor (`/api/v1/users/{userId}/factors/{factorId}/lifecycle/activate`) request. (OKTA-803794)
 
 * User grants weren't returned from the Users API (`/users/<userId>clients/<clientId>/grants`) after revoking refresh tokens. (OKTA-808977)
 
 * The SAML IdP metadata sometimes returned the variable name as the attribute name. (OKTA-811786)
 
 * When you retrieved a policy rule that denied access and used an empty authentication method chain, a `500` validation error was returned. (OKTA-819217)
+
+* GET calls to the `/idp/myaccount/authenticators/{authenticatorId}/enrollments` and `/idp/myaccount/authenticators/{authenticatorId}/enrollments/{enrollmentId}` endpoints returned the `authenticatorId` instead of the `enrollmentId` in the `unenroll` and `modify` link objects. (OKTA-820551)
 
 ### Monthly release 2024.10.0
 
