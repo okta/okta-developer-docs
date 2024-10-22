@@ -6,6 +6,25 @@ title: Okta Classic Engine API release notes 2024
 
 ## October
 
+### Weekly release 2024.10.1
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [IP Exempt Zone is self-service EA in Preview](#ip-exempt-zone-is-self-service-ea-in-preview)| October 23, 2024 |
+| [Bugs fixed in 2024.10.1](#bugs-fixed-in-2024-10-1)| October 23, 2024 |
+
+#### IP Exempt Zone is self-service EA in Preview
+
+This feature introduces `useAsExemptList` as a read-only Boolean property that distinguishes the new default IP exempt zones from other zones. When you enable this feature and you make a GET `api/v1/zones` request, Okta returns `useAsExemptList` in the response. The value `true` indicates that the zone is an exempt zone. Only system generated exempt zones are available. <!-- DEFAULT_NETWORK_ZONE_IP_EXEMPT_LIST (OKTA-795812) -->
+
+#### Bugs fixed in 2024.10.1
+
+* No System Log event occurred when the Interaction Code grant flow failed due to no matching policy on the authorization server. (OKTA-795711)
+
+* User grants weren't returned from the Users API (`/users/<userId>clients/<clientId>/grants`) after revoking refresh tokens. (OKTA-808977)
+
+* The SAML IdP metadata sometimes returned the variable name as the attribute name. (OKTA-811786)
+
 ### Monthly release 2024.10.0
 
 | Change | Expected in Preview Orgs |
