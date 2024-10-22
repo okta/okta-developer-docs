@@ -4,7 +4,7 @@ excerpt: Define groups claims for tokens returned from Okta.
 layout: Guides
 ---
 
-This guide explains how to add a groups claim to ID tokens for any combination of app groups and user groups to perform SSO using the org authorization server. You can also add a groups claim to ID tokens and access tokens to perform authentication and authorization using a custom authorization server.
+This guide explains how to add a groups claim to ID tokens. You can add these claims to ID tokens for any combination of app groups and user groups to perform SSO using the org authorization server. You can also add a groups claim to ID tokens and access tokens to perform authentication and authorization using a custom authorization server.
 
 ---
 
@@ -16,7 +16,7 @@ This guide explains how to add a groups claim to ID tokens for any combination o
 #### What you need
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
-* [OpenID Connect client application](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-oidc) in Okta with at least [one user assigned to it](https://help.okta.com/okta_help.htm?id=ext-assign-apps)
+* [OpenID Connect client app](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-oidc) in Okta with at least [one user assigned to it](https://help.okta.com/okta_help.htm?id=ext-assign-apps)
 * A [Group in Okta](https://help.okta.com/okta_help.htm?id=ext_Directory_Groups) with at least one person assigned to it
 
 ---
@@ -25,19 +25,19 @@ This guide explains how to add a groups claim to ID tokens for any combination o
 
 You can create a groups claim for an OpenID Connect client app. This approach is recommended if you’re using only Okta-sourced groups. For groups not sourced in Okta, you need to use an expression. See [Retrieve both Active Directory and Okta groups in OpenID Connect claims](https://support.okta.com/help/s/article/Can-we-retrieve-both-Active-Directory-and-Okta-groups-in-OpenID-Connect-claims?language=en_US). For an org authorization server, you can only create an ID token with a groups claim, not an access token.
 
-Also, you can create a [dynamic](/docs/guides/customize-tokens-dynamic/) or [static](/docs/guides/customize-tokens-static/) allowlist when you need to set group allowlists on a per-application basis using both the org authorization server and a custom authorization server.
+Also, you can create a [dynamic](/docs/guides/customize-tokens-dynamic/) or [static](/docs/guides/customize-tokens-static/) allowlist. Do this when you need to set group allowlists on a per-app basis using both the org authorization server and a custom authorization server.
 
 See [Customize tokens returned from Okta](/docs/guides/customize-tokens-returned-from-okta/) when you want to define your own custom claims. For example, you may want to add a user's email address to an access token and use that to uniquely identify the user. You may want to add information stored in a user profile to an ID token.
 
 ## Request a token that contains the custom claim
 
-There are sections in this guide that include information on building a URL to request a token that contains a custom claim. These sections refer you here for the specific steps to build the URL to request a claim and decode the JSON Web Token (JWT) to verify that the claim was included in the token.
+There are sections in this guide that include information on building a URL to request a token that contains a custom claim. These sections refer you here for the specific steps to build the URL. Use this URL to request a claim and then decode the JSON Web Token (JWT) to verify that the claim was included in the token.
 
 Specific request and payload examples remain in the appropriate sections. Move on to the next section if you don't currently need these steps.
 
-To test the full authentication flow that returns an ID token or an access token, build your request URL:
+To test the full authentication flow that returns an ID or an access token, build your request URL:
 
-1. Obtain the following values from your OpenID Connect application, both of which can be found on the application's **General** tab:
+1. Obtain the following values from your OpenID Connect app, both of which can be found on the app's **General** tab:
 
     * Client ID (`client_id`)
     * Sign-in redirect URI (`redirect_uri`)
@@ -46,34 +46,28 @@ To test the full authentication flow that returns an ID token or an access token
 
     > **Note:** See [Authorization servers](/docs/guides/customize-authz-server/) for more information on the types of authorization servers available to you and what you can use them for.
 
-    * An org authorization server authorization endpoint looks like this:
+    * An org authorization server `/authorize` endpoint looks like this:
 
         `https://{yourOktaDomain}/oauth2/v1/authorize`
 
-    * A custom authorization server authorization endpoint looks like this:
+    * A custom authorization server `/authorize` authorization endpoint looks like this:
 
         `https://{yourOktaDomain}/oauth2/{authorizationServerId}/v1/authorize`
 
     > **Note:** If you add the claim to the default custom authorization server, the `{authorizationServerId}` is `default`.
 
-    You can retrieve a custom authorization server's authorization endpoint using the server's metadata URI:
-
-    **ID token**
-    `https://{yourOktaDomain}/oauth2/{authorizationServerId}/.well-known/openid-configuration`
-
-    **Access token**
-    `https://{yourOktaDomain}/oauth2/{authorizationServerId}/.well-known/oauth-authorization-server`
+    You can retrieve a custom authorization server's `/authorize` endpoint using the [server's metadata URI](/docs/concepts/auth-servers/#discovery-endpoints-custom-authorization-server).
 
 3. Add the following query parameters to the URL:
 
-    * Your OpenID Connect application's `client_id`
+    * Your OpenID Connect app's `client_id`
     * The response type, which for an ID token is `id_token` and an access token is `token`
     > **Note:** The examples in this guide use the [Implicit flow](/docs/concepts/oauth-openid/#implicit-flow). For the [Authorization Code flow](/docs/concepts/oauth-openid/#authorization-code-flow), the response type is `code`. You can exchange an authorization code for an ID token and/or an access token using the `/token` endpoint.
-    * A scope, which for the purposes of the examples is `openid`. When you’re adding a groups claim, both the `openid` and the `groups` scopes are included.
-    * Your OpenID Connect application's `redirect_uri`
+    * A scope, which is `openid` for the examples in this guide. When you’re adding a groups claim, both the `openid` and the `groups` scopes are included.
+    * Your OpenID Connect app's `redirect_uri`
     * Values for `state` and `nonce`, which can be anything
 
-    > **Note:** All of the values are fully documented on the [Obtain an Authorization Grant from a user](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/authorizeCustomAS) page.
+    > **Note:** These values are fully documented on the [Obtain an Authorization Grant from a user](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/authorizeCustomAS) page.
 
     The resulting URL looks something like this:
 
@@ -89,7 +83,7 @@ To test the full authentication flow that returns an ID token or an access token
 
     > **Note:** The `response_type` for an access token looks like this: `&response_type=token`
 
-4. After you paste the request into your browser, the browser is redirected to the sign-in page for your Okta org. Enter the credentials for a user who is mapped to your OpenID Connect application, and then the browser is directed to the `redirect_uri` that you specified in the URL and in the OpenID Connect app. The response contains an ID token or an access token, and any state that you defined. The following are response examples:
+4. After you paste the request into your browser, the browser is redirected to the sign-in page for your Okta org. Enter the credentials for a user who is mapped to your OpenID Connect app, and then the browser is directed to the `redirect_uri` that you specified in the URL and in the OpenID Connect app. The response contains an ID token or an access token, and any state that you defined. The following are response examples:
 
     **ID token**
 
@@ -110,7 +104,7 @@ To test the full authentication flow that returns an ID token or an access token
 Use these steps to create a groups claim for an OpenID Connect client app. This approach is recommended if you’re using only Okta-sourced groups. For an org authorization server, you can only create an ID token with a groups claim, not an access token. See [Authorization servers](/docs/guides/customize-authz-server/) for more information on the types of authorization servers available to you and what you can use them for.
 
 1. In the Admin Console, go to **Applications** > **Applications**.
-1. Select the OpenID Connect client application that you want to configure.
+1. Select the OpenID Connect client app that you want to configure.
 1. Go to the **Sign On** tab and click **Edit** in the **OpenID Connect ID Token** section.
 1. In the **Group claim type** section, you can select either **Filter** or **Expression**. For this example, leave **Filter** selected.
 1. In the **Group claims filter** section, leave the default name `groups` (or add it if the box is empty), and then add the appropriate filter. For this example, select **Matches regex** and enter `.*` to return the user's groups. See [Okta Expression Language Group Functions](/docs/reference/okta-expression-language/#group-functions) for more information on expressions.
@@ -124,7 +118,7 @@ To test the full authentication flow that returns an ID token, build your reques
 
 > **Note:** The examples in this guide use the [Implicit flow](/docs/concepts/oauth-openid/#implicit-flow) for quick testing. In the following example, request only `id_token` as the `response_type` value. This means that the requests are for a [fat ID token](/docs/concepts/api-access-management/#tokens-and-scopes), and the ID token is the only token included in the response. The ID token contains any groups assigned to the user that signs in when you include the `groups` scope in the request.
 >
->If you make a request to the org authorization server for both the ID token and the access token, that's considered a [thin ID token](/docs/concepts/api-access-management/#tokens-and-scopes) and contains only base claims. Profile attributes and groups aren't returned, even if those scopes are included in the request. You can use the access token to get the groups claim from the `/userinfo` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/userinfoCustomAS).
+>Requests to the org authorization server for both the ID token and the access token are considered [thin ID tokens](/docs/concepts/api-access-management/#tokens-and-scopes). A thin ID token contains only base claims. Profile attributes and groups aren't returned, even if those scopes are included in the request. You can use the access token to get the groups claim from the `/userinfo` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/userinfoCustomAS).
 >
 
 The resulting URL looks something like this:
@@ -132,13 +126,13 @@ The resulting URL looks something like this:
 > **Note:** In this example, the user signing in to your app is assigned to a group called "IT" and being a part of the "Everyone" group.
 
 ```bash
-curl -X GET
-"https://{yourOktaDomain}/oauth2/v1/authorize?client_id=examplefa39J4jXdcCwWA
-&response_type=id_token
-&scope=openid%20groups
-&redirect_uri=https%3A%2F%2FyourRedirectUriHere.com
-&state=myState
-&nonce=myNonceValue"
+  curl -X GET
+  "https://{yourOktaDomain}/oauth2/v1/authorize?client_id=examplefa39J4jXdcCwWA
+  &response_type=id_token
+  &scope=openid%20groups
+  &redirect_uri=https%3A%2F%2FyourRedirectUriHere.com
+  &state=myState
+  &nonce=myNonceValue"
 ```
 
 The decoded JWT looks something like this:
