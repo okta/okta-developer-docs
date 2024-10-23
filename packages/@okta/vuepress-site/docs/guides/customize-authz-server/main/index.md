@@ -26,9 +26,9 @@ Okta allows you to create multiple custom authorization servers that you can use
 
 If you have an [Okta Developer Edition](https://developer.okta.com/signup/) account, you already have a custom authorization server created for you called `default`. If you renamed this custom authorization server, there’s an additional `Default` label to help identify the default authorization server created out of the box.
 
-For simple use cases the default custom authorization server should suffice. If your app has requirements such as requiring more scopes or customizing rules for when to grant scopes, then you another authorization server.
+For simple use cases, the default custom authorization server should suffice. If your app requires more scopes or customizing rules for when to grant scopes, then you need another authorization server.
 
-See the [Authorization servers](/docs/concepts/auth-servers/#which-authorization-server-should-you-use) concept for more information on the types of authorization servers available to you and what you can use them for.
+See the [Authorization servers](/docs/concepts/auth-servers/#which-authorization-server-should-you-use) concept for more information on the types of authorization servers available and what you can use them for.
 
 ## Create an authorization server
 
@@ -44,13 +44,13 @@ When you finish, the authorization server's **Settings** tab displays the inform
 
 ## Create access policies
 
-Access policies are containers for rules. Each [access policy](/docs/guides/configure-access-policy/) applies to a particular OpenID Connect app. The rules that the policy contains define different access and refresh token lifetimes depending on the nature of the token request.
+Access policies are containers for rules. Each [access policy](/docs/guides/configure-access-policy/) applies to a particular OpenID Connect (OIDC) app. The rules that the policy contains define different access and refresh token lifetimes depending on the nature of the token request.
 
 1. In the Admin Console, go to **Security** > **API**.
 1. On the **Authorization Servers** tab, select the name of an authorization server.
 1. Select **Access Policies**, and then **Add Policy**.
 1. Enter a **Name** and a **Description** for the policy.
-1. Assign the policy to **All clients** or select **The following clients:** and enter the name of the Okta OpenID Connect apps that are covered by this access policy. This field auto-completes the names of your OpenID Connect apps as you type.
+1. Assign the policy to **All clients** or select **The following clients:** and enter the name of the OIDC apps that are covered by this access policy. This field auto-completes the names of your OIDC apps as you type.
 1. Click **Create Policy** when you finish.
 
 Policies are evaluated in priority order, as are the rules in a policy.
@@ -153,7 +153,7 @@ Create ID token claims for OpenID Connect or access tokens for OAuth 2.0:
 
 ## Test the authorization server
 
-After you set up and customize your authorization server, test it. Make a request using any one of the API calls that returns OAuth 2.0 and OpenID Connect tokens.
+After you set up and customize your authorization server, test it. Make a request using any one of the API calls that returns OAuth 2.0 and OIDC tokens.
 
 > **Note:** The `{authorizationServerId}` for the default server is `default`.
 
@@ -165,7 +165,7 @@ The following are a few things that you can try to ensure that your authorizatio
 
 ### OpenID Connect configuration
 
-You can send an API request to the server's OpenID Connect Metadata URI. This request verifies that your server was created and has the expected configuration values: `https://{yourOktaDomain}/oauth2/{authorizationServerId}/.well-known/openid-configuration` using an HTTP client or by typing the URI inside a browser. This returns information about the OpenID configuration of your authorization server.
+You can send an API request to the server's OIDC Metadata URI. This request verifies that your server was created and has the expected configuration values: `https://{yourOktaDomain}/oauth2/{authorizationServerId}/.well-known/openid-configuration` using an HTTP client or by typing the URI inside a browser. This returns information about the OIDC configuration of your authorization server.
 
 For more information on this endpoint, see how to [retrieve authorization server OpenID Connect metadata](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/getWellKnownOpenIDConfigurationCustomAS).
 
@@ -192,12 +192,12 @@ For more information you can read about:
 - [Create OIDC app integrations using AIW](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-oidc)
 - [Assign applications to users](https://help.okta.com/okta_help.htm?id=ext-assign-apps)
 
-You need the following values from your Okta OpenID Connect app, both of which can be found on your app's **General** tab:
+You need the following values from your OIDC app, both of which can be found on your app's **General** tab:
 
 - Client ID
 - A valid Redirect URI
 
-After you have an OpenID Connect app set up, and a user assigned to it, you can try the authentication flow.
+After you have an OIDC app set up, and a user assigned to it, you can try the authentication flow.
 
 First, you need the authorization server's authorization endpoint, which you can retrieve using the server's Metadata URI: `https://{yourOktaDomain}/oauth2/{authorizationServerId}/.well-known/openid-configuration`.
 
@@ -206,7 +206,7 @@ It looks like this:
 
 Add the following URL query parameters to the URL:
 
-- Your OpenID Connect app's `client_id` and `redirect_uri`
+- Your OIDC app's `client_id` and `redirect_uri`
 - A `scope`, which for the purposes of this test are `openid` and `profile`
 - A `response_mode`, which you can set to `fragment`
 - A `state` value and a `nonce` value
@@ -223,7 +223,7 @@ If you paste this into your browser, you’re redirected to the sign-in page for
 
 `https://{yourOktaDomain}/login/login.htm?fromURI=%2Foauth2%2Fv1%2Fauthorize%2Fredirect%3Fokta_key%aKeyValueWillBeHere`
 
-Enter the credentials for a user who is mapped to your OpenID Connect app, and you’re directed to the `redirect_uri` that you specified. An ID token and any state that you defined are also included:
+Enter the credentials for a user who is mapped to your OIDC app, and you’re directed to the `redirect_uri` that you specified. An ID token and any state that you defined are also included:
 
 `https://yourRedirectUriHere.com/#id_token=eyJhbGciOiJSUzI1NiIsImtpZCI6ImluZUdjZVQ4SzB1SnZyWGVUX082WnZLQlB2RFowO[...]z7UvPoMEIjuBTH-zNkTS5T8mGbY8y7532VeWKA&state=WM6D`
 
