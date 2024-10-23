@@ -14,64 +14,60 @@ Create custom claims for tokens.
 #### What you need
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
-* [OpenID Connect client application](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-oidc) in Okta with at least [one user assigned to it](https://help.okta.com/okta_help.htm?id=ext-assign-apps)
+* [OpenID Connect client app](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-oidc) in Okta with at least [one user assigned to it](https://help.okta.com/okta_help.htm?id=ext-assign-apps)
 * A [group in Okta](https://help.okta.com/okta_help.htm?id=ext_Directory_Groups) with at least one person assigned to it
 
 ---
 
 ## About tokens with custom claims
 
-Tokens contain claims that are statements about the subject, such as name, role, or email address. Beyond the [default set of claims](/docs/guides/validate-id-tokens/main/#verify-the-claims) that are contained in ID tokens and access tokens, you can define your custom claims. For example, you might want to add a user's email address to an access token and use that to uniquely identify the user. You might also want to add information stored in a user profile to an ID token.
+Tokens contain claims that are statements about the subject, such as name, role, or email address. Beyond the [default set of claims](/docs/guides/validate-id-tokens/main/#verify-the-claims) that are contained in ID tokens and access tokens, you can define custom claims. For example, you might want to add a user's email address to an access token and use that to uniquely identify the user. You might also want to add information stored in a user profile to an ID token.
 
-You can also [add a groups claim](/docs/guides/customize-tokens-groups-claim/main/#add-a-groups-claim-for-the-org-authorization-server) to ID tokens for any combination of app groups and user groups to perform SSO using the org authorization server. And, you can [add a groups claim](/docs/guides/customize-tokens-groups-claim/main/#add-a-groups-claim-for-a-custom-authorization-server) to ID tokens and access tokens to perform authentication and authorization using a custom authorization server. See [Authorization servers](/docs/guides/customize-authz-server/) for more information on the types of authorization servers available to you and what you can use them for.
+You can [add a groups claim](/docs/guides/customize-tokens-groups-claim/main/#add-a-groups-claim-for-the-org-authorization-server) to ID tokens for app groups and user groups to perform SSO using the org authorization server. You can also [add a groups claim](/docs/guides/customize-tokens-groups-claim/main/#add-a-groups-claim-for-a-custom-authorization-server) to ID tokens and access tokens to perform authentication and authorization using a custom authorization server. See [Authorization servers](/docs/guides/customize-authz-server/) for more information on the types of authorization servers available and what you can use them for.
 
 <ApiAmProdWarning />
 
-Also, you can create a [dynamic](/docs/guides/customize-tokens-dynamic/) or [static](/docs/guides/customize-tokens-static/) allowlist. Do this when you need to set group allowlists on a per-app basis using both the org authorization server and a custom authorization server. If you have many groups but only 20 groups apply to your app, you don't want to search all of your groups every time a groups claim is created. This process optionally uses the Okta app profile, which accepts any JSON-compliant content, to create an allowlist of groups that can then easily be referenced.
+Also, you can create a [dynamic](/docs/guides/customize-tokens-dynamic/) or [static](/docs/guides/customize-tokens-static/) allowlist. Do this when you need to set group allowlists on a per-app basis using both the org authorization server and a custom authorization server. This helps if you have many groups and don't want to search all of them every time you create a groups claim. This process optionally uses the Okta app profile, which accepts any JSON-compliant content, to create an allowlist of groups that can then easily be referenced.
 
 ## Request a token that contains the custom claim
 
-There are sections in this guide that include information on building a URL to request a token that contains a custom claim. These sections refer you to this section for the specific steps to build the URL to request a claim and decode the JWT to verify that the claim was included in the token. Specific request and payload examples remain in the appropriate sections. Move on to the section for the claim that you want to create if you don't currently need these steps.
+There are sections in this guide that include information on building a URL to request a token that contains a custom claim. These sections refer you here for the specific steps to build the URL. Use this RUL to request a claim and decode the JSON Web Token (JWT) to verify that the claim was included in the token.
+
+Specific request and payload examples remain in the appropriate sections. Move on to the section for the claim that you want to create if you don't currently need these steps.
 
 To test the full authentication flow that returns an ID token or an access token, build your request URL:
 
-1. Obtain the following values from your OpenID Connect application, both of which can be found on the application's **General** tab:
+1. Obtain the following values from your OpenID Connect (OIDC) app, both of which you can find on the app's **General** tab:
 
     * Client ID
     * Redirect URI
 
 2. Use the authorization server's authorization endpoint:
 
-    > **Note:** See [Authorization servers](/docs/guides/customize-authz-server/) for more information on the types of authorization servers available to you and what you can use them for.
+    > **Note:** See [Authorization servers](/docs/guides/customize-authz-server/) for more information on the types of authorization servers available and what you can use them for.
 
-    * An org authorization server authorization endpoint looks like this:
+    * An org authorization server `/authorize` endpoint looks like this:
 
         `https://{yourOktaDomain}/oauth2/v1/authorize`
 
-    * A custom authorization server endpoint looks like this:
+    * A custom authorization server `/authorize` endpoint looks like this:
 
         `https://{yourOktaDomain}/oauth2/{authorizationServerId}/v1/authorize`
 
     > **Note:** If you add the claim to the default custom authorization server, the `{authorizationServerId}` is `default`.
 
-    You can retrieve a custom authorization server's authorization endpoint using the server's metadata URI:
-
-    **ID token**
-    `https://{yourOktaDomain}/oauth2/{authorizationServerId}/.well-known/openid-configuration`
-
-    **Access token**
-    `https://{yourOktaDomain}/oauth2/{authorizationServerId}/.well-known/oauth-authorization-server`
+    You can retrieve a custom authorization server's authorization endpoint using the [server's metadata URI](/docs/concepts/auth-servers/#discovery-endpoints-custom-authorization-server).
 
 3. Add the following query parameters to the URL:
 
-    * Your OpenID Connect application's `client_id`
+    * Your OIDC app's `client_id`
     * The response type, which for an ID token is `id_token` and an access token is `token`
     > **Note:** The examples in this guide use the [Implicit flow](/docs/concepts/oauth-openid/#implicit-flow). For the [Authorization Code flow](/docs/concepts/oauth-openid/#authorization-code-flow), the response type is `code`. You can exchange an authorization code for an ID token and/or an access token using the `/token` endpoint.
-    * A scope, which for the purposes of the examples is `openid`
-    * Your OpenID Connect application's `redirect_uri`
+    * A scope, which is `openid` for the examples in this guide
+    * Your OIDC app's `redirect_uri`
     * Values for `state` and `nonce`, which can be anything
 
-    > **Note:** All of the values are fully documented on the [Obtain an Authorization Grant from a user](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/authorizeCustomAS) page.
+    > **Note:** These values are fully documented on the [Obtain an Authorization Grant from a user](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/authorizeCustomAS) page.
 
     The resulting URL looks something like this:
 
@@ -87,7 +83,7 @@ To test the full authentication flow that returns an ID token or an access token
 
     > **Note:** The `response_type` for an access token looks like this: `&response_type=token`
 
-4. After you paste the request into your browser, the browser is redirected to the sign-in page for your Okta org. Enter the credentials for a user who is mapped to your OpenID Connect application, and then the browser is directed to the `redirect_uri` that you specified in the URL and in the OpenID Connect app. An ID token, or an access token, and any state that you defined are included in the response. The following are response examples:
+4. After you paste the request into your browser, the browser is redirected to the sign-in page for your Okta org. Enter the credentials for a user who is mapped to your OIDC app, and then the browser is directed to the `redirect_uri` that you specified in the URL and in the OIDC app. An ID token, or an access token, and any state that you defined are included in the response. The following are response examples:
 
     **ID token**
 
@@ -101,7 +97,7 @@ To test the full authentication flow that returns an ID token or an access token
     https://yourRedirectUriHere.com#access_token=eyJraWQiOiIxLVN5M2w2dFl2VTR4MXBSLXR5cVZQWERX[...]YNXrsr1gTzD6C60h0UfLiLUhA&token_type=Bearer&expires_in=3600&scope=openid&state=myState
     ```
 
-5. To check the returned ID token or access token payload, you can copy the value and paste it into any JWT decoder (for example: <https://token.dev>). Using a JWT decoder, confirm that the token contains all of the claims that you’re expecting, including the custom one. If you specified a nonce, that's also included.
+5. To check the returned ID token or access token payload, you can copy the value and paste it into any JWT decoder (for example: <https://token.dev>). Using a JWT decoder, confirm that the token contains the claims that you’re expecting, including the custom one. If you specified a nonce, that's also included.
 
 ## Add a custom claim to a token
 
@@ -118,7 +114,7 @@ To add a custom claim:
 3. Click **Add Claim**, and then configure the claim settings:
 
     * Enter a **Name** for the claim. In this example, use **IDTClaim** for the ID token and **ATClaim** for the access token.
-    * **Include in token type**: If you’re creating a claim for an ID token, select **ID Token** (for OpenID Connect). You can then define whether you want the claim included only when requested or always included. For this example, select **Always**.
+    * **Include in token type**: If you’re creating a claim for an ID token, select **ID Token** (for OIDC). You can then define whether you want the claim included only when requested or always included. For this example, select **Always**.
     If you’re creating a claim for an access token, leave **Access Token** (for OAuth 2.0) selected.
     * **Value type**: Select whether you want to define the claim by a **Groups** filter or by an **Expression** written in Okta Expression Language. For this example, select **Expression**.
     * **Value**: This option appears if you choose **Expression**. Use Okta Expression Language syntax to generate values derived from attributes in Universal Directory and app profiles. For the ID token example, use `user.preferredLanguage` and for the access token example, use `user.secondEmail`. These reference an Okta user profile attribute.
@@ -209,7 +205,7 @@ The decoded JWT looks something like this:
 
 ## Include app-specific information in a custom claim
 
-If you want to include certain app-specific information in a token claim, you can do so by first adding the metadata to the profile section of the app. You can access any values that are put inside the app profile using `app.profile` written in Okta Expression Language. See [Expressions for OAuth 2.0/OIDC custom claims](/docs/reference/okta-expression-language/#expressions-for-oauth-2-0-oidc-custom-claims).
+If you want to include certain app-specific information in a token claim, first add the metadata to the profile section of the app. You can access any values that are put inside the app profile using `app.profile` written in Okta Expression Language. See [Expressions for OAuth 2.0/OIDC custom claims](/docs/reference/okta-expression-language/#expressions-for-oauth-2-0-oidc-custom-claims).
 
 To include, for example, the app `label` parameter in a token claim:
 
@@ -261,7 +257,7 @@ To add a custom claim:
 
 1. In the Admin Console, go to **Security** > **API**.
 
-2. On the **Authorization Servers** tab, select the name of the custom authorization server that you want to add the claim to (or select **default** when you use the default custom authorization server), and then click **Claims**.
+2. On the **Authorization Servers** tab, select the custom authorization server that you want to add the claim to, and then click **Claims**.
 
 3. Click **Add Claim**, and then configure the claim settings:
 
