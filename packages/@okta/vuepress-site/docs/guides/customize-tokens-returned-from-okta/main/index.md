@@ -37,7 +37,7 @@ Specific request and payload examples remain in the appropriate sections. Move o
 
 To test the full authentication flow that returns an ID token or an access token, build your request URL:
 
-1. Obtain the following values from your OpenID Connect app, both of which you can find on the app's **General** tab:
+1. Obtain the following values from your OpenID Connect (OIDC) app, both of which you can find on the app's **General** tab:
 
     * Client ID
     * Redirect URI
@@ -60,11 +60,11 @@ To test the full authentication flow that returns an ID token or an access token
 
 3. Add the following query parameters to the URL:
 
-    * Your OpenID Connect app's `client_id`
+    * Your OIDC app's `client_id`
     * The response type, which for an ID token is `id_token` and an access token is `token`
     > **Note:** The examples in this guide use the [Implicit flow](/docs/concepts/oauth-openid/#implicit-flow). For the [Authorization Code flow](/docs/concepts/oauth-openid/#authorization-code-flow), the response type is `code`. You can exchange an authorization code for an ID token and/or an access token using the `/token` endpoint.
     * A scope, which is `openid` for the examples in this guide
-    * Your OpenID Connect app's `redirect_uri`
+    * Your OIDC app's `redirect_uri`
     * Values for `state` and `nonce`, which can be anything
 
     > **Note:** These values are fully documented on the [Obtain an Authorization Grant from a user](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/authorizeCustomAS) page.
@@ -83,7 +83,7 @@ To test the full authentication flow that returns an ID token or an access token
 
     > **Note:** The `response_type` for an access token looks like this: `&response_type=token`
 
-4. After you paste the request into your browser, the browser is redirected to the sign-in page for your Okta org. Enter the credentials for a user who is mapped to your OpenID Connect app, and then the browser is directed to the `redirect_uri` that you specified in the URL and in the OpenID Connect app. An ID token, or an access token, and any state that you defined are included in the response. The following are response examples:
+4. After you paste the request into your browser, the browser is redirected to the sign-in page for your Okta org. Enter the credentials for a user who is mapped to your OIDC app, and then the browser is directed to the `redirect_uri` that you specified in the URL and in the OIDC app. An ID token, or an access token, and any state that you defined are included in the response. The following are response examples:
 
     **ID token**
 
@@ -114,7 +114,7 @@ To add a custom claim:
 3. Click **Add Claim**, and then configure the claim settings:
 
     * Enter a **Name** for the claim. In this example, use **IDTClaim** for the ID token and **ATClaim** for the access token.
-    * **Include in token type**: If you’re creating a claim for an ID token, select **ID Token** (for OpenID Connect). You can then define whether you want the claim included only when requested or always included. For this example, select **Always**.
+    * **Include in token type**: If you’re creating a claim for an ID token, select **ID Token** (for OIDC). You can then define whether you want the claim included only when requested or always included. For this example, select **Always**.
     If you’re creating a claim for an access token, leave **Access Token** (for OAuth 2.0) selected.
     * **Value type**: Select whether you want to define the claim by a **Groups** filter or by an **Expression** written in Okta Expression Language. For this example, select **Expression**.
     * **Value**: This option appears if you choose **Expression**. Use Okta Expression Language syntax to generate values derived from attributes in Universal Directory and app profiles. For the ID token example, use `user.preferredLanguage` and for the access token example, use `user.secondEmail`. These reference an Okta user profile attribute.
