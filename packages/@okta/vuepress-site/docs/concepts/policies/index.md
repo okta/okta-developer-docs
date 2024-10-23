@@ -40,7 +40,7 @@ A [password policy](#password-policies) also helps you control how users access 
 
 You can create an [authenticator enrollment policy](#authenticator-enrollment-policies). For example, prompt users to enroll in a factor the first time they sign in. You can also define conditions that trigger additional authentication challenges, like when users attempt to access your app from a country they've never signed in from before.
 
-You can create custom forms for your sign-in flows with [profile enrollment policies](#profile-enrollment-policies). This allows you to progressively build user profiles by collecting profile data incrementally as end users engage with your app.
+You can create custom forms for your sign-in flows with [user profile policies](#user-profile-policies). This allows you to progressively build user profiles by collecting profile data incrementally as end users engage with your app.
 
 ### Control which app can access what information from your APIs
 

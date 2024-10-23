@@ -76,7 +76,7 @@ In Identity Engine, after you reset all the factors, calling the GET `/factors` 
 
 > **Note:** The form for the user profile policy only supports read-write attributes. If you added read-only or hidden attributes to your Self-Service Registration form in Classic Engine, they're not migrated to your user profile policy.
 
-**Further information:** [Manage Profile Enrollment policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-profile-enrollment)
+**Further information:** [Configure user profile policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-profile-enrollment)
 
 ***
 
