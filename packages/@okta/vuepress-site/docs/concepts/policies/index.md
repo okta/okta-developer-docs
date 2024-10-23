@@ -134,9 +134,9 @@ Enable factors in your Okta org by creating a policy with one or more authentica
 
 See [Authenticator enrollment policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-mfa-enrol-policies) for additional information on MFA authentication, enrollment policies, and rules.
 
-#### Profile enrollment policies
+#### User profile policies
 
-The [Profile enrollment policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy) collects the attributes required to validate users when they attempt to access your app. Use this policy for [self-service registration](/docs/guides/oie-embedded-sdk-use-case-self-reg/android/main/) or for [progressive enrollment](https://help.okta.com/okta_help.htm?type=oie&id=ext-pe-policies).
+The [User profile policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy) collects the attributes required to validate users when they attempt to access your app. Use this policy for [self-service registration](/docs/guides/oie-embedded-sdk-use-case-self-reg/android/main/) or for [progressive enrollment](https://help.okta.com/okta_help.htm?type=oie&id=ext-pe-policies).
 
 With self-service registration flows, users register and activate their profiles by clicking a sign-up link in the Sign-In Widget or through a custom-embedded authentication solution.
 
