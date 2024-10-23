@@ -28,7 +28,7 @@ OpenID Connect Identity Providers now support full group sync and adding a user 
 
 * A 500 error was returned when a malformed interaction handle was passed to the `/introspect` endpoint. (OKTA-593499)
 
-* Deleting a pre-registered YubiKey enrollment with the WebAuthn Preregistration (`api/v1/users/{userId}/enrollments/{authenticatorEnrollmentId}`) didn't send an email notification or register a System Log event. (OKTA-750155)
+* Deleting a pre-registered YubiKey enrollment with WebAuthn Preregistration (`api/v1/users/{userId}/enrollments/{authenticatorEnrollmentId}`) didn't send an email notification or register a System Log event. (OKTA-750155)
 
 * No System Log event occurred when the Interaction Code grant flow failed due to no matching policy on the authorization server. (OKTA-795711)
 
