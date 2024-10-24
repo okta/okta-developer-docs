@@ -20,4 +20,4 @@ In `app-routing.module.ts`, add the `OktaAuthGuard` to protect the route accessi
 
 3. Create a new protected module with the CLI command `ng generate module protected`.
 
-4. Make sure that you are signed out, and then try navigating to `/protected`. You are automatically redirected to the Okta sign-in page. Any child routes are also protected.
+4. Make sure that you’re signed out, and then try going to `/protected`. You’re automatically redirected to the Okta sign-in page. Any child routes are also protected.

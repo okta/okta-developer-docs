@@ -1,4 +1,4 @@
-Use Okta's Angular SDK and Okta's JavaScript SDK in your Angular application. Add the npm packages by running the following commands.
+Use Okta's Angular SDK and Okta's JavaScript SDK in your Angular app. Add the npm packages by running the following commands.
 
 ```shell
 cd okta-angular-quickstart

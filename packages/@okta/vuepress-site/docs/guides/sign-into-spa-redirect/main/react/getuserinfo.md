@@ -1,6 +1,6 @@
 The `authState` contains an `idToken` that contains the user profile claims. You can access it to display the user's claim as shown in the following `Profile` component.
 
-1. Add a new file called `src/Profile.js`.
+1. Add a file called `src/Profile.js`.
 
 2. Add the following content to it:
 
@@ -97,7 +97,7 @@ The `authState` contains an `idToken` that contains the user profile claims. You
    import Profile from './Profile';
    ```
 
-5. Add a new route to the list of `<Route>` components in `src/App.js` to represent the `/profile` route:
+5. Add a route to the list of `<Route>` components in `src/App.js` to represent the `/profile` route:
 
    ```jsx
    <Route path="/profile" component={Profile}/>

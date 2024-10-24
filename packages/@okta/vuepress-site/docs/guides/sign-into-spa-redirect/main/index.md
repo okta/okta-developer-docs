@@ -87,9 +87,9 @@ At this point, you can move to the next step: [Creating your app](#create-an-app
 1. Click **Create App Integration**.
 1. Select a **Sign-in method** of **OIDC - OpenID Connect**.
 1. Select an **Application type** of **Single-Page Application**, then click **Next**.
-   > **Note:** If you choose an inappropriate app type, it can break the sign-in or sign-out flows by requiring the verification of a client secret, which is something that public clients don't have.
+   > **Note:** If you choose an inappropriate app type, it can break the sign-in or sign-out flows by requiring the verification of a client secret. Public clients don't have a client secret.
 1. Enter an **App integration name**.
-1. Select **Authorization Code** and **Refresh Token** as the **Grant type**. This enables the Authorization Code flow with PKCE for your app and the ability to refresh the access token when it expires without prompting the user to reauthenticate.
+1. Select **Authorization Code** and **Refresh Token** as the **Grant type**. This enables the Authorization Code flow with PKCE for your app. It also can refresh the access token when it expires without prompting the user to reauthenticate.
 1. Enter the **Sign-in redirect URIs** for both local development, such as `http://localhost:xxxx/login/callback`, and for production, such as `https://app.example.com/login/callback`.
 1. Select the type of **Controlled access** for your app in the **Assignments** section. You can allow all users to have access or limit access to individuals and groups. See the [Assign app integrations](https://help.okta.com/okta_help.htm?type=oie&id=ext-lcm-user-app-assign) topic in the Okta product documentation.
 1. Click **Save** to create the app integration and open its configuration page. Keep this page open as you need to copy some values in later steps when configuring your app.
@@ -105,13 +105,13 @@ Reduce possible attack vectors by defining Trusted Origins, which are the websit
 
 >**Note:** To reduce risk, only grant access to the Okta API to specific websites (origins) that you both control and trust.
 
-To set trusted origins manually, add the **Base URIs** for local development, such as `http://localhost:xxxx`, and for production, such as `https://app.example.com`. These URIs are added as trusted origins in your Okta org and you can manage them by going to **Security** > **API** and selecting the **Trusted Origins** tab. See [Enable Trusted Origins](/docs/guides/enable-cors/).
+To set trusted origins manually, add the **Base URIs** for local development, such as `http://localhost:xxxx`, and for production, such as `https://app.example.com`. These URIs are added as trusted origins in your Okta org. You can manage them by going to **Security** > **API** and selecting the **Trusted Origins** tab. See [Enable Trusted Origins](/docs/guides/enable-cors/).
 
 ## Create an app
 
 In this section you create a sample SPA and add redirect authentication using your new Okta app integration.
 
-### Create a new project
+### Create a project
 
 <StackSnippet snippet="createproject" />
 
@@ -129,7 +129,7 @@ Our app uses information from the app integration that was created earlier to co
 
 #### Find your config values
 
-If you don't have your configuration values handy, you can find them in the Admin Console (choose **Applications** > **Applications** and find your app integration that you created earlier):
+You can find your config values in the Admin Console (select **Applications** > **Applications** and find your app integration that you created earlier):
 
 * **Client ID**: Found on the **General** tab in the **Client Credentials** section.
 * **Issuer**: Found in the **Issuer URI** field for the authorization server that appears by selecting **Security** > **API** from the left navigation pane.
@@ -138,7 +138,7 @@ If you don't have your configuration values handy, you can find them in the Admi
 
 To sign a user in, your web app redirects the browser to the Okta-hosted sign-in page. This usually happens from a sign-in action, such as clicking a button or when a user visits a protected page.
 
-> **Note**: The sign-out action requires your app to be listed as a trusted origin. The Okta CLI sets this up for you, but if you used the Okta dashboard, follow the steps to [add your app as a trusted origin](#enable-trusted-origins).
+> **Note**: The sign-out action requires your app to be listed as a trusted origin. The Okta CLI sets this up for you. If you used the Okta dashboard, follow the steps to [add your app as a trusted origin](#enable-trusted-origins).
 
 <StackSnippet snippet="loginredirect" />
 
@@ -174,13 +174,13 @@ Your app can require authentication for everything or just for specific routes. 
 
 ### Require authentication for everything
 
-Some apps require that the user be authenticated for all routes, for example a company intranet.
+Some apps require the authentication of the user for all routes, for example a company intranet.
 
 <StackSnippet snippet="reqautheverything" />
 
 ### Require authentication for a specific route
 
-Your website may enable users to find some initial information but require a user to sign in or take some action for more information. For example, an ecommerce site can allow a user to browse anonymously and even to add items to a cart. However, checking out requires the user to sign in.
+Your website may enable users to find some initial information but require a user to sign in for further actions. For example, an ecommerce site can allow a user to browse anonymously and even to add items to a cart. However, checking out requires the user to sign in.
 
 <StackSnippet snippet="reqauthspecific" />
 
