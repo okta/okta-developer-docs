@@ -1,4 +1,4 @@
-The Okta Angular SDK requires an instance of an `OktaAuth` object with configuration properties. Set the `clientID` and `issuer` properties with the values you got from the CLI earlier. This can happen by directly setting the properties, with variable replacement that happens as part of the build process, or during app load time.
+The Okta Angular SDK requires an instance of an `OktaAuth` object with configuration properties. Set the `clientID` and `issuer` properties with the values that you got from the CLI earlier. This can happen by directly setting the properties, with variable replacement that happens as part of the build process, or during app load time.
 
 Make the following changes to `src/app/app.module.ts`:
 
