@@ -237,7 +237,7 @@ This rule also applies to authenticator unenrollment, and users can lock themsel
 
 Add this rule to build phishing resistance into your authenticator enrollment process. When this rule is active, users must provide a phishing-resistant authenticator when they enroll other authenticators and when they unenroll one. If your org doesn't use phishing-resistant authenticators yet, start with [Add a rule for your first phishing-resistant authenticator](#add-a-rule-for-your-first-phishing-resistant-authenticator).
 
-> **Note:** All users in your org must be eligible to use the phishing-resistant authenticators. See [Profile enrollment policies](/docs/concepts/policies/#profile-enrollment-policies).
+> **Note:** All users in your org must be eligible to use the phishing-resistant authenticators. See [User profile policies](/docs/concepts/policies/#user-profile-policies).
 
 This request is similar to the request to [add a rule](#example-rule-request) for your first phishing-resistant authenticator. However, keep in mind the following:
 

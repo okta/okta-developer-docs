@@ -185,7 +185,7 @@ If your app uses direct APIs for a multifactor authentication flow, your code ma
 - `/api/authn/factors/{emailFactorId}/verify`: Send the user an email with a sign-in code
 - `/api/authn/factors/{$emailFactorId}/verify`: Call this a second time with the sign-in code from the email challenge
 
->**Note:** If you call the direct `/api/v1/policies` API to manage or update MFA enrollment policies, you need to update these calls to use Identity Engine policies. See [Authentication policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy) and [Profile enrollment policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy).
+>**Note:** If you call the direct `/api/v1/policies` API to manage or update MFA enrollment policies, you need to update these calls to use Identity Engine policies. See [Authentication policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy) and [User profile policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy).
 
 See the following sample calls and responses for the MFA authentication flow using the email factor:
 

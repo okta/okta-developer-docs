@@ -16,7 +16,7 @@ This guide covers how to set up an Okta sample app to demonstrate some Identity 
 * Enroll and authenticate a user.
 * Enable self-service enrollment and enable a second factor for authentication.
 * Use email and Okta Verify as recovery options.
-* Add a profile attribute to the profile enrollment policy.
+* Add a profile attribute to the user profile policy.
 * Route users to an external IdP.
 
 #### What you need
@@ -86,16 +86,16 @@ This section walks you through enabling self-service enrollment for the Sign-In 
 
 > **Note:** This section assumes that you followed the previous [Initial setup](#initial-setup) and [Simple enrollment and authentication](#simple-enrollment-and-authentication) sections. The steps may be different if you didn't.
 
-1. In the Admin Console, select **Security** > **Profile Enrollment**, and then select **Add Profile Enrollment Policy**.
+1. In the Admin Console, select **Security** > **User Profile Policies**, and then select **Add user profile policy**.
 2. Give your Policy a **Name** and then click **Save**.
 3. On the Profile Enrollment page, select the pencil icon for your new Policy from the **Actions** column.
 4. On the Policy page, click **Manage Apps** and then click **Add an App to This Policy**.
 5. Locate the <StackSnippet snippet="applang" inline /> app that you created earlier, click **Apply**, and then **Close**.
-6. Click **Back to Profile Enrollment Policy**.
+6. Click **Back to User Profile Policy**.
 7. Click **Edit** in the **Profile Enrollment** section.
 8. Set **Self-service registration** to **Allowed**, and then click **Save**.
 
-> **Note:** See [Manage profile enrollment policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-profile-enrollment).
+> **Note:** See [Configure user profile policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-profile-enrollment).
 
 ### Try enrollment
 
@@ -224,10 +224,10 @@ In addition to recovering your password with an email, you can add Okta Verify a
 
 Okta gives you the ability to check for what data is required from a user before they can access an app. For example, you can change the required user profile information for the same app, or handle SSO between two apps with different profile requirements. In this example, add a required profile attribute, and the user you've already enrolled is asked for this information when they next authenticate.
 
-When you enrolled your test user, the user was only prompted for first and family name, as well as their email and a password. Now add an additional required property to the profile enrollment policy.
+When you enrolled your test user, the user was only prompted for first and family name, as well as their email and a password. Now add an additional required property to the user profile policy.
 
-1. In the Admin Console, select **Security** > **Profile Enrollment**.
-1. Find the profile enrollment policy that you created for self-service enrollment and click the pencil icon in the **Actions** column.
+1. In the Admin Console, select **Security** > **User Profile Policies**.
+1. Find the user profile policy that you created for self-service enrollment and click the pencil icon in the **Actions** column.
 1. In the **Enrollment Settings** section, click the **Actions** menu icon (&#8942;), and then select **Edit**.
 1. For **Progressive Profiling**, select **Enabled**.
 1. From the side navigation, select **Directory** > **Profile Editor**.
@@ -243,7 +243,7 @@ When you enrolled your test user, the user was only prompted for first and famil
 
     > **Note:** You can check which user attributes are required for your directory by clicking the information icon beside each attribute. By default, **First name** and **Last name** are marked as required, in addition to what you specify in your enrollment policy.
 
-1. Return to your profile enrollment policy (**Security** > **Profile Enrollment**). Find the profile enrollment policy that you created for self-service enrollment and click the pencil icon in the **Actions** column.
+1. Return to user profile policies (**Security** > **User Profile Policies**). Find the user profile policy that you created for self-service enrollment and click the pencil icon in the **Actions** column.
 1. In the Profile enrollment form section, click **Add form input** and search for `Region (region)`
 
 1. Select the **Required** checkbox, and then click **Save**.

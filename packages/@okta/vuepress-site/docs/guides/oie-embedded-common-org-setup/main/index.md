@@ -136,7 +136,7 @@ For password-optional authentication, you first need to:
 
 To ensure that only specific app integrations can let users **sign up** without a password, do the following:
 
-1. [Create a profile enrollment policy for password-optional users](#create-a-profile-enrollment-policy-for-password-optional-users) that adds them to the new group and assign your app to it.
+1. [Create a user profile policy for password-optional users](#create-a-user-profile-policy-for-password-optional-users) that adds them to the new group and assign your app to it.
 2. Place this group at the lowest priority (just above the default policy) in the authenticator enrollment policy.
 
 To ensure that only password-optional users can **sign in** without a password and everybody else is appropriately prompted for it, do the following:
@@ -170,17 +170,17 @@ To ensure that only password-optional users can **sign in** without a password a
 
 To ensure that only specific app integrations can let users sign up without a password, do the following:
 
-##### Create a profile enrollment policy for password-optional users
+##### Create a user profile policy for password-optional users
 
-A profile enrollment policy determines the minimum information required from a user to create an account. The policy also determines how the user should verify their identity before creating their account.
+A user profile policy determines the minimum information required from a user to create an account. The policy also determines how the user should verify their identity before creating their account.
 
-1. Go to **Security** > **Profile Enrollment** and click **Add Profile Enrollment Policy**.
+1. Go to **Security** > **User Profile Policies** and click **Add user profile policy**.
 1. Locate the **Profile Enrollment** section of the policy and click **Edit**.
 1. Set **Self-service registration** to **Allowed**.
 1. Verify that **Required before access is granted** is selected for **Email Verification**.
 1. Set **Add the user to group** to the group that you made for password-optional users, and then click **Save**.
 1. Click **Manage apps**, and then click **Add an App to This Policy**.
-1. Locate your app integration, click **Apply**, and verify that the app is in the Apps list using the new Profile Enrollment Policy.
+1. Locate your app integration, click **Apply**, and verify that the app is in the Apps list using the new user profile policy.
 
 #### Enable password-optional user sign-in flow
 

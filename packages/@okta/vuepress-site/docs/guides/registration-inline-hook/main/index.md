@@ -28,7 +28,7 @@ The sample project provides external code for three registration inline hook use
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup/)
 * [Glitch.com](https://glitch.com) project or account
-* [A profile enrollment policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-profile-enrollment)
+* [A user profile policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-profile-enrollment)
 
 #### Sample code
 
@@ -45,7 +45,7 @@ In the following examples, the external service code parses requests from Okta a
 
 In these examples, you set up your registration inline hook to handle either the simple profile enrollment (SSR) scenario, progressive profile enrollment scenario, or both.
 
-You configure a profile enrollment policy to define these scenarios and implement the registration hook. The registration hook customizes how to add users to your Okta org. The hook also customizes how to update the profiles of existing users.
+You configure a user profile policy to define these scenarios and implement the registration hook. The registration hook customizes how to add users to your Okta org. The hook also customizes how to update the profiles of existing users.
 
 The following is a high-level workflow for the profile enrollment (self-service registration) scenario:
 
@@ -57,7 +57,7 @@ The following is a high-level workflow for the profile enrollment (self-service 
 The following is a high-level workflow for a progressive profile enrollment scenario:
 
 1. An existing registered end user attempts to sign in to their profile.
-1. A profile enrollment policy presents a custom sign-in form that asks for extra data from the end user.
+1. A user profile policy presents a custom sign-in form that asks for extra data from the end user.
 1. A registration inline hook triggers during this process and sends a call to the external service with the end user's data.
 1. The external service responds to Okta with a command to allow or deny the addition of the new data to the end user's profile.
 
@@ -255,18 +255,18 @@ Configure your registration inline hook for your Okta org to use the Glitch proj
 
 <StackSnippet snippet="enrollment-policy"/>
 
-To associate the registration inline hook with a profile enrollment policy:
+To associate the registration inline hook with a user profile policy:
 
-1. In the Admin Console, go to **Security** > **Profile Enrollment**.
-1. Click **Add Profile Enrollment Policy**, give your policy a name (in this example, use "SSR Inline Hook"), and then click **Save**.
+1. In the Admin Console, go to **Security** > **User Profile Policies**.
+1. Click **Add user profile policy**, give your policy a name (in this example, use "SSR Inline Hook"), and then click **Save**.
 1. Find your inline hook, "SSR Inline Hook", from the list of enrollment policies, and then click the pencil icon.
 1. Click **Manage Apps**, and then click **Add Apps to this Policy**.
 1. Locate the **Okta Dashboard**, click **Apply**, and then click **Close**.
-1. Click **Back to Profile Enrollment Policy**, and then click **Edit** in **Profile Enrollment**.
+1. Click **Back to User Profile Policy**, and then click **Edit** in **Profile Enrollment**.
 1. Select **Allowed** for **Self-service registration**.
 1. Select the hook that you set up and activated earlier from the **Inline hook** dropdown menu. See [Add your registration hook for profile enrollment](#add-your-registration-hook-for-profile-enrollment).
 
-   > **Note:** You can associate only one inline hook at a time with your profile enrollment policy.
+   > **Note:** You can associate only one inline hook at a time with your user profile policy.
 
 1. Select **When a new user is created** in **Run this hook**, and then click **Save**.
 
@@ -374,21 +374,21 @@ Before creating the enrollment policy, ensure the user profile attribute `employ
 1. In the **Employee Number** dialog, under **User permission**, select **Read-Write**.
 1. Click **Save Attribute**.
 
-To associate the registration inline hook with a profile enrollment policy and add the employee number field:
+To associate the registration inline hook with a user profile policy and add the employee number field:
 
-1. In the Admin Console, go to **Security > Profile Enrollment**.
-1. Click **Add Profile Enrollment Policy**.
+1. In the Admin Console, go to **Security > User Profile Policies**.
+1. Click **Add user profile policy**.
 1. Give your policy a name (in this example, use "Progressive Inline Hook"), and then click **Save**.
 1. Find your inline hook, "Progressive Inline Hook", from the list of enrollment policies, and then click the pencil icon.
 1. Click **Manage Apps**, and then click **Add Apps to this Policy**.
 1. Locate the **Okta Dashboard**, click **Apply**, and then click **Close**.
-1. Click **Back to Profile Enrollment Policy**.
+1. Click **Back to user profile policy**.
 1. In **Profile enrollment**, click **Edit**.
 1. For **Self-service registration**, select **Denied**.
 1. For **Progressive Profiling**, select **Enabled**.
 1. From the **Inline hook** dropdown menu, select the hook that you set up and activated earlier. See [Add your registration hook for progressive profile enrollment](#add-your-registration-hook-for-progressive-profile).
 
-   > **Note:** You can associate only one inline hook at a time with your profile enrollment policy.
+   > **Note:** You can associate only one inline hook at a time with your user profile policy.
 
 1. Under **Profile Enrollment Form**, click **Add form input**.
 1. From the dropdown menu, select the **Employee number**.
@@ -535,21 +535,21 @@ Before creating the enrollment policy, ensure the user profile attribute `employ
 1. Select **Read-Write** in the **User permission** section.
 1. Click **Save Attribute**.
 
-To associate the registration inline hook with a profile enrollment policy and add the employee number field:
+To associate the registration inline hook with a user profile policy and add the employee number field:
 
-1. In the Admin Console, go to **Security > Profile Enrollment**.
-1. Click **Add Profile Enrollment Policy**.
+1. In the Admin Console, go to **Security > User Profile Policies**.
+1. Click **Add user profile policy**.
 1. Give your policy a name (in this example, use "SSR + PP Inline Hook"), and then click **Save**.
 1. Find your inline hook, "SSR + PP Inline Hook", from the list of enrollment policies, and then click the pencil icon.
 1. Click **Manage Apps**, and then click **Add Apps to this Policy**.
 1. Locate the **Okta Dashboard**, click **Apply**, and then click **Close**.
-1. Click **Back to Profile Enrollment Policy**.
+1. Click **Back to user profile policy**.
 1. In **Profile enrollment**, click **Edit**.
 1. For **Self-service registration**, select **Allowed**.
 1. For **Progressive Profiling**, select **Enabled**.
 1. From the **Inline hook** dropdown menu, select the hook that you set up and activated earlier. See [Add your registration hook for progressive profile enrollment](#add-your-registration-hook-for-progressive-profile).
 
-   > **Note:** You can associate only one inline hook at a time with your profile enrollment policy.
+   > **Note:** You can associate only one inline hook at a time with your user profile policy.
 
 1. In **Run this hook**, select **Both**.
 1. Under **Profile Enrollment Form**, click **Add form input**.
