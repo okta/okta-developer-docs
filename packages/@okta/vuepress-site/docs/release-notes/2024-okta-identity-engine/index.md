@@ -34,7 +34,7 @@ OpenID Connect Identity Providers now support full group sync and adding a user 
 
 * The System Log displayed an incorrect actor when events were triggered by an Activate a factor (`/api/v1/users/{userId}/factors/{factorId}/lifecycle/activate`) request. (OKTA-803794)
 
-* User grants weren't returned from the Users API (`/users/<userId>clients/<clientId>/grants`) after revoking refresh tokens. (OKTA-808977)
+* User grants weren't returned from the Users API (`/users/{userId}/clients/{clientId}/grants`) after revoking refresh tokens. (OKTA-808977)
 
 * The SAML IdP metadata sometimes returned the variable name as the attribute name. (OKTA-811786)
 
