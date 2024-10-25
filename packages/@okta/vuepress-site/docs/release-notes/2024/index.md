@@ -26,7 +26,7 @@ OpenID Connect Identity Providers now support full group sync and adding a user 
 
 * No System Log event occurred when the Interaction Code grant flow failed due to no matching policy on the authorization server. (OKTA-795711)
 
-* User grants weren't returned from the Users API (`/users/<userId>clients/<clientId>/grants`) after revoking refresh tokens. (OKTA-808977)
+* User grants weren't returned from the Users API (`/users/{userId}/clients/{clientId}/grants`) after revoking refresh tokens. (OKTA-808977)
 
 * The SAML IdP metadata sometimes returned the variable name as the attribute name. (OKTA-811786)
 
