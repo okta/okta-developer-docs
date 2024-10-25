@@ -1,0 +1,1 @@
+> **Note**: The [Okta IDX SDK for Golang](https://github.com/okta/okta-idx-golang) has been archived and is no longer actively maintained or supported. This decision was made as part of our efforts to consolidate and improve our SDK offerings. Okta recommends using [redirect authentication](/docs/guides/sign-into-web-app-redirect/go/main/) instead.

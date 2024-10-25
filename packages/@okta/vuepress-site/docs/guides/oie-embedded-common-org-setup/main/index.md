@@ -16,6 +16,8 @@ Get a new org set up and ready for various use cases.
 
 [Okta Developer Edition organization](/signup)
 
+<StackSnippet snippet="repoarchivenote" />
+
 ---
 
 ## Overview of the embedded identity solutions
@@ -23,7 +25,7 @@ Get a new org set up and ready for various use cases.
 Okta provides two embedded identity solutions:
 
 * **Embedded SDK only**: A highly customizable solution that provides native language support for various identity use cases.
-* **Embedded Widget + SDK**: A quick and easy to set up solution that moves most of the heavy lifting to Okta. The amount of code that you need to write is small. However, many of the most advanced identity use cases (for example, social sign in, multifactor authentication) are supported out of the box.
+* **Embedded Widget + SDK**: A quick and easy to set up solution that moves most of the heavy lifting to Okta. The amount of code that you need to write is small. However, many of the most advanced identity use cases (for example, social sign-in, multifactor authentication) are supported out of the box.
 
 <div class="three-quarter">
 
