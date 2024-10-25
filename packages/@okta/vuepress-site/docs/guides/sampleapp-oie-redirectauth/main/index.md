@@ -23,6 +23,8 @@ This guide covers how to set up an Okta sample app to demonstrate some Identity 
 
 [Sample app](/docs/guides/oie-embedded-common-download-setup-app)
 
+<StackSnippet snippet="repoarchivenote" />
+
 ---
 
 ## Use case scenarios
