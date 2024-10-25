@@ -21,6 +21,8 @@ This guide explains how to add the Identity Engine SDK to your app. Complete thi
 
 An [Identity Engine-upgraded Okta org](/docs/guides/oie-upgrade-overview/)
 
+<StackSnippet snippet="repoarchivenote" />
+
 ---
 
 ## Overview
