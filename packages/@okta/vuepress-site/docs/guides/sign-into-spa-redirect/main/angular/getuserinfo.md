@@ -1,6 +1,6 @@
 The `authState$` subject in `OktaAuthStateService` contains an `idToken` that contains the user profile claims. You can access it to display a welcome message as shown in the `ProfileComponent`.
 
-1. Create a new component called **profile** using the CLI command `ng generate component profile`.
+1. Create a component called **profile** using the CLI command `ng generate component profile`.
 
 2. Update `profile.component.ts` as follows:
 
