@@ -1,7 +1,6 @@
-### 1: The user navigates to the home page
+### 1: The user goes to the home page
 
-When the user navigates to the home page and the application loads, create a new
-SDK Client object by calling the `NewClient()` method.
+When the user goes to the home page and the app loads, create an SDK client object by calling the `NewClient()` method.
 
 ```go
 idx, err := idx.NewClient(
@@ -30,10 +29,7 @@ Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 
 </div>
 
-During page load, call the `Client` object's `InitLogin()` method. This method returns an object of type
-`LoginResponse` that is used to initiate the sign-in process with Okta.  The object
-also contains a list of available social Identity Providers (IdPs) that is discussed in more detail in
-the next step.
+During page load, call the `Client` object's `InitLogin()` method. This method returns an object of type `LoginResponse` that is used to initiate the sign-in process with Okta. The object also contains a list of available social Identity Providers (IdPs) that is discussed in more detail in the next step.
 
 ```go
 lr, err := s.idxClient.InitLogin(context.TODO())
@@ -56,9 +52,7 @@ s.ViewData["IdpCount"] = func() int {
 
 #### Build the list of Identity Providers on the sign-in page
 
-Use the array of `IdentityProvider` objects to show a list of available Identity Providers on the
-sign-in page. The following code snippet shows how the sample application builds out links for each available
-Identity Provider.
+Use the array of `IdentityProvider` objects to show a list of available Identity Providers on the sign-in page. The following code snippet shows how the sample app builds out links for each available Identity Provider.
 
 ```go
 {{ range .IDPs }}
@@ -82,7 +76,7 @@ The following wireframe includes Facebook and Google IdP sign-in options.
 
 <div class="half wireframe-border">
 
-![A sign-in form with fields for username and password, a next button, and also buttons for signing in with facebook or google](/img/wireframes/sign-in-form-username-password-facebook-google.png)
+![A sign-in form with fields for username and password, a next button, and also buttons for signing in with Facebook or Google](/img/wireframes/sign-in-form-username-password-facebook-google.png)
 
 <!--
 
@@ -93,12 +87,11 @@ Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 
 ### 4: The user selects the Facebook sign-in link
 
-When the user clicks the Facebook IdP link, initially they are sent to the Okta org using the link provided in the
-`IdentityProvider` object's `HRef` property. At the Org, the request gets routed to Facebook for user sign-in. You don't need to implement additional code changes to perform this step.
+When the user clicks the Facebook IdP link, initially they’re sent to the Okta org using the link provided in the `IdentityProvider` object's `HRef` property. At the Org, the request gets routed to Facebook for user sign-in. You don't need to implement any code changes to perform this step.
 
 ### 5: The user signs in with Facebook
 
-After the user clicks the sign-in link, the browser redirects the user to a sign-in page hosted by Facebook. To test this step, you can use the Facebook test user credentials that you configured in [Set up your Okta org for a social IdP use case](/docs/guides/oie-embedded-common-org-setup/go/main/#set-up-your-okta-org-for-a-social-idp-use-case). You don't need to make any code changes in your app to perform this step.
+After the user clicks the sign-in link, the browser redirects the user to a sign-in page hosted by Facebook. To test this step, use the Facebook test user credentials that you configured in [Set up your Okta org for a social IdP use case](/docs/guides/oie-embedded-common-org-setup/go/main/#set-up-your-okta-org-for-a-social-idp-use-case). You don't need to make any code changes in your app to perform this step.
 
 <div class="half border">
 
@@ -108,11 +101,11 @@ After the user clicks the sign-in link, the browser redirects the user to a sign
 
 ### 6: Facebook redirects the user to your Okta org
 
-If the user signed in to Facebook successfully, Facebook routes the user to the Org URL that was configured in **Valid OAuth Redirect URIs** and **Site URL** in [Set up your Okta org for a social IdP use case](/docs/guides/oie-embedded-common-org-setup/go/main/#set-up-your-okta-org-for-a-social-idp-use-case). The values use the following format: `https://{Okta org domain}/oauth2/v1/authorize/callback` (for example, `https://dev-12345678.okta.com/oauth2/v1/authorize/callback`).
+If the user signed in to Facebook successfully, Facebook routes the user to the Org URL that was configured in **Valid OAuth Redirect URIs** and **Site URL** in [Set up your Okta org for a social IdP use case](/docs/guides/oie-embedded-common-org-setup/go/main/#set-up-your-okta-org-for-a-social-idp-use-case). The values use the following format: `https://{Okta org domain}/oauth2/v1/authorize/callback` (For example, `https://dev-12345678.okta.com/oauth2/v1/authorize/callback`).
 
-### 7: Store the tokens when Okta redirects the request to your application
+### 7: Store the tokens when Okta redirects the request to your app
 
-After Facebook sends the successful login request to your Okta org, the org redirects the request to your app through the application's **Sign-in redirect URIs** field, which was configured in [Create a new application](/docs/guides/oie-embedded-common-org-setup/go/main/#create-a-new-application).
+After Facebook sends the successful login request to your Okta org, the org redirects the request to your app through the app's **Sign-in redirect URIs** field, which was configured in [Create a new application](/docs/guides/oie-embedded-common-org-setup/go/main/#create-a-new-application).
 
 The value for the sample app is `http://localhost:8000/login/callback`.
 
