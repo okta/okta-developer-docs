@@ -21,7 +21,6 @@ guides:
  - configure-amr-claims-mapping
  - configure-ciba
  - configure-direct-auth-grants
- - configure-multiple-identifiers
  - configure-native-sso
  - configure-signon-policy
  - configure-user-scoped-account-management
@@ -56,6 +55,7 @@ guides:
  - migrate-to-okta-bulk
  - migrate-to-okta-password-hooks
  - mobile-idx-sdk-overview
+ - multiple-identifiers
  - scim-provisioning-integration-overview
  - scim-provisioning-integration-prepare
  - scim-provisioning-integration-connect

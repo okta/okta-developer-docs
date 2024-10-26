@@ -372,7 +372,7 @@ export const guides = [
           },
           {
             title: "Configure multiple identifiers",
-            guideName: "configure-multiple-identifers"
+            guideName: "multiple-identifers"
           },
           {
             title: "Test your access policies",
