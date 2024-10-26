@@ -9,7 +9,7 @@ layout: Guides
 <ApiLifecycle access="ea" />
 
 
-This guide explains how to configure the Multiple Identifiers feature using the Policy API.
+This guide explains how to configure the multiple identifiers feature using the Policy API.
 
 > **Note:** This document is written for Okta Identity Engine. If you are using Okta Classic Engine, consider upgrading to Identity Engine. See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.
 
