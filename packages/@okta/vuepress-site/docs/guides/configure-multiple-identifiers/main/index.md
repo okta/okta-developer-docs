@@ -15,10 +15,6 @@ This guide explains how to configure the Multiple Identifiers feature using the 
 
 ---
 
-#### Learning outcomes
-
-
-
 #### What you need
 
 
