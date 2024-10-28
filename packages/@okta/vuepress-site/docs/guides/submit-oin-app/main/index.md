@@ -67,6 +67,9 @@ Start your integration submission for OIN publication:
     > **Note:** Submit your integration from an Okta account that has your company domain in the email address. You can't use an account with a personal email address. The OIN team doesn't review submissions from personal email accounts.
 
 1. Go to **Applications** > **Your OIN Integrations** in the Admin Console.
+
+   > **Note:** If want to only test an existing submission, see [Navigate directly to test your integration](#navigate-directly-to-test-your-integration).
+
 1. Click **Build new OIN integration**. The OIN Wizard appears.
 1. Select the protocols that your integration supports from the **Select protocol** section.
 
@@ -182,6 +185,17 @@ The OIN Wizard journey includes the **Test integration** experience page to help
 1. [Submit your integration](#submit-your-integration) after all required tests are successful.
 
 > **Note:** You must have the Okta Browser Plugin installed with **Allow in Incognito** enabled before you use the  **OIN Submission Tester**. See [OIN Wizard requirements](/docs/guides/submit-app-prereq/main/#oin-wizard-requirements).
+
+#### Navigate directly to test your integration
+
+You can navigate directly to the OIN Wizard **Test integration** page if you have an existing submission in the **Your OIN Integrations** dashboard. This option is only available if your submission has protocol, configuration, and test information already saved. You can bypass the **[Select protocol](#start-a-submission)**, **[Configure your integration](#configure-your-integration)**, and **[Test your integration](#enter-test-information)** pages in the OIN Wizard, and start generating instances for testing. This saves you time and avoids unnecessary updates to an existing integration submission.
+
+To navigate directly to test your integration:
+
+1. From the **Your OIN Integrations** dashboard, select the more menu icon (![three-dot more icon](/img/icons/odyssey/more.svg)) next to the integration submission you want to test.
+1. Select **Test your integration** from the more menu.
+
+   The OIN Wizard **Test integration** page appears for you to generate an instance and test your integration.
 
 ### Generate instances for testing
 
@@ -538,9 +552,14 @@ To update a previously published OIN integration:
 1. Sign in to your Okta Developer Edition org as a user with either app admin or super admin roles.
    > **Note:** Edit your integration from an Okta account that has your company domain in the email address. You can't use an account with a personal email address. The OIN team doesn't review submission edits from a personal email account.
 1. In the Admin Console, go to **Applications** > **Your OIN Integrations**.
+
+   > **Note:** If you don't need to edit your submission and want to jump to testing, see [Navigate directly to test your integration](#navigate-directly-to-test-your-integration).
+
 1. Click your published integration to update from the dashboard. Your published OIN submission appears in read-only mode.
 1. From the **This integration is read-only** information box, click **Edit integration**.
-    > **Note:** If you open a submission in **DRAFT** status, it's not in read-only mode and the **Edit integration** option isn't available. Continue to edit your draft submission as a new submission. See [Start a submission](#start-a-submission).
+    > **Note:** If you open a submission in **DRAFT** status, it's not in read-only mode and the **Edit integration** option isn't available.
+
+    Continue to edit your draft submission as a new submission. See [Start a submission](#start-a-submission).
 1. If the OIN Wizard doesn't detect an instance to test your published integration in the org, then an **Application instance not detected** dialog appears. Click **Generate instance** to create an app instance based on your published OIN integration. See [Add existing app integrations](https://help.okta.com/okta_help.htm?type=oie&id=csh-apps-add-app) to create an instance for backwards-compatibility testing.
     > **Note:** The **Generate instance** option is disabled if you have five active instances in your org. [Deactivate instances](#deactivate-an-app-instance-in-your-org) that you're not using.
 
