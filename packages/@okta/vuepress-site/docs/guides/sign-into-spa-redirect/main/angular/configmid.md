@@ -18,7 +18,7 @@ Make the following changes to `src/app/app.module.ts`:
      issuer: 'https://{yourOktaDomain}/oauth2/default',
      clientId: '{yourClientID}',
      redirectUri: window.location.origin + '/login/callback',
-     scopes: ['openid', 'offline_access']
+     scopes: ['openid', 'profile', 'offline_access']
    });
    ```
 
