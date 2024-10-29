@@ -68,7 +68,7 @@ Start your integration submission for OIN publication:
 
 1. Go to **Applications** > **Your OIN Integrations** in the Admin Console.
 
-   > **Note:** If want to only test an existing submission, see [Navigate directly to test your integration](#navigate-directly-to-test-your-integration).
+   > **Note:** If you only want to test an existing submission, see [Navigate directly to test your integration](#navigate-directly-to-test-your-integration).
 
 1. Click **Build new OIN integration**. The OIN Wizard appears.
 1. Select the protocols that your integration supports from the **Select protocol** section.
