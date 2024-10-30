@@ -5,10 +5,10 @@ If you're unfamiliar with [SAML 2.0](https://docs.oasis-open.org/security/saml/P
 
 ### Use SAML toolkits
 
-To quickly build your SSO integration, use an open source or paid tool kit to implement SAML 2.0 for your existing app. You can use these different language kits to create the Service Provider WebSSO profile:
+To quickly build your SSO integration, use an open source or paid tool kit to implement SAML 2.0. Use these different language kits to create the Service Provider WebSSO profile:
 
-* .NET Framework 4.5 or later: [Sustainsys.Saml2](https://github.com/Sustainsys/Saml2) (Kentor authentication services)
-* .NET Framework 4.0 or earlier: [ComponentSpace SAML 2.0 for ASP.NET and ASP.NET Core](https://www.componentspace.com/) (paid software)
+* .NET framework 4.5 or later: [Sustainsys.Saml2](https://github.com/Sustainsys/Saml2) (Kentor authentication services)
+* .NET framework 4.0 or earlier: [ComponentSpace SAML 2.0 for ASP.NET and ASP.NET Core](https://www.componentspace.com/) (paid software)
 * Java: [OpenSAML](https://wiki.shibboleth.net/confluence/display/OS30/Home) (part of the [Shibboleth Development Project](https://www.shibboleth.net/))
 * Java: [Spring Security SAML](/code/java/spring_security_saml)
 * Python: [PySAML2](/code/python/pysaml2)
