@@ -197,7 +197,7 @@ Follow these steps to bypass the configuration pages in the OIN Wizard:
 
    The OIN Wizard **Test integration** page appears for you to generate an instance and test your integration.
 
-    > **Note:** If you haven't specified test information in the **[Test your integration](#enter-test-information)** page, then you are directed to this page to enter testing details. You can go to the **Test integration** page only if the protocols, configuration, and test details are provided in your submission.
+    > **Note:** If you haven't specified test information in the **[Test your integration](#enter-test-information)** page, then you're directed to this page to enter testing details. You can go to the **Test integration** page only if the protocols, configuration, and test details are provided in your submission.
 
 ### Generate instances for testing
 
