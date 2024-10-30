@@ -188,14 +188,16 @@ The OIN Wizard journey includes the **Test integration** experience page to help
 
 #### Navigate directly to test your integration
 
-You can navigate directly to the OIN Wizard **Test integration** page if you have an existing submission in the **Your OIN Integrations** dashboard. This option is only available if your submission has protocol, configuration, and test information. You can bypass the **[Select protocol](#start-a-submission)**, **[Configure your integration](#configure-your-integration)**, and **[Test your integration](#enter-test-information)** pages in the OIN Wizard, and start generating instances for testing. This saves you time and avoids unnecessary updates to an existing integration submission.
+You can navigate directly to the OIN Wizard **Test integration** page if you have an existing submission in the **Your OIN Integrations** dashboard. You can bypass the **[Select protocol](#start-a-submission)**, **[Configure your integration](#configure-your-integration)**, and **[Test your integration](#enter-test-information)** pages in the OIN Wizard, and start generating instances for testing. This saves you time and avoids unnecessary updates to an existing integration submission.
 
-To navigate directly to test your integration:
+Follow these steps to bypass the configuration pages in the OIN Wizard:
 
 1. From the **Your OIN Integrations** dashboard, select the more menu icon (![three-dot more icon](/img/icons/odyssey/more.svg)) next to the integration submission you want to test.
-1. Select **Test your integration** from the more menu.
+1. Select **Test your integration** from the menu.
 
    The OIN Wizard **Test integration** page appears for you to generate an instance and test your integration.
+
+    > **Note:** If you haven't specified test information in the **[Test your integration](#enter-test-information)** page, then you are directed to this page to enter testing details. You can go to the **Test integration** page only if protocol, configuration, and test details are provided in your submission.
 
 ### Generate instances for testing
 
