@@ -56,8 +56,60 @@ Identifiers are configured at the app level, in the user profile policy. This me
 
 ## Create a user profile policy
 
+GET /api/v1/policies?type=PROFILE_ENROLLMENT
+
+https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy
 
 
+{
+        "id": "rstknzs7qffuAXElo5d7",
+        "status": "ACTIVE",
+        "name": "Documentation",
+        "priority": 1,
+        "system": false,
+        "conditions": null,
+        "created": "2024-10-26T09:18:12.000Z",
+        "lastUpdated": "2024-10-26T09:18:12.000Z",
+        "_links": {
+            "mappings": {
+                "href": "https://dev-71245668.okta.com/api/v1/policies/rstknzs7qffuAXElo5d7/mappings",
+                "hints": {
+                    "allow": [
+                        "GET",
+                        "POST"
+                    ]
+                }
+            },
+            "self": {
+                "href": "https://dev-71245668.okta.com/api/v1/policies/rstknzs7qffuAXElo5d7",
+                "hints": {
+                    "allow": [
+                        "GET",
+                        "PUT",
+                        "DELETE"
+                    ]
+                }
+            },
+            "rules": {
+                "href": "https://dev-71245668.okta.com/api/v1/policies/rstknzs7qffuAXElo5d7/rules",
+                "hints": {
+                    "allow": [
+                        "GET",
+                        "POST"
+                    ]
+                }
+            },
+            "deactivate": {
+                "href": "https://dev-71245668.okta.com/api/v1/policies/rstknzs7qffuAXElo5d7/lifecycle/deactivate",
+                "hints": {
+                    "allow": [
+                        "POST"
+                    ]
+                }
+            }
+        },
+        "type": "PROFILE_ENROLLMENT"
+    }
 
 
 ## Add identifiers to a user profile policy
