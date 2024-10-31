@@ -41,10 +41,10 @@ In the optional **Authentication Settings** section:
 
     After an account is linked, any validated JWT token with the same `sub` claim (which is mapped to the `idp.externalId` in the IdP profile) is automatically mapped to the same user. This happens regardless of the content of claims in the JWT. Also, the matching happens even if the values for **IdP username** and **Match against** no longer result in a match.
 
-* **Auto-link filters**: If the automatic linking policy is selected, you can configure linking to users in specific groups, exclude linking to specific users, and exclude linking to admin users.
+* **Auto-link filters**: If the automatic linking policy is selected, you can configure linking to users in specific groups, exclude linking to specific users, and exclude linking to admin users. <ApiLifecycle access="ea" />
 
-    * **Include specific groups**: Only users in the specified groups are included for account linking.
+    * **Include specific groups**: Include users in these groups for account linking.
 
-    * **Exclude specific users**: Any specific user can be excluded from account linking.
+    * **Exclude specific users**: Exclude these specific users from account linking.
 
-    * **Exclude admins**: Users that are assigned admin roles or have admin privileges are excluded from account linking.
+    * **Exclude admins**: Exclude users who are assigned admin roles or have admin privileges from account linking.

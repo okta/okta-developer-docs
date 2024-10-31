@@ -16,13 +16,13 @@ In the **Account matching with IdP Username** section:
 
 * **Account Link Policy** > **Enable automatic linking**: Select this option for Okta to automatically link the user's IdP account with a matching Okta account. See [Account link](#account-link).
 
-* **Auto-link filters**: If the automatic linking policy is selected, you can configure linking to users in specific groups, exclude linking to specific users, and exclude linking to admin users.
+* **Auto-link filters**: If the automatic linking policy is selected, you can configure linking to users in specific groups, exclude linking to specific users, and exclude linking to admin users. <ApiLifecycle access="ea" />
 
-    * **Include specific groups**: Only users in the specified groups are included for account linking.
+    * **Include specific groups**: Include users in these groups for account linking.
 
-    * **Exclude specific users**: Any specific user can be excluded from account linking.
+    * **Exclude specific users**: Exclude these specific users from account linking.
 
-    * **Exclude admins**: Users that are assigned admin roles or have admin privileges are excluded from account linking.
+    * **Exclude admins**: Exclude users who are assigned admin roles or have admin privileges from account linking.
 
 In the **<StackSnippet snippet="idp" inline /> Protocol Settings** section:
 
