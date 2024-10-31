@@ -19,13 +19,18 @@ This guide explains how to configure the multiple identifiers feature using the 
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
 * [Groups created](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/) in your org
-* A configured [network zone](https://help.okta.com/okta_help.htm?id=ext_Security_Network)
+* An app or apps
+* [Custom attributes](https://help.okta.com/okta_help.htm?type=oie&id=ext_Custom_Attributes_with_AD) in your user profile
 
 ---
 
 ## About multiple identifiers
 
 Identifiers are attributes that a user can enter instead of their username when they sign in. They work in authentication, recovery, and unlock flows, and in self-service registration flows if you add them to the profile enrollment form. You can select two unique custom attributes in the Okta user profile to serve as identifiers, as long as they're read-write (or read only), non-sensitive, and have a string data type.
+
+Adding identifiers to an app's user profile policy lets users sign in with something other than their username. You can select two custom attributes from the Okta user profile to serve as identifiers, or you can add new ones specifically for this purpose.
+
+An identifier must be a read-write or read-only attribute, have a string data type, and contain no sensitive information. It must also be unique. Don't use phone numbers or secondary email addresses for identifiers.
 
 ### Use cases
 
@@ -114,24 +119,34 @@ https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Polic
 
 ## Add identifiers to a user profile policy
 
+For each custom attribute, set the Data type to string and the Restriction to Value must be unique for each user. If this restriction isn't in your dropdown list, see Unable to make a custom attribute unique.
+
+> **Note:** Remember that custom attributes shouldn't be hidden or contain sensitive information.
+
 
 
 
 ## Create a custom profile enrollment form
 
-
+Use the Admin Console to crreate a custom profile enrollment form. See [Create a custom profile enrollment form](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-prof-enroll-form).
 
 
 ## Customize your sign-in page
 
+Create a custom domain for your org. See [Customize domain and email address](/docs/guides/custom-url-domain/main/).
 
+Enter new values for any of the headings, labels, and links that you want to customize. For example, if you allow users to sign in with an identifier, you can change the Username label to describe which identifiers they can use.
+
+To customize a label, see [Replace the customized sign-in page](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/CustomPages/#tag/CustomPages/operation/replaceCustomizedSignInPage).
 
 
 ## Add apps to a user profile policy
 
+Add an app to an [authentication policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/), identified by `policyId`.
 
-
-
+curl -i -X PUT \
+  'https://subdomain.okta.com/api/v1/apps/{appId}/policies/{policyId}' \
+  -H 'Authorization: YOUR_API_KEY_HERE'
 
 ## See also
 
