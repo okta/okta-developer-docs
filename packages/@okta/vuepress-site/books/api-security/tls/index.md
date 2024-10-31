@@ -1,7 +1,7 @@
 ---
 title: Transport Layer Security
 ---
-# Transport Layer Security {#tls}
+# Transport Layer Security [[#tls]]
 
 <div class="chapter-author">By Randall Degges</div>
 

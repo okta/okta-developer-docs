@@ -17,16 +17,18 @@ const _getToken = () => {
   // Strip " if present (breaks coveo)
   token = token.replace('"', "");
 
-  // Invalidate token if about to expire
-  const decoded = jwt_decode(token);
-  const now = DateTime.now();
-  const expWithBuffer = DateTime.fromSeconds(decoded.exp).minus({ minutes: 5 });
-  if (now > expWithBuffer) {
-    storage.removeItem(COVEO_KEY);
-    return;
-  } else {
-    return token;
+  try {
+    // Invalidate token if about to expire
+    const decoded = jwt_decode(token);
+    const now = DateTime.now();
+    const expWithBuffer = DateTime.fromSeconds(decoded['exp']).minus({ minutes: 5 });
+    if (now < expWithBuffer) {
+      return token;
+    }
+  } catch (err) {
+    console.log('Failed to parse token:', err.message);
   }
+  storage.removeItem(COVEO_KEY);
 };
 
 const _renewToken = () => {

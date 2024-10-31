@@ -3,7 +3,7 @@
 .company-logos--icon:nth-child(3),
 .company-logos--icon:nth-child(4),
 .company-logos--icon:nth-child(5) {
-  background-color: cv("text") !important;
+  background-color: cv("text", "base") !important;
   background-image: none !important;
   mask-repeat: no-repeat;
   mask-position: center;

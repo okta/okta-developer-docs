@@ -1,4 +1,4 @@
-The following sections outline the main requests required to implement the Implicit flow using direct requests to the [OIDC & OAuth 2.0 API](/docs/reference/api/oidc/) `/authorize` endpoint.
+The following sections outline the main requests required to implement the Implicit flow using direct requests to the [OIDC & OAuth 2.0 API](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/authorizeCustomAS) `/authorize` endpoint.
 
 ### Request for tokens
 
@@ -7,7 +7,7 @@ This flow is similar to the [Authorization Code flow](/docs/guides/implement-gra
 Your application redirects the user's browser to your [authorization server's](/docs/concepts/auth-servers/) `/authorize` endpoint. If you are using the org authorization server, then your request URL would look something like this:
 
 ```bash
-https://${yourOktaDomain}/oauth2/v1/authorize?
+https://{yourOktaDomain}/oauth2/v1/authorize?
    client_id=0oabv6kx4qq6h1U5l0h7&
    response_type=token&scope=openid&
    redirect_uri=https%3A%2F%2Fexample.com&
@@ -23,14 +23,14 @@ Note the parameters that are being passed:
 * `redirect_uri` is the callback location where the user agent is directed to along with the `access_token`. This must match one of the **Sign-in redirect URIs** that you specified when you created your app integration earlier.
 * `state` is an arbitrary alphanumeric string that the authorization server reproduces when redirecting the user agent back to the client. This is used to help prevent cross-site request forgery.
 
-See the [OAuth 2.0 API reference](/docs/reference/api/oidc/#authorize) for more information on these parameters.
+See the [OAuth 2.0 API reference](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/authorizeCustomAS) for more information on these parameters.
 
 ### Extract tokens from redirect URI
 
 If the user doesn't have an existing session, the request opens the Okta sign-in page. If they have an existing session, or after they authenticate, the user is redirected back to the specified `redirect_uri` along with a `token` as a hash fragment:
 
 ```bash
-https://${yourOktaDomain}/#access_token=eyJhb[...]erw&
+https://{yourOktaDomain}/#access_token=eyJhb[...]erw&
    token_type=Bearer&
    expires_in=3600&
    scope=openid&

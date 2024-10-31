@@ -5,6 +5,12 @@ category: management
 
 # Custom Templates API
 
+The Custom Templates API reference is now available at the new [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Template/).
+
+Explore the [Okta Public API Collections](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/overview) workspace to get started with the SMS Templates API Postman collection.
+
+<!--
+
 The Okta Templates API provides operations to manage custom Templates.
 
 > **Note:** Only SMS custom Templates are available through the API.
@@ -362,7 +368,7 @@ Template translations are optionally provided when you want to localize the SMS 
   }
 ```
 
-The key portion is a two-letter country code that conforms to [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes), and the value is the translated SMS Template.
+The key portion is a two-letter country code that conforms to [ISO 639-1](https://www.loc.gov/standards/iso639-2/php/code_list.php), and the value is the translated SMS Template.
 
 > **Note:** Just like with regular SMS Templates, the length of the SMS message can't exceed 160 characters.
 
@@ -380,3 +386,4 @@ Only two macros are supported for SMS Templates:
 | ----------------- | ------------------------------------------------------------------------------------------------ |
 | `${code}`         | The one-time verification code that is required for sign in.                                       |
 | `${org.name}`     | The name of the Okta organization that the user is trying to authenticate into.                  |
+-->

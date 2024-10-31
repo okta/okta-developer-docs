@@ -65,8 +65,9 @@
       </p>
 
       <div
-        v-if="['user.risk.change', 'analytics.feedback.provide', 'security.events.provider.receive_event', 'device.signals.status.timeout', 
-               'policy.auth.reevaluate.fail', 'policy.continuous_access.evaluate', 'policy.continuous_access.action', 'user.session.context.changed', 
+
+        v-if="['user.risk.change', 'user.risk.detect', 'analytics.feedback.provide', 'security.events.provider.receive_event', 'device.signals.status.timeout', 
+               'policy.auth_reevaluate.fail', 'policy.auth_reevaluate.enforce', 'policy.auth_reevaluate.action', 'policy.continuous_access.evaluate', 'policy.continuous_access.action', 'user.session.context.changed', 
                'policy.entity_risk.evaluate', 'policy.entity_risk.action', 'user.session.end', 'user.session.clear', 'user.authentication.universal_logout', 
                'workflows.user.delegatedflow.run'].indexOf(eventType.id) !== -1"
       >
@@ -80,9 +81,14 @@
           :key="tag"
           class="event-type-tag"
         >{{ tag }}</code>
+        <code
+          v-if="eventType.schema.changeDetails !== null && Array.isArray(eventType.schema.changeDetails) && eventType.schema.changeDetails.length > 0"
+          :key="tag"
+          class="event-type-tag"
+        >{{ "changeDetails" }}</code>
       </div>
       <div class="event-type-release">
-        Since: <SmartLink :item="{link: '/docs/release-notes/', text: eventType.info.release}" />
+        Since: {{ eventType.info.release }}
       </div>
     </div>
   </div>

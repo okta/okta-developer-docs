@@ -1,71 +1,72 @@
 ---
 title: Validate Access Tokens
-excerpt: How to validate access tokens with Okta.
+excerpt: How to validate access tokens with Okta
 layout: Guides
 meta:
   - name: description
-    content: This guide on tokens shows you how to verify a token's signature, manage key rotation, and how to use a refresh token to get a new access token.
+    content: This guide explains why access token validation is important and how to validate the access token.
 ---
 
-This guide explains how to verify a token's signature, manage key rotation, and how to use a refresh token to get a new access token.
+This guide explains why access token validation is important and how to validate and decode the access token.
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
-Validate access tokens.
+* Understand token validation.
+* Understand what to check when validating tokens.
+* Decode access tokens.
+* Validate access tokens remotely.
 
 ---
 
 ## About access token validation
 
-If you're building a modern app or API, you likely want to know if your end user is authenticated. This is important to give context or to protect APIs from unauthenticated users. You can use Okta to authenticate your end users and issue them signed access and ID tokens, which your application can then use. It's important that your application only uses the access token to grant access, and not the ID token. For more information about this, see the [Access Tokens vs ID Tokens](#access-tokens-vs-id-tokens) section.
+If you're building a modern app or API, you want to know if your end user is authenticated. This is important to give context or to protect APIs from unauthenticated users. You can use Okta to authenticate your end users and issue them signed access and ID tokens. Your app can then use these tokens. It's important that your app uses only the access token to grant access, and not the ID token. See [Access tokens vs ID tokens](#access-tokens-vs-id-tokens).
 
-After the signed tokens are issued to the end users, they can be passed to your application for validation. There are two ways to verify a token: locally or remotely with Okta. The token is signed with a JSON Web Key (JWK) using the RS256 algorithm. To validate the signature, Okta provides your application with a public key that can be used.
+After signed tokens are issued to end users, they can be passed to your app for validation. There are two ways to verify a token: locally or remotely with Okta. The token is signed with a JSON Web Key (JWK) using the RS256 algorithm. To validate the signature, Okta provides your app with a public key that you can use.
 
-- If you'd like to jump straight to the local validation steps: [What to Check When Validating an Access Token](#what-to-check-when-validating-an-access-token)
-- If you'd like to see how to validate a token directly with Okta: [Validating A Token Remotely With Okta](#validating-a-token-remotely-with-okta)
-- If you want to see specifically how to accomplish this in your language of choice: [Okta Libraries to Help You Verify Access Tokens](#okta-libraries-to-help-you-verify-access-tokens)
+* To jump straight to the local validation steps: [What to check when validating an access token](#what-to-check-when-validating-an-access-token)
+* To see how to validate a token directly with Okta: [Validate a token remotely with Okta](#validate-a-token-remotely-with-okta)
 
-> **Note:** Access tokens from the org authorization server, as signified by an issuer `https://${yourOktaOrg}`, shouldn't be consumed or validated by any application other than Okta. Consider these access tokens as opaque strings since their content is subject to change at any time without notice. Therefore, any attempts to validate the tokens may not work in the future.
+> **Note:** Okta is the only app that should consume or validate access tokens from the org authorization server. Org authorization servers have the following `issuer` format: `https://{yourOktaOrg}`. Consider these access tokens as opaque strings because their content is subject to change at any time. Therefore, any attempts by your app to validate the tokens may not work in the future.
 
-## Access Tokens vs ID Tokens
+## Access tokens vs ID tokens
 
-As mentioned earlier, it's important that the resource server (your server-side application) accepts only the access token from a client. This is because access tokens are intended for authorizing access to a resource.
+Access tokens are intended for authorizing access to a resource. It's important that the resource server (your server-side app) accepts only an access token from a client.
 
-ID tokens, on the other hand, are intended for authentication. They provide information about the resource owner so that you can verify that they're who they say they are. Authentication is the concern of the clients. Because of this, when a client makes an authentication request, the ID token that is returned contains the `client_id` in the ID token's `aud` claim.
+ID tokens, on the other hand, are intended for authentication. They provide information about the resource owner so that you can verify that they're who they say they are. Authentication is important to clients. Because of this, when a client makes an authentication request, the ID token that's returned contains the `client_id` in the ID token's `aud` claim.
 
-## What to Check When Validating an Access Token
+## What to check when validating an access token
 
 The high-level overview of validating an access token looks like this:
 
-- Retrieve and parse your Okta JSON Web Keys (JWK), which should be checked periodically and cached by your application.
-- Decode the access token, which is in JSON Web Token (JWT) format.
-- Verify the signature used to sign the access token.
-- Verify the claims found inside the access token.
+* Retrieve your Okta [JSON Web Keys (JWK)](https://datatracker.ietf.org/doc/html/rfc7517), which your app should check periodically and cache.
+* Decode the access token, which is in [JSON Web Token (JWT)](https://datatracker.ietf.org/doc/html/rfc7519) format.
+* Verify the signature used to sign the access token.
+* Verify the claims found inside the access token.
 
-### Retrieve The JSON Web Keys
+### Retrieve the JSON Web Keys
 
-The JSON Web Keys (JWK) need to be retrieved from your [Okta authorization server](/docs/guides/customize-authz-server/), though your application should have them cached. See [Best practices](/docs/reference/api/oidc/#best-practices). Specifically, your authorization server's Metadata endpoint contains the `jwks_uri`, which you can use to get the JWK.
+<StackSnippet snippet="retrievekeys" />
 
-> For more information about retrieving this metadata, see [Retrieve Authorization Server Metadata](/docs/reference/api/oidc/#well-knownoauth-authorization-server).
+### Decode and validate the access token
 
-### Decode and Validate the Access Token
+Decode the access token, which is in JWT format. This involves the following steps:
 
-You need to decode the access token, which is in JWT format.  This involves the following steps:
-- Verify the token signature.
-- Verify the claims.
+* Verify the token signature.
+* Verify the claims.
 
-<StackSelector snippet="accesstoken" noSelector/>
+<StackSnippet snippet="accesstoken" />
 
-## Validate A Token Remotely With Okta
+## Validate a token remotely with Okta
 
-Alternatively, you can also validate an access or refresh token using the Token Introspection endpoint: [Introspection Request](/docs/reference/api/oidc/#introspect). This endpoint takes your token as a URL query parameter and returns back a simple JSON response with a boolean `active` property.
+Alternatively, you can validate an access or refresh token using the Token Introspection endpoint: [Introspection request](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/introspectCustomAS). This endpoint takes your token as a URL query parameter and returns a simple JSON response with a Boolean `active` property.
 
-This incurs a network request which is slower to do verification, but can be used when you want to guarantee that the access token hasn't been revoked.
+This involves a network request that is slower for performing validation. But, you can use it when you want to guarantee that the access token hasn't been revoked.
 
 ## See also
 
-- A high-level overview of OpenID Connect can be found [here](/docs/concepts/oauth-openid/#openid-connect).
-- The access tokens are in [JSON Web Token (JWT)](https://tools.ietf.org/html/rfc7519) format. They're signed using asymmetrical [JSON Web Keys (JWK)](https://tools.ietf.org/html/rfc7517).
-- More information about Okta access tokens can be found in the [OIDC & OAuth 2.0 API Reference](/docs/reference/api/oidc/#id-token).
+* [High-level overview of OpenID Connect](/docs/concepts/oauth-openid/#openid-connect)
+* [JSON Web Token (JWT)](https://tools.ietf.org/html/rfc7519) and [JSON Web Keys (JWK)](https://tools.ietf.org/html/rfc7517)
+* [OIDC & OAuth 2.0 API Reference](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/#id-token)

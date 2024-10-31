@@ -4,7 +4,7 @@ title: How Key Exchange Works Today - Transport Layer Security
 
 <div style="font-size: 0.9em; margin-bottom: -20px;"><a href="/books/api-security/tls/">&larr; Transport Layer Security</a></div>
 
-## How Key Exchange Works Today {#tls-key-exchange}
+## How Key Exchange Works Today [[#tls-key-exchange]]
 
 Current hybrid cryptosystems like SSL/TLS use symmetric key algorithms (they are generally faster than asymmetric algorithms.) Symmetric key algorithms require a shared secret, exchanged via key-exchange algorithm.
 

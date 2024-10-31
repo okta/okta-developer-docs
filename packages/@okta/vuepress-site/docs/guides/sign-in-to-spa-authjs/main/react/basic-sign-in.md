@@ -1,32 +1,32 @@
-This section helps you review the simple password-only sign-in use case from the sample app. This use case is outlined in the following sequence diagram with your single-page app as the client:
+Review the simple password-only sign-in use case from the sample app. This use case is outlined in the following sequence diagram with your single-page app (SPA) as the client:
 
 <div class="full">
 
-![Sequence diagram that displays the back and forth between the resource owner, sdk, authorization server, and resource server for a basic SPA password sign-in flow.](/img/oie-embedded-sdk/password-only-spa-authjs-flow.svg)
+![Sequence diagram that displays the interactions between the resource owner, SDK, authorization server, and resource server for a basic SPA password sign-in flow.](/img/oie-embedded-sdk/password-only-spa-authjs-flow.svg)
 
 </div>
 
 ### Set up the Okta configuration settings
 
-Review the `src/config.js` file that references the required [configuration settings](#configuration-settings) to initialize your Okta Auth JS instance. The `config.js` file references the values you add to the `testenv` file.
+Review the `src/config.js` file that references the required [app integration settings](#app-integration-settings) to initialize your Okta Auth JS instance. The `config.js` file references the values that you add to the `testenv` file.
 
 ```JavaScript
-const CLIENT_ID = process.env.SPA_CLIENT_ID || process.env.CLIENT_ID || '${clientId}';
-const ISSUER = process.env.ISSUER || 'https://${yourOktaDomain}/oauth2/default';
-const REDIRECT_URI = `${window.location.origin}/login/callback`;
+const CLIENT_ID = process.env.SPA_CLIENT_ID || process.env.CLIENT_ID || '{clientId}';
+const ISSUER = process.env.ISSUER || 'https://{yourOktaDomain}/oauth2/default';
+const REDIRECT_URI = `{window.location.origin}/login/callback`;
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
   clientId: CLIENT_ID,
   issuer: ISSUER,
   redirectUri: REDIRECT_URI,
-  scopes: ['openid', 'profile', 'email'],
+  scopes: ['openid', 'offline_access', 'profile', 'email'],
 };
 ```
 
 ### Instantiate the Okta Auth JS client
 
-Review the React `app.js` file that imports required libraries and instantiates the Okta Auth JS client with values from the `config.js`.
+Review the React `app.js` file that imports the required libraries and instantiates the Okta Auth JS client with values from the `config.js`.
 
 ```JavaScript
 import { useEffect, useState } from 'react';

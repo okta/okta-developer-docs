@@ -2,7 +2,9 @@
 title: Okta Verify (Push/OTP) integration guide
 ---
 
-The expected behavior of Okta Verify is to reflect the context of the original client request when receiving a Push Notification. This behavior isn't honored in proxy model architectures, where a server-side application using the Embedded SDK is used as a proxy between client applications and Okta servers. Specifically, the Okta Verify push notification always displays the server's IP Address and user agent regardless of any passed-in request context. As a result, Okta Verify is unavailable for server-side applications using the Embedded SDK until we find a solution to this issue.
+The expected behavior of Okta Verify is to reflect the context of the original client request when a user receives a push notification. This behavior isn't honored in proxy model architectures. In proxy model architectures, a server-side application using the embedded SDK is used as a proxy between client applications and Okta servers.
+
+The Okta Verify push notification always displays the server's IP address and user agent regardless of any passed-in request context. As a result, Okta Verify is unavailable for server-side applications using the embedded SDK until Okta finds a solution.
 
 <!--
 
@@ -12,12 +14,12 @@ Learn how to integrate Okta Verify into your app using the embedded SDK.
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Understand the Okta Verify enrollment and challenge flows
 * Understand how to integrate Okta Verify into your app step-by-step
 
-**What you need**
+#### What you need
 
 * <StackSnippet snippet="whatyouneedsdk" />
 * Okta Verify installed on a mobile device

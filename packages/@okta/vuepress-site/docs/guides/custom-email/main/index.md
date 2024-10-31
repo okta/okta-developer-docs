@@ -8,16 +8,17 @@ This guide explains how to customize and style the default Okta email notificati
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
-Customize email notifications.
+* Use the Brands API to style notifications.
+* Edit templates to customize notifications.
 
-**What you need**
+#### What you need
 
-- [Okta Developer Edition organization](https://developer.okta.com/signup)
-- Access to email template customization. Contact [Okta support](https://support.okta.com/help) for help.
+* [Okta Developer Edition organization](https://developer.okta.com/signup)
+* Access to email template customization. Contact [Okta support](https://support.okta.com/help) for help.
 
-**Sample code**
+#### Sample code
 
 [Customization example](#customization-example)
 
@@ -51,7 +52,7 @@ See [Brands](/docs/concepts/brands/).
 
 ### Use the Brands API
 
-The [Brands API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Customization/) allows you to customize the look and feel of pages and templates, including:
+The [Brands API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Brands/) allows you to customize the look and feel of pages and templates, including:
 
 - The custom sign-in page
 - Error pages
@@ -62,7 +63,7 @@ You can brand these pages and templates without setting up a customized Okta URL
 
 > **Note:** If you change any email code using the [Admin Console](#edit-a-default-email-template), your customizations may override the values of the Theme objects. To get your Theme object values back, reset the code editors in the Admin Console to the default settings.
 
-See [Email template operations](/docs/reference/api/brands/#email-template-operations) and [Email template resources](/docs/reference/api/brands/#email-template-resources) for details about email templates and the Brands API.
+See [Custom Email Templates](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/CustomTemplates/) for details about email templates and the Brands API.
 
 ### Caveats
 
@@ -78,7 +79,7 @@ See [Email template operations](/docs/reference/api/brands/#email-template-opera
 
 Use these steps to add or edit a template in one of the Okta-supported languages.
 
-> **Note:** To access email customization with a free developer edition of an Okta org, you need to contact [Okta support](https://support.okta.com/help).
+> **Note:** To access email customization with a free Okta Developer Edition org, contact [Okta support](https://support.okta.com/help).
 
 1. In the Admin Console, go to **Customizations** > **Brands**, and then select the brand you want.
 1. On the **Emails** tab, click an email template name:
@@ -89,10 +90,10 @@ Use these steps to add or edit a template in one of the Okta-supported languages
    - **Subject**: The subject line for the template in the default language. You can edit the subject line when the template is in read/write mode.
    - In the preview window, to see a translation of a customized template, select a language from the dropdown menu. See [Add translations](#add-translations).
 1. Click **Edit** to put the editor in read/write mode.
-1. Make changes directly in the editor. If you type `$`, `#` or `{`, the editor provides a list of available variables that you can use. See [Use Velocity Templating Language (VTL)](#use-velocity-templating-language).
+1. Make changes directly in the editor. If you type `$`, `#`, or `{`, the editor provides a list of available variables that you can use. See [Use Velocity Templating Language (VTL)](#use-velocity-templating-language).
    - Click the code editor to full-screen mode.
    - Click **Save changes**, then click **Preview** to see your changes before you publish.
-   - Click **Reset template** to remove your customizations and restore the default HTML/CSS and JavaScript code.
+   - Click **Reset template** to remove your customizations and restore the default HTML/CSS.
 1. Click **Save changes**. The default language version of your edited message appears in the **Email Templates** table.
 
 Remember that Okta doesn't automatically translate the changes you make in one template to the other language templates. To add translations for this customization, proceed to step 3 in [Add translations](#add-translations).
@@ -102,41 +103,41 @@ Remember that Okta doesn't automatically translate the changes you make in one t
 The following table provides a list of all available email templates in an Okta org, including:
 
 - The default subject line for the email template
-- The corresponding API object reference (`${templateName}`) for the email template (see [Email template operations](/docs/reference/api/brands/#email-template-operations))
+- The corresponding API object reference (`{templateName}`) for the email template. See [Custom email templates](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/CustomTemplates/).
 - The required validation fields for templates created using the API
 - A description of the template
 
-> **Note:** If you use the embedded Okta Sign-In Widget for authentication, don't use `${emailAuthenticationLink}` as the required validation field. It takes you to the Okta-hosted Sign-In Widget. Instead, use [Custom password recovery](/docs/guides/oie-embedded-sdk-use-case-custom-pwd-recovery-mfa/nodeexpress/main/).
+> **Note:** If you use the embedded Okta Sign-In Widget for authentication, don't use `{emailAuthenticationLink}` as the required validation field. It takes you to the Okta-hosted Sign-In Widget. Instead, use [Custom password recovery](/docs/guides/oie-embedded-sdk-use-case-custom-pwd-recovery-mfa/nodeexpress/main/).
 
-| UI name | Default subject line | API object reference</br>`${templateName}` | Required validation fields | Description |
+| UI name | Default subject line | API object reference</br>`{templateName}` | Required validation fields | Description |
 |---------|---------|----------------------|----------|---------|
-| User Activation | Welcome to Okta! | `UserActivation` | Either `${activationLink}` or `${activationToken}` | Sent to new users who must follow the provided link to complete the Okta sign-up process |
+| User Activation | Welcome to Okta! | `UserActivation` | Either `{activationLink}` or `{activationToken}` | Sent to new users who must follow the provided link to complete the Okta sign-up process |
 | Active Directory User Activation | Welcome to Okta! | `ADUserActivation` | | Sent to your new Active Directory users who must follow the provided link to complete the Okta sign-up process |
 | LDAP User Activation | Welcome to Okta! | `LDAPUserActivation` | |  Sent to your new LDAP users who must follow the provided link to complete the Okta sign-up process |
-| Send Push Verify Activation Link | Push Verify Activation Email | `OktaVerifyActivation` | `${pushVerifyActivationLink}` |  Sent to users who must follow the provided link to download Okta Verify Push for multifactor authentication on their mobile device |
-| Registration - Activation | Activate Account | `RegistrationActivation` | Either `${registrationActivationLink}` or `${registrationActivationToken}` |  Sent to users who must follow the provided link to complete their self-registration |
-| Registration - Email Verification | Welcome to (`instanceDisplayName`)! | `RegistrationEmailVerification` | One of `${verificationLink}`, `${verificationToken}`, `$[registrationEmailVerificationLink}`, or `${registrationEmailVerificationToken}` (Identity Engine) Either `${registrationEmailVerificationLink}` or `${registrationEmailVerificationToken}` (Classic Engine) |  Sent to users who can follow the provided link to verify their email address |
-| Email Factor verification (Identity Engine) Email Verification (Classic Engine) | Confirm your email address | `EmailFactorVerification` | One of `${verificationLink}`, `${verificationToken}`, `$[registrationEmailVerificationLink}`, or `${registrationEmailVerificationToken}` (Identity Engine) |  Sent to users who must follow the provided link to verify their email address |
+| Send Push Verify Activation Link | Push Verify Activation Email | `OktaVerifyActivation` | `{pushVerifyActivationLink}` |  Sent to users who must follow the provided link to download Okta Verify Push for multifactor authentication on their mobile device |
+| Registration - Activation | Activate Account | `RegistrationActivation` | Either `{registrationActivationLink}` or `{registrationActivationToken}` |  Sent to users who must follow the provided link to complete their self-registration |
+| Registration - Email Verification | Welcome to (`instanceDisplayName`)! | `RegistrationEmailVerification` | One of `{verificationLink}`, `{verificationToken}`, `[registrationEmailVerificationLink}`, or `{registrationEmailVerificationToken}` (Identity Engine) Either `{registrationEmailVerificationLink}` or `{registrationEmailVerificationToken}` (Classic Engine) |  Sent to users who can follow the provided link to verify their email address |
+| Email Factor verification (Identity Engine) Email Verification (Classic Engine) | Confirm your email address | `EmailFactorVerification` | One of `{verificationLink}`, `{verificationToken}`, `{registrationEmailVerificationLink}`, or `{registrationEmailVerificationToken}` (Identity Engine) |  Sent to users who must follow the provided link to verify their email address |
 | Forgot Password Denied | Account Password Reset | `ForgotPasswordDenied` | |  Sent to users who forgot their password but only their admin can reset it |
 | Password Reset by Admin | Account Password Reset | `PasswordResetByAdmin` | |  Sent to users who had their password reset by an Okta system administrator and must follow the provided link to complete the password reset process |
 | Active Directory Password Reset Denied | Forgotten Password | `ADForgotPasswordDenied` | |  Sent to Active Directory users who tried to reset their Active Directory password but don't have permission |
 | LDAP Forgot Password Denied | Account password reset | `LDAPForgotPasswordDenied` | |  Sent to LDAP users who tried to reset their LDAP password but don't have permission |
-| LDAP Forgot Password | Account password reset | `LDAPForgotPassword` | Either `${resetPasswordLink}` or `${recoveryToken}` (Identity Engine) Either `${resetPasswordLink}` or `${oneTimePassword}` (Classic Engine) |  Sent to LDAP users who forgot their password and must follow the provided link to reset their password |
-| Forgot Password | Account password reset | `ForgotPassword` | Either `${resetPasswordLink}` or `${oneTimePassword}`</br>(Identity Engine and Classic Engine) |  Sent to users who must follow the provided link to reset their forgotten password |
-| Active Directory Password Reset | Forgotten password (Identity Engine) Account password reset (Classic Engine) | `ADForgotPassword` | Either `${recoveryLink}` or `${recoveryToken}`</br>(Identity Engine and Classic Engine) | Sent to users who want to reset their Active Directory account password. Users must follow the provided link to reset their password (Identity Engine). </br></br>Sent to users who have had their Active Directory account password reset. Users must follow the provided link to reset their password (Classic Engine). |
+| LDAP Forgot Password | Account password reset | `LDAPForgotPassword` | Either `{resetPasswordLink}` or `{recoveryToken}` (Identity Engine) Either `{resetPasswordLink}` or `{oneTimePassword}` (Classic Engine) |  Sent to LDAP users who forgot their password and must follow the provided link to reset their password |
+| Forgot Password | Account password reset | `ForgotPassword` | Either `{resetPasswordLink}` or `{oneTimePassword}`</br>(Identity Engine and Classic Engine) |  Sent to users who must follow the provided link to reset their forgotten password |
+| Active Directory Password Reset | Forgotten password (Identity Engine) Account password reset (Classic Engine) | `ADForgotPassword` | Either `{recoveryLink}` or `{recoveryToken}`</br>(Identity Engine and Classic Engine) | Sent to users who want to reset their Active Directory account password. Users must follow the provided link to reset their password (Identity Engine). </br></br>Sent to users who have had their Active Directory account password reset. Users must follow the provided link to reset their password (Classic Engine). |
 | Password Changed | Password Changed | `PasswordChanged` | |  Sent to users whenever their account password changes |
 | Self-Service Unlock when Account isn’t Locked | Unlock Account | `SelfServiceUnlockOnUnlockedAccount` | |  Sent to users who tried to use self-service to unlock an account that isn't locked |
-| Active Directory Password Unlock | Unlock Account | `ADSelfServiceUnlock` | Either `${unlockAccountLink}` or `${recoveryToken}` (Identity Engine)</br></br>`${unlockAccountLink}` (Classic Engine) |  Sent to Active Directory users who must follow the provided link to unlock their password |
-| Self-Service Unlock Account | Unlock Account | `SelfServiceUnlock` | Either `${unlockAccountLink}` or `${recoveryToken}` (Identity Engine)</br></br>`${unlockAccountLink}` (Classic Engine) |  Sent to users who must follow the provided link to complete the self-service unlock account process |
-| LDAP Self-Service Unlock Account | Unlock Account | `LDAPSelfServiceUnlock` | Either `${unlockAccountLink}` or `${recoveryToken}` (Identity Engine)</br></br>`${unlockAccountLink}` (Classic Engine) |  Sent to LDAP users who must follow the provided link to complete the self-service unlock account process |
-| Change Email confirmation | Confirm email address change | `ChangeEmailConfirmation` | `${verificationToken}` |  Sent to users who must follow the provided link to confirm their email change request |
+| Active Directory Password Unlock | Unlock Account | `ADSelfServiceUnlock` | Either `{unlockAccountLink}` or `{recoveryToken}` (Identity Engine)</br></br>`{unlockAccountLink}` (Classic Engine) |  Sent to Active Directory users who must follow the provided link to unlock their password |
+| Self-Service Unlock Account | Unlock Account | `SelfServiceUnlock` | Either `{unlockAccountLink}` or `{recoveryToken}` (Identity Engine)</br></br>`{unlockAccountLink}` (Classic Engine) |  Sent to users who must follow the provided link to complete the self-service unlock account process |
+| LDAP Self-Service Unlock Account | Unlock Account | `LDAPSelfServiceUnlock` | Either `{unlockAccountLink}` or `{recoveryToken}` (Identity Engine)</br></br>`{unlockAccountLink}` (Classic Engine) |  Sent to LDAP users who must follow the provided link to complete the self-service unlock account process |
+| Change Email confirmation | Confirm email address change | `ChangeEmailConfirmation` | `{verificationToken}` |  Sent to users who must follow the provided link to confirm their email change request |
 | Email Change Notification | Notice of pending email address change | `PendingEmailChange` | |  Sent to a user's old email address when they request to change their email address |
 | Email Change Confirmed Notification | Notice of email address change | `EmailChangeConfirmation` | |  Sent when the request to change a user's email address is confirmed |
-| Email Challenge | One-time Email Authentication Link | `EmailChallenge` | Either `${emailAuthenticationLink}` or `${verificationToken}` |  Sent to users with email as an authentication factor and must follow the provided link to complete their authentication into Okta |
+| Email Challenge | One-time Email Authentication Link | `EmailChallenge` | Either `{emailAuthenticationLink}` or `{verificationToken}` |  Sent to users with email as an authentication factor and must follow the provided link to complete their authentication into Okta |
 | Account Lockout | Account Lockout | `AccountLockout` | |  Sent to users with locked accounts. Users must follow the provided link to unlock their account or contact their admin. |
-| New Sign-On Notification | New Sign-On Notification | `NewSignOnNotification` | `${request.browser}`, `${request.date}`, `${request.time}`, `${request.location}`, and `${request.ipAddress}` |  Sent to users who authenticated into Okta from an unknown device or browser. The user should contact the Okta system administrator if they don't recognize the sign-in details of the unknown device. |
-| Authenticator Enrolled (Identity Engine)</br></br>MFA Factor Enrolled (Classic Engine) | Security method enrolled (Identity Engine)</br>MFA Factor Enrolled (Classic Engine) | `AuthenticatorEnrolled` | Either `${request.factor}` or `${request.authenticator}` (Identity Engine)</br></br>`${request.factor}`, `${request.date}`, `${request.time}`, and `${request.location}` (Classic Engine) | Sent to users when authenticators are reset (Identity Engine) </br></br>Sent to users with new MFA factor enrollment (Classic Engine) |
-| Authenticator Reset (Identity Engine)</br></br>MFA Factor Reset (Classic Engine) | Security method reset (Identity Engine)</br>MFA Factor Reset (Classic Engine) | `AuthenticatorReset` | Either `${request.factors}` or `${request.authenticators}` (Identity Engine)</br></br>`${request.factors}`, `${request.date}`, `${request.time}`, and `${request.location}` (Classic Engine) | Sent to users when authenticators are reset (Identity Engine) Sent to users when MFA factors are reset (Classic Engine) |
+| New Sign-On Notification | New Sign-On Notification | `NewSignOnNotification` | `{request.browser}`, `{request.date}`, `{request.time}`, `{request.location}`, and `{request.ipAddress}` |  Sent to users who authenticated into Okta from an unknown device or browser. The user should contact the Okta system administrator if they don't recognize the sign-in details of the unknown device. |
+| Authenticator Enrolled (Identity Engine)</br></br>MFA Factor Enrolled (Classic Engine) | Security method enrolled (Identity Engine)</br>MFA Factor Enrolled (Classic Engine) | `AuthenticatorEnrolled` | Either `{request.factor}` or `{request.authenticator}` (Identity Engine)</br></br>`{request.factor}`, `{request.date}`, `{request.time}`, and `{request.location}` (Classic Engine) | Sent to users when authenticators are reset (Identity Engine) </br></br>Sent to users with new MFA factor enrollment (Classic Engine) |
+| Authenticator Reset (Identity Engine)</br></br>MFA Factor Reset (Classic Engine) | Security method reset (Identity Engine)</br>MFA Factor Reset (Classic Engine) | `AuthenticatorReset` | Either `{request.factors}` or `{request.authenticators}` (Identity Engine)</br></br>`{request.factors}`, `{request.date}`, `{request.time}`, and `{request.location}` (Classic Engine) | Sent to users when authenticators are reset (Identity Engine) Sent to users when MFA factors are reset (Classic Engine) |
 | Campaign Launched | Access certification campaign: (`campaignName`) | `IGAReviewerNotification` | | Sent to reviewers when they’re assigned reviews to complete in a newly launched campaign. |
 | Campaign Ended | Access certification campaign: (`campaignName`) | `IGAReviewerEndNotification` | | Sent to reviewers if they have pending reviews after a campaign ends. |
 | Campaign Reminder | Access certification campaign: (`campaignName`) | `IGAReviewerPendingNotification` | | Sent to reviewers to remind them of pending reviews. |
@@ -151,9 +152,9 @@ After you create a theme for your org, select the `FULL_THEME` ("Solid Backgroun
 
 | Variable | Asset Type |
 |-------------------|--------------------|
-| `${brand.theme.logo}`| URL |
-| `${brand.theme.primaryColor}` | Hex code for the CTA button |
-| `${brand.theme.secondaryColor}` | Hex code for the background color |
+| `{brand.theme.logo}`| URL |
+| `{brand.theme.primaryColor}` | Hex code for the CTA button |
+| `{brand.theme.secondaryColor}` | Hex code for the background color |
 
 ### Use allowed HTML tags and elements
 
@@ -167,7 +168,7 @@ The following table provides a list of all allowed HTML tags and elements in cus
 | `label` | `for`: Can be alphanumeric and contain `:`, `-`, `_`, or `.` |
 | `font` | <ul><li>`color`: Can be from the color list or a color code.<ul><li>Color list: `aqua`, `black`, `blue`, `fuchsia`, `gray`, `grey`, `green`, `lime`, `maroon`, `navy`, `olive`, `purple`, `red`, `silver`, `teal`, `white`, or `yellow`</li><li>Color code: Can be HTML/CSS spec three- or six-digit hex</li></ul></li><li>`face`: Can be alphanumeric and contain `;`, `,`, or `-`</li><li>`size`: Can be a number</li></ul> |
 | URLs | `url`: Can contain `http`, `https`, or `mailto` |
-| `a` | <ul><li>`href`</li><li>`nohref`</li><li>`name`: Can be alphanumeric with `-`, `_`, or `$`</li><li>`onfocus`: Can include JavaScript calls with `javascript:` or `history.go(-1)`</li><li>`onblur`: Can include JavaScript calls with `javascript:` or `history.go(-1)`</li><li>`onclick`: Can include JavaScript calls with `javascript:` or `history.go(-1)`</li><li>`onmousedown`: Can include JavaScript calls with `javascript:` or `history.go(-1)`</li><li>`onmouseup`: Can include JavaScript calls with `javascript:` or `history.go(-1)`</li></ul> |
+| `a` | <ul><li>`href`</li><li>`nohref`</li><li>`name`: Can be alphanumeric with `-`, `_`, or `$`</li></ul> |
 | `img` | <ul><li>`src`: Can be one of the following:<ul><li>A string that represents an onsite URL that contains any letter from any language, any numeric character in any script, or `\`, `dot`, `#`, `@`, `$`, `%`, `+`, `&`, `;`, `-`, `_`, `~`, `?`, `=`, `/`, or `!`</li><li>A URL that contains `https`, `ftps`, or `mailto:`</li></ul></li><li>`name`: Can be alphanumeric with `-`, `_`, `$`</li><li>`alt`: Can be a paragraph that contains any letter from any language, any numeric character in any script, or `{space}`, `-`, `_`, `'`, `,`, `(`, `)`, `.`, or `;`</li><li>`border-radius`</li><li>`border`</li><li>`hspace`: Must be a number</li><li>`vspace`: Must be a number</li><li>`height`: Can be a number or a percentage</li><li>`width`: Can be a number or a percentage</li><li>`align`: Can be any of `middle`, `center`, `left`, `right`, `justify`, or `char`</li></ul> |
 | `table` | <ul><li>`border-radius`: Must be a number</li><li>`border`: Must be a number</li><li>`cellpadding`: Must be a number</li><li>`cellspacing`: Must be a number</li><li>`bgcolor`: Can be from the color list or a color code.<ul><li>Color list: `aqua`, `black`, `blue`, `fuchsia`, `gray`, `grey`, `green`, `lime`, `maroon`, `navy`, `olive`, `purple`, `red`, `silver`, `teal`, `white`, or `yellow`</li><li>Color code: Can be HTML/CSS spec three- or six-digit hex</li></ul></li><li>`background`: Can be a string representing an onsite URL that contains any letter from any language, any numeric character in any script, or `\`, `dot`, `#`, `@`, `$`, `%`, `+`, `&`, `;`, `-`, `_`, `~`, `?`, `=`, `/`, or `!`</li><li>`align`: Can be any of `middle`, `center`, `left`, `right`, `justify`, or `char`</li><li>`noresize`: Must be `noresize` (case-insensitive)</li><li>`height`: Can be a number or a percentage</li><li>`width`: Can be a number or a percentage</li><li>`valign`: Can be any of `baseline`, `bottom`, `middle`, or `top`</li></ul> |
 | `td`</br>`th` | <ul><li>`background`: Can be a string that represents an onsite URL that contains any letter from any language, any numeric character in any script, or `\`, `dot`, `#`, `@`, `$`, `%`, `+`, `&`, `;`, `-`, `_`, `~`, `?`, `=`, `/`, or `!`</li><li>`bgcolor`: Can be from the color list or a color code.<ul><li>Color list: `aqua`, `black`, `blue`, `fuchsia`, `gray`, `grey`, `green`, `lime`, `maroon`, `navy`, `olive`, `purple`, `red`, `silver`, `teal`, `white`, or `yellow`</li><li>Color code: Can be HTML/CSS spec three- or six-digit hex</li></ul></li><li>`abbr`: Can be a paragraph that contains any letter from any language, any numeric character in any script, or `{space}`, `-`, `_`, `'`, `,`, `(`, `)`, `.`, or `;`</li><li>`axis`: Can be alphanumeric with `-`, `_`, or `$`</li><li>`headers`: Can be alphanumeric with `-`, `_`, or `$`</li><li>`scope`: Must be `row`, `col`, `rowgroup`, or `colgroup`</li><li>`nowrap`</li><li>`height`: Can be a number or a percentage</li><li>`width`: Can be a number or a percentage</li><li>`align`: Can be any of `middle`, `center`, `left`, `right`, `justify`, or `char`</li><li>`valign`: Can be any of `baseline`, `bottom`, `middle`, or `top`</li><li>`charoff`: Can be a number or a percentage</li><li>`char`: Can be any character, and any number of characters (from 0 on), including line terminators</li><li>`colspan`: Must be a number</li><li>`rowspan`: Must be a number</li></ul> |
@@ -184,15 +185,50 @@ If you restore an email to default settings, you delete any customizations made 
 
 After you customize a template in one language, you need to customize templates for other languages if you want to include them. If you reset all customized translations, then Okta uses the 27 default translations.
 
-Okta uses the default language when the end user’s locale doesn't match any email customizations.
+The following settings determine the language for emails sent from Okta to a user, if the user hasn't selected a specific display language:
 
-### Enable additional locales
+* The user's locale property value (if specified)
+* The org's display language
+
+### Supported languages
+
+| Language | BCP 47 language tag |
+| -------------------- | -------------- |
+| Chinese (simplified)  | `zh-CN` |
+| Chinese (traditional)  | `zh-TW` |
+| Czech  | `cs` |
+| Danish  | `da` |
+| German  | `de` |
+| Greek  | `el` |
+| English  | `en` |
+| Spanish  | `es` |
+| Finnish  | `fi` |
+| French  | `fr` |
+| Hungarian  | `hu` |
+| Indonesian  | `id` |
+| Italian  | `it` |
+| Japanese  | `ja` |
+| Korean  | `ko` |
+| Malaysian  | `ms` |
+| Norwegian  | `nb` |
+| Dutch  | `nl-NL` |
+| Polish  | `pl` |
+| Portuguese  | `pt-BR` |
+| Romanian  | `ro` |
+| Russian  | `ru` |
+| Swedish  | `sv` |
+| Thai  | `th` |
+| Turkish  | `tr` |
+| Ukrainian  | `uk` |
+| Vietnamese  | `vi` |
+
+### Enable other locales
 
 <ApiLifecycle access="ea" />
 
-Enable more locales by using the [BCP 47 format](https://www.rfc-editor.org/info/bcp47). These locales are in addition to the 27 default languages that Okta provides.
+Use the [BCP 47 format](https://www.rfc-editor.org/info/bcp47) to enable more locales than Okta's 27 default languages.
 
-You can only create customizations using these additional languages by calling the Brands API. Once created, the new locale appears in the Admin Console along with the default-supported locales. See [Create an Email Customization](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Customization/#tag/Customization/operation/createEmailCustomization).
+You can only create customizations using these other languages by calling the Brands API. Once created, the new locale appears in the Admin Console along with the default-supported locales. See [Create an Email Customization](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/CustomTemplates/#tag/CustomTemplates/operation/createEmailCustomization).
 
 Include `null` in the subject or body of the email customization. Okta replaces `null` with a default value based on the following order of priority:
 
@@ -208,7 +244,7 @@ If you use functions while adding more locales, use the `getTimeDiffHoursNow` fu
 1. In the Admin Console, go to **Customizations** > **Brands**.
 1. Select a brand.
 1. Click **Emails**.
-1. In the **Email Templates** box, select an email template that you have customized.
+1. In the **Email Templates** box, select an email template that you’ve customized.
    - The code editor is in preview mode and shows the default language version.
    - **Translations**: Customize email template translations:
       1. Click **Edit**.
@@ -227,7 +263,7 @@ To delete all custom translations and revert to the Okta template, click **Reset
 [Velocity Templating Language (VTL)](https://velocity.apache.org/engine/2.3/user-guide.html) allows you to customize your org's email templates so that you can use the following:
 
 - Enhanced conditional logic
-- All attributes in the Okta [User Profile object](/docs/reference/api/users/#profile-object)
+- All attributes in the Okta [User Profile object](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/createUser!path=profile&t=request)
 - Some of the org attributes in the VTL variables
 
 Email templates use both common and unique VTL variables. When you interpolate variables in the template, precede them with a dollar sign. Use dot notation to reference subobjects. For example, reference the first name of a user with `${user.profile.firstName}`.
@@ -358,7 +394,7 @@ You can send yourself a test email to see how a custom email template looks and 
 
 ## Known Issues
 
-- Users with free.fr email addresses may not receive emails delivered by Okta. This is due to free.fr enforcing non-standard email processing. The Okta Org API allows you to [retry blocked](/docs/reference/api/org/#email-address-bounces-operations) emails, but the free.fr inbox provider continues to block retries. There’s no known workaround beyond asking the user to retrigger the email with a different email address.
+- Users with free.fr email addresses may not receive emails delivered by Okta. This is due to free.fr enforcing non-standard email processing. The Okta Org API allows you to [retry blocked](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/EmailCustomization/#tag/EmailCustomization/operation/bulkRemoveEmailAddressBounces) emails, but the free.fr inbox provider continues to block retries. There’s no known workaround beyond asking the user to retrigger the email with a different email address.
 
 ## See also
 

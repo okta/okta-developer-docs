@@ -32,9 +32,9 @@ Once you've got the right combination, it's easy to configure your authorization
 
 We improved some behaviors related for base claim `amr`:
 
-* When [MFA factors `sms` or `call`](/docs/reference/api/factors/#factor-type) are used, the `amr` claim returns [`mca`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Session/).
-* When [MFA factor `token:hardware`](/docs/reference/api/factors/#factor-type) is used, the `amr` claim returns `hwk`.
-* When [MFA factor `web`](/docs/reference/api/factors/#factor-type) is used, the `amr` claim returns `swk`. <!-- OKTA-152175 -->
+* When [MFA factors `sms` or `call`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/#tag/UserFactor/operation/enrollFactor!c=200&path=4/factorType&t=response) are used, the `amr` claim returns [`mca`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Session/).
+* When [MFA factor `token:hardware`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/#tag/UserFactor/operation/enrollFactor!c=200&path=4/factorType&t=response) is used, the `amr` claim returns `hwk`.
+* When [MFA factor `web`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/#tag/UserFactor/operation/enrollFactor!c=200&path=4/factorType&t=response) is used, the `amr` claim returns `swk`. <!-- OKTA-152175 -->
 
 ### Bug Fix: Legacy Events Available in System Log
 
@@ -84,7 +84,7 @@ The following bug fixes will be available on preview orgs starting Dec 13, 2017,
 
 #### Early Access Feature in Preview: App User Schema API
 
-The [App User Schema API](/docs/reference/api/schemas/#app-user-schema-operations) is an [Early Access (EA)](/docs/reference/releases-at-okta/#early-access-ea) release. Use this API to work with App User profiles, typically for apps that have features for provisioning users.
+The [App User Schema API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/#tag/Schema/operation/getApplicationUserSchema) is an [Early Access (EA)](/docs/reference/releases-at-okta/#early-access-ea) release. Use this API to work with App User profiles, typically for apps that have features for provisioning users.
 <!-- OKTA-148782 -->
 
 #### Completing Rollout of Simple HAL Links
@@ -102,7 +102,7 @@ See [the User Model documentation](/docs/reference/api/users/#user-model) for mo
 
 A new parameter, `request` is available for all `/authorize` endpoints. The parameter contains a JWT created by the client, enabling requests to be passed in a single, self-contained parameter. This JWT must be signed.
 
-For details about using `request`, see [Oauth 2.0](/docs/reference/api/oidc/#request-parameters-1) or [OpenID Connect](/docs/reference/api/oidc/#request-parameters-3) documentation. <!-- OKTA-78476 -->
+For details about using `request`, see [parameter details](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/authorizeCustomAS!in=query&path=request&t=request). <!-- OKTA-78476 -->
 
 ### API Bug Fixes
 
@@ -564,7 +564,7 @@ It allows you to specify `default` instead of the `authServerId` in requests to 
 #### Web App Supports Client Credential Grant Type
 <!-- OKTA-102062 -->
 
-OAuth 2.0 clients now support [configuration of the `web` application type to use a `client_credential` grant type](/docs/reference/api/oauth-clients/#client-application-properties).
+OAuth 2.0 clients now support [configuration of the `web` application type to use a `client_credential` grant type](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/Client/).
 This allows you to use one `client_id` for an application that needs to make user-specific calls and back-end calls for data.
 
 #### OpenID Connect Group Claim Retrieves Application Groups
@@ -605,11 +605,11 @@ To enable an Early Availability (EA) feature, contact [Support](https://support.
 #### OpenID Connect
 <!-- OKTA-132049  -->
 
-[OpenID Connect](/docs/reference/api/oidc/) is a simple identity layer on top of the OAuth 2.0 protocol, which allows computing clients to verify the identity of an end user based on the authentication performed by an authorization server, as well as to obtain basic profile information about the end user in an interoperable and REST-like manner. In technical terms, OpenID Connect specifies a RESTful HTTP API, using JSON as a data format.
+[OpenID Connect](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/) is a simple identity layer on top of the OAuth 2.0 protocol, which allows computing clients to verify the identity of an end user based on the authentication performed by an authorization server, as well as to obtain basic profile information about the end user in an interoperable and REST-like manner. In technical terms, OpenID Connect specifies a RESTful HTTP API, using JSON as a data format.
 
 OpenID Connect allows a range of clients, including Web-based, mobile, and JavaScript clients, to request and receive information about authenticated sessions and end users. The specification suite is extensible, supporting optional features such as encryption of identity data, discovery of OpenID Providers, and session management.
 
-Okta is [certified for OpenID Connect](http://openid.net/certification/). For more information, see [OpenID Connect and Okta](/docs/reference/api/oidc/).
+Okta is [certified for OpenID Connect](http://openid.net/certification/). For more information, see [OpenID Connect and Okta](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/).
 
 #### Key Rollover
 <!-- OKTA-132045  -->
@@ -623,7 +623,7 @@ All new SAML 2.0 apps are bootstrapped with SHA-256 signed public certificates. 
 #### Email for Two-Factor Authentication
 <!-- OKTA-134593  -->
 
-You can enroll a user with an email factor. See [Enroll Okta Email Factor](/docs/reference/api/factors/#enroll-okta-email-factor) for details.
+You can enroll a user with an email factor. See [Enroll Okta Email Factor](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/#tag/UserFactor/operation/enrollFactor) for details.
 
 ### New Version of the Sign-In Widget
 <!-- (OKTA-132800) -->
@@ -647,11 +647,11 @@ For information about Early Access (EA) and General Availability (GA), see [Okta
 
 #### OpenID Connect
 
-[OpenID Connect](/docs/reference/api/oidc/) is a simple identity layer on top of the OAuth 2.0 protocol, which allows computing clients to verify the identity of an end user based on the authentication performed by an authorization server, as well as to obtain basic profile information about the end user in an interoperable and REST-like manner. In technical terms, OpenID Connect specifies a RESTful HTTP API, using JSON as a data format.
+[OpenID Connect](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/) is a simple identity layer on top of the OAuth 2.0 protocol, which allows computing clients to verify the identity of an end user based on the authentication performed by an authorization server, as well as to obtain basic profile information about the end user in an interoperable and REST-like manner. In technical terms, OpenID Connect specifies a RESTful HTTP API, using JSON as a data format.
 
  OpenID Connect allows a range of clients, including Web-based, mobile, and JavaScript clients, to request and receive information about authenticated sessions and end users. The specification suite is extensible, supporting optional features such as encryption of identity data, discovery of OpenID Providers, and session management.
 
- Okta is [certified for OpenID Connect](http://openid.net/certification/). For more information, see [OpenID Connect and Okta](/docs/reference/api/oidc/).<!-- OKTA-132049  -->
+ Okta is [certified for OpenID Connect](http://openid.net/certification/). For more information, see [OpenID Connect and Okta](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/).<!-- OKTA-132049  -->
 
 
 
@@ -661,7 +661,7 @@ We provide the ability to generate a certificate with specified validity period 
 
 #### Email for Two-Factor Authentication  <!-- OKTA-134593  -->
 
-You can enroll a user with an email factor. See [Enroll Okta Email Factor](/docs/reference/api/factors/#enroll-okta-email-factor) for details.
+You can enroll a user with an email factor. See [Enroll Okta Email Factor](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/#tag/UserFactor/operation/enrollFactor) for details.
 
 ### Platform Bugs Fixed
 
@@ -671,11 +671,11 @@ These platform bug fixes are in preview orgs with this release and expected in p
 
 * "When the `expand` parameter was set in GET requests to [`/api/v1/groups`](/docs/reference/api/groups/#list-groups), the second and subsequent pages of the response did not have the same `expand` setting.  (OKTA-132503)
 
-* [`/oauth2/v1/clients`](/docs/reference/api/oauth-clients/#register-new-client) returned HTTP status code 200 rather than 201 when creating a client successfully.  (OKTA-128839)
+* [`/oauth2/v1/clients`](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/Client/#tag/Client/operation/createClient) returned HTTP status code 200 rather than 201 when creating a client successfully.  (OKTA-128839)
 
-* [`/api/v1/authorizationServers`](/docs/reference/api/authorization-servers/#create-authorization-server) returned HTTP status code 200 rather than 201 when creating an Authorization Server successfully.  (OKTA-128839)
+* [`/api/v1/authorizationServers`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServer/#tag/AuthorizationServer/operation/createAuthorizationServer) returned HTTP status code 200 rather than 201 when creating an Authorization Server successfully.  (OKTA-128839)
 
-* [`/oauth2/v1/clients/{clientId}`](/docs/reference/api/oauth-clients/#get-oauth-client) returned HTTP status code 404 rather than 401 when it did not find the specified client.  (OKTA-130804, OKTA-130848)
+* [`/oauth2/v1/clients/{clientId}`](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/Client/#tag/Client/operation/getClient) returned HTTP status code 404 rather than 401 when it did not find the specified client.  (OKTA-130804, OKTA-130848)
 
 ## 2017.29
 
@@ -688,11 +688,11 @@ The following platform features are Generally Available (GA) in preview orgs (as
 
 #### OpenID Connect
 
-[OpenID Connect](/docs/reference/api/oidc/) is a simple identity layer on top of the OAuth 2.0 protocol, which allows computing clients to verify the identity of an end user based on the authentication performed by an authorization server, as well as to obtain basic profile information about the end user in an interoperable and REST-like manner. In technical terms, OpenID Connect specifies a RESTful HTTP API, using JSON as a data format.
+[OpenID Connect](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/) is a simple identity layer on top of the OAuth 2.0 protocol, which allows computing clients to verify the identity of an end user based on the authentication performed by an authorization server, as well as to obtain basic profile information about the end user in an interoperable and REST-like manner. In technical terms, OpenID Connect specifies a RESTful HTTP API, using JSON as a data format.
 
  OpenID Connect allows a range of clients, including Web-based, mobile, and JavaScript clients, to request and receive information about authenticated sessions and end users. The specification suite is extensible, supporting optional features such as encryption of identity data, discovery of OpenID Providers, and session management.
 
- Okta is [certified for OpenID Connect](http://openid.net/certification/). For more information, see [OpenID Connect and Okta](/docs/reference/api/oidc/).<!-- OKTA-132049  -->
+ Okta is [certified for OpenID Connect](http://openid.net/certification/). For more information, see [OpenID Connect and Okta](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/).<!-- OKTA-132049  -->
 
 #### Key Rollover
 
@@ -706,13 +706,13 @@ These platform bug fixes are available in preview orgs and expected in productio
 
 * Custom SMS templates allowed messages greater than 160 characters after substituting the org name and code. The new behavior is to use a default template instead of the custom template when that happens. To ensure use of your custom template, update it to stay within the 160-character limit. (OKTA-128721)
 
-* [`/oauth2/v1/clients`](/docs/reference/api/oauth-clients/#register-new-client) error responses didn't conform to the format in the [OAuth 2.0 Dynamic Client Registration spec](https://tools.ietf.org/html/rfc7591#section-3.2.2). (OKTA-130375)
+* [`/oauth2/v1/clients`](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/Client/#tag/Client/operation/createClient) error responses didn't conform to the format in the [OAuth 2.0 Dynamic Client Registration spec](https://tools.ietf.org/html/rfc7591#section-3.2.2). (OKTA-130375)
 
-* [`/oauth2/v1/clients`](/docs/reference/api/oauth-clients/#register-new-client) didn't allow default values for optional parameters. (OKTA-130910)
+* [`/oauth2/v1/clients`](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/Client/#tag/Client/operation/createClient) didn't allow default values for optional parameters. (OKTA-130910)
 
-* Neither [`/oauth2/v1/clients`](/docs/reference/api/oauth-clients/#register-new-client) nor [`/api/v1/apps`](/docs/reference/api/apps/#add-application) required client secrets to be unique. (OKTA-131259)
+* Neither [`/oauth2/v1/clients`](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/Client/#tag/Client/operation/createClient) nor [`/api/v1/apps`](/docs/reference/api/apps/#add-application) required client secrets to be unique. (OKTA-131259)
 
-* [`/oauth2/v1/clients`](/docs/reference/api/oauth-clients/#register-new-client) returned an incorrect resource URI in the response header.  (OKTA-131891)
+* [`/oauth2/v1/clients`](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/Client/#tag/Client/operation/createClient) returned an incorrect resource URI in the response header.  (OKTA-131891)
 
 
 ## 2017.28
@@ -747,7 +747,7 @@ The following feature enhancement is available on GitHub:
 
  OpenID Connect allows a range of clients, including Web-based, mobile, and JavaScript clients, to request and receive information about authenticated sessions and end users. The specification suite is extensible, supporting optional features such as encryption of identity data, discovery of OpenID Providers, and session management.
 
- Okta is [certified for OpenID Connect](http://openid.net/certification/). For more information, see [OpenID Connect and Okta](/docs/reference/api/oidc/).<!-- OKTA-132049  -->
+ Okta is [certified for OpenID Connect](http://openid.net/certification/). For more information, see [OpenID Connect and Okta](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/).<!-- OKTA-132049  -->
 
 
 #### Key Rollover
@@ -810,7 +810,7 @@ You can export data before Okta deletes it. We recommend using Security Informat
 
 #### Additional Scopes Available for Social Authentication
 
-When using a Social Identity Provider, you can request information in stages. The initial request to `/oauth2/v1/authorize` can ask for a minimal set of scopes, and you can add scopes to collect additional user data in a subsequent request to the Social Identity Provider. This reduces friction during sign-in when users don't yet trust your app. For more information, see the descriptions of `idp_scope` in the [OAuth 2.0 API](/docs/reference/api/oidc/#request-parameters-1 ) and [OpenID Connect API](/docs/reference/api/oidc/#request-parameters-3) parameter tables.<!-- (OKTA-117521) -->
+When using a Social Identity Provider, you can request information in stages. The initial request to `/oauth2/v1/authorize` can ask for a minimal set of scopes, and you can add scopes to collect additional user data in a subsequent request to the Social Identity Provider. This reduces friction during sign-in when users don't yet trust your app. For more information, see the descriptions of `idp_scope` in the [parameter details](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/authorizeCustomAS!in=query&path=idp_scope&t=request).<!-- (OKTA-117521) -->
 
 #### New Versions of Sign-In Widget and Auth SDK for JS
 
@@ -849,7 +849,7 @@ You can export data before Okta deletes it. We recommend using Security Informat
 ### Platform Enhancement: New Authentication Method for OpenID Connect and API Access Management
 For OpenID Connect and API Access Management, Okta supports the `client_secret_jwt` method for token endpoint authentication (`token_endpoint_auth_method`).
 This method is specified in the [OpenID Connect specification](http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication)
-and allows you to use JWT and HMAC to authenticate a client for [OAuth 2.0 and OpenID Connect](/docs/reference/api/oidc/#token-authentication-methods) requests.<!-- (OKTA-101074) -->
+and allows you to use JWT and HMAC to authenticate a client for [OAuth 2.0 and OpenID Connect](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/client-auth/#client-authentication-methods) requests.<!-- (OKTA-101074) -->
 
 ### Platform Bugs Fixed
 
@@ -907,13 +907,13 @@ Here is a response from `/api/v1/logs`:
 <!-- (OKTA-76607) -->
 
 #### Client Registration API Is an Early Access Feature
-The [Auth Clients API](/docs/reference/api/oauth-clients/) provides operations to register and manage client applications for use with Okta's
+The [Auth Clients API](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/Client/) provides operations to register and manage client applications for use with Okta's
 OAuth 2.0 and OpenID Connect endpoints.
 
 #### Create OAuth 2.0 and OpenID Connect Clients with Apps API
 The [Apps API](/docs/reference/api/apps/) supports creating and configuring
 OAuth 2.0 or OpenID Connect clients. Alternatively, you can use
-[Client Registration API](/docs/reference/api/oauth-clients/) (RFC 7591 and RFC 7592)
+[Client Registration API](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/Client/) (RFC 7591 and RFC 7592)
 to create and manage clients.
 <!-- (OKTA-78223) -->
 
@@ -1010,7 +1010,7 @@ Okta returns all default scopes in the Access Token that are permitted by the ac
 
 </div>
 
-For more information about setting default scopes in the API, see [OAuth 2.0 API](/docs/reference/api/authorization-servers/#scope-properties).
+For more information about setting default scopes in the API, see [OAuth 2.0 API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServerScopes/).
 <!-- OKTA-122185 OKTA-122072 -->
 
 #### Improved UI for Creating OpenID Connect Apps
@@ -1133,7 +1133,7 @@ With the following enhancements, the API Access Management Authorization Servers
 * Scopes were actions previously, but are now conditions in a policy rule.
 * Control which claims are returned in ID tokens with the `alwaysIncludeInToken` property. You can also configure this in the [administrator UI](https://help.okta.com/okta_help.htm?id=ext_API_Access).
 
-For more information see the [Authorization Server API documentation](/docs/reference/api/authorization-servers/#authorization-server-operations).
+For more information, see the [Authorization Server API documentation](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServer/).
 <!-- OKTA-127511, OKTA-123638 -->
 
 #### Additional Logging for Invalid Use by OAuth 2.0 Client
@@ -1201,7 +1201,7 @@ Before release 2017.19, a user object returned in a collection contained some or
 ```
 
 Unfortunately, these links are not guaranteed to accurately reflect the state of the specified user.
-As outlined in [Design Principles](/docs/reference/core-okta-api/#links-in-collections):
+As outlined in the [Reference overview](https://developer.okta.com/docs/api/#links-in-collections):
 
 "Search and list operations are intended to find matching resources and their identifiers. If you intend to search for a resource and then modify its state or make a lifecycle change, the correct pattern is to first retrieve the resource by ID using the `self` link provided for that resource in the collection. This will provide the full set of lifecycle links for that resource based on its most up-to-date state."
 
@@ -1471,7 +1471,7 @@ Use the `login_hint` property on `/oauth2/${authServerId}/v1/authorize` or `/oau
 ### Platform Bugs Fixed
 
 * Updating the OpenID Connect property `max_age` incorrectly caused a new session to be created, which updated the `createdAt` timestamp. (OKTA-99850)
-* The property `application_type` in the [OAuth 2.0 Clients API](/docs/reference/api/oauth-clients/) could be edited. (OKTA-120223)
+* The property `application_type` in the [OAuth 2.0 Clients API](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/Client/) could be edited. (OKTA-120223)
 * User profile attributes could be fetched via the API even though attributes were marked hidden, if the user sending the request was the user being fetched. (OKTA-123882)
 * Reordering Authorization Server policies failed. (OKTA-125156)
 * (Preview fix) Fixed issue involving OpenID Connect and OAuth 2.0 requests within SAML IdP configuration. (OKTA-127155)

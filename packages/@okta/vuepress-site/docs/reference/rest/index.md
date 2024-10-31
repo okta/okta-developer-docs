@@ -8,7 +8,7 @@ meta:
     content: Get started with Okta REST APIs and learn how to import a collection and send requests in Postman.
 ---
 
-A great way to learn an Application Programming Interface (API) is to issue requests and inspect the responses. You can use Okta Postman collections to learn how to incorporate Okta APIs into your workflow. To use these collections, complete the following steps:
+A great way to learn an Application Programming Interface (API) is to issue requests and inspect the responses. You can use Okta Postman Collections to learn how to incorporate Okta APIs into your workflow. To use these collections, complete the following steps:
 
 1. [Sign up for Okta](#sign-up-for-okta) if you don't have an existing Okta org.
 1. [Set up your Postman environment](#set-up-your-postman-environment).
@@ -19,7 +19,7 @@ You can then [send test requests](#send-a-request) to your Okta org and verify t
 
 ## Sign up for Okta
 
-You need a free Okta developer-edition org to get started. Don't have one? [Create an org for free](https://developer.okta.com/signup). The developer-edition org is assigned a base URL such as `dev-1234567.okta.com`. This is your unique subdomain in Okta.
+You need a free Okta Developer Edition org to get started. Don't have one? [Create an org for free](https://developer.okta.com/signup). The Okta Developer Edition org is assigned a base URL such as `dev-1234567.okta.com`. This is your unique subdomain in Okta.
 
 > **Note:** Use this unique subdomain whenever you see the `{yourOktaDomain}` variable in this document.
 
@@ -27,7 +27,7 @@ You need a free Okta developer-edition org to get started. Don't have one? [Crea
 
 1. [Install the Postman app](https://www.getpostman.com/apps).
 1. Start Postman if it's not open already.
-1. In the upper-left corner, click **Import**.
+1. In the upper-left corner, click the hamburger menu > **File** > **Import** if you're on Windows. Click **Import** if you're on MacOS.
 1. In the **Import** dialog, paste the following link into the **Paste cURL, Raw text or URL...** textbox: `https://developer.okta.com/docs/api/postman/example.oktapreview.com.environment`.
    > **Note:** You can also download this environment locally and import it as a file.
 1. In the upper-right corner, click the box that lists the environments, and then select **`{yourOktaDomain}`** from the list. The initial value is `No Environment` if you just installed Postman.
@@ -42,17 +42,17 @@ You need a free Okta developer-edition org to get started. Don't have one? [Crea
 
     </div>
 
-1. In the upper-right corner, next to `{yourOktaDomain}`, click **Environment quick look** ![Postman environment quick look button](/img/postman/postman_eye_icon_button.png  "Displays the eye icon button").
+1. In the upper-right corner, next to `{yourOktaDomain}`, click **Environment quick look** ![Postman environment quick look button](/img/postman/postman_eye_icon_button.jpg  "Displays the quick look eye icon button").
 1. In the upper-right corner of the `{yourOktaDomain}` dialog, click **Edit**.
 
     <!--
-    ![Postman environment quick look edit link: Displays an arrow pointing to the edit link in the upper-right corner of the ${yourOktaDomain} dialog](/img/postman/postman_environment_quick_look_edit.png)
+    ![Postman environment quick look edit link: Displays an arrow pointing to the edit link in the upper-right corner of the {yourOktaDomain} dialog](/img/postman/postman_environment_quick_look_edit.png)
     Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3236%3A31016  postman_environment_quick_look_edit
     -->
 
 1. In the environment tab, do the following:
     1. Click the environment name, delete the placeholder text, and name your environment. For example: `dev-1234567 Okta Org`
-    {style="list-style-type:lower-alpha"}
+    [[style="list-style-type:lower-alpha"]]
     1. For the `url` variable, in the **Initial Value** and **Current Value** columns, replace the placeholder text with your org's full URL. For example: `https://dev-1234567.okta.com`. Remember to remove the `-admin` part of your subdomain.
 
 1. Click **Save** near the top of the tab.
@@ -60,7 +60,7 @@ You need a free Okta developer-edition org to get started. Don't have one? [Crea
 
 ## Import a collection
 
-Go to the Okta [Postman collections](https://developer.okta.com/docs/reference/postman-collections/) reference to import the collection you want to test.
+Go to the Okta [Postman Collections](https://developer.okta.com/docs/reference/postman-collections/) reference to import the collection that you want to test.
 
 > **Note:** Alternatively, you can fork a collection from the [Okta Public API Collections](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/overview).
 
@@ -145,7 +145,7 @@ First, create a service app integration where you can define your scope-based ac
 
    If you're unsure of which admin roles to assign, for testing purposes, assign the super admin role to have permission to all resource sets:
    1. Click **Edit assignments**.
-   {style="list-style-type:lower-alpha"}
+   [[style="list-style-type:lower-alpha"]]
    1. Select **Super Administrator** under Roles and click **Save Changes**.
 
    > **Note:** See [Assign admin roles to apps](https://help.okta.com/okta_help.htm?type=oie&id=csh-work-with-admin-assign-admin-role-to-apps).
@@ -156,7 +156,7 @@ First, create a service app integration where you can define your scope-based ac
 
 1. Generate the public/private JSON Web Key Set (JWKS) for client authentication. This is the only authentication method supported for OAuth 2.0 service apps that want access to tokens with Okta scopes. For testing purposes, you can use the Admin Console to generate the JWKS:
    1. In the **Client Credentials** section of the **General** tab, click **Edit** to change the client authentication method.
-   {style="list-style-type:lower-alpha"}
+   [[style="list-style-type:lower-alpha"]]
    1. Select **Public key/Private key** as the **Client authentication** method.
    1. For a simple implementation, leave the default of **Save keys in Okta**, and then click **Add key**.
    1. Click **Generate new key** and the public and private keys appear in JWK format.
@@ -173,7 +173,7 @@ After you obtain the JWKS from your Okta service app, create a JSON Web Token (J
 
 Use the private JWKS as the JWT header and use the following [token claims](/docs/reference/api/oidc/#token-claims-for-client-authentication-with-client-secret-or-private-key-jwt) as the JWT payload:
 
-* `aud`: Set this value to `https://${yourOktaDomain}/oauth2/v1/token`.
+* `aud`: Set this value to `https://{yourOktaDomain}/oauth2/v1/token`.
 * `exp`: The expiration time of the token, in seconds since January 1, 1970 UTC (current UNIX timestamp). Set this value to a maximum of only an hour in the future.
 * `iss`: Set this value to your service app client ID (from the [Create a service app in Okta](#create-a-service-app-in-okta) task).
 * `sub`: Set this value to your service app client ID.
@@ -188,10 +188,10 @@ To generate a JWT for testing purposes, complete the following steps:
 
     ```json
     {
-        "aud": "https://${yourOktaDomain}/oauth2/v1/token",
-        "iss": "${clientId}",
-        "sub": "${clientId}",
-        "exp": "${currentPlusOneHour}"
+        "aud": "https://{yourOktaDomain}/oauth2/v1/token",
+        "iss": "{clientId}",
+        "sub": "{clientId}",
+        "exp": "{currentPlusOneHour}"
     }
     ```
 
@@ -221,7 +221,7 @@ Include the following parameters in your `/token` request:
     The following is a cURL request example for an access token (the JWT is truncated for brevity).
 
     ```bash
-    curl --location --request POST 'https://${yourOktaDomain}/oauth2/v1/token' \
+    curl --location --request POST 'https://{yourOktaDomain}/oauth2/v1/token' \
         --header 'Accept: application/json' \
         --header 'Content-Type: application/x-www-form-urlencoded' \
         --data-urlencode 'grant_type=client_credentials' \
@@ -265,17 +265,18 @@ In Postman, the initial `/authorize` request is included in the **Authorization*
 
 1. Select the request that you want to make from Postman, such as a `GET` request to the `/api/v1/users` endpoint to get back a list of all users.
 2. On the **Header** tab, remove the **Authorization** parameter if it exists.
-3. Click the **Authorization** tab and from the **Type** dropdown list, select **OAuth 2.0**.
+3. Click the **Authorization** tab and from the **Auth Type** dropdown list, select **OAuth 2.0**.
 4. On the right pane, scroll down to the **Configure New Token** section.
 5. In the first field, enter a name for the token and select **Authorization Code (With PKCE)** as the grant type.
 6. Define the remaining fields for the token request:
 
     * **Callback URL**: Define the callback location where Okta returns the token after the user finishes authenticating. This URL must match one of the redirect URIs that you configured in the [Create an OIDC app in Okta](#create-an-oidc-app-in-okta) task.
-    * **Auth URL**: Enter the authorization endpoint for your org authorization server: `https://${yourOktaDomain}/oauth2/v1/authorize`.
-    * **Access Token URL**: Enter the token endpoint for your org authorization server: `https://${yourOktaDomain}/oauth2/v1/token`.
+    * **Auth URL**: Enter the authorization endpoint for your org authorization server: `https://{yourOktaDomain}/oauth2/v1/authorize`
+    * **Access Token URL**: Enter the token endpoint for your org authorization server: `https://{yourOktaDomain}/oauth2/v1/token`
     * **Client ID**: Specify the client ID value of your Okta OIDC app integration that you created in the [Create an OIDC app in Okta](#create-an-oidc-app-in-okta) task.
 
         Alternatively, you can add the client ID to the `clientId` variable in your Postman environment and use the following **Client ID** value:
+
         ```json
         {{clientId}}
         ```
@@ -283,6 +284,7 @@ In Postman, the initial `/authorize` request is included in the **Authorization*
     * **Client secret**: Specify the client secret of your Okta OIDC app integration that you created in the [Create an OIDC app in Okta](#create-an-oidc-app-in-okta) task.
 
         Alternatively, you can add the client secret to the `clientSecret` variable in your Postman environment and use the following **Client secret** value:
+
         ```json
         {{clientSecret}}
         ```
@@ -316,7 +318,7 @@ If you have an access token (such as the `access_token` value from the [Get an a
         The following is a cURL example of a similar request:
 
         ```bash
-        curl -X GET "https://${yourOktaDomain}/api/v1/users"
+        curl -X GET "https://{yourOktaDomain}/api/v1/users"
             -H "Accept: application/json"
             -H "Content-Type: application/json"
             -H "Authorization: Bearer eyJraWQiOiJ.....UfThlJ7w"
@@ -325,15 +327,13 @@ If you have an access token (such as the `access_token` value from the [Get an a
 
 1. Click **Send** for the API request. <br>The result pane displays the results of your request. In this `GET /api/v1/users` example, a list of users in your org appears.
 
-
-
 ## Tips
 
 Use the following tips to work more efficiently with your collection.
 
 ### Find IDs for Okta API requests
 
-Your imported collections contain URLs and JSON request bodies that have sample data with variables such as `${userId}`. You can replace the variables in the URL and body with the IDs of the resources that you want to specify.
+Your imported collections contain URLs and JSON request bodies that have sample data with variables such as `{userId}`. You can replace the variables in the URL and body with the IDs of the resources that you want to specify.
 
 1. To get a user's ID, send a request to list the users in your org like you did in the previous section. Each user listed in the response has an ID:
 
@@ -343,7 +343,7 @@ Your imported collections contain URLs and JSON request bodies that have sample 
 
   </div>
 
-2. Copy the `id` of the resource, in this example the `id` for Tony Stark, for use in your next request. You can add the `id` value in your Postman environment and use the corresponding variable in your request URL or body.
+1. Copy the `id` of the resource for use in your next request. In this example, use the `id` for Tony Stark. You can add the `id` value in your Postman environment and use the corresponding variable in your request URL or body.
 
 ### Retain the headers when you click links
 
@@ -360,5 +360,5 @@ To retain the headers:
 Use Postman to learn more about the Okta APIs:
 
 * Review the [Okta API reference](https://developer.okta.com/docs/api/).
-* Import more API Postman collections.
+* Import more API Postman Collections.
 * Try request examples in the collections to help you understand how the APIs behave.

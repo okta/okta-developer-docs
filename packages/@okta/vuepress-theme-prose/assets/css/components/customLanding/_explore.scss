@@ -121,7 +121,7 @@
 .customLanding-explore__text {
   font-size: 13px;
   line-height: 21px;
-  color: cv("text");
+  color: cv("text", "base");
 }
 
 .customLanding-explore__link {
@@ -130,7 +130,7 @@
 
   font-weight: 500;
   font-size: 14px;
-  color: cv("link");
+  color: cv("link", "base");
 }
 
 .dark-theme .customLanding-explore__item:nth-child(1) .customLanding-explore__icon-item {
@@ -160,7 +160,7 @@
 }
 
 .dark-theme .customLanding-explore__icon-item {
-  background-color: cv("action") ! important;
+  background-color: cv("action", "base") ! important;
   background-image: none ! important;
   mask-repeat: no-repeat;
   mask-position: center;

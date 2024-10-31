@@ -1,6 +1,8 @@
 ---
-title: Okta API Products release notes 2023
+title: Okta Classic Engine API release notes 2023
 ---
+
+# Okta Classic Engine API release notes (2023)
 
 ## December
 
@@ -83,7 +85,7 @@ The direct authentication grant types are now in a new [Configure Direct Authent
 
 * When attempts were made to update the profiles of app users whose profiles were controlled by external apps, an incorrect error was returned. (OKTA-640752)
 
-* Some operations for the Factors API (`GET /api/v1/users/${userId}/factors/{factorId}` and `GET /api/v1/users/me/factors/${factorId}`) weren't accessible when using tokens created by read-only admins. (OKTA-648751)
+* Some operations for the Factors API (`GET /api/v1/users/{userId}/factors/{factorId}` and `GET /api/v1/users/me/factors/{factorId}`) weren't accessible when using tokens created by read-only admins. (OKTA-648751)
 
 * When many apps were added to routing rules through the API, system performance was degraded. (OKTA-653756)
 
@@ -226,7 +228,7 @@ Users now receive an authentication challenge for each redirect sent to an Ident
 
 #### Policy Simulation API is GA in Preview
 
-With the Policy API `/simulate` endpoint, you can quickly and easily test policies and validate whether your desired security outcomes are achieved. This endpoint allows you to simulate user access attributes, such as IP address, device, risk, and so on, to test whether the user is granted access to the specified application. This endpoint is implemented in the Admin Console as the [Access Testing Tool](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/policies/access-testing-tool.htm). The `/simulate` endpoint helps you identify potential security risks and compliance issues before you implement a policy. See the [Policy API](/docs/reference/api/policy/#policy-simulation-operations) and [Test your policies with access simulations](/docs/guides/policy-simulation). <!-- OKTA-593826 POLICY_SIMULATION -->
+With the Policy API `/simulate` endpoint, you can quickly and easily test policies and validate whether your desired security outcomes are achieved. This endpoint allows you to simulate user access attributes, such as IP address, device, risk, and so on, to test whether the user is granted access to the specified app. This endpoint is implemented in the Admin Console as the [Access Testing Tool](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/policies/access-testing-tool.htm). The `/simulate` endpoint helps you identify potential security risks and compliance issues before you implement a policy. See the [Policy API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicySimulation) and [Test your policies with access simulations](/docs/guides/policy-simulation). <!-- OKTA-593826 POLICY_SIMULATION -->
 
 #### Developer documentation update in 2023.08.0
 
@@ -235,7 +237,7 @@ A new [Terraform section](/docs/guides/terraform-landing-page/main/) is availabl
 #### Bugs fixed in 2023.08.0
 
 - Custom Push Factors used the same `provider` and `vendorName` properties as Okta Verify. These factors now return the `provider` as `CUSTOM` and the `vendorName` as the name of the authenticator. (OKTA-598598)
-- Some of the endpoints of the [Resource Sets API](/docs/reference/api/roles/#resource-set-operations) didn't support `self` and `next` link relation types. (OKTA-571339)
+- Some of the endpoints of the [Resource Sets API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RoleCResourceSet/) didn't support `self` and `next` link relation types. (OKTA-571339)
 - The Users API didn't validate the `saltOrder` property when creating or updating users with salted hashed passwords. (OKTA-602124)
 - Users that were provisioned through an IdP could be assigned the Super Admin role due to previous permission checks in group assignments. (OKTA-597974)
 
@@ -315,7 +317,7 @@ Multibrand customizations allow customers to use one org to manage multiple bran
 
 #### Pagination for the Brands API is GA in Production
 
-The Brands API now supports [pagination](/docs/reference/core-okta-api/#pagination) when returning lists of brands. Previously, users would get a list of all brands in the org. With pagination, users receive 20 records per page. See [Customizations](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Customization/). <!-- OKTA-574011 -->
+The Brands API now supports [pagination](https://developer.okta.com/docs/api/#pagination) when returning brand lists. Previously, users would get a list of all brands in the org. With pagination, users receive 20 records per page. See [Brands](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Brands/). <!-- OKTA-574011 -->
 
 #### Unique refresh token ID added to token inline hook requests
 
@@ -398,7 +400,7 @@ Multibrand customizations allow customers to use one org to manage multiple bran
 
 #### Password hooks global availability is GA in Preview
 
-The [Create User with password import inline hook](/docs/reference/api/users/#create-user-with-password-import-inline-hook) operation is now available for all users. Previously, password hooks required a user to be in the `STAGED` status. This change helps better support migration efforts from DelAuth to Okta. <!--OKTA-604521--> <!--FF: ENG_ALLOW_PASSWORD_IMPORT_HOOKS_FOR_USERS_IN_ANY_STATUS--> <!--Originally available in December 2020-->
+The [Create User with password import inline hook](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createPasswordImportInlineHook) operation is now available for all users. Previously, password hooks required a user to be in the `STAGED` status. This change helps better support migration efforts from DelAuth to Okta. <!--OKTA-604521--> <!--FF: ENG_ALLOW_PASSWORD_IMPORT_HOOKS_FOR_USERS_IN_ANY_STATUS--> <!--Originally available in December 2020-->
 
 #### Event hook filtering is EA in Preview
 
@@ -410,7 +412,7 @@ Using event hook filters significantly reduces the amount of event hook requests
 
 #### Identity store property for the Applications API
 
-A new `identityStoreId` property is now available in the Applications API resource (`/api/v1/apps`) to store an identity store app associated with your app. You can set the `identityStoreId` value to the `id` of the identity store app you previously created in the same org. See the [optional `settings.identityStoreId` property](/docs/reference/api/apps/#identity-store-id). <!--OKTA-595777--> <!--FF: DYNAMIC_UI_APPS_API_AUGMENT--> <!--Orig avail 2023.04.2-->
+A new `identityStoreId` property is now available in the Apps API resource (`/api/v1/apps`) to store an identity store app associated with your app. You can set the `identityStoreId` value to the `id` of the identity store app you previously created in the same org. See the [optional `settings.identityStoreId` property](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication!path=6/settings/identityStoreId&t=request). <!--OKTA-595777--> <!--FF: DYNAMIC_UI_APPS_API_AUGMENT--> <!--Orig avail 2023.04.2-->
 
 #### Unique refresh token ID added to token inline hook requests
 
@@ -554,7 +556,7 @@ The Identity Sources API bulk upsert operation accepted an empty profile payload
 
 * In some cases, groups with a `status` of INACTIVE were synchronized with the reporting database as ACTIVE. (OKTA-589084)
 
-* Requests to the Policies API (`PUT /policies/${defaultIdpPolicy}/rules/${IdpRule}`) with an empty `userIdentifier` parameter returned an HTTP 500 Internal Server error. (OKTA-565856)
+* Requests to the Policies API (`PUT /policies/{defaultIdpPolicy}/rules/{IdpRule}`) with an empty `userIdentifier` parameter returned an HTTP 500 Internal Server error. (OKTA-565856)
 
 * Admins were able to modify the `auth_time` claim for an access token using a token inline hook. (OKTA-503099)
 
@@ -622,7 +624,7 @@ Using the OAuth 2.0 framework provides better security than Basic Authentication
 
 #### Honor force authentication support for SAML Apps API
 
-Previously, the **Honor Force Authentication** parameter (`honorForceAuthn`) could only be set from the [SAML 2.0 App Integration Wizard](https://help.okta.com/okta_help.htm?type=oie&id=csh-apps-aiw-saml). When this property is set to `true`, users are prompted for their credentials when a SAML request has the `ForceAuthn` attribute set to `true`. You can now set this property for your SAML app without using the app integration wizard. See the [SAML 2.0 settings parameters in the Apps API](/docs/reference/api/apps/#add-saml-2-0-authentication-application). <!--OKTA-550077-->
+Previously, the **Honor Force Authentication** parameter (`honorForceAuthn`) could only be set from the [SAML 2.0 App Integration Wizard](https://help.okta.com/okta_help.htm?type=oie&id=csh-apps-aiw-saml). When this property is set to `true`, users are prompted for their credentials when a SAML request has the `ForceAuthn` attribute set to `true`. You can now set this property for your SAML app without using the app integration wizard. See the [SAML 2.0 settings parameters in the Apps API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication!path=6/settings/signOn/honorForceAuthn&t=request). <!--OKTA-550077-->
 
 #### OIN Manager support for Workflow Connector submission is GA in Preview
 
@@ -648,7 +650,7 @@ When an admin used a group limit in an expression that was greater than 100 (for
 
 * Some event hook requests failed to send in Preview orgs. (OKTA-578439)
 
-* Events weren't logged in the System Log when the Users API (`DELETE /users/${userId}/clients/${clientId}/tokens/${tokenId}`) was used to revoke refresh tokens. (OKTA-574992)
+* Events weren't logged in the System Log when the Users API (`DELETE /users/{userId}/clients/{clientId}/tokens/{tokenId}`) was used to revoke refresh tokens. (OKTA-574992)
 
 * Pagination and search query matching didn't work as expected when a list request was made using the `/idps` API. (OKTA-577464)
 
@@ -687,7 +689,7 @@ When an admin used a group limit in an expression that was greater than 100 (for
 
 #### Applications API support for SAML metadata attributes
 
-The Applications API now supports metadata dynamic SAML attributes inherited from the SAML app. The SAML attributes are used to manage configured group attributes. The Admin Console displays the dynamic SAML attributes as **Configure SAML Attributes**, and the API returns these attributes as the `settings.signOn.configuredAttributeStatements` property in the [SAML application object](/docs/reference/api/apps/#add-saml-2-0-authentication-application). <!--OKTA-573057,OKTA-549695-->
+The Apps API now supports metadata dynamic SAML attributes inherited from the SAML app. The SAML attributes are used to manage configured group attributes. The Admin Console displays the dynamic SAML attributes as **Configure SAML Attributes**, and the API returns these attributes as the `settings.signOn.configuredAttributeStatements` property in the [SAML application object](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication!path=6/settings/signOn/configuredAttributeStatements&t=request). <!--OKTA-573057,OKTA-549695-->
 
 #### Custom app login deprecated is GA in Production
 
@@ -820,7 +822,7 @@ OAuth 2.0 Optional Consent provides an optional property that enables a user to 
 
 #### Password history policy enforced in strict mode is GA in Production
 
-When an admin [updates passwords](/docs/reference/api/users/#update-user) and sets the `strict` parameter to `true`, the [password history policy](/docs/reference/api/policy/#age-object) is now enforced.<!-- OKTA-563910-->
+When an admin [updates passwords](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/updateUser) and sets the `strict` parameter to `true`, the [password history policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy!path=4/settings/password/age&t=request) is now enforced.<!-- OKTA-563910-->
 
 #### PBKDF2 Hashing Algorithm support is GA in Production
 
@@ -828,7 +830,7 @@ Okta now supports Password-Based Key Derivation Function 2 (PBKDF2) for hashing 
 
 #### Revoke user sessions is GA in Production
 
-You can end all Okta sessions for a user when resetting their password. All sessions of the specified user are revoked except for the current session. This option protects the user account from unauthorized access. See the `revokeSessions` parameter in the [Users API](/docs/reference/api/users/#change-password). <!-- OKTA-542646-->
+You can end all Okta sessions for a user when resetting their password. All sessions of the specified user are revoked except for the current session. This option protects the user account from unauthorized access. See the [][`revokeSessions`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserCred/#tag/UserCred/operation/changePassword!path=revokeSessions&t=request) parameter in the User Credentials API. <!-- OKTA-542646-->
 
 #### Unusual telephony requests blocked by machine-learning measures
 

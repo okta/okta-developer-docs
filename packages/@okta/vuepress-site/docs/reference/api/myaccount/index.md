@@ -1021,7 +1021,7 @@ If an invalid phone ID is passed to the request, the response returns a 404 NOT 
 | <ApiOperation method="get" url="/idp/myaccount/profile/schema" /> | GA  |
 | <ApiOperation method="get" url="/api/v1/myaccount/profile/schema" /> | <ApiLifecycle access="deprecated" /> |
 
-Fetches the appropriate User Profile Schema for the caller's [User Type](/docs/reference/api/user-types/)
+Fetches the appropriate user profile schema for the caller's [user type](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserType/)
 
 > **Note:** If a property's value isn't visible to an end user (because it's hidden or [sensitive](https://help.okta.com/okta_help.htm?id=ext-hide-sensitive-attributes)), then the property's definition is also hidden in the output of this API.
 
@@ -1706,7 +1706,7 @@ The User Profile Schema object has several properties:
 | Property           | Type                                                                                                              | Description                                                        |
 | ------------------ | ----------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ |
 | `_links`             | Object ([JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06))                                                    | Discoverable resources related to the caller's User Profile Schema |
-| `properties`         | Object | The properties defined in the [User Profile Schema](/docs/reference/api/schemas/#user-profile-schema-property-object)                               |
+| `properties`         | Object | The properties defined in the [User Profile Schema](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/#tag/Schema/operation/getUserSchema!c=200&path=definitions&t=response)                               |
 
 #### User Profile Schema example
 

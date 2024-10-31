@@ -27,3 +27,20 @@ pre[class*="language-"] .code-copy {
   white-space: normal;
   color: #333333;
 }
+
+.highlight-lines {
+  user-select: none;
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  padding: 0.5rem 0 0.5rem 0;
+
+  width: 100%;
+
+  .highlighted {
+    background-color: cv("code", "highlight-background");
+  }
+}

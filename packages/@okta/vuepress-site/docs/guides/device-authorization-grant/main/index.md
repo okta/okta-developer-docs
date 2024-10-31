@@ -8,7 +8,7 @@ This guide describes the Device Authorization feature, which allows users to sig
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Create and configure a native OpenID Connect application to support Device Authorization.
 * Enable Device Authorization at the policy rule level.
@@ -16,34 +16,27 @@ This guide describes the Device Authorization feature, which allows users to sig
 * Retrieve tokens for the user.
 * Revoke the tokens.
 
-**What you need**
+#### What you need
 
-* [Okta Developer Edition organization](https://developer.okta.com/signup)
-* [Device Authorization feature enabled for your org](#before-you-begin)
+[Okta Developer Edition organization](https://developer.okta.com/signup)
 
 ---
 
-## About the Device Authorization feature
+## Overview
 
-The Device Authorization feature is an OAuth 2.0 grant type. It allows users to sign in to input-constrained devices, such as smart TVs, digital picture frames, and printers, as well as devices with no browser. Device Authorization enables you to use a secondary device, such as a laptop or mobile phone, to complete sign-in to applications that run on such devices.
-
-The Device Authorization feature is available for both Okta Classic Engine and Okta Identity Engine orgs.
-
-## Before you begin
-
-This guide assumes that you:
-
-* Have an Okta Developer Edition organization. Don't have one? [Create one for free](https://developer.okta.com/signup).
-* Have the Device Authorization feature enabled for your org. From the left navigation pane in the Admin Console, go to **Settings** > **Features**, locate the Device Authorization Grant slider, and slide to enable.
+The Device Authorization feature is an OAuth 2.0 grant type. It allows users to sign in to input-constrained devices, such as smart TVs, digital picture frames, and printers, and devices with no browser. Device Authorization enables you to use a secondary device, such as a laptop or mobile phone, to complete the sign-in flow to apps that run on such devices.
 
 ## Configure an application to use the Device Authorization Grant
 
-To create a Native OpenID Connect application and then configure it to support Device Authorization:
+Create a Native OpenID Connect application and then configure it to support Device Authorization:
 
-1. In the left navigation pane of the Admin Console, go to **Applications** > **Applications**.
+1. Open the **Admin Console** for your org.
+1. Go to **Applications** > **Applications** to view the current app integrations.
 1. Click **Create App Integration**.
-1. On the Create a new app integration page, select **OIDC - OpenID Connect** as the **Sign-in method**, and then pick **Native Application**.
-1. On your native application page, fill in the application settings. Ensure that you select **Device Authorization** as the allowed **Grant type** in the General Settings.
+1. Select **OIDC - OpenID Connect**  as the **Sign-in method**, and then **Native Application** as the **Application type**.
+1. Click **Next** and specify the **App integration name**.
+1. Select **Device Authorization** and **Refresh Token** as the grant types.
+1. Select **Allow everyone in your organization to access** in the **Assignments** section, and then click **Save**.
 
 > **Note:** Device Authorization is only supported for use with a native application.
 
@@ -53,10 +46,10 @@ Both org and custom authorization servers support Device Authorization. Ensure t
 
 To check that Device Authorization is enabled:
 
-1. In the left navigation pane of the Admin Console, go to **Security** > **API** and select the "default" custom authorization server.
+1. In Admin Console, go to **Security** > **API** and select the "default" custom authorization server.
 1. On the **Access Policies** tab, select the access policy that you want to configure Device Authorization for.
 1. Click the pencil icon for the Default Policy Rule.
-1. In the Edit Rule dialog box, select **Device Authorization** for the grant type and click **Update Rule**.
+1. In the Edit Rule dialog, select **Device Authorization** for the grant type and click **Update Rule**.
 
 ## Configure the smart device
 
@@ -68,17 +61,17 @@ The smart device first needs to call the `/device/authorize` endpoint to obtain 
 
 ```bash
 curl --request POST \
-  --url https://${yourOktaDomain}/oauth2/default/v1/device/authorize \
+  --url https://{yourOktaDomain}/oauth2/default/v1/device/authorize \
   --header 'Accept: application/json' \
   --header 'Content-Type: application/x-www-form-urlencoded' \
-  --data-urlencode 'client_id=${clientId}' \
+  --data-urlencode 'client_id={clientId}' \
   --data-urlencode 'scope=openid profile offline_access'
 ```
 
 The device authorization request passes the following parameters:
 
-* `client_id` &mdash; matches the Client ID of the OAuth 2.0 application that you created
-* `scope` &mdash; specifies which access privileges are being requested for the access token. See [Scopes](/docs/reference/api/oidc/#scopes) for a list of supported scopes.
+* `client_id`: Matches the Client ID of the OAuth 2.0 app that you created.
+* `scope`: Specifies which access privileges are being requested for the access token. See [Scopes](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/#scopes) for a list of supported scopes.
 
 **Example response**
 
@@ -96,13 +89,13 @@ The device authorization request passes the following parameters:
 The properties in the response are:
 
 * `device_code`: The long string that the device uses to exchange for an access token.
-* `user_code`: The text that you enter at the URL that is listed as the value for `verification_uri`.
+* `user_code`: The text that you enter at the URL that's listed as the value for `verification_uri`.
 * `verification_uri`: The URL that the user needs to access from their device to start the sign-in process.
 * `verification_uri_complete`: The URL that the client uses to generate the QR Code for the user to scan.
 * `expires_in`: The number of seconds that this set of values is valid. After the device code and user code expire, the user has to start the device verification process over.
 * `interval`: The number of seconds that the device should wait between polling to see if the user has finished signing in.
 
-The `user_code` and `verification_uri` must appear on the smart device for the user. To display the QR code, the client generates the code by using the `verification_uri_complete` value that was returned in the response and displays it on the device for the user to scan.
+The `user_code` and `verification_uri` must appear on the smart device for the user. To display the QR Code, the client generates the code by using the `verification_uri_complete` value that was returned in the response and displays it on the device for the user to scan.
 
 #### Example of the display on a smart device
 
@@ -120,12 +113,12 @@ To retrieve tokens for the user, the smart device needs to make a request to the
 
 ```bash
 curl --request POST \
-  --url https://${yourOktaDomain}/oauth2/default/v1/token \
+  --url https://{yourOktaDomain}/oauth2/default/v1/token \
   --header 'Accept: application/json' \
   --header 'Content-Type: application/x-www-form-urlencoded' \
-  --data-urlencode 'client_id=${clientId}' \
+  --data-urlencode 'client_id={clientId}' \
   --data-urlencode 'grant_type=urn:ietf:params:oauth:grant-type:device_code' \
-  --data-urlencode 'device_code=${deviceCode}'
+  --data-urlencode 'device_code={deviceCode}'
 ```
 
 Note the parameters that are being passed:
@@ -167,12 +160,12 @@ To revoke the tokens, the smart device must make a request to the `/revoke` endp
 
 ```bash
 curl --request POST \
-  --url https://${yourOktaDomain}/oauth2/default/v1/revoke \
+  --url https://{yourOktaDomain}/oauth2/default/v1/revoke \
   --header 'Accept: application/json' \
   --header 'Content-Type: application/x-www-form-urlencoded' \
-  --data-urlencode 'token=${refreshToken}' \
+  --data-urlencode 'token={refreshToken}' \
   --data-urlencode 'token_type_hint=refresh_token' \
-  --data-urlencode 'client_id=${clientId}'
+  --data-urlencode 'client_id={clientId}'
 ```
 
 **Example response**

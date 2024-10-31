@@ -21,6 +21,6 @@ Example
     "profile",
     "offline_access"
   ],
-  "discovery_uri": "https://${yourOktaDomain}"
+  "discovery_uri": "https://{yourOktaDomain}"
 }
 ```

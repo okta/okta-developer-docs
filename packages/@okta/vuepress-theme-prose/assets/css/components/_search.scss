@@ -74,7 +74,7 @@
 #SearchPage .CoveoQuerySummary,
 #SearchPage .coveo-summary-section {
   font-weight: 400;
-  color: cv("text");
+  color: cv("text", "base");
 
   @extend .brand_font;
 }
@@ -104,7 +104,7 @@
 }
 
 #SearchPage .coveo-facet-value.coveo-selected .coveo-facet-value-checkbox {
-  background-color: cv("link");
+  background-color: cv("link", "base");
 }
 
 #SearchPage .coveo-facet-value.coveo-selected .coveo-facet-value-checkbox svg {
@@ -121,7 +121,7 @@
 }
 
 #SearchPage .coveo-facet-value:hover .coveo-facet-value-checkbox-svg .coveo-hook-svg {
-  fill: cv("link");
+  fill: cv("link", "base");
 }
 
 #SearchPage .coveo-facet-value.coveo-selected .coveo-facet-value-caption {
@@ -146,7 +146,9 @@
 }
 
 #SearchPage .coveo-facet-value-caption {
-  margin: 0 0 8px;
+  margin: 0 0 6px;
+  
+  height: 18px;
 
   font-weight: 400;
   font-size: 16px;
@@ -163,7 +165,7 @@
 
   font-weight: 500;
   text-decoration: none;
-  color: cv("link");
+  color: cv("link", "base");
 
   @extend .brand_font;
 }
@@ -192,7 +194,7 @@
   border: none;
 
   text-decoration: none;
-  color: cv("link");
+  color: cv("link", "base");
 }
 
 #SearchPage .coveo-facet-footer {
@@ -207,13 +209,13 @@
 
 #SearchPage .coveo-pager-next,
 #SearchPage .coveo-pager-previous {
-  border: 1px solid cv("link");
+  border: 1px solid cv("link", "base");
   border-radius: 3px;
 }
 
 #SearchPage .coveo-pager-next:hover,
 #SearchPage .coveo-pager-previous:hover {
-  border: 1px solid cv("link");
+  border: 1px solid cv("link", "base");
 }
 
 #SearchPage .coveo-pager-next-icon,
@@ -227,7 +229,7 @@
 #SearchPage .coveo-pager-previous-icon-svg {
   height: 9px;
 
-  color: cv("link");
+  color: cv("link", "base");
 }
 
 #SearchPage .coveo-results-header {
@@ -252,32 +254,32 @@
 #SearchPage .CoveoResultLink:visited {
   font-weight: 500;
   font-size: 16px;
-  color: cv("link");
+  color: cv("link", "base");
 }
 
 #SearchPage .CoveoResultLink:hover,
 #SearchPage .CoveoResultLink:focus {
-  color: cv("link");
+  color: cv("link", "base");
   cursor: pointer;
 }
 
 #SearchPage .CoveoResultLink.coveo-printable-uri-part {
   font-weight: 400;
   font-size: 14px;
-  color: cv("text");
+  color: cv("text", "base");
 }
 
 #SearchPage .is-secondary .CoveoResultLink {
   outline: none;
 
   font-size: 14px;
-  color: cv("text");
+  color: cv("text", "base");
 }
 
 #SearchPage .is-secondary .CoveoResultLink:hover,
 #SearchPage .is-secondary .CoveoResultLink:focus,
 #SearchPage .is-secondary .CoveoResultLink:visited {
-  color: cv("text");
+  color: cv("text", "base");
   cursor: pointer;
 }
 
@@ -294,7 +296,7 @@
 #SearchPage .CoveoExcerpt {
   font-size: 16px;
   line-height: 1.5;
-  color: cv("text");
+  color: cv("text", "base");
 
   @extend .brand_font;
 }
@@ -308,7 +310,7 @@
 
   border: none;
 
-  color: cv("text");
+  color: cv("text", "base");
 
   @extend .brand_font;
 }
@@ -351,7 +353,7 @@
   margin: 0;
 
   font-size: 14px;
-  color: cv("text");
+  color: cv("text", "base");
 }
 
 #SearchPage .coveo-dropdown-header-wrapper {
@@ -386,7 +388,7 @@
 #SearchPage .CoveoBreadcrumb {
   padding: 5px 0;
 
-  border-color: cv("text");
+  border-color: cv("text", "base");
 
   @extend .brand_font;
 }
@@ -415,11 +417,11 @@
 }
 
 #SearchPage .coveo-facet-help a {
-  color: cv("link");
+  color: cv("link", "base");
 }
 
 #SearchPage .coveo-facet-help a:hover {
-  color: cv("link");
+  color: cv("link", "base");
 }
 
 #SearchPage .u-mb-0 {

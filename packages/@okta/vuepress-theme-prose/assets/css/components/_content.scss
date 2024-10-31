@@ -56,14 +56,14 @@
 
 .content--container .sidebar-area {
   position: sticky;
-  top: 142px;
+  top: var(--header-height);
 
   width: 18.5vw;
   min-width: 350px;
   overflow: auto;
   overflow-x: hidden;
 
-  background: cv("body");
+  background: cv("body", "base");
 }
 
 .content--container .sidebar-area .sidebar-fade {
@@ -123,12 +123,12 @@
 }
 
 :target {
-  scroll-margin-top: 160px;
+  scroll-margin-top: calc(var(--header-height) + 32px);
 }
 
 @include media("<tablet") {
   :target {
-    scroll-margin-top: 140px;
+    scroll-margin-top: calc(var(--header-height) + 32px);
   }
 }
 
@@ -146,6 +146,11 @@
 .content--container .content-area a {
   text-decoration: underline;
   word-break: break-word;
+}
+
+.content--container .content-area a span {
+  outline: 2px solid var(--c-external-link-base);
+  outline-offset: -2px;
 }
 
 .content--container .content-area .language-tabs a,

@@ -16,7 +16,7 @@ Searching for and returning Okta users is a standard Users API lifecycle operati
 
 > **Note:** Okta recommends using the `search` parameter when querying for users.
 
-For details on user operations, see the [Users API](/docs/reference/api/users/) reference.
+For details on user operations, see the [Users API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/) reference.
 
 ## Search users
 
@@ -29,11 +29,11 @@ The search query parameter (`search`) returns one or more users matched against 
 
 This query parameter provides the largest range of search options and optimal performance. The `search` parameter requires URL encoding for applicable search expressions, supports pagination, and accepts sorting parameters.
 
-The search query parameter uses standard Okta API filtering semantics to create search criteria that includes mathematical operators such as equal to (`eq`), greater than or equal to (`ge`), and so on. You can combine multiple expressions using logical operators and parentheses. The `ne` (not equal) operator isn't supported, but you can obtain the same result by using `lt ... or ... gt`. For example, to see all users except those that have a status of "STAGED", use `https://${yourOktaDomain}/api/v1/users?search=status+lt+%22STAGED%22+or+status+gt+%22STAGED%22`. See [Filtering](/docs/reference/core-okta-api/#filter).
+The search query parameter uses standard Okta API filtering semantics to create search criteria. This criteria includes mathematical operators such as equal to (`eq`), greater than or equal to (`ge`), and so on. You can combine multiple expressions using logical operators and parentheses. The `ne` (not equal) operator isn't supported, but you can obtain the same result by using `lt ... or ... gt`. For example, to see all users except those that have a status of "STAGED", use `https://${yourOktaDomain}/api/v1/users?search=status+lt+%22STAGED%22+or+status+gt+%22STAGED%22`. See [Filtering](https://developer.okta.com/docs/api/#filter).
 
 ### URL encoding
 
-The search parameter requires URL encoding for expressions that include characters such as spaces and double quotes used for strings. See [URL encoding](http://en.wikipedia.org/wiki/Percent-encoding). For example:
+The search parameter requires URL encoding for expressions that include characters such as spaces and double quotes used for strings. See [URL encoding](https://developer.mozilla.org/en-US/docs/Glossary/Percent-encoding). For example:
 
 `search=profile.department eq "Engineering"` is encoded as `search=profile.department%20eq%20%22Engineering%22`.
 
@@ -103,7 +103,7 @@ For brevity, the response is truncated.
 
 ### Limits and pagination
 
-You can include the parameters `limit` and `after` in search expressions to limit the return of user records and to access the [pagination](/docs/reference/core-okta-api/#pagination) cursor location. By using the `after` parameter with the `limit` parameter, you can define the cursor location in the data set and manage the user records per page. The cursor is an opaque value that is obtained through the link header [next link relation](/docs/reference/core-okta-api/#link-header).
+You can include the parameters `limit` and `after` in search expressions to limit the return of user records and to access the [pagination](https://developer.okta.com/docs/api/#pagination) cursor location. By using the `after` parameter with the `limit` parameter, you can define the cursor location in the data set and manage the user records per page. The cursor is an opaque value that is obtained through the link header [next link relation](https://developer.okta.com/docs/api/#link-header).
 
 > **Note:** If you don't specify a value for `limit`, the maximum (200) is used as a default.
 
@@ -161,7 +161,7 @@ curl -v -X GET \
 
 The `search` parameter can also search array data types for custom user profile properties. Okta follows the [SCIM Protocol Specification](https://datatracker.ietf.org/doc/html/rfc7644#section-3.4.2.2) for searching arrays. If any element of the array matches the search term, the entire array (object) is returned.
 
-You can create expressions that search multiple arrays, multiple values in an array, as well as using the standard logical and filtering operators such as starts with (`sw`), greater than (`gt`), and so on. See [Filtering](/docs/reference/core-okta-api#filter).
+You can create expressions that search multiple arrays, multiple values in an array, as well as using the standard logical and filtering operators such as starts with (`sw`), greater than (`gt`), and so on. See [Filtering](https://developer.okta.com/docs/api/#filter).
 
 #### Request example
 
@@ -371,7 +371,7 @@ For brevity, only the user information and custom profile attribute are shown.
 
 ```
 
-For further search expression examples and reference material, see [Find Users](/docs/reference/api/users/#find-users) in the Users API reference.
+For further search expression examples and reference material, see [`search`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/listUsers!in=query&path=search&t=request) in the Users API reference.
 
 ## Filter users
 
@@ -379,7 +379,7 @@ The filter query parameter (`filter`) returns one or more users that match a fil
 
 > **Note:** For optimal performance, Okta recommends using a `search` parameter instead. See [Search users](#search-users).
 
-The filter query parameter only uses the equal (`eq`) operator of the standard Okta API filtering semantics. The `lastUpdated` property, however, can also implement the inequality operators greater than (`gt`), greater than or equal to (`ge`), less than (`lt`), and less than or equal to (`le`). For example, you can use these operators to filter users updated before or after a specific date and time. You can combine multiple expressions using the logical operators `and` and `or`, and parentheses. The `not` operator isn't supported. See [List users with a filter](/docs/reference/api/users/#list-users-with-a-filter) for example expressions.
+The filter query parameter only uses the equal (`eq`) operator of the standard Okta API filtering semantics. The `lastUpdated` property, however, can also implement the inequality operators greater than (`gt`), greater than or equal to (`ge`), less than (`lt`), and less than or equal to (`le`). For example, you can use these operators to filter users updated before or after a specific date and time. You can combine multiple expressions using the logical operators `and` and `or`, and parentheses. The `not` operator isn't supported. See [`filter`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/listUsers!in=query&path=filter&t=request) for example expressions.
 
 The filter query parameter is case-sensitive and also supports the `limit` and `after` parameters, see [Limits and pagination](#limits-and-pagination).
 
@@ -537,11 +537,11 @@ curl -v -X GET \
 
 ```
 
-For further filter expression examples and reference material, see [Find Users](/docs/reference/api/users/#find-users) in the Users API reference.
+For further filter expression examples and reference material, see [`filter`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/listUsers!in=query&path=filter&t=request) in the Users API reference.
 
 ## Find users
 
-The find users query parameter (`q`) returns one or more users matched against the user profile properties of `firstName`, `lastName`, or `email`, and is designed for simple lookup implementations, such as a people picker. This query parameter excludes users with a `DEPROVISIONED` status, doesn't support pagination, and isn't designed for large data sets.
+The find users [query parameter (`q`)](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/listUsers!in=query&path=q&t=request)) returns one or more users matched against the user profile properties of `firstName`, `lastName`, or `email`, and is designed for simple lookup implementations, such as a people picker. This query parameter excludes users with a `DEPROVISIONED` status, doesn't support pagination, and isn't designed for large data sets.
 
 > **Note:** For optimal performance, Okta recommends using a [search](#search-users) parameter instead. See [Search users](#search-users).
 
@@ -686,8 +686,6 @@ curl -v -X GET \
     }
 ```
 
-See [Find Users](/docs/reference/api/users/#find-users) in the Users API reference.
-
 ## List all users
 
 If a query doesn't include the `search`, `filter`, or `q` parameter, it returns all users (except those with DEPROVISIONED status), with a default limit of 200 records. For this simple use case, the list-all query performance is superior to other search options.
@@ -708,9 +706,7 @@ curl -v -X GET \
 "https://${yourOktaDomain}/api/v1/users?limit=25
 ```
 
-See [Find Users](/docs/reference/api/users/#list-users) in the Users API reference.
-
 ## See also
 
-- [Users API](/docs/reference/api/users)
+- [Users API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/)
 - [User profiles](/docs/concepts/user-profiles/)

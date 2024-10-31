@@ -12,18 +12,18 @@ This guide provides a functional example of an Okta event hook filter. It's base
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Understand the Okta event hook calls and responses with a filter implementation.
 * Implement a functional example of an Okta event hook filter with a Glitch.com project.
 * Test the Okta event hook filter.
 
-**What you need**
+#### What you need
 
 * [Okta Developer Edition org](https://developer.okta.com/signup/)
 * [Glitch.com](https://glitch.com) project or account
 
-**Sample code**
+#### Sample code
 
 * [Okta Event Hook with Filtering](https://glitch.com/~okta-event-hook-with-filtering)
 
@@ -39,6 +39,8 @@ This guide uses the website [Glitch.com](https://glitch.com) to act as an extern
 
 Review [Event hook implementation](/docs/guides/event-hook-implementation) to understand how to receive and parse the event hook call in your code. After copying the project, go to the following section to create an event hook with a filter.
 
+<HookBasicAuthValuesNote/>
+
 ## Create an event hook with a filter
 
 The Glitch event hook example uses the Okta event triggered when a user is added to a group. This event hook triggers for every instance of a group addition. With event hook filters, you can create business logic, using the Okta Expression Language, to isolate only certain group additions that trigger the event hook. In this example, only users added to the Sales group trigger the event hook.
@@ -49,7 +51,7 @@ The Glitch event hook example uses the Okta event triggered when a user is added
 
 1. Click **Create Event Hook**.
 
-1. In the **Endpoint URL** field, add your external service URL, including endpoint. For example, use your Glitch project name with the endpoint: `https://${your-glitch-projectname}.glitch.me/userAdded`.
+1. In the **Endpoint URL** field, add your external service URL, including endpoint. For example, use your Glitch project name with the endpoint: `https://{your-glitch-projectname}.glitch.me/userAdded`.
 
 1. In the **Event Hook Name**, add a unique name for the hook (in this example, "User added to Sales group event hook").
 

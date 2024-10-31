@@ -8,18 +8,18 @@ This guide provides a working example of an Okta event hook. It uses the website
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Understand the Okta event hook calls and responses.
 * Implement a working example of an Okta event hook with a Glitch.com project, which acts as an external service.
 * Preview and test an Okta event hook.
 
-**What you need**
+#### What you need
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup/)
 * [Glitch.com](https://glitch.com) project or account
 
-**Sample code**
+#### Sample code
 
 * [Okta Event Hook: Display Deactivated Users](https://glitch.com/~okta-event-hook)
 
@@ -46,13 +46,15 @@ This guide uses the website [Glitch.com](https://glitch.com) to act as an extern
 
 Review the following sections to understand how to receive and parse the event hook call. Or use the code snippets to create the project on your own. If you copy the project, you can go directly to the section [Enable and verify the event hook](#enable-and-verify-the-event-hook), which completes the setup.
 
+<HookBasicAuthValuesNote/>
+
 ### Configure initial event hook verification
 
 Okta event hooks require an initial verification of the external service endpoint before the ongoing triggering of the hook. For more information on this request, see [One-Time Verification Request](/docs/concepts/event-hooks/#one-time-verification-request).
 
 Add the following code to your external service to receive and respond to this one-time verification request.
 
-> **Note:** Also, make sure to have the required default code and packages in your project. See [Overview and considerations](/docs/guides/common-hook-set-up-steps/main) for further information.
+> **Note:** Also, make sure to have the required default code and packages in your project. See [Common hook set-up steps](/docs/guides/common-hook-set-up-steps/main) for further information.
 
 <StackSelector snippet="verification" noSelector/>
 
@@ -66,10 +68,10 @@ In this example, after parsing the event hook request, the code displays the dea
 
 ### Examine the event hook object
 
-The JSON body sent as part of the Okta request includes the properties accessed in this example, namely `target` and `alternateId`. To see this or other event objects, call your Okta org with the [System Log API](/docs/reference/api/system-log), using the specific event type as a [filter parameter](/docs/reference/api/system-log/#filtering-results). For example:
+The JSON body sent as part of the Okta request includes the properties accessed in this example, namely `target` and `alternateId`. To see this or other event objects, call your Okta org with the [System Log API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/), using the specific event type as a [filter parameter](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/#tag/SystemLog/operation/listLogEvents!in=query&path=filter&t=request). For example:
 
 ```JavaScript
-https://${yourOktaDomain}/api/v1/logs?filter=eventType eq "user.lifecycle.deactivate"
+https://{yourOktaDomain}/api/v1/logs?filter=eventType eq "user.lifecycle.deactivate"
 ```
 
 <StackSelector snippet="event-object" noSelector/>
@@ -100,7 +102,7 @@ Set up and verify the event hook within your Admin Console.
 
 9. You can complete the one-time verification Okta call now or verify the event hook later. If you're using the Glitch example, proceed to verification.
 
-> **Note:** You can also set up an event hook using an API. See [Event Hooks Management](/docs/reference/api/event-hooks/#create-event-hook).
+> **Note:** You can also set up an event hook using an API. See [Event Hooks Management](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/EventHook/#tag/EventHook/operation/createEventHook).
 
 ### Verify the event hook
 

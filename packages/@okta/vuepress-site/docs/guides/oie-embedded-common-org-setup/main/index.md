@@ -8,11 +8,11 @@ This guide covers how to create and set up your Okta org. Then, you can [run the
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 Get a new org set up and ready for various use cases.
 
-**What you need**
+#### What you need
 
 [Okta Developer Edition organization](/signup)
 
@@ -294,14 +294,14 @@ Perform the following configurations after you [create an app](#create-an-applic
 1. Select the app that you created from the Facebook [Apps](https://developers.facebook.com/apps/) page.
 1. Scroll to the **Add a product** section on the App Dashboard page and click the **Set up** link in the **Facebook Login** tile.
 1. Select **Web** as the platform type on the first set up page.
-1. Set the value for **Site URL** to `https://${yourOktaDomain}/oauth2/v1/authorize/callback` (for example: `https://dev-12345678.okta.com/oauth2/v1/authorize/callback`).
+1. Set the value for **Site URL** to `https://{yourOktaDomain}/oauth2/v1/authorize/callback` (for example: `https://dev-12345678.okta.com/oauth2/v1/authorize/callback`).
 1. Click **Save**, **Continue**, and then click **Next** until you finish.
 
 ##### Configure Facebook settings
 
 1. Click **Facebook Login** (under products) in the left navigation menu, and then click **Settings**.
 1. Locate **Client OAuth Settings** on the **Settings** page and add the following URLs for the **Valid OAuth Redirect URIs** field:
-      `https://${yourOktaDomain}/oauth2/v1/authorize/callback` (for example, `https://dev-12345678.okta.com/oauth2/v1/authorize/callback`).
+      `https://{yourOktaDomain}/oauth2/v1/authorize/callback` (for example, `https://dev-12345678.okta.com/oauth2/v1/authorize/callback`).
 1. Click **Save Changes** at the bottom of the page.
 1. Expand **Settings** on the left side of the page, and then click **Basic**.
 1. Save the **App ID** and the **App Secret** values so you can add them to your Okta org's Identity Provider settings.

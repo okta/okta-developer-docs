@@ -8,12 +8,12 @@ This guide shows you how to download and configure the Identity Engine SDKs, Sig
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Download the SDK, Sign-In Widget, sample apps, and prerequisites required for your language.
 * Configure the settings that you require for the SDK and the Sign-In Widget.
 
-**What you need**
+#### What you need
 
 * [Okta Developer Edition organization](/signup)
 * <StackSnippet snippet="samplecode" inline />
@@ -44,15 +44,15 @@ There are two main types of authorization servers in Okta: [Org](/docs/concepts/
 
 The issuer URI format depends on which authorization server that you decide to use:
 
-* Org&mdash;If you use the org authorization server, the issuer URI format is `https://${yourOktaDomain}` (for example, `https://dev-example.okta.com`).
+* Org&mdash;If you use the org authorization server, the issuer URI format is `https://{yourOktaDomain}` (for example, `https://dev-example.okta.com`).
 * Custom&mdash;You can either use the default custom authorization server or create your own.
-  * If you use the default custom authorization server, the issuer URI format is `https://${yourOktaDomain}/oauth2/default`.
-  * If you use your own custom authorization server, the issuer URI format is `https://${yourOktaDomain}/oauth2/${authServerId}`, where `${authServerId}` is your custom authorization server's unique ID.
+  * If you use the default custom authorization server, the issuer URI format is `https://{yourOktaDomain}/oauth2/default`.
+  * If you use your own custom authorization server, the issuer URI format is `https://{yourOktaDomain}/oauth2/{authServerId}`, where `{authServerId}` is your custom authorization server's unique ID.
 
 If you're getting started with your first app or if you're running an Okta sample app, use the issuer URI of your default custom authorization server. To find this value:
 
 1. In the Admin Console, go to **Security** > **API**.
-2. On the **Authorization Servers** tab, use the **Issuer URI** value from the **default** custom authorization server row (for example, `https://${yourOktaDomain}/oauth2/default`).
+2. On the **Authorization Servers** tab, use the **Issuer URI** value from the **default** custom authorization server row (for example, `https://{yourOktaDomain}/oauth2/default`).
 
 #### Client ID
 
@@ -68,7 +68,7 @@ This is the same value as the **Redirect URI** for the application that you crea
 
 #### Scopes
 
-The sample app uses the default scopes provided in the SDK, which include `openid`, `profile`, and others. See [OpenID Connect & OAuth 2.0 API](/docs/reference/api/oidc/#scopes) for more information on OIDC scopes associated with access tokens.
+The sample app uses the default scopes provided in the SDK, which include `openid`, `profile`, and others. See [OpenID Connect & OAuth 2.0 API](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/#scopes) for more information on OIDC scopes associated with access tokens.
 
 ## Set the configuration values
 

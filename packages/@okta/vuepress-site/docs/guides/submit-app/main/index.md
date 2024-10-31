@@ -1,21 +1,23 @@
 ---
-title: Submit an LCM integration
+title: Submit an LCM integration with the OIN Manager
 meta:
   - name: description
     content: Use this guide to learn how to submit your Okta Lifecycle management integration for publication with the Okta Integration Network (OIN) Manager.
 layout: Guides
 ---
 
-Use this guide to understand the process of submitting a lifecycle management (LCM) integration to the Okta Integration Network (OIN) using the OIN Manager. You can submit a System for Cross-domain Identity Management (SCIM) or a Workflows connector LCM integration. This guide also shows you how to update a previously published LCM integration or delete a draft submission.
+Use this guide to understand the process of submitting a lifecycle management (LCM) integration to the Okta Integration Network (OIN) using the OIN Manager. You can submit a Workflows connector LCM integration. This guide also shows you how to update a previously published LCM integration or delete a draft submission.
+
+> **Note:** As of release 2024.10.0, you can't submit new SCIM integrations using the OIN Manager. Use the new [OIN Wizard](/docs/guides/submit-oin-app/scim/main/) for a seamless ISV submission experience. Okta is migrating previous integrations submitted through the OIN Manager to the OIN Wizard.
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Understand how to submit a new LCM integration to the OIN
 * Understand how to update or delete a previously published integration
 
-**What you need**
+#### What you need
 
 * A functional LCM integration created and tested in accordance with one of the following guides:
    * [Build a SCIM provisioning integration](/docs/guides/scim-provisioning-integration-overview/)
@@ -56,7 +58,9 @@ If you have questions or need more support to publish your app integration, you 
 
 ## Submit an integration
 
-> **Note:** Review the [OIN submission requirements](/docs/guides/submit-app-prereq) before you start your submission.
+> **Note:** As of release 2024.10.0, you can't submit new SCIM integrations using the OIN Manager. Use the new [OIN Wizard](/docs/guides/submit-oin-app/scim/main/) for a seamless ISV submission experience. Okta is in the process of migrating previous integrations submitted through the OIN Manager to the OIN Wizard.
+
+Review the [OIN submission requirements](/docs/guides/submit-app-prereq) before you start your submission.
 
 Start your integration submission:
 
@@ -90,7 +94,7 @@ On the **General Settings** tab, fill in the basic information about your integr
 
 * **Use case(s)**: Specify one or more use cases for Okta to categorize your integration in the OIN catalog. Click **+ Add Another** to choose up to five use cases. See [Use case guidelines](/docs/guides/submit-app-prereq/main/#use-case-guidelines).
 
-* **App description**: Give a general description of your application and what the Okta integration does. See [App description guidelines](/docs/guides/submit-app-prereq/main/#app-description-guidelines).
+* **App description**: Give a general description of your app and what the Okta integration does. See [App description guidelines](/docs/guides/submit-app-prereq/main/#app-description-guidelines).
 
 * **App icon**: Upload a PNG, JPG, or GIF file of a logo to accompany your integration in the catalog. The logo file must be less than one MB. See [Logo guidelines](/docs/guides/submit-app-prereq/main/#logo-guidelines).
 
@@ -104,19 +108,19 @@ See [Customer support contact guidelines](/docs/guides/submit-app-prereq/main/#c
 
 #### Test account
 
-The Okta OIN team requires a dedicated account in your application to run their tests. Ensure that this test account is active beyond the submission period in case Okta needs to update or troubleshoot your app integration. See [Test account guidelines](/docs/guides/submit-app-prereq/main/#test-account-guidelines).
+The Okta OIN team requires a dedicated account in your app to run their tests. Ensure that this test account is active beyond the submission period in case Okta needs to update or troubleshoot your app integration. See [Test account guidelines](/docs/guides/submit-app-prereq/main/#test-account-guidelines).
 
-* **Test account URL**: This is a static URL to sign in to your application. An Okta OIN team member goes to this URL and uses the account credentials you provide in the subsequent fields to sign in to your application.
+* **Test account URL**: This is a static URL to sign in to your app. An Okta OIN team member goes to this URL and uses the account credentials you provide in the subsequent fields to sign in to your app.
 
-* **Test account username or email**: The username for your application test account. The Okta OIN team signs in with this username to run tests. The preferred account username is `isvtest@okta.com`.
+* **Test account username or email**: The username for your app test account. The Okta OIN team signs in with this username to run tests. The preferred account username is `isvtest@okta.com`.
 
-* **Test account password**: The password for your application test account.
+* **Test account password**: The password for your app test account.
 
 * **Additional instructions**: Include any other information that you think the Okta OIN team needs to know about your integration, the test account, or the testing configuration.
 
 ### Configure protocol or tool-specific settings
 
-You can submit protocol support details all together or asynchronously. For example, if your application currently only supports SCIM, you can create the submission with the SCIM protocol details. Later, when you add Workflows connector capabilities to your application, you can return to your integration submission to include Workflows connector support.
+You can submit protocol support details all together or asynchronously. For example, if your app currently only supports SCIM, you can create the submission with the SCIM protocol details. Later, when you add Workflows connector capabilities to your app, you can return to your integration submission to include Workflows connector support.
 
 > **Note:** If you don't see the protocol or tool-specific settings that you want in this section, select the **Instructions for** dropdown menu on this page.
 
@@ -134,7 +138,7 @@ Include all required information before you click **Submit for Review** to move 
 
 If you need to make protocol changes to your published integration, use the [OIN Manager](https://oinmanager.okta.com/) to create an updated version of the integration.
 
-Similarly, when you enable a new capability in your application, you don't need to create an entirely new submission. For example, you can add a Workflows connector feature onto an existing published SCIM integration. You can update your existing submission to enable and specify the settings for that protocol, then submit the updated integration.
+Similarly, when you enable a new capability in your app, you don't need to create an entirely new submission. For example, you can add a Workflows connector feature onto an existing published SCIM integration. You can update your existing submission to enable and specify the settings for that protocol, then submit the updated integration.
 
 1. Sign in to the OIN Manager using the credentials for your original dev org.
 
@@ -184,7 +188,7 @@ If you want to remove an app integration that's already published in the OIN cat
 
 Removing an app integration from the OIN doesn't prohibit existing users from accessing it. The app integration isn't removed from end-user dashboards until an admin for the customer's org removes the app integration from their org.
 
-Finally, if you intend to remove your back-end application support for your Okta integration, alert your customer admins about the change. Inform your customers if you're deploying a replacement solution.
+Finally, if you intend to remove your back-end app support for your Okta integration, alert your customer admins about the change. Inform your customers if you're deploying a replacement solution.
 
 ## See also
 

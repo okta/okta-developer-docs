@@ -1,49 +1,199 @@
 ---
-title: Customize the end-user experience with Terraform
-excerpt: Edit email templates and change the appearance of your sign-in pages and Okta End-User Dashboard with Terraform.
+
+title: Manage branding with Terraform
+
+excerpt: Change the appearance of Okta sign-in pages, outgoing emails, and the End-User Dashboard.
+
 layout: Guides
----
-
-Edit email templates and change the appearance of your sign-in pages and Okta End-User Dashboard with Terraform.
 
 ---
 
-**Learning outcomes**
+Change the appearance of Okta sign-in pages, outgoing emails, and the End-User Dashboard.
 
-* Import the Okta objects that control color, logos, and page styling into your Terraform configuration.
-* Change the appearance of sign-in pages, error pages, and the Okta End-User Dashboard for your end users, including color, logos, and page styling.
-* Customize the content, layout, logos, colors, fonts, and languages of email templates for your org.
+---
 
-**What you need**
+#### Learning outcomes
 
-* Familiarity with the Terraform terms: configuration, resources, state, and commands. See [Terraform overview](/docs/guides/terraform-overview).
-* An [Okta Developer Edition organization](https://developer.okta.com/signup) or an Okta Identity Engine organization
-* A Terraform configuration that can access your Okta org. See [Enable Terraform access to your Okta org](/docs/guides/terraform-enable-org-access).
+* Import Okta objects that control color, logos, and page styling into your Terraform configuration.
+
+* Customize the appearance of sign-in pages, error pages, and the Okta End-User Dashboard, including color, logos, and page styling.
+
+* Customize email template content and appearance.
+
+#### What you need
+
+* Familiarity with the Terraform terms: configuration, resources, state, and commands. See the Terraform documentation [introductory concepts](https://www.terraform-best-practices.com/key-concepts). Also, see the [introduction page for Okta Terraform automation](/docs/guides/terraform-overview/main/).
+
+* An Okta org
+
+* A [Terraform configuration](/docs/guides/terraform-enable-org-access/) that can access your Okta org
+
+* An Okta user account with the super administrator role
+
+* The ability to update the DNS records of your public custom domain to configure a custom email address from which Okta can send mail
+
+* Terraform 1.8.5 or later
+
+* Okta Terraform provider 4.9.1 or later
 
 ## Overview
 
-The Okta Brands feature enables customizing parts of the end-user experience for your org. This includes the colors and images on your Okta sign-in pages, error pages, and Okta End-User Dashboard. It also includes customizing email templates in multiple languages.
+The Okta Brands feature enables you to customize parts of your org's end-user experience. For example, you can customize the colors and images on your Okta sign-in pages, error pages, and End-User Dashboard. You can customize email templates in multiple languages and create custom email domains for outgoing Okta emails. For general information, see the [Brands concept article](/docs/concepts/brands).
 
-To customize the appearance of your org with Terraform, you must first import existing brand and theme objects into your configuration from your org. Then, you can edit the values in your configuration to change the colors, logos, and other visual aspects of your org.
+## Configure the default brand or add a brand
 
-See [Brands](https://developer.okta.com/docs/concepts/brands/).
+You can use Terraform to customize the default brand of an Okta org. You may be able to customize multiple brands if that's supported by your org.
 
-## Import brand and theme objects to Terraform
+### Check if your org supports multibrand customization
 
-To change how Okta appears to your end users on their sign-in pages and emails, create brand and theme objects in the Admin Console. Manage these objects with Terraform by importing them into your configuration.
+Confirm that your Okta org supports multibrand customization:
 
-There are two methods to import objects into your Terraform configuration:
+1. Go to the Admin Console for your Okta org.
 
-* Use Terraform `import` blocks to import Okta objects and automatically generate the corresponding resources in your Terraform configuration.
-* Import Okta objects using the Terraform `import` command and manually add the corresponding resources to your Terraform configuration.
+1. In the left navigation, click **Security.**
 
-## Import objects and automatically add them to your configuration
+1. Review the items under **Security**.
 
-Use `import` blocks in your Terraform script to import existing brand and theme objects from your Okta org. This method adds existing resources to your Terraform state file and generates a corresponding resource block in your configuration with auto-filled argument values. Using Terraform to generate the resource blocks for imported resources simplifies the process and reduces the risk of accidental changes to your org.
+    * If it includes **Brands**, your org supports multibrand customization.
 
-> **Note:** The `import` block and configuration generation are experimental Terraform features at the time that this article is published. Check the Terraform documentation for updated instructions and limitations. See [Import](https://developer.hashicorp.com/terraform/language/import) in the Terraform documentation.
+    * If it includes **Branding**, your org doesn't support multibrand customization. Contact Okta Support about feature availability.
 
-This example imports the existing default brand object and its associated theme object using `import` blocks. Importing objects into Terraform requires their respective IDs. First, use data sources to expose the IDs of the default brand and theme objects in your Terraform configuration:
+### Set up your configuration
+
+Consider using a separate file in your configuration for code related to branding. For example, you could create a Terraform file called `brands.tf` that contains brands and themes. For guidance on organizing your files, see [Create a basic Okta Terraform configuration](/docs/guides/terraform-organize-configuration/main/#create-a-basic-okta-terraform-configuation).
+
+### Add or confirm the API scopes
+
+Your Terraform integration requires the appropriate scopes that depend on what you're managing:
+
+| Manage                    | Required Scope             |
+| ------------------------- | -------------------------- |
+| Brands and themes         | `okta.brands.manage`       |
+| Customize email templates | `okta.templates.manage`    |
+| Add custom email domains  | `okta.domains.manage`      |
+| Add custom email domains  | `okta.emailDomains.manage` |
+
+To grant scopes in the Admin Console and to include them in your Terraform code, see the articles on [enabling your API service app for Terraform access](/docs/guides/terraform-enable-org-access/) and [Create a basic Okta Terraform configuration](/docs/guides/terraform-organize-configuration/main/#create-a-basic-okta-terraform-configuration).
+
+### Create or import the brand resource
+
+There are two main customization resources in the Okta Terraform provider:
+
+* **Brand**: Some settings and defaults for a custom brand. Each brand is associated with a custom domain. For general brand information, see the [Brands concept article](/docs/concepts/brands/). For information on creating a custom domain, see [Manage custom domains with Terraform](/docs/guides/terraform-manage-multiple-domains/).
+
+* **Theme:** Settings that change the appearance of the Okta Sign-In Widget, such as the logo, background image, colors, and how to apply the colors. Each brand has exactly one theme, which is created when Okta creates the brand resource.
+
+The instructions for using these resources in Terraform differ if your org type supports multibrand customization.
+
+* Okta recommends [creating custom domains](/docs/guides/terraform-manage-multiple-domains/main/#create-a-custom-domain-resource) first, and then [new brand resources](#create-a-new-brand-requires-multibrand-customization) if your org supports multibrand customization. However, you can modify the default brand to support app integrations that don't use a custom domain.
+
+* You must modify the default brand if your org doesn't support multibrand customization.
+
+#### Create a new brand (requires multibrand customization)
+
+1. Create new custom domains as described in [Manage custom domains with Terraform](/docs/guides/terraform-manage-multiple-domains).
+
+1. Create a brand resource, for example:
+
+    ```hcl
+    resource "okta_brand" "A" {
+      name = "A"
+      agree_to_custom_privacy_policy = true
+      custom_privacy_policy_url = "http://a.com/privacy"
+    }
+    ```
+
+1. Run a `terraform apply` command. To apply only the new resource at this time, run a **targeted apply** command:
+
+    ```sh
+    terraform apply -target okta_brand.A
+    ```
+
+1. In your domain definition, set the `brand_id` to the ID of your new brand:
+
+    ```hcl
+    resource "okta_domain" "A" {
+      name = "a.example.com"
+      certificate_source_type = "OKTA_MANAGED"
+      brand_id = okta_brand.A.id
+    }
+    ```
+
+1. Due to how the core Okta API works, Terraform resources don't directly create the theme object. Instead, your Terraform code gets the theme from the already-created brand object. Your new brand automatically creates an associated theme object on the server. Modifying the theme object from Terraform requires using the Terraform feature called [import](https://developer.hashicorp.com/terraform/tutorials/state/state-import). The import process allows you to get the theme and change its one theme in place.
+
+    There are several ways to import objects. The most common ways are the `terraform import` CLI and the `import` block syntax (requires Terraform 1.5 or later). The following example shows how to use Terraform import block syntax to get the theme. It looks up the theme based on the associated brand, passing the ID to the import command in the format "`<brand-id>/<theme-id>`". In your theme object, include the required fields with `_variant` suffix, as shown in the example.
+
+    ```hcl
+    import {
+      to = okta_theme.theme_A
+      id = "${okta_brand.A.id}/${tolist(data.okta_themes.list_of_themes_A.themes)[0].id}"
+    }
+    ```
+
+1. Create a Terraform resource that gets a list of themes for a brand. It takes a brand ID and returns a list of themes. A brand just contains one theme, so its array of themes always has exactly one element.
+
+    ```hcl
+    data "okta_themes" "list_of_themes_A" {
+      brand_id = okta_brand.A.id
+    }
+    ```
+
+1. Create a new `okta_theme` resource:
+
+    1. Set the `brand_id` to the ID of your brand.
+
+    1. Set the theme ID using this syntax, which uses the data source that you created in the previous step:
+
+        ```hcl
+        import {
+          to = okta_brand.default_brand
+          id = "${data.okta_brand.data_default_brand.id}"
+        }
+        ```
+
+    1. Set the required arguments for colors. Set `primary_color_hex` and `secondary_color_hex` to the hex values of the desired colors for your org's primary and secondary colors.
+
+    1. Set the required arguments for visual variants. For now, set `sign_in_page_touch_point_variant`, `end_user_dashboard_touch_point_variant`, `error_page_touch_point_variant`, and `email_template_touch_point_variant` to `"OKTA_DEFAULT"`. See the [okta_theme](https://registry.terraform.io/providers/okta/okta/latest/docs/resources/theme) resource for the definitions and other variants that you can use.
+
+The following example shows the code for the domain, the import, and the theme declaration:
+
+```hcl
+resource "okta_domain" "A" {
+  name = "a.example.com"
+  certificate_source_type = "OKTA_MANAGED"
+  brand_id = okta_brand.A.id
+}
+
+# Create a list of themes for our brand.
+# In practice, this list contains exactly one theme.
+data "okta_themes" "list_of_themes_A" {
+  brand_id = okta_brand.A.id
+}
+
+import {
+  to = okta_theme.theme_A
+  id = "${okta_brand.A.id}/${tolist(data.okta_themes.list_of_themes_A.themes)[0].id}"
+}
+
+resource "okta_theme" "theme_A" {
+  brand_id = okta_brand.A.id
+  theme_id = tolist(data.okta_themes.list_of_themes_A.themes)[0].id
+
+  primary_color_hex    = "#880808"
+  secondary_color_hex  = "#880808"
+
+  sign_in_page_touch_point_variant       = "OKTA_DEFAULT"
+  end_user_dashboard_touch_point_variant = "OKTA_DEFAULT"
+  error_page_touch_point_variant         = "OKTA_DEFAULT"
+  email_template_touch_point_variant     = "OKTA_DEFAULT"
+}
+```
+
+#### Modify the default brand (for all org types)
+
+This section is for orgs that don't support multibrand customization.
+
+Use Terraform `import` blocks to import Okta objects and automatically generate the corresponding resources in your Terraform configuration.
 
 1. In your `main.tf` Terraform configuration file, add an `okta_brands` data source. This data source gets a list of existing brands in your org.
 
@@ -51,9 +201,24 @@ This example imports the existing default brand object and its associated theme 
     data "okta_brands" "all_brands" {}
     ```
 
-1. Add an `okta_brand` data source to retrieve the default brand from the list of brands.
+1. Import the default brand. Terraform doesn't directly create the default brand object. Use the Terraform `import` block to get it from the associated brand on the server.
 
-   > **Note:** The default brand might not be the first in the list. Confirm the ID of the brand in your Admin Console: Go to **Customizations** > **Brands** and select the default brand. The brand ID is at the end of the URL for this page.
+    ```hcl
+    import {
+      to = okta_brand.default_brand
+      id = "${data.okta_brand.data_default_brand.id}"
+    }
+    ```
+
+1. Declare the brand resource imported in the previous step. The name field is the only required field. If you set this to something other than its current name, Okta changes the visible name of the default brand on the server.
+
+    ```hcl
+    resource "okta_brand" "default_brand" {
+    name = "default_brand"
+    }
+    ```
+
+1. Add an `okta_brand` data source to get the ID of the default brand. For single-brand customization, use the first brand in the array.
 
     ```hcl
     data "okta_brand" "data_default_brand" {
@@ -61,401 +226,437 @@ This example imports the existing default brand object and its associated theme 
     }
     ```
 
-1. Add an `okta_themes` data source to get a list of existing themes associated with the default brand.
-
-    ```hcl
-    data "okta_themes" "data_list_themes" {
-      brand_id = data.okta_brand.data_default_brand.id
-    }
-    ```
-
-1. Add an `okta_theme` data source to get the theme ID of the default brand.
-
-    ```hcl
-    data "okta_theme" "data_default_brand_theme" {
-      brand_id = data.okta_brand.data_default_brand.id
-      theme_id = tolist(data.okta_themes.data_list_themes.themes)[0].id
-    }
-    ```
-
-Run your configuration, and use Terraform commands to get the IDs of the default brand and theme objects:
-
-1. In a terminal, go to your Terraform configuration directory.
-1. Run `terraform init` to initialize your configuration directory and to confirm that you’ve downloaded all required providers and modules.
-1. Run `terraform plan` to confirm that there are no planned changes. Adding data sources to your configuration doesn’t add, change, or destroy existing resources. If there are planned changes, see [Reduce automatic corrections to objects](/docs/guides/terraform-design-rate-limits/main/#reduce-automatic-corrections-to-objects).
-1. Run `terraform apply` and enter `yes` when prompted.
-1. Run `terraform show` to find the IDs of the default brand and its associated theme.
-
-   * Search for `data_default_brand` to find the data source for the default brand. The `id` argument contains the default brand ID.
-   * Search for `data_default_brand_theme` to find the data source for the default theme. The `id` argument contains the theme ID for the default brand.
-
-Use the IDs of the default brand and its associated theme to prepare your configuration for importing the resources:
-
-1. Create a configuration file called `import.tf` in your Terraform configuration directory.
-1. In the `import.tf` configuration file, add an `import` block that imports the default brand. Use the ID of the `data_default_brand` data source in the `id` argument.
+1. Import the default theme. Terraform doesn't directly create the default theme object. Use Terraform import to get it from the associated brand on the server.
 
     ```hcl
     import {
-      to = okta_theme.resource_default_brand
-      id = "${default_brand_id}"
+      to = okta_theme.theme_default
+      id = "${data.okta_brand.data_default_brand.id}/${tolist(data.okta_themes.data_list_themes_for_default_brand.themes)[0].id}"
     }
     ```
 
-1. Add another `import` block to import the theme for the default brand. Use the ID of the `data_default_brand_theme` data source in the `id` argument.
+1. Declare the theme resource imported in the previous step. The following shows how to set up the brand and theme IDs. All fields shown in this example are required:
+
+    * Set `primary_color_hex` and `secondary_color_hex` to the hex values of the colors that you want to use for your org (the example for this step shows the default values).
+
+    * Set `sign_in_page_touch_point_variant`, `end_user_dashboard_touch_point_variant`, `error_page_touch_point_variant`, and `email_template_touch_point_variant` to `"OKTA_DEFAULT"`. See the [okta_theme](https://registry.terraform.io/providers/okta/okta/latest/docs/resources/theme) resource for the definitions of other user interface customizations.
+
+      ```hcl
+      resource "okta_theme" "theme_default" {
+        brand_id = data.okta_brand.data_default_brand.id
+        theme_id = tolist(data.okta_themes.data_list_themes_for_default_brand.themes)[0].id
+        primary_color_hex    = "#1662dd"
+        secondary_color_hex  = "#ebebed"
+        sign_in_page_touch_point_variant = "OKTA_DEFAULT"
+        end_user_dashboard_touch_point_variant ="OKTA_DEFAULT"
+        error_page_touch_point_variant = "OKTA_DEFAULT"
+        email_template_touch_point_variant = "OKTA_DEFAULT"
+      }
+      ```
+
+1. Run `terraform apply`.
+
+For additional customization with optional arguments, see the following sections.
+
+## Customize optional brand settings
+
+You can customize the appearance and behavior of the site using optional brand arguments. These include the locale, privacy policy, removing the text "Powered by Okta", and setting the default Okta app integration.
+
+### Set the language
+
+To change the language for a brand, set the `locale` argument to the [BCP 47 format](https://www.rfc-editor.org/info/bcp47) for the locale. The following example sets the language to French.
+
+```hcl
+resource "okta_brand" "name_of_brand" {
+  name = "name_of_brand
+  locale = "fr"
+}
+```
+
+### Set the privacy policy
+
+To use a custom privacy policy in the footer of your Okta pages for a brand, set `agree_to_custom_privacy_policy` to `true` and `custom_privacy_policy_url`.  The following example sets a custom privacy policy.
+
+```hcl
+resource "okta_brand" "name_of_brand" {
+  name = "name_of_brand"
+  agree_to_custom_privacy_policy = true
+  custom_privacy_policy_url = "https://example.com/policy.html"
+}
+```
+
+### Remove "Powered by Okta"
+
+To remove "Powered by Okta" from the sign-in page, set `remove_powered_by_okta` to `true`.
+
+```hcl
+resource "okta_brand" "name_of_brand" {
+  name = "name_of_brand"
+  remove_powered_by_okta = true
+}
+```
+
+### Set the default app integration
+
+Set the default brand by setting `default_app_app_instance_id` to an Okta app instance ID. This enables you to customize the app name that appears in any links. Set the `default_app_app_link_name` to the customer-facing name for the app integration.
+
+```hcl
+resource "okta_brand" "name_of_brand" {
+  name = "name_of_brand"
+  default_app_app_instance_id = okta_app_oauth.my_oauth_app.id
+  default_app_app_link_name = "Corporate mail"
+}
+```
+
+## Customize optional theme settings
+
+Change the colors, logo, and background image of your sign-in page, End-User Dashboard, and error pages.
+
+### Set logos and background images
+
+You can customize the brand images shown in the table. Set the value of the theme attribute shown in the table to the URL of the desired local image.
+
+| Image type                 | Attribute          |
+| -------------------------- | ------------------ |
+| Authentication dialog logo | `logo`             |
+| Favorite icon (favicon)    | `favicon`          |
+| Background image           | `background_image` |
+
+For example, add this configuration code to customize all three attributes:
+
+```hcl
+resource "okta_theme" "image_example" {
+  logo                     = "{URL-for-logo-image}"
+  favicon                  = "{URL-for-favicon-image}"
+  favbackground_image      = "{URL-for-background-image}"
+}
+```
+
+### Set contrast colors
+
+You set the primary color settings in the theme resource in the required fields `primary_color_hex` and `secondary_color_hex`.
+
+You can also set the contrast colors. For the primary contrast, set the color in the argument `primary_color_contrast_hex`. For the secondary color contrast, set `secondary_color_contrast_hex`.
+
+```hcl
+resource "okta_theme" "color_contrast_example" {
+  primary_color_contrast_hex                     = "0x121212"
+  secondary_color_contrast_hex                   = "0x575757"
+}
+```
+
+For more information about how Okta uses colors and the customizations in the color variant option fields, see the [provider for the theme resource](https://registry.terraform.io/providers/okta/okta/latest/docs/resources/theme).
+
+## Customize an email template
+
+Use the `okta_email_customization` resource to create customized email templates. Specify the type of email in the `template_name` attribute, such as `"ForgotPassword"`, for the email sent to reset a forgotten password. See the [Okta Terraform provider documentation](https://registry.terraform.io/providers/okta/okta/latest/docs/resources/email_customization) for the list of supported email templates.
+
+You can also provide multiple template versions for different languages by setting the `language` attribute to the desired locale.
+
+1. Add the required template management scope if it's not already granted. Do this by adding the `okta.templates.manage` scope to your configuration and to your org's Terraform service app. For more information on adding scopes in Okta, see [Add or confirm the API scopes](#add-or-confirm-the-api-scopes).
+
+1. Create a new `okta_email_customization` resource.
+
+1. Set its `brand_id` field to the ID of your brand.
 
     ```hcl
-    import {
-      to = okta_theme.resource_default_theme
-      id = "${default_brand_id}/${default_theme_id}"
-    }
+    brand_id      = okta_brand.A.id
     ```
 
-Import the default brand and its theme to your state file and generate the resource blocks in a separate configuration file:
+1. Set the `is_default` attribute if you create multiple languages for the same template. Set `is_default` to `true` in the template for the default language. Set it to `false` for all other language versions of the same template. Also add a `depends_on` attribute set to the default template for the language. You must create the default template first.
 
-1. In a terminal, go to your Terraform configuration directory.
-1. Run `terraform plan -generate-config-out=”generated_brand.tf”`. This command generates a configuration file called `generated_brand.tf` that contains the imported resource blocks. The plan includes **2 to import** for the default brand and theme resources.
-1. Run `terraform apply` to import the default brand and theme into your state file.
-1. Run `terraform show` to examine your state file. Search for `okta_brand.resource_default_brand` and `okta_theme.resource_default_theme` to confirm that Terraform successfully imported the two resources.
-
-> **Note:** After you import your resources, you can delete the `import.tf` file or leave it in the configuration as a record of importing the resources.
-
-This example imports only the default brand and its associated theme. You can use the same steps to import other existing brands, themes, email customizations, and more into your Terraform configuration.
-
-## Import objects and manually add them to your configuration
-
-Import brand and theme objects to your Terraform state file using the `terraform import` command.
-
-This method requires that you manually create corresponding brand and theme resources in your configuration. Provide values for the arguments in these resources that reflect the current state of the objects in your Okta org. If you provide values that are different from the current state, Terraform updates the objects in Okta with the values in your configuration.
-
-This example imports the default brand and theme objects into your configuration using the `terraform import` command.  Importing objects into Terraform requires their respective IDs. First, use data sources to get the IDs of the default brand and its associated theme:
-
-1. In your `main.tf` Terraform configuration file, add an `okta_brands` data source. This data source gets a list of existing brands in your org.
-
-     ```hcl
-     data "okta_brands" "all_brands" {}
-     ```
-
-1. Add an `okta_brand` data source to retrieve the default brand from the list of brands.
-
-   > **Note:** The default brand might not be the first in the list. Confirm the brand ID in your Admin Console: Go to **Customizations** > **Brands** and select the default brand. The brand ID is at the end of the URL for this page.
+   The following code shows two language versions of the template resource for the forgot password email. The first is the default version in French. The second is in Spanish and depends on the default French version.
 
     ```hcl
-    data "okta_brand" "data_default_brand" {
-      brand_id = tolist(data.okta_brands.all_brands.brands)[0].id
-    }
+      resource "okta_email_customization" "forgot_password_en" {
+        brand_id      = tolist(data.okta_brands.test.brands)[0].id
+        template_name = "ForgotPassword"
+        language      = "fr"
+        is_default    = true
+        subject       = "Account password reset"
+        body          = "Salut $$user.firstName,<br/><br/>Cliquez sur ce lien pour réinitialiser votre mot de passe: $$resetPasswordLink"
+      }
+
+      resource "okta_email_customization" "forgot_password_es" {
+        brand_id      = tolist(data.okta_brands.test.brands)[0].id
+        template_name = "ForgotPassword"
+        language      = "es"
+        subject       = "Restablecimiento de contraseña de cuenta"
+        body          = "Hola $$user.firstName,<br/><br/>Haga clic en este enlace para restablecer tu contraseña: $$resetPasswordLink"
+
+        depends_on = [
+          okta_email_customization.forgot_password_en
+        ]
+      }
     ```
 
-1. Add an `okta_themes` data source to get a list of existing themes associated with the default brand.
+1. Set the `subject` and `body` fields to the subject and body text.
 
-    ```hcl
-    data "okta_themes" "data_list_themes" {
-      brand_id = data.okta_brand.data_default_brand.id
-    }
-    ```
+Use two dollar signs (`$$`) before any Okta variables in the HTML to escape the string interpolation in your configuration file—for example, `$${brand.theme.primaryColor}`. Variables with only one dollar sign `$`, are interpolated by Terraform. See the [provider documentation](https://registry.terraform.io/providers/okta/okta/latest/docs) for the complete list of Okta variables that you can use.
 
-1. Add an `okta_theme` data source to get the theme ID of the default brand.
+Some types of templates include required variables. For example, the reset password template must contain `$$resetPasswordLink` or `$$oneTimePassword`. For the list of variables for each template name, see [Velocity variables](https://help.okta.com/en-us/content/topics/settings/velocity-variables.htm).
 
-    ```hcl
-    data "okta_theme" "data_default_brand_theme" {
-      brand_id = data.okta_brand.data_default_brand.id
-      theme_id = tolist(data.okta_themes.data_list_themes.themes)[0].id
-    }
-    ```
+### Use HTML in an email template
 
-Run your configuration and use Terraform commands to get the IDs of the default brand and theme objects:
+You can use HTML in your email templates. Use the HashiCorp heredoc syntax to use multiline HTML. The initial `HTMLDELIMITER` in the example body text is an arbitrary delimiter string that you define. See [Heredoc Strings](https://developer.hashicorp.com/terraform/language/expressions/strings#heredoc-strings) for the syntax.
 
-1. In a terminal, go to your Terraform configuration directory.
-1. Run `terraform init` to initialize your configuration directory and to confirm that you’ve downloaded all required providers and modules.
-1. Run `terraform plan` to confirm that there are no planned changes. Adding data sources to your configuration doesn’t add, change, or destroy existing resources. If there are planned changes, see [Reduce automatic corrections to objects](/docs/guides/terraform-design-rate-limits/main/#reduce-automatic-corrections-to-objects).
-1. Run `terraform apply` and enter `yes` when prompted.
-1. Run `terraform show` to find the IDs of the default brand and its associated theme.
+For example:
 
-   * Search for `data_default_brand` to find the data source for the default brand. The `id` argument contains the default brand ID.
-   * Search for `data_default_brand_theme` to find the data source for the default theme. The `id` argument contains the theme ID for the default brand.
-
-Add `okta_brand` and `okta_theme` resources to your configuration before you import the existing resources:
-
-1. In your `main.tf` configuration file, add an `okta_brand` resource. This resource represents the existing default brand after you import it in later steps.
-
-   > **Note:** Provide values for the arguments that match the existing state of the brand in your org. If you provide values that are different from the existing state in your org, Terraform updates the brand object in your org when you import the brand. This includes `null` values.
-
-    ```hcl
-    resource "okta_brand" "resource_default_brand" {
-      agree_to_custom_privacy_policy = null
-      custom_privacy_policy_url = null
-      remove_powered_by_okta = false
-    }
-    ```
-
-1. Add an `okta_theme` resource that represents the existing theme for the default brand. Set `brand_id` to the ID of the `resource_default_brand` resource that you added in the previous step.
-
-    ```hcl
-    resource "okta_theme" "resource_default_brand_theme" {
-      brand_id = okta_brand.manual_default_brand.id
-      logo = "${path_to_your_logo}"
-      favicon = "${path_to_your_favicon}"
-      background_image = "${path_to_your_background_image}"
-      primary_color_hex = "#1662dd"
-      secondary_color_hex = "#ebebed"
-      sign_in_page_touch_point_variant = "OKTA_DEFAULT"
-      end_user_dashboard_touch_point_variant = "OKTA_DEFAULT"
-      error_page_touch_point_variant = "OKTA_DEFAULT"
-      email_template_touch_point_variant = "OKTA_DEFAULT"
-    }
-    ```
-
-Import the default brand and its associated theme into your Terraform state file using the `terraform import` command:
-
-1. In a terminal, go to your Terraform configuration directory.
-1. Run `terraform import okta_brand.resource_default_brand "${default_brand_id}"` to import the default brand.
-1. Run `terraform import okta_theme.resource_default_brand_theme "${default_brand_id}/${default_theme_id}" to import the theme for the default brand.
-
-## Customize the appearance of your org
-
-Change the colors, logo, and background image of your sign-in page, Okta End User Dashboard, and error pages. Use the `okta_brand` and `okta_theme` resources that you imported into your Terraform configuration.
-
-To customize the appearance of your org:
-
-1. Modify the argument values in the `okta_brand` resource.
-
-   * Set `agree_to_custom_privacy_policy` to `true` and `custom_privacy_policy_url` to use your own privacy policy in the footer of your Okta pages. This replaces the default private policy link.
-   * Set `remove_powered_by_okta` to `true` to remove “Powered by Okta” from the sign-in page.
-
-    ```hcl
-    resource "okta_brand" "resource_default_brand" {
-      agree_to_custom_privacy_policy = true
-      custom_privacy_policy_url = "${private_policy_url}"
-      remove_powered_by_okta = true
-    }
-    ```
-
-1. Modify the argument values in the `okta_theme` resource.
-
-   * Set `logo`, `favicon`, and `background_image` to the path of the images that you want to use for your org.
-   * Set `primary_color_hex` and `secondary_color_hex` to the hex values of the colors that you want to use for your org.
-   * Set `sign_in_page_touch_point_variant`, `end_user_dashboard_touch_point_variant`, `error_page_touch_point_variant`, and `email_template_touch_point_variant` to the different possible variants. For information about the variants, see the `okta_theme` [resource](https://registry.terraform.io/providers/okta/okta/latest/docs/resources/theme).
-
-    ```hcl
-    resource "okta_theme" "resource_default_brand_theme" {
-      brand_id = okta_brand.manual_default_brand.id
-      logo = "${path_to_your_logo}"
-      favicon = "${path_to_your_favicon}"
-      background_image = "${path_to_your_background_image}"
-      primary_color_hex = "#1882ff"
-      secondary_color_hex = "#ababad"
-      sign_in_page_touch_point_variant = "BACKGROUND_IMAGE"
-      end_user_dashboard_touch_point_variant = "FULL_THEME"
-      error_page_touch_point_variant = "BACKGROUND_IMAGE"
-      email_template_touch_point_variant = "FULL_THEME"
-    }
-    ```
-
-## Customize email templates
-
-Edit the subject and body of the email templates in your org. Okta uses email templates to send end users automated emails for various reasons, such as end-user account activation and forgotten password. See [Customize email notifications](https://developer.okta.com/docs/guides/custom-email/main/#about-email-customization).
-
-Each brand object in your org has a set of associated email templates. You can create customizations for a given email template using the `okta_email_customization` resource. You can also modify existing customizations by first importing them using the same techniques described in [Import brand and theme objects to Terraform](#import-brand-and-theme-objects-to-terraform).
-
-Separate email customizations for a given email template represent different languages. Set the `language` argument for an email customization to one of the [supported languages](/docs/reference/api/brands/#supported-languages). An email template can have only one customization for each language.
-
-This example creates a default English email customization and a secondary Spanish customization for the User Activation email template:
-
-1. In the `main.tf` configuration file, add an `okta_email_customization` resource to create the default email customization for the User Activation template.
-
-   * Set `brand_id` to the ID you retrieved when importing the brand. See [Import brand and theme objects to Terraform](#import-brand-and-theme-objects-to-terraform).
-   * Set `template_name` to `UserActivation` to edit the User Activation email template.
-   * Set `language` to `en` for English.
-   * Set `is_default` to `true` to set the English email customization as the default for the User Activation email template.
-   * Set `subject` to `Activate your new Okta account!` or a subject that you want to use for the email.
-   * Set `body` to the HTML included in the example or custom HTML that you want to use. Use heredoc syntax to use multiline HTML. See [Heredoc Strings](https://developer.hashicorp.com/terraform/language/expressions/strings#heredoc-strings) in the Terraform documentation.
-
-   > **Note:** Use two dollar signs `$$` before any Okta variables in the HTML to escape the string interpolation in your configuration file. For example, `$${brand.theme.primaryColor}`. Otherwise with only one dollar sign `$`, Terraform tries to interpolate those variables.
-
-    ```hcl
-    resource "okta_email_customization" "user_activation_en" {
-      brand_id = okta_brand.resource_default_brand.id
-      template_name = "UserActivation"
-      language = "en"
-      is_default = true
-      subject = "Activate your new Okta account!"
-      body = <<HTMLDELIMITER
-      <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-      <html>
-      <head>
-          <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-      </head>
-      <body>
-      <div style="background-color: $${brand.theme.secondaryColor}; margin: 0">
-      <table style="font-family: 'Proxima Nova', 'Century Gothic', Arial, Verdana, sans-serif; font-size: 14px; color: #5e5e5e; width:98%; max-width: 600px; float: none; margin: 0 auto;" border="0" cellpadding="0" cellspacing="0" valign="top" align="left">
-        <tr align="middle"><td style="padding-top: 30px; padding-bottom: 32px;"><img src="$${brand.theme.logo}" height="37"></td></tr>
-        <tr bgcolor="#ffffff"><td>
-          <table bgcolor="#ffffff" style="width: 100%; line-height: 20px; padding: 32px; border: 1px solid; border-color: #f0f0f0;" cellpadding="0">
-              <tr>
-                  <td style="color: #5e5e5e; font-size: 22px; line-height: 22px;">
-                      $${org.name} - Welcome to Okta!
-                  </td>
-              </tr>
-              <tr>
-                  <td style="padding-top: 24px; vertical-align: bottom;">
-                      Hi $!{StringTool.escapeHtml($!{user.profile.firstName})},
-                  </td>
-              </tr>
-              <tr>
-                  <td style="padding-top: 24px">
-                      Your organization is using Okta to manage your web applications. This means you can conveniently access all the applications you normally use, through a single, secure home page. Watch this short video to learn more: <a href="https://www.okta.com/intro-to-okta/" style="color: #007dc1; text-decoration: none;"><span style="color: #007dc1; text-decoration: none;">https://www.okta.com/intro-to-okta/</span></a>
-                  </td>
-              </tr>
-              <tr>
-                  <td style="padding-top: 24px;">
-                      Your system administrator has created an Okta user account for you.<br/>
-                      <strong>Click the following link to activate your Okta account:</strong>
-                  </td>
-              </tr>
-              <tr>
-                  <td align="center">
-                      <table border="0" cellpadding="0" cellspacing="0" valign="top">
-                          <tr>
-                              <td align="center" style="height: 39px; padding-top: 24px; padding-bottom: 8px;"><a id="reset-password-link" href="$${activationLink}" style="text-decoration: none;"><span style="display: block; padding: 9px 32px 7px 31px; border: 1px solid; text-align: center; cursor: pointer; color: #fff; border-radius: 3px; background-color: $${brand.theme.primaryColor}; border-color: $${brand.theme.primaryColor}; box-shadow: $${brand.theme.primaryColor} 0 1px 0;">Activate Okta Account</span></a>
-                              </td>
-                          </tr>
-                          <tr>
-                              <td align="center" style="color: #999;">
-                                  This link expires in $${f.formatTimeDiffHoursNowInUserLocale($${org.activationTokenExpirationHours})}.
-                              </td>
-                          </tr>
-                      </table>
-                  </td>
-              </tr>
-              <tr>
-                  <td style="padding-top: 24px;">
-                      Your username is <strong>$${user.profile.login}</strong><br/>
-                      Your organization's sign-in page is <a href="$${baseURL}" style="color: #007dc1; text-decoration: none;"><span style="color: #007dc1; text-decoration: none;">$${baseURL}</span></a>
-                  </td>
-              </tr>
-              <tr>
-                  <td style="padding-top: 24px;">
-                      If you experience difficulties accessing your account, you can send a help request to your system administrator using the link: <a href="$${baseURL}/help/login" style="color: #007dc1; text-decoration: none;"><span style="color: #007dc1; text-decoration: none;">$${baseURL}/help/login</span></a>
-                  </td>
-              </tr>
-          </table>
-        </td></tr>
-        <tr>
-          <td>
-              <table style="width: 100%; line-height: 20px; padding: 32px;" cellpadding="0">
-                  <tr>
-                      <td style="font-size: 12px; padding-top: 24px; color: #999;">
-                          This email was automatically sent by someone using <a href="https://www.okta.com" style="color:#616161">Okta's service</a>. Replies are not monitored or answered. Okta has no visibility over who receives these emails, and is not responsible for, and disclaims any and all liability associated with, this email's content. <br/><br/>The sender may have customized the contents of the email. If you would like to notify Okta of anything suspicious, you may report it to security@okta.com.
-                      </td>
-                  </tr>
-              </table>
-          </td>
-        </tr>
-      </table>
-      </div>
-      </body>
-      </html>
-      HTMLDELIMITER
-    }
-    ```
-
-1. Add another `okta_email_customization` resource to create a second email customization for spanish-language users.
-
-   * Set `brand_id` to the ID you retrieved when importing the brand. See [Import brand and theme objects to Terraform](#import-brand-and-theme-objects-to-terraform).
-   * Set `template_name` to `UserActivation` to edit the User Activation email template.
-   * Set `language` to `es` for Spanish.
-   * Set `is_default` to `false`. Each email template can have one default customization.
-   * Use the `depends_on` meta-argument to ensure that the Spanish email customization is created after the default English email customization. Terraform must create the default email customization first because Okta always requires a default email customization.
-   * Set `subject` to `¡Bienvenido(a) a Okta!` or a subject that you want to use for the email.
-   * Set `body` to the HTML included in the example or custom HTML that you want to use. Use heredoc syntax to use multiline HTML. See [Heredoc Strings](https://developer.hashicorp.com/terraform/language/expressions/strings#heredoc-strings).
-
-    ```hcl
-    resource "okta_email_customization" "user_activation_es" {
-      brand_id = okta_brand.resource_default_brand.id
-      template_name = "UserActivation"
-      language = "es"
-      is_default    = true
-      depends_on = [okta_email_customization.user_activation_es]
-      subject = "¡Bienvenido(a) a Okta!"
-      body = <<HTMLDELIMITER
-      <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-      <html>
-      <head>
+```hcl
+resource "okta_email_customization" "user_activation_en" {
+  brand_id      = okta_brand.A.id
+  template_name = "UserActivation"
+  language = "en"
+  is_default = true
+  subject = "Activate your new Okta account!"
+  body = <<HTMLDELIMITER
+  <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+  <html>
+  <head>
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-      </head>
-      <body>
-      <div style="background-color: $${brand.theme.secondaryColor}; margin: 0">
-          <table style="font-family: 'Proxima Nova', 'Century Gothic', Arial, Verdana, sans-serif; font-size: 14px; color: #5e5e5e; width:98%; max-width: 600px; float: none; margin: 0 auto;" border="0" cellpadding="0" cellspacing="0" valign="top" align="left">
-          <tr align="middle"><td style="padding-top: 30px; padding-bottom: 32px;"><img src="$${brand.theme.logo}" height="37"></td></tr>
-          <tr bgcolor="#ffffff"><td>
-            <table bgcolor="#ffffff" style="width: 100%; line-height: 20px; padding: 32px; border: 1px solid; border-color: #f0f0f0;" cellpadding="0">
-                    <tr>
-                    <td style="color: #5e5e5e; font-size: 22px; line-height: 22px;">
-                        $${org.name} - ¡Bienvenido(a) a Okta!
-                    </td>
-                </tr>
-                <tr>
-                    <td style="padding-top: 24px; vertical-align: bottom;">
-                        Hola $!{StringTool.escapeHtml($!{user.profile.firstName})}:
-                    </td>
-                </tr>
-                <tr>
-                    <td style="padding-top: 24px">
-                        Su empresa utiliza Okta para administrar sus aplicaciones web. Esto significa que puede acceder de forma sencilla a todas las aplicaciones que utiliza normalmente mediante una única página de inicio segura. Vea este vídeo corto para obtener más información: <a href="https://www.okta.com/intro-to-okta/" style="color: #007dc1; text-decoration: none;"><span style="color: #007dc1; text-decoration: none;">https://www.okta.com/intro-to-okta/</span></a>
-                    </td>
-                </tr>
-                <tr>
-                    <td style="padding-top: 24px;">
-                        Su administrador del sistema ha creado una cuenta de usuario de Okta para usted.<br/>
-                        <strong>Haga clic en el siguiente enlace para activar su cuenta de Okta.</strong>
-                    </td>
-                </tr>
-                <tr>
-                    <td align="center">
-                        <table border="0" cellpadding="0" cellspacing="0" valign="top">
-                            <tr>
-                                <td align="center" style="height: 39px; padding-top: 24px; padding-bottom: 8px;"><a id="reset-password-link" href="$${activationLink}" style="text-decoration: none;"><span style="display: block; padding: 9px 32px 7px 31px; border: 1px solid; text-align: center; cursor: pointer; color: #fff; border-radius: 3px; background-color: $${brand.theme.primaryColor}; border-color: $${brand.theme.primaryColor}; box-shadow: ${brand.theme.primaryColor} 0 1px 0;">Activar cuenta de Okta</span></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td align="center" style="color: #999;">
-                                    Este enlace caduca en $${f.formatTimeDiffHoursNowInUserLocale($${org.activationTokenExpirationHours})}.
-                                </td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-                <tr>
-                    <td style="padding-top: 24px;">
-                        Su nombre de usuario es <strong>$${user.profile.login}</strong><br/>
-                        La página de inicio de su empresa es <a href="$${baseURL}" style="color: #007dc1; text-decoration: none;"><span style="color: #007dc1; text-decoration: none;">$${baseURL}</span></a>
-                    </td>
-                </tr>
-                <tr>
-                    <td style="padding-top: 24px;">
-                        Si experimenta dificultades para acceder a su cuenta, puede enviar una solicitud de ayuda al administrador de su sistema mediante el siguiente enlace: <a href="$${baseURL}/help/login" style="color: #007dc1; text-decoration: none;"><span style="color: #007dc1; text-decoration: none;">$${baseURL}/help/login</span></a>
-                    </td>
-                </tr>
-            </table>
-          </td></tr>
+  </head>
+  <body>
+  <div style="background-color: $${brand.theme.secondaryColor}; margin: 0">
+  <table style="font-family: 'Proxima Nova', 'Century Gothic', Arial, Verdana, sans-serif; font-size: 14px; color: #5e5e5e; width:98%; max-width: 600px; float: none; margin: 0 auto;" border="0" cellpadding="0" cellspacing="0" valign="top" align="left">
+    <tr align="middle"><td style="padding-top: 30px; padding-bottom: 32px;"><img src="$${brand.theme.logo}" height="37"></td></tr>
+    <tr bgcolor="#ffffff"><td>
+      <table bgcolor="#ffffff" style="width: 100%; line-height: 20px; padding: 32px; border: 1px solid; border-color: #f0f0f0;" cellpadding="0">
           <tr>
-            <td>
-                <table style="width: 100%; line-height: 20px; padding: 32px;" cellpadding="0">
-                    <tr>
-                        <td style="font-size: 12px; padding-top: 24px; color: #999;">
-                          Este correo electrónico fue enviado automáticamente por alguien que utiliza el <a href="https://www.okta.com" style="color:#616161">servicio de Okta</a>. Las respuestas no se monitorean ni se responden. Okta no tiene visibilidad de quién recibe estos correos electrónicos, y no es responsable de, y rechaza cualquier y toda responsabilidad asociada con, el contenido de este correo electrónico. <br/><br/>El remitente puede haber personalizado el contenido de este correo electrónico. Si desea notificar a Okta algo sospechoso, puede comunicarlo a security@okta.com.
-                        </td>
-                    </tr>
-                </table>
-            </td>
+              <td style="color: #5e5e5e; font-size: 22px; line-height: 22px;">
+              $${org.name} - Welcome to Okta!
+              </td>
           </tr>
+          <tr>
+              <td style="padding-top: 24px; vertical-align: bottom;">
+                  Hi $!{StringTool.escapeHtml($!{user.profile.firstName})},
+              </td>
+          </tr>
+          <tr>
+              <td style="padding-top: 24px">
+                  Your organization is using Okta to manage your web applications. You can access all your applications through one secure home page. Watch this short video to learn more: <a href="https://www.okta.com/intro-to-okta/" style="color: #007dc1; text-decoration: none;"><span style="color: #007dc1; text-decoration: none;">https://www.okta.com/intro-to-okta/</span></a>
+              </td>
+          </tr>
+          <tr>
+              <td style="padding-top: 24px;">
+                  Your system administrator has created an Okta user account for you.<br/>
+                  <strong>Click the following link to activate your Okta account:</strong>
+              </td>
+          </tr>
+          <tr>
+              <td align="center">
+                  <table border="0" cellpadding="0" cellspacing="0" valign="top">
+                    <tr>
+                     <td align="center" style="height: 39px; padding-top: 24px; padding-bottom: 8px;"><a id="reset-password-link" href="$$activationLink" style="text-decoration: none;"><span style="display: block; padding: 9px 32px 7px 31px; border: 1px solid; text-align: center; cursor: pointer; color: #fff; border-radius: 3px; background-color: $${brand.theme.primaryColor}; border-color: $${brand.theme.primaryColor}; box-shadow: $${brand.theme.primaryColor} 0 1px 0;">Reset Okta Account</span></a>
+                          </td>
+                      </tr>
+                      <tr>
+                          <td align="center" style="color: #999;">
+                              This link expires in $${f.formatTimeDiffHoursNowInUserLocale($${org.activationTokenExpirationHours})}.
+                          </td>
+                      </tr>
+                  </table>
+              </td>
+          </tr>
+          <tr>
+              <td style="padding-top: 24px;">
+                  Your username is <strong>$${user.profile.login}</strong><br/>
+                  Your organization's sign-in page is <a href="$${baseURL}" style="color: #007dc1; text-decoration: none;"><span style="color: #007dc1; text-decoration: none;">$${baseURL}</span></a>
+              </td>
+          </tr>
+          <tr>
+              <td style="padding-top: 24px;">
+                  If you experience difficulties accessing your account, send a help request to your system administrator using the link: <a href="$${baseURL}/help/login" style="color: #007dc1; text-decoration: none;"><span style="color: #007dc1; text-decoration: none;">$${baseURL}/help/login</span></a>
+              </td>
+          </tr>
+      </table>
+    </td></tr>
+    <tr>
+      <td>
+          <table style="width: 100%; line-height: 20px; padding: 32px;" cellpadding="0">
+              <tr>
+                  <td style="font-size: 12px; padding-top: 24px; color: #999;">
+                      This email was automatically sent using <a href="https://www.okta.com" style="color:#616161">Okta's service</a>. Replies are not monitored or answered. Okta has can't see who receives these emails, and is not responsible for, and disclaims any and all liability associated with, this email's content. <br/><br/>The sender may have customized the contents of the email. If you would like to notify Okta of anything suspicious, report it to security@okta.com.
+                  </td>
+              </tr>
           </table>
-      </div>
-      </body>
-      </html>
-      HTMLDELIMITER
+      </td>
+    </tr>
+  </table>
+  </div>
+  </body>
+  </html>
+  HTMLDELIMITER
+}
+```
+
+The following image shows an example of an email generated using the template:
+
+<div class="three-quarter border">
+
+![An activation email with personal information and URLs hidden by gray rectangles.](/img/terraform/activate-email.png)
+
+</div>
+
+## Create a custom email domain
+
+Use a custom domain for emails sent from Okta instead of the default email address of `noreply@okta.com`.
+
+Okta polls your custom domain once daily to confirm its operational status. If the poll fails, Okta alerts the super administrators by email. It also starts using `noreply@okta.com` until the issue is resolved.
+
+There are two limitations to email domain customization:
+
+* Okta can't send an email from a domain that uses [SendGrid.](https://sendgrid.com/) You can configure a subdomain with your DNS provider for custom Okta emails.
+
+* There's a maximum of 10 DNS lookups in an SPF record.
+
+Okta recommends that your domain implement the [Sender Policy Framework (SPF)](https://tools.ietf.org/html/rfc7208) to prevent sender address forgery. If you have already implemented SPF in your custom domain, update the SPF record to include Okta mail servers.
+
+### Add an email domain in Terraform
+
+Creating and adding a custom email domain takes several steps that you must complete in order. At least one of the steps may require waiting for up to a day:
+
+1. [Create an email domain resource](#create-an-email-domain-resource).
+1. [Update the domain with the `CNAME` and `TXT` records](#update-the-domain-with-the-cname-and-txt-records).
+1. [Request email domain verification](#request-email-domain-verification).
+1. [Test your email domain](#test-your-email-domain).
+
+Okta sends a confirmation email to your super administrators after your custom email domain is configured and working.
+
+### Create an email domain resource
+
+1. Add an [email_domain](https://registry.terraform.io/providers/okta/okta/latest/docs/resources/email_domain) resource.
+
+1. Set the `brand_id` to your brand's ID. For multibrand customization, set the `brand_id` argument to the ID for the brand to associate it with the new email domain.
+
+    ```hcl
+    data "okta_brands" "test" {
+    }
+
+    resource "okta_email_domain" "mymail" {
+      brand_id     = tolist(data.okta_brands.test.brands)[0].id
+      domain       = "mail.example.com"
+      display_name = "mymail"
+      user_name    = "admin"
     }
     ```
 
-1. Continue adding email customizations to the User Activation email template using supported languages.
+1. Use `terraform plan` and `terraform apply` to deploy the custom domain to Okta.
 
-1. Run your Terraform configuration to create the email customizations in your org.
+    > **Note:** The Okta org must verify that you control the DNS records for this domain before you can use it in your Terraform configuration. Follow the steps in [Update the domain with the `CNAME` and `TXT` records](#update-the-domain-with-the-cname-and-txt-records), [Request email domain verification](#request-email-domain-verification), and [Test your email domain](#test-your-email-domain) to verify the email domain.
+
+1. Add this `output` block to print the set of DNS records required for the domain.
+
+    ```hcl
+    output "email_dns_records_to_update_company1" {
+      value = okta_email_domain.mymail.dns_validation_records
+    }
+    ```
+
+1. Run `terraform apply`.
+
+1. Run `terraform output -json {outputVariableName}` to view the configuration information in JSON format. Okta recommends saving the output to a file for your records. For example, the following is the command line for an output variable of `email_dns_records_to_update_company1`:
+
+    ```sh
+    terraform output -json email_dns_records_to_update_company1 > email_dns_records.json
+    ```
+
+1. Review the JSON file for the required content: one object with a `record_type` attribute of `TXT` and three objects with a `record_type` attribute of `CNAME`. Use this output in the next section.
+
+   The content looks similar to the following example:
+
+    ```json
+    "email_dns_records_to_update_company1" = [
+      {
+        "expiration" = "",
+        "fqdn" = "_oktaverification.mail.example.com",
+        "record_type" = "TXT",
+        "value" = "9da4ac4cb6ca4bb3b78934f91ed4c60b",
+      },
+      {
+        "expiration" = "",
+        "fqdn" = "mail.mail.example.com",
+        "record_type" = "cname",
+        "value" = "u17770251.wl002.sendgrid.net",
+      },
+      {
+        "expiration" = "",
+        "fqdn" = "p03._domainkey.mail.example.com",
+        "record_type" = "cname",
+        "value" = "p03.domainkey.u17770251.wl002.sendgrid.net",
+      },
+      {
+        "expiration" = "",
+        "fqdn" = "p032._domainkey.mail.example.com",
+        "record_type" = "cname",
+        "value" = "p032.domainkey.u17770251.wl002.sendgrid.net",
+      },
+    ]
+    ```
+
+### Update the domain with the CNAME and TXT records
+
+This step requires adding DNS records to the custom domain using your domains' service provider. This usually requires administrative access. If you don't have this access, contact your system administrator.
+
+The specific user interface or commands for adding the `CNAME` and `TXT` records depends on your service provider. Some may include automation using Terraform.
+
+The following are the generic steps to add the records. The specific varies.
+
+1. Locate the JSON output from [Create an email domain resource](#create-an-email-domain-resource).
+
+1. Sign in to your domain provider for your custom domain and navigate to the domain record editor.
+
+1. Create three `CNAME` records, one for each of the three objects in the JSON output. The values you need for this step are in the object in the JSON output with a `record_type` of `"CNAME"`.
+
+    1. Set the fully qualified domain name (FQDN) of the `CNAME` record to the value of the `fqdn` field in the JSON output.
+
+    1. Set the value of the `CNAME` record to the string in the `values` array of the JSON output. This is the name for your custom domain, such as `example-org.customdomains.oktapreview.com`.
+
+    1. Save the new record in your ISP's control panel for DNS records.
+
+1. Create a `TXT` record to support Okta domain verification. The values you need for this step are in the object in the JSON output with a `record_type` of `"TXT"`.
+
+    1. Set the fully qualified domain name (FQDN) of the `TXT` record to the value of the `fqdn` field in the JSON output. Include any underscores that are at the start of the value.
+
+    1. Set the value of the `TXT` record to the string in the `values` array of the JSON output. In the previous example of a JSON record, this value is `9da4ac4cb6ca4bb3b78934f91ed4c60b`.
+
+    1. Save the new record in your ISP's control panel for DNS records.
+
+1. Add the SPF record to your DNS zone (the root domain). An SPF record specifies the mail servers authorized by your org to send mail from your domain. If your root domain already has an SPF record, the following update can prevent spoofers from sending mail that mimics your domain. For example, if you only send mail from Microsoft Office 365, your SPF record has an include statement similar to this example:
+
+    ```
+    example.com TXT    v=spf1 include:spf.protection.outlook.com -all
+    ```
+
+   You must add another include statement that specifies your email domain. In the previous example, that would be `mail.example.com`.  If you combine the new include statement with the previous SPF example, it looks similar to this example:
+
+    ```
+    example.com TXT    v=spf1 include:mail.example.com include:spf.protection.outlook.com -all
+    ```
+
+1. Wait until the DNS records propagate. This step may take up to 24 hours, though could take as little as 15 minutes. Check if your DNS records are available using a tool, such as [Dig](https://toolbox.googleapps.com/apps/dig/).
+
+### Request email domain verification
+
+Request an email domain verification after the DNS changes have propagated. Okta confirms that the `TXT` records for your domain contain the Okta-generated value proving that you control the domain.
+
+1. Add a new email domain verification resource that references your `email_domain_id` object:
+
+    ```hcl
+    resource "okta_email_domain_verification" "example" {
+      email_domain_id = okta_email_domain.mymail.id
+    }```
+
+1. Run `terraform apply`.
+
+Wait up to 15 minutes for the Okta server to verify the DNS changes. If the terraform apply command fails wait a few minutes and try again.
+
+### Test your email domain
+
+Test your email domain integration by triggering an Okta email. See the [reference of situations that cause emails to be sent](https://support.okta.com/help/s/article/how-when-are-the-email-sent-to-users?language=en_US).
+
+If everything works correctly, consider commenting out the output block that extracts the set of DNS records that require changing.
+
+## Error page content can't be changed in Terraform
+
+Although the color/image use for error pages is customizable in the brand, the actual content of [error pages](/docs/guides/custom-error-pages/main/#edit-the-error-page) is unavailable to customize using Terraform.
+

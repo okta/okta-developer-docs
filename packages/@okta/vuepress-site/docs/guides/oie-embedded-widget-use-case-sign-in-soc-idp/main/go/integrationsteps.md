@@ -1,62 +1,26 @@
-### 1: The user navigates to the sign-in page
+### The user goes to the sign-in page
 
-When the user navigates to the sign-in page, the Widget
-[loads](/docs/guides/oie-embedded-widget-use-case-load/go/main)
-and automatically displays the **Sign in with Facebook** button. If the Facebook button doesn't appear,
-make sure that you have completed all the steps in [Configuration Updates](#configuration-updates).
-The following Sign-In Widget displays the Facebook button:
+When the user goes to the sign-in page, the Widget [loads](/docs/guides/oie-embedded-widget-use-case-load/go/main) and automatically displays the **Sign in with Facebook** button. If the Facebook button doesn't appear, make sure that you’ve completed all the steps in [Configuration Updates](#configuration-updates).
 
-<div class="half wireframe-border">
+### The user selects the Facebook sign-in link
 
-![The Okta Sign-In Widget's sign-in form with a field for a username, a Next button, a Sign in with Facebook button, and links to reset your password and sign up](/img/wireframes/widget-sign-in-form-username-only-sign-up-forgot-your-password-facebook-links.png)
+When the user selects **Sign in with Facebook**, they’re redirected to the Facebook sign-in page.
 
-<!--
-Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?type=design&node-id=4662-25341&mode=design&t=mABNx7Cm2rdSOFyx-11 widget-sign-in-form-username-only-sign-up-forgot-your-password-facebook-links
- -->
+### The user signs in to Facebook
 
-</div>
+After the user enters their credentials in the Facebook sign-in page, Facebook first validates the sign-in request. If the sign-in flow is successful, Facebook redirects the request to the Okta org URL that you entered in the **Valid OAuth Redirect URIs** and **Site URL** fields. These field values, described in [Set up your Okta org for a social IdP use case](/docs/guides/oie-embedded-common-org-setup/go/main/#set-up-your-okta-org-for-a-social-idp-use-case), have the following format: `https://{yourOktaDomain}/oauth2/v1/authorize/callback`, for example, `https://dev-12345678.okta.com/oauth2/v1/authorize/callback`.
 
-### 2: The user selects the Facebook sign-in link
+### Handle the callback from Okta
 
-When the user selects **Sign in with Facebook**, they are redirected to
-the Facebook sign-in page.
+After Facebook sends the success login request to your Okta org, the org redirects the request to your app. The org uses the value in the **Sign-in redirect URIs** field. You added a value for this field when you [created an app](/docs/guides/oie-embedded-common-org-setup/go/main/#create-a-new-application). The app code that connects the callback URL to a function is identical to the code described in [Basic sign-in flow using the Widget](/docs/guides/oie-embedded-widget-use-case-basic-sign-in/go/main/#_2-handle-the-callback-from-okta).
 
-<div class="half border">
+### Get and store tokens and redirect the user
 
-![Displays the Facebook sign-in form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-social-sign-in-fb-login.png)
+The next step is to get the tokens from the `/token` endpoint using the returned `interaction_code` and the PKCE parameters. After the tokens are fetched, store them in session for later use. The code that fetches and stores these tokens is identical to the code described in [Basic sign-in flow using the Widget](/docs/guides/oie-embedded-widget-use-case-basic-sign-in/go/main/#_3-get-and-store-the-tokens-and-redirect-the-request-to-the-default-sign-in-page).
 
-</div>
+### Get the user profile information (optional)
 
-### 3: The user signs in to Facebook
-
-Once the user enters their credentials in the Facebook sign-in page, Facebook first validates the sign-in
-request. If the sign-in is successful, Facebook redirects the request to the Okta org URL that you've entered in the
-**Valid OAuth Redirect URIs** and **Site URL** fields. These field values, described in [Set up your Okta org for a social IdP use case](/docs/guides/oie-embedded-common-org-setup/go/main/#set-up-your-okta-org-for-a-social-idp-use-case), have the following format: `https://${yourOktaDomain}/oauth2/v1/authorize/callback`, for example, `https://dev-12345678.okta.com/oauth2/v1/authorize/callback`.
-
-### 4: Handle the callback from Okta
-
-After Facebook sends the success login request to your Okta org, the org redirects the request
-to your app through the Application's **Sign-in redirect URIs** field. This field was set up in
-[Create a new application](/docs/guides/oie-embedded-common-org-setup/go/main/#create-a-new-application). The application
-code that connects the callback URL to a function is identical to the code described in
-[step 2](/docs/guides/oie-embedded-widget-use-case-basic-sign-in/go/main/#_2-handle-the-callback-from-okta) in
-[Basic sign-in using the Widget](/docs/guides/oie-embedded-widget-use-case-basic-sign-in/go/main/).
-See that guide for more details.
-
-### 5: Get and store the tokens and redirect the user to the default sign-in page
-
-The next step is to get the tokens from the `/token` endpoint using the
-returned `interaction_code` and the PKCE parameters. After the tokens are fetched,
-store them in session for later use. The code that fetches and stores these tokens
-is identical to the code described in
-[step 3](/docs/guides/oie-embedded-widget-use-case-basic-sign-in/go/main/#_3-get-and-store-the-tokens-and-redirect-the-request-to-the-default-sign-in-page) in [Basic sign-in flow using the Widget](/docs/guides/oie-embedded-widget-use-case-basic-sign-in/go/main/).
-See that guide for more details.
-
-### 6 (Optional): Get the user profile information
-
-You can obtain basic user information by making a request to the authorization server.
-Make a call to the [`/v1/userinfo`](/docs/reference/api/oidc/#userinfo) endpoint using the tokens
-obtained from the `LoginResponse` object's `Token` property.
+You can obtain basic user information by making a request to the authorization server. Make a request to the [`/v1/userinfo`](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/userinfoCustomAS) endpoint using the tokens that you obtained from the `LoginResponse` object's `Token` property.
 
 ```go
 func getProfileData(r *http.Request) map[string]string {

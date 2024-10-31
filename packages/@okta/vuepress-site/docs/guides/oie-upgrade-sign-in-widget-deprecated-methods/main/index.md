@@ -8,15 +8,15 @@ This guide covers the JavaScript method that is deprecated from the Okta Sign-In
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 Understand the `showSignIn` methods that are used in the widget so that you can set the redirect URI based on the sign-in policies that the administrator defines.
 
-**What you need**
+#### What you need
 
 [Widget that is updated to the latest available release](/docs/guides/oie-upgrade-sign-in-widget/main/)
 
-**Sample code**
+#### Sample code
 
 [Code samples using showSignIn](#code-samples-using-showsignin)
 
@@ -45,23 +45,23 @@ There are three similar methods in the widget. `showSignIn` applies to most use 
 ### Sample for a token flow
 
 ```javascript
-var signIn = new OktaSignIn({
+var oktaSignIn = new OktaSignIn({
    // Assumes there is an empty element on the page with an ID of 'osw-container'  el: `#osw-container`,
    el: '#osw-container',
-   clientId: `${clientId of your OIDC app integration}`,
-   redirectUri: `${redirectUri configured in your OIDC app integration}`,
-   baseUrl: `https://${yourOktaDomain}`,
+   clientId: `{clientId of your OIDC app integration}`,
+   redirectUri: `{redirectUri configured in your OIDC app integration}`,
+   baseUrl: `https://{yourOktaDomain}`,
    authParams: {
-      issuer: `https://${yourOktaDomain}/oauth2/default`
+      issuer: `https://{yourOktaDomain}/oauth2/default`
    }
 });
 
-// Search for URL Parameters to see if a user is being routed to the application to recover password
+// Search for URL Parameters to see if a user is being routed to the app to recover password
 var searchParams = new URL(window.location.href).searchParams;
 oktaSignIn.otp = searchParams.get('otp');
 oktaSignIn.state = searchParams.get('state');
 
-oktaSignIn.showSignIn().then(response
+oktaSignIn.showSignIn().then(res
    => {
    oktaSignIn.authClient.handleLoginRedirect(res.tokens);
 })

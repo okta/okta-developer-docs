@@ -5,18 +5,27 @@ category: management
 
 # Groups API
 
-The Okta Groups API provides operations to manage Okta Groups and their user members for your organization.
+The Okta Groups API provides operations to manage Okta groups and their user members for your org.
+
+Explore the [Okta Public API Collections](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/overview) workspace to get started with the Groups API.
+
+<!--Explore the Groups API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/e2c0074faecec203e487)
 
 <ApiAuthMethodWarning />
 
 ## Get started with the Groups API
 
-Explore the Groups API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/e2c0074faecec203e487)
+Explore the [Okta Public API Collections](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/overview) workspace to get started with the Groups API Postman Collection.-->
 
 ## Group operations
 
+Group operations provide operations to manage Okta groups for your org. These operations are available at the new [Okta API reference portal](https://developer.okta.com/docs/api/) as part of the [Groups API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/).
+
 ### Add Group
 
+See [Add a Group](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/#tag/Group/operation/addGroup) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--
 <ApiOperation method="post" url="/api/v1/groups" />
 
 Adds a new Group with `OKTA_GROUP` type to your organization
@@ -24,7 +33,6 @@ Adds a new Group with `OKTA_GROUP` type to your organization
 > **Note:** Application import operations are responsible for syncing Groups with `APP_GROUP` type such as Active Directory Groups. See [About groups](https://help.okta.com/okta_help.htm?id=Directory_Groups) for more information.
 
 ##### Request parameters
-
 
 | Parameter | Description                               | ParamType | DataType                          | Required | Default |
 | --------- | ----------------------------------------- | --------- | --------------------------------- | -------- | ---     |
@@ -87,15 +95,17 @@ curl -v -X POST \
   }
 }
 ```
-
+-->
 ### Get Group
 
+See [Retrieve a Group](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/#tag/Group/operation/getGroup) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--
 <ApiOperation method="get" url="/api/v1/groups/${groupId}" />
 
 Fetches a specific Group by `id` from your organization
 
 ##### Request parameters
-
 
 | Parameter | Description     | ParamType | DataType | Required | Default |
 | --------- | --------------- | --------- | -------- | -------- | ------- |
@@ -103,11 +113,9 @@ Fetches a specific Group by `id` from your organization
 
 ##### Response parameters
 
-
 Fetched [Group](#group-object)
 
 ##### Request example
-
 
 ```bash
 curl -v -X GET \
@@ -118,7 +126,6 @@ curl -v -X GET \
 ```
 
 ##### Response example
-
 
 ```json
 {
@@ -156,8 +163,13 @@ curl -v -X GET \
   }
 }
 ```
+--->
 
 ### List Groups
+
+See [List all Groups](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/#tag/Group/operation/listGroups) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--
 
 <ApiOperation method="get" url="/api/v1/groups" />
 
@@ -172,7 +184,6 @@ Enumerates Groups in your organization with pagination. A subset of Groups can b
 - [List Groups with Search](#list-groups-with-search)
 
 ##### Request parameters
-
 
 | Parameter | Description                                                                                | ParamType | DataType | Required | Default |
 | --------- | ------------------------------------------------------------------------------------------ | --------- | -------- | -------- | ------- |
@@ -208,7 +219,7 @@ The following expressions are supported for Groups with the `filter` query param
 
 See [Filtering](/docs/reference/core-okta-api/#filter) for more information on expressions.
 
-> **Note:** All filters must be [URL encoded](http://en.wikipedia.org/wiki/Percent-encoding) where `filter=lastUpdated gt "2013-06-01T00:00:00.000Z"` is encoded as `filter=lastUpdated%20gt%20%222013-06-01T00:00:00.000Z%22`.
+> **Note:** All filters must be [URL encoded](https://developer.mozilla.org/en-US/docs/Glossary/Percent-encoding) where `filter=lastUpdated gt "2013-06-01T00:00:00.000Z"` is encoded as `filter=lastUpdated%20gt%20%222013-06-01T00:00:00.000Z%22`.
 
 **Filter examples**
 
@@ -345,14 +356,11 @@ curl -v -X GET \
 ]
 ```
 
-#### Find Groups
-
 Finds groups by `name` in your organization
 
 > **Note:** Paging and searching are currently mutually exclusive. You can't page a query. The default limit for a query is `300` results. Query is intended for an auto-complete picker use case where users refine their search string to constrain the results. Search currently performs a `startsWith` match but it should be considered an implementation detail and may change without notice in the future. Exact matches are always returned before partial matches.
 
 ##### Request example
-
 
 ```bash
 curl -v -X GET \
@@ -735,7 +743,7 @@ This operation:
 
 - Supports [pagination](/docs/reference/core-okta-api/#pagination).
 
-- Requires [URL encoding](http://en.wikipedia.org/wiki/Percent-encoding). For example, `search=type eq "OKTA_GROUP"` is encoded as `search=type+eq+%22OKTA_GROUP%22`. Use an ID lookup for records that you update to ensure your results contain the latest data. Search results are eventually consistent.
+- Requires [URL encoding](https://developer.mozilla.org/en-US/docs/Glossary/Percent-encoding). For example, `search=type eq "OKTA_GROUP"` is encoded as `search=type+eq+%22OKTA_GROUP%22`. Use an ID lookup for records that you update to ensure that your results contain the latest data. Search results are eventually consistent.
 
 - Searches many properties:
   - Any group profile property, including imported app group profile properties.
@@ -851,8 +859,12 @@ curl -v -X GET \
   }
 ]
 ```
-
+-->
 ### Update Group
+
+See [Retrieve a Group](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/#tag/Group/operation/getGroup) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--
 
 <ApiOperation method="put" url="/api/v1/groups/${groupId}" />
 
@@ -862,7 +874,6 @@ Updates the profile for a group of `OKTA_GROUP` type from your organization
 Application imports are responsible for updating profiles for groups of `APP_GROUP` type such as Active Directory groups.
 
 ##### Request parameters
-
 
 | Parameter | Description                   | ParamType | DataType                          | Required | Default |
 | --------- | ----------------------------- | --------- | --------------------------------- | -------- | ------- |
@@ -939,7 +950,6 @@ Removes a group of `OKTA_GROUP` or `APP_GROUP` type from your organization
 
 ##### Request parameters
 
-
 | Parameter | Description                 | ParamType | DataType | Required | Default |
 | --------- | --------------------------- | --------- | -------- | -------- | ------- |
 | id        | ID of the Group to delete | URL       | String   | TRUE     |         |
@@ -963,10 +973,17 @@ curl -v -X DELETE \
 ```http
 HTTP/1.1 204 No Content
 ```
+-->
 
 ## Group member operations
 
+Group member operations provide operations to manage the user members of your Okta groups for your org. These operations are available at the new [Okta API reference portal](https://developer.okta.com/docs/api/) as part of the [Groups API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/).
+
 ### List Group members
+
+See [List all Member Users](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/#tag/Group/operation/listGroupUsers) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--
 
 <ApiOperation method="get" url="/api/v1/groups/${groupId}/users" />
 
@@ -1064,9 +1081,12 @@ curl -v -X GET \
   }
 ]
 ```
-
+-->
 ### Add User to Group
 
+See [Assign a User to a Group](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/#tag/Group/operation/assignUserToGroup) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--
 <ApiOperation method="put" url="/api/v1/groups/${groupId}/users/${userId}" />
 
 Adds a [user](/docs/reference/api/users/#user-object) to a group of `OKTA_GROUP` type
@@ -1075,7 +1095,6 @@ Adds a [user](/docs/reference/api/users/#user-object) to a group of `OKTA_GROUP`
 > Application imports are responsible for managing group memberships for groups of `APP_GROUP` type such as Active Directory groups.
 
 ##### Request parameters
-
 
 | Parameter | Description     | ParamType | DataType | Required | Default |
 | --------- | --------------- | --------- | -------- | -------- | ------- |
@@ -1101,9 +1120,13 @@ curl -v -X PUT \
 ```http
 HTTP/1.1 204 No Content
 ```
+-->
 
 ### Remove User from Group
 
+See [Unassign a User from a Group](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/#tag/Group/operation/unassignUserFromGroup) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--
 <ApiOperation method="delete" url="/api/v1/groups/${groupId}/users/${userId}" />
 
 Removes a [user](/docs/reference/api/users/#user-object) from a group of `OKTA_GROUP` type
@@ -1137,11 +1160,17 @@ curl -v -X DELETE \
 ```http
 HTTP/1.1 204 No Content
 ```
+-->
 
 ## Group rule operations
 
+Group rule operations provide operations to manage rules for Okta groups in your org. These operations are available at the new [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/GroupRule/).
+
 ### Create Group rule
 
+See [Create a Group rule](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/GroupRule/#tag/GroupRule/operation/createGroupRule) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--
 <ApiOperation method="post" url="/api/v1/groups/rules" />
 
 Creates a Group rule to dynamically add users to the specified Group if they match the condition
@@ -1149,7 +1178,6 @@ Creates a Group rule to dynamically add users to the specified Group if they mat
 > **Note:** Group rules are created with status='INACTIVE'.
 
 ##### Request parameters
-
 
 | Parameter                           | Description                                             | ParamType | DataType                          | Required |
 | ----------------------------------- | ------------------------------------------------------- | --------- | --------------------------------- | -------- |
@@ -1236,10 +1264,13 @@ curl -v -X POST \
   }
 }
 ```
+-->
 
 ### Update Group rule
 
+See [Replace a Group rule](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/GroupRule/#tag/GroupRule/operation/replaceGroupRule) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
 
+<!--
 <ApiOperation method="put" url="/api/v1/groups/rules/${ruleId}" />
 
 Updates a Group rule
@@ -1248,7 +1279,6 @@ Updates a Group rule
 You can't currently update the action section.
 
 ##### Request parameters
-
 
 | Parameter                           | Description                                    | ParamType | DataType                          | Required |
 | ----------------------------------- | ---------------------------------------------- | --------- | --------------------------------- | -------- |
@@ -1337,9 +1367,13 @@ curl -v -X PUT \
   }
 }
 ```
+-->
 
 ### List Group rules
 
+See [List all Group rules](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/GroupRule/#tag/GroupRule/operation/listGroupRules) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--
 <ApiOperation method="get" url="/api/v1/groups/rules" />
 
 Lists all Group rules for your organization
@@ -1347,7 +1381,6 @@ Lists all Group rules for your organization
 > **Note:** If you don't specify any value for `limit`, a maximum of 50 results are returned. The maximum value for `limit` is 200.
 
 ##### Request parameters
-
 
 | Parameter      | Description                                                    | ParamType  | DataType                          | Required | Default |
 | -------------- | -------------------------------------------------------------- | ---------- | --------------------------------- | -------- | ------- |
@@ -1449,9 +1482,12 @@ curl -v -X GET \
   }
 ]
 ```
-
+-->
 ### Get Group rule
 
+See [Retrieve a Group rule](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/GroupRule/#tag/GroupRule/operation/getGroupRule) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--
 <ApiOperation method="get" url="/api/v1/groups/rules/${ruleId}" />
 
 Fetches a specific Group rule by ID from your organization
@@ -1478,7 +1514,6 @@ curl -v -X GET \
 ```
 
 ##### Response example
-
 
 ```json
 {
@@ -1522,7 +1557,6 @@ Removes a specific Group rule by ID from your organization
 
 ##### Request parameters
 
-
 | Parameter      | Description                                                  | ParamType  | DataType                          | Required | Default |
 | -------------- | ------------------------------------------------------------ | ---------- | --------------------------------- | -------- | ------- |
 | `id`             | ID of a Group Rule                                           | URL        | String                            | TRUE     |   N/A     |
@@ -1534,7 +1568,6 @@ N/A
 
 ##### Request example
 
-
 ```bash
 curl -v -X DELETE \
 -H "Accept: application/json" \
@@ -1545,20 +1578,21 @@ curl -v -X DELETE \
 
 ##### Response example
 
-
 ```http
 HTTP/1.1 202 Accepted
 ```
+-->
 
 ### Activate a Group rule
 
+See [Activate a Group Rule](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/GroupRule/#tag/GroupRule/operation/activateGroupRule) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
 
+<!--
 <ApiOperation method="post" url="/api/v1/groups/rules/${ruleId}/lifecycle/activate" />
 
 Activates a specific Group rule by ID from your organization
 
 ##### Request Parameters
-
 
 | Parameter      | Description                                                  | ParamType  | DataType                          | Required | Default |
 | -------------- | ------------------------------------------------------------ | ---------- | --------------------------------- | -------- | ------- |
@@ -1566,11 +1600,9 @@ Activates a specific Group rule by ID from your organization
 
 ##### Response parameters
 
-
 N/A
 
 ##### Request example
-
 
 ```bash
 curl -v -X POST \
@@ -1582,19 +1614,21 @@ curl -v -X POST \
 
 ##### Response example
 
-
 ```http
 HTTP/1.1 204 No Content
 ```
+-->
 
 ### Deactivate a Group rule
 
+See [Deactivate a Group Rule](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/GroupRule/#tag/GroupRule/operation/deactivateGroupRule) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--
 <ApiOperation method="post" url="/api/v1/groups/rules/${ruleId}/lifecycle/deactivate" />
 
 Deactivates a specific Group rule by ID from your organization
 
 ##### Request parameters
-
 
 | Parameter      | Description                                                  | ParamType  | DataType                          | Required | Default |
 | -------------- | ------------------------------------------------------------ | ---------- | --------------------------------- | -------- | ------- |
@@ -1602,11 +1636,9 @@ Deactivates a specific Group rule by ID from your organization
 
 ##### Response parameters
 
-
 N/A
 
 ##### Request example
-
 
 ```bash
 curl -v -X POST \
@@ -1618,21 +1650,22 @@ curl -v -X POST \
 
 ##### Response example
 
-
 ```http
 HTTP/1.1 204 No Content
 ```
-
+-->
 ## Related resources
 
 ### List assigned Applications
 
+See [List all Assigned Applications](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/#tag/Group/operation/listAssignedApplicationsForGroup) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--
 <ApiOperation method="get" url="/api/v1/groups/${groupId}/apps" />
 
 Enumerates all [Applications](/docs/reference/api/apps/#application-object) that are assigned to a Group. See [Application Group Operations](/docs/reference/api/apps/#application-group-operations).
 
 ##### Request parameters
-
 
 | Parameter | Description                                               | ParamType | DataType | Required | Default |
 | --------- | --------------------------------------------------------- | --------- | -------- | -------- | ------- |
@@ -1657,7 +1690,6 @@ curl -v -X GET \
 ```
 
 ##### Response example
-
 
 ```json
 [
@@ -1772,9 +1804,12 @@ curl -v -X GET \
     }
 ]
 ```
-
+-->
 ## Group object
 
+See [Group - response payload](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/#tag/Group/operation/getGroup!c=200&path=created&t=response) in the new [Okta API reference portal](https://developer.okta.com/docs/api/).
+
+<!--
 ### Example
 
 ```json
@@ -1873,7 +1908,7 @@ Profile for any Group that is not imported from Active Directory. Specifies the 
 ```
 ##### Custom Profile Properties
 
-You can extend Group Profiles with custom properties, but you must first add the properties to the Group Profile schema before they can be referenced. You can use the Profile Editor in the administrator UI or the [Schemas API](/docs/reference/api/schemas/) to manage schema extensions.
+You can extend Group Profiles with custom properties, but you must first add the properties to the Group Profile schema before you can reference them. Use the Profile Editor in the Admin Console or the [Schemas API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/) to manage schema extensions.
 
 Custom properties may contain HTML tags. It is the client's responsibility to escape or encode this data before displaying it. Use [best-practices](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html) to prevent cross-site scripting.
 
@@ -1954,3 +1989,4 @@ Specifies link relations. See [Web Linking](http://tools.ietf.org/html/rfc8288) 
 | users              | Provides [Group member operations](#group-member-operations) for the Group                                                      |
 
 > **Note:** The Links object is read-only.
+-->

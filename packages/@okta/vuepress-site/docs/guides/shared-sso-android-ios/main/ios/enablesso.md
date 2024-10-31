@@ -1,4 +1,4 @@
-To enable persistent SSO for iOS apps, you need to update the [`usePersistentCookie`](/docs/reference/api/policy/#signon-action-object) parameter in the appropriate global session policy. These steps use the Okta [Policy Postman collection](/docs/reference/postman-collections/) to enable the parameter.
+To enable persistent SSO for iOS apps, you need to update the [`usePersistentCookie`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule!path=4/actions/signon/session/usePersistentCookie&t=request) parameter in the appropriate global session policy. These steps use the Okta [Policy Postman collection](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/overview) to enable the parameter.
 
 Before you begin, be sure to:
 
@@ -11,7 +11,7 @@ Before you begin, be sure to:
     Example request:
 
     ```bash
-    GET https://${yourOktaDomain}/api/v1/policies?type=OKTA_SIGN_ON
+    GET https://{yourOktaDomain}/api/v1/policies?type=OKTA_SIGN_ON
     ```
 
 3. In the response, locate the policy that you want to modify and copy its `id` value.
@@ -24,7 +24,7 @@ Before you begin, be sure to:
     Example:
 
     ```bash
-    GET https://${yourOktaDomain}/api/v1/policies/00p2sy9ploJnRwPwp5g7/rules
+    GET https://{yourOktaDomain}/api/v1/policies/00p2sy9ploJnRwPwp5g7/rules
     ```
 
 7. In the response, locate the rule that you want to modify, copy its `id` value, and copy the `actions` property section of the JSON payload.
@@ -37,14 +37,14 @@ Before you begin, be sure to:
     Example:
 
     ```bash
-    PUT https://${yourOktaDomain}/api/v1/policies/00p2sy9ploJnRwPwp5g7/rules/0pr2syd4moJ2gFXnD5g7
+    PUT https://{yourOktaDomain}/api/v1/policies/00p2sy9ploJnRwPwp5g7/rules/0pr2syd4moJ2gFXnD5g7
 
     ```
 
     Or
 
     ```bash
-    https://${yourOktaDomain}/api/v1/policies/${policyId}/rules/${ruleId}
+    https://{yourOktaDomain}/api/v1/policies/{policyId}/rules/{ruleId}
     ```
 
 10. Select the **Body** tab of the request and add `"type": "SIGN_ON",` just below the `name` parameter.

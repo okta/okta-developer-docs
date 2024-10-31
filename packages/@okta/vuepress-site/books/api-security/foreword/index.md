@@ -1,7 +1,7 @@
 ---
 title: Foreword
 ---
-# Foreword {#foreword}
+# Foreword [[#foreword]]
 
 <div class="chapter-author">by Les Hazlewood</div>
 

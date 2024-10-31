@@ -1,40 +1,75 @@
 version: 2.1
 
+orbs:
+  general-platform-helpers: okta/general-platform-helpers@1.8
+
 parameters:
-  trigger_netlify_manual:
+  preview:
     type: string
     default: ""
 
+commands:
+  install-deps:
+    steps:
+      - restore_cache:
+          name: Restore Yarn dependency cache
+          keys:
+            - v6-yarn-deps-{{ checksum "yarn.lock" }}
+            # allow for partial cache hits
+            - v6-yarn-deps-
+      - run:
+          name: Install dependencies with Yarn
+          command: yarn install --frozen-lockfile
+      - save_cache:
+          name: Save Yarn dependency cache
+          key: v6-yarn-deps-{{ checksum "yarn.lock" }}
+          paths:
+            - node_modules/
+            - packages/@okta/vuepress-plugin-active-header-links/node_modules/
+            - packages/@okta/vuepress-site/node_modules/
+            - ~/.cache/
+
 jobs:
+  inclusive-linting:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - checkout
+      - run: bash ./scripts/inclusive-lint.sh
+
   node_build_checks:
       docker:
         - image: cimg/node:14.21.3-browsers
-      resource_class: xlarge
+      resource_class: large
       environment:
         NODE_OPTIONS: '--max_old_space_size=3584'
       steps:
         - checkout
+        - install-deps
         - run:
-            name: Install dependencies
-            command: yarn install --frozen-lockfile
+            name: Lint
+            command: yarn lint-all
         - run:
-            name: Build 
+            name: Build
             command: yarn build
         - run:
             name: Run checks
             command: ./scripts/yarn-checks-ci.sh
+        - store_test_results:
+            path: test_results
+        - store_artifacts:
+            path: test_results
 
   nightly_link_checker:
     docker:
       - image: cimg/node:14.21.3-browsers
-    resource_class: xlarge
+    resource_class: large
     environment:
       NODE_OPTIONS: '--max_old_space_size=3584'
     steps:
       - checkout
-      - run:
-          name: Install dependencies
-          command: yarn install --frozen-lockfile
+      - install-deps
       - run:
           name: Run script and capture logs
           command: yarn build
@@ -54,29 +89,80 @@ jobs:
           name: Print urls to log
           command: |
             cat broken_external_urls.txt
+      - run:
+          name: Send failure email if broken URLs found
+          when: on_success
+          command: |
+            broken_urls=$(comm -23 <(sort urls.txt | uniq) <(sort falsepos.txt | uniq))
+            broken_urls=$(echo "$broken_urls" | sed 's/ /\n/g')
+            formatted_broken_urls=$(echo "$broken_urls" | awk '{printf "<a href=\"%s\">%s</a><br/>\n", $0, $0}')
 
-orbs:
-  general-platform-helpers: okta/general-platform-helpers@1.8
+            if [ -n "$broken_urls" ]; then
+                curl --location --request POST 'https://www.cinotify.cc/api/notify' \
+                        -d "to=${NOTIFY_EMAIL}&subject=BROKEN URLS DETECTED: Dev Docs Nightly Job&type=text/html&body=<p style='font-family: Arial, sans-serif; font-size: 16px; color: #333; line-height: 1.6; text-align: center; background-color: #ffcccc; padding: 10px;'>
+                        <span style='font-weight: bold;'>Nightly link checker job complete. See the list of broken URLs below.</span><br><br>
+                        <a href='https://app.circleci.com/pipelines/github/okta/okta-developer-docs/<< pipeline.number >>' style='display: inline-block; padding: 5px 10px; background-color: #4caf50; color: white; text-decoration: none;'>Click here</a>
+                        to see job details.<br>
+                    </p><h2 style='font-family: Arial, sans-serif; font-size: 16px; color: #333; line-height: 1.6; text-align: center;'>List of broken URLs:</h2>$formatted_broken_urls"
+            fi
+
+  netlify_manual:
+    docker:
+      - image: cimg/node:14.21.3-browsers
+    resource_class: xlarge
+    steps:
+      - run:
+          name: Has secrets?
+          command: |
+            if [ -z "$NETLIFY_AUTH_TOKEN" ] || [ -z "$NETLIFY_SITE_ID" ]; then
+              echo "Missing required secrets."
+              exit 1
+            fi
+      - checkout
+      - install-deps
+      - run:
+          name: Build preview
+          command: |
+            yarn build
+      - run:
+          name: Install Netlify CLI
+          command: |
+            npm install netlify-cli@17.23.5 -g
+      - run:
+          name: Deploy preview to Netlify
+          command: |
+            netlify deploy --alias=preview-${CIRCLE_PULL_REQUEST##*/} --filter @okta/vuepress-site
+      - run:
+          name: Update PR with preview link
+          command: |
+            chmod +x ./scripts/update-dev-docs-pr-cci.sh
+            ./scripts/update-dev-docs-pr-cci.sh
+
 
 workflows:
   semgrep:
     when:
-      not: << pipeline.parameters.trigger_netlify_manual >>
+      not: << pipeline.parameters.preview >>
     jobs:
-      - general-platform-helpers/job-semgrep-prepare:
-          name: semgrep-prepare
       - general-platform-helpers/job-semgrep-scan:
           name: "Scan with Semgrep"
-          requires:
-            - semgrep-prepare
+          context:
+            - static-analysis
+
+  linting:
+    when:
+      not: << pipeline.parameters.preview >>
+    jobs:
+      - inclusive-linting:
+          name: "Inclusive Linting"
 
   build_checks:
     when:
-      not: << pipeline.parameters.trigger_netlify_manual >>
+      not: << pipeline.parameters.preview >>
     jobs:
       - node_build_checks:
           name: "Build and Checks"
-  
+
   nightly:
     triggers:
       - schedule:
@@ -90,7 +176,7 @@ workflows:
           name: "Nightly Link Checker"
 
   netlify_manual:
-    when: << pipeline.parameters.trigger_netlify_manual >>
+    when: << pipeline.parameters.preview >>
     jobs:
-      - node_build_checks:
-          name: "TODO:Run Netlify Manual"
+      - netlify_manual:
+          name: "Netlify Manual"

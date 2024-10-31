@@ -6,19 +6,20 @@ meta:
 layout: Guides
 ---
 
-This guide teaches you how to create a SCIM 2.0 server that supports provisioning entitlements to an app integration in Okta.
+This guide teaches you how to create a System for Cross-domain Identity Management (SCIM) 2.0 server that supports provisioning entitlements to an app integration.
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
-* Learn which endpoints are required to support entitlements
-* Understand how Okta uses SCIM calls to gather information about users in a downstream app
+* Learn which endpoints are required to support entitlements.
+* Understand how Okta uses SCIM calls to gather information about users in a downstream app.
 
-**What you need**
+#### What you need
 
-* [Okta Developer Edition organization](https://developer.okta.com/signup).
-* Some basic development experience with the System for Cross-domain Identity Management (SCIM) [core schema](https://datatracker.ietf.org/doc/html/rfc7643) and [protocol](https://datatracker.ietf.org/doc/html/rfc7644)
+* [Okta Developer Edition org](https://developer.okta.com/signup)
+* Some basic development experience with the SCIM [core schema](https://datatracker.ietf.org/doc/html/rfc7643) and [protocol](https://datatracker.ietf.org/doc/html/rfc7644)
+* [Okta Identity Governance](https://help.okta.com/okta_help.htm?type=oie&id=ext-iga) to use [entitlements](https://help.okta.com/okta_help.htm?type=oie&id=ext-entitlement-mgt)
 
 ---
 
@@ -26,97 +27,127 @@ This guide teaches you how to create a SCIM 2.0 server that supports provisionin
 
 Okta supports third-party entitlement discovery and assignment through a combination of [Okta Identity Governance](https://help.okta.com/okta_help.htm?type=oie&id=ext-iga) and SCIM 2.0.
 
-In particular, user schema discovery allows Okta to support dynamic data from SCIM-enabled apps. The discovery process includes importing users into Okta and parsing the imported User objects.
+In particular, user schema discovery allows Okta to support dynamic data from SCIM-enabled apps. The discovery process includes importing users into Okta and parsing the imported user objects.
 
-When an app is provisioned, Okta calls the SCIM server to retrieve a list of resource types. Each User object consists of a core schema that's common to all users, and can optionally contain dynamic data. Okta defines schemas for two resource types: roles and entitlements. You can also create custom schema extensions to support custom attributes for Users, roles, and entitlements. Okta processes the available resource types and any custom attributes defined through schema extensions, which are added to the user profile for the app.
+When an app is provisioned, Okta calls the SCIM server to retrieve a list of resource types. Each user object consists of a core schema that's common to all users, and can optionally contain dynamic data. Okta defines schemas for two resource types: roles and entitlements.
+
+You can also create custom schema extensions to support custom attributes for users, roles, and entitlements. Okta processes the available resource types and any custom attributes defined through schema extensions, which are added to the user profile for the app.
 
 > **Note:** [Okta Identity Governance](https://help.okta.com/okta_help.htm?type=oie&id=ext-iga) is required to use [entitlements](https://help.okta.com/okta_help.htm?type=oie&id=ext-entitlement-mgt).
 
 ---
+
 ### Endpoint call sequence
 
 The following sequence of calls begins when you enable provisioning for your SCIM 2.0 app with entitlements:
-1. `/ResourceTypes`: Gets available Entitlements, Roles, Users, and Extension Schema Uniform Resource Names (URNs)
-1. `/Schemas`: Gets available schemas that match the ResourceType extension URNs from previous call
-    > The schemas for Entitlements, Roles, and Users (both Core and Enterprise) are known by Okta and aren't required from `/Schemas`. 
-    Only provide schema definitions for extensions unknown to Okta.
-1. Resource endpoints. These endpoints are dynamic. Whatever is defined for the endpoint in the ResourceType is the endpoint that Okta calls. For each ResourceType with Okta's Role or Entitlement URN, Okta retrieves all values from the defined endpoints. For example, a Profile ResourceType could have a corresponding `/Profiles` endpoint. Other common endpoints include `/Entitlements`, `/Roles`, and `/Licenses`.
+
+1. `/ResourceTypes`: Gets available entitlements, roles, users, and extension schema Uniform Resource Names (URNs)
+1. `/Schemas`: Gets available schemas that match the `ResourceType` extension URNs from the previous call
+    > **Note:** The schemas for Entitlements, Roles, and Users (both Core and Enterprise) are known by Okta and aren't required from `/Schemas`. Only provide schema definitions for extensions unknown to Okta.
+1. Resource endpoints. These endpoints are dynamic. Whatever is defined for the endpoint in the `ResourceType` is the endpoint that Okta calls. For each `ResourceType` with the Okta role or entitlement URN, Okta retrieves all values from the defined endpoints. For example, a profile `ResourceType` could have a corresponding `/Profiles` endpoint. Other common endpoints include `/Entitlements`, `/Roles`, and `/Licenses`.
 
 After the sequence of calls is complete, you can view entitlements in the **Governance** tab of a Governance-enabled app integration in the Admin Console.
 
-This combination of endpoints enables user schema discovery. Okta combines the gathered information from the endpoints to build a representation in Okta to facilitate the use of entitlements within the app.
+This combination of endpoints enables user schema discovery. Okta combines the information gathered from the endpoints to build a representation in Okta to facilitate the use of entitlements within the app.
 
 ### User schema discovery and Profile Editor
 
 User schema discovery must be enabled on your org for your app to understand entitlements and roles. To enable it, contact [Okta Support](https://support.okta.com/).
 
-When user schema discovery is enabled for an app integration, admins can't add attributes to the app user profile in the Profile Editor in the Admin Console. This option is disabled because the contents of the app user profile are determined by the SCIM server between Okta and the downstream app. Okta gathers profile elements from the SCIM server to dynamically build the app user profile.
+When user schema discovery is enabled for an app integration, admins can't add attributes to the app user profile in the Profile Editor in the Admin Console. This option is disabled because the SCIM server determines the contents of the app user profile between Okta and the downstream app. Okta gathers profile elements from the SCIM server to dynamically build the app user profile.
 
 The SCIM server should be updated to maintain parity with the downstream app. User schema discovery allows the app provider to determine the contents of the app user profile.
 
 ### Create an app that supports entitlements and user schema discovery
 
-https://help.okta.com/oie/en-us/content/topics/apps/aiw_scim_entitlements.htm
-
-1. [Create a SCIM app integration with entitlement management](https://help.okta.com/oie/en-us/content/topics/apps/aiw_scim_entitlements.htm).
+1. [Create a SCIM app integration with entitlement management](https://help.okta.com/okta_help.htm?type=oie&id=ext-aiw-scim-entitlements).
 1. Ensure that your SCIM 2.0 server exposes the following endpoints:
-    - `/ResourceTypes`
-    - Any resource-specific endpoints for Entitlements (for example, `/Licenses`, `/Roles`, and so on)
-1. Optional. If your app requires custom Entitlement, Role, or User schema extensions, expose the following endpoint:
-    - `/Schemas`
+    * `/ResourceTypes`
+    * Any resource-specific endpoints for entitlements (for example: `/Licenses`, `/Roles`, and so on)
+1. Optional. If your app requires custom entitlement, role, or user schema extensions, expose the following endpoint:
+    * `/Schemas`
 1. Configure your app in Okta.
 
 ### User operations
 
-Create, update, and import User operations are handled using [SCIM User operations](/docs/reference/scim/scim-20/#scim-user-operations). The User object should include any Entitlements, Roles, and custom User schema extensions that your app requires. See [User with entitlements and roles](#user-with-entitlements-and-roles) for an example.
+Create, update, and import user operations are handled using [SCIM User operations](https://developer.okta.com/docs/api/openapi/okta-scim/guides/scim-20/#scim-user-operations). The user object should include any entitlements, roles, and custom user schema extensions that your app requires. See [User with entitlements and roles](#user-with-entitlements-and-roles) for an example.
 
 ### Endpoints for user schema discovery
 
 #### /ResourceTypes
 
-Okta calls this endpoint to gather a list of available resources with any associated schemas and schema extension URNs. 
+Okta calls this endpoint to gather a list of available resources with any associated schemas and schema extension URNs.
 
 Common resource types include the following:
-- Users
-- Groups
-- Entitlements
-- Roles
 
-Okta doesn't offer custom handling for Groups. 
+* `Users`
+* `Groups`
+* `Entitlements`
+* `Roles`
 
-To expose Entitlements and Roles, you must create a corresponding `ResourceType` for each of these entities. See [ResourceTypes](#resourcetype) for an implementation example.
+Okta doesn't offer custom handling for groups.
+
+To expose entitlements and roles, create a corresponding `ResourceType` for each of these entities. See [ResourceTypes](#resourcetypes) for an implementation example.
 
 #### /Schemas
 
 For any required custom schema extensions, implement the `/Schemas` endpoint. See [Schemas](#schemas) for an implementation example.
 
-> **Note**: You don't need a `/Schemas` endpoint for apps that don't use custom schema extensions. Okta handles the base definitions for the following resources and objects:
-- Entitlements
-- Roles
-- User:Core
-- User:Enterprise
+You don't need a `/Schemas` endpoint for apps that don't use custom schema extensions. Okta handles the base definitions for the following resources and objects:
+
+* [`Entitlements`](#entitlements-schema)
+* [`Roles`](#roles-schema)
+* `User:Core`
+* `User:Enterprise`
+
+#### Entitlements schema
+
+The `urn:okta:scim:schemas:core:1.0:Entitlement` schema contains the following information:
+
+|Parameter | Type | Description | Notes |
+|---|---|---|---|
+| `id` | String | The ID of the entitlement | Required |
+| `displayName` | String | The name that appears in the Admin Console for the entitlement | Required|
+| `type` | String | Corresponds with the `ResourceType` name field for the entitlement, such as "License" or "Permission set" | Required |
+| `description` | String | A human-readable description of the entitlement. This appears in the **Governance** tab. | Optional, max length 1000 characters |
+
+See [Custom entitlement with extensions](#custom-entitlement-with-extensions) for an example schema.
+
+#### Roles schema
+
+The `urn:okta:scim:schemas:core:1.0:Entitlement` schema contains the following information:
+
+|Parameter | Type | Description | Notes |
+|---|---|---|---|
+| `id` | String | The ID of the role | Required |
+| `displayName` | String | The name that appears in the Admin Console for the role | Required|
+| `description` | String | A human-readable description of the entitlement. This appears in the **Governance** tab. | Optional, max length 1000 characters |
+
+See [Role example](#role-example) for an example schema.
 
 ### Example user discovery data
 
-The following sections provide sample structures in JSON format for ResourceTypes, schemas, custom entitlements with extensions, and a User that contains entitlements and roles.
+The following sections provide sample structures in JSON format for ResourceTypes, schemas, custom entitlements with extensions, and a user that contains entitlements and roles.
 
 #### ResourceTypes
 
 Each resource includes the following fields:
-- `id`: The value used by Okta.
-- `name`: The name displayed for the resource on the Governance tab of the app integration.
-- `endpoint`: The endpoint that Okta calls to gather entitlements for this resource.
-- `description`: A description for the resource.
-- `schema`: A Uniform Resource Name (URN) that conforms to Okta's Role/Entitlement URN for Okta Identity Governance:
-    - Role: `urn:okta:scim:schemas:core:1.0:Role`
-    - Entitlement: `urn:okta:scim:schemas:core:1.0:Entitlement`
-    - The schema for users is the standard: `urn:ietf:params:scim:schemas:core:2.0:User`
-- Schema extensions: List any extensions required for additional properties. Generally, Entitlements and Roles don't need to have extensions, while it's common for Users to have highly customized extensions. For example, a User might have a schema extension to store a custom attribute for a particular app. 
 
-The default location for ResourceTypes definitions is `BaseURL/scim/v2/ResourceTypes`. For example, if your server is hosted on [https://example.com](https://example.com) then the available ResourceTypes can be retrieved from `https://example.com/scim/v2/ResourceTypes`.
+* `id`: The value used by Okta.
+* `name`: The name displayed for the resource on the **Governance** tab of the app integration.
+* `endpoint`: The endpoint that Okta calls to gather entitlements for this resource.
+* `description`: A description for the resource.
+* `schema`: A Uniform Resource Name (URN) that conforms to the Okta Role/Entitlement URN for Okta Identity Governance:
+  * Role: `urn:okta:scim:schemas:core:1.0:Role`
+  * Entitlement: `urn:okta:scim:schemas:core:1.0:Entitlement`
+  * The schema for users is the standard: `urn:ietf:params:scim:schemas:core:2.0:User`
+* Schema extensions: List any extensions required for other properties. Generally, entitlements and roles don't need to have extensions, while it's common for users to have highly customized extensions. For example, a user might have a schema extension to store a custom attribute for a particular app.
 
-The following ResourceTypes example includes a sample Role resource with no extensions, an Entitlement resource, and a Profile resource that includes extensions.
-~~~
+The default location for `ResourceTypes` definitions is `BaseURL/scim/v2/ResourceTypes`. For example, if your server is hosted on `https://example.com`, then you can retrieve the available `ResourceTypes` from `https://example.com/scim/v2/ResourceTypes`.
+
+The following `ResourceTypes` example includes a sample `Role` resource with no extensions, an `Entitlement` resource, and a `Profile` resource that includes extensions.
+
+```JSON
 {
     "schemas": [
       "urn:ietf:params:scim:api:messages:2.0:ListResponse"
@@ -177,15 +208,15 @@ The following ResourceTypes example includes a sample Role resource with no exte
         }
     ]
 }
-~~~
+```
 
 #### Schemas
 
-The following sample demonstrates a schema for an Entitlement property schema extension, where a custom profile property is defined for the Profile resourceType.
+The following sample demonstrates a schema for an entitlement property schema extension, where a custom profile property is defined for the profile resource type.
 
-> **Note**: `isvname` is used as a placeholder in this schema. To ensure uniqueness of your URNs and locations, replace it with the name of your organization or similar. 
+> **Note**: The following schema uses `isvname` as a placeholder. To ensure the uniqueness of your URNs and locations, replace it with the name of your org or similar.
 
-~~~
+```JSON
 {
     "schemas": [
       "urn:ietf:params:scim:api:messages:2.0:ListResponse"
@@ -218,13 +249,13 @@ The following sample demonstrates a schema for an Entitlement property schema ex
         }
     ]
 }
-~~~
+```
 
-#### Custom Entitlement with extensions
+#### Custom entitlement with extensions
 
-The following example demonstrates what the SCIM server might include in the response to a call to `/Licenses`. In this hypothetical example, two License resources are returned, where each License includes a Profile and a custom profile property.
+The following example demonstrates what the SCIM server might include in the response to a call to `/Licenses`. In this hypothetical example, two license resources are returned, where each license includes a profile and a custom profile property.
 
-~~~
+```JSON
 
 {
     "schemas": [
@@ -242,6 +273,7 @@ The following example demonstrates what the SCIM server might include in the res
             "type": "Profile",
             "id": "profile-123",
             "displayName": "Profile 123",
+            "description": "Sample text description for Profile 123",
             "urn:<isvname>:scim:schemas:extension:<appname>:1.0:Profile": {
                 "customProfileProperty": "test-value"
             }
@@ -260,13 +292,13 @@ The following example demonstrates what the SCIM server might include in the res
         }
     ]
 }
-~~~
+```
 
 ### Role example
 
-The following example demonstrates what the SCIM server might include in the response to a call to `/Roles`. In this hypothetical example, two Roles are returned.
+The following example demonstrates what the SCIM server might include in the response to a call to `/Roles`. In this hypothetical example, two roles are returned.
 
-~~~
+```JSON
 {
     "schemas": [
       "urn:ietf:params:scim:api:messages:2.0:ListResponse"
@@ -281,6 +313,7 @@ The following example demonstrates what the SCIM server might include in the res
             ],
             "id": "role-1",
             "displayName": "First Role",
+            "description": "Sample text description of First Role"
         },
         {
             "schemas": [
@@ -288,16 +321,17 @@ The following example demonstrates what the SCIM server might include in the res
             ],
             "id": "role-2",
             "displayName": "Second Role",
+            "description": "Sample text description of Second Role"
         }
     ]
 }
-~~~
+```
 
 ### User with entitlements and roles
 
-The following example demonstrates what the SCIM server might include in a User object. In this hypothetical example, two Users are returned, where the first has four entitlements and the second has none.
+The following example demonstrates what the SCIM server might include in a user object. In this hypothetical example, two users are returned, where the first has four entitlements and the second has none.
 
-~~~
+```json
 {
   "schemas": [
     "urn:ietf:params:scim:schemas:core:2.0:User",
@@ -441,10 +475,9 @@ The following example demonstrates what the SCIM server might include in a User 
     "location": "https://example.com/v2/Users/2819c223-7f76-453a-919d-413861904646"
   }
 }
-~~~
-
+```
 
 ## See also
 
-- [Okta and SCIM Version 2.0](/docs/reference/scim/scim-20/)
-- [Create SCIM app integrations with entitlement management](https://help.okta.com/okta_help.htm?type=oie&id=ext-aiw-scim-entitlements)
+* [Okta and SCIM Version 2.0](https://developer.okta.com/docs/api/openapi/okta-scim/guides/scim-20/)
+* [Create SCIM app integrations with entitlement management](https://help.okta.com/okta_help.htm?type=oie&id=ext-aiw-scim-entitlements)

@@ -1,8 +1,8 @@
 1. Add the following properties to `.okta.env`, replacing the placeholders with your own values.
 
    ```properties
-   OKTA_OAUTH2_ISSUER=https://${yourOktaDomain}/oauth2/${yourAuthServerName}
-   OKTA_API_AUDIENCE=${yourAudience}
+   OKTA_OAUTH2_ISSUER=https://{yourOktaDomain}/oauth2/{yourAuthServerName}
+   OKTA_API_AUDIENCE={yourAudience}
    ```
 
 1. Add the code to load this configuration to `server\init.go`.

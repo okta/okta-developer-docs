@@ -1,7 +1,7 @@
 ---
 title: DOS Mitigation Strategies
 ---
-# DOS Mitigation Strategies {#dos}
+# DOS Mitigation Strategies [[#dos]]
 
 <div class="chapter-author">By Lee Brandt</div>
 

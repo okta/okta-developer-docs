@@ -2,16 +2,16 @@
 
 1. Ensure that you've [Set up your Okta org for a password factor only use case](/docs/guides/oie-embedded-common-org-setup/java/main/#set-up-your-okta-org-for-a-password-factor-only-use-case).
 
-1. Obtain app-specific configuration values (such as `${clientId}`, `${clientSecret}`, `${yourOktaDomain}`) from the [app integration](/docs/guides/oie-embedded-common-org-setup/java/main/#create-a-new-application) you've created in Okta.
+1. Obtain app-specific configuration values (such as `{clientId}`, `{clientSecret}`, `{yourOktaDomain}`) from the [app integration](/docs/guides/oie-embedded-common-org-setup/java/main/#create-a-new-application) you've created in Okta.
 
 1. From your command shell, locate the source files for the embedded Sign-In Widget sample apps in the cloned Java SDK project: `...\okta-idx-java\samples\embedded-sign-in-widget`.
 
 1. Set the app-specific environment variables:
 
    ```bash
-   export OKTA_OAUTH2_ISSUER=https://${yourOktaDomain}/oauth2/default
-   export OKTA_OAUTH2_CLIENTID=${clientId}
-   export OKTA_OAUTH2_CLIENTSECRET=${clientSecret}
+   export OKTA_OAUTH2_ISSUER=https://{yourOktaDomain}/oauth2/default
+   export OKTA_OAUTH2_CLIENTID={clientId}
+   export OKTA_OAUTH2_CLIENTSECRET={clientSecret}
    export OKTA_IDX_SCOPES="openid profile offline_access"
    export OKTA_OAUTH2_REDIRECTURI=http://localhost:8080
    ```

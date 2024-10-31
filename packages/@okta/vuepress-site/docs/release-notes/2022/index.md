@@ -66,7 +66,7 @@ When an authentication flow begins at an org's Okta or custom domain and then fi
 
 #### Loading Page Animation feature for the Brands API is GA in Production
 
-When redirecting applications, you can use the loading page variant property (`loadingPageTouchPointVariant`) of the [Brands API](/docs/reference/api/brands/#theme-object) to display a blank page instead of the default Okta loading page animation. As a result, Okta's branding doesn't appear anywhere in the redirect user journey. <!-- OKTA-552673-->
+When redirecting applications, you can use the loading page variant property (`loadingPageTouchPointVariant`) of the [Brands API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Brands/) to display a blank page instead of the default Okta loading page animation. As a result, Okta's branding doesn't appear anywhere in the redirect user journey. <!-- OKTA-552673-->
 
 #### Rate limit parameter matching
 
@@ -121,7 +121,7 @@ Authenticator enrollment provides a standardized way for a user to enroll a new 
 
 #### Loading page animation feature for the Brands API is in GA
 
-When redirecting applications, you can use the [loading page variant property](/docs/reference/api/brands/#theme-object) (`loadingPageTouchPointVariant`) of the Brands API to display a blank page instead of the default Okta loading page animation. As a result, Okta's branding doesn't appear anywhere in the redirect user journey. <!--OKTA-544951-->
+When redirecting applications, you can use the [loading page variant property](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Brands/) (`loadingPageTouchPointVariant`) of the Brands API to display a blank page instead of the default Okta loading page animation. As a result, Okta's branding doesn't appear anywhere in the redirect user journey. <!--OKTA-544951-->
 
 #### API service integrations is Self-Service EA in Preview
 
@@ -209,13 +209,13 @@ Okta inline hook calls to third-party external web services previously provided 
 
 To improve the security of inline hooks, Okta now supports authentication with OAuth 2.0 access tokens. Tokens ensure secure calls to external web services.
 
-When creating inline hooks in the Admin Console (or by API), administrators or developers can now select OAuth 2.0 authentication and choose between two methods of OAuth 2.0: Client Secret or Private Key. A new [Key Management API](/docs/reference/api/hook-keys/) and Admin Console page is also available to create public/private key pairs for use with OAuth 2.0 inline hooks. See [Key management](https://help.okta.com/okta_help.htm?type=oie&id=ext-key-management).
+When creating inline hooks in the Admin Console (or by API), admins and developers can now select OAuth 2.0 authentication and choose between two methods of OAuth 2.0: client secret or private key. A new [Key Management API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/HookKey/#tag/HookKey) and Admin Console page is also available to create public/private key pairs for use with OAuth 2.0 inline hooks. See [Key management](https://help.okta.com/okta_help.htm?type=oie&id=ext-key-management).
 
 Using the OAuth 2.0 framework provides better security than Basic Authentication or custom headers, and is less work than setting up an IP allowlisting solution. Clients also have the ability to use access tokens minted by their own custom authorization servers to guarantee that Okta is calling their client web services and isn't triggered by any external actors. See [Add an inline hook](https://help.okta.com/okta_help.htm?type=oie&id=ext-add-inline-hook). <!--OKTA-537306-->
 
 #### Developer documentation updates in 2022.10.0
 
-* A new [Key Management API](/docs/reference/api/hook-keys/) is available under the Core Okta APIs. This reference manages JWKs used with OAuth 2.0 authentication for inline hooks.
+* A new [Key Management API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/HookKey/#tag/HookKey) is available under the Core Okta APIs. This reference manages JWKs used with OAuth 2.0 authentication for inline hooks.
 
 * A new [SAML assertion inline hook](/docs/guides/saml-inline-hook/main/) guide is available at **Guides > Hooks**. Use this guide to implement a working example of a SAML assertion inline hook.
 
@@ -312,7 +312,7 @@ Users want seamless access to certain resources, but organizations want to incre
 
 #### API for suppressing email notifications is in General Availability
 
-This API allows you to change who receives email notifications for each individual email template. You can suppress them completely or send them to admins only. This unlocks testing scenarios that warrant using production user directories and prevents end users from getting test emails. It also allows extensibility for customers who would like to use a third party email sender through Hooks or Workflows. See [Email template settings](/docs/reference/api/brands/#email-template-settings).<!--OKTA-526580-->
+This API allows you to change who receives email notifications for each individual email template. You can suppress them completely or send them to admins only. This unlocks testing scenarios that warrant using production user directories and prevents end users from getting test emails. It also allows extensibility for customers who would like to use a third party email sender through Hooks or Workflows. See [Email template settings](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/CustomTemplates/).<!--OKTA-526580-->
 
 #### Access Denied error message customization is GA in Preview
 
@@ -402,7 +402,7 @@ The `system.operation.rate_limit.violation` event is no longer triggered when SM
 
 #### Trusted Origins for iFrame embedding is GA in Production
 
-You can now choose which origins can embed Okta sign-in pages and the Okta End-User Dashboard using Trusted Origins for iFrame embedding. This feature offers a granular control over iFrame embedding compared to the existing embedding option in Customization, which doesn't let you distinguish between secure and non-secure origins. Trusted Origins (**Security** > **API**) allows you to selectively configure the origins that you trust. It also provides enhanced security as it uses a more secure `frame-ancestors` directive in Content Security Policy that protects your data from web attacks such as clickjacking. You can also migrate your existing iFrames to Trusted Origins. See [Trusted Origins API](/docs/reference/api/trusted-origins/). <!-- OKTA-514609 -->
+You can now choose which origins can embed Okta sign-in pages and the Okta End-User Dashboard using Trusted Origins for iFrame embedding. This feature offers a granular control over iFrame embedding compared to the existing embedding option in Customization, which doesn't let you distinguish between secure and non-secure origins. Trusted Origins (**Security** > **API**) allows you to selectively configure the origins that you trust. It also provides enhanced security as it uses a more secure `frame-ancestors` directive in Content Security Policy that protects your data from web attacks such as clickjacking. You can also migrate your existing iFrames to Trusted Origins. See [Trusted Origins API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/TrustedOrigin/). <!-- OKTA-514609 -->
 
 #### Support for Okta Resource Name is GA in Production
 
@@ -470,7 +470,7 @@ The existing MyAccount API (`api/v1/myaccount`) endpoints are now only accessibl
 
 #### Loading Page Animation feature for the Brands API is EA in Preview
 
-When redirecting applications, you can use the [loading page variant property](/docs/reference/api/brands/#theme-object) (`loadingPageTouchPointVariant`) of the Brands API to display a blank page instead of the default Okta loading page animation. As a result, Okta's branding doesn't appear anywhere in the redirect user journey. <!-- OKTA-509771 -->
+When redirecting applications, you can use the [loading page variant property](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Brands/) (`loadingPageTouchPointVariant`) of the Brands API to display a blank page instead of the default Okta loading page animation. As a result, Okta's branding doesn't appear anywhere in the redirect user journey. <!-- OKTA-509771 -->
 
 #### PKCE validation for OIDC app integrations is Self-Service EA in Preview
 
@@ -492,7 +492,7 @@ The [Okta Resource Name](/docs/concepts/role-assignment/#okta-resource-name-orn)
 
 #### Trusted Origins for iFrame embedding is GA in Preview
 
-You can now choose which origins can embed Okta sign-in pages and the Okta End-User Dashboard using Trusted Origins for iFrame embedding. This feature offers a granular control over iFrame embedding compared to the existing embedding option in Customization, which doesn't let you distinguish between secure and non-secure origins. Trusted Origins (**Security** > **API**) allows you to selectively configure the origins that you trust. It also provides enhanced security as it uses a more secure `frame-ancestors` directive in Content Security Policy that protects your data from web attacks such as clickjacking. You can also migrate your existing iFrames to Trusted Origins. See [Trusted Origins API](/docs/reference/api/trusted-origins/). <!-- OKTA-510180 -->
+You can now choose which origins can embed Okta sign-in pages and the Okta End-User Dashboard using Trusted Origins for iFrame embedding. This feature offers a granular control over iFrame embedding compared to the existing embedding option in Customization, which doesn't let you distinguish between secure and non-secure origins. Trusted Origins (**Security** > **API**) allows you to selectively configure the origins that you trust. It also provides enhanced security as it uses a more secure `frame-ancestors` directive in Content Security Policy that protects your data from web attacks such as clickjacking. You can also migrate your existing iFrames to Trusted Origins. See [Trusted Origins API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/TrustedOrigin/). <!-- OKTA-510180 -->
 
 #### Developer documentation updates in 2022.07.0
 
@@ -585,7 +585,7 @@ Org admins can now consolidate multiple IdP routing rules into a single dynamic 
 
 #### Email Address Bounces API is GA in Production
 
-Okta admins can now control the bounced email address list through the [Email Address Bounces API](/docs/reference/api/org/#email-address-bounces-operations). When Okta-sent email addresses are blocked from an email service (the bounced email list), admins can use this API to create a list of blocked email addresses to be removed from the email service. Note: This API is not available in Free Trial and Developer orgs. <!-- OKTA-482000 -->
+Okta admins can now control the bounced email address list through the [Email Address Bounces API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/EmailCustomization/#tag/EmailCustomization/operation/bulkRemoveEmailAddressBounces). When Okta-sent email addresses are blocked from an email service (the bounced email list), admins can use this API to create a list of blocked email addresses to be removed from the email service. Note: This API is not available in Free Trial and Developer orgs. <!-- OKTA-482000 -->
 
 #### Generic OIDC IdP nonce validation enforced
 
@@ -646,7 +646,7 @@ See the [System Log API](/docs/reference/api/system-log/). <!-- OKTA-498664 -->
 
 #### New optional request parameter for Reset Factor is GA in Preview
 
-The `/factors` endpoint has a new optional request parameter for the [Reset Factor](/docs/reference/api/factors/#reset-factor) lifecycle operation. You can now remove the phone factor (for example: SMS/Voice) as both a recovery method and a factor with one call by setting the `removeRecoveryEnrollment` parameter to `true` when making a DELETE request to the `/factors` endpoint (`/users/${userId}/factors/${factorId}`). <!--OKTA-489015-->
+The `/factors` endpoint has a new optional request parameter for the [Reset Factor](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/#tag/UserFactor/operation/unenrollFactor!in=query&path=removeRecoveryEnrollment&t=request) lifecycle operation. You can now remove the phone factor (for example: SMS/Voice) as both a recovery method and a factor with one call by setting the `removeRecoveryEnrollment` parameter to `true` when making a DELETE request to the `/factors` endpoint (`/users/${userId}/factors/${factorId}`). <!--OKTA-489015-->
 
 #### Bugs fixed in 2022.05.3
 
@@ -654,7 +654,7 @@ The `/factors` endpoint has a new optional request parameter for the [Reset Fact
 
 * Post calls to the Org API endpoint that creates an email bounces remove list (`/org/email/bounces/remove-list`) sometimes returned an HTTP 500 Internal Server Error. (OKTA-497859)
 
-* Using the [API](/docs/reference/api/authorization-servers/#claim-operations) to create a claim with a reserved name resulted in an unclear error message. (OKTA-477575)
+* Using the [API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServerClaims/) to create a claim with a reserved name resulted in an unclear error message. (OKTA-477575)
 
 ### Weekly release 2022.05.2
 
@@ -675,7 +675,7 @@ If users were created with recovery credentials using the POST `/api/v1/users?ac
 
 #### The API for suppressing email notifications is EA in Preview
 
-This API allows you to change who receives email notifications for each individual email template. You can suppress them completely, or send them to admins only. This unlocks testing scenarios that warrant using production user directories, and prevents end users from getting test emails. It also allows extensibility for customers who would like to use a third party email sender through Hooks or Workflows. See [Email template settings](/docs/reference/api/brands/#email-template-settings).
+This API allows you to change who receives email notifications for each individual email template. You can suppress them completely, or send them to admins only. This unlocks testing scenarios that warrant using production user directories, and prevents end users from getting test emails. It also allows extensibility for customers who would like to use a third party email sender through Hooks or Workflows. See [Email template settings](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/CustomTemplates/).
 
 #### Bugs fixed in 2022.05.1
 
@@ -703,7 +703,7 @@ Okta admins can now control the bounced email address list through the Email Add
 
 #### Trusted Origins for iFrame embedding is EA in Preview
 
-You can now choose what origins can embed Okta sign-in pages and Okta End-User Dashboard using Trusted Origins for iFrame embedding. This feature offers a granular control over iFrame embedding compared to the existing embedding option in Customization, which doesn't let you distinguish between secure and non-secure origins. Trusted Origins allow you to selectively configure the origins you trust. It also provides enhanced security as it uses a more secure `frame-ancestors` directive in Content Security Policy that protects your data from web attacks such as clickjacking. See [Trusted Origins API](/docs/reference/api/trusted-origins/). <!-- OKTA-494132 -->
+You can now choose what origins can embed Okta sign-in pages and Okta End-User Dashboard using Trusted Origins for iFrame embedding. This feature offers a granular control over iFrame embedding compared to the existing embedding option in Customization, which doesn't let you distinguish between secure and non-secure origins. Trusted Origins allow you to selectively configure the origins you trust. It also provides enhanced security as it uses a more secure `frame-ancestors` directive in Content Security Policy that protects your data from web attacks such as clickjacking. See [Trusted Origins API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/TrustedOrigin/). <!-- OKTA-494132 -->
 
 #### Authorize requests to generic OIDC IdPs now include nonce parameter
 
@@ -822,7 +822,7 @@ Performing a POST request on the `/apps/{applicationId}` [endpoint](/docs/refere
 
 #### Bug fixed in 2022.03.3
 
-The `auth_time` [claim](/docs/reference/api/oidc/#reserved-claims-in-the-header-section) wasn't defined as a reserved system claim. (OKTA-478924)
+The `auth_time` [claim](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/#reserved-claims-in-the-payload-section) wasn't defined as a reserved system claim. (OKTA-478924)
 
 ### Weekly release 2022.03.2
 
@@ -832,7 +832,7 @@ The `auth_time` [claim](/docs/reference/api/oidc/#reserved-claims-in-the-header-
 
 #### Bugs fixed in 2022.03.2
 
-* An error was incorrectly returned when a valid [update request](/docs/reference/api/authorization-servers/#update-a-scope) was made for the `device_sso` or `online_access` system scopes. (OKTA-417477)
+* An error was incorrectly returned when a valid [update request](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServerScopes/#tag/AuthorizationServerScopes/operation/replaceOAuth2Scope) was made for the `device_sso` or `online_access` system scopes. (OKTA-417477)
 
 * The `servers` parameter was incorrectly set as required in the [Preauthorization](https://developer.okta.com/docs/api/openapi/asa/asa/tag/projects/#tag/projects/operation/CreatePreauthorization) endpoint from the Advanced Server Access (ASA) Projects API. (OKTA-478566)
 
@@ -844,7 +844,7 @@ The `auth_time` [claim](/docs/reference/api/oidc/#reserved-claims-in-the-header-
 
 #### Bug fixed in 2022.03.1
 
-When the [List email templates](/docs/reference/api/brands/#list-email-templates) or the [List email customizations](/docs/reference/api/brands/#list-email-customizations) operations were performed on the `/brands/` endpoint, the base address in the link response header contained the `-admin` string instead of the requested base address. (OKTA-465356)
+When the [List email templates](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/CustomTemplates/#tag/CustomTemplates/operation/listEmailTemplates) or the [List email customizations](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/CustomTemplates/#tag/CustomTemplates/operation/listEmailCustomizations) operations were performed on the `/brands/` endpoint, the base address in the link response header contained the `-admin` string instead of the requested base address. (OKTA-465356)
 
 ### Monthly release 2022.03.0
 
@@ -860,7 +860,7 @@ When the [List email templates](/docs/reference/api/brands/#list-email-templates
 
 #### Authentication timestamp is added as an access token claim
 
-The user-authenticated epoch timestamp is provided as the `auth_time` [claim in the access token](/docs/reference/api/oidc/#reserved-claims-in-the-payload-section).
+The user-authenticated epoch timestamp is provided as the `auth_time` [claim in the access token](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/#reserved-claims-in-the-payload-section).
 
 #### Custom Administrator Roles is GA in Production
 
@@ -868,7 +868,7 @@ The Okta [Custom Administrator Roles](/docs/reference/api/roles/) API provides o
 
 #### Email Address Bounces API is EA in Preview
 
-Okta admins can now control the bounced email address list through the [Email Address Bounces API](/docs/reference/api/org/#email-address-bounces-operations). When Okta-sent email addresses are blocked from an email service (the bounced email list), admins can use this API to create a list of blocked email addresses to be removed from the email service.
+Okta admins can now control the bounced email address list through the [Email Address Bounces API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/EmailCustomization/#tag/EmailCustomization/operation/bulkRemoveEmailAddressBounces). When Okta-sent email addresses are blocked from an email service (the bounced email list), admins can use this API to create a list of blocked email addresses to be removed from the email service.
 
 #### Enhanced email macros for email template customization
 
@@ -888,7 +888,7 @@ When you use the [AuthN APIs](/docs/reference/api/authn/#request-parameters-for-
 
 * When ThreatInsight evaluated sign-in attempts for unknown users, the threat level was incorrectly displayed as `threatLevel=UNKNOWN` in the System Log. (OKTA-471299)
 
-* The OAuth 2.0 [`/token`](/docs/reference/api/oidc/#token) and [`/authorize`](/docs/reference/api/oidc/#authorize) endpoints accepted requests that included the `resource` parameter. (OKTA-476549)
+* The OAuth 2.0 [`/token`](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/tokenCustomAS) and [`/authorize`](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/authorizeCustomAS) endpoints accepted requests that included the `resource` parameter. (OKTA-476549)
 
 ## February
 
@@ -922,7 +922,7 @@ To view an example of this new event detail, [create a user by API](/docs/guides
 
 #### Bug fixed in 2022.02.1
 
-The [OAuth token endpoint](/docs/reference/api/oidc/#response-example-error-2) didn’t reject requests that included a `code_verifier` parameter if the [authorization call](/docs/reference/api/oidc/#authorize) was issued without the PKCE `code_challenge` parameter. (OKTA-461970)
+The [OAuth token endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/tokenCustomAS!path=0/code_verifier&t=request) didn’t reject requests that included a `code_verifier` parameter if the [authorization call](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/authorizeCustomAS!in=query&path=code_challenge&t=request) was issued without the PKCE `code_challenge` parameter. (OKTA-461970)
 
 ### Monthly release 2022.02.0
 
@@ -986,11 +986,11 @@ The masking algorithm now reveals fewer digits in API responses for shorter prof
 
 #### Bugs fixed in 2022.01.1
 
-* If the [Create a Scope](/docs/reference/api/authorization-servers/#create-a-scope) endpoint received multiple requests at or near the same time, duplicate Scopes could be created. (OKTA-442533)
+* If the [Create a Scope](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServerScopes/#tag/AuthorizationServerScopes/operation/createOAuth2Scope) endpoint received multiple requests at or near the same time, duplicate Scopes could be created. (OKTA-442533)
 
 * When the [Update resource set](/docs/reference/api/roles/#update-resource-set) endpoint was called, the `resourceSetId` parameter was required in the body of the request. (OKTA-445144)
 
-* When the [Upload Theme background image](/docs/reference/api/brands/#upload-theme-background-image) endpoint was called, the image was converted to PNG format. (OKTA-458260)
+* When the [Upload Theme background image](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Themes/#tag/Themes/operation/uploadBrandThemeBackgroundImage) endpoint was called, the image was converted to PNG format. (OKTA-458260)
 
 * When the [List events](/docs/reference/api/system-log/#list-events) operation was performed on the `/logs` endpoint, some system logs showed the incorrect status for debug behaviors if there was missing data that prevented behavior evaluation. (OKTA-455372)
 
@@ -1009,9 +1009,9 @@ If you block suspicious traffic and [ThreatInsight](https://developer.okta.com/d
 
 #### Dynamic Issuer Mode is GA in Production
 
-An authorization server's issuer URL can be used to validate whether tokens are issued by the correct authorization server. You can configure the issuer URL to be either the Okta subdomain (such as `company.okta.com`) or a custom domain (such as `sso.company.com`). See [Property details](/docs/reference/api/authorization-servers/#authorization-server-properties).
+An authorization server's issuer URL can be used to validate whether tokens are issued by the correct authorization server. You can configure the issuer URL to be either the Okta subdomain (such as `company.okta.com`) or a custom domain (such as `sso.company.com`). See [Property details](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServer/).
 
-When there are applications that use Okta's subdomain and other applications that use the custom domain, the issuer validation breaks because the value is hard-coded to one domain or the other.
+When there are apps that use Okta's subdomain and other apps that use the custom domain, the issuer validation breaks because the value is hard-coded to one domain or the other.
 
 With Dynamic Issuer Mode, the issuer value in minted tokens is dynamically updated based on the URL that is used to initiate the original authorize request. See [Client application settings](/docs/reference/api/apps/#settings-10). <!--OKTA-452668-->
 

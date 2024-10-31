@@ -1,23 +1,23 @@
 ---
-title: Test your Okta SCIM integration
-excerpt: Test that your System for Cross-domain Identity Management (SCIM) application can handle actual requests to create, read, update, and delete (CRUD) user profile information, and run through our Okta Integration Network (OIN) quality assurance test cases.
+title: Test your private SCIM integration
+excerpt: Test that your System for Cross-domain Identity Management (SCIM) app can handle actual requests to create, read, update, and delete (CRUD) user profile information, and manually run the Okta Integration Network (OIN) quality assurance test cases.
 meta:
   - name: description
-    content: Test that your SCIM application can handle actual requests to create, read, update and delete (CRUD) user profile information, and run through our Okta Integration Network (OIN) quality assurance test cases.
+    content: Test that your SCIM app can handle actual requests to create, read, update and delete (CRUD) user profile information, and manually run the Okta Integration Network (OIN) quality assurance test cases.
 layout: Guides
 ---
 
-This guide teaches you how to test your System for Cross-domain Identity Management (SCIM) application. This includes requests to create, read, update, and delete (CRUD) user profile information. In addition, your integration also has to pass Okta Integration Network (OIN) quality assurance (QA) tests.
+This guide teaches you how to test your System for Cross-domain Identity Management (SCIM) app. This includes an automated Runscope test suite for create, read, update, and delete (CRUD) operations, and a manual Okta Integration Network (OIN) quality assurance (QA) test suite. You need to create a [private SCIM integration instance](/docs/guides/scim-provisioning-integration-connect/main/#connect-to-your-scim-service) in your org before you run these tests.
 
 ## Scope of tests
 
-This second suite of [Runscope](https://www.runscope.com) tests checks that your SCIM application can handle actual requests to **c**reate, **r**ead, **u**pdate, and **d**elete (CRUD) user profile information.
+This second suite of [Runscope](https://www.runscope.com) tests checks that your SCIM app can handle actual requests to create, read, update, and delete (CRUD) user profile information.
 
-> **Note:** Okta doesn't delete user profiles in your application, but instead marks the user record with `active=false` to deactivate them. For a detailed explanation on deleting user profiles, see [Delete (Deprovision)](/docs/concepts/scim/#delete-deprovision).
+> **Note:** Okta doesn't delete user profiles in your app, but instead marks the user record with `active=false` to deactivate them. For a detailed explanation on deleting user profiles, see [Delete (Deprovision)](/docs/concepts/scim/#delete-deprovision).
 
 ## Profile Sourcing activation
 
-Okta Developer support must activate the Profile Sourcing capability (formerly known as Profile Mastering) for developer orgs. To temporarily activate this feature for your org, contact <developers@okta.com> with the name of your app integration and your org ID. Developer support automatically removes the access after two weeks. If you need a longer period to test your integration, include your time requirements in your email.
+Okta developer support must activate the Profile Sourcing capability (formerly known as Profile Mastering) for developer orgs. To temporarily activate this feature for your org, contact <developers@okta.com> with the name of your app integration and your org ID. Developer support automatically removes the access after two weeks. If you need a longer period to test your integration, include your time requirements in your email.
 
 ## Runscope tests for CRUD
 
@@ -99,8 +99,10 @@ If you plan to publish your SCIM integration in the OIN catalog, run the test ca
 
 ## Next steps
 
-This completes the [Build a SCIM provisioning integration](/docs/guides/scim-provisioning-integration-overview/) series. You now have a SCIM integration that's successfully built and tested.
+This completes the [Build a SCIM provisioning integration](/docs/guides/scim-provisioning-integration-overview/) series. You now have a private SCIM integration that's successfully built and tested for your org users.
 
-After you complete testing and your integration functions as expected, you can submit your integration to be published in the [Okta Integration Network](https://www.okta.com/integrations/) (OIN).
+If you want to expose your SCIM integration to your customers who also use Okta, submit it to the Okta Integration Network (OIN). Integrations listed in the [OIN catalog](https://www.okta.com/integrations/) are available to all Okta customers to use.
 
-See [Submit an LCM integration](/docs/guides/submit-app/scim/main/) to submit your SCIM integration using the OIN Manager.
+* See [Publish an OIN integration](/docs/guides/submit-app-overview/) to understand the process for submitting and publishing an integration.
+* Review the [OIN submission requirements](/docs/guides/submit-app-prereq/) before starting the submission process.
+* Use the [OIN Wizard: Submit an integration](/docs/guides/submit-oin-app/scim/main/) guide to connect, test, and submit your Okta SCIM integration to the OIN.

@@ -18,7 +18,7 @@
   background-color: cv("body", "lighter");
 
   font-family: $font-family;
-  color: cv("text");
+  color: cv("text", "base");
 }
 
 @include media("<desktop") {
@@ -115,7 +115,7 @@
 }
 
 .homepage--color-sub {
-  color: cv("text");
+  color: cv("text", "base");
 }
 
 .homepage--intro-heading {

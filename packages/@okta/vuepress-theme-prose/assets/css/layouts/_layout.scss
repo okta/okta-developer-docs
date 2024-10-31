@@ -5,10 +5,14 @@ body,
   scroll-behavior: smooth;
 }
 
+:root {
+  --header-height: 141px;
+}
+
 body {
   display: none;
 
-  background-color: cv("body");
+  background-color: cv("body", "base");
 
   font-weight: 400;
   font-style: normal;
@@ -32,7 +36,7 @@ body.loaded {
 }
 
 .wrap {
-  background-color: cv("header");
+  background-color: cv("header", "base");
 }
 
 .text-center {
@@ -73,25 +77,27 @@ body.loaded {
 
   width: 100%;
 
-  background-color: cv("header");
+  background-color: cv("header", "base");
 }
 
 .page-body {
   flex: 1 0 auto;
-  padding-top: 141px;
+  padding-top: var(--header-height);
 
   background-color: #ffffff;
+
+  transition: padding-top 0.1s ease-out;
 }
 
 @include media("<desktop-xl") {
   .page-body {
-    padding-top: 125px;
+    padding-top: var(--header-height);
   }
 }
 
 @include media("<tablet") {
   .page-body {
-    padding-top: 115px;
+    padding-top: var(--header-height);
   }
 }
 

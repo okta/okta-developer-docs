@@ -8,7 +8,7 @@ Add authentication with the Okta [redirect model](https://developer.okta.com/doc
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Create an integration that represents your app in your Okta org.
 * Add dependencies and configure your app to use Okta redirect authentication.
@@ -18,7 +18,7 @@ Add authentication with the Okta [redirect model](https://developer.okta.com/doc
 * Make an HTTP call with the access token.
 * Check the integration by signing in a user.
 
-**Sample code**
+#### Sample code
 
 <StackSnippet snippet="samplecode" />
 
@@ -33,7 +33,7 @@ Set up your [Okta org](/docs/concepts/okta-organizations/). The Okta command-lin
 1. Install [Okta CLI](https://cli.okta.com/).
 1. If you don't already have a free Okta developer account:
    1. Open your terminal.
-   {style="list-style-type:lower-alpha"}
+   [[style="list-style-type:lower-alpha"]]
    1. Run `okta register`, and enter your first name, last name, email address, and country.
    1. Click or tap **Activate** in the account activation email that is sent to the email address that you gave.
 
@@ -46,7 +46,7 @@ Set up your [Okta org](/docs/concepts/okta-organizations/). The Okta command-lin
       Your Okta Domain: https://dev-xxxxxxx.okta.com
       ```
 
-   1. Make a note of your Okta domain. Use it wherever `${yourOktaDomain}` appears in this guide.
+   1. Make a note of your Okta domain. Use it wherever `{yourOktaDomain}` appears in this guide.
 
 1. Run `okta login` to connect to your org if you didn't create one in the last step (successfully creating an Okta org also signs you in). You need the URL of your org, which is `https://` followed by your [Okta domain](/docs/guides/find-your-domain/), and an [API/access token](/docs/guides/create-an-api-token/).
 
@@ -60,7 +60,7 @@ Set up your [Okta org](/docs/concepts/okta-organizations/). The Okta command-lin
 
 ## Create an Okta integration for your app
 
-An application integration represents your app in your Okta org. The integration configures how your app integrates with the Okta services including: which users and groups have access, authentication policies, token refresh requirements, redirect URLs, and more. The integration includes configuration information required by the app to access Okta.
+An app integration represents your app in your Okta org. The integration configures how your app integrates with the Okta services. This includes which users and groups have access, authentication policies, token refresh requirements, redirect URLs, and more. The integration includes configuration information required by the app to access Okta.
 
 To create your app integration in Okta using the CLI:
 
@@ -75,7 +75,9 @@ To create your app integration in Okta using the CLI:
 2. Enter **Quickstart** when prompted for the app name.
 3. Specify the required redirect URI values:
 <StackSnippet snippet="redirectvalues" />
-4. Make note of the application configuration printed to the terminal as you use the Client ID and Issuer to configure your SPA.
+4. Make note of the app configuration printed to the terminal as you use the Client ID and Issuer to configure your SPA.
+
+>**Note:** Edit your **Quickstart** app integration in the Admin Console to add the refresh token grant type. See step 8 in the following procedure.
 
 At this point, you can move to the next step: [Creating your app](#create-an-app). If you want to set up the integration manually, or find out what the CLI just did for you, read on.
 
@@ -85,9 +87,9 @@ At this point, you can move to the next step: [Creating your app](#create-an-app
 1. Click **Create App Integration**.
 1. Select a **Sign-in method** of **OIDC - OpenID Connect**.
 1. Select an **Application type** of **Single-Page Application**, then click **Next**.
-   > **Note:** If you choose an inappropriate application type, it can break the sign-in or sign-out flows by requiring the verification of a client secret, which is something that public clients don't have.
+   > **Note:** If you choose an inappropriate app type, it can break the sign-in or sign-out flows by requiring the verification of a client secret. Public clients don't have a client secret.
 1. Enter an **App integration name**.
-1. Select **Authorization Code** and **Refresh Token** as the **Grant type**. This enables the Authorization Code flow with PKCE for your application and the ability to refresh the access token when it expires without prompting the user to reauthenticate.
+1. Select **Authorization Code** and **Refresh Token** as the **Grant type**. This enables the Authorization Code flow with PKCE for your app. It also can refresh the access token when it expires without prompting the user to reauthenticate.
 1. Enter the **Sign-in redirect URIs** for both local development, such as `http://localhost:xxxx/login/callback`, and for production, such as `https://app.example.com/login/callback`.
 1. Select the type of **Controlled access** for your app in the **Assignments** section. You can allow all users to have access or limit access to individuals and groups. See the [Assign app integrations](https://help.okta.com/okta_help.htm?type=oie&id=ext-lcm-user-app-assign) topic in the Okta product documentation.
 1. Click **Save** to create the app integration and open its configuration page. Keep this page open as you need to copy some values in later steps when configuring your app.
@@ -103,13 +105,13 @@ Reduce possible attack vectors by defining Trusted Origins, which are the websit
 
 >**Note:** To reduce risk, only grant access to the Okta API to specific websites (origins) that you both control and trust.
 
-To set trusted origins manually, add the **Base URIs** for local development, such as `http://localhost:xxxx`, and for production, such as `https://app.example.com`. These URIs are added as trusted origins in your Okta org and you can manage them by going to **Security** > **API** and selecting the **Trusted Origins** tab. See [Enable Trusted Origins](/docs/guides/enable-cors/).
+To set trusted origins manually, add the **Base URIs** for local development, such as `http://localhost:xxxx`, and for production, such as `https://app.example.com`. These URIs are added as trusted origins in your Okta org. You can manage them by going to **Security** > **API** and selecting the **Trusted Origins** tab. See [Enable Trusted Origins](/docs/guides/enable-cors/).
 
 ## Create an app
 
 In this section you create a sample SPA and add redirect authentication using your new Okta app integration.
 
-### Create a new project
+### Create a project
 
 <StackSnippet snippet="createproject" />
 
@@ -127,7 +129,7 @@ Our app uses information from the app integration that was created earlier to co
 
 #### Find your config values
 
-If you don't have your configuration values handy, you can find them in the Admin Console (choose **Applications** > **Applications** and find your app integration that you created earlier):
+You can find your config values in the Admin Console (select **Applications** > **Applications** and find your app integration that you created earlier):
 
 * **Client ID**: Found on the **General** tab in the **Client Credentials** section.
 * **Issuer**: Found in the **Issuer URI** field for the authorization server that appears by selecting **Security** > **API** from the left navigation pane.
@@ -136,29 +138,29 @@ If you don't have your configuration values handy, you can find them in the Admi
 
 To sign a user in, your web app redirects the browser to the Okta-hosted sign-in page. This usually happens from a sign-in action, such as clicking a button or when a user visits a protected page.
 
-> **Note**: The sign-out action requires your app to be listed as a trusted origin. The Okta CLI sets this up for you, but if you used the Okta dashboard, follow the steps to [add your app as a trusted origin](#enable-trusted-origins).
+> **Note**: The sign-out action requires your app to be listed as a trusted origin. The Okta CLI sets this up for you. If you used the Okta dashboard, follow the steps to [add your app as a trusted origin](#enable-trusted-origins).
 
 <StackSnippet snippet="loginredirect" />
 
-During the sign-in flow, the user is redirected to the hosted sign-in page where they authenticate. After successful authentication, the browser is redirected back to your application along with [information about the user](#get-info-about-the-user).
+During the sign-in flow, the user is redirected to the hosted sign-in page where they authenticate. After successful authentication, the browser is redirected back to your app along with [information about the user](#get-info-about-the-user).
 
 > **Note:** To customize the hosted sign-in page, see [Style the Okta-hosted Sign-In Widget](/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget).
 
 ### Handle the callback from Okta
 
-After Okta authenticates a user, they're redirected back to your application through the callback route that you define. When Okta redirects back, the URL query string contains a short-lived code that is exchanged for a token. The SDK does this for you with its callback component.
+After Okta authenticates a user, they're redirected back to your app through the callback route that you define. When Okta redirects back, the URL query string contains a short-lived code that is exchanged for a token. The SDK does this for you with its callback component.
 
 <StackSnippet snippet="handlecallback" />
 
 ### Get info about the user
 
-After the user signs in, Okta returns some of their profile information to your app (see [/userinfo response example](/docs/reference/api/oidc/#response-example-success-6)). You can use this information to update your UI, for example to show the customer's name.
+After the user signs in, Okta returns some of their profile information to your app (see [/userinfo response example](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/userinfoCustomAS)). You can use this information to update your UI, for example to show the customer's name.
 
 The default profile items (called `claims`) returned by Okta include the user's email address, name, and preferred username. The claims that you see may differ depending on what scopes your app has requested.
 
 <StackSnippet snippet="getuserinfo" />
 
-> **Note**: To get user information beyond the default profile claims, you can call the [/userinfo endpoint](/docs/reference/api/oidc/#userinfo), or call the `getUser()` method in `OktaAuth`.
+> **Note**: To get user information beyond the default profile claims, you can call the [/userinfo endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/userinfoCustomAS), or call the `getUser()` method in `OktaAuth`.
 
 ## Sign in a user
 
@@ -172,13 +174,13 @@ Your app can require authentication for everything or just for specific routes. 
 
 ### Require authentication for everything
 
-Some apps require that the user be authenticated for all routes, for example a company intranet.
+Some apps require the authentication of the user for all routes, for example a company intranet.
 
 <StackSnippet snippet="reqautheverything" />
 
 ### Require authentication for a specific route
 
-Your website may enable users to find some initial information but require a user to sign in or take some action for more information. For example, an ecommerce site can allow a user to browse anonymously and even to add items to a cart. However, checking out requires the user to sign in.
+Your website may enable users to find some initial information but require a user to sign in for further actions. For example, an ecommerce site can allow a user to browse anonymously and even to add items to a cart. However, checking out requires the user to sign in.
 
 <StackSnippet snippet="reqauthspecific" />
 
@@ -186,12 +188,12 @@ Your website may enable users to find some initial information but require a use
 
 SPAs need to send requests to one or more APIs to perform actions and retrieve information.
 
-After a user signs in, your application stores an access token issued by Okta. By attaching this token to outgoing requests, your APIs can authenticate them (ensure that the user is signed in to perform an action) and authorize them (ensure that the user is allowed to do an action).
+After a user signs in, your app stores an access token issued by Okta. By attaching this token to outgoing requests, your APIs can authenticate and authorize them. Authentication ensures that the user is signed in to perform an action. Authorization ensures that the user is allowed to do an action.
 
 On your front end (this SPA), make sure that you place the access token in the HTTP `Authorization` header of outgoing requests using this format:
 
 ```http
-Authorization: Bearer ${token}
+Authorization: Bearer {token}
 ```
 
 On your back-end (the API), make sure that you check for valid tokens in incoming requests. See [Protect your API endpoints](/docs/guides/protect-your-api/).

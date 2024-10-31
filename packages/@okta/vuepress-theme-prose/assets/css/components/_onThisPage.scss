@@ -6,12 +6,12 @@
   padding-right: 1rem;
   overflow-y: auto;
 
-  color: cv("action");
+  color: cv("action", "base");
 }
 
 @include media(">=tablet") {
   .on-this-page-navigation {
-    top: 170px;
+    top: calc(40px + var(--header-height));
 
     padding-bottom: 40px;
     min-height: 450px;
@@ -22,11 +22,11 @@
   padding: 3px 0;
 
   line-height: 1.2rem;
-  color: cv("text");
+  color: cv("text", "base");
 }
 
 .on-this-page a:visited {
-  color: cv("text");
+  color: cv("text", "base");
 }
 
 .on-this-page .title {
@@ -50,7 +50,7 @@
   border-left: 3px solid cv("action", "base");
 
   font-weight: 500;
-  color: cv("link");
+  color: cv("link", "base");
 }
 
 .on-this-page ul {
@@ -174,7 +174,7 @@
 }
 
 .mobile-on-this-page .vs__dropdown-menu .vs__dropdown-option--highlight {
-  border: 1px solid cv("action");
+  border: 1px solid cv("action", "base");
   background: inherit;
 
   color: inherit;

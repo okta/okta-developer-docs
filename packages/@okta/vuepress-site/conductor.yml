@@ -9,52 +9,8 @@ redirects:
     to: /docs/guides/add-saml-idp/
   - from: /docs/reference/api/social_authentication
     to: /docs/concepts/social-login/
-  - from: /code/dotnet/index.html
-    to: /code/dotnet/aspnetcore/index.html
-  - from: /code/dotnet/index.html
-    to: /code/dotnet/aspnetcore/
-  - from: /code/dotnet/okta-oidc-spa-osw-aspnet
-    to: /code/dotnet/index.html
-  - from: /code/dotnet/okta-oauth-spa-authjs-osw
-    to: /code/dotnet/index.html
-  - from: /code/dotnet/okta-oauth-aspnet-codeflow
-    to: /code/dotnet/aspnetcore/
-  - from: /docs/examples/dotnet_sample_application.html
-    to: /code/dotnet/sample_application/index.html
-  - from: /code/dotnet/sdk/index.html
-    to: https://github.com/okta/okta-sdk-dotnet
-  - from: /code/swift/index.html
-    to: /code/ios/index.html
-  - from: /code/java/jwt-validation/index.html
-    to: https://github.com/okta/okta-jwt-verifier-java
-  - from: /docs/examples/spring_security_saml.html
-    to: /code/java/spring_security_saml/index.html
-  - from: /docs/guides/spring_security_saml.html
-    to: /code/java/spring_security_saml/index.html
-  - from: /docs/guides/okta_auth_sdk.html
-    to: /code/javascript/okta_auth_sdk/index.html
-  - from: /docs/guides/okta_auth_sdk
-    to: /code/javascript/okta_auth_sdk/
-  - from: /code/javascript/okta_auth_sdk_ref/index.html
-    to: https://github.com/okta/okta-auth-js
-  - from: /code/javascript/okta_auth_sdk_external_ref.html
-    to: /code/javascript/okta_auth_sdk_ref/index.html
-  - from: /docs/guides/okta_sign-in_widget.html
-    to: /code/javascript/okta_sign-in_widget/
-  - from: /code/javascript/okta_sign-in_widget_ref.html
-    to: /code/javascript/okta_sign-in_widget/
-  - from: /code/javascript/okta_sign-in_widget_ref/index.html
-    to: /code/javascript/okta_sign-in_widget/
-  - from: /code/javascript/okta_sign-in_widget_external_ref.html
-    to: /code/javascript/okta_sign-in_widget/
   - from: /docs/reference/api/okta_signin_widget.html
-    to: /code/javascript/okta_sign-in_widget_ref/index.html
-  - from: /docs/examples/pysaml2.html
-    to: /code/python/pysaml2/index.html
-  - from: /docs/guides/pysaml2.html
-    to: /code/python/pysaml2/index.html
-  - from: /code/python/sdk/index.html
-    to: https://github.com/okta/okta-sdk-python
+    to: /docs/guides/embedded-siw/
   - from: /docs/getting_started/api_test_client.html
     to: /docs/reference/rest/index.html
   - from: /docs/api/getting_started/api_test_client.html
@@ -62,7 +18,7 @@ redirects:
   - from: /docs/api/getting_started/index.html
     to: /docs/reference/rest/index.html
   - from: /docs/getting_started/design_principles.html
-    to: /docs/reference/core-okta-api/#design-principles
+    to: https://developer.okta.com/docs/api/
   - from: /docs/api
     to: /docs/reference/
   - from: /docs/api/index.html
@@ -72,47 +28,47 @@ redirects:
   - from: /docs/getting_started/getting_a_token
     to: /docs/guides/create-an-api-token/
   - from: /docs/getting_started/design_principles
-    to: /docs/reference/core-okta-api/#design-principles
+    to: https://developer.okta.com/docs/api/
   - from: /docs/reference/api/index.html
     to: /docs/reference/
   - from: /docs/api/reference/index.html
     to: /docs/reference/
   - from: /docs/api/rest/apps.html
-    to: /docs/reference/api/apps/index.html
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/
   - from: /docs/reference/api/apps.html
-    to: /docs/reference/api/apps/index.html
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/
   - from: /docs/api/rest/authn.html
     to: /docs/reference/api/authn/
   - from: /docs/reference/api/index.html
     to: /docs/reference/
   - from: /docs/api/rest/events.html
-    to: /docs/reference/api/system-log/index.html
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/
   - from: /docs/api/resources/factor_admin.html
     to: /docs/reference/api/factor-admin/index.html
   - from: /docs/api/resources/factor_admin/index.html
     to: /docs/reference/api/factor-admin/index.html
   - from: /docs/api/rest/factors.html
-    to: /docs/reference/api/factors/index.html
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/
   - from: /docs/api/rest/groups.html
-    to: /docs/reference/api/groups/index.html
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/
   - from: /docs/api/rest/idps.html
-    to: /docs/reference/api/idps/index.html
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/
   - from: /docs/api/resources/idps
-    to: /docs/reference/api/idps/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/
   - from: /docs/api/rest/oauth-clients.html
-    to: /docs/reference/api/oauth-clients/index.html
+    to: https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/Client/index.html
   - from: /docs/reference/api/oauth2
-    to: /docs/reference/api/oidc/index.html
+    to: https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/index.html
   - from: /docs/how-to/beta-auth-service/api-access-management-troubleshooting
-    to: /docs/reference/api/oidc/index.html
+    to: https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/index.html
   - from: /reference/authentication_reference
-    to: /docs/reference/api/oidc/index.html
+    to: https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/index.html
   - from: /docs/getting_started/policy.html
-    to: /docs/reference/api/policy/index.html
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/
   - from: /docs/api/rest/sessions.html
     to: /docs/reference/api/sessions/
   - from: /docs/api/rest/templates.html
-    to: /docs/reference/api/templates/index.html
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Template/
   - from: /docs/getting_started/tokens.html
     to: /docs/guides/create-an-api-token/
   - from: /docs/api/resources/tokens/index.html
@@ -120,9 +76,9 @@ redirects:
   - from: /docs/reference/api/tokens/index.html
     to: /docs/guides/create-an-api-token/
   - from: /docs/api/rest/users.html
-    to: /docs/reference/api/users/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/
   - from: /docs/reference/api/user
-    to: /docs/reference/api/users/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/
   - from: /docs/platform-release-notes/platform-release-notes/index.html
     to: /docs/release-notes/
   - from: /docs/platform-release-notes/platform-release-notes2016-23/index.html
@@ -272,9 +228,11 @@ redirects:
   - from: /docs/api/getting_started/okta_expression_lang
     to: /docs/reference/okta-expression-language/index.html
   - from: /docs/guides/scim_guidance.html
-    to: /docs/reference/scim/index.html
+    to: https://developer.okta.com/docs/api/openapi/okta-scim/guides/
+  - from: /docs/reference/scim/
+    to: https://developer.okta.com/docs/api/openapi/okta-scim/guides/
   - from: /docs/guides/scim_developer_program.html
-    to: /docs/reference/scim/index.html
+    to: https://developer.okta.com/docs/api/openapi/okta-scim/guides/
   - from: /standards/SAML/index.html
     to: /docs/concepts/saml/
   - from: /docs/guides/saml_guidance
@@ -300,9 +258,9 @@ redirects:
   - from: /docs/examples/session_cookie.html
     to: /docs/guides/session-cookie/index.html
   - from: /use_cases/events-api-deprecation/index.html
-    to: /docs/reference/api/system-log/index.html
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/
   - from: /use_cases/inline_hooks/api_am_hook/api_am_hook
-    to: /docs/reference/token-hook/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createTokenInlineHook/
   - from: /use_cases/integrate_with_okta/index.html
     to: https://www.okta.com/integrate/
   - from: /docs/api/getting_started/oan_guidance
@@ -334,13 +292,13 @@ redirects:
   - from: /use_cases/mobile/okta_mobile_connect/index.html
     to: https://help.okta.com/en-us/okta_help_CSH.htm#ext_Okta_Mobile_Connect
   - from: /docs/api/reference/apps.html
-    to: /docs/reference/api/apps/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/
   - from: /docs/reference/api/users.html
-    to: /docs/reference/api/users/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/
   - from: /docs/reference/api/authn.html
     to: /docs/reference/api/authn/
   - from: /docs/reference/api/system_log.html
-    to: /docs/reference/api/system-log/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/
   - from: /docs/how-to/creating-token-with-groups-claim.html
     to: /docs/guides/customize-tokens-returned-from-okta/
   - from: /docs/guides/create-token-with-groups-claim/index.html
@@ -356,13 +314,13 @@ redirects:
   - from: /3rd_party_notices/Android_Mobile.html
     to: /3rd_party_notices/Android_Mobile/
   - from: /docs/reference/api/oidc.html
-    to: /docs/reference/api/oidc/
+    to: https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/
   - from: /docs/reference/api/oauth2.html
-    to: /docs/reference/api/oidc/
+    to: https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/
   - from: /standards/OIDC/index.html
-    to: /docs/reference/api/oidc/
+    to: https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/
   - from: /docs/api/getting_started/design_principles.html
-    to: /docs/reference/core-okta-api/#design-principles
+    to: https://developer.okta.com/docs/api/
   - from: /standards/SAML/index
     to: /docs/concepts/saml/
   - from: /docs/reference/api/sessions.html
@@ -396,7 +354,7 @@ redirects:
   - from: /reference/postman_collections/index.html
     to: /docs/reference/postman-collections/
   - from: /reference/scim/index.html
-    to: /docs/reference/scim/
+    to: https://developer.okta.com/docs/api/openapi/okta-scim/guides/
   - from: /reference/webfinger/index.html
     to: /docs/reference/api/webfinger/
   - from: /guides/index.html
@@ -412,7 +370,7 @@ redirects:
   - from: /use_cases/event_hooks/index.html
     to: /docs/concepts/event-hooks/
   - from: /use_cases/events-api-migration/index.html
-    to: /docs/reference/api/system-log/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/
   - from: /use_cases/inline_hooks/index.html
     to: /docs/concepts/inline-hooks/
   - from: /use_cases/inline_hooks/registration_hook/registration_hook/index.html
@@ -422,13 +380,13 @@ redirects:
   - from: /use_cases/inline_hooks/import_hook/import_hook/index.html
     to: /docs/reference/import-hook/
   - from: /use_cases/inline_hooks/token_hook/token_hook/index.html
-    to: /docs/reference/token-hook/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createTokenInlineHook/
   - from: /use_cases/mfa/index.html
     to: /docs/guides/mfa/
   - from: /use_cases/relationships/index.html
-    to: /docs/reference/api/linked-objects/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/LinkedObject/
   - from: /docs/api/getting_started/releases-at-okta/index.html
-    to: /docs/reference/releases-at-okta/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/guides/release-lifecycle/
   - from: /docs/api/getting_started/rate-limits/index.html
     to: /docs/reference/rate-limits/
   - from: /docs/api/getting_started/finding_your_app_credentials/index.html
@@ -440,55 +398,55 @@ redirects:
   - from: /docs/api/getting_started/getting_a_token/index.html
     to: /docs/guides/create-an-api-token/
   - from: /docs/api/getting_started/design_principles/index.html
-    to: /docs/reference/core-okta-api/#design-principles
+    to: https://developer.okta.com/docs/api/
   - from: /docs/api/resources/apps/index.html
-    to: /docs/reference/api/apps/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/
   - from: /docs/api/resources/authn/index.html
     to: /docs/reference/api/authn/
   - from: /docs/api/resources/oidc/index.html
-    to: /docs/reference/api/oidc/
+    to: https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/
   - from: /docs/api/resources/oidc
-    to: /docs/reference/api/oidc/
+    to: https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/
   - from: /docs/api/resources/roles/index.html
-    to: /docs/reference/api/roles/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/
   - from: /docs/api/resources/authorization-servers/index.html
-    to: /docs/reference/api/authorization-servers/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServer/
   - from: /docs/api/resources/oauth-clients/index.html
-    to: /docs/reference/api/oauth-clients/
+    to: https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/Client/
   - from: /docs/api/resources/events/index.html
-    to: /docs/reference/api/system-log/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/
   - from: /docs/api/resources/event-hooks/index.html
-    to: /docs/reference/api/event-hooks/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/EventHook/
   - from: /docs/api/resources/event-types/index.html
     to: /docs/reference/api/event-types/
   - from: /docs/api/resources/event-types
     to: /docs/reference/api/event-types/
   - from: /docs/api/resources/factors/index.html
-    to: /docs/reference/api/factors/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/
   - from: /docs/api/resources/groups/index.html
-    to: /docs/reference/api/groups/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/
   - from: /docs/api/resources/idps/index.html
-    to: /docs/reference/api/idps/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/
   - from: /docs/api/resources/inline-hooks/index.html
-    to: /docs/reference/api/inline-hooks/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook
   - from: /docs/api/resources/linked-objects/index.html
-    to: /docs/reference/api/linked-objects/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/LinkedObject/
   - from: /docs/api/resources/policy/index.html
-    to: /docs/reference/api/policy/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/
   - from: /docs/api/resources/schemas/index.html
-    to: /docs/reference/api/schemas/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/
   - from: /docs/api/resources/sessions/index.html
     to: /docs/reference/api/sessions/
   - from: /docs/api/resources/system_log/index.html
-    to: /docs/reference/api/system-log/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/
   - from: /docs/api/resources/templates/index.html
-    to: /docs/reference/api/templates/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Template/
   - from: /docs/api/resources/threat-insight/index.html
     to: /docs/reference/api/threat-insight/
   - from: /docs/api/resources/trusted-origins/index.html
-    to: /docs/reference/api/trusted-origins/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/TrustedOrigin/
   - from: /docs/api/resources/users/index.html
-    to: /docs/reference/api/users/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/
   - from: /docs/api/resources/zones/index.html
     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/NetworkZone/
   - from: /docs/how-to/add-user-consent-to-flow/index.html
@@ -543,6 +501,10 @@ redirects:
     to: /docs/guides/social-login/linkedin/main/
   - from: /authentication-guide/social-login/microsoft/index.html
     to: /docs/guides/social-login/microsoft/main/
+  - from: /docs/guides/dpop/main/index.html
+    to: /docs/guides/dpop/
+  - from: /docs/guides/dpop/main
+    to: /docs/guides/dpop/
   - from: /docs/guides/implement-auth-code
     to: /docs/guides/implement-grant-type/authcode/main/
   - from: /docs/guides/implement-auth-code/index.html
@@ -718,11 +680,11 @@ redirects:
   - from: /docs/guides/implement-grant-type/mfaotp/main
     to: /docs/guides/configure-direct-auth-grants/bmfaotp/main
   - from: /docs/api/resources/users.html
-    to: /docs/reference/api/users/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/
   - from: /docs/api/resources/sessions.html
     to: /docs/reference/api/sessions/
   - from: /docs/api/resources/apps.html
-    to: /docs/reference/api/apps/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/
   - from: /reference/error_codes
     to: /docs/reference/error-codes/
   - from: /reference/okta_expression_language
@@ -730,7 +692,7 @@ redirects:
   - from: /reference/postman_collections
     to: /docs/reference/postman-collections/
   - from: /reference/scim
-    to: /docs/reference/scim/
+    to: https://developer.okta.com/docs/api/openapi/okta-scim/guides/
   - from: /reference/webfinger
     to: /docs/reference/api/webfinger/
   - from: /guides
@@ -746,7 +708,7 @@ redirects:
   - from: /use_cases/event_hooks
     to: /docs/concepts/event-hooks/
   - from: /use_cases/events-api-migration
-    to: /docs/reference/api/system-log/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/
   - from: /use_cases/inline_hooks
     to: /docs/concepts/inline-hooks/
   - from: /use_cases/inline_hooks/registration_hook/registration_hook
@@ -756,13 +718,13 @@ redirects:
   - from: /use_cases/inline_hooks/import_hook/import_hook
     to: /docs/reference/import-hook/
   - from: /use_cases/inline_hooks/token_hook/token_hook
-    to: /docs/reference/token-hook/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createTokenInlineHook/
   - from: /use_cases/mfa
     to: /docs/guides/mfa/
   - from: /use_cases/relationships
-    to: /docs/reference/api/linked-objects/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/LinkedObject/
   - from: /docs/api/getting_started/releases-at-okta
-    to: /docs/reference/releases-at-okta/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/guides/release-lifecycle/
   - from: /docs/api/getting_started/rate-limits
     to: /docs/reference/rate-limits/
   - from: /docs/api/getting_started/finding_your_app_credentials
@@ -774,43 +736,43 @@ redirects:
   - from: /docs/api/getting_started/getting_a_token
     to: /docs/guides/create-an-api-token/
   - from: /docs/api/getting_started/design_principles
-    to: /docs/reference/core-okta-api/#design-principles
+    to: https://developer.okta.com/docs/api/
   - from: /docs/api/resources/apps
-    to: /docs/reference/api/apps/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/
   - from: /docs/api/resources/authn
     to: /docs/reference/api/authn/
   - from: /docs/api/resources/roles
-    to: /docs/reference/api/roles/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/
   - from: /docs/api/resources/authorization-servers
-    to: /docs/reference/api/authorization-servers/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServer/
   - from: /docs/api/resources/oauth-clients
-    to: /docs/reference/api/oauth-clients/
+    to: https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/Client/
   - from: /docs/api/resources/events
-    to: /docs/reference/api/system-log/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/
   - from: /docs/api/resources/event-hooks
-    to: /docs/reference/api/event-hooks/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/EventHook/
   - from: /docs/api/resources/factors
-    to: /docs/reference/api/factors/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/
   - from: /docs/api/resources/groups
-    to: /docs/reference/api/groups/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/
   - from: /docs/api/resources/inline-hooks
-    to: /docs/reference/api/inline-hooks/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook
   - from: /docs/api/resources/linked-objects
-    to: /docs/reference/api/linked-objects/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/LinkedObject/
   - from: /docs/api/resources/policy
-    to: /docs/reference/api/policy/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/
   - from: /docs/api/resources/schemas
-    to: /docs/reference/api/schemas/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/
   - from: /docs/api/resources/sessions
     to: /docs/reference/api/sessions/
   - from: /docs/api/resources/system_log
-    to: /docs/reference/api/system-log/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/
   - from: /docs/api/resources/templates
-    to: /docs/reference/api/templates/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Template/
   - from: /docs/api/resources/trusted-origins
-    to: /docs/reference/api/trusted-origins/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/TrustedOrigin/
   - from: /docs/api/resources/users
-    to: /docs/reference/api/users/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/
   - from: /docs/api/resources/zones
     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/NetworkZone/
   - from: /docs/api/resources/social_authentication
@@ -880,35 +842,35 @@ redirects:
   - from: /docs/api/resources/authn.html
     to: /docs/reference/api/authn/
   - from: /docs/api/resources/oidc.html
-    to: /docs/reference/api/oidc/
+    to: https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/
   - from: /docs/api/resources/roles.html
-    to: /docs/reference/api/roles/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/
   - from: /docs/api/resources/authorization-servers.html
-    to: /docs/reference/api/authorization-servers/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServer/
   - from: /docs/api/resources/oauth-clients.html
-    to: /docs/reference/api/oauth-clients/
+    to: https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/Client/
   - from: /docs/api/resources/events.html
-    to: /docs/reference/api/system-log/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/
   - from: /docs/api/resources/event-hooks.html
-    to: /docs/reference/api/event-hooks/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/EventHook/
   - from: /docs/api/resources/factors.html
-    to: /docs/reference/api/factors/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/
   - from: /docs/api/resources/groups.html
-    to: /docs/reference/api/groups/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/
   - from: /docs/api/resources/idps.html
-    to: /docs/reference/api/idps/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/
   - from: /docs/api/resources/linked-objects.html
-    to: /docs/reference/api/linked-objects/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/LinkedObject/
   - from: /docs/api/resources/policy.html
-    to: /docs/reference/api/policy/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/
   - from: /docs/api/resources/schemas.html
-    to: /docs/reference/api/schemas/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/
   - from: /docs/api/resources/system_log.html
-    to: /docs/reference/api/system-log/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/
   - from: /docs/api/resources/templates.html
-    to: /docs/reference/api/templates/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Template/
   - from: /docs/api/resources/trusted-origins.html
-    to: /docs/reference/api/trusted-origins/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/TrustedOrigin/
   - from: /docs/api/resources/zones.html
     to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/NetworkZone/
   - from: /docs/reference/csi-delauth-hook
@@ -1248,13 +1210,13 @@ redirects:
   - from: /docs/reference/api/index.html
     to: /docs/reference/
   - from: /docs/api/resources/oauth2/index.html
-    to: /docs/reference/api/oidc/
+    to: https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/
   - from: /docs/api/resources/oauth2
-    to: /docs/reference/api/oidc/
+    to: https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/
   - from: /docs/api/resources/oauth2.html
-    to: /docs/reference/api/oidc/
+    to: https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/
   - from: /docs/api/resources/oauth2/index.html
-    to: /docs/reference/api/oidc/
+    to: https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/
   - from: /docs/api/resources/social_authentication.html
     to: /docs/concepts/social-login/
   - from: /docs/api/resources/tokens
@@ -1397,12 +1359,6 @@ redirects:
     to: /docs/reference/api/factor-admin/
   - from: /guides/validate-id-tokens/index.html
     to: /docs/guides/validate-id-tokens/
-  - from: /code
-    to: /docs/
-  - from: /code.html
-    to: /docs/
-  - from: /code/swift
-    to: /code/swift/
   - from: /docs/api/getting_started
     to: /docs/api/getting_started/
   - from: /docs/api/reference
@@ -1711,18 +1667,10 @@ redirects:
     to: /docs/guides/implement-grant-type/clientcreds/main/
   - from: /docs/sdk/opp/javadoc/index.html
     to: /okta-sdk-java/
-  - from: /code/react/okta_react.html
-    to: /code/react/okta_react/
-  - from: /code/javascript/okta_auth_sdk.html
-    to: /code/javascript/okta_auth_sdk/
-  - from: /code/javascript/okta_sign-in_widget.html
-    to: /code/javascript/okta_sign-in_widget/
   - from: /docs/change-log.html
     to: /docs/release-notes/
   - from: /docs/change-log
     to: /docs/release-notes/
-  - from: /code/javascript/oauth-clients
-    to: /docs/
   - from: /docs/guides/byo_saml/index.html
     to: /docs/guides/sign-your-own-saml-csr/
   - from: /docs/guides/byo-saml/overview/index.html
@@ -1950,7 +1898,7 @@ redirects:
   - from: /docs/guides/build-provisioning-integration/prepare-guide/index.html
     to: /docs/guides/scim-provisioning-integration-test/main/#next-steps
   - from: /docs/api/resources/oidc.html/index.html
-    to: /docs/reference/api/oidc/
+    to: https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/
   - from: /docs/api/resources/authn.html/index.html
     to: /docs/reference/api/authn/
   - from: /docs/guides/saml-application-setup/-/overview
@@ -2141,12 +2089,6 @@ redirects:
     to: /docs/reference/rest/
   - from: /docs/rest/index.html
     to: /docs/reference/rest/
-  - from: /code/rest/index.html
-    to: /docs/reference/rest/
-  - from: /code/rest
-    to: /docs/reference/rest/
-  - from: /docs/code/python/pysaml2.html
-    to: /code/python/pysaml2/
   - from: /integrate-with-okta/index.html
     to: /docs/guides/okta-integration-network/
   - from: /integrate-with-okta
@@ -2294,31 +2236,29 @@ redirects:
   - from: /docs/guides/password-import-hook/-/test-password-import-hook/index.html
     to: /docs/guides/password-import-inline-hook/-/main/#test-your-hook
   - from: /docs/reference/api/systemlog
-    to: /docs/reference/api/system-log/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/
   - from: /docs/reference/api/systemlog/index.html
-    to: /docs/reference/api/system-log/
-  - from: /docs/code/java/spring_security_saml.html
-    to: /code/java/spring_security_saml/index.html
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/
   - from: /docs/guides/password-import-hook/-/next-steps/index.html
-    to: /docs/guides/password-import-inline-hook/-/test-password-import-hook/
+    to: /docs/guides/password-import-inline-hook/nodejs/main/#test-your-hook
   - from: /docs/reference/api/oie-policy-types/index.html
-    to: /docs/reference/api/policy/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/
   - from: /docs/concepts/ie-intro/index.html
     to: https://help.okta.com/oie/en-us/okta_help_CSH.htm#ext-get-started-oie
   - from: /docs/concepts/ie-intro
     to: https://help.okta.com/oie/en-us/okta_help_CSH.htm#ext-get-started-oie
   - from: /docs/guides/sign-into-web-app-remediation/-/before-you-begin/index.html
-    to: /docs/guides/oie-embedded-sdk-use-cases/oie-embedded-sdk-use-case-overview/
+    to: /docs/guides/embedded-sdk-use-cases/
   - from: /docs/guides/sign-into-web-app-remediation/-/configure-packages/index.html
     to: /docs/guides/oie-embedded-common-download-setup-app/main/
   - from: /docs/guides/sign-into-web-app-remediation/-/create-okta-application/index.html
     to: /docs/guides/oie-embedded-common-org-setup/
   - from: /docs/guides/sign-into-web-app-remediation/-/get-tokens/index.html
-    to: /docs/guides/oie-embedded-sdk-use-cases/oie-embedded-sdk-use-case-overview/
+    to: /docs/guides/embedded-sdk-use-cases/
   - from: /docs/guides/sign-into-web-app-remediation/-/handle-remediation/index.html
-    to: /docs/guides/oie-embedded-sdk-use-cases/oie-embedded-sdk-use-case-overview/
+    to: /docs/guides/embedded-sdk-use-cases/
   - from: /docs/guides/sign-into-web-app-remediation/-/next-steps/index.html
-    to: /docs/guides/oie-embedded-sdk-use-cases/oie-embedded-sdk-use-case-overview/
+    to: /docs/guides/embedded-sdk-use-cases/
   - from: /pricing/index.html
     to: https://www.okta.com/pricing/#customer-identity-products
   - from: /docs/index.html
@@ -2380,7 +2320,7 @@ redirects:
   - from: /docs/guides/migrate-to-oie
     to: /docs/guides/oie-upgrade-overview/
   - from: /docs/reference/api-overview
-    to: /docs/reference/core-okta-api/
+    to: https://developer.okta.com/docs/api/
   - from: /docs/guides/oie-embedded-sdk-overview/main
     to: /docs/guides/oie-embedded-common-run-samples/-/main/
   - from: /docs/guides/oie-embedded-sdk-overview/main/index.html
@@ -2398,7 +2338,7 @@ redirects:
   - from: /docs/guides/oie-embedded-widget-run-sample/-/main/index.html
     to: /docs/guides/oie-embedded-common-run-samples/-/main/
   - from: /docs/reference/api-overview/index.html
-    to: /docs/reference/core-okta-api/
+    to: https://developer.okta.com/docs/api/
   - from: /docs/concepts/social-login/
     to: /docs/concepts/identity-providers/
   - from: /docs/concepts/social-login/index.html
@@ -4384,29 +4324,29 @@ redirects:
   - from: /docs/guides/submit-app/saml2/update-submission/index.html
     to: /docs/guides/submit-oin-app/saml2/main/#update-your-integration
   - from: /docs/guides/submit-app/scim/overview
-    to: /docs/guides/submit-app/scim/main
+    to: /docs/guides/submit-oin-app/scim/main/
   - from: /docs/guides/submit-app/scim/create-guide
     to: /docs/guides/submit-app-prereq/main/#customer-configuration-document-guidelines
   - from: /docs/guides/submit-app/scim/submission1-general
-    to: /docs/guides/submit-app/scim/main/#configure-general-settings
+    to: /docs/guides/submit-oin-app/scim/main/#configure-your-integration
   - from: /docs/guides/submit-app/scim/submission2-specific
-    to: /docs/guides/submit-app/scim/main/#configure-protocol-or-tool-specific-settings
+    to: /docs/guides/submit-oin-app/scim/main/#properties
   - from: /docs/guides/submit-app/scim/submission3-process
     to: /docs/guides/submit-app-overview/#understand-the-submission-review-process
   - from: /docs/guides/submit-app/scim/update-submission
-    to: /docs/guides/submit-app/scim/main/#update-your-published-integration
+    to: /docs/guides/submit-oin-app/scim/main/#update-your-integration
   - from: /docs/guides/submit-app/scim/overview/index.html
-    to: /docs/guides/submit-app/scim/main
+    to: /docs/guides/submit-oin-app/scim/main/
   - from: /docs/guides/submit-app/scim/create-guide/index.html
     to: /docs/guides/submit-app-prereq/main/#customer-configuration-document-guidelines
   - from: /docs/guides/submit-app/scim/submission1-general/index.html
-    to: /docs/guides/submit-app/scim/main/#configure-general-settings
+    to: /docs/guides/submit-oin-app/scim/main/#configure-your-integration
   - from: /docs/guides/submit-app/scim/submission2-specific/index.html
-    to: /docs/guides/submit-app/scim/main/#configure-protocol-specific-settings
+    to: /docs/guides/submit-oin-app/scim/main/#properties
   - from: /docs/guides/submit-app/scim/submission3-process/index.html
     to: /docs/guides/submit-app-overview/#understand-the-submission-review-process
   - from: /docs/guides/submit-app/scim/update-submission/index.html
-    to: /docs/guides/submit-app/scim/main/#update-your-published-integration
+    to: /docs/guides/submit-oin-app/scim/main/#update-your-integration
   - from: /docs/guides/submit-app/openidconnect/main
     to: /docs/guides/submit-oin-app/openidconnect/main/
   - from: /docs/guides/submit-app/openidconnect/main/index.html
@@ -4415,6 +4355,16 @@ redirects:
     to: /docs/guides/submit-oin-app/saml2/main/
   - from: /docs/guides/submit-app/saml2/main/index.html
     to: /docs/guides/submit-oin-app/saml2/main/
+  - from: /docs/guides/submit-sso-app/openidconnect/main/index.html
+    to: /docs/guides/submit-oin-app/openidconnect/main/
+  - from: /docs/guides/submit-sso-app/openidconnect/main
+    to: /docs/guides/submit-oin-app/openidconnect/main/
+  - from: /docs/guides/submit-sso-app/saml2/main/index.html
+    to: /docs/guides/submit-oin-app/saml2/main/
+  - from: /docs/guides/submit-sso-app/saml2/main
+    to: /docs/guides/submit-oin-app/saml2/main/
+  - from: /docs/guides/submit-sso-app
+    to: /docs/guides/submit-oin-app/
   - from: /docs/guides/deploy-your-app/overview
     to: /docs/guides/deploy-your-app/java/main/
   - from: /docs/guides/deploy-your-app/java
@@ -4745,10 +4695,6 @@ redirects:
     to: /docs/guides/deployment-checklist/
   - from: /docs/guides/production-deployment/deployment-checklist/index.html
     to: /docs/guides/deployment-checklist/
-  - from: /code/oie/
-    to: /code/
-  - from: /code/oie/index.html
-    to: /code/
   - from: /docs/concepts/authentication/
     to: /docs/guides/sign-in-overview/
   - from: /docs/concepts/authentication/index.html
@@ -5485,54 +5431,22 @@ redirects:
     to: /docs/guides/quickstart/
   - from: /docs/guides/quickstart/cli/main/index.html/#next-steps
     to: /docs/guides/quickstart/
-  - from: /code/angular/okta_angular_sign-in_widget/index.html
-    to: /docs/guides/sign-in-to-spa-embedded-widget/angular/main/
-  - from: /code/angular/okta_angular_sign-in_widget
-    to: /docs/guides/sign-in-to-spa-embedded-widget/angular/main/
-  - from: /code/angular/okta_angular_auth_js/index.html
-    to: /docs/guides/archive-sign-in-to-spa-embedded-widget/angular/main/
-  - from: /code/angular/okta_angular_auth_js
-    to: /docs/guides/archive-sign-in-to-spa-authjs/angular/main/
-  - from: /code/javascript/okta_sign-in_widget/index.html
-    to: /docs/guides/embedded-siw
-  - from: /code/javascript/okta_sign-in_widget
-    to: /docs/guides/embedded-siw
-  - from: /code/javascript/okta_auth_sdk/index.html
-    to: /docs/guides/auth-js
-  - from: /code/javascript/okta_auth_sdk
-    to: /docs/guides/auth-js
-  - from: /code/react/okta_react_sign-in_widget/index.html
-    to: /docs/guides/sign-in-to-spa-embedded-widget/react/main/
-  - from: /code/react/okta_react_sign-in_widget
-    to: /docs/guides/sign-in-to-spa-embedded-widget/react/main/
-  - from: /code/react/okta_react/index.html
-    to: /docs/guides/sign-in-to-spa-authjs/react/main/
-  - from: /code/react/okta_react
-    to: /docs/guides/sign-in-to-spa-authjs/react/main/
-  - from: /code/vue/okta_vue_sign-in_widget/index.html
-    to: /docs/guides/sign-in-to-spa-embedded-widget/vue/main
-  - from: /code/vue/okta_vue_sign-in_widget
-    to: /docs/guides/sign-in-to-spa-embedded-widget/vue/main
-  - from: /code/vue/okta_vue/index.html
-    to: /docs/guides/sign-in-to-spa-authjs/vue/main/
-  - from: /code/vue/okta_vue
-    to: /docs/guides/sign-in-to-spa-authjs/vue/main/
   - from: /docs/guides/oie-intro
     to: /docs/concepts/oie-intro/
   - from: /docs/guides/oie-intro/index.html
     to: /docs/concepts/oie-intro/
   - from: /docs/guides/customize-themes/index.html
-    to: /docs/reference/api/brands/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Brands/
   - from: /docs/guides/customize-themes
-    to: /docs/reference/api/brands/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Brands/
   - from: /docs/concepts/events-api-migration/index.html
-    to: /docs/reference/api/system-log/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/
   - from: /docs/concepts/events-api-migration
-    to: /docs/reference/api/system-log/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/
   - from: /docs/reference/api/events/index.html
-    to: /docs/reference/api/system-log/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/
   - from:  /docs/reference/api/events
-    to: /docs/reference/api/system-log/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/
   - from: /docs/reference/beta-only/index.html
     to: /docs/reference/#apis-documented-only-on-the-new-beta-reference
   - from: /docs/reference/beta-only
@@ -5547,13 +5461,189 @@ redirects:
     to: https://github.com/okta/okta-sdk-dotnet
   - from: /okta-sdk-dotnet
     to: https://github.com/okta/okta-sdk-dotnet
-  - from: /docs/api/iga/openapi/governance.api/tag/Requests/index.html
-    to: https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v1/tag/Requests/
-  - from: /docs/api/iga/openapi/governance.api/tag/Requests
-    to: https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v1/tag/Requests/
-  - from: /docs/api/iga/openapi/governance.api/tag/Request-Types/index.html
-    to: https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v1/tag/Request-Types/
-  - from: /docs/api/iga/openapi/governance.api/tag/Request-Types
-    to: https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v1/tag/Request-Types/
+  - from: /docs/reference/hooks-best-practices/index.html
+    to: /docs/guides/hooks-best-practices/
+  - from: /docs/reference/hooks-best-practices
+    to: /docs/guides/hooks-best-practices/
+  - from: /docs/reference/rl-previous/index.html
+    to: /docs/reference/rate-limits/
+  - from: /docs/reference/rl-previous
+    to: /docs/reference/rate-limits/
+  - from: /docs/reference/rl-global-other-endpoints/index.html
+    to: /docs/reference/rate-limits/
+  - from: /docs/reference/rl-global-other-endpoints
+    to: /docs/reference/rate-limits/
   - from: /docs/guides/sign-into-mobile-app-redirect/react-native/main/index.html
     to: /docs/guides/sampleapp-oie-redirectauth/reactnativedroid/main/
+  - from: /code.html
+    to: /code/
+  - from: /code/android/
+    to: /code/
+  - from: /code/android/index.html
+    to: /code/
+  - from: /code/angular/
+    to: /code/
+  - from: /code/angular/index.html
+    to: /code/
+  - from: /code/angular/okta_angular_auth_js
+    to: /docs/guides/sign-in-to-spa-authjs/angular/main/
+  - from: /code/angular/okta_angular_auth_js/index.html
+    to: /docs/guides/sign-in-to-spa-authjs/angular/main/
+  - from: /code/angular/okta_angular_sign-in_widget
+    to: /docs/guides/sign-in-to-spa-embedded-widget/angular/main/
+  - from: /code/angular/okta_angular_sign-in_widget/index.html
+    to: /docs/guides/sign-in-to-spa-embedded-widget/angular/main/
+  - from: /code/dotnet/
+    to: /code/
+  - from: /code/dotnet/index.html
+    to: /code/
+  - from: /code/dotnet/aspnet/
+    to: /code/
+  - from: /code/dotnet/aspnet/index.html
+    to: /code/
+  - from: /code/dotnet/aspnetcore/
+    to: /code/
+  - from: /code/dotnet/aspnetcore/index.html
+    to: /code/
+  - from: /code/dotnet/blazor/
+    to: /code/
+  - from: /code/dotnet/blazor/index.html
+    to: /code/
+  - from: /code/dotnet/okta-oauth-aspnet-codeflow
+    to: /code/
+  - from: /code/dotnet/okta-oauth-spa-authjs-osw
+    to: /code/
+  - from: /code/dotnet/okta-oidc-spa-osw-aspnet
+    to: /code/
+  - from: /code/dotnet/sample_application/
+    to: /code/
+  - from: /code/dotnet/sample_application/index.html
+    to: /code/
+  - from: /code/dotnet/sdk/
+    to: /code/
+  - from: /code/dotnet/sdk/index.html
+    to: /code/
+  - from: /code/go/
+    to: /code/
+  - from: /code/go/index.html
+    to: /code/
+  - from: /code/ios/
+    to: /code/
+  - from: /code/ios/index.html
+    to: /code/
+  - from: /code/ios/quickstart-appauth-swift/
+    to: /code/
+  - from: /code/ios/quickstart-appauth-swift/index.html
+    to: /code/
+  - from: /code/java/
+    to: /code/
+  - from: /code/java/index.html
+    to: /code/
+  - from: /code/java/spring/
+    to: /code/
+  - from: /code/java/spring/index.html
+    to: /code/
+  - from: /code/java/jwt-validation/
+    to: /code/
+  - from: /code/java/jwt-validation/index.html
+    to: /code/
+  - from: /code/javascript/
+    to: /code/
+  - from: /code/javascript/index.html
+    to: /code/
+  - from: /code/javascript/oauth-clients
+    to: /code/
+  - from: /code/javascript/okta_auth_sdk
+    to: /docs/guides/auth-js
+  - from: /code/javascript/okta_auth_sdk.html
+    to: /docs/guides/auth-js
+  - from: /code/javascript/okta_auth_sdk/index.html
+    to: /docs/guides/auth-js
+  - from: /code/javascript/okta_auth_sdk_external_ref.html
+    to: https://github.com/okta/okta-auth-js/
+  - from: /code/javascript/okta_auth_sdk_ref/index.html
+    to: /code/
+  - from: /code/javascript/okta_auth_sdk_ref/
+    to: /code/
+  - from: /code/javascript/okta_sign-in_widget/
+    to: /docs/guides/embedded-siw
+  - from: /code/javascript/okta_sign-in_widget.html
+    to: /docs/guides/embedded-siw
+  - from: /code/javascript/okta_sign-in_widget/index.html
+    to: /docs/guides/embedded-siw
+  - from: /code/javascript/okta_sign-in_widget_external_ref.html
+    to: /docs/guides/embedded-siw
+  - from: /code/javascript/okta_sign-in_widget_ref.html
+    to: /docs/guides/embedded-siw
+  - from: /code/javascript/okta_sign-in_widget_ref/index.html
+    to: /docs/guides/embedded-siw
+  - from: /code/nodejs/
+    to: /code/
+  - from: /code/nodejs/index.html
+    to: /code/
+  - from: /code/oie/
+    to: /code/
+  - from: /code/oie/index.html
+    to: /code/
+  - from: /code/python/
+    to: /code/
+  - from: /code/python/index.html
+    to: /code/
+  - from: /code/python/sdk/
+    to: /code/
+  - from: /code/python/sdk/index.html
+    to: /code/
+  - from: /code/react/okta_react
+    to: /docs/guides/sign-in-to-spa-authjs/react/main/
+  - from: /code/react/okta_react.html
+    to: /docs/guides/sign-in-to-spa-authjs/react/main/
+  - from: /code/react/okta_react/index.html
+    to: /docs/guides/sign-in-to-spa-authjs/react/main/
+  - from: /code/react/okta_react_sign-in_widget
+    to: /docs/guides/sign-in-to-spa-embedded-widget/react/main/
+  - from: /code/react/okta_react_sign-in_widget/index.html
+    to: /docs/guides/sign-in-to-spa-embedded-widget/react/main/
+  - from: /code/react-native/
+    to: /code/
+  - from: /code/react-native/index.html
+    to: /code/
+  - from: /code/rest
+    to: /docs/reference/rest/
+  - from: /code/rest/index.html
+    to: /docs/reference/rest/
+  - from: /code/swift
+    to: /code/
+  - from: /code/swift/index.html
+    to: /code/
+  - from: /code/vue
+    to: /code/
+  - from: /code/vue/index.html
+    to: /code/
+  - from: /code/vue/okta_vue
+    to: /docs/guides/sign-in-to-spa-authjs/vue/main/
+  - from: /code/vue/okta_vue/index.html
+    to: /docs/guides/sign-in-to-spa-authjs/vue/main/
+  - from: /code/vue/okta_vue_sign-in_widget
+    to: /docs/guides/sign-in-to-spa-embedded-widget/vue/main
+  - from: /code/vue/okta_vue_sign-in_widget/index.html
+    to: /docs/guides/sign-in-to-spa-embedded-widget/vue/main
+  - from: /docs/code/java/spring_security_saml.html
+    to: /code/java/spring_security_saml/index.html
+  - from: /docs/code/python/pysaml2.html
+    to: /code/python/pysaml2/
+  - from: /docs/examples/dotnet_sample_application.html
+    to: /code/
+  - from: /docs/examples/pysaml2.html
+    to: /code/python/pysaml2/
+  - from: /docs/examples/spring_security_saml.html
+    to: /code/java/spring_security_saml/
+  - from: /docs/guides/okta_auth_sdk
+    to: /docs/guides/auth-js
+  - from: /docs/guides/okta_auth_sdk.html
+    to: /docs/guides/auth-js
+  - from: /docs/guides/okta_sign-in_widget.html
+    to: /docs/guides/embedded-siw
+  - from: /docs/guides/pysaml2.html
+    to: /code/python/pysaml2/
+  - from: /docs/guides/spring_security_saml.html
+    to: /code/java/spring_security_saml/

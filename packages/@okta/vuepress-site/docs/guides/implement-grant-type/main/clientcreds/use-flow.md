@@ -1,16 +1,16 @@
 Before implementing the flow, you must first [create custom scopes](#create-custom-scopes) for the [custom authorization server](/docs/guides/customize-authz-server/) used to authenticate your app from the Admin Console.
 
-If you aren’t using existing libraries, you can make a direct request to the Okta [OIDC & OAuth 2.0 API](/docs/reference/api/oidc/) through the `/token` endpoint. See [Request for token](#request-for-token) in the next section.
+If you aren’t using existing libraries, you can make a direct request to the Okta [OIDC & OAuth 2.0 API](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/) through the `/token` endpoint. See [Request for token](#request-for-token) in the next section.
 
 ### Request for token
 
-The Client Credentials flow is intended for server-side (confidential) client applications with no end user, which normally describes machine-to-machine communication. Your client application needs to have its client ID and secret stored in a secure manner. You can find the client ID and secret on the **General** tab for your app integration.
+The Client Credentials flow is intended for server-side (confidential) client apps with no end user, which normally describes machine-to-machine communication. Your client app needs to have its client ID and secret stored in a secure manner. You can find the client ID and secret on the **General** tab for your app integration.
 
 Base64-encode the client ID and secret (as shown later) and then pass through [Basic Authentication](https://tools.ietf.org/html/rfc7617) in the request to your [custom authorization server's](/docs/concepts/auth-servers/#custom-authorization-server) `/token` endpoint:
 
 ```bash
 curl --request POST \
-  --url https://${yourOktaDomain}/oauth2/default/v1/token \
+  --url https://{yourOktaDomain}/oauth2/default/v1/token \
   --header 'accept: application/json' \
   --header 'authorization: Basic MG9hY...' \
   --header 'cache-control: no-cache' \
@@ -22,10 +22,10 @@ curl --request POST \
 
 Note the parameters that are being passed:
 
-* `grant_type` is `client_credentials`, indicating that you're using the Client Credentials grant type.
-* `scope` must be at least one custom scope that you create. See the **Create Scopes** section of the [Create an authorization server guide](/docs/guides/customize-authz-server/main/#create-scopes).
+* `grant_type=client_credentials`: Indicates that you're using the Client Credentials grant type
+* `scope`: Must be at least one custom scope that you create. See the **Create Scopes** section of the [Create an authorization server guide](/docs/guides/customize-authz-server/main/#create-scopes).
 
-If the credentials are valid, the application receives an access token:
+If the credentials are valid, the app receives an access token:
 
 ```json
 {
@@ -44,7 +44,7 @@ Use this section to Base64-encode the client ID and secret. When you finish enco
 
 1. Open the **Admin Console** for your org.
 1. Choose **Applications** > **Applications** to view the available app integrations.
-1. Select the application that you want to use, and then on the **General** tab, copy the **Client ID** and **Client secret**.
+1. Select the app that you want to use, and then on the **General** tab, copy the **Client ID** and **Client secret**.
 1. Launch your preferred text editor and then paste the client ID and secret into a new file.
 1. Place the client ID and secret on the same line and insert a colon between them: `clientid:clientsecret`
 1. Copy the `clientid:clientsecret` line to the clipboard.
@@ -60,7 +60,7 @@ Use this section to Base64-encode the client ID and secret. When you finish enco
 
 1. Open the **Admin Console** for your org.
 1. Choose **Applications** > **Applications** to view the available app integrations.
-1. Select the application that you want to use, and then on the **General** tab, copy the **Client ID** and **Client secret**.
+1. Select the app that you want to use, and then on the **General** tab, copy the **Client ID** and **Client secret**.
 1. Launch your preferred text editor and then paste the client ID and secret into a new file.
 1. Save the file to `C:\temp` and name the file `appCreds.txt`.
 1. In Windows Explorer, right-click `C:\temp`, and then select **CMD Prompt Here** from the context menu.
@@ -74,4 +74,4 @@ Use this section to Base64-encode the client ID and secret. When you finish enco
 
 ### Validate access token
 
-When your application passes a request with an access token, the resource server needs to validate it. See [Validate access tokens](/docs/guides/validate-access-tokens/).
+When your app passes a request with an access token, the resource server needs to validate it. See [Validate access tokens](/docs/guides/validate-access-tokens/).

@@ -134,7 +134,7 @@ Before the fix, the minimum security answer length was assumed to always be 4, r
 
 ### Enhanced Well-Known Endpoint for OpenID Connect
 
-The [OpenID Connect discovery endpoint](/docs/reference/api/oidc/#well-knownopenid-configuration) `.well-known` includes the introspection and revocation endpoints.
+The [OpenID Connect discovery endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/getWellKnownOpenIDConfigurationCustomAS) `.well-known` includes the introspection and revocation endpoints.
 
 Request Example:
 
@@ -258,7 +258,7 @@ For more information, see [Expression Language: String Functions](/docs/referenc
 Once you have shared a credential between apps, you can list all the applications that are using
 the same application key credential. <!-- OKTA-100925 -->
 
-For more information, see the [Apps API reference](/docs/reference/api/apps/#list-applications-using-a-key).
+See the [Apps API reference](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/listApplications).
 
 
 ## 2016.39
@@ -276,8 +276,8 @@ To share a certificate among app instances:
 3. Share the credential (`kid`) with one or more target apps.
 4. Use the new credential in the target app.
 
-For more detailed instructions, see ["Clone Key Credential for Application"](/docs/reference/api/apps/#clone-application-key-credential)
-and ["Update Key Credential for Application"](/docs/reference/api/apps/#update-key-credential-for-application).
+For more detailed instructions, see [Clone key credential for app](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationSSOCredentialKey/#tag/ApplicationSSOCredentialKey/operation/cloneApplicationKey)
+and [Update key credential for app](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationSSOCredentialKey/#tag/ApplicationSSOCredentialKey/operation/generateApplicationKey).
 
 ### Bug Fixed
 
@@ -295,7 +295,7 @@ The WWW-Authenticate header couldn't be read when the `/oauth2/v1/userinfo` endp
 
 ### System Log Enhancement
 
-The names of [AppUser properties](/docs/reference/api/apps/#application-user-properties)
+The names of [AppUser properties](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationUsers/#tag/ApplicationUsers/operation/listApplicationUsers)
 that have changed during an import are included in the system log. <!-- (OKTA-96525) -->
 
 
@@ -332,7 +332,7 @@ For more information, see [Get Session](https://developer.okta.com/docs/api/open
 ### Bugs Fixed
 
 * IdP keys could be deleted even when referenced by an active or inactive app instance. (OKTA-96139)
-* Properties could be deleted from the [User Profile schema](/docs/reference/api/schemas/#remove-property-from-user-profile-schema)
+* Properties could be deleted from the [User Profile schema](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/#tag/Schema/operation/updateUserProfile)
 while still referenced as a `matchAttribute` in inbound SAML IdPs. (OKTA-96281)
 * Identity Providers for social authentication configured to look up usernames by Okta username or email failed to return a valid match.
 This failure occurred if the username was in both the username and email and a second user existed with the same email but different username. (OKTA-96335)
@@ -389,7 +389,7 @@ You can now create SAML and SWA custom apps using the Apps API. Previously you h
 using the [**App Integration Wizard**](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-saml)
 in the administrator UI.
 
-For more information about creating custom apps with the API, see [Apps API: Add Custom SAML Application](/docs/reference/api/apps/#add-custom-saml-application).
+For more information about creating custom apps with the API, see [Create an app](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication).
 
 ### Feature Enhancements
 
@@ -430,7 +430,7 @@ The Okta Sign-In Widget release 1.5.0 contains the following enhancements:
 The `expires_in` response parameter tells you the number of seconds before a `token` (Access Token) expires. If your
 response from the `/oauth2/v1/authorize` endpoint includes an Access Token, `expires_in` is included in the response.
 
-For more information, see the `/oauth2/v1/authorize` [Response Properties](/docs/reference/api/oidc/#response-properties).
+For more information, see the `/oauth2/v1/authorize` [Response Properties](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/OrgAS/#tag/OrgAS/operation/authorize).
 
 #### SHA256 Certificate for New SAML IdP Instances
 
@@ -555,7 +555,7 @@ To improve usability, we've moved some of the panels in the administrator UI rel
 <!-- OKTA-91831, OKTA-93759 -->
 The Okta Sign-In Widget will be updated to version 1.4.0 for Production orgs.
 
-See [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/) for updated sample code.
+See [Okta Sign-In Widget](/docs/guides/embedded-siw/) for updated sample code.
 
 The new release includes several enhancements:
 
@@ -585,13 +585,13 @@ You can send custom text as part of an SMS message request:
 1. Use the `/api/v1/templates/sms` endpoint to create a custom SMS text template.
 2. Send a request to the Factors API specifying the template for verification. There is no change in the response.
 
-For more information, see [Templates API](/docs/reference/api/templates/) and [Factors API](/docs/reference/api/factors/).
+For more information, see [SMS Templates API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Template/) and [Factors API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/).
 
 ### Feature Enhancement: Resource Owner Password Credential Flow for OpenID Connect Supports Refresh Tokens
 
 The `/oauth2/v1/token` endpoint includes a Refresh Token if:
 
-* The request contains a `grant_type` with the value `password` and your client supports the `grant_type` value `refresh_token`. For more information, see [Token Request](/docs/reference/api/oidc/#request-parameters-1).
+* The request contains a `grant_type` with the value `password` and your client supports the `grant_type` value `refresh_token`. For more information, see [Token Request](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/OrgAS/#tag/OrgAS/operation/token).
 * You request the `offline_access` scope. For more information, see [Refresh Tokens](/docs/guides/refresh-tokens/).
 
 ### Bugs Fixed
@@ -606,7 +606,7 @@ The `/oauth2/v1/token` endpoint includes a Refresh Token if:
 To protect against arbitrarily large numbers of groups matching the group filter, the group claim has a limit of 100.
 If more than 100 groups match the filter, then the request fails.
 
-* For more information about configuring an app for OpenID Connect, including group claims, see [Using OpenID Connect](/docs/reference/api/oidc/).
+* For more information about configuring an app for OpenID Connect, including group claims, see [Using OpenID Connect](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/).
 * For more information about group claims in the API, see Scope-dependent claims.
 
 ### Bugs Fixed
@@ -637,7 +637,7 @@ The Links object, `_links`, is available in the Policy object. For more informat
 The error descriptions related to OAuth provide more helpful information about invalid clients for OpenID Connect flows.
 
 #### Disable Automatic Key Rotation
-If you need to disable automatic key rotation for an OpenID Connect flow, you can do so in General Settings section under the General tab for an app, and then use the `/oauth2/v1/keys` endpoint to fetch public keys for your app. For more information, see [OpenID Connect](/docs/reference/api/oidc/).
+If you need to disable automatic key rotation for an OpenID Connect flow, you can do so in General Settings section under the General tab for an app, and then use the `/oauth2/v1/keys` endpoint to fetch public keys for your app. For more information, see [OpenID Connect](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/).
 
 ### Bugs Fixed
 

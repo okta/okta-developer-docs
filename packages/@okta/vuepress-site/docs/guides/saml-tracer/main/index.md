@@ -1,71 +1,71 @@
 ---
-title: Test SAML app implementation with SAML Tracer
-excerpt: How to test SAML flows with the SAML Tracer Firefox extension
+title: Test SAML app implementation with SAML-tracer
+excerpt: How to test SAML flows with the SAML-tracer Firefox extension
 layout: Guides
 ---
 
-This guide explains how to test a SAML app implementation with the SAML tracer browser add-on.
+This guide explains how to test a SAML app implementation with the SAML-tracer browser add-on.
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
-* Install and use SAML Tracer.
-* Create SAML requests for SP- and IdP-initiated flows and inspect them in SAML tracer.
+* Install and use SAML-tracer.
+* Create SAML requests for SP- and IdP-initiated flows and inspect them in SAML-tracer.
 
-**What you need**
+#### What you need
 
 A SAML app to test. See [Prepare a SAML integration](/docs/guides/build-sso-integration/saml2/main/#prepare-a-saml-integration).
 
 ---
 
-## About SAML tracer
+## About SAML-tracer
 
-After you complete the SAML configuration, you can test your implementation using SAML tracer.
-SAML tracer is an add-on in Firefox and very useful when troubleshooting SAML for Service Provider-initiated flows (SP-initiated)
+After you complete the SAML configuration, you can test your implementation using SAML-tracer.
+SAML-tracer is an add-on in Firefox and useful when troubleshooting SAML for Service Provider-initiated flows (SP-initiated)
 or Identity Provider-initiated flows (IdP-initiated).
-When you start an IdP-initiated flow or SP-initiated flow while SAML tracer is enabled, it captures the SAML request and response.
+When you start an IdP-initiated flow or SP-initiated flow while SAML-tracer is enabled, it captures the SAML request and response.
 
-## Install SAML tracer or similar browser tool
+## Install SAML-tracer or similar browser tool
 
-To install SAML tracer, visit [https://addons.mozilla.org/en-US/firefox/addon/saml-tracer/](https://addons.mozilla.org/en-US/firefox/addon/saml-tracer/) and follow the instructions.
+To install SAML-tracer, visit [https://addons.mozilla.org/en-US/firefox/addon/saml-tracer/](https://addons.mozilla.org/en-US/firefox/addon/saml-tracer/) and follow the instructions.
 
-After you install SAML tracer, open it from the browser menu bar: **Tools** > **SAML tracer**.
+After you install SAML-tracer, open it by clicking its icon or select **Extensions** > **SAML-tracer** on your browser bar.
 
 >Similar tools exist for other browsers, such as [SAML DevTools](https://chrome.google.com/webstore/detail/saml-devtools-extension/jndllhgbinhiiddokbeoeepbppdnhhio)
 and [SAML Chrome Panel](https://chrome.google.com/webstore/detail/saml-devtools-extension/jndllhgbinhiiddokbeoeepbppdnhhio) for Chrome.
-We use SAML tracer in the following examples.
+The following examples use SAML-tracer.
 
 ## SP-initiated flow
 
-To create a SAML request for an SP-initiated flow and inspect the request and response in SAML tracer:
+To create a SAML request for an SP-initiated flow and inspect the request and response in SAML-tracer:
 
-1. Open SAML tracer and then access your application, which takes you to the Okta sign-in page if you aren't already logged in.
-2. Look at the SAML tracer window and see the SAML request sent from your application to Okta.
-Okta returns a SAML Response.
+1. Open SAML-tracer and then access your app, which takes you to the Okta sign-in page if you aren't already logged in.
+2. Look at the SAML-tracer window and see the SAML request sent from your app to Okta.
+Okta returns a SAML response.
 
 ![SAML Request SP flow](/img/saml-request-sp-flow.png "SAML Request SP flow")
-Figure 1: SP-Initiated Request in SAML tracer
+Figure 1: SP-initiated Request in SAML-tracer
 
 ![SAML Response SP flow](/img/saml-response-sp-flow.png "SAML Response SP flow")
-Figure 2: SP-Initiated Response in SAML tracer
+Figure 2: SP-initiated Response in SAML-tracer
 
 ## IdP-initiated flow
 
-To create a SAML request for an IdP-initiated flow and inspect it in SAML tracer:
+To create a SAML request for an IdP-initiated flow and inspect it in SAML-tracer:
 
 1. Assign the SAML app to a user.
-2. Navigate to dashboard of that user and click the app icon.
-3. The application opens in new browser and if successful, sends a SAML response.
+2. Go to the dashboard of that user and click the app icon.
+3. The app opens in a new browser and if successful, sends a SAML response.
 
 You can also start an IdP flow by selecting the App Embed link in a browser (**SAML App** > **General** > **App Embed Link**).
 
 ![SAML Response IdP](/img/idp-flow-saml-trace.png "SAML Response IdP")
-Figure 3: IdP-Initiated Response in SAML tracer
+Figure 3: IdP-initiated Response in SAML-tracer
 
 When you receive a SAML request and response successfully from Okta, it indicates that your configuration is successfully working with Okta.
 
-As you can see from the examples, the application can read attributes passed from Okta after a user signs in.
+As you can see from the examples, the app can read attributes passed from Okta after a user signs in.
 
 ## Example SAML request
 
@@ -88,7 +88,7 @@ As you can see from the examples, the application can read attributes passed fro
 
 ## Example SAML response
 
-SAML responses are signed. This example contains profile attributes of the person who requested access to the app, as set in the General tab of the administrator UI.
+SAML responses are signed. This example contains the profile attributes of the person who requested access to the app, as set on the **Applications** > **General** tab.
 
 ```xml
 <saml2p:Response xmlns:saml2p="urn:oasis:names:tc:SAML:2.0:protocol"

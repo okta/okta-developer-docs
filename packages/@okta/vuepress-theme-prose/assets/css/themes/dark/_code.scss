@@ -18,7 +18,7 @@
 
 code[class*="language-"],
 pre[class*="language-"] {
-  color: cv("text");
+  color: cv("text", "base");
 }
 
 .token.property,
@@ -32,10 +32,10 @@ pre[class*="language-"] {
 }
 
 .api-uri-template {
-  border-color: cv("body");
+  border-color: cv("body", "base");
   background-color: cv("body", "obscure");
 }
 
 .api-uri-put strong {
-  color: cv("link");
+  color: cv("link", "base");
 }

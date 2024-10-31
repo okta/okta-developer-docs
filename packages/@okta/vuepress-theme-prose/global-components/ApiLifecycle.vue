@@ -40,9 +40,10 @@
 </template>
 
 <script>
-const DEFAULT_LINK = "/docs/reference/releases-at-okta/";
+const DEFAULT_LINK = "https://developer.okta.com/docs/api/openapi/okta-management/guides/release-lifecycle/";
 const IE_LINK = "/docs/concepts/oie-intro/";
-const DEPRECATED_LINK = "/docs/reference/releases-at-okta/#deprecation";
+const DEPRECATED_LINK = "https://developer.okta.com/docs/api/openapi/okta-management/guides/release-lifecycle/#deprecation";
+const EA_LINK = "https://developer.okta.com/docs/api/openapi/okta-management/guides/release-lifecycle/#early-access-ea"
 
 export default {
   name: "ApiLifecycle",
@@ -61,6 +62,8 @@ export default {
         return IE_LINK;
       } else if(this.access === this.labelType.DEPRECATED) {
         return DEPRECATED_LINK;
+      } else if(this.access === this.labelType.EARLY_ACCESS) {
+        return EA_LINK;
       } else {
         return DEFAULT_LINK;
       }

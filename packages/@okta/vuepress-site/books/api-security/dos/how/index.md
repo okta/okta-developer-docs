@@ -4,7 +4,7 @@ title: How to Mitigate DoS Attacks - DOS Mitigation Strategies
 
 <div style="font-size: 0.9em; margin-bottom: -20px;"><a href="/books/api-security/dos/">&larr; DOS Mitigation Strategies</a></div>
 
-## How to Mitigate DoS Attacks {#dos-how}
+## How to Mitigate DoS Attacks [[#dos-how]]
 Now that you know what DoS attacks are and why attackers perform them, let's discuss how you can protect yourself and your services. Most common mitigation techniques work by detecting illegitimate traffic and blocking it at the routing level, managing and analyzing the bandwidth of the services, and being mindful when architecting your APIs, so they're able to handle large amounts of traffic.
 
 ### Attack Detection

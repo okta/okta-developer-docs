@@ -20,12 +20,12 @@ API endpoints to authenticate your users, challenge for factors, recover passwor
 
 REST endpoints to configure objects whenever you need. For example:
 
-- The [Apps API](/docs/reference/api/apps/) is used to manage Apps and their association with Users and Groups.
-- The [Users API](/docs/reference/api/users) is used for CRUD operations on Users.
+- The [Apps API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/) is used to manage Apps and their association with Users and Groups.
+- The [Users API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/) is used for CRUD operations on Users.
 - The [Sessions API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Session/) creates and manages user's authentication sessions.
-- The [Policy API](/docs/reference/api/policy/) creates and manages settings such as a user's session lifetime.
-- The [Factors API](/docs/reference/api/factors/) is used to enroll, manage, and verify factors for multi-factor authentication (MFA).
-- The [Devices API](/docs/reference/api/devices) is used to manage Device identity and lifecycle.
+- The [Policy API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy) creates and manages settings such as a user's session lifetime.
+- The [User Factors API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/) is used to enroll, manage, and verify factors for Multifactor Authentication (MFA).
+- The [Devices API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Device/) is used to manage device identity and lifecycle.
 
 ## Design principles
 
@@ -193,7 +193,7 @@ Okta APIs support two authentication options:
 
 #### OAuth 2.0 and OpenID Connect authentication
 
-You can interact with Okta APIs that use scoped OAuth 2.0 access tokens for a number of Okta endpoints. Each access token enables the bearer to perform specific actions on specific Okta endpoints, with that ability controlled by the scopes that the access token contains. See [OpenID Connect and OAuth 2.0 API > Client authentication methods](/docs/reference/api/oidc/#client-authentication-methods).
+You can interact with Okta APIs that use scoped OAuth 2.0 access tokens for a number of Okta endpoints. Each access token enables the bearer to perform specific actions on specific Okta endpoints, with that ability controlled by the scopes that the access token contains. See [OpenID Connect and OAuth 2.0 API > Client authentication methods](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/client-auth/#client-authentication-methods).
 
 Refer to the following guides for OAuth 2.0 and OpenID Connect authentication implementations:
 * For user access token requests, see [Implement OAuth for Okta](/docs/guides/implement-oauth-for-okta/).
@@ -214,7 +214,7 @@ For example:
 
 > **Note:** See [Create an API token](/docs/guides/create-an-api-token/) for instructions on how to get an API token for your organization.
 
-The API token isn't interchangeable with an Okta [session token](/docs/reference/api/authn/#session-token), access tokens, or ID tokens used with [OAuth 2.0 and OpenID Connect](/docs/reference/api/oidc/).
+The API token isn't interchangeable with an Okta [session token](/docs/reference/api/authn/#session-token), access tokens, or ID tokens used with [OAuth 2.0 and OpenID Connect](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/).
 
 ### Pagination
 
@@ -303,7 +303,7 @@ Filters must be evaluated using the standard order of operations. Attribute oper
 
 ### Hypermedia
 
-Objects in the Okta API use hypermedia for discoverability. Hypermedia enables API clients to navigate objects by following links like a web browser instead of hard-coding URLs in your application. Links are identified by link relations that are named keys. Link relations describe what objects are available and how API clients can interact with them. Each object may publish a set of link relationships based on the state of the object. For example, the status of a user in the [User API](/docs/reference/api/users/#links-object) governs which lifecycle operations are permitted. Only the permitted operations are published as lifecycle operations.
+Objects in the Okta API use hypermedia for discoverability. Hypermedia enables API clients to navigate objects by following links like a web browser instead of hard-coding URLs in your app. Links are identified by link relations that are named keys. Link relations describe what objects are available and how API clients can interact with them. Each object may publish a set of link relationships based on the state of the object. For example, the status of a user in the [User API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/) governs which lifecycle operations are permitted. Only the permitted operations are published as lifecycle operations.
 
 The Okta API incorporates [JSON Hypertext Application Language](https://datatracker.ietf.org/doc/html/draft-kelly-json-hal-06) or HAL format as the foundation for hypermedia discoverability. HAL provides a set of conventions for expressing hyperlinks in JSON responses that represent two simple concepts: Resources and Links.
 
@@ -362,7 +362,7 @@ X-Okta-Request-Id: reqVy8wsvmBQN27h4soUE3ZEnA
 
 ### Cross-Origin Resource Sharing (CORS)
 
-[Cross-Origin Resource Sharing (CORS)](http://en.wikipedia.org/wiki/Cross-Origin_Resource_Sharing) is a mechanism that allows a web page to make an AJAX call by using [XMLHttpRequest (XHR)](http://en.wikipedia.org/wiki/XMLHttpRequest) to a domain that is different from the one where the script was loaded. Such cross-domain requests would otherwise be forbidden by web browsers, in accordance with the [same origin security policy](http://en.wikipedia.org/wiki/Same_origin_policy). CORS defines a [standardized](http://www.w3.org/TR/cors/) way in which the browser and the server can interact to determine whether to allow the cross-origin request.
+[Cross-Origin Resource Sharing (CORS)](https://fetch.spec.whatwg.org/#cors-protocol) is a mechanism that allows a web page to make an AJAX call. The AJAX call uses [XMLHttpRequest (XHR)](https://xhr.spec.whatwg.org/) to a domain that's different from the one where the script was loaded. Such cross-domain requests would otherwise be forbidden by web browsers, in accordance with the [same origin security policy](https://www.w3.org/Security/wiki/Same_Origin_Policy). CORS defines a [standardized](http://www.w3.org/TR/cors/) way in which the browser and the server can interact to determine whether to allow the cross-origin request.
 
 In Okta, CORS allows JavaScript, which is hosted on your websites, to make an XHR to the Okta API with a token. See [OpenID Connect & OAuth 2.0](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/).
 

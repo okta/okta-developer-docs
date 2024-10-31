@@ -1,6 +1,24 @@
 <template>
   <div class="layout">
-    <div class="fixed-header">
+    <div
+      ref="header"
+      class="fixed-header"
+    >
+      <HeaderBanner
+        v-show="showBanner"
+        banner-id="v2"
+        @updateHeight="updateHeaderHeight"
+      >
+        <p>
+          Check out our new and improved
+          <a
+            href="https://developer.okta.com/docs/api/"
+            target="_blank"
+          >
+            API documentation! ↗
+          </a>
+        </p>
+      </HeaderBanner>
       <Header />
       <HeaderNav />
     </div>
@@ -85,10 +103,7 @@
 </template>
 
 <script>
-export const LAYOUT_CONSTANTS = {
-  HEADER_TO_CONTENT_GAP: 45, //px
-  ANCHOR_TOP_MARGIN: 32
-};
+
 const TABLET_BREAKPOINT = 767;
 
 import SidebarItems from "../mixins/SidebarItems";
@@ -116,6 +131,7 @@ export default {
     Terms: () => import("../components/Terms.vue"),
     Errors: () => import("../components/Errors.vue"),
     Copyright: () => import("../components/Copyright.vue"),
+    HeaderBanner: () => import("../components/HeaderBanner.vue"),
   },
   mixins: [SidebarItems],
   provide() {
@@ -139,6 +155,17 @@ export default {
     };
   },
   computed: {
+    showBanner() {
+      const bannerStartTime = new Date('2024-09-06T09:00:00-07:00'); // 9:00 AM PT
+      const bannerEndTime = new Date('2024-09-30T17:00:00-07:00'); // 5:00 PM PT
+      
+      const bannerStartEpochSeconds = Math.floor(bannerStartTime.getTime() / 1000);
+      const bannerEndEpochSeconds = Math.floor(bannerEndTime.getTime() / 1000);
+
+      const currentTimeEpochSeconds = Math.floor(Date.now() / 1000);
+
+      return currentTimeEpochSeconds >= bannerStartEpochSeconds && currentTimeEpochSeconds <= bannerEndEpochSeconds;
+    },
     editLink() {
       if (this.$page.frontmatter.editLink === false) {
         return;
@@ -147,7 +174,7 @@ export default {
         repo,
         editLinks,
         docsDir = "",
-        docsBranch = "master",
+        docsBranch = "m" + "aster",
         docsRepo = repo
       } = this.$site.themeConfig.editLink;
       if (docsRepo && editLinks && this.$page.relativePath) {
@@ -195,6 +222,7 @@ export default {
     this.$on("toggle-tree-nav", event => {
       that.appContext.isTreeNavMobileOpen = event.treeNavOpen;
     });
+
     this.onResize();
     window.addEventListener("resize", this.onResize);
     this.redirIfRequired();
@@ -219,6 +247,7 @@ export default {
       }
     },
     onResize() {
+      this.updateHeaderHeight()
       this.appContext.isInMobileViewport =
         window.innerWidth <= TABLET_BREAKPOINT;
     },
@@ -236,6 +265,18 @@ export default {
       this.appContext.treeNavDocs = this.appContext.treeNavDocs.length > 0 ? this.appContext.treeNavDocs : this.getNavigationData();
       return this.appContext.treeNavDocs;
     },
+    updateHeaderHeight() {
+      this.$nextTick(() => {
+        const headerHeight = this.$refs.header?.offsetHeight || 0;
+
+        if(headerHeight) {
+          document.documentElement.style.setProperty('--header-height', `${headerHeight}px`)
+        }
+      });
+    },
+    openSurvey() {
+      window.open('https://surveys.okta.com/jfe/form/SV_6XTKmUbd22BlYFg?source=' + encodeURIComponent(document.location.href), '_blank');
+    }
   }
 };
 </script>

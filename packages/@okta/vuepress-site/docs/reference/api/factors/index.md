@@ -5,6 +5,10 @@ category: management
 
 # Factors API
 
+The Factors API reference is available at the [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/).
+
+Explore the [Okta Public API Collections](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/overview) workspace to get started with the Factors API Postman collection.
+
 The Okta Factors API provides operations to enroll, manage, and verify factors for multifactor authentication (MFA). Manage both administration and end-user accounts, or verify an individual factor at any time.
 
 <ApiAuthMethodWarning />
@@ -14,11 +18,6 @@ The Okta Factors API provides operations to enroll, manage, and verify factors f
 Explore the Factors API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/283a99e4b49ce7f5f54d)
 
 ## Factor operations
-
-- **[List operations](#factor-operations)** &mdash; List factors and security questions.
-- **[Lifecycle operations](#factor-lifecycle-operations)** &mdash; Enroll, activate, and reset factors.
-- **[Challenge and verify operations](#factors-that-require-a-challenge-and-verify-operation)** &mdash; Challenge and Verify a factor
-- **[Verification only operations](#factors-that-require-only-a-verification-operation)** &mdash; Verify a factor
 
 ### Get Factor
 
@@ -1011,7 +1010,7 @@ Customize (and optionally localize) the SMS message sent to the user on enrollme
 * If the language provided in the `Accept-Language` header doesn't exist, the SMS message is sent using the template text.
 * If the provided `templateId` doesn't match the existing template, the SMS message is sent using the default template.
 
-> **Note:** For instructions about how to create custom templates, see [SMS template](/docs/reference/api/templates/#add-sms-template).
+> **Note:** For instructions about how to create custom templates, see [Create an SMS Template](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Template/#tag/Template/operation/createSmsTemplate).
 
 ###### Request example
 
@@ -1055,7 +1054,7 @@ curl -v -X POST \
 
 Customize (and optionally localize) the SMS message sent to the user in case Okta needs to resend the message as part of enrollment.
 
-> **Note:** For instructions about how to create custom templates, see [SMS template](/docs/reference/api/templates/#add-sms-template).
+> **Note:** For instructions on how to create custom templates, see [Create an SMS Template](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Template/#tag/Template/operation/createSmsTemplate).
 
 ###### Request example
 
@@ -1256,8 +1255,8 @@ curl -v -X POST \
 
 Enrolls a user with an Okta `token:software:totp` factor. The factor must be [activated](#activate-totp-factor) after enrollment by following the `activate` link relation to complete the enrollment process.
 
-> <ApiLifecycle access="ie" /> 
-> Enrolls a user with an Okta `token:software:totp` factor and the `push` factor, if the user isn't currently enrolled with these factors.
+<ApiLifecycle access="ie" />
+Enrolls a user with an Okta `token:software:totp` factor and the `push` factor, if the user isn't currently enrolled with these factors.
 
 ##### Request example
 
@@ -1334,8 +1333,8 @@ curl -v -X POST \
 
 Enrolls a user with the Okta Verify `push` factor. The factor must be [activated on the device](#activate-push-factor) by scanning the QR code or visiting the activation link sent through email or SMS.
 
-> <ApiLifecycle access="ie" /> 
-> Enrolls a user with the Okta Verify `push` factor, as well as the `totp` and `signed_nonce` factors (if the user isn't already enrolled with these factors).
+<ApiLifecycle access="ie" />
+Enrolls a user with the Okta Verify `push` factor, as well as the `totp` and `signed_nonce` factors (if the user isn't already enrolled with these factors).
 
 > **Note:** Use the published activation links to embed the QR code or distribute an activation `email` or `sms`.
 
@@ -2017,7 +2016,7 @@ Enrolls a user with a Custom time-based one-time passcode (TOTP) factor, which u
 
 A Factor Profile represents a particular configuration of the Custom TOTP factor. It includes certain properties that match the hardware token that end users possess, such as the HMAC algorithm, passcode length, and time interval. There can be multiple Custom TOTP factor profiles per org, but users can only be enrolled for one Custom TOTP factor. Admins can create Custom TOTP factor profiles in the Okta Admin Console following the instructions on the [Custom TOTP Factor help page](https://help.okta.com/okta_help.htm?id=ext-mfa-totp). Then, copy the `factorProfileId` from the Admin Console into following API request:
 
-> <ApiLifecycle access="ie" />
+<ApiLifecycle access="ie" />
 > **Note:** In Identity Engine, the Custom TOTP factor is referred to as the [Custom OTP authenticator](https://help.okta.com/okta_help.htm?type=oie&id=csh-custom-otp).
 
 ##### Enroll and auto-activate Custom TOTP Factor
@@ -2615,7 +2614,7 @@ Activation gets the registration information from the U2F token using the API an
 ##### Get registration information from U2F token by calling the U2F JavaScript API
 
 ```html
-<!-- Get the u2f-api.js from https://github.com/google/u2f-ref-code/tree/master/u2f-gae-demo/war/js -->
+Get the u2f-api.js from https://github.com/google/u2f-ref-code/tree/master/u2f-gae-demo/war/js 
 <script src="/u2f-api.js"></script>
 <script>
   // Use the origin of your app that is calling the factors API
@@ -2739,13 +2738,14 @@ Activation gets the registration information from the WebAuthn authenticator usi
 ##### Get registration information from WebAuthn authenticator by calling the WebAuthn JavaScript API
 
 ```html
-<!-- Using CryptoUtil.js from https://github.com/okta/okta-signin-widget/blob/master/src/util/CryptoUtil.js -->
-<script>
+Using CryptoUtil.js from https://github.com/okta/okta-signin-widget/blob/master/src/util/CryptoUtil.js
+
 // Convert activation object's challenge and user id from string to binary
 response._embedded.activation.challenge = CryptoUtil.strToBin(response._embedded.activation.challenge);
 response._embedded.activation.user.id = CryptoUtil.strToBin(response._embedded.activation.user.id);
 
 // navigator.credentials is a global object on WebAuthn-supported clients, used to access WebAuthn API
+<script>
 navigator.credentials.create({
   publicKey: response._embedded.activation
 })
@@ -2855,8 +2855,8 @@ curl -v -X POST \
 
 Unenrolls an existing Factor for the specified user, allowing the user to enroll a new Factor
 
-> <ApiLifecycle access="ie" /> 
-> If the Okta Verify `push` factor is reset, then existing `totp` and `signed_nonce` factors are reset as well for the user. Similarly, if the `signed_nonce` factor is reset, then existing `push` and `totp` factors are also reset for the user.
+>ApiLifecycle access="ie" />
+If the Okta Verify `push` factor is reset, then existing `totp` and `signed_nonce` factors are reset as well for the user. Similarly, if the `signed_nonce` factor is reset, then existing `push` and `totp` factors are also reset for the user.
 
 ##### Request parameters
 
@@ -2979,7 +2979,7 @@ Customize (and optionally localize) the SMS message sent to the user on verifica
 * If the language provided in the `Accept-Language` header doesn't exist in the template definition, the SMS message is sent using the template text.
 * If the provided `templateId` doesn't match an existing template, the SMS message is sent using the default template.
 
-To create custom templates, see [Templates](/docs/reference/api/templates/#add-sms-template).
+To create custom templates, see [Create an SMS Template](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Template/#tag/Template/operation/createSmsTemplate).
 
 ###### Request example
 
@@ -3208,7 +3208,7 @@ Creates a new transaction and sends an asynchronous push notification to the dev
 | factorId     | `id` of a Factor                                    | URL        | String   | TRUE     |         |
 | userId       | `id` of a User                                      | URL        | String   | TRUE     |         |
 
-> **Notes:** The client `IP Address` and `User Agent` of the HTTP request is automatically captured and sent in the push notification as additional context.<br><br>You should [always send a valid User-Agent HTTP header](/docs/reference/core-okta-api/#user-agent) when verifying a push Factor.<br><br> The **public IP address** of your application must be [allowed as a gateway IP address](/docs/reference/core-okta-api/#ip-address) to forward the user agent's original IP address with the `X-Forwarded-For` HTTP header.
+> **Notes:** The client `IP Address` and `User Agent` of the HTTP request is automatically captured and sent in the push notification as additional context.<br><br>You should [always send a valid User-Agent HTTP header](https://developer.okta.com/docs/api/#user-agent) when verifying a push Factor.<br><br> The **public IP address** of your app must be [allowed as a gateway IP address](https://developer.okta.com/docs/api/#ip-address) to forward the user agent's original IP address with the `X-Forwarded-For` HTTP header.
 
 ##### Response parameters
 
@@ -3582,7 +3582,7 @@ curl -v -X POST \
 #### Get the signed assertion from the U2F token by calling the U2F JavaScript API
 
 ```html
-<!-- Get the u2f-api.js from https://github.com/google/u2f-ref-code/tree/master/u2f-gae-demo/war/js -->
+ Get the u2f-api.js from https://github.com/google/u2f-ref-code/tree/master/u2f-gae-demo/war/js
 <script src="/u2f-api.js"></script>
 <script>
   // Use the nonce from the challenge object
@@ -3713,7 +3713,7 @@ curl -v -X POST \
 #### Get the signed assertion from the WebAuthn authenticator by calling the WebAuthn JavaScript API
 
 ```html
-<!-- Using CryptoUtil.js from https://github.com/okta/okta-signin-widget/blob/master/src/util/CryptoUtil.js -->
+Using CryptoUtil.js from https://github.com/okta/okta-signin-widget/blob/master/src/util/CryptoUtil.js
 <script>
   // Convert activation object's challenge nonce from string to binary
   response._embedded.challenge.challenge = CryptoUtil.strToBin(response._embedded.challenge.challenge);
@@ -4156,7 +4156,7 @@ Specifies the Profile for a `sms` Factor
 
 | Property      | Description                                     | DataType                                                        | Nullable | Unique  | Readonly |
 | ------------- | -----------------------------                   | --------------------------------------------------------------- | -------- | ------- | -------- |
-| phoneNumber   | Phone number of the mobile device, maximum 15 characters | String [E.164 formatted](http://en.wikipedia.org/wiki/E.164)    | FALSE    | TRUE    | FALSE    |
+| phoneNumber   | Phone number of the mobile device, maximum 15 characters | String [E.164 formatted](https://www.itu.int/rec/T-REC-E.164-201011-I/en)    | FALSE    | TRUE    | FALSE    |
 
 ```json
 {
@@ -4176,7 +4176,7 @@ Specifies the Profile for a `call` Factor
 
 | Property       | Description                                  | DataType                                                        | Nullable | Unique  | Readonly |
 | -------------  | -----------------------------                | --------------------------------------------------------------- | -------- | ------- | -------- |
-| phoneNumber    | Phone number of the device, maximum 15 characters | String [E.164 formatted](http://en.wikipedia.org/wiki/E.164)    | FALSE    | TRUE    | FALSE    |
+| phoneNumber    | Phone number of the device, maximum 15 characters | String [E.164 formatted](https://www.itu.int/rec/T-REC-E.164-201011-I/en)    | FALSE    | TRUE    | FALSE    |
 | phoneExtension | Extension of the device, maximum 15 characters    | String                                                          | TRUE     | FALSE   | FALSE    |
 
 ```json

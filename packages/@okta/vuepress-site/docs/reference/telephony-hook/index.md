@@ -6,6 +6,11 @@ excerpt: Customizes Okta's flows that send SMS or voice messages
 
 # Telephony inline hook reference
 
+The Telephony Inline Hook API reference is now available at the new [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/createTelephonyInlineHook)
+
+Explore the [Okta Public API Collections](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/overview) workspace to get started with the Inline Hook API Postman Collection.
+
+<!--
 This page provides reference documentation for telephony inline hooks, a type of inline hook supported by Okta. You can use this content to understand how to structure the JSON objects sent and received by Okta when communicating with an external telephony provider.
 
 ## See also
@@ -204,9 +209,11 @@ This section provides example JSON payloads for the supported operations.
 }
 ```
 
-## Timeout behavior
+## Time-out behavior
 
 If the provider response times out, Okta attempts to send the OTP using the Okta telephony providers. See [Troubleshoot](#troubleshoot).
+
+>**Note:** The failover mechanism that uses the Okta telephony providers is heavily rate-limited.
 
 ## Troubleshoot
 
@@ -222,4 +229,4 @@ This section explains several common causes of failure for telephony inline hook
 | Hook response is malformed or can't be mapped to the expected API response  | Inline hook operation is skipped                                                                  | Administrators only                       |
 | Request header doesn't include an `authScheme`                              | Inline hook operation is skipped                                                                  | Administrators only                       |
 | Response uses an invalid status                                             | Inline hook operation is skipped                                                                  | Administrators only                       |
-| Operation adds an active telephony inline hook when a hook exists           | Inline hook operation is skipped                                                                  | Administrators only                       |
+| Operation adds an active telephony inline hook when a hook exists           | Inline hook operation is skipped                                                                  | Administrators only                       | -->

@@ -1,0 +1,53 @@
+rules:
+  - name: whitelist
+    terms:
+      - whitelist
+      - white-list
+    alternatives:
+      - allowlist
+    options:
+      word_boundary: true
+  - name: whitelisting
+    terms:
+      - whitelisting
+      - white-listing
+    alternatives:
+      - allow
+    note: "Avoid using allow listing and allow listed as verbs."
+    options:
+      include_note: true
+  - name: blacklist
+    terms:
+      - blacklist
+      - black-list
+    alternatives:
+      - blocklist
+    options:
+      word_boundary: true
+  - name: blacklisting
+    terms:
+      - blacklisting
+      - black-listing
+    alternatives:
+      - blocking
+    note: "Avoid using block listing and block listed as verbs. "
+    options:
+      include_note: true
+  - name: slave
+    terms:
+      - slave
+    alternatives:
+      - replica
+      - backup
+      - worker
+      - duplicate
+    options:
+      word_boundary: true
+  - name: slaving
+    terms:
+      - slaving
+    alternatives:
+      - replicating
+      - duplicating
+    options:
+      word_boundary: true

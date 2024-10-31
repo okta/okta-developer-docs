@@ -4,7 +4,7 @@ title: Keep Your Credentials Private - Managing API Credentials
 
 <div style="font-size: 0.9em; margin-bottom: -20px;"><a href="/books/api-security/api-keys/">&larr; Managing API Credentials</a></div>
 
-## Keep Your Credentials Private {#api-keys-keep-keys-private}
+## Keep Your Credentials Private [[#api-keys-keep-keys-private]]
 
 No matter whether you are using an API or building your own, the advice applies to you: Never put an API secret into your code. Never ever!
 

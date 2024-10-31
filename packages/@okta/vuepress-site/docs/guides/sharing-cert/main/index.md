@@ -4,16 +4,16 @@ excerpt: How to share application key credentials between Apps
 layout: Guides
 ---
 
-This guide explains how to share application key credentials across multiple applications so that they can be authorized by using the same Identity Provider.
+This guide explains how to share application key credentials across multiple apps so that the same Identity Provider can authorized the apps.
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
-* Create a new application key credential for your source app and update it to use the new certificate.
+* Create a new app key credential for your source app and update it to use the new certificate.
 * Share this credential with, and use it in, the target app.
 
-**What you need**
+#### What you need
 
 A couple of existing Okta apps already set up so that application key credentials can be shared between the apps, for example, [a web app](/docs/guides/sign-into-web-app-redirect/asp-net-core-3/main/).
 
@@ -21,9 +21,9 @@ A couple of existing Okta apps already set up so that application key credential
 
 ## About application key credentials
 
-[Application Key Credential objects](/docs/reference/api/apps/#application-key-credential-object) contain an opaque key ID (`kid`) and a corresponding certificate. To use the [API](/docs/reference/api/apps/#clone-application-key-credential) to share application key credentials between apps, you need to clone an application key credential. You create and use a new credential in one app, and then share and update the credential in another app.
+[Application key credential objects](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationSSOCredentialKey/#tag/ApplicationSSOCredentialKey/operation/listApplicationKeys) contain an opaque key ID (`kid`) and a corresponding certificate. To use the [API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationSSOCredentialKey/#tag/ApplicationSSOCredentialKey/operation/cloneApplicationKey) to share application key credentials between apps, you need to clone an application key credential. You create and use a new credential in one app, and then share and update the credential in another app.
 
-Sharing certificates is useful for Okta orgs that have apps with [sign-on modes](/docs/reference/api/apps/#sign-on-modes) such as `SAML_2_0`, `SAML_1_1`, or `WS_FEDERATION`.
+Sharing certificates is useful for Okta orgs that have apps with [sign-on modes](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/listApplications!c=200&path=0/signOnMode&t=response) such as `SAML_2_0`, `SAML_1_1`, or `WS_FEDERATION`.
 
 ### Why should I do this
 
@@ -141,7 +141,7 @@ Response:
 
 ## Share the source app's key credential ID with the target app
 
-Share the source app's key ID `kid` with the target app. This clones the X.509 certificate of the application key credential from the source application to the target application. The `targetAid`is the target app's ID.
+Share the source app's key ID `kid` with the target app. This clones the X.509 certificate of the application key credential from the source app to the target app. The `targetAid`is the target app's ID.
 
 Request:
 
@@ -241,10 +241,10 @@ Response:
 
 > **Note:** The response is truncated for clarity.
 
-## See also 
+## See also
 
 Read more about sharing application key credentials between apps in our API Reference docs:
 
-* [Application sign-on modes](/docs/reference/api/apps/#sign-on-modes)
-* [Generate a new application key credential](/docs/reference/api/apps/#generate-new-application-key-credential)
-* [Clone an application key credential](/docs/reference/api/apps/#clone-application-key-credential)
+* [App sign-on modes](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/listApplications!c=200&path=0/signOnMode&t=response)
+* [Generate a new application key credential](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationSSOCredentialKey/#tag/ApplicationSSOCredentialKey/operation/generateApplicationKey)
+* [Clone an application key credential](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationSSOCredentialKey/#tag/ApplicationSSOCredentialKey/operation/cloneApplicationKey)

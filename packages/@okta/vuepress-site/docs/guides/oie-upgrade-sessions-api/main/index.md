@@ -14,7 +14,7 @@ After your org is upgraded to Okta Identity Engine, there are a few things you s
 * The use of the session ID cookie (`sid`) isn't supported in Identity Engine. The new `idx` cookie is used with Identity Engine.
 * Okta recommends that you move away from session ID-based (`sid` cookie) restful services and use the `/api/v1/sessions/me` endpoint to get session information for the current user and to determine if the user is signed in.
 
->**Note:**: Use session cookies with browsers only. Using session cookies outside of a browser is subject to change and isn't supported or recommended by Okta.
+>**Note:** Use session cookies with browsers only. Using session cookies outside of a browser is subject to change and isn't supported or recommended by Okta.
 
 >**Note:** Some browsers block third-party cookies by default, which disrupts Okta functionality in certain flows. See [Mitigate the impact of third-party cookie deprecation](https://help.okta.com/okta_help.htm?type=oie&id=ext-third-party-cookies).
 
@@ -32,11 +32,11 @@ The following section discusses different use cases and what the changes are aft
 
 3. **Are you using the [My Session Management endpoints](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Session/#tag/Session/operation/getCurrentSession) (`api/v1/sessions/me`)?** Everything works as configured. Operations are reflected on both Session ID (`sid`) and Identity Engine (`idx`) cookies.
 
-4. **Are you calling any of these four `v1/sessions/${sessionId}/*` endpoints?** These operations work only on the Session ID (`sid`) session and not on the Identity Engine `idx` sessions.
+4. **Are you calling any of these four `v1/sessions/{sessionId}/*` endpoints?** These operations work only on the Session ID (`sid`) session and not on the Identity Engine `idx` sessions.
 
-    * GET `/api/v1/sessions/${sessionId}`
-    * POST `/api/v1/sessions/${sessionId}/lifecycle/refresh`
-    * DELETE `/api/v1/sessions/${sessionId}`
+    * GET `/api/v1/sessions/{sessionId}`
+    * POST `/api/v1/sessions/{sessionId}/lifecycle/refresh`
+    * DELETE `/api/v1/sessions/{sessionId}`
     * POST `/api/v1/users/me/lifecycle/delete_sessions`
     * POST `/api/v1/sessions?additionalFields=cookieToken`
 

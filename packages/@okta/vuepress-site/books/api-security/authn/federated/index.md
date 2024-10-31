@@ -4,7 +4,7 @@ title: Federated Identity - Authentication
 
 <div style="font-size: 0.9em; margin-bottom: -20px;"><a href="/books/api-security/authn/">&larr; Authentication</a></div>
 
-## Federated Identity {#authn-federated}
+## Federated Identity [[#authn-federated]]
 
 Federated identity is a way to use an account from one website to create an account and log in to a different site.
 
@@ -13,7 +13,7 @@ There are two main players in a federated identity system: an Identity Provider 
 
 ![Federated Identity](/img/books/api-security/authn/images/federated-identity.png "Federated Identity")
 
-### OAuth 2.0 {#authn-oauth-2}
+### OAuth 2.0 [[#authn-oauth-2]]
 
 OAuth 2.0 is a delegated authorization framework which is ideal for APIs. It enables apps to obtain limited access (scopes) to a user's data without giving away a user's password. It decouples authentication from authorization and supports multiple use cases addressing different device capabilities. It supports server-to-server apps, browser-based apps, mobile/native apps, and consoles/TVs.
 

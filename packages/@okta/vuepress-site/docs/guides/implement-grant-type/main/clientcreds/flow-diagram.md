@@ -30,7 +30,7 @@ app -> client: Response
 
 At a high level, this flow has the following steps:
 
-1. Your client application (app) makes an authorization request to your Okta authorization server using its client credentials.
+1. Your client app makes an authorization request to your Okta authorization server using its Client Credentials.
 
     Before implementing this redirect request to the authorization server (Okta), you need to [set up your app](#set-up-your-app) in Okta. See [Request for token](#request-for-token).
 

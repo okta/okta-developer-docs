@@ -8,21 +8,21 @@ This guide explains how to add orgs to your Okta Aerial account and manage Aeria
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 - Authenticate an Aerial API client with Okta Aerial.
 - Add an org to your Aerial account.
 - Enable products in the Aerial linked org.
 - Configure the Aerial org.
 
-**What you need**
+#### What you need
 
 - An Okta Aerial account
 - A parent org
 - Access to the Org creator API
 - Access to the Okta Aerial API
 
-**Sample code**
+#### Sample code
 
 Use the [Okta Aerial API](https://developer.okta.com/docs/api/openapi/aerial/guides/overview/)
 
@@ -43,8 +43,8 @@ Okta Aerial introduces a few terms to the Okta ecosystem:
 
 | Term                                                           | Definition                                                                    |
 |----------------------------------------------------------------|--------------------------------------------------------------------------------|
-| Aerial account              | The management layer around multiple orgs within Okta. The Aerial account lives outside of your orgs and can manage any production or preview org linked to the Aerial account. |
-| Aerial org        | Holds the [authorization server](/docs/concepts/auth-servers/) for all Aerial API actions in any org in the Aerial account. Choose one org to permanently serve as the Aerial Org. <br/>[Super admins](https://help.okta.com/okta_help.htm?type=oie&id=ext_superadmin) can create API clients in the Aerial Org to access the Aerial account. The Aerial Org also contains all [System Log](https://help.okta.com/okta_help.htm?type=oie&id=ext_Reports_SysLog) events associated with Okta Aerial actions. |
+| Aerial account              | The management layer around multiple orgs within Okta. The Aerial account lives outside of your orgs and can manage any production or preview org linked to the Aerial account. Each Aerial account has a dedicated Aerial org.  |
+| Aerial org        | Used to register API clients and acts as an [authorization server](/docs/concepts/auth-servers/) for all API calls made in the associated Aerial account. The Aerial org also contains all [System Log](https://help.okta.com/okta_help.htm?type=oie&id=ext_Reports_SysLog) events associated with Okta Aerial actions. |
 | Products       | Okta-determined sets of features. With the Okta Aerial API, you can view subscribed products for an Aerial account and enable a subset of products to orgs. |
 | Features | Distinct pieces of functionality. Features are bundled within products but may also be offered separately, for example, Early Access features. |
 
@@ -56,9 +56,11 @@ Okta provides the following environments to use with your Aerial account:
 
   `https://aerial-sandbox.okta.com`
 
-- **Production**: Connected to `okta.com` and `oktapreview.com`. Use to explore the Aerial API or test net-new development. Link a preview org to your production instance.
+- **Production**: Connected to `okta.com` and `okta.preview.com`. Use to explore the Aerial API or test net-new development. Link a preview org to your production instance.
 
   `https://aerial-apac.okta.com`
+
+Use either the sandbox or production URL for the placeholder `{aerialDomain}` in your API calls.
 
 See [Link the org to the Aerial account](#link-the-org-to-the-aerial-account).
 
@@ -137,29 +139,29 @@ Add the access token to the Authorization header of Okta Aerial API requests:
 Authorization: Bearer ${access_token}
 ```
 
-
 <!-- our OAuth docs for service apps rely on Postman for this step. need something in the interim until Postman is ready -->
 
 ## Create a child org
 
 Create a child org of the parent org using the Org creator API. This creates a child org with features synced from the parent org. In the API response, you receive an API token tied to the super admin. Use the token to provision more resources on the child org like policies, apps, or groups.
 
-This isn't the token that's used for Okta Aerial. <!-- See the [Org creator API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgCreation/). --> The API token that the Org creator API creates has the same automatic expiration and deactivation as API tokens created using the [Admin Console](/docs/guides/create-an-api-token/main/#token-expiration-and-deactivation).
+The API token isn't the token that's used for Okta Aerial. The token that the Org creator API creates has the same automatic expiration and deactivation as API tokens created using the [Admin Console](/docs/guides/create-an-api-token/main/#token-expiration-and-deactivation).
 
 However, the Org creator API token doesn’t appear in the Admin Console. You can’t use the Admin Console to revoke the token. If you deactivate the super admin (the first admin created during org creation), the token is deactivated.
 
 If you lose this token or it expires, you must sign in to the Admin Console as a super admin and [create a token](/docs/guides/create-an-api-token/main/#create-the-token).
 
+>**Note:** Before creating your first child org and linking to Aerial, ensure that you give consent to the parent org with the [Grant Okta Aerial access to your Org API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingSupport/#tag/OrgSettingSupport/operation/grantAerialConsent).
 
 ## Add the org to the Aerial account
 
 To enable products in an org, add the org to your Aerial account. You can only add orgs to your Aerial account that are associated with your Okta contracts.
 
-Link the org to Okta Aerial by sending a `POST` request to the `/api/va/orgs` endpoint of the Aerial API. The response contains the Org object including the `orgId`. Use the `orgId` to enable products.
+Link the org to Okta Aerial by sending a `POST` request to the `/api/v1/orgs` endpoint of the Aerial API. The response contains the Org object including the `orgId`. Use the `orgId` to enable products.
 
 ### Use `orgId`
 
-<ApiOperation method="post" url="https://aerial-{region}/{accountId}/api/v1/orgs" />
+<ApiOperation method="post" url="https://{aerialDomain}/{accountId}/api/v1/orgs" />
 
 ```bash
 Authorization: Bearer ${access_token}
@@ -172,7 +174,7 @@ Authorization: Bearer ${access_token}
 
 ### Use `domain`
 
-<ApiOperation method="post" url="https://aerial-{region}/{accountId}/api/v1/orgs" />
+<ApiOperation method="post" url="https://{aerialDomain}/{accountId}/api/v1/orgs" />
 
 ```bash
 Authorization: Bearer ${access_token}
@@ -207,7 +209,7 @@ The ID of this record is the `orgId`. Use it in the URL for enabling products:
 
 ## Enable products in the org
 
-<ApiOperation method="put" url="https://aerial-{region}/{accountId}/api/v1/orgs/{orgId}/products" />
+<ApiOperation method="put" url="https://{aerialDomain}/{accountId}/api/v1/orgs/{orgId}/products" />
 
 Include the products that you want to enable in an array in the request body.
 
@@ -284,7 +286,7 @@ curl --location --request POST 'https://${newOrgDomain}/api/v1/apps \
 
 ## Deactivate an org
 
-<ApiOperation method="put" url="https://aerial-{region}/{accountId}/api/v1/orgs/{orgId}/status" />
+<ApiOperation method="put" url="https://{aerialDomain}/{accountId}/api/v1/orgs/{orgId}/status" />
 
 Deactivate an org by calling the `/status` endpoint. Deactivated orgs don’t count toward billing. Users in the org can’t use Okta services or sign in to Okta.
 

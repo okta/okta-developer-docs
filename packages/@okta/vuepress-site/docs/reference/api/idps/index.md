@@ -5,6 +5,12 @@ category: management
 
 # Identity Providers API
 
+The Identity Providers API reference is available at the [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProvider/).
+
+Explore the [Okta Public API Collections](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/overview) workspace to get started with the Identity Providers API Postman collection.
+
+<!--
+
 The Okta Identity Providers API provides operations to manage federations with external Identity Providers (IdP). For example, your app can support signing in with credentials from Apple, Facebook, Google, LinkedIn, Microsoft, an enterprise IdP using SAML 2.0, or an IdP using the OpenID Connect (`OIDC`) protocol.
 
 <ApiAuthMethodWarning />
@@ -3331,9 +3337,12 @@ curl -v -X POST \
 ```http
 HTTP/1.1 200 OK
 ```
-
+-->
 ## Identity Provider key store operations
 
+The key store operations for the Identity Providers API are available at the [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProviderKeys/#tag/IdentityProviderKeys).
+
+<!--
 ### Add X.509 Certificate public key
 
 <ApiOperation method="post" url="/api/v1/idps/credentials/keys" />
@@ -3644,9 +3653,12 @@ HTTP/1.1 204 No Content
 ## Identity Provider signing key store operations
 
 > **Note:** EA feature constraint: Okta currently uses the same key for both request signing and decrypting SAML assertions that the IdP encrypts. Changing your signing key also changes your decryption key.
-
+-->
 ### Generate new IdP signing Key Credential
 
+The Generate new IdP signing Key Credential operation is available at the [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProviderSigningKeys/#tag/IdentityProviderSigningKeys/operation/generateIdentityProviderSigningKey).
+
+<!--
 <ApiOperation method="post" url="/api/v1/idps/${idpId}/credentials/keys/generate" />
 
 Generates a new X.509 certificate for an IdP signing Key Credential to be used for signing assertions sent to the IdP
@@ -3707,9 +3719,12 @@ curl -v -X POST \
   ]
 }
 ```
-
+-->
 ### List signing Key Credentials for IdP
 
+The List signing Key Credentials for IdP operation is available at the [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProviderSigningKeys/#tag/IdentityProviderSigningKeys/operation/listIdentityProviderSigningKeys).
+
+<!--
 <ApiOperation method="get" url="/api/v1/idps/${idpId}/credentials/keys" />
 
 Enumerates signing Key Credentials for an IdP
@@ -3763,9 +3778,12 @@ curl -v -X GET \
   }
 ]
 ```
-
+-->
 ### Get signing Key Credential for IdP
 
+The Get signing Key Credential for IdP operation is available at the [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProviderSigningKeys/#tag/IdentityProviderSigningKeys/operation/getIdentityProviderSigningKey).
+
+<!--
 <ApiOperation method="get" url="/api/v1/idps/${idpId}/credentials/keys/${kid}" />
 
 Gets a specific [IdP Key Credential](#identity-provider-key-credential-object) by `kid`
@@ -3807,9 +3825,12 @@ curl -v -X GET \
   "x5t#S256": "5GOpy9CQVtfvBmu2T8BHvpKE4OGtC3BuS046t7p9pps"
 }
 ```
-
+-->
 ### Clone signing Key Credential for IdP
 
+The Clone signing Key Credential for IdP operation is available at the [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProviderSigningKeys/#tag/IdentityProviderSigningKeys/operation/cloneIdentityProviderKey).
+
+<!--
 <ApiOperation method="post" url="/api/v1/idps/${idpId}/credentials/keys/${kid}/clone?targetIdpId=${targetIdpId}" />
 
 Clones an X.509 certificate for an IdP signing Key Credential from a source IdP to target IdP
@@ -3872,9 +3893,12 @@ curl -v -X POST \
   ]
 }
 ```
-
+-->
 ### Generate signing CSR for IdP
 
+The Generate signing CSR for IdP operation is available at the [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProviderSigningKeys/#tag/IdentityProviderSigningKeys/operation/generateCsrForIdentityProvider).
+
+<!--
 <ApiOperation method="post" url="/api/v1/idps/${idpId}/credentials/csrs" />
 
 Generates a new key pair and returns a Certificate Signing Request (CSR) for it.
@@ -3982,9 +4006,12 @@ Return a [CSR object](#identity-provider-csr-object):
   }
 }
 ```
-
+-->
 ### Publish signing CSR for IdP
 
+The Publish signing CSR for IdP operation is available at the [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProviderSigningKeys/#tag/IdentityProviderSigningKeys/operation/publishCsrForIdentityProvider).
+
+<!--
 <ApiOperation method="post" url="/api/v1/idps/${idpId}/credentials/csrs/${csrModelId}/lifecycle/publish" />
 
 Updates the CSR with a signed X.509 certificate and adds it into the signing Key Credentials for the IdP.
@@ -4079,9 +4106,12 @@ curl -v -X POST \
   ]
 }
 ```
-
+-->
 ### Revoke signing CSR from IdP
 
+The Revoke signing CSR for IdP operation is available at the [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProviderSigningKeys/#tag/IdentityProviderSigningKeys/operation/revokeCsrForIdentityProvider).
+
+<!--
 <ApiOperation method="delete" url="/api/v1/idps/${idpId}/credentials/csrs/${csrModelId}" />
 
 Revokes a CSR and deletes the key pair from the IdP
@@ -4115,9 +4145,12 @@ curl -v -X DELETE \
 ```http
 HTTP/1.1 204 No Content
 ```
-
+-->
 ### List signing CSRs for IdP
 
+The List signing CSRs operation is available at the [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProviderSigningKeys/#tag/IdentityProviderSigningKeys/operation/listCsrsForIdentityProvider).
+
+<!--
 <ApiOperation method="get" url="/api/v1/idps/${idpId}/credentials/csrs" />
 
 Enumerates signing CSRs for an IdP
@@ -4199,9 +4232,12 @@ curl -v -X GET \
   }
 ]
 ```
-
+-->
 ### Get signing CSR for IdP
 
+The Get signing CSR for IdP operation is available at the [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProviderSigningKeys/#tag/IdentityProviderSigningKeys/operation/getCsrForIdentityProvider).
+
+<!--
 <ApiOperation method="get" url="/api/v1/idps/${idpId}/credentials/csrs/${csrModelId}" />
 
 Gets a specific [CSR object](#identity-provider-csr-object) by `id`
@@ -4257,9 +4293,12 @@ curl -v -X GET \
   }
 }
 ```
-
+-->
 ## Identity Provider User operations
 
+The Identity Provider User operations for the Identity Providers API are available at the [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/IdentityProviderUsers/).
+
+<!--
 ### Find Users
 
 <ApiOperation method="get" url="/api/v1/idps/${idpId}/users" />
@@ -6093,7 +6132,7 @@ Specifies the behavior for establishing, validating, and matching a username for
 
 | Property         | Description                                                                                                                         | DataType                                               | Nullable | Readonly | MinLength | MaxLength | Validation                                                          |
 | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------ | -------- | -------- | --------- | --------- | ------------------------------------------------------------------- |
-| filter           | Optional [regular expression pattern](https://en.wikipedia.org/wiki/Regular_expression) used to filter untrusted IdP usernames      | String                                                 | TRUE     | FALSE    | 0         | 1024      |                                                                     |
+| filter           | Optional [regular expression pattern](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Regular_expressions) used to filter untrusted IdP usernames      | String                                                 | TRUE     | FALSE    | 0         | 1024      |                                                                     |
 | matchAttribute   | Okta User profile attribute for matching a transformed IdP username. Only for matchType `CUSTOM_ATTRIBUTE` | String      | TRUE    | FALSE    |           |           |  See `matchAttribute` Validation  |
 | matchType        | Determines the Okta User profile attribute match conditions for account linking and authentication of the transformed IdP username  | `USERNAME`, `EMAIL`, `USERNAME_OR_EMAIL` or `CUSTOM_ATTRIBUTE`      | FALSE    | FALSE    |           |           |
 | userNameTemplate | [Okta Expression Language (EL) expression](/docs/reference/okta-expression-language/) to generate or transform a unique username for the IdP User           | [UserName Template object](#username-template-object)  | FALSE    | FALSE    |           |           | [Okta EL Expression](/docs/reference/okta-expression-language/)       |
@@ -6108,7 +6147,7 @@ The `matchAttribute` must be a valid Okta User profile attribute of one of the f
 
 **Property details**
 
-* Defining a [regular expression pattern](https://en.wikipedia.org/wiki/Regular_expression) to filter untrusted IdP usernames for security purposes is **highly recommended**, especially if you have multiple IdPs connected to your organization. The filter prevents an IdP from issuing an assertion for any User including partners or directory Users in your Okta organization.
+* Defining a [regular expression pattern](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Regular_expressions) to filter untrusted IdP usernames for security purposes is **highly recommended**, especially if multiple IdPs are connected to your org. The filter prevents an IdP from issuing an assertion for any User including partners or directory Users in your Okta org.
 
 For example, the filter pattern `(\S+@example\.com)` allows only Users that have an `@example.com` username suffix and rejects assertions that have any other suffix such as `@corp.example.com` or `@partner.com`.
 

@@ -11,6 +11,6 @@ fi
 
 # Use jq to convert JSON to CSV
 
-jq -r '("Event Type,Description,Release Date,Tags"), (.versions[].eventTypes[] | select(.beta != true and .internal !=true) | [ .id // empty, .description // empty, .info.release //empty, .tags[] // empty ] | @csv)' "$json_file" > "$csv_file"
+jq -r '("Event Type,Description,Release Date,Tags, Change Details"), (.versions[].eventTypes[] | select(.beta != true and .internal !=true) | [ .id // empty, .description // empty, .info.release //empty, (.tags | if . == null then "" else join(", ") end), ( .schema.changeDetails | if . == null then "" else join(", ") end)] | @csv)' "$json_file" > "$csv_file"
 
 echo "CSV file generated: $csv_file"

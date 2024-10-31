@@ -8,14 +8,14 @@ Begin to integrate the Sign-In Widget into your own embedded app by following th
 
 #### Source the Sign-In Widget from the Okta CDN
 
-Add the Sign-In Widget source to your sign-in page by referencing the Okta CDN, replacing `${widgetVersion}` with the [latest version](https://github.com/okta/okta-signin-widget/releases/) of the widget:
+Add the Sign-In Widget source to your sign-in page by referencing the Okta CDN, using the [latest version](https://github.com/okta/okta-signin-widget/releases/) of the Sign-In Widget: -=OKTA_REPLACE_WITH_WIDGET_VERSION=-
 
 ```html
-<script src="https://global.oktacdn.com/okta-signin-widget/${widgetVersion}/js/okta-sign-in.min.js" type="text/javascript"></script>
-<link href="https://global.oktacdn.com/okta-signin-widget/${widgetVersion}/css/okta-sign-in.min.css" type="text/css" rel="stylesheet"/>
+<script src="https://global.oktacdn.com/okta-signin-widget/-=OKTA_REPLACE_WITH_WIDGET_VERSION=-/js/okta-sign-in.min.js" type="text/javascript"></script>
+<link href="https://global.oktacdn.com/okta-signin-widget/-=OKTA_REPLACE_WITH_WIDGET_VERSION=-/css/okta-sign-in.min.css" type="text/css" rel="stylesheet"/>
 ```
 
-See also [Using the Okta CDN](https://github.com/okta/okta-signin-widget#using-the-okta-cdn). The latest version of the widget is -=OKTA_REPLACE_WITH_WIDGET_VERSION=-.
+See also [Using the Okta CDN](https://github.com/okta/okta-signin-widget#using-the-okta-cdn).
 
 #### Initialize the Sign-In Widget
 
@@ -26,19 +26,19 @@ When you initialize the Sign-In Widget on your sign-in page, you must configure 
 
     var config = {};
 
-    config.baseUrl = /*[[${oktaBaseUrl}]]*/ 'https://{yourOktaDomain}';
-    config.clientId = /*[[${oktaClientId}]]*/ '{clientId}';
-    config.redirectUri = /*[[${redirectUri}]]*/ '{redirectUri}';
-    config.interactionHandle = /*[[${interactionHandle}]]*/ '{interactionHandle}';
-    config.codeChallenge = /*[[${codeChallenge}]]*/ '{codeChallenge}';
-    config.codeChallengeMethod = /*[[${codeChallengeMethod}]]*/ '{codeChallengeMethod}';
+    config.baseUrl = /*[[{oktaBaseUrl}]]*/ 'https://{yourOktaDomain}';
+    config.clientId = /*[[{oktaClientId}]]*/ '{clientId}';
+    config.redirectUri = /*[[{redirectUri}]]*/ '{redirectUri}';
+    config.interactionHandle = /*[[{interactionHandle}]]*/ '{interactionHandle}';
+    config.codeChallenge = /*[[{codeChallenge}]]*/ '{codeChallenge}';
+    config.codeChallengeMethod = /*[[{codeChallengeMethod}]]*/ '{codeChallengeMethod}';
     config.redirect = 'always';
     config.authParams = {
-        issuer: /*[[${issuerUri}]]*/ '{issuerUri}',
+        issuer: /*[[{issuerUri}]]*/ '{issuerUri}',
         pkce: true,
-        state: /*[[${state}]]*/ '{state}' || false,
-        nonce: /*[[${nonce}]]*/ '{nonce}',
-        scopes: /*[[${scopes}]]*/ '[scopes]',
+        state: /*[[{state}]]*/ '{state}' || false,
+        nonce: /*[[{nonce}]]*/ '{nonce}',
+        scopes: /*[[{scopes}]]*/ '[scopes]',
     };
 
   const signIn = new OktaSignIn({
@@ -58,10 +58,10 @@ When you initialize the Sign-In Widget on your sign-in page, you must configure 
 </script>
 ```
 
-See [Okta Sign-In Widget Guide](/code/javascript/okta_sign-in_widget/) for more details.
+See [Okta Sign-In Widget Guide](/docs/guides/embedded-siw/) for more details.
 
 > **Important**: In Okta Sign-In Widget version 7+, Identity Engine is enabled by default. If you’re using an earlier version than 7, you must explicitly enable Identity Engine features by setting `config.useInteractionCodeFlow = true;` in the configuration settings, as shown previously. If you’re using version 7+ and you want to use Okta Classic Engine rather than Identity Engine, specify `config.useClassicEngine = true;` in the configuration settings.
 
-Complete integrating your embedded app with the Identity Engine Java SDK libraries. See the [Basic sign-in flow using the widget](/docs/guides/oie-embedded-widget-use-case-basic-sign-in/java/main/) use case for a guide on how to handle the callback from the Sign-In Widget. Refer to the [Okta Java SDK Usage guide](https://github.com/okta/okta-idx-java#usage-guide) for more information on SDK usage.
+Complete integrating your embedded app with the Identity Engine Java SDK libraries. See the [Basic sign-in flow using the Sign-In Widget](/docs/guides/oie-embedded-widget-use-case-basic-sign-in/java/main/) use case for a guide on how to handle the callback from the Sign-In Widget. Refer to the [Okta Java SDK Usage guide](https://github.com/okta/okta-idx-java#usage-guide) for more information on SDK usage.
 
-Before running your app, ensure that you [set the configuration values](#set-the-configuration-values) for your app using the [Sign-In Widget environment variables](#sign-in-widget-environment-variables) or the [Sign-In Widget Java system properties](#sign-in-widget-java-properties). See [Run the embedded Widget sample app](/docs/guides/oie-embedded-common-run-samples/java/main/#run-the-embedded-widget-sample-app) for step-by-step instructions on how to run a sample app.
+Before running your app, ensure that you [set the configuration values](#set-the-configuration-values) for your app using the [Sign-In Widget environment variables](#sign-in-widget-environment-variables) or the [Sign-In Widget Java system properties](#sign-in-widget-java-properties). See [Run the embedded Sign-In Widget sample app](/docs/guides/oie-embedded-common-run-samples/java/main/#run-the-embedded-widget-sample-app) for step-by-step instructions on how to run a sample app.

@@ -78,7 +78,7 @@ header.page-header .sign-up--button {
   outline: none;
   border: 1px solid cv("body", "white");
   border-radius: 4px;
-  background: cv("header");
+  background: cv("header", "base");
 
   font-weight: 500;
 
@@ -265,7 +265,7 @@ header.page-header .link:focus {
 
   header.page-header .menu--slideout {
     position: fixed;
-    top: 90px;
+    top: 130px;
     right: 0;
     bottom: 0;
     left: 0;
@@ -347,7 +347,7 @@ header.page-header .link:focus {
 
   header.page-header .menu--slideout .header--links > ul.menu--items li a.link:not(.router-link-exact-active, .router-link-active, .subnav-active),
   header.page-header .menu--slideout .header--links > ul.menu--items li span.link:not(.router-link-exact-active, .router-link-active, .subnav-active) {
-    color: cv("text");
+    color: cv("text", "base");
   }
 
   header.page-header .menu--slideout .header--links > ul.menu--items li a.link:not(.router-link-exact-active, .router-link-active, .subnav-active):visited,
@@ -356,7 +356,7 @@ header.page-header .link:focus {
   header.page-header .menu--slideout .header--links > ul.menu--items li span.link:not(.router-link-exact-active, .router-link-active, .subnav-active):visited,
   header.page-header .menu--slideout .header--links > ul.menu--items li span.link:not(.router-link-exact-active, .router-link-active, .subnav-active):active,
   header.page-header .menu--slideout .header--links > ul.menu--items li span.link:not(.router-link-exact-active, .router-link-active, .subnav-active):focus {
-    color: cv("text");
+    color: cv("text", "base");
   }
 
   header.page-header .menu--slideout .header--links > ul.menu--items li a.link:after,
@@ -374,7 +374,7 @@ header.page-header .link:focus {
 
   header.page-header .menu--slideout .header--links > ul.menu--items li a.link.router-link-active,
   header.page-header .menu--slideout .header--links > ul.menu--items li span.link.router-link-active {
-    color: cv("link");
+    color: cv("link", "base");
   }
 
   header.page-header .menu--slideout .header--links > ul.menu--items li i.fa {
@@ -454,7 +454,7 @@ header.page-header .link:focus {
   }
 
   header.page-header .menu--slideout {
-    top: 90px;
+    top: 130px;
   }
 
   header.page-header .sign-up--button {

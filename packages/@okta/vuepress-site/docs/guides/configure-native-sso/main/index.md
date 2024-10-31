@@ -1,6 +1,6 @@
 ---
 title: Configure SSO for Native apps
-excerpt: Learn how to configure SSO for Native applications and understand the Native SSO flow
+excerpt: Learn how to configure SSO for Native apps and understand the Native SSO flow
 layout: Guides
 ---
 
@@ -8,17 +8,17 @@ This guide provides a high-level overview of using the Native SSO feature in Okt
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Understand the Native SSO flow.
-* Set up your native application.
+* Set up your native app.
 * Update the policy rule for the authorization server to allow the token exchange grant.
 * Understand the device secret and refresh token idle lifetimes.
 * Verify that the device secret is valid.
 * End a desktop session by revoking the device secret.
 * Use the `/logout` request to revoke the device secret.
 
-**What you need**
+#### What you need
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
 * [Native SSO feature enabled for your org](#before-you-begin)
@@ -27,11 +27,11 @@ This guide provides a high-level overview of using the Native SSO feature in Okt
 
 ## About the Native SSO feature
 
-Native SSO enables you to protect native OpenID Connect applications, such as desktop apps and mobile apps. It also enables you to achieve Single Sign-On (SSO) and Single Logout (SLO) between these applications.
+Native SSO enables you to protect native OpenID Connect app, such as desktop apps and mobile apps. It also enables you to achieve Single Sign-On (SSO) and Single Logout (SLO) between these apps.
 
-SSO between browser-based web applications is achieved by sharing cookies. Unlike web applications, native applications can't use web cookies.
+SSO between browser-based web apps is achieved by sharing cookies. Unlike web apps, native apps can't use web cookies.
 
-Okta offers a token-based approach to achieve SSO between native applications. See [OpenID Connect & OAuth 2.0 API](/docs/reference/api/oidc/) for more information on the OAuth 2.0 and OpenID Connect endpoints.
+Okta offers a token-based approach to achieve SSO between native apps. See [OpenID Connect & OAuth 2.0 API](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/) for more information on the OAuth 2.0 and OpenID Connect endpoints.
 
 ## Before you begin
 
@@ -41,7 +41,7 @@ This guide assumes that you have an Okta Developer Edition organization. Don't h
 
 <div class="three-quarter">
 
-![A flow diagram showing the interactions in a single sign-in flow between two native applications, a user on a browser, and Okta](/img/sso/native_SSO_flow.png)
+![A flow diagram showing the interactions in a single sign-in flow between two native apps, a user on a browser, and Okta](/img/sso/native_SSO_flow.png)
 
 <!--
   Image source: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?type=design&node-id=4349%3A10337&mode=design&t=Zl0pQHW1kqZli8ZO-1  native_SSO_flow
@@ -72,7 +72,7 @@ okta -> app2: 8. Returns an `access_token` and `refresh_token`
 
 1. Native app 1 starts by redirecting the user's browser to the [authorization server](/docs/concepts/auth-servers/) `/authorize` endpoint and requests the `device_sso` scope.
 1. The user is prompted to authenticate.
-1. The user enters their credentials to allow the application to access resources protected by scopes.
+1. The user enters their credentials to allow the app to access resources protected by scopes.
 1. The authorization server returns the authorization code for Native app 1.
 1. The client exchanges the authorization code for tokens.
 1. The authorization server returns the tokens (`id_token`, `refresh_token`, and `access_token`) and the `device_secret` in the response.
@@ -90,7 +90,7 @@ okta -> app2: 8. Returns an `access_token` and `refresh_token`
 
 To use the Native SSO functionality, you need to:
 
-* Set up your application.
+* Set up your app.
 * Configure Native SSO for your Okta org.
 * Use Authorization Code with PKCE to obtain the authorization code for client 1.
 * Exchange the code for tokens.
@@ -100,16 +100,16 @@ To use the Native SSO functionality, you need to:
 
 This feature is based on the [OpenID Connect Native SSO for Mobile Apps](https://openid.net/specs/openid-connect-native-sso-1_0.html) draft specification.
 
-## Set up your application
+## Set up your app
 
-To configure Native SSO, start by setting up your application. To walk through this use case example, you need to set up two separate native applications to represent client 1 and client 2.
+To configure Native SSO, start by setting up your app. To walk through this use case example, you need to set up two separate native apps to represent client 1 and client 2.
 
 1. Go to **Applications** > **Applications** from the Admin Console, and then click **Create App Integration**.
 1. Select **OIDC - OpenID Connect** as the **Sign-in method**, select **Native Application** as the **Application type**, and then click **Next**.
 1. Enter a name for your new app integration.
 1. Click **Advanced** in the **Grant type** section, and then select **Token Exchange**.
    > **Note**: If you're using Classic Engine, select **Token Exchange** in the **Grant type** section.
-1. Select **Allow everyone in your organization to access** in the **Assignments** section. For this use case, grant everyone access to the application.
+1. Select **Allow everyone in your organization to access** in the **Assignments** section. For this use case, grant everyone access to the app.
 1. Click **Save** and on the **General** tab that appears, click the **Copy to clipboard** icon for the **Client ID** and save the ID somewhere.
 1. Repeat the steps for client 2.
 
@@ -143,7 +143,7 @@ To generate a new set of tokens:
 
 In this example, you want to SSO to multiple apps that the same company creates. Each client represents one app, and you can register multiple clients for SSO. When a user signs in to one app, all the other apps that are registered are also automatically signed in.
 
-> **Note:** An error occurs when you perform Native SSO token exchange using an application with a low assurance policy and another application with a high assurance policy.
+> **Note:** An error occurs when you perform Native SSO token exchange using an app with a low assurance policy and another app with a high assurance policy.
 
 ### Use Authorization Code with PKCE to obtain the authorization code for client 1
 
@@ -152,7 +152,7 @@ Provide the `device_sso`, `openid`, and `offline_access` scopes in the first req
 **Example Authorization Code flow with PKCE request**
 
 ```bash
-  https://${yourOktaDomain}/oauth2/default/v1/authorize?client_id=${clientId}&response_type=code&scope=openid device_sso offline_access&redirect_uri=${configuredRedirectUri}&state=state-8600b31f-52d1-4dca-987c-386e3d8967e9&code_challenge_method=S256&code_challenge=qjrzSW9gMiUgpUvqgEPE4_-8swvyCtfOVvg55o5S_es
+  https://{yourOktaDomain}/oauth2/default/v1/authorize?client_id={clientId}&response_type=code&scope=openid device_sso offline_access&redirect_uri={configuredRedirectUri}&state=state-8600b31f-52d1-4dca-987c-386e3d8967e9&code_challenge_method=S256&code_challenge=qjrzSW9gMiUgpUvqgEPE4_-8swvyCtfOVvg55o5S_es
 ```
 
 The user is prompted to provide their credentials. After the authorization server verifies those credentials, the authorization code is sent to the `redirect_uri` that you specified. The following is an example of the authorization code returned.
@@ -160,7 +160,7 @@ The user is prompted to provide their credentials. After the authorization serve
 **Example response**
 
 ```bash
-  https://${configuredRedirectUri}/?code=S_NuB0TNeDMXD_5SKZO6FuXFOi_J9XB-sHAk0Dc0txQ&state=state-8600b31f-52d1-4dca-987c-386e3d8967e9
+  https://{configuredRedirectUri}/?code=S_NuB0TNeDMXD_5SKZO6FuXFOi_J9XB-sHAk0Dc0txQ&state=state-8600b31f-52d1-4dca-987c-386e3d8967e9
 ```
 
 ### Exchange the code for tokens
@@ -171,12 +171,12 @@ To exchange the authorization code for tokens, pass the code to your authorizati
 
 ```bash
 curl --request POST \
-  --url https://${yourOktaDomain}/oauth2/default/v1/token \
+  --url https://{yourOktaDomain}/oauth2/default/v1/token \
   --header 'accept: application/json' \
   --header 'content-type: application/x-www-form-urlencoded' \
   --data-urlencode 'grant_type=authorization_code' \
-  --data-urlencode 'client_id=${clientId}' \
-  --data-urlencode 'redirect_uri=${configuredRedirectUri}' \
+  --data-urlencode 'client_id={clientId}' \
+  --data-urlencode 'redirect_uri={configuredRedirectUri}' \
   --data-urlencode 'code=CKA9Utz2GkWlsrmnqehz' \
   --data-urlencode 'code_verifier=M25iVXpKU3puUjFaYWg3T1NDTDQtcW1ROUY5YXlwalNoc0hhakxifmZHag'
 ```
@@ -197,7 +197,7 @@ The authorization server response includes the `device_secret`, and the `id_toke
 }
 ```
 
-> **Note:** Store the `device_secret` in a secure location on the device, such as the iOS keychain. Ensure that only authorized applications have access to the device secret.
+> **Note:** Store the `device_secret` in a secure location on the device, such as the iOS keychain. Ensure that only authorized apps have access to the device secret.
 
 ### Exchange existing tokens from client 1 for new tokens for client 2
 
@@ -207,22 +207,22 @@ Client 2 makes a token exchange request, and the response returns the tokens app
 
 ```bash
 curl --request POST \
-  --url https://${yourOktaDomain}/oauth2/default/v1/token \
+  --url https://{yourOktaDomain}/oauth2/default/v1/token \
   --header 'Accept: application/json' \
   --header 'Content-Type: application/x-www-form-urlencoded' \
-  --data-urlencode 'client_id=${client 2 ID}' \
+  --data-urlencode 'client_id={client 2 ID}' \
   --data-urlencode 'grant_type=urn:ietf:params:oauth:grant-type:token-exchange' \
-  --data-urlencode 'actor_token=${deviceSecret}' \
+  --data-urlencode 'actor_token={deviceSecret}' \
   --data-urlencode 'actor_token_type=urn:x-oath:params:oauth:token-type:device-secret' \
-  --data-urlencode 'subject_token=${idToken}' \
+  --data-urlencode 'subject_token={idToken}' \
   --data-urlencode 'subject_token_type=urn:ietf:params:oauth:token-type:id_token' \
   --data-urlencode 'scope=openid offline_access' \
-  --data-urlencode 'audience=${audience}'
+  --data-urlencode 'audience={audience}'
 ```
 
 Note the parameters that are being passed:
 
-* `client_id`: Identifies the new client (for example, client 2) and matches the Client ID of the OAuth 2.0 application that you created.
+* `client_id`: Identifies the new client (for example, client 2) and matches the Client ID of the OAuth 2.0 app that you created.
 * `grant_type`: Identifies the mechanism that Okta uses to authorize the creation of the tokens. Value: `urn:ietf:params:oauth:grant-type:token-exchange`
 * `actor_token`: Identifies the `device_secret` that was returned in response to the authorization code request.
 * `actor_token_type`: Identifies the type of token in the `actor_token` parameter.
@@ -256,11 +256,11 @@ Occasionally you may want to verify that the device secret is still valid by usi
 
 ```bash
 curl --request POST \
-  --url https://${yourOktaDomain}/oauth2/default/v1/introspect \
+  --url https://{yourOktaDomain}/oauth2/default/v1/introspect \
   --header 'Accept: application/json' \
   --header 'Content-Type: application/x-www-form-urlencoded' \
-  --data-urlencode 'client_id=${client 1 ID}' \
-  --data-urlencode 'token=${deviceSecret}' \
+  --data-urlencode 'client_id={client 1 ID}' \
+  --data-urlencode 'token={deviceSecret}' \
   --data-urlencode 'token_type_hint=device_secret'
 ```
 
@@ -285,11 +285,11 @@ Sometimes you have to end a user's desktop session. When you do that, you’re s
 
 ```bash
 curl --request POST \
-  --url https://${yourOktaDomain}/oauth2/default/v1/revoke \
+  --url https://{yourOktaDomain}/oauth2/default/v1/revoke \
   --header 'Accept: application/json' \
   --header 'Content-Type: application/x-www-form-urlencoded' \
-  --data-urlencode 'token=${deviceSecret}' \
-  --data-urlencode 'client_id=${client 1 ID}'
+  --data-urlencode 'token={deviceSecret}' \
+  --data-urlencode 'client_id={client 1 ID}'
 ```
 
 **Example response**
@@ -310,11 +310,11 @@ To verify that the refresh and access tokens are also automatically invalidated 
 
 ## Request Logout
 
-When the user signs out of an application, the application sends a `/logout` request to the Okta authorization server, which revokes the device secret.
+When the user signs out of an app, the app sends a `/logout` request to the Okta authorization server, which revokes the device secret.
 
 ```bash
 curl --request GET \
-  --url https://${yourOktaDomain}/oauth2/default/v1/logout?id_token_hint=${idToken}&device_secret=${deviceSecret}&post_logout_redirect_uris=${configuredPostLogoutRedirectUri}&state=2OwvFrEMTJg
+  --url https://{yourOktaDomain}/oauth2/default/v1/logout?id_token_hint={idToken}&device_secret={deviceSecret}&post_logout_redirect_uris={configuredPostLogoutRedirectUri}&state=2OwvFrEMTJg
 ```
 
 The authorization server invalidates the access and refreshes tokens that are issued for the `sid` and `device_secret`. If the invalidated refresh token is used to renew tokens, the request fails.
@@ -322,5 +322,5 @@ The authorization server invalidates the access and refreshes tokens that are is
 Okta returns a response to the `post_logout_redirect_uri`.
 
 ```bash
-  https://${configuredPostLogoutRedirectUri}/?state=2OwvFrEMTJg
+  https://{configuredPostLogoutRedirectUri}/?state=2OwvFrEMTJg
 ```

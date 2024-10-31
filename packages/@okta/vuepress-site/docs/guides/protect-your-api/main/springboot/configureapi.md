@@ -2,8 +2,8 @@
 1. Add the following, replacing the placeholders with your own values.
 
    ```properties
-   okta.oauth2.issuer=https://${yourOktaDomain}/oauth2/${yourAuthServer}
-   okta.oauth2.audience=${yourAudience}
+   okta.oauth2.issuer=https://{yourOktaDomain}/oauth2/{yourAuthServer}
+   okta.oauth2.audience={yourAudience}
    server.port=8081
    ```
 

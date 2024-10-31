@@ -8,16 +8,18 @@ This guide explains how to customize error pages that can appear as part of a si
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
-Customize error pages as part of the sign-in flow.
+* Use the Brands API to style error pages.
+* Use variables to customize the error pages.
+* Add a stylesheet.
 
-**What you need**
+#### What you need
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
 * [Custom domain](/docs/guides/custom-url-domain/), unless you're using the [Brands API](#use-the-brands-api)
 
-**Sample code**
+#### Sample code
 
 [Customization examples](#customization-examples)
 
@@ -33,7 +35,7 @@ If an error occurs during the sign-in flow, Okta needs to display an error page 
 
 ### Use the Brands API
 
-The [Brands API](/docs/reference/api/brands/) allows you to set icons, images, and colors across the following:
+The [Brands API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Brands/) allows you to set icons, images, and colors across the following:
 
 - Sign-in page (redirect authentication)
 - Error pages

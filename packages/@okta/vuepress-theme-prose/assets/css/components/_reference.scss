@@ -31,7 +31,7 @@
 
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: cv("action");
+  color: cv("action", "base");
 }
 
 @include media(">=tablet") {

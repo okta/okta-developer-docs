@@ -23,6 +23,11 @@ export default {
         homeLink,
         ...this.getGuides(),
         ..._.cloneDeep(concepts),
+        {
+          title: "API Docs",
+          path: "https://developer.okta.com/docs/api",
+          isExternal: true
+        },
         ..._.cloneDeep(reference),
         ..._.cloneDeep(languagesSdk),
         ..._.cloneDeep(releaseNotes)
@@ -68,8 +73,18 @@ export default {
       }
 
       if (link.path) {
-        // Add state to leaf link
-        link.iHaveChildrenActive = link.path === this.$page.regularPath;
+        if (
+          this.$page.regularPath.indexOf('/-/') > 0 &&
+          guideFromPath(this.$page.regularPath).guideName === link.guideName &&
+          link.frameworks &&
+          link.frameworks.length > 0
+        ) {
+          let updatedPath = this.$page.regularPath.replace('/-/', `/${link.frameworks[0]}/`);
+          link.iHaveChildrenActive = link.path === updatedPath;
+        } else {
+          // Add state to leaf link
+          link.iHaveChildrenActive = link.path === this.$page.regularPath;
+        }
       }
       if (link.subLinks) {
         for (const subLink of link.subLinks) {

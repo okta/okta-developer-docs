@@ -57,7 +57,7 @@ Follow these steps to create an app integration for your application:
 
 1. Open the Admin Console for your org.
    1. [Sign in to your Okta organization](/login) with your administrator account.
-   {style="list-style-type:lower-alpha"}
+   [[style="list-style-type:lower-alpha"]]
    1. Click **Admin** in the upper-right corner of the page.
 1. Go to **Applications** > **Applications** to view the current app integrations.
 1. Click **Create App Integration**.
@@ -69,7 +69,7 @@ Follow these steps to create an app integration for your application:
 1. Enter an **App integration name**. For example, **My first web application**.
 1. Enter the callback URLs for the local development of your application.
    1. Enter `http://localhost:8080/authorization-code/callback` for **Sign-in redirect URIs**.
-   {style="list-style-type:lower-alpha"}
+   [[style="list-style-type:lower-alpha"]]
    1. Enter `http://localhost:8080` for **Sign-out redirect URIs**.
 
    > **Note:** The values suggested here are those used in the sample app.
@@ -203,7 +203,7 @@ Create a link for the user to start the sign-in process and be redirected to Okt
 
 1. Add code to handle the `Sign In` click.
    1. Add a route handler for `/signin` to the switch statement in the previous step:
-   {style="list-style-type:lower-alpha"}
+   [[style="list-style-type:lower-alpha"]]
 
       ```php
       ...

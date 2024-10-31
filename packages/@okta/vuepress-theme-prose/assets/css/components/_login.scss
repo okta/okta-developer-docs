@@ -44,7 +44,7 @@
   flex-grow: 1;
   height: 0;
 
-  border: 2px solid cv("header");
+  border: 2px solid cv("header", "base");
 }
 
 .login .login--form .goto-signup {

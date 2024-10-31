@@ -1534,10 +1534,10 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
-"@okta/odyssey@^0.0.1":
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/@okta/odyssey/-/odyssey-0.0.1.tgz#cc6b7de7f1d1d7867472ec6e7bc5472386e327bd"
-  integrity sha512-4RXfpWpJbQr2Azl4VZ7gamAc5Tn+2QIy1ZBYVx7xdS4aUb+ipFzJT4810zqm6TNcMhsQNdR/EOwR3h3yoXSMzg==
+"@okta/odyssey@0.7.0":
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/@okta/odyssey/-/odyssey-0.7.0.tgz#fa57511a8f99889cfd0137dd0639fe88926dccb7"
+  integrity sha512-3UDYD8byPZpBKscXYKNXkCCELbmC5GQeeJMuo5r0AtnpnE+0Vg1mJ0m7Zyf2lKVi/hhdNEH3h43rcMqif7Fmbg==
 
 "@sindresorhus/is@^4.0.0":
   version "4.6.0"

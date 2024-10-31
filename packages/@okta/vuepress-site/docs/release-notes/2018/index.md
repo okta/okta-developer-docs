@@ -21,7 +21,7 @@ title: Okta API Products Release Notes 2018
 
 * Instead of providing specific reasons for failure, [Identity Providers](/docs/reference/api/idps/) operations failed with generic `error_description` values when the Social Auth provider required user attributes in the user's profile but the attributes were missing or invalid. <!--OKTA-120115-->
 
-* The `/users/${userId}/factors/catalog` [endpoint](/docs/reference/api/factors/#list-factors-to-enroll) returned `email` as a supported factor type even when Email Authentication was not enabled for the org in MFA settings. <!--OKTA-201633-->
+* The `/users/${userId}/factors/catalog` [endpoint](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/#tag/UserFactor/operation/listSupportedFactors) returned `email` as a supported factor type even when Email Authentication was not enabled for the org in MFA settings. <!--OKTA-201633-->
 
 #### Previously Released Early Access Features 2018.12.2 Update
 
@@ -103,7 +103,7 @@ The `debugContext` object returned by the [System Log API](/docs/reference/api/s
 
 * Some customers could access log data outside of their allowed retention range through the [System Log API](/docs/reference/api/system-log/). <!--OKTA-196313-->
 
-* Responses from the `/oauth2/${authServerId}/.well-known/oauth-authorization-server` [endpoint](/docs/reference/api/oidc/#well-knownoauth-authorization-server) did not include supported OpenID Connect response types in the content of the `response_types_supported` property. <!--OKTA-114737-->
+* Responses from the `/oauth2/${authServerId}/.well-known/oauth-authorization-server` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/getWellKnownOAuthConfigurationCustomAS) did not include supported OpenID Connect response types in the content of the `response_types_supported` property. <!--OKTA-114737-->
 
 #### Previously Released Early Access Features 2018.48 Update
 
@@ -186,8 +186,8 @@ The following features have already been released as Early Access. To enable the
 
 #### Bugs Fixed in 2018.42
 
-* The `/clients` [endpoint](/docs/reference/api/oauth-clients/#list-client-applications) dropped the `filter` parameter for any paginated results returned after the first page.
-* Messages that were sent to devices using the [Factors API](/docs/reference/api/factors/) would sometimes return a `500` error if the message could not be sent.
+* The `/clients` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/Client/#tag/Client/operation/listClients) dropped the `filter` parameter for any paginated results returned after the first page.
+* Messages that were sent to devices using the [Factors API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/) would sometimes return a `500` error if the message could not be sent.
 
 #### Previously Released Early Access Features 2018.42 Update
 
@@ -219,7 +219,7 @@ When an org reaches its [rate limit](/docs/reference/rate-limits/), the admin co
 
 #### OIDC Clients Can Initiate Logout with Expired Token
 
-Client-initiated [logout](/docs/reference/api/oidc/#logout) now succeeds even when the ID token is no longer valid. <!--OKTA-131652-->
+Client-initiated [logout](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/logoutCustomAS) now succeeds even when the ID token is no longer valid. <!--OKTA-131652-->
 
 #### Change to User Link Editing Permissions
 
@@ -281,8 +281,8 @@ The following features have already been released as Early Access. To enable the
 
 #### Bugs Fixed in 2018.39
 
-* Requests to the `/authorize` endpoint would incorrectly prioritize values from the URI query parameter, rather than the request JWT. For more information, see the [documentation for that endpoint](/docs/reference/api/oidc/#authorize). (OKTA-187642)
-* When multiple attempts were simultaneously made to update a user's phone number for the [SMS](/docs/reference/api/factors/#enroll-okta-sms-factor) or [Call](/docs/reference/api/factors/#enroll-okta-call-factor) Factor, an HTTP 500 error was sometimes returned. (OKTA-188112)
+* Requests to the `/authorize` endpoint would incorrectly prioritize values from the URI query parameter, rather than the request JWT. For more information, see the [documentation for that endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/authorizeCustomAS). (OKTA-187642)
+* When multiple attempts were simultaneously made to update a user's phone number for the SMS or Call [Factor](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/#tag/UserFactor/operation/enrollFactor), an HTTP 500 error was sometimes returned. (OKTA-188112)
 * In some situations SHA-256 [password imports](/docs/reference/api/users/#hashed-password-object) would not work. SHA-256 password import now requires the salt to be base64-encoded.
 
 #### Previously Released Early Access Features 2018.39 Update
@@ -363,7 +363,7 @@ User deletion and deactivation requests now have an optional `sendEmail` paramet
 
 #### Support for JWTs Signed with Private Keys
 
-Requests to the `/token` and `/authorize` endpoints will now accept JWTs signed with a private key. For more information see the OIDC documentation for the [token endpoint](/docs/reference/api/oidc/#token) and the [authorize endpoint](/docs/reference/api/oidc/#authorize). <!--OKTA-181514 + OKTA-186410-->
+Requests to the `/token` and `/authorize` endpoints will now accept JWTs signed with a private key. For more information see the OIDC documentation for the [token endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/tokenCustomAS) and the [authorize endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/authorizeCustomAS). <!--OKTA-181514 + OKTA-186410-->
 
 #### System Log Event for Rate Limit Override Expiration
 
@@ -371,7 +371,7 @@ A System Log event will be generated exactly two days before a temporary API rat
 
 #### Required Properties in App User Schema
 
-API calls to [modify an app user schema](/docs/reference/api/schemas/#update-app-user-profile-schema-property) can no longer change the nullability (`required` field) of a property if that property is shown as required in the default predefined schema for that app. <!--OKTA-177449-->
+API calls to [modify an app user schema](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/#tag/Schema/operation/updateApplicationUserProfile) can no longer change the nullability (`required` field) of a property if that property is shown as required in the default predefined schema for that app. <!--OKTA-177449-->
 
 #### Previously Released Early Access Features 2018.36 Update
 
@@ -488,9 +488,9 @@ The following features have already been released as Early Access. To enable the
 
 #### Bugs Fixed in 2018.31
 
-* Fixed an issue in the OpenID Connect [logout endpoint](/docs/reference/api/oidc/#logout) where performing logout with an expired session resulted in an error instead of following the `post_logout_redirect_uri`. (OKTA-180521)
+* Fixed an issue in the OpenID Connect [logout endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/logoutCustomASWithPost) where performing logout with an expired session resulted in an error instead of following the `post_logout_redirect_uri`. (OKTA-180521)
 
-* Removed System Logs entries for [granting refresh tokens](/docs/guides/refresh-tokens/) in token requests with the `refresh_token` grant type (since this grant type simply returns the original refresh token). This fix applies to both [custom Authorization Servers](/docs/reference/api/oidc/#composing-your-base-url) and the Okta Org Authorization Server. (OKTA-178335)
+* Removed System Logs entries for [granting refresh tokens](/docs/guides/refresh-tokens/) in token requests with the `refresh_token` grant type (since this grant type simply returns the original refresh token). This fix applies to both [custom Authorization Servers](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS) and the Okta [Org Authorization Server](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/OrgAS/#tag/OrgAS). (OKTA-178335)
 
 * Fixed issues with the [User-Consent Grant Management API](/docs/reference/api/users/#user-consent-grant-operations): added missing value to `issuer`, removed `issuerId`, removed HAL links for issuer and revoke, and added hints for self GET and DELETE.  (OKTA-175296)
 
@@ -554,7 +554,7 @@ The following features have already been released as Early Access. To enable the
 
 #### MFA Call Factor is Generally Available (GA)
 
-The MFA [call factor](/docs/reference/api/factors/#factor-type) is now Generally Available (GA).
+The MFA [call factor](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/#tag/UserFactor/operation/enrollFactor!path=8/factorType&t=request) is now Generally Available (GA).
 
 #### Bugs Fixed in 2018.28
 
@@ -590,7 +590,7 @@ The [System Log API](/docs/reference/api/system-log/) is now Generally Available
 
 #### Bugs Fixed in 2018.27
 
-* Users who clicked an Activation Link for an [Okta Verify factor](/docs/reference/api/factors/#activate-push-factor) that had already been activated would get back an HTTP 500 error. (OKTA-146511)
+* Users who clicked an Activation Link for an [Okta Verify factor](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/#tag/UserFactor/operation/activateFactor) that had already been activated would get back an HTTP 500 error. (OKTA-146511)
 * Attempting to add more than the maximum number of zones via the [Zones API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/NetworkZone/) would result in an HTTP 500 error. (OKTA-175991)
 
 #### Previously Released Early Access Features 2018.27 Update
@@ -628,9 +628,9 @@ The following information has been added to the `userinfo` endpoint's error resp
 
 #### Bugs Fixed in 2018.25
 
-* In certain situations, if a call was made to the OAuth 2.0/OIDC [/authorize endpoint](/docs/reference/api/oidc/#authorize) with `response_mode` set to  `okta_post_message`, an `HTTP 500` error would return. (OKTA-175326)
+* In certain situations, if a call was made to the OAuth 2.0/OIDC [/authorize endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/authorizeCustomAS) with `response_mode` set to  `okta_post_message`, an `HTTP 500` error would return. (OKTA-175326)
 * Removing all permissions on a schema attribute would return a `READ_ONLY` permission. The response now correctly contains a `READ_WRITE` permission. (OKTA-173030)
-* If an [Authorization Server's](/docs/reference/api/authorization-servers/) `redirect_uri` was too long, an `HTTP 500` error would return. (OKTA-171950)
+* If an [Authorization Server's](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServer/) `redirect_uri` was too long, an `HTTP 500` error would return. (OKTA-171950)
 * The `phoneExtension` property would not be returned in `GET` requests to the Factors API's `catalog` endpoint. (OKTA-108859)
 
 #### Previously Released Early Access Features 2018.25 Update
@@ -658,7 +658,7 @@ The following features have already been released as Early Access. To enable the
 
 #### User Login Pattern Validation
 
-A user's `login` no longer needs to be in the form of an email address.  Instead the login is validated against a `pattern` property stored in the User Schema, which can be set to certain Regular Expressions.  If no pattern is set, the default validation requires email addresses. More information can be found in the [User](/docs/reference/api/users) and [Schema](/docs/reference/api/schemas/) API references. <!-- OKTA-166157 -->
+A user's `login` no longer needs to be in the form of an email address.  Instead, the login is validated against a `pattern` property stored in the User Schema, which can be set to certain Regular Expressions. If no pattern is set, the default validation requires email addresses. More information can be found in the [User](/docs/reference/api/users) and [Schema](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/) API references. <!-- OKTA-166157 -->
 
 #### Bugs Fixed in 2018.24
 
@@ -692,7 +692,7 @@ The following features have already been released as Early Access. To enable the
 
 #### Factors API Now Supports U2F
 
-Enrollment, activation, and verification of U2F factors are now supported in the [Factors API](/docs/reference/api/factors/). <!-- OKTA-112705 -->
+Enrollment, activation, and verification of U2F factors are now supported in the [Factors API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserFactor/). <!-- OKTA-112705 -->
 
 #### Network Selection Modes Deprecated
 
@@ -739,7 +739,7 @@ New device notification email events will now appear in the System Log. <!-- OKT
 #### Bugs Fixed in 2018.22
 
 * Default password policy settings were sometimes incorrectly applied when creating a user with a password. (OKTA-127830)
-* The `/userinfo` [endpoint](/docs/reference/api/oidc/#userinfo) would return an empty JSON object in the response body when using an invalid access token. (OKTA-169553)
+* The `/userinfo` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/userinfoCustomAS) would return an empty JSON object in the response body when using an invalid access token. (OKTA-169553)
 * Some OAuth 2.0/OIDC refresh tokens would expire early. (OKTA-171056)
 
 #### Previously Released Early Access Features 2018.22 Update
@@ -800,7 +800,7 @@ The following features have already been released as Early Access. To enable the
 
 #### ID Tokens Can Be Refreshed
 
-OpenID Connect ID tokens can now be retrieved using a refresh token. For more information, see our [OpenID Connect Reference](/docs/reference/api/oidc/).
+OpenID Connect ID tokens can now be retrieved using a refresh token. For more information, see our [OpenID Connect Reference](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/).
 
 #### Custom URL Domains are in Early Access
 
@@ -880,7 +880,7 @@ The following features have already been released as Early Access. To enable the
 
 #### Bugs Fixed in 2018.17
 
-* If an incorrect `appInstanceId` was supplied as the IdP parameter in a request to the `/authorize` [endpoint](/docs/reference/api/oidc/#authorize), an `HTTP 500` error was thrown. (OKTA-166417)
+* If an incorrect `appInstanceId` was supplied as the IdP parameter in a request to the `/authorize` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/authorizeCustomAS), an `HTTP 500` error was thrown. (OKTA-166417)
 
 * When Okta parsed login names it failed to support addresses enclosed in double quotes as described in [RFC 3696](https://tools.ietf.org/html/rfc3696). (OKTA-164092)
 
@@ -904,7 +904,7 @@ The following features have already been released as Early Access. To enable the
 
 #### Bugs Fixed in 2018.17
 
-* If an incorrect `appInstanceId` was supplied as the IdP parameter in a request to the `/authorize` [endpoint](/docs/reference/api/oidc/#authorize), an `HTTP 500` error was thrown. (OKTA-166417)
+* If an incorrect `appInstanceId` was supplied as the IdP parameter in a request to the `/authorize` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/authorizeCustomAS), an `HTTP 500` error was thrown. (OKTA-166417)
 
 * When Okta parsed login names it failed to support addresses enclosed in double quotes as described in [RFC 3696](https://tools.ietf.org/html/rfc3696). (OKTA-164092)
 
@@ -1022,11 +1022,11 @@ When creating multiple instances of the same app, each instance of the app has a
 
 #### Token Management API Is in Early Access (EA)
 
-Use the Token Management API to view and revoke OAuth 2.0 and OpenID Connect refresh tokens by [end user](/docs/reference/api/users/#user-oauth-20-token-management-operations), [Custom Authorization Server](/docs/reference/api/authorization-servers/#oauth-20-token-management-operations), or [client app](/docs/reference/api/apps/#application-oauth-20-token-operations). <!-- OKTA-145525 -->
+Use the Token Management API to view and revoke OAuth 2.0 and OpenID Connect refresh tokens by [end user](/docs/reference/api/users/#user-oauth-20-token-management-operations), [Custom Authorization Server](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServerClients/), or [client app](/docs/reference/api/apps/#application-oauth-20-token-operations). <!-- OKTA-145525 -->
 
 #### Bug Fixed for 2018.12
 
-* `GET` requests to the `/authorize` [endpoint](/docs/reference/api/oidc/#authorize) with `response_mode=form_post` would return an HTML page with a title `<span>`. (OKTA-162709)
+* `GET` requests to the `/authorize` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/authorizeCustomAS) with `response_mode=form_post` would return an HTML page with a title `<span>`. (OKTA-162709)
 
 
 ### Weekly Release 2018.11
@@ -1082,7 +1082,7 @@ Secure your APIs with API Access Management, Okta's implementation of the OAuth 
 
 Generally Available (GA) in preview orgs since February 7, 2018, API Access Management is scheduled to be GA in production orgs starting March 12, 2018.
 
-For more information, see [OAuth 2.0 and Okta](/docs/reference/api/oidc/). <!--OKTA-153127-->
+For more information, see [OAuth 2.0 and Okta](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/). <!--OKTA-153127-->
 
 #### System Log API is in Early Access (EA)
 
@@ -1179,15 +1179,15 @@ Preference-Applied: return=minimal
 
 #### User Schema API Allows Nullable `firstName`, `lastName`
 
-You can set `firstName` or `lastName` to be nullable in [the User Profile Base sub-schema](/docs/reference/api/schemas/#user-profile-base-subschema). These properties are defined in a profile sub-schema with the resolution scope `#base`.
+You can set `firstName` or `lastName` to be nullable in [the User Profile Base sub-schema](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/#tag/Schema/operation/getUserSchema!c=200&path=definitions/base&t=response). These properties are defined in a profile sub-schema with the resolution scope `#base`.
 
 #### Improved Response Mode for OAuth 2.0 and OpenID Connect Requests
 
-For [the `form_post` response mode](/docs/reference/api/oidc/#parameter-details), we have reduced the HTML content returned in an OpenID Connect or OAuth 2.0 request. Now the response is only a form containing the requested tokens (access token, ID token, or both) and JavaScript to post the form. <!-- OKTA-96521 -->
+For [the `form_post` response mode](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/authorizeCustomAS!in=query&path=response_mode&t=request), we have reduced the HTML content returned in an OpenID Connect or OAuth 2.0 request. Now the response is only a form containing the requested tokens (access token, ID token, or both) and JavaScript to post the form. <!-- OKTA-96521 -->
 
 #### Change to `/authorize` Response for `prompt` for OAuth 2.0 and OpenID Connect Requests
 
-If you set `prompt=none` for a request on `/authorize` and the maximum age before sign-in is required (`max_age`) is exceeded, an error is returned. This ensures the safest possible result when [these two settings contradict each other](/docs/reference/api/oidc/#parameter-details).
+If you set `prompt=none` for a request on `/authorize` and the maximum age before sign-in is required (`max_age`) is exceeded, an error is returned. This ensures the safest possible result when [these two settings contradict each other](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/authorizeCustomAS!in=query&path=prompt&t=request).
 
 This applies to `/authorize` with either the Okta Org Authorization Server or a Custom Authorization Server (which requires API Access Management).
 
@@ -1253,7 +1253,7 @@ If you don't want these changes, contact [Support](https://support.okta.com/help
 
 The following message changes apply to either the Okta Org Authorization Server or a Custom Authorization Server including `default` (which requires API Access Management), or both, as indicated in each section.
 
-#### Simplified Failure Messages from [`/authorize`](/docs/reference/api/oidc/#authorize) Requests for `/events` System Log
+#### Simplified Failure Messages from [`/authorize`](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/authorizeCustomAS) Requests for `/events` System Log
 
 The existing messages `app.oauth2.authorize_failure`, `app.oauth2.as.authorize_failure` and `app.oauth2.as.authorize.scope_denied_failure` replace these messages:
 
@@ -1272,7 +1272,7 @@ Details about the nature of the failure are included, so no information has been
 
 These system log changes affect responses from requests that involve either the Okta Org Authorization Server or a Custom Authorization Server including `default`.
 
-#### Simplified Failure Messages from [`/token`](/docs/reference/api/oidc/#token) Requests for `/events` System Log
+#### Simplified Failure Messages from [`/token`](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/tokenCustomAS) Requests for `/events` System Log
 
 Instead of supplying two different messages for token grant failures on `/token`, the existing message `app.oauth2.as.authorize.token.grant_failure` replaces
 these messages:
@@ -1282,7 +1282,7 @@ these messages:
 
 This system log change affects responses from requests that involve a Custom Authorization Server including `default`.
 
-#### Simplified Success Messages from  [`/token`](/docs/reference/api/oidc/#token) Requests for `/events` System Log
+#### Simplified Success Messages from  [`/token`](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/tokenCustomAS) Requests for `/events` System Log
 
 Instead of supplying a different message for ID token and access token generation, there's just one message for each. The ID token or access token minted is included in the message as it was previously.
 
@@ -1300,7 +1300,7 @@ The `_success` messages weren't being written to the System Log previously, but 
 
 These system log changes affect responses from requests that involve either the Okta Org Authorization Server or a Custom Authorization Server including `default`.
 
-#### Simplified Messages from  [`/token`](/docs/reference/api/oidc/#token) Requests for `/logs` System Log
+#### Simplified Messages from  [`/token`](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/tokenCustomAS) Requests for `/logs` System Log
 
 Instead of supplying a different message for ID token and access token generation, there's just one message for each. The ID token or access token minted is included in the message as it was previously.
 
@@ -1355,7 +1355,7 @@ The following bug has been fixed and is expected in preview orgs February 14, 20
 
 Secure your APIs with API Access Management, Okta's implementation of the OAuth 2.0 authorization framework. API Access Management uses the Okta Identity platform to enable powerful control over access to your APIs. API Access Management can be controlled through the administrator UI as well as a rich set of APIs for client, user, and policy management.
 
-For more information, see [OAuth 2.0 and Okta](/docs/reference/api/oidc/). <!--OKTA-153127-->
+For more information, see [OAuth 2.0 and Okta](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/). <!--OKTA-153127-->
 
 #### New Administrator Role for API Access Management
 
@@ -1399,17 +1399,17 @@ The following bug has been fixed and is expected in preview orgs February 7, 201
 | [New Version of the Sign-In Widget](#new-version-of-the-sign-in-widget) | Available Now | Available Now |
 
 #### Generally Available: App User Schema API
-Use the [App User Schema API](/docs/reference/api/schemas/#app-user-schema-operations) to work with App User profiles, typically for apps that have features for provisioning users. <!--OKTA-154105-->
+Use the [App User Schema API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/#tag/Schema/operation/getApplicationUserSchema) to work with App User profiles, typically for apps that have features for provisioning users. <!--OKTA-154105-->
 
 #### Special HTML Characters in `state` for `okta_post_message`
 
 You can include HTML special characters in the `state` parameter for `okta_post_message`.
-Note that [`state` in the main request body](/docs/reference/api/oidc/#request-parameters-1) already allows these characters. <!-- OKTA-91165 -->
+Note that [`state` in the main request body](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/authorizeCustomAS!in=query&path=response_mode&t=request) already allows these characters. <!-- OKTA-91165 -->
 
 #### Custom Scopes in Metadata Endpoints
 
-You can specify whether or not to include custom scopes in the metadata endpoints for [OAuth 2.0](/docs/reference/api/oidc/#well-knownoauth-authorization-server) and [OpenID Connect](/docs/reference/api/oidc/#well-knownopenid-configuration).
-Existing custom scopes are not exposed by default. Set the [`metadataPublish` attribute to `ALL_CLIENTS`](/docs/reference/api/authorization-servers/#scope-properties) to change the behavior. <!-- OKTA-106548 -->
+You can specify whether or not to include custom scopes in the metadata endpoints for [OAuth 2.0](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/getWellKnownOAuthConfigurationCustomAS) and [OpenID Connect](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/getWellKnownOpenIDConfigurationCustomAS).
+Existing custom scopes are not exposed by default. Set the [`metadataPublish` attribute to `ALL_CLIENTS`](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServerScopes/) to change the behavior. <!-- OKTA-106548 -->
 
 #### Improved Enforcement of Authorization Server Policies
 
@@ -1452,7 +1452,7 @@ The following bugs have been fixed and are expected in preview orgs January 31, 
 | [App User Schema API is Generally Available](#generally-available-app-user-schema-api)   | Available Now          | February 13, 2017  |
 
 #### Generally Available: App User Schema API
-Use the [App User Schema API](/docs/reference/api/schemas/#app-user-schema-operations) to work with App User profiles, typically for apps that have features for provisioning users. <!--OKTA-154105-->
+Use the [App User Schema API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/#tag/Schema/operation/getApplicationUserSchema) to work with App User profiles, typically for apps that have features for provisioning users. <!--OKTA-154105-->
 
 
 ### Weekly Release 2018.02
@@ -1465,7 +1465,7 @@ Use the [App User Schema API](/docs/reference/api/schemas/#app-user-schema-opera
 | [SHA-256 Certificates for New SAML 2.0 Apps is Generally Available](#generally-available-sha-256-certificates-for-saml-20-apps) | Available  Now        | January 10, 2018                |
 
 #### Generally Available: App User Schema API
-Use the [App User Schema API](/docs/reference/api/schemas/#app-user-schema-operations) to work with App User profiles, typically for apps that have features for provisioning users. <!--OKTA-154105-->
+Use the [App User Schema API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Schema/#tag/Schema/operation/getApplicationUserSchema) to work with App User profiles, typically for apps that have features for provisioning users. <!--OKTA-154105-->
 
 #### Generally Available: SHA-256 Certificates for SAML 2.0 Apps
 

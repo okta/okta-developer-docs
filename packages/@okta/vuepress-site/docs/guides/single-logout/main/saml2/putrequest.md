@@ -1,1 +1,1 @@
-`PUT https://${yourOktaDomain}/api/v1/apps/${appID}`
+`PUT https://{yourOktaDomain}/api/v1/apps/{appID}`

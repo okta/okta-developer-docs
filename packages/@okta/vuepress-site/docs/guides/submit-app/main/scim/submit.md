@@ -44,7 +44,7 @@ To submit a SCIM integration, click the **SCIM** tab and select **On** from the 
     * https://okta-`${app.variableName}`.com
     * `${app.variableName}`/route
 
-    > **Note**: A variable can include a complete URL (for example, https://example.com). This enables you to use more globally useful variables such as `${org.baseURL}`.
+    > **Note**: A variable can include a complete URL (for example, https://example.com). This enables you to use more globally useful variables such as `org.baseURL`.
 
 * **Does your SCIM server support HTTP PATCH operations for modifying resources?**: Select **Yes** if your SCIM server supports updates made through a PATCH.
 

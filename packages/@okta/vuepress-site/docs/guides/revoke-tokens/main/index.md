@@ -4,13 +4,13 @@ excerpt: How to revoke tokens with Okta
 layout: Guides
 ---
 
-> **Note**: This document is written for Okta Classic Engine. If you are using Okta Identity Engine, see [User sign out (local app)](/docs/guides/oie-embedded-sdk-use-case-basic-sign-out/-/main/) for relevant guidance. See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.
+> **Note**: This document is written for Classic Engine. If you’re using Identity Engine, see [User sign out (local app)](/docs/guides/oie-embedded-sdk-use-case-basic-sign-out/-/main/) for relevant guidance. See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.
 
 This guide explains how to revoke access or refresh tokens with Okta.
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Revoke tokens.
 * Remove user sessions.
@@ -24,7 +24,7 @@ If you would like to disable an access or refresh token, simply send a request t
 This example makes a request to revoke an access token issued by the org authorization server. The URL of the authorization server for your request might be different than this example. See [Authorization servers](/docs/concepts/auth-servers/#available-authorization-server-types) for more information.
 
 ```bash
-http --form POST https://${yourOktaDomain}/oauth2/v1/revoke \
+http --form POST https://{yourOktaDomain}/oauth2/v1/revoke \
   accept:application/json \
   authorization:'Basic ZmEz...' \
   cache-control:no-cache \
@@ -35,7 +35,7 @@ http --form POST https://${yourOktaDomain}/oauth2/v1/revoke \
 
 > **Note:** Revoking a token that is invalid, expired, or already revoked returns a `200 OK` status code to prevent any information leaks.
 
-See [Revoke a token](/docs/reference/api/oidc/#revoke) in the Okta OpenID Connect & OAuth 2.0 API reference.
+See [Revoke a token](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/revokeCustomAS) in the Okta OpenID Connect & OAuth 2.0 API reference.
 
 ## Revoke an access token or a refresh token
 
@@ -43,12 +43,12 @@ The token revocation endpoint can revoke either access or refresh tokens. Revoki
 
 ### Revoke only the access token
 
-Revoking only the access token effectively forces the client to use the refresh token in a request to retrieve a new access token. This could be useful if, for example, you have changed a user's data, and you want this information to be reflected in a new access token.
+Revoking only the access token effectively forces the client to use the refresh token in a request to retrieve a new access token. This could be useful if, for example, you’ve changed a user's data, and you want this information to be reflected in a new access token.
 
 #### Request Example
 
 ```bash
-curl --location --request POST 'https://${yourOktaDomain}/oauth2/v1/revoke' \
+curl --location --request POST 'https://{yourOktaDomain}/oauth2/v1/revoke' \
 -H "Accept: application/json" \
 -H "Content-Type: application/x-www-form-urlencoded" \
 -H "Authorization: Basic MG9hbmF3ZX...WwtOFRCYQ==" \
@@ -65,7 +65,7 @@ If you revoke only the refresh token, then the access token is also revoked. Thi
 #### Request Example
 
 ```bash
-curl --location --request POST 'https://${yourOktaDomain}/oauth2/v1/revoke' \
+curl --location --request POST 'https://{yourOktaDomain}/oauth2/v1/revoke' \
 -H "Accept: application/json" \
 -H "Content-Type: application/x-www-form-urlencoded" \
 -H "Authorization: Basic MG9hbmF3...FRCYQ==" \
@@ -73,11 +73,11 @@ curl --location --request POST 'https://${yourOktaDomain}/oauth2/v1/revoke' \
 -d "token_type_hint=refresh_token"
 ```
 
-See [Rule policies](/docs/reference/api/authorization-servers/#rule-properties) for more information on configuring Time to Live (TTL) and other parameters involving access and refresh tokens.
+See [Rule policies](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServerRules/) for more information on configuring Time to Live (TTL) and other parameters involving access and refresh tokens.
 
 ## Remove a user session
 
-Separate from access and refresh tokens, there is also the Okta session cookie that provides access to your Okta organization and applications. For a more complete explanation of Okta user sessions, see the [Sessions API reference](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Session/). You can revoke Okta sessions in one of two ways:
+Separate from access and refresh tokens, there’s also the Okta session cookie that provides access to your Okta org and apps. For a more complete explanation of Okta user sessions, see the [Sessions API reference](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Session/). You can revoke Okta sessions in one of two ways:
 
 * Close a specific session using the Sessions API
 * Revoke all sessions for a given user using the Users API
@@ -86,4 +86,4 @@ Separate from access and refresh tokens, there is also the Okta session cookie t
 
 See [Close Session](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Session/#tag/Session/operation/revokeSession) in the Sessions API reference for more information on removing a specific session.
 
-See [Clear User Sessions](/docs/reference/api/users/#clear-user-sessions) in the Users API reference for more information on removing all of a user's sessions.
+See [Revoke all User Sessions](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserSessions/#tag/UserSessions/operation/revokeUserSessions) in the User Sessions API reference for more information on removing all of a user's sessions.

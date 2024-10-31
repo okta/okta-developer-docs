@@ -81,6 +81,9 @@ module.exports = ctx => ({
   ],
   title: "Okta Developer",
   description: "Secure, scalable, and highly available authentication and user management for any app.",
+  scss: {
+    quietDeps: true
+  },
 
   /**
    * Global theme config
@@ -160,7 +163,6 @@ module.exports = ctx => ({
     },
 
     primary_left_nav: [
-      { text: 'Customer Identity Cloud', link: 'https://developer.auth0.com' },
       { text: 'Community',
         children: [
           { text: 'Forum', link: 'https://devforum.okta.com' },
@@ -219,7 +221,7 @@ module.exports = ctx => ({
           { text: 'Integrate with Okta', link: '/okta-integration-network/' },
           { text: 'Pricing', link: 'https://www.okta.com/pricing/#workforce-identity-pricing' },
           { text: '3rd-party notes', link: '/3rd_party_notices/' },
-           { text: 'Customer Identity Cloud', link: 'https://auth0.com/developers' },
+           { text: 'Customer Identity Cloud', link: 'https://developer.auth0.com/' },
           { text: 'Archive', link:'/archive/' },
         ]
       },
@@ -266,7 +268,10 @@ module.exports = ctx => ({
 
   markdown: {
     extendMarkdown: md => {
-      md.use(require('markdown-it-attrs'))
+      md.use(require('markdown-it-attrs'), {
+        leftDelimiter: '[[',
+        rightDelimiter: ']]'
+      }) 
     },
     anchor: {
       permalinkBefore: false,
@@ -299,6 +304,15 @@ module.exports = ctx => ({
               //'/docs/reference/api/risk-events/',
               '/docs/guides/migrate-to-oie/',
               '/docs/guides/manage-orgs-okta-aerial/',
+              '/docs/release-notes/2016',
+              '/docs/release-notes/2017',
+              '/docs/release-notes/2018',
+              '/docs/release-notes/2019',
+              '/docs/release-notes/2020',
+              '/docs/release-notes/2021',
+              '/docs/release-notes/2021-okta-identity-engine',
+              '/docs/release-notes/2022',
+              '/docs/release-notes/2022-okta-identity-engine',
               //'/docs/guides/oie-upgrade-add-sdk-to-your-app/-/main/',
               //'/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/-/main/',
               //'/docs/guides/oie-upgrade-add-sdk-to-your-app/',
@@ -316,6 +330,7 @@ module.exports = ctx => ({
               '/docs/reference/csi-delauth-hook/',
               //'/docs/reference/api/inline-hooks-lea/',
               //'/docs/reference/api/hook-keys/'
+              '/docs/guides/configure-amr-claims-mapping/'
           ]
         }
       ]
@@ -345,12 +360,76 @@ module.exports = ctx => ({
 
     // add redir url for main guide pages
     let found = guidesInfo.guideInfo[path];
+
+    if (path.endsWith('/main/')) {
+      // For paths such as /docs/guides/{guide-name}/main/ where the guide has stack selector/frameworks
+      let mainPagePath = path.slice(0, -'main/'.length);;
+      let mainPageGuide = guidesInfo.guideInfo[mainPagePath];
+      /*
+        The current page might have some frameworks which are displayed in the stack selector. But `guideInfo` doesn't give the frameworks
+        for the pages ending with `/main` but provides frameworks for the parent page of this page. For eg. We'll get the list of frameworks for 
+        `/docs/guides/{guide-folder-name}/{specific-selection}/main/` in its parent page, which is `/docs/guides/{guide-folder-name}/`.
+
+        Example guideInfo for the parent page of `/docs/guides/authenticators-okta-verify/main/` which is `/docs/guides/authenticators-okta-verify/`
+        {
+          title: 'Okta Verify (Push/OTP) integration guide',
+          layout: 'Guides',
+          sections: [ 'main' ],
+          guide: 'authenticators-okta-verify',
+          frameworks: [ 'aspnet', 'java', 'nodeexpress' ],
+          mainFramework: 'aspnet'
+        }
+        
+        If the parent page of current page guide has frameworks(stack selector) then we don't need to add the current page to sitemap
+        but only add the pages with frameworks in the sitemap. Hence, excluding the current page from sitemap here. Refer - OKTA-745577
+      */
+      if (mainPageGuide && mainPageGuide.guide && mainPageGuide.sections && mainPageGuide.mainFramework) {
+        frontmatter.sitemap = {
+          exclude: true
+        };
+      }
+
+      // For paths such as /docs/guides/{guide-name}/-/main where the guide doesn't have stack selector/frameworks
+
+      mainPagePath = path.slice(0, -'-/main/'.length);
+      mainPageGuide = guidesInfo.guideInfo[mainPagePath];
+      /* 
+        For paths such as /docs/guides/{guide-name}/-/main where there are no frameworks, we need to exclude the current page from sitemap
+
+        Eg. For path - `/docs/guides/build-api-integration/-/main/`, the mainPageGuide will be 
+
+        {
+          title: 'Build an API service integration',
+          excerpt: 'Learn how to build and register an API service integration with the Okta Integration Network.',
+          meta: [
+            {
+              name: 'description',
+              content: 'Use this guide to learn how to build, test, and submit an API service integration to the Okta Integration Network.'
+            }
+          ],
+          layout: 'Guides',
+          sections: [ 'main' ],
+          guide: 'build-api-integration',
+          frameworks: []
+        }
+      */
+      if (mainPageGuide && mainPageGuide.guide && mainPageGuide.sections && (!mainPageGuide.frameworks || !mainPageGuide.mainFramework)) {
+        frontmatter.sitemap = {
+          exclude: true
+        };
+      }
+    }
+
     if(found && found.guide && found.sections) {
       if(found.mainFramework) {
         $page.redir = `/docs/guides/${found.guide}/${found.mainFramework}/${found.sections[0]}/`
       } else {
         $page.redir = `/docs/guides/${found.guide}/${found.sections[0]}/`
       }
+      // Since current page is being redirected to the above links, we don't need to include current page in the sitemap.
+      frontmatter.sitemap = {
+        exclude: true
+      };
     }
     
     frontmatter.canonicalUrl = `https://developer.okta.com${path}`;

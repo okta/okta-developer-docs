@@ -8,5 +8,5 @@
 }
 
 .breadcrumb--container ol li a.router-link-exact-active.router-link-active {
-  color: cv("action");
+  color: cv("action", "base");
 }

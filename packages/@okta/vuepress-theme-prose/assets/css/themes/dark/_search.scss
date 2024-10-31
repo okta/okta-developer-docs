@@ -3,35 +3,35 @@
 }
 
 #SearchPage .coveo-facet-value.coveo-selected .coveo-facet-value-checkbox {
-  background-color: cv("code");
+  background-color: cv("code", "base");
 }
 
 #SearchPage .coveo-facet-value.coveo-selected .coveo-facet-value-checkbox svg .coveo-hook-svg {
-  fill: cv("link");
+  fill: cv("link", "base");
 }
 
 .search--wrapper {
   border-color: transparent;
-  background-color: cv("body");
+  background-color: cv("body", "base");
 }
 
 .search--wrapper .SearchBox .CoveoOmnibox.magic-box .magic-box-input input {
-  background-color: cv("code");
+  background-color: cv("code", "base");
 
-  color: cv("text");
+  color: cv("text", "base");
 }
 
 .search--wrapper .SearchBox .CoveoOmnibox.magic-box .magic-box-input .magic-box-underlay::before {
   z-index: 1;
 
-  color: cv("border");
+  color: cv("border", "base");
 }
 
 .search--wrapper .SearchBox .search--form .CoveoSearchButton {
   border-radius: 0 4px 4px 0;
-  background-color: cv("code");
+  background-color: cv("code", "base");
 
-  color: cv("text");
+  color: cv("text", "base");
 }
 
 .magic-box-suggestions {
@@ -60,11 +60,11 @@
 }
 
 .magic-box-suggestion span {
-  color: cv("text") !important;
+  color: cv("text", "base") !important;
 }
 
 .magic-box-suggestion span div {
-  color: cv("text") !important;
+  color: cv("text", "base") !important;
 }
 
 .magic-box-suggestion:hover {
@@ -77,8 +77,8 @@
   }
 
   .search--wrapper .SearchBox .CoveoOmnibox.magic-box .magic-box-input input::placeholder {
-    background-color: cv("code");
+    background-color: cv("code", "base");
 
-    color: cv("text");
+    color: cv("text", "base");
   }
 }

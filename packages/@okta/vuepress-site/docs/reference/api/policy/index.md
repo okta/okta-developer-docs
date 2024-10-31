@@ -5,6 +5,11 @@ category: management
 
 # Policy API
 
+The Policy API reference is now available at the new [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy).
+
+Explore the [Okta Public API Collections](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/overview) workspace to get started with the Policies API.
+
+<!--
 The Okta Policy API enables an administrator to perform Policy and Policy Rule operations. The Policy framework is used by Okta to control Rules and settings that govern, among other things, user session lifetime, whether multi-factor authentication is required when logging in, what MFA factors may be employed, password complexity requirements, what types of self-service operations are permitted under various circumstances, and what identity provider to route users to.
 
 Policy settings for a particular Policy type, such as Sign On Policy, consist of one or more Policy objects, each of which contains one or more Policy Rules. Policies and Rules contain conditions that determine whether they're applicable to a particular user at a particular time.
@@ -58,6 +63,8 @@ HTTP 200:
 <ApiOperation method="get" url="/api/v1/policies/${policyId}?expand=rules" />
 
 For Okta Classic Engine orgs only. Retrieves a policy and its associated rules. For Okta Identity Engine, see [List Policy Rules](#list-policy-rules). <!--OKTA-622770-->
+
+<!--
 
 ##### Request parameters
 
@@ -291,9 +298,9 @@ HTTP 204:
 
 Retrieves a list of applications mapped to a policy
 
-> **Note:** To retrieve a list of applications mapped to a policy, use [List all resources mapped to a Policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/listPolicyMappings). If you need to assign an application to a specific policy, use the [Update application policy](/docs/reference/api/apps/#update-application-policy) operation of the Apps API.
+> **Note:** To retrieve a list of apps mapped to a policy, use [List all resources mapped to a policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/listPolicyMappings). If you need to assign an app to a specific policy, use the [Assign an authentication policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationPolicies/#tag/ApplicationPolicies/operation/assignApplicationPolicy) operation of the Apps API.
 
-> **Note:** To assign an application to a specific policy, use the [Update application policy](/docs/reference/api/apps/#update-application-policy) operation of the Apps API.
+> **Note:** To assign an app to a specific policy, use the [Update app policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationPolicies/#tag/ApplicationPolicies/operation/assignApplicationPolicy) operation of the Apps API.
 
 ##### Request parameters
 
@@ -311,7 +318,7 @@ curl -v -X GET \
 ##### Response types
 
 HTTP 200:
-Array of [Application objects](/docs/reference/api/apps/#application-object)
+Array of [app objects](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/listApplications)
 
 ## Policy simulation operations
 <ApiLifecycle access="ie" />
@@ -761,9 +768,11 @@ Different Policy types control settings for different operations. All Policy typ
 * [IdP Discovery policy](#idp-discovery-policy)
 * [OAuth Authorization policy](/docs/reference/api/authorization-servers/#policy-object)
 * [Authentication policy](#authentication-policy) <ApiLifecycle access="ie" /><br>
+  > **Note:** <ApiLifecycle access="ie" />
+  > The account management policy is a type of authentication policy.
 * [Profile enrollment policy](#profile-enrollment-policy) <ApiLifecycle access="ie" /><br>
-* [Entity risk policy](#entity-risk-policy) <ApiLifecycle access="ie" /> <ApiLifecycle access="ea" /><br>
-* [Continuous Access evaluation policy](#continuous-access-evaluation-policy) <ApiLifecycle access="ie" /> <ApiLifecycle access="ea" /><br>
+* [Entity risk policy](#entity-risk-policy) <ApiLifecycle access="ie" /><br>
+* [Post auth session evaluation policy](#post-auth-session-evaluation-policy) <ApiLifecycle access="ie" /><br>
 
 ### Policy priority and defaults
 
@@ -849,7 +858,7 @@ The Policy object defines several attributes:
 | Parameter   | Description                                                                                                                                          | Data Type                                         | Required | Default                |
 | ---------   | -----------                                                                                                                                          | ---------                                         | -------- | -------                |
 | id          | Identifier of the Policy                                                                                                                             | String                                            | No       | Assigned               |
-| type        | Specifies the [type of Policy](#policy-types). Valid values: `OKTA_SIGN_ON`, `PASSWORD`, `MFA_ENROLL`, or `IDP_DISCOVERY`.<br><br> <ApiLifecycle access="ie" /><br>**Note:** The following policy types are available only with the Identity Engine: `ACCESS_POLICY` and `PROFILE_ENROLLMENT`. <br>[Contact support](https://support.okta.com/) for more information on the Identity Engine. <br><br> <ApiLifecycle access="ea" /><br>**Note:** The `CONTINUOUS_ACCESS` and `ENTITY_RISK` policy types are only available with Identity Engine and are EA release features. Contact your Okta account team to enable these features.  | String                                            | Yes      |                        |
+| type        | Specifies the [type of Policy](#policy-types). Valid values: `OKTA_SIGN_ON`, `PASSWORD`, `MFA_ENROLL`, or `IDP_DISCOVERY`.<br><br> <ApiLifecycle access="ie" /><br>**Note:** The following policy types are available only with the Identity Engine: `ACCESS_POLICY`, `PROFILE_ENROLLMENT`, `POST_AUTH_SESSION`, and `ENTITY_RISK`. <br>[Contact support](https://support.okta.com/) for more information on Identity Engine.  | String                                            | Yes      |                        |
 | name        | Name of the Policy                                                                                                                                   | String                                            | Yes      |                        |
 | system      | This is set to `true` on system policies, which cannot be deleted.                                                                                   | Boolean                                           | No       | `false`                |
 | description | Description of the Policy.                                                                                                                           | String                                            | No       | Null                   |
@@ -968,7 +977,7 @@ The Rules object defines several attributes:
 | Parameter     | Description                                                        | Data Type                                      | Required   | Default                |
 | :------------ | :----------------------------------------------------------------- | :--------------------------------------------- | :--------- | :--------------------- |
 | id            | Identifier of the Rule                                             | String                                         | No         | Assigned               |
-| type          | Rule type. Valid values: `SIGN_ON`, `PASSWORD`, `MFA_ENROLL`, and `IDP_DISCOVERY`.<br><br> <ApiLifecycle access="ie" /><br>**Note:** The following policy types are available only with the Identity Engine: `ACCESS_POLICY` and `PROFILE_ENROLLMENT`. <br>[Contact support](https://support.okta.com/) for more information on the Identity Engine. <br><br> <ApiLifecycle access="ea" /><br>**Note:** The `CONTINUOUS_ACCESS` and `ENTITY_RISK` policy types are only available with Identity Engine and are EA release features. Contact your Okta account team to enable these features. | String (Enum)                                 | Yes        |                        |
+| type          | Rule type. Valid values: `SIGN_ON`, `PASSWORD`, `MFA_ENROLL`, and `IDP_DISCOVERY`.<br><br> <ApiLifecycle access="ie" /><br>**Note:** The following policy types are available only with the Identity Engine: `ACCESS_POLICY`, `PROFILE_ENROLLMENT`, `POST_AUTH_SESSION`, and `ENTITY_RISK`. <br>[Contact support](https://support.okta.com/) for more information on Identity Engine. <br><br> | String (Enum)                                 | Yes        |                        |
 | name          | Name of the Rule                                                   | String                                         | Yes        |                        |
 | status        | Status of the Rule: `ACTIVE` or `INACTIVE`                         | String (Enum)                                  | No         | ACTIVE                 |
 | priority      | Priority of the Rule                                               | Integer                                        | No         | Last / Lowest Priority |
@@ -1046,7 +1055,7 @@ Specifies a set of Groups whose Users are to be included or excluded
 
 <ApiLifecycle access="ie" />
 
-Specifies which [User Types](/docs/reference/api/user-types/#user-type-object) to include and/or exclude. You can use the [User Types API](/docs/reference/api/user-types/) to manage User Types.
+Specifies which [User Types](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserType/#tag/UserType) to include or exclude.
 
 | Parameter | Description                  | Data Type | Required |
 | ---       | ---                          | ---       | ---      |
@@ -1362,29 +1371,31 @@ The entity risk score condition object specifies a particular level of risk for 
 
 <ApiLifecycle access="ie" />
 
-The entity risk detection condition object specifies the detected risk events that determine any further action. The object is specified as `riskDetectionTypes`.
+The entity risk detection conditions object specifies the detected risk events that determine any further action. The object is specified as `riskDetectionTypes`. This object can have an `include` parameter or an `exclude` parameter, but not both.
 
 | Parameter | Description                   | Data Type | Required |
 | ---       | ---                           | --------  | -------- |
 | `include` | An array of [detected risk events](#detected-risk-event-values) to include in the entity policy rule      | array  | Yes |
+| `exclude` | An array of [detected risk events](#detected-risk-event-values) to exclude in the entity policy rule      | array  | Yes |
 
 ##### Detected risk event values
 
-* `SUSPICIOUS_PASSWORD_RESET`
-* `REPORTED_SUSPICIOUS_ACTIVITY`
-* `USER_SUSPENDED`
-* `SESSION_HIJACK`
-* `MFA_BRUTE_FORCE`
-* `SESSION_HIJACK_SUSPICIOUS_COUNTRY_IMPOSSIBLE_TRAVEL`
-* `SECURITY_PARTNER_REPORT_DEVICE_RISK`
-* `SESSION_HIJACK_SUSPICIOUS_ASN`
-* `SUSPECTED_SESSION_COMPROMISE`
+* `ADMIN_REPORTED_USER_RISK`
+* `BRUTE_FORCE_ATTACK`
+* `ENTITY_CRITICAL_ACTION_FROM_HIGH_THREAT_IP`
+* `OKTA_THREAT_INTELLIGENCE`
+* `SESSION_INFLUENCED_USER_RISK`
+* `SUSPICIOUS_APP_ACCESS`
+* `USER_REPORTED_SUSPICIOUS_ACTIVITY`
+* `SECURITY_EVENTS_PROVIDER_REPORTED_RISK` <!-- Will be changing for 2024.06.0 release -->
+
+<!--
 
 #### Entity detection condition object example
 
 ```json
 "riskDetectionTypes": {
-  "include": ["SESSION_HIJACK", "MFA_BRUTE_FORCE"]
+  "include": ["SESSION_INFLUENCED_USER_RISK", "BRUTE_FORCE_ATTACK"]
 }
 ```
 
@@ -1535,7 +1546,7 @@ The authenticator enrollment policy controls which authenticators are available 
 
 > **Note:** Allow List for FIDO2 (WebAuthn) Authenticators is an [Early Access](/docs/reference/releases-at-okta/#early-access-ea) (Self-Service) feature. Enable the feature for your org from the **Settings** > **Features** page in the Admin Console.
 
-Configure which FIDO2 WebAuthn authenticators are allowed in your org for new enrollments by defining WebAuthn authenticator groups, then specifying which groups are in the allow list for enrollments. The authenticators in the group are based on FIDO Alliance Metadata Service that is identified by name or the Authenticator Attestation Global Unique Identifier ([AAGUID](https://support.yubico.com/hc/en-us/articles/360016648959-YubiKey-Hardware-FIDO2-AAGUIDs)) number. These groups are defined in the [WebAuthn authenticator method settings](/docs/reference/api/authenticators-admin/#authenticator-method-settings-propeties).
+Configure which FIDO2 WebAuthn authenticators are allowed in your org for new enrollments by defining WebAuthn authenticator groups. Then, specify which groups are in the allow list for enrollments. The authenticators in the group are based on FIDO Alliance Metadata Service that's identified by name or the Authenticator Attestation Global Unique Identifier ([AAGUID](https://support.yubico.com/hc/en-us/articles/360016648959-YubiKey-Hardware-FIDO2-AAGUIDs)) number. These groups are defined in the [WebAuthn authenticator method settings](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/#tag/Authenticator/operation/listAuthenticatorMethods).
 
 | Parameter | Description                                    | Data Type                                | Required |
 | ---       | ---                                            | ---                                      | ---      |
@@ -1662,7 +1673,7 @@ The Multifactor (MFA) Enrollment Policy controls which MFA methods are available
 <!-- # Consent object isn't used. This object is returned for backward compatibility.
 | consent   | Consent requirements for the Factor    | [Policy Factor Consent object](#policy-factor-consent-object) | No       |
 -->
-
+<!--
 #### Policy Factor Enroll object
 
 | Parameter | Description                               | Data Type                               | Required | Default       |
@@ -1689,7 +1700,7 @@ Currently, the Policy Factor Consent terms settings are ignored.
 | format    | The format of the Consent dialog box to be presented. | `TEXT`, `RTF`, `MARKDOWN` or `URL` | No       | N/A     |
 | value     | The contents of the Consent dialog box.               | String                             | No       | N/A     |
 -->
-
+<!--
 ### Policy conditions
 
 The following conditions may be applied to Multifactor Policy:
@@ -2112,7 +2123,7 @@ Constraints on the values specified in the `selfServicePasswordReset.requirement
 
 | Property | Description | Data Type | Supported Values | Required |
 | -------- | ----------- | --------- | ---------------- | -------- |
-| allowedAuthenticators | Limits the authenticators that can be used for a given method. Currently, only the `OTP` method supports constraints and Google authenticator is the only allowed authenticator. | Array of [authenticator keys](/docs/reference/api/authenticators-admin/#authenticator-properties) | `[ { "key": "google_otp" } ]` | No |
+| allowedAuthenticators | Limits the authenticators that you can use for a given method. Currently, only the `OTP` method supports constraints and Google authenticator is the only allowed authenticator. | Array of [authenticator keys](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/) | `[ { "key": "google_otp" } ]` | No |
 | method  | Specifies the method that is limited to the specific authenticator in `allowedAuthenticators`. Currently, Google OTP is the only accepted constraint. | String | `OTP` | No |
 
 ###### Self Service Password Reset Action Step-up Requirement object
@@ -2274,7 +2285,7 @@ refers to the user's `username`. If the user is signing in with the username `jo
 
 <ApiLifecycle access="ie" />
 
-> **Note:** This feature is only available as a part of the Identity Engine. [Contact support](https://support.okta.com/) for information on the Identity Engine.
+> **Note:** This feature is only available as a part of Identity Engine. [Contact support](https://support.okta.com/) for information.
 
 > **Note:** The app sign-on policy name has changed to authentication policy. The policy type of `ACCESS_POLICY` remains unchanged.
 
@@ -2289,7 +2300,22 @@ When you create a new application, the shared default authentication policy is a
 
 > **Note:** When you [merge duplicate authentication policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-merge-auth-policies), policy and mapping CRUD operations may be unavailable during the consolidation. When the consolidation is complete, you receive an email.
 
-#### Authentication policy example
+### Okta account management policy
+
+<ApiLifecycle access="ie" />
+<ApiLifecycle access="ea" />
+
+The Okta account management policy is a type of authentication policy. It defines requirements when users enroll in authenticators, recover their passwords, and unlock their accounts. Its rule-based framework lets you enforce phishing resistance throughout the user journey, from onboarding to authentication and recovery.
+
+The Okta account management policy appears in GET calls to the `/policies` endpoint. However, it's read-only. You can't create, update, or delete the policy. You have to disable the feature if you want to stop using it. Most importantly, you can't assign it to apps. This policy applies to Okta account management actions only.
+
+You can use the Policy API to [manage the rules of the policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule).
+
+See [Configure an Okta account management policy](/docs/guides/okta-account-management-policy/main/) for more details.
+
+See [Okta account management policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-account-management-policy) for details about configuring the policy in the Admin Console.
+
+### Authentication policy example
 
 ```json
     {
@@ -2301,7 +2327,7 @@ When you create a new application, the shared default authentication policy is a
 
 Additionally, there is no direct property to get the policy ID for an application. Instead, you need to retrieve the application object and use the reference to the policy ID that is a part of the application object.
 
-#### Authentication policy reference in HAL link in Application API Object example
+### Authentication policy reference in HAL link in Application API Object example
 
 ```json
     {
@@ -2310,6 +2336,18 @@ Additionally, there is no direct property to get the policy ID for an applicatio
         }
     }
 ```
+
+### Okta account management policy example
+
+```json
+    {
+        "type": "ACCESS_POLICY",
+        "name": "Web Cart App Sign On Policy",
+        "description": "Standard policy for Web Cart application"
+    }
+```
+
+
 
 ### Policy conditions
 
@@ -2743,6 +2781,7 @@ Policy Rule conditions aren't supported for this policy.
             "profileEnrollment": {
                 "access": "ALLOW",
                 "preRegistrationInlineHooks": null,
+                "allowedIdentifiers": ["login"],
                 "profileAttributes": [
                     {
                         "name": "email",
@@ -2770,9 +2809,10 @@ Policy Rule conditions aren't supported for this policy.
 
 | Property                | Description                                                                                                                                                               | Data Type                                       | Required                      | Default |
 | ---                     | ---                                                                                                                                                                       | ---                                             | ---                           | ---     |
-| `access`                  | `ALLOW` or `DENY`                                                                                                                                                         | `ALLOW` or `DENY`                               | Yes                           | N/A     |
+| `access`                  | `ALLOW` or `DENY`                                                                                                                                                         | `ALLOW` or `DENY`         | Yes                           | N/A     |
 | `activationRequirements`  | Contains a single Boolean property that indicates whether `emailVerification` should occur (`true`) or not (`false`, default)       | Object | Yes |        `false`                                                                                                                                                                                                              |
-| `preRegistrationInlineHooks` | (Optional) The `id` of at most one registration inline  hook                                                                       | Array   | No | N/A                                                                                                                                                                                                                        |
+| `preRegistrationInlineHooks` | (Optional) The `id` of at most one registration inline hook                                                                       | Array   | No | N/A                                                                                                                                                                                                                        |
+| `allowedIdentifiers` <ApiLifecycle access="ea" /> | A list of attributes to identify an end user. Can be used across Okta sign-in, unlock, and recovery flows. | Array | No | `["login"]` |
 | `profileAttributes.label`    | A display-friendly label for this property                                                                                       | String  |  Required | N/A                                                                                                                                                                                                                      |
 | `profileAttributes.name`     | The name of a User Profile property. Can be an existing User Profile property.                                                   | String  |  Required | N/A                                                                                                                                                                                                                          |
 | `profileAttributes.required` | (Optional, default `FALSE`) Indicates if this property is required for enrollment                                                 | Boolean | Required | `FALSE`                                                                                                                                                                                                                        |
@@ -2786,18 +2826,45 @@ Policy Rule conditions aren't supported for this policy.
 
 ## Entity risk policy
 
-<ApiLifecycle access="ie" /> <ApiLifecycle access="ea" />
+<ApiLifecycle access="ie" />
 
 The entity risk policy specifies what action or task to execute in reaction to a risk event. The type is specified as `ENTITY_RISK`.
 
 #### Entity risk policy example
 
 ```json
-    {
-        "type": "ENTITY_RISK",
-        "name": "useful example name here",
-        "description": "useful example description here"
-    }
+   {
+        "id": "rst4md033zyMXdWAR0g6",
+        "status": "ACTIVE",
+        "name": "Entity Risk Policy",
+        "description": "Enables entity risk policy evaluation for the org.",
+        "priority": 1,
+        "system": true,
+        "conditions": null,
+        "created": "2023-10-17T23:43:07.000Z",
+        "lastUpdated": "2023-10-17T23:43:07.000Z",
+        "_links": {
+            "self": {
+                "href": "https://example.com/api/v1/policies/rst4md033zyMXdWAR0g6",
+                "hints": {
+                    "allow": [
+                        "GET",
+                        "PUT"
+                    ]
+                }
+            },
+            "rules": {
+                "href": "https://example.com/api/v1/policies/rst4md033zyMXdWAR0g6/rules",
+                "hints": {
+                    "allow": [
+                        "GET",
+                        "POST"
+                    ]
+                }
+            }
+        },
+        "type": "ENTITY_RISK"
+   }
 ```
 
 ### Policy conditions
@@ -2852,20 +2919,49 @@ The `entityRisk` object's `actions` array can be empty or contain one of two `ac
 }
 ```
 
-## Continuous Access evaluation policy
+## Post auth session evaluation policy
 
-<ApiLifecycle access="ie" /> <ApiLifecycle access="ea" />
+<ApiLifecycle access="ie" />
 
-Continuous Access evaluation, implemented in the API as a policy, determines the action to take based on changes to an existing user session. After a session event is triggered, the global session policy and all authentication policies are reevaluated and a course of action is undertaken as defined by the Continuous Access evaluation policy. The policy type is specified as `CONTINUOUS_ACCESS`.
+Post auth session evaluation, implemented in the API as a policy type, determines the action to take based on changes to an existing user session. After a session event is triggered, the global session policy and all authentication policies are reevaluated and a course of action is undertaken as defined by the Post auth session evaluation policy. The policy type is specified as `POST_AUTH_SESSION`.
 
-#### Continuous Access evaluation example
+>**Note:** This policy replaces the Continuous Access evaluation policy (`CONTINUOUS_ACCESS`), which is now deprecated.
+
+#### Post auth session evaluation example
 
 ```json
-    {
-        "type": "CONTINUOUS_ACCESS",
-        "name": "useful example name here",
-        "description": "useful example description here"
-    }
+       {
+        "id": "rst4md03phZeFwacvE0g6",
+        "status": "ACTIVE",
+        "name": "Post auth session evaluation Policy",
+        "description": "Enables post auth session evaluation policy evaluation for the org.",
+        "priority": 1,
+        "system": true,
+        "conditions": null,
+        "created": "2023-10-17T23:41:25.000Z",
+        "lastUpdated": "2023-10-17T23:41:25.000Z",
+        "_links": {
+            "self": {
+                "href": "https://example.com/api/v1/policies/rst4md03phZeFwacvE0g6",
+                "hints": {
+                    "allow": [
+                        "GET",
+                        "PUT"
+                    ]
+                }
+            },
+            "rules": {
+                "href": "https://example.com/api/v1/policies/rst4md03phZeFwacvE0g6/rules",
+                "hints": {
+                    "allow": [
+                        "GET",
+                        "POST"
+                    ]
+                }
+            }
+        },
+        "type": "POST_AUTH_SESSION"
+       }
 ```
 
 ### Policy conditions
@@ -2878,54 +2974,56 @@ You can apply the following conditions to the rules associated with an entity ri
 
 * [People condition](#people-condition-object)
 
-### Continuous Access evaluation object
+### Post auth session evaluation object
 
-The `actions` object of the Continuous Access evaluation policy rule indicates the next steps to take in response to a failure of the reevaluated global session policy or authentication policies. The object is specified as `continuousAccess`.
+The `actions` object of the Post auth session evaluation policy rule indicates the next steps to take in response to a failure of the reevaluated global session policy or authentication policies. The `postAuthSession` object further defines the action.
 
 | Property                | Description              | Data Type                                       | Required                      | Default |
 | ---                     | ---------------          | ---                                             | ---                           | ---     |
-| `failureActions`               | The action to take when the Continuous Access evaluation detects a failure.              | Array of [failureAction value objects](#failureactions-array-object-values)                         | Yes                           | `[]`   |
+| `failureActions`               | The action to take when the Post auth session evaluation detects a failure.              | Array of [failureAction value objects](#failureactions-array-object-values)                         | Yes                           | `[]`   |
 
 #### failureActions array object values
 
-The `continuousAccess` object's `failureActions` array can be empty or contain one of two `failureAction` object value pairs. This object determines the specific response to a session event.
+The `postAuthSession` object's `failureActions` array can be empty or contain one of two `failureAction` object value pairs. This object determines the specific response to a session event.
 
 | Array value               | Description              | Data Type                                       | Required                     | Default |
 | ---                     | ---------------          | ---                                             | ---                           | ---     |
 | `[]`                 | This action only logs the user session event.             | object                      |  Yes                      | Yes  |
-| `[ { "action": "TERMINATE_ALL_SESSION" } ]`              | This action terminates active sessions based on the [Terminate_All_Session failureActions](#terminate-all-session-failureactions-object) object            | object                      |       No   | No |
+| `[ { "action": "TERMINATE_SESSION" } ]`              | This action terminates active sessions based on the [Terminate_Session failureActions](#terminate_session-failureactions-object) object.            | object                      |       No   | No |
 | `[ { "action": "RUN_WORKFLOW", "workflow": {"id": "123123123"} } ]`               | This action runs a workflow and must include the additional workflow `id` for the `workflow` property.            | object                      | No |
 
-#### Continuous Access evaluation actions default example
+#### Post auth session evaluation actions example
 
 ```json
 "actions": {
-    "continuousAccess": {
-      "failureActions": []
-     }
-}
-```
-
-#### Terminate_All_Session failureActions object
-
-This `failureActions` object defines the options for the `TERMINATE_ALL_SESSION` action:
-
-| Property                | Description              | Data Type                                       | Required                      | Default |
-| ---                     | ---------------          | ---                                             | ---                           | ---     |
-| `action`               | The action to take when Continuous Access evaluation detects a failure.              | `"TERMINATE_SESSION"`                       | Yes                           | No   |
-| `slo.appSelectionMode`               | This property defines the session to terminate: everyone, no one, or a specific app instance              | `"SPECIFIC"`, `"NONE"`, or `"ALL"`                       | Yes                           | No   |
-| `slo.InstanceIds`               | This property defines the app instance access to terminate. Only include this property when `slo.appSelectionMode` is set to `"SPECIFIC"`.              | Array of IDs                     | No                          | No   |
-
-#### Continuous Access evaluation actions terminate sessions example
-
-```json
-"actions": {
-    "continuousAccess": {
-      "failureActions": [
-        { "action": "TERMINATE_SESSION",
-          "slo": {
-            "appSelectionMode": "SPECIFIC",
-            "appInstanceIds": ["0oav0y4zt6hd2PSBP0h7"]} } ]
+    "postAuthSession": {
+      "failureActions": [{
+        "action": "RUN_WORKFLOW",
+        "workflow:" {
+            "id": "123123123"
+        }
+      }]
     }
 }
 ```
+
+#### Terminate_Session failureActions object
+
+This `failureActions` object defines the options for the `TERMINATE_SESSION` action:
+
+| Property                | Description              | Data Type                                       | Required                      | Default |
+| ---                     | ---------------          | ---                                             | ---                           | ---     |
+| `action`               | The action to take when Post auth session evaluation detects a failure.              | `"TERMINATE_SESSION"`                       | Yes                           | No   |
+
+#### Post auth session evaluation actions terminate sessions example
+
+```json
+"actions": {
+    "postAuthSession": {
+      "failureActions": [
+        { "action": "TERMINATE_SESSION" }
+      ]
+    }
+}
+```
+-->

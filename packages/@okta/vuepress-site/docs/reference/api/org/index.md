@@ -5,6 +5,11 @@ category: management
 
 # Org API
 
+The Org API reference is now available at the new [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingGeneral/).
+
+Explore the [Okta Public API Collections](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/overview) workspace to get started with the Org API.
+
+<!--
 The Okta Org API provides operations to manage your org account settings such as contact information, granting Okta Support access, and more.
 
 <ApiAuthMethodWarning />
@@ -12,9 +17,13 @@ The Okta Org API provides operations to manage your org account settings such as
 ## Getting Started
 
 Explore the Org API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/2a73f5511943d1bd6611)
+-->
 
 ## Org operations
 
+The org operations reference is now available at the new [Okta API reference portal](https://developer.okta.com/docs/api/) as the [Org General Settings API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingGeneral/).
+
+<!--
 The Org Setting API has the following CRUD operations:
 
 * [Get Org Settings](#get-org-settings)
@@ -202,9 +211,13 @@ curl -v -X PUT \
     }
 }
 ```
+-->
 
 ## Org Contact operations
 
+The org contact operations reference is now available at the new [Okta API reference portal](https://developer.okta.com/docs/api/) as the [Org Contacts API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingContact/).
+
+<!--
 The Org Contact API has the following CRUD operations:
 
 * [Get Contact Types](#get-contact-types)
@@ -388,9 +401,13 @@ curl -v -X PUT \
     }
 }
 ```
+-->
 
 ## Org Logo operations
 
+The org logo operations reference is now available at the new [Okta API reference portal](https://developer.okta.com/docs/api/) as the [Org Customization API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingCustomization/).
+
+<!--
 The Org Logo API has the following CRUD operations:
 
 * [Upload Logo for org](#upload-logo-for-org)
@@ -401,7 +418,7 @@ The Org Logo API has the following CRUD operations:
 
 Updates the logo for your org
 
->**Note:** This endpoint is deprecated. Use the [Upload Theme logo](/docs/reference/api/brands/#upload-theme-logo) endpoint instead.
+>**Note:** This endpoint is deprecated. Use the [Upload the Logo](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Themes/#tag/Themes/operation/uploadBrandThemeLogo) endpoint instead.
 
 #### Request path parameters
 
@@ -441,9 +458,13 @@ curl -v -X POST \
 HTTP/1.1 201 Content Created
 Location: https://{yourOktaDomain}/bc/image/fileStoreRecord?id=fs01hfslJH2m3qUOe0g4
 ```
+-->
 
 ## Okta Support operations
 
+The Okta support operations reference is now available at the new [Okta API reference portal](https://developer.okta.com/docs/api/) as the [Org Support Settings API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingSupport/).
+
+<!--
 The Org Support API has the following CRUD operations:
 
 * [Get Okta Support Settings](#get-okta-support-settings)
@@ -694,9 +715,13 @@ curl -v -X POST \
     }
 }
 ```
+-->
 
 ## Okta Communication operations
 
+The Okta communication operations reference is now available at the new [Okta API reference portal](https://developer.okta.com/docs/api/) as the [Okta Communication Settings API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingCommunication/).
+
+<!--
 The Org Communication API has the following CRUD operations:
 
 * [Get Okta Communication Settings](#get-okta-communication-settings)
@@ -864,8 +889,13 @@ curl -v -X POST \
     }
 }
 ```
+-->
+
 ## Org Preference operations
 
+The org preference operations reference is now available at the new [Okta API reference portal](https://developer.okta.com/docs/api/) as the [Org Customization API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingCustomization/).
+
+<!--
 The Org Preference API has the following CRUD operations:
 
 * [Get Org Preferences](#get-org-preferences)
@@ -1029,9 +1059,13 @@ curl -v -X POST \
     }
 }
 ```
+-->
 
 ## Email Address Bounces operations
 
+The email address bounces operation reference is now available at the new [Okta API reference portal](https://developer.okta.com/docs/api/) as the [Email Customization API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/EmailCustomization/).
+
+<!--
 The Email Address Bounces API has the following CRUD operation:
 
 * [Create Remove List](#create-remove-list%)
@@ -1145,8 +1179,13 @@ HTTP/1.1 400 Bad Request
     "errorCauses": ["emailAddresses: The field cannot have more than 1,000 elements"]
 }
 ```
+-->
 
 ## Org Third-Party Admin setting operations
+
+The org third-party admin setting operation reference is now available at the new [Okta API reference portal](https://developer.okta.com/docs/api/) as the [Org Admin Settings API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingAdmin/).
+
+<!--
 The Third-Party Admin setting API has the following CRUD operations:
 
 * [Get the Third-Party Admin setting](#get-the-thirdparty-admin-setting)
@@ -1467,3 +1506,4 @@ The Remove List object has one property:
   ]
 }
 ```
+-->

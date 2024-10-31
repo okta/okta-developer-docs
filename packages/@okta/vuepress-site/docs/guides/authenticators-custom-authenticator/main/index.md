@@ -7,12 +7,12 @@ title: Custom authenticator integration guide
 Enable a mobile app to verify a user identity for an Okta custom authenticator.
 
 ---
-**Learning outcomes**
+#### Learning outcome
 
-* Create a custom authenticator.
+* Create a Custom Authenticator.
 * Use the Devices SDK to turn your mobile app into a push authenticator.
 
-**What you need**
+#### What you need
 
 * An Okta developer app
 * <StackSnippet snippet="notifservicelink" inline />
@@ -24,26 +24,28 @@ Enable a mobile app to verify a user identity for an Okta custom authenticator.
   * [MyAccount App authenticators](https://developer.okta.com/docs/api/openapi/okta-myaccount/myaccount/tag/AppAuthenticator/)
   * [Authorization Servers](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServer/#tag/AuthorizationServer/operation/replaceAuthorizationServerPolicyRule)
 
-**Sample code**
+#### Sample code
 
-* <StackSnippet snippet="samplecode" />
+<StackSnippet snippet="samplecode" />
 
 ---
 
 ## About custom authentication and the Devices SDK
 
-The Devices SDK allows you to embed push notifications and biometrics directly into your native mobile app. As a result, you can control the entire authentication experience by keeping users on your mobile app for the complete sign-in process. The Devices SDK implements the custom authenticator, which is another authenticator besides Okta Verify that you can use for push notifications. In addition, by implementing a custom authentication flow in your app, you also help drive downloads of your app.
+The Devices SDK allows you to embed push notifications and biometrics directly into your mobile app. As a result, you can control the entire authentication experience by keeping users on your mobile app for the entire sign-in process.
+
+The Devices SDK implements the Custom Authenticator. The Custom Authenticator is another authenticator besides Okta Verify you can use for push notifications. In addition, by implementing a custom authentication flow in your app, you also help drive downloads of your app.
 
 ## Get started
 
 This guide walks you through the two main tasks needed to integrate with the Okta Devices SDK:
 
-**Create a custom authenticator**
+**Create a Custom Authenticator**
 
 1. [Create an OIDC web authentication client](#create-an-oidc-web-authentication-client): Set up OAuth for your app.
-2. [Grant the required scopes](#grant-the-required-scopes): Grant the scopes that you need to create a custom authenticator.
+2. [Grant the required scopes](#grant-the-required-scopes): Grant the scopes that you need to create a Custom Authenticator.
 3. [Set up notification services](#set-up-notification-services): Set up <StackSnippet snippet="notifservicelong" inline /> with your Okta org.
-4. [Add a custom authenticator](#add-a-custom-authenticator): Create and brand a custom authenticator.
+4. [Add a Custom Authenticator](#add-a-custom-authenticator): Create and brand a Custom Authenticator.
 5. [Set up a global session policy and authentication policy](#set-up-a-global-session-policy-and-authentication-policy): Control who can access Okta and how.
 
 **Install and configure the Okta Devices SDK**
@@ -54,17 +56,17 @@ The following image shows what the Devices SDK enables for end users:
 
 <div class="three-quarter border">
 
-![Custom authenticator flow chart](/img/authenticators/authenticators-custom-authenticator-flowchart.png)
+![Custom Authenticator flow chart](/img/authenticators/authenticators-custom-authenticator-flowchart.png)
 
 </div>
 
-## Create a custom authenticator
+## Create a Custom Authenticator
 
 The following image shows the Devices SDK setup in the Admin Console:
 
 <div class="half border">
 
-![Custom authenticator Admin Console](/img/authenticators/authenticators-custom-authenticator-admin-console.png)
+![Custom Authenticator Admin Console](/img/authenticators/authenticators-custom-authenticator-admin-console.png)
 
 </div>
 
@@ -87,13 +89,13 @@ When you're ready to grant the required scopes, follow these steps:
    * For access to GET endpoints only:
       * `okta.myAccount.appAuthenticator.read`
 
-Alternatively, you can grant scopes using the [Grant consent to scope for application](/docs/reference/api/apps/#application-oauth-2-0-scope-consent-grant-operations) operation of the Apps API.
+Alternatively, you can grant scopes using the [Grant consent to scope for app](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationGrants/#tag/ApplicationGrants/operation/grantConsentToScope) operation of the Apps API.
 
 ### Set up notification services
 
 <StackSnippet snippet="notifserviceadminconsole" />
 
-### Add a custom authenticator
+### Add a Custom Authenticator
 
 <StackSnippet snippet="customauthenticatoradminconsole" />
 

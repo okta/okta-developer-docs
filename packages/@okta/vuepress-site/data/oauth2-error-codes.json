@@ -1,6 +1,6 @@
 {
-  "release" : "2024.03.1",
-  "build" : "2024.03.1-begin-166-gc41ac4b03009",
+  "release" : "2024.10.1",
+  "build" : "2024.10.1-begin-177-g6de143891e6f",
   "errors" : [ {
     "title" : "Access denied",
     "statusCode" : 403,
@@ -127,6 +127,13 @@
     "internalErrorCode" : "mfa_attestation_login_hint_invalid",
     "errorCode" : "access_denied",
     "errorDescription" : "'login_hint' did not match a user assigned to the client app."
+  }, {
+    "title" : "Access denied by aerial",
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "internalErrorCode" : "access_denied_by_aerial",
+    "errorCode" : "access_denied",
+    "errorDescription" : "The Aerial service denied the request."
   }, {
     "title" : "Associated server not exists",
     "statusCode" : 403,
@@ -296,6 +303,13 @@
     "errorCode" : "access_denied",
     "errorDescription" : "The user's password is expired."
   }, {
+    "title" : "SecURIty method setup not allowed",
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "internalErrorCode" : "security_method_setup_not_allowed",
+    "errorCode" : "access_denied",
+    "errorDescription" : "Security method can't be set up at this time."
+  }, {
     "title" : "Ciba feature not supported",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
@@ -309,6 +323,13 @@
     "internalErrorCode" : "ciba_mfa_challenge_initiation_failure",
     "errorCode" : "access_denied",
     "errorDescription" : "Failed to initiate the MFA challenge for the Client-Initiated Backchannel Authentication flow."
+  }, {
+    "title" : "Online access authentication required",
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "internalErrorCode" : "online_access_authentication_required",
+    "errorCode" : "access_denied",
+    "errorDescription" : "The authorization server requires the user to re-authenticate."
   }, {
     "title" : "Direct auth policy denied",
     "statusCode" : 403,
@@ -2248,6 +2269,13 @@
     "internalErrorCode" : "missing_redirect_uri",
     "errorCode" : "missing_redirect_uri",
     "errorDescription" : "redirect_uri is missing."
+  }, {
+    "title" : "Platform sso invalid password credentials",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "platformsso_invalid_password_credentials",
+    "errorCode" : "platformsso_invalid_password_credentials",
+    "errorDescription" : "The credentials provided for platformsso authentication were invalid."
   }, {
     "title" : "Refresh token validation failure",
     "statusCode" : 400,

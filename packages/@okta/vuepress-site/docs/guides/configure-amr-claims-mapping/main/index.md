@@ -10,16 +10,16 @@ This guide explains how to configure an OpenID Connect Identity Provider to send
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Know the purpose of AMR claims
 * Configure your OpenID Connect Identity Provider (IdP) to send AMR claims during SSO
 
-**What you need**
+#### What you need
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
 * An existing OpenID Connect Identity Provider (IdP) that's able to send AMR claims to Okta. This can be another Okta org (org2org) or a third party IdP.
-* The **IdP AMR Claims Mapping** feature enabled for your org. Contact [Okta Support](https://support.okta.com) to enable this EA feature.
+<!-- * The **IdP AMR Claims Mapping** feature enabled for your org. Contact [Okta Support](https://support.okta.com) to enable this EA feature. -->
 
 ---
 
@@ -38,6 +38,8 @@ When you configure AMR claims in Okta-to-Okta orgs, there are some configuration
 <div class="three-quarter">
 
 ![Flow diagram that displays the communication between the user, user agent, authorization server, and the Identity Provider](/img/auth/amr-claims-mapping-oidc.png)
+<!-- https://www.figma.com/design/YH5Zhzp66kGCglrXQUag2E/📊-Updated-Diagrams-for-Dev-Docs?node-id=4696-3134&t=vwcppYyoeWOz2kEQ-11
+amr-claims-mapping-oidc.png -->
 
 </div>
 
@@ -47,7 +49,7 @@ When you configure AMR claims in Okta-to-Okta orgs, there are some configuration
 4. The Identity Provider authenticates the user.
 5. The Identity Provider redirects the user to Okta. The Identity Provider response contains the supported AMR claims, for example: `sms`, `mfa`, and `pwd`.
 
-    > **Note:** The AMR claims are stored in an Okta session and considered during policy evaluation.
+    > **Note:** AMR claims are stored in an Okta session and considered during policy evaluation.
 
 6. Okta redirects the user to the browser. The user isn't challenged for MFA if the factors used by the Identity Provider meet policy requirements.
 7. The browser sends a request to the Okta `/token` endpoint.
@@ -131,9 +133,17 @@ The following table describes the AMR values that Okta supports:
 
 ### Okta-to-Okta
 
-Okta-to-Okta (org2org), also known as hub and spoke, refers to a deployment model where the IdP and Service Provider (SP) are both Okta orgs. Use the [Add an External Identity Provider guide for Okta-to-Okta](/docs/guides/add-an-external-idp/oktatookta/main/) to configure Okta-to-Okta orgs for AMR claims mapping.
+Okta-to-Okta (Org2Org), also known as hub and spoke, refers to a deployment model where the IdP and Service Provider (SP) are both Okta orgs. Use the [Add an External Identity Provider guide for Okta-to-Okta](/docs/guides/add-an-external-idp/oktatookta/main/) to configure Okta-to-Okta orgs for AMR claims mapping.
 
 <AMROktatoOkta/>
+
+#### Use an existing Org2Org app
+
+You can configure Okta-to-Okta orgs for AMR claims mapping with existing Org2Org OpenID Connect apps. If you want to force the IdP Okta org to authenticate, clear the **Disable Force Authentication** checkbox in the existing Org2Org app:
+
+1. In the Admin Console, go to **Applications** > **Applications** and select the Org2Org app that you want to configure.
+1. Select the **Sign On** tab and then click **Edit** in the **Settings** section.
+1. Clear the **Disable Force Authentication** checkbox and click **Save**.
 
 ### Custom OpenID Connect apps
 

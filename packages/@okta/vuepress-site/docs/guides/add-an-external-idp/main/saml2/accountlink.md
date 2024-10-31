@@ -1,0 +1,1 @@
+For SAML, Okta recommends enabling **Account matching with Persistent Name ID** for a higher security link for the user. If you choose to not select this setting, then set **Account Link Policy** to automatic (`AUTO`).

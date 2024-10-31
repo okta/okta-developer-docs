@@ -8,7 +8,6 @@ guides:
  - archive-registration-inline-hook
  - archive-set-up-self-service-registration
  - archive-sign-in-to-spa-authjs
- - archive-sign-in-to-spa-embedded-widget
  - archive-configure-signon-policy
  - auth-js
  - auth-js-redirect
@@ -56,6 +55,7 @@ guides:
  - migrate-to-okta-password-hooks
  - mobile-idx-sdk-overview
  - multiple-identifiers
+ - mobile-swift-configure-redirect
  - scim-provisioning-integration-overview
  - scim-provisioning-integration-prepare
  - scim-provisioning-integration-connect
@@ -74,6 +74,7 @@ guides:
  - deployment-checklist
  - deploy-your-app
  - dpop
+ - okta-account-management-policy
  - protect-your-api
  - quickstart
  - sampleapp-oie-redirectauth
@@ -96,15 +97,21 @@ guides:
  - sign-your-own-saml-csr
  - social-login
  - telephony-inline-hook
+ - terraform-configure-device-signin-standards
+ - terraform-create-custom-auth-server
+ - terraform-manage-multiple-domains
  - terraform-design-access-security
  - terraform-design-rate-limits
  - terraform-enable-org-access
+ - terraform-import-existing-resources
  - terraform-landing-page
  - terraform-manage-end-user-experience
  - terraform-manage-external-authenticators
  - terraform-manage-groups
  - terraform-manage-user-access
+ - terraform-organize-configuration
  - terraform-overview
+ - terraform-syntax-tips
  - token-inline-hook
  - third-party-risk-integration
  - unlock-mobile-app-with-biometrics
@@ -210,14 +217,23 @@ If you're using Okta as an identity layer for the first time, start with [How Ok
     * [Migrate to Okta](/docs/guides/migrate-to-okta-prerequisites/)
 
 6. Automate management of your Okta org using Terraform
-    * [Terraform overview](/docs/guides/terraform-overview/)
-    * [Enable Terraform access for your Okta org](/docs/guides/terraform-enable-org-access/)
-    * [Manage user access with Terraform](/docs/guides/terraform-manage-user-access/)
-    * [Manage groups of users with Terraform](/docs/guides/terraform-manage-groups/)
-    * [Manage external authentication services with Terraform](/docs/guides/terraform-manage-external-authenticators/)
-    * [Customize the end-user experience with Terraform](/docs/guides/terraform-manage-end-user-experience/)
-    * [Control Terraform access to Okta](/docs/guides/terraform-design-access-security/)
-    * [Minimize Terraform rate limit errors](/docs/guides/terraform-design-rate-limits/)
+    * Essentials
+      * [Terraform overview](/docs/guides/terraform-overview/)
+      * [Enable Terraform access for your Okta org](/docs/guides/terraform-enable-org-access/)
+      * [Control Terraform access to Okta](/docs/guides/terraform-design-access-security/)
+    * Create and manage resources
+      * [Manage groups of users with Terraform](/docs/guides/terraform-manage-groups/)
+      * [Manage user access with Terraform](/docs/guides/terraform-manage-user-access/)
+      * [Manage external authentication services with Terraform](/docs/guides/terraform-manage-external-authenticators/)
+      * [Manage device connection requirements](/docs/guides/terraform-configure-device-signin-standards/)
+      * [Create a custom authorization server](/docs/guides/terraform-create-custom-auth-server/)
+      * [Manage branding with Terraform](/docs/guides/terraform-manage-end-user-experience/)
+      * [Manage custom domains with Terraform](/docs/guides/terraform-manage-multiple-domains/)
+      * [Import existing Okta objects into Terraform](/docs/guides/terraform-import-existing-resources/)
+    * Optimize your configuration
+      * [Minimize Terraform rate limit errors](/docs/guides/terraform-design-rate-limits/)
+      * [Organize your configuration](/docs/guides/terraform-organize-configuration/)
+      * [Terraform syntax tips](/docs/guides/terraform-syntax-tips)
 
 7. Customize Okta process flows with event or inline hooks
 

@@ -8,11 +8,11 @@ This guide discusses how to retain user context in requests to downstream servic
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 Understand the purpose of OAuth 2.0 On-Behalf-Of Token Exchange.
 
-**What you need**
+#### What you need
 
 * [Okta Developer Edition org](https://developer.okta.com/signup)
 * Two custom authorization servers. See [Create an authorization server](/docs/guides/customize-authz-server/main/#create-an-authorization-server) if you need to add them for use with this guide.
@@ -56,8 +56,8 @@ The following sections explain the setup for an example token exchange flow usin
 1. Go to **Applications** > **Applications** in the Admin Console.
 1. Click **Create App Integration**.
 1. Select **OIDC - OpenID Connect**, and then **Native Application**.
-1. Name your application and at the bottom of the page select **Allow everyone in your organization to access**.
-1. Click **Save** and at the top of the page click **Back to Applications**.
+1. Name your app, and then select **Allow everyone in your organization to access**.
+1. Click **Save**, and then click **Back to Applications**.
 
 > **Note:** Okta recommends that native apps use the Authorization Code with Proof Key for Code Exchange (PKCE) authentication flow. See [Implement authorization by grant type](/docs/guides/implement-grant-type/authcodepkce/main/#create-the-proof-key-for-code-exchange) for more information on creating PKCE for your native app.
 
@@ -67,7 +67,7 @@ In token exchange use cases, an API microservice can act both as a resource serv
 
 1. Click **Create App Integration** on the **Applications** page.
 1. Select **API Services**, and then click **Next**.
-1. Name your application. For this example, enter **API1**, and then click **Save**.
+1. Name your app. For this example, enter **API1**, and then click **Save**.
 1. Click **Edit** in the **General Settings** section of the **General** tab.
 1. Click **Advanced** in the **Grant type** section, select **Token Exchange**, and click **Save**.
     > **Note**: If you're using Classic Engine, select **Token Exchange** in the **Grant type** section.
@@ -132,12 +132,12 @@ Use the Authorization Code with PKCE flow to obtain an authorization code for th
 Go to the `/authorize` endpoint using a request URL with the appropriate parameters:
 
   ```bash
-    https://${yourOktaDomain}/oauth2/default/v1/authorize?client_id=${nativeAppClientId}&response_type=code&scope=openid&redirect_uri=${configuredRedirectUri}&state=teststate&code_challenge_method=S256&code_challenge=${code_challenge}
+    https://{yourOktaDomain}/oauth2/default/v1/authorize?client_id={nativeAppClientId}&response_type=code&scope=openid&redirect_uri={configuredRedirectUri}&state=teststate&code_challenge_method=S256&code_challenge={code_challenge}
   ```
 
 Note the parameters that are being passed:
 
-* `client_id`: Matches the client ID of your application that you created in the [Create a native app integration](#create-a-native-app-integration) section.
+* `client_id`: Matches the client ID of your app that you created in the [Create a native app integration](#create-a-native-app-integration) section.
 * `response_type` is `code`: Indicates that you are using the Authorization Code grant type.
 * `scope` is `openid`: Means that the `/token` endpoint returns an ID token. See the **Create Scopes** section of the [Create an authorization server](/docs/guides/customize-authz-server/main/#create-scopes) guide.
 * `redirect_uri`: The callback location where the user agent is directed to along with the code. This must match one of the **Sign-in redirect URIs** that you specified when you created your native app.
@@ -145,14 +145,14 @@ Note the parameters that are being passed:
 * `code_challenge_method`: The hash method used to generate the challenge, which is always `S256`.
 * `code_challenge`: The code challenge used for PKCE.
 
-> **Note:** See the [OAuth 2.0 API reference](/docs/reference/api/oidc/#authorize) for more information on these parameters.
+> **Note:** See the [OAuth 2.0 API reference](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/authorizeCustomAS) for more information on these parameters.
 
 If the user doesn't have an existing session, this request opens the Okta sign-in page. If they have an existing session, or after they authenticate, the user arrives at the specified `redirect_uri` along with an authorization `code`:
 
 **Response**
 
 ```bash
-https://${configuredRedirectUri}/?code=FQGFlDO-J1jXl....7-cfYJ0KtKB8&state=testState
+https://{configuredRedirectUri}/?code=FQGFlDO-J1jXl....7-cfYJ0KtKB8&state=testState
 ```
 
 #### Exchange code for tokens request
@@ -161,14 +161,14 @@ Use the following example to build the request to exchange the authorization cod
 
 ```bash
   curl --location --request POST \
-    --url 'https://${yourOktaDomain}/oauth2/default/v1/token' \
+    --url 'https://{yourOktaDomain}/oauth2/default/v1/token' \
     --header 'Accept: application/json' \
     --header 'Content-Type: application/x-www-form-urlencoded' \
     --data-urlencode 'grant_type=authorization_code' \
-    --data-urlencode 'redirect_uri=${configuredRedirectUri}' \
+    --data-urlencode 'redirect_uri={configuredRedirectUri}' \
     --data-urlencode 'code=FQGFlDO-J1j.....QvabuZ7-cfYJ0KtKB8' \
     --data-urlencode 'code_verifier=xO5wgOEH5UA2XUdVQ88pM.....Rtc5ERKq1MeonMo8QLCSRYlDk' \
-    --data-urlencode 'client_id=${nativeAppClientId}'
+    --data-urlencode 'client_id={nativeAppClientId}'
 ```
 
 **Response**
@@ -189,7 +189,7 @@ Use the following example to build the request to exchange the authorization cod
 
 ```bash
 curl --location --request POST \
-  --url 'https://${yourOktaDomain}/oauth2/default/v1/token' \
+  --url 'https://{yourOktaDomain}/oauth2/default/v1/token' \
   --header 'Accept: application/json' \
   --header 'Authorization: Basic {Base64-encoded service app client ID and client secret}' \
   --header 'Content-Type: application/x-www-form-urlencoded' \
@@ -249,7 +249,7 @@ To check the returned access token payload, you can copy the value and paste it 
 
 You can perform token exchange within a single authorization server or between other authorization servers under the same Okta tenant. The previous example discussed a token exchange within a single custom authorization server. To perform token exchange between authorization servers within the same tenant, make the authorization server that issued the subject token trusted under the authorization server against which the token exchange request is made.
 
-A trusted server handles authenticated requests after the application obtains an access token. The incoming subject token (access token) is used to evaluate a subject.
+A trusted server handles authenticated requests after the app obtains an access token. The incoming subject token (access token) is used to evaluate a subject.
 
 The following sections explain how to set up a trusted server, access policy, and rule. Then, you can make the token exchange request with the trusted server.
 
@@ -290,7 +290,7 @@ Perform the requests in the previous [Flow specifics](#flow-specifics) section. 
 
 ```bash
 curl --location --request POST \
-  --url 'https://${yourOktaDomain}/oauth2/{trustedAuthServerId}/v1/token' \
+  --url 'https://{yourOktaDomain}/oauth2/{trustedAuthServerId}/v1/token' \
   --header 'Accept: application/json' \
   --header 'Authorization: Basic {Base64-encoded service app client ID and client secret}' \
   --header 'Content-Type: application/x-www-form-urlencoded' \

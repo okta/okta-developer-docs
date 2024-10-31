@@ -59,16 +59,16 @@ When you follow these guides, be aware of the authorization server used. Most of
 
 For example, the following are the various `/authorize` request URLs for the different authorization servers:
 
-**custom authorization server**: `https://${customerOktaDomain}/oauth2/${authorizationServerId}/v1/authorize?client_id=${clientId}&response_type=code&scope=openid&redirect_uri=${redirectURI}&state=${state}`
+**custom authorization server**: `https://{customerOktaDomain}/oauth2/{authorizationServerId}/v1/authorize?client_id={clientId}&response_type=code&scope=openid&redirect_uri={redirectURI}&state={state}`
 
-**default custom authorization server**(`${authorizationServerId}=default`): `https://${customerOktaDomain}/oauth2/default/v1/authorize?client_id=${clientId}&response_type=code&scope=openid&redirect_uri=${redirectURI}&state=${state}`
+**default custom authorization server**(`{authorizationServerId}=default`): `https://{customerOktaDomain}/oauth2/default/v1/authorize?client_id={clientId}&response_type=code&scope=openid&redirect_uri={redirectURI}&state={state}`
 
-**org authorization server**:`https://${customerOktaDomain}/oauth2/v1/authorize?client_id=${clientId}&response_type=code&scope=openid&redirect_uri=${redirectURI}&state=${state}`
+**org authorization server**:`https://{customerOktaDomain}/oauth2/v1/authorize?client_id={clientId}&response_type=code&scope=openid&redirect_uri={redirectURI}&state={state}`
 
 Make sure you only use the **org authorization server** URL.
 
 > **Notes:**
-> * When you use the org authorization server, the issuer URL is `https://${yourOktaDomain}`.
+> * When you use the org authorization server, the issuer URL is `https://{yourOktaDomain}`.
 > * The `refresh_token` option isn't supported for apps published in the OIN.
 
 ### Scopes
@@ -89,7 +89,7 @@ Other optional scopes available (these are returned from the `/userinfo` endpoin
 
 > **Note**: The following scopes aren't supported for integrations published in the OIN:
 >   * `offline_access` scope (since refresh tokens aren't supported)
->   * Custom scopes (such as the `groups` scope). You can only request the [OIDC scopes](/docs/reference/api/oidc/#scopes). You can't configure custom scopes.
+>   * Custom scopes (such as the `groups` scope). You can only request the [OIDC scopes](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/#scopes). You can't configure custom scopes.
 
 Okta uses access policies to decide whether to grant scopes. If any of the requested scopes are rejected by the access policies, Okta rejects the request.
 
@@ -103,7 +103,7 @@ There are three URIs that you need to consider when creating an OIDC app for the
 
 ### Token validation
 
-For checking access tokens, the `/introspect` [endpoint](/docs/reference/api/oidc/#introspect) takes your token as a URL query parameter and then returns a simple JSON response with the boolean `active` property.
+For checking access tokens, the `/introspect` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/introspectCustomAS) takes your token as a URL query parameter and then returns a simple JSON response with the boolean `active` property.
 
 As OIN app integrations can't use custom authorization servers, you must use remote token validation (through the Introspection API endpoint) for access tokens and local validation for ID tokens.
 
@@ -117,11 +117,11 @@ The standard behavior in identity and access management is to rotate the keys us
 
 Your OIDC client should periodically query the `/keys` endpoint and retrieve the JSON Web Key Set. This key set contains the public keys used to verify the signatures of the tokens received from Okta. You can cache the keys to improve performance, but be aware that verification fails when Okta automatically rotates the keys.
 
-See [key rotation](/docs/concepts/key-rotation/) or the `/keys` [API endpoint](/docs/reference/api/oidc/#keys) for specific details on handling queries and responses.
+See [key rotation](/docs/concepts/key-rotation/) or the `/keys` [API endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/oauthKeysCustomAS) for specific details on handling queries and responses.
 
 ### Rate limit considerations
 
-When you construct your SSO application, be aware of the limits on requests to Okta APIs. For information on the categories and cumulative rate limits, see the [Rate limits overview](/docs/reference/rate-limits/). Okta provides three headers in each response to report on both concurrent and org-wide rate limits.
+When you construct your SSO application, be aware of the limits on requests to Okta APIs. For information on the rate-limit categories, see the [Rate limits overview](/docs/reference/rate-limits/). Okta provides three headers in each response to report on both concurrent and org-wide rate limits.
 
 For org-wide rate limits, the following three headers are provided:
 

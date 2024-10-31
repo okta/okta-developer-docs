@@ -10,19 +10,19 @@ This guide explains authentication fundamentals using Auth JS, known more formal
 
 ---
 
-**Learning outcomes**
+#### Learning outcomes
 
 * Understand how to implement basic sign-in using Auth JS.
 * Understand basic installation and code configurations using AuthJS.
 * Implement the sample SPA use case and sign a user in to the application.
 
-**What you need**
+#### What you need
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup/)
 * [Okta Auth JS SDK Interaction Code reference documentation](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#introduction)
 * Basic knowledge of building front-end JavaScript applications
 
-**Sample code**
+#### Sample code
 
 * [Static-spa sample](https://github.com/okta/okta-auth-js/tree/master/samples/generated/static-spa)
 
@@ -30,7 +30,7 @@ This guide explains authentication fundamentals using Auth JS, known more formal
 
 ## About the Okta Auth JavaScript SDK
 
-The Okta Auth JS SDK builds on top of the [Authentication API](/docs/reference/api/authn/) and [OpenID Connect API](/docs/reference/api/oidc/). The SDK also builds on top of the Identity Engine [interaction code](/docs/concepts/interaction-code/) flow. This enables you to create a fully branded sign-in experience using JavaScript.
+The Okta Auth JS SDK builds on top of the [Authentication API](/docs/reference/api/authn/) and [OpenID Connect API](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/). The SDK also builds on top of the Identity Engine [interaction code](/docs/concepts/interaction-code/) flow. This enables you to create a fully branded sign-in experience using JavaScript.
 
 The Okta Auth JS SDK is used by the Okta [Sign-In Widget](https://github.com/okta/okta-signin-widget), which powers the default Okta sign-in page. If you're building a JavaScript front-end or single-page application (SPA), the Auth JS SDK provides added control and customization beyond what is possible with the widget.
 
@@ -280,8 +280,8 @@ npm install
 
 ```JavaScript
 var config = {
-  issuer: `https://${yourOktaDomain}/oauth2/default`, //For example, `"https://example.okta.com/oauth2/default"`
-  clientId: `${yourClientId}`, // for example, `0oa2am3kk1CraJ8xO1d7`
+  issuer: `https://{yourOktaDomain}/oauth2/default`, //For example, `"https://example.okta.com/oauth2/default"`
+  clientId: `{yourClientId}`, // for example, `0oa2am3kk1CraJ8xO1d7`
   scopes: ['openid','email'],
   storage: 'sessionStorage',
   useInteractionCodeFlow: true,
