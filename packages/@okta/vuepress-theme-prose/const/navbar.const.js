@@ -380,7 +380,7 @@ export const guides = [
           },
           {
             title: "Multiple identifiers",
-            guideName: "multiple-identifers"
+            guideName: "multiple-identifiers"
           },
           {
             title: "Okta account management policy",

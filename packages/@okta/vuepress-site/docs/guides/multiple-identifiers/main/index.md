@@ -6,10 +6,9 @@ layout: Guides
 
 <ApiLifecycle access="ie" />
 
-<ApiLifecycle access="ea" />
+This guide explains how to configure multiple identifiers using the [Policy API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/).
 
-
-This guide explains how to configure multiple identifiers using the Policy API. To configure multiple identifiers using the Admin Console, see [Multiple identifiers](https://help.okta.com/okta_help.htm?type=oie&id=ext-multiple-ids).
+To configure multiple identifiers using the Admin Console, see [Multiple identifiers](https://help.okta.com/okta_help.htm?type=oie&id=ext-multiple-ids).
 
 > **Note:** This document is written for Okta Identity Engine. If you’re using Okta Classic Engine, consider upgrading to Identity Engine. See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.
 
@@ -98,6 +97,8 @@ curl -i -X POST \
 ## Add identifiers to a user profile policy
 
 When you create a profile enrollment policy, a policy rule is created by default. This type of policy can only have one policy rule, so it's not possible to create other rules. Instead, consider editing the default one to meet your needs.
+
+However, you can have up to 500 user profile policies in an org.
 
 > **Notes:**
 >
