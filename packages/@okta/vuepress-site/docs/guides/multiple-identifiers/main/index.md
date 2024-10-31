@@ -9,7 +9,7 @@ layout: Guides
 <ApiLifecycle access="ea" />
 
 
-This guide explains how to configure the multiple identifiers feature using the Policy API.
+This guide explains how to configure multiple identifiers using the Policy API. To configure multiple identifiers using the Admin Console, see [Multiple identifiers](https://help.okta.com/okta_help.htm?type=oie&id=ext-multiple-ids).
 
 > **Note:** This document is written for Okta Identity Engine. If you are using Okta Classic Engine, consider upgrading to Identity Engine. See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.
 
@@ -29,8 +29,6 @@ This guide explains how to configure the multiple identifiers feature using the 
 Identifiers are attributes that a user can enter instead of their username when they sign in. They work in authentication, recovery, and unlock flows, and in self-service registration flows if you add them to the profile enrollment form. You can select two unique custom attributes in the Okta user profile to serve as identifiers, as long as they're read-write (or read only), non-sensitive, and have a string data type.
 
 Adding identifiers to an app's user profile policy lets users sign in with something other than their username. You can select two custom attributes from the Okta user profile to serve as identifiers, or you can add new ones specifically for this purpose.
-
-An identifier must be a read-write or read-only attribute, have a string data type, and contain no sensitive information. It must also be unique. Don't use phone numbers or secondary email addresses for identifiers.
 
 ### Use cases
 
@@ -53,11 +51,11 @@ See [Sign-in flows](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-si
 
 Identifiers are configured at the app level, in the user profile policy. This means that you can't set them for the entire org, but you can apply the same user profile policy to all or multiple apps in your org. Follow this workflow to set up identifiers and ensure that your users understand how they work.
 
-1. Create a user profile policy
-2. Add identifiers to a user profile policy
-3. Create a custom profile enrollment form
-4. Customize your sign-in page
-5. Add apps to a user profile policy
+1. [Create a user profile policy](#create-a-user-profile-policy)
+2. [Add identifiers to a user profile policy](#add-identifiers-to-a-user-profile-policy)
+3. [Create a custom profile enrollment form](#create-a-custom-profile-enrollment-form)
+4. [Customize your sign-in page](#customize-your-sign-in-page)
+5. [Add apps to a user profile policy](#add-apps-to-a-user-profile-policy)
 
 ## Create a user profile policy
 
@@ -99,17 +97,44 @@ curl -i -X POST \
 
 When you create a new profile enrollment policy, a policy rule is created by default. This type of policy can only have one policy rule, so it's not possible to create other rules. Instead, consider editing the default one to meet your needs.
 
+### Identifier priority
+
+Setting the priority of identifiers is an important configuration step. When a user enters an identifier, Okta validates it according to the priority that you set. When it finds a match, the evaluation process stops. This prevents users from authenticating with the same value.
+
+For example, one identifier is `middle_name`, and for User A, that's "Barney". Another identifier is `father_name`, and for User B, that's "Barney". If you set `father_name` as the highest priority identifier, User B is the only one who can authenticate with "Barney".
+
+When using the Policy API to add identifiers, set the identifier priority by their order in the `allowedIdentifiers` array. One of the attributes must be `login`. For example:
+
+`"allowedIdentifiers":["father_name","middle_name", "login"]`
+
+### Example rule request
+
 Send a PUT request to the `/api/v1/policies/{policyId}/rules/{ruleId}` endpoint. Include the following parameters:
 
 * Set the value of `policyId` to the ID of your user profile policy. See [Create a user profile policy](#create-a-user-profile-policy).
 * Set the value of `ruleId` to the ID of the default rule in your user profile policy.
 * Set the value of `type` to `PROFILE_ENROLLMENT`.
-* In the `profileEnrollment` object, set a value for `allowedIdentifiers`.
+* In the `profileEnrollment` object, include an array of `allowedIdentifiers`.
 
+> **Note:** One of the identifiers in the `allowedIdentifiers` array must be `login`.
 
-
-
-
+```bash
+curl -i -X PUT \
+  'https://{yourOktaDomain}/api/v1/policies/{policyId}/rules/{ruleId}' \
+  -H 'Authorization: YOUR_API_KEY_HERE' \
+  -H 'Content-Type: application/json' \
+  -d '{
+"type": "PROFILE_ENROLLMENT",
+"status": "ACTIVE",
+"name": "Multiple identifiers",
+"actions": {
+    "profileEnrollment": {
+        "allowedIdentifiers":["father_name","middle_name", "login"]
+        }
+    }
+}
+'
+```
 
 ## Create a custom profile enrollment form
 
@@ -125,13 +150,10 @@ Use the Brands API to enter new values for any of the headings, labels, and link
 
 ## Add apps to a user profile policy
 
-Add an app to an [authentication policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/), identified by `policyId`.
+Multiple identifiers are configured at the app level. You need to add an app to the user profile policy or the IDs don’t work. See [Assign an authentication policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApplicationPolicies/#tag/ApplicationPolicies/operation/assignApplicationPolicy).
 
 ```bash
 curl -i -X PUT \
   'https://subdomain.okta.com/api/v1/apps/{appId}/policies/{policyId}' \
   -H 'Authorization: YOUR_API_KEY_HERE'
 ```
-
-## See also
-
