@@ -61,92 +61,77 @@ Identifiers are configured at the app level, in the user profile policy. This me
 
 ## Create a user profile policy
 
-GET /api/v1/policies?type=PROFILE_ENROLLMENT
+You can use the Policies API to create a new user profile policy. See [Create a policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy).
 
-https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy
+Send a POST request to the `api/v1/policies` endpoint. Include the following:
+
+* Set the value of the `activate` query parameter to `true`.
+* Provide a value for `name`.
+* Set the value of `type` to `PROFILE_ENROLLMENT`.
+* Set `people.groups.include` to the value of a group in your org.
 
 
-{
-        "id": "rstknzs7qffuAXElo5d7",
-        "status": "ACTIVE",
-        "name": "Documentation",
-        "priority": 1,
-        "system": false,
-        "conditions": null,
-        "created": "2024-10-26T09:18:12.000Z",
-        "lastUpdated": "2024-10-26T09:18:12.000Z",
-        "_links": {
-            "mappings": {
-                "href": "https://dev-71245668.okta.com/api/v1/policies/rstknzs7qffuAXElo5d7/mappings",
-                "hints": {
-                    "allow": [
-                        "GET",
-                        "POST"
-                    ]
-                }
-            },
-            "self": {
-                "href": "https://dev-71245668.okta.com/api/v1/policies/rstknzs7qffuAXElo5d7",
-                "hints": {
-                    "allow": [
-                        "GET",
-                        "PUT",
-                        "DELETE"
-                    ]
-                }
-            },
-            "rules": {
-                "href": "https://dev-71245668.okta.com/api/v1/policies/rstknzs7qffuAXElo5d7/rules",
-                "hints": {
-                    "allow": [
-                        "GET",
-                        "POST"
-                    ]
-                }
-            },
-            "deactivate": {
-                "href": "https://dev-71245668.okta.com/api/v1/policies/rstknzs7qffuAXElo5d7/lifecycle/deactivate",
-                "hints": {
-                    "allow": [
-                        "POST"
-                    ]
-                }
+```bash
+curl -i -X POST \
+  'https://{yourOktaDomain}/api/v1/policies?activate=true' \
+  -H 'Authorization: YOUR_API_KEY_HERE' \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "description": "Creates a policy for multiple identifiers",
+    "name": "Multiple identifiers",
+    "priority": "Last / Lowest Priority, for example `1`",
+    "status": "ACTIVE",
+    "system": true,
+    "type": "PROFILE_ENROLLMENT",
+    "conditions": {
+      "people": {
+          "groups": {
+            "include": [
+                "{groupId}"
+                ]
             }
-        },
-        "type": "PROFILE_ENROLLMENT"
+        }
     }
-
+  }'
+```
 
 ## Add identifiers to a user profile policy
 
-For each custom attribute, set the Data type to string and the Restriction to Value must be unique for each user. If this restriction isn't in your dropdown list, see Unable to make a custom attribute unique.
+When you create a new profile enrollment policy, a policy rule is created by default. This type of policy can only have one policy rule, so it's not possible to create other rules. Instead, consider editing the default one to meet your needs.
 
-> **Note:** Remember that custom attributes shouldn't be hidden or contain sensitive information.
+Send a PUT request to the `/api/v1/policies/{policyId}/rules/{ruleId}` endpoint. Include the following parameters:
+
+* Set the value of `policyId` to the ID of your user profile policy. See [Create a user profile policy](#create-a-user-profile-policy).
+* Set the value of `ruleId` to the ID of the default rule in your user profile policy.
+* Set the value of `type` to `PROFILE_ENROLLMENT`.
+* In the `profileEnrollment` object, set a value for `allowedIdentifiers`.
+
+
 
 
 
 
 ## Create a custom profile enrollment form
 
-Use the Admin Console to crreate a custom profile enrollment form. See [Create a custom profile enrollment form](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-prof-enroll-form).
+Use the Admin Console to create a custom profile enrollment form. See [Create a custom profile enrollment form](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-prof-enroll-form).
 
 
 ## Customize your sign-in page
 
-Create a custom domain for your org. See [Customize domain and email address](/docs/guides/custom-url-domain/main/).
+Before you can customize your sign-in page, you need to create a custom domain for your org. See [Customize domain and email address](/docs/guides/custom-url-domain/main/).
 
-Enter new values for any of the headings, labels, and links that you want to customize. For example, if you allow users to sign in with an identifier, you can change the Username label to describe which identifiers they can use.
-
-To customize a label, see [Replace the customized sign-in page](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/CustomPages/#tag/CustomPages/operation/replaceCustomizedSignInPage).
+Use the Brands API to enter new values for any of the headings, labels, and links that you want to customize. For example, if you allow users to sign in with an identifier, you can change the Username label to describe which identifiers they can use. See [Replace the customized sign-in page](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/CustomPages/#tag/CustomPages/operation/replaceCustomizedSignInPage).
 
 
 ## Add apps to a user profile policy
 
 Add an app to an [authentication policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/), identified by `policyId`.
 
+```bash
 curl -i -X PUT \
   'https://subdomain.okta.com/api/v1/apps/{appId}/policies/{policyId}' \
   -H 'Authorization: YOUR_API_KEY_HERE'
+```
 
 ## See also
 
