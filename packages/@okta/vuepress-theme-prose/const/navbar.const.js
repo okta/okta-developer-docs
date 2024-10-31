@@ -379,7 +379,7 @@ export const guides = [
             guideName: "configure-signon-policy"
           },
           {
-            title: "Configure multiple identifiers",
+            title: "Multiple identifiers",
             guideName: "multiple-identifers"
           },
           {
