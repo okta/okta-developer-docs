@@ -20,7 +20,6 @@ This guide explains how to configure multiple identifiers using the Policy API. 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
 * [Groups created](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/) in your org
 * An app or apps
-* [Custom attributes](https://help.okta.com/okta_help.htm?type=oie&id=ext_Custom_Attributes_with_AD) in your user profile
 
 ---
 
@@ -97,6 +96,11 @@ curl -i -X POST \
 
 When you create a new profile enrollment policy, a policy rule is created by default. This type of policy can only have one policy rule, so it's not possible to create other rules. Instead, consider editing the default one to meet your needs.
 
+> **Notes:**
+>
+> * If the custom attributes you want to use aren't in the user profile, [add them](https://help.okta.com/okta_help.htm?type=oie&id=ext_Custom_Attributes_with_AD). Remember that custom attributes shouldn't be hidden or contain sensitive information.
+> * In the Admin Console, for each custom attribute set the **Data type** to **string** and the **Restriction** to **Value must be unique for each user**. If this restriction isn't in your dropdown list, see [Unable to make a custom attribute unique](https://support.okta.com/help/s/article/unable-to-make-a-custom-attribute-unique?language=en_US).
+
 ### Identifier priority
 
 Setting the priority of identifiers is an important configuration step. When a user enters an identifier, Okta validates it according to the priority that you set. When it finds a match, the evaluation process stops. This prevents users from authenticating with the same value.
@@ -143,10 +147,9 @@ Use the Admin Console to create a custom profile enrollment form. See [Create a 
 
 ## Customize your sign-in page
 
-Before you can customize your sign-in page, you need to create a custom domain for your org. See [Customize domain and email address](/docs/guides/custom-url-domain/main/).
+Optional. You can use the Brands API to enter new values for any of the headings, labels, and links that you want to customize. For example, if you allow users to sign in with an identifier, you can change the Username label to describe which identifiers they can use.
 
-Use the Brands API to enter new values for any of the headings, labels, and links that you want to customize. For example, if you allow users to sign in with an identifier, you can change the Username label to describe which identifiers they can use. See [Replace the customized sign-in page](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/CustomPages/#tag/CustomPages/operation/replaceCustomizedSignInPage).
-
+See [Replace the customized sign-in page](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/CustomPages/#tag/CustomPages/operation/replaceCustomizedSignInPage).
 
 ## Add apps to a user profile policy
 
