@@ -5,7 +5,7 @@ Revert the changes that you made in the previous section and just protect the in
 ```javascript
 {
   path: '/profile',
-  component: ProfileComponent,
+  component: ProfileView,
   meta: {
     requiresAuth: true
   }

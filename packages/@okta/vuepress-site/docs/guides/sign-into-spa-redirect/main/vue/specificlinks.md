@@ -1,6 +1,6 @@
 Vue documentation:
 
-[Get started with Vue](https://v3.vuejs.org/guide/introduction.html) to learn about the framework from Vue's official documentation.
+[Get started with Vue](https://vuejs.org/guide/introduction.html) to learn about the framework from Vue's official documentation.
 
 Okta Developer Blog:
 

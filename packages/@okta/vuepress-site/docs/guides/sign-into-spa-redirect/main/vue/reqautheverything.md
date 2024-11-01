@@ -13,12 +13,12 @@ Add the above property inside your default `Home` route inside `src/router/index
 ```ts
 {
   path: '/',
-  name: 'Home',
-  component: Home,
+  name: 'home',
+  component: HomeView,
   children: [
     {
       path: '/profile',
-      component: ProfileComponent
+      component: ProfileView
     }
   ],
   meta: {
