@@ -28,8 +28,8 @@ Okta recommends that if the external IdP requires information from Okta for setu
 
 After you upload the metadata to the external IdP in the next step, you can edit the IdP in Okta. Then, you can enter the appropriate **IdP Issuer URI**, **IdP Single Sign-On URL**, and **Certificate** information:
 
-* **IdP Issuer URI**: The issuer. The Identity Provider provides this value.
+* **IdP Issuer URI**: The issuer. The IdP provides this value.
 
-* **IdP Single Sign-On URL**: The sign-on URL from the Identity Provider. If you sign the authN request by selecting **Request Signature**, but don't specify a **Destination**, Okta automatically sends the request to the IdP SSO URL.
+* **IdP Single Sign-On URL**: The sign-on URL from the IdP. You can sign the AuthN request by selecting **Request Signature**. If you don't specify a **Destination**, Okta automatically sends the request to the IdP SSO URL.
 
-* **IdP Signature Certificate**: Click **Browse files** to upload the certificate from the Identity Provider used to sign the assertion.
+* **IdP Signature Certificate**: Click **Browse files** to upload the certificate from the IdP used to sign the assertion.
