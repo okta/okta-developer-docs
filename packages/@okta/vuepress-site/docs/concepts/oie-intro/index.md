@@ -1,26 +1,32 @@
 ---
 title: Okta Identity Engine overview
-meta:
-  - name: description
-    content: Find out more about Okta's Identity Engine authentication flow, what developer features it unlocks, and how to use it.
 ---
 # Okta Identity Engine overview
 
 <ApiLifecycle access="ie" />
 
-Okta Identity Engine is a new authentication pipeline that provides valuable new features and a more flexible approach to your auth needs. This article provides a high-level introduction.
+## What is the Okta Identity Engine?
 
-This page discusses the following:
+Okta Identity Engine is an authentication pipeline that gives you flexibility in your auth implementation. All new [Okta orgs](/docs/concepts/okta-organizations/) have access to Identity Engine features, including:
 
-* New features Identity Engine brings to the table
-* The deployment models that use these features
-* Changes to the documentation experience to support Identity Engine
+* TBD
+* TBD
 
-> **Note**: If you're an admin, or are looking for product docs related to Identity Engine, see the Identity Engine [Get started page](https://help.okta.com/okta_help.htm?type=oie&id=ext-get-started-oie).
+> **Note**: If you're an admin, or are looking Identity Engine product docs, see the Identity Engine [Get started page](https://help.okta.com/okta_help.htm?type=oie&id=ext-get-started-oie).
 
-## Identity Engine new features
+## Authentication deployment models
 
-Identity Engine unlocks many new capabilities.
+Choose an authentication deployment model based on the implementation requirements of your client app.
+
+* **Okta-hosted (redirect) Sign-In Widget**: Use the redirect (Okta-hosted) Sign-In Widget to authenticate your users, then redirect back to your app. We recommend the redirect model in most cases since it's both secure and fast to implement.
+* **Embedded Sign-In Widget**: Embed the Sign-In Widget into your own code base to handle the authentication on your servers. Hosting the Sign-In Widget yourself provides a balance between complexity and customization.
+* **Embedded SDK-driven sign-in flow**: Use our SDKs to create a custom embedded authentication experience. Custom embedded sign-in is the most complex and leaves you with the most responsibility, but offers the most control.
+
+For details about the differences between the deployment models, see [Okta deployment models &mdash; redirect vs. embedded](/docs/concepts/redirect-vs-embedded/). For deployment model implementation details, see [Sign users in](/docs/guides/sign-in-overview/).
+
+## Identity Engine features
+
+TBD 
 
 ### App context in email templates
 
@@ -35,34 +41,29 @@ App intent links are used to signal intent to access an app. These links are pro
 Example app intent link for a SAML application:
 `http://{yourOktaDomain}/app/mysamlapp_1/{appInstanceID}/sso/saml`
 
-Before Identity Engine, these endpoints were accessible only with a session. Unauthenticated traffic was redirected to a centralized sign-in page (`/login/login.htm`) with a `fromUri` that represented the app that was originally attempted (the app intent link). This occurred before the request was assessed for rate limiting. A session was established and the request was processed.
-
-The user was then redirected to the relevant app intent link through an intermediate redirect to the generic app SSO endpoint (`/app/{app}/{instanceId}/{linkName}`). The app intent link endpoint validated that the user was assigned to the app, and then enforced the app sign-on policy.
-
-Identity Engine changes the way Okta processes these requests. It no longer forwards requests to the centralized sign-in page (`/login/login.htm`). Instead, the app intent links location hosts the widget/sign-in experience for the app that the user is attempting to access.
-
-Then, Identity Engine evaluates the Global Session Policy, authentication policy, and all other policies relevant to the sign-in experience. Each app intent link is responsible for hosting the sign-in experience on Identity Engine. Because of this, they share a common app intent link rate limit bucket/group similar to what exists for the centralized sign-in page on Classic Engine.
+The app intent links location hosts the widget/sign-in experience for the app that the user is attempting to access. Then, Identity Engine evaluates the Global Session Policy, authentication policy, and all other policies relevant to the sign-in experience. Each app intent link is responsible for hosting the sign-in experience on Identity Engine. Because of this, they share a common app intent link rate limit bucket/group.
 
 ### Authentication policies
 
-Authentication policies are [security policy frameworks](https://csrc.nist.gov/pubs/sp/800/63/b/upd2/final) that allow organizations to model security outcomes for an app. These policies are shareable across applications. For example, you can automatically step up authentication to a strong non-phishable factor when elevated risk is detected. Also, Identity Engine allows you to create flexible apps that can change their authentication methods without having to alter a line of code.
-
-* [Configure a global session policy and authentication policies](/docs/guides/configure-signon-policy/)
-
-* [Authentication policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-asop)
+Authentication policies are [security policy frameworks](https://csrc.nist.gov/pubs/sp/800/63/b/upd2/final) that allow organizations to model security outcomes for an app. Authentication policies are shareable across applications. For example, you can automatically step up authentication to a strong non-phishable factor when elevated risk is detected. You can configure your apps to change their authentication methods without making code changes.
 
 * [Policies (high-level concept)](/docs/concepts/policies/)
 
+* [Authentication policies product docs](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-asop)
+
+* [Configure a global session policy and authentication policies](/docs/guides/configure-signon-policy/)
+
+
 ### CAPTCHA
 
-CAPTCHA is a well-known strategy for mitigating attacks by bots. Identity Engine offers integrations with market-leading CAPTCHA services for registration, sign-in, and account recovery.
+CAPTCHA is a well-known strategy for mitigating attacks by bots. Identity Engine integrates with CAPTCHA services for registration, sign-in, and account recovery.
 
-Okta only supports the following CAPTCHA services:
+Okta supports the following CAPTCHA services:
 
 - [hCAPTCHA (invisible)](https://docs.hcaptcha.com/invisible)
 - [reCAPTCHA v2 (invisible)](https://developers.google.com/recaptcha/docs/invisible)
 
->**Note:** Using any other CAPTCHA type could lead to lockout. Contact [Okta support](https://support.okta.com) if lockout occurs.
+>**Note:** Using any other CAPTCHA service could lead to lockout. Contact [Okta support](https://support.okta.com) if lockout occurs.
 
 You can use either hCAPTCHA or reCAPTCHA with the redirect or embedded authentication deployment models. See [Okta deployment models](/docs/concepts/redirect-vs-embedded/).
 
@@ -70,40 +71,30 @@ If you use the [Sign-In Widget SDK](https://github.com/okta/okta-signin-widget),
 
 ### Interaction Code grant type for embedded authentication
 
-To enable a more customized user authentication experience, Okta introduces an extension to the [OAuth 2.0 and OpenID Connect](/docs/concepts/oauth-openid) standard called the [Interaction Code grant type](/docs/concepts/interaction-code/). This grant type allows apps using an embedded Okta Sign-In Widget and/or SDK to manage user interactions with the authorization server directly, rather than relying on a browser-based redirect to an authentication component (such as the Sign-In Widget).
-
-## Authentication deployment models
-
-You can divide the Identity Engine deployment model for user authentication into three approaches:
-
-* **Okta-hosted (redirect) Sign-In Widget**: Use the redirect (Okta-hosted) Sign-In Widget to authenticate your users, then redirect back to your app. This is the recommended approach as it's the most secure and fastest to implement.
-* **Embedded Sign-In Widget**: Embed the Sign-In Widget into your own code base to handle the authentication on your servers. This provides a balance between complexity and customization.
-* **Embedded SDK-driven sign-in flow**: Use our SDKs to create a custom authentication experience. This option is the most complex and leaves you with the most responsibility, but offers the most control.
-
-See [Okta deployment models &mdash; redirect vs. embedded](/docs/concepts/redirect-vs-embedded/) for an overview of the different deployment models, and see [Sign users in](/docs/guides/sign-in-overview/) for implementation details.
+The [Interaction Code grant type](/docs/concepts/interaction-code/) is an extension to the [OAuth 2.0 and OpenID Connect](/docs/concepts/oauth-openid) standard. Apps using an embedded Okta Sign-In Widget and/or SDK can manage user interactions with the authorization server directly, rather than relying on a browser-based redirect to an authentication component (such as the Sign-In Widget).
 
 ## SDKs and sample apps
 
-Okta has a host of SDKs available for integrating new Identity Engine features into your apps using [Okta deployment models](#authentication-deployment-models). There are also sample apps to show them in action.
+Okta provides SDKs to integrate Identity Engine features into your apps using [Okta deployment models](#authentication-deployment-models). Check out our sample apps for Identity Engine implementation examples.
 
 * [Browse our SDKs and samples](/code/)
 * [Set up and explore our Identity Engine sample apps](/docs/guides/oie-embedded-common-download-setup-app/)
 
-## Identity Engine versus Classic Engine documentation approach
+## Classic Engine customers
 
-In our documentation, Okta is moving towards supporting Identity Engine by default, while still providing information for Classic Engine users.
+If you created your [Okta orgs](/docs/concepts/okta-organizations/) before March 1, 2022, you're probably using Classic Engine. You can [check which Engine your org is running on](https://support.okta.com/help/s/article/How-to-Determine-Which-Engine-Your-Okta-Org-is-Running-On?language=en_US).
 
-* Pages and page sections covering features that only work in Identity Engine have a blue Identity Engine banner at the top.
-* Content that works in both Identity Engine and Classic Engine have no banner. Any slight differences are covered in the page text.
-* Content written for Classic Engine that won't work in Identity Engine has a note at the top that explains what the issue is, and, if appropriate, where Identity Engine users can go to find support.
-* For guides that were extensively updated to support Identity Engine, Okta keeps a [Classic Engine](/docs/guides/archive-overview/) version available if needed.
+### Upgrade from Classic Engine to Identity Engine
 
-> **Note**: See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.
+To upgrade your apps to use Identity Engine, start with the [Identity Engine upgrade overview](/docs/guides/oie-upgrade-overview/).
 
-## Access and upgrade to Identity Engine
+If you're not ready to upgrade, we still support Classic Engine functionality, including Classic Engine org, v1 API, and SDKs.
 
-On March 1, 2022, all new [Okta orgs](/docs/concepts/okta-organizations/) are Identity Engine orgs, so that all new customers can take advantage of the new features.
+### Classic Engine documentation
 
-If you're a Classic Engine customer who wants to upgrade their apps to use Identity Engine, go to [Identity Engine upgrade overview](/docs/guides/oie-upgrade-overview/).
+While our documentation supports Identity Engine by default, we still provide information for Classic Engine users.
 
-For Classic Engine customers who don't yet want to upgrade, your existing functionality continues to work for now, including your Classic Engine org, v1 API, and SDKs.
+* Content for Identity Engine has a blue Identity Engine banner at the top.
+* Content that works for both Identity Engine and Classic Engine has no banner.
+* Content for Classic Engine that won't work in Identity Engine has a note at the top with details and, if applicable, a link to equivalent Identity Engine content.
+* We also keep a [Classic Engine](/docs/guides/archive-overview/) version of our guides.
