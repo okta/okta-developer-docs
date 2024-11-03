@@ -12,7 +12,7 @@ Okta Identity Engine is an authentication pipeline that gives you flexibility in
 * TBD
 * TBD
 
-> **Note**: If you're an admin, or are looking Identity Engine product docs, see the Identity Engine [Get started page](https://help.okta.com/okta_help.htm?type=oie&id=ext-get-started-oie).
+> **Note**: If you're an admin, or are looking for Identity Engine product docs, see the Identity Engine [Get started page](https://help.okta.com/okta_help.htm?type=oie&id=ext-get-started-oie).
 
 ## Authentication deployment models
 
@@ -36,16 +36,16 @@ See [Customize email notifications > Use app context](/docs/guides/custom-email/
 
 ### App intent links
 
-App intent links are used to signal intent to access an app. These links are protocol-specific endpoints that you can use to initiate a sign-in flow to an app. Both Identity Provider and Service Provider initiated flows are supported.
+App intent links are protocol-specific endpoints that you can use to initiate a sign-in flow to an app. Both Identity Provider and Service Provider initiated flows are supported.
 
 Example app intent link for a SAML application:
 `http://{yourOktaDomain}/app/mysamlapp_1/{appInstanceID}/sso/saml`
 
-The app intent links location hosts the widget/sign-in experience for the app that the user is attempting to access. Then, Identity Engine evaluates the Global Session Policy, authentication policy, and all other policies relevant to the sign-in experience. Each app intent link is responsible for hosting the sign-in experience on Identity Engine. Because of this, they share a common app intent link rate limit bucket/group.
+Each app intent link location hosts the Okta Sign-In Widget for the app that the user is attempting to access. Identity Engine evaluates the Global Session Policy, authentication policy, and all other policies relevant to the sign-in experience. Your app intent links share a common rate limit bucket/group.
 
 ### Authentication policies
 
-Authentication policies are [security policy frameworks](https://csrc.nist.gov/pubs/sp/800/63/b/upd2/final) that allow organizations to model security outcomes for an app. Authentication policies are shareable across applications. For example, you can automatically step up authentication to a strong non-phishable factor when elevated risk is detected. You can configure your apps to change their authentication methods without making code changes.
+Authentication policies are [security policy frameworks](https://csrc.nist.gov/pubs/sp/800/63/b/upd2/final) that organizations use to model security outcomes for an app. Authentication policies are shareable across applications. You can configure your apps to change their authentication methods without making code changes. For example, you can automatically step up authentication to a strong non-phishable factor when elevated risk is detected.
 
 * [Policies (high-level concept)](/docs/concepts/policies/)
 
@@ -53,10 +53,9 @@ Authentication policies are [security policy frameworks](https://csrc.nist.gov/p
 
 * [Configure a global session policy and authentication policies](/docs/guides/configure-signon-policy/)
 
-
 ### CAPTCHA
 
-CAPTCHA is a well-known strategy for mitigating attacks by bots. Identity Engine integrates with CAPTCHA services for registration, sign-in, and account recovery.
+CAPTCHA is a strategy to mitigate spam and attacks by bots by verifying that a user is human. Identity Engine integrates with CAPTCHA services for registration, sign-in, and account recovery.
 
 Okta supports the following CAPTCHA services:
 
@@ -67,7 +66,7 @@ Okta supports the following CAPTCHA services:
 
 You can use either hCAPTCHA or reCAPTCHA with the redirect or embedded authentication deployment models. See [Okta deployment models](/docs/concepts/redirect-vs-embedded/).
 
-If you use the [Sign-In Widget SDK](https://github.com/okta/okta-signin-widget), CAPTCHA works out of the box. If you use any other [Okta SDK](https://developer.okta.com/code/), you need to implement CAPTCHA. See [CAPTCHAs](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/CAPTCHA/).
+If you use the [Sign-In Widget SDK](https://github.com/okta/okta-signin-widget), CAPTCHA works out of the box. If you use any other [Okta SDK](/code/), you need to implement CAPTCHA. For Okta API CAPTCHA details, see [CAPTCHAs](/docs/api/openapi/okta-management/management/tag/CAPTCHA/).
 
 ### Interaction Code grant type for embedded authentication
 
@@ -75,7 +74,7 @@ The [Interaction Code grant type](/docs/concepts/interaction-code/) is an extens
 
 ## SDKs and sample apps
 
-Okta provides SDKs to integrate Identity Engine features into your apps using [Okta deployment models](#authentication-deployment-models). Check out our sample apps for Identity Engine implementation examples.
+Okta provides SDKs to integrate Identity Engine features into your app for a custom embedded sign-in flow. For an overview of the different deployment models, see [Authentication deployment models](#authentication-deployment-models).
 
 * [Browse our SDKs and samples](/code/)
 * [Set up and explore our Identity Engine sample apps](/docs/guides/oie-embedded-common-download-setup-app/)
@@ -86,7 +85,7 @@ If you created your [Okta orgs](/docs/concepts/okta-organizations/) before March
 
 ### Upgrade from Classic Engine to Identity Engine
 
-To upgrade your apps to use Identity Engine, start with the [Identity Engine upgrade overview](/docs/guides/oie-upgrade-overview/).
+To upgrade your Okta org to use Identity Engine, start with the [Identity Engine upgrade overview](/docs/guides/oie-upgrade-overview/).
 
 If you're not ready to upgrade, we still support Classic Engine functionality, including Classic Engine org, v1 API, and SDKs.
 
