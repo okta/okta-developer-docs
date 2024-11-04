@@ -5,11 +5,11 @@ title: Okta Identity Engine overview
 
 <ApiLifecycle access="ie" />
 
-## What is the Okta Identity Engine?
+## What is Okta Identity Engine?
 
 Okta Identity Engine is an authentication pipeline that gives you control over the user auth experience for your apps. Identity Engine provides solutions for use cases like passwordless authentication, zero trust architecture, and scalable identity management.
 
-> **Note**: If you're an admin, or are looking for Identity Engine product docs, see the Identity Engine [Get started page](https://help.okta.com/okta_help.htm?type=oie&id=ext-get-started-oie).
+> **Note**: If you're an admin, or are looking for Identity Engine product docs, see the Identity Engine [Get started](https://help.okta.com/okta_help.htm?type=oie&id=ext-get-started-oie).
 
 ## Authentication deployment models
 
@@ -25,35 +25,35 @@ Embed the Sign-In Widget into your own code base to handle the authentication on
 
 ### Embedded SDK-driven sign-in flow
 
-Use our SDKs to create a custom embedded authentication experience. Custom embedded sign-in is the most complex and leaves you with the most responsibility, but offers the most control. See [SDKs and sample apps](#sdks-and-sample-apps).
+Use our SDKs to create a custom embedded authentication experience. Custom embedded sign-in is the most complex and leaves you with the most responsibility, but offers the most control.
 
 * [Browse our SDKs and samples](/code/)
 * [Set up and explore our Identity Engine sample apps](/docs/guides/oie-embedded-common-download-setup-app/)
 
 ## Custom authentication with Identity Engine
 
-TBD: I would make this a more thorough list of topics. Right now, it only covers new or changed features from Classic Engine. Options include grouping them into the use cases from the intro, or grouping them into related features.
+TBD: Make this a more thorough list of topics. Right now, it only covers new features and what's different from Classic Engine. Options for grouping: by use case or by related features.
 
 ### Customize emails based on app context
 
-Identity Engine makes the app context available when a user enters an authentication flow. Dynamically customize email style and content based on the app that triggers an email notification.
-
-Context variables in our email templates allow customers to [customize email notifications based on app context](/docs/guides/custom-email/main/#use-app-context).
+Identity Engine makes the app context available when a user enters an authentication flow. Dynamically customize email templates based on the app that triggers an email notification. Learn more about [customizing email notifications based on app context](/docs/guides/custom-email/main/#use-app-context).
 
 ### Use protocol-specific endpoints for app sign-in
 
-TBD: there is little to no publicly-available information about app intent links. I would need to ask more questions to understand this feature.
+TBD: Can't find much publicly-available information about app intent links. Ask more questions to understand this feature.
 
 App intent links are protocol-specific endpoints that you can use to initiate a sign-in flow to an app. Both Identity Provider and Service Provider initiated flows are supported.
 
 Example app intent link for a SAML app:
 `http://{yourOktaDomain}/app/mysamlapp_1/{appInstanceID}/sso/saml`
 
-Each app intent link location hosts the Okta Sign-In Widget for the app that the user is attempting to access. Identity Engine evaluates the Global Session Policy, authentication policy, and all other policies relevant to the sign-in experience. Your app intent links share a common rate limit bucket/group.
+Each app intent link location hosts the Okta Sign-In Widget for the app that the user is attempting to access. Identity Engine evaluates the Global Session Policy, authentication policy, and all other policies relevant to the sign-in experience. All app intent links share a common rate limit bucket/group.
 
 ### Control app access with authentication policies
 
-Authentication policies are [security policy frameworks](https://csrc.nist.gov/pubs/sp/800/63/b/upd2/final) that organizations use to model security outcomes for an app. Authentication policies are shareable across apps. You can configure your apps to change their authentication methods without making code changes. For example, you can automatically step up authentication to a strong non-phishable factor when elevated risk is detected.
+Authentication policies are [security policy frameworks](https://csrc.nist.gov/pubs/sp/800/63/b/upd2/final) that model security outcomes for an app. Use authentication policies to change an app's authentication methods without making code changes. For example, you can automatically step up authentication to a strong non-phishable factor when elevated risk is detected. Authentication policies are shareable across apps.
+
+Learn more:
 
 * [Policies (high-level concept)](/docs/concepts/policies/)
 
@@ -72,17 +72,17 @@ Okta supports the following CAPTCHA services:
 
 >**Note:** Using any other CAPTCHA service could cause account lockout. Contact [Okta support](https://support.okta.com) if lockout occurs.
 
-You can use either hCAPTCHA or reCAPTCHA with the redirect or embedded authentication deployment models. See [Okta deployment models](/docs/concepts/redirect-vs-embedded/).
+You can use hCAPTCHA or reCAPTCHA with the redirect or embedded authentication deployment models. See [Okta deployment models](/docs/concepts/redirect-vs-embedded/).
 
 If you use the [Sign-In Widget SDK](https://github.com/okta/okta-signin-widget), CAPTCHA works out of the box. If you use any other [Okta SDK](/code/), you need to implement CAPTCHA. For Okta API CAPTCHA details, see [CAPTCHAs](/docs/api/openapi/okta-management/management/tag/CAPTCHA/).
 
 ### Manage user interactions with the authorization server
 
-The [Interaction Code grant type](/docs/concepts/interaction-code/) is an extension to the [OAuth 2.0 and OpenID Connect](/docs/concepts/oauth-openid) standard. For apps that use an embedded Okta Sign-In Widget or SDK deployment model, the Interaction Code grant type allows you to manage user interactions with the authorization server directly.
+The [Interaction Code grant type](/docs/concepts/interaction-code/) is an extension to the [OAuth 2.0 and OpenID Connect](/docs/concepts/oauth-openid) standard. For apps that use an embedded Okta Sign-In Widget or SDK deployment model, the Interaction Code grant type allows you to directly manage user interactions with the authorization server.
 
 ## Classic Engine customers
 
-If you created your [Okta orgs](/docs/concepts/okta-organizations/) before March 1, 2022, you're probably using Classic Engine. You can [check which Engine your org is running on](https://support.okta.com/help/s/article/How-to-Determine-Which-Engine-Your-Okta-Org-is-Running-On?language=en_US).
+If you created your [Okta org](/docs/concepts/okta-organizations/) before March 1, 2022, you're probably using Classic Engine. If you're not sure, [check which Engine your org is running on](https://support.okta.com/help/s/article/How-to-Determine-Which-Engine-Your-Okta-Org-is-Running-On?language=en_US).
 
 ### Upgrade from Classic Engine to Identity Engine
 

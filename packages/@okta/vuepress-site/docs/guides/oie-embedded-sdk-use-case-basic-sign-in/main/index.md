@@ -4,7 +4,7 @@ title: Basic sign-in flow with the password factor
 
 <ApiLifecycle access="ie" />
 
-Enable a password-only sign-in flow in your web app using the embedded SDK.
+Enable a password-only sign-in flow in your web app using the Okta Identity Engine embedded SDK.
 
 > **Note**: Passwords are a security vulnerability because they can be easily stolen and are prone to phishing attacks. Consider replacing password-only sign-in experiences with either [password-optional](https://developer.okta.com/docs/guides/pwd-optional-overview) or multifactor authentication.
 <StackSnippet snippet="pwdoptionalusecase" />
