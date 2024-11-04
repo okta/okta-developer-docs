@@ -6,12 +6,12 @@ You need recent versions of [Node](https://nodejs.org/en/) and [npm](https://www
    npm create vue@3.11.2
    ```
 
-2. You are asked to name the project and manually select features. Name the project `okta-vue-quickstart` and:
+1. You're asked to name the project and manually select features. Name the project `okta-vue-quickstart` and:
 
-* Select **No** for TypeScript.
-* Select **No** for JSX Support.
-* Select **Y** to add Vue Router for Single Page Application development.
-* Select the defaults for the other options.
+    * Select **No** for TypeScript
+    * Select **No** for JSX Support
+    * Select **Y** to add Vue Router for Single Page Application development
+    * Select the defaults for the other options
 
 1. Go into your app's root app directory to view the created files and install dependencies:
 
