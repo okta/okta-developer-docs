@@ -29,13 +29,13 @@ Okta manages the connection to the IdP for your app. The connection sits between
 
 > **Note:** Okta also supports other services such as directories and credential providers. See the [Okta Integration Network Catalog](https://www.okta.com/okta-integration-network/) to browse all integrations by use case.
 
-## Create an app at the IdP
+## Create an app at the Identity Provider
 
 At the <StackSnippet snippet="idp" inline /> IdP, create the client application that you want to use for authenticating and authorizing your users.
 
 <StackSnippet snippet="appatidp" />
 
-## Create an IdP in Okta
+## Create an Identity Provider in Okta
 
 To connect your org to the IdP, add and configure that IdP in Okta.
 
@@ -100,7 +100,7 @@ https://{yourOktaDomain}/oauth2/v1/authorize?idp={idp_id}&client_id={client_id}&
 
 ```
 
-## Use the IdP to sign in
+## Use the Identity Provider to sign in
 
 To test your authorization URL, enter the complete authorization URL in a browser. Do this in your browser's privacy or incognito mode to avoid false positive or negative results.
 
@@ -129,7 +129,7 @@ After the user clicks the link, they're prompted to sign in with the IdP. After 
 ### Okta Sign-In Widget
 
 > **Note:** This section only applies to Classic Engine.<br>
-> If you're using Identity Engine, the **Sign in with IdP** option is available on the widget. It's available after you [create an Identity Provider in your Okta org](#create-an-idp-in-okta) and configure the [routing rule](https://help.okta.com/okta_help.htm?id=ext-cfg-routing-rules). No additional code is required. See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version and [Upgrade your widget](/docs/guides/oie-upgrade-sign-in-widget/main/#idp-discovery) for upgrade considerations to Identity Engine.
+> If you're using Identity Engine, the **Sign in with IdP** option is available on the widget. It's available after you [create an Identity Provider in your Okta org](#create-an-identity-provider-in-okta) and configure the [routing rule](https://help.okta.com/okta_help.htm?id=ext-cfg-routing-rules). No additional code is required. See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version and [Upgrade your widget](/docs/guides/oie-upgrade-sign-in-widget/main/#idp-discovery) for upgrade considerations to Identity Engine.
 
 Okta also offers an easily embeddable JavaScript widget that reproduces the look and behavior of the standard Okta sign-in page. You can add a **Sign in with {IdentityProviderName}** button by adding the following code to your Okta Sign-In Widget configuration:
 
@@ -145,7 +145,7 @@ You can find out more about the Okta Sign-In Widget [on GitHub](https://github.c
 ### Custom Okta-hosted sign-in page
 
 > **Note:** This section only applies to Classic Engine.<br>
-> If you're using Identity Engine, the **Sign in with IdP** option is available on the widget. It's available after you [create an Identity Provider in your Okta org](#create-an-idp-in-okta) and configure the [routing rule](https://help.okta.com/okta_help.htm?id=ext-cfg-routing-rules). See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.
+> If you're using Identity Engine, the **Sign in with IdP** option is available on the widget. It's available after you [create an Identity Provider in your Okta org](#create-an-identity-provider-in-okta) and configure the [routing rule](https://help.okta.com/okta_help.htm?id=ext-cfg-routing-rules). See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.
 
 If you configured a [Sign-In Widget](/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget), you can add a **Sign in with {IdentityProviderName}** button by adding the following code beneath the `var config = OktaUtil.getSignInWidgetConfig();` line:
 
