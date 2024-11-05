@@ -51,7 +51,7 @@ The `prompt=none` parameter guarantees that the user isn't prompted for credenti
 ```
 HTTP/1.1 302 Moved Temporarily
 Set-Cookie: sid=lGj4FPxaG63Wm89TpJnaDF6; Path=/
-Location: https://your-app.example.com?id_token=S4sx3uixdsalasd&state=Af0ifjslDkj&nonce=n-0S6_WzA2Mj
+Location: https://your-app.example.com#id_token=S4sx3uixdsalasd&state=Af0ifjslDkj&nonce=n-0S6_WzA2Mj
 ```
 
 The response also includes an [ID token](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/#id-token) that describes the authenticated user and can contain more claims such as user profile attributes or email.

@@ -13,7 +13,7 @@ The Okta React SDK requires an instance of an `OktaAuth` object with configurati
      issuer: 'https://{yourOktaDomain}/oauth2/default',
      clientId: '{yourClientID}',
      redirectUri: window.location.origin + '/login/callback',
-     scopes: ['openid', 'offline_access']
+     scopes: ['openid', 'profile', 'email', 'offline_access']
    });
 
    class App extends Component {
