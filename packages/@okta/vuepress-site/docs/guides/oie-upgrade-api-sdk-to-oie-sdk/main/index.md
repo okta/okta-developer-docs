@@ -4,25 +4,25 @@ title: Upgrade your app to the Identity Engine SDK
 
 <ApiLifecycle access="ie" />
 
-Begin upgrading your app to use the Identity Engine SDK methods after you update your project to the latest Identity Engine SDK. Also, make sure you have an Identity Engine org.
+Upgrade your app to use Identity Engine SDK methods after you update your project to the latest Identity Engine SDK. Also, make sure you have an Identity Engine org.
 
-Review the following sections, which detail Identity Engine SDK concepts. This guide discusses the differences between how the Classic Engine Authentication SDK and APIs approach authentication compared to the Identity Engine approach. Mappings of Classic Engine Authentication SDK method calls, and back-end APIs, to Identity Engine SDK methods are provided for some sample use cases.
+Review the following sections, which detail Identity Engine SDK concepts. This guide discusses the differences between how the Classic Engine authentication SDK and APIs approach authentication compared to the Identity Engine approach. Mappings of Classic Engine authentication SDK method calls, and back-end APIs, to Identity Engine SDK methods are provided for some sample use cases.
 
 ---
 
 #### Learning outcomes
 
 * Understand why you should upgrade your app to use the Identity Engine SDK.
-* Learn the differences between the Classic Engine Authentication SDK and the Identity Engine SDK.
+* Learn the differences between the Classic Engine authentication SDK and the Identity Engine SDK.
 * Identify the mappings between Classic Engine authentication SDK methods and the Identity Engine SDK for your language.
-* Identify the mappings between Classic Engine Authentication APIs and the Identity Engine SDK for your language.
+* Identify the mappings between Classic Engine authentication APIs and the Identity Engine SDK for your language.
 
 #### What you need
 
-* An Identity Engine org.
-* The Interaction Code grant enabled.
-* The latest Classic Engine Authentication SDK installed.
-* An app that uses the Classic Engine Authentication SDK or back-end APIs.
+* An Identity Engine org
+* The Interaction Code grant enabled
+* The latest Classic Engine authentication SDK installed
+* An app that uses the Classic Engine authentication SDK or back-end APIs
 
 #### Sample code
 
@@ -51,7 +51,7 @@ If your app uses direct APIs for an authentication flow, your code may call the 
 * `/api/v1/authn`: Begin the primary authentication, which validates the password credentials and evaluates org policies
 * If successful, call the `/api/v1/sessions` API with a `sessionToken` returned from the first call to create a session
 
-See the following sample calls and responses for this basic authentication flow:
+See the following sample calls and responses for this Basic Authentication flow:
 
 #### Call /api/v1/authn
 
@@ -185,7 +185,7 @@ If your app uses direct APIs for a multifactor authentication flow, your code ma
 - `/api/authn/factors/{emailFactorId}/verify`: Send the user an email with a sign-in code
 - `/api/authn/factors/{$emailFactorId}/verify`: Call this a second time with the sign-in code from the email challenge
 
->**Note:** If you call the direct `/api/v1/policies` API to manage or update MFA enrollment policies, you need to update these calls to use Identity Engine policies. See [Authentication policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy) and [Profile enrollment policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy).
+>**Note:** If you call the direct `/api/v1/policies` API to manage or update MFA enrollment policies, you need to update these calls to use Identity Engine policies. See [Authentication policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy) and [User profile policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy).
 
 See the following sample calls and responses for the MFA authentication flow using the email factor:
 
@@ -421,7 +421,7 @@ curl --location --request POST 'https://{yourOktaDomain}/api/v1/authn/factors/em
 }
 ```
 
-If your app implements these API calls and handles the responses shown, update your code to use Identity Engine SDK methods. These methods encapsulate the authentication flow using recursive calls to Identity Engine, and a successful response returns with access and ID tokens.
+If your app uses these API calls and handles the responses shown, update your code to use Identity Engine SDK methods. These methods use the authentication flow with recursive calls to Identity Engine. A successful response includes access and ID tokens.
 
 <StackSelector snippet="oie-auth-flow-link2" noSelector />
 
