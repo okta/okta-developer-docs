@@ -17,7 +17,7 @@ SCIM, or the [System for Cross-domain Identity Management](https://scim.cloud) s
 
 The goal of SCIM is to securely automate the exchange of user identity data between your company's cloud apps and any Service Providers (SP).
 
-Managing user lifecycles in your org is a fundamental business problem. Hiring employees is just the first step. You also need to provision apps for their job and enforce corporate security policies. Then you need to update user accounts as they advance through your company. At the end of their employment, you need to ensure that all access is quickly and thoroughly revoked across all apps. Manually handling all of this can be time-consuming and error-prone.
+Managing user lifecycles in your org is a fundamental business problem. Hiring employees is just the first step. You also need to provision apps for their job, enforce corporate security policies, and update user accounts as they advance through your company. At the end of their employment, you need to ensure that all access is quickly and thoroughly revoked across all apps. Manually handling all of this can be time-consuming and error-prone.
 
 <div class="three-quarter">
 
@@ -69,7 +69,11 @@ If a resource in your app needs to be updated based on data changed in Okta, thi
 
 User attributes can be mapped from your source into Okta. Conversely, an attribute can be mapped from Okta to a target attribute in your app.
 
-> **Note:** The `active` user attribute represents a user's status, and relates to activating, reactivating, and deactivating a user. Okta doesn't pull in a user whose status is set to `active=false`, even in a full import. See **Update a specific user (Patch)** in [SCIM V2.0](https://developer.okta.com/docs/api/openapi/okta-scim/guides/scim-20/#update-a-specific-user-patch) and [SCIM V1.1](https://developer.okta.com/docs/api/openapi/okta-scim/guides/scim-11/#update-a-specific-user-patch).
+> **Note:** The `active` user attribute represents a user's status, and relates to activating, reactivating, and deactivating a user. Therefore, this attribute behaves differently than most other attributes.
+>
+>The first time that you assign a user to an app and `active=true` in Okta, the user is set to `active=true` on the SCIM server. Reassigning a user to an app works similarly. Afterwards, Okta doesn't pull in a user whose status is set to `active=false`, even in a full import. Even if Okta is the source of truth, updating through a profile push doesn't update the user status downstream to the SCIM app.
+>
+> See **Update a specific user (Patch)** in [SCIM V2.0](https://developer.okta.com/docs/api/openapi/okta-scim/guides/scim-20/#update-a-specific-user-patch) and [SCIM V1.1](https://developer.okta.com/docs/api/openapi/okta-scim/guides/scim-11/#update-a-specific-user-patch).
 
 ### Delete (Deprovision)
 
