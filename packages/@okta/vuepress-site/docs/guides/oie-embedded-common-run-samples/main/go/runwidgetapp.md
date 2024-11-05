@@ -1,7 +1,7 @@
 
 The sample app is the Golang embedded Sign-In Widget sample app (archived).
 
-1. Configured your Okta org properly by completing the steps in [Set up your Okta org for a password factor only use case](/docs/guides/oie-embedded-common-org-setup/go/main/#set-up-your-okta-org-for-a-password-factor-only-use-case).
+1. Configure your Okta org by completing the steps in [Set up your Okta org for a password factor only use case](/docs/guides/oie-embedded-common-org-setup/go/main/#set-up-your-okta-org-for-a-password-factor-only-use-case).
 1. [Download and set up the sample app](/docs/guides/oie-embedded-common-download-setup-app/go/main/).
 1. Open the embedded widget project using Visual Studio Code or
    your preferred IDE. The directory path to the sample app directory is: `samples-golang/identity-engine/embedded-sign-in-widget`.

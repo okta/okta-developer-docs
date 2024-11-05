@@ -101,7 +101,7 @@ When the user clicks the sign-in link, the browser redirects them to a sign-in p
 
 ### Facebook redirects the user to your Okta org
 
-On successful sign-in, Facebook routes the user to the **Valid OAuth Redirect URIs** and **Site URL** previously set in [Set up your Okta org for a social IdP use case](/docs/guides/oie-embedded-common-org-setup/go/main/#set-up-your-okta-org-for-a-social-idp-use-case). The values use the following format: `https://{Okta org domain}/oauth2/v1/authorize/callback` (for example, `https://dev-12345678.okta.com/oauth2/v1/authorize/callback`).
+After the user successfully signs in, Facebook routes them to the **Valid OAuth Redirect URIs** and **Site URL** previously set in [Set up your Okta org for a social IdP use case](/docs/guides/oie-embedded-common-org-setup/go/main/#set-up-your-okta-org-for-a-social-idp-use-case). The values use the following format: `https://{Okta org domain}/oauth2/v1/authorize/callback` (for example, `https://dev-12345678.okta.com/oauth2/v1/authorize/callback`).
 
 ### Store the tokens when Okta redirects the request to your app
 
