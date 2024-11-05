@@ -16,7 +16,7 @@
    </template>
    ```
 
-3. Create a new file `src/components/Profile.vue`.
+3. Create another file: `src/components/Profile.vue`
 
 2. Give it the following content:
 
