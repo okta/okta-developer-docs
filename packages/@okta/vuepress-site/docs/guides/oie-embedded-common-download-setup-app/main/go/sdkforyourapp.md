@@ -10,13 +10,13 @@ Begin to integrate the SDK into your own app by following these steps:
 go mod init
 ```
 
-2. Run the following command to add the SDK to your `go.mod` file:
+1. Run the following command to add the SDK to your `go.mod` file:
 
 ```go
 go get github.com/okta/okta-idx-golang.
 ```
 
-3. Import the package in your project with `import "github.com/okta/okta-idx-golang"`.
+1. Import the package in your project with `import "github.com/okta/okta-idx-golang"`.
 
 #### 2: Create the IDX Client object
 

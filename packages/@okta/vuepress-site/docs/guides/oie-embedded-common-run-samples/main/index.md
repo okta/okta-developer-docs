@@ -6,7 +6,6 @@ layout: Guides
 
 <ApiLifecycle access="ie" />
 
-
 This guide describes how to run the embedded Identity Engine SDK or Sign-In Widget sample app. Make sure to successfully [create and set up your Okta org](/docs/guides/oie-embedded-common-org-setup/) first. You also need to [download and set up the SDK](/docs/guides/oie-embedded-common-download-setup-app).
 
 ---

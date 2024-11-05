@@ -1,1 +1,1 @@
-[Identity Engine Golang SDK (okta-idx-golang)](https://github.com/okta/okta-idx-golang)
+Identity Engine Golang SDK (archived)

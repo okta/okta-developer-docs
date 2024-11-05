@@ -16,6 +16,8 @@ Get a new org set up and ready for various use cases.
 
 [Okta Developer Edition organization](/signup)
 
+<StackSnippet snippet="repoarchivenote" />
+
 ---
 
 ## Overview of the embedded identity solutions
@@ -23,7 +25,7 @@ Get a new org set up and ready for various use cases.
 Okta provides two embedded identity solutions:
 
 * **Embedded SDK only**: A highly customizable solution that provides native language support for various identity use cases.
-* **Embedded Widget + SDK**: A quick and easy to set up solution that moves most of the heavy lifting to Okta. The amount of code that you need to write is small. However, many of the most advanced identity use cases (for example, social sign in, multifactor authentication) are supported out of the box.
+* **Embedded Widget + SDK**: A quick and easy to set up solution that moves most of the heavy lifting to Okta. The amount of code that you need to write is small. However, many of the most advanced identity use cases (for example, social sign-in, multifactor authentication) are supported out of the box.
 
 <div class="three-quarter">
 
@@ -239,9 +241,9 @@ A global session policy determines user session length and basic authentication 
 
 This section shows you how to set up your Okta org and app to support the multifactor use cases available in this embedded authentication guide. In addition to the password factor, the multifactor use cases presented in this guide use the email and phone factors. Perform the following configuration after you [create an app](#create-an-application) to set up the email and phone factors in your Okta org:
 
-1. [Set up the email authenticator for authentication and recovery](#_1-set-up-the-email-authenticator-for-authentication-and-recovery)
-1. [Add the phone authenticator for authentication and recovery](#_2-add-the-phone-authenticator-for-authentication-and-recovery)
-1. [Update your authentication policy with multifactor authentication](#_3-update-your-app-sign-on-policy-with-multifactor-authentication)
+1. [Set up the email authenticator for authentication and recovery](#set-up-the-email-authenticator-for-authentication-and-recovery)
+1. [Add the phone authenticator for authentication and recovery](#add-the-phone-authenticator-for-authentication-and-recovery)
+1. [Update your authentication policy with multifactor authentication](#update-your-authentication-policy-with-multifactor-authentication)
 
 > **Note:** The multifactor use cases in this guide implement the password, email, and phone factors. However, there are more supported factors that you can use in your embedded authentication app. See [Multifactor Authentication](https://help.okta.com/okta_help.htm?type=oie&id=csh-about-authenticators).
 
@@ -332,7 +334,7 @@ If you would like to sign in any public Facebook user, you need to set the Faceb
 
 #### Create the Facebook Identity Provider in Okta
 
-To connect your org to Facebook, you need to add and configure the Facebook IdP in Okta. The following steps assume that you have already [created and configured your Facebook app](#_1-create-a-facebook-app-in-facebook) and that you have the Facebook **App ID** and **App Secret** values available.
+To connect your org to Facebook, you need to add and configure the Facebook IdP in Okta. The following steps assume that you have already [created and configured your Facebook app](#create-a-facebook-app-in-facebook) and that you have the Facebook **App ID** and **App Secret** values available.
 
 1. In the Admin Console, go to **Security** > **Identity Providers**.
 1. Click **Add Identity Provider**, and then select **Add Facebook**.
@@ -343,12 +345,12 @@ To connect your org to Facebook, you need to add and configure the Facebook IdP 
 
 #### Add an Identity Provider routing rule in Okta
 
-The final step is to add the [created Facebook IdP](#_4-create-the-facebook-identity-provider-in-okta) to the routing rule.
+The final step is to add the [created Facebook IdP](#create-the-facebook-identity-provider-in-okta) to the routing rule.
 
 1. Go to **Security** > **Identity Providers** in the Admin Console.
 1. Click the **Routing Rules** tab on the Identity Providers page, and then click **Add Routing Rule**.
 1. Specify the **Rule Name** (for example: Facebook and Okta Rule).
-1. Select the [Facebook Identity Provider that you just created](#_4-create-the-facebook-identity-provider-in-okta) from the **THEN Use this identity provider** dropdown list. Since Okta is the default IdP, the two values should be:
+1. Select the [Facebook Identity Provider that you just created](#create-the-facebook-identity-provider-in-okta) from the **THEN Use this identity provider** dropdown list. Since Okta is the default IdP, the two values should be:
 
    * Okta
    * Facebook Identity Provider (IdP)

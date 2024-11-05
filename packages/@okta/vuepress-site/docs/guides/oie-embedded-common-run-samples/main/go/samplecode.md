@@ -1,2 +1,4 @@
-* [Golang Identity Engine sample app](https://github.com/okta/samples-golang/tree/master/identity-engine)
-* [Golang Identity Engine embedded Widget sample app](https://github.com/okta/samples-golang/tree/master/identity-engine/embedded-sign-in-widget)
+* Golang Identity Engine sample app (archived)
+* Golang Identity Engine embedded Widget sample app (archived)
+
+> **Note**: The [Golang sample applications](https://github.com/okta/samples-golang) have been archived and are no longer actively maintained or supported.
