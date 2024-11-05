@@ -30,16 +30,21 @@
 
    ```js
    <script>
-   export default ({
-     name: 'home',
-     methods: {
-       async login () {
-         await this.$auth.signInWithRedirect({ originalUri: '/' })
-       },
-       async logout () {
-         await this.$auth.signOut()
-       }
+   import { useAuth } from '@okta/okta-vue';
+
+   defineProps({
+     msg: {
+       type: String,
+       required: true
      }
-   })
+    })
+
+   const $auth = useAuth();
+   const login = async () => {
+      await $auth.signInWithRedirect({ originalUri: '/' })
+   }
+   const logout = async () => {
+      await $auth.signOut()
+   }
    </script>
    ```

@@ -12,24 +12,29 @@ Here is what the Vue component could look like for this hypothetical example usi
   </ul>
 </template>
 
-<script>
+<script setup>
+import { ref, onMounted } from 'vue'
 import axios from 'axios'
 
-export default {
-  data () {
-    return {
-      posts: []
-    }
-  },
-  async created () {
-    axios.defaults.headers.common['Authorization'] = `Bearer ${this.$auth.getAccessToken()}`
-    try {
-      const response = await axios.get(`http://localhost:{serverPort}/api/messages`)
-      this.posts = response.data
-    } catch (e) {
-      console.error(`Errors! ${e}`)
-    }
+import { useAuth } from '@okta/okta-vue';
+
+const $auth = useAuth();
+let posts = ref([]);
+
+onMounted(async () => {
+  try {
+    const accessToken = $auth.getAccessToken()
+      const response = await axios.get(`http://localhost:${serverPort}/api/messages`, {
+        headers: {
+          Authorization: `Bearer ${accessToken}`
+        }
+      })
+
+    const response = await axios.get(`http://localhost:{serverPort}/api/messages`)
+    posts.value = response.data
+  } catch (e) {
+    console.error(`Errors! ${e}`)
   }
-}
+})
 </script>
 ```

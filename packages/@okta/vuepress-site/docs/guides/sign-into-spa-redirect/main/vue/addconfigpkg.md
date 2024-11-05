@@ -3,6 +3,6 @@ You need the latest version of [Okta Vue.js SDK](https://github.com/okta/okta-vu
 Run the following commands inside your root directory to install these:
 
 ```shell
-npm install @okta/okta-vue@5.1.1
-npm install @okta/okta-auth-js@6.0.0
+npm install @okta/okta-vue@5.7.0
+npm install @okta/okta-auth-js@7.8.1
 ```

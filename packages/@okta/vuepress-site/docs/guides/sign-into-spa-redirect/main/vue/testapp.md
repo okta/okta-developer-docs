@@ -1,7 +1,7 @@
 Start the Vue app by serving locally.
 
 ```shell
-npm run serve
+npm run dev
 ```
 
-You should be able to sign-in, view your details at the `/profile` route, and sign-out.
+You should be able to sign in, view your details at the `/profile` route, and sign out.
