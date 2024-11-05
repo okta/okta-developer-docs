@@ -432,7 +432,9 @@ module.exports = ctx => ({
       };
     }
     
-    frontmatter.canonicalUrl = `https://developer.okta.com${path}`;
+    if(!frontmatter.canonicalUrl) {
+      frontmatter.canonicalUrl = `https://developer.okta.com${path}`;
+    }
 
     if (path === '/') {
       $page.newsFeedDataJson = null;
