@@ -67,6 +67,9 @@ Start your integration submission for OIN publication:
     > **Note:** Submit your integration from an Okta account that has your company domain in the email address. You can't use an account with a personal email address. The OIN team doesn't review submissions from personal email accounts.
 
 1. Go to **Applications** > **Your OIN Integrations** in the Admin Console.
+
+   > **Note:** If you only want to test an existing submission, see [Navigate directly to test your integration](#navigate-directly-to-test-your-integration).
+
 1. Click **Build new OIN integration**. The OIN Wizard appears.
 1. Select the protocols that your integration supports from the **Select protocol** section.
 
@@ -183,6 +186,19 @@ The OIN Wizard journey includes the **Test integration** experience page to help
 
 > **Note:** You must have the Okta Browser Plugin installed with **Allow in Incognito** enabled before you use the  **OIN Submission Tester**. See [OIN Wizard requirements](/docs/guides/submit-app-prereq/main/#oin-wizard-requirements).
 
+#### Navigate directly to test your integration
+
+You can navigate directly to the OIN Wizard **Test integration** page if you have an existing submission in the **Your OIN Integrations** dashboard. You can bypass the **[Select protocol](#start-a-submission)**, **[Configure your integration](#configure-your-integration)**, and **[Test your integration](#enter-test-information)** pages in the OIN Wizard, and start generating instances for testing. This saves you time and avoids unnecessary updates to an existing integration submission.
+
+Follow these steps to bypass the configuration pages in the OIN Wizard:
+
+1. From the **Your OIN Integrations** dashboard, select the more icon (![three-dot more icon](/img/icons/odyssey/more.svg)) next to the integration submission that you want to test.
+1. Select **Test your integration** from the menu.
+
+   The OIN Wizard **Test integration** page appears for you to generate an instance and test your integration.
+
+    > **Note:** If you haven't specified test information in the **[Test your integration](#enter-test-information)** page, then you're directed to this page to enter testing details. You can go to the **Test integration** page only if the protocols, configuration, and test details are provided in your submission.
+
 ### Generate instances for testing
 
 Generate instances for testing in your Okta Developer Edition org directly from the OIN Wizard. The OIN Wizard takes the configuration and test information from your OIN submission and allows you to configure a specific integration instance to your test app. You can test the admin and end-user sign-in experiences with the generated instance flow.
@@ -195,7 +211,7 @@ Okta recommends that you generate an instance for testing each protocol supporte
 There are certain conditions where you can test two protocols on one instance. You can create one instance for SSO and SCIM testing if your integration meets all of these conditions:
 
 * It supports SCIM and one SSO protocol
-* Doesn't support SSO JIT
+* It doesn't support SSO JIT
 * The **Create User** SCIM operation is enabled
 
 A Developer Edition org has a maximum of five active instances, so manage your test instances accordingly. See [Deactivate an app instance in your org](#deactivate-an-app-instance-in-your-org) to deactivate any instances that you aren't using.
@@ -254,7 +270,7 @@ The **Application instances for testing** section displays, by default, the inst
 
 An instance is eligible if it was generated from the latest version of the integration submission in the OIN Wizard. An instance is ineligible if it was generated from a previous version of the integration submission and you later made edits to the submission. This is to ensure that you test your integration based on the latest submission details.
 
-If you modify a published OIN integration, you must generate an instance based on the published integration for backwards-compatibility testing. A backwards-compatible instance is eligible if it was generated from the published version of the integration before any edits are made in the current submission. The OIN Wizard detects if you're modifying a published OIN integration and asks you to generate a backwards-compatible instance before you make any edits.
+If you modify a published OIN integration, you must generate an instance based on the currently published integration for backwards-compatibility testing. A backwards-compatible instance is eligible if it was generated from the published version of the integration before any edits are made in the current submission. The OIN Wizard detects if you're modifying a published OIN integration and asks you to generate a backwards-compatible instance before you make any edits.
 
 > **Note:** There's a maximum of five active instances allowed in an Okta Developer Edition org, so [deactivate](#deactivate-an-app-instance-in-your-org) or delete any instances you aren't using. Click **Clear filter** to find instances in your org that may be active and ineligible for testing.
 
@@ -538,9 +554,14 @@ To update a previously published OIN integration:
 1. Sign in to your Okta Developer Edition org as a user with either app admin or super admin roles.
    > **Note:** Edit your integration from an Okta account that has your company domain in the email address. You can't use an account with a personal email address. The OIN team doesn't review submission edits from a personal email account.
 1. In the Admin Console, go to **Applications** > **Your OIN Integrations**.
+
+   > **Note:** If you don't need to edit your submission and want to jump to testing, see [Navigate directly to test your integration](#navigate-directly-to-test-your-integration).
+
 1. Click your published integration to update from the dashboard. Your published OIN submission appears in read-only mode.
 1. From the **This integration is read-only** information box, click **Edit integration**.
-    > **Note:** If you open a submission in **DRAFT** status, it's not in read-only mode and the **Edit integration** option isn't available. Continue to edit your draft submission as a new submission. See [Start a submission](#start-a-submission).
+    > **Note:** If you open a submission in **DRAFT** status, it's not in read-only mode and the **Edit integration** option isn't available.
+
+    Continue to edit your draft submission as a new submission. See [Start a submission](#start-a-submission).
 1. If the OIN Wizard doesn't detect an instance to test your published integration in the org, then an **Application instance not detected** dialog appears. Click **Generate instance** to create an app instance based on your published OIN integration. See [Add existing app integrations](https://help.okta.com/okta_help.htm?type=oie&id=csh-apps-add-app) to create an instance for backwards-compatibility testing.
     > **Note:** The **Generate instance** option is disabled if you have five active instances in your org. [Deactivate instances](#deactivate-an-app-instance-in-your-org) that you're not using.
 
