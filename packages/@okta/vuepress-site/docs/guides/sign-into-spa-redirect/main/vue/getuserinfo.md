@@ -1,6 +1,6 @@
 `$auth.tokenManager` contains an `idToken` that contains the user profile claims. You can access it to display a welcome message.
 
-1. Create a new file `src/views/ProfileView.vue`.
+1. Create the following file: `src/views/ProfileView.vue`
 
 2. Give it the following content:
 
