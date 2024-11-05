@@ -6,6 +6,77 @@ title: Okta Identity Engine API release notes 2024
 
 # Okta Identity Engine API release notes (2024)
 
+## November
+
+### Monthly release 2024.11.0
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Multiple Identifiers is GA in Preview](#multiple-identifiers-is-ga-in-preview) | November 6, 2024 |
+| [Give access to Okta Support is GA in Production](#give-access-to-okta-support-is-ga-in-production) | November 6, 2024 |
+| [Create dynamic resource sets with conditions is EA in Preview](#create-dynamic-resource-sets-with-conditions-is-ea-in-preview) | November 6, 2024 |
+| [Restrict access to the Admin Console is EA in Preview](#restrict-access-to-the-admin-console-is-ea-in-preview) | November 6, 2024 |
+| [Seamless ISV experience for SCIM is GA in Production](#seamless-isv-experience-for-scim-is-ga-in-production) | October 9, 2024 |
+| [Test app integrations in the OIN Wizard](#test-app-integrations-in-the-oin-wizard) | November 6, 2024 |
+| [YubiKey preregistration feature is GA in Production](#yubikey-preregistration-feature-is-ga-in-production) | July 17, 2024 |
+| [Bugs fixed in 2024.11.0](#bugs-fixed-in-2024-11-0)| November 6, 2024 |
+
+#### Multiple Identifiers is GA in Preview
+
+Today, end users must sign in to Okta with a username or email address only. With the Multiple Identifiers feature, admins can configure identifiers, or user attributes from Universal Directory, that an end user can enter to authenticate. Multiplier identifiers work in sign-in, recovery, self-service registration, and unlock flows. Admins can configure up to three identifiers, including email (which is still a required identifier). See [Configure multiple identifiers](/docs/guides/multiple-identifiers/main/). <!-- OKTA-687191 FF: MULTIPLE_IDENTIFIERS -->
+
+#### Give access to Okta Support is GA in Production
+
+Admins can now control how members of the Okta Support team can access their org. To support this, the Admin Console **Account** page provides the following two options:
+
+* **Impersonation Grants for Cases**: Allows the Okta Support team to sign in to your org as a read-only admin to troubleshoot issues.
+
+* **Support User Grants for Self-Assigned Cases**: Allows an Okta Support representative to access your org settings after they’ve opened a case.
+
+Using these settings, admins can select the right level of Support access for their org. <!-- See [Give access to Okta Support](https://help.okta.com/okta_help.htm?type=oie&id=settings-support-access) and the corresponding Okta Support Settings API endpoints: -->
+
+<!-- * [List all Okta Support cases](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingSupport/#tag/OrgSettingSupport/operation/getOrgOktaSupportSettings) -->
+
+<!-- * [Update an Okta Support case](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingSupport/#tag/OrgSettingSupport/operation/updateOktaSupportCase) -->
+
+<!-- You can’t use the [Extend](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingSupport/#tag/OrgSettingSupport/operation/extendOktaSupport), [Grant](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingSupport/#tag/OrgSettingSupport/operation/grantOktaSupport), or [Revoke](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingSupport/#tag/OrgSettingSupport/operation/revokeOktaSupport) Okta Support access endpoints without an associated Okta Support case.<!-- OKTA_SUPPORT_IMPERSONATION_GRANTS (OKTA-822280) -->
+
+#### Create dynamic resource sets with conditions is EA in Preview
+
+Resource set conditions help you limit the scope of a role by excluding an admin's access to certain apps. This gives you more granular control over your custom admin roles and helps meet your org's unique security needs. See [Resource set conditions](https://help.okta.com/okta_help.htm?type=oie&id=resource-set-conditions)<!--and the corresponding [Resource Set Resources](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RoleCResourceSetResource/) API -->. <!-- DYNAMIC_RESOURCE_SETS (OKTA-746719) -->
+
+#### Restrict access to the Admin Console is EA in Preview
+
+By default, users and groups with assigned admin roles have access to the Admin Console app. With this feature, super admins can choose to manually assign the app to delegated admins instead. This is recommended for orgs with admins who don't need access, like business partners, third-party admins, or admins who only use the Okta API.
+
+<!-- See [Administrator settings](https://help.okta.com/okta_help.htm?type=oie&id=administrator-settings) and the corresponding APIs: [Retrieve the Okta Admin Console Assignment Setting](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingAdmin/#tag/OrgSettingAdmin/operation/getAutoAssignAdminAppSetting) and [Update the Okta Admin Console Assignment Setting](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingAdmin/#tag/OrgSettingAdmin/operation/updateAutoAssignAdminAppSetting). <!-- OKTA-717742 ADMIN_APP_AND_ROLE_DECOUPLING -->
+
+#### Seamless ISV experience for SCIM is GA in Production
+
+Okta now provides a seamless ISV experience to optimize the [Okta Integration Network (OIN)](https://www.okta.com/integrations/) submission experience for SCIM integrations. This new experience enables independent software vendors (ISVs) to build and manually test their SCIM integration metadata before submission to the OIN. This reduces the time needed for the OIN team to review and validate that the SCIM integration functions as intended, which shortens the time to publish in the OIN. This experience also incorporates communication processes in Salesforce, enabling improved collaboration internally within Okta teams and externally with ISVs. See [Publish an OIN integration overview](/docs/guides/submit-app-overview/) and [Submit an integration with the OIN Wizard](/docs/guides/submit-oin-app/scim/main/) guide.
+
+#### Test app integrations in the OIN Wizard
+
+You can now test your app integration directly from the **Your OIN Integrations** dashboard. Previously, you had to go through the OIN Wizard submission journey to arrive at the **Test integration** experience page. You can now bypass the **Select protocol**, **Configure your integration**, and **Test your integration** pages for an existing submission, and start generating instances for testing in the **Test integration** page. This saves you time and avoids unnecessary updates to an existing integration submission. <!-- OKTA-804076-->
+
+#### YubiKey preregistration feature is GA in Production
+
+Customer admins were previously unable to enroll and ship YubiKeys as WebAuthn enrollments in a quick and automated way. The YubiKey preregistration feature enables admins to preregister YubiKey factors as WebAuthn enrollments for both staged and existing (active) users using a Workflows and Yubico integration to seamlessly handle the registration and shipment. See [Require phishing-resistant authentication with pre-enrolled YubiKey](https://help.okta.com/okta_help.htm?type=oie&id=csh-preenrolled-yubikey-main). <!-- OKTA-720689 YUBIKEY_PREREGISTRATION_AS_WEBAUTHN_ENROLLMENT -->
+
+#### Developer documentation updates in 2024.11.0
+
+
+
+#### Bugs fixed in 2024.11.0
+
+* If the Okta account management policy was used, some users could unlock their accounts even if self-service unlock (SSU) wasn't enabled. (OKTA-812694)
+
+* Read-only admins couldn’t view profile enrollment policies or inline hooks. (OKTA-727381)
+
+* Global token revocation requests for custom OIDC apps defaulted to dynamic issuer mode instead of the issuer mode that was configured in the app. (OKTA-820291)
+
+* The apps API didn't reveal information about SAML encryption configuration. (OKTA-801368)
+
 ## October
 
 ### Weekly release 2024.10.1
