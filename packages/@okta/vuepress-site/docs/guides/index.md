@@ -54,6 +54,7 @@ guides:
  - migrate-to-okta-bulk
  - migrate-to-okta-password-hooks
  - mobile-idx-sdk-overview
+ - multiple-identifiers
  - mobile-swift-configure-redirect
  - scim-provisioning-integration-overview
  - scim-provisioning-integration-prepare
