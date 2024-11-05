@@ -1,7 +1,6 @@
 ---
 layout: Landing
 title: Concepts
-canonicalUrl: https://developer.okta.com/docs/test/
 ---
 
 # Concepts
