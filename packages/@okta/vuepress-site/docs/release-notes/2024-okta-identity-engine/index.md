@@ -12,18 +12,19 @@ title: Okta Identity Engine API release notes 2024
 
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
-| [Multiple Identifiers is GA in Preview](#multiple-identifiers-is-ga-in-preview) | November 6, 2024 |
-| [Give access to Okta Support is GA in Production](#give-access-to-okta-support-is-ga-in-production) | November 6, 2024 |
 | [Create dynamic resource sets with conditions is EA in Preview](#create-dynamic-resource-sets-with-conditions-is-ea-in-preview) | November 6, 2024 |
+| [Give access to Okta Support is GA in Production](#give-access-to-okta-support-is-ga-in-production) | November 6, 2024 |
+| [Multiple Identifiers is GA in Preview](#multiple-identifiers-is-ga-in-preview) | November 6, 2024 |
+| [Read-only admin permissions](#read-only-admin-permissions) | November 6, 2024 |
 | [Restrict access to the Admin Console is EA in Preview](#restrict-access-to-the-admin-console-is-ea-in-preview) | November 6, 2024 |
 | [Seamless ISV experience for SCIM is GA in Production](#seamless-isv-experience-for-scim-is-ga-in-production) | October 9, 2024 |
 | [Test app integrations in the OIN Wizard](#test-app-integrations-in-the-oin-wizard) | November 6, 2024 |
 | [YubiKey preregistration feature is GA in Production](#yubikey-preregistration-feature-is-ga-in-production) | July 17, 2024 |
 | [Bugs fixed in 2024.11.0](#bugs-fixed-in-2024-11-0)| November 6, 2024 |
 
-#### Multiple Identifiers is GA in Preview
+#### Create dynamic resource sets with conditions is EA in Preview
 
-Today, end users must sign in to Okta with a username or email address only. With the Multiple Identifiers feature, admins can configure identifiers, or user attributes from Universal Directory, that an end user can enter to authenticate. Multiplier identifiers work in sign-in, recovery, self-service registration, and unlock flows. Admins can configure up to three identifiers, including email (which is still a required identifier). See [Configure multiple identifiers](/docs/guides/multiple-identifiers/main/). <!-- OKTA-687191 FF: MULTIPLE_IDENTIFIERS -->
+Resource set conditions help you limit the scope of a role by excluding an admin's access to certain apps. This gives you more granular control over your custom admin roles and helps meet your org's unique security needs. See [Resource set conditions](https://help.okta.com/okta_help.htm?type=oie&id=resource-set-conditions)<!--and the corresponding [Resource Set Resources](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RoleCResourceSetResource/) API -->. <!-- DYNAMIC_RESOURCE_SETS (OKTA-746719) -->
 
 #### Give access to Okta Support is GA in Production
 
@@ -41,9 +42,13 @@ Using these settings, admins can select the right level of Support access for th
 
 <!-- You can’t use the [Extend](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingSupport/#tag/OrgSettingSupport/operation/extendOktaSupport), [Grant](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingSupport/#tag/OrgSettingSupport/operation/grantOktaSupport), or [Revoke](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingSupport/#tag/OrgSettingSupport/operation/revokeOktaSupport) Okta Support access endpoints without an associated Okta Support case.<!-- OKTA_SUPPORT_IMPERSONATION_GRANTS (OKTA-822280) -->
 
-#### Create dynamic resource sets with conditions is EA in Preview
+#### Multiple Identifiers is GA in Preview
 
-Resource set conditions help you limit the scope of a role by excluding an admin's access to certain apps. This gives you more granular control over your custom admin roles and helps meet your org's unique security needs. See [Resource set conditions](https://help.okta.com/okta_help.htm?type=oie&id=resource-set-conditions)<!--and the corresponding [Resource Set Resources](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RoleCResourceSetResource/) API -->. <!-- DYNAMIC_RESOURCE_SETS (OKTA-746719) -->
+Today, end users must sign in to Okta with a username or email address only. With the Multiple Identifiers feature, admins can configure identifiers, or user attributes from Universal Directory, that an end user can enter to authenticate. Multiplier identifiers work in sign-in, recovery, self-service registration, and unlock flows. Admins can configure up to three identifiers, including email (which is still a required identifier). See [Configure multiple identifiers](/docs/guides/multiple-identifiers/main/). <!-- OKTA-687191 FF: MULTIPLE_IDENTIFIERS -->
+
+#### Read-only admin permissions
+
+Read-only admins can now view user profile policies and inline hooks. See [Read-only administrators](https://help.okta.com/okta_help.htm?type=oie&id=csh-administrators-read-only-admin). <!-- OKTA727381 -->
 
 #### Restrict access to the Admin Console is EA in Preview
 
@@ -57,7 +62,7 @@ Okta now provides a seamless ISV experience to optimize the [Okta Integration Ne
 
 #### Test app integrations in the OIN Wizard
 
-You can now test your app integration directly from the **Your OIN Integrations** dashboard. Previously, you had to go through the OIN Wizard submission journey to arrive at the **Test integration** experience page. You can now bypass the **Select protocol**, **Configure your integration**, and **Test your integration** pages for an existing submission, and start generating instances for testing in the **Test integration** page. This saves you time and avoids unnecessary updates to an existing integration submission. <!-- OKTA-804076-->
+You can now test your app integration directly from the **Your OIN Integrations** dashboard. Previously, you had to go through the OIN Wizard submission journey to arrive at the **Test integration** experience page. You can now bypass the **Select protocol**, **Configure your integration**, and **Test your integration** pages for an existing submission, and start generating instances for testing in the **Test integration** page. This saves you time and avoids unnecessary updates to an existing integration submission. See [Navigate directly to test your integration](/docs/guides/submit-oin-app/openidconnect/main/#navigate-directly-to-test-your-integration). <!-- OKTA-804076-->
 
 #### YubiKey preregistration feature is GA in Production
 
@@ -66,8 +71,6 @@ Customer admins were previously unable to enroll and ship YubiKeys as WebAuthn e
 #### Bugs fixed in 2024.11.0
 
 * If the Okta account management policy was used, some users could unlock their accounts even if self-service unlock (SSU) wasn't enabled. (OKTA-812694)
-
-* Read-only admins couldn’t view profile enrollment policies or inline hooks. (OKTA-727381)
 
 * Global token revocation requests for custom OIDC apps defaulted to dynamic issuer mode instead of the issuer mode that was configured in the app. (OKTA-820291)
 
