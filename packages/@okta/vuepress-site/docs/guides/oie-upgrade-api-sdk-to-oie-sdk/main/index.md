@@ -38,7 +38,7 @@ Review the following sections, which detail Identity Engine SDK concepts. This g
 
 <StackSelector snippet="auth-vs-oie" noSelector />
 
-## Map basic sign-in code to the Identity Engine SDK
+## Map a basic sign-in code to the Identity Engine SDK
 
 The following sections highlight the Classic Engine Authentication SDK method calls and back-end Authentication APIs that require migration to the Identity Engine SDK. The Identity Engine SDK methods can perform authentication using Identity Engine's new features and workflows.
 
@@ -427,7 +427,7 @@ If your app uses these API calls and handles the responses shown, update your co
 
 ## Map password recovery code to the Identity Engine SDK
 
-The following sections highlight the Classic Engine Authentication SDK method calls and back-end Authentication APIs that require migration to the Identity Engine SDK. The Identity Engine SDK methods can perform a password reset using Identity Engine's new features and workflows.
+The following sections highlight the Classic Engine Authentication SDK method calls and back-end Authentication APIs that require migration to the Identity Engine SDK. The Identity Engine SDK methods can perform a password reset by using Identity Engine's new features and workflows.
 
 <StackSelector snippet="pswrvy" noSelector />
 
@@ -567,7 +567,7 @@ curl --location --request POST 'https://{yourOktaDomain}/api/v1/authn/recovery/f
 }
 ```
 
-#### Prompt the user to reset password (/api/v1/authn/credentials/reset_password)
+#### Prompt the user to reset the password (/api/v1/authn/credentials/reset_password)
 
 ```bash
 curl --location --request POST 'https://{yourOktaDomain}/api/v1/authn/credentials/reset_password' \

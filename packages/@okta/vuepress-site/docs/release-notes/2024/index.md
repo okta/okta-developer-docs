@@ -51,8 +51,6 @@ Okta now provides a seamless ISV experience to optimize the [Okta Integration Ne
 
 You can now test your app integration directly from the **Your OIN Integrations** dashboard. Previously, you had to go through the OIN Wizard submission journey to arrive at the **Test integration** experience page. You can now bypass the **Select protocol**, **Configure your integration**, and **Test your integration** pages for an existing submission, and start generating instances for testing in the **Test integration** page. This saves you time and avoids unnecessary updates to an existing integration submission. <!-- OKTA-804076-->
 
-#### Developer documentation updates in 2024.11.0
-
 #### Bugs fixed in 2024.11.0
 
 * The apps API didn't reveal information about SAML encryption configuration. (OKTA-801368)

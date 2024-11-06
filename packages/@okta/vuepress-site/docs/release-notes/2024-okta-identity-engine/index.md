@@ -63,10 +63,6 @@ You can now test your app integration directly from the **Your OIN Integrations*
 
 Customer admins were previously unable to enroll and ship YubiKeys as WebAuthn enrollments in a quick and automated way. The YubiKey preregistration feature enables admins to preregister YubiKey factors as WebAuthn enrollments for both staged and existing (active) users using a Workflows and Yubico integration to seamlessly handle the registration and shipment. See [Require phishing-resistant authentication with pre-enrolled YubiKey](https://help.okta.com/okta_help.htm?type=oie&id=csh-preenrolled-yubikey-main). <!-- OKTA-720689 YUBIKEY_PREREGISTRATION_AS_WEBAUTHN_ENROLLMENT -->
 
-#### Developer documentation updates in 2024.11.0
-
-
-
 #### Bugs fixed in 2024.11.0
 
 * If the Okta account management policy was used, some users could unlock their accounts even if self-service unlock (SSU) wasn't enabled. (OKTA-812694)
