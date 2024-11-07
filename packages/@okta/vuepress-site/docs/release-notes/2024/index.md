@@ -22,7 +22,7 @@ Resource set conditions help you limit the scope of a role by excluding an admin
 
 #### Give access to Okta Support is GA in Production
 
-Admins can now control how members of the Okta Support team can access their org. To support this, the Admin Console **Account** page provides the following two options:
+Admins can now control how members of the Okta Support team access their org. To support this, the Admin Console **Account** page provides the following two options:
 
 * **Impersonation Grants for Cases**: Allows the Okta Support team to sign in to your org as a read-only admin to troubleshoot issues.
 
@@ -34,7 +34,7 @@ Using these settings, admins can select the right level of Support access for th
 
 <!-- * [Update an Okta Support case](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingSupport/#tag/OrgSettingSupport/operation/updateOktaSupportCase) -->
 
-<!-- You can’t use the [Extend](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingSupport/#tag/OrgSettingSupport/operation/extendOktaSupport), [Grant](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingSupport/#tag/OrgSettingSupport/operation/grantOktaSupport), or [Revoke](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingSupport/#tag/OrgSettingSupport/operation/revokeOktaSupport) Okta Support access endpoints without an associated Okta Support case.<!-- OKTA_SUPPORT_IMPERSONATION_GRANTS (OKTA-822280) -->
+<!-- You can no longer use the [Extend](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingSupport/#tag/OrgSettingSupport/operation/extendOktaSupport), [Grant](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingSupport/#tag/OrgSettingSupport/operation/grantOktaSupport), or [Revoke](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingSupport/#tag/OrgSettingSupport/operation/revokeOktaSupport) Okta Support access endpoints if you haven't used them between September 1, 2024 and November 1, 2024. These endpoints will be fully deprecated on January 15, 2025. After deprecation, you won’t be able to access them. Use the [Update an Okta Support case](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingSupport/#tag/OrgSettingSupport/operation/updateOktaSupportCase) endpoint to approve, revoke, and extend Okta Support access for each support case. <!-- OKTA_SUPPORT_IMPERSONATION_GRANTS (OKTA-822280) -->
 
 #### Seamless ISV experience for SCIM is GA in Production
 
