@@ -1,1 +1,1 @@
-* [iOS samples](https://github.com/okta/samples-ios) including custom sign-in, Biometric use, and TOTP generator
+[iOS samples](https://github.com/okta/samples-ios) that include custom sign-in, biometric use, and TOTP generator

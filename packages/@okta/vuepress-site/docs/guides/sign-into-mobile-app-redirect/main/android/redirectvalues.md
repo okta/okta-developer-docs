@@ -1,2 +1,2 @@
 * **Redirect URI**: `com.okta.example:/callback`
-* **Post Logout Redirect URI(s)**: `com.okta.example:/logout`
+* **Post Logout Redirect URIs**: `com.okta.example:/logout`

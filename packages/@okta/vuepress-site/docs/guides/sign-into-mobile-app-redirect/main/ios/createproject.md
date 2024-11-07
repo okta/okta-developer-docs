@@ -7,13 +7,19 @@ Launch Xcode and create a new iOS app project using SwiftUI for the interface an
 
 The functionality of the app is implemented in `ContentView.swift`, the main SwiftUI view. This includes view state, view model updates, and data model. For a production app, consider partitioning the view and data models into singletons, and then sharing state using Combine, bindings, or `@Environment`.
 
-The app contains three areas: the top area contains buttons for signing in and out and for viewing information. The middle area shows the current app state, and the lower area displays information text, such as the token. The available buttons depend on the sign-in state of the user. The top-level `ZStack` contains a full-screen view that prevents the user from interacting with the UI while the app is performing certain asynchronous operations, such as reading the user information. A production app may also perform asynchronous operations that do require showing a busy indicator but don't require blocking the UI.
+The app contains three areas:
+
+* The top area contains buttons for signing in and out and for viewing information.
+* The middle area shows the current app state.
+* The lower area displays information text, such as the token.
+
+The available buttons depend on the sign-in state of the user. The top-level `ZStack` contains a full-screen view that prevents the user from interacting with the UI while the app is performing certain asynchronous operations, such as reading the user information. A production app may also perform asynchronous operations that do require showing a busy indicator but don't require blocking the UI.
 
 The following image shows the completed app in both the sign-in and signed-on states:
 
 <div class="three-quarter border">
 
-![Two iPhone screenshots that show the signed-out and signed-in UI.](/img/sign-users-in/redirect-authentication/ios/app-ui-ios.png)
+![Two iPhone images that show the signed-out and signed-in UI.](/img/sign-users-in/redirect-authentication/ios/app-ui-ios.png)
 
 </div>
 

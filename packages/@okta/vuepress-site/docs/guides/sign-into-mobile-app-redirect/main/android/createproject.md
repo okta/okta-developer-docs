@@ -1,6 +1,6 @@
-> **Note:** The guide requires Android Studio (Arctic Chipmunk 2021.2.1)
+> **Note:** The guide requires Android Studio Chipmunk 2021.2.1
 
-1. Create a new Kotlin Android project called `browser_sign_in` with an **Empty Activity** in Android Studio. For information on creating a project, see the [Android Studio documentation](https://developer.android.com/training/basics/firstapp/creating-project).
+1. Create a Kotlin Android project called `browser_sign_in` with an **Empty Activity** in Android Studio. For information on creating a project, see the [Android Studio documentation](https://developer.android.com/training/basics/firstapp/creating-project).
 
     - Name: `browser_sign_in`
     - Package name: `com.okta.android.samples.browser_sign_in`
