@@ -1,6 +1,6 @@
 {
-  "release" : "2024.10.1",
-  "build" : "2024.10.1-begin-177-g6de143891e6f",
+  "release" : "2024.11.1",
+  "build" : "2024.11.1-begin-134-g9128555f25d7",
   "categories" : [ {
     "id" : "access-gateway",
     "name" : "Access Gateway"
@@ -49,6 +49,9 @@
   }, {
     "id" : "ciamx",
     "name" : "CIAM Experiences"
+  }, {
+    "id" : "ci-guardian",
+    "name" : "CI Guardian"
   }, {
     "id" : "cleavers",
     "name" : "Cleavers"
@@ -122,6 +125,9 @@
     "id" : "enterprise-auth",
     "name" : "Enterprise Auth"
   }, {
+    "id" : "essential-security",
+    "name" : "Essential Security"
+  }, {
     "id" : "extensibility",
     "name" : "Flow Builder"
   }, {
@@ -170,6 +176,9 @@
     "id" : "insights-platform",
     "name" : "Insights Platform"
   }, {
+    "id" : "itp",
+    "name" : "Identity Threat Protection"
+  }, {
     "id" : "jellyfish",
     "name" : "Jellyfish"
   }, {
@@ -181,6 +190,9 @@
   }, {
     "id" : "mfa-platform",
     "name" : "MFA Platform"
+  }, {
+    "id" : "mgmt",
+    "name" : "Management Tools"
   }, {
     "id" : "mobile",
     "name" : "Mobile"
@@ -235,6 +247,9 @@
   }, {
     "id" : "qa-system-test",
     "name" : "QA System Test"
+  }, {
+    "id" : "quality-enablement",
+    "name" : "Quality Enablement"
   }, {
     "id" : "ratelimit",
     "name" : "Ratelimit"
@@ -1027,7 +1042,7 @@
       "tags" : [ "access", "event-hook-eligible" ],
       "mappings" : [ ],
       "schema" : {
-        "debugData" : "AccessRequestDebugData",
+        "debugData" : "AccessRequestRequestDebugData",
         "actor" : null,
         "targets" : [ "AccessRequestResourceDetails" ],
         "changeDetails" : [ ]
@@ -1153,7 +1168,7 @@
       "tags" : [ "access", "event-hook-eligible" ],
       "mappings" : [ ],
       "schema" : {
-        "debugData" : "AccessRequestDebugData",
+        "debugData" : "AccessRequestRequestDebugData",
         "actor" : null,
         "targets" : [ "AccessRequestResourceDetails" ],
         "changeDetails" : [ ]
@@ -1171,7 +1186,7 @@
       "tags" : [ "access", "event-hook-eligible" ],
       "mappings" : [ ],
       "schema" : {
-        "debugData" : "AccessRequestDebugData",
+        "debugData" : "AccessRequestRequestDebugData",
         "actor" : null,
         "targets" : [ "AccessRequestResourceDetails" ],
         "changeDetails" : [ ]
@@ -1189,7 +1204,7 @@
       "tags" : [ "access", "event-hook-eligible" ],
       "mappings" : [ ],
       "schema" : {
-        "debugData" : "AccessRequestDebugData",
+        "debugData" : "AccessRequestRequestDebugData",
         "actor" : null,
         "targets" : [ "AccessRequestResourceDetails" ],
         "changeDetails" : [ ]
@@ -7513,6 +7528,24 @@
         "changeDetails" : [ ]
       }
     }, {
+      "id" : "device.token.enrollment.create",
+      "category" : "fastpass-platform",
+      "description" : "Okta Verify device enrollment token created with existing Okta Verify enrollment. Identifies an Okta verify device enrollment token which allows a user to enroll a new Okta Verify client on a different device. May be useful to evaluate the context under which an Okta Verify enrollment was authorized for the purpose of security investigation or analysis of user preference. The target specifies the existing Okta Verify enrollment which was used to authorize token creation. It does not specify whether the token was actually used to enroll a new device. Refer to the event type device.enrollment.create to identify newly enrolled Okta Verify clients.",
+      "info" : {
+        "created" : "2024-10-08",
+        "release" : "2024.10.1"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "device", "oie-only", "user" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "DeviceTokenEnrollmentCreateDetails" ],
+        "changeDetails" : [ ]
+      }
+    }, {
       "id" : "device.user.add",
       "category" : "device-assurance",
       "description" : "Add device to user. You can use the event to audit device user association activity. The event is triggered when a user adds a new account in Okta Verify.",
@@ -8359,6 +8392,24 @@
         "changeDetails" : null
       }
     }, {
+      "id" : "iam.policy.configuration.update",
+      "category" : "dda",
+      "description" : "IAM policy configuration update. Use this event to track and audit updates to IAM policy configuration for the org. This event contains information about the IAM policy configuration updates for an org.",
+      "info" : {
+        "created" : "2024-10-17",
+        "release" : "2024.11.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "admin-role", "event-hook-eligible" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "ResourceDetails" ],
+        "changeDetails" : [ "IAMPolicyConfigurationChangeDetailsEntry" ]
+      }
+    }, {
       "id" : "iam.resourceset.bindings.add",
       "category" : "dda",
       "description" : "Admin role assignment is created. This event can be used to track and audit when a new admin role assignment is created. When fired this event contains information about the new user or group admin assignments for roles associated with the resource set.",
@@ -8474,9 +8525,9 @@
         "created" : "2024-08-29",
         "release" : "2024.09.0"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
-      "tags" : [ "admin-role" ],
+      "tags" : [ "admin-role", "event-hook-eligible" ],
       "mappings" : [ ],
       "schema" : {
         "debugData" : "SystemDebugData",
@@ -10591,150 +10642,6 @@
         "changeDetails" : null
       }
     }, {
-      "id" : "pam.privileged_accounts.assign",
-      "category" : "asa",
-      "description" : "Assign a privileged account to a resource group project. Use this event to determine when a privileged account has been brought under active management in Okta Privileged Access. This event contains the resource group and project IDs to which the privileged account was assigned.",
-      "info" : {
-        "created" : "2024-09-10",
-        "release" : "2024.10.1"
-      },
-      "beta" : false,
-      "internal" : false,
-      "tags" : [ "pam" ],
-      "mappings" : [ ],
-      "schema" : {
-        "debugData" : null,
-        "actor" : null,
-        "targets" : null,
-        "changeDetails" : null
-      }
-    }, {
-      "id" : "pam.privileged_accounts.create",
-      "category" : "asa",
-      "description" : "Create a privileged account in Okta Privileged Access. Use this event to verify when a privileged account has successfully created in Okta Privileged Access. The creation request can only be initiated via Universal Directory. For Universal Directory accounts, the outcome result can be SUCCESS or FAILURE. For third-party app privileged accounts, the outcome result can be SUCCESS, FAILURE, or DEFERRED.",
-      "info" : {
-        "created" : "2024-09-10",
-        "release" : "2024.10.1"
-      },
-      "beta" : false,
-      "internal" : false,
-      "tags" : [ "pam" ],
-      "mappings" : [ ],
-      "schema" : {
-        "debugData" : null,
-        "actor" : null,
-        "targets" : null,
-        "changeDetails" : null
-      }
-    }, {
-      "id" : "pam.privileged_accounts.delete",
-      "category" : "asa",
-      "description" : "Delete a privileged account in Okta Privileged Access. Use this event to verify when a privileged account has successfully deleted in Okta Privileged Access. The deletion request can only be initiated via Universal Directory. The outcome result can be SUCCESS or FAILURE.",
-      "info" : {
-        "created" : "2024-09-10",
-        "release" : "2024.10.1"
-      },
-      "beta" : false,
-      "internal" : false,
-      "tags" : [ "pam" ],
-      "mappings" : [ ],
-      "schema" : {
-        "debugData" : null,
-        "actor" : null,
-        "targets" : null,
-        "changeDetails" : null
-      }
-    }, {
-      "id" : "pam.privileged_accounts.password.reveal",
-      "category" : "asa",
-      "description" : "Reveal password for a privileged account in Okta Privileged Access. Use this event to identify for which account the Okta Privileged Access user revealed the password. Contains the details on the user access method the user used to reveal the password.",
-      "info" : {
-        "created" : "2024-09-10",
-        "release" : "2024.10.1"
-      },
-      "beta" : false,
-      "internal" : false,
-      "tags" : [ "pam" ],
-      "mappings" : [ ],
-      "schema" : {
-        "debugData" : null,
-        "actor" : null,
-        "targets" : null,
-        "changeDetails" : null
-      }
-    }, {
-      "id" : "pam.privileged_accounts.password.update",
-      "category" : "asa",
-      "description" : "Update password for a privileged account in Okta Privileged Access. Use this event to identify for which account the Okta Privileged Access user updated the password. Contains the details on the user access method the user used to update the password.",
-      "info" : {
-        "created" : "2024-09-10",
-        "release" : "2024.10.1"
-      },
-      "beta" : false,
-      "internal" : false,
-      "tags" : [ "pam" ],
-      "mappings" : [ ],
-      "schema" : {
-        "debugData" : null,
-        "actor" : null,
-        "targets" : null,
-        "changeDetails" : null
-      }
-    }, {
-      "id" : "pam.privileged_accounts.password_rotation.end",
-      "category" : "asa",
-      "description" : "Indicates an automatic password rotation completion event. Use this event to determine the final status of a password rotation for a given privileged account. The outcome result can be SUCCESS, FAILURE or DEFERRED, based on settings and retry mechanisms in Okta Privileged Access.",
-      "info" : {
-        "created" : "2024-09-10",
-        "release" : "2024.10.1"
-      },
-      "beta" : false,
-      "internal" : false,
-      "tags" : [ "pam" ],
-      "mappings" : [ ],
-      "schema" : {
-        "debugData" : null,
-        "actor" : null,
-        "targets" : null,
-        "changeDetails" : null
-      }
-    }, {
-      "id" : "pam.privileged_accounts.password_rotation.start",
-      "category" : "asa",
-      "description" : "Initiate an automatic password rotation based on Okta Privileged Access's Resource Group Project settings. Use this event to determine when an automatic password rotation for a given privileged account has begun. The outcome result can be SUCCESS or FAILURE.",
-      "info" : {
-        "created" : "2024-09-10",
-        "release" : "2024.10.1"
-      },
-      "beta" : false,
-      "internal" : false,
-      "tags" : [ "pam" ],
-      "mappings" : [ ],
-      "schema" : {
-        "debugData" : null,
-        "actor" : null,
-        "targets" : null,
-        "changeDetails" : null
-      }
-    }, {
-      "id" : "pam.privileged_accounts.update",
-      "category" : "asa",
-      "description" : "Update a privileged account's details in Okta Privileged Access. Use this event to verify when a privileged account has successfully updated in Okta Privileged Access. The update request can only be initiated via Universal Directory. The outcome result can be SUCCESS or FAILURE.",
-      "info" : {
-        "created" : "2024-09-10",
-        "release" : "2024.10.1"
-      },
-      "beta" : false,
-      "internal" : false,
-      "tags" : [ "pam" ],
-      "mappings" : [ ],
-      "schema" : {
-        "debugData" : null,
-        "actor" : null,
-        "targets" : null,
-        "changeDetails" : null
-      }
-    }, {
       "id" : "pam.project.add_group",
       "category" : "asa",
       "description" : "This event is triggered after a group is added to a project.",
@@ -11353,6 +11260,150 @@
       "info" : {
         "created" : "2022-02-01",
         "release" : "2022.02.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null,
+        "changeDetails" : null
+      }
+    }, {
+      "id" : "pam.service_account.assign",
+      "category" : "asa",
+      "description" : "Assign a service account to a resource group project. Use this event to determine when a service account has been brought under active management in Okta Privileged Access. This event contains the resource group and project IDs to which the service account was assigned.",
+      "info" : {
+        "created" : "2024-09-10",
+        "release" : "2024.10.1"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null,
+        "changeDetails" : null
+      }
+    }, {
+      "id" : "pam.service_account.create",
+      "category" : "asa",
+      "description" : "Create a service account in Okta Privileged Access. Use this event to verify when a service account has successfully created in Okta Privileged Access. The creation request can only be initiated via Universal Directory. For Universal Directory accounts, the outcome result can be SUCCESS or FAILURE. For third-party app service account, the outcome result can be SUCCESS, FAILURE, or DEFERRED.",
+      "info" : {
+        "created" : "2024-09-10",
+        "release" : "2024.10.1"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null,
+        "changeDetails" : null
+      }
+    }, {
+      "id" : "pam.service_account.delete",
+      "category" : "asa",
+      "description" : "Delete a service account in Okta Privileged Access. Use this event to verify when a service account has successfully deleted in Okta Privileged Access. The deletion request can only be initiated via Universal Directory. The outcome result can be SUCCESS or FAILURE.",
+      "info" : {
+        "created" : "2024-09-10",
+        "release" : "2024.10.1"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null,
+        "changeDetails" : null
+      }
+    }, {
+      "id" : "pam.service_account.password.reveal",
+      "category" : "asa",
+      "description" : "Reveal password for a service account in Okta Privileged Access. Use this event to identify for which account the Okta Privileged Access user revealed the password. Contains the details on the user access method the user used to reveal the password.",
+      "info" : {
+        "created" : "2024-09-10",
+        "release" : "2024.10.1"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null,
+        "changeDetails" : null
+      }
+    }, {
+      "id" : "pam.service_account.password.update",
+      "category" : "asa",
+      "description" : "Update password for a service account in Okta Privileged Access. Use this event to identify for which account the Okta Privileged Access user updated the password. Contains the details on the user access method the user used to update the password.",
+      "info" : {
+        "created" : "2024-09-10",
+        "release" : "2024.10.1"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null,
+        "changeDetails" : null
+      }
+    }, {
+      "id" : "pam.service_account.password_rotation.end",
+      "category" : "asa",
+      "description" : "Indicates password rotation completion event. Use this event to determine the final status of a password rotation for a given service account. The outcome result can be SUCCESS, FAILURE or DEFERRED, based on settings and retry mechanisms in Okta Privileged Access.",
+      "info" : {
+        "created" : "2024-09-10",
+        "release" : "2024.10.1"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null,
+        "changeDetails" : null
+      }
+    }, {
+      "id" : "pam.service_account.password_rotation.start",
+      "category" : "asa",
+      "description" : "Initiate password rotation for a service account. Use this event to determine when password rotation for a given service account has begun. The outcome result can be SUCCESS or FAILURE. The outcome reason can be ASSIGNMENT, FORCED, CHECKIN or SCHEDULED, based on the password rotation trigger.",
+      "info" : {
+        "created" : "2024-09-10",
+        "release" : "2024.10.1"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null,
+        "changeDetails" : null
+      }
+    }, {
+      "id" : "pam.service_account.update",
+      "category" : "asa",
+      "description" : "Update a service account's details in Okta Privileged Access. Use this event to verify when a service account has successfully updated in Okta Privileged Access. The update request can only be initiated via Universal Directory. The outcome result can be SUCCESS or FAILURE.",
+      "info" : {
+        "created" : "2024-09-10",
+        "release" : "2024.10.1"
       },
       "beta" : false,
       "internal" : false,
@@ -12533,6 +12584,96 @@
         "actor" : null,
         "targets" : [ "ExecutePolicyResourceDetails" ],
         "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "resource.collection.assign",
+      "category" : "id-fabric",
+      "description" : "The Resource Collection is assigned to a set of users. Can be used to audit the assignment of a collection of resources to a set of users. The event is triggered when a resource collection is assigned to set of users.",
+      "info" : {
+        "created" : "2024-10-04",
+        "release" : "2024.10.1"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "event-hook-eligible", "resource" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null,
+        "changeDetails" : null
+      }
+    }, {
+      "id" : "resource.collection.create",
+      "category" : "id-fabric",
+      "description" : "Resource collection created. Can be used to audit the creation of a resource collection. The event is triggered when a resource collection is created.",
+      "info" : {
+        "created" : "2024-10-04",
+        "release" : "2024.10.1"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "event-hook-eligible", "resource" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null,
+        "changeDetails" : null
+      }
+    }, {
+      "id" : "resource.collection.delete",
+      "category" : "id-fabric",
+      "description" : "Resource collection deleted. Can be used to audit the deletion of a resource collection. The event is triggered when a resource collection is deleted.",
+      "info" : {
+        "created" : "2024-10-04",
+        "release" : "2024.10.1"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "event-hook-eligible", "resource" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null,
+        "changeDetails" : null
+      }
+    }, {
+      "id" : "resource.collection.unassign",
+      "category" : "id-fabric",
+      "description" : "Resource collection is unassigned from a set of users. Can be used to audit the set of users unassigned from a resource collection. The event is triggered when a set of users is unassigned from a resource collection.",
+      "info" : {
+        "created" : "2024-10-04",
+        "release" : "2024.10.1"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "event-hook-eligible", "resource" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null,
+        "changeDetails" : null
+      }
+    }, {
+      "id" : "resource.collection.update",
+      "category" : "id-fabric",
+      "description" : "Resource collection is updated. Can be used to audit the addition or removal of resource(s) and/or entitlements to/from a collection. The event is triggered when a resource collection is updated.",
+      "info" : {
+        "created" : "2024-10-04",
+        "release" : "2024.10.1"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "event-hook-eligible", "resource" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null,
+        "changeDetails" : null
       }
     }, {
       "id" : "resource.entitlement.create",
@@ -19609,6 +19750,24 @@
         "changeDetails" : null
       }
     }, {
+      "id" : "workflows.user.folder.duplicate",
+      "category" : "wax-insights",
+      "description" : "Duplicate Workflows folder. Identifies when a user duplicates an Okta Workflows folder. This event fires for the folder that is duplicated and recursively for all subfolders contained within it. The folder name and location is found in the debug context object. Other folder lifecycle events include workflows.user.folder.create, workflows.user.folder.delete, workflows.user.folder.import, workflows.user.folder.export, workflows.user.folder.rename, and workflows.user.folder.move.",
+      "info" : {
+        "created" : "2024-03-01",
+        "release" : "2024.11.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "workflows" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null,
+        "changeDetails" : null
+      }
+    }, {
       "id" : "workflows.user.folder.export",
       "category" : "wax-insights",
       "description" : "This event can be used by any admin or security team member to monitor when a user exports a folder from the Workflows platform. The payload provides information on the user that exported the folder and the folder that was exported. Other folder lifecycle events include: workflows.user.folder.create, workflows.user.folder.delete, workflows.user.folder.import, and workflows.user.folder.rename. Note that this event fires for the exported folder and recursively for each subfolder contained within the exported folder depending on the user's selection. Subsequent workflows.user.flow.export and workflows.user.table.schema.export events will fire for each flow and table exported within each exported folder. Additional folder information can be found in the debug context field.",
@@ -20247,8 +20406,8 @@
           }
         }
       },
-      "AccessRequestDebugData" : {
-        "name" : "AccessRequestDebugData",
+      "AccessRequestRequestDebugData" : {
+        "name" : "AccessRequestRequestDebugData",
         "properties" : {
           "trace_id" : {
             "type" : "String",
@@ -20425,6 +20584,30 @@
             "customer" : false,
             "format" : "id",
             "examples" : [ "X2VCdlgDiOx8wuRzdWiZ6gAABOk", "X04hrZh4mEb9dgc6GkD5@AAACPU" ]
+          },
+          "requested_for_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "okta:appUserId",
+            "examples" : [ "00u1fsrfRoOR8kbZv0g4", "00urwnivsyU2CzqJu0h7" ]
+          },
+          "access_request_matched_condition_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "rcoaxeiaDtfnuCTFx0g4" ]
+          },
+          "access_request_approval_sequence_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "12ab2db568c7c300079fefd0" ]
           },
           "requested_resource_id" : {
             "type" : "String",
@@ -28977,6 +29160,14 @@
             "customer" : false,
             "format" : "id",
             "examples" : [ "X2VCdlgDiOx8wuRzdWiZ6gAABOk", "X04hrZh4mEb9dgc6GkD5@AAACPU" ]
+          },
+          "resource_collection_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "col1q2MG1jbsEamBO0g3", "col1q2MG1jbsEamBO0g0" ]
           },
           "grant_action" : {
             "type" : "String",
@@ -44417,6 +44608,19 @@
           }
         }
       },
+      "DeviceTokenEnrollmentCreateDetails" : {
+        "name" : "DeviceTokenEnrollmentCreateDetails",
+        "properties" : {
+          "device_create_platform" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "macOS", "Android", "iOS", "Windows" ]
+          }
+        }
+      },
       "DeviceTrustResourceDetails" : {
         "name" : "DeviceTrustResourceDetails",
         "properties" : {
@@ -47277,6 +47481,14 @@
       "DesktopMFASettingsChangeDetailsEntry" : {
         "name" : "DesktopMFASettingsChangeDetailsEntry",
         "properties" : {
+          "desktop_mfa_extended_device_sso_setting" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "ENABLED", "DISABLED" ]
+          },
           "desktop_mfa_enforce_number_matching_challenge_setting" : {
             "type" : "String",
             "sensitive" : false,
@@ -47423,6 +47635,27 @@
             "customer" : false,
             "format" : "integer",
             "examples" : [ "1", "60" ]
+          }
+        }
+      },
+      "IAMPolicyConfigurationChangeDetailsEntry" : {
+        "name" : "IAMPolicyConfigurationChangeDetailsEntry",
+        "properties" : {
+          "thirdPartyAdminSetting" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
+          "autoAssignAdminAppSetting" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
           }
         }
       },
