@@ -10,12 +10,11 @@ title: Okta Classic Engine API release notes 2024
 
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
-| [Create dynamic resource sets with conditions is EA in Preview](#create-dynamic-resource-sets-with-conditions-is-ea-in-preview) | November 6, 2024 |
-| [Give access to Okta Support is GA in Production](#give-access-to-okta-support-is-ga-in-production) | November 6, 2024 |
-| [Restrict access to the Admin Console is EA in Preview](#restrict-access-to-the-admin-console-is-ea-in-preview) | November 6, 2024 |
+| [Create dynamic resource sets with conditions is EA in Preview](#create-dynamic-resource-sets-with-conditions-is-ea-in-preview) | November 7, 2024 |
+| [Give access to Okta Support is GA in Production](#give-access-to-okta-support-is-ga-in-production) | November 7, 2024 |
 | [Seamless ISV experience for SCIM is GA in Production](#seamless-isv-experience-for-scim-is-ga-in-production) | October 9, 2024 |
-| [Test app integrations in the OIN Wizard](#test-app-integrations-in-the-oin-wizard) | November 6, 2024 |
-| [Bugs fixed in 2024.11.0](#bugs-fixed-in-2024-11-0)| November 6, 2024 |
+| [Test app integrations in the OIN Wizard](#test-app-integrations-in-the-oin-wizard) | November 7, 2024 |
+| [Bugs fixed in 2024.11.0](#bugs-fixed-in-2024-11-0)| November 7, 2024 |
 
 #### Create dynamic resource sets with conditions is EA in Preview
 
@@ -36,12 +35,6 @@ Using these settings, admins can select the right level of Support access for th
 <!-- * [Update an Okta Support case](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingSupport/#tag/OrgSettingSupport/operation/updateOktaSupportCase) -->
 
 <!-- You can’t use the [Extend](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingSupport/#tag/OrgSettingSupport/operation/extendOktaSupport), [Grant](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingSupport/#tag/OrgSettingSupport/operation/grantOktaSupport), or [Revoke](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingSupport/#tag/OrgSettingSupport/operation/revokeOktaSupport) Okta Support access endpoints without an associated Okta Support case.<!-- OKTA_SUPPORT_IMPERSONATION_GRANTS (OKTA-822280) -->
-
-#### Restrict access to the Admin Console is EA in Preview
-
-By default, users and groups with assigned admin roles have access to the Admin Console app. With this feature, super admins can choose to manually assign the app to delegated admins instead. This is recommended for orgs with admins who don't need access, like business partners, third-party admins, or admins who only use the Okta API.
-
-<!-- See [Administrator settings](https://help.okta.com/okta_help.htm?type=oie&id=administrator-settings) and the corresponding APIs: [Retrieve the Okta Admin Console Assignment Setting](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingAdmin/#tag/OrgSettingAdmin/operation/getAutoAssignAdminAppSetting) and [Update the Okta Admin Console Assignment Setting](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingAdmin/#tag/OrgSettingAdmin/operation/updateAutoAssignAdminAppSetting). <!-- OKTA-717742 ADMIN_APP_AND_ROLE_DECOUPLING -->
 
 #### Seamless ISV experience for SCIM is GA in Production
 

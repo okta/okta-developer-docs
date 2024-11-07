@@ -19757,7 +19757,7 @@
         "created" : "2024-03-01",
         "release" : "2024.11.0"
       },
-      "beta" : false,
+      "beta" : true,
       "internal" : false,
       "tags" : [ "workflows" ],
       "mappings" : [ ],
