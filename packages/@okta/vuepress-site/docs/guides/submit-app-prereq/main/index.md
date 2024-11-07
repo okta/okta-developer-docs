@@ -114,7 +114,7 @@ For Identity Engine orgs, the default authentication policy requires MFA. Use th
 1. Select **Password only** from the **Authentication policy** dropdown menu.
 1. Click **Save**.
 
-The OIN Submission Tester only supports a password authentication flow. Therefore, use a password-only authentication policy for all your test app instances generated from the OIN Wizard.
+The OIN Submission Tester only supports a password authentication flow. Use a password-only authentication policy for all your test app instances generated from the OIN Wizard.
 
 #### Troubleshoot the OIN Submission Tester
 
@@ -511,9 +511,11 @@ In addition to the general OIN limitations, the following are limitations specif
 * You can only submit SCIM 2.0 integrations through the OIN Wizard.
 
 * Integrations with Basic Authentication to the SCIM server aren't supported in the OIN Wizard.
-  > **Note:** You can't update a published SCIM integration with Basic Authentication. This breaks the integration for existing customers. You must submit a new SCIM integration that implements header (or bearer) token authentication or OAuth 2.0 authentication.
 
-* The OIN Wizard only supports integrations with header or bearer token authentication or OAuth 2.0 authentication to the SCIM server.
+* The OIN Wizard only supports integrations with header authentication or OAuth 2.0 authentication to the SCIM server. Header authentication can use token or bearer token format.
+
+  > **Note:** You can't update a published SCIM integration with Basic Authentication. This breaks the integration for existing customers. If you need to edit a published integration with Basic Authentication, submit a new SCIM integration that implements header or OAuth 2.0 authentication.
+
 * OIN SCIM integrations with OAuth 2.0 authentication don't support dynamic consumer key and secret. The consumer key and secret values are common for all customer tenants.
 
 ## Next step

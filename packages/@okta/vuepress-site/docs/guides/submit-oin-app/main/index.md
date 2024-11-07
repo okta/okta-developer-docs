@@ -574,7 +574,7 @@ To update a previously published OIN integration:
 
 * For published integrations that were migrated from the OIN Manager, if you need to update configured properties that aren't available the OIN Wizard, contact <oin@okta.com>.
 
-* You can't update a published SCIM integration with Basic Authentication. This breaks the integration for existing customers. For any updates, you must submit a new SCIM integration that implements header (or bearer) token authentication or OAuth 2.0 authentication.
+* You can't update a published SCIM integration with Basic Authentication. This breaks the integration for existing customers. For any updates, you must submit a new SCIM integration that implements header authentication or OAuth 2.0 authentication. You can use either token or bearer token format for header authentication.
 
 * If you edit a published SCIM integration that was migrated from the OIN Manager, the **Import users** (and **Import groups** if groups are managed) capability is automatically enabled in the OIN Wizard. You must support and test this capability if your previous SCIM integration didn't support it. If you need help with implementing this feature, contact <developers@okta.com>.
 
