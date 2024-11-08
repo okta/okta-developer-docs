@@ -228,7 +228,7 @@ The following specific features are no longer supported, and you can't configure
 
 * `features.multiOptionalFactorEnroll`: Allowed users to enroll in multiple optional factors before they finished the authentication flow. The [MFA enrollment and rules](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-mfa-enrol-policies) are evaluated by default when applicable.
 
-* `features.registration`: Displayed the registration section in the primary auth page. The [profile enrollment policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-profile-enrollment) are evaluated by default when applicable.
+* `features.registration`: Displayed the registration section in the primary auth page. The [user profile policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-profile-enrollment) are evaluated by default when applicable.
 
 * `features.idpDiscovery`: Enabled IdP Discovery when the user signed in. The [Identity Provider routing rules](https://help.okta.com/okta_help.htm?id=ext_Identity_Provider_Discovery) are evaluated by default when applicable.
 
@@ -261,9 +261,9 @@ Developers can't subscribe to the `processCreds` hook in the Sign-In Widget.
 
 Existing registration inline hooks may experience compatibility issues after migrating to Identity Engine due to changes in the Okta registration inline hook request. Your app may require code updates to consume the new request format properly.
 
-In the Admin Console, where you enable a registration inline hook has changed. Enable the hook from the Profile Enrollment Rules page (**Security** > **Profile Enrollment**) instead of the Self-Service Registration page (**Self-service Directory** > **Self-Service Registration**). The creation of the registration inline hook remains the same. You can use either the Admin Console or Inline Hook Management APIs.
+In the Admin Console, where you enable a registration inline hook has changed. Enable the hook from the Profile Enrollment Rules page (**Security** > **User Profile Policies**) instead of the Self-Service Registration page (**Self-service Directory** > **Self-Service Registration**). The creation of the registration inline hook remains the same. You can use either the Admin Console or Inline Hook Management APIs.
 
-See [Registration hooks API reference](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/create-registration-hook) and [Manage Profile Enrollment Policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-profile-enrollment).
+See [Registration hooks API reference](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/InlineHook/#tag/InlineHook/operation/create-registration-hook) and [Configure user profile policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-profile-enrollment).
 
 ### Security image
 

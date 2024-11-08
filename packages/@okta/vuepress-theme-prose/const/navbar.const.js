@@ -379,6 +379,10 @@ export const guides = [
             guideName: "configure-signon-policy"
           },
           {
+            title: "Multiple identifiers",
+            guideName: "multiple-identifiers"
+          },
+          {
             title: "Okta account management policy",
             guideName: "okta-account-management-policy"
           },

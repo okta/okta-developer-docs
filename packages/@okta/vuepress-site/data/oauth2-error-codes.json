@@ -1,6 +1,6 @@
 {
-  "release" : "2024.10.1",
-  "build" : "2024.10.1-begin-177-g6de143891e6f",
+  "release" : "2024.11.1",
+  "build" : "2024.11.1-begin-134-g9128555f25d7",
   "errors" : [ {
     "title" : "Access denied",
     "statusCode" : 403,
@@ -267,6 +267,13 @@
     "internalErrorCode" : "link_denied_group",
     "errorCode" : "access_denied",
     "errorDescription" : "User linking was denied because the user is not in any of the specified groups."
+  }, {
+    "title" : "Link denied user",
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "internalErrorCode" : "link_denied_user",
+    "errorCode" : "access_denied",
+    "errorDescription" : "User linking was denied because the user is not allowed by the account linking filters."
   }, {
     "title" : "Link denied callout",
     "statusCode" : 403,

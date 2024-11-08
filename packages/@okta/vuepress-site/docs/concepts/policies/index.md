@@ -40,7 +40,7 @@ A [password policy](#password-policies) also helps you control how users access 
 
 You can create an [authenticator enrollment policy](#authenticator-enrollment-policies). For example, prompt users to enroll in a factor the first time they sign in. You can also define conditions that trigger additional authentication challenges, like when users attempt to access your app from a country they've never signed in from before.
 
-You can create custom forms for your sign-in flows with [profile enrollment policies](#profile-enrollment-policies). This allows you to progressively build user profiles by collecting profile data incrementally as end users engage with your app.
+You can create custom forms for your sign-in flows with [user profile policies](#user-profile-policies). This allows you to progressively build user profiles by collecting profile data incrementally as end users engage with your app.
 
 ### Control which app can access what information from your APIs
 
@@ -134,9 +134,9 @@ Enable factors in your Okta org by creating a policy with one or more authentica
 
 See [Authenticator enrollment policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-mfa-enrol-policies) for additional information on MFA authentication, enrollment policies, and rules.
 
-#### Profile enrollment policies
+#### User profile policies
 
-The [Profile enrollment policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy) collects the attributes required to validate users when they attempt to access your app. Use this policy for [self-service registration](/docs/guides/oie-embedded-sdk-use-case-self-reg/android/main/) or for [progressive enrollment](https://help.okta.com/okta_help.htm?type=oie&id=ext-pe-policies).
+The [User profile policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy) collects the attributes required to validate users when they attempt to access your app. Use this policy for [self-service registration](/docs/guides/oie-embedded-sdk-use-case-self-reg/android/main/) or for [progressive enrollment](https://help.okta.com/okta_help.htm?type=oie&id=ext-pe-policies).
 
 With self-service registration flows, users register and activate their profiles by clicking a sign-up link in the Sign-In Widget or through a custom-embedded authentication solution.
 
