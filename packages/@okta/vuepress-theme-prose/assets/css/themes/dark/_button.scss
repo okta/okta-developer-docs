@@ -14,4 +14,8 @@
   background-color: cv("body", "obscure");
 
   color: cv("text", "base");
+
+  > span {
+    outline: none !important;
+  }
 }

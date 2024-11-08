@@ -196,6 +196,10 @@
   @include media("<tablet") {
     padding: 0 12px;
   }
+
+  > span {
+    outline: none !important;
+  }
 }
 
 .Button--blueOutline {
