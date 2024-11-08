@@ -3,7 +3,7 @@
    To handle empty `companyId` values, you can define the base URL as:
 
    ```js
-   'https://fruits.example.com/scim2/' + (String.len(app.companyId) == 0 ? 'myapp/' : 'myapp?connection=' + app.companyId)
+   'https://fruits.example.com/scim2/myapp' + (String.len(app.companyId) == 0 ? '/' : '?connection=' + app.companyId)
    ```
 
    This expression handles scenarios where `companyId` is populated or empty.

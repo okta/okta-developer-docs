@@ -31,7 +31,7 @@ Review the following submission artifact guidelines:
 
 Before you submit your integration, ensure that your integration uses features that are supported in the OIN. See [OIN multi-tenancy](#oin-multi-tenancy) and [OIN limitations](#oin-limitations).
 
-See [OIN Wizard requirements](#oin-wizard-requirements) for publishing Single Sign-On (SSO) integrations.
+See [OIN Wizard requirements](#oin-wizard-requirements) for publishing Single Sign-On (SSO) or System for Cross-domain Identity Management (SCIM) integrations.
 
 ## OIN multi-tenancy
 
@@ -104,7 +104,7 @@ After you installed the Okta Browser Plugin in your Chrome browser, set **Allow 
 
 > **Note:** These instructions only apply to Identity Engine Developer Edition orgs. If you're not sure which solution you're using, check the footer on any page of the Admin Console. The version number is appended with **E** for Identity Engine orgs and **C** for Classic Engine orgs.
 
-The OIN Wizard testing phase uses a plugin app called the **Okta OIN Submission Tester**, which is preinstalled in your Developer Edition org. This app requires a password-only authentication policy to run properly.
+The OIN Wizard testing phase uses a plugin app called the **Okta OIN Submission Tester**, which is preinstalled in your Okta Developer Edition org. This app requires a password-only authentication policy to run properly.
 
 For Identity Engine orgs, the default authentication policy requires MFA. Use the pre-configured **Password only** authentication policy that is included in your Okta Developer Edition org for the Okta OIN Submission Tester app.
 
@@ -114,7 +114,7 @@ For Identity Engine orgs, the default authentication policy requires MFA. Use th
 1. Select **Password only** from the **Authentication policy** dropdown menu.
 1. Click **Save**.
 
-The OIN Submission Tester only supports a password authentication flow, so you need to use a password-only authentication policy for all your test app instances generated from the OIN Wizard.
+The OIN Submission Tester only supports a password authentication flow. Use a password-only authentication policy for all your test app instances generated from the OIN Wizard.
 
 #### Troubleshoot the OIN Submission Tester
 
@@ -172,7 +172,7 @@ The submitted app logo must conform to the following:
 
 The app descriptions must be less than 1024 characters and should describe the value that you provide to customers by partnering with Okta. The app description appears in the OIN catalog under the **Integration detail** > **Overview** section of your published integration.
 
-##### Single Sign-On (SSO) app description example
+##### SSO app description example
 
 Acme is a CMR platform that helps modern businesses thrive. A platform that connects different departments, from accounting to sales to customer service, in a centralized manner. The Okta Acme integration allows customers to sign in to the Acme platform, using Okta as a Single Sign-On provider.
 
@@ -386,8 +386,8 @@ For some integrations, the customer admin needs to configure SAML settings in yo
 The SAML setting is complete in {appName}.
 ```
 
-> **Note:** Your app integration may require specific SAML settings than the SAML **Metadata URL** (such as **Sign on URL**, **Sign out URL**, **Issuer**, or **Signing Certificate** settings).
-> You can find these SAML settings at **Applications** > **Applications** > your SAML app > **Sign-On Options** tab > **Sign on methods** > **SAML 2.0** > **Metadata details** in the Admin Console. See [Configure Single Sign-On options](https://help.okta.com/okta_help.htm?type=oie&id=ext_Apps_Overview_of_Managing_Apps_and_SSO). Adjust your configuration guide as required from the example template.
+> **Note:** Your app integration may require specific SAML settings instead of the SAML **Metadata URL**. These SAML settings include **Sign on URL**, **Sign out URL**, **Issuer**, and **Signing Certificate**.<br>
+> You can find these SAML settings at **Applications** > **Applications** > your SAML app > **Sign-On Options** tab > **Sign on methods** > **SAML 2.0** > **Metadata details** in the Admin Console. Adjust your configuration guide to include these settings as required.
 
 For a complete customer admin configuration guide example, see [How to Configure SAML 2.0 Template for admins](https://saml-doc.okta.com/SAML_Docs/How-to-Configure-SAML-2.0-Template-self.html).
 
@@ -472,41 +472,58 @@ You can't publish integrations with the following Okta features in the OIN catal
 
 * **Integration variables**: You can add up to three variables for per-tenant app-instance properties in the [OIN Wizard](/docs/guides/submit-oin-app/openidconnect/main/#integration-variables). If you need to edit more than three variables for a published integration, contact the OIN team at <oin@okta.com>.
 
-* **OIDC/OAuth 2.0 integration limitations:**
-  * You can't use a [custom authorization server](/docs/concepts/auth-servers/#custom-authorization-server) that includes the `default` server for an OIDC or API service integration. You can only use the [org authorization server](/docs/concepts/auth-servers/#org-authorization-server).
+### OIDC/OAuth 2.0 integration limitations
 
-  * You can't use the Okta SDKs to validate access tokens with the [org authorization server](/docs/concepts/auth-servers/#org-authorization-server).
+In addition to the general OIN limitations, the following are limitations specific to OIDC or OAuth 2.0 integrations:
 
-  * Refresh tokens aren't supported for SSO OIDC integrations published in the OIN.
-  * The `offline_access` scope isn't available because refresh tokens aren't supported for integrations published in the OIN.
-  * Custom scopes, such as the `groups` scope, aren't supported for integrations published in the OIN.
-  * Don't rely on the `email_verified` scope-dependent claim that an OIDC integration returns to evaluate whether a user has verified ownership of the email address that's associated with their profile.
+* You can't use a [custom authorization server](/docs/concepts/auth-servers/#custom-authorization-server) that includes the `default` server for an OIDC or API service integration. You can only use the [org authorization server](/docs/concepts/auth-servers/#org-authorization-server).
 
-* **SAML integration limitations**:
+* You can't use the Okta SDKs to validate access tokens with the [org authorization server](/docs/concepts/auth-servers/#org-authorization-server).
 
-  * SAML integrations must use SHA256 encryption for security. If you're using SHA-1 for encryption, see our guide on how to [Upgrade SAML Apps to SHA256](/docs/guides/updating-saml-cert/).
-  * You can only submit SAML 2.0 integrations in the OIN Wizard.
-  * The [OIN Wizard](/docs/guides/submit-oin-app/openidconnect/main/) places the following limitations on SAML 2.0 integration submissions:
+* Refresh tokens aren't supported for SSO OIDC integrations published in the OIN.
 
-    * Only one to three app instance variables are allowed.
-    * RelayState isn't supported.
-    * Force authentication (`ForceAuthn`) isn't supported.
+* The `offline_access` scope isn't available because refresh tokens aren't supported for integrations published in the OIN.
 
-    The OIN team maintains existing SAML integrations with advanced features not supported in the OIN Wizard. If you need to update your existing advanced SAML integration, contact the OIN team at <oin@okta.com>.
+* Custom scopes, such as the `groups` scope, aren't supported for integrations published in the OIN.
 
-* **SCIM integration limitations:**
-  * You can only submit SCIM 2.0 integrations through the OIN Wizard.
-  * Integrations with basic authentication to the SCIM server aren't supported in the OIN Wizard.
-  * The OIN Wizard only supports integrations with header or bearer token authentication or OAuth 2.0 authentication to the SCIM server.
-  * OIN SCIM integrations with OAuth 2.0 authentication don't support dynamic consumer key and secret. The consumer key and secret values are common for all customer tenants.
+* Don't rely on the `email_verified` scope-dependent claim that an OIDC integration returns to evaluate whether a user has verified ownership of the email address that's associated with their profile.
 
-<ApiAmProdWarning />
+### SAML integration limitations
+
+In addition to the general OIN limitations, the following are limitations specific to SAML integrations:
+
+* SAML integrations must use SHA256 encryption for security. If you're using SHA-1 for encryption, see our guide on how to [Upgrade SAML Apps to SHA256](/docs/guides/updating-saml-cert/).
+
+* You can only submit SAML 2.0 integrations in the OIN Wizard.
+
+* The [OIN Wizard](/docs/guides/submit-oin-app/openidconnect/main/) places the following limitations on SAML 2.0 integration submissions:
+
+  * Only one to three app instance variables are allowed.
+  * RelayState isn't supported.
+  * Force authentication (`ForceAuthn`) isn't supported.
+
+The OIN team maintains existing SAML integrations with advanced features not supported in the OIN Wizard. If you need to update your existing advanced SAML integration, contact the OIN team at <oin@okta.com>.
+
+### SCIM integration limitations
+
+In addition to the general OIN limitations, the following are limitations specific to SCIM integrations:
+
+* You can only submit SCIM 2.0 integrations through the OIN Wizard.
+
+* Integrations with Basic Authentication to the SCIM server aren't supported in the OIN Wizard.
+
+* The OIN Wizard only supports integrations with header authentication or OAuth 2.0 authentication to the SCIM server. Header authentication can use token or bearer token format.
+
+  > **Note:** You can't update a published SCIM integration with Basic Authentication. This breaks the integration for existing customers. If you need to edit a published integration with Basic Authentication, submit a new SCIM integration that implements header or OAuth 2.0 authentication.
+
+* OIN SCIM integrations with OAuth 2.0 authentication don't support dynamic consumer key and secret. The consumer key and secret values are common for all customer tenants.
 
 ## Next step
 
 Ready to submit your app? See the following submission guides:
 
-* [Submit an SSO integration](/docs/guides/submit-oin-app/openidconnect/main/)
+* [Submit an OIDC integration](/docs/guides/submit-oin-app/openidconnect/main/)
+* [Submit a SAML 2.0 integration](/docs/guides/submit-oin-app/saml2/main/)
 * [Submit a SCIM integration](/docs/guides/submit-oin-app/scim/main/)
 * [Submit a Workflows connector integration](/docs/guides/submit-app/wfconnector/main/)
 * [Submit an API service integration](/docs/guides/build-api-integration/main/#register-your-api-service-integration)
