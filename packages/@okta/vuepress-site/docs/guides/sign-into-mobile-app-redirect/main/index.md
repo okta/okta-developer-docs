@@ -1,10 +1,10 @@
 ---
-title: Sign users in to your mobile app using the redirect model
+title: Sign in to your mobile app
 excerpt: Configure your Okta org and your mobile app to use Okta's redirect sign-in flow.
 layout: Guides
 ---
 
-Add authentication using the Okta [redirect model](https://developer.okta.com/docs/concepts/redirect-vs-embedded/#redirect-authentication) to your mobile app. This example uses Okta as the user store.
+Add authentication to your mobile app using the Okta [redirect model](https://developer.okta.com/docs/concepts/redirect-vs-embedded/#redirect-authentication). This example uses Okta as the user store.
 
 ---
 
@@ -13,8 +13,7 @@ Add authentication using the Okta [redirect model](https://developer.okta.com/do
 * Create an integration that represents your app in your Okta org.
 * Add dependencies and configure your mobile app to use Okta.
 * Add a browser-based sign-in flow that Okta controls (redirect authentication).
-* Load the details of the signed in user.
-* Check for an existing authenticated session at app startup.
+* Load the details of the signed in user and check for an existing authenticated session at app startup.
 * Refresh tokens to keep the user signed in.
 * Make server calls using an access token for the session.
 * Test your integration by signing in as a user.
@@ -88,16 +87,17 @@ At this point, you can move to the next step: [Creating your app](#create-app). 
 
 > **Note:** These steps are the steps that the CLI performs when you create your app integration in Okta using the CLI.
 
-1. [Sign in to your Okta organization](https://developer.okta.com/login) with your administrator account.
-1. Click **Admin** on the top right of the page.
-1. Open the apps configuration pane by selecting **Applications** > **Applications**.
-1. Click **Create App Integration**.
+1. [Sign in to your Okta organization](https://developer.okta.com/login) with your administrator account. Click **Admin** on the top right of the page.
+1. Open the apps configuration pane by selecting **Applications** > **Applications**. Click **Create App Integration**.
 1. Select a **Sign-in method** of **OIDC - OpenID Connect**.
 1. Select an **Application type** of **Native Application**, then click **Next**.
    > **Note:** If you choose the wrong app type, it can break the sign-in or sign-out flows. Integrations require the verification of a client secret, which public clients don't have.
 1. Enter an **App integration name**.
-1. Enter the callback route for the **Sign-in redirect URIs**. This is the [full redirect URI](#define-a-callback-route) for your mobile app (for example, `com.okta.example:/callback`).
-1. Enter your callback route for the **Sign-out redirect URIs**. This is the [full redirect URI](#define-a-callback-route) for your mobile app (for example, `com.okta.example:/logout`).
+1. Enter the callback routes.
+
+   * For the **Sign-in redirect URIs**, enter the [full redirect URI](#define-a-callback-route) for your mobile app (for example, `com.okta.example:/callback`).
+   * For the **Sign-out redirect URIs**, enter the [full redirect URI](#define-a-callback-route) for your mobile app (for example, `com.okta.example:/logout`).
+
 1. Click **Save** to update the Okta app settings.
 
 ## Create an app
