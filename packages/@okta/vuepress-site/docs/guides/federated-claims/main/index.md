@@ -25,7 +25,9 @@ This guide describes how to configure your app to pass Identity Governance (IGA)
 
 ## Overview
 
-Currently, the way that Okta handles the persistence and generation of claims for tokens varies, depending on the protocol used. Only user attributes and group memberships are supported as claim types. 
+Currently, the persistence and generation of claims for tokens varies, depending on the protocol used. Only user attributes and group memberships are supported as claim types.
+
+
 
 The experience of configuring claims for both SAML and OIDC apps should be consistent. If an expression works for OIDC, it should work exactly the same way for a SAML app. The only difference should be the output format--tailored to the requirements of SAML rather than OIDC.
 
