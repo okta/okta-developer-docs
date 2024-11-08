@@ -39,6 +39,15 @@ The following operators and functionalities offered by SpEL aren't supported in 
 
 ## Reference attributes
 
+### Application entitlements
+
+When you create an Okta expression, you can reference entitlements within the appuser context.
+
+| Syntax                             | Definitions                                                                              | Examples                                                       |
+| --------                           | ----------                                                                               | ------------                                                   |
+| `appuser.entitlements.$attribute`  | `appuser` - implicit reference to in-context app entitlements<br>`$attribute` - the attribute variable name| `appuser.entitlements.role`<br>`user.status`<br>`user.created`   |
+
+
 ### Okta User Profile
 
 When you create an Okta expression, you can reference any property that exists in an Okta User Profile in addition to some top-level User properties.

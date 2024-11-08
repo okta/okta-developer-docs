@@ -4,7 +4,7 @@ excerpt: Learn how to implement federated claims with entitlements for an app
 layout: Guides
 ---
 
-Intro blurb here
+This guide describes how to configure your app to pass Identity Governance (IGA) entitlements to the Service Provider using federated claims. 
 
 ---
 
@@ -16,8 +16,8 @@ Intro blurb here
 #### What you need
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
-* The Identity Governance feature enabled for your org. Contact [Okta Support](https://support.okta.com) to enables this feature.
-* The Federated Claim Generation feature enabled for your org. To enable this feature, go to **Settings** > **Features**, locate the Federated Claim Generation feature and enable.
+* The Identity Governance feature enabled for your org. Contact [Okta Support](https://support.okta.com) to enable this feature.
+* The Federated Claim Generation Layer feature enabled for your org. To enable this feature, go to **Settings** > **Features**, locate the Federated Claim Generation Layer feature and enable.
 * An existing <SAML or OIDC> app
 * A test user assigned to the <app>
 
