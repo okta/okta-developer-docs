@@ -4,7 +4,11 @@ excerpt: Learn how to implement federated claims with entitlements for an app
 layout: Guides
 ---
 
-This guide describes how to configure your app to pass Identity Governance (IGA) entitlements to the Service Provider using federated claims. 
+This guide describes how to configure your app to pass Identity Governance (IGA) entitlements in your tokens to the Service Provider (SP) using federated claims.
+
+
+
+Federated Claims with entitlements and Federated Claims with user entitlements
 
 ---
 
@@ -25,43 +29,33 @@ This guide describes how to configure your app to pass Identity Governance (IGA)
 
 ## Overview
 
-Currently, the persistence and generation of claims for tokens varies, depending on the protocol used. Only user attributes and group memberships are supported as claim types.
+Currently, the persistence and generation of claims for tokens varies, depending on the protocol that you use. Only user attributes and group memberships are supported as claim types. The experience of configuring claims should work the same across protocols. The only difference should be the output format, which is tailored to the requirements of the protocol.
 
-
-
-The experience of configuring claims for both SAML and OIDC apps should be consistent. If an expression works for OIDC, it should work exactly the same way for a SAML app. The only difference should be the output format--tailored to the requirements of SAML rather than OIDC.
-
-A unified resolution for these inconsistencies is adding support for a new type of claim that can be consumed by all applications--federated claims generation. These claims take the form of the name of the claim and an expression (ELV3) to reference the principal information. The contexts currently available for reference are user profile attributes and appuser entitlements.
-
-An entitlement is a permission that allows users to take specific actions within a resource, such as a third-party app. Within the Identity Provider org (Okta), app entitlements help you manage different levels of permissions that users can perform within an app. They represent permissions that you have at the Service Provider.
+Federated claims create a more consistent experience for the configuration of claims for both SAML and OpenID Connect (OIDC) apps. Federated claims unifies the inconsistencies by adding support for a new type of claim that all apps can consume. This new claim type takes the form of the name of the claim and an [expression](/docs/reference/okta-expression-language-in-identity-engine/) to reference principal information. The contexts currently available for reference are `user` profile attributes and `appuser` entitlements. More about `user` profile attributes here. Then link them See the [Federated Claims with user entitlements](link).
 
 ### Entitlements
 
-Federated Claims with entitlements and Federated Claims with user entitlements
-
-Entitlements are a way to represent permissions that you have in the service provider.
-
-entitlements for the app within the IdP org is how you manage different levels of permissions that users can perform within an app.
-
-An entitlement is a permission that allows users to take specific actions within a resource, such as an app.
+An entitlement is a permission that allows users to take specific actions within a resource, such as a third-party app. Within the Identity Provider org (Okta), app entitlements help you manage different levels of permissions that users can perform within an app. They represent permissions that you have at the SP.
 
 There are three important properties associated with entitlements:
 
-name: Display name for an entitlement property. this is a human-friendly name that is mutable and for display purposes only. 
-externalValue: Value of an entitlement property (shown in the Admin Console as the Variable Name). Think of this property as the system/external representation of the entitlement, and that it’s immutable.
-parent: Representation of a resource (implicit in the Admin Console, as you can only act upon one AppInstance at a time). This is the resource that the entitlement is bound to, in this use case an AppInstance.
+`name`: The display name for an entitlement property. This is a human-friendly name that's editable and for display purposes only.
+`externalValue`: The value of an entitlement property. Think of this property as the system/external representation of the entitlement, and that it’s not editable. Use this value in your EL expression.
+`parent`: The representation of a resource. This is the resource that the entitlement is bound to, in this use case an AppInstance.
 
-> Note: See the [Entitlements API](https://preview.redoc.ly/okta-iga-internal/macya-fix-ts-gen/openapi/governance.api/tag/Entitlements/#tag/Entitlements/operation/listEntitlementValues) for more information on entitlements and the supported values.
+An additional attribute included with an entitlement is the value or values that it may contain. Values contained within an entitlement may be either a single string or an array of strings. These values have two important attributes, similar to the entitlement itself:
 
-An additional attribute included with an entitlement is the value(s) that it may contain. Values contained within an entitlement may be either a single string or an array of strings. These values have two important attributes:
+`name`: The display name of the value.
+`externalValue`: External system representation of the value.
 
-name: Display name of the value
-externalValue: External system representation
+When a user is assigned to an app that has entitlements configured, they may also be granted one or more entitlements. Each entitlement that they have been granted may have one or more values, depending on the entitlement definition (single value, multiple value, and so on). Two things need to be communicated to the downstream Service Provider (SP):
 
-When a user is assigned to an app that has entitlements configured, they may also be granted one or more entitlements. Each entitlement that they have been granted may have one or more values, depending on the entitlement definition (single value, multiple value, and so on). Two things need to be communcated to the downstream Service Provider (SP).
+* What entitlement the principal (user) has. This may be `entitlement.externalValue` or some other value required by the agreement between the SP and the app.
+* What specific values the principal (user) has for that entitlement (`entitlement.values[i].externalValue`)
 
-What entitlement the principal (user) has. This may be entitlement.externalValue or some other value required by the agreement between the SP and the app.
-What specific values the principal (user) has for that entitlement (entitlement.values[i].externalValue)
+### Expression Language and entitlements
+
+The integration of entitlements into [Expression Language in Identity Engine](/docs/reference/okta-expression-language-in-identity-engine/) is on the `appuser` context. When you [configure an entitlement claim for an app](#configure-an-entitlement-claim-for-the-app), the expression in EL states which entitlement the SP should evaluate for the principal and app. For example, if the `externalValue` of an entitlement property is `permission`, then your EL expression would be `appuser.entitlement.permission`, because `entitlement.externalValue == permission`. At evaluation time, the results of the expression are the values that the principal has been granted for the entitlement referenced in the expression.
 
 ## Update the app to use Identity Governance
 
@@ -77,7 +71,7 @@ Select **Enabled** to enable the Governance Engine, and then click **Save**. The
 2. On the **Entitlements** tab, click **Add Entitlement** and define the entitlement properties:
 
    * Enter a **Display name** for the entitlement. In this example flow, enter **Permission**. This is an editable property and for display purposes only.
-   * Enter a **Variable name** for the entitlement. In this example flow, enter **permission**. This is the external representation of the entitlement and isn't editable. Use this attribute in your Expression Language (EL) expression when you [configure the entitlement claim for your app](#configure-entitlement-claim-for-the-app).
+   * Enter a **Variable name** for the entitlement. In this example flow, enter **permission**. This is the external representation of the entitlement and isn't editable. Use this attribute in your Expression Language (EL) expression when you [configure an entitlement claim for the app](#configure-an-entitlement-claim-for-the-app).
    * Set the **Entitlement Type (Data Type)**. The entitlement can either be a static string (**String**) or a string array (**String Array**). In this example flow, select **String Array**.
    * Optional. Enter a **Description** of the entitlement.
 
@@ -107,7 +101,7 @@ Select **Enabled** to enable the Governance Engine, and then click **Save**. The
    > **Note:** If you have the Identity Threat Protection (ITP) feature enabled for your org, select the **Authentication** tab.
 
 1. Select **Add expression** to configure the user entitlement claim for the app.
-1. In the **Add expression** dialog, give the entitlement claim a name.
+1. In the dialog, give the entitlement claim a name.
 1. In the **Expression** field, enter `appuser.entitlements.permission` as the EL expression. The `permission` attribute is the variable name that you assigned when you [defined entitlements for the app](#define-entitlements-for-the-app).
 1. Click **Save**.
 
