@@ -1,6 +1,6 @@
 ### 1: Display the sign-in page
 
-Build a sign-in page that captures both the user's name and their password.
+Build a sign-in page that captures the user's name and password.
 
 <div class="half wireframe-border">
 
@@ -28,7 +28,7 @@ const transaction = await authClient.idx.authenticate({ username, password });
 
 #### Success status
 
-When the user correctly supplies their password, `IdxStatus` equals `IdxStatus.SUCCESS`. Call `tokenManager.setTokens()` to save the tokens retrieved from the response for future requests, and then redirect the user back to the home page. The user is now signed in.
+When the user successfully enters their password, `IdxStatus` is set to `IdxStatus.SUCCESS`. Use `tokenManager.setTokens()` to store the tokens received from the response for future requests, and then redirect the user to the home page. The user is now signed in.
 
 ```js
   const { nextStep, tokens, status, error, } = transaction;
