@@ -388,7 +388,7 @@ export const guides = [
           },
           { 
             title: "Keep me signed in (KMSI)",
-            guideName: "configure-keep-me-signed-in"
+            guideName: "keep-me-signed-in"
           },
           {
             title: "Test your access policies",

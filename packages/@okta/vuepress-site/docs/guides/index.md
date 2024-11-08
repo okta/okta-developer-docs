@@ -20,7 +20,6 @@ guides:
  - configure-amr-claims-mapping
  - configure-ciba
  - configure-direct-auth-grants
- - configure-keep-me-signed-in
  - configure-native-sso
  - configure-signon-policy
  - configure-user-scoped-account-management
@@ -49,6 +48,7 @@ guides:
  - implement-oauth-for-okta
  - implement-oauth-for-okta-serviceapp
  - implement-grant-type
+ - keep-me-signed-in
  - manage-orgs-okta-aerial
  - mfa
  - migrate-to-okta-prerequisites
