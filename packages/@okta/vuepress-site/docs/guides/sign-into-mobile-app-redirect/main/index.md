@@ -116,7 +116,12 @@ Add the required dependencies for using the Okta SDK with your app.
 
 ### Configure your app
 
-The app uses information from the Okta integration that you created earlier to configure communication with the API: redirect URI, post logout redirect URI, client ID, and issuer.
+The app uses information from the Okta integration that you created earlier to communicate with the API:
+
+* Redirect URI
+* Post logout redirect URI
+* Client ID
+* Issuer
 
 <StackSnippet snippet="configmid" />
 
@@ -141,7 +146,10 @@ Your mobile app is responsible for parsing the information Okta sends to the cal
 
 ## Open the sign-in page
 
-The SDK signs in the user by opening an Okta-hosted web page. The app may send the SDK sign-in request when a user visits a protected route or when they tap a button.
+The SDK signs in the user by opening an Okta-hosted web page. The app can send the SDK sign-in request when the following occurs:
+
+* A user visits a protected route.
+* A user taps a button.
 
 <StackSnippet snippet="opensignin" />
 
@@ -186,8 +194,8 @@ Enable a refresh token in your app integration by following these steps:
 
 Your own server API (a resource server in OAuth 2.0) uses the Okta-generated access token for the following:
 
-* To authenticate that the user is signed in
-* To ensure that the user is authorized to perform the action or access the information
+* To authenticate that the user is signed in.
+* To ensure that the user is authorized to perform the action or access the information.
 
 Use the access token by adding it to the HTTP `Authorization` header of outgoing requests in your mobile or other client using this format:
 
