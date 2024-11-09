@@ -15,7 +15,7 @@ Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 
 ### 2: Handle user submission
 
-When the user submits their `username` and `password`, pass them as parameters to [`OktaAuth.idx.authenticate()`](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#idxauthenticate).
+When the user signs in, pass the `username` and `password` as parameters to the [`OktaAuth.idx.authenticate()`](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#idxauthenticate) method.
 
 ```javascript
 const authClient = getAuthClient(req);
@@ -24,11 +24,11 @@ const transaction = await authClient.idx.authenticate({ username, password });
 
 ### 3: Handle authentication success
 
-`authenticate()` returns a `transaction` object with a `status` property indicating the current state of the sign-in flow. Handle the returned `IdxStatus` value accordingly:
+The `authenticate()` method returns a `transaction` object that includes a `status` property. The `status` property indicates the current state of the sign-in flow. You need to handle the success status and other authentication statuses.
 
 #### Success status
 
-When the user successfully enters their password, `IdxStatus` is set to `IdxStatus.SUCCESS`. Use `tokenManager.setTokens()` to store the tokens received from the response for future requests, and then redirect the user to the home page. The user is now signed in.
+When the user enters their password correctly, the `IdxStatus` value is `IdxStatus.SUCCESS`. Use the `tokenManager.setTokens()` method to store the tokens received from the response for future requests, then redirect the user to the home page. The user is now signed in.
 
 ```js
   const { nextStep, tokens, status, error, } = transaction;
@@ -49,7 +49,7 @@ When the user successfully enters their password, `IdxStatus` is set to `IdxStat
 
 #### Other authentication statuses
 
-Handle other returned `IdxStatus` cases if the user didn't sign in successfully or there are other factors to verify. For example:
+Handle other returned `IdxStatus` cases if the user didn't sign in successfully or there are other factors to verify. The following code sample handles different authentication statuses and executes specific actions in each case:
 
 ```js
 switch (status) {
