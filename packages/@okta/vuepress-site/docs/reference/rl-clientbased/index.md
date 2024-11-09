@@ -12,7 +12,7 @@ excerpt: >-
 
 * A client accessing a non-OAuth 2.0 application, which uses the IP address and device identifier for rate-limiting. This is the case for an Okta Classic Engine org `/login/login.htm` endpoint.
 
-The client access process can include requests to multiple API endpoints that differ based on your type of org: Okta Identity Engine or Classic Engine. The Identity Engine endpoints can include `/idp/idx`, `/idp/idx/identify`, `/idp/idx/introspect`, and [Identity Engine App intent links](/docs/concepts/oie-intro/#app-intent-links).
+The client access process can include requests to multiple API endpoints that differ based on your type of org: Okta Identity Engine or Classic Engine. The Identity Engine endpoints can include `/idp/idx`, `/idp/idx/identify`, `/idp/idx/introspect`, and [Identity Engine App intent links](/docs/concepts/oie-intro/#identity-engine-features).
 
 The Classic Engine and the Identity Engine both include client-based rate-limiting for the OAuth 2.0 API endpoint `/authorize`. This endpoint provides granular isolation for requests made to the OAuth 2.0 `/authorize` endpoint, and this framework isolates rogue OAuth 2.0 clients and bad actors, ensuring that valid users and applications don't run into rate limit violations.
 
