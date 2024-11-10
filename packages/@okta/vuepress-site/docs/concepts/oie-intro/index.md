@@ -2,24 +2,57 @@
 title: Okta Identity Engine overview
 meta:
   - name: description
-    content: Learn about Okta Identity Engine features, associated deployment models, and changes to the documentation experience.
+    content: Learn about Okta Identity Engine, including its features, deployment models, and upgrade pathway from Classic Engine.
 ---
 
 <ApiLifecycle access="ie" />
 
-Okta Identity Engine is an authentication pipeline that allows organizations to tailor their authentication processes for diverse identity use cases.
+Okta Identity Engine is an authentication pipeline that allows organizations to customize user journeys for diverse identity use cases.
 
-This guide introduces Identity Engine features, associated deployment models, and changes to Classic Engine and Identity Engine documentation experiences.
+This guide provides an overview of Identity Engine, detailing its features, deployment models, and upgrade pathway from Classic Engine.
 
-> **Note**: If you’re an admin, or are looking for product docs related to Identity Engine, see [Get started](https://help.okta.com/okta_help.htm?type=oie&id=ext-get-started-oie).
+> **Note**: If you’re an admin, or seeking product docs for Identity Engine, see [Get started](https://help.okta.com/okta_help.htm?type=oie&id=ext-get-started-oie).
 
-## Access and upgrade to Identity Engine
+## What is Identity Engine?
 
-As of March 1, 2022, all new [Okta orgs](/docs/concepts/okta-organizations/) are Identity Engine orgs. As a result, all new customers have access to [Identity Engine features](#identity-engine-features).
+Identity Engine enables you to create flexible, context-driven user journeys to accommodate different identity scenarios, while minimizing custom code.
+You can customize journeys using factors such as user attributes, device information, application details, network type, and user intent.
 
-If you're a Classic Engine customer looking to upgrade your apps to use Identity Engine, see [Identity Engine upgrade overview](/docs/guides/oie-upgrade-overview/).
+Identity Engine includes as a series of steps that cover the entire user journey, including registration, authentication, and authorization.
 
-For Classic Engine customers who don't yet want to upgrade, you can continue to use existing functionality, including your Classic Engine org, v1 API, and SDKs.
+### Customizing step behavior with components
+
+Identity Engine components enable different actions, including:
+
+- Evaluating policies
+- Triggering hooks
+- Publishing events
+- Prompting user actions
+- Directing users to external services
+
+Customizations can depend on the specific use case and context, allowing you to skip steps within the journey. You can also select different steps to run or skip for any application or point in the experience, resulting in varied identity paths.
+
+### Customizing user journeys
+
+Depending on the customizations you make, Okta can perform more actions within each step to move the user through their journey, including:
+
+- Emailing magic link authentication
+- Stepping up authentication
+- Gathering more information
+- Verifying or validating Identity
+- Customizing branding
+- Routing to an external system
+
+### Adding custom code with hooks
+
+Hooks allow for extensive use cases while using the security features of Identity Engine. Hooks enable you to add custom code to adjust processes and notify external services.
+
+You can use the following types of hooks:
+
+| Type | Description | Example |
+| :--- | :---------- | :------ |
+| [Inline hooks](/docs/concepts/inline-hooks/) | Incorporate custom logic directly into a component. | Modify an Okta process with customer logic. |
+| [Event hooks](/docs/concepts/event-hooks/) | Trigger downstream integrations based on events in the [Okta System Log](/docs/api/openapi/okta-management/management/tag/SystemLog/). | Notify an external system of an Okta event. |
 
 ## Identity Engine features
 
@@ -44,6 +77,14 @@ You can use the following deployment models for user authentication with Identit
 | [**Embedded SDK-driven sign-in flow**](/docs/guides/embedded-sdk-use-cases/)  | Use Okta SDKs to create a custom authentication experience. | High. This option is the most complex and leaves you with the most responsibility, but offers the most control. Okta provides [SDKs and sample apps](/code/) to help you integrate Identity Engine features into your apps. Learn how to [download and set up SDKs and sample apps](/docs/guides/oie-embedded-common-download-setup-app/android/main/). |
 
 For an overview of the different deployment models, see [Okta deployment models — redirect vs. embedded](/docs/concepts/redirect-vs-embedded/). For implementation details, see [Sign users in overview](/docs/guides/sign-in-overview/).
+
+## Access and upgrade to Identity Engine
+
+As of March 1, 2022, all new [Okta orgs](/docs/concepts/okta-organizations/) are Identity Engine orgs. As a result, new customers gain immediate access [Identity Engine features](#identity-engine-features).
+
+If you're a Classic Engine customer looking to upgrade your apps to use Identity Engine, see [Identity Engine upgrade overview](/docs/guides/oie-upgrade-overview/).
+
+For Classic Engine customers who don't yet want to upgrade, you can continue to use existing functionality, including your Classic Engine org, v1 API, and SDKs.
 
 ## Documentation approach
 
