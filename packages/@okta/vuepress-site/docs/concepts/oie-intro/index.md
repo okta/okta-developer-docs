@@ -39,13 +39,13 @@ Depending on the customizations you make, Okta can perform more actions within e
 - Emailing magic link authentication
 - Stepping up authentication
 - Gathering more information
-- Verifying or validating Identity
+- Verifying or validating identity
 - Customizing branding
 - Routing to an external system
 
 ### Adding custom code with hooks
 
-Hooks allow for extensive use cases while using the security features of Identity Engine. Hooks enable you to add custom code to adjust processes and notify external services.
+Hooks use the security features of Identity Engine. You can use hooks to add custom code that adjust processes and notifies external services.
 
 You can use the following types of hooks:
 
