@@ -2,23 +2,23 @@
 title: Okta Identity Engine overview
 meta:
   - name: description
-    content: Learn about Okta Identity Engine, including its features, deployment models, and upgrade pathway from Classic Engine.
+    content: Learn about Okta Identity Engine, including its features, deployment models, and upgrade pathways from Classic Engine.
 ---
 
 <ApiLifecycle access="ie" />
 
 Okta Identity Engine is an authentication pipeline that allows organizations to customize user journeys for diverse identity use cases.
 
-This guide provides an overview of Identity Engine, detailing its features, deployment models, and upgrade pathway from Classic Engine.
+This guide provides an overview of Identity Engine, detailing its features, deployment models, and upgrade pathways from Classic Engine.
 
-> **Note**: If you’re an admin, or seeking product docs for Identity Engine, see [Get started](https://help.okta.com/okta_help.htm?type=oie&id=ext-get-started-oie).
+> **Note**: If you’re an admin or seeking product docs for Identity Engine, see [Get started](https://help.okta.com/okta_help.htm?type=oie&id=ext-get-started-oie).
 
 ## What is Identity Engine?
 
 Identity Engine enables you to create flexible, context-driven user journeys to accommodate different identity scenarios, while minimizing custom code.
 You can customize journeys using factors such as user attributes, device information, application details, network type, and user intent.
 
-Identity Engine includes as a series of steps that cover the entire user journey, including registration, authentication, and authorization.
+Identity Engine consists of a series of steps that cover the entire user journey, including registration, authentication, and authorization.
 
 ### Customizing step behavior with components
 
@@ -45,7 +45,7 @@ Depending on the customizations you make, Okta can perform more actions within e
 
 ### Adding custom code with hooks
 
-Hooks use the security features of Identity Engine. You can use hooks to add custom code that adjust processes and notifies external services.
+Hooks use the security features of Identity Engine. You can use hooks to add custom code that adjusts processes and notifies external services.
 
 You can use the following types of hooks:
 
@@ -92,7 +92,7 @@ Okta is moving towards supporting Identity Engine by default in our documentatio
 
 * **Identity Engine content:** Content that applies to Identity Engine has a blue Identity Engine label.
 
-* **Identity Engine and Classic Engine content:** Content that applies to both Identity Engine and Classic Engine have no labels. The page text covers any slight differences.
+* **Identity Engine and Classic Engine content:** Content that applies to both Identity Engine and Classic Engine has no labels. The page text covers any slight differences.
 
 * **Classic Engine content:** Content that applies to Classic Engine has a note at the top of the page that provides context, including where Identity Engine customers can go to find support.
 
