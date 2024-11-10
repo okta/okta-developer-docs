@@ -15,10 +15,7 @@ This guide provides an overview of Identity Engine, detailing its features, depl
 
 ## What is Identity Engine?
 
-Identity Engine enables you to create flexible, context-driven user journeys to accommodate different identity scenarios, while minimizing custom code.
-You can customize journeys using factors such as user attributes, device information, application details, network type, and user intent.
-
-Identity Engine consists of a series of steps that cover the entire user journey, including registration, authentication, and authorization.
+Identity Engine consists of components that cover the entire user journey, including registration, authentication, and authorization. You can customize user journeys to accommodate user attributes, device information, application details, network type, and user intent.
 
 ### Customizing step behavior with components
 
@@ -37,7 +34,7 @@ Customizations can depend on the specific use case and context, allowing you to 
 Depending on the customizations you make, Okta can perform more actions within each step to move the user through their journey, including:
 
 - Emailing magic link authentication
-- Stepping up authentication
+- Escalating authentication requirements
 - Gathering more information
 - Verifying or validating identity
 - Customizing branding
@@ -45,7 +42,7 @@ Depending on the customizations you make, Okta can perform more actions within e
 
 ### Adding custom code with hooks
 
-Hooks use the security features of Identity Engine. You can use hooks to add custom code that adjusts processes and notifies external services.
+Okta hooks use the security features of Identity Engine. You can use hooks to add custom code that adjusts processes and notifies external services.
 
 You can use the following types of hooks:
 
@@ -53,6 +50,20 @@ You can use the following types of hooks:
 | :--- | :---------- | :------ |
 | [Inline hooks](/docs/concepts/inline-hooks/) | Incorporate custom logic directly into a component. | Modify an Okta process with customer logic. |
 | [Event hooks](/docs/concepts/event-hooks/) | Trigger downstream integrations based on events in the [Okta System Log](/docs/api/openapi/okta-management/management/tag/SystemLog/). | Notify an external system of an Okta event. |
+
+### Example use cases
+
+Some use cases that you can build with Identity Engine include:
+
+- Authenticating a user with an email magic link
+- Allowing access to an app with no authentication
+- Never requiring enrollment of a password as a factor
+- Requiring enrollment in SMS as a factor before making a large checking account withdrawal
+- Faking email validation
+- Preventing fake account creation
+- Detecting username collisions when importing from any source and fixing with custom logic
+- Sending a welcome email for new hires, separate from the Okta new account email
+- Prompting users to increase their security posture by enrolling in multifactor authentication
 
 ## Identity Engine features
 
