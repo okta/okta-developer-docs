@@ -179,6 +179,10 @@
   white-space: nowrap;
   color: cv("blue", "900");
 
+  > span {
+    outline: none !important;
+  }
+
   &:active,
   &:hover {
     border-color: cv("blue", "900");
