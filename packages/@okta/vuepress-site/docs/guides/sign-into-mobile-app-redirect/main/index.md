@@ -32,7 +32,7 @@ Set up your [Okta org](/docs/concepts/okta-organizations/). The Okta command-lin
 1. If you don't already have a free Okta developer account:
    1. Open your terminal.
    [[style="list-style-type:lower-alpha"]]
-   1. Run `okta register`, and enter your first name, family name, email address, and country.
+   1. Run `okta register`, and enter your first name, last name, email address, and country.
    1. Tap **Activate** in the account activation email that is sent to the email address that you gave.
 
       > **Tip**: If you don't receive the confirmation email sent as part of the creation process, check your spam filters for an email from `noreply@okta.com`
