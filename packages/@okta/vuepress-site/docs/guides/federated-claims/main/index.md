@@ -18,8 +18,10 @@ This guide describes how to configure your app to pass Identity Governance entit
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
 * The Identity Governance feature enabled for your org. Contact [Okta Support](https://support.okta.com) to enable this feature.
 * The Federated Claim Generation Layer feature enabled for your org. To enable this feature, go to **Settings** > **Features**, locate the Federated Claim Generation Layer feature and enable.
-* An existing <SAML or OIDC> app
-* A test user assigned to the <app>
+* An existing <StackSnippet snippet="need" inline /> app
+* A test user assigned to the <StackSnippet snippet="need" inline /> app.
+
+
 
 ---
 
@@ -136,7 +138,9 @@ The following sections are an example flow for setting up and using entitlements
 
 ## Test the flow
 
-Access the <SAML or OIDCS> app from the End-User Dashboard and sign in as your test user. Use your browser's Dev Tools window or some other tool to extract the <SAML response or ID token>. Then, use a tool such as the [SAML Tokens tool](https://samltool.io/) to view the attribute statement with the included permissions that you assigned to the test user.
+<Access the SAML app from the End-User Dashboard and sign in as your test user. Use your browser's Dev Tools window or some other tool to extract the <SAML response or ID token>. Then, use a tool such as the [SAML Tokens tool](https://samltool.io/) to view the attribute statement with the included permissions that you assigned to the test user.>
+
+<Obtain an ID token by making the appropriate authorization requests, depending on the grants that you enabled for your app. Then, use a tool such as [jwt.io](https://jwt.io/) to decode the ID token and view the entitlements that you configured for the app.>
 
 SAML example/OIDC example
 
@@ -151,4 +155,27 @@ SAML example/OIDC example
                 </saml2:AttributeValue>
             </saml2:Attribute>
         </saml2:AttributeStatement>
+```
+
+
+```JSON
+{
+  "sub": "00u47ijy7sRLaeSdC0g7",
+  "ver": 1,
+  "iss": "https://sharper.trexcloud.com",
+  "aud": "0oa87r54wrFDQZM2z0g7",
+  "iat": 1731539752,
+  "exp": 1731543352,
+  "jti": "ID.0483Z8YWB5FK6a-QQeP7JGyU1_OIGazHJ74_T2rx758",
+  "amr": [
+    "pwd"
+  ],
+  "idp": "00o47ijbqfgnq5gj00g7",
+  "auth_time": 1731532528,
+  "at_hash": "7bSvZiSZ_h28NNAnYEVORA",
+  "PermissionAssignment": [
+    "Read",
+    "Write"
+  ]
+}
 ```
