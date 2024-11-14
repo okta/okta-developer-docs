@@ -15,7 +15,7 @@ If you're an integrator, from an independent software vendor (ISV) or an existin
 
 Okta introduced a seamless experience to submit SSO and SCIM integrations for OIN publication. This new experience enables you to build and test your integration before submission directly from the Admin Console with the new [OIN Wizard](/docs/guides/submit-oin-app/). This reduces the tools that you need to build, test, and submit your integration. Moreover, it reduces the time needed for the OIN team to review and validate your integration, which shortens the time to publish in the OIN.
 
-You can also submit an update to a previously published SSO or SCIM integration in the OIN Wizard.
+You can also submit updates to a previously published SSO or SCIM integration in the OIN Wizard.
 
 For Workflows connector or API service integrations, you need to use the [OIN Manager](https://oinmanager.okta.com/) for submission.
 
