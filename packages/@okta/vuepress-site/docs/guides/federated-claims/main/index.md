@@ -25,13 +25,13 @@ This guide describes how to configure your app to pass entitlements in your toke
 
 ## Overview
 
-Federated claims create a more consistent experience for the configuration of claims across protocols. They unify the inconsistencies in the persistence and generation of token claims by adding support for a claim type that all apps can consume.
+Federated claims create a more consistent experience for the configuration of claims across protocols. These claims unify the inconsistencies in both the persistence and the generation of token claims because they can be consumed by apps with different protocols.
 
-A federated claim takes the form of a claim name and an [expression](/docs/reference/okta-expression-language-in-identity-engine/) that references principal (user) information. The claim is included in tokens produced by federation protocols. Okta supports SAML and OpenID Connect (OIDC) apps. Federated claims appear in either an OIDC ID token or a SAML assertion.
+A federated claim takes the form of an entitlement claim that contains a name and an [expression](/docs/reference/okta-expression-language-in-identity-engine/) that references principal (user) information. The claim is included in tokens produced by federation protocols. Okta supports SAML and OpenID Connect (OIDC) apps. Federated claims are inserted into either an OIDC ID token or a SAML assertion.
 
 ### Entitlements
 
-An entitlement is a permission that allows users to take specific actions within a resource, such as a third-party app. Within the Identity Provider org (Okta), app entitlements help you manage different levels of permissions that users can perform within a third-party app.
+An entitlement is a permission that allows users to take specific actions within a resource, such as a third-party app. In the Identity Provider org (Okta), app entitlements help you manage different levels of permissions that users can perform within a third-party app.
 
 When a user is assigned to an app that's configured to use entitlements, they may be granted one or more entitlements. Each entitlement that they're granted may have one or more values, depending on the entitlement definition (**String** or **String Array**).
 
