@@ -69,6 +69,8 @@ Customer admins were previously unable to enroll and ship YubiKeys as WebAuthn e
 
 * The apps API didn't reveal information about SAML encryption configuration. (OKTA-801368)
 
+* Admins who only had the **View applications and their details** and **Run imports** permissions could deactivate apps. (OKTA-798693)
+
 ## October
 
 ### Weekly release 2024.10.1
