@@ -14,7 +14,7 @@ This overview covers the following topics:
 
 * New features of Identity Engine
 * Supported deployment models
-* Documentation changes to support Identity Engine
+* Documentation changes to support the Identity Engine
 
 > **Note**: For admin, or those who are looking for product documentation related to Identity Engine, see the Identity Engine [Get started page](https://help.okta.com/okta_help.htm?type=oie&id=ext-get-started-oie).
 
