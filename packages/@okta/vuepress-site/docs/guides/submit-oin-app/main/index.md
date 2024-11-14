@@ -541,9 +541,7 @@ After you've successfully completed the manual SCIM integration tests, see [Subm
 
 ## Update your integration
 
-You can modify your published SSO and SCIM integration in the OIN Wizard.
-
-> **Note:** All SSO integrations published from the OIN Manager have been migrated to the OIN Wizard. Okta is migrating all SCIM integrations previously published from the OIN Manager to the OIN Wizard. If you don't see your published SCIM integration in the **Your OIN Integrations** dashboard, go to the [OIN Manager](/docs/guides/submit-app/scim/main/#update-your-published-integration) to make any updates.
+You can modify your published SSO and/or SCIM integrations in the OIN Wizard.
 
 When you edit a published OIN integration, test the flows for the updated version and the published version for backwards compatibility. Testing the published version for backwards compatibility ensures that your integration still works for users who have already installed it. See [Update integration considerations](#update-integration-considerations) before you edit your published integration. After you successfully test the updated and published versions of your integration, resubmit it to the OIN team.
 
