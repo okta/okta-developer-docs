@@ -12,7 +12,7 @@ Okta Identity Engine is a new authentication pipeline that offers enhanced featu
 
 This overview covers the following topics:
 
-* New features of Identity Engine
+* New features of the Identity Engine
 * Supported deployment models
 * Documentation changes to support the Identity Engine
 
