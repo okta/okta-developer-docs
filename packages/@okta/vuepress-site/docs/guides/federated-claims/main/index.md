@@ -4,15 +4,13 @@ excerpt: Learn how to implement federated claims with entitlements for an app
 layout: Guides
 ---
 
-This guide describes how to configure your app to pass Identity Governance entitlements in your tokens to the Service Provider (SP) using federated claims.
-
-> **Note:** Federated claims currently work only with SAML and OpenID Connect (OIDC) apps.
+This guide describes how to configure your app to pass entitlements in your tokens using federated claims.
 
 ---
 
 #### Learning outcomes
 
-* Understand the purpose of federated claims with entitlements
+* Understand the purpose of federated claims with entitlements.
 * Understand how to configure federated claims for a SAML and an OpenID Connect (OIDC) app.
 
 #### What you need
@@ -21,42 +19,39 @@ This guide describes how to configure your app to pass Identity Governance entit
 * The Identity Governance feature enabled for your org. Contact [Okta Support](https://support.okta.com) to enable this feature.
 * The Federated Claim Generation Layer feature enabled for your org. To enable this feature, go to **Settings** > **Features**, locate the Federated Claim Generation Layer feature and enable.
 * An existing SAML or OIDC app
-* A test user assigned to the SAML or OIDC app.
+* A test user assigned to the SAML or OIDC app
 
 ---
 
 ## Overview
 
-Federated claims create a more consistent experience for the configuration of claims across protocols. They unify the inconsistencies in the persistence and generation of claims for tokens by adding support for a claim type that all apps can consume.
+Federated claims create a more consistent experience for the configuration of claims across protocols. They unify the inconsistencies in the persistence and generation of token claims by adding support for a claim type that all apps can consume.
 
-This new claim type takes the form of the claim name and an [expression](/docs/reference/okta-expression-language-in-identity-engine/) to reference principal (user) information. The claim is included in tokens produced by federation protocols. Okta supports SAML and OpenID Connect (OIDC) apps. So, a federated claim appears in either an OIDC ID token or a SAML assertion.
+A federated claim takes the form of a claim name and an [expression](/docs/reference/okta-expression-language-in-identity-engine/) that references principal (user) information. The claim is included in tokens produced by federation protocols. Okta supports SAML and OpenID Connect (OIDC) apps. Federated claims appear in either an OIDC ID token or a SAML assertion.
 
 ### Entitlements
 
-An entitlement is a permission that allows users to take specific actions within a resource, such as a third-party app. Within the Identity Provider (IdP) org (Okta), app entitlements help you manage different levels of permissions that users can perform within an app. They represent permissions that you have at the SP.
+An entitlement is a permission that allows users to take specific actions within a resource, such as a third-party app. Within the Identity Provider (IdP) org (Okta), app entitlements help you manage different levels of permissions that users can perform within a third-party app (Service Provider).
 
-There are three important properties associated with entitlements:
+When a user is assigned to an app that's configured to use entitlements, they may be granted one or more entitlements. Each entitlement that they're granted may have one or more values, depending on the entitlement definition (**String** or **String Array**).
 
-`name`: The display name for an entitlement property. This is a human-friendly name that's editable and for display purposes only.
-`externalValue`: The value of an entitlement property. Think of this property as the system/external representation of the entitlement, and that it’s not editable. Use this value in your EL expression.
+There are two important properties associated with entitlements:
 
-An additional attribute included with an entitlement is the value or values that it may contain. Values within an entitlement may be either a single string or an array of strings. These values have two important attributes, similar to the entitlement itself:
+* `name`: The display name for an entitlement property. This is a human-friendly name that's for display purposes only.
+* `externalValue`: The value of an entitlement property. Think of this property as the system/external representation of the entitlement.Use this value in your EL expression to communicate to the Service Provider (SP) app which entitlement property that the principal (user) has been granted.
 
-`name`: The display name of the value
-`externalValue`: External system representation of the value
+Additional attributes included with an entitlement are the value or values that it may contain. These are the specific values that the principal (user) has for each entitlement property. Values within an entitlement may be either a single string or an array of strings. These values have two important attributes, similar to the entitlement property itself:
 
-When a user is assigned to an app that's configured to use entitlements, they may be granted one or more entitlements. Each entitlement that they're granted may have one or more values, depending on the entitlement definition (single value, multiple value, and so on). Two things need to be communicated to the downstream Service Provider (SP):
-
-* What entitlement the principal (user) has. This may be `entitlement.externalValue` or some other value required by the agreement between the SP and the app.
-* What specific values the principal (user) has for that entitlement (`entitlement.values[i].externalValue`)
+* `name`: The display name of the entitlement value
+* `externalValue`: External system representation of the value
 
 ### Expression Language and entitlements
 
 The integration of entitlements into [Expression Language in Identity Engine](/docs/reference/okta-expression-language-in-identity-engine/) is on the `appuser` context. When you [configure an entitlement claim for an app](#configure-an-entitlement-claim-for-the-app), the expression states which entitlement the SP should evaluate for the principal and the app.
 
-If the `externalValue` of an entitlement property is `permission`, then your EL expression would be `appuser.entitlement.permission`, because `entitlement.externalValue == permission`. At evaluation time, the results of the expression are the entitlement values that the principal has been granted for the entitlement referenced in the expression.
+If the `externalValue` of an entitlement property is `permission`, then your EL expression would be `appuser.entitlement.permission`, because `entitlement.externalValue = permission`. At evaluation time, the results of the expression are the entitlement values that the principal has been granted for the entitlement referenced in the expression.
 
-The following is an example JSON body of a POST request to `https://{yourOktaDomain}/api/v1/apps/{appID}/federated-claims`:
+The following is an example JSON body of a POST request to `https://{yourOktaDomain}/api/v1/apps/{appID}/federated-claims` to create an entitlement:
 
 ```JSON
   {
@@ -79,13 +74,16 @@ The following sections are an example flow for setting up and using entitlements
 
 ## Define entitlements for the app
 
-> **Note:** Entitlements that you create here are what you use in the EL expressions that then insert the claims into the attribute statement or ID token.
+> **Note:** Entitlements that you create here are what you use in the [EL expressions](/docs/reference/okta-expression-language-in-identity-engine/) that then insert the claims into the attribute statement or ID token.
 
 1. While still in the app that you updated in the previous section, select the **Governance** tab.
 1. On the **Entitlements** tab, click **Add Entitlement** and define the entitlement properties:
 
    * Enter a **Display name** for the entitlement. In this example flow, enter **Permission**.
    * Enter a **Variable name** for the entitlement. In this example flow, enter **permission**. Use this attribute in your EL expression when you [configure an entitlement claim for the app](#configure-an-entitlement-claim-for-the-app).
+
+    > **Note:** You can't edit a variable name after you create it.
+
    * Set the **Entitlement Type (Data Type)**. The entitlement can either be a static string (**String**) or a string array (**String Array**). In this example flow, select **String Array**.
    * Optional. Enter a **Description** of the entitlement.
 
@@ -110,13 +108,13 @@ The following sections are an example flow for setting up and using entitlements
 
 ## Configure an entitlement claim for the app
 
-1. Select the **Sign On** tab, scroll down to the <**SAML Attributes** or **Claims**> section, and click **Edit**.
+1. Select the **Sign On** tab, scroll down to the **SAML Attributes** (SAML) or **Claims** (OIDC) section, and click **Edit**.
 
    > **Note:** If you have the Identity Threat Protection (ITP) feature enabled for your org, select the **Authentication** tab.
 
 1. Select **Add expression** to configure the `appuser` entitlement claim for the app.
 1. In the dialog, give the entitlement claim a name. In this example flow, enter **PermissionAssignment**.
-1. In the **Expression** field, enter `appuser.entitlements.permission` as the EL expression. The `permission` attribute is the variable name that you assigned when you [defined entitlements for the app](#define-entitlements-for-the-app).
+1. In the **Expression** field, enter `appuser.entitlements.permission` as the EL expression. The `permission` attribute is the variable name (`externalValue`) that you assigned when you [defined entitlements for the app](#define-entitlements-for-the-app).
 1. Click **Save**.
 
 ## Test the configuration
@@ -144,7 +142,7 @@ Access the SAML app from the End-User Dashboard and sign in as your test user. U
 
 ### Obtain an ID token
 
-Obtain an ID token by making the appropriate authorization requests, depending on the grants that you enabled for your app. Then, use a tool such as [jwt.io](https://jwt.io/) to decode the ID token and view the entitlements that you configured for the app.
+Obtain an ID token by making the appropriate authorization requests, depending on the grants that you enabled for your app. Then, use a tool such as [jwt.io](https://jwt.io/) to decode the ID token and view the entitlement that you granted to the user.
 
 **Example**
 
