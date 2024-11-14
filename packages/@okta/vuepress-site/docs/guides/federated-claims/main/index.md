@@ -1,5 +1,5 @@
 ---
-title: Application federated claims with entitlements
+title: Federated claims with entitlements
 excerpt: Learn how to implement federated claims with entitlements for an app
 layout: Guides
 ---

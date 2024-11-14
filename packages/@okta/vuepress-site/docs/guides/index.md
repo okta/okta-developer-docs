@@ -42,6 +42,7 @@ guides:
  - event-hook-hookdeck
  - event-hook-implementation
  - event-hook-ngrok
+ - federated-claims
  - find-your-app-credentials
  - find-your-domain
  - password-import-inline-hook
