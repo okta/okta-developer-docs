@@ -6,6 +6,8 @@ layout: Guides
 
 This guide describes how to configure your app to pass Identity Governance entitlements in your tokens to the Service Provider (SP) using federated claims.
 
+> **Note:** Federated claims currently work only with SAML and OpenID Connect (OIDC) apps.
+
 ---
 
 #### Learning outcomes
@@ -18,10 +20,8 @@ This guide describes how to configure your app to pass Identity Governance entit
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
 * The Identity Governance feature enabled for your org. Contact [Okta Support](https://support.okta.com) to enable this feature.
 * The Federated Claim Generation Layer feature enabled for your org. To enable this feature, go to **Settings** > **Features**, locate the Federated Claim Generation Layer feature and enable.
-* An existing <StackSnippet snippet="need" inline /> app
-* A test user assigned to the <StackSnippet snippet="need" inline /> app.
-
-
+* An existing SAML or OIDC app
+* A test user assigned to the SAML or OIDC app.
 
 ---
 
@@ -29,8 +29,7 @@ This guide describes how to configure your app to pass Identity Governance entit
 
 Federated claims create a more consistent experience for the configuration of claims across protocols. They unify the inconsistencies in the persistence and generation of claims for tokens by adding support for a claim type that all apps can consume.
 
-This new claim type takes the form of the claim name and an [expression](/docs/reference/okta-expression-language-in-identity-engine/) to reference principal (user) information. The claim is included in tokens produced by federation protocols. Okta supports SAML and OpenID Connect (OIDC) apps.
-So, a federated claim appears in either an OIDC ID tokens or a SAML assertion.
+This new claim type takes the form of the claim name and an [expression](/docs/reference/okta-expression-language-in-identity-engine/) to reference principal (user) information. The claim is included in tokens produced by federation protocols. Okta supports SAML and OpenID Connect (OIDC) apps. So, a federated claim appears in either an OIDC ID token or a SAML assertion.
 
 ### Entitlements
 
@@ -40,7 +39,6 @@ There are three important properties associated with entitlements:
 
 `name`: The display name for an entitlement property. This is a human-friendly name that's editable and for display purposes only.
 `externalValue`: The value of an entitlement property. Think of this property as the system/external representation of the entitlement, and that it’s not editable. Use this value in your EL expression.
-`parent`: The representation of a resource. This is the resource that the entitlement is bound to, in this use case an app instance.
 
 An additional attribute included with an entitlement is the value or values that it may contain. Values within an entitlement may be either a single string or an array of strings. These values have two important attributes, similar to the entitlement itself:
 
@@ -54,9 +52,7 @@ When a user is assigned to an app that's configured to use entitlements, they ma
 
 ### Expression Language and entitlements
 
-The integration of entitlements into [Expression Language in Identity Engine](/docs/reference/okta-expression-language-in-identity-engine/) is on the `appuser` and the `user` contexts. When you [configure an entitlement claim for an app](#configure-an-entitlement-claim-for-the-app), the expression states which entitlement the SP should evaluate for the principal and the app.
-
-#### appuser entitlement example
+The integration of entitlements into [Expression Language in Identity Engine](/docs/reference/okta-expression-language-in-identity-engine/) is on the `appuser` context. When you [configure an entitlement claim for an app](#configure-an-entitlement-claim-for-the-app), the expression states which entitlement the SP should evaluate for the principal and the app.
 
 If the `externalValue` of an entitlement property is `permission`, then your EL expression would be `appuser.entitlement.permission`, because `entitlement.externalValue == permission`. At evaluation time, the results of the expression are the entitlement values that the principal has been granted for the entitlement referenced in the expression.
 
@@ -69,34 +65,21 @@ The following is an example JSON body of a POST request to `https://{yourOktaDom
   }
 ```
 
-#### user entitlement example
-
-If the `externalValue` of an entitlement property is `firstName`, then your EL expression would be `user.profile.firstName`, because `entitlement.externalValue == firstName`. At evaluation time, the results of the expression are the properties that you requested from the user's profile.
-
-The following is an example JSON body of a POST request to `https://{yourOktaDomain}/api/v1/apps/{appID}/federated-claims`:
-
-```JSON
-  {
-     "name": "user_claim_name",
-     "expression": "user.profile.firstName"
-  }
-```
-
 ## Configure entitlements
 
-The following sections are an example flow for setting up and using entitlements for your <SAML or OIDC> app. This example flow focuses on setting up and using an `appuser` entitlement.
+The following sections are an example flow for setting up and using entitlements for your SAML or OIDC app.
 
 ## Update your app to support entitlements
 
 > **Note:** Identity Governance doesn't support **Federated Broker Mode** for OIDC apps.
 
-1. Go to **Applications** > **Applications** and select the <SAML or OIDC> app that you want to define entitlements for.
+1. Go to **Applications** > **Applications** and select the app that you want to define entitlements for.
 1. On the **General** tab, scroll down to the **Identity Governance** section and click **Edit**.
 1. Select **Enabled** to enable the Governance Engine, and then click **Save**. The **Governance** tab should appear within a few seconds. If it doesn't, referesh the page.
 
 ## Define entitlements for the app
 
-> **Note:** Entitlements that you create here are what you use in the EL expressions used to include the claims in the <token or attribute statement>.
+> **Note:** Entitlements that you create here are what you use in the EL expressions that then insert the claims into the attribute statement or ID token.
 
 1. While still in the app that you updated in the previous section, select the **Governance** tab.
 1. On the **Entitlements** tab, click **Add Entitlement** and define the entitlement properties:
@@ -110,7 +93,7 @@ The following sections are an example flow for setting up and using entitlements
 1. Define entitlement attributes. You can define one or more values that can then be assigned to the user. Each value must be unique:
 
    * Enter a **Display name** for the entitlement value. In this example flow, enter **Read**.
-   * Enter a **Variable name** for the entitlement value. In this example flow, enter **Read**. This property is the name that appears in the <SAML attribute statement or token>.
+   * Enter a **Variable name** for the entitlement value. In this example flow, enter **Read**. This property is the name that appears in the attribute statement or ID token.
    * Optional. Enter a **Description** of the entitlement value.
 
 1. Click **+ Add value** and repeat the previous step for the **Write** and **Delete** attribute values for this example flow.
@@ -136,13 +119,15 @@ The following sections are an example flow for setting up and using entitlements
 1. In the **Expression** field, enter `appuser.entitlements.permission` as the EL expression. The `permission` attribute is the variable name that you assigned when you [defined entitlements for the app](#define-entitlements-for-the-app).
 1. Click **Save**.
 
-## Test the flow
+## Test the configuration
 
-<Access the SAML app from the End-User Dashboard and sign in as your test user. Use your browser's Dev Tools window or some other tool to extract the <SAML response or ID token>. Then, use a tool such as the [SAML Tokens tool](https://samltool.io/) to view the attribute statement with the included permissions that you assigned to the test user.>
+To test your configuration, federate into your app to obtain the attribute statement or ID token.
 
-<Obtain an ID token by making the appropriate authorization requests, depending on the grants that you enabled for your app. Then, use a tool such as [jwt.io](https://jwt.io/) to decode the ID token and view the entitlements that you configured for the app.>
+### Obtain the SAML attribute statement
 
-SAML example/OIDC example
+Access the SAML app from the End-User Dashboard and sign in as your test user. Use your browser's Dev Tools window or some other tool to extract the SAML response. Then, use a tool such as the [SAML Tokens tool](https://samltool.io/) to view the attribute statement. The statement should include the permissions that you assigned to the test user.
+
+**Example**
 
 ```bash
         <saml2:AttributeStatement xmlns:saml2="urn:oasis:names:tc:SAML:2.0:assertion">
@@ -157,6 +142,11 @@ SAML example/OIDC example
         </saml2:AttributeStatement>
 ```
 
+### Obtain an ID token
+
+Obtain an ID token by making the appropriate authorization requests, depending on the grants that you enabled for your app. Then, use a tool such as [jwt.io](https://jwt.io/) to decode the ID token and view the entitlements that you configured for the app.
+
+**Example**
 
 ```JSON
 {
