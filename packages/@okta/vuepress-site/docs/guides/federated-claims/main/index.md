@@ -17,7 +17,7 @@ This guide describes how to configure your app to pass entitlements in your toke
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
 * The Identity Governance feature enabled for your org. Contact [Okta Support](https://support.okta.com) to enable this feature.
-* The Federated Claim Generation Layer feature enabled for your org. To enable this feature, go to **Settings** > **Features**, locate the Federated Claim Generation Layer feature and enable.
+* The Federated Claim Generation Layer feature enabled for your org. To enable this feature, go to **Settings** > **Features**, locate the Federated Claim Generation Layer feature, and enable.
 * An existing SAML or OIDC app
 * A test user assigned to the SAML or OIDC app
 
@@ -31,16 +31,16 @@ A federated claim takes the form of a claim name and an [expression](/docs/refer
 
 ### Entitlements
 
-An entitlement is a permission that allows users to take specific actions within a resource, such as a third-party app. Within the Identity Provider (IdP) org (Okta), app entitlements help you manage different levels of permissions that users can perform within a third-party app (Service Provider).
+An entitlement is a permission that allows users to take specific actions within a resource, such as a third-party app. Within the Identity Provider org (Okta), app entitlements help you manage different levels of permissions that users can perform within a third-party app.
 
 When a user is assigned to an app that's configured to use entitlements, they may be granted one or more entitlements. Each entitlement that they're granted may have one or more values, depending on the entitlement definition (**String** or **String Array**).
 
 There are two important properties associated with entitlements:
 
 * `name`: The display name for an entitlement property. This is a human-friendly name that's for display purposes only.
-* `externalValue`: The value of an entitlement property. Think of this property as the system/external representation of the entitlement.Use this value in your EL expression to communicate to the Service Provider (SP) app which entitlement property that the principal (user) has been granted.
+* `externalValue`: The value of an entitlement property. Think of this property as the system/external representation of the entitlement. Use this value in your EL expression to communicate to the Service Provider (SP) app which entitlement property that the principal (user) has been granted.
 
-Additional attributes included with an entitlement are the value or values that it may contain. These are the specific values that the principal (user) has for each entitlement property. Values within an entitlement may be either a single string or an array of strings. These values have two important attributes, similar to the entitlement property itself:
+Other attributes included with an entitlement are the value or values that it may contain. These are the specific values that the principal (user) has for each entitlement property. Values within an entitlement may be either a single string or an array of strings. These values have two important attributes, similar to the entitlement property itself:
 
 * `name`: The display name of the entitlement value
 * `externalValue`: External system representation of the value
@@ -70,7 +70,7 @@ The following sections are an example flow for setting up and using entitlements
 
 1. Go to **Applications** > **Applications** and select the app that you want to define entitlements for.
 1. On the **General** tab, scroll down to the **Identity Governance** section and click **Edit**.
-1. Select **Enabled** to enable the Governance Engine, and then click **Save**. The **Governance** tab should appear within a few seconds. If it doesn't, referesh the page.
+1. Select **Enabled** to enable the Governance Engine, and then click **Save**. The **Governance** tab should appear within a few seconds. If it doesn't, refresh the page.
 
 ## Define entitlements for the app
 
@@ -123,7 +123,7 @@ To test your configuration, federate into your app to obtain the attribute state
 
 ### Obtain the SAML attribute statement
 
-Access the SAML app from the End-User Dashboard and sign in as your test user. Use your browser's Dev Tools window or some other tool to extract the SAML response. Then, use a tool such as the [SAML Tokens tool](https://samltool.io/) to view the attribute statement. The statement should include the permissions that you assigned to the test user.
+Access the SAML app from the End-User Dashboard and sign in as your test user. Use your browser's dev tools window or some other tool to extract the SAML response. Then, use a tool such as the [SAML Tokens tool](https://samltool.io/) to view the attribute statement. The statement should include the permissions that you assigned to the test user.
 
 **Example**
 
