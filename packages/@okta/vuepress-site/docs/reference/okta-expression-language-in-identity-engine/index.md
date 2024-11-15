@@ -43,6 +43,8 @@ The following operators and functionalities offered by SpEL aren't supported in 
 
 When you create an Okta expression, you can reference entitlements within the `appuser` context.
 
+> **Note:** Entitlements within the `appuser` context are only supported with [federated claims](/docs/guides/federated-claims/main/). You can't use these entitlements in authentication policies.
+
 | Syntax                             | Definitions                                                                              | Examples                                                       |
 | --------                           | ----------                                                                               | ------------                                                   |
 | `appuser.entitlements.$attribute`  | `appuser` - implicit reference to in-context app entitlements<br>`$attribute` - the attribute variable name| `appuser.entitlements.role`|

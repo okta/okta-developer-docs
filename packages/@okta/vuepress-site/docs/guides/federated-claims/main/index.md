@@ -150,7 +150,7 @@ Obtain an ID token by making the appropriate authorization requests, depending o
 {
   "sub": "00u47ijy7sRLaeSdC0g7",
   "ver": 1,
-  "iss": "https://sharper.trexcloud.com",
+  "iss": "https://{yourOktaDomain}",
   "aud": "0oa87r54wrFDQZM2z0g7",
   "iat": 1731539752,
   "exp": 1731543352,
