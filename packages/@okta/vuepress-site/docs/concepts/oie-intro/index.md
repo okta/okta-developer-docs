@@ -8,27 +8,30 @@ meta:
 
 <ApiLifecycle access="ie" />
 
-Okta Identity Engine is a new authentication pipeline that provides valuable new features and a more flexible approach to your auth needs. This article provides a high-level introduction.
+The Okta Identity Engine is a new authentication pipeline that drives additional flexibility, security, and streamlines your user experience through a host of new features. 
 
-This page discusses the following:
+This article discusses Identity Engine on a high-level through the following sections:
 
-* New features Identity Engine brings to the table
-* The deployment models that use these features
-* Changes to the documentation experience to support Identity Engine
+* New features 
+* Deployment models that use these features
+* Documentation enhancements to support the Identity Engine
 
 > **Note**: If you're an admin, or are looking for product docs related to Identity Engine, see the Identity Engine [Get started page](https://help.okta.com/okta_help.htm?type=oie&id=ext-get-started-oie).
 
-## Identity Engine new features
+## New features
 
-Identity Engine unlocks many new capabilities.
+The Okta Identity Engine unlocks a range of new features to enhance your auth experience. These features are detailed below.
 
-### App context in email templates
+### Customization of email notifications
 
-Identity Engine makes the app context available when a user enters an authentication flow. Find context variables in our email templates. These variables allow customers to dynamically customize email style and content based on the app that triggers an email notification.
+Identity Engine enables full customization of e-mail notification style and content. App context is readily available upon entering an authentication flow through context variables in our email templates. You can modify these context variables to tailor email style and content according to your use case.  
 
-See [Customize email notifications > Use app context](/docs/guides/custom-email/main/#use-app-context).
+See [Customize email notifications > Use app context](/docs/guides/custom-email/main/#use-app-context) for more details.
 
 ### App intent links
+Identity Engine changes the way Okta processes these requests. It no longer forwards requests to the centralized sign-in page (`/login/login.htm`). Instead, the app intent links location hosts the widget/sign-in experience for the app that the user is attempting to access.
+
+Then, Identity Engine evaluates the Global Session Policy, authentication policy, and all other policies relevant to the sign-in experience. Each app intent link is responsible for hosting the sign-in experience on Identity Engine. Because of this, they share a common app intent link rate limit bucket/group similar to what exists for the centralized sign-in page on Classic Engine.
 
 App intent links are used to signal intent to access an app. These links are protocol-specific endpoints that you can use to initiate a sign-in flow to an app. Both Identity Provider and Service Provider initiated flows are supported.
 
@@ -39,9 +42,7 @@ Before Identity Engine, these endpoints were accessible only with a session. Una
 
 The user was then redirected to the relevant app intent link through an intermediate redirect to the generic app SSO endpoint (`/app/{app}/{instanceId}/{linkName}`). The app intent link endpoint validated that the user was assigned to the app, and then enforced the app sign-on policy.
 
-Identity Engine changes the way Okta processes these requests. It no longer forwards requests to the centralized sign-in page (`/login/login.htm`). Instead, the app intent links location hosts the widget/sign-in experience for the app that the user is attempting to access.
 
-Then, Identity Engine evaluates the Global Session Policy, authentication policy, and all other policies relevant to the sign-in experience. Each app intent link is responsible for hosting the sign-in experience on Identity Engine. Because of this, they share a common app intent link rate limit bucket/group similar to what exists for the centralized sign-in page on Classic Engine.
 
 ### Authentication policies
 
