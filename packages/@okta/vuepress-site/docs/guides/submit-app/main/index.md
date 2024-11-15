@@ -8,7 +8,7 @@ layout: Guides
 
 Use this guide to understand the process of submitting a lifecycle management (LCM) integration to the Okta Integration Network (OIN) using the OIN Manager. You can submit a Workflows connector LCM integration. This guide also shows you how to update a previously published LCM integration or delete a draft submission.
 
-> **Note:** As of release 2024.11.0, you can't submit new SCIM integrations using the OIN Manager. Use the new [OIN Wizard](/docs/guides/submit-oin-app/scim/main/) for a seamless ISV submission experience.
+> **Note:** As of release 2024.11.0, you can't submit SCIM integrations using the OIN Manager. Use the [OIN Wizard](/docs/guides/submit-oin-app/scim/main/) for a seamless ISV submission experience.
 > Any SCIM integration submitted through the OIN Manager that hasn't begun the OIN review process needs to be resubmitted in the OIN Wizard.
 > If you need to update a SCIM integration, see [Update your integration](/docs/guides/submit-oin-app/scim/main/#update-your-integration).
 
@@ -61,7 +61,7 @@ If you have questions or need more support to publish your app integration, you 
 
 ## Submit an integration
 
-> **Note:** As of release 2024.11.0, you can't submit new SCIM integrations using the OIN Manager. Use the new [OIN Wizard](/docs/guides/submit-oin-app/scim/main/) for a seamless ISV submission experience. If you submitted a SCIM integration through the OIN Manager and the OIN review process hasn't started, resubmitted it in the OIN Wizard.
+> **Note:** As of release 2024.11.0, you can't submit SCIM integrations using the OIN Manager. Use the [OIN Wizard](/docs/guides/submit-oin-app/scim/main/) for a seamless ISV submission experience. If you submitted a SCIM integration through the OIN Manager and the OIN review process hasn't started, resubmitted it in the OIN Wizard.
 
 Review the [OIN submission requirements](/docs/guides/submit-app-prereq) before you start your submission.
 
