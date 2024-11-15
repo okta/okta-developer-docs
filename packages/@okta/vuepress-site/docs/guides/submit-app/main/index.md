@@ -8,7 +8,9 @@ layout: Guides
 
 Use this guide to understand the process of submitting a lifecycle management (LCM) integration to the Okta Integration Network (OIN) using the OIN Manager. You can submit a Workflows connector LCM integration. This guide also shows you how to update a previously published LCM integration or delete a draft submission.
 
-> **Note:** As of release 2024.11.0, you can't submit new SCIM integrations using the OIN Manager. Use the new [OIN Wizard](/docs/guides/submit-oin-app/scim/main/) for a seamless ISV submission experience. Any integration submitted through the OIN Manager that has not yet begun the review process with the OIN team needs to be resubmitted in the OIN Wizard.
+> **Note:** As of release 2024.11.0, you can't submit new SCIM integrations using the OIN Manager. Use the new [OIN Wizard](/docs/guides/submit-oin-app/scim/main/) for a seamless ISV submission experience.
+> Any integration submitted through the OIN Manager that has not yet begun the review process with the OIN team needs to be resubmitted in the OIN Wizard.
+> If you need to update a SCIM integration, see [Update your integration](/docs/guides/submit-oin-app/scim/main/#update-your-integration).
 
 ---
 
@@ -137,11 +139,12 @@ Include all required information before you click **Submit for Review** to move 
 
 ## Update your published integration
 
-If you need to make protocol changes to your published integration, use the [OIN Manager](https://oinmanager.okta.com/) to create an updated version of the integration.
-
-> **Note:** As of release 2024.11.0, you can use the [OIN Wizard](/docs/guides/submit-oin-app/scim/main/#update-your-integration) to edit your published SCIM integration. Previously submitted integrations with the OIN Manager are now available through the **Your OIN Integrations** dashboard in the Admin Console.
+If you need to make changes to your published LCM integration, use the [OIN Manager](https://oinmanager.okta.com/) to create an updated version of the integration.
 
 Similarly, when you enable a new capability in your app, you don't need to create an entirely new submission. For example, you can add a Workflows connector feature onto an existing published SCIM integration. You can update your existing submission to enable and specify the settings for that protocol, then submit the updated integration.
+
+> **Note:** As of release 2024.11.0, use the OIN Wizard to [edit your published SCIM integration](/docs/guides/submit-oin-app/scim/main/#update-your-integration). Previous SCIM integrations submitted through the OIN Manager are now available through the **Your OIN Integrations** dashboard in the Admin Console.
+> Any integration submitted through the OIN Manager that has not yet begun the review process with the OIN team needs to be resubmitted in the OIN Wizard.
 
 1. Sign in to the OIN Manager using the credentials for your original dev org.
 
