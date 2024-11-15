@@ -37,10 +37,10 @@ When a user is assigned to an app that's configured to use entitlements, they ma
 
 There are two important properties associated with entitlements:
 
-* `name`: The display name for an entitlement property. This is a human-friendly name that's for display purposes only.
-* `externalValue`: The value of an entitlement property. Think of this property as the system/external representation of the entitlement. Use this value in your EL expression to communicate to the Service Provider (SP) app which entitlement property that the principal (user) has been granted.
+* `name`: The display name for an entitlement. This is a human-friendly name that's for display purposes only.
+* `externalValue`: The value of an entitlement. Think of this value as the system/external representation of the entitlement. Use this value in your EL expression to communicate to the Service Provider (SP) app which entitlement that the principal (user) has been granted.
 
-Other attributes included with an entitlement are the value or values that it may contain. These are the specific values that the principal (user) has for each entitlement property. Values within an entitlement may be either a single string or an array of strings. These values have two important attributes, similar to the entitlement property itself:
+Other attributes included with an entitlement are the value or values that it may contain. These are the specific values that the principal (user) has for each entitlement. Values within an entitlement may be either a single string or an array of strings. These values have two important attributes, similar to the entitlement itself:
 
 * `name`: The display name of the entitlement value
 * `externalValue`: External system representation of the value
@@ -49,7 +49,7 @@ Other attributes included with an entitlement are the value or values that it ma
 
 The integration of entitlements into [Expression Language in Identity Engine](/docs/reference/okta-expression-language-in-identity-engine/) is on the `appuser` context. When you [configure an entitlement claim for an app](#configure-an-entitlement-claim-for-the-app), the expression states which entitlement the SP should evaluate for the principal and the app.
 
-If the `externalValue` of an entitlement property is `permission`, then your EL expression would be `appuser.entitlement.permission`, because `entitlement.externalValue = permission`. At evaluation time, the results of the expression are the entitlement values that the principal has been granted for the entitlement referenced in the expression.
+If the `externalValue` of an entitlement is `permission`, then your EL expression would be `appuser.entitlement.permission`, because `entitlement.externalValue = permission`. At evaluation time, the results of the expression are the entitlement values that the principal has been granted for the entitlement referenced in the expression.
 
 The following is an example JSON body of a POST request to `https://{yourOktaDomain}/api/v1/apps/{appID}/federated-claims` to create an entitlement:
 
@@ -91,7 +91,7 @@ The following sections are an example flow for setting up and using entitlements
 1. Define entitlement attributes. You can define one or more values that can then be assigned to the user. Each value must be unique:
 
    * Enter a **Display name** for the entitlement value. In this example flow, enter **Read**.
-   * Enter a **Variable name** for the entitlement value. In this example flow, enter **Read**. This property is the name that appears in the attribute statement or ID token.
+   * Enter a **Variable name** for the entitlement value. In this example flow, enter **Read**. This value is what appears in the attribute statement or ID token.
    * Optional. Enter a **Description** of the entitlement value.
 
 1. Click **+ Add value** and repeat the previous step for the **Write** and **Delete** attribute values for this example flow.
