@@ -58,7 +58,7 @@ sections:
 
 - Salesforce and the Salesforce logos (in various forms) are trademarks of salesforce.com, Inc.
 
-- OASIS, SAML, and Security Assertion Markup Language are trademarks of OASIS, the open standards consortium where the <a href="http://saml.xml.org/saml-specifications" target="_blank">SAML specification</a> is owned and developed. SAML is a copyrighted © work of OASIS Open. All rights reserved.
+- OASIS, SAML, and Security Assertion Markup Language are trademarks of OASIS, the open standards consortium where the SAML specification is owned and developed. SAML is a copyrighted © work of OASIS Open. All rights reserved.
 
 - Spotify and the Spotify logos (in several variants) are registered trademarks or trademarks of Spotify AB.
 
