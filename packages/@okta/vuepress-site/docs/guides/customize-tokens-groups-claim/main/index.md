@@ -33,7 +33,7 @@ Also, you can create a [dynamic](/docs/guides/customize-tokens-dynamic/) or [sta
 
 See [Customize tokens returned from Okta](/docs/guides/customize-tokens-returned-from-okta/) when you want to define your own custom claims. For example, you may want to add a user's email address to an access token and use that to uniquely identify the user. You may want to add information stored in a user profile to an ID token.
 
-See [Federated claims with entitlements](/docs/guides/federated-claims/main/) to create app entitlement claims to insert into ID tokens. An entitlement is a permission that allows users to take specific actions within a resource, such as a third-party app. App entitlements help you manage different levels of permissions that users can perform within an app.
+See [Federated claims with entitlements](/docs/guides/federated-claims/main/) to create app entitlement claims to insert into ID tokens and SAML assertions. An entitlement is a permission that allows users to take specific actions within a resource, such as a third-party app. App entitlements help you manage different levels of permissions that users can perform within an app.
 
 ## Request a token that contains the custom claim
 
