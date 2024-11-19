@@ -31,9 +31,19 @@ var authnResponse = await idxAuthClient
    .AuthenticateAsync(authnOptions).ConfigureAwait(false);
 ```
 
-### Your app processes the authentication success response
+### Processing `AuthenticationStatus` values
+
+The app must handle multiple `AuthenticationStatus` values during the sign-in flow. The `AuthenticationStatus` indicates if a user's sign-in flow is successful.
+
+#### Your app processes the authentication success response
 
 After the user supplies their correct password, `AuthenticateAsync()` returns an `AuthenticationResponse` with an `AuthenticationStatus` of `Success`. Call `AuthenticationHelper.GetIdentityFromTokenResponseAsync()` to retrieve the user's OIDC claims information as ID tokens. You can pass these ID tokens into your app.  The tokens are stored for future requests and the user is redirected to the default page after a successful sign-in. 
+
+#### Handling other `AuthenticationStatus` values
+
+The `AuthenticationResponse` may return other `AuthenticationStatus` values based on the state of the user's sign-in flow. The user may need additional validation or have expired credentials.
+
+The below code shows the sign-in flow for these `AuthenticationStatus` values through each `case` statement.
 
 ```csharp
 switch (authnResponse.AuthenticationStatus)
