@@ -72,7 +72,7 @@ To access the OIN Wizard and the **Your OIN Integrations** dashboard in your org
 * You must have either the super admin or the app and org admin [roles](https://help.okta.com/okta_help.htm?type=oie&id=ext-administrators-admin-comparison) assigned to you.
 * Use your company domain email as your username for your Okta admin account (submissions from a personal email account aren't reviewed).
 
-> **Note:** The app admin role enables you to view and edit details in the OIN Wizard. For OIN Wizard testing, if you don't have the super admin role, then you must have both the app admin and the org admin roles assigned to you.
+> **Note:** The app admin role enables you to view and edit details in the OIN Wizard. For OIN Wizard testing, you must have both the app admin and the org admin roles assigned to you. The super admin role gives you access to all functionality in the OIN Wizard.
 
 ### OIN Wizard test requirements
 
@@ -102,7 +102,7 @@ After you installed the Okta Browser Plugin in your Chrome browser, set **Allow 
 
 <ApiLifecycle access="ie" />
 
-> **Note:** These instructions only apply to Identity Engine Developer Edition orgs. If you're not sure which solution you're using, check the footer on any page of the Admin Console. The version number is appended with **E** for Identity Engine orgs and **C** for Classic Engine orgs.
+> **Note:** These instructions only apply to Okta Developer Edition orgs with Identity Engine. If you're not sure which solution you're using, check the footer on any page of the Admin Console. The version number is appended with **E** for Identity Engine orgs and **C** for Classic Engine orgs.
 
 The OIN Wizard testing phase uses a plugin app called the **Okta OIN Submission Tester**, which is preinstalled in your Okta Developer Edition org. This app requires a password-only authentication policy to run properly.
 
