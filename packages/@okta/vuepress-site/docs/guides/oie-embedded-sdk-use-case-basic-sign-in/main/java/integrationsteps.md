@@ -24,7 +24,7 @@ ProceedContext proceedContext = beginResponse.getProceedContext();
 
 ### The user submits their username and password
 
-Create an `AuthenticationOptions` object and assign its `Username` and `Password` properties to the values entered by the user to capture their login credentials. Pass this object as a parameter to `IDXAuthenticationWrapper.authenticate()`.
+Create an `AuthenticationOptions` object and assign its `Username` and `Password` properties to the values entered by the user to capture their login credentials. Pass this object as a parameter to `IDXAuthenticationWrapper.authenticate()` to begin the authentication process.
 
 ```java
 AuthenticationResponse authenticationResponse =
@@ -66,9 +66,10 @@ public ModelAndView handleTerminalTransitions(AuthenticationResponse response, H
 
 #### Handling other authentication statuses
 
-The app must handle other returned [AuthenticationStatus](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/model/AuthenticationStatus.java) values in cases where the sign-in flow is unsuccessful or if additional validation is required. 
+The app must handle other returned [AuthenticationStatus](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/model/AuthenticationStatus.java) values in cases where the sign-in flow is unsuccessful or additional validation is required. 
 
-Below is an example: 
+ See the below process flow for each returned `IdxStatus` value captured in the relevant case statements:
+
 
 ```java
     ...
@@ -92,7 +93,9 @@ Below is an example:
 
 #### Failed authentication
 
-There's no explicit failed status from `AuthenticationStatus`. Check the response handler for an error in `AuthenticationResponse` for failed authentication, and handle the flow accordingly. For example:
+There's no explicit failed  `AuthenticationStatus` value. Check the response handler for an error in `AuthenticationResponse` for failed authentication, and handle the flow accordingly. 
+
+See the below example to recognize a failed authentication response:
 
 ```java
 if (responseHandler.needsToShowErrors(authenticationResponse)) {
