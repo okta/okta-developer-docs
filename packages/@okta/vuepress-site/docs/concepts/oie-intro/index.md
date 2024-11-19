@@ -58,7 +58,7 @@ Only after these steps will Classic Engine perform an intermediate redirect to t
 
 ### Flexible authentication policies
 
-Authentication policies are [security policy frameworks](https://csrc.nist.gov/pubs/sp/800/63/b/upd2/final) that enable organizations to customize security outcomes for various applications based on identified risk level. With Identity Engine, these policies are fully shareable and flexible. They allow apps to automatically change authentication methods without needing to manually update code.
+Authentication policies are [security policy frameworks](https://csrc.nist.gov/pubs/sp/800/63/b/upd2/final) that enable organizations to customize security outcomes for various applications based on identified risk level. With Identity Engine, these policies allow apps to automatically change authentication methods based on risk level without manually updating code. Defined policies are also fully shareable across all of your applications.
 
 For example, you can automatically strengthen your auth method to a non-phishable factor across multiple applications when elevated risk is detected. 
 
