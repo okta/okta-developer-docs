@@ -27,7 +27,7 @@ Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 
 </div>
 
-During page load, call `Client.InitLogin` to return a `LoginResponse` object that is used to initiate the sign-in process with Okta.
+During the page load, call `Client.InitLogin` to return a `LoginResponse` object used to initiate the sign-in process.
 
 ```go
 lr, err := s.idxClient.InitLogin(context.TODO())
@@ -60,6 +60,8 @@ if err != nil {
 ### Your app processes the authentication success response
 
 When the user correctly supplies their login credentials `err` is `nil` and `LoginResponse.Token` contains the access and ID tokens required to retrieve the user's OIDC claims information. The user is now signed in.
+
+The below code demonstrates the sign-in flow when login is successful and unsuccessful. In the latter, `log.Fatal` is called, the relevent error message is displayed, and the login process is terminated.
 
 ```go
  //If we have tokens we have success, so lets store tokens
