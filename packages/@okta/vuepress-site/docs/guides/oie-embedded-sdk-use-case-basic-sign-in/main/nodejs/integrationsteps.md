@@ -1,10 +1,12 @@
 ### Your app displays the sign-in page
 
-Build a sign-in page that captures both the user's name and their password.
+When the user launches the app, it will display the sign-in page.
+
+Build a sign-in page that captures their username and password.
 
 <div class="half wireframe-border">
 
-![A sign-in form with fields for username and password and a next button](/img/wireframes/sign-in-form-username-password.png)
+![A sign-in form with fields for username and password and a next button](/images/sign-in-form-username-password.png)
 
 <!--
 
@@ -15,20 +17,22 @@ Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 
 ### The user submits their username and password
 
-When the user submits their `username` and `password`, pass them as parameters to [`OktaAuth.idx.authenticate()`](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#idxauthenticate).
+When the user submits their `username` and `password`, pass them as parameters to [`OktaAuth.idx.authenticate()`](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#idxauthenticate) to capture their login credentials.
 
 ```javascript
 const authClient = getAuthClient(req);
 const transaction = await authClient.idx.authenticate({ username, password });
 ```
 
-### Your app handles an authentication success response
+### Your app processes the authentication response
 
-`authenticate()` returns a `transaction` object with a `status` property indicating the current state of the sign-in flow. Handle the returned `IdxStatus` value accordingly:
+`authenticate()` returns a `transaction` object with a `status` property indicating the status of the sign-in flow. The returned `IdxStatus` value displays the status of the sign-in flow. Handle the returned values accordingly:
 
-#### Success status
+#### Processing successful login
 
-When the user correctly supplies their password, `IdxStatus` equals `IdxStatus.SUCCESS`. Call `tokenManager.setTokens()` to save the tokens retrieved from the response for future requests, and then redirect the user back to the home page. The user is now signed in.
+After the user supplies their correct password, `IdxStatus` equals `IdxStatus.SUCCESS`. Call `tokenManager.setTokens()` to save the tokens retrieved for future requests and redirect the user back to the home page. The user is now signed in.
+
+The below code demonstrates how to handle a successful sign-in flow:
 
 ```js
   const { nextStep, tokens, status, error, } = transaction;
@@ -47,9 +51,11 @@ When the user correctly supplies their password, `IdxStatus` equals `IdxStatus.S
 }
 ```
 
-#### Other authentication statuses
+#### Handling other authentication statuses
 
-Handle other returned `IdxStatus` cases if the user didn't sign in successfully or there are other factors to verify. For example:
+The app must handle other `IdxStatus` values in cases where user sign-in is unsuccessful or requires additional validation.
+ 
+See the below process flow for each returned `IdxStatus` value captured in the relevant `case` statements:
 
 ```js
 switch (status) {

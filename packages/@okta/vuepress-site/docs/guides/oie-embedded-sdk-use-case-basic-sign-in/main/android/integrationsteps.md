@@ -1,6 +1,8 @@
-### The user launches the sign-in page
+### Your app displays the sign-in page
 
-Build a sign-in page that captures both the user's name and their password.
+When the user launches the app, it will display the sign-in page.
+
+Build a sign-in page that captures their username and password.
 
 <div class="half wireframe-border">
 
@@ -13,7 +15,7 @@ Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 
 </div>
 
-Begin the authentication process by calling `IDXAuthenticationWrapper.begin()` and getting a new [`ProceedContext`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/ProceedContext.java) object.
+Call `IDXAuthenticationWrapper.begin()` and get a new [`ProceedContext`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/ProceedContext.java) object to begin the authentication process.
 
 ```kotlin
 val beginResponse = idxAuthenticationWrapper.begin()
@@ -22,7 +24,7 @@ val beginProceedContext = beginResponse.proceedContext
 
 ### The user submits their username and password
 
-When the user submits their username and password, create an `AuthenticationOptions` object and assign its `Username` and `Password` properties to the values entered by the user. Pass this object as a parameter to `IDXAuthenticationWrapper.authenticate()`.
+Create an `AuthenticationOptions` object and assign its `Username` and `Password` properties to the values entered by the user to capture their login credentials. Pass this object as a parameter to `IDXAuthenticationWrapper.authenticate()` to begin the authentication process.
 
 ```java
 fun signIn() {
@@ -42,13 +44,13 @@ fun signIn() {
 }
 ```
 
-### Your app handles an authentication success response
+### Your app processes the authentication success response
 
-`IDXAuthenticationWrapper.authenticate()` returns an [`AuthenticationResponse`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/response/AuthenticationResponse.java) object with an [`AuthenticationStatus`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/model/AuthenticationStatus.java) property indicating the current state of the sign-in flow. Handle the returned `AuthenticationStatus` value accordingly:
+`IDXAuthenticationWrapper.authenticate()` returns an [`AuthenticationResponse`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/response/AuthenticationResponse.java) object with an [`AuthenticationStatus`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/model/AuthenticationStatus.java) property to indicate the status of the sign-in flow. Handle the returned `AuthenticationStatus` value accordingly:
 
-#### Success status
+#### Processing successful login
 
-If the Java SDK returns an `AuthenticationResponse` object with `AuthenticationStatus=SUCCESS`, then the user is successfully signed in. Use the `AuthenticationResponse.getTokenResponse()` method to retrieve the required tokens (access, refresh, ID) for authenticated user activity.
+After the user supplies their correct credentials, the Java SDK will return an `AuthenticationResponse` object with `AuthenticationStatus=SUCCESS`. Use the `AuthenticationResponse.getTokenResponse()` method to retrieve the required tokens (access, refresh, ID) for authenticated user activity.
 
 ```kotlin
 fun handleTerminalTransitions(response: AuthenticationResponse)
@@ -67,9 +69,11 @@ fun handleTerminalTransitions(response: AuthenticationResponse)
 }
 ```
 
-#### Other authentication statuses
+#### Processing other authentication statuses
 
-Handle other returned [AuthenticationStatus](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/model/AuthenticationStatus.java) cases if there are other factors to verify. For example:
+The app must handle other returned [`AuthenticationStatus`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/model/AuthenticationStatus.java) values in cases where user sign-in is unsuccessful or requires additional validation
+
+The following code displays the response and sign-in flow for various `AuthenticationStatus` values:
 
 ```kotlin
 fun handleKnownTransitions(
@@ -111,7 +115,9 @@ fun handleKnownTransitions(
 
 #### Failed authentication
 
-There's no explicit failed status from `AuthenticationStatus`. Check the response handler for an error in `AuthenticationResponse` for failed authentication and handle the flow accordingly. For example:
+There's no explicit failed status from `AuthenticationStatus`. Check the response handler for an error in `AuthenticationResponse` for failed authentication and handle the flow accordingly. 
+
+For example:
 
 ```kotlin
 if (response.errors.isNotEmpty()) {
