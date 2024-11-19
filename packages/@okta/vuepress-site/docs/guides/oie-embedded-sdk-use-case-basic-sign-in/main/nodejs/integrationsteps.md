@@ -1,6 +1,8 @@
 ### Your app displays the sign-in page
 
-Build a sign-in page that captures both the user's name and their password.
+When the user launches the app, it will display the sign-in page.
+
+Build a sign-in page that captures their username and password.
 
 <div class="half wireframe-border">
 
@@ -22,13 +24,13 @@ const authClient = getAuthClient(req);
 const transaction = await authClient.idx.authenticate({ username, password });
 ```
 
-### Your app handles an authentication success response
+### Your app processes the authentication response
 
-`authenticate()` returns a `transaction` object with a `status` property indicating the current state of the sign-in flow. Handle the returned `IdxStatus` value accordingly:
+`authenticate()` returns a `transaction` object with a `status` property indicating the status of the sign-in flow. The returned `IdxStatus` value displays the status of the sign-in flow. Handle the returned values accordingly:
 
-#### Success status
+#### Processing successful login
 
-When the user correctly supplies their password, `IdxStatus` equals `IdxStatus.SUCCESS`. Call `tokenManager.setTokens()` to save the tokens retrieved from the response for future requests, and then redirect the user back to the home page. The user is now signed in.
+After the user supplies their correct password, `IdxStatus` equals `IdxStatus.SUCCESS`. Call `tokenManager.setTokens()` to save the tokens retrieved for future requests and redirect the user back to the home page. The user is now signed in.
 
 ```js
   const { nextStep, tokens, status, error, } = transaction;
@@ -47,9 +49,9 @@ When the user correctly supplies their password, `IdxStatus` equals `IdxStatus.S
 }
 ```
 
-#### Other authentication statuses
+#### Handling other authentication statuses
 
-Handle other returned `IdxStatus` cases if the user didn't sign in successfully or there are other factors to verify. For example:
+The app must handle other `IdxStatus` cases if the user didn't successfully sign-in or if additional validation is required. Below is an example: 
 
 ```js
 switch (status) {
