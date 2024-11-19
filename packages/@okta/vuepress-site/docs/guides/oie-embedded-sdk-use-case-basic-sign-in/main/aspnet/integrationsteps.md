@@ -1,6 +1,8 @@
 ### Your app displays the sign-in page
 
-Build a sign-in page that captures both the user's name and their password.
+When the user launches the app, it will display the sign-in page.
+
+Build a sign-in page that captures their username and password.
 
 <div class="half wireframe-border">
 
@@ -15,7 +17,7 @@ Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 
 ### The user submits their username and password
 
-When the user submits their username and password, create an `AuthenticationOptions` object and assign its `Username` and `Password` properties to the values entered by the user. Pass this object as a parameter to `IdxClient.AuthenticateAsync()`.
+Create an `AuthenticationOptions` object and assign its `Username` and `Password` properties to the values entered by the user to capture their login credentials. Pass this object as a parameter to `IdxClient.AuthenticateAsync()`.
 
 ```csharp
 var idxAuthClient = new IdxClient();
@@ -29,9 +31,9 @@ var authnResponse = await idxAuthClient
    .AuthenticateAsync(authnOptions).ConfigureAwait(false);
 ```
 
-### Your app handles an authentication success response
+### Your app processes the authentication success response
 
-When the user correctly supplies their password, `AuthenticateAsync()` returns an `AuthenticationResponse` with an `AuthenticationStatus` of `Success`. Call `AuthenticationHelper.GetIdentityFromTokenResponseAsync()` to retrieve the user's OIDC claims information as ID tokens and pass it into your app. The user has now signed in.
+After the user supplies their correct password, `AuthenticateAsync()` returns an `AuthenticationResponse` with an `AuthenticationStatus` of `Success`. Call `AuthenticationHelper.GetIdentityFromTokenResponseAsync()` to retrieve the user's OIDC claims information as ID tokens. You can pass these ID tokens into your app.  The tokens are stored for future requests and the user is redirected to the default page after a successful sign-in. 
 
 ```csharp
 switch (authnResponse.AuthenticationStatus)
@@ -57,5 +59,3 @@ switch (authnResponse.AuthenticationStatus)
 
 return View(view, model);
 ```
-
-Store these tokens for future requests and redirect the user to the default page after a successful sign-in attempt.
