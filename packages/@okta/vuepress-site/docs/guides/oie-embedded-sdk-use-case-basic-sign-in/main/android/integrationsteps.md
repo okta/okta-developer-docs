@@ -1,8 +1,8 @@
-### The user launches the sign-in page
+### Your app displays the sign-in page
 
 When the user launches the app, it will display the sign-in page.
 
-Build a sign-in page that captures both the user's name and their password.
+Build a sign-in page that captures their username and password.
 
 <div class="half wireframe-border">
 
@@ -24,7 +24,7 @@ val beginProceedContext = beginResponse.proceedContext
 
 ### The user submits their username and password
 
-Create an `AuthenticationOptions` object and assign its `Username` and `Password` properties to the values entered by the user to capture their login credentials. Pass this object as a parameter to `IDXAuthenticationWrapper.authenticate()`.
+Create an `AuthenticationOptions` object and assign its `Username` and `Password` properties to the values entered by the user to capture their login credentials. Pass this object as a parameter to `IDXAuthenticationWrapper.authenticate()` to begin the authentication process.
 
 ```java
 fun signIn() {
@@ -69,11 +69,11 @@ fun handleTerminalTransitions(response: AuthenticationResponse)
 }
 ```
 
-#### Other authentication statuses
+#### Processing other authentication statuses
 
-The app must handle other returned [AuthenticationStatus](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/model/AuthenticationStatus.java) values if the user didn't successfully sign-in or if additional validation is required.
+The app must handle other returned [`AuthenticationStatus`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/model/AuthenticationStatus.java) values in cases where user sign-in is unsuccessful or requires additional validation
 
-Below is an example:
+The following code displays the response and sign-in flow for various `AuthenticationStatus` values:
 
 ```kotlin
 fun handleKnownTransitions(
@@ -115,7 +115,9 @@ fun handleKnownTransitions(
 
 #### Failed authentication
 
-There's no explicit failed status from `AuthenticationStatus`. Check the response handler for an error in `AuthenticationResponse` for failed authentication and handle the flow accordingly. For example:
+There's no explicit failed status from `AuthenticationStatus`. Check the response handler for an error in `AuthenticationResponse` for failed authentication and handle the flow accordingly. 
+
+For example:
 
 ```kotlin
 if (response.errors.isNotEmpty()) {
