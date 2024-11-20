@@ -92,7 +92,7 @@ Use the new [Interaction Code grant type](/docs/concepts/interaction-code/) exte
 
 With Identity Engine, you can use hCAPTCHA and reCAPTCHA services with the redirect or embedded authentication deployment models.
 
-The following table explains the three distinct approaches used by Identity Engine for user authentication:
+The following table explains the three deployment models used by Identity Engine:
 
 | **Deployment Model**|**Description**|
 | :-------- | :------- |
@@ -104,7 +104,7 @@ Refer to [Okta deployment models — redirect vs. embedded](https://developer.ok
 
 ### Using our SDKs and sample apps
 
-Okta offers numerous SDKs to integrate Identity Engine features into your apps using the discussed [Okta Deployment Models](#deployment-models-used-by-identity-engine). We also showcase our features through sample apps.  
+Okta offers numerous SDKs to integrate Identity Engine features into your apps using the discussed [deployment models](#deployment-models-used-by-identity-engine). We also showcase our features through sample apps.  
 
 See the following resources:
 
