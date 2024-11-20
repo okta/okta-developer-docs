@@ -22,11 +22,11 @@ const authClient = getAuthClient(req);
 const transaction = await authClient.idx.authenticate({ username, password });
 ```
 
-### Your app processes the authentication response
+### Processing `AuthenticationStatus` values
 
 `authenticate()` returns a `transaction` object with a `status` property to indicate the sign-in flow status. Handle the returned `IdxStatus` values accordingly:
 
-#### Processing successful login
+#### Processing a successful login
 
 When the user submits their correct password, `IdxStatus` equals `IdxStatus.SUCCESS`. Call `tokenManager.setTokens()` to save the retrieved tokens for future requests and redirect the user back to the home page. The user is now signed in.
 
@@ -49,7 +49,7 @@ The below code demonstrates how to handle a successful sign-in flow:
 }
 ```
 
-#### Handling other authentication statuses
+#### Handling other `AuthenticationStatus` values
 
 The app must handle other `IdxStatus` values in cases where user sign-in is unsuccessful or requires additional validation.
  
