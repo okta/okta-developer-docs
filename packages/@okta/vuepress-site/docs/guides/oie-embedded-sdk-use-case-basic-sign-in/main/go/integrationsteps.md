@@ -1,6 +1,6 @@
 ### Your app displays the sign-in page
 
-When the user launches the app and the sign-in page loads, create an SDK `Client` object by calling `NewClient`.
+The user launches the app. When the sign-in page loads, create an SDK `Client` object by calling `NewClient`.
 
 ```go
 idx, err := idx.NewClient(
@@ -36,9 +36,9 @@ if err != nil {
 }
 ```
 
-### The user submits their username and password
+### Capture the user's login credentials
 
-Create an `IdentityRequest` object and assign its `identifier` and `password` properties to the values entered by the user to capture their login credentials. Pass this object as a parameter to `LoginResponse.Identify`.
+Create an `IdentityRequest` object and assign its `identifier` and `password` properties to the values entered by the user to capture their login credentials. Pass this object as a parameter to `LoginResponse.Identify` to begin the authentication process.
 
 ```go
 ir := &idx.IdentifyRequest{
@@ -59,9 +59,9 @@ if err != nil {
 
 ### Your app processes the authentication success response
 
-When the user correctly supplies their login credentials `err` is `nil` and `LoginResponse.Token` contains the access and ID tokens required to retrieve the user's OIDC claims information. The user is now signed in.
+When the user correctly supplies their login credentials `err` is `nil`. In addition, `LoginResponse.Token` will contain the access and ID tokens required to retrieve the user's OIDC claims information. The user is now signed in.
 
-The below code demonstrates the sign-in flow when login is successful and unsuccessful. In the latter, `log.Fatal` is called, the relevent error message is displayed, and the login process is terminated.
+The below code demonstrates the successful and unsuccessful sign-in flow. In the latter, `log.Fatal` is called, an error message is displayed, and the login process is terminated.
 
 ```go
  //If we have tokens we have success, so lets store tokens
@@ -83,4 +83,4 @@ if lr.Token() != nil {
 }
 ```
 
-The tokens are stored for future requests and the user is redirected to the default page after a successful sign-in.
+After a successful sign-in, the tokens are stored for future requests and the user is redirected to the home page.
