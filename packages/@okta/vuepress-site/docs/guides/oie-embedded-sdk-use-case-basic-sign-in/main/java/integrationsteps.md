@@ -66,8 +66,6 @@ public ModelAndView handleTerminalTransitions(AuthenticationResponse response, H
 
 The app must handle other returned [`AuthenticationStatus`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/model/AuthenticationStatus.java) values in cases where the sign-in flow is unsuccessful or additional validation is required. 
 
-See the process flow for each returned `IdxStatus` value captured in the `case` statements:
-
 
 ```java
     ...
