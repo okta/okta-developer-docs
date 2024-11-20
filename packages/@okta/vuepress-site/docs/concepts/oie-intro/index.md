@@ -52,7 +52,7 @@ After clicking an app intent link, Identity Engine directly evaluates all sign-i
 
 With Classic Engine, users can only access endpoints/app intent links through an authorized session. 
 
-Classic Engine redirects unauthorized traffic to the centralized sign-in page (`/login/login.htm`) with a `fromUrl` indicating the app the user attempted to access. The system then assesses the request for rate limiting, establishes a session, and processes the request.
+Classic Engine redirects unauthorized traffic to the centralized sign-in page (`/login/login.htm`) with a `fromUrl` for the app the user attempted to access. Classic Engine then assesses the request for rate limiting, establishes a session, and processes the request.
 
 Only after these steps will Classic Engine perform an intermediate redirect to the generic app SSO endpoint (`/app/{app}/{instanceId}/{linkName}`) to direct users to the relevant app intent link. This link validates the user’s access capabilities and enforces the app sign-on policy.
 
