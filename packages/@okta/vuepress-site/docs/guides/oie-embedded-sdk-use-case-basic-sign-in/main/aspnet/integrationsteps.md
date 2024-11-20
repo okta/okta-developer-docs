@@ -1,8 +1,6 @@
 ### Your app displays the sign-in page
 
-When the user launches the app, it will display the sign-in page.
-
-Build a sign-in page that captures their username and password.
+The user launches the app and sees the sign-in page. Build a sign-in page to capture the user's login credentials.
 
 <div class="half wireframe-border">
 
@@ -15,9 +13,9 @@ Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 
 </div>
 
-### The user submits their username and password
+### Capture the user's login credentials
 
-Create an `AuthenticationOptions` object and assign its `Username` and `Password` properties to the values entered by the user to capture their login credentials. Pass this object as a parameter to `IdxClient.AuthenticateAsync()`.
+Create an `AuthenticationOptions` object and assign its `Username` and `Password` properties to the values entered by the user to capture their login credentials. Pass this object as a parameter to `IdxClient.AuthenticateAsync()` to begin the authentication process.
 
 ```csharp
 var idxAuthClient = new IdxClient();
