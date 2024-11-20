@@ -32,7 +32,7 @@ AuthenticationResponse authenticationResponse =
    );
 ```
 
-### Your app processes the authentication response
+### Processing returned `AuthenticationStatus` values
 
 `IDXAuthenticationWrapper.authenticate()` returns an [`AuthenticationResponse`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/response/AuthenticationResponse.java) object with an [`AuthenticationStatus`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/model/AuthenticationStatus.java) property indicating the status of the sign-in flow. Handle the returned `AuthenticationStatus` value accordingly:
 
@@ -62,11 +62,11 @@ public ModelAndView handleTerminalTransitions(AuthenticationResponse response, H
 }
 ```
 
-#### Handling other authentication statuses
+#### Handling other   AuthenticationStatus` values
 
 The app must handle other returned [`AuthenticationStatus`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/model/AuthenticationStatus.java) values in cases where the sign-in flow is unsuccessful or additional validation is required. 
 
- See the process flow for each returned `IdxStatus` value captured in the `case` statements:
+See the process flow for each returned `IdxStatus` value captured in the `case` statements:
 
 
 ```java
