@@ -12,23 +12,11 @@ parameters:
 commands:
   install-deps:
     steps:
-      - restore_cache:
-          name: Restore Yarn dependency cache
-          keys:
-            - v6-yarn-deps-{{ checksum "yarn.lock" }}
-            # allow for partial cache hits
-            - v6-yarn-deps-
       - run:
           name: Install dependencies with Yarn
-          command: yarn install --frozen-lockfile --ignore-platform
-      - save_cache:
-          name: Save Yarn dependency cache
-          key: v6-yarn-deps-{{ checksum "yarn.lock" }}
-          paths:
-            - node_modules/
-            - packages/@okta/vuepress-plugin-active-header-links/node_modules/
-            - packages/@okta/vuepress-site/node_modules/
-            - ~/.cache/
+          command:
+            npm install -g  yarn
+            yarn install --frozen-lockfile --ignore-platform
 
 jobs:
   inclusive-linting:
