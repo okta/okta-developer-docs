@@ -135,7 +135,6 @@ Okta user management requires that your SCIM API supports an `active` attribute 
 
 There are numerous examples of how to implement SCIM servers and apps. Here are a few to get you started:
 
-- [scimify](https://toolkit.okta.com/apps/scimify/): a PHP app for Okta that supports both SCIM 1.1 and SCIM 2.0 servers with operations for /Users, /Groups, and /ServiceProviderConfig endpoints
 - [Apache Directory SCIMple](https://github.com/apache/directory-scimple): Apache's Java EE implementation of the SCIM version 2.0 specification
 - [django-scim2](https://github.com/15five/django-scim2): a SCIM 2.0 Service Provider implementation (for Django)
 - [go-scim](https://github.com/imulab/go-scim): building blocks for servers implementing SCIM v2
