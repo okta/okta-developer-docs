@@ -22,7 +22,7 @@ const authClient = getAuthClient(req);
 const transaction = await authClient.idx.authenticate({ username, password });
 ```
 
-### Processing `AuthenticationStatus` values
+### Processing returned `IdxStatus` values
 
 `authenticate()` returns a `transaction` object with a `status` property to indicate the sign-in flow status. Handle the returned `IdxStatus` values accordingly:
 
@@ -49,7 +49,7 @@ The below code demonstrates how to handle a successful sign-in flow:
 }
 ```
 
-#### Handling other `AuthenticationStatus` values
+#### Handling other `IdxStatus` values
 
 The app must handle other `IdxStatus` values in cases where user sign-in is unsuccessful or requires additional validation.
  
