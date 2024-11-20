@@ -2,6 +2,7 @@ version: 2.1
 
 orbs:
   general-platform-helpers: okta/general-platform-helpers@1.8
+  win: circleci/windows@5.0
 
 parameters:
   preview:
@@ -39,9 +40,9 @@ jobs:
       - run: bash ./scripts/inclusive-lint.sh
 
   node_build_checks:
-      docker:
-        - image: cimg/node:14.21.3-browsers
-      resource_class: large
+      executor:
+        name: win/default
+        size: large
       environment:
         NODE_OPTIONS: '--max_old_space_size=3584'
       steps:
