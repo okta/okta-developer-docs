@@ -1,8 +1,6 @@
 ### Your app displays the sign-in page
 
-When the user launches the app, it will display the sign-in page.
-
-Build a sign-in page that captures their username and password.
+The user launches the app and sees the sign-in page. Build a sign-in page to capture the user's login credentials.
 
 <div class="half wireframe-border">
 
@@ -22,7 +20,7 @@ val beginResponse = idxAuthenticationWrapper.begin()
 val beginProceedContext = beginResponse.proceedContext
 ```
 
-### The user submits their username and password
+### Capture the user's login credentials
 
 Create an `AuthenticationOptions` object and assign its `Username` and `Password` properties to the values entered by the user to capture their login credentials. Pass this object as a parameter to `IDXAuthenticationWrapper.authenticate()` to begin the authentication process.
 
@@ -44,7 +42,7 @@ fun signIn() {
 }
 ```
 
-### Your app processes the authentication success response
+### Processing `AuthenticationStatus` values
 
 `IDXAuthenticationWrapper.authenticate()` returns an [`AuthenticationResponse`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/response/AuthenticationResponse.java) object with an [`AuthenticationStatus`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/model/AuthenticationStatus.java) property to indicate the status of the sign-in flow. Handle the returned `AuthenticationStatus` value accordingly:
 
@@ -69,7 +67,7 @@ fun handleTerminalTransitions(response: AuthenticationResponse)
 }
 ```
 
-#### Processing other authentication statuses
+#### Handling other `AuthenticationStatus` values
 
 The app must handle other returned [`AuthenticationStatus`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/model/AuthenticationStatus.java) values in cases where user sign-in is unsuccessful or requires additional validation
 
