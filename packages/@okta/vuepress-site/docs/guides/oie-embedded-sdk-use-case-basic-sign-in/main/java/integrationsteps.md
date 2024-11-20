@@ -1,6 +1,6 @@
 ### Your app displays the sign-in page
 
-When the user launches the app, it will display the sign-in page.
+The user launches the app and sees the sign-in page. Build a sign-in page to capture the user's login credentials.
 
 Build a sign-in page that captures their username and password.
 
@@ -22,7 +22,7 @@ AuthenticationResponse beginResponse = idxAuthenticationWrapper.begin();
 ProceedContext proceedContext = beginResponse.getProceedContext();
 ```
 
-### The user submits their username and password
+### Capture the user's login credentials
 
 Create an `AuthenticationOptions` object and assign its `Username` and `Password` properties to the values entered by the user to capture their login credentials. Pass this object as a parameter to `IDXAuthenticationWrapper.authenticate()` to begin the authentication process.
 
@@ -68,7 +68,7 @@ public ModelAndView handleTerminalTransitions(AuthenticationResponse response, H
 
 The app must handle other returned [AuthenticationStatus](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/model/AuthenticationStatus.java) values in cases where the sign-in flow is unsuccessful or additional validation is required. 
 
- See the below process flow for each returned `IdxStatus` value captured in the relevant case statements:
+ See the process flow for each returned `IdxStatus` value captured in the `case` statements:
 
 
 ```java
@@ -93,9 +93,9 @@ The app must handle other returned [AuthenticationStatus](https://github.com/okt
 
 #### Failed authentication
 
-There's no explicit failed  `AuthenticationStatus` value. Check the response handler for an error in `AuthenticationResponse` for failed authentication, and handle the flow accordingly. 
+There's no explicit failed  `AuthenticationStatus` value. Check the response handler for an error in `AuthenticationResponse` for failed authentication and handle the flow accordingly. 
 
-See the below example to recognize a failed authentication response:
+See below to recognize a failed authentication response:
 
 ```java
 if (responseHandler.needsToShowErrors(authenticationResponse)) {
