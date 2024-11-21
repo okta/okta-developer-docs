@@ -73,7 +73,12 @@ Assign admin roles for every OAuth 2.0 service app that you create. Service apps
 
 > **Note:** To temporarily bypass assigning an admin role, enable **Public client app admins** in your org. This automatically assigns the super admin role to custom API service apps that you create after the scopes are granted. Go to **Settings** > **Account** > **Public client app admins** in the Admin Console to edit this setting. See [Assign admin roles to apps](https://help.okta.com/okta_help.htm?type=oie&id=csh-work-with-admin-assign-admin-role-to-apps). Disable this setting after you incorporate admin role assignments in your workflow.
 
-As an [Okta super administrator](https://help.okta.com/okta_help.htm?type=oie&id=ext_superadmin), make a `POST /oauth2/v1/clients/{yourServiceAppId}/roles` request to your org with the following parameters to assign an admin role:
+1. In the service app that you created in the previous section, select **Admin Roles**.
+1. Click **Edit assignments**.
+1. Select a role from the **Role** dropdown list, and then define the additional information for the admin role, if required.
+1. Click **Save Changes** when you finish. You are prompted to authenticate.
+
+<!-- As an [Okta super administrator](https://help.okta.com/okta_help.htm?type=oie&id=ext_superadmin), make a `POST /oauth2/v1/clients/{yourServiceAppId}/roles` request to your org with the following parameters to assign an admin role:
 
 | Parameter |  Description/Value   |
 | --------- |  ------------- |
@@ -111,6 +116,7 @@ curl -i -X POST \
     "resource-set": "{resource-set}"
   }'
 ```
+-->
 
 ## Generate the JWK using the API
 
