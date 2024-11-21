@@ -26,7 +26,7 @@ This guide explains how to interact with Okta APIs by using scoped OAuth 2.0 acc
 
 ## About scoped OAuth 2.0 access tokens
 
-Most Okta API endpoints require that you include an API token with your request. Currently, this API token takes the form of an SSWS token that you generate in the Admin Console. With OAuth for Okta, you’re able to interact with Okta APIs using scoped OAuth 2.0 access tokens. Each access token enables the bearer to perform specific actions on specific Okta endpoints. These actions are controlled by the scopes contained in the access token.
+Most Okta API endpoints require that you include an API token with your request. Currently, this API token takes the form of an SSWS token that you generate in the Admin Console. With OAuth for Okta, you’re able to interact with Okta APIs using scoped OAuth 2.0 access tokens. Each access token enables the bearer to perform specific actions on specific Okta endpoints, controlled by the scopes in the access token.
 
 Scoped access tokens have several advantages:
 
@@ -57,15 +57,15 @@ Create an OAuth 2.0 service app integration using the Admin Console.
 
 1. Sign in to your Okta organization as a user with administrative privileges.
 
-2. In the Admin Console, go to **Applications** > **Applications**, and then click **Create App Integration**. The **Create a new app integration** page appears.
+1. In the Admin Console, go to **Applications** > **Applications**, and then click **Create App Integration**. The **Create a new app integration** page appears.
 
-3. Select **API Services** as the **Sign-in method**, and then click **Next**.
+1. Select **API Services** as the **Sign-in method**, and then click **Next**.
 
-4. Enter a name for your app integration and click **Save**. The app main page appears.
+1. Enter a name for your app integration and click **Save**. The app main page appears.
 
   > **Note:** The Client Credentials grant type is automatically selected and is unavailable to make changes.
 
-5. Optional. Click the **Application rate limits** tab to adjust the rate-limit capacity percentage for this service application. By default, each new application sets this percentage at 50%.
+1. Optional. Click the **Application rate limits** tab to adjust the rate-limit capacity percentage for this service app. By default, each new app sets this percentage at 50%.
 
 ### Assign admin roles to the OAuth 2.0 service app
 
@@ -76,7 +76,7 @@ Assign admin roles for every OAuth 2.0 service app that you create. Service apps
 1. In the service app that you created in the previous section, select **Admin Roles**.
 1. Click **Edit assignments**.
 1. Select a role from the **Role** dropdown list, and then define the additional information for the admin role, if required.
-1. Click **Save Changes** when you finish. You are prompted to authenticate.
+1. Click **Save Changes** when you finish. You’re prompted to authenticate.
 
 <!-- As an [Okta super administrator](https://help.okta.com/okta_help.htm?type=oie&id=ext_superadmin), make a `POST /oauth2/v1/clients/{yourServiceAppId}/roles` request to your org with the following parameters to assign an admin role:
 
@@ -293,7 +293,7 @@ To request an access token using the Client Credentials grant flow, your app mak
 
 Include the following parameters:
 
-* `scope`: Include the scopes that allow you to perform the actions on the endpoint that you want to access. The scopes requested for the access token must already be in the [application's grants collection](#grant-allowed-scopes). See [Scopes and supported endpoints](/docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints).
+* `scope`: Include the scopes that allow you to perform the actions on the endpoint that you want to access. The scopes requested for the access token must already be in the [app's grants collection](#grant-allowed-scopes). See [Scopes and supported endpoints](/docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints).
 
     In this example, request access for only one scope. When you request an access token for multiple scopes, the format for the scope value looks like this: `scope=okta.users.read okta.apps.read`.
 
