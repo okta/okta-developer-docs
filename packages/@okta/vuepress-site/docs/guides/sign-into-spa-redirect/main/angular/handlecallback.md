@@ -1,4 +1,4 @@
-The Okta Angular SDK has a callback component that handles the token exchange. Okta uses this inside `app-routing.module.ts` to handle the callback routing.
+The Okta Angular SDK has a callback component that handles the token exchange. Okta uses this inside `app.routes.ts` to handle the callback routing.
 
 1. Import the component with the following line:
 
