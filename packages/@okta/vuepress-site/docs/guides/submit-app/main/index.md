@@ -2,13 +2,13 @@
 title: Submit an integration with the OIN Manager
 meta:
   - name: description
-    content: Use this guide to learn how to submit your Workflow connector integration for publication with the Okta Integration Network (OIN) Manager.
+    content: Use this guide to learn how to submit your integration for publication using the Okta Integration Network (OIN) Manager.
 layout: Guides
 ---
 
 Use this guide to understand the process of submitting an integration to the Okta Integration Network (OIN) using the OIN Manager. You can submit a Workflows connector integration with the OIN Manager. This guide also shows you how to update a previously published integration or delete a draft submission.
 
-> **Note:** For SSO or Lifecycle Management (LCM) SCIM integrations, use the [OIN Wizard](/docs/guides/submit-oin-app/scim/main/) for a seamless ISV submission experience. You can also edit previous OIN Manager-submitted SSO and LCM SCIM integrations with the OIN Wizard. See [Update your integration](/docs/guides/submit-oin-app/scim/main/#update-your-integration).
+> **Note:** For SSO or Lifecycle Management (LCM) SCIM integrations, use the [OIN Wizard](/docs/guides/submit-oin-app/scim/main/) for a seamless ISV submission experience. Previously submitted SSO and LCM SCIM integrations from the OIN Manager have been moved to the OIN Wizard. You can edit published integrations in the OIN Wizard. See [Update your integration](/docs/guides/submit-oin-app/scim/main/#update-your-integration).
 
 ---
 
@@ -35,21 +35,13 @@ This guide covers submissions that use the [Workflows Connector Builder](https:/
 
 ### Submission support
 
-If you need help during the submission process, use the **Get Support** section on the My App Integrations page after you sign in to the [OIN Manager](https://oinmanager.okta.com). This section provides the following resources from the [Okta developer portal](https://developer.okta.com/):
+If you need help during the submission process, use the **Get Support** section on the My App Integrations page after you sign in to the [OIN Manager](https://oinmanager.okta.com). This section provides the following resources from the [Okta Developer Portal](https://developer.okta.com/):
 
 * OIN integration guides
-* Okta, OIDC, SAML, and SCIM concepts
-* A search tool to find articles in the Okta developer portal
+* Okta concepts
+* A search tool to find articles in the Okta Developer Portal
 
 If you have questions or need more support to publish your app integration, you can reach out to the Okta OIN team directly at <oin@okta.com>.
-
-> **Note:** All integrations in the OIN catalog are public. If you want to create a private integration for an app that uses SCIM, then use the [SCIM App Integration Wizard](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-scim). <br>
-> You can also use the following template integrations from the OIN if they meet your app SCIM capabilities:
-> * [SCIM 1.1 test apps](https://www.okta.com/integrations/?search=SCIM%201.1%20test%20app) for SCIM 1.1
-> * [SCIM 2.0 test apps](https://www.okta.com/integrations/?search=SCIM%202.0%20Test%20App) for SCIM 2.0
-> * [SCIM 1.1 Test App(Header Auth)](https://www.okta.com/integrations/scim-1-1-test-app-header-auth/) for SCIM 1.1 apps that use custom header expression for Header Auth
-> * [SCIM 2.0 Test App(Header Auth)](https://www.okta.com/integrations/scim-2-0-test-app-header-auth/) for SCIM 2.0 apps that use custom header expression for Header Auth
-> See [Add a private SCIM integration](/docs/guides/scim-provisioning-integration-connect/main/).
 
 ## Submit an integration
 
@@ -69,7 +61,7 @@ Start your integration submission:
 
     > **Note:** If you need to update an integration, see [Update your published integration](#update-your-published-integration).
 
-1. Begin defining your submission by specifying details in the [General Settings](#configure-general-settings) and [protocol or tool-specific](#configure-protocol-or-tool-specific-settings) tabs.
+1. Begin defining your submission by specifying details in the [General Settings](#configure-general-settings) and [integration type](#configure-integration-type-settings) tabs.
 
 ### Configure general settings
 
@@ -113,42 +105,38 @@ The Okta OIN team requires a dedicated account in your app to run their tests. E
 
 * **Additional instructions**: Include any other information that you think the Okta OIN team needs to know about your integration, the test account, or the testing configuration.
 
-### Configure protocol or tool-specific settings
+### Configure integration type settings
 
-You can submit protocol support details all together or asynchronously. For example, if your app currently only supports SCIM, you can create the submission with the SCIM protocol details. Later, when you add Workflows connector capabilities to your app, you can return to your integration submission to include Workflows connector support.
+> **Note:** The instructions on this page are for a **<StackSnippet snippet="protocol-name" inline/>** submission. If you want to change the submission instructions on this page, select the option you want from the **Instructions for** dropdown list on the right.
 
-> **Note:** If you don't see the protocol or tool-specific settings that you want in this section, select the **Instructions for** dropdown menu on this page.
-
-<StackSnippet snippet="protocol-name" />
+### <StackSnippet snippet="protocol-name" />
 
 <StackSnippet snippet="submit" />
 
 <br>
 
-As you add configuration information about your integration to the submission page, the indicators in the top right show your progress towards 100% completion.
+As you add configuration information about your integration to the submission page, the indicators on the top right show your progress towards 100% completion.
 
 Include all required information before you click **Submit for Review** to move your integration into the submission phase.
 
 ## Update your published integration
 
-If you need to make changes to your published LCM integration, use the [OIN Manager](https://oinmanager.okta.com/) to create an updated version of the integration.
-
-Similarly, when you enable a new capability in your app, you don't need to create an entirely new submission. For example, you can add a Workflows connector feature onto an existing published SCIM integration. You can update your existing submission to enable and specify the settings for that protocol, then submit the updated integration.
+If you need to make changes to your published integration, use the [OIN Manager](https://oinmanager.okta.com/) to create an updated version of the integration.
 
 > **Note:** As of release 2024.11.0, use the OIN Wizard to [edit your published SCIM integration](/docs/guides/submit-oin-app/scim/main/#update-your-integration). Previous SCIM integrations submitted through the OIN Manager are now available through the **Your OIN Integrations** dashboard in the Admin Console.
 > If you submitted a SCIM integration through the OIN Manager and the OIN review process hasn't started, resubmitted it in the OIN Wizard.
 
-1. Sign in to the OIN Manager using the credentials for your original dev org.
+1. Sign in to the OIN Manager using the credentials for your original developer org.
 
-    >**Note:** Submit the updated integration using the same dev org that was used to make the original submission, otherwise the Okta OIN team rejects the update.
+    >**Note:** Submit the updated integration using the same developer org that was used to make the original submission, otherwise the Okta OIN team rejects the update.
 
    The published integration appears on your integrations page.
 
 1. Click **Update**.
 
-    This creates an instance of your integration where you can safely change any of the parameters. Your existing integration remains in the OIN catalog and keeps the previous settings until this new version is published.
+    This creates an instance of your integration submission where you can safely change any of the parameters. Your existing integration remains in the OIN catalog and keeps the previous settings until this new version is published.
 
-1. Update any of the parameters for your existing protocols or add a protocol depending on your needs.
+1. Update any parameters for your existing integration.
 
     If you need to leave your in-progress submission at any point, you can return to it through the OIN Manager. When you sign in again, the published version and your in-progress version appear. Click **Edit** on the in-progress version to continue.
 
@@ -158,7 +146,7 @@ Similarly, when you enable a new capability in your app, you don't need to creat
 
     Okta publishes the new version of your integration after it reaches the **Publish** stage. The new version replaces the old one in the OIN catalog.
 
->**Note:** You can have a maximum of 10 submissions for any development org in the OIN Manager.
+>**Note:** You can have a maximum of 10 submissions for any Okta Developer Edition org in the OIN Manager.
 
 ## Delete draft submissions
 
@@ -182,7 +170,7 @@ If you need assistance with deleting a draft submission, contact the Okta OIN te
 
 ## Delete published submissions
 
-If you want to remove an app integration that's already published in the OIN catalog, contact the Okta OIN team. Only the Okta OIN team can remove published integrations in the catalog. Send an email to <oin@okta.com> with the URL of your dev org, the name of the app integration, and a link to its location in the OIN catalog.
+If you want to remove an app integration that's already published in the OIN catalog, contact the Okta OIN team. Only the Okta OIN team can remove published integrations in the catalog. Send an email to <oin@okta.com> with the URL of your developer org, the name of the app integration, and a link to its location in the OIN catalog.
 
 Removing an app integration from the OIN doesn't prohibit existing users from accessing it. The app integration isn't removed from end-user dashboards until an admin for the customer's org removes the app integration from their org.
 
