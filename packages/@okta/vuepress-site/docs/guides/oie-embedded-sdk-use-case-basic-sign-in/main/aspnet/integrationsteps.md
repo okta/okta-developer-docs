@@ -1,4 +1,4 @@
-### Your app displays the sign-in page
+### 1. Display the sign-in page
 
 Build a sign-in page that captures both the user's name and their password.
 
@@ -13,7 +13,7 @@ Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 
 </div>
 
-### The user submits their username and password
+### 2. Handle user credentials
 
 When the user submits their username and password, create an `AuthenticationOptions` object and assign its `Username` and `Password` properties to the values entered by the user. Pass this object as a parameter to `IdxClient.AuthenticateAsync()`.
 
@@ -29,9 +29,9 @@ var authnResponse = await idxAuthClient
    .AuthenticateAsync(authnOptions).ConfigureAwait(false);
 ```
 
-### Your app handles an authentication success response
+### 3. Handle a successful authentication response
 
-When the user correctly supplies their password, `AuthenticateAsync()` returns an `AuthenticationResponse` with an `AuthenticationStatus` of `Success`. Call `AuthenticationHelper.GetIdentityFromTokenResponseAsync()` to retrieve the user's OIDC claims information as ID tokens and pass it into your app. The user has now signed in.
+When the user correctly enters their password, `AuthenticateAsync()` returns an `AuthenticationResponse` object with an `AuthenticationStatus` property equal to `Success`. Call `AuthenticationHelper.GetIdentityFromTokenResponseAsync()` to retrieve the user's OIDC claims information as ID tokens and pass it into your app. The user has now signed in.
 
 ```csharp
 switch (authnResponse.AuthenticationStatus)

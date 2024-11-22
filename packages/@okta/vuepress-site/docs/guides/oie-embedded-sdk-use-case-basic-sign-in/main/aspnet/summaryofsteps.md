@@ -1,4 +1,4 @@
-The following diagram summarizes the steps involved in a sign-in flow using only a password:
+The following diagram summarizes the steps of a password-only sign-in flow using:
 
 <div class="full">
 

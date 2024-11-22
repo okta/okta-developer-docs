@@ -1,4 +1,4 @@
-### The user launches the sign-in page
+### 1. Display the sign-in page
 
 Build a sign-in page that captures both the user's name and their password.
 
@@ -13,14 +13,14 @@ Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 
 </div>
 
-Begin the authentication process by calling `IDXAuthenticationWrapper.begin()` and getting a new [`ProceedContext`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/ProceedContext.java) object.
+Begin the authentication process by calling the `IDXAuthenticationWrapper.begin()` method and getting a new [`ProceedContext`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/ProceedContext.java) object.
 
 ```java
 AuthenticationResponse beginResponse = idxAuthenticationWrapper.begin();
 ProceedContext proceedContext = beginResponse.getProceedContext();
 ```
 
-### The user submits their username and password
+### 2. Handle user credentials
 
 When the user submits their username and password, create an `AuthenticationOptions` object and assign its `Username` and `Password` properties to the values entered by the user. Pass this object as a parameter to `IDXAuthenticationWrapper.authenticate()`.
 
@@ -32,13 +32,13 @@ AuthenticationResponse authenticationResponse =
    );
 ```
 
-### Your app handles an authentication success response
+### 3. Handle a successful authentication response
 
-`IDXAuthenticationWrapper.authenticate()` returns an [`AuthenticationResponse`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/response/AuthenticationResponse.java) object with an [`AuthenticationStatus`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/model/AuthenticationStatus.java) property indicating the current state of the sign-in flow. Handle the returned `AuthenticationStatus` value accordingly:
+The `IDXAuthenticationWrapper.authenticate()` method returns an [`AuthenticationResponse`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/response/AuthenticationResponse.java) object with an [`AuthenticationStatus`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/model/AuthenticationStatus.java) property indicating the current state of the sign-in flow. Handle the returned `AuthenticationStatus` value accordingly:
 
 #### Success status
 
-If the Java SDK returns an `AuthenticationResponse` object with `AuthenticationStatus=SUCCESS`, then the user is successfully signed in. Use the `AuthenticationResponse.getTokenResponse()` method to retrieve the required tokens (access, refresh, ID) for authenticated user activity.
+If the Java SDK returns an `AuthenticationResponse` object with `AuthenticationStatus=SUCCESS`, the user is successfully signed in. Use the `AuthenticationResponse.getTokenResponse()` method to retrieve the required tokens (access, refresh, ID) for authenticated user activity.
 
 ```java
 public ModelAndView handleTerminalTransitions(AuthenticationResponse response, HttpSession session) {
@@ -88,7 +88,7 @@ Handle other returned [AuthenticationStatus](https://github.com/okta/okta-idx-ja
 
 #### Failed authentication
 
-There's no explicit failed status from `AuthenticationStatus`. Check the response handler for an error in `AuthenticationResponse` for failed authentication, and handle the flow accordingly. For example:
+There's no explicit "failed" status from `AuthenticationStatus`. Check the response handler for an error in the `AuthenticationResponse` object for failed authentication, and handle the flow accordingly. For example:
 
 ```java
 if (responseHandler.needsToShowErrors(authenticationResponse)) {

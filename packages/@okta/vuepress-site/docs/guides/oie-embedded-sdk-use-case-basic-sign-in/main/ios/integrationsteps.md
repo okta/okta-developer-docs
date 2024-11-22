@@ -1,8 +1,8 @@
-### Sample application and SDK integration
+## Sample application and SDK integration
 
 Similar to the Okta APIs, the SDK uses a generic interface to handle each step of the user sign-in flow. This interface enables apps to use a dynamic model when responding to policy changes within Okta. Specifically, it enables a pure policy-driven design that accepts new functionality, such as adding other sign-in factors, without the need to update your app's code. This feature is important for mobile devices due to the challenges in updating apps. See how the [sample application](/docs/guides/oie-embedded-common-run-samples/ios/main/) uses the SDK to implement this dynamic policy-driven behavior.
 
-### Integrate the SDK with the sample code
+### 1. Integrate the SDK with the sample code
 
 In contrast to the sample app, the [sample code](https://github.com/okta/okta-idx-swift/tree/master/Samples/Signin%20Samples) provided in this step-by-step guide wraps the SDK with a more prescriptive and explicit interface that is purposely built to help facilitate understanding of how to use the SDK. It's meant to be a learning tool and although you can implement similar code in your app, you're advised to use the same best practice dynamic approach implemented in the sample app.
 
@@ -16,7 +16,7 @@ The following steps document how to integrate the sample code into your app. The
 
 > **Note:** The integrating code component represents the code that you write to call the sample code's interface.
 
-### Launch the app and initialize the SDK
+### 2. Launch the app and initialize the SDK
 
 The first step is to initialize the SDK when the user opens your app. This is done by creating an instance of `BasicLogin` and passing into its initializer a `configuration` object.
 
@@ -26,7 +26,7 @@ self.authHandler = BasicLogin(configuration: configuration)
 
 For more information on how to set the configuration parameters, see [SDK](/docs/guides/oie-embedded-common-download-setup-app/ios/main/#sdk) in [Download and set up the SDK, Sign-In Widget, and sample app](/docs/guides/oie-embedded-common-download-setup-app/ios/main).
 
-### The user initiates the sign-in flow
+### 3. Handle the user-initiated sign-in flow
 
 When the user enters their credentials and initiates the sign-in flow, call the `login` method, passing in the username, password, and `completion` closure. This closure is invoked after the sign-in process completes and returns either a fatal error or a success status with a token.
 
@@ -43,7 +43,7 @@ When the user enters their credentials and initiates the sign-in flow, call the 
 }
 ```
 
-### Send the user to the home page after a successful sign-in flow
+### 4. Send the user to the home page after a successful sign-in flow
 
 The final integration step is to send the user to the default home page after a successful sign-in flow. Optionally, you can obtain basic user information after the user successfully signs in by making a request to the Okta OpenID Connect authorization server. See [Get the user profile information](#get-the-user-profile-information).
 

@@ -1,6 +1,6 @@
-### Your app displays the sign-in page
+### 1. Display the sign-in page
 
-When the user goes to the sign-in page and the app loads for the first time, create an SDK `Client` object by calling `NewClient`.
+When the user goes to the sign-in page and the app loads for the first time, create an SDK `Client` object by calling the `NewClient` method.
 
 ```go
 idx, err := idx.NewClient(
@@ -36,7 +36,7 @@ if err != nil {
 }
 ```
 
-### The user submits their username and password
+### 2. Handle user credentials
 
 When the user submits their username and password, create an `IdentityRequest` object and assign its `identifier` and `password` properties to the values entered by the user. Pass this object as a parameter to `LoginResponse.Identify`.
 
@@ -57,9 +57,9 @@ if err != nil {
 }
 ```
 
-### Your app handles an authentication success response
+### 3. Handle an authentication success response
 
-When the user correctly supplies their password, `err` is `nil` and `LoginResponse.Token` contains the required access and ID tokens to retrieve the user's OIDC claims information. The user is now signed in.
+When the user correctly enters their password, `err` is `nil` and `LoginResponse.Token` contains the required access and ID tokens to retrieve the user's OIDC claims information. The user is now signed in.
 
 ```go
  //If we have tokens we have success, so lets store tokens
