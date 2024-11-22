@@ -39,4 +39,4 @@
     }
     ```
 
-1. Update Android Studio with the changes by performing a gradle sync. For more information on performing a gradle sync, see the [Android Studio Documentation](https://developer.android.com/studio/build#sync-files).
+1. Update Android Studio with the changes by performing a Gradle sync. For more information on performing a Gradle sync, see the [Android Studio Documentation](https://developer.android.com/studio/build#sync-files).

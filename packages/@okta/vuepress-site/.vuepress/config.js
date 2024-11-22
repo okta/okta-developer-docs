@@ -166,7 +166,6 @@ module.exports = ctx => ({
       { text: 'Community',
         children: [
           { text: 'Forum', link: 'https://devforum.okta.com' },
-          { text: 'Toolkit', link: 'https://toolkit.okta.com/' },
           { type: 'divider' },
           { type: 'icons',
             icons: [

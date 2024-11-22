@@ -1,10 +1,10 @@
 ---
-title: Sign users in to your mobile app using the redirect model
+title: Sign in to your mobile app
 excerpt: Configure your Okta org and your mobile app to use Okta's redirect sign-in flow.
 layout: Guides
 ---
 
-Add authentication using the Okta [redirect model](https://developer.okta.com/docs/concepts/redirect-vs-embedded/#redirect-authentication) to your mobile app. This example uses Okta as the user store.
+Add authentication to your mobile app using the Okta [redirect model](https://developer.okta.com/docs/concepts/redirect-vs-embedded/#redirect-authentication). This example uses Okta as the user store.
 
 ---
 
@@ -12,12 +12,11 @@ Add authentication using the Okta [redirect model](https://developer.okta.com/do
 
 * Create an integration that represents your app in your Okta org.
 * Add dependencies and configure your mobile app to use Okta.
-* Add a browser-based sign-in flow that is handled by Okta (redirect authentication).
-* Load details for the signed in user.
-* Check for an existing authenticated session at app startup.
+* Add a browser-based sign-in flow that Okta controls (redirect authentication).
+* Load the details of the signed in user and check for an existing authenticated session at app startup.
 * Refresh tokens to keep the user signed in.
 * Make server calls using an access token for the session.
-* Validate the integration by signing in as a user.
+* Test your integration by signing in as a user.
 
 #### Sample code
 
@@ -63,7 +62,7 @@ Set up your [Okta org](/docs/concepts/okta-organizations/). The Okta command-lin
 > * Contact your support team to enable the feature in your org.
 > * Use the Admin Console to create your app integrations instead of the CLI.
 >
-> All accounts created with Okta CLI are developer accounts.
+> All accounts created with the Okta CLI are developer accounts.
 
 ## Create an Okta integration for your app
 
@@ -77,7 +76,7 @@ To create your app integration in Okta using the CLI:
    okta apps create native
    ```
 
-   > **Tip**: If Okta CLI returns the error "Your Okta Org is missing a feature required to use the Okta CLI: API Access Management," you're not using an Okta developer account. To resolve this, see [Set up Okta](#set-up-okta).
+   > **Tip**: If the Okta CLI returns the error "Your Okta Org is missing a feature required to use the Okta CLI: API Access Management," you're not using an Okta developer account. To resolve this, see [Set up Okta](#set-up-okta).
 
 2. Enter **Quickstart** when prompted for the app name.
 3. Specify the required redirect URI values:
@@ -88,16 +87,17 @@ At this point, you can move to the next step: [Creating your app](#create-app). 
 
 > **Note:** These steps are the steps that the CLI performs when you create your app integration in Okta using the CLI.
 
-1. [Sign in to your Okta organization](https://developer.okta.com/login) with your administrator account.
-1. Click the **Admin** button on the top right of the page.
-1. Open the Applications configuration pane by selecting **Applications** > **Applications**.
-1. Click **Create App Integration**.
+1. [Sign in to your Okta organization](https://developer.okta.com/login) with your administrator account. Click **Admin** on the top right of the page.
+1. Open the apps configuration pane by selecting **Applications** > **Applications**. Click **Create App Integration**.
 1. Select a **Sign-in method** of **OIDC - OpenID Connect**.
 1. Select an **Application type** of **Native Application**, then click **Next**.
-   > **Note:** If you choose an inappropriate app type, it can break the sign-in or sign-out flows by requiring the verification of a client secret, which is something that public clients don't have.
+   > **Note:** If you choose the wrong app type, it can break the sign-in or sign-out flows. Integrations require the verification of a client secret, which public clients don't have.
 1. Enter an **App integration name**.
-1. Enter the callback route for the **Sign-in redirect URIs**. This is the [full redirect URI](#define-a-callback-route) for your mobile app (for example, `com.okta.example:/callback`).
-1. Enter your callback route for the **Sign-out redirect URIs**. This is the [full redirect URI](#define-a-callback-route) for your mobile app (for example, `com.okta.example:/logout`).
+1. Enter the callback routes.
+
+   * For the **Sign-in redirect URIs**, enter the [full redirect URI](#define-a-callback-route) for your mobile app (for example, `com.okta.example:/callback`).
+   * For the **Sign-out redirect URIs**, enter the [full redirect URI](#define-a-callback-route) for your mobile app (for example, `com.okta.example:/logout`).
+
 1. Click **Save** to update the Okta app settings.
 
 ## Create an app
@@ -116,13 +116,18 @@ Add the required dependencies for using the Okta SDK with your app.
 
 ### Configure your app
 
-The app uses information from the Okta integration that you created earlier to configure communication with the API: Redirect URI, Post Logout Redirect URI, Client ID, and Issuer.
+The app uses information from the Okta integration that you created earlier to communicate with the API:
+
+* Redirect URI
+* Post logout redirect URI
+* Client ID
+* Issuer
 
 <StackSnippet snippet="configmid" />
 
 #### Find your config values
 
-If you don't have your configuration values handy, you can find them in the Admin Console (choose **Applications** > **Applications** and find your app integration that you created earlier):
+If you don't have your configuration values handy, you can find them in the Admin Console. Go to **Applications** > **Applications** and find the app integration that you created earlier:
 
 * **Sign-in redirect URI**: Found on the **General** tab in the **Login** section.
 * **Sign-out redirect URI**: Found on the **General** tab in the **Login** section.
@@ -131,9 +136,9 @@ If you don't have your configuration values handy, you can find them in the Admi
 
 ### Define a callback route
 
-To sign users in, your app will open a browser and display an Okta-hosted sign-in page. Okta then redirects back to your app with information about the user.
+To sign users in, your app opens a browser and displays an Okta-hosted sign-in page. Okta then redirects back to your app with information about the user. To achieve this you need to define how Okta can redirect back to your app. This is called a callback route or redirect URI.
 
-To achieve this you need to define how Okta can redirect back to your app. This is called a callback route or redirect URI. In mobile apps, use a custom scheme similar to `your-app:/callback` so that your app can switch back into the foreground after the user is done signing in through the browser. This should be the same value that you used for the Sign-in and Sign-out redirect URIs when you created an app integration in the previous steps.
+In mobile apps, use a custom scheme similar to `your-app:/callback` so that your app can switch back into the foreground after the user is done signing in through the browser. This should be the same value that you used for the sign-in and sign-out redirect URIs.
 
 Your mobile app is responsible for parsing the information Okta sends to the callback route. The Okta SDKs can help you with this task (covered later in the [Open the sign-in page](#open-the-sign-in-page) section). For now, define the route itself.
 
@@ -141,7 +146,10 @@ Your mobile app is responsible for parsing the information Okta sends to the cal
 
 ## Open the sign-in page
 
-The SDK signs in the user by opening an Okta-hosted web page. The app may send the SDK sign-in request when a user visits a protected route or when they tap a button.
+The SDK signs in the user by opening an Okta-hosted web page. The app can send the SDK sign-in request when the following occurs:
+
+* A user visits a protected route.
+* A user taps a button.
 
 <StackSnippet snippet="opensignin" />
 
@@ -169,7 +177,7 @@ Okta issues an access token when the user signs in. This token allows the user t
 
 ## Keep the user signed in
 
-Access tokens are short-lived, but for some types of apps users expect to remain signed in for a long time. Granting a refresh token in your app integration enables the client to request an updated access token.
+Access tokens are short-lived. Yet, for some types of apps users expect to remain signed in for a long time. Granting a refresh token in your app integration enables the client to request an updated access token.
 
 Enable a refresh token in your app integration by following these steps:
 
@@ -184,7 +192,10 @@ Enable a refresh token in your app integration by following these steps:
 
 ## Use the access token
 
-Your own server API (a resource server in OAuth 2.0) uses the Okta-generated access token for both authenticating that the user is signed in and ensuring that the user is authorized to perform the action or access the information.
+Your own server API (a resource server in OAuth 2.0) uses the Okta-generated access token for the following:
+
+* To authenticate that the user is signed in.
+* To ensure that the user is authorized to perform the action or access the information.
 
 Use the access token by adding it to the HTTP `Authorization` header of outgoing requests in your mobile or other client using this format:
 

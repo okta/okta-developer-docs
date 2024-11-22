@@ -13,9 +13,9 @@ If you're an integrator, from an independent software vendor (ISV) or an existin
 
 ## Submission process
 
-Okta introduced a seamless experience to submit SSO integrations for OIN publication. This new experience enables you to build and test your integration before submission directly from the Admin Console with the new [OIN Wizard](/docs/guides/submit-oin-app/). This reduces the tools that you need to build, test, and submit your integration. Moreover, it reduces the time needed for the OIN team to review and validate your integration, which shortens the time to publish in the OIN.
+Okta introduced a seamless experience to submit SSO and SCIM integrations for OIN publication. This experience enables you to build and test your integration before submission directly from the Admin Console with the [OIN Wizard](/docs/guides/submit-oin-app/). This reduces the tools that you need to build, test, and submit your integration. Moreover, it reduces the time needed for the OIN team to review and validate your integration, which shortens the time to publish in the OIN.
 
-> **Note:** You can edit published SSO integrations in the OIN Wizard that you've previously submitted through the OIN Manager.
+You can also submit updates to a previously published SSO or SCIM integration in the OIN Wizard.
 
 For Workflows connector or API service integrations, you need to use the [OIN Manager](https://oinmanager.okta.com/) for submission.
 
@@ -28,7 +28,7 @@ Consider the following questions to help you choose which pathway to use for sub
     > **Note:** Published SSO integrations that were submitted through the OIN Manager have been moved to the OIN Wizard and appear in the **Your OIN Integrations** dashboard.
 * Are you submitting a new or published SCIM integration?
   * [Use the OIN Wizard](#submission-process-for-sso-and-scim-integrations).
-    > **Note:** Published SCIM integrations that were submitted through the OIN Manager have been moved to the OIN Wizard and appear in the **Your OIN Integrations** dashboard
+    > **Note:** Published SCIM integrations that were submitted through the OIN Manager have been moved to the OIN Wizard and appear in the **Your OIN Integrations** dashboard.
 * Are you submitting a new SSO and SCIM integration?
   * [Use the OIN Wizard](#submission-process-for-sso-and-scim-integrations) to submit the SSO and SCIM integration.
 * Are you submitting a new or published Workflows integration?

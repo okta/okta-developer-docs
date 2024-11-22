@@ -18,7 +18,7 @@ title: Okta Classic Engine API release notes 2024
 
 #### Create dynamic resource sets with conditions is EA in Preview
 
-Resource set conditions help you limit the scope of a role by excluding an admin's access to certain apps. This gives you more granular control over your custom admin roles and helps meet your org's unique security needs. See [Resource set conditions](https://help.okta.com/okta_help.htm?type=oie&id=resource-set-conditions)<!--and the corresponding [Resource Set Resources](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RoleCResourceSetResource/) API -->. <!-- DYNAMIC_RESOURCE_SETS (OKTA-746719) -->
+Resource set conditions help you limit the scope of a role by excluding an admin's access to certain apps. This gives you more granular control over your custom admin roles and helps meet your org's unique security needs. See [Resource set conditions](https://help.okta.com/okta_help.htm?type=oie&id=resource-set-conditions) and the corresponding [Resource Set Resources](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RoleCResourceSetResource/) API. <!-- DYNAMIC_RESOURCE_SETS (OKTA-746719) -->
 
 #### Give access to Okta Support is GA in Production
 
@@ -28,13 +28,13 @@ Admins can now control how members of the Okta Support team access their org. To
 
 * **Support User Grants for Self-Assigned Cases**: Allows an Okta Support representative to access your org settings after they’ve opened a case.
 
-Using these settings, admins can select the right level of Support access for their org. <!-- See [Give access to Okta Support](https://help.okta.com/okta_help.htm?type=oie&id=settings-support-access) and the corresponding Okta Support Settings API endpoints: -->
+Using these settings, admins can select the right level of Support access for their org. See [Give access to Okta Support](https://help.okta.com/okta_help.htm?type=oie&id=settings-support-access) and the corresponding Okta Support Settings API endpoints:
 
-<!-- * [List all Okta Support cases](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingSupport/#tag/OrgSettingSupport/operation/getOrgOktaSupportSettings) -->
+* [List all Okta Support cases](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingSupport/#tag/OrgSettingSupport/operation/getOrgOktaSupportSettings)
 
-<!-- * [Update an Okta Support case](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingSupport/#tag/OrgSettingSupport/operation/updateOktaSupportCase) -->
+* [Update an Okta Support case](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingSupport/#tag/OrgSettingSupport/operation/updateOktaSupportCase)
 
-<!-- You can no longer use the [Extend](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingSupport/#tag/OrgSettingSupport/operation/extendOktaSupport), [Grant](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingSupport/#tag/OrgSettingSupport/operation/grantOktaSupport), or [Revoke](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingSupport/#tag/OrgSettingSupport/operation/revokeOktaSupport) Okta Support access endpoints if you haven't used them between September 1, 2024 and November 1, 2024. These endpoints will be fully deprecated on January 15, 2025. After deprecation, you won’t be able to access them. Use the [Update an Okta Support case](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingSupport/#tag/OrgSettingSupport/operation/updateOktaSupportCase) endpoint to approve, revoke, and extend Okta Support access for each support case. <!-- OKTA_SUPPORT_IMPERSONATION_GRANTS (OKTA-822280) -->
+You can no longer use the [Extend](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingSupport/#tag/OrgSettingSupport/operation/extendOktaSupport), [Grant](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingSupport/#tag/OrgSettingSupport/operation/grantOktaSupport), or [Revoke](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingSupport/#tag/OrgSettingSupport/operation/revokeOktaSupport) Okta Support access endpoints if you haven't used them between September 1, 2024 and November 1, 2024. These endpoints will be fully deprecated on January 15, 2025. After deprecation, you won’t be able to access them. Use the [Update an Okta Support case](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingSupport/#tag/OrgSettingSupport/operation/updateOktaSupportCase) endpoint to approve, revoke, and extend Okta Support access for each support case. <!-- OKTA_SUPPORT_IMPERSONATION_GRANTS (OKTA-822280) -->
 
 #### Seamless ISV experience for SCIM is GA in Production
 
@@ -47,6 +47,8 @@ You can now test your app integration directly from the **Your OIN Integrations*
 #### Bugs fixed in 2024.11.0
 
 * The apps API didn't reveal information about SAML encryption configuration. (OKTA-801368)
+
+* Admins who only had the **View applications and their details** and **Run imports** permissions could deactivate apps. (OKTA-798693)
 
 ## October
 
