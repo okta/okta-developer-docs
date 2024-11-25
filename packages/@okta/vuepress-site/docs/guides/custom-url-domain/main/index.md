@@ -280,7 +280,7 @@ You can also use a tool such as `dig` or `nslookup` to test and verify that your
 
 2. Verify that the configured domain, for example, `org.Subdomain.customdomains.oktapreview.com` appears in the answer section of the output.
 
-> **Note:** There are also external tool versions of [dig](https://toolbox.googleapps.com/apps/dig) and [nslookup](https://network-tools.com/nslookup/) that you can use to validate that your custom domain is configured correctly.
+> **Note:** There are also external tool versions of [dig](https://toolbox.googleapps.com/apps/dig) and [nslookup](https://www.nslookup.io/) that you can use to validate that your custom domain is configured correctly.
 
 ### Flush the DNS cache
 
