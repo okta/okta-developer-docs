@@ -29,3 +29,4 @@ https://app.getpostman.com/run-collection/f443644517abb15117af/
 https://odyssey.okta.design/latest/foundations/accessibility/color-9O9a4XAU/
 https://okta.com/free-trial/workforce-identity/
 https://www.jsonwebtoken.dev/
+https://www.w3.org/Security/wiki/Same_Origin_Policy/
