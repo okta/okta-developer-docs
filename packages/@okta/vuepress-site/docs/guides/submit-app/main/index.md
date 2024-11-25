@@ -6,9 +6,9 @@ meta:
 layout: Guides
 ---
 
-Use this guide to understand the process of submitting an integration to the Okta Integration Network (OIN) using the OIN Manager. You can submit a Workflows connector integration with the OIN Manager. This guide also shows you how to update a previously published integration or delete a draft submission.
+Use this guide to understand the process of submitting a Workflows connector integration to the Okta Integration Network (OIN) using the OIN Manager. This guide also shows you how to update a previously published integration or delete a draft submission.
 
-> **Note:** For SSO or Lifecycle Management (LCM) SCIM integrations, use the [OIN Wizard](/docs/guides/submit-oin-app/scim/main/) for a seamless ISV submission experience. Previously submitted SSO and LCM SCIM integrations from the OIN Manager have been moved to the OIN Wizard. You can edit published integrations in the OIN Wizard. See [Update your integration](/docs/guides/submit-oin-app/scim/main/#update-your-integration).
+> **Note:** For SSO or Lifecycle Management (LCM) SCIM integrations, use the [OIN Wizard](/docs/guides/submit-oin-app/scim/main/) for a seamless ISV submission experience. Previously submitted SSO and LCM SCIM integrations from the OIN Manager have been migrated to the OIN Wizard. You can edit these published integrations directly in the OIN Wizard and resubmit them to the OIN team. See [Update your integration](/docs/guides/submit-oin-app/scim/main/#update-your-integration).
 
 ---
 
@@ -35,7 +35,7 @@ This guide covers submissions that use the [Workflows Connector Builder](https:/
 
 ### Submission support
 
-If you need help during the submission process, use the **Get Support** section on the My App Integrations page after you sign in to the [OIN Manager](https://oinmanager.okta.com). This section provides the following resources from the [Okta Developer Portal](https://developer.okta.com/):
+If you need help during the submission process, use the **Get Support** section on the **My App Integrations** page after you sign in to the [OIN Manager](https://oinmanager.okta.com). This section provides the following resources from the [Okta Developer Portal](https://developer.okta.com/):
 
 * OIN integration guides
 * Okta concepts
@@ -53,7 +53,7 @@ Start your integration submission:
 
 1. Open the [OIN Manager](https://oinmanager.okta.com) and click **Start Submission Form**.
 
-1. Sign in to the OIN Manager with your Okta developer org credentials. Ensure that this org contains your developed app integration for submission.
+1. Sign in to the OIN Manager with your Okta developer org credentials. Ensure that this org contains your app integration for submission.
 
 1. Click **Add New Submission**.
 
@@ -61,7 +61,7 @@ Start your integration submission:
 
     > **Note:** If you need to update an integration, see [Update your published integration](#update-your-published-integration).
 
-1. Begin defining your submission by specifying details in the [General Settings](#configure-general-settings) and [integration type](#configure-integration-type-settings) tabs.
+1. Define your submission by specifying details in the [General Settings](#configure-general-settings) and [integration type](#configure-integration-type-settings) tabs.
 
 ### Configure general settings
 
@@ -89,7 +89,7 @@ On the **General Settings** tab, fill in the basic information about your integr
 
 * **Support contacts**: Include one or more public contact points for users who need assistance with your integration. You can also add a link to an FAQ or a troubleshooting guide. Use the dropdown menu to specify if you're adding an email, a URL, or a phone number. Click **+ Add Another** to add another contact. Okta shares this information with customers in the OIN catalog description for your app integration.
 
-* **Escalation support contact**: This is an email distribution list for Okta to use when contacting your company about your integration. Okta can use this escalation contact in an emergency, so make sure that the contact provided here isn't a generic contact, such as `support@example.com` or a 1-800 number. This contact information isn't shared with customers.
+* **Escalation support contact**: This is an email distribution list for Okta to use when contacting your company about your integration. Okta can use this escalation contact in an emergency, so make sure that the contact provided here isn't a generic contact, such as `support@example.com` or a 1–800 number. This contact information isn't shared with customers.
 
 See [Customer support contact guidelines](/docs/guides/submit-app-prereq/main/#customer-support-contact-guidelines).
 
@@ -121,7 +121,7 @@ Include all required information before you click **Submit for Review** to move 
 
 ## Update your published integration
 
-If you need to make changes to your published integration, use the [OIN Manager](https://oinmanager.okta.com/) to create an updated version of the integration.
+If you need to edit your published integration, use the [OIN Manager](https://oinmanager.okta.com/) to create an updated version of the integration.
 
 > **Note:** As of release 2024.11.0, use the OIN Wizard to [edit your published SCIM integration](/docs/guides/submit-oin-app/scim/main/#update-your-integration). Previous SCIM integrations submitted through the OIN Manager are now available through the **Your OIN Integrations** dashboard in the Admin Console.
 > If you submitted a SCIM integration through the OIN Manager and the OIN review process hasn't started, resubmitted it in the OIN Wizard.
@@ -172,7 +172,7 @@ If you need assistance with deleting a draft submission, contact the Okta OIN te
 
 If you want to remove an app integration that's already published in the OIN catalog, contact the Okta OIN team. Only the Okta OIN team can remove published integrations in the catalog. Send an email to <oin@okta.com> with the URL of your developer org, the name of the app integration, and a link to its location in the OIN catalog.
 
-Removing an app integration from the OIN doesn't prohibit existing users from accessing it. The app integration isn't removed from end-user dashboards until an admin for the customer's org removes the app integration from their org.
+Removing an app integration from the OIN doesn't prohibit existing users from accessing it. The app integration isn't removed from End-User Dashboards until an admin for the customer's org removes the app integration from their org.
 
 Finally, if you intend to remove your back-end app support for your Okta integration, alert your customer admins about the change. Inform your customers if you're deploying a replacement solution.
 

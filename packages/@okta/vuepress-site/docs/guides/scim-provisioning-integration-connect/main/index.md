@@ -39,15 +39,15 @@ Begin by signing in to your Okta Developer Edition org. If you don't have one, s
 1. Click **Admin** in the upper-right right corner of the page.
 1. Select **Applications** > **Applications**.
 1. Click **Browse App Catalog**.
-1. Search for either "SCIM 2.0" or "SCIM 1.1" depending on the version of SCIM supported by your server. Select the SCIM integration template based on the authentication method supported by your SCIM server:
+1. Search for either "SCIM 2.0" or "SCIM 1.1" depending on the version of SCIM supported by your server. Select the SCIM integration template that's based on the authentication method supported by your SCIM server:
 
     * [SCIM 1.1 test apps](https://www.okta.com/integrations/?search=SCIM%201.1%20test%20app) for SCIM 1.1
     * [SCIM 2.0 test apps](https://www.okta.com/integrations/?search=SCIM%202.0%20Test%20App) for SCIM 2.0
-    * [SCIM 1.1 Test App(Header Auth)](https://www.okta.com/integrations/scim-1-1-test-app-header-auth/) for SCIM 1.1 servers that use custom header expression for Header Auth
-    * [SCIM 2.0 Test App(Header Auth)](https://www.okta.com/integrations/scim-2-0-test-app-header-auth/) for SCIM 2.0 servers that use custom header expression for Header Auth
+    * [SCIM 1.1 Test App(Header Auth)](https://www.okta.com/integrations/scim-1-1-test-app-header-auth/) for SCIM 1.1 servers that use custom header expression for header authentication
+    * [SCIM 2.0 Test App(Header Auth)](https://www.okta.com/integrations/scim-2-0-test-app-header-auth/) for SCIM 2.0 servers that use custom header expression for header authentication
 
-1. Click **Add Integration** for the desired template and finish adding the integration.
-1. On the **General Settings** page, enter a name of your app integration. Choose if it's hidden from general and mobile users, and choose if users' are automatically signed in from the landing page. Click **Next**.
+1. Click **Add Integration** for the desired SCIM integration template.
+1. On the **General Settings** page of your SCIM integration, enter a name. Choose if it's hidden from general and mobile users, and choose if users' are automatically signed in from the landing page. Click **Next**.
 1. Select the sign-in method for your integration on the **Sign-On Options** page. Select either SAML or SWA. For guidance on choosing the access method, see [App integrations](https://help.okta.com/okta_help.htm?id=ext_Apps_Apps). Click **Done** to create the integration.
 1. Click the **Provisioning** tab, then in the main panel click **Configure API Integration**. Select the **Enable API Integration** checkbox.
   Enter the base URL for your SCIM server.
