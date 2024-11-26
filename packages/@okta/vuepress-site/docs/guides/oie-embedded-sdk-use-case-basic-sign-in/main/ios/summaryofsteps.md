@@ -1,4 +1,4 @@
-The following sequence diagram details each step in the authentication flow for this use case.
+The following diagram summarizes all the steps involved in a password-only sign-in flow.
 
 <div class="full">
 
