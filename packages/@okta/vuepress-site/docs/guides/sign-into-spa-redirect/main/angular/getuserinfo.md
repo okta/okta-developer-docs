@@ -15,14 +15,11 @@ The `authState$` subject in `OktaAuthStateService` contains an `idToken` that co
      selector: 'app-profile',
      imports: [AsyncPipe],
      template: `
-        <div class="profile-card">
-           <div class="shield"></div>
-           <p>You're logged in!
+        <p>You're logged in!
            @if(name$ | async; as name) {
               <span>Welcome, {{name}} </span>
            }
-          </p>
-       </div>
+        </p>
      `,
      styleUrls: ['./profile.component.css']
    })
