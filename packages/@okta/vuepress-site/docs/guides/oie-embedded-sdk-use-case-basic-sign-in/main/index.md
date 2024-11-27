@@ -17,7 +17,6 @@ Add a password-only sign-in flow to a server-side web app.
 #### What you need
 
 <StackSnippet snippet="whatyouneed" />
-<br />
 
 #### Sample code
 
