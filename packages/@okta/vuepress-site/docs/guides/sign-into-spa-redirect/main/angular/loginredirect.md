@@ -7,7 +7,7 @@ The `OktaAuth` service has methods for sign-in and sign-out actions.
    ```html
    @if (isAuthenticated$ | async) {
      <button (click)="signOut()">Sign out</button>
-   } else {
+   } @else {
      <button (click)="signIn()"> Sign in </button>
    }
    ```
