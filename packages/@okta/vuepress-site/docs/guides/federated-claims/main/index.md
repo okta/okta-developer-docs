@@ -19,7 +19,7 @@ This guide describes how to configure your app to pass entitlements in your toke
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
 * The Identity Governance feature enabled for your org. Contact [Okta Support](https://support.okta.com) to enable this feature.
-* The Entitlement SAML Assertions and OIDC Claims feature enabled for your org. To enable this feature, go to **Settings** > **Features**, locate the Entitlement SAML Assertions and OIDC CLaims feature, and enable.
+* The Entitlement SAML Assertions and OIDC Claims feature enabled for your org. To enable this feature, go to **Settings** > **Features**, locate the Entitlement SAML Assertions and OIDC Claims feature, and enable.
 * An existing SAML or OIDC app
 * A test user assigned to the SAML or OIDC app
 
@@ -29,7 +29,7 @@ This guide describes how to configure your app to pass entitlements in your toke
 
 Federated claims create a more consistent experience for the configuration of claims across protocols. These claims unify the inconsistencies in both the persistence and the generation of token claims because they can be consumed by apps with different protocols.
 
-A federated claim takes the form of an entitlement claim that contains a name and an [expression](/docs/reference/okta-expression-language-in-identity-engine/) that references principal (user) information. The claim is included in tokens produced by federation protocols. Okta supports SAML and OpenID Connect (OIDC) apps. Federated claims are inserted into either an OIDC ID token or a SAML assertion.
+A federated claim takes the form of a name and an [expression](/docs/reference/okta-expression-language-in-identity-engine/) that references principal (user) information. The claim is included in tokens produced by federation protocols. Okta supports SAML and OIDC apps. Federated claims are inserted into either an OIDC ID token or a SAML assertion.
 
 ### Entitlements
 
