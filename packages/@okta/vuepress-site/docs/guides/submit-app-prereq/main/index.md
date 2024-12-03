@@ -498,9 +498,9 @@ In addition to the general OIN limitations, the following are limitations specif
 
 * The [OIN Wizard](/docs/guides/submit-oin-app/openidconnect/main/) places the following limitations on SAML 2.0 integration submissions:
 
-  * Only one to three app instance variables are allowed.
-  * RelayState isn't supported.
-  * Force authentication (`ForceAuthn`) isn't supported.
+  * There's a maximum of three app instance variables.
+  * RelayState can't be pre-configured in the OIN Wizard. You can set the default relay state value at the app instance level in the app **Sign On** tab.
+  * The force authentication (`ForceAuthn`) functionality is enabled by default for SAML app instances that were created from an OIN Wizard integration. You can disable force authentication for an app instance by selecting **Disable Force Authentication** in the app **Sign On** tab.
 
 The OIN team maintains existing SAML integrations with advanced features not supported in the OIN Wizard. If you need to update your existing advanced SAML integration, contact the OIN team at <oin@okta.com>.
 
