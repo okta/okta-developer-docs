@@ -106,7 +106,7 @@ After you installed the Okta Browser Plugin in your Chrome browser, set **Allow 
 
 The OIN Wizard testing phase uses a plugin app called the **Okta OIN Submission Tester**, which is preinstalled in your Okta Developer Edition org. This app requires a password-only authentication policy to run properly.
 
-For Identity Engine orgs, the default authentication policy requires MFA. Use the pre-configured **Password only** authentication policy that is included in your Okta Developer Edition org for the Okta OIN Submission Tester app.
+For Identity Engine orgs, the default authentication policy requires MFA. Use the preconfigured **Password only** authentication policy that is included in your Okta Developer Edition org for the Okta OIN Submission Tester app.
 
 1. Go to **Application** > **Applications** in the Admin Console.
 1. Click **Okta OIN Submission Tester**.
@@ -498,7 +498,7 @@ In addition to the general OIN limitations, the following are limitations specif
 
 * There's a maximum of three app instance variable in the OIN Wizard.
 
-* RelayState can't be pre-configured in the OIN Wizard. You can set the default relay state value at the app instance level in the app **Sign On** tab.
+* RelayState can't be preconfigured in the OIN Wizard. You can set the default relay state value at the app instance level in the app **Sign On** tab.
 
 * The force authentication (`ForceAuthn`) functionality is enabled by default for SAML app instances that were created from an OIN Wizard integration. You can disable force authentication for an app instance by selecting **Disable Force Authentication** in the app **Sign On** tab.
 
