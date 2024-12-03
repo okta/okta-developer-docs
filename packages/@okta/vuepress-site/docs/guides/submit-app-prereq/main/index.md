@@ -510,9 +510,9 @@ In addition to the general OIN limitations, the following are limitations specif
 
 * You can only submit SCIM 2.0 integrations with the OIN Wizard.
 
-* Integrations with Basic Authentication to the SCIM server aren't supported in the OIN Wizard.
+* Integrations with Basic authentication to the SCIM server aren't supported in the OIN Wizard.
 
-   > **Note:** You can't update a published SCIM integration with Basic Authentication. This breaks the integration for existing customers. If you need to edit a published integration with Basic Authentication, submit a new SCIM integration that implements header or OAuth 2.0 authentication.
+   > **Note:** You can't update a published SCIM integration with Basic authentication. This breaks the integration for existing customers. If you need to edit a published integration with Basic authentication, submit a new SCIM integration that implements header or OAuth 2.0 authentication.
 
 * The OIN Wizard only supports integrations with header authentication or OAuth 2.0 authentication to the SCIM server. Header authentication can use token or bearer token format.
 
