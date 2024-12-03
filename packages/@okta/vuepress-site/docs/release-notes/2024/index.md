@@ -10,17 +10,15 @@ title: Okta Classic Engine API release notes 2024
 
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
-| [November feature](#)|  |
-| [November feature](#)|  |
-| [Bugs fixed in 2024.11.2](#bugs-fixed-in-2024-11-2)|  |
-
-### November feature
-
-
-#### November feature
-
+| [Bugs fixed in 2024.11.2](#bugs-fixed-in-2024-11-2)| December 4, 2024 |
 
 #### Bugs fixed in 2024.11.2
+
+* Query parameters that were improperly passed to OAuth 2.0 endpoints like `/token` and `/introspect` were sometimes present in the System Log. <!--OKTA-833878-->
+
+* When a request to list app refresh tokens was made, pagination links weren't included in the response header. <!--OKTA-796989 -->
+
+* A GET user request for newly created users in the `staged` status sometimes returned an incorrect `activated` and `statusChanged` values. <!--OKTA-827818-->
 
 ### Monthly release 2024.11.0
 
