@@ -6,6 +6,22 @@ title: Okta Classic Engine API release notes 2024
 
 ## November
 
+### Weekly release 2024.11.2
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [November feature](#)|  |
+| [November feature](#)|  |
+| [Bugs fixed in 2024.11.2](#bugs-fixed-in-2024-11-2)|  |
+
+### November feature
+
+
+#### November feature
+
+
+#### Bugs fixed in 2024.11.2
+
 ### Monthly release 2024.11.0
 
 | Change | Expected in Preview Orgs |
