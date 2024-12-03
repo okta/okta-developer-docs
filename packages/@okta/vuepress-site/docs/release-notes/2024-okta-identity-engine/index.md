@@ -16,13 +16,13 @@ title: Okta Identity Engine API release notes 2024
 
 #### Bugs fixed in 2024.11.2
 
-* Registered device and managed device conditions appeared in Okta account management policy rules despite being unsupported. <!--OKTA-825595-->
+* Registered device and managed device conditions appeared in Okta account management policy rules despite being unsupported. (OKTA-825595)
 
-* Query parameters that were improperly passed to OAuth 2.0 endpoints like `/token` and `/introspect` were sometimes present in the System Log. <!--OKTA-833878-->
+* Query parameters that were improperly passed to OAuth 2.0 endpoints like `/token` and `/introspect` were sometimes present in the System Log. (OKTA-833878)
 
-* When a request to list app refresh tokens was made, pagination links weren't included in the response header. <!--OKTA-796989 -->
+* When a request to list app refresh tokens was made, pagination links weren't included in the response header. (OKTA-796989)
 
-* A GET user request for newly created users in the `staged` status sometimes returned an incorrect `activated` and `statusChanged` values. <!--OKTA-827818-->
+* A GET user request for newly created users in the `staged` status sometimes returned an incorrect `activated` and `statusChanged` values. (OKTA-827818)
 
 ### Monthly release 2024.11.0
 
