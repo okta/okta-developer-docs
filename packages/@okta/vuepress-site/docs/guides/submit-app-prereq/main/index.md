@@ -106,7 +106,7 @@ After you installed the Okta Browser Plugin in your Chrome browser, set **Allow 
 
 The OIN Wizard testing phase uses a plugin app called the **Okta OIN Submission Tester**, which is preinstalled in your Okta Developer Edition org. This app requires a password-only authentication policy to run properly.
 
-For Identity Engine orgs, the default authentication policy requires MFA. Use the pre-configured **Password only** authentication policy that is included in your Okta Developer Edition org for the Okta OIN Submission Tester app.
+For Identity Engine orgs, the default authentication policy requires MFA. Use the preconfigured **Password only** authentication policy that is included in your Okta Developer Edition org for the Okta OIN Submission Tester app.
 
 1. Go to **Application** > **Applications** in the Admin Console.
 1. Click **Okta OIN Submission Tester**.
@@ -494,13 +494,13 @@ In addition to the general OIN limitations, the following are limitations specif
 
 * SAML integrations must use SHA256 encryption for security. If you're using SHA-1 for encryption, see our guide on how to [Upgrade SAML Apps to SHA256](/docs/guides/updating-saml-cert/).
 
-* You can only submit SAML 2.0 integrations in the OIN Wizard.
+* You can only submit SAML 2.0 integrations in the [OIN Wizard](/docs/guides/submit-oin-app/openidconnect/main/).
 
-* The [OIN Wizard](/docs/guides/submit-oin-app/openidconnect/main/) places the following limitations on SAML 2.0 integration submissions:
+* There's a maximum of three app instance variable in the OIN Wizard.
 
-  * Only one to three app instance variables are allowed.
-  * RelayState isn't supported.
-  * Force authentication (`ForceAuthn`) isn't supported.
+* RelayState can't be preconfigured in the OIN Wizard. You can set the default relay state value at the app instance level in the app **Sign On** tab.
+
+* The force authentication (`ForceAuthn`) functionality is enabled by default for SAML app instances that were created from an OIN Wizard integration. You can disable force authentication for an app instance by selecting **Disable Force Authentication** in the app **Sign On** tab.
 
 The OIN team maintains existing SAML integrations with advanced features not supported in the OIN Wizard. If you need to update your existing advanced SAML integration, contact the OIN team at <oin@okta.com>.
 
@@ -508,13 +508,13 @@ The OIN team maintains existing SAML integrations with advanced features not sup
 
 In addition to the general OIN limitations, the following are limitations specific to SCIM integrations:
 
-* You can only submit SCIM 2.0 integrations through the OIN Wizard.
+* You can only submit SCIM 2.0 integrations with the OIN Wizard.
 
-* Integrations with Basic Authentication to the SCIM server aren't supported in the OIN Wizard.
+* Integrations with Basic authentication to the SCIM server aren't supported in the OIN Wizard.
+
+   > **Note:** You can't update a published SCIM integration with Basic authentication. This breaks the integration for existing customers. If you need to edit a published integration with Basic authentication, submit a new SCIM integration that implements header or OAuth 2.0 authentication.
 
 * The OIN Wizard only supports integrations with header authentication or OAuth 2.0 authentication to the SCIM server. Header authentication can use token or bearer token format.
-
-  > **Note:** You can't update a published SCIM integration with Basic Authentication. This breaks the integration for existing customers. If you need to edit a published integration with Basic Authentication, submit a new SCIM integration that implements header or OAuth 2.0 authentication.
 
 * OIN SCIM integrations with OAuth 2.0 authentication don't support dynamic consumer key and secret. The consumer key and secret values are common for all customer tenants.
 
