@@ -22,7 +22,7 @@ title: Okta Identity Engine API release notes 2024
 
 * When a request to list app refresh tokens was made, pagination links weren't included in the response header. (OKTA-796989)
 
-* A GET user request for newly created users in the `staged` status sometimes returned an incorrect `activated` and `statusChanged` values. (OKTA-827818)
+* A GET user request for newly created users in the `staged` status sometimes returned incorrect `activated` and `statusChanged` values. (OKTA-827818)
 
 ### Monthly release 2024.11.0
 
