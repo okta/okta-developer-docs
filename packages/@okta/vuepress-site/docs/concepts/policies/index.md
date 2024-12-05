@@ -102,7 +102,6 @@ Use the [Authentication Policies page](https://help.okta.com/okta_help.htm?type=
 ##### Okta account management policy
 
 <ApiLifecycle access="ie" />
-<ApiLifecycle access="ea" />
 
 The Okta account management policy is a type of authentication policy. It defines requirements when users enroll in authenticators, recover their passwords, and unlock their accounts. Its rule-based framework lets you enforce phishing resistance throughout the user journey, from onboarding to authentication and recovery.
 
