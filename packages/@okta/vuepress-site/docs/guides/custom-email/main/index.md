@@ -204,6 +204,7 @@ The following settings determine the language for emails sent from Okta to a use
 | Spanish  | `es` |
 | Finnish  | `fi` |
 | French  | `fr` |
+| Haitian Creole | `ht` |
 | Hungarian  | `hu` |
 | Indonesian  | `id` |
 | Italian  | `it` |
