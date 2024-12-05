@@ -25,9 +25,15 @@ This guide explains how to add a groups claim to ID tokens. You can add these cl
 
 You can create a groups claim for an OpenID Connect client app. This approach is recommended if you’re using only Okta-sourced groups. For groups not sourced in Okta, you need to use an expression. See [Retrieve both Active Directory and Okta groups in OpenID Connect claims](https://support.okta.com/help/s/article/Can-we-retrieve-both-Active-Directory-and-Okta-groups-in-OpenID-Connect-claims?language=en_US). For an org authorization server, you can only create an ID token with a groups claim, not an access token.
 
+### Allowlists
+
 Also, you can create a [dynamic](/docs/guides/customize-tokens-dynamic/) or [static](/docs/guides/customize-tokens-static/) allowlist. Do this when you need to set group allowlists on a per-app basis using both the org authorization server and a custom authorization server.
 
+### Customize
+
 See [Customize tokens returned from Okta](/docs/guides/customize-tokens-returned-from-okta/) when you want to define your own custom claims. For example, you may want to add a user's email address to an access token and use that to uniquely identify the user. You may want to add information stored in a user profile to an ID token.
+
+See [Federated claims with entitlements](/docs/guides/federated-claims/main/) to create app entitlement claims to insert into ID tokens and SAML assertions. An entitlement is a permission that allows users to take specific actions within a resource, such as a third-party app. App entitlements help you manage different levels of permissions that users can perform within an app.
 
 ## Request a token that contains the custom claim
 
