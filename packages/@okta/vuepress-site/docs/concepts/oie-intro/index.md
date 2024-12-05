@@ -8,44 +8,50 @@ meta:
 
 <ApiLifecycle access="ie" />
 
-Okta Identity Engine is a new authentication pipeline that provides valuable new features and a more flexible approach to your auth needs. This article provides a high-level introduction.
+This article provides a high-level introduction to Okta Identity Engine, a new authentication pipeline providing valuable new features and a more flexible approach to your authentication needs.
 
-This page discusses the following:
+## Learning outcomes
 
-* New features Identity Engine brings to the table
-* The deployment models that use these features
-* Changes to the documentation experience to support Identity Engine
+* Learn Identity Engine new features
+* Learn which deployment models use these features
+* Learn about Identity Engine SDKs and sample apps
+* Learn how the Identity Engine documentation experience has changed
+* Learn how to access and upgrade to Identity Engine
 
-> **Note**: If you're an admin, or are looking for product docs related to Identity Engine, see the Identity Engine [Get started page](https://help.okta.com/okta_help.htm?type=oie&id=ext-get-started-oie).
+> **Note**: If you're an admin, or are looking for product docs related to Identity Engine, see the [Get started page](https://help.okta.com/okta_help.htm?type=oie&id=ext-get-started-oie).
 
 ## Identity Engine new features
 
-Identity Engine unlocks many new capabilities.
+Identity Engine unlocks the following new capabilities:
+
+* App context in email templates
+* App intent links
+* Authentication policies
+* CAPTCHA
+* Interaction Code grant type for embedded authentication
 
 ### App context in email templates
 
-Identity Engine makes the app context available when a user enters an authentication flow. Find context variables in our email templates. These variables allow customers to dynamically customize email style and content based on the app that triggers an email notification.
-
-See [Customize email notifications > Use app context](/docs/guides/custom-email/main/#use-app-context).
+Identity Engine makes the app context available when a user enters an authentication flow. You can find context variables in our email templates. These variables allow users to dynamically customize email style and content based on the app that triggers an email notification. For more information, see [Customize email notifications > Use app context](/docs/guides/custom-email/main/#use-app-context).
 
 ### App intent links
 
-App intent links are used to signal intent to access an app. These links are protocol-specific endpoints that you can use to initiate a sign-in flow to an app. Both Identity Provider and Service Provider initiated flows are supported.
+App intent links are used to signal intent to access an app. These links are protocol-specific endpoints that you can use to initiate a sign-in flow to an app. Flows initiated by both Identity Providers and Service Providers are supported.
 
 Example app intent link for a SAML application:
 `http://{yourOktaDomain}/app/mysamlapp_1/{appInstanceID}/sso/saml`
 
-Before Identity Engine, these endpoints were accessible only with a session. Unauthenticated traffic was redirected to a centralized sign-in page (`/login/login.htm`) with a `fromUri` that represented the app that was originally attempted (the app intent link). This occurred before the request was assessed for rate limiting. A session was established and the request was processed.
+Identity Engine changes the way Okta processes these requests.
 
-The user was then redirected to the relevant app intent link through an intermediate redirect to the generic app SSO endpoint (`/app/{app}/{instanceId}/{linkName}`). The app intent link endpoint validated that the user was assigned to the app, and then enforced the app sign-on policy.
+Previously, these endpoints were accessible only with a session. Unauthenticated traffic was redirected to a centralized sign-in page (`/login/login.htm`) with a `fromUri` that represented the app that originally attempted (the app intent link). This occurred before the request was assessed for rate limiting. A session was established and the request was processed. The user was then redirected to the relevant app intent link through an intermediate redirect to the generic app SSO endpoint (`/app/{app}/{instanceId}/{linkName}`). The app intent link endpoint validated that the user was assigned to the app, and then enforced the app sign-on policy.
 
-Identity Engine changes the way Okta processes these requests. It no longer forwards requests to the centralized sign-in page (`/login/login.htm`). Instead, the app intent links location hosts the widget/sign-in experience for the app that the user is attempting to access.
+The process no longer forwards requests to the centralized sign-in page (`/login/login.htm`). Instead, the app intent links location hosts the widget/sign-in experience for the app that the user is attempting to access.
 
 Then, Identity Engine evaluates the Global Session Policy, authentication policy, and all other policies relevant to the sign-in experience. Each app intent link is responsible for hosting the sign-in experience on Identity Engine. Because of this, they share a common app intent link rate limit bucket/group similar to what exists for the centralized sign-in page on Classic Engine.
 
 ### Authentication policies
 
-Authentication policies are [security policy frameworks](https://csrc.nist.gov/pubs/sp/800/63/b/upd2/final) that allow organizations to model security outcomes for an app. These policies are shareable across applications. For example, you can automatically step up authentication to a strong non-phishable factor when elevated risk is detected. Also, Identity Engine allows you to create flexible apps that can change their authentication methods without having to alter a line of code.
+Authentication policies are [security policy frameworks](https://csrc.nist.gov/pubs/sp/800/63/b/upd2/final) that allow organizations to model security outcomes for an app. These policies are shareable across applications. For example, you can automatically step up authentication to a strong, non-phishable factor when elevated risk is detected. Also, Identity Engine allows you to create flexible apps that can change their authentication methods without having to alter a line of code.
 
 * [Configure a global session policy and authentication policies](/docs/guides/configure-signon-policy/)
 
@@ -76,9 +82,9 @@ To enable a more customized user authentication experience, Okta introduces an e
 
 You can divide the Identity Engine deployment model for user authentication into three approaches:
 
-* **Okta-hosted (redirect) Sign-In Widget**: Use the redirect (Okta-hosted) Sign-In Widget to authenticate your users, then redirect back to your app. This is the recommended approach as it's the most secure and fastest to implement.
-* **Embedded Sign-In Widget**: Embed the Sign-In Widget into your own code base to handle the authentication on your servers. This provides a balance between complexity and customization.
-* **Embedded SDK-driven sign-in flow**: Use our SDKs to create a custom authentication experience. This option is the most complex and leaves you with the most responsibility, but offers the most control.
+1. **Okta-hosted (redirect) Sign-In Widget**: Use the redirect (Okta-hosted) Sign-In Widget to authenticate your users, then redirect back to your app. This is the recommended approach as it's the most secure and fastest to implement.
+2. **Embedded Sign-In Widget**: Embed the Sign-In Widget into your own code base to handle the authentication on your servers. This provides a balance between complexity and customization.
+3. **Embedded SDK-driven sign-in flow**: Use our SDKs to create a custom authentication experience. This option is the most complex and leaves you with the most responsibility, but offers the most control.
 
 See [Okta deployment models &mdash; redirect vs. embedded](/docs/concepts/redirect-vs-embedded/) for an overview of the different deployment models, and see [Sign users in](/docs/guides/sign-in-overview/) for implementation details.
 
@@ -104,6 +110,6 @@ In our documentation, Okta is moving towards supporting Identity Engine by defau
 
 On March 1, 2022, all new [Okta orgs](/docs/concepts/okta-organizations/) are Identity Engine orgs, so that all new customers can take advantage of the new features.
 
-If you're a Classic Engine customer who wants to upgrade their apps to use Identity Engine, go to [Identity Engine upgrade overview](/docs/guides/oie-upgrade-overview/).
+If you are a Classic Engine customer who wants to upgrade their apps to use Identity Engine, go to [Identity Engine upgrade overview](/docs/guides/oie-upgrade-overview/).
 
 For Classic Engine customers who don't yet want to upgrade, your existing functionality continues to work for now, including your Classic Engine org, v1 API, and SDKs.
