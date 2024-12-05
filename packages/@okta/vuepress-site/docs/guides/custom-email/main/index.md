@@ -365,9 +365,28 @@ You can reference any Okta User Profile attribute in your email templates.
 
 ## Use functions for email templates
 
-In addition to variables, you can use the following functions in each of the email templates. Functions normalize the dynamic output of variables. You can lowercase a string or produce a localized date for the end user.
+In addition to variables, you can use the following functions in each of the email templates. Functions normalize the dynamic output of variables. For example, you can lowercase a string or produce a localized date for the end user.
 
 Variables used for function parameters must match the function data type. For example, you can't use a string variable with the `formatTimeDiffHourNow()` function. The parameter data must be an integer.
+
+The format of the function must be as follows:
+
+`${f.function()}`
+
+Here are some examples:
+
+* Replace function: This example replaces the word `User` with `John` resulting in `"Hello, John!"`:
+
+  `${replace("Hello, User!", "User", "John")}`
+
+* Substring after function: This example returns the substring after the `@` character, resulting in `example.com`:
+
+  `${substringAfter("user@example.com", "@")}`
+
+* To lower case function: This example converts the string `HELLO WORLD` to all lowercase, resulting in `helloe world`:
+
+  `${toLowerCase("HELLO WORLD")}`
+
 
 | Expression                                                    | Definition                                                                                                          |
 |---------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------|
