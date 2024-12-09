@@ -383,7 +383,7 @@ Here are some examples:
 
   `${substringAfter("user@example.com", "@")}`
 
-* To lower case function: This example converts the string `HELLO WORLD` to all lowercase, resulting in `helloe world`:
+* To lower case function: This example converts the string `HELLO WORLD` to all lowercase, resulting in `hello world`:
 
   `${toLowerCase("HELLO WORLD")}`
 
