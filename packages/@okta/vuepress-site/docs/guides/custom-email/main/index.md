@@ -365,25 +365,44 @@ You can reference any Okta User Profile attribute in your email templates.
 
 ## Use functions for email templates
 
-In addition to variables, you can use the following functions in each of the email templates. Functions normalize the dynamic output of variables. You can lowercase a string or produce a localized date for the end user.
+In addition to variables, you can use the following functions in each of the email templates. Functions normalize the dynamic output of variables. For example, you can lowercase a string or produce a localized date for the end user.
 
 Variables used for function parameters must match the function data type. For example, you can't use a string variable with the `formatTimeDiffHourNow()` function. The parameter data must be an integer.
 
+The format of the function must be as follows:
+
+`${f.function()}`
+
+Here are some examples:
+
+* Replace function: This example replaces the word `User` with `John` resulting in `"Hello, John!"`:
+
+  `${replace("Hello, User!", "User", "John")}`
+
+* Substring after function: This example returns the substring after the `@` character, resulting in `example.com`:
+
+  `${substringAfter("user@example.com", "@")}`
+
+* To lower case function: This example converts the string `HELLO WORLD` to all lowercase, resulting in `hello world`:
+
+  `${toLowerCase("HELLO WORLD")}`
+
+
 | Expression                                                    | Definition                                                                                                          |
 |---------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------|
-| replace(String input, String matchString, String replacement) | Replaces all occurrences of the match string with the replacement string                                           |
-| substringAfter(String input, String matchString)              | Returns the input substring after the occurrence of a given match string. Or returns an empty string if no occurrence of the match string exists in the input string. |
-| substringBefore(String input, String matchString)             | Returns the input substring before the occurrence of a given match string. Or returns an empty string if no occurrence of the match string exists in the input string. |
-| toLowerCase(String input)                                     | Converts the given input string to all lowercase                                                                   |
-| toUpperCase(String input)                                     | Converts the given input string to all uppercase                                                                   |
-| substring(String input, int startIndex, int endIndex)         | Extracts a range of characters from the given input string                                                         |
-| formatTimeDiffHoursNow(int hours)                             | Produces a formatted duration string from the current time to the given number of hours                                                 |
-| formatTimeDiffHoursNowInUserLocale(int hours)                 | Produces a localized formatted duration string for the given number of hours                                       |
-| formatTimeDiffDateNow(Date date)                              | Produces a formatted duration string for the given date                                                            |
-| formatTimeDiffDateNowInUserLocale(Date date)                  | Produces a localized formatted duration string for the given date                                                  |
-| escapeHtml(String html)                                       | Escapes the characters in the provided string using HTML entities                                                             |
-| escapeHtmlAttr(String html)                                   | Encodes data for use in HTML attributes                                                                           |
-| getTimeDiffHoursNow(int hours, String timeUnit)  | Produces a duration string for the given number of hours converted to the specified time units. Supported string values for the timeUnit argument are milliseconds, seconds, minutes, hours, days, and years. |
+| `${replace(String input, String matchString, String replacement)}` | Replaces all occurrences of the match string with the replacement string                                           |
+| `${substringAfter(String input, String matchString)}`              | Returns the input substring after the occurrence of a given match string. Or returns an empty string if no occurrence of the match string exists in the input string. |
+| `${substringBefore(String input, String matchString)}`               | Returns the input substring before the occurrence of a given match string. Or returns an empty string if no occurrence of the match string exists in the input string. |
+| `${toLowerCase(String input)}`                                       | Converts the given input string to all lowercase                                                                   |
+| `${toUpperCase(String input)}`                                       | Converts the given input string to all uppercase                                                                   |
+| `${substring(String input, int startIndex, int endIndex)}`           | Extracts a range of characters from the given input string                                                         |
+| `${formatTimeDiffHoursNow(int hours)}`                               | Produces a formatted duration string from the current time to the given number of hours                                                 |
+| `${formatTimeDiffHoursNowInUserLocale(int hours)}`                   | Produces a localized formatted duration string for the given number of hours                                       |
+| `${formatTimeDiffDateNow(Date date)}`                                | Produces a formatted duration string for the given date                                                            |
+| `${formatTimeDiffDateNowInUserLocale(Date date)}`                    | Produces a localized formatted duration string for the given date                                                  |
+| `${escapeHtml(String html)}`                                         | Escapes the characters in the provided string using HTML entities                                                             |
+| `${escapeHtmlAttr(String html)}`                                     | Encodes data for use in HTML attributes                                                                           |
+| `${getTimeDiffHoursNow(int hours, String timeUnit)}`    | Produces a duration string for the given number of hours converted to the specified time units. Supported string values for the timeUnit argument are milliseconds, seconds, minutes, hours, days, and years. |
 
 ## Test your custom email templates
 
