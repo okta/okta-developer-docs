@@ -327,6 +327,8 @@ For more information on the listed features, visit the [Okta Glossary](https://h
 
 This section helps you define how your customers get set up with your integration. Detail all settings and include any images that can assist the user. Include any best practices for your procedure, such as SCIM guidance on mappings for attributes, especially required attributes that don't have a default mapping.
 
+For SCIM integrations, provide steps for your customer to obtain their SCIM server credentials. Your customer admin needs this information before they can configure your SCIM integration in Okta. See [SCIM examples](#scim-examples).
+
 > **Note:** If your Service Provider is configured as a "Big Bang", you need to provide a warning note to your customer. See [SAML configuration warning example](#saml-configuration-warning-example).
 
 ##### SAML configuration warning example
