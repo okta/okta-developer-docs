@@ -14,7 +14,7 @@ meta:
 This document details the features and syntax of Expression Language used for the following:
 
 * [Authentication policies](/docs/guides/configure-signon-policy/main/) of Identity Engine
-* [Access Certification campaigns](https://help.okta.com/okta_help.htm?id=ext-el-eg) and Entitlement Management policies for Okta Identity Governance
+* [Access Certification campaigns](https://help.okta.com/okta_help.htm?id=ext-el-eg), Entitlement Management policies, and [federated claims](/docs/guides/federated-claims/main/) for Okta Identity Governance
 
 Expressions used outside of these areas should continue using the features and syntax of [Expression Language](/docs/reference/okta-expression-language/). This document is updated as new capabilities are added to the language. Expression Language is based on a subset of [SpEL functionality](https://docs.spring.io/spring-framework/reference/core/expressions.html).
 
@@ -38,6 +38,17 @@ The following operators and functionalities offered by SpEL aren't supported in 
 - [Qualified identifier](https://www.javadoc.io/doc/org.springframework/spring-expression/latest/org/springframework/expression/spel/ast/QualifiedIdentifier.html)
 
 ## Reference attributes
+
+### Application entitlements
+
+When you create an Okta expression, you can specify entitlements within the `appuser` context.
+
+> **Note:** Entitlements within the `appuser` context are only supported with [federated claims](/docs/guides/federated-claims/main/). You can't use these entitlements in authentication policies.
+
+| Syntax                             | Definitions                                                                              | Examples                                                       |
+| --------                           | ----------                                                                               | ------------                                                   |
+| `appuser.entitlements.$attribute`  | `appuser` - implicit reference to in-context app entitlements<br>`$attribute` - the attribute variable name| `appuser.entitlements.role`|
+
 
 ### Okta User Profile
 
