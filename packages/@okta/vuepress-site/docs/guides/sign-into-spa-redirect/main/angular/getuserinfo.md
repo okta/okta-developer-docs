@@ -45,4 +45,4 @@ The `authState$` subject in `OktaAuthStateService` contains an `idToken` that co
     { path: 'profile', component: ProfileComponent }
     ```
 
-5. Add an instance of `<a routerLink="/profile">Profile</a>` into the `app.component.html`, again inside the main node. This displays the text, `Profile`, after you're signed in. Clicking the text displays your name in the view.
+5. Add an instance of `<a routerLink="/profile">Profile</a>` into the `app.component.html`, inside the `@if (isAuthenticated$ | async){}`. This displays the text, `Profile`, after you're signed in. Clicking the text displays your name in the view.
