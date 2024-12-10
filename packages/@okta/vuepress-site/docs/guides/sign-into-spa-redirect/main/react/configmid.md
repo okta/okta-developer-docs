@@ -1,12 +1,11 @@
 The Okta React SDK requires an instance of an `OktaAuth` object with configuration properties. Set the `clientId` and `issuer` properties with the values that you got from the CLI earlier. This can happen by directly setting the properties, with variable replacement that happens as part of the build process, or during app load time.
 
-1. Update `src/App.js` to configure Okta with the following code, replacing the placeholder values with your own values:
+1. Update `src/App.jsx` to configure Okta with the following code, replacing the placeholder values with your own values:
 
    ```jsx
-   import React, { Component } from 'react';
-   import { BrowserRouter as Router, Route, withRouter } from 'react-router-dom';
+   import { Route, Switch, useHistory } from 'react-router-dom';
    import { OktaAuth, toRelativeUrl } from '@okta/okta-auth-js';
-   import { LoginCallback, Security, SecureRoute } from '@okta/okta-react';
+   import { LoginCallback, Security } from '@okta/okta-react';
    import Home from './Home';
 
    const oktaAuth = new OktaAuth({
@@ -16,100 +15,72 @@ The Okta React SDK requires an instance of an `OktaAuth` object with configurati
      scopes: ['openid', 'profile', 'email', 'offline_access']
    });
 
-   class App extends Component {
+   function App() {
+     const navigate = useHistory();
+     const restoreOriginalUri = (_oktaAuth,  originalUri) => {
+       history.replace(toRelativeUrl(originalUri || '/', window.location.origin));
+     };
 
-     constructor(props) {
-       super(props);
-       this.restoreOriginalUri = async (_oktaAuth, originalUri) => {
-         props.history.replace(toRelativeUrl(originalUri || '/', window.location.origin));
-       };
-     }
-
-     render() {
-       return (
-         <Security oktaAuth={oktaAuth} restoreOriginalUri={this.restoreOriginalUri}>
-           <Route path="/" exact={true} component={Home}/>
-           <Route path="/login/callback" component={LoginCallback}/>
+     return (
+       <>
+         <Security oktaAuth={oktaAuth} restoreOriginalUri={restoreOriginalUri}>
+           <Switch>
+             <Routes>
+               <Route path="/" exact component={Home}/>
+               <Route path="/login/callback" component={LoginCallback}/>
+             </Routes>
+           </Switch>
          </Security>
-       );
-     }
+       </>
+     );
    }
 
-   const AppWithRouterAccess = withRouter(App);
-
-   class RouterApp extends Component {
-     render() {
-       return (<Router><AppWithRouterAccess/></Router>);
-     }
-   }
-
-   export default RouterApp;
+   export default App
    ```
 
-2. Install `react-router-dom` into your app with the following command:
+1. Install `react-router-dom` into your app with the following command:
 
    ```shell
-   npm install react-router-dom@5
+   npm install react-router-dom@5.3.4
    ```
 
-   > **Note**: This example only works with React Router v5. There's an [open issue](https://github.com/okta/okta-react/issues/178) to support React Router v6.
-
-3. Replace the `clientId` and `issuer` placeholder values with the values that you obtained earlier.
-
-4. Add a `src/Home.js` file that renders login and logout buttons:
+1. Update `src/main.jsx` to add routing:
 
    ```jsx
-   import React, { Component } from 'react';
-   import { withOktaAuth } from '@okta/okta-react';
+   import ReactDOM from 'react-dom/client'
+   import { BrowserRouter } from 'react-router-dom'
+   import App from './App.jsx'
+   import './index.css'
+
+   ReactDOM.createRoot(document.getElementById('root')).render(
+     <BrowserRouter>
+       <App />
+     </BrowserRouter>,
+   )
+   ```
+
+1. Replace the `clientId` and `issuer` placeholder values with the values that you obtained earlier.
+
+1. Add a `src/Home.jsx` file that renders the starting view for the application:
+
+   ```jsx
+   import { useOktaAuth } from '@okta/okta-react';
    import './App.css';
-   import logo from './logo.svg';
+   import logo from './assets/react.svg';
 
-   export default withOktaAuth(class Home extends Component {
-     constructor(props) {
-       super(props);
-       this.login = this.login.bind(this);
-       this.logout = this.logout.bind(this);
-     }
+   const Home = () => {
 
-     async login() {
-       await this.props.oktaAuth.signInWithRedirect();
-     }
+     return (
+       <>
+         <img src={logo} className="App-logo" alt="logo"/>
+         {/* Add sign in and sign out buttons */}
+         <p>Edit <code>src/Home.jsx</code> and save to reload.</p>
+         <a href="https://react.dev" target="_blank" rel="noopener noreferrer">
+           Learn React
+         </a>
+       </>
+     );
+   }
 
-     async logout() {
-       await this.props.oktaAuth.signOut();
-     }
-
-     render() {
-       let body = null;
-       if (this.props.authState?.isAuthenticated) {
-         body = (
-           <div className="Buttons">
-             <button onClick={this.logout}>Logout</button>
-             {/* Replace me with your root component. */}
-           </div>
-         );
-       } else {
-         body = (
-           <div className="Buttons">
-             <button onClick={this.login}>Login</button>
-           </div>
-         );
-       }
-
-       return (
-         <div className="App">
-           <header className="App-header">
-             <img src={logo} className="App-logo" alt="logo"/>
-             <p>
-               Edit <code>src/Home.js</code> and save to reload.
-             </p>
-             <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-               Learn React
-             </a>
-             {body}
-           </header>
-         </div>
-       );
-     }
-   });
+   export default Home
    ```

@@ -1,6 +1,6 @@
 The `authState` contains an `idToken` that contains the user profile claims. You can access it to display the user's claim as shown in the following `Profile` component.
 
-1. Add a file called `src/Profile.js`.
+1. Add a file called `src/Profile.jsx`.
 
 2. Add the following content to it:
 
@@ -85,13 +85,7 @@ The `authState` contains an `idToken` that contains the user profile claims. You
    export default Profile;
    ```
 
-3. Install `semantic-ui-react` into your app with the following command:
-
-   ```shell
-   npm install semantic-ui-react
-   ```
-
-4. Import `Profile` into `src/App.js` by adding the following:
+4. Import `Profile` into `src/App.jsx` by adding the following:
 
    ```jsx
    import Profile from './Profile';
