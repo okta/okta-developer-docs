@@ -1,6 +1,6 @@
 ### Your app displays the sign-in page
 
-Build a sign-in page that captures both the user's name and their password.
+Build a sign-in page that captures username and password.
 
 <div class="half wireframe-border">
 
@@ -47,9 +47,9 @@ When the user correctly supplies their password, `IdxStatus` equals `IdxStatus.S
 }
 ```
 
-#### Other authentication statuses
+#### Other authentication status cases
 
-Handle other returned `IdxStatus` cases if the user didn't sign in successfully or there are other factors to verify. For example:
+Handle other returned `IdxStatus` cases if the user didn't sign in successfully or if there are other factors to verify. For example:
 
 ```js
 switch (status) {
