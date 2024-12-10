@@ -704,10 +704,6 @@ export const guides = [
             guideName: "protect-your-api",
           },
           {
-            title: "Integrate Third-Party Risk",
-            guideName: "third-party-risk-integration",
-          },
-          {
             title: "Secure OAuth API between orgs",
             guideName: "secure-oauth-between-orgs",
           },

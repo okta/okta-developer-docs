@@ -1,3 +1,4 @@
+<!--
 ---
 title: Third-party risk provider integration
 excerpt: Provides documentation on configuring an Okta org to receive risk events from a third-party provider
@@ -344,3 +345,4 @@ This procedure reviews the Admin Console's System Log to identify the risk event
 - [Risk Providers API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RiskProvider/)
 - [Risk Events API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RiskEvent/)
 - [Risk Scoring and Risk Based Authentication](https://help.okta.com/okta_help.htm?id=csh-risk-scoring)
+-->
