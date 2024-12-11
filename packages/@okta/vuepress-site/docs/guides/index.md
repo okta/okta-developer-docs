@@ -112,7 +112,6 @@ guides:
  - terraform-overview
  - terraform-syntax-tips
  - token-inline-hook
- - third-party-risk-integration
  - unlock-mobile-app-with-biometrics
  - updating-saml-cert
  - validate-access-tokens

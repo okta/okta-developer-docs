@@ -1,9 +1,16 @@
+<!--
 ---
 title: Third-party risk provider integration
 excerpt: Provides documentation on configuring an Okta org to receive risk events from a third-party provider
 layout: Guides
 ---
+
 <ApiLifecycle access="deprecated" /><br>
+
+> **Note:** The use of the `X-Device-Fingerprint` header for new device security Behavior Detection is deprecated. Starting April 12 2021, Okta enabled [improvements to the new device security behavior](https://help.okta.com/okta_help.htm?id=csh-improved-ndbd) for all the existing tenants. New device security behavior only relies on the `deviceToken` in the [Context Object](#context-object) and doesn't rely on the `X-Device-Fingerprint` header. The new or unknown device email notification feature continues to rely on the `X-Device-Fingerprint` header.
+
+
+> **Note:** This guide is for the enhanced MyAccount API, accessible at `/idp/myaccount`. The `/api/v1/myaccount` endpoint is deprecated. See [MyAccount API (deprecated)](/docs/reference/api/archive-myaccount/) for the docs of the older API version.
 
 This guide explains how to configure an Okta org to receive risk events from a third-party provider.
 
@@ -343,3 +350,4 @@ This procedure reviews the Admin Console's System Log to identify the risk event
 - [Risk Providers API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RiskProvider/)
 - [Risk Events API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RiskEvent/)
 - [Risk Scoring and Risk Based Authentication](https://help.okta.com/okta_help.htm?id=csh-risk-scoring)
+-->
