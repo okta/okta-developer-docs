@@ -6,6 +6,100 @@ title: Okta Identity Engine API release notes 2024
 
 # Okta Identity Engine API release notes (2024)
 
+## December
+
+### Monthly release 2024.12.0
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Okta account management policy is GA in Preview](#okta-account-management-policy-is-ga-in-preview) | December 11, 2024 |
+| [Restrict access to the Admin Console is EA in Preview](#restrict-access-to-the-admin-console-is-ea-in-preview) | December 11, 2024 |
+| [New skipping of entitlement sync during import of a user Systems Log event](#new-skipping-of-entitlement-sync-during-import-of-a-user-systems-log-event) | December 11, 2024 |
+| [Create dynamic resource sets with conditions is EA in Production](#create-dynamic-resource-sets-with-conditions-is-ea-in-preview) |  November 7, 2024 |
+| [IdP client secret System Log event update](#idp-client-secret-system-log-event-update) | December 11, 2024 |
+| [System Log event for emails added to the bounced email list](#system-log-event-for-emails-added-to-the-bounced-email-list) | December 11, 2024 |
+| [MyAccount Authenticators API update](#myaccount-authenticators-api-update) | December 11, 2024 |
+| [Granular account linking for certain Identity Providers is self-service EA](#granular-account-linking-for-certain-identity-providers-is-self-service-ea) | December 11, 2024 |
+| [Request access option removed from the OIN Manager](#request-access-option-removed-from-the-oin-manager) | December 11, 2024 |
+| [SCIM documentation link updated in the OIN Wizard](#scim-documentation-link-updated-in-the-oin-wizard) | December 11, 2024 |
+| [Use case selection in the OIN Wizard](#use-case-selection-in-the-oin-wizard) | December 11, 2024 |
+| [Industry term update in the OIN catalog](#industry-term-update-in-the-oin-catalog) | December 11, 2024 |
+| [Configure Identity Verification with third-party Identity Verification providers is GA Preview](#configure-identity-verification-with-third-party-identity-verification-providers-is-ga-preview) | December 11, 2024|
+| [Developer documentation updates in 2024.12.0](#developer-documentation-updates-in-2024-12-0) | December 11, 2024 |
+| [Bugs fixed in 2024.12.0](#bugs-fixed-in-2024-12-0) | December 11, 2024 |
+
+#### Okta account management policy is GA in Preview
+
+The Okta account management policy helps admins easily build phishing resistance into actions such as account unlock, password recovery, authenticator enrollment, and profile setting changes. Using the familiar rule-based framework of an authentication policy, admins can now customize which phishing-resistant authenticators are required when users attempt these common self-service actions. All of the configurations in the authentication policies can now be applied for authenticator management. See [Configure an Okta account management policy](/docs/guides/okta-account-management-policy/main/). <!-- AUTH_POLICY_FOR_ACCOUNT_MANAGEMENT (OKTA-731742)-->
+
+#### Restrict access to the Admin Console is EA in Preview
+
+By default, users and groups with assigned admin roles have access to the Admin Console app. With this feature, super admins can choose to manually assign the app to delegated admins instead. This is recommended for orgs with admins who don't need access, like business partners, third-party admins, or admins who only use the Okta API. See [Configure administrator settings](https://help.okta.com/okta_help.htm?type=oie&id=administrator-settings) and the corresponding APIs: [Retrieve the Okta Admin Console Assignment Setting](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingAdmin/#tag/OrgSettingAdmin/operation/getAutoAssignAdminAppSetting) and [Update the Okta Admin Console Assignment Setting](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingAdmin/#tag/OrgSettingAdmin/operation/updateAutoAssignAdminAppSetting). <!-- OKTA-717742 ADMIN_APP_AND_ROLE_DECOUPLING -->
+
+#### New skipping of entitlement sync during import of a user Systems Log event
+
+A new System Log event has been added to indicate when an entitlement was skipped while importing a user. <!--OKTA-828548-->
+
+#### Create dynamic resource sets with conditions is EA in Production
+
+Resource set conditions help you limit the scope of a role by excluding an admin's access to certain apps. This gives you more granular control over your custom admin roles and helps meet your org's unique security needs. See [Resource set conditions](https://help.okta.com/okta_help.htm?type=oie&id=resource-set-conditions) and the corresponding [Resource Set Resources](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RoleCResourceSetResource/) API. <!-- OKTA-746719 DYNAMIC_RESOURCE_SETS -->
+
+#### IdP client secret System Log event update
+
+The `system.idp.lifecycle.read_client_secret` System Log event now includes an API key. The System Log event is triggered when you make a GET `api/v1/idps` or `api/v1/idps/{idpId}` request that returns the client secret or API key. See [Event types](/docs/reference/api/event-types/). <!--OKTA-837354-->
+
+#### System Log event for emails added to the bounced email list
+
+A System Log `system.email.bounce.removal` event is now triggered when an API request is made to [remove bounced emails](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/EmailCustomization/#tag/EmailCustomization/operation/bulkRemoveEmailAddressBounces) (`POST /org/email/bounces/remove-list`). This request sends a list of emails to a third-party email service to remove the emails from the bounce list. The event is triggered when the API request is made. The event doesn’t indicate when the emails are actually removed by the third-party email service. <!--OKTA-807544 OKTA-754648 -->
+
+#### MyAccount Authenticators API update
+
+Admins can now send a PATCH request to the `/idp/myaccount/authenticators/{authenticatorId}/enrollments/{enrollmentId}` endpoint. Use these requests to update or remove an enrollment nickname. See [Update an enrollment](https://developer.okta.com/docs/api/openapi/okta-myaccount/myaccount/tag/Authenticators/#tag/Authenticators/operation/updateEnrollment). <!--OKTA-836601-->
+
+#### Granular account linking for certain Identity Providers is self-service EA
+
+When admins link users from SAML and OIDC Identity Providers, they can now exclude specific users and admins. This improves security by allowing admins to configure granular access control scenarios. See Add an External Identity Provider [OpenId Connect](/docs/guides/add-an-external-idp/openidconnect/main/#create-an-identity-provider-in-okta) and [SAML 2.0](/docs/guides/add-an-external-idp/saml2/main/#create-an-identity-provider-in-okta) <!-- EXTENDED_ACCOUNT_LINKING_FILTERS OKTA-831244-->
+
+#### Request access option removed from the OIN Manager
+
+You can no longer request access to your org’s OIN Manager account with the **Request Access** button from the OIN Manager access-denied error page. If you need access to your org’s OIN Manager, contact your Okta admin to grant you the appropriate permissions. <!--OKTA-840117-->
+
+#### SCIM documentation link updated in the OIN Wizard
+
+The link to learn more about submitting a SCIM 2.0 protocol integration in the OIN Wizard has been updated to [OIN Wizard for SCIM](/docs/guides/submit-oin-app/scim/main/). <!--OKTA-839604-->
+
+#### Use case selection in the OIN Wizard
+
+Independent software vendors (ISVs) can now select the following use case categories when they submit their integration to the Okta Integration Network (OIN):
+
+* Zero Trust
+* Identity Verification
+* Identity Governance and Administration (IGA)
+
+See [Use case guidelines for the OIN Wizard](/docs/guides/submit-app-prereq/main/#use-case-guidelines). <!--OKTA-694701-->
+
+#### Industry term update in the OIN catalog
+
+The **NGO** industry term has been updated to **Nonprofit Organizations** in the [Okta Integration Network (OIN) catalog](https://www.okta.com/integrations). All published integrations with the **NGO** designation now have the **Nonprofit Organizations** designation.
+<!--OKTA-746769-->
+
+#### Configure Identity Verification with third-party Identity Verification providers is GA Preview
+
+You can now configure third-party Identity Verification providers using the IdP API and [Okta account management policy rules](/docs/guides/okta-account-management-policy/main/). Okta supports Persona as a third-party Identity Verification provider.
+
+Identity Verification enables you to use a third-party Identity Verification provider to verify the identity of your users. Verification requirements and the Identity Verification provider are based on your authentication policies and configurations within your Okta org. To configure an Identity Verification provider in the Admin Console, see [Add an Identity Verification vendor as Identity Provider](https://help.okta.com/okta_help.htm?type=oie&id=id-verification). <!-- OKTA-803683 -->
+
+#### Developer documentation updates in 2024.12.0
+
+* The [Custom email notifications guide](/docs/guides/custom-email/main/#use-functions-for-email-templates), under **Brand and Customize**, now provides examples of how to use functions for email templates. Email functions allow you to normalize the dynamic output of variables. For example, you can return the substring after the `@` character or convert content from uppercase to lowercase. <!--OKTA-797547-->
+* SCIM integrations can no longer be submitted through the OIN Manager. They can only be submitted through the OIN Wizard. See [SCIM in the OIN Wizard](/docs/guides/submit-oin-app/scim/main/). Instructions for submitting a SCIM 2.0 integration have been removed from the [OIN Manager guide](/docs/guides/submit-app/). <!--OKTA-809675-->
+
+
+#### Bugs fixed in 2024.12.0
+
+* GET calls to the `/idp/myaccount/authenticators` endpoint didn't return the `lastChallenged` date of the authenticator enrollment. (OKTA-802588)
+* A "subDomain: An object with this field already exists" error occurred when an admin tried to create a child org. (OKTA-824438)
+
 ## November
 
 ### Weekly release 2024.11.2
