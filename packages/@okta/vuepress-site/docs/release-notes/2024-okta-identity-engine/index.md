@@ -24,7 +24,7 @@ title: Okta Identity Engine API release notes 2024
 | [SCIM documentation link updated in the OIN Wizard](#scim-documentation-link-updated-in-the-oin-wizard) | December 11, 2024 |
 | [Use case selection in the OIN Wizard](#use-case-selection-in-the-oin-wizard) | December 11, 2024 |
 | [Industry term update in the OIN catalog](#industry-term-update-in-the-oin-catalog) | December 11, 2024 |
-| [Configure Identity Verification with third-party Identity Verification providers is GA Preview](#configure-identity-verification-with-third-party-identity-verification-providers-is-ga-preview) | December 11, 2024|
+| [Configure Identity Verification with third-party Identity Verification providers is GA Preview](#configure-identity-verification-with-third-party-identity-verification-providers-is-ga-preview) | October 2, 2024|
 | [Developer documentation updates in 2024.12.0](#developer-documentation-updates-in-2024-12-0) | December 11, 2024 |
 | [Bugs fixed in 2024.12.0](#bugs-fixed-in-2024-12-0) | December 11, 2024 |
 
