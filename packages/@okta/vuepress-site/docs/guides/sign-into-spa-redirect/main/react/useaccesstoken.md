@@ -3,17 +3,25 @@ The recommended way to add your access token to HTTP calls in React is to add it
 For example:
 
 ```ts
-async componentDidMount() {
-  try {
-    const response = await fetch('http://localhost:{serverPort}/api/messages', {
-      headers: {
-        Authorization: 'Bearer ' + this.props.authState.accessToken
-      }
-    });
-    const data = await response.json();
-    this.setState({ messages: data.messages });
-  } catch (err) {
-    // handle error as needed
-  }
-}
+const { oktaAuth } = useOktaAuth();
+const [messages, setMessages] = useState(null);
+
+useEffect(() => {
+  const fetchMessages = async () => {
+    try {
+      const response = await fetch('http://localhost:{serverPort}/api/messages', {
+        headers: {
+          Authorization: 'Bearer ' + oktaAuth.getAccessToken()
+        }
+      });
+
+      const data = await response.json();
+      setMessages(data.messages);
+    } catch (err) {
+      // handle error as needed
+    }
+  };
+
+  fetchMessages();
+}, [oktaAuth]);
 ```
