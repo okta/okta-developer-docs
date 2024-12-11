@@ -40,7 +40,7 @@ A System Log `system.email.bounce.removal` event is now triggered when an API re
 
 #### Granular account linking for certain Identity Providers is self-service EA
 
-When admins link users from SAML and OIDC Identity Providers, they can now exclude specific users and admins. This improves security by allowing admins to configure granular access control scenarios. See Add an External Identity Provider [OpenId Connect](/docs/guides/add-an-external-idp/openidconnect/main/#create-an-identity-provider-in-okta) and [SAML 2.0](/docs/guides/add-an-external-idp/saml2/main/#create-an-identity-provider-in-okta) <!-- EXTENDED_ACCOUNT_LINKING_FILTERS OKTA-831244-->
+When admins link users from SAML and OIDC Identity Providers, they can now exclude specific users and admins. This improves security by allowing admins to configure granular access control scenarios. See **Add an external Identity Provider** for [OpenId Connect](/docs/guides/add-an-external-idp/openidconnect/main/#create-an-identity-provider-in-okta) and [SAML 2.0](/docs/guides/add-an-external-idp/saml2/main/#create-an-identity-provider-in-okta) <!-- EXTENDED_ACCOUNT_LINKING_FILTERS OKTA-831244-->
 
 #### Request access option removed from the OIN Manager
 
