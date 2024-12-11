@@ -62,7 +62,7 @@ When admins link users from SAML and OIDC Identity Providers, they can now exclu
 
 #### Request access option removed from the OIN Manager
 
-You can no longer request access to your org’s OIN Manager account with the **Request Access** button from the OIN Manager access-denied error page. If you need access to your org’s OIN Manager, contact your Okta admin to grant you the appropriate permissions. <!--OKTA-840117-->
+You can no longer request access to your org's OIN Manager account with the **Request Access** button from the OIN Manager access-denied error page. If you need access to your org's OIN Manager, contact your Okta admin to grant you the appropriate permissions. <!--OKTA-840117-->
 
 #### SCIM documentation link updated in the OIN Wizard
 
