@@ -184,9 +184,12 @@ Acme is a CMR platform that helps modern businesses thrive. A platform that conn
 
 The [OIN catalog](https://www.okta.com/integrations/) organizes integrations into [use case](#use-cases) categories.
 
-In the [OIN Manager](/docs/guides/submit-app/wfconnector/main/#app-information), you can select up to five [use cases](#use-cases) in the **App use case** dropdown list for SCIM, Workflows Connector, or API service integrations.
+In the [OIN Wizard](/docs/guides/submit-oin-app/openidconnect/main/#oin-catalog-properties), you can select the following optional use cases for your integration: [Zero Trust](https://www.okta.com/integrations/?category=zero-trust), [Identity Verification](https://www.okta.com/integrations/?category=identity-verification), and [Identity Governance and Administration (IGA)](https://www.okta.com/integrations/?category=identity-governance-and-administration-iga). The following use cases are automatically assigned to your integration based on supported features:
 
-In the [OIN Wizard](/docs/guides/submit-oin-app/openidconnect/main/#oin-catalog-properties), use cases are automatically assigned to your integration based on the features that it supports.
+* The [Single Sign-On](https://www.okta.com/integrations/?category=single-sign-on) use case is automatically applied to your integration if it supports the OIDC or SAML 2.0 SSO protocols.
+* The [Lifecycle Management](https://www.okta.com/integrations/?category=lifecycle-management) use case is automatically applied to your integration if it supports the SCIM 2.0 protocol for user lifecycle management.
+
+In the [OIN Manager](/docs/guides/submit-app/wfconnector/main/#app-information), you can select up to five [use cases](#use-cases) for Workflows Connector or API service integrations.
 
 > **Note:** Okta automatically applies the [Apps for Good](https://www.okta.com/integrations/?category=apps-for-good) collection, the [Okta Security Identity](https://www.okta.com/integrations/?category=okta-secure-identity) collection, or the [Social Login](https://www.okta.com/integrations/?category=social-login) use case labels on your integration if it meets the criteria for these categories.
 
