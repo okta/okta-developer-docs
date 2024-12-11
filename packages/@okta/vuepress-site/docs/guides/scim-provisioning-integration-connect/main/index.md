@@ -52,7 +52,7 @@ Begin by signing in to your Okta Developer Edition org. If you don't have one, s
 1. Click the **Provisioning** tab, then in the main panel click **Configure API Integration**. Select the **Enable API Integration** checkbox.
   Enter the base URL for your SCIM server.
   Configure the credential options based on the previously chosen authentication method:
-    * Basic Auth: Enter the username and password for the account that handles the create, update, and deprovisioning actions of your SCIM implementation.
+    * Basic Auth: Enter the username and password for the account that handles the create, update, and deprovision actions of your SCIM implementation.
     * HTTP Header: Enter a bearer token for accessing your SCIM implementation.
     * OAuth: Enter the OAuth token for accessing your SCIM implementation.
 
