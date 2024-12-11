@@ -7,7 +7,6 @@ The `authState` contains an `idToken` that contains the user profile claims. You
    ```jsx
    import React, { useState, useEffect } from 'react';
    import { useOktaAuth } from '@okta/okta-react';
-   import { Header, Icon, Table } from 'semantic-ui-react';
 
    const Profile = () => {
      const { authState, oktaAuth } = useOktaAuth();
@@ -37,12 +36,7 @@ The `authState` contains an `idToken` that contains the user profile claims. You
      return (
        <div>
          <div>
-           <Header as="h1">
-             <Icon name="drivers license" />
-             {' '}
-             My User Profile (ID Token Claims)
-             {' '}
-           </Header>
+           <h1>My User Profile (ID Token Claims)</h1>
            <p>
              Below is the information from your ID token which was obtained during the &nbsp;
              <a href="https://developer.okta.com/docs/guides/implement-auth-code-pkce">PKCE Flow</a>
@@ -50,13 +44,14 @@ The `authState` contains an `idToken` that contains the user profile claims. You
              and is now stored in local storage.
            </p>
            <p>
+            TRUE?
              This route is protected with the
              {' '}
              <code>&lt;SecureRoute&gt;</code>
              {' '}
              component, which will ensure that this page cannot be accessed until you have authenticated.
            </p>
-           <Table>
+           <table>
              <thead>
                <tr>
                  <th>Claim</th>
@@ -76,7 +71,7 @@ The `authState` contains an `idToken` that contains the user profile claims. You
                  );
                })}
              </tbody>
-           </Table>
+           </table>
          </div>
        </div>
      );
