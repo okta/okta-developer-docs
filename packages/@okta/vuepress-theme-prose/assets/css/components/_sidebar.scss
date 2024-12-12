@@ -153,7 +153,7 @@
 }
 
 .tree-nav .sections .link-wrap:has( > a.router-link-active) {
-  background: linear-gradient(90deg, rgb(220 227 240) 0%, rgba(63, 89, 228, 0) 100%)
+  background: linear-gradient(90deg, #dce3f0 0, #ffffff 100%);
 }
 
 .tree-nav .sections .link-wrap a.router-link-active:before {

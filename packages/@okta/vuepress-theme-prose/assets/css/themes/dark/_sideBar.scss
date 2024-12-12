@@ -29,12 +29,12 @@
 }
 
 .tree-nav .sections .link-wrap a.router-link-active span {
-  color: cv("link", "base");
   font-weight: 500;
+  color: cv("link", "base");
 }
 
 .tree-nav .sections .link-wrap:has( > a.router-link-active) {
-  background: linear-gradient(90deg, rgb(75 76 79) 0%, rgb(8 12 31 / 0%) 100%);
+  background: linear-gradient(90deg, #4b4c4f 0, #17171b 100%);
 }
 
 .tree-nav .sections .link-wrap span {
@@ -51,8 +51,8 @@
 
 .tree-nav .sections .tree-nav-link-parent a,
 .tree-nav .sections .tree-nav-link-parent span {
-  color: cv("white", "base");
   font-weight: 400;
+  color: cv("white", "base");
 }
 
 .tree-nav .sections .tree-nav-link i.opened svg path {
