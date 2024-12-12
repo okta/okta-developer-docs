@@ -1,6 +1,6 @@
 {
-  "release" : "2024.11.1",
-  "build" : "2024.11.1-begin-134-g9128555f25d7",
+  "release" : "2024.12.1",
+  "build" : "2024.12.1-begin-180-g4a14c8d2a3f6",
   "errors" : [ {
     "title" : "Access denied",
     "statusCode" : 403,
@@ -43,6 +43,13 @@
     "internalErrorCode" : "enroll_authenticator_not_allowed",
     "errorCode" : "access_denied",
     "errorDescription" : "Authenticator enrollment is not allowed at this time. Please contact support for assistance."
+  }, {
+    "title" : "Lite user grant type not allowed",
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "internalErrorCode" : "lite_user_grant_type_not_allowed",
+    "errorCode" : "access_denied",
+    "errorDescription" : "User with lite classification status is not allowed to use the provided 'grant_type'"
   }, {
     "title" : "User not assigned",
     "statusCode" : 400,
@@ -1226,6 +1233,13 @@
     "internalErrorCode" : "sensitive_query_parameters_not_allowed_in_token_requests",
     "errorCode" : "invalid_request",
     "errorDescription" : "You shouldn't include any sensitive query parameters (en) in token requests. Provide parameters as 'x-www-form-urlencoded' values."
+  }, {
+    "title" : "Query parameters not allowed in authorize post request",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "query_parameters_not_allowed_in_authorize_post_requests",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "You shouldn't include any query parameters in authorize POST requests. Provide parameters as 'x-www-form-urlencoded' values."
   }, {
     "title" : "Unsupported response type with scope",
     "statusCode" : 400,
