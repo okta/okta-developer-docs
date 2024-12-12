@@ -13,7 +13,7 @@ In `app.routes.ts`, add the `OktaAuthGuard` to protect the route accessing a laz
    ```ts
    {
      path: 'protected',
-     loadChildren: () => import('./protected/routes').then(m => m.PROTECTED_FEATURE_ROUTES),    canActivate: [OktaAuthGuard]
+     loadChildren: () => import('./protected/routes').then(m => m.PROTECTED_FEATURE_ROUTES), canActivate: [OktaAuthGuard]
    },
    ```
 
