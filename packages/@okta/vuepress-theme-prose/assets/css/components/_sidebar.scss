@@ -148,8 +148,12 @@
 }
 
 .tree-nav .sections .link-wrap a.router-link-active span {
-  font-weight: 400;
+  font-weight: 500;
   color: cv("link", "darker");
+}
+
+.tree-nav .sections .link-wrap:has( > a.router-link-active) {
+  background: linear-gradient(90deg, rgb(220 227 240) 0%, rgba(63, 89, 228, 0) 100%)
 }
 
 .tree-nav .sections .link-wrap a.router-link-active:before {
@@ -199,6 +203,11 @@
   font-size: 14px;
   text-overflow: ellipsis;
   color: cv("link", "darker");
+}
+
+.tree-nav .sections .tree-nav-link-parent a,
+.tree-nav .sections .tree-nav-link-parent span {
+  font-weight: 400;
 }
 
 .tree-nav .sections .tree-nav-link i.opened {
