@@ -13,7 +13,7 @@ Use this guide to create and test a private SCIM integration from your Okta org 
 
 #### Learning outcomes
 
-* Learn how to add a private SCIM integration to your Otka org.
+* Learn how to add a private SCIM integration to your Okta org.
 * Learn how to configure SCIM provisioning and verify user profile and attribute mappings.
 
 #### What you need
@@ -25,11 +25,11 @@ Use this guide to create and test a private SCIM integration from your Okta org 
 
 ## Overview
 
-The instructions in this guide show you how to create an instance of a private SCIM integration in Okta so you can test your SCIM service. This integration is considered private because it's only available in the org from where the integration instance was created.
+This guide shows you how to create an instance of a private SCIM integration in Okta so you can test your SCIM service. This integration is considered private because it's only available in the org from where the integration instance was created.
 
 > **Note:** An app integration is considered public if it's available in the [OIN catalog](https://www.okta.com/integrations/) for all Okta customers. See [Publish an OIN integration](/docs/guides/submit-app-overview/) for an overview of the submission process. To create a public SCIM integration, see [Submit an integration with the OIN Wizard](/docs/guides/submit-oin-app/scim/main/).
 
-Make sure that your SCIM service passes all the Runscope tests before integrating it with Okta. For more information on testing your SCIM service, see [Prepare your SCIM API service](/docs/guides/scim-provisioning-integration-prepare/main/#test-your-scim-api).
+Make sure that your SCIM service passes all the SCIM specification tests in Runscope before integrating it with Okta. For more information on SCIM specification tests, see [Build your SCIM service > Test your SCIM API](/docs/guides/scim-provisioning-integration-prepare/main/#test-your-scim-api).
 
 Begin by signing in to your Okta Developer Edition org. If you don't have one, sign up for an [Okta developer account](https://developer.okta.com/signup/).
 
@@ -39,16 +39,22 @@ Begin by signing in to your Okta Developer Edition org. If you don't have one, s
 1. Click **Admin** in the upper-right right corner of the page.
 1. Select **Applications** > **Applications**.
 1. Click **Browse App Catalog**.
-1. Search for either "SCIM 2.0" or "SCIM 1.1" depending on the version of SCIM supported by your server. After searching you see template apps for each of the three authentication methods used to connect to your SCIM implementation: Basic Auth, Header Auth, or OAuth Bearer Token.
-1. Click **Add Integration** on the desired template app for your integration and finish adding the template app.
-1. On the **General Settings** page, set the name of your app. Choose if it's hidden from general and mobile users, and choose if users' are automatically signed in from the landing page. Click **Next**.
-1. Choose the sign-in method for your integration on the **Sign-On Options** page. Select either SAML or SWA. For guidance on choosing the access method, see [App integrations](https://help.okta.com/okta_help.htm?id=ext_Apps_Apps). Click **Done** to create the integration.
+1. Search for either "SCIM 2.0" or "SCIM 1.1" depending on the version of SCIM supported by your server. Select the SCIM integration template that's based on the authentication method supported by your SCIM server:
+
+    * [SCIM 1.1 test apps](https://www.okta.com/integrations/?search=SCIM%201.1%20test%20app) for SCIM 1.1
+    * [SCIM 2.0 test apps](https://www.okta.com/integrations/?search=SCIM%202.0%20Test%20App) for SCIM 2.0
+    * [SCIM 1.1 Test App(Header Auth)](https://www.okta.com/integrations/scim-1-1-test-app-header-auth/) for SCIM 1.1 servers that use custom header expression for header authentication
+    * [SCIM 2.0 Test App(Header Auth)](https://www.okta.com/integrations/scim-2-0-test-app-header-auth/) for SCIM 2.0 servers that use custom header expression for header authentication
+
+1. Click **Add Integration** for the desired SCIM integration template.
+1. On the **General Settings** page of your SCIM integration, enter a name. Choose if it's hidden from general and mobile users, and choose if users' are automatically signed in from the landing page. Click **Next**.
+1. Select the sign-in method for your integration on the **Sign-On Options** page. Select either SAML or SWA. For guidance on choosing the access method, see [App integrations](https://help.okta.com/okta_help.htm?id=ext_Apps_Apps). Click **Done** to create the integration.
 1. Click the **Provisioning** tab, then in the main panel click **Configure API Integration**. Select the **Enable API Integration** checkbox.
   Enter the base URL for your SCIM server.
   Configure the credential options based on the previously chosen authentication method:
-    - Basic Auth: Enter the username and password for the account that handles the create, update, and deprovisioning actions of your SCIM implementation.
-    - HTTP Header: Enter a bearer token for accessing your SCIM implementation.
-    - OAuth: Enter the OAuth token for accessing your SCIM implementation.
+    * Basic Auth: Enter the username and password for the account that handles the create, update, and deprovision actions of your SCIM implementation.
+    * HTTP Header: Enter a bearer token for accessing your SCIM implementation.
+    * OAuth: Enter the OAuth token for accessing your SCIM implementation.
 
     Test the credentials by clicking **Test API Credentials**. The server attempts to connect to Okta. If there's an error, check the entered credentials.
 

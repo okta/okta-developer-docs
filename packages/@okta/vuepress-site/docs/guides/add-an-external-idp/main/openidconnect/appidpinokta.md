@@ -35,8 +35,16 @@ In the optional **Authentication Settings** section:
 
     For example, you could restrict an IdP for use only with users who have `@company.com` as their email address using the following expression: `^[A-Za-z0-9._%+-]+@company\.com`.
 
-* **Account Link Policy**: Specify whether Okta automatically links the user's IdP account with a matching Okta account. See [Account link](#account-link).
+* **Account Link Policy** > **Enable automatic linking**: Select this option for Okta to automatically link the user's IdP account with a matching Okta account. See [Account link](#account-link).
 
-   If the account link policy is automatic, and any validated OIDC JWT is provided, Okta searches the Universal Directory for a user's profile to link. The user profile is found when the **IdP username** value (email) passed by the IdP matches the **Match against** value (username). If there's a match, then the user is linked by mapping the required, static `sub` claim provided in the JWT to that user.
+    If the automatic linking policy is selected, and any validated OIDC JWT is provided, Okta searches the Universal Directory for a user's profile to link. The user profile is found when the **IdP username** value (email) passed by the IdP matches the **Match against** value (username). If there's a match, then the user is linked by mapping the required, static `sub` claim provided in the JWT to that user.
 
-   After an account is linked, any validated JWT token with the same `sub` claim (which is mapped to the `idp.externalId` in the IdP profile) is automatically mapped to the same user. That automatic mapping happens regardless of the content of claims in the JWT. Also, the matching happens even if the values for **IdP username** and **Match against** no longer result in a match.
+    After an account is linked, any validated JWT token with the same `sub` claim (which is mapped to the `idp.externalId` in the IdP profile) is automatically mapped to the same user. This happens regardless of the content of claims in the JWT. Also, the matching happens even if the values for **IdP username** and **Match against** no longer result in a match.
+
+* **Auto-link filters**: If the automatic linking policy is selected, you can configure linking to users in specific groups, exclude linking to specific users, and exclude linking to admin users. <ApiLifecycle access="ea" />
+
+    * **Include specific groups**: Include users in these groups for account linking.
+
+    * **Exclude specific users**: Exclude these specific users from account linking.
+
+    * **Exclude admins**: Exclude users who are assigned admin roles or have admin privileges from account linking.
