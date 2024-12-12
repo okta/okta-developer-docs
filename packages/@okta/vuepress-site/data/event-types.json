@@ -1,6 +1,6 @@
 {
-  "release" : "2024.11.1",
-  "build" : "2024.11.1-begin-134-g9128555f25d7",
+  "release" : "2024.12.1",
+  "build" : "2024.12.1-begin-180-g4a14c8d2a3f6",
   "categories" : [ {
     "id" : "access-gateway",
     "name" : "Access Gateway"
@@ -138,7 +138,7 @@
     "name" : "FastPass Platform"
   }, {
     "id" : "first-party-apps",
-    "name" : "First Party Apps"
+    "name" : "First Party Apps Platform"
   }, {
     "id" : "federation",
     "name" : "Federation"
@@ -268,9 +268,6 @@
   }, {
     "id" : "security",
     "name" : "Security"
-  }, {
-    "id" : "seamless-application-security-and-sdks",
-    "name" : "Seamless Application Security and SDKs"
   }, {
     "id" : "sip",
     "name" : "Security Intelligence Platform"
@@ -7006,60 +7003,6 @@
         "changeDetails" : [ "DeviceAssuranceChangeDetailsEntry" ]
       }
     }, {
-      "id" : "device.check.add",
-      "category" : "device-assurance",
-      "description" : "Add device check. Use this event to monitor when a custom device check is created. The platform, name, variable name, description, and query of the new device check are included in the event.",
-      "info" : {
-        "created" : "2024-08-23",
-        "release" : "2024.09.0"
-      },
-      "beta" : false,
-      "internal" : false,
-      "tags" : [ "device-identity", "oie-only" ],
-      "mappings" : [ ],
-      "schema" : {
-        "debugData" : "SystemDebugData",
-        "actor" : null,
-        "targets" : [ "DeviceCheckResourceDetails" ],
-        "changeDetails" : [ ]
-      }
-    }, {
-      "id" : "device.check.delete",
-      "category" : "device-assurance",
-      "description" : "Delete device check. Use this event to monitor when a device check is deleted. The name of the deleted device check is included in the event.",
-      "info" : {
-        "created" : "2024-08-23",
-        "release" : "2024.09.0"
-      },
-      "beta" : false,
-      "internal" : false,
-      "tags" : [ "device-identity", "oie-only" ],
-      "mappings" : [ ],
-      "schema" : {
-        "debugData" : "SystemDebugData",
-        "actor" : null,
-        "targets" : [ "DeviceCheckResourceDetails" ],
-        "changeDetails" : [ ]
-      }
-    }, {
-      "id" : "device.check.update",
-      "category" : "device-assurance",
-      "description" : "Update device check. Use this event to monitor when a device check is updated, and what changed. The details of what is changed in the device check are included in the event.",
-      "info" : {
-        "created" : "2024-08-23",
-        "release" : "2024.09.0"
-      },
-      "beta" : false,
-      "internal" : false,
-      "tags" : [ "device-identity", "oie-only" ],
-      "mappings" : [ ],
-      "schema" : {
-        "debugData" : "SystemDebugData",
-        "actor" : null,
-        "targets" : [ "DeviceCheckResourceDetails" ],
-        "changeDetails" : [ "DeviceCheckChangeDetailsEntry" ]
-      }
-    }, {
       "id" : "device.custom_push.send_notification",
       "category" : "enterprise-auth",
       "description" : "Fired when a Push notification sent to a device for custom app. Used to log success and failure for the push notifications  with relevant information to allow org developers to troubleshoot push configurations for custom push authenticator. Note that this event is fired whenever a Push is sent.",
@@ -7454,6 +7397,60 @@
         "actor" : null,
         "targets" : null,
         "changeDetails" : null
+      }
+    }, {
+      "id" : "device.posture.check.add",
+      "category" : "device-assurance",
+      "description" : "Add device posture check. Use this event to monitor when a custom device posture check is created. The platform, name, variable name, description, and query of the new device posture check are included in the event.",
+      "info" : {
+        "created" : "2024-08-23",
+        "release" : "2024.09.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "device-identity", "oie-only" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "DevicePostureCheckResourceDetails" ],
+        "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "device.posture.check.delete",
+      "category" : "device-assurance",
+      "description" : "Delete device posture check. Use this event to monitor when a device posture check is deleted. The name of the deleted device posture check is included in the event.",
+      "info" : {
+        "created" : "2024-08-23",
+        "release" : "2024.09.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "device-identity", "oie-only" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "DevicePostureCheckResourceDetails" ],
+        "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "device.posture.check.update",
+      "category" : "device-assurance",
+      "description" : "Update device posture check. Use this event to monitor when a device posture check is updated, and what changed. The details of what is changed in the device posture check are included in the event.",
+      "info" : {
+        "created" : "2024-08-23",
+        "release" : "2024.09.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "device-identity", "oie-only" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "DevicePostureCheckResourceDetails" ],
+        "changeDetails" : [ "DevicePostureCheckChangeDetailsEntry" ]
       }
     }, {
       "id" : "device.push.provider.create",
@@ -15214,6 +15211,24 @@
         "changeDetails" : [ ]
       }
     }, {
+      "id" : "system.email.bounce.removal",
+      "category" : "core",
+      "description" : "Attempted removal of one or more emails from bounce list. Identify email addresses which were submitted to Okta for removal from the email bounce list. This event does not guarantee that an email was removed from the bounce list, it only indicates that Okta contacted the email provider to attempt to remove if from the bounce list. The debugData object contains a reference to the email provider contacted by Okta which maintains the bounce list. The target object contains a list of email addresses which were submitted. A single target contains a maximum of 50 email addresses. Multiple events may be fired in response to a removal request.",
+      "info" : {
+        "created" : "2024-11-01",
+        "release" : "2024.12.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "email" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "EmailBounceRemovalDebugData",
+        "actor" : null,
+        "targets" : [ "ResourceDetails" ],
+        "changeDetails" : [ ]
+      }
+    }, {
       "id" : "system.email.challenge_factor_redeemed",
       "category" : "cred-platform",
       "description" : "This event indicates that a user completed an email factor challenge. This can be used to identify when a credential sent in an email to a user has been redeemed (the link was clicked or the code was entered). When fired, this event contains information about the result. Success if successful or error reasons should be present for failure cases (e.g. incorrect code, timeout, expired, etc.). The event also contains a debugData with the action (the link was clicked or the code was entered).",
@@ -15950,6 +15965,24 @@
         "actor" : null,
         "targets" : [ "ResourceDetails" ],
         "changeDetails" : [ ]
+      }
+    }, {
+      "id" : "system.import.entitlement.mismatch",
+      "category" : "sync",
+      "description" : "Skipping of entitlement during import of an user. This event will be emitted during import whenever a user has some entitlement associated with it that are not present in Okta. This event can be use to track the entitlement of user which were skipped during import.",
+      "info" : {
+        "created" : "2024-11-11",
+        "release" : "2024.11.1"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "import", "system" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null,
+        "changeDetails" : null
       }
     }, {
       "id" : "system.import.full_import_required",
@@ -19204,10 +19237,10 @@
       "tags" : [ "session", "user" ],
       "mappings" : [ "core.user.impersonation.session.ended" ],
       "schema" : {
-        "debugData" : null,
+        "debugData" : "UserImpersonationSessionDebugData",
         "actor" : null,
-        "targets" : null,
-        "changeDetails" : null
+        "targets" : [ "ResourceDetails" ],
+        "changeDetails" : [ ]
       }
     }, {
       "id" : "user.session.impersonation.extend",
@@ -19222,10 +19255,10 @@
       "tags" : [ "session", "user" ],
       "mappings" : [ "core.user.impersonation.grant.extended" ],
       "schema" : {
-        "debugData" : null,
+        "debugData" : "UserImpersonationSessionDebugData",
         "actor" : null,
-        "targets" : null,
-        "changeDetails" : null
+        "targets" : [ "ResourceDetails" ],
+        "changeDetails" : [ ]
       }
     }, {
       "id" : "user.session.impersonation.grant",
@@ -19240,10 +19273,10 @@
       "tags" : [ "session", "user" ],
       "mappings" : [ "core.user.impersonation.grant.enabled" ],
       "schema" : {
-        "debugData" : null,
+        "debugData" : "UserImpersonationSessionDebugData",
         "actor" : null,
-        "targets" : null,
-        "changeDetails" : null
+        "targets" : [ "ResourceDetails" ],
+        "changeDetails" : [ ]
       }
     }, {
       "id" : "user.session.impersonation.initiate",
@@ -19258,10 +19291,10 @@
       "tags" : [ "session", "user" ],
       "mappings" : [ "core.user.impersonation.session.initiated" ],
       "schema" : {
-        "debugData" : null,
+        "debugData" : "UserImpersonationSessionDebugData",
         "actor" : null,
-        "targets" : null,
-        "changeDetails" : null
+        "targets" : [ "ResourceDetails" ],
+        "changeDetails" : [ ]
       }
     }, {
       "id" : "user.session.impersonation.revoke",
@@ -19276,10 +19309,10 @@
       "tags" : [ "session", "user" ],
       "mappings" : [ "core.user.impersonation.grant.revoked" ],
       "schema" : {
-        "debugData" : null,
+        "debugData" : "UserImpersonationSessionDebugData",
         "actor" : null,
-        "targets" : null,
-        "changeDetails" : null
+        "targets" : [ "ResourceDetails" ],
+        "changeDetails" : [ ]
       }
     }, {
       "id" : "user.session.start",
@@ -19757,7 +19790,7 @@
         "created" : "2024-03-01",
         "release" : "2024.11.0"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "workflows" ],
       "mappings" : [ ],
@@ -27896,6 +27929,19 @@
             "customer" : true,
             "format" : "text",
             "examples" : [ "Manager" ]
+          }
+        }
+      },
+      "EmailBounceRemovalDebugData" : {
+        "name" : "EmailBounceRemovalDebugData",
+        "properties" : {
+          "bounce_email_provider" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "SES", "Sendgrid" ]
           }
         }
       },
@@ -41976,6 +42022,19 @@
           }
         }
       },
+      "UserImpersonationSessionDebugData" : {
+        "name" : "UserImpersonationSessionDebugData",
+        "properties" : {
+          "case_number" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "10010110" ]
+          }
+        }
+      },
       "UserLifecycleDebugData" : {
         "name" : "UserLifecycleDebugData",
         "properties" : {
@@ -44558,35 +44617,6 @@
           }
         }
       },
-      "DeviceCheckResourceDetails" : {
-        "name" : "DeviceCheckResourceDetails",
-        "properties" : {
-          "deviceCheckVariableName" : {
-            "type" : "String",
-            "sensitive" : false,
-            "personal" : false,
-            "customer" : true,
-            "format" : "name",
-            "examples" : [ "macOSFirewall" ]
-          },
-          "deviceCheckName" : {
-            "type" : "String",
-            "sensitive" : false,
-            "personal" : false,
-            "customer" : true,
-            "format" : "name",
-            "examples" : [ "MacOS Firewall Device Check" ]
-          },
-          "deviceCheckPlatform" : {
-            "type" : "String",
-            "sensitive" : false,
-            "personal" : false,
-            "customer" : false,
-            "format" : "enum",
-            "examples" : [ "WINDOWS", "MACOS" ]
-          }
-        }
-      },
       "DeviceIntegrationResourceDetails" : {
         "name" : "DeviceIntegrationResourceDetails",
         "properties" : {
@@ -44599,6 +44629,35 @@
             "examples" : [ "com.crowdstrike.zta" ]
           },
           "device_platform" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "WINDOWS", "MACOS" ]
+          }
+        }
+      },
+      "DevicePostureCheckResourceDetails" : {
+        "name" : "DevicePostureCheckResourceDetails",
+        "properties" : {
+          "postureCheckVariableName" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "name",
+            "examples" : [ "macOSFirewall" ]
+          },
+          "postureCheckName" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "name",
+            "examples" : [ "MacOS Firewall Device Check" ]
+          },
+          "postureCheckPlatform" : {
             "type" : "String",
             "sensitive" : false,
             "personal" : false,
@@ -47568,10 +47627,10 @@
           }
         }
       },
-      "DeviceCheckChangeDetailsEntry" : {
-        "name" : "DeviceCheckChangeDetailsEntry",
+      "DevicePostureCheckChangeDetailsEntry" : {
+        "name" : "DevicePostureCheckChangeDetailsEntry",
         "properties" : {
-          "deviceCheckPlatform" : {
+          "postureCheckPlatform" : {
             "type" : "String",
             "sensitive" : false,
             "personal" : false,
@@ -47579,15 +47638,15 @@
             "format" : "enum",
             "examples" : [ "WINDOWS", "MACOS" ]
           },
-          "deviceCheckQuery" : {
+          "postureCheckQuery" : {
             "type" : "String",
             "sensitive" : false,
             "personal" : false,
             "customer" : true,
             "format" : "text",
-            "examples" : [ "SELECT CASE WHEN global_state = 0 THEN 0 ELSE 1 END AS firewall_enabled FROM  alf;" ]
+            "examples" : [ "SELECT CASE WHEN global_state = 0 THEN 0 ELSE 1 END AS firewall_enabled FROM alf;" ]
           },
-          "deviceCheckDescription" : {
+          "postureCheckDescription" : {
             "type" : "String",
             "sensitive" : false,
             "personal" : false,
@@ -47595,7 +47654,7 @@
             "format" : "name",
             "examples" : [ "Query macOS devices to check if firewall is enabled" ]
           },
-          "deviceCheckVariableName" : {
+          "postureCheckVariableName" : {
             "type" : "String",
             "sensitive" : false,
             "personal" : false,
@@ -47603,7 +47662,7 @@
             "format" : "name",
             "examples" : [ "macOSFirewall" ]
           },
-          "deviceCheckName" : {
+          "postureCheckName" : {
             "type" : "String",
             "sensitive" : false,
             "personal" : false,
