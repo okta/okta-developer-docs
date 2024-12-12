@@ -677,7 +677,7 @@ export const guides = [
                 guideName: "submit-oin-app",
               },
               {
-                title: "OIN Manager: Submit an integration",
+                title: "OIN Manager: Submit an LCM integration",
                 guideName: "submit-app",
               },
             ]

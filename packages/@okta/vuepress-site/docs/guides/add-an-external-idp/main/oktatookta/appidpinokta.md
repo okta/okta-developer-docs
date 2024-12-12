@@ -33,12 +33,4 @@ In the optional **Authentication Settings** section:
 
     > **Note:** When you use Okta for B2B or multi-tenancy use cases, select this checkbox. This helps you scope a subset of users in the org and enforce identifier constraints, such as email suffixes.
 
-* **Account Link Policy** > **Enable automatic linking**: Select this option for Okta to automatically link the user's IdP account with a matching Okta account. See [Account link](#account-link).
-
-* **Auto-link filters**: If the automatic linking policy is selected, you can configure linking to users in specific groups, exclude linking to specific users, and exclude linking to admin users. <ApiLifecycle access="ea" />
-
-    * **Include specific groups**: Include users in these groups for account linking.
-
-    * **Exclude specific users**: Exclude these specific users from account linking.
-
-    * **Exclude admins**: Exclude users who are assigned admin roles or have admin privileges from account linking.
+* **Account Link Policy**: Specify whether Okta automatically links the user's IdP account with a matching Okta account. See [Account link](#account-link).

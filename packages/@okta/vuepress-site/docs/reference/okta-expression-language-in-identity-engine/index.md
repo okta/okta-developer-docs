@@ -80,6 +80,7 @@ You can specify the [dynamic IdP](https://developer.okta.com/docs/api/openapi/ok
 | login.identifier| `login` references the login context of the request. `identifier` references the user's `username`. |String|
 
 ### Okta account management
+<ApiLifecycle access="ea"/>
 
 You can specify certain [Expression Language conditions](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule!path=0/conditions/elCondition&t=request) in [Okta account management policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-oamp).
 

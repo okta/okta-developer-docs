@@ -4266,7 +4266,7 @@ redirects:
   - from: /docs/guides/submit-app/-/submission1-general/index.html
     to: /docs/guides/submit-app/-/main/#configure-general-settings
   - from: /docs/guides/submit-app/-/submission2-specific/index.html
-    to: /docs/guides/submit-app/-/main/#configure-integration-type-settings
+    to: /docs/guides/submit-app/-/main/#configure-protocol-or-tool-specific-settings
   - from: /docs/guides/submit-app/-/submission3-process/index.html
     to: /docs/guides/submit-app-overview/#understand-the-submission-review-process
   - from: /docs/guides/submit-app/-/update-submission/index.html
