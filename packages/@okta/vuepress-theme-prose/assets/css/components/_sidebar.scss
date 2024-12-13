@@ -62,6 +62,7 @@
 .tree-nav > .sections > li > .sections > li > .sections > li,
 .tree-nav > .sections > li > .sections > li > .sections > li > .sections > li {
   margin-top: 8px;
+  padding-left: 6px;
 }
 
 .tree-nav > .sections > .link-wrap > .tree-nav-link,
@@ -126,7 +127,7 @@
 }
 
 .tree-nav .sections li > .sections {
-  margin-left: 22px;
+  margin-left: 16px;
   padding-left: 0;
 }
 
@@ -148,12 +149,12 @@
 }
 
 .tree-nav .sections .link-wrap a.router-link-active span {
-  font-weight: 500;
+  font-weight: bold;
   color: cv("link", "darker");
 }
 
 .tree-nav .sections .link-wrap:has( > a.router-link-active) {
-  background: linear-gradient(90deg, #dce3f0 0, #ffffff 100%);
+  background: linear-gradient(90deg, #dce3f0 0, #f7faff 100%);
 }
 
 .tree-nav .sections .link-wrap a.router-link-active:before {
