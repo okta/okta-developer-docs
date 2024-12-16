@@ -1,14 +1,11 @@
 https://twitter.com/OktaDev/
-https://toolkit.okta.com/
 https://stackoverflow.com/search?q=oidc+okta/
 https://stackoverflow.com/search?q=saml+okta/
 https://support.tracktik.com/hc/en-us/articles/12421581629463-Set-up-and-use-provisioning-for-Okta/
 https://gitlab.com/users/sign_in/
 https://www.nuget.org/packages/Okta.AspNetCore/
 https://support.yubico.com/hc/en-us/articles/360016648959-YubiKey-Hardware-FIDO2-AAGUIDs/
-https://network-tools.com/nslookup/
 https://nodejs.org/en/
-https://toolkit.okta.com/apps/scimify/
 https://www.nuget.org/packages/Okta.AspNet/
 https://www.nuget.org/packages/Microsoft.IdentityModel.Protocols.OpenIdConnect/
 https://www.nuget.org/packages/System.IdentityModel.Tokens.Jwt/
@@ -19,7 +16,6 @@ https://developer.spotify.com/documentation/general/guides/authorization/scopes/
 https://regionalevents.okta.com/enterprisereadyworkshops/
 https://app.getpostman.com/run-collection/1a927e3b353fd0e1b158/
 https://app.getpostman.com/run-collection/ff723148292df05bb58b/
-https://csrc.nist.gov/pubs/sp/800/63/b/upd2/final/
 https://8gwifi.org/jwkconvertfunctions.jsp
 https://app.getpostman.com/run-collection/3295add9e852d8728ef2/
 https://app.getpostman.com/run-collection/519c04869c17079762f9/
@@ -29,4 +25,5 @@ https://app.getpostman.com/run-collection/f443644517abb15117af/
 https://odyssey.okta.design/latest/foundations/accessibility/color-9O9a4XAU/
 https://okta.com/free-trial/workforce-identity/
 https://www.jsonwebtoken.dev/
-https://www.w3.org/Security/wiki/Same_Origin_Policy/
+https://azure.microsoft.com/free/?WT.mc_id=A261C142F
+https://azure.microsoft.com/free/
