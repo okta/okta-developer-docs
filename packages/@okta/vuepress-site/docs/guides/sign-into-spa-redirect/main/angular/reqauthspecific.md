@@ -6,4 +6,4 @@ The `OktaAuthGuard` can protect a route to a single component as well with `canA
    { path: 'profile', component: ProfileComponent, canActivate: [OktaAuthGuard] }
    ```
 
-The single `/profile` route is protected directly. If you're not authenticated and go to this page, you must click sign in before being routed to the `ProfileComponent`.
+The single `/profile` route is protected directly. If you're not authenticated and go to this page, you must click **Sign in** before being routed to the `ProfileComponent`.
