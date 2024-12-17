@@ -17,7 +17,7 @@ The `authState$` subject in `OktaAuthStateService` contains an `idToken` that co
      template: `
         <p>Welcome
           @if(name$ | async; as name) {
-            <span>, {{name}} </span>
+            <span> {{name}} </span>
           }
         </p>
      `,
