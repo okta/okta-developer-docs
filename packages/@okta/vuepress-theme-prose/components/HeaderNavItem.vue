@@ -17,7 +17,13 @@
     >
       <slot>
         <span class="text-holder">
-          {{ link.title }}
+          {{ link.title }} 
+          <span 
+            v-if="getCount(link.title) > 0"
+            class="badge"
+          >
+            {{ getCount(link.title) }}
+          </span>
         </span>
       </slot>
     </a>
@@ -59,13 +65,23 @@ export default {
         }
       }
     },
+    counts() {
+      return {
+        Guides: this.$categoryCounts.guides,
+        Concepts: this.$categoryCounts.concepts,
+        References: this.$categoryCounts.references,
+        "SDKs": this.$categoryCounts.sdks || 0,
+        "Release Notes": this.$categoryCounts.releaseNotes || 0,
+      }
+    }
   },
   methods: {
     isCurrentPage(route) {
       return window.location.pathname.startsWith(route);
     },
+    getCount(title) {
+      return this.counts[title] || 0;
+    }
   }
-
-  
 };
 </script>

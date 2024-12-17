@@ -20,6 +20,14 @@ export default ({ Vue, options, router, siteData }) => {
   Vue.use(PortalVue);
   Vue.component('v-select', VueSelect);
 
+  const categoryCounts = {
+    guides: 0,
+    concepts: 0,
+    references: 0,
+    sdks: 0,
+    releaseNotes: 0
+  }
+
   router.beforeEach((to, from, next) => {
     /**
      * Catch `404` in router and redirect to custom 404 page
@@ -39,4 +47,36 @@ export default ({ Vue, options, router, siteData }) => {
       return scrollToAnchor(to);
     }
   };
+
+  siteData.pages.forEach(page => {
+    const path = page.path; 
+
+    switch(true)  {
+      case path.startsWith('/docs/guides'):
+        categoryCounts.guides += 1
+        break;
+      
+      case path.startsWith('/docs/concepts'):
+        categoryCounts.concepts += 1
+        break;
+      
+      case path.startsWith('/docs/reference'):
+        categoryCounts.references += 1
+        break;
+
+      case path.startsWith('/code'):
+        categoryCounts.sdks += 1
+        break;
+
+      case path.startsWith('/docs/release-notes'):
+        categoryCounts.releaseNotes += 1
+        break;
+
+      default:
+        break
+    }
+  })
+
+  Vue.prototype.$categoryCounts = categoryCounts
+
 };
