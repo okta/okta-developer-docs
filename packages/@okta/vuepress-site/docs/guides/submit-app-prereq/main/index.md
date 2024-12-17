@@ -508,6 +508,8 @@ In addition to the general OIN limitations, the following are limitations specif
 
 * The force authentication (`ForceAuthn`) functionality is enabled by default for SAML app instances that were created from an OIN Wizard integration. You can disable force authentication for an app instance by selecting **Disable Force Authentication** in the app **Sign On** tab.
 
+* SP-initiated Single Logout (SLO) isn’t supported.
+
 The OIN team maintains existing SAML integrations with advanced features not supported in the OIN Wizard. If you need to update your existing advanced SAML integration, contact the OIN team at <oin@okta.com>.
 
 ### SCIM integration limitations
