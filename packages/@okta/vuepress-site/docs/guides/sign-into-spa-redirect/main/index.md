@@ -39,7 +39,7 @@ Set up your [Okta org](/docs/concepts/okta-organizations/). The Okta command-lin
 
       > **Tip**: If you don't receive the confirmation email sent as part of the creation process, check your spam filters for an email from `noreply@okta.com`
 
-   1. Set the password and a second authenticator for your org by opening the link and following the instructions. Your Okta domain is returned, similar to the following:
+   1. Set the password and a second authenticator for your org by opening the link and following the instructions. Your Okta domain appears similar the following example:
 
       ```txt
       New Okta Account created!

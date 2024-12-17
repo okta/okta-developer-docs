@@ -1,4 +1,4 @@
-The recommended way to add your access token to HTTP calls in Angular is to use an interceptor. To follow security best practices, the access token should only be added on calls to allowed origins.
+The recommended way to add your access token to HTTP calls in Angular is to use an interceptor. To follow security best practices, add the access token only on calls to allowed origins.
 
 1. Create an [Angular interceptor](https://angular.dev/guide/http/interceptors) called `auth.interceptor`, using the CLI command `ng generate interceptor auth`.
 
