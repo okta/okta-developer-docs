@@ -391,6 +391,10 @@ export const guides = [
             guideName: "keep-me-signed-in"
           },
           {
+            title: "Device assurance policies",
+            guideName: "device-assurance-policies"
+          },
+          {
             title: "Test your access policies",
             guideName: "policy-simulation"
           },
