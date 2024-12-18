@@ -23,5 +23,5 @@ useEffect(() => {
   };
 
   fetchMessages();
-}, [oktaAuth]);
+}, [oktaAuth, messages.length]);
 ```
