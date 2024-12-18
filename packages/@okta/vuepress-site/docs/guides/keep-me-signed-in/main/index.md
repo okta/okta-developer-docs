@@ -37,7 +37,7 @@ In a pre-authentication KMSI flow, users select **Keep me signed in** when they 
 
 In a post-authentication KMSI flow, users who go to your org's sign-in page may be redirected to an identity provider before they can select **Keep me signed in**. After authenticating, these users select **Stay signed in** when they're redirected back to Okta.
 
-In either case, users who select **Keep me signed** in are remembered on their device for the duration set in your authentication policy.
+In either case, users who select **Keep me signed in** are remembered on their device for the duration set in your authentication policy.
 
 They can manually reset the KMSI prompt and clear all sessions in their account settings menu by doing the following:
 
