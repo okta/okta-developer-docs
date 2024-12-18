@@ -272,6 +272,3 @@ curl -i -X DELETE \
   'https://subdomain.okta.com/api/v1/users/{userId}/sessions?oauthTokens=false' \
   -H 'Authorization: YOUR_API_KEY_HERE'
   ```
-
-## See also
-
