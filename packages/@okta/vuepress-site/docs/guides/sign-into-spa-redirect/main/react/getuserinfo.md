@@ -44,7 +44,6 @@ The `authState` contains an `idToken` that contains the user profile claims. You
              and is now stored in local storage.
            </p>
            <p>
-            TRUE?
              This route is protected with the
              {' '}
              <code>&lt;SecureRoute&gt;</code>
