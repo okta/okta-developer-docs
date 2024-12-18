@@ -4,7 +4,7 @@ For example:
 
 ```ts
 const { oktaAuth } = useOktaAuth();
-const [messages, setMessages] = useState(null);
+const [messages, setMessages] = useState([]);
 
 useEffect(() => {
   const fetchMessages = async () => {
