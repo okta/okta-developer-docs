@@ -61,9 +61,9 @@ If you want to configure pre-authentication KMSI using the Admin Console, see [K
 
 ### Create a global session policy
 
-You can use the Polices API to create a new policy or update an existing one. See [Create a policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy).
+You can use the Polices API to create a policy or update an existing one. See [Create a policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicy).
 
-To create a new policy, send a POST request to the `/api/v1/policies` endpoint. Include the following:
+To create a policy, send a POST request to the `/api/v1/policies` endpoint. Include the following:
 
 * Set the value of `activate` query parameter to `true`.
 * Provide a value for `name`.
@@ -101,7 +101,7 @@ Create a rule with two conditions:
 * Require multifactor authentication (MFA).
 * Prompt users for MFA after its lifetime expires for the device cookie.
 
-To create a new policy rule, send a POST request to the `/api/v1/policies/{policyId}/rules` endpoint. See [Create a policy rule](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule).
+To create a policy rule, send a POST request to the `/api/v1/policies/{policyId}/rules` endpoint. See [Create a policy rule](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule).
 
 Include the following:
 
@@ -149,7 +149,7 @@ Create an authentication policy rule for every app where you want to allow KMSI.
 
 Add two conditions:
 
-* Require 2 factor types.
+* Require two factor types.
 * Prompt users for authentication when an Okta global session doesn't exist.
 
 Send a POST request to the `/api/v1/policies/{policyId}/rules` endpoint. Include the following:
@@ -208,12 +208,12 @@ In a PUT request to the `/api/v1/policies/{policyId}/rules/{ruleId}` endpoint, i
 
 ## Customize post-authentication sign-in prompts
 
-You can customize post-authentication prompt text, including the following:
+You can customize the post-authentication prompt text, including the following:
 
-* title
-* subtitle
-* accept button
-* reject button
+* Title
+* Subtitle
+* Accept button
+* Reject button
 
 In a PUT request to the `/api/v1/brands/{brandId}/pages/sign-in/customized` endpoint, include the following in a `postAuthKeepMeSignedInPrompt` object:
 
