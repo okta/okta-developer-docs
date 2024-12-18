@@ -48,6 +48,7 @@ guides:
  - implement-oauth-for-okta
  - implement-oauth-for-okta-serviceapp
  - implement-grant-type
+ - keep-me-signed-in
  - manage-orgs-okta-aerial
  - mfa
  - migrate-to-okta-prerequisites
