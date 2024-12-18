@@ -200,10 +200,17 @@ In a POST request to the `/api/v1/policies/{policyId}/rules/{ruleId}` endpoint, 
 
 ## Reset KMSI in your org
 
-1. In the Admin Console, go to **Directory** > **People**.
-1. Select the user.
-1. In the **More Actions** menu, select **Clear User Sessions**.
-1. Click **Clear Sessions & Revoke Tokens**.
+You can reset KMSI for an individual user and clear all of their sessions.
+
+> **Note:** All remembered factors for the user are forgotten. The user is prompted for multifactor authentication (MFA) and KMSI when they next log in.
+
+In a DELETE request to the `/api/v1/users/{userId}/sessions` endpoint, include the `userId` of the individual user:
+
+```bash
+curl -i -X DELETE \
+  'https://subdomain.okta.com/api/v1/users/{userId}/sessions?oauthTokens=false' \
+  -H 'Authorization: YOUR_API_KEY_HERE'
+  ```
 
 ## See also
 
