@@ -5,35 +5,41 @@ The `authState$` subject in `OktaAuthStateService` contains an `idToken` that co
 2. Update `profile.component.ts` as follows:
 
    ```ts
-   import { Component, inject } from '@angular/core';
+   import { Component, OnInit } from '@angular/core';
    import { OktaAuthStateService } from '@okta/okta-angular';
-   import { filter, map } from 'rxjs';
+   import { filter, map, Observable } from 'rxjs';
    import { AuthState } from '@okta/okta-auth-js';
-   import { AsyncPipe } from '@angular/common';
 
    @Component({
      selector: 'app-profile',
-     imports: [AsyncPipe],
      template: `
-        <p>Welcome
-          @if(name$ | async; as name) {
-            <span> {{name}} </span>
-          }
-        </p>
+     <div class="profile-card">
+       <div class="shield"></div>
+       <p *ngIf="name$ | async as name">
+           Hello {{name}}!
+       </p>
+     </div>
      `,
      styleUrls: ['./profile.component.css']
    })
-   export class ProfileComponent {
-     private oktaAuthStateService = inject(OktaAuthStateService);
 
-     public name$ = this.oktaAuthStateService.authState$.pipe(
-       filter((authState: AuthState) => !!authState && !!authState.isAuthenticated),
-       map((authState: AuthState) => authState.idToken?.claims.name ?? '')
-     );
+   export class ProfileComponent implements OnInit {
+
+     public name$!: Observable<string>;
+
+     constructor(private _oktaAuthStateService: OktaAuthStateService) { }
+
+     public ngOnInit(): void {
+       this.name$ = this._oktaAuthStateService.authState$.pipe(
+         filter((authState: AuthState) => !!authState && !!authState.isAuthenticated),
+         map((authState: AuthState) => authState.idToken?.claims.name ?? '')
+       );
+
+     }
    }
    ```
 
-3. Import the `ProfileComponent` component into `app.routes.ts`:
+3. Import the `ProfileComponent` component into `app-routing.module.ts`:
 
     ```typescript
     import { ProfileComponent } from './profile/profile.component';
@@ -45,4 +51,4 @@ The `authState$` subject in `OktaAuthStateService` contains an `idToken` that co
     { path: 'profile', component: ProfileComponent }
     ```
 
-5. Add an instance of `<a routerLink="/profile">Profile</a>` into the `app.component.html`, inside the `@if (isAuthenticated$ | async){}`. This displays the text, `Profile`, after you're signed in. Clicking the text displays your name in the view.
+5. Add an instance of `<a routerLink="/profile">Profile</a>` into the `app.component.html`, again inside the toolbar. This displays the text, `Profile`, after you're signed in. Clicking the text displays your name in the toolbar.

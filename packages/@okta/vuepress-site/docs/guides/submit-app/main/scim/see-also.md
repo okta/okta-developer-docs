@@ -1,1 +1,0 @@
-* [SCIM - Frequently Asked Questions](/docs/concepts/scim/faqs/)

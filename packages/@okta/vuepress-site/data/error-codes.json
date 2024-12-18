@@ -1,6 +1,6 @@
 {
-  "release" : "2024.11.1",
-  "build" : "2024.11.1-begin-134-g9128555f25d7",
+  "release" : "2024.12.1",
+  "build" : "2024.12.1-begin-180-g4a14c8d2a3f6",
   "errors" : [ {
     "title" : "API validation exception",
     "includesExceptionMessage" : true,
@@ -1840,6 +1840,14 @@
     "statusReasonPhrase" : "Forbidden",
     "errorCode" : "E0000248",
     "errorSummary" : "The current Id Proofing Identity Provider is configured to be used in one or more Okta Account Management Policy rules. {0}",
+    "errorDescription" : null
+  }, {
+    "title" : "Missing group rule policy exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 409,
+    "statusReasonPhrase" : "Conflict",
+    "errorCode" : "E0000249",
+    "errorSummary" : "Group rules are still being set up.  Please try again later.",
     "errorDescription" : null
   } ]
 }
