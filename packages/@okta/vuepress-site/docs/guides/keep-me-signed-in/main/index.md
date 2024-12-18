@@ -208,9 +208,28 @@ In a PUT request to the `/api/v1/policies/{policyId}/rules/{ruleId}` endpoint, i
 
 ## Customize post-authentication sign-in prompts
 
+You can customize post-authentication prompt text, including the following:
 
+* title
+* subtitle
+* accept button
+* reject button
 
+In a PUT request to the `/api/v1/brands/{brandId}/pages/sign-in/customized` endpoint, include the following in a `postAuthKeepMeSignedInPrompt` object:
 
+* `title`: `Stay signed in?`
+* `subtitle`: `Make your selection below`
+* `acceptButtonText`: `Accept`
+* `rejectButtonText`: `Reject`
+
+```bash
+"postAuthKeepMeSignedInPrompt": {
+  "title": "Stay signed in, my friend?",
+  "subtitle": "Make your selection below",
+  "acceptButtonText": "Test accept",
+  "rejectButtonText": "Test reject"
+}
+```
 
 ## Reset KMSI in your org
 
