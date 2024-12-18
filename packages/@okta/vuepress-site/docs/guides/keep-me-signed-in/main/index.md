@@ -25,15 +25,15 @@ This guide describes how to use the [Policies API](https://developer.okta.com/do
 
 Keep me signed in (KMSI) is a usability feature that reduces sign-in friction on remembered devices. Users who select **Keep me signed in** are exempt from subsequent MFA prompts until their MFA lifetime expires or their browser cookies are cleared. Enable the feature only if you accept the security risks of MFA exemptions, and encourage your users to only select KMSI on trusted devices.
 
-You can configure the feature so that the KMSI prompt is displayed before or after users authenticate.
+You can configure the feature so that the KMSI prompt is displayed before or after users authenticate:
 
 * In standard authentication flows, users go directly to an app or your org's sign-in page and enter their credentials. Configure pre-authentication KMSI if you want to display the prompt on the Sign-In Widget when they enter their credentials. Configure post-authentication KMSI if you want them to see the prompt after their authentication is complete.
 * In delegated authentication flows, users bypass the Sign-In Widget and sign in with an identity provider. Configure post-authentication KMSI for these users, so that the KMSI option appears after they authenticate and are redirected back to Okta.
-* You can customize the buttons
+* Customize the post-authentication prompt text for your users.
 
 ### User experience
 
-In a pre-authentication KMSI flow, users select **Keep me signed in** when they enter their username in the Sign-In Widget, and then they provide MFA to complete their authentication.
+In a pre-authentication KMSI flow, users select **Keep me signed in** when they enter their username in the Sign-In Widget. Then they provide MFA to complete their authentication.
 
 In a post-authentication KMSI flow, users who go to your org's sign-in page may be redirected to an identity provider before they can select **Keep me signed in**. After authenticating, these users select **Stay signed in** when they're redirected back to Okta.
 
@@ -65,7 +65,7 @@ You can use the Polices API to create a policy or update an existing one. See [C
 
 To create a policy, send a POST request to the `/api/v1/policies` endpoint. Include the following:
 
-* Set the value of `activate` query parameter to `true`.
+* Set the value of the `activate` query parameter to `true`.
 * Provide a value for `name`.
 * Set the value of `type` to `OKTA_SIGN_ON`.
 * Set `people.groups.include` to the value of a group in your org.
