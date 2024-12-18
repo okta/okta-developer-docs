@@ -7,7 +7,7 @@ layout: Guides
 <ApiLifecycle access="ie" /></br>
 <ApiLifecycle access="ea" />
 
-This guide describes how to use the [Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/) to configure the Keep Me Signed In (KMSI) feature. It also describes how to use the [Brands API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/CustomPages/#tag/CustomPages/operation/replaceCustomizedSignInPage) to customize the KMSI sign-in prompts for delegated authentication flows.
+This guide describes how to use the [Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/) to configure the Keep Me Signed In (KMSI) feature. It also describes how to use the [Brands API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/CustomPages/#tag/CustomPages/operation/replaceCustomizedSignInPage) to customize the KMSI sign-in prompts.
 
 > **Note:** This document is only for Okta Identity Engine. See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.
 
@@ -236,7 +236,7 @@ See [Replace a policy rule](https://developer.okta.com/docs/api/openapi/okta-man
 
 ## Customize post-authentication sign-in prompts
 
-You can customize the post-authentication prompt text, including the following:
+For each [brand](/docs/concepts/brands/) in your org (by `brandId`), you can customize the post-authentication prompt text, including the following:
 
 * Title
 * Subtitle
@@ -272,3 +272,12 @@ curl -i -X DELETE \
   'https://subdomain.okta.com/api/v1/users/{userId}/sessions?oauthTokens=false' \
   -H 'Authorization: YOUR_API_KEY_HERE'
   ```
+
+You can also reset KMSI in the Admin Console:
+
+1. In the Admin Console, go to **Directory** > **People**.
+1. Select the user.
+1. In the **More Actions** menu, select **Clear User Sessions**.
+1. Click **Clear Sessions & Revoke Tokens**.
+
+The next time the user accesses your org, the **Keep me signed in** option appears.
