@@ -165,7 +165,7 @@ See [Create a global session policy rule](#create-a-global-session-policy-rule).
 
 ## Configure post-authentication KMSI
 
-Post-authentication KMSI is set at the app level in an authentication policy, so you can configure it on a per-app basis. You also need to modify your default global session policy so that your intended KMSI duration is observed.
+Post-authentication KMSI is set at the app level in an authentication policy, so you can configure it on a per-app basis. First, you need to modify your default global session policy so that your intended KMSI duration is observed.
 
 ### Modify your global session policy
 
@@ -202,9 +202,37 @@ In a PUT request to the `/api/v1/policies/{policyId}/rules/{ruleId}` endpoint, i
 
 ### Update an authentication policy for post-authentication KMSI
 
+In a PUT request to the `/api/v1/policies/{policyId}/rules/{ruleId}` endpoint, include the following:
 
+* In the `appSignOn` object, set `access` to `ALLOW`.
+  * In the `keepMeSignedIn` object, set the following:
+    * `postAuth` to `ALLOWED`
+    * `postAuthPromptFrequency` to `PT168H` (Java ChronoUnit `enum` for 7 days).
+  * In the `verificationMethod` object, set the following:
+    * Set `type` to `ASSURANCE`.
+    * Set the `constraints` object to those that your org requires. See [constraints](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/replacePolicyRule!path=0/actions/appSignOn/verificationMethod/0/constraints&t=request).
+    * Set `factorMode` to `2FA`.
+    * Set `reauthenticateIn` to `PT168H` (Java ChronoUnit `enum` for 7 days).
 
+```bash
+"actions": {
+  "appSignOn": {
+      "access": "ALLOW"
+    },
+      "keepMeSignedIn": {
+        "postAuth": "ALLOWED",
+        "postAuthPromptFrequency": "PT168H"
+    },
+      "verificationMethod": {
+            "contraints": [],
+            "factorMode": "2FA",
+            "reauthenticateIn": "PT168H",
+            "type": "ASSURANCE"
+    },
+  }
+```
 
+See [Replace a policy rule](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/replacePolicyRule).
 
 ## Customize post-authentication sign-in prompts
 
