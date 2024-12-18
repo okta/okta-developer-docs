@@ -171,20 +171,34 @@ Post-authentication KMSI is set at the app level in an authentication policy, so
 
 You can use the Polices API to update the rules of your default global session policy. See [Replace a policy rule](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/replacePolicyRule).
 
-In a POST request to the `/api/v1/policies/{policyId}/rules/{ruleId}` endpoint, include the following:
+In a PUT request to the `/api/v1/policies/{policyId}/rules/{ruleId}` endpoint, include the following:
 
 * Set the value of `policyId` to that of your default global session policy. See [List all policies](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/listPolicies).
-* Provide a value for `id`.
+* Set the value of `ruleId` to that of the default rule of your global session policy.
 * Set the value of `type` to `SIGN_ON`.
-* In the `singon` object, set the following values:
+* In the `signon` object, set the following values:
   * `access`: `ALLOW`
-  * `factorPromptMode`: `DEVICE`
-  * `requireFactor`: `true`
+  * `requireFactor`: `false`
   * `primaryFactor`: `PASSWORD_IDP_ANY_FACTOR`
+* In the `session` object, set the following:
+  * `maxSessionLifetimeMinutes`: `0`
+  * `maxSessionIdleMinutes`: `120`
+  * `userPersistentCookie`: `false`
 
-
-
-
+```bash
+"actions": {
+  "signon": {
+    "access": "ALLOW",
+    "requireFactor": false,
+    "primaryFactor": "PASSWORD_IDP_ANY_FACTOR",
+    "session": {
+      "usePersistentCookie": false,
+      "maxSessionIdleMinutes": 120,
+      "maxSessionLifetimeMinutes": 0
+    }
+  }
+},
+```
 
 ### Update an authentication policy for post-authentication KMSI
 
