@@ -25,7 +25,6 @@ The Okta React SDK requires an instance of an `OktaAuth` object with configurati
        <>
          <Security oktaAuth={oktaAuth} restoreOriginalUri={restoreOriginalUri}>
            <Switch>
-             <Routes>
                <Route path="/" exact component={Home}/>
                <Route path="/login/callback" component={LoginCallback}/>
              </Routes>
