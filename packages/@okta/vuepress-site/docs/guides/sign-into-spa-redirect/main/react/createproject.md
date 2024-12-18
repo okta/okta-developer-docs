@@ -1,6 +1,6 @@
 You need recent versions of [Node](https://nodejs.org/en/) and  [npm](https://www.npmjs.com/).
 
-1. Create a Vue app named `okta-react-quickstart` using the following command:
+1. Create a React app named `okta-react-quickstart` using the following command:
 
    ```shell
    npm create vite@5.4 okta-react-quickstart
