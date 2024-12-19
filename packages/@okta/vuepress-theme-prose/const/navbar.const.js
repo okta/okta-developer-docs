@@ -564,6 +564,10 @@ export const guides = [
                 title: "Add a static allowlist",
                 guideName: "customize-tokens-static",
               },
+              {
+                title: "Federated claims with entitlements",
+                guideName: "federated-claims",
+              },
               { title: "Refresh access tokens", guideName: "refresh-tokens" },
               { title: "Revoke tokens", guideName: "revoke-tokens" },
               {
