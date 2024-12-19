@@ -329,7 +329,9 @@ module.exports = ctx => ({
               '/docs/reference/csi-delauth-hook/',
               //'/docs/reference/api/inline-hooks-lea/',
               //'/docs/reference/api/hook-keys/'
-              '/docs/guides/configure-amr-claims-mapping/'
+              '/docs/guides/configure-amr-claims-mapping/',
+              '/docs/api/openapi/asa/asa/overview/',
+              '/docs/api/openapi/opa/opa/overview/'
           ]
         }
       ]
