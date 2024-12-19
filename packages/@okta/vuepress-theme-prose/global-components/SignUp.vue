@@ -384,6 +384,7 @@
                         </SmartLink>
                         during my use of the Okta Developer Edition Service.
                       </p>
+                      <p><strong>Note:</strong> Okta recommends using only sample data with the Developer Edition Service and does not recommend using for production business purposes.</p>
                       <p>
                         I agree that Okta may contact me with marketing communications.
                         See Privacy Policy for details on how to unsubscribe.
