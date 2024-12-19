@@ -14,7 +14,7 @@ excerpt: Okta maintains the following recommended SDKs for developers.
 
 Okta provides SDKs for many languages and frameworks to add an Okta sign-in experience to your application, manage your users and groups, and more.
 
-Select the task that you want to perform to access more information on the **Okta-recommended** method, documentation, sample code, and SDK:
+Select the task that you want to perform to access more information on the Okta-recommended method, documentation, sample code, and SDK:
 
 * [Sign a user in from a web app](#sign-a-user-in-from-a-web-app)
 * [Sign a user in from a mobile app](#sign-a-user-in-from-a-mobile-app)
@@ -23,7 +23,7 @@ Select the task that you want to perform to access more information on the **Okt
 * [Enable your mobile apps to act as a custom Okta authenticator](#enable-your-mobile-apps-to-act-as-a-custom-okta-authenticator)
 * [Manage your users, groups, apps, and other administrative tasks](#manage-your-users-groups-and-apps)
 
-> **Tip:** All recommended methods assume the use of **Okta Identity Engine**.
+> **Tip:** All recommended methods assume the use of Okta Identity Engine.
 
 See [Alternate Sign-In SDKs](/code/alternate-sign-in-sdks/) to discover which SDKs support alternate, unrecommended sign-in experiences with Identity Engine and which support sign-in experiences with Classic Engine.
 
@@ -93,7 +93,7 @@ To authenticate users, Android and iOS developers should use the latest Okta Mob
 | ![Android](/img/sdks/android.png) | Android | [Okta Mobile SDK for Kotlin](https://github.com/okta/okta-mobile-kotlin) | [Sample App](https://github.com/okta-samples/okta-android-kotlin-sample) | [Guide](/docs/guides/sign-into-mobile-app-redirect/android/main/) |
 | ![iOS](/img/sdks/ios.png) | iOS | [Okta Mobile SDK for Swift](https://github.com/okta/okta-mobile-swift) | [Sample App](https://github.com/okta/okta-mobile-swift/tree/master/Samples) | [Guide](/docs/guides/sign-into-mobile-app-redirect/ios/main/) |
 
-To authenticate users with **native forms in your app that call Okta directly**, Android and iOS developers should use the Identity Engine SDKs.
+To authenticate users with native forms in your app that call Okta directly, Android and iOS developers should use the Identity Engine SDKs.
 
 |   |         |         |         |   |
 |---|---------|---------|---------|---|
