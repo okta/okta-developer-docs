@@ -236,7 +236,8 @@ The test account allows the OIN team to verify that your integration flow works 
 
 > **Notes:**
 > * Ensure that the test account doesn't have access to your production environment.
-> * The OIN team recommends `isvtest@okta.com` as the test account username, however, you can provide an alternative username with a different domain.
+> * Okta recommends that you use sample (non-production) data for testing.
+> * Okta recommends that you use `isvtest@okta.com` as the test account username in your app. You can use an alternative username with a different domain, provided that you own or have a license to use the domain and don't infringe upon any rights of any third parties.
 
 ## Customer configuration document guidelines
 
