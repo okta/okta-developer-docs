@@ -1031,12 +1031,6 @@ export const reference = [
       {
         title: "Test APIs with Postman",
         path: "/docs/reference/rest/",
-        subLinks: [
-          {
-            title: "Postman Collections",
-            path: "/docs/reference/postman-collections/",
-          },
-        ],
       },
     ],
   },
