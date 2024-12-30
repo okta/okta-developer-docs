@@ -6,6 +6,20 @@ title: Okta Classic Engine API release notes 2024
 
 ## December
 
+### Weekly release 2024.12.1
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Bugs fixed in 2024.12.1](#bugs-fixed-in-2024-12-1)| January 2, 2025 |
+
+#### Bugs fixed in 2024.12.1
+
+* Several API requests returned incorrect errors if the path parameters `userId` or `schemaId` included UTF8MB4 characters.(OKTA-447370)
+
+* Updating the label of an OpenID Connect app sometimes resulted in an incorrect label appearing in the System Log events. (OKTA-816204)
+
+* Sometimes an `Invalid Phone Number` error appeared incorrectly during SMS factor enrollment. (OKTA-842270)
+
 ### Monthly release 2024.12.0
 
 | Change | Expected in Preview Orgs |

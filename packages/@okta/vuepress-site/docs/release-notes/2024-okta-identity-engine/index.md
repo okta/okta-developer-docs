@@ -8,6 +8,24 @@ title: Okta Identity Engine API release notes 2024
 
 ## December
 
+### Weekly release 2024.12.1
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Bugs fixed in 2024.12.1](#bugs-fixed-in-2024-12-1)| January 2, 2025 |
+
+#### Bugs fixed in 2024.12.1
+
+* Several API requests returned incorrect errors if the path parameters `userId` or `schemaId` included UTF8MB4 characters.(OKTA-447370)
+
+* When you made POST `/api/v1/authenticators/{authenticatorId}/lifecycle/activate` or `/api/v1/authenticators/{authenticatorId}/methods/{methodType}/lifecycle/activate` requests, and the authenticators didn’t support activation or deactivation, a `501 Not Implemented` error code was returned. Calls to those endpoints now return a `405 Method Not Supported` error code. (OKTA-729113)
+
+* Updating the label of an OpenID Connect app sometimes resulted in an incorrect label appearing in the System Log events. (OKTA-816204)
+
+* GET calls to the `/idp/myaccount/authenticators/{authenticatorId}/enrollments` and `/idp/myaccount/authenticators` endpoints sometimes didn't correctly evaluate the device platform. (OKTA-834858)
+
+* Sometimes an `Invalid Phone Number` error appeared incorrectly during SMS factor enrollment. (OKTA-842270)
+
 ### Monthly release 2024.12.0
 
 | Change | Expected in Preview Orgs |
