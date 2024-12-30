@@ -18,6 +18,8 @@ title: Okta Identity Engine API release notes 2024
 
 * Several API requests returned incorrect errors if the path parameters `userId` or `schemaId` included UTF8MB4 characters.(OKTA-447370)
 
+* The [List all Devices](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserResources/#tag/UserResources/operation/listUserDevices) for a user endpoint now appears in the [User Resources](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserResources/#tag/UserResources) API reference. (OKTA-639917)
+
 * When you made POST `/api/v1/authenticators/{authenticatorId}/lifecycle/activate` or `/api/v1/authenticators/{authenticatorId}/methods/{methodType}/lifecycle/activate` requests, and the authenticators didn’t support activation or deactivation, a `501 Not Implemented` error code was returned. Calls to those endpoints now return a `405 Method Not Supported` error code. (OKTA-729113)
 
 * Updating the label of an OpenID Connect app sometimes resulted in an incorrect label appearing in the System Log events. (OKTA-816204)
