@@ -182,16 +182,9 @@ Acme is a CMR platform that helps modern businesses thrive. A platform that conn
 
 ## Use case guidelines
 
-The [OIN catalog](https://www.okta.com/integrations/) organizes integrations into [use case](#use-cases) categories.
+The [OIN catalog](https://www.okta.com/integrations/) organizes integrations into [use case](#use-cases) categories. Each integration can have a maximum of five use case categories assigned. You can select use cases from the [OIN Wizard](#use-case-selection-in-the-oin-wizard) or the [OIN Manager](#use-case-selection-in-the-oin-manager).
 
-In the [OIN Wizard](/docs/guides/submit-oin-app/openidconnect/main/#oin-catalog-properties), you can select the following optional use cases for your integration: [Zero Trust](https://www.okta.com/integrations/?category=zero-trust), [Identity Verification](https://www.okta.com/integrations/?category=identity-verification), and [Identity Governance and Administration (IGA)](https://www.okta.com/integrations/?category=identity-governance-and-administration-iga). The following use cases are automatically assigned to your integration based on supported features:
-
-* The [Single Sign-On](https://www.okta.com/integrations/?category=single-sign-on) use case is automatically applied to your integration if it supports the OIDC or SAML 2.0 SSO protocols.
-* The [Lifecycle Management](https://www.okta.com/integrations/?category=lifecycle-management) use case is automatically applied to your integration if it supports the SCIM 2.0 protocol for user lifecycle management.
-
-In the [OIN Manager](/docs/guides/submit-app/wfconnector/main/#app-information), you can select up to five [use cases](#use-cases) for Workflows Connector or API service integrations.
-
-> **Note:** Okta automatically applies the [Apps for Good](https://www.okta.com/integrations/?category=apps-for-good) collection, the [Okta Security Identity](https://www.okta.com/integrations/?category=okta-secure-identity) collection, or the [Social Login](https://www.okta.com/integrations/?category=social-login) use case labels on your integration if it meets the criteria for these categories.
+> **Note:** You can't select collection categories for your integration. The OIN team assigns the [Apps for Good](https://www.okta.com/integrations/?category=apps-for-good) or the [Okta Security Identity](https://www.okta.com/integrations/?category=okta-secure-identity) collection labels on your integration if it meets the criteria for these categories.
 
 ### Use cases
 
@@ -211,6 +204,29 @@ Use the following description list to determine the appropriate use case categor
 | [Identity Governance and Administration (IGA)](https://www.okta.com/integrations/?category=identity-governance-and-administration-iga) | Simplifies and manages an organization's identity and access lifecycles across multiple systems |
 | [Multifactor Authentication (MFA)](https://www.okta.com/integrations/?category=multi-factor-authentication-mfa) | Provides an extra layer of security with multifactor authentication for an organization's cloud, mobile, and web apps |
 | [Risk Signal Sharing](https://www.okta.com/integrations/?category=risk-signal-sharing)| Provides enriched context on clients, apps, users, and other first-party subjects to augment and inform Okta adaptive authentication and authorization decisions  |
+
+### Use case selection in the OIN Wizard
+
+In the [OIN Wizard](/docs/guides/submit-oin-app/openidconnect/main/#oin-catalog-properties), you can select the following optional use cases for your integration:
+
+* Automation
+* Centralized Logging
+* Directory HR and Sync
+* Identity Verification
+* Identity Governance and Administration (IGA)
+* Multifactor Authentication
+* Zero Trust
+
+The OIN team assigns the following use cases to your integration based on supported features:
+
+* The [Single Sign-On](https://www.okta.com/integrations/?category=single-sign-on) use case is applied to your integration if it supports the OIDC or SAML 2.0 SSO protocols.
+* The [Lifecycle Management](https://www.okta.com/integrations/?category=lifecycle-management) use case is applied to your integration if it supports the SCIM 2.0 protocol for user lifecycle management.
+
+> **Note:** There's a maximum of five use cases that can be assigned to an integration. If you select more than five use cases for your integration, then the OIN team can't assign **Single Sign-On** or **Lifecycle Management** use cases.
+
+### Use case selection in the OIN Manager
+
+In the [OIN Manager](/docs/guides/submit-app/wfconnector/main/#app-information), you can select up to five [use cases](#use-cases) for Workflows Connector or API service integrations.
 
 ## Customer support contact guidelines
 
