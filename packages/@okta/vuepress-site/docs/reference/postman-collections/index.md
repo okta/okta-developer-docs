@@ -7,7 +7,7 @@ meta:
 
 # Import a Postman Collection
 
-**Note:** The following Postman collections are no longer kept up to date. For the most recent versions of the Postman collections, see [Okta Public API Collections](https://www.postman.com/okta-eng/okta-public-api-collections/overview).
+**Note:** The following Postman collections are no longer maintained. For the most recent versions of the Postman collections, see [Okta Public API Collections](https://www.postman.com/okta-eng/okta-public-api-collections/overview).
 
 Learn how to [use Postman with the Okta REST APIs](https://developer.okta.com/docs/api/).
 
