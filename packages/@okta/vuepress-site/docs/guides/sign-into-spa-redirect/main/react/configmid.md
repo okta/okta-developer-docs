@@ -1,6 +1,6 @@
-The Okta React SDK requires an instance of an `OktaAuth` object with configuration properties. Set the `clientId` and `issuer` properties with the values that you got from the CLI earlier. This can happen by directly setting the properties, with variable replacement that happens as part of the build process, or during app load time.
+The Okta React SDK requires an instance of an `OktaAuth` object with configuration properties. Set the `clientId` and `issuer` properties with the values from the CLI earlier. This can happen by directly setting the properties, with variable replacement that happens as part of the build process, or during app load time.
 
-1. Update `src/App.jsx` to configure Okta with the following code, replacing the placeholder values with your own values:
+1. Update `src/App.jsx` to configure Okta with the following code, replacing the `issuer` and `clientId` placeholder values with your own values (see [Finding your config values](/docs/guides/sign-into-spa-redirect/react/main/#find-your-config-values)):
 
    ```jsx
    import { Route, Switch, useHistory } from 'react-router-dom';
@@ -16,7 +16,7 @@ The Okta React SDK requires an instance of an `OktaAuth` object with configurati
    });
 
    function App() {
-     const navigate = useHistory();
+     const history = useHistory();
      const restoreOriginalUri = (_oktaAuth,  originalUri) => {
        history.replace(toRelativeUrl(originalUri || '/', window.location.origin));
      };
@@ -56,8 +56,6 @@ The Okta React SDK requires an instance of an `OktaAuth` object with configurati
      </BrowserRouter>,
    )
    ```
-
-1. Replace the `clientId` and `issuer` placeholder values with the values that you obtained earlier.
 
 1. Add a `src/Home.jsx` file that renders the starting view for the application:
 

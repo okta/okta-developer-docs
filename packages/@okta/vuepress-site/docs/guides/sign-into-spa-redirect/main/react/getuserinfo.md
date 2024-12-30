@@ -2,7 +2,7 @@ The `authState` contains an `idToken` that contains the user profile claims. You
 
 1. Add a file called `src/Profile.jsx`.
 
-2. Add the following content to it:
+1. Add the following content to it:
 
    ```jsx
    import React, { useState, useEffect } from 'react';
@@ -79,13 +79,13 @@ The `authState` contains an `idToken` that contains the user profile claims. You
    export default Profile;
    ```
 
-4. Import `Profile` into `src/App.jsx` by adding the following:
+1. Import `Profile` into `src/App.jsx` by adding the following:
 
    ```jsx
    import Profile from './Profile';
    ```
 
-5. Add a route to the list of `<Route>` components in `src/App.js` to represent the `/profile` route:
+1. Add a route to the list of `<Route>` components in `src/App.jsx` to represent the `/profile` route:
 
    ```jsx
    <Route path="/profile" component={Profile}/>

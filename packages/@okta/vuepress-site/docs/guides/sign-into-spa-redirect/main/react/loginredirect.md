@@ -1,8 +1,8 @@
-The `useOktaAuth` returns an object with the `oktaAuth` and `authState` properties. The `authState` property returns the current authenticated state. The `oktaAuth` property returns the Okta Auth SDK instance and has methods for sign-in and sign-out actions.
+In `Home.jsx`, the `useOktaAuth` hook returns an object with the `oktaAuth` and `authState` properties. The `authState` property returns the current authenticated state. The `oktaAuth` property returns the Okta Auth SDK instance and has methods for sign-in and sign-out actions.
 
-For class-based component, the `withOktaAuth` higher-order component, `OktaAuth`, and the `authState` props are used together to support sign-in and sign-out.
+For class-based components, the `withOktaAuth` higher-order component, `OktaAuth`, and the `authState` properties are used together to support sign-in and sign-out.
 
-In the `Home.jsx` code referenced above, add the `useOktaAuth()` hook and define the sign-in and sign-out methods in the `Home` component.
+In the `Home.jsx` code referenced previously, add the `useOktaAuth()` hook and define the sign-in and sign-out methods in the `Home` component.
 
 ```jsx
 const { authState, oktaAuth } = useOktaAuth();
