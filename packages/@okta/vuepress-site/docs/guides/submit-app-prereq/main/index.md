@@ -20,7 +20,7 @@ A built and tested app integration that's ready for Okta verification
 
 Before using the [OIN Wizard](/docs/guides/submit-oin-app/) or the [OIN Manager](https://oinmanager.okta.com)&nbsp;to submit your OIN integration, prepare the artifacts requested during the submission process.
 
-Review the following submission artifact guidelines:
+Review the following submission guidelines:
 
 * [Logo](#logo-guidelines)
 * [App description](#app-description-guidelines)
@@ -182,9 +182,9 @@ Acme is a CMR platform that helps modern businesses thrive. A platform that conn
 
 ## Use case guidelines
 
-The [OIN catalog](https://www.okta.com/integrations/) organizes integrations into [use case](#use-cases) categories. Each integration can have a maximum of five use case categories assigned. You can select use cases from the [OIN Wizard](#use-case-selection-in-the-oin-wizard) or the [OIN Manager](#use-case-selection-in-the-oin-manager).
+The [OIN catalog](https://www.okta.com/integrations/) organizes integrations into [use case](#use-cases) categories. Each integration can have a maximum of five use case categories assigned. You can select use cases from [the OIN Wizard](#use-case-selection-in-the-oin-wizard) or [the OIN Manager](#use-case-selection-in-the-oin-manager) to assign your integration.
 
-> **Note:** You can't select collection categories for your integration. The OIN team assigns the [Apps for Good](https://www.okta.com/integrations/?category=apps-for-good) or the [Okta Security Identity](https://www.okta.com/integrations/?category=okta-secure-identity) collection labels on your integration if it meets the criteria for these categories.
+> **Note:** You can't select collection categories for your integration. The OIN team assigns the [Apps for Good](https://www.okta.com/integrations/?category=apps-for-good) or the [Okta Security Identity](https://www.okta.com/integrations/?category=okta-secure-identity) collection labels to your integration if it meets the criteria for these categories.
 
 ### Use cases
 
@@ -207,22 +207,22 @@ Use the following description list to determine the appropriate use case categor
 
 ### Use case selection in the OIN Wizard
 
-In the [OIN Wizard](/docs/guides/submit-oin-app/openidconnect/main/#oin-catalog-properties), you can select the following optional use cases for your integration:
+In the [OIN Wizard](/docs/guides/submit-oin-app/openidconnect/main/#oin-catalog-properties), you can select the following [use cases](#use-cases) for your integration:
 
 * Automation
 * Centralized Logging
-* Directory HR and Sync
-* Identity Verification
+* Directory and HR Sync
 * Identity Governance and Administration (IGA)
-* Multifactor Authentication
+* Identity Verification
+* Multifactor Authentication (MFA)
 * Zero Trust
 
-The OIN team assigns the following use cases to your integration based on supported features:
+The OIN team assigns the following categories to your integration based on supported features:
 
-* The [Single Sign-On](https://www.okta.com/integrations/?category=single-sign-on) use case is applied to your integration if it supports the OIDC or SAML 2.0 SSO protocols.
-* The [Lifecycle Management](https://www.okta.com/integrations/?category=lifecycle-management) use case is applied to your integration if it supports the SCIM 2.0 protocol for user lifecycle management.
+* The [Single Sign-On](https://www.okta.com/integrations/?category=single-sign-on) use case is assigned to your integration if it supports the OIDC or SAML 2.0 SSO protocols.
+* The [Lifecycle Management](https://www.okta.com/integrations/?category=lifecycle-management) use case is assigned to your integration if it supports the SCIM 2.0 protocol for user lifecycle management.
 
-> **Note:** There's a maximum of five use cases that can be assigned to an integration. If you select more than five use cases for your integration, then the OIN team can't assign **Single Sign-On** or **Lifecycle Management** use cases.
+> **Note:** There's a maximum of five use cases that can be assigned to an integration. Even if your integration meets the Single Sign-On or Lifecycle Management use case criteria, the OIN team can't assign them if you've reached the maximum number of use cases in your submission.
 
 ### Use case selection in the OIN Manager
 
