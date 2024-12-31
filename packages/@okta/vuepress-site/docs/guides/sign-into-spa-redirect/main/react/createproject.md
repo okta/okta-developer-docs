@@ -1,12 +1,23 @@
 You need recent versions of [Node](https://nodejs.org/en/) and  [npm](https://www.npmjs.com/).
 
-Create a React app named `okta-react-quickstart` and enter the project route using the following command. This creates a React app using React version 17.
+1. Create a React app named `okta-react-quickstart` using the following command:
 
-```shell
-npx create-react-app@5 okta-react-quickstart
-cd okta-react-quickstart
-```
+   ```shell
+   npm create vite@5.4 okta-react-quickstart
+   ```
 
-> **Note**: This guide was tested with Create React App 5, React 17, Okta React 6.4, and Okta Auth JavaScript SDK 6.1.
+2. You're asked to manually select the template:
 
-> **Note**: You can also install the Okta CLI and run `okta start react` to download and configure a React app with Okta integrated. This quickstart uses Create React App's output instead, as it's easier to understand the Okta-specific additions if you work through them yourself.
+    * Select **React** for framework.
+    * Select **JavaScript** for variant.
+
+3. Go into your app's root app directory to view the created files and install dependencies:
+
+   ```shell
+   cd okta-react-quickstart
+   npm install
+   ```
+
+> **Note**: This guide was tested with Vite 5.4, React 18.3, Okta React 6.9, and Okta Auth JavaScript SDK 7.8.
+
+> **Note**: You can also install the Okta CLI and run `okta start react` to download and configure a React app with Okta integrated. This quickstart uses `npm create vite`'s output instead, as it's easier to understand the Okta-specific additions if you work through them yourself.
