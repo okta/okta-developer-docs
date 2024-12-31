@@ -148,8 +148,13 @@
 }
 
 .tree-nav .sections .link-wrap a.router-link-active span {
-  font-weight: 400;
+  font-weight: 1000;
   color: cv("link", "darker");
+}
+
+.tree-nav .sections .tree-nav-link-parent a,
+.tree-nav .sections .tree-nav-link-parent span {
+  font-weight: 400;
 }
 
 .tree-nav .sections .link-wrap a.router-link-active:before {

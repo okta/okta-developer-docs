@@ -2,46 +2,48 @@ The `OktaAuthStateService` and `OktaAuth` services are used together to support 
 
 The `OktaAuth` service has methods for sign-in and sign-out actions.
 
-1. Add buttons, to support sign-in and sign-out actions, to the component template (`app.component.html`), just inside the top of `<div class="toolbar" role="banner"></div>` so that they’re visible. Display either the sign-in or sign-out button based on the current authenticated state.
+1. Add buttons, to support sign-in and sign-out actions, to the component template (`app.component.html`), just inside the `<main class="main"></main>` so that they’re visible. Display either the sign-in or sign-out button based on the current authenticated state.
 
    ```html
-   <ng-container *ngIf="(isAuthenticated$ | async) === false; else signout">
-     <button (click)="signIn()"> Sign in </button>
-   </ng-container>
-
-   <ng-template #signout>
+   @if (isAuthenticated$ | async) {
      <button (click)="signOut()">Sign out</button>
-   </ng-template>
+   } @else {
+     <button (click)="signIn()"> Sign in </button>
+   }
    ```
 
-2. Update the component TypeScript file (`app.component.ts`) with the following imports and updated export to get authenticated state and support sign-in and sign-out actions.
+2. Update the component TypeScript file (`app.component.ts`) with the following imports and updated component definition to get authenticated state and support sign-in and sign-out actions.
 
    ```ts
-   import { Component, Inject, OnInit } from '@angular/core';
-   import { Router } from '@angular/router';
+   import { AsyncPipe } from '@angular/common';
+   import { Component, inject } from '@angular/core';
+   import { RouterLink, RouterOutlet } from '@angular/router';
    import { OktaAuthStateService, OKTA_AUTH } from '@okta/okta-angular';
-   import { AuthState, OktaAuth } from '@okta/okta-auth-js';
-   import { filter, map, Observable } from 'rxjs';
+   import { AuthState } from '@okta/okta-auth-js';
+   import { filter, map } from 'rxjs';
 
-   export class AppComponent implements OnInit {
+   @Component({
+      selector: 'app-root',
+      imports: [RouterOutlet, AsyncPipe, RouterLink],
+      templateUrl: './app.component.html',
+      styleUrls: ['./app.component.css']
+   })
+   export class AppComponent {
+     private oktaStateService = inject(OktaAuthStateService);
+     private oktaAuth = inject(OKTA_AUTH);
+
      title = 'okta-angular-quickstart';
-     public isAuthenticated$!: Observable<boolean>;
-
-     constructor(private _router: Router, private _oktaStateService: OktaAuthStateService, @Inject(OKTA_AUTH) private _oktaAuth: OktaAuth) { }
-
-     public ngOnInit(): void {
-       this.isAuthenticated$ = this._oktaStateService.authState$.pipe(
-         filter((s: AuthState) => !!s),
-         map((s: AuthState) => s.isAuthenticated ?? false)
-       );
-     }
+     public isAuthenticated$ = this.oktaStateService.authState$.pipe(
+        filter((s: AuthState) => !!s),
+        map((s: AuthState) => s.isAuthenticated ?? false)
+     );
 
      public async signIn() : Promise<void> {
-       await this._oktaAuth.signInWithRedirect();
+       await this.oktaAuth.signInWithRedirect();
      }
 
      public async signOut(): Promise<void> {
-       await this._oktaAuth.signOut();
+       await this.oktaAuth.signOut();
      }
    }
    ```

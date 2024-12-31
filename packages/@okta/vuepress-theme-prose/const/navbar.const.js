@@ -386,6 +386,10 @@ export const guides = [
             title: "Okta account management policy",
             guideName: "okta-account-management-policy"
           },
+          { 
+            title: "Keep me signed in (KMSI)",
+            guideName: "keep-me-signed-in"
+          },
           {
             title: "Test your access policies",
             guideName: "policy-simulation"
@@ -677,7 +681,7 @@ export const guides = [
                 guideName: "submit-oin-app",
               },
               {
-                title: "OIN Manager: Submit an LCM integration",
+                title: "OIN Manager: Submit an integration",
                 guideName: "submit-app",
               },
             ]
@@ -1027,12 +1031,6 @@ export const reference = [
       {
         title: "Test APIs with Postman",
         path: "/docs/reference/rest/",
-        subLinks: [
-          {
-            title: "Postman Collections",
-            path: "/docs/reference/postman-collections/",
-          },
-        ],
       },
     ],
   },

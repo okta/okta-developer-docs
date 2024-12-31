@@ -184,9 +184,12 @@ Acme is a CMR platform that helps modern businesses thrive. A platform that conn
 
 The [OIN catalog](https://www.okta.com/integrations/) organizes integrations into [use case](#use-cases) categories.
 
-In the [OIN Manager](/docs/guides/submit-app/wfconnector/main/#app-information), you can select up to five [use cases](#use-cases) in the **App use case** dropdown list for SCIM, Workflows Connector, or API service integrations.
+In the [OIN Wizard](/docs/guides/submit-oin-app/openidconnect/main/#oin-catalog-properties), you can select the following optional use cases for your integration: [Zero Trust](https://www.okta.com/integrations/?category=zero-trust), [Identity Verification](https://www.okta.com/integrations/?category=identity-verification), and [Identity Governance and Administration (IGA)](https://www.okta.com/integrations/?category=identity-governance-and-administration-iga). The following use cases are automatically assigned to your integration based on supported features:
 
-In the [OIN Wizard](/docs/guides/submit-oin-app/openidconnect/main/#oin-catalog-properties), use cases are automatically assigned to your integration based on the features that it supports.
+* The [Single Sign-On](https://www.okta.com/integrations/?category=single-sign-on) use case is automatically applied to your integration if it supports the OIDC or SAML 2.0 SSO protocols.
+* The [Lifecycle Management](https://www.okta.com/integrations/?category=lifecycle-management) use case is automatically applied to your integration if it supports the SCIM 2.0 protocol for user lifecycle management.
+
+In the [OIN Manager](/docs/guides/submit-app/wfconnector/main/#app-information), you can select up to five [use cases](#use-cases) for Workflows Connector or API service integrations.
 
 > **Note:** Okta automatically applies the [Apps for Good](https://www.okta.com/integrations/?category=apps-for-good) collection, the [Okta Security Identity](https://www.okta.com/integrations/?category=okta-secure-identity) collection, or the [Social Login](https://www.okta.com/integrations/?category=social-login) use case labels on your integration if it meets the criteria for these categories.
 
@@ -228,6 +231,7 @@ The test account allows the OIN team to verify that your integration flow works 
 
 * For a lifecycle management integration, ensure that your admin test account has HR admin privileges to onboard, change roles, or offboard employees on your app.
 * For an SSO or SCIM integration, ensure that your admin test account has privileges to configure SSO and SCIM. The OIN team needs to verify whether users and/or groups were created by SCIM provisioning or by SAML/OIDC (JiT) in your app.
+* For SCIM integrations, provide the test SCIM server base URL and credentials. If possible, provide instructions on how to obtain the SCIM server credentials (API token or OAuth 2.0 properties) for the Okta QA process.
 * For an API service integration, ensure that your admin test account has privileges to configure an API integration and trigger API requests in your app.
 
 > **Note:** The OIN team recommends `isvtest@okta.com` as the test account username, however, you can provide an alternative username with a different domain.
@@ -325,6 +329,8 @@ For more information on the listed features, visit the [Okta Glossary](https://h
 #### Configuration steps
 
 This section helps you define how your customers get set up with your integration. Detail all settings and include any images that can assist the user. Include any best practices for your procedure, such as SCIM guidance on mappings for attributes, especially required attributes that don't have a default mapping.
+
+For SCIM integrations, provide steps for your customer to obtain their SCIM server credentials. Your customer admin needs this information before they can configure your SCIM integration in Okta. See [SCIM examples](#scim-examples).
 
 > **Note:** If your Service Provider is configured as a "Big Bang", you need to provide a warning note to your customer. See [SAML configuration warning example](#saml-configuration-warning-example).
 
@@ -501,6 +507,8 @@ In addition to the general OIN limitations, the following are limitations specif
 * RelayState can't be preconfigured in the OIN Wizard. You can set the default relay state value at the app instance level in the app **Sign On** tab.
 
 * The force authentication (`ForceAuthn`) functionality is enabled by default for SAML app instances that were created from an OIN Wizard integration. You can disable force authentication for an app instance by selecting **Disable Force Authentication** in the app **Sign On** tab.
+
+* SP-initiated Single Logout (SLO) isn’t supported.
 
 The OIN team maintains existing SAML integrations with advanced features not supported in the OIN Wizard. If you need to update your existing advanced SAML integration, contact the OIN team at <oin@okta.com>.
 

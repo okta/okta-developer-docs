@@ -34,12 +34,12 @@ Set up your [Okta org](/docs/concepts/okta-organizations/). The Okta command-lin
 1. If you don't already have a free Okta developer account:
    1. Open your terminal.
    [[style="list-style-type:lower-alpha"]]
-   1. Run `okta register`, and enter your first name, last name, email address, and country.
+   1. Run `okta register`, and enter your first name, last name, email address, and country. You can ignore the invalid cookie header warning.
    1. Click or tap **Activate** in the account activation email that is sent to the email address that you gave.
 
       > **Tip**: If you don't receive the confirmation email, check your spam filters for an email from `noreply@okta.com`.
 
-   1. Set the password for your org by opening the link and following the instructions. Your Okta domain appears similar to the following:
+   1. Set the password and a second authenticator for your org by opening the link and following the instructions. Your Okta domain appears similar to the following example:
 
       ```txt
       New Okta Account created!
@@ -91,6 +91,7 @@ At this point, you can move to the next step: [Creating your app](#create-an-app
 1. Enter an **App integration name**.
 1. Select **Authorization Code** and **Refresh Token** as the **Grant type**. This enables the Authorization Code flow with PKCE for your app. It also can refresh the access token when it expires without prompting the user to reauthenticate.
 1. Enter the **Sign-in redirect URIs** for both local development, such as `http://localhost:xxxx/login/callback`, and for production, such as `https://app.example.com/login/callback`.
+1. Enter the **Sign-out redirect URIs** for local development, such as `http://localhost:xxxx`.
 1. Select the type of **Controlled access** for your app in the **Assignments** section. You can allow all users to have access or limit access to individuals and groups. See the [Assign app integrations](https://help.okta.com/okta_help.htm?type=oie&id=ext-lcm-user-app-assign) topic in the Okta product documentation.
 1. Click **Save** to create the app integration and open its configuration page. Keep this page open as you need to copy some values in later steps when configuring your app.
 1. On the **General** tab, scroll to **General Settings** and click **Edit**.
@@ -105,7 +106,7 @@ Reduce possible attack vectors by defining Trusted Origins, which are the websit
 
 >**Note:** To reduce risk, only grant access to the Okta API to specific websites (origins) that you both control and trust.
 
-To set trusted origins manually, add the **Base URIs** for local development, such as `http://localhost:xxxx`, and for production, such as `https://app.example.com`. These URIs are added as trusted origins in your Okta org. You can manage them by going to **Security** > **API** and selecting the **Trusted Origins** tab. See [Enable Trusted Origins](/docs/guides/enable-cors/).
+To set trusted origins manually, add the **Base URIs** for local development, such as `http://localhost:xxxx`, and for production, such as `https://app.example.com`. These URIs are added as trusted origins in your Okta org. You can manage them by going to **Security** > **API** and selecting the **Trusted Origins** tab. See [Enable Trusted Origins](/docs/guides/enable-cors/). If you created your org with the Okta CLI, the trusted origin was created for you.
 
 ## Create an app
 
@@ -210,9 +211,9 @@ Learn more about session management, securing your APIs, and ways that you can i
 
 * To protect the API that your SPA calls, see [Protect your API endpoints](/docs/guides/protect-your-api/).
 * To customize your Okta org domain name, see [Customize domain and email address](https://developer.okta.com/docs/guides/custom-url-domain/main/).
-* To customize the hosted sign-in page, see [Style the Okta-hosted Sign-In Widget](/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget).
-* For resources to create a fully customized sign-in experience, see [Languages & SDKs Overview](https://developer.okta.com/code/).
-* To secure your mobile app, see [Sign users in to your mobile app using the redirect model](/docs/guides/sign-into-mobile-app-redirect/).
+* To customize the hosted sign-in page, see [Style the sign-in page](/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget).
+* For resources to create a fully customized sign-in experience, see [Recommended Okta SDKs](https://developer.okta.com/code/).
+* To secure your mobile app, see [Sign in to your mobile app](/docs/guides/sign-into-mobile-app-redirect/).
 * To support multi-tenancy, see [Multi-tenant solutions](https://developer.okta.com/docs/concepts/multi-tenancy/).
 
 <StackSnippet snippet="specificlinks" />
