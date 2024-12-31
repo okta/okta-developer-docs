@@ -2,7 +2,7 @@ React documentation:
 
 [Learn React Quick Start](https://react.dev/learn) to learn about the framework from React's official documentation.
 
-Okta Developer Blog:
+Okta developer blog:
 
 * [Use Redux to Manage Authenticated State in a React App](https://developer.okta.com/blog/2022/08/29/react-typescript-redux)
 * [How to Build a Secure React and Fastify API App](https://developer.okta.com/blog/2022/12/06/react-fastify-postgres)
