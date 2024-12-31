@@ -208,7 +208,7 @@ In the [OIN Wizard](/docs/guides/submit-oin-app/openidconnect/main/#oin-catalog-
 * Multifactor Authentication (MFA)
 * Zero Trust
 
-> **Note:** Each integration can have a maximum of five collection and use case categories assigned. The OIN team can't assign [default use case and collection categories](#default-use-case-and-collection-assignment) if you've reached the maximum use case limit in your submission.
+> **Note:** Each integration has a maximum of five collection or use case categories assigned in the OIN catalog. The OIN team can't assign [default use case and collection categories](#default-use-case-and-collection-assignment) if you've reached the maximum use case limit in your submission.
 
 ### OIN Manager use case selection
 
