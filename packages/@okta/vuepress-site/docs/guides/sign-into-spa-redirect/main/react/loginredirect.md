@@ -10,7 +10,7 @@ const signin = async () => await oktaAuth.signInWithRedirect();
 const signout = async () => await oktaAuth.signOut();
 ```
 
-Add the buttons to support sign-in and sign-out actions. You can display either the sign-in or sign-out button based on the current authenticated state. Replace the `    {/* Add sign in and sign out buttons */}`.
+Add the buttons to support sign-in and sign-out actions. You can display either the sign-in or sign-out button based on the current authenticated state. Replace the `{/* Add sign in and sign out buttons */}`.
 
 ```jsx
 <div>

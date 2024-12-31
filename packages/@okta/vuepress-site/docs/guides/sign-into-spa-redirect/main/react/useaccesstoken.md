@@ -1,4 +1,4 @@
-The recommended way to add your access token to HTTP calls in React is to add it to the headers in your `fetch()` call. To follow security best practices, the access token should only be added on calls to allowed origins.
+The recommended way to add your access token to HTTP calls in React is to add it to the headers in your `fetch()` call. To follow security best practices, add the access token only on calls to allowed origins.
 
 For example:
 

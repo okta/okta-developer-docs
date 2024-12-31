@@ -1,4 +1,4 @@
-You need recent versions of [Node](https://nodejs.org/en/) and  [npm](https://www.npmjs.com/).
+You need recent versions of [Node](https://nodejs.org/en/) and [npm](https://www.npmjs.com/).
 
 1. Create a React app named `okta-react-quickstart` using the following command:
 
@@ -8,10 +8,10 @@ You need recent versions of [Node](https://nodejs.org/en/) and  [npm](https://ww
 
 2. You're asked to manually select the template:
 
-    * Select **React** for framework.
-    * Select **JavaScript** for variant.
+    * Select **React** for the framework.
+    * Select **JavaScript** for the variant.
 
-3. Go into your app's root app directory to view the created files and install dependencies:
+3. Go into your app's root directory to view the created files and install dependencies:
 
    ```shell
    cd okta-react-quickstart

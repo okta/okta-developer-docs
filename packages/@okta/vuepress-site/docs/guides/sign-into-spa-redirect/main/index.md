@@ -37,9 +37,9 @@ Set up your [Okta org](/docs/concepts/okta-organizations/). The Okta command-lin
    1. Run `okta register`, and enter your first name, last name, email address, and country.
    1. Click or tap **Activate** in the account activation email that is sent to the email address that you gave.
 
-      > **Tip**: If you don't receive the confirmation email sent as part of the creation process, check your spam filters for an email from `noreply@okta.com`
+      > **Tip**: If you don't receive the confirmation email, check your spam filters for an email from `noreply@okta.com`.
 
-   1. Set the password for your org by opening the link and following the instructions. Your Okta domain is returned, similar to the following:
+   1. Set the password for your org by opening the link and following the instructions. Your Okta domain appears similar to the following:
 
       ```txt
       New Okta Account created!
