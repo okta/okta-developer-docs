@@ -36,6 +36,8 @@ The Okta React SDK requires an instance of an `OktaAuth` object with configurati
    export default App
    ```
 
+1. Ensure that your default custom authorization server has an access policy. Add an access policy if it's not there. See [Create access polices](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-access-policies).
+
 1. Install `react-router-dom` into your app with the following command:
 
    ```shell
