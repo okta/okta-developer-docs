@@ -59,7 +59,7 @@ The Okta React SDK requires an instance of an `OktaAuth` object with configurati
    )
    ```
 
-1. Add a `src/Home.jsx` file that renders the starting view for the application:
+1. Add a `src/Home.jsx` file that renders the starting view for the app:
 
    ```jsx
    import { useOktaAuth } from '@okta/okta-react';
