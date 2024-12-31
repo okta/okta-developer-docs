@@ -182,9 +182,15 @@ Acme is a CMR platform that helps modern businesses thrive. A platform that conn
 
 ## Use case guidelines
 
-The [OIN catalog](https://www.okta.com/integrations/) organizes integrations into [use case](#use-cases) categories. Each integration can have a maximum of five use case categories assigned. You can select use cases from [the OIN Wizard](#use-case-selection-in-the-oin-wizard) or [the OIN Manager](#use-case-selection-in-the-oin-manager) to assign your integration.
+The [OIN catalog](https://www.okta.com/integrations/) organizes integrations into **Collection**, **Use Case**, **Functionality**, and **Industry** categories. These categories are assigned to your integration based on the supported features and functionality in your app. During submission, you can select more [use case](#use-cases) categories that you want to apply to your integration in the OIN catalog. You can select use cases from [the OIN Wizard](#use-case-selection-in-the-oin-wizard) or [the OIN Manager](#use-case-selection-in-the-oin-manager).
 
-> **Note:** You can't select collection categories for your integration. The OIN team assigns the [Apps for Good](https://www.okta.com/integrations/?category=apps-for-good) or the [Okta Security Identity](https://www.okta.com/integrations/?category=okta-secure-identity) collection labels to your integration if it meets the criteria for these categories.
+The OIN team assigns the following default use case and collection categories to your integration based on supported features in your app:
+
+* The [Single Sign-On](https://www.okta.com/integrations/?category=single-sign-on) use case is assigned to your integration if it supports the OIDC or SAML 2.0 SSO protocols.
+* The [Lifecycle Management](https://www.okta.com/integrations/?category=lifecycle-management) use case is assigned to your integration if it supports the SCIM 2.0 protocol for user lifecycle management.
+* The [Apps for Good](https://www.okta.com/integrations/?category=apps-for-good) collection is assigned to your integration if your app enables your workforce to give back.
+* The [Security Identity Integrations](https://www.okta.com/integrations/?category=okta-secure-identity) collection is assigned to your integration if it meets the criteria for the [Okta Secure Identity commitment](https://www.okta.com/secure-identity-commitment/).
+* The [Social Login](https://www.okta.com/integrations/?category=social-login) use case is assigned for IdP integrations.
 
 ### Use cases
 
@@ -217,12 +223,7 @@ In the [OIN Wizard](/docs/guides/submit-oin-app/openidconnect/main/#oin-catalog-
 * Multifactor Authentication (MFA)
 * Zero Trust
 
-The OIN team assigns the following categories to your integration based on supported features:
-
-* The [Single Sign-On](https://www.okta.com/integrations/?category=single-sign-on) use case is assigned to your integration if it supports the OIDC or SAML 2.0 SSO protocols.
-* The [Lifecycle Management](https://www.okta.com/integrations/?category=lifecycle-management) use case is assigned to your integration if it supports the SCIM 2.0 protocol for user lifecycle management.
-
-> **Note:** There's a maximum of five use cases that can be assigned to an integration. Even if your integration meets the Single Sign-On or Lifecycle Management use case criteria, the OIN team can't assign them if you've reached the maximum number of use cases in your submission.
+Each integration can have a maximum of five collection and use case categories assigned. The OIN team can't assign the default use case and collection categories if you've reached the maximum use case limit in your submission.
 
 ### Use case selection in the OIN Manager
 
