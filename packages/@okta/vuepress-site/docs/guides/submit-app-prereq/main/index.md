@@ -182,15 +182,50 @@ Acme is a CMR platform that helps modern businesses thrive. A platform that conn
 
 ## Use case guidelines
 
-The [OIN catalog](https://www.okta.com/integrations/) organizes integrations into **Collection**, **Use Case**, **Functionality**, and **Industry** categories. These categories are assigned to your integration based on the supported features and functionality in your app. During submission, you can select more [use case](#use-cases) categories that you want to apply to your integration in the OIN catalog. You can select use cases from [the OIN Wizard](#use-case-selection-in-the-oin-wizard) or [the OIN Manager](#use-case-selection-in-the-oin-manager).
+The [OIN catalog](https://www.okta.com/integrations/) organizes integrations into **Collection**, **Use Case**, **Functionality**, and **Industry** categories. These categories are assigned to your integration based on the supported features and functionality in your app. During submission, you can select more [use case](#use-cases) categories that you want to apply to your integration in the OIN catalog. You can select use cases from [the OIN Wizard](#oin-wizard-use-case-selection) or [the OIN Manager](#oin-manager-use-case-selection).
 
-The OIN team assigns the following default use case and collection categories to your integration based on supported features in your app:
+#### Default use case and collection assignment
+
+The OIN team assigns the following default use case and collection categories to integrations published in the OIN catalog:
 
 * The [Single Sign-On](https://www.okta.com/integrations/?category=single-sign-on) use case is assigned to your integration if it supports the OIDC or SAML 2.0 SSO protocols.
 * The [Lifecycle Management](https://www.okta.com/integrations/?category=lifecycle-management) use case is assigned to your integration if it supports the SCIM 2.0 protocol for user lifecycle management.
-* The [Apps for Good](https://www.okta.com/integrations/?category=apps-for-good) collection is assigned to your integration if your app enables your workforce to give back.
-* The [Security Identity Integrations](https://www.okta.com/integrations/?category=okta-secure-identity) collection is assigned to your integration if it meets the criteria for the [Okta Secure Identity commitment](https://www.okta.com/secure-identity-commitment/).
+* The [Apps for Good](https://www.okta.com/integrations/?category=apps-for-good) collection is assigned to your integration if your app enables your workforce to give back to the community.
+* The [Security Identity Integrations](https://www.okta.com/integrations/?category=okta-secure-identity) collection is assigned to your integration if it meets the [Okta Secure Identity commitment](https://www.okta.com/secure-identity-commitment/) criteria.
 * The [Social Login](https://www.okta.com/integrations/?category=social-login) use case is assigned for IdP integrations.
+
+Each integration can have a maximum of five collection and use case categories assigned.
+
+### OIN Wizard use case selection
+
+In the [OIN Wizard](/docs/guides/submit-oin-app/openidconnect/main/#oin-catalog-properties), you can select up to five of the following [use cases](#use-cases) for your integration:
+
+* Automation
+* Centralized Logging
+* Directory and HR Sync
+* Identity Governance and Administration (IGA)
+* Identity Verification
+* Multifactor Authentication (MFA)
+* Zero Trust
+
+> **Note:** Each integration can have a maximum of five collection and use case categories assigned. The OIN team can't assign [default use case and collection categories](#default-use-case-and-collection-assignment) if you've reached the maximum use case limit in your submission.
+
+### OIN Manager use case selection
+
+In the [OIN Manager](/docs/guides/submit-app/wfconnector/main/#app-information), you can select up to five of the following [use cases](#use-cases) for Workflows Connector or API service integrations:
+
+* Automation
+* Centralized Logging
+* Directory and HR Sync
+* Bot or Fraud Detection
+* Identity Governance and Administration (IGA)
+* Identity Verification
+* Lifecycle Management
+* Multifactor Authentication (MFA)
+* Risk Signal Sharing
+* Zero Trust
+
+> **Note:** The OIN team can't assign [default use case and collection categories](#default-use-case-and-collection-assignment) if you've reached the five use case limit in your submission.
 
 ### Use cases
 
@@ -210,24 +245,6 @@ Use the following description list to determine the appropriate use case categor
 | [Identity Governance and Administration (IGA)](https://www.okta.com/integrations/?category=identity-governance-and-administration-iga) | Simplifies and manages an organization's identity and access lifecycles across multiple systems |
 | [Multifactor Authentication (MFA)](https://www.okta.com/integrations/?category=multi-factor-authentication-mfa) | Provides an extra layer of security with multifactor authentication for an organization's cloud, mobile, and web apps |
 | [Risk Signal Sharing](https://www.okta.com/integrations/?category=risk-signal-sharing)| Provides enriched context on clients, apps, users, and other first-party subjects to augment and inform Okta adaptive authentication and authorization decisions  |
-
-### Use case selection in the OIN Wizard
-
-In the [OIN Wizard](/docs/guides/submit-oin-app/openidconnect/main/#oin-catalog-properties), you can select the following [use cases](#use-cases) for your integration:
-
-* Automation
-* Centralized Logging
-* Directory and HR Sync
-* Identity Governance and Administration (IGA)
-* Identity Verification
-* Multifactor Authentication (MFA)
-* Zero Trust
-
-Each integration can have a maximum of five collection and use case categories assigned. The OIN team can't assign the default use case and collection categories if you've reached the maximum use case limit in your submission.
-
-### Use case selection in the OIN Manager
-
-In the [OIN Manager](/docs/guides/submit-app/wfconnector/main/#app-information), you can select up to five [use cases](#use-cases) for Workflows Connector or API service integrations.
 
 ## Customer support contact guidelines
 
