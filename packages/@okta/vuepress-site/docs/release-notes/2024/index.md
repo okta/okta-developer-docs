@@ -10,7 +10,12 @@ title: Okta Classic Engine API release notes 2024
 
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
+| [Entitlement claims is self-service EA in Preview](#entitlement-claims-is-self-service-ea-in-preview)| January 2, 2025 |
 | [Bugs fixed in 2024.12.1](#bugs-fixed-in-2024-12-1)| January 2, 2025 |
+
+#### Entitlement claims is self-service EA in Preview
+
+You can now enrich tokens with app entitlements that produce deeper integrations. After you configure this feature for your app integration, use the [Okta Expression Language in Identity Engine](/docs/reference/okta-expression-language-in-identity-engine/#reference-attributes) to add entitlements at runtime as OpenID Connect claims and SAML assertions. See [Federated claims with entitlements](/docs/guides/federated-claims/main/). <!-- FEDERATED_CLAIM_GENERATION_LAYER https://oktainc.atlassian.net/browse/OKTA-847041 -->
 
 #### Bugs fixed in 2024.12.1
 
