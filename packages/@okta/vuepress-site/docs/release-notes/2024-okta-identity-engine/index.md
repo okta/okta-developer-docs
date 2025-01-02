@@ -20,7 +20,7 @@ title: Okta Identity Engine API release notes 2024
 
 * The [List all Devices](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserResources/#tag/UserResources/operation/listUserDevices) for a user endpoint wasn't listed in the [User Resources](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserResources/#tag/UserResources) API reference. (OKTA-639917)
 
-* When the authenticators didn't support activation or deactivation, POST calls to `/api/v1/authenticators/{authenticatorId}/lifecycle/activate` or `/api/v1/authenticators/{authenticatorId}/methods/{methodType}/lifecycle/activate` returned a `501 Not Implemented` error code. Calls to those endpoints now return a `405 Method Not Supported` error code. (OKTA-729113)
+* When the authenticators didn't support activation or deactivation, POST calls to `/api/v1/authenticators/{authenticatorId}/lifecycle/activate` or `/api/v1/authenticators/{authenticatorId}/methods/{methodType}/lifecycle/activate` returned a `501 Not Implemented` error code. Calls to those endpoints now return a `400 Bad Request` error code. (OKTA-729113)
 
 * Updating the label of an OpenID Connect app sometimes resulted in an incorrect label appearing in the System Log events. (OKTA-816204)
 
