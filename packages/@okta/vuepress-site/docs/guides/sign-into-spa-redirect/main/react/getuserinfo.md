@@ -1,13 +1,12 @@
-The `authState` contains an `idToken` that contains the user profile claims. You can access it to display the user's claim as shown in the following `Profile` component.
+The `authState` includes an `idToken` that contains the user profile claims. You can access it to display the user's claim as shown in the following `Profile` component.
 
-1. Add a file called `src/Profile.js`.
+1. Create a file called `src/Profile.jsx`.
 
-2. Add the following content to it:
+1. Add the following content to it:
 
    ```jsx
    import React, { useState, useEffect } from 'react';
    import { useOktaAuth } from '@okta/okta-react';
-   import { Header, Icon, Table } from 'semantic-ui-react';
 
    const Profile = () => {
      const { authState, oktaAuth } = useOktaAuth();
@@ -37,12 +36,7 @@ The `authState` contains an `idToken` that contains the user profile claims. You
      return (
        <div>
          <div>
-           <Header as="h1">
-             <Icon name="drivers license" />
-             {' '}
-             My User Profile (ID Token Claims)
-             {' '}
-           </Header>
+           <h1>My User Profile (ID Token Claims)</h1>
            <p>
              Below is the information from your ID token which was obtained during the &nbsp;
              <a href="https://developer.okta.com/docs/guides/implement-auth-code-pkce">PKCE Flow</a>
@@ -56,7 +50,7 @@ The `authState` contains an `idToken` that contains the user profile claims. You
              {' '}
              component, which will ensure that this page cannot be accessed until you have authenticated.
            </p>
-           <Table>
+           <table>
              <thead>
                <tr>
                  <th>Claim</th>
@@ -76,7 +70,7 @@ The `authState` contains an `idToken` that contains the user profile claims. You
                  );
                })}
              </tbody>
-           </Table>
+           </table>
          </div>
        </div>
      );
@@ -85,19 +79,13 @@ The `authState` contains an `idToken` that contains the user profile claims. You
    export default Profile;
    ```
 
-3. Install `semantic-ui-react` into your app with the following command:
-
-   ```shell
-   npm install semantic-ui-react
-   ```
-
-4. Import `Profile` into `src/App.js` by adding the following:
+1. Import `Profile` into `src/App.jsx` by adding the following:
 
    ```jsx
    import Profile from './Profile';
    ```
 
-5. Add a route to the list of `<Route>` components in `src/App.js` to represent the `/profile` route:
+1. Add a route to the list of `<Route>` components in `src/App.jsx` to represent the `/profile` route:
 
    ```jsx
    <Route path="/profile" component={Profile}/>
