@@ -81,7 +81,7 @@ The [`system` attribute](https://developer.okta.com/docs/api/openapi/okta-manage
 
 ## Policy types
 
-You can configure policies for sign-on, passwords, enrollment, and API access. You can also use identity provider (IdP) discovery policies to create routing rules.
+You can configure policies for sign-on, passwords, enrollment, device assurance, and API access. You can also use identity provider (IdP) discovery policies to create routing rules.
 
 ### Sign-on policies
 
@@ -98,6 +98,18 @@ An [authentication policy](https://developer.okta.com/docs/api/openapi/okta-mana
 You can create an authentication policy specifically for the app or create a few policies and [share them](https://help.okta.com/okta_help.htm?type=oie&id=ext-share-auth-policy) across multiple apps.
 
 Use the [Authentication Policies page](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-auth-policy) to modify an app's sign-on policy or switch to a different policy. See [Configure a global session policy and an authentication policy](/docs/guides/configure-signon-policy/main/). Also, you can [merge duplicate authentication policies with identical rules](https://help.okta.com/okta_help.htm?type=oie&id=ext-merge-auth-policies) to simplify policy management.
+
+#### Device assurance policies
+
+Use [device assurance policies](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/DeviceAssurance/) to check sets of security-related device atributes. Device assurance works as part of your [authentication policies](#authentication-policies).
+
+For example, you can configure a device assurance policy to check whether a specific operating system version is installed on a device. Once verified, that device can be used to access Okta-protected resources.
+
+After you add at least one device assurance policy, you can include it in authentication policy rules. You can't apply device assurance policies to users, groups, or devices until you make them part of an authentication policy rule.
+
+<!-- See [Configure a device assurance policy]() for more details. -->
+
+See [Device assurance](https://help.okta.com/okta_help.htm?type=oie&id=ext-device-assurance) for details about configuring the policy in the Admin Console.
 
 ##### Okta account management policy
 
