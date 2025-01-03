@@ -21,13 +21,15 @@ Create custom claims for tokens.
 
 ## About tokens with custom claims
 
-Tokens contain claims that are statements about the subject, such as name, role, or email address. Beyond the [default set of claims](/docs/guides/validate-id-tokens/main/#verify-the-claims) that are contained in ID tokens and access tokens, you can define custom claims. For example, you might want to add a user's email address to an access token and use that to uniquely identify the user. You might also want to add information stored in a user profile to an ID token.
+Tokens contain claims that are statements about the subject, such as name, role, or email address. Beyond the [default set of claims](/docs/guides/validate-id-tokens/main/#verify-the-claims) that are contained in ID tokens and access tokens, you can define custom claims. For example, you might want to add a user's email address to an access token and use that to uniquely identify the user. You might also want to add information stored in a user profile to an ID token or create an entitlement to add app user permissions.
 
-You can [add a groups claim](/docs/guides/customize-tokens-groups-claim/main/#add-a-groups-claim-for-the-org-authorization-server) to ID tokens for app groups and user groups to perform SSO using the org authorization server. You can also [add a groups claim](/docs/guides/customize-tokens-groups-claim/main/#add-a-groups-claim-for-a-custom-authorization-server) to ID tokens and access tokens to perform authentication and authorization using a custom authorization server. See [Authorization servers](/docs/guides/customize-authz-server/) for more information on the types of authorization servers available and what you can use them for.
+[Add a groups claim](/docs/guides/customize-tokens-groups-claim/main/#add-a-groups-claim-for-the-org-authorization-server) to ID tokens for app groups and user groups to perform SSO using the org authorization server. You can also [add a groups claim](/docs/guides/customize-tokens-groups-claim/main/#add-a-groups-claim-for-a-custom-authorization-server) to ID tokens and access tokens to perform authentication and authorization using a custom authorization server. See [Authorization servers](/docs/guides/customize-authz-server/) for more information on the types of authorization servers available and what you can use them for.
 
 <ApiAmProdWarning />
 
 Also, you can create a [dynamic](/docs/guides/customize-tokens-dynamic/) or [static](/docs/guides/customize-tokens-static/) allowlist. Do this when you need to set group allowlists on a per-app basis using both the org authorization server and a custom authorization server. This helps if you have many groups and don't want to search all of them every time you create a groups claim. This process optionally uses the Okta app profile, which accepts any JSON-compliant content, to create an allowlist of groups that can then easily be referenced.
+
+To add app user permissions to the ID token, create [federated app entitlement claims](/docs/guides/federated-claims/main/). An entitlement is a permission that allows users to take specific actions within a resource, such as a third-party app. App entitlements help you manage different levels of permissions that users can perform within an app.
 
 ## Request a token that contains the custom claim
 

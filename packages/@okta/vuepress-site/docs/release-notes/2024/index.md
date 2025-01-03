@@ -6,6 +6,27 @@ title: Okta Classic Engine API release notes 2024
 
 ## December
 
+### Weekly release 2024.12.1
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Entitlement claims is self-service EA in Preview](#entitlement-claims-is-self-service-ea-in-preview)| January 2, 2025 |
+| [Bugs fixed in 2024.12.1](#bugs-fixed-in-2024-12-1)| January 2, 2025 |
+
+#### Entitlement claims is self-service EA in Preview
+
+You can now enrich tokens with app entitlements that produce deeper integrations. After you configure this feature for your app integration, use the [Okta Expression Language in Identity Engine](/docs/reference/okta-expression-language-in-identity-engine/#reference-attributes) to add entitlements at runtime as OpenID Connect claims and SAML assertions. See [Federated claims with entitlements](/docs/guides/federated-claims/main/). <!-- FEDERATED_CLAIM_GENERATION_LAYER https://oktainc.atlassian.net/browse/OKTA-847041 -->
+
+#### Bugs fixed in 2024.12.1
+
+* Several API requests returned incorrect errors if the path parameters `userId` or `schemaId` included UTF8MB4 characters. (OKTA-447370)
+
+* The [List all Devices](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserResources/#tag/UserResources/operation/listUserDevices) for a user endpoint wasn't listed in the [User Resources](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UserResources/#tag/UserResources) API reference. (OKTA-639917)
+
+* Updating the label of an OpenID Connect app sometimes resulted in an incorrect label appearing in the System Log events. (OKTA-816204)
+
+* An `Invalid Phone Number` error sometimes appeared during SMS factor enrollment. (OKTA-842270)
+
 ### Monthly release 2024.12.0
 
 | Change | Expected in Preview Orgs |
