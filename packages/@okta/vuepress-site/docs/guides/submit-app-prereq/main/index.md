@@ -194,7 +194,7 @@ The OIN team assigns the following default use case and collection categories to
 * The [Security Identity Integrations](https://www.okta.com/integrations/?category=okta-secure-identity) collection is assigned to your integration if it meets the [Okta Secure Identity commitment](https://www.okta.com/secure-identity-commitment/) criteria.
 * The [Social Login](https://www.okta.com/integrations/?category=social-login) use case is assigned for IdP integrations.
 
-Each integration can have a maximum of five collection and use case categories assigned.
+Each integration can have a maximum of five collections and use case categories assigned.
 
 ### OIN Wizard use case selection
 
