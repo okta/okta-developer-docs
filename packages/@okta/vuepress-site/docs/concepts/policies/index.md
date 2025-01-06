@@ -101,7 +101,7 @@ Use the [Authentication Policies page](https://help.okta.com/okta_help.htm?type=
 
 #### Device assurance policies
 
-Use [device assurance policies](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/DeviceAssurance/) to check sets of security-related device atributes. Device assurance works as part of your [authentication policies](#authentication-policies).
+Use [device assurance policies](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/DeviceAssurance/) to check sets of security-related device attributes. Device assurance works as part of your [authentication policies](#authentication-policies).
 
 For example, you can configure a device assurance policy to check whether a specific operating system version is installed on a device. Once verified, that device can be used to access Okta-protected resources.
 
