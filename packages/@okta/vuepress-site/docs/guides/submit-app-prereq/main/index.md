@@ -188,7 +188,7 @@ The [OIN catalog](https://www.okta.com/integrations/) organizes integrations int
 
 The OIN team assigns the following default use case and collection categories to integrations published in the OIN catalog:
 
-* The [Single Sign-On](https://www.okta.com/integrations/?category=single-sign-on) use case is assigned to your integration if it supports the OIDC or SAML 2.0 SSO protocols.
+* The [Single Sign-On](https://www.okta.com/integrations/?category=single-sign-on) use case is assigned to your integration if it supports OIDC or SAML 2.0 SSO protocols.
 * The [Lifecycle Management](https://www.okta.com/integrations/?category=lifecycle-management) use case is assigned to your integration if it supports the SCIM 2.0 protocol for user lifecycle management.
 * The [Apps for Good](https://www.okta.com/integrations/?category=apps-for-good) collection is assigned to your integration if your app enables your workforce to give back to the community.
 * The [Security Identity Integrations](https://www.okta.com/integrations/?category=okta-secure-identity) collection is assigned to your integration if it meets the [Okta Secure Identity commitment](https://www.okta.com/secure-identity-commitment/) criteria.
@@ -198,7 +198,7 @@ Each integration can have a maximum of five collection and use case categories a
 
 ### OIN Wizard use case selection
 
-In the [OIN Wizard](/docs/guides/submit-oin-app/openidconnect/main/#oin-catalog-properties), you can select up to five of the following [use cases](#use-cases) for your integration:
+In the [OIN Wizard](/docs/guides/submit-oin-app/openidconnect/main/#oin-catalog-properties), you can select up to three of the following [use cases](#use-cases) for your integration:
 
 * Automation
 * Centralized Logging
@@ -208,7 +208,7 @@ In the [OIN Wizard](/docs/guides/submit-oin-app/openidconnect/main/#oin-catalog-
 * Multifactor Authentication (MFA)
 * Zero Trust
 
-> **Note:** Each integration has a maximum of five collection or use case categories assigned in the OIN catalog. The OIN team can't assign [default use case and collection categories](#default-use-case-and-collection-assignment) if you've reached the maximum use case limit in your submission.
+> **Note:** The OIN team assigns [default use case and collection categories](#default-use-case-and-collection-assignment) to your integration, in addition to the optional use cases that you select. Each integration has a maximum of five use cases assigned, which includes both the default and selected use cases.
 
 ### OIN Manager use case selection
 
