@@ -24,18 +24,18 @@ Expressions used outside of these areas should continue using the features and s
 
 The following operators and functionalities offered by SpEL aren't supported in Expression Language:
 
-- [Decrement operator](https://www.javadoc.io/doc/org.springframework/spring-expression/latest/org/springframework/expression/spel/ast/OpDec.html)
-- [Increment operator](https://www.javadoc.io/doc/org.springframework/spring-expression/latest/org/springframework/expression/spel/ast/OpInc.html)
-- [Instanceof operator](https://www.javadoc.io/doc/org.springframework/spring-expression/latest/org/springframework/expression/spel/ast/OperatorInstanceof.html)
-- [Between operator](https://www.javadoc.io/doc/org.springframework/spring-expression/latest/org/springframework/expression/spel/ast/OperatorBetween.html)
-- [Assign](https://www.javadoc.io/doc/org.springframework/spring-expression/latest/org/springframework/expression/spel/ast/Assign.html)
-- [Bean reference](https://www.javadoc.io/doc/org.springframework/spring-expression/latest/org/springframework/expression/spel/ast/BeanReference.html)
-- [Constructor reference](https://www.javadoc.io/doc/org.springframework/spring-expression/latest/org/springframework/expression/spel/ast/ConstructorReference.html)
-- [Function reference](https://www.javadoc.io/doc/org.springframework/spring-expression/latest/org/springframework/expression/spel/ast/FunctionReference.html)
-- [Type reference](https://www.javadoc.io/doc/org.springframework/spring-expression/latest/org/springframework/expression/spel/ast/TypeReference.html)
-- [Variable reference](https://www.javadoc.io/doc/org.springframework/spring-expression/latest/org/springframework/expression/spel/ast/VariableReference.html)
-- [Projection](https://www.javadoc.io/doc/org.springframework/spring-expression/latest/org/springframework/expression/spel/ast/Projection.html)
-- [Qualified identifier](https://www.javadoc.io/doc/org.springframework/spring-expression/latest/org/springframework/expression/spel/ast/QualifiedIdentifier.html)
+* [Decrement operator](https://www.javadoc.io/doc/org.springframework/spring-expression/latest/org/springframework/expression/spel/ast/OpDec.html)
+* [Increment operator](https://www.javadoc.io/doc/org.springframework/spring-expression/latest/org/springframework/expression/spel/ast/OpInc.html)
+* [Instanceof operator](https://www.javadoc.io/doc/org.springframework/spring-expression/latest/org/springframework/expression/spel/ast/OperatorInstanceof.html)
+* [Between operator](https://www.javadoc.io/doc/org.springframework/spring-expression/latest/org/springframework/expression/spel/ast/OperatorBetween.html)
+* [Assign](https://www.javadoc.io/doc/org.springframework/spring-expression/latest/org/springframework/expression/spel/ast/Assign.html)
+* [Bean reference](https://www.javadoc.io/doc/org.springframework/spring-expression/latest/org/springframework/expression/spel/ast/BeanReference.html)
+* [Constructor reference](https://www.javadoc.io/doc/org.springframework/spring-expression/latest/org/springframework/expression/spel/ast/ConstructorReference.html)
+* [Function reference](https://www.javadoc.io/doc/org.springframework/spring-expression/latest/org/springframework/expression/spel/ast/FunctionReference.html)
+* [Type reference](https://www.javadoc.io/doc/org.springframework/spring-expression/latest/org/springframework/expression/spel/ast/TypeReference.html)
+* [Variable reference](https://www.javadoc.io/doc/org.springframework/spring-expression/latest/org/springframework/expression/spel/ast/VariableReference.html)
+* [Projection](https://www.javadoc.io/doc/org.springframework/spring-expression/latest/org/springframework/expression/spel/ast/Projection.html)
+* [Qualified identifier](https://www.javadoc.io/doc/org.springframework/spring-expression/latest/org/springframework/expression/spel/ast/QualifiedIdentifier.html)
 
 ## Reference attributes
 
@@ -49,10 +49,9 @@ When you create an Okta expression, you can specify entitlements within the `app
 | --------                           | ----------                                                                               | ------------                                                   |
 | `appuser.entitlements.$attribute`  | `appuser` - implicit reference to in-context app entitlements<br>`$attribute` - the attribute variable name| `appuser.entitlements.role`|
 
-
 ### Okta User Profile
 
-When you create an Okta expression, you can reference any property that exists in an Okta User Profile in addition to some top-level User properties.
+When you create an Okta expression, you can reference any property that exists in an Okta user profile in addition to some top-level user properties.
 
 > **Note:** You can't use the `user.status` expression with group rules. See [Group rule operations](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/GroupRule/) and [Create Group Rule](https://help.okta.com/okta_help.htm?type=wf&id=ext-okta-method-creategrouprule).
 
@@ -63,11 +62,11 @@ When you create an Okta expression, you can reference any property that exists i
 
 ### Okta Device Profile
 
-When you create an Okta expression, you can reference EDR attributes and any property that exists in an Okta Device Profile.
+When you create an Okta expression, you can reference EDR attributes and any property that exists in an Okta device profile.
 
 | Syntax                             | Definitions                                                                              | Examples                                                       |
 | --------                           | ----------                                                                               | ------------                                                   |
-| `device.profile.$profile_property`  | `profile_property` - references a Device Profile property  | `device.profile.managed`<br>`device.profile.registered`<br>           |
+| `device.profile.$profile_property`  | `profile_property` - references a device profile property  | `device.profile.managed`<br>`device.profile.registered`<br>           |
 | `device.provider.$vendor.$signal`| `vendor` - references a vendor, such as `wsc` for Windows Security Center or `zta` for CrowdStrike <br>`signal` - references the supported EDR signal by the vendor| `device.provider.wsc.fireWall`<br>`device.provider.wsc.autoUpdateSettings`<br>`device.provider.zta.overall`   |
 
 See [Integrate with Endpoint Detection and Response solutions](https://help.okta.com/okta_help.htm?type=oie&id=ext-edr-integration-main) and [Available EDR signals by vendor](https://help.okta.com/okta_help.htm?type=oie&id=ext-edr-integration-available-signals) for details about `vendor` and `signal`.
@@ -82,6 +81,7 @@ You can specify certain [rule conditions](https://developer.okta.com/docs/api/op
 | security.behaviors | `security` references the security context of the request<br>`behaviors` is the list of matching [User behaviors](https://help.okta.com/okta_help.htm?id=ext_proc_security_behavior_detection) for the request, by name. | Array of Strings | `{'New IP', 'New Device'}`| `security.behaviors.contains('New IP') && security.behaviors.contains('New Device')`   |
 
 ### Login Context
+
 <ApiLifecycle access="ea"/>
 
 You can specify the [dynamic IdP](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/createPolicyRule). Use expressions based on the login context that holds the user's `username` as the `identifier`.
@@ -111,7 +111,7 @@ Okta offers various functions to manipulate properties to generate a desired out
 | user.created         | ZonedDateTime | 2015-07-30T23:58:32.000Z   |
 | user.firstName       | String        | "John"                     |
 | user.lastName        | String        | "Doe"                      |
-| user.email           | String        | "john.doe@okta.com"        |
+| user.email           | String        | "<john.doe@okta.com>"        |
 | user.strArray        | Array         | `{"one", "two"}`           |
 | user.intArray        | Array         | `{1, 2, 3}`                |
 | user.stringDouble    | String        | "1.1"                      |
@@ -138,7 +138,7 @@ Okta offers various functions to manipulate properties to generate a desired out
 |                                         |                                               |             | `'This is a test'.contains('Test')`              | False            |
 | `$string_object.substringBefore`        | (String searchString)                         | String      | `user.profile.email.substringBefore('@')`        | "john.doe"       |
 | `$string_object.substringAfter`         | (String searchString)                         | String      | `user.profile.email.substringAfter('@')`         | "okta.com"       |
-|                                         |                                               |             | `user.profile.email.substringAfter('.')`         | "doe@okta.com"   |
+|                                         |                                               |             | `user.profile.email.substringAfter('.')`         | "<doe@okta.com>"   |
 
 > **Note:**  In the `substring` function, `startIndex` is inclusive and `endIndex` is exclusive.
 
@@ -196,7 +196,7 @@ See the [ISO 3166-1 online lookup tool](https://www.iso.org/obp/ui/#search/code/
 
 ### Group functions
 
-> **Note:** For the following expression examples, assume that the User is a member of the following Groups:
+> **Note:** For the following expression examples, assume that the user is a member of the following groups:
 
 | Group ID                 | Group name               | Group type            |
 | --------                 | -----------              | -----------           |
@@ -206,33 +206,36 @@ See the [ISO 3166-1 online lookup tool](https://www.iso.org/obp/ui/#search/code/
 | 00gjitX9HqABSoqTB0g3     | Engineering Users        | APP_GROUP             |
 
 Group functions take in a list of search criteria as input. Each search criterion is a key-value pair:<br>
-**Key:** Specifies the matching property. Currently supported keys are: `group.id`, `group.type`, and `group.profile.name`.<br>
+**Key:** Specifies the matching property. Currently supported keys are: `group.id`, `group.source.id`, `group.type`, and `group.profile.name`.<br>
 **Value:** Specifies a list of matching values.
 
 The `group.id` and `group.type` keys can match values that are exact.
 
 The `group.profile.name` key supports the operators `EXACT` and `STARTS_WITH` to identify exact matches or matches that include the value. If no operator is specified, the expression uses `STARTS_WITH`. These operators can't be used with `group.id` or `group.type`.
 
+Use `group.source.id` when you need to disambiguate between groups that have the same group name. For example, if you're searching for app groups that start with "Admin" from a given app instance then you can use `group.source.id` to filter multiple groups across the different app group sources.
+
 | Function                 | Return type | Example                                                                                                         | Output                                                                          |
 | ---------------          | ----------- | -------                                                                                                         | -----                                                                           |
 | `user.getGroups`         | Array       | `user.getGroups({'group.id': {'00gjitX9HqABSoqTB0g3'}}, {'group.profile.name': 'West Coast.*'})`                | {}                                                                              |
-|                          |             | `user.getGroups({'group.type': {'OKTA_GROUP'}}, {'group.profile.name': {'Everyone', 'West Coast Admins'}})`     | A list of User Groups that contains the Groups with ID `00garwpuyxHaWOkdV0g4`  |
+|                          |             | `user.getGroups({'group.type': {'OKTA_GROUP'}}, {'group.profile.name': {'Everyone', 'West Coast Admins'}})`     | A list of user groups that contains the groups with ID `00garwpuyxHaWOkdV0g4`  |
 |                          |             | `user.getGroups({'group.profile.name': 'East Coast.*'})`                                                        | {}                                                                              |
-|                          |             | `user.getGroups({'group.type': {'OKTA_GROUP', 'APP_GROUP'}})`                                                   | A list of User Groups that contains the Groups with IDs `00g1emaKYZTWRYYRRTSK`, `00garwpuyxHaWOkdV0g4`, and `00gjitX9HqABSoqTB0g3`  |
+|                          |             | `user.getGroups({'group.type': {'OKTA_GROUP', 'APP_GROUP'}})`                                                   | A list of user groups that contains the groups with IDs `00g1emaKYZTWRYYRRTSK`, `00garwpuyxHaWOkdV0g4`, and `00gjitX9HqABSoqTB0g3`  |
+| | | `user.getGroups({'group.source.id': '0oazmqPIbHiVJBG4C0g3'} , {'group.profile.name': {'Admins'}} ).![name]` | A filtered list of user groups that contains the groups that start with the name "Admins" and has the source ID '0oazmqPIbHiVJBG4C0g3' |
 | `user.isMemberOf`        | Boolean     | `user.isMemberOf({'group.id': {'00gjitX9HqABSoqTB0g3', '00garwpuyxHaWOkdV0g4'}}, {'group.type': 'APP_GROUP'})`  | True                                                                            |
-|                          |             | `user.isMemberOf({'group.id': {'00gjitX9HqABSoqTB0g3', '00garwpuyxHaWOkdV0g4'}}, {'group.type': 'BUILT_IN'})`   | False
-|                          |             | `user.isMemberOf({'group.profile.name': 'West Coast', 'operator': 'STARTS_WITH' })`   | True
-|                          |             | `user.isMemberOf({'group.profile.name': 'West Coast', 'operator': 'EXACT' })`   | False
+|                          |             | `user.isMemberOf({'group.id': {'00gjitX9HqABSoqTB0g3', '00garwpuyxHaWOkdV0g4'}}, {'group.type': 'BUILT_IN'})`   | False |
+|                          |             | `user.isMemberOf({'group.profile.name': 'West Coast', 'operator': 'STARTS_WITH' })`   | True |
+|                          |             | `user.isMemberOf({'group.profile.name': 'West Coast', 'operator': 'EXACT' })`   | False |
 
 ### Linked Object function
 
 Use this function to retrieve the user who's identified with the specified `primary` relationship. You can then access the properties of that user.
 
 * **Function:** `user.getLinkedObject($primaryName)`
-    * **Parameter:** (String primaryName)
-    * **Return Type:** User
-    * **Example:** `user.getLinkedObject("manager").lastName`
-    * **Example Result:** `Gates`
+  * **Parameter:** (String primaryName)
+  * **Return Type:** User
+  * **Example:** `user.getLinkedObject("manager").lastName`
+  * **Example Result:** `Gates`
 
 ### Time functions
 
