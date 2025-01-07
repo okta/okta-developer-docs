@@ -198,30 +198,31 @@ See the [ISO 3166-1 online lookup tool](https://www.iso.org/obp/ui/#search/code/
 
 > **Note:** For the following expression examples, assume that the user is a member of the following groups:
 
-| Group ID                 | Group name               | Group type            |
-| --------                 | -----------              | -----------           |
-| 00gak46y5hydV6NdM0g4     | Everyone                 | BUILT_IN              |
-| 00g1emaKYZTWRYYRRTSK     | West Coast Users         | OKTA_GROUP            |
-| 00garwpuyxHaWOkdV0g4     | West Coast Admins        | OKTA_GROUP            |
-| 00gjitX9HqABSoqTB0g3     | Engineering Users        | APP_GROUP             |
+| Group ID                 | Group name               | Group type            | Group source ID |
+| --------                 | -----------              | -----------           | ----------- |
+| 00gak46y5hydV6NdM0g4     | Everyone                 | BUILT_IN              | 0oazmqPIbHiVJBG4C0g3 |
+| 00g1emaKYZTWRYYRRTSK     | West Coast Users         | OKTA_GROUP            | 0a81509410bdf807f680 |
+| 00garwpuyxHaWOkdV0g4     | West Coast Admins        | OKTA_GROUP            | 0b03d062d3918fd34742 |
+| 00gjitX9HqABSoqTB0g3     | Engineering Users        | APP_GROUP             | 0aae4be2456eb62f7c3d |
+| 00qnftmgQxC2L19j6I9c     | Engineering Users        | APP_GROUP             | 0f61c8dacb58b3c0716e |
 
 Group functions take in a list of search criteria as input. Each search criterion is a key-value pair:<br>
 **Key:** Specifies the matching property. Currently supported keys are: `group.id`, `group.source.id`, `group.type`, and `group.profile.name`.<br>
 **Value:** Specifies a list of matching values.
 
-The `group.id` and `group.type` keys can match values that are exact.
+The `group.id`, `group.source.id`, and `group.type` keys can match values that are exact.
 
 The `group.profile.name` key supports the operators `EXACT` and `STARTS_WITH` to identify exact matches or matches that include the value. If no operator is specified, the expression uses `STARTS_WITH`. These operators can't be used with `group.id` or `group.type`.
 
 Use `group.source.id` when you need to disambiguate between groups that have the same group name. For example, if you're searching for app groups that start with "Admin" from a given app instance then you can use `group.source.id` to filter multiple groups across the different app group sources.
 
-| Function                 | Return type | Example                                                                                                         | Output                                                                          |
+| Function                 | Return type | Example                                                                                                         | Output explanation                                                                        | Example Output |
 | ---------------          | ----------- | -------                                                                                                         | -----                                                                           |
 | `user.getGroups`         | Array       | `user.getGroups({'group.id': {'00gjitX9HqABSoqTB0g3'}}, {'group.profile.name': 'West Coast.*'})`                | {}                                                                              |
-|                          |             | `user.getGroups({'group.type': {'OKTA_GROUP'}}, {'group.profile.name': {'Everyone', 'West Coast Admins'}})`     | A list of user groups that contains the groups with ID `00garwpuyxHaWOkdV0g4`  |
+|                          |             | `user.getGroups({'group.type': {'OKTA_GROUP'}}, {'group.profile.name': {'Everyone', 'West Coast Admins'}})`     | A list of groups that are of the type `OKTA_GROUP` and have the name `Everyone` or `West Coast Admins` | A list of user groups that contains the groups with ID `00garwpuyxHaWOkdV0g4`  |
 |                          |             | `user.getGroups({'group.profile.name': 'East Coast.*'})`                                                        | {}                                                                              |
 |                          |             | `user.getGroups({'group.type': {'OKTA_GROUP', 'APP_GROUP'}})`                                                   | A list of user groups that contains the groups with IDs `00g1emaKYZTWRYYRRTSK`, `00garwpuyxHaWOkdV0g4`, and `00gjitX9HqABSoqTB0g3`  |
-| | | `user.getGroups({'group.source.id': '0oazmqPIbHiVJBG4C0g3'} , {'group.profile.name': {'Admins'}} ).![name]` | A filtered list of user groups that contains the groups that start with the name "Admins" and has the source ID '0oazmqPIbHiVJBG4C0g3' |
+| | | `user.getGroups({'group.source.id': '0aae4be2456eb62f7c3d'} , {'group.profile.name': {'Engineering Users'}} )` | A filtered list of user groups that contains the groups that start with the name `Engineering Users` and has the source ID `0aae4be2456eb62f7c3d` | A list of user groups that contains the groups with ID `00qnftmgQxC2L19j6I9c` |
 | `user.isMemberOf`        | Boolean     | `user.isMemberOf({'group.id': {'00gjitX9HqABSoqTB0g3', '00garwpuyxHaWOkdV0g4'}}, {'group.type': 'APP_GROUP'})`  | True                                                                            |
 |                          |             | `user.isMemberOf({'group.id': {'00gjitX9HqABSoqTB0g3', '00garwpuyxHaWOkdV0g4'}}, {'group.type': 'BUILT_IN'})`   | False |
 |                          |             | `user.isMemberOf({'group.profile.name': 'West Coast', 'operator': 'STARTS_WITH' })`   | True |
