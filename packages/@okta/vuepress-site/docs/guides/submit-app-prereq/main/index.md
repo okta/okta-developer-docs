@@ -33,6 +33,12 @@ Before you submit your integration, ensure that your integration uses features t
 
 See [OIN Wizard requirements](#oin-wizard-requirements) for publishing Single Sign-On (SSO) or System for Cross-domain Identity Management (SCIM) integrations.
 
+> **Note:** Okta recommends that you:
+> * Separate environments for development, testing, and production.
+> * Use the Okta Developer Edition org as part of your development and testing environment.
+> * Submit your integration to the OIN from the same Okta Developer Edition org.
+> * Don't connect the generated app instance in your Okta Developer Edition org to your production environment.
+
 ## OIN multi-tenancy
 
 Your app integration must support multi-tenancy to be listed in the public OIN catalog.
