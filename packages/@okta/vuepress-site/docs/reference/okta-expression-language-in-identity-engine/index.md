@@ -138,7 +138,7 @@ Okta offers various functions to manipulate properties to generate a desired out
 |                                         |                                               |             | `'This is a test'.contains('Test')`              | False            |
 | `$string_object.substringBefore`        | (String searchString)                         | String      | `user.profile.email.substringBefore('@')`        | "john.doe"       |
 | `$string_object.substringAfter`         | (String searchString)                         | String      | `user.profile.email.substringAfter('@')`         | "okta.com"       |
-|                                         |                                               |             | `user.profile.email.substringAfter('.')`         | "<doe@okta.com>"   |
+|                                         |                                               |             | `user.profile.email.substringAfter('.')`         | "doe@okta.com"   |
 
 > **Note:**  In the `substring` function, `startIndex` is inclusive and `endIndex` is exclusive.
 
