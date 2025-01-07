@@ -10,31 +10,29 @@ title: Okta Classic Engine API release notes 2025
 
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
-| [](#okta-account-management-policy-is-ga-in-preview) | January 8, 2025 |
-| [](#restrict-access-to-the-admin-console-is-ea-in-preview) | January 8, 2025 |
-| [](#new-skipping-of-entitlement-sync-during-import-of-a-user-systems-log-event) | January 8, 2025 |
-| [](#create-dynamic-resource-sets-with-conditions-is-ea-in-preview) |  January 8, 2025 |
-| [](#idp-client-secret-system-log-event-update) | January 8, 2025 |
+| [Additional use case selection in the OIN Wizard](#additional-use-case-selection-in-the-oin-wizard) | January 8, 2025 |
+| [Deprecated API endpoints: Extend, Grant, and Revoke Okta Support access](#deprecated-api-endpoints-extend-grant-and-revoke-okta-support-access) | January 8, 2025 |
+| [Granular configuration for Keep Me Signed In is EA in Preview](#granular-configuration-for-keep-me-signed-in-is-ea-in-preview) | January 8, 2025 |
+| [POST requests to the authorize endpoint is Self-Service EA](#post-requests-to-the-authorize-endpoint-is-self-service-ea) | January 8, 2025 |
 
+#### Additional use case selection in the OIN Wizard
 
-#### 
+<!-- OKTA-843778 -->
 
+#### Deprecated API endpoints: Extend, Grant, and Revoke Okta Support access
 
+<!-- OKTA-823338 -->
 
-#### 
+#### Granular configuration for Keep Me Signed In is EA in Preview
 
+Admins can now configure the post-authentication prompt for Keep Me Signed In (KMSI) at a granular level in authentication policies. This allows admins to selectively enable post-authentication KMSI on a per-user, per-group, or per-app basis. When enabled, this feature exposes a frequency setting that lets admins control how often the post-authentication prompt is presented to users. See [Configure Keep me signed in (KMSI)](/docs/guides/keep-me-signed-in/main/).
 
-#### 
+The post-authentication prompt text (title, subtitle, accept button, and reject button) is now customizable through the Brands API. See [Customize post-authentication sign-in prompts](/docs/guides/keep-me-signed-in/main/#customize-post-authentication-sign-in-prompts). <!-- POST_AUTH_KMSI_IN_AUTH_POLICY OKTA-791596 -->
 
+#### POST requests to the authorize endpoint is Self-Service EA
 
-#### 
-
-
-
-#### 
-
+ <!-- OKTA-827104 OAUTH2_AUTHORIZE_WITH_POST -->
 
 #### Developer documentation updates in 2025.01.0
 
-* 
 * 
