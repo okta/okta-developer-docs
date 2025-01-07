@@ -21,7 +21,13 @@ title: Okta Classic Engine API release notes 2025
 
 #### Deprecated API endpoints: Extend, Grant, and Revoke Okta Support access
 
-<!-- OKTA-823338 -->
+The following API endpoints have been deprecated:
+
+* [Extend Okta Support access](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingSupport/#tag/OrgSettingSupport/operation/extendOktaSupport) (POST /api/v1/org/privacy/oktaSupport/extend)
+* [Grant Okta Support access](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingSupport/#tag/OrgSettingSupport/operation/grantOktaSupport) (POST /api/v1/org/privacy/oktaSupport/grant)
+* [Revoke Okta Support access](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingSupport/#tag/OrgSettingSupport/operation/revokeOktaSupport) (POST /api/v1/org/privacy/oktaSupport/revoke)
+
+Use the [Update an Okta Support case](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingSupport/#tag/OrgSettingSupport/operation/updateOktaSupportCase) endpoint to extend, grant, or revoke Okta Support access for a specific support case. For the corresponding Okta Admin Console feature, see [Give access to Okta Support](https://help.okta.com/okta_help.htm?type=oie&id=settings-support-access). <!-- OKTA-823338 -->
 
 #### Granular configuration for Keep Me Signed In is EA in Preview
 

@@ -17,6 +17,7 @@ title: Okta Identity Engine API release notes 2025
 | [Deprecated API endpoints: Extend, Grant, and Revoke Okta Support access](#deprecated-api-endpoints-extend-grant-and-revoke-okta-support-access) | January 8, 2025 |
 | [Granular configuration for Keep Me Signed In is EA in Preview](#granular-configuration-for-keep-me-signed-in-is-ea-in-preview) | January 8, 2025 |
 | [Multiple Identifiers is GA in Preview](#multiple-identifiers-is-ga-in-preview) | November 7, 2024 |
+| [New group.source.id key for group functions in Expression Language](#new-group-source-id-key-for-group-functions-in-Expression-Language) | January 2, 2025 |
 | [POST requests to the authorize endpoint is Self-Service EA](#post-requests-to-the-authorize-endpoint-is-self-service-ea) | January 8, 2025 |
 | [Bug fixed in 2025.01.0](#bug-fixed-in-2025-01-0)| January 8, 2025 |
 
@@ -32,7 +33,13 @@ Identity Verification enables you to use a third-party Identity Verification pro
 
 #### Deprecated API endpoints: Extend, Grant, and Revoke Okta Support access
 
-<!-- OKTA-823338 -->
+The following API endpoints have been deprecated:
+
+* [Extend Okta Support access](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingSupport/#tag/OrgSettingSupport/operation/extendOktaSupport) (POST /api/v1/org/privacy/oktaSupport/extend)
+* [Grant Okta Support access](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingSupport/#tag/OrgSettingSupport/operation/grantOktaSupport) (POST /api/v1/org/privacy/oktaSupport/grant)
+* [Revoke Okta Support access](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingSupport/#tag/OrgSettingSupport/operation/revokeOktaSupport) (POST /api/v1/org/privacy/oktaSupport/revoke)
+
+Use the [Update an Okta Support case](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingSupport/#tag/OrgSettingSupport/operation/updateOktaSupportCase) endpoint to extend, grant, or revoke Okta Support access for a specific support case. For the corresponding Okta Admin Console feature, see [Give access to Okta Support](https://help.okta.com/okta_help.htm?type=oie&id=settings-support-access). <!-- OKTA-823338 -->
 
 #### Granular configuration for Keep Me Signed In is EA in Preview
 
@@ -43,6 +50,10 @@ The post-authentication prompt text (title, subtitle, accept button, and reject 
 #### Multiple Identifiers is GA in Preview
 
 Today, end users must sign in to Okta with a username or email address only. With the Multiple Identifiers feature, admins can configure identifiers, or user attributes from Universal Directory, that an end user can enter to authenticate. Multiplier identifiers work in sign-in, recovery, self-service registration, and unlock flows. Admins can configure up to three identifiers, including email (which is still a required identifier). See [Configure multiple identifiers](/docs/guides/multiple-identifiers/main/). <!-- OKTA-687191  FF: MULTIPLE_IDENTIFIERS -->
+
+#### New group.source.id key for group functions in Expression Language
+
+You can now use the `group.source.id` key in Expression Language group functions to filter between groups that have the same name. <!-- OKTA-832132 -->
 
 #### POST requests to the authorize endpoint is Self-Service EA
 
