@@ -13,17 +13,24 @@ title: Okta Identity Engine API release notes 2025
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
 | [Additional use case selection in the OIN Wizard](#additional-use-case-selection-in-the-oin-wizard) | January 8, 2025 |
-| [Configure Identity Verification with third-party Identity Verification providers is GA Production](#configure-identity-verification-with-third-party-identity-veriication-providers-is-ga-production) |
+| [Configure Identity Verification with third-party Identity Verification providers is GA Production](#configure-identity-verification-with-third-party-identity-verification-providers-is-ga-production) | October 2, 2024|
 | [Deprecated API endpoints: Extend, Grant, and Revoke Okta Support access](#deprecated-api-endpoints-extend-grant-and-revoke-okta-support-access) | January 8, 2025 |
 | [Granular configuration for Keep Me Signed In is EA in Preview](#granular-configuration-for-keep-me-signed-in-is-ea-in-preview) | January 8, 2025 |
 | [Multiple Identifiers is GA in Preview](#multiple-identifiers-is-ga-in-preview) | November 7, 2024 |
-| [New group.source.id key for group functions in Expression Language](#new-group-source-id-key-for-group-functions-in-Expression-Language) | January 2, 2025 |
+| [New group.source.id key for group functions in Expression Language](#new-group-source-id-key-for-group-functions-in-expression-language) | January 2, 2025 |
 | [POST requests to the authorize endpoint is Self-Service EA](#post-requests-to-the-authorize-endpoint-is-self-service-ea) | January 8, 2025 |
 | [Bug fixed in 2025.01.0](#bug-fixed-in-2025-01-0)| January 8, 2025 |
 
 #### Additional use case selection in the OIN Wizard
 
-<!-- OKTA-843778 -->
+Independent software vendors (ISVs) can select the following additional use case categories when they submit their integration to the OIN:
+
+* Automation
+* Centralized Logging
+* Directory and HR Sync
+* Multifactor Authentication (MFA)
+
+See [Use case selection in the OIN Wizard](https://developer.okta.com/docs/guides/submit-app-prereq/main/#use-case-selection-in-the-oin-wizard). <!-- OKTA-843778 -->
 
 #### Configure Identity Verification with third-party Identity Verification providers is GA Production
 
@@ -57,11 +64,7 @@ You can now use the `group.source.id` key in Expression Language group functions
 
 #### POST requests to the authorize endpoint is Self-Service EA
 
- <!-- OKTA-827104 OAUTH2_AUTHORIZE_WITH_POST -->
-
-#### Developer documentation updates in 2025.01.0
-
-* 
+You can now send user data securely in a POST request body to the /authorize endpoint. <!-- https://oktainc.atlassian.net/browse/OKTA-827104#icft=OKTA-827104 OAUTH2_AUTHORIZE_WITH_POST -->
 
 #### Bug fixed in 2025.01.0
 

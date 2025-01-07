@@ -17,7 +17,14 @@ title: Okta Classic Engine API release notes 2025
 
 #### Additional use case selection in the OIN Wizard
 
-<!-- OKTA-843778 -->
+Independent software vendors (ISVs) can select the following additional use case categories when they submit their integration to the OIN:
+
+* Automation
+* Centralized Logging
+* Directory and HR Sync
+* Multifactor Authentication (MFA)
+
+See [Use case selection in the OIN Wizard](https://developer.okta.com/docs/guides/submit-app-prereq/main/#use-case-selection-in-the-oin-wizard). <!-- OKTA-843778 -->
 
 #### Deprecated API endpoints: Extend, Grant, and Revoke Okta Support access
 
@@ -37,8 +44,4 @@ The post-authentication prompt text (title, subtitle, accept button, and reject 
 
 #### POST requests to the authorize endpoint is Self-Service EA
 
- <!-- OKTA-827104 OAUTH2_AUTHORIZE_WITH_POST -->
-
-#### Developer documentation updates in 2025.01.0
-
-* 
+You can now send user data securely in a POST request body to the /authorize endpoint. <!-- https://oktainc.atlassian.net/browse/OKTA-827104#icft=OKTA-827104 FF: OAUTH2_AUTHORIZE_WITH_POST -->
