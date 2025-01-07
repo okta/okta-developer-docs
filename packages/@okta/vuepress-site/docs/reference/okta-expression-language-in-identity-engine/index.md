@@ -111,7 +111,7 @@ Okta offers various functions to manipulate properties to generate a desired out
 | user.created         | ZonedDateTime | 2015-07-30T23:58:32.000Z   |
 | user.firstName       | String        | "John"                     |
 | user.lastName        | String        | "Doe"                      |
-| user.email           | String        | "<john.doe@okta.com>"        |
+| user.email           | String        | "john.doe@okta.com"        |
 | user.strArray        | Array         | `{"one", "two"}`           |
 | user.intArray        | Array         | `{1, 2, 3}`                |
 | user.stringDouble    | String        | "1.1"                      |
