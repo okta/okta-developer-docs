@@ -234,10 +234,10 @@ The test account allows the OIN team to verify that your integration flow works 
 * For SCIM integrations, provide the test SCIM server base URL and credentials. If possible, provide instructions on how to obtain the SCIM server credentials (API token or OAuth 2.0 properties) for the Okta QA process.
 * For an API service integration, ensure that your admin test account has privileges to configure an API integration and trigger API requests in your app.
 
-> **Notes:**
+> **Notes:** Okta recommends that you:
+> * Use sample (non-production) data for testing.
+> * Use `isvtest@okta.com` as the test account username in your app. You can use an alternative username with a different domain, provided that you own or have a license to use the domain and don't infringe upon any rights of any third parties.
 > * Ensure that the test account doesn't have access to your production environment.
-> * Okta recommends that you use sample (non-production) data for testing.
-> * Okta recommends that you use `isvtest@okta.com` as the test account username in your app. You can use an alternative username with a different domain, provided that you own or have a license to use the domain and don't infringe upon any rights of any third parties.
 
 ## Customer configuration document guidelines
 
