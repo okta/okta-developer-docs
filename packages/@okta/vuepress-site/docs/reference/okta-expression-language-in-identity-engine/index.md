@@ -212,7 +212,7 @@ Group functions take in a list of search criteria as input. Each search criterio
 
 The `group.id`, `group.source.id`, and `group.type` keys can match values that are exact.
 
-The `group.profile.name` key supports the operators `EXACT` and `STARTS_WITH` to identify exact matches or matches that include the value. If no operator is specified, the expression uses `STARTS_WITH`. These operators can't be used with `group.id`, `group.source.id`, or `group.type`.
+The `group.profile.name` key supports the operators `EXACT` and `STARTS_WITH` to identify exact matches or matches that include the value. If no operator is specified, the expression uses `STARTS_WITH`. You can't use these operators with `group.id`, `group.source.id`, or `group.type`.
 
 Use `group.source.id` when you need to disambiguate between groups that have the same group name. For example, if you're searching for app groups that start with "Admin" from a given app instance then you can use `group.source.id` to filter multiple groups across the different app group sources.
 
