@@ -1046,6 +1046,14 @@ export const releaseNotes = [
     path: "/docs/release-notes/",
     subLinks: [
       {
+        title: "2025 - Classic Engine",
+        path: "/docs/release-notes/2025/"
+      },
+      {
+        title: "2025 - Identity Engine",
+        path: "/docs/release-notes/2025-okta-identity-engine/",
+      },
+      {
         title: "2024 - Classic Engine",
         path: "/docs/release-notes/2024/"
       },
