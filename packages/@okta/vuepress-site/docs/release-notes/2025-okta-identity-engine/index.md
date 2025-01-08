@@ -61,7 +61,7 @@ Today, end users must sign in to Okta with a username or email address only. Wit
 
 #### New group.source.id key for group functions in Expression Language
 
-You can now use the `group.source.id` key in Expression Language group functions to filter between groups that have the same name. <!-- OKTA-832132 -->
+You can now use the `group.source.id` key in Expression Language group functions to filter between groups that have the same name. See [Group functions](/docs/reference/okta-expression-language-in-identity-engine/#group-functions). <!-- OKTA-832132 -->
 
 #### POST requests to the authorize endpoint is Self-Service EA
 
@@ -83,6 +83,10 @@ The following Access Requests - V2 administrative APIs are now EA:
 * [Retrieve a catalog entry by an ID](/openapi/governance.requests.admin.v2/tag/Catalogs/#tag/Catalogs/operation/getCatalogEntryV2)
 
 For further information, see [Identity Governance](https://help.okta.com/okta_help.htm?type=oie&id=ext-iga) and [Okta Identity Governance API](/docs/api/iga/).<!--OKTA-848466-->
+
+#### Developer documentation updates in 2025.01.0
+
+The Sign users in to your SPA using redirect guides for the [Angular](/docs/guides/sign-into-spa-redirect/angular/main/) and [React](/docs/guides/sign-into-spa-redirect/react/main/) platforms are now revised to use updated versions of Okta SDKs, framework dependencies, and coding patterns.
 
 #### Bug fixed in 2025.01.0
 
