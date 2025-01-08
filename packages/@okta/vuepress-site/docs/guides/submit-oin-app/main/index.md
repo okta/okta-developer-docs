@@ -205,6 +205,11 @@ Follow these steps to bypass the configuration pages in the OIN Wizard:
 
 Generate instances for testing in your Okta Developer Edition org directly from the OIN Wizard. The OIN Wizard takes the configuration and test information from your OIN submission and allows you to configure a specific integration instance to your test app. You can test the admin and end-user sign-in experiences with the generated instance flow.
 
+> **Note:** Okta recommends that you:
+> * Separate environments for development, testing, and production.
+> * Use the Okta Developer Edition org as part of your development and testing environment.
+> * Don't connect the generated app instance from the Okta Developer Edition org to your production environment. Connecting your development and testing environment with your production environment creates several potential risks, including unintentionally modifying data and misconfiguring your service. This could result in providing inadequate security or disrupting your service.
+
 Okta recommends that you generate an instance for testing each protocol supported by your integration:
 
 * You must generate separate instances for testing if you support two SSO protocols (one for OIDC and one for SAML). The OIN Submission Tester can only test one protocol at a time.

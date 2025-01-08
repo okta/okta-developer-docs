@@ -33,6 +33,12 @@ Before you submit your integration, ensure that your integration uses features t
 
 See [OIN Wizard requirements](#oin-wizard-requirements) for publishing Single Sign-On (SSO) or System for Cross-domain Identity Management (SCIM) integrations.
 
+> **Note:** Okta recommends that you:
+> * Separate environments for development, testing, and production.
+> * Use the Okta Developer Edition org as part of your development and testing environment.
+> * Submit your integration to the OIN from the same Okta Developer Edition org.
+> * Don't connect the generated app instance in your Okta Developer Edition org to your production environment.
+
 ## OIN multi-tenancy
 
 Your app integration must support multi-tenancy to be listed in the public OIN catalog.
@@ -234,7 +240,10 @@ The test account allows the OIN team to verify that your integration flow works 
 * For SCIM integrations, provide the test SCIM server base URL and credentials. If possible, provide instructions on how to obtain the SCIM server credentials (API token or OAuth 2.0 properties) for the Okta QA process.
 * For an API service integration, ensure that your admin test account has privileges to configure an API integration and trigger API requests in your app.
 
-> **Note:** The OIN team recommends `isvtest@okta.com` as the test account username, however, you can provide an alternative username with a different domain.
+> **Note:** Okta recommends that you:
+> * Use sample (non-production) data for testing.
+> * Use `isvtest@okta.com` as the test account username in your app. You can use an alternative username with a different domain, provided that you own or have a license to use the domain and don't infringe upon any rights of any third parties.
+> * Ensure that the test account doesn't have access to your production environment.
 
 ## Customer configuration document guidelines
 

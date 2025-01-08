@@ -19,6 +19,12 @@ You can also submit updates to a previously published SSO or SCIM integration in
 
 For Workflows connector or API service integrations, you need to use the [OIN Manager](https://oinmanager.okta.com/) for submission.
 
+> **Note:** Okta recommends that you:
+> * Separate environments for development, testing, and production.
+> * Use the Okta Developer Edition org as part of your development and testing environment.
+> * Submit your integration to the OIN from the same Okta Developer Edition org.
+> * Don't connect the generated app instance in your Okta Developer Edition org to your production environment.
+
 Before you submit your integration, in either the OIN Wizard or Manager, review the [OIN submission requirements](/docs/guides/submit-app-prereq/) and prepare the necessary artifacts (such as the app logo, description, and configuration document).
 
 Consider the following questions to help you choose which pathway to use for submission:
