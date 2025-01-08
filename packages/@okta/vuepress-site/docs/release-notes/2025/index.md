@@ -51,11 +51,11 @@ You can now send user data securely in a POST request body to the /authorize end
 
 The following Okta Identity Governance APIs are GA:
 
-* [Access Requests - V2](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Request-Conditions/)
 * [Campaigns](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Campaigns/)
+* [Reviews](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Reviews/)
+* [Access Requests - V2](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Request-Conditions/)
 * [My Catalogs](https://developer.okta.com/docs/api/iga/openapi/governance.requests.enduser.v2/tag/My-Catalogs/)
 * [My Requests](https://developer.okta.com/docs/api/iga/openapi/governance.requests.enduser.v2/tag/My-Requests/)
-* [Reviews](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Reviews/)
 
 The following Access Requests - V2 administrative APIs are now EA:
 
