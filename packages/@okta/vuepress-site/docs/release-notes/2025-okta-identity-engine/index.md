@@ -18,7 +18,8 @@ title: Okta Identity Engine API release notes 2025
 | [Granular configuration for Keep Me Signed In is EA in Preview](#granular-configuration-for-keep-me-signed-in-is-ea-in-preview) | January 8, 2025 |
 | [Multiple Identifiers is GA in Preview](#multiple-identifiers-is-ga-in-preview) | November 7, 2024 |
 | [New group.source.id key for group functions in Expression Language](#new-group-source-id-key-for-group-functions-in-expression-language) | January 2, 2025 |
-| [POST requests to the authorize endpoint is Self-Service EA](#post-requests-to-the-authorize-endpoint-is-self-service-ea) | January 8, 2025 |
+| [POST requests to the authorize endpoint is self-service EA](#post-requests-to-the-authorize-endpoint-is-self-service-ea) | January 8, 2025 |
+| [Selected Okta Identity Governance APIs are now GA](#selected-okta-identity-governance-apis-are-now-ga) | January 8, 2025 |
 | [Bug fixed in 2025.01.0](#bug-fixed-in-2025-01-0)| January 8, 2025 |
 
 #### Additional use case selection in the OIN Wizard
@@ -65,6 +66,23 @@ You can now use the `group.source.id` key in Expression Language group functions
 #### POST requests to the authorize endpoint is Self-Service EA
 
 You can now send user data securely in a POST request body to the /authorize endpoint. <!-- https://oktainc.atlassian.net/browse/OKTA-827104#icft=OKTA-827104 OAUTH2_AUTHORIZE_WITH_POST -->
+
+#### Selected Okta Identity Governance APIs are now GA
+
+The following Okta Identity Governance APIs are GA:
+
+* [Campaigns](/openapi/governance.api/tag/Campaigns/)
+* [Reviews](/openapi/governance.api/tag/Reviews/)
+* [Entitlements](/openapi/governance.api/tag/Entitlements/)
+* [Entitlement Bundles](/openapi/governance.api/tag/Entitlement-Bundles/)
+* [Access Requests - V2](/openapi/governance.requests.admin.v2/tag/Request-Conditions/)
+
+The following Access Requests - V2 administrative APIs are now EA:
+
+* [List all entries for the default access request catalog](/openapi/governance.requests.admin.v2/tag/Catalogs/#tag/Catalogs/operation/listAllDefaultEntriesV2)
+* [Retrieve a catalog entry by an ID](/openapi/governance.requests.admin.v2/tag/Catalogs/#tag/Catalogs/operation/getCatalogEntryV2)
+
+For further information, see [Identity Governance](https://help.okta.com/okta_help.htm?type=oie&id=ext-iga) and [Okta Identity Governance API](/docs/api/iga/).<!--OKTA-848466-->
 
 #### Bug fixed in 2025.01.0
 
