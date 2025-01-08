@@ -62,7 +62,7 @@ Review the [OIN submission requirements](/docs/guides/submit-app-prereq) before 
 
 Start your integration submission for OIN publication:
 
-1. Sign in to your [Developer Edition org](/login/) as a user with either the super admin (`SUPER_ADMIN`) role , or the app (`APP_ADMIN`) and org (`ORG_ADMIN`) admin [roles](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#standard-roles).
+1. Sign in to your [Developer Edition org](/login/) as a user with either the super admin (`SUPER_ADMIN`) role, or the app (`APP_ADMIN`) and org (`ORG_ADMIN`) admin [roles](https://developer.okta.com/docs/api/openapi/okta-management/guides/roles/#standard-roles).
 
     > **Note:** Submit your integration from an Okta account that has your company domain in the email address. You can't use an account with a personal email address. The OIN team doesn't review submissions from personal email accounts.
 
@@ -91,7 +91,7 @@ Continue with the OIN Wizard and configure your integration:
     | **Display name** `*` | Provide a name for your integration. This is the main title used for your integration in the OIN.<br>The maximum field length is 64 characters. |
     | **Description** `*` | Give a general description of your app and the benefits of this integration to your customers. See [App description guidelines](/docs/guides/submit-app-prereq/main/#app-description-guidelines). |
     | **Logo** `*` | Upload a PNG, JPG, or GIF file of a logo to accompany your integration in the catalog. The logo file must be less than one MB. See [Logo guidelines](/docs/guides/submit-app-prereq/main/#logo-guidelines). |
-    | **Use Cases** | Add optional use case categories that apply to your integration: [Zero Trust](https://www.okta.com/integrations/?category=zero-trust), [Identity Verification](https://www.okta.com/integrations/?category=identity-verification), or [Identity Governance and Administration (IGA)](https://www.okta.com/integrations/?category=identity-governance-and-administration-iga).<br>Default use cases are automatically assigned to your integration based on supported features. See [Use case guidelines](/docs/guides/submit-app-prereq/main/#use-case-guidelines). |
+    | **Use Cases** | Add optional use case categories that apply to your integration:<br><ul><li>Automation</li> <li>Centralized Logging</li> <li>Directory and HR Sync</li> <li>Identity Governance and Administration (IGA)</li> <li>Identity Verification</li> <li>Multifactor Authentication (MFA)</li> <li>Zero Trust</li></ul>You can select up to three optional use cases. Default use cases are assigned to your integration based on supported features. See [Use case guidelines](/docs/guides/submit-app-prereq/main/#use-case-guidelines). |
 
     `*` Required properties
 

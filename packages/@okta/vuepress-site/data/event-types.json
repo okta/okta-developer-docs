@@ -1,6 +1,6 @@
 {
-  "release" : "2024.12.1",
-  "build" : "2024.12.1-begin-180-g4a14c8d2a3f6",
+  "release" : "2025.01.1",
+  "build" : "2025.01.1-begin-227-g397cfa3ac8a8",
   "categories" : [ {
     "id" : "access-gateway",
     "name" : "Access Gateway"
@@ -142,9 +142,6 @@
   }, {
     "id" : "federation",
     "name" : "Federation"
-  }, {
-    "id" : "globalization-core",
-    "name" : "Globalization Core"
   }, {
     "id" : "honey-badger",
     "name" : "Honey Badger"
@@ -289,6 +286,9 @@
   }, {
     "id" : "ui-core",
     "name" : "UI Core"
+  }, {
+    "id" : "ui-global-access",
+    "name" : "UI Global Access"
   }, {
     "id" : "unified-connector-platform",
     "name" : "Unified Connector Platform"

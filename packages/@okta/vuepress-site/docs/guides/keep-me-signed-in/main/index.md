@@ -4,8 +4,7 @@ excerpt: How to configure pre-authentication and post-authentication KMSI and cu
 layout: Guides
 ---
 
-<ApiLifecycle access="ie" /></br>
-<ApiLifecycle access="ea" />
+<ApiLifecycle access="ie" />
 
 This guide describes how to use the [Policies API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/) to configure the Keep Me Signed In (KMSI) feature. It also describes how to use the [Brands API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/CustomPages/#tag/CustomPages/operation/replaceCustomizedSignInPage) to customize the KMSI sign-in prompts.
 
