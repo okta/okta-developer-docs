@@ -31,9 +31,9 @@ See [Use case selection in the OIN Wizard](https://developer.okta.com/docs/guide
 
 The following API endpoints have been deprecated:
 
-* [Extend Okta Support access](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingSupport/#tag/OrgSettingSupport/operation/extendOktaSupport) (POST /api/v1/org/privacy/oktaSupport/extend)
-* [Grant Okta Support access](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingSupport/#tag/OrgSettingSupport/operation/grantOktaSupport) (POST /api/v1/org/privacy/oktaSupport/grant)
-* [Revoke Okta Support access](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingSupport/#tag/OrgSettingSupport/operation/revokeOktaSupport) (POST /api/v1/org/privacy/oktaSupport/revoke)
+* [Extend Okta Support access](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingSupport/#tag/OrgSettingSupport/operation/extendOktaSupport) (`POST /api/v1/org/privacy/oktaSupport/extend`)
+* [Grant Okta Support access](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingSupport/#tag/OrgSettingSupport/operation/grantOktaSupport) (`POST /api/v1/org/privacy/oktaSupport/grant`)
+* [Revoke Okta Support access](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingSupport/#tag/OrgSettingSupport/operation/revokeOktaSupport) (`POST /api/v1/org/privacy/oktaSupport/revoke`)
 
 Use the [Update an Okta Support case](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/OrgSettingSupport/#tag/OrgSettingSupport/operation/updateOktaSupportCase) endpoint to extend, grant, or revoke Okta Support access for a specific support case. For the corresponding Okta Admin Console feature, see [Give access to Okta Support](https://help.okta.com/okta_help.htm?type=oie&id=settings-support-access). <!-- OKTA-823338 -->
 
@@ -51,15 +51,15 @@ You can now send user data securely in a POST request body to the /authorize end
 
 The following Okta Identity Governance APIs are GA:
 
-* [Access Requests - V2](/openapi/governance.requests.admin.v2/tag/Request-Conditions/)
-* [Campaigns](/openapi/governance.api/tag/Campaigns/)
-* [My Catalogs](/openapi/governance.requests.enduser.v2/tag/My-Catalogs/)
-* [My Requests](/openapi/governance.requests.enduser.v2/tag/My-Requests/)
-* [Reviews](/openapi/governance.api/tag/Reviews/)
+* [Access Requests - V2](https://developer.okta.com/docs/api/openapi/governance.requests.admin.v2/tag/Request-Conditions/)
+* [Campaigns](https://developer.okta.com/docs/api/openapi/governance.api/tag/Campaigns/)
+* [My Catalogs](https://developer.okta.com/docs/api/openapi/governance.requests.enduser.v2/tag/My-Catalogs/)
+* [My Requests](https://developer.okta.com/docs/api/openapi/governance.requests.enduser.v2/tag/My-Requests/)
+* [Reviews](https://developer.okta.com/docs/api/openapi/governance.api/tag/Reviews/)
 
 The following Access Requests - V2 administrative APIs are now EA:
 
-* [List all entries for the default access request catalog](/openapi/governance.requests.admin.v2/tag/Catalogs/#tag/Catalogs/operation/listAllDefaultEntriesV2)
-* [Retrieve a catalog entry by an ID](/openapi/governance.requests.admin.v2/tag/Catalogs/#tag/Catalogs/operation/getCatalogEntryV2)
+* [List all entries for the default access request catalog](https://developer.okta.com/docs/api/openapi/governance.requests.admin.v2/tag/Catalogs/#tag/Catalogs/operation/listAllDefaultEntriesV2)
+* [Retrieve a catalog entry by an ID](https://developer.okta.com/docs/api/openapi/governance.requests.admin.v2/tag/Catalogs/#tag/Catalogs/operation/getCatalogEntryV2)
 
 For further information, see [Identity Governance](https://help.okta.com/okta_help.htm?type=oie&id=ext-iga) and [Okta Identity Governance API](/docs/api/iga/).<!--OKTA-848466-->
