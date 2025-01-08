@@ -31,7 +31,7 @@ Independent software vendors (ISVs) can select the following additional use case
 * Directory and HR Sync
 * Multifactor Authentication (MFA)
 
-See [Use case selection in the OIN Wizard](https://developer.okta.com/docs/guides/submit-app-prereq/main/#use-case-selection-in-the-oin-wizard). <!-- OKTA-843778 -->
+See [OIN Wizard use case selection](/docs/guides/submit-app-prereq/main/#oin-wizard-use-case-selection). <!-- OKTA-843778 -->
 
 #### Configure Identity Verification with third-party Identity Verification providers is GA Production
 
@@ -71,16 +71,16 @@ You can now send user data securely in a POST request body to the /authorize end
 
 The following Okta Identity Governance APIs are GA:
 
-* [Access Requests - V2](https://developer.okta.com/docs/api/openapi/governance.requests.admin.v2/tag/Request-Conditions/)
-* [Campaigns](https://developer.okta.com/docs/api/openapi/governance.api/tag/Campaigns/)
-* [My Catalogs](https://developer.okta.com/docs/api/openapi/governance.requests.enduser.v2/tag/My-Catalogs/)
-* [My Requests](https://developer.okta.com/docs/api/openapi/governance.requests.enduser.v2/tag/My-Requests/)
-* [Reviews](https://developer.okta.com/docs/api/openapi/governance.api/tag/Reviews/)
+* [Access Requests - V2](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Request-Conditions/)
+* [Campaigns](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Campaigns/)
+* [My Catalogs](https://developer.okta.com/docs/api/iga/openapi/governance.requests.enduser.v2/tag/My-Catalogs/)
+* [My Requests](https://developer.okta.com/docs/api/iga/openapi/governance.requests.enduser.v2/tag/My-Requests/)
+* [Reviews](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Reviews/)
 
 The following Access Requests - V2 administrative APIs are now EA:
 
-* [List all entries for the default access request catalog](https://developer.okta.com/docs/api/openapi/governance.requests.admin.v2/tag/Catalogs/#tag/Catalogs/operation/listAllDefaultEntriesV2)
-* [Retrieve a catalog entry by an ID](https://developer.okta.com/docs/api/openapi/governance.requests.admin.v2/tag/Catalogs/#tag/Catalogs/operation/getCatalogEntryV2)
+* [List all entries for the default access request catalog](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Catalogs/#tag/Catalogs/operation/listAllDefaultEntriesV2)
+* [Retrieve a catalog entry by an ID](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Catalogs/#tag/Catalogs/operation/getCatalogEntryV2)
 
 For further information, see [Identity Governance](https://help.okta.com/okta_help.htm?type=oie&id=ext-iga) and [Okta Identity Governance API](/docs/api/iga/).<!--OKTA-848466-->
 
