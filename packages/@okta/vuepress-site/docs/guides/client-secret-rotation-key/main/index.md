@@ -20,11 +20,10 @@ This guide shows you how to rotate and manage your client secrets without servic
 #### What you need
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
-* **OAuth secrets and key management** enabled in the Admin Console (**Settings** | **Features**)
 * Access to client secret management APIs: `/api/v1/apps/{appId}/credentials/secrets` and JWKS management `/api/v1/apps/{appId}/credentials/jwks`. See [Application Client Auth Credentials](/openapi/okta-management/management/tag/ApplicationSSOCredentialOAuth2ClientAuth/).
 * An existing OpenID Connect client app in Okta for testing in Okta
 [Postman client](https://www.getpostman.com/downloads/) to test requests. See [Get Started with the Okta APIs](https://developer.okta.com/docs/reference/rest/) for information on setting up Postman.
-* The client secret rotation and Key management Postman Collection that allows you to test the API calls that are described in this guide. Click **Run in Postman** to add the collection to Postman.
+* The client secret rotation and key management Postman Collection that allows you to test the API calls that are described in this guide. Click **Run in Postman** to add the collection to Postman.
 
   [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/8e9d91cef0d5ab9e9fa7)
 
@@ -58,7 +57,7 @@ When you’re ready to rotate a client secret for an app, follow these steps:
 
     > **Note:** You can try this in Postman using the **Add a client secret: auto-generated** request.
 
-    When you generate a new secret, the original secret remains in **Active** status. Both secrets are stored in parallel, allowing clients to continue using the old secret during secret rotation. Any request for a secret return the newly generated client secret. Any requests that are sent using the previous secret still work. The requests continue to work until the status of that client secret is set to **Inactive**.
+    When you generate a new secret, the original secret remains in **Active** status. Both secrets are stored in parallel, allowing clients to continue using the old secret during secret rotation. Any request for a secret returns the newly generated client secret. Any requests that are sent using the previous secret still work. The requests continue to work until the status of that client secret is set to **Inactive**.
 
 1. [Update your web app](/docs/guides/sign-into-web-app-redirect/-/main/#configure-your-app) to start using the newly generated client secret. Test your app and ensure that all functionality works with the newly generated client secret.
 
