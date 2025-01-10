@@ -1,39 +1,37 @@
 ---
-title: Configure AMR claims mapping
-excerpt: Learn how to configure an OpenID Connect Identity Provider to send AMR claims during SSO to your org
+title: Configure claims sharing
+excerpt: Learn how to configure an OpenID Connect Identity Provider to send claims during SSO in an org2org scenario
 layout: Guides
 ---
 
 <ApiLifecycle access="ea" />
 
-This guide explains how to configure an OpenID Connect Identity Provider to send Authentication Method Reference (AMR) claims during Single Sign-On (SSO) to your org.
+This guide explains how to configure an OpenID Connect Identity Provider to send claims between Okta orgs during Single Sign-On (SSO).
 
 ---
 
 #### Learning outcomes
 
-* Know the purpose of AMR claims
-* Configure your OpenID Connect Identity Provider (IdP) to send AMR claims during SSO
+* Know the purpose of claims sharing
+* Configure your OpenID Connect Identity Provider (IdP) to send authentication claims during SSO
 
 #### What you need
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
-* An existing OpenID Connect Identity Provider (IdP) that's able to send AMR claims to Okta. This can be another Okta org (org2org) or a third party IdP.
-<!-- * The **IdP AMR Claims Mapping** feature enabled for your org. Contact [Okta Support](https://support.okta.com) to enable this EA feature. -->
+* An existing OpenID Connect Identity Provider (IdP) that's able to send claims to Okta in an Okta org2org scenario.
+* The **Org2Org Claims Sharing** feature enabled for your org. To enable, go to **Settings** > **Features**, locate the feature, and enable.
 
 ---
 
 ## Overview
 
-Authentication Method Reference (AMR) claims mapping allows an admin to configure their Okta org to accept AMR claims from OpenID Connect IdPs during SSO. Mapping AMR claims from third-party IdPs allows Okta to interpret the authentication context from an IdP. This helps eliminate duplicate factor challenges during user authentication.
+Authentication claims mapping allows an admin to configure their Okta org to accept claims from OpenID Connect IdPs during SSO. Mapping authentication claims from third-party IdPs allows Okta to interpret the authentication context from an IdP. This helps eliminate duplicate factor challenges during user authentication.
 
-AMR claims provide important context to Okta during policy evaluation. For example, AMR claims give Okta a better understanding of which factors were used by the external IdP to verify the user's identity. This creates a more seamless and secure user experience, reduces friction, and boosts productivity.
+Authentication claims provide important context to Okta during policy evaluation. For example, authentication claims give Okta a better understanding of which factors were used by the external IdP to verify the user's identity. This creates a more seamless and secure user experience, reduces friction, and boosts productivity.
 
-### Okta-to-Okta orgs and AMR claims
+??Similar to authentication claims, customer are relying on device claims to be passed from OpenID Connect Identity Providers during SSO. This allows Okta to interpret the device context from the IdP and use it in the authentication sign-on policies.??
 
-When you configure AMR claims in Okta-to-Okta orgs, there are some configuration steps to consider. To enable AMR claims in the Okta org that you connect to the IdP org, you must enable **Use standard AMR value format** in the IdP org to send AMR claim values in the correct format. See the [configuration steps](#okta-to-okta) in this guide.
-
-## AMR claims mapping flow
+## Authentication claims mapping flow
 
 <div class="three-quarter">
 
