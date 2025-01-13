@@ -144,11 +144,13 @@ From the OIN Wizard **Test your integration** page, specify the information that
 
 #### Test information for Okta review
 
-A dedicated test admin account in your app is required for Okta integration testing. This test account needs to be active beyond the submission period in case Okta needs to update or troubleshoot your app integration. Ensure that the test admin account has:
+A dedicated test admin account in your app is required for Okta integration testing. This test account needs to be active during the submission review period for Okta to test and troubleshoot your integration. Ensure that the test admin account has:
 
 * Privileges to configure admin settings in your test app
 * Privileges to administer test users in your test app
 * Credentials to access the SCIM server for SCIM integrations
+
+After your integration is verified by Okta and published in the OIN, delete or deactivate your app test account within 30 days.
 
 See [Test account guidelines](/docs/guides/submit-app-prereq/main/#test-account-guidelines).
 

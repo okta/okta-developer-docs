@@ -278,6 +278,7 @@ The test account allows the OIN team to verify that your integration flow works 
 > * Use sample (non-production) data for testing.
 > * Use `isvtest@okta.com` as the test account username in your app. You can use an alternative username with a different domain, provided that you own or have a license to use the domain and don't infringe upon any rights of any third parties.
 > * Ensure that the test account doesn't have access to your production environment.
+> * Delete or deactivate the test account within 30 days after your integration is verified by Okta and published in the OIN.
 
 ## Customer configuration document guidelines
 
