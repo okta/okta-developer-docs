@@ -22,6 +22,13 @@ title: Okta Identity Engine API release notes 2025
 | [Selected Okta Identity Governance APIs are now GA](#selected-okta-identity-governance-apis-are-now-ga) | January 8, 2025 |
 | [Bug fixed in 2025.01.0](#bug-fixed-in-2025-01-0)| January 8, 2025 |
 
+### Identity Governance monthly release 2025.01.0
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Selected Okta Identity Governance APIs are now GA](#selected-okta-identity-governance-apis-are-now-ga) | January 8, 2025 |
+| [Bug fixed in 2025.01.0](#bug-fixed-in-2025-01-0)| January 8, 2025 |
+
 #### Additional use case selection in the OIN Wizard
 
 Independent software vendors (ISVs) can select the following additional use case categories when they submit their integration to the OIN:
