@@ -84,7 +84,7 @@ curl -i -X POST \
 
 ## Edit a device assurance policy
 
-To update a device assurance policy, sent a PUT request to the `api/v1/device-assurances` endpoint. See [Replace a device assurance policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/DeviceAssurance/#tag/DeviceAssurance/operation/replaceDeviceAssurancePolicy).
+To update a device assurance policy, send a PUT request to the `api/v1/device-assurances` endpoint. See [Replace a device assurance policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/DeviceAssurance/#tag/DeviceAssurance/operation/replaceDeviceAssurancePolicy).
 
 In this example, you update the policy to enable and configure the grace period feature.
 
@@ -95,8 +95,7 @@ Grace period for device assurance allows you to define a temporary window during
 After you enable the **Grace period for device assurance** feature, you can hide or show remediation instructions in the Sign-In Widget:
 
 * Hide remediation instructions: The Sign-In Widget doesn't display remediation instructions for users who don't pass device assurance compliance.
-* Display remediation instructions: The Sign-In Widget displays remediation instructions for users who don't pass device assurance compliance.
-You can grant users a period in which they can resolve the device noncompliance before they lose access to apps protected by the policy.
+* Display remediation instructions: The Sign-In Widget displays remediation instructions for users who don't pass device assurance compliance. You can grant users a period in which they can resolve the device noncompliance before they lose access to apps protected by the policy.
 
 See [Add a device assurance policy](https://help.okta.com/okta_help.htm?type=oie&id=csh-device-assurance-add) for more details.
 
@@ -113,7 +112,7 @@ Consider the following:
 * Set the value of `deviceAssuranceId` to the ID of your new device assurance policy. See [Create a device assurance policy](#create-a-device-assurance-policy).
 * In the `gracePeriod` object, set the following:
   * `type` to `BY_DURATION` (the grace period expires after a specified duration)
-  * `expiry` to `P30D` (30 days using the ISO-8601 date and time format)
+  * `expiry` to `P30D` (30 days using the [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) date and time format)
 * Set the `displayRemediationMode` to `SHOW`.
 
 ```bash
@@ -128,7 +127,7 @@ Consider the following:
 
 A device assurance policy doesn’t do anything until it’s added to an authentication policy rule. Once added to a rule, it’s evaluated for that authentication policy.
 
-If you configure the policy rule to include multiple conditions, any condition triggers the rule.
+If your policy rule has more than one condition, any single condition triggers the rule.
 
 ### Example POST rule request
 
