@@ -6,6 +6,16 @@ title: Okta Classic Engine API release notes 2025
 
 ## January
 
+### Weekly release 2025.01.1
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Bugs fixed in 2025.01.1](#bugs-fixed-in-2025-01-1)| January 16, 2025 |
+
+#### Bugs fixed in 2025.01.1
+
+* When an admin attempted to delete an IdP using the SDK, the operation failed with an HTTP 500 response code. (OKTA-846005)
+
 ### Monthly release 2025.01.0
 
 | Change | Expected in Preview Orgs |
