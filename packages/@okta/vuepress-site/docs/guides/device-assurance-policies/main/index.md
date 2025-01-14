@@ -98,6 +98,8 @@ After you enable the **Grace period for device assurance** feature, you can hide
 * Display remediation instructions: The Sign-In Widget displays remediation instructions for users who don't pass device assurance compliance.
 You can grant users a period in which they can resolve the device noncompliance before they lose access to apps protected by the policy.
 
+See [Add a device assurance policy](https://help.okta.com/okta_help.htm?type=oie&id=csh-device-assurance-add) for more details.
+
 Our example shows the remediation instructions and sets a grace period for a specific duration. See [Example PUT request](#example-put-request).
 
 ### Example PUT request
