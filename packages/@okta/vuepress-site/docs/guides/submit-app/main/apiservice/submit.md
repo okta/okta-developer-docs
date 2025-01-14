@@ -12,11 +12,11 @@ The **Client Credentials** grant type is selected. This is the only supported gr
 
 ### Test your integration
 
-You can test your API service integration in the OIN Manager before you submit it. You can generate an instance of your service app and make a few API requests in the OIN Manager to verify that your integration works as intended.
+You can test your API service integration in the OIN Manager before you submit it. Generate an instance of your service app in the OIN Manager and make a few API requests to verify that your integration works as intended.
 
 #### Generate an instance
 
-Generate a service app instance in your associated Okta Developer Edition org for testing. The app instance you generate provides credentials for your API calls:
+Generate a service app instance in your associated Okta Developer Edition org for testing. The app instance that you generate provides credentials for your API calls:
 
 1. From the **API Service** tab, click **Test in Okta** at the bottom of your page.
 
@@ -29,8 +29,6 @@ Generate a service app instance in your associated Okta Developer Edition org fo
 
 Use the credentials from your app instance (Okta domain, client ID, and secret) to test your service app integration with Okta. You can use the [interface that you build](/docs/guides/build-api-integration/main/#save-customer-credentials) or enter the credentials manually to configure your service app. Trigger a process from your service app to access Okta endpoints and verify that the process works as intended.
 
-See
-1. [Request an access token](/docs/guides/build-api-integration/main/#request-an-access-token)
-1. [Make Okta API requests](/docs/guides/build-api-integration/main/#make-okta-api-requests)
+See [Request an access token](/docs/guides/build-api-integration/main/#request-an-access-token) and [Make Okta API requests](/docs/guides/build-api-integration/main/#make-okta-api-requests).
 
 ---

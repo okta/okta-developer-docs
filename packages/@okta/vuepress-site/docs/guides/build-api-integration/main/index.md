@@ -110,7 +110,7 @@ To register your API service registration:
 1. Go to the [OIN Manager](https://oinmanager.okta.com/) and click **Start Submission Form**.
 1. Sign in with the credentials of the Okta org you used to build your integration (this is typically your Okta Developer Edition org).
 1. Click **Add New Submission**.
-1. On the **General Settings** tab, specify values in the **App Information**, **Customer Support**, and **Test Account** sections. See [Configure general settings](/docs/guides/submit-app/wfconnector/main/#configure-general-settings) for field descriptions.
+1. On the **General Settings** tab, specify values in the **App Information**, **Customer Support**, and **Test Account** sections. See [Configure general settings](/docs/guides/submit-app/apiservice/main/#configure-general-settings) for field descriptions.
 1. On the **API Service** tab, select **On** from the **API Service support** dropdown menu.
 
    The **API Service Settings** appear, and the **Client Credentials** grant type is selected. This is the only supported grant type for OAuth 2.0 API service integrations.
