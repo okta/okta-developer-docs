@@ -103,24 +103,27 @@ For example, the [afterRender](https://github.com/okta/okta-signin-widget?tab=re
 
 The `afterTransform` function is the recommended way to apply DOM customizations in the third generation of the Sign-In Widget.
 
-* If you want to use the recommended `afterTransform` function, see [Use the afterTransform function](#use-the-aftertransform-function-recommended).
-* If you’re migrating from Gen2 to Gen3 and want to keep using the `afterRender` function, see [Use the afterRender function](#use-the-afterrender-function).
+* To use the recommended `afterTransform` function, see [Use the afterTransform function](#use-the-aftertransform-function-recommended).
+* To keep using the `afterRender` function, see [Use the afterRender function](#use-the-afterrender-function).
 
 ### Use the afterTransform function (recommended)
 
 The third-generation Widget introduces a new `afterTransform()` function.
 
-The hook takes two arguments - the name of the form to make customizations to and a function that receives a context argument to apply the changes on:
+The function takes two arguments:
+
+* The name of the form to customize
+* A function that receives a context argument that receives the changes
 
 `signIn.afterTransform('form_name', function (context) {  }`
 
-> **Note:** Supplying wildcard (`*`) for the form_name will match all forms. A wildcard cannot be used for partial name matches, only `*` on its own.
+> **Note:** Supplying a wildcard (`*`) for the `form_name` matches all forms. You can't use a wildcard for partial name matches.
 
 The `afterTransform` doesn’t update the DOM after components are already rendered. Instead, it allows you to modify the `formBag` object sent to the components. The `formBag` controls what the components render.
 
 #### Change button text examples
 
-The following example shows how to change the **Submit** button of the Identify page to **Login**:
+The following example shows how to change the **Submit** button of the **Identify** page to **Login**:
 
 ```javascript
 oktaSignIn.afterTransform('identify', ({ formBag }) => {
@@ -132,7 +135,7 @@ oktaSignIn.afterTransform('identify', ({ formBag }) => {
 });
 ```
 
-The following example shows how to change the **Submit** button of the Enroll profile page to **Register**:
+The following example shows how to change the **Submit** button of the **Enroll profile** page to **Register**:
 
 ```javascript
 oktaSignIn.afterTransform('enroll-profile', ({ formBag }) => {
@@ -146,7 +149,7 @@ oktaSignIn.afterTransform('enroll-profile', ({ formBag }) => {
 
 #### Remove an unused link example
 
-The following example shows how to remove the **Help**, **Unlock account?**, and **Forgot password?** links from the Identify page:
+The following example shows how to remove the **Help**, **Unlock account?**, and **Forgot password?** links from the **Identify** page:
 
 ```javascript
 oktaSignIn.afterTransform('identify', ({ formBag }) => {
@@ -159,7 +162,7 @@ oktaSignIn.afterTransform('identify', ({ formBag }) => {
 
 #### Add an instructional paragraph example
 
-The following example shows how to dd a custom description to the Password recovery page:
+The following example shows how to dd a custom description to the **Password recovery** page:
 
 ```javascript
 oktaSignIn.afterTransform?.('identify-recovery', ({ formBag }) => {
