@@ -23,25 +23,25 @@ This guide describes how to use the [Device Assurance Policies API](https://deve
 
 Use device assurance policies to check sets of security-related device attributes as part of your [authentication policies](/docs/concepts/policies/#authentication-policies). For example, you can configure a device assurance policy to check whether a specific operating system version or security patch is installed on a device. Then you can permit that device to access Okta-protected resources.
 
-By adding device checks to authentication policy rules, you can establish minimum requirements for the devices that have access to systems and apps in your org.
+By adding device checks to your authentication policy rules, you can establish minimum requirements for the devices that have access to your org.
 
-After you add at least one device assurance policy, you can include it in [authentication policy rules](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/listPolicyRules). You can't apply device assurance policies to users, groups, or devices until you make them part of an authentication policy rule.
+After you add at least one device assurance policy, you can include it in your [authentication policy rules](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/listPolicyRules). You can't apply device assurance policies to users, groups, or devices until you make them part of an authentication policy rule.
 
 ### About platforms
 
 The examples in this guide use iOS as the platform, but the following platforms are available:
 
-* ANDROID
-* CHROMEOS
-* IOS
-* MACOS
-* WINDOWS
+* `ANDROID`
+* `CHROMEOS`
+* `IOS`
+* `MACOS`
+* `WINDOWS`
 
 See [Platform](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/DeviceAssurance/#tag/DeviceAssurance/operation/createDeviceAssurancePolicy!path=1/platform&t=request).
 
 ## Create a device assurance policy
 
-Use the [Device Assurance Policy API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/DeviceAssurance/#tag/DeviceAssurance/operation/createDeviceAssurancePolicy) to create a device assurance policy. For this example, we only set the `platform` parameter and the parameters you need for the Dynamic OS version compliance feature.
+Use the [Device Assurance Policy API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/DeviceAssurance/#tag/DeviceAssurance/operation/createDeviceAssurancePolicy) to create a device assurance policy. For this example, you only set the `platform` parameter and the parameters you need for the Dynamic OS version compliance feature.
 
 ### About Dynamic OS version compliance
 
@@ -85,7 +85,7 @@ curl -i -X POST \
 
 To update a device assurance policy, sent a PUT request to the `api/v1/device-assurances` endpoint. See [Replace a device assurance policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/DeviceAssurance/#tag/DeviceAssurance/operation/replaceDeviceAssurancePolicy).
 
-In this example, we update the policy to enable and configure the grace period feature.
+In this example, you update the policy to enable and configure the grace period feature.
 
 ### About grace period and remediation
 
@@ -97,17 +97,17 @@ After you enable the **Grace period for device assurance** feature, you can hide
 * Display remediation instructions: The Sign-In Widget displays remediation instructions for users who don't pass device assurance compliance.
 You can grant users a period in which they can resolve the device noncompliance before they lose access to apps protected by the policy.
 
-In our example, we'll show the remediation instructions and set a grace period for a specific duration. See [Example PUT request](#example-put-request).
+Our example shows the remediation instructions and sets a grace period for a specific duration. See [Example PUT request](#example-put-request).
 
 ### Example PUT request
 
 Send a PUT request to the `/api/v1/device-assurances/{deviceAssuranceId}` endpoint.
 
-This example updates the policy to include a 30 day grace period request. Also, end users see remediation instructions if their device is non-compliant.
+This example updates the policy to include a 30-day grace period request. Also, end users see remediation instructions if their device is non-compliant.
 
 Consider the following:
 
-* Set the value of `deviceAssuranceId` to the ID of your new device assurance policy. See Create a device assurance policy.
+* Set the value of `deviceAssuranceId` to the ID of your new device assurance policy. See [Create a device assurance policy](#create-a-device-assurance-policy).
 * In the `gracePeriod` object, set the following:
   * `type` to `BY_DURATION` (the grace period expires after a specified duration)
   * `expiry` to `P30D` (30 days using the ISO-8601 date and time format)
@@ -124,13 +124,14 @@ Consider the following:
 ## Add device assurance to an authentication policy
 
 A device assurance policy doesn’t do anything until it’s added to an authentication policy rule. Once added to a rule, it’s evaluated for that authentication policy.
-By adding device checks to authentication policy rules, you can establish minimum requirements for unmanaged devices that have access to systems and apps in your org. If you configure the policy rule to include multiple conditions, any condition triggers the rule.
+
+If you configure the policy rule to include multiple conditions, any condition triggers the rule.
 
 ### Example POST rule request
 
 Send a POST request to the `/api/v1/policies/{policyId}/rules` endpoint. Consider the following:
 
-* Select an authentication policy and use its `id` as the `policyId` in your request. See [List all policies](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/listPolicies). Use the `ACCESS_POLICY` type. 
+* Select an authentication policy and use its `id` as the `policyId` in your request. See [List all policies](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/listPolicies). Use the `ACCESS_POLICY` type.
 * Set the value of `priority` to `1`.
 * Set `type` to `ACCESS_POLICY`.
 * Set `device.registered` to ‘true’.
@@ -156,15 +157,15 @@ curl -X POST "https://${yourOktaDomain}/api/v1/policies/{policyId}/rules" \
   }'
 ```
 
-## Check the syslog for device assurance events
+## Check the System Log for device assurance events
 
-Send a GET request to the `/api/v1/logs/ endpoint using one of the following event types:
+Send a GET request to the `/api/v1/logs/ endpoint using one of the following Event Types:
 
 * `device.assurance.policy.add`: Use this event to monitor when a device assurance policy is created.
 * `device.assurance.policy.delete`: Use this event to monitor when a device assurance policy is deleted.
 * `device.assurance.policy.update`: Use this event to monitor when a device assurance policy is updated, and what changed.
 
-See [Event types](https://developer.okta.com/docs/reference/api/event-types/#:~:text=device.assurance.policy.add).
+See [Event Types](https://developer.okta.com/docs/reference/api/event-types/#:~:text=device.assurance.policy.add).
 
 ### Example GET request
 
