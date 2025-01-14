@@ -4805,7 +4805,7 @@ curl -v -X POST \
         "timeZone": "America/Los_Angeles"
       }
     },
-    "factors": {
+    "factor": {
       "id": "opfh52xcuft3J4uZc0g3",
       "factorType": "push",
       "provider": "OKTA",
