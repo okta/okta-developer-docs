@@ -6,7 +6,7 @@ meta:
 layout: Guides
 ---
 
-Use this guide to understand the process of submitting a Workflows connector integration to the Okta Integration Network (OIN) using the OIN Manager. This guide also shows you how to update a previously published integration or delete a draft submission.
+Use this guide to understand the process of submitting Workflows connector and API service integrations to the Okta Integration Network (OIN) using the OIN Manager. This guide also shows you how to update a previously published integration or delete a draft submission.
 
 > **Note:** For SSO or Lifecycle Management (LCM) SCIM integrations, use the [OIN Wizard](/docs/guides/submit-oin-app/scim/main/) for a seamless ISV submission experience. Previously submitted SSO and LCM SCIM integrations from the OIN Manager have been migrated to the OIN Wizard. You can edit these published integrations directly in the OIN Wizard and resubmit them to the OIN team. See [Update your integration](/docs/guides/submit-oin-app/scim/main/#update-your-integration).
 
@@ -15,11 +15,12 @@ Use this guide to understand the process of submitting a Workflows connector int
 #### Learning outcomes
 
 * Understand how to submit a new Workflows connector integration to the OIN
-* Understand how to update or delete a previously published integration
+* Understand how to submit a new API service integration to the OIN
+* Understand how to update or delete a previously published integration with the OIN Manager
 
 #### What you need
 
-* A functional integration created and tested in accordance with the [Workflows Connector Builder](https://help.okta.com/okta_help.htm?type=wf&id=ext-connector-builder) guide
+* A functional integration created and tested in accordance with the [Workflows Connector Builder](https://help.okta.com/okta_help.htm?type=wf&id=ext-connector-builder) or the [Build an API service integration](/docs/guides/build-api-integration/main/guide)
 
 * The various items necessary for submission in accordance with the [OIN submission requirements](/docs/guides/submit-app-prereq/)
 
@@ -31,7 +32,10 @@ The [Okta Integration Network (OIN) Manager](https://oinmanager.okta.com) is a s
 
 ### Protocols supported
 
-This guide covers submissions that use the [Workflows Connector Builder](https://help.okta.com/okta_help.htm?type=wf&id=ext-connector-builder).
+This guide covers the following submissions:
+
+* Integrations that use the [Workflows Connector Builder](https://help.okta.com/okta_help.htm?type=wf&id=ext-connector-builder)
+* Service app integrations that access your customer tenants through Okta APIs using OAuth 2.0
 
 ### Submission support
 
