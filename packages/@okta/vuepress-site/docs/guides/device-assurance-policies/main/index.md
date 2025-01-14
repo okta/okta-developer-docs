@@ -127,8 +127,6 @@ Consider the following:
 
 A device assurance policy doesn’t do anything until it’s added to an authentication policy rule. Once added to a rule, it’s evaluated for that authentication policy.
 
-If your policy rule has more than one condition, any single condition triggers the rule.
-
 ### Example POST rule request
 
 Send a POST request to the `/api/v1/policies/{policyId}/rules` endpoint. Consider the following:
