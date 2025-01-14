@@ -16,6 +16,7 @@ This guide describes how to use the [Device Assurance Policies API](https://deve
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
 * Grace period enabled
+* Dynamic OS version compliance enabled
 
 ---
 
