@@ -95,12 +95,98 @@ See [Customization examples](#customization-examples) for snippets that you can 
 
    > **Note:** To discard your changes without publishing them, click **Revert changes** or click the **Code editor** toggle again. Turning off the code editor restores the default JavaScript code.
 
-### About the afterRender function
+## About afterTransform and afterRender
 
-The third generation of the Sign-In Widget is built on [Preact](https://preactjs.com/), a lightweight React alternative. This means that the [`afterRender`](https://github.com/okta/okta-signin-widget?tab=readme-ov-file#afterrender) function doesn't work when used to make DOM manipulations and other render-related side effects. If you use `afterRender` for DOM manipulations, the Okta Sign-In Widget reverts any customizations to default settings. See [Components and Hooks must be pure](https://react.dev/reference/rules/components-and-hooks-must-be-pure).
+The third generation of the Sign-In Widget is built on [Preact](https://preactjs.com/), a lightweight React alternative. The change from a jQuery-based architecture (Gen2) to a Preact-based architecture (Gen3) also changes the way that DOM manipulations are done.
 
-* To use `afterRender` for DOM manipulations, consider using the `MutationObserver` function.
-* To use `afterRender` for non-DOM manipulations, you don't need the `MutationObserver` function.
+For example, the [afterRender](https://github.com/okta/okta-signin-widget?tab=readme-ov-file#afterrender) function doesn’t work as it does with the second generation. If you use `afterRender` for DOM manipulations, the Okta Sign-In Widget reverts any customizations to default settings.
+
+The `afterTransform` function is the recommended way to apply DOM customizations in the third generation of the Sign-In Widget.
+
+* If you want to use the recommended `afterTransform` function, see [Use the afterTransform function](#use-the-aftertransform-function-recommended).
+* If you’re migrating from Gen2 to Gen3 and want to keep using the `afterRender` function, see [Use the afterRender function](#use-the-afterrender-function).
+
+### Use the afterTransform function (recommended)
+
+The third-generation Widget introduces a new `afterTransform()` function.
+
+The hook takes two arguments - the name of the form to make customizations to and a function that receives a context argument to apply the changes on:
+
+`signIn.afterTransform('form_name', function (context) {  }`
+
+> **Note:** Supplying wildcard (`*`) for the form_name will match all forms. A wildcard cannot be used for partial name matches, only `*` on its own.
+
+The `afterTransform` doesn’t update the DOM after components are already rendered. Instead, it allows you to modify the `formBag` object sent to the components. The `formBag` controls what the components render.
+
+#### Change button text examples
+
+The following example shows how to change the **Submit** button of the Identify page to **Login**:
+
+```javascript
+oktaSignIn.afterTransform('identify', ({ formBag }) => {
+ const submitIndex = formBag.uischema.elements.findIndex(ele => ele.type === 'Button' && ele.options.type === 'submit');
+ if (submitIndex != -1) {
+   const submit = formBag.uischema.elements[submitIndex];
+   submit.label = 'Login';
+ }
+});
+```
+
+The following example shows how to change the **Submit** button of the Enroll profile page to **Register**:
+
+```javascript
+oktaSignIn.afterTransform('enroll-profile', ({ formBag }) => {
+   const submitIndex = formBag.uischema.elements.findIndex(ele => ele.type === 'Button' && ele.options.type === 'submit');
+   if (submitIndex != -1) {
+       const submit = formBag.uischema.elements[submitIndex];
+       submit.label = 'Register';
+   }
+});
+```
+
+#### Remove an unused link example
+
+The following example shows how to remove the **Help**, **Unlock account?**, and **Forgot password?** links from the Identify page:
+
+```javascript
+oktaSignIn.afterTransform('identify', ({ formBag }) => {
+ const help = formBag.uischema.elements.find(ele => ele.type === 'Link' && ele.options.dataSe === 'help');
+ const unlock = formBag.uischema.elements.find(ele => ele.type === 'Link' && ele.options.dataSe === 'unlock');
+ const forgot = formBag.uischema.elements.find(ele => ele.type === 'Link' && ele.options.dataSe === 'forgot-password');
+ formBag.uischema.elements = formBag.uischema.elements.filter(ele => ![help, unlock, forgot].includes(ele));
+});
+```
+
+#### Add an instructional paragraph example
+
+The following example shows how to dd a custom description to the Password recovery page:
+
+```javascript
+oktaSignIn.afterTransform?.('identify-recovery', ({ formBag }) => {
+   const titleIndex = formBag.uischema.elements.findIndex(ele => ele.type === 'Title');
+   // Add custom description after title
+   const descr = {
+       type: 'Description',
+       contentType: 'subtitle',
+       options: {
+           variant: 'body1',
+           content: '<div class=\'my-reset-description\'>Description<br />about<br />recovery</div>'
+       },
+   };
+   if (titleIndex != -1) {
+       formBag.uischema.elements.splice(titleIndex + 1, 0, descr);
+   }
+});
+```
+
+### Use the afterRender function
+
+For the third generation of the Sign-In Widget, the [`afterRender`](https://github.com/okta/okta-signin-widget?tab=readme-ov-file#afterrender) function doesn't work when used to make DOM manipulations and other render-related side effects.
+
+If you use `afterRender` for DOM manipulations, the Okta Sign-In Widget reverts any customizations to default settings. See [Components and Hooks must be pure](https://react.dev/reference/rules/components-and-hooks-must-be-pure).
+
+* To use `afterRender` for DOM manipulations, consider using the `MutationObserver` function. See [Use MutationObserver for Dom manipulations](#use-mutationobserver-for-dom-manipulations).
+* To use `afterRender` for non-DOM manipulations, you don't need the `MutationObserver` function. See [Use afterRender for non-DOM manipulations](#user-afterrender-for-non-dom-manipulations).
 
 #### Use MutationObserver for DOM manipulations
 
@@ -162,7 +248,7 @@ To update UI elements, consider the following example:
  </script>
  ```
 
-#### User afterRender for non-Dom manipulations
+#### User afterRender for non-DOM manipulations
 
  The third generation can use the `afterRender` function for non-DOM manipulations without extra logic. The following example doesn't update the UI, so it doesn't need the `MutationObserver`. Instead, it sends a log to your external logging service:
 
