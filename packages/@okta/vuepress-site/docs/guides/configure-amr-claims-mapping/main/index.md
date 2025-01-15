@@ -1,37 +1,39 @@
 ---
 title: Configure claims sharing
-excerpt: Learn how to configure an OpenID Connect Identity Provider to send claims during SSO in an org2org scenario
+excerpt: Learn how to configure an identity provider to send claims during SSO in an org2org scenario
 layout: Guides
 ---
 
 <ApiLifecycle access="ea" />
 
-This guide explains how to configure an OpenID Connect Identity Provider to send claims between Okta orgs during Single Sign-On (SSO).
+This guide explains how to configure an <shared> identity provider (IdP) to send claims between Okta orgs during Single Sign-On (SSO).
 
 ---
 
 #### Learning outcomes
 
 * Know the purpose of claims sharing
-* Configure your OpenID Connect Identity Provider (IdP) to send authentication claims during SSO
+* Configure your <shared> IdP to send authentication claims during SSO
 
 #### What you need
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
-* An existing OpenID Connect Identity Provider (IdP) that's able to send claims to Okta in an Okta org2org scenario.
+* Two Okta orgs [configured for an Okta-to-Okta (org2org) scenario](/docs/guides/add-an-external-idp/oktatookta/main/).
 * The **Org2Org Claims Sharing** feature enabled for your org. To enable, go to **Settings** > **Features**, locate the feature, and enable.
 
 ---
 
 ## Overview
 
-Authentication claims mapping allows an admin to configure their Okta org to accept claims from OpenID Connect IdPs during SSO. Mapping authentication claims from third-party IdPs allows Okta to interpret the authentication context from an IdP. This helps eliminate duplicate factor challenges during user authentication.
+Authentication claims sharing allows an admin to configure their Okta org to accept claims from <shared> IdPs during SSO. Mapping authentication claims from third-party IdPs allows Okta to interpret the authentication context from an IdP. This helps eliminate duplicate factor challenges during user authentication.
 
 Authentication claims provide important context to Okta during policy evaluation. For example, authentication claims give Okta a better understanding of which factors were used by the external IdP to verify the user's identity. This creates a more seamless and secure user experience, reduces friction, and boosts productivity.
 
-??Similar to authentication claims, customer are relying on device claims to be passed from OpenID Connect Identity Providers during SSO. This allows Okta to interpret the device context from the IdP and use it in the authentication sign-on policies.??
+### Okta-to-Okta orgs and claims sharing
 
-## Authentication claims mapping flow
+Okta-to-Okta (Org2Org), also known as hub and spoke, refers to a deployment model where the IdP and service provider (SP) are both Okta orgs. The Okta IdP org contains the client app that you want to use for authenticating and authorizing your users (the IdP). In your Okta SP org, add an IdP ("connector") to connect your org to the IdP. Configure the IdP in your SP org to trust claims.
+
+## Claims sharing flow
 
 <div class="three-quarter">
 
@@ -41,29 +43,29 @@ amr-claims-mapping-oidc.png -->
 
 </div>
 
-1. A user attempts to sign in to an OpenID Connect app through the browser (user agent).
+1. A user attempts to sign in to <an or a shared> app through the browser (user agent).
 2. The browser redirects the user to the Okta `/authorize` endpoint to authenticate.
-3. Okta redirects the user to the external Identity Provider.
-4. The Identity Provider authenticates the user.
-5. The Identity Provider redirects the user to Okta. The Identity Provider response contains the supported AMR claims, for example: `sms`, `mfa`, and `pwd`.
+3. Okta redirects the user to the external IdP.
+4. The IdP authenticates the user.
+5. The IdP redirects the user back to Okta. The IdP response contains the supported claims, for example: `sms`, `mfa`, and `pwd`.
 
-    > **Note:** AMR claims are stored in an Okta session and considered during policy evaluation.
+    > **Note:** Claims are stored in an Okta session and considered during policy evaluation.
 
-6. Okta redirects the user to the browser. The user isn't challenged for MFA if the factors used by the Identity Provider meet policy requirements.
+6. Okta redirects the user to the browser. The user isn't challenged for MFA if the factors used by the IdP meet policy requirements.
 7. The browser sends a request to the Okta `/token` endpoint.
-8. Okta responds with the access token and the AMR claims in the ID token.
+8. Okta responds with the access token and the claims in the <ID token>.
 
-## Configure the IdP for AMR claims
+## Configure the IdP for claims sharing
 
-Before you configure Okta to accept AMR claims, it's important to first configure the IdP to send the claims correctly. Every IdP is different. Okta expects the IdP to pass the AMR claims in a specific way, depending on the supported federation protocol.
+Before you configure Okta to accept claims, it's important to first configure the IdP to send the claims correctly. Every IdP is different. Okta expects the IdP to pass the claims in a specific way, depending on the supported federation protocol.
 
-### OpenID Connect Identity Provider
+### <OpenID Connect> IdP
 
-At the OpenID Connect IdP, verify that the client app that you use for authenticating and authorizing users sends an `amr` array with the AMR claims in the OpenID Connect ID token (`id_token`).
+At the <OpenID Connect> IdP, verify that the client app that you use for authenticating and authorizing users sends an `amr` array with the AMR claims in the <OpenID Connect ID token> (`id_token`).
 
 The `amr` property is a JSON array of strings that are identifiers for [authentication methods](https://www.rfc-editor.org/rfc/rfc8176.html) used in the authentication. <!-- Supported values include "pwd", "mfa", "otp", "kba", "sms", "swk", and "hwk". Get Venkat input on listing all supported values in the next update of this doc -->
 
-#### Example ID token with AMR claims
+#### Example ID token with claims
 
 ```json
 {
@@ -129,34 +131,16 @@ The following table describes the AMR values that Okta supports:
 | `external_idp`                 | `federated`                 | `idp`               | `fed`                                   | Possession            |
 | `smart_card_idp`               | `federated`                 | `cert`              | `sc` + `swk`, more options: `hwk` (replaces `swk`), `pin`,`mfa`    | Possession, Knowledge |
 
-### Okta-to-Okta
-
-Okta-to-Okta (Org2Org), also known as hub and spoke, refers to a deployment model where the IdP and Service Provider (SP) are both Okta orgs. Use the [Add an External Identity Provider guide for Okta-to-Okta](/docs/guides/add-an-external-idp/oktatookta/main/) to configure Okta-to-Okta orgs for AMR claims mapping.
-
-<AMROktatoOkta/>
-
-#### Use an existing Org2Org app
-
-You can configure Okta-to-Okta orgs for AMR claims mapping with existing Org2Org OpenID Connect apps. If you want to force the IdP Okta org to authenticate, clear the **Disable Force Authentication** checkbox in the existing Org2Org app:
-
-1. In the Admin Console, go to **Applications** > **Applications** and select the Org2Org app that you want to configure.
-1. Select the **Sign On** tab and then click **Edit** in the **Settings** section.
-1. Clear the **Disable Force Authentication** checkbox and click **Save**.
-
-### Custom OpenID Connect apps
-
-If you're using a custom OpenID Connect app in the Okta IdP org, `amr` claims are sent to the SP by default and no additional configuration is required.
-
 ## Configure Okta
 
-Configuring an Okta org to receive AMR claims from an external IdP is similar across all IdP types. When you create an IdP in Okta, select **Trust AMR claims from this identity provider**. This enables Okta to evaluate that AMR claims sent in the IdP response meet sign-on policy requirements.
+Configuring an Okta org to receive claims from an external IdP is similar across all IdP types. When you create an IdP in Okta, select **Trust claims from this identity provider**. This enables Okta to evaluate that AMR claims sent in the IdP response meet sign-on policy requirements.
 
-Use one of the following enterprise Identity Provider guides to configure an external IdP:
+Use one of the following enterprise IdP guides to configure an external IdP:
 
 * [OpenID Connect](/docs/guides/add-an-external-idp/openidconnect/main/)
 * [Okta-to-Okta](/docs/guides/add-an-external-idp/oktatookta/main/)
 
-> **Note:** Ensure that the IdP includes the correct AMR claims in the IdP response and that the claims match the requirements of your sign-on policies. If the claims don't satisfy the requirements, then users can't sign in to the application.
+> **Note:** Ensure that the IdP includes the correct claims in the IdP response and that the claims match the requirements of your sign-on policies. If the claims don't satisfy the requirements, then users can't sign in to the app.
 
 ## Troubleshoot
 
