@@ -4,7 +4,7 @@
    {
      "Okta": {
        "OktaDomain": "https://{yourOktaDomain}",
-       "AuthorizationServerId": "{yourAuthServerName}",
+       "AuthorizationServerId": "{yourAuthServerId}",
        "Audience": "{yourAudience}"
      }
    }
