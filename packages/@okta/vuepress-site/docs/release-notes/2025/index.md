@@ -12,7 +12,7 @@ title: Okta Classic Engine API release notes 2025
 |--------|--------------------------|
 | [Bug fixed in 2025.01.1](#bug-fixed-in-2025-01-1)| January 15, 2025 |
 
-#### Bugs fixed in 2025.01.1
+#### Bug fixed in 2025.01.1
 
 When an admin attempted to delete an IdP using the SDK, the operation failed with an HTTP 500 response code. (OKTA-846005)
 
