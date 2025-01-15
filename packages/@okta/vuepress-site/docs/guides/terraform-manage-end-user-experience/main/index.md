@@ -392,9 +392,9 @@ You can also provide multiple template versions for different languages by setti
 
 1. Set the `subject` and `body` fields to the subject and body text.
 
-Use two dollar signs (`$$`) before any Okta variables in the HTML to escape the string interpolation in your configuration file—for example, `$${brand.theme.primaryColor}`. Variables with only one dollar sign `$`, are interpolated by Terraform. See the [provider documentation](https://registry.terraform.io/providers/okta/okta/latest/docs) for the complete list of Okta variables that you can use.
+Use two dollar signs (`$$`) before any Okta variables in the HTML to escape the string interpolation in your configuration file, for example, `$${brand.theme.primaryColor}`. Variables with only one dollar sign `$`, are interpolated by Terraform. See the [provider documentation](https://registry.terraform.io/providers/okta/okta/latest/docs) for the complete list of Okta variables that you can use.
 
-Some types of templates include required variables. For example, the reset password template must contain `$$resetPasswordLink` or `$$oneTimePassword`. For the list of variables for each template name, see [Velocity variables](https://help.okta.com/en-us/content/topics/settings/velocity-variables.htm).
+Some types of templates include required variables. For example, the reset password template must contain `$$resetPasswordLink` or `$$oneTimePassword`. For the list of variables for each template name, see [Velocity variables](https://help.okta.com/okta_help.htm?type=oie&id=ext-branding-variables).
 
 ### Use HTML in an email template
 
