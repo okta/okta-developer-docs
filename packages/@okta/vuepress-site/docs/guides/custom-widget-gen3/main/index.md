@@ -140,9 +140,9 @@ To update UI elements, consider the following example:
 
     oktaSignIn.on('afterRender', function (ctx) { // ← Restores the context
       // Resets the global context object for reference using the callback function
-      contextObj = context;
+      contextObj = ctx;
       // The following condition only executes the observer for specific views/forms
-      if (context.formName === 'identify' || context.formName === 'reset-authenticator') {
+      if (ctx.formName === 'identify' || ctx.formName === 'reset-authenticator') {
         // Pauses
         observer.disconnect();
 
