@@ -62,7 +62,7 @@ Send a POST request to the `api/v1/device-assurances` endpoint. Include the foll
     * `type`: `EXACT_ANY_SUPPORTED`
     * `latestSecurityPatch`: `true`
 
-> **Note:** By choosing `EXACT_ANY_SUPPORTED` as the `type`, you can’t specify `distanceFromLatestMajor`.
+> **Note:** By choosing `EXACT_ANY_SUPPORTED` as the `type`, you can't specify `distanceFromLatestMajor`.
 
 ```bash
 curl -i -X POST \
@@ -120,21 +120,21 @@ Consider the following:
       "type": "BY_DURATION",
       "expiry": "P30D"
     },
-    "displayRemediationMode": "SHOW"
+"displayRemediationMode": "SHOW"
 ```
 
 ## Add device assurance to an authentication policy
 
-A device assurance policy doesn’t do anything until it’s added to an authentication policy rule. Once added to a rule, it’s evaluated for that authentication policy.
+A device assurance policy doesn't do anything until it's added to an authentication policy rule. Once added to a rule, it's evaluated for that authentication policy.
 
-### Example POST rule request
+### Example PUT rule request
 
-Send a POST request to the `/api/v1/policies/{policyId}/rules` endpoint. Consider the following:
+Send a PUT request to the `/api/v1/policies/{policyId}/rules` endpoint. Consider the following:
 
 * Select an authentication policy and use its `id` as the `policyId` in your request. See [List all policies](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/listPolicies). Use the `ACCESS_POLICY` type.
 * Set the value of `priority` to `1`.
 * Set `type` to `ACCESS_POLICY`.
-* Set `device.registered` to ‘true’.
+* Set `device.registered` to `true`.
 * Set the value of `device.assurance.include` to the name of your new device assurance policy. See [Create a device assurance policy](#create-a-device-assurance-policy).
 
 ```bash
@@ -145,7 +145,7 @@ curl -X POST "https://${yourOktaDomain}/api/v1/policies/{policyId}/rules" \
 -d '{
   "name": "Device Assurance Rule",
   "priority": 1,
-  “Status”: “ACTIVE”,
+  “Status”: "ACTIVE",
   "conditions": {
     "device": {
       "registered": “true”,
