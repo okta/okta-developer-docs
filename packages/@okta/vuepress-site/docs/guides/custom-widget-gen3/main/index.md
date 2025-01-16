@@ -193,7 +193,7 @@ If you use `afterRender` for DOM manipulations, the Okta Sign-In Widget reverts 
 
 #### Use MutationObserver for DOM manipulations
 
-To prevent the third generation Sign-In Widget from reverting your `afterRender` customizations, use the DOM `MutationObserver` function. See [MutationObserver](https://dom.spec.whatwg.org/#ref-for-dom-mutationobserver-mutationobserver).
+To prevent the third-generation Sign-In Widget from reverting your `afterRender` customizations, use the DOM `MutationObserver` function. See [MutationObserver](https://dom.spec.whatwg.org/#ref-for-dom-mutationobserver-mutationobserver).
 
 To update UI elements, consider the following example:
 
