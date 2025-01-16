@@ -79,7 +79,7 @@ Follow these steps to create an app integration for your application:
 
 The configuration page for the new app integration appears. Keep this page open.
 
-> **Note:** For a complete guide to all the options not explained in this guide, see [Create OIDC app integrations](https://help.okta.com/oie/en-us/Content/Topics/Apps/Apps_App_Integration_Wizard_OIDC.htm).
+> **Note:** For a complete guide to all the options not explained in this guide, see [Create OIDC app integrations](https://help.okta.com/okta_help.htm?type=oie&id=ext_Apps_App_Integration_Wizard-oidc).
 
 ### Note your client ID and client secret
 
