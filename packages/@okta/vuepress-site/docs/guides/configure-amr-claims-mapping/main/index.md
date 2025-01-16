@@ -31,7 +31,9 @@ Authentication claims provide important context to Okta during policy evaluation
 
 ### Okta-to-Okta orgs and claims sharing
 
-Okta-to-Okta (Org2Org), also known as hub and spoke, refers to a deployment model where the IdP and service provider (SP) are both Okta orgs. The Okta IdP org contains the client app that you want to use for authenticating and authorizing your users (the IdP). In your Okta SP org, add an IdP ("connector") to connect your org to the IdP. Configure the IdP in your SP org to trust claims.
+Okta-to-Okta (Org2Org), also known as hub and spoke, refers to a deployment model where the IdP and service provider (SP) are both Okta orgs. The Okta IdP org contains the client app that you want to use for authenticating and authorizing your users (the IdP). In your Okta SP org, add and configure the IdP ("connector") to trust claims. This IdP connects your org to the IdP org.
+
+??redirect URI in the app that does the authentication and authorization is the SP org??
 
 ## Claims sharing flow
 
@@ -153,3 +155,93 @@ An **Access denied** error occurs because of:
 ## Limitation
 
 Okta doesn't pass auth requirements to the IdP.
+
+
+API request to update policy constraints
+
+{
+    "system": false,
+    "type": "ACCESS_POLICY",
+    "id": "rul11mw8hg3WWivBn0g5",
+    "name": "fgdgdfg",
+    "priority": 0,
+    "status": "ACTIVE",
+    "created": "2025-01-06T22:46:38.000Z",
+    "lastUpdated": "2025-01-06T22:46:38.000Z",
+    "conditions": {
+        "userType": {
+            "include": [],
+            "exclude": []
+        },
+        "network": {
+            "connection": "ANYWHERE"
+        },
+        "people": {
+            "users": {
+                "exclude": [],
+                "include": []
+            },
+            "groups": {
+                "include": [],
+                "exclude": []
+            }
+        },
+        "riskScore": {
+            "level": "ANY"
+        },
+        "platform": {
+            "include": []
+        },
+        "elCondition": {}
+    },
+    "actions": {
+        "appSignOn": {
+            "access": "ALLOW",
+            "verificationMethod": {
+                "factorMode": "2FA",
+                "reauthenticateIn": "PT0S",
+                "constraints": [
+                    {
+                        "possession": {
+                            "hardwareProtection": "REQUIRED",
+                            "phishingResistant": "REQUIRED",
+                            "userPresence": "REQUIRED"
+                        }
+                    },
+                    {
+                        "possession": {
+                            "hardwareProtection": "REQUIRED",
+                            "phishingResistant": "REQUIRED"
+                        }
+                    }
+                ],
+                "type": "ASSURANCE"
+            },
+            "keepMeSignedIn": {
+                "postAuth": "ALLOWED",
+                "postAuthPromptFrequency": "P30D"
+            }
+        }
+    },
+    "initialMode": false,
+    "_links": {
+        "self": {
+            "href": "http://sp-oie.okta1.com:1802/api/v1/policies/rstusiyKp2uMmRCeB0g4/rules/rul11mw8hg3WWivBn0g5",
+            "hints": {
+                "allow": [
+                    "GET",
+                    "PUT",
+                    "DELETE"
+                ]
+            }
+        },
+        "deactivate": {
+            "href": "http://sp-oie.okta1.com:1802/api/v1/policies/rstusiyKp2uMmRCeB0g4/rules/rul11mw8hg3WWivBn0g5/lifecycle/deactivate",
+            "hints": {
+                "allow": [
+                    "POST"
+                ]
+            }
+        }
+    }
+}
