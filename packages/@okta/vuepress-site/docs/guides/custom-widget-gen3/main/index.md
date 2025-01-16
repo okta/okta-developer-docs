@@ -97,7 +97,7 @@ See [Customization examples](#customization-examples) for snippets that you can 
 
 ## About afterTransform and afterRender
 
-The third generation Sign-In Widget is built on [Preact](https://preactjs.com/), a lightweight React alternative. The architecture changes from jQuery-based (second generation) to Preact-based (third generation). As a result, each generation of the Sign-In Widget handles DOM manipulations in a different way.
+The third-generation Sign-In Widget is built on [Preact](https://preactjs.com/), a lightweight React alternative. The architecture changes from jQuery-based (second generation) to Preact-based (third generation). As a result, each generation of the Sign-In Widget handles DOM manipulations in a different way.
 
 For example, the [afterRender](https://github.com/okta/okta-signin-widget?tab=readme-ov-file#afterrender) function doesn’t work as it does with the second generation. If you use `afterRender` for DOM manipulations, the Okta Sign-In Widget reverts any customizations to default settings.
 
