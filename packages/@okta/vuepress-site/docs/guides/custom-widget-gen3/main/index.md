@@ -76,7 +76,7 @@ To upgrade to the third generation:
 
 Customizations that you have in the [second-generation Sign-In Widget](/docs/guides/custom-widget/main/) don't appear if you move to the third generation. To recreate them, see [Use design tokens](#use-design-tokens).
 
-To pin to a specific version, see [Pin a specific third generation Sign-In Widget](https://help.okta.com/okta_help.htm?type=oie&id=ext-pin-siw3-ver).
+To pin to a specific version, see [Pin a specific third-generation Sign-In Widget](https://help.okta.com/okta_help.htm?type=oie&id=ext-pin-siw3-ver).
 
 ## Use the code editor
 
