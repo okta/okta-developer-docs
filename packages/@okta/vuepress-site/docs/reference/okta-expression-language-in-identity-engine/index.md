@@ -49,18 +49,18 @@ When you create an Okta expression, you can specify entitlements within the `app
 | --------                           | ----------                                                                               | ------------                                                   |
 | `appuser.entitlements.$attribute`  | `appuser` - implicit reference to in-context app entitlements<br>`$attribute` - the attribute variable name| `appuser.entitlements.role`|
 
-### Okta User Profile
+### Okta user profile
 
 When you create an Okta expression, you can reference any property that exists in an Okta user profile in addition to some top-level user properties.
 
-> **Note:** You can't use the `user.status` expression with group rules. See [Group rule operations](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/GroupRule/) and [Create Group Rule](https://help.okta.com/okta_help.htm?type=wf&id=ext-okta-method-creategrouprule).
+> **Note:** You can't use the `user.status` expression with group rules. See [Group Rules operations](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/GroupRule/) and [Create Group Rule](https://help.okta.com/okta_help.htm?type=wf&id=ext-okta-method-creategrouprule).
 
 | Syntax                             | Definitions                                                                              | Examples                                                       |
 | --------                           | ----------                                                                               | ------------                                                   |
 | `user.$property`                  | `user` - references the Okta user<br>`property` - top-level property variable name<br>Values: `id`, `status`, `created`, `lastUpdated`, `passwordChanged`, `lastLogin`   | `user.id`<br>`user.status`<br>`user.created`   |
 | `user.profile.$profile_property`  | `profile_property` - references the user profile property, including custom-defined properties  | `user.profile.firstName`<br>`user.profile.email`<br>           |
 
-### Okta Device Profile
+### Okta device profile
 
 When you create an Okta expression, you can reference EDR attributes and any property that exists in an Okta device profile.
 
@@ -80,7 +80,7 @@ You can specify certain [rule conditions](https://developer.okta.com/docs/api/op
 | security.risk.level | `security` references the security context of the request<br>`risk` references the [risk](https://help.okta.com/okta_help.htm?id=csh-risk-scoring) context of the request<br>`level` is the risk level associated with the request | String | `'LOW'`<br>`'MEDIUM'`<br>`'HIGH'` | `security.risk.level == 'HIGH'`<br>`security.risk.level != 'LOW'`   |
 | security.behaviors | `security` references the security context of the request<br>`behaviors` is the list of matching [User behaviors](https://help.okta.com/okta_help.htm?id=ext_proc_security_behavior_detection) for the request, by name. | Array of Strings | `{'New IP', 'New Device'}`| `security.behaviors.contains('New IP') && security.behaviors.contains('New Device')`   |
 
-### Login Context
+### Login context
 
 <ApiLifecycle access="ea"/>
 
@@ -173,7 +173,7 @@ Okta offers various functions to manipulate properties to generate a desired out
 |                                  |             | `-1.6.toInteger()`                               | -2                               |
 |                                  |             | `2147483647.7.toInteger()`                       | -2147483648 (Integer overflow)   |
 
-> **Note:**  The `toInteger` functions round the passed numeric value (or the String representation of the numeric value) either up or down to the nearest integer. Make sure to consider the range limitations of the integer type when you convert to an integer with these functions.
+> **Note:**  The `toInteger` functions round the passed numeric value (or the string representation of the numeric value) either up or down to the nearest integer. Make sure to consider the range limitations of the integer type when you convert to an integer with these functions.
 
 ##### Country code conversion functions
 
@@ -229,7 +229,7 @@ Use `group.source.id` when you need to disambiguate between groups that have the
 |                          |             | `user.isMemberOf({'group.profile.name': 'West Coast', 'operator': 'EXACT' })`   | Whether the user is a member of a group whose exact name is `West Coast` | False |
 |                          |             | `user.isMemberOf({'group.source.id': '0aae4be2456eb62f7c3d'} , {'group.profile.name': {'Engineering Users'}} )` | Whether the user is a member of a group whose source ID is `0aae4be2456eb62f7c3d` and the group name starts with `Engineering Users` | True |
 
-### Linked Object function
+### Linked object function
 
 Use this function to retrieve the user who's identified with the specified `primary` relationship. You can then access the properties of that user.
 

@@ -9,10 +9,10 @@ meta:
 
 Searching for and returning Okta users is a standard Users API lifecycle operation. The Users API supports four options to return an individual, subset, or all users:
 
-- [search parameter](#search-users): Returns one or more users matched against a search expression and User object properties
-- [filter parameter](#filter-users): Returns one or more users that match a filter expression checked against a subset of User object properties
+- [search parameter](#search-users): Returns one or more users matched against a search expression and user object properties
+- [filter parameter](#filter-users): Returns one or more users that match a filter expression checked against a subset of user object properties
 - [find parameter](#find-users): Returns one or more users matched against the user profile properties of `firstName`, `lastName`, or `email`
-- [list-all-users](#list-all-users): Returns all users that don't have a `DEPROVISIONED` status 
+- [list-all-users](#list-all-users): Returns all users that don't have a `DEPROVISIONED` status
 
 > **Note:** Okta recommends using the `search` parameter when querying for users.
 
@@ -20,16 +20,16 @@ For details on user operations, see the [Users API](https://developer.okta.com/d
 
 ## Search users
 
-The search query parameter (`search`) returns one or more users matched against a search expression and User object properties, including:
+The search query parameter (`search`) returns one or more users matched against a search expression and user object properties, including:
 
 - Any user profile property, including custom-defined properties
 - The top-level body properties `id`, `status`, `created`, `activated`, `statusChanged`, and `lastUpdated`
-- The User Type accessed from `type.id`
+- The user type accessed from `type.id`
 - Properties that have array values
 
 This query parameter provides the largest range of search options and optimal performance. The `search` parameter requires URL encoding for applicable search expressions, supports pagination, and accepts sorting parameters.
 
-The search query parameter uses standard Okta API filtering semantics to create search criteria. This criteria includes mathematical operators such as equal to (`eq`), greater than or equal to (`ge`), and so on. You can combine multiple expressions using logical operators and parentheses. The `ne` (not equal) operator isn't supported, but you can obtain the same result by using `lt ... or ... gt`. For example, to see all users except those that have a status of "STAGED", use `https://${yourOktaDomain}/api/v1/users?search=status+lt+%22STAGED%22+or+status+gt+%22STAGED%22`. See [Filtering](https://developer.okta.com/docs/api/#filter).
+The search query parameter uses standard Okta API filtering semantics to create search criteria. This criteria includes mathematical operators such as equal to (`eq`), greater than or equal to (`ge`), and so on. You can combine multiple expressions using logical operators and parentheses. The `ne` (not equal) operator isn't supported, but you can obtain the same result by using `lt ... or ... gt`. For example, to see all users except those that have a status of `STAGED`, use `https://${yourOktaDomain}/api/v1/users?search=status+lt+%22STAGED%22+or+status+gt+%22STAGED%22`. See [Filtering](https://developer.okta.com/docs/api/#filter).
 
 ### URL encoding
 
@@ -52,6 +52,7 @@ curl -v -X GET \
 ```
 
 #### Response example
+
 For brevity, the response is truncated.
 
 ```JSON
@@ -103,7 +104,7 @@ For brevity, the response is truncated.
 
 ### Limits and pagination
 
-You can include the parameters `limit` and `after` in search expressions to limit the return of user records and to access the [pagination](https://developer.okta.com/docs/api/#pagination) cursor location. By using the `after` parameter with the `limit` parameter, you can define the cursor location in the data set and manage the user records per page. The cursor is an opaque value that is obtained through the link header [next link relation](https://developer.okta.com/docs/api/#link-header).
+You can include the parameters `limit` and `after` in search expressions to limit the return of user records and to access the [pagination](https://developer.okta.com/docs/api/#pagination) cursor location. By using the `after` parameter with the `limit` parameter, you can define the cursor location in the data set and manage the user records per page. The cursor is an opaque value that is obtained through the link header [`next` link relation](https://developer.okta.com/docs/api/#link-header).
 
 > **Note:** If you don't specify a value for `limit`, the maximum (200) is used as a default.
 
@@ -120,7 +121,8 @@ curl -v -X GET \
 ```
 
 #### Response header
-The request returned the first five users and included the following next link relation in the header:
+
+The request returned the first five users and included the following `next` link relation in the header:
 
 ```JSON
 HTTP/1.1 200 OK
@@ -131,7 +133,7 @@ Link:<https://{yourOktaDomain}/api/v1/users?after=00u3p62n11UKppeh31d7&limit=5&s
 
 #### Request example
 
-The following example returns the next five users with an `ACTIVE` status using the next link relation:
+The following example returns the next five users with an `ACTIVE` status using the `next` link relation:
 
 ```bash
 curl -v -X GET \
@@ -147,7 +149,7 @@ You can include the sorting parameters `sortBy` and `sortOrder` in search expres
 
 #### Request example
 
-The following example sorts all users with a status of DEPROVISIONED by last name using the default sort order (ascending):
+The following example sorts all users with a status of `DEPROVISIONED` by last name using the default sort order (ascending):
 
 ```bash
 curl -v -X GET \
@@ -688,7 +690,7 @@ curl -v -X GET \
 
 ## List all users
 
-If a query doesn't include the `search`, `filter`, or `q` parameter, it returns all users (except those with DEPROVISIONED status), with a default limit of 200 records. For this simple use case, the list-all query performance is superior to other search options.
+If a query doesn't include the `search`, `filter`, or `q` parameter, it returns all users (except those with a `DEPROVISIONED` status), with a default limit of 200 records. For this simple use case, the list-all query performance is superior to other search options.
 
 > **Note:** For most scenarios, use a [search](#search-users) parameter to refine the number of users returned.
 
