@@ -108,7 +108,7 @@ The `afterTransform` function is the recommended way to apply DOM customizations
 
 ### Use the afterTransform function (recommended)
 
-The third-generation Widget introduces a new `afterTransform()` function.
+The third-generation Sign-In Widget introduces a new `afterTransform()` function.
 
 The function takes two arguments:
 
