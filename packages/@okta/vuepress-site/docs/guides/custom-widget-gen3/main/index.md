@@ -101,7 +101,7 @@ The third generation Sign-In Widget is built on [Preact](https://preactjs.com/),
 
 For example, the [afterRender](https://github.com/okta/okta-signin-widget?tab=readme-ov-file#afterrender) function doesn’t work as it does with the second generation. If you use `afterRender` for DOM manipulations, the Okta Sign-In Widget reverts any customizations to default settings.
 
-The `afterTransform` function is the recommended way to apply DOM customizations in the third generation Sign-In Widget.
+The `afterTransform` function is the recommended way to apply DOM customizations in the third-generation Sign-In Widget.
 
 * To use the recommended `afterTransform` function, see [Use the afterTransform function](#use-the-aftertransform-function-recommended).
 * To keep using the `afterRender` function, see [Use the afterRender function](#use-the-afterrender-function).
