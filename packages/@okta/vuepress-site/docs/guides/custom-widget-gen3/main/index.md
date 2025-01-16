@@ -5,7 +5,7 @@ layout: Guides
 ---
 <ApiLifecycle access="ie" />
 
-This guide explains how to customize the thid-generation Sign-In Widget for redirect authentication.
+This guide explains how to customize the third-generation Sign-In Widget for redirect authentication.
 
 > **Note:** This document is only for Okta Identity Engine. If you’re using Okta Classic Engine, see [Style the sign-in page](/docs/guides/custom-widget/main/). See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.
 
