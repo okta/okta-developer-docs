@@ -251,7 +251,7 @@ To update UI elements, consider the following example:
  </script>
  ```
 
-#### User afterRender for non-DOM manipulations
+#### Use afterRender for non-DOM manipulations
 
  The third generation can use the `afterRender` function for non-DOM manipulations without extra logic. The following example doesn't update the UI, so it doesn't need the `MutationObserver`. Instead, it sends a log to your external logging service:
 
