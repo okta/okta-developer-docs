@@ -28,7 +28,7 @@ This guide explains how to customize the third-generation Sign-In Widget for red
 
 ---
 
-## About the third generation Sign-In Widget
+## About the third-generation Sign-In Widget
 
 The Sign-In Widget enables the following:
 
