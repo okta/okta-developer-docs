@@ -186,7 +186,7 @@ oktaSignIn.afterTransform?.('identify-recovery', ({ formBag }) => {
 
 For the third generation Sign-In Widget, the [`afterRender`](https://github.com/okta/okta-signin-widget?tab=readme-ov-file#afterrender) function doesn't work when used to make DOM manipulations and other render-related side effects.
 
-If you use `afterRender` for DOM manipulations, the Okta Sign-In Widget reverts any customizations to default settings. See [Components and Hooks must be pure](https://react.dev/reference/rules/components-and-hooks-must-be-pure).
+If you use `afterRender` for DOM manipulations, the Sign-In Widget reverts any customizations to default settings. See [Components and Hooks must be pure](https://react.dev/reference/rules/components-and-hooks-must-be-pure).
 
 * To use `afterRender` for DOM manipulations, consider using the `MutationObserver` function. See [Use MutationObserver for Dom manipulations](#use-mutationobserver-for-dom-manipulations).
 * To use `afterRender` for non-DOM manipulations, you don't need the `MutationObserver` function. See [Use afterRender for non-DOM manipulations](#user-afterrender-for-non-dom-manipulations).
