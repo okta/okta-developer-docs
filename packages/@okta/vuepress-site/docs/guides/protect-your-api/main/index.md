@@ -70,6 +70,8 @@ Moving on, where you see `{yourAudience}` in this guide, replace with `api://def
 > **Note**: You can either create a custom authorization server or use the default to protect your APIs. In either case, you need an appropriate licence to use them in production.
 If you're using a custom authorization server other than `default`, you must use the `id` of the authorization server rather than the `name`.
 
+For further information, see [Authorization servers](/docs/concepts/auth-servers/#custom-authorization-server).
+
 ## Create and configure a new web API to use Okta
 
 Now that you have an authorization server and noted how to identify it, complete the following steps:
