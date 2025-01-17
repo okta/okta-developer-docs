@@ -1,39 +1,132 @@
 ---
-title: Configure AMR claims mapping
-excerpt: Learn how to configure an OpenID Connect Identity Provider to send AMR claims during SSO to your org
+title: Configure claims sharing
+excerpt: Learn how to configure an identity provider to send claims during SSO in an Okta-to-Okta (org2org) scenario
 layout: Guides
 ---
 
 <ApiLifecycle access="ea" />
 
-This guide explains how to configure an OpenID Connect Identity Provider to send Authentication Method Reference (AMR) claims during Single Sign-On (SSO) to your org.
+This guide explains how to configure an <OpenID Connect Identity Provider (IdP)> to send authentication claims during Single Sign-On (SSO) in an Okta-to-Okta (org2org) scenario.
 
 ---
 
 #### Learning outcomes
 
-* Know the purpose of AMR claims
-* Configure your OpenID Connect Identity Provider (IdP) to send AMR claims during SSO
+* Know the purpose of claims sharing
+* Configure your <OpenID Connect Identity Provider (IdP)> to send authentication claims during SSO
 
 #### What you need
 
-* [Okta Developer Edition organization](https://developer.okta.com/signup)
-* An existing OpenID Connect Identity Provider (IdP) that's able to send AMR claims to Okta. This can be another Okta org (org2org) or a third party IdP.
-<!-- * The **IdP AMR Claims Mapping** feature enabled for your org. Contact [Okta Support](https://support.okta.com) to enable this EA feature. -->
+* [Okta Developer Edition org](https://developer.okta.com/signup)
+* An existing <OpenID Connect IdP> that's able to send authentication claims to Okta. This guide focuses on the Okta org2org use case.
+* The **Org2Org Claims Sharing** feature enabled for both orgs. To enable, go to **Settings | Features**, locate the feature and enable.
 
 ---
 
 ## Overview
 
-Authentication Method Reference (AMR) claims mapping allows an admin to configure their Okta org to accept AMR claims from OpenID Connect IdPs during SSO. Mapping AMR claims from third-party IdPs allows Okta to interpret the authentication context from an IdP. This helps eliminate duplicate factor challenges during user authentication.
+Authentication claims sharing allows an admin to configure their Okta org to trust claims from <OpenID Connect IdPs> during SSO. Sharing claims also allows Okta to interpret the authentication context from an IdP. This helps eliminate duplicate factor challenges during user authentication.
 
-AMR claims provide important context to Okta during policy evaluation. For example, AMR claims give Okta a better understanding of which factors were used by the external IdP to verify the user's identity. This creates a more seamless and secure user experience, reduces friction, and boosts productivity.
+Claims also provide important context to Okta during policy evaluation. For example, these claims give Okta a better understanding of which factors were used by the external IdP to verify the user's identity. They do this by conveying all the information from the IdP needed to make policy decisions in the SP. The Okta session stores the details of the authentications that have been done in a way that can easily be translated to and from external authentications. This creates a more seamless and secure user experience, reduces friction, and boosts productivity.
 
-### Okta-to-Okta orgs and AMR claims
+### Okta-to-Okta orgs and authentication claims
 
-When you configure AMR claims in Okta-to-Okta orgs, there are some configuration steps to consider. To enable AMR claims in the Okta org that you connect to the IdP org, you must enable **Use standard AMR value format** in the IdP org to send AMR claim values in the correct format. See the [configuration steps](#okta-to-okta) in this guide.
+< The data shared between an Okta IdP and an Okta SP is included in the <SAMLRespone> in a new reserved tag in the `Extension` section called `OktaAuth`. The content is communicated in a JSON Web Token. The entire response is encrypted with a published encryption key from the SP org. You can retrieve it by calling the public endpoint `/api/v1/idps/{idpId}/idp-metadata.xml`. The payload of the JWT contains a boolean that indicates whether or not MFA was done in the IdP as well as an array of JSON objects describing each authenticator verified before signing the user in.
 
-## AMR claims mapping flow
+#### Example SAML Response
+
+```JSON
+<saml2:AuthnStatement AuthnInstant="2024-08-21T21:22:21.250Z" SessionIndex="id29513242525044581346797160">
+    <saml2:AuthnContext>
+        <saml2:AuthnContextClassRef>urn:oasis:names:tc:SAML:2.0:ac:classes:X509</saml2:AuthnContextClassRef>
+        <saml2:AuthnContextDecl>
+            <AuthenticationContextDeclaration xmlns="urn:okta:saml:2.0:OktaAuth">
+                <Extension>
+                    <OktaAuth xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">
+                        eyJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiUlNBLU9BRVAtMjU2In0.rClRoDXjtYFBv8hTSSjnOsRaQXsYZty25vYKgyTsWP6tUHgC5w34fA8UC2eEu0tgqKaP16K0DmJKj2RaB30pqPf_FvKkWGgp6NZI_1vA6ZLK0mmDXNzaYGsiRkXvgVCUcYP6O1J47E1OmaEQctcDXRdEvNLXNlcmykZ19h6UzO6DoDxBde0wE_GOTXW_eRdyg86T-ztYmaVEPQu2c6smwuXIwRuEp-tiq-gUpxe6-bkw-E75y9Mecs0tSd36n5z4KusBXZ96PpOVi0bC6Wk7aJX-XW5mnOXvdEpbPgymGnTP784x7_zdJlEiUZChPMDPr3JDpYXAMVe1yYmjaeX6xQ.MY6P5HIRCperbtCl.nXqsU19voMKXScu8qKDO5eRLWDtmNMWOSQ1zP2Vfmn2ZlLLtWiJaoNuWMn5IQspTQLArbWejsH_eXZHDeyA9eKQD2GPH4q0fF9B7vQi6hqRx1-SGQKNJi7NTD-kTiGy6xGp0H6CDA9kstQ3GFXBF0sM4ZanhDJuIh8EsdOyWZjOOjUiS6XrQkm0r2hH0iwgmLoyUeBynLzggUwUP3hi_ReFlNdQtI5pRvmGCv4Xf7_ofwAAo-OLOBXSr4ciyNdAIo-kuyFBGAstqh0-35pZ54jIjQJ3Biye40yqS9EWUrBhcBhz-JVsVgizC58QYxVFVlWVNL-M4DMu56u_VPIbcmW_Vzui1TQaVlqFSo1NKmO9aeRNF2ItV0ljxNkojYkJN07rpuuibAgdqjQolcxlY1-ucrgG-C7u936zOZPoHtswN3q9Bq5L5jKV2vwEnhu7BSRG0rGhyeikEJZzZ9MqDZxn7D4VZ7Mj6_l01f9LpUUHVQgPd6X1vUHqdaW4fdja86unF_i_FlPN7Rp__hqEzgloDDA7aVybPIqwkNCv2PY226iUuTDnooAOMQLNH555qqj0a4yIME-0zAN7m93RsS9fjrAhKbL3WBwwxF9RijgJFCxLjUiDIjgVaMM_E37e0tikjqhmmImKhyk00oirbZNE5g1S7hilAJPE5S5gVb8v3buO894JBdOUfPgNjClrPaJ0GAvsjXpNm1nUKpOaycWmTyuDJdePVDvk6UztjjrjWLZNaB7WDq22F8VRjsxD6cwGZm1GxI4kDEb_vZrVihLYGn9295_IwfPNrixIcsIMBoaaMsCZDDvBuThkCAv8d2AwpnbiE1GKDPNDA8GShrjZmkAc6tPuUKZoB7LVfMpPurcNaZQyWKtwVRZWM_TkBS_ecz2aw0hIkaF0L1cqPR85fTW1aC-RK_yZRcGw7pLcGUSgTvsMFPzEnexCSlntRJ3EUbcd4w8LoxYTuE1n67yJi9Dik2DSfbgPdK9GT_fs0cN8-Gc65FgYfUvP5pttWh5dHozzM2CfKOBk2s_jZ5ZqyeXkgL9G6djlAEG1GN8M7JrbQR0PzHePLrq5DfNLY4JlQzHbWG7UaGKjrXRdMm3Tp6cg_EWqgTVPVTpv8QVUJXm8LJSziTNcWQfCw_CG1hLrfvrbDOE1s8aIS_gViH9-gUAar5AhxGo5sz9AEHZeIC3sklaQ-pIJq2KaDRUXktQEBbMEY5o6uWdn2Xy7nOkEEj4Cj0dtsJHtBSB12nnQYrtUYO68uuax_BKXQg3MCAArtK9jB3u5WTXf3IUSZUCFOGMyGBAa0TeRPsJcd9t2oSUxZUV8JjLDnPlaf9RIK6_oKiCXpKZwR9YMXMOxlLsTzg3yBo1HRkOqRvc9R0DYG-ghoHFHHkjPvfQUmAPX-t6qycAx848tpTI138ZtGf413z1NzmUjxtsvsBz1ydP6ZZIQXc1e8__KCPR8IGNcITHTUKRMh3Nc9CgLY2f0GGrtedAwmBWYNMGCoaR_wWrjZ8tF-q3owLn8ja-KGMVJEWQ7iDHKR0gvvYept2-cDpcWGxg0Bzvh_AzZDv31qz-DPeB0ahQsVmC1uJIWOkKBa3SGIRyuqHz2rztkLn6dJdSZBPTRybDCLU9lu17hX-T-I50l8D9FTmCJTTcm1zszxecRXe6VsUBoUeeJn6Zk8xpY35fpPnUGDMdbrJnZ1Hc2CTp4q2Ym1yw7zfVR0mPVbbaZXir81rGkrD4MqCUQqUQuPT6chOShY59TR499c9THnRCsuIVZhg4u4-j0L2cfL-9EhxHanB86nEKquRCJ-Fisf77HdgHZhh52htBd7MOYRU6GXuJh9nwW2l-RppfM.wzZ_mCBoNwot00-l1wCSWg
+                    </OktaAuth>
+                </Extension>
+            </AuthenticationContextDeclaration>
+        </saml2:AuthnContextDecl>
+    </saml2:AuthnContext>
+</saml2:AuthnStatement>
+```
+
+#### Payload of the JWT
+
+```JSON
+{
+  "mfaVerified": "true",
+  "factorVerifications": [
+    {
+      "factor": {
+        "type": "AUTHENTICATOR",
+        "displayName": "Phone",
+        "status": "ACTIVE",
+        "authenticatorType": "phone",
+        "methodType": "sms",
+        "authenticatorKeyName": "phone_number",
+        "profile": {
+          "phoneNumber": "+1 XXX-XXX-2282"
+        },
+        "properties": [],
+        "propertiesToVerify": [],
+        "propertiesRequiredToVerify": [],
+        "factorClassesToBeChallengedByThisMethod": [],
+        "usableForRecoveryOnly": false,
+        "userVerificationKeyUnavailable": false
+      },
+      "verificationTimestamp": 1724277328376
+    }
+  ]
+}
+```
+
+The data shared between an Okta IdP and an Okta SP is included in the ID token under a new reserved claim name called `okta-auth`. The content is communicated in a JSON Web Token. The entire response is encrypted with a published encryption key from the SP org. You can retrieve it by calling the public endpoint `/api/v1/idps/{idpId}/idp-metadata.xml`.
+
+#### Example ID token
+
+```JSON
+{
+  "aud": "ts1hjc8xh3",
+  "auth_time": 1720481750,
+  "email": "jon.smith@example.com",
+  "exp": 1720482230,
+  "family_name": "Smith",
+  "given_name": "Jon",
+  "iat": 1720481810,
+  "iss": "https://idp.okta.com",
+  "nonce": "3byzgGdVLxjNUQ3X73rYgQBUc_DO4AJ2",
+  "sub": "jon.smith@example.com",
+  "okta_auth": {
+      "mfaVerified": "true",
+      "factorVerifications": [
+        {
+          "factor": {
+            "type": "AUTHENTICATOR",
+            "displayName": "Phone",
+            "status": "ACTIVE",
+            "authenticatorType": "phone",
+            "methodType": "sms",
+            "authenticatorKeyName": "phone_number",
+            "profile": {
+                "phoneNumber": "+1 XXX-XXX-2282"
+            },
+            "properties": [],
+            "propertiesToVerify": [],
+            "propertiesRequiredToVerify": [],
+            "factorClassesToBeChallengedByThisMethod": [],
+            "usableForRecoveryOnly": false,
+            "userVerificationKeyUnavailable": false
+          },
+          "verificationTimestamp": 1724277328376
+        }
+      ]
+    }
+}
+```
+
+## AMR claims sharing flow
 
 <div class="three-quarter">
 
@@ -43,31 +136,31 @@ amr-claims-mapping-oidc.png -->
 
 </div>
 
-1. A user attempts to sign in to an OpenID Connect app through the browser (user agent).
+1. A user attempts to sign in to an <OpenID Connect> app using an Okta IdP through the browser (user agent).
 2. The browser redirects the user to the Okta `/authorize` endpoint to authenticate.
-3. Okta redirects the user to the external Identity Provider.
-4. The Identity Provider authenticates the user.
-5. The Identity Provider redirects the user to Okta. The Identity Provider response contains the supported AMR claims, for example: `sms`, `mfa`, and `pwd`.
+3. Okta redirects the user to the Okta IdP.
+4. The IdP authenticates the user.
+5. The identity provider redirects the user to Okta. The identity provider response contains the supported claims.
 
-    > **Note:** AMR claims are stored in an Okta session and considered during policy evaluation.
+    > **Note:** Claims are stored in an Okta session and considered during policy evaluation.
 
-6. Okta redirects the user to the browser. The user isn't challenged for MFA if the factors used by the Identity Provider meet policy requirements.
+6. Okta redirects the user to the browser. The user isn't challenged for MFA if the factors used by the identity provider meet policy requirements.
 7. The browser sends a request to the Okta `/token` endpoint.
-8. Okta responds with the access token and the AMR claims in the ID token.
+8. Okta responds with the access token and the claims in the ID token.
 
-## Configure the IdP for AMR claims
+## Configure the IdP to send authentication claims
 
-Before you configure Okta to accept AMR claims, it's important to first configure the IdP to send the claims correctly. Every IdP is different. Okta expects the IdP to pass the AMR claims in a specific way, depending on the supported federation protocol.
+To use claims sharing, there are a few steps to consider. Configure your <> IdP to send authentication claims. Add the `trust claims: true` key and value pair to your IdP update.
+
+Alternatively, you can enable the **Trust claims from this provider** checkbox in the Admin Console. See [robs link here]().
 
 ### OpenID Connect Identity Provider
 
-At the OpenID Connect IdP, verify that the client app that you use for authenticating and authorizing users sends an `amr` array with the AMR claims in the OpenID Connect ID token (`id_token`).
 
-The `amr` property is a JSON array of strings that are identifiers for [authentication methods](https://www.rfc-editor.org/rfc/rfc8176.html) used in the authentication. <!-- Supported values include "pwd", "mfa", "otp", "kba", "sms", "swk", and "hwk". Get Venkat input on listing all supported values in the next update of this doc -->
 
-#### Example IdP update request
+#### Example <> IdP update request
 
-This request examples shows an update to the ?? IdP to **Trust claims for blah blah blah**. In the `policy` section, you the key:value pair of `trust claims: true`.
+< This request is an example of a SAML IdP update to trust claims. In the `policy` section, the `trust claims: true` key and value pair appears.
 
 ```JSON
 {
@@ -181,6 +274,7 @@ This request examples shows an update to the ?? IdP to **Trust claims for blah b
     }
 }
 ```
+>
 
 #### Example update response
 
@@ -304,41 +398,6 @@ This request examples shows an update to the ?? IdP to **Trust claims for blah b
             }
         }
     }
-}
-```
-
-
-#### Example ID token with AMR claims
-
-```json
-{
-  "ver": 1,
-  "sub": "00uid4BxXw6I6TV4m0g3",
-  "iss": "https://{yourOktaDomain}",
-  "aud": "uAaunofWkaDJxukCFeBx",
-  "iat": 1449624026,
-  "exp": 1449627626,
-  "amr": [
-    "sms",
-    "mfa",
-    "pwd"
-  ],
-  "jti": "ID.4eAWJOCMB3SX8XewDfVR",
-  "auth_time": 1449624026,
-  "at_hash": "cpqKfdQA5eH891Ff5oJr_Q",
-  "name" :"John Doe",
-  "nickname":"Jimmy",
-  "preferred_username": "john.doe@example.com",
-  "updated_at":1311280970,
-  "email":"john.doe@example.com",
-  "email_verified":true,
-  "address" : { "street_address": "123 Hollywood Blvd.",
-      "locality": "Los Angeles",
-      "region": "CA",
-      "postal_code": "90210",
-      "country": "US"
-    },
-  "phone_number":"+1 (425) 555-1212"
 }
 ```
 
