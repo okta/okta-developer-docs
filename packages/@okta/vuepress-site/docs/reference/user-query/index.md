@@ -29,7 +29,7 @@ The search query parameter (`search`) returns one or more users matched against 
 
 This query parameter provides the largest range of search options and optimal performance. The `search` parameter requires URL encoding for applicable search expressions, supports pagination, and accepts sorting parameters.
 
-The search query parameter uses standard Okta API filtering semantics to create search criteria. This criteria includes mathematical operators such as equal to (`eq`), greater than or equal to (`ge`), and so on. You can combine multiple expressions using logical operators and parentheses. The `ne` (not equal) operator isn't supported, but you can obtain the same result by using `lt ... or ... gt`. For example, to see all users except those that have a status of `STAGED`, use `https://${yourOktaDomain}/api/v1/users?search=status+lt+%22STAGED%22+or+status+gt+%22STAGED%22`. See [Filtering](https://developer.okta.com/docs/api/#filter).
+The search query parameter uses standard Okta API filtering semantics to create search criteria. This criteria includes mathematical operators such as equal to (`eq`), greater than or equal to (`ge`), and so on. You can combine multiple expressions using logical operators and parentheses. Okta doesn't support the `ne` (not equal) operator, but you can obtain the same result by using `lt ... or ... gt`. For example, to see all users except those that have a status of `STAGED`, use `https://${yourOktaDomain}/api/v1/users?search=status+lt+%22STAGED%22+or+status+gt+%22STAGED%22`. See [Filtering](https://developer.okta.com/docs/api/#filter).
 
 ### URL encoding
 
@@ -104,7 +104,7 @@ For brevity, the response is truncated.
 
 ### Limits and pagination
 
-You can include the parameters `limit` and `after` in search expressions to limit the return of user records and to access the [pagination](https://developer.okta.com/docs/api/#pagination) cursor location. By using the `after` parameter with the `limit` parameter, you can define the cursor location in the data set and manage the user records per page. The cursor is an opaque value that is obtained through the link header [`next` link relation](https://developer.okta.com/docs/api/#link-header).
+You can include the parameters `limit` and `after` in search expressions to limit the return of user records and to access the [pagination](https://developer.okta.com/docs/api/#pagination) cursor location. By using the `after` parameter with the `limit` parameter, you can define the cursor location in the data set and manage the user records per page. The cursor is an opaque value that's obtained through the link header [`next` link relation](https://developer.okta.com/docs/api/#link-header).
 
 > **Note:** If you don't specify a value for `limit`, the maximum (200) is used as a default.
 
