@@ -306,7 +306,7 @@ The format for conditional expressions is:
 
 > **Note:** Use the double equals sign `==` to check for equality and `!=` for inequality.
 
-The following functions aren't supported in conditions:
+The following functions aren't supported in these conditions:
 
 * Conversion
 * Array
@@ -344,7 +344,7 @@ Include the honorific prefix in front of the full name, or use the courtesy titl
 
 The following samples are valid conditional expressions. The actions in these cases are group assignments.
 
-| IF (implicit) | Condition                                       | Assign to this Group Name if Condition is TRUE |
+| IF (implicit) | Condition                                       | Assign to this group name if Condition is TRUE |
 | ---           | ---                                             | ---                                            |
 | IF            | String.stringContains(user.department, "Sales") | Sales                                          |
 | IF            | user.city == "San Francisco"                    | sfo                                            |
