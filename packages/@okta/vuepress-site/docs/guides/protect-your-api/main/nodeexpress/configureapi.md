@@ -7,3 +7,6 @@ Add the following constants to the top of `index.js`, replacing the placeholders
    });
    const audience = '{yourAudience}';
    ```
+
+  >**Note:** If you're using a custom authorization server other than `default`, use the authorization server `id` in place of the `{yourAuthServerName}` placeholder.
+

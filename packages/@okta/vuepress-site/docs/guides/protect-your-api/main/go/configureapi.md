@@ -5,6 +5,8 @@
    OKTA_API_AUDIENCE={yourAudience}
    ```
 
+    >**Note:** If you're using a custom authorization server other than `default`, use the authorization server `id` in place of the `{yourAuthServerName}` placeholder.
+
 1. Add the code to load this configuration to `server\init.go`.
 
    ```go

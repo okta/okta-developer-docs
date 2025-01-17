@@ -10,6 +10,8 @@
    }
    ```
 
+   >**Note:** If you're using a custom authorization server other than `default`, use the authorization server `id` in place of the `{yourAuthServerName}` placeholder.
+
 1. You must also configure your API to use Okta for authorization and authentication.
    1. Open `Startup.cs` and add the following `using` statements at the top:
 
@@ -19,6 +21,7 @@
       using Microsoft.AspNetCore.Mvc.Authorization;
       ```
 
+   [[style="list-style-type:lower-alpha"]]
    1. Replace the existing `ConfigureServices` method with the following:
 
       ```csharp

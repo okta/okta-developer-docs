@@ -63,11 +63,12 @@ This tutorial uses the **default** custom authorization server to secure your AP
 1. From the API AM area in the Admin Console, select the **Authorization Servers** tab.
 1. Go to the entry for the **default** server and make a note of two values.
    * **Audience**: Found under audience. It should be `api://default`.
-   * **Authorization Server Name**: Found under name. It should be `default`.
+   * **Authorization Server Name**: Found under name: `default`.
 
-Moving on, where you see `{yourAudience}` and `{yourAuthServerName}` in this guide, replace them with your audience and authorization server name.
+Moving on, where you see `{yourAudience}` in this guide, replace with `api://default` and `{yourAuthServerName}` replace with the authorization server name, `default`.
 
 > **Note**: You can either create a custom authorization server or use the default to protect your APIs. In either case, you need an appropriate licence to use them in production.
+If you're using a custom authorization server other than `default`, you must use the `id` of the authorization server rather than the `name`.
 
 ## Create and configure a new web API to use Okta
 
@@ -181,6 +182,7 @@ Make an HTTP POST request to [/token](https://developer.okta.com/docs/api/openap
 1. Select **+** in the Postman workbench to open a new request tab.
 1. Select **GET** and change it to **POST**.
 1. Enter `https://{yourOktaDomain}/oauth2/{yourAuthServerName}/v1/token` for the **URL**.
+    >**Note:** If you're using a custom authorization server other than `default`, use the authorization server `id` in place of the `{yourAuthServerName}` placeholder.
 1. In the **Params** tab, create two key-value pairs:
    1. **Key**: `grant_type`, **Value**: `client_credentials`
    [[style="list-style-type:lower-alpha"]]
