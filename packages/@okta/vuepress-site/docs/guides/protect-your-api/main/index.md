@@ -65,7 +65,7 @@ This tutorial uses the **default** custom authorization server to secure your AP
    * **Audience**: Found under audience. It should be `api://default`.
    * **Authorization Server Name**: Found under name: `default`.
 
-Moving on, where you see `{yourAudience}` in this guide, replace with `api://default` and `{yourAuthServerName}` replace with the authorization server name, `default`.
+Where you see `{yourAudience}` and `{yourAuthServerName}` in this guide, replace with `api://default` and `default`, respectively.
 
 > **Note**: You can either create a custom authorization server or use the default to protect your APIs. In either case, you need an appropriate licence to use them in production.
 If you're using a custom authorization server other than `default`, you must use the `id` of the authorization server rather than the `name`.

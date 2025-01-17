@@ -14,14 +14,13 @@
 
 1. You must also configure your API to use Okta for authorization and authentication.
    1. Open `Startup.cs` and add the following `using` statements at the top:
-
+   [[style="list-style-type:lower-alpha"]]
       ```csharp
       using Okta.AspNetCore;
       using Microsoft.AspNetCore.Authorization;
       using Microsoft.AspNetCore.Mvc.Authorization;
       ```
 
-   [[style="list-style-type:lower-alpha"]]
    1. Replace the existing `ConfigureServices` method with the following:
 
       ```csharp
