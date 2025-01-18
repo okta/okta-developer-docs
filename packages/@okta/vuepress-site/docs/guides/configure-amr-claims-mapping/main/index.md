@@ -1,39 +1,45 @@
 ---
 title: Configure claims sharing
-excerpt: Learn how to configure an identity provider to send claims during SSO in an Okta-to-Okta (org2org) scenario
+excerpt: Learn how to configure an identity provider to send claims during SSO
 layout: Guides
 ---
 
 <ApiLifecycle access="ea" />
 
-This guide explains how to configure an <OpenID Connect Identity Provider (IdP)> to send authentication claims during Single Sign-On (SSO) in an Okta-to-Okta (org2org) scenario.
+This guide explains how to configure an <OpenID Connect Identity Provider (IdP)> to send authentication claims during Single Sign-On (SSO).
 
 ---
 
 #### Learning outcomes
 
 * Know the purpose of claims sharing
-* Configure your <OpenID Connect Identity Provider (IdP)> to send authentication claims during SSO
+* Configure your <type of Identity Provider (IdP)> to send authentication claims during SSO
 
 #### What you need
 
 * [Okta Developer Edition org](https://developer.okta.com/signup)
-* An existing <OpenID Connect IdP> that's able to send authentication claims to Okta. This guide focuses on the Okta org2org use case.
+* An existing <type of IdP> that's able to send authentication claims to Okta. ??This guide focuses on the Okta-to-Okta app use case.??
 * The **Org2Org Claims Sharing** feature enabled for both orgs. To enable, go to **Settings | Features**, locate the feature and enable.
 
 ---
 
 ## Overview
 
-Authentication claims sharing allows an admin to configure their Okta org to trust claims from <OpenID Connect IdPs> during SSO. Sharing claims also allows Okta to interpret the authentication context from an IdP. This helps eliminate duplicate factor challenges during user authentication.
+Claims sharing is the exchange of identity-related information (claims) between different orgs to enable secure access to resources. A claim is a statement made about a user or entity, such as their username, email address, roles, or permissions, that's shared to help determine access rights.
 
-Claims also provide important context to Okta during policy evaluation. For example, these claims give Okta a better understanding of which factors were used by the external IdP to verify the user's identity. They do this by conveying all the information from the IdP needed to make policy decisions in the SP. The Okta session stores the details of the authentications that have been done in a way that can easily be translated to and from external authentications. This creates a more seamless and secure user experience, reduces friction, and boosts productivity.
+Authentication claims sharing allows an admin to configure their Okta org to trust claims from <type of IdPs> during SSO. Sharing claims also allows Okta to interpret the authentication context from an IdP. This helps eliminate duplicate factor challenges during user authentication and helps improve security posture.
 
-### Okta-to-Okta orgs and authentication claims
+Claims provide important context to Okta during policy evaluation. For example, these claims give Okta a better understanding of which factors were used by the IdP to verify the user's identity. They do this by conveying all the information from the IdP that's needed to make policy decisions in the SP. The Okta session updates the details of the authentications. This creates a seamless and secure user experience, which reduces friction and boosts productivity to achieve end-to-end security.
 
-< The data shared between an Okta IdP and an Okta SP is included in the <SAMLRespone> in a new reserved tag in the `Extension` section called `OktaAuth`. The content is communicated in a JSON Web Token. The entire response is encrypted with a published encryption key from the SP org. You can retrieve it by calling the public endpoint `/api/v1/idps/{idpId}/idp-metadata.xml`. The payload of the JWT contains a boolean that indicates whether or not MFA was done in the IdP as well as an array of JSON objects describing each authenticator verified before signing the user in.
+org2org APP NOT org2org IdP
 
-#### Example SAML Response
+## Okta-to-Okta and authentication claims sharing
+
+Okta-to-Okta, refers to a deployment model where the IdP and Service Provider (SP) are both Okta orgs.
+
+The data shared between an Okta IdP and an Okta SP is included in the <SAMLResponse> in a new reserved tag in the `Extension` section called `OktaAuth`. The content is communicated in a JSON Web Token. The entire response is encrypted with a published encryption key from the SP org. You can retrieve it by calling the public endpoint `/api/v1/idps/{idpId}/idp-metadata.xml`. The payload of the JWT contains a boolean that indicates whether or not MFA was done in the IdP as well as an array of JSON objects describing each authenticator verified before signing the user in.
+
+### Example SAML Response
 
 ```JSON
 <saml2:AuthnStatement AuthnInstant="2024-08-21T21:22:21.250Z" SessionIndex="id29513242525044581346797160">
@@ -52,7 +58,7 @@ Claims also provide important context to Okta during policy evaluation. For exam
 </saml2:AuthnStatement>
 ```
 
-#### Payload of the JWT
+### Payload of the JWT
 
 ```JSON
 {
@@ -84,7 +90,7 @@ Claims also provide important context to Okta during policy evaluation. For exam
 
 The data shared between an Okta IdP and an Okta SP is included in the ID token under a new reserved claim name called `okta-auth`. The content is communicated in a JSON Web Token. The entire response is encrypted with a published encryption key from the SP org. You can retrieve it by calling the public endpoint `/api/v1/idps/{idpId}/idp-metadata.xml`.
 
-#### Example ID token
+### Example ID token
 
 ```JSON
 {
@@ -126,39 +132,13 @@ The data shared between an Okta IdP and an Okta SP is included in the ID token u
 }
 ```
 
-## AMR claims sharing flow
-
-<div class="three-quarter">
-
-![Flow diagram that displays the communication between the user, user agent, authorization server, and the Identity Provider](/img/auth/amr-claims-mapping-oidc.png)
-<!-- https://www.figma.com/design/YH5Zhzp66kGCglrXQUag2E/📊-Updated-Diagrams-for-Dev-Docs?node-id=4696-3134&t=vwcppYyoeWOz2kEQ-11
-amr-claims-mapping-oidc.png -->
-
-</div>
-
-1. A user attempts to sign in to an <OpenID Connect> app using an Okta IdP through the browser (user agent).
-2. The browser redirects the user to the Okta `/authorize` endpoint to authenticate.
-3. Okta redirects the user to the Okta IdP.
-4. The IdP authenticates the user.
-5. The identity provider redirects the user to Okta. The identity provider response contains the supported claims.
-
-    > **Note:** Claims are stored in an Okta session and considered during policy evaluation.
-
-6. Okta redirects the user to the browser. The user isn't challenged for MFA if the factors used by the identity provider meet policy requirements.
-7. The browser sends a request to the Okta `/token` endpoint.
-8. Okta responds with the access token and the claims in the ID token.
-
 ## Configure the IdP to send authentication claims
 
-To use claims sharing, there are a few steps to consider. Configure your <> IdP to send authentication claims. Add the `trust claims: true` key and value pair to your IdP update.
+To use claims sharing, there are a few steps to consider. Configure your <type of> IdP to send authentication claims. Add the `trust claims: true` key and value pair to your IdP update.
 
 Alternatively, you can enable the **Trust claims from this provider** checkbox in the Admin Console. See [robs link here]().
 
-### OpenID Connect Identity Provider
-
-
-
-#### Example <> IdP update request
+#### Example <type of> IdP update request
 
 < This request is an example of a SAML IdP update to trust claims. In the `policy` section, the `trust claims: true` key and value pair appears.
 
