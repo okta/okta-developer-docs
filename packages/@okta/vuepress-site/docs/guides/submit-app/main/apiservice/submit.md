@@ -22,7 +22,7 @@ Generate a service app instance in your associated Okta Developer Edition org fo
 
    Your browser redirects to the **Authorize** page in your Okta org.
 
-1. From the Authorize integration page, click **Install and Authorize**.
+1. On the **Authorize** page, click **Install and Authorize**.
 1. Copy the client secret from the dialog and securely store it for your integration test.
 1. Click **Done** to dismiss the dialog.
 1. On the **General** tab, copy the Okta domain and client ID and securely store them for your integration test.
