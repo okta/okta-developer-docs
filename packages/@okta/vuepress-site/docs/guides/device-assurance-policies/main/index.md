@@ -116,11 +116,11 @@ Consider the following:
 * Set the `displayRemediationMode` to `SHOW`.
 
 ```bash
-"gracePeriod": {
-      "type": "BY_DURATION",
-      "expiry": "P30D"
+  "gracePeriod": {
+        "type": "BY_DURATION",
+        "expiry": "P30D"
     },
-"displayRemediationMode": "SHOW"
+  "displayRemediationMode": "SHOW"
 ```
 
 ## Add device assurance to an authentication policy
@@ -134,8 +134,11 @@ Send a PUT request to the `/api/v1/policies/{policyId}/rules` endpoint. Consider
 * Select an authentication policy and use its `id` as the `policyId` in your request. See [List all policies](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/listPolicies). Use the `ACCESS_POLICY` type.
 * Set the value of `priority` to `1`.
 * Set `type` to `ACCESS_POLICY`.
-* Set `device.registered` to `true`.
-* Set the value of `device.assurance.include` to the name of your new device assurance policy. See [Create a device assurance policy](#create-a-device-assurance-policy).
+* In the `device` object, set the following:
+  * `assurance.include` to an array of device assurance policy IDs. See [Create a device assurance policy](#create-a-device-assurance-policy).
+  * `device.managed` to `true`.
+  * `device.registered` to `true`.
+    > **Note:** When the `managed` property is passed, you must also include the `registered` property and set it to `true`.
 
 ```bash
 curl -X POST "https://${yourOktaDomain}/api/v1/policies/{policyId}/rules" \
@@ -148,9 +151,10 @@ curl -X POST "https://${yourOktaDomain}/api/v1/policies/{policyId}/rules" \
   “Status”: "ACTIVE",
   "conditions": {
     "device": {
+      "managed": "true",
       "registered": “true”,
       "assurance": {
-        "include": “Device assurance iOS”
+        "include": "dae3m8o4rWhwReDeM1c5"
       }
     }
   },
