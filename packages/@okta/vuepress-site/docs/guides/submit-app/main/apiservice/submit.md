@@ -25,7 +25,7 @@ Generate a service app instance in your associated Okta Developer Edition org fo
 1. From the Authorize integration page, click **Install and Authorize**.
 1. Copy the client secret from the dialog and securely store it for your integration test.
 1. Click **Done** to dismiss the dialog.
-1. On the integration details page, copy the Okta domain and client ID and securely store them for your integration test.
+1. On the **General** tab, copy the Okta domain and client ID and securely store them for your integration test.
 
 Use the credentials from your app instance (Okta domain, client ID, and secret) to test your service app integration with Okta. Configure these app instance credentials ([customer credentials](/docs/guides/build-api-integration/main/#save-customer-credentials)) in your test service app. Trigger a process from your test service app to access Okta endpoints and verify that the process works as intended.
 
