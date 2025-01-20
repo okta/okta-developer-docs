@@ -20,7 +20,7 @@ Generate a service app instance in your associated Okta Developer Edition org fo
 
 1. From the **API Service** tab, click **Test in Okta** at the bottom of your page.
 
-   Your browser redirects to the Authorize integration page in your Okta org.
+   Your browser redirects to the **Authorize** page in your Okta org.
 
 1. From the Authorize integration page, click **Install and Authorize**.
 1. Copy the client secret from the dialog and securely store it for your integration test.
