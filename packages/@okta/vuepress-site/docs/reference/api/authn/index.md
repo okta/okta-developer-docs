@@ -335,7 +335,7 @@ The user is assigned to a **sign-on policy** that requires additional verificati
         "timeZone": "America/Los_Angeles"
       }
     },
-    "factors": [
+    "factor": [
       {
         "id": "rsalhpMQVYKHZKXZJQEW",
         "factorType": "token",
@@ -469,7 +469,7 @@ The user is assigned to an **MFA Policy** that requires enrollment during sign-i
         "timeZone": "America/Los_Angeles"
       }
     },
-    "factors": [
+    "factor": [
       {
         "factorType": "token",
         "provider": "RSA",
@@ -689,7 +689,7 @@ curl -v -X POST \
         "timeZone": "America/Los_Angeles"
       }
     },
-    "factors": [
+    "factor": [
       {
         "factorType": "question",
         "provider": "OKTA",
@@ -1240,7 +1240,7 @@ The user is assigned to an MFA Policy that requires enrollment during the sign-i
             "timeZone":"America/Los_Angeles"
          }
       },
-      "factors":[
+      "factor":[
          {
             "factorType":"sms",
             "provider":"OKTA",
@@ -1316,7 +1316,7 @@ User is assigned to a global session policy or an authentication policy that req
             "timeZone":"America/Los_Angeles"
          }
       },
-      "factors":[
+      "factor":[
          {
             "id":"opf1cla0gggOBWxuC1d8",
             "factorType":"push",
@@ -1585,7 +1585,7 @@ The user is assigned to an MFA Policy that requires enrollment during the sign-i
             "timeZone":"America/Los_Angeles"
          }
       },
-      "factors":[
+      "factor":[
          {
             "factorType":"sms",
             "provider":"OKTA",
@@ -1661,7 +1661,7 @@ User is assigned to a Sign-on Policy or App Sign-on Policy that requires additio
             "timeZone":"America/Los_Angeles"
          }
       },
-      "factors":[
+      "factor":[
          {
             "id":"opf1cla0gggOBWxuC1d8",
             "factorType":"push",
@@ -4730,7 +4730,7 @@ curl -v -X POST \
         "timeZone": "America/Los_Angeles"
       }
     },
-    "factors": {
+    "factor": {
       "id": "opfh52xcuft3J4uZc0g3",
       "factorType": "push",
       "provider": "OKTA",
@@ -4805,7 +4805,7 @@ curl -v -X POST \
         "timeZone": "America/Los_Angeles"
       }
     },
-    "factors": {
+    "factor": {
       "id": "opfh52xcuft3J4uZc0g3",
       "factorType": "push",
       "provider": "OKTA",
@@ -4908,7 +4908,7 @@ curl -v -X POST \
         "timeZone": "America/Los_Angeles"
       }
     },
-    "factors": {
+    "factor": {
       "id": "opfh52xcuft3J4uZc0g3",
       "factorType": "push",
       "provider": "OKTA",
@@ -4982,7 +4982,7 @@ curl -v -X POST \
         "timeZone": "America/Los_Angeles"
       }
     },
-    "factors": {
+    "factor": {
       "id": "opfh52xcuft3J4uZc0g3",
       "factorType": "push",
       "provider": "OKTA",
@@ -5551,7 +5551,7 @@ curl -v -X POST \
 
       }
     },
-    "factors":[
+    "factor":[
       {
         "id":"fwfbaopNw5CCGJTu20g4",
         "factorType":"webauthn",
@@ -6992,7 +6992,7 @@ curl -v -X POST \
         "timeZone": "America/Los_Angeles"
       }
     },
-    "factors": [
+    "factor": [
       {
         "factorType": "token",
         "provider": "RSA",
