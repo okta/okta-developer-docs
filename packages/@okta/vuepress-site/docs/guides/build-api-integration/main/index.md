@@ -86,7 +86,7 @@ You must store these credentials for each customer to allow your integration to 
 
 ### Scope selection
 
-Specify the resources and actions that your API service app requires to do its job. A scope corresponds to a resource that you want to access in the Okta API (users, logs, and so on) and a level of access (read or manage). Use the least-privilege principle and authorize the fewest scopes needed for your app to function correctly. See the list of available Okta [Scopes and supported endpoints](/docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints).
+Specify the resources and actions that your API service app requires to do its job. A scope corresponds to a resource that you want to access in the Okta API (users, logs, and so on) and a level of access (read or manage). Use the least-privilege principle and authorize the fewest scopes needed for your app to function correctly. See the list of available Okta [OAuth 2.0 Scopes](https://developer.okta.com/docs/api/oauth2/).
 
 There are two types of scope: read and manage. Read scopes can only view resources, while manage scopes can read, create, update, and delete resources. You don't need to request a read scope when you request a manage scope because manage scopes already include read access.
 
