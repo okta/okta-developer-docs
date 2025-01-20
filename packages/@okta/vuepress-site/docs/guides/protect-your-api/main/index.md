@@ -199,7 +199,7 @@ Make an HTTP POST request to [/token](https://developer.okta.com/docs/api/openap
 
    <div class="full border">
 
-   ![A image of a Postman call to /token and receiving an access token.](/img/authorization/postman-get-access-token.png)
+   ![An image of a Postman call to the /token endpoint and receiving an access token.](/img/authorization/postman-get-access-token.png)
 
    </div>
 
