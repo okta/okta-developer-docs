@@ -129,7 +129,7 @@ Enable [Cross-Origin Resource Sharing (CORS)](https://fetch.spec.whatwg.org/#htt
 You can now test if your endpoint security works as intended. To do this, complete the following steps:
 
 1. [Create an API services integration](#create-an-api-services-integration) to represent another machine or service attempting to make requests to the API.
-1. [Create a custom scope for the API](#create-a-custom-scope-for-the-api) for authorization server to assign to the API integration.
+1. [Create a custom scope for the API](#create-a-custom-scope-for-the-api) for the authorization server to assign to the API integration.
 1. [Run your API](#run-your-api).
 1. Use [Postman](https://www.getpostman.com/apps) to
    1. [Request an access token for the API](#request-an-access-token-for-the-api).
