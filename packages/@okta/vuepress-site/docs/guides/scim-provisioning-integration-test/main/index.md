@@ -19,6 +19,8 @@ This second suite of [Runscope](https://www.runscope.com) tests checks that your
 
 Okta developer support must activate the Profile Sourcing capability (formerly known as Profile Mastering) for developer orgs. To temporarily activate this feature for your org, contact <developers@okta.com> with the name of your app integration and your org ID. Developer support automatically removes the access after two weeks. If you need a longer period to test your integration, include your time requirements in your email.
 
+> **Note:** If you decide to submit your integration to the OIN, contact <oin@okta.com> to enable profile sourcing in your integration. This can only be done after Okta developer support activates your org with this capability. See [Submit an SCIM integration with the OIN Wizard](/docs/guides/submit-oin-app/scim/main/).
+
 ## Runscope tests for CRUD
 
 If you're not familiar with Runscope, follow the detailed instructions in the [Test your SCIM API](/docs/guides/scim-provisioning-integration-prepare/main/#test-your-scim-api) topic to get started.
