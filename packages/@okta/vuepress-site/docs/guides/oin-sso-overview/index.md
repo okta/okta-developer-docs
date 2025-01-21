@@ -47,7 +47,7 @@ In a typical scenario, your app relies on Okta to act as a multi-tenant Identity
 
 Within Okta, the concept of a tenant is instantiated as an Okta org. The org is the home for all user identity and access management, such as user store, handling connections, and mapping profile information. Your Okta org is used to authenticate your users for your apps.
 
-In Google Cloud products, the user identity is globally unique across the entire identity namespace through their email address. In Okta the unique identity concept is specific to just within the tenant used to authenticate and authorize. Code your app so that it's aware of what tenant is being used to authenticate that user.
+In Google Cloud products, the user identity is globally unique across the entire identity namespace through their email address. By contrast, in Okta the unique identity concept is specific to just within the tenant used to authenticate and authorize. Code your app so that it's aware of what tenant is being used to authenticate that user.
 
 As an example, `alice.doe@example.com` is a registered Okta user in both company 1 and company 2 Okta tenants, accessed at `https://company1.okta.com` and `https://company2.okta.com`. Your app aims to provide different services for users that are specific to each tenant. You can't assume that the user information is identical for a given user across both tenants. Your app needs to manage user credentials to identify each unique combination of user and tenant.
 
