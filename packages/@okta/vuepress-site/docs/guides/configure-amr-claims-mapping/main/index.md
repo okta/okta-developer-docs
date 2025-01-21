@@ -18,7 +18,7 @@ This guide explains how to configure an <OpenID Connect Identity Provider (IdP)>
 #### What you need
 
 * [Okta Developer Edition org](https://developer.okta.com/signup)
-* An existing <type of IdP> that's able to send authentication claims to Okta. ??This guide focuses on the Okta-to-Okta app use case.??
+* An existing <type of IdP> that's able to send authentication claims to Okta.
 * The **Org2Org Claims Sharing** feature enabled for both orgs. To enable, go to **Settings | Features**, locate the feature and enable.
 
 ---
@@ -29,17 +29,17 @@ Claims sharing is the exchange of identity-related information (claims) between 
 
 Authentication claims sharing allows an admin to configure their Okta org to trust claims from <type of IdPs> during SSO. Sharing claims also allows Okta to interpret the authentication context from an IdP. This helps eliminate duplicate factor challenges during user authentication and helps improve security posture.
 
-Claims provide important context to Okta during policy evaluation. For example, these claims give Okta a better understanding of which factors were used by the IdP to verify the user's identity. They do this by conveying all the information from the IdP that's needed to make policy decisions in the SP. The Okta session updates the details of the authentications. This creates a seamless and secure user experience, which reduces friction and boosts productivity to achieve end-to-end security.
+Claims sharing provides important context to Okta during policy evaluation. For example, these claims give Okta a better understanding of which factors were used by the IdP to verify the user's identity. Claims do this by conveying all the information from the IdP that's needed to make policy decisions in the SP. The Okta session updates the details of the authentications. This creates a seamless and secure user experience, which reduces friction and boosts productivity to achieve end-to-end security.
 
-org2org APP NOT org2org IdP
+> **Note:** With this claims sharing release, Okta supports only claims sharing between an Okta IdP org and an Okta SP org. This guide discusses how to configure authentication claims sharing for this use case.
 
-## Okta-to-Okta and authentication claims sharing
+## <oktasaml> Authentication claims sharing
 
-Okta-to-Okta, refers to a deployment model where the IdP and Service Provider (SP) are both Okta orgs.
+When you use SAML with claims sharing, the data shared between an Okta IdP and an Okta SP is included in the <SAMLResponse> in a new reserved tag in the `Extension` section called `OktaAuth`. The content is communicated in a JSON Web Token embedded within the `Assertion` response. The Okta authentication JWT payload is securely encrypted with a published encryption key from the SP org. The payload contains information about authentication performed at the Okta IdP org.
 
-The data shared between an Okta IdP and an Okta SP is included in the <SAMLResponse> in a new reserved tag in the `Extension` section called `OktaAuth`. The content is communicated in a JSON Web Token. The entire response is encrypted with a published encryption key from the SP org. You can retrieve it by calling the public endpoint `/api/v1/idps/{idpId}/idp-metadata.xml`. The payload of the JWT contains a boolean that indicates whether or not MFA was done in the IdP as well as an array of JSON objects describing each authenticator verified before signing the user in.
+### Example <SAML> IdP response
 
-### Example SAML Response
+> **Note:** The `OktaAuth` JWT payload is redacted.
 
 ```JSON
 <saml2:AuthnStatement AuthnInstant="2024-08-21T21:22:21.250Z" SessionIndex="id29513242525044581346797160">
@@ -49,7 +49,7 @@ The data shared between an Okta IdP and an Okta SP is included in the <SAMLRespo
             <AuthenticationContextDeclaration xmlns="urn:okta:saml:2.0:OktaAuth">
                 <Extension>
                     <OktaAuth xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">
-                        eyJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiUlNBLU9BRVAtMjU2In0.rClRoDXjtYFBv8hTSSjnOsRaQXsYZty25vYKgyTsWP6tUHgC5w34fA8UC2eEu0tgqKaP16K0DmJKj2RaB30pqPf_FvKkWGgp6NZI_1vA6ZLK0mmDXNzaYGsiRkXvgVCUcYP6O1J47E1OmaEQctcDXRdEvNLXNlcmykZ19h6UzO6DoDxBde0wE_GOTXW_eRdyg86T-ztYmaVEPQu2c6smwuXIwRuEp-tiq-gUpxe6-bkw-E75y9Mecs0tSd36n5z4KusBXZ96PpOVi0bC6Wk7aJX-XW5mnOXvdEpbPgymGnTP784x7_zdJlEiUZChPMDPr3JDpYXAMVe1yYmjaeX6xQ.MY6P5HIRCperbtCl.nXqsU19voMKXScu8qKDO5eRLWDtmNMWOSQ1zP2Vfmn2ZlLLtWiJaoNuWMn5IQspTQLArbWejsH_eXZHDeyA9eKQD2GPH4q0fF9B7vQi6hqRx1-SGQKNJi7NTD-kTiGy6xGp0H6CDA9kstQ3GFXBF0sM4ZanhDJuIh8EsdOyWZjOOjUiS6XrQkm0r2hH0iwgmLoyUeBynLzggUwUP3hi_ReFlNdQtI5pRvmGCv4Xf7_ofwAAo-OLOBXSr4ciyNdAIo-kuyFBGAstqh0-35pZ54jIjQJ3Biye40yqS9EWUrBhcBhz-JVsVgizC58QYxVFVlWVNL-M4DMu56u_VPIbcmW_Vzui1TQaVlqFSo1NKmO9aeRNF2ItV0ljxNkojYkJN07rpuuibAgdqjQolcxlY1-ucrgG-C7u936zOZPoHtswN3q9Bq5L5jKV2vwEnhu7BSRG0rGhyeikEJZzZ9MqDZxn7D4VZ7Mj6_l01f9LpUUHVQgPd6X1vUHqdaW4fdja86unF_i_FlPN7Rp__hqEzgloDDA7aVybPIqwkNCv2PY226iUuTDnooAOMQLNH555qqj0a4yIME-0zAN7m93RsS9fjrAhKbL3WBwwxF9RijgJFCxLjUiDIjgVaMM_E37e0tikjqhmmImKhyk00oirbZNE5g1S7hilAJPE5S5gVb8v3buO894JBdOUfPgNjClrPaJ0GAvsjXpNm1nUKpOaycWmTyuDJdePVDvk6UztjjrjWLZNaB7WDq22F8VRjsxD6cwGZm1GxI4kDEb_vZrVihLYGn9295_IwfPNrixIcsIMBoaaMsCZDDvBuThkCAv8d2AwpnbiE1GKDPNDA8GShrjZmkAc6tPuUKZoB7LVfMpPurcNaZQyWKtwVRZWM_TkBS_ecz2aw0hIkaF0L1cqPR85fTW1aC-RK_yZRcGw7pLcGUSgTvsMFPzEnexCSlntRJ3EUbcd4w8LoxYTuE1n67yJi9Dik2DSfbgPdK9GT_fs0cN8-Gc65FgYfUvP5pttWh5dHozzM2CfKOBk2s_jZ5ZqyeXkgL9G6djlAEG1GN8M7JrbQR0PzHePLrq5DfNLY4JlQzHbWG7UaGKjrXRdMm3Tp6cg_EWqgTVPVTpv8QVUJXm8LJSziTNcWQfCw_CG1hLrfvrbDOE1s8aIS_gViH9-gUAar5AhxGo5sz9AEHZeIC3sklaQ-pIJq2KaDRUXktQEBbMEY5o6uWdn2Xy7nOkEEj4Cj0dtsJHtBSB12nnQYrtUYO68uuax_BKXQg3MCAArtK9jB3u5WTXf3IUSZUCFOGMyGBAa0TeRPsJcd9t2oSUxZUV8JjLDnPlaf9RIK6_oKiCXpKZwR9YMXMOxlLsTzg3yBo1HRkOqRvc9R0DYG-ghoHFHHkjPvfQUmAPX-t6qycAx848tpTI138ZtGf413z1NzmUjxtsvsBz1ydP6ZZIQXc1e8__KCPR8IGNcITHTUKRMh3Nc9CgLY2f0GGrtedAwmBWYNMGCoaR_wWrjZ8tF-q3owLn8ja-KGMVJEWQ7iDHKR0gvvYept2-cDpcWGxg0Bzvh_AzZDv31qz-DPeB0ahQsVmC1uJIWOkKBa3SGIRyuqHz2rztkLn6dJdSZBPTRybDCLU9lu17hX-T-I50l8D9FTmCJTTcm1zszxecRXe6VsUBoUeeJn6Zk8xpY35fpPnUGDMdbrJnZ1Hc2CTp4q2Ym1yw7zfVR0mPVbbaZXir81rGkrD4MqCUQqUQuPT6chOShY59TR499c9THnRCsuIVZhg4u4-j0L2cfL-9EhxHanB86nEKquRCJ-Fisf77HdgHZhh52htBd7MOYRU6GXuJh9nwW2l-RppfM.wzZ_mCBoNwot00-l1wCSWg
+                        ...encrypted payload...
                     </OktaAuth>
                 </Extension>
             </AuthenticationContextDeclaration>
@@ -58,39 +58,13 @@ The data shared between an Okta IdP and an Okta SP is included in the <SAMLRespo
 </saml2:AuthnStatement>
 ```
 
-### Payload of the JWT
+## <oktaoidc> Authentication claims sharing
 
-```JSON
-{
-  "mfaVerified": "true",
-  "factorVerifications": [
-    {
-      "factor": {
-        "type": "AUTHENTICATOR",
-        "displayName": "Phone",
-        "status": "ACTIVE",
-        "authenticatorType": "phone",
-        "methodType": "sms",
-        "authenticatorKeyName": "phone_number",
-        "profile": {
-          "phoneNumber": "+1 XXX-XXX-2282"
-        },
-        "properties": [],
-        "propertiesToVerify": [],
-        "propertiesRequiredToVerify": [],
-        "factorClassesToBeChallengedByThisMethod": [],
-        "usableForRecoveryOnly": false,
-        "userVerificationKeyUnavailable": false
-      },
-      "verificationTimestamp": 1724277328376
-    }
-  ]
-}
-```
-
-The data shared between an Okta IdP and an Okta SP is included in the ID token under a new reserved claim name called `okta-auth`. The content is communicated in a JSON Web Token. The entire response is encrypted with a published encryption key from the SP org. You can retrieve it by calling the public endpoint `/api/v1/idps/{idpId}/idp-metadata.xml`.
+When you use SAML with claims sharing, the data shared between an Okta IdP and an Okta SP is included in the ID token under a new reserved claim name called `okta-auth`. The `okta_auth` payload is in JWT format within the ID token. The entire Okta authentication JWT payload is securely encrypted with a published encryption key from the SP org. The payload contains information about authentication performed at the Okta IdP org.
 
 ### Example ID token
+
+> **Note:** The `okta_auth` payload is redacted.
 
 ```JSON
 {
@@ -104,43 +78,21 @@ The data shared between an Okta IdP and an Okta SP is included in the ID token u
   "iss": "https://idp.okta.com",
   "nonce": "3byzgGdVLxjNUQ3X73rYgQBUc_DO4AJ2",
   "sub": "jon.smith@example.com",
-  "okta_auth": {
-      "mfaVerified": "true",
-      "factorVerifications": [
-        {
-          "factor": {
-            "type": "AUTHENTICATOR",
-            "displayName": "Phone",
-            "status": "ACTIVE",
-            "authenticatorType": "phone",
-            "methodType": "sms",
-            "authenticatorKeyName": "phone_number",
-            "profile": {
-                "phoneNumber": "+1 XXX-XXX-2282"
-            },
-            "properties": [],
-            "propertiesToVerify": [],
-            "propertiesRequiredToVerify": [],
-            "factorClassesToBeChallengedByThisMethod": [],
-            "usableForRecoveryOnly": false,
-            "userVerificationKeyUnavailable": false
-          },
-          "verificationTimestamp": 1724277328376
-        }
-      ]
-    }
+  "okta_auth": {...encrypted JWT payload...}
 }
 ```
 
-## Configure the IdP to send authentication claims
+## Configure the Okta IdP to send authentication claims
 
-To use claims sharing, there are a few steps to consider. Configure your <type of> IdP to send authentication claims. Add the `trust claims: true` key and value pair to your IdP update.
+To use claims sharing, there are a few steps to consider. Configure your Okta <type of> IdP to send authentication claims. Add the `trust claims: true` key and value pair to your IdP update.
 
 Alternatively, you can enable the **Trust claims from this provider** checkbox in the Admin Console. See [robs link here]().
 
-#### Example <type of> IdP update request
+#### Example Okta <type of> IdP update request
 
-< This request is an example of a SAML IdP update to trust claims. In the `policy` section, the `trust claims: true` key and value pair appears.
+This request is an example of an Okta SAML IdP update to trust claims. In the `policy` section, the `trust claims: true` key and value pair appears.
+
+> **Note:** The request example is truncated for brevity.
 
 ```JSON
 {
@@ -148,7 +100,7 @@ Alternatively, you can enable the **Trust claims from this provider** checkbox i
     "status":"ACTIVE",
     "features":[],
     "id":"0oa78rktqwQbG2m9O0g4",
-    "orgUrl":"http://sp-oie.okta1.com:1802",
+    "orgUrl":"http://{yourOktaDomain}",
     "name":"Org2Org",
     "created":null,
     "lastUpdated":"2025-01-15T19:45:03.000Z",
@@ -162,7 +114,7 @@ Alternatively, you can enable the **Trust claims from this provider** checkbox i
                 "binding":"HTTP-POST",
                 "type":"INSTANCE"},
             "sso":{
-                "url":"http://idp-oie.okta1.com:1802/app/okta_org2org/exk78hrRdLRNV4EZY0g4/sso/saml",
+                "url":"http://{yourOktaDomain}/app/okta_org2org/exk78hrRdLRNV4EZY0g4/sso/saml",
                 "binding":"HTTP-POST",
                 "destination":"http://okta.com"
                 }
@@ -189,8 +141,8 @@ Alternatively, you can enable the **Trust claims from this provider** checkbox i
         },
         "credentials":{
             "trust":{
-                "issuer":"http://www.okta.com/exk78hrRdLRNV4EZY0g4",
-                "audience":"https://www.okta.com/saml2/service-provider/spjhiydxfezknoimtoye",
+                "issuer":"http://{yourOktaDomain}/exk78hrRdLRNV4EZY0g4",
+                "audience":"https://{yourOktaDomain}/saml2/service-provider/spjhiydxfezknoimtoye",
                 "kid":"eb5c22a1-c2c2-484b-839f-2ca6d29fd519",
                 "revocation":null,
                 "revocationCacheLifetime":0
@@ -208,55 +160,13 @@ Alternatively, you can enable the **Trust claims from this provider** checkbox i
                 "profileMaster":false,
                 "groups":{"action":"NONE"}
             },
-    "maxClockSkew":120000,
-    "subject":{
-        "userNameTemplate":{
-            "template":"idpuser.subjectNameId"},
-        "filter":"",
-        "matchType":"USERNAME",
-        "matchAttribute":null
-        },
-    "mapAMRClaims":false
-    },
-    "_links":{
-        "acs":{
-            "hints":{
-                "allow":["POST"]
-                },
-            "href":"http://sp-oie.okta1.com:1802/sso/saml2/0oa78rktqwQbG2m9O0g4",
-        "type":"application/xml"
-        },
-    "metadata":{
-        "hints":{
-            "allow":["GET"]
-        },
-        "href":"http://sp-oie.okta1.com:1802/api/v1/idps/0oa78rktqwQbG2m9O0g4/metadata.xml",
-        "type":"application/xml"
-        },
-    "users":{
-        "hints":{
-            "allow":["GET"]
-            },
-        "href":"http://sp-oie.okta1.com:1802/api/v1/idps/0oa78rktqwQbG2m9O0g4/users"
-    },
-    "authorize":{
-        "hints":{
-            "allow":[]
-            }
-        },
-    "clientRedirectUri":{
-        "hints":{"allow":[]}
-        },
-    "deactivate":{
-        "href":"http://sp-oie.okta1.com:1802/api/v1/idps/0oa78rktqwQbG2m9O0g4/lifecycle/deactivate",
-        "hints":{"allow":["POST"]}
-        }
-    }
+   .........
 }
 ```
->
 
 #### Example update response
+
+> **Note:** The request example is truncated for brevity.
 
 ```JSON
 {
@@ -269,7 +179,7 @@ Alternatively, you can enable the **Trust claims from this provider** checkbox i
         "type": "SAML2",
         "endpoints": {
             "sso": {
-                "url": "http://idp-oie.okta1.com:1802/app/okta_org2org/exk78hrRdLRNV4EZY0g4/sso/saml",
+                "url": "http://{yourOktaDomain}/app/okta_org2org/exk78hrRdLRNV4EZY0g4/sso/saml",
                 "binding": "HTTP-POST",
                 "destination": "http://okta.com"
             },
@@ -341,36 +251,171 @@ Alternatively, you can enable the **Trust claims from this provider** checkbox i
         "mapAMRClaims": false,
         "trustClaims": true
     },
-    "type": "SAML2",
+   .....
+}
+```
+
+### Update OIDC IdP request example
+
+```JSON
+{
+    "id": "0oa3q52z4b7iDGJfh806",
+    "issuerMode": "DYNAMIC",
+    "name": "Org2Org OIDC IdP",
+    "status": "ACTIVE",
+    "created": "2025-01-14T21:56:04.000Z",
+    "lastUpdated": "2025-01-17T20:01:09.000Z",
+    "protocol": {
+        "type": "OIDC",
+        "endpoints": {
+            "authorization": {
+                "url": "https://cmdip-curd-ct18.clouditude.com/oauth2/v1/authorize",
+                "binding": "HTTP-REDIRECT"
+            },
+            "token": {
+                "url": "https://cmdip-curd-ct18.clouditude.com/oauth2/v1/token",
+                "binding": "HTTP-POST"
+            },
+            "jwks": {
+                "url": "https://cmdip-curd-ct18.clouditude.com/oauth2/v1/keys",
+                "binding": "HTTP-REDIRECT"
+            }
+        },
+        "scopes": [
+            "email",
+            "openid",
+            "profile"
+        ],
+        "issuer": {
+            "url": "https://cmdip-curd-ct18.clouditude.com"
+        },
+        "credentials": {
+            "client": {
+                "client_id": "0oa3q52oiB4UBbQFT806",
+                "client_secret": "X7i4OV8UXUkrqIhr2vFs0RzeYFy3AUmXe_huqfgMw-eiw1KMUUCEs7X7YXrR_9Sq"
+            }
+        }
+    },
+    "policy": {
+        "provisioning": {
+            "action": "AUTO",
+            "profileMaster": false,
+            "groups": {
+                "action": "NONE"
+            },
+            "conditions": {
+                "deprovisioned": {
+                    "action": "NONE"
+                },
+                "suspended": {
+                    "action": "NONE"
+                }
+            }
+        },
+        "accountLink": {
+            "filter": null,
+            "action": "AUTO"
+        },
+        "subject": {
+            "userNameTemplate": {
+                "template": "idpuser.email"
+            },
+            "filter": "",
+            "matchType": "USERNAME",
+            "matchAttribute": ""
+        },
+        "maxClockSkew": 0,
+        "trustClaims": true
+    },
+    "type": "OIDC"
+}
+```
+
+### Update OIDC IdP response example
+
+```JSON
+{
+    "id": "0oa3q52z4b7iDGJfh806",
+    "issuerMode": "DYNAMIC",
+    "name": "Org2Org OIDC IdP",
+    "status": "ACTIVE",
+    "created": null,
+    "lastUpdated": "2025-01-21T19:52:54.000Z",
+    "protocol": {
+        "type": "OIDC",
+        "endpoints": {
+            "authorization": {
+                "url": "https://cmdip-curd-ct18.clouditude.com/oauth2/v1/authorize",
+                "binding": "HTTP-REDIRECT"
+            },
+            "token": {
+                "url": "https://cmdip-curd-ct18.clouditude.com/oauth2/v1/token",
+                "binding": "HTTP-POST"
+            },
+            "jwks": {
+                "url": "https://cmdip-curd-ct18.clouditude.com/oauth2/v1/keys",
+                "binding": "HTTP-REDIRECT"
+            }
+        },
+        "scopes": [
+            "email",
+            "openid",
+            "profile"
+        ],
+        "issuer": {
+            "url": "https://cmdip-curd-ct18.clouditude.com"
+        },
+        "credentials": {
+            "client": {
+                "client_id": "0oa3q52oiB4UBbQFT806",
+                "client_secret": "X7i4OV8UXUkrqIhr2vFs0RzeYFy3AUmXe_huqfgMw-eiw1KMUUCEs7X7YXrR_9Sq"
+            }
+        }
+    },
+    "policy": {
+        "provisioning": {
+            "action": "AUTO",
+            "profileMaster": false,
+            "groups": {
+                "action": "NONE"
+            },
+            "conditions": {
+                "deprovisioned": {
+                    "action": "NONE"
+                },
+                "suspended": {
+                    "action": "NONE"
+                }
+            }
+        },
+        "accountLink": {
+            "filter": null,
+            "action": "AUTO"
+        },
+        "subject": {
+            "userNameTemplate": {
+                "template": "idpuser.email"
+            },
+            "filter": "",
+            "matchType": "USERNAME",
+            "matchAttribute": ""
+        },
+        "maxClockSkew": 0,
+        "trustClaims": true
+    },
+    "type": "OIDC",
     "_links": {
-        "metadata": {
-            "href": "http://sp-oie.okta1.com:1802/api/v1/idps/0oa78rktqwQbG2m9O0g4/metadata.xml",
-            "type": "application/xml",
+        "authorize": {
+            "href": "https://cssp-ct18.clouditude.com/oauth2/v1/authorize?idp=0oa3q52z4b7iDGJfh806&client_id={clientId}&response_type={responseType}&response_mode={responseMode}&scope={scopes}&redirect_uri={redirectUri}&state={state}&nonce={nonce}",
+            "templated": true,
             "hints": {
                 "allow": [
                     "GET"
                 ]
             }
         },
-        "acs": {
-            "href": "http://sp-oie.okta1.com:1802/sso/saml2/0oa78rktqwQbG2m9O0g4",
-            "type": "application/xml",
-            "hints": {
-                "allow": [
-                    "POST"
-                ]
-            }
-        },
-        "users": {
-            "href": "http://sp-oie.okta1.com:1802/api/v1/idps/0oa78rktqwQbG2m9O0g4/users",
-            "hints": {
-                "allow": [
-                    "GET"
-                ]
-            }
-        },
-        "deactivate": {
-            "href": "http://sp-oie.okta1.com:1802/api/v1/idps/0oa78rktqwQbG2m9O0g4/lifecycle/deactivate",
+        "clientRedirectUri": {
+            "href": "https://cssp-ct18.clouditude.com/oauth2/v1/authorize/callback",
             "hints": {
                 "allow": [
                     "POST"
@@ -381,75 +426,38 @@ Alternatively, you can enable the **Trust claims from this provider** checkbox i
 }
 ```
 
-### Supported AMR values by authenticator type
+## FAQ
 
-The following table describes the AMR values that Okta supports:
+### What happens if my IdP isn't an Okta IdP?
 
-* **Authenticator key**: Identifies an authenticator that you can add or remove using the Admin Console (**Security** > **Authenticators**).
-* **Authenticator type**: Describes the type of authenticator. These attributes are especially useful in situations where there are apps and security keys being used together in an authentication flow.
-* **Method type**: Defines the security method used by the authenticator.
-* **AMR value**: Lists the supported AMR values for each authenticator.
-* **Factor class**: Describes the type of authenticator factor.
+This claims sharing version supports only Okta IdPs and SPs.
 
-| Authenticator key            | Authenticator type        | Method type       | AMR value                             | Factor class          |
-| :--------------------------- | :------------------------ | :---------------- | :------------------------------------ | :-------------------- |
-| `okta_password`                | `password`                  | `password`          | `pwd`                                   | Knowledge             |
-| `security_question`            | `security_question`         | `security_question` | `kba`                                   | Knowledge             |
-| `okta_email`                   | `email`                     | `email`             | `email`                                 | Possession            |
-| `phone_number`                 | `phone`                     | `sms`               | `sms`                                   | Possession            |
-|                              |                           | `voice`             | `tel`                                   | Possession            |
-| `duo`                         | `app`                       | `duo`               | `duo`                                   | Possession            |
-| `symantec_vip`                 | `app`                       | `otp`               | `symantec`                              | Possession            |
-| `google_otp`                   | `app`                       | `otp`               | `google_otp`                            | Possession            |
-| `okta_verify`                  | `app`                       | `totp`              | `okta_verify`, `otp`                      | Possession            |
-|                              |                           | `push`              | `okta_verify`, `swk`                      | Possession, Inherence |
-|                              |                           | `signed_nonce`      | `okta_verify`, `phr`                      | Possession, Inherence |
-| `custom_app`                   | `app`                       | `push`              | `swk`                                  | Possession, Inherence |
-| `webauthn`                     | `security_key`              | `webauthn`          | `pop`                                   | Possession, Inherence |
-| `onprem_mfa`                   | `security_key`              | `otp`               | `oauth_otp`                             | Possession            |
-| `rsa_token`                    | `security_key`              |                   | `rsa`                                   | Possession            |
-| `yubikey_token`                | `security_key`              |                   | `yubikey`                               | Possession            |
-| `custom_otp`                   | `security_key`              |                   | `otp`                                   | Possession            |
-| `external_idp`                 | `federated`                 | `idp`               | `fed`                                   | Possession            |
-| `smart_card_idp`               | `federated`                 | `cert`              | `sc` + `swk`, more options: `hwk` (replaces `swk`), `pin`,`mfa`    | Possession, Knowledge |
+### What type of authenticators from my Okta IdP can the Okta SP accept?
 
-### Okta-to-Okta
+All authenticators that are natively performed on the Okta IdP are accepted. For example, WebAuthN, password, Okta Verify, Okta FastPass, SMS, Email, and so on. If you use any custom authenticators for MFA, leveraging another IdP or smart card, then that authenticator isn't supported by this claims sharing version.
 
-Okta-to-Okta (Org2Org), also known as hub and spoke, refers to a deployment model where the IdP and Service Provider (SP) are both Okta orgs. Use the [Add an External Identity Provider guide for Okta-to-Okta](/docs/guides/add-an-external-idp/oktatookta/main/) to configure Okta-to-Okta orgs for AMR claims mapping.
+### What happens when I have the deprecated claims mapping feature enabled in my org?
 
-<AMROktatoOkta/>
+When you enable the new **Org2Org Claims Sharing** feature, that takes precedence over the deprecated **IdP AMR Claims Mapping**.
 
-#### Use an existing Org2Org app
+### What happens with Protected Actions?
 
-You can configure Okta-to-Okta orgs for AMR claims mapping with existing Org2Org OpenID Connect apps. If you want to force the IdP Okta org to authenticate, clear the **Disable Force Authentication** checkbox in the existing Org2Org app:
+?????
 
-1. In the Admin Console, go to **Applications** > **Applications** and select the Org2Org app that you want to configure.
-1. Select the **Sign On** tab and then click **Edit** in the **Settings** section.
-1. Clear the **Disable Force Authentication** checkbox and click **Save**.
+### How can I enforce factor verification in the authentication policies
 
-### Custom OpenID Connect apps
+Use the **AND User must authenticate with** field and the **AND Possession factor constraints are** field in the rule.
 
-If you're using a custom OpenID Connect app in the Okta IdP org, `amr` claims are sent to the SP by default and no additional configuration is required.
+#### Additional constraints
 
-## Configure Okta
+If you select an option in the **AND Authentication methods** section, Okta has additional constraints:
 
-Configuring an Okta org to receive AMR claims from an external IdP is similar across all IdP types. When you create an IdP in Okta, select **Trust AMR claims from this identity provider**. This enables Okta to evaluate that AMR claims sent in the IdP response meet sign-on policy requirements.
+* **Allow any method that can be used to meet the requirement**: Okta accepts any satisfying authenticator even if it's not configured locally.
+* **Disallow specific authentication methods**: If you specify authentication methods to disallow, then Okta disallows those authentication methods.
+* **Allow specific authentication methods**: If you specify authentication methods to allow, then Okta only considers those authentication methods.
 
-Use one of the following enterprise Identity Provider guides to configure an external IdP:
+After you define these conditions, if you still haven't met the policy requirement, then Okta redirects you to verify any locally configured authenticator. If there is no local authenticator available, or the enrollment policy for a particular authenticator is disabled, then Okta displays an error.
 
-* [OpenID Connect](/docs/guides/add-an-external-idp/openidconnect/main/)
-* [Okta-to-Okta](/docs/guides/add-an-external-idp/oktatookta/main/)
+### What happens when I have a reauthentication scenario?
 
-> **Note:** Ensure that the IdP includes the correct AMR claims in the IdP response and that the claims match the requirements of your sign-on policies. If the claims don't satisfy the requirements, then users can't sign in to the application.
-
-## Troubleshoot
-
-An **Access denied** error occurs because of:
-
-* Improper policy configuration
-* Improper attribute/claim format from the IdP
-* Improper IdP configuration (the IdP didn't challenge a factor that the sign-on policy requires.)
-
-## Limitation
-
-Okta doesn't pass auth requirements to the IdP.
+This claims sharing version doesn't support reauthentication. The user needs to sign out and then sign in.
