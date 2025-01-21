@@ -18,7 +18,7 @@ This guide explains what an API token is, why you need one, and how to create on
 
 #### What you need
 
-[Okta Developer Edition organization](https://developer.okta.com/signup)
+An Okta org
 
 ---
 
