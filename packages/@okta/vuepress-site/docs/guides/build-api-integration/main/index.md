@@ -86,7 +86,7 @@ You must store these credentials for each customer to allow your integration to 
 
 ### Scope selection
 
-Specify the resources and actions that your API service app requires to do its job. A scope corresponds to a resource that you want to access in the Okta API (users, logs, and so on) and a level of access (read or manage). Use the least-privilege principle and authorize the fewest scopes needed for your app to function correctly. See the list of available Okta [Scopes and supported endpoints](/docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints).
+Specify the resources and actions that are required in order for your API service app to work. A scope corresponds to a resource that you want to access in the Okta API (users, logs, and so on) and a level of access (read or manage). Use the least-privilege principle and authorize the fewest scopes needed for your app to function correctly. See the list of available Okta [OAuth 2.0 Scopes](https://developer.okta.com/docs/api/oauth2/).
 
 There are two types of scope: read and manage. Read scopes can only view resources, while manage scopes can read, create, update, and delete resources. You don't need to request a read scope when you request a manage scope because manage scopes already include read access.
 
@@ -110,7 +110,7 @@ To register your API service registration:
 1. Go to the [OIN Manager](https://oinmanager.okta.com/) and click **Start Submission Form**.
 1. Sign in with the credentials of the Okta org you used to build your integration (this is typically your Okta Developer Edition org).
 1. Click **Add New Submission**.
-1. On the **General Settings** tab, specify values in the **App Information**, **Customer Support**, and **Test Account** sections. See [Configure general settings](/docs/guides/submit-app/wfconnector/main/#configure-general-settings) for field descriptions.
+1. On the **General Settings** tab, specify values in the **App Information**, **Customer Support**, and **Test Account** sections. See [Configure general settings](/docs/guides/submit-app/apiservice/main/#configure-general-settings) for field descriptions.
 1. On the **API Service** tab, select **On** from the **API Service support** dropdown menu.
 
    The **API Service Settings** appear, and the **Client Credentials** grant type is selected. This is the only supported grant type for OAuth 2.0 API service integrations.

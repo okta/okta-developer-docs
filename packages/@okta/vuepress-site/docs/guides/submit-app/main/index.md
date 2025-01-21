@@ -6,7 +6,7 @@ meta:
 layout: Guides
 ---
 
-Use this guide to understand the process of submitting a Workflows connector integration to the Okta Integration Network (OIN) using the OIN Manager. This guide also shows you how to update a previously published integration or delete a draft submission.
+Use this guide to understand the process of submitting Workflows connector and API service integrations to the Okta Integration Network (OIN) using the OIN Manager. This guide also shows you how to update a previously published integration or delete a draft submission.
 
 > **Note:** For SSO or Lifecycle Management (LCM) SCIM integrations, use the [OIN Wizard](/docs/guides/submit-oin-app/scim/main/) for a seamless ISV submission experience. Previously submitted SSO and LCM SCIM integrations from the OIN Manager have been migrated to the OIN Wizard. You can edit these published integrations directly in the OIN Wizard and resubmit them to the OIN team. See [Update your integration](/docs/guides/submit-oin-app/scim/main/#update-your-integration).
 
@@ -15,11 +15,12 @@ Use this guide to understand the process of submitting a Workflows connector int
 #### Learning outcomes
 
 * Understand how to submit a new Workflows connector integration to the OIN
-* Understand how to update or delete a previously published integration
+* Understand how to submit a new API service integration to the OIN
+* Understand how to update or delete a previously published integration with the OIN Manager
 
 #### What you need
 
-* A functional integration created and tested in accordance with the [Workflows Connector Builder](https://help.okta.com/okta_help.htm?type=wf&id=ext-connector-builder) guide
+* A functional integration created and tested in accordance with the [Workflows Connector Builder](https://help.okta.com/okta_help.htm?type=wf&id=ext-connector-builder) or the [Build an API service integration](/docs/guides/build-api-integration/) guide
 
 * The various items necessary for submission in accordance with the [OIN submission requirements](/docs/guides/submit-app-prereq/)
 
@@ -29,9 +30,12 @@ Use this guide to understand the process of submitting a Workflows connector int
 
 The [Okta Integration Network (OIN) Manager](https://oinmanager.okta.com) is a submission tool that's connected to your Okta Developer Edition org where you build your Okta integration. Use this tool to submit your integration for verification and publication in the OIN catalog.
 
-### Protocols supported
+### Integrations supported
 
-This guide covers submissions that use the [Workflows Connector Builder](https://help.okta.com/okta_help.htm?type=wf&id=ext-connector-builder).
+This guide covers the following submissions to the OIN Manager:
+
+* Integrations that use the [Workflows Connector Builder](https://help.okta.com/okta_help.htm?type=wf&id=ext-connector-builder)
+* Service app integrations that access your customer tenants through Okta APIs using OAuth 2.0
 
 ### Submission support
 
@@ -53,13 +57,13 @@ Start your integration submission:
 
 1. Open the [OIN Manager](https://oinmanager.okta.com) and click **Start Submission Form**.
 
-1. Sign in to the OIN Manager with your Okta developer org credentials. Ensure that this org contains your app integration for submission.
+1. Sign in to the OIN Manager with your Okta developer org credentials.
 
 1. Click **Add New Submission**.
 
-1. Click **View** beside the name of your integration if you want to review an in-progress submission.
+   * Click **View** beside the name of your integration if you want to review an in-progress submission.
 
-    > **Note:** If you need to update an integration, see [Update your published integration](#update-your-published-integration).
+    > **Note:** If you need to update a published integration, see [Update your published integration](#update-your-published-integration).
 
 1. Define your submission by specifying details in the [General Settings](#configure-general-settings) and [integration type](#configure-integration-type-settings) tabs.
 
@@ -126,9 +130,9 @@ If you need to edit your published integration, use the [OIN Manager](https://oi
 > **Note:** As of release 2024.11.0, use the OIN Wizard to [edit your published SCIM integration](/docs/guides/submit-oin-app/scim/main/#update-your-integration). Previous SCIM integrations submitted through the OIN Manager are now available through the **Your OIN Integrations** dashboard in the Admin Console.
 > If you submitted a SCIM integration through the OIN Manager and the OIN review process hasn't started, resubmitted it in the OIN Wizard.
 
-1. Sign in to the OIN Manager using the credentials for your original developer org.
+1. Sign in to the OIN Manager using the credentials for the original submission Okta Developer Edition org.
 
-    >**Note:** Submit the updated integration using the same developer org that was used to make the original submission, otherwise the Okta OIN team rejects the update.
+    >**Note:** Submit the updated integration using the same Developer Edition org that was used to make the original submission, otherwise the Okta OIN team rejects the update.
 
    The published integration appears on your integrations page.
 
