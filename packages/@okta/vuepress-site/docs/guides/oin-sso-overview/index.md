@@ -41,7 +41,7 @@ Okta supports two protocols for handling federated SSO: OpenID Connect (OIDC) an
 
 ### Okta organization and multi-tenancy
 
-In a typical scenario, your app relies on Okta to act as a multi-tenant Identity Provider (IdP) for your customers' Okta organizations. An [Okta org](/docs/concepts/okta-organizations/) acts as a container that sets hard boundaries for all users, apps, and other entities associated with a single customer. This provides tenant-based isolation. In developing your SSO app integration, the customer’s Okta org serves as the authorization server (OIDC) or as the IdP (SAML).
+In a typical scenario, your app relies on Okta to act as a multi-tenant Identity Provider (IdP) for your customers' Okta orgs. An [Okta org](/docs/concepts/okta-organizations/) acts as a container that sets hard boundaries for all users, apps, and other entities that are associated with a single customer. This provides tenant-based isolation. In developing your SSO app integration, the customer’s Okta org serves as the authorization server (OIDC) or as the IdP (SAML).
 
 #### Tenants in Okta
 
