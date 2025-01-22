@@ -363,6 +363,19 @@ You can reference any Okta User Profile attribute in your email templates.
 | `${verificationToken}` | Available in these templates:</br><ul><li>Email Challenge</li><li>Activation</li><li>Registration - Email Verification</li><li>Change Email Confirmation</li></ul> |
 | `${emailAuthenticationLink}` | Available in Email Challenge |
 | `${email}` | Available in these templates:</br><ul><li>Email Challenge</li><li>Email Factor Verification</li></ul> |
+| `${campaign.campaignName}` |  |
+| `${campaign.campaignID}` |  |
+| `${campaign.approvedReviews}` |  |
+| `${campaign.revokedReviews}` |  |
+| `${campaign.pendingReviews}` |  |
+| `${campaign.formattedEndDate}` |  |
+| `${campaign.successfulRemediations}` |  |
+| `${campaign.manualRemediations}` |  |
+| `${campaign.relativeDue}` |  |
+| `${campaign.assignedBy}` |  |
+| `${campaign.justification}` |  |
+| `${campaign.dueInDays}` |  |
+| `${campaign.endDate}` |  |
 
 ## Use functions for email templates
 
