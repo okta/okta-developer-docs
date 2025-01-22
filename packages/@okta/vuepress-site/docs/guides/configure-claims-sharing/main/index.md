@@ -31,6 +31,55 @@ Authentication claims sharing allows an admin to configure their Okta org to tru
 
 Claims sharing provides important context to Okta during policy evaluation. For example, these claims give Okta a better understanding of which factors were used by the IdP to verify the user's identity. Claims do this by conveying all the information from the IdP that's needed to make policy decisions in the SP. The Okta session updates the details of the authentications. This creates a seamless and secure user experience, which reduces friction and boosts productivity to achieve end-to-end security.
 
+### <oktasaml> IdP authentication claims sharing
+
+When you use SAML with claims sharing, the data shared between an Okta IdP and an Okta SP is included in the <SAMLResponse> in a new reserved tag in the `Extension` section called `OktaAuth`. The content is communicated in a JSON Web Token embedded within the `Assertion` response. The Okta authentication JWT payload is securely encrypted with a published encryption key from the SP org. The payload contains information about authentication performed at the Okta IdP org.
+
+#### Example <SAML> IdP response
+
+> **Note:** The `OktaAuth` JWT payload is redacted.
+
+```JSON
+<saml2:AuthnStatement AuthnInstant="2024-08-21T21:22:21.250Z" SessionIndex="id29513242525044581346797160">
+    <saml2:AuthnContext>
+        <saml2:AuthnContextClassRef>urn:oasis:names:tc:SAML:2.0:ac:classes:X509</saml2:AuthnContextClassRef>
+        <saml2:AuthnContextDecl>
+            <AuthenticationContextDeclaration xmlns="urn:okta:saml:2.0:OktaAuth">
+                <Extension>
+                    <OktaAuth xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">
+                        ...encrypted payload...
+                    </OktaAuth>
+                </Extension>
+            </AuthenticationContextDeclaration>
+        </saml2:AuthnContextDecl>
+    </saml2:AuthnContext>
+</saml2:AuthnStatement>
+```
+
+### <oktaoidc> Authentication claims sharing
+
+When you use SAML with claims sharing, the data shared between an Okta IdP and an Okta SP is included in the ID token under a new reserved claim name called `okta-auth`. The `okta_auth` payload is in JWT format within the ID token. The entire Okta authentication JWT payload is securely encrypted with a published encryption key from the SP org. The payload contains information about authentication performed at the Okta IdP org.
+
+#### Example ID token
+
+> **Note:** The `okta_auth` payload is redacted.
+
+```JSON
+{
+  "aud": "ts1hjc8xh3",
+  "auth_time": 1720481750,
+  "email": "jon.smith@example.com",
+  "exp": 1720482230,
+  "family_name": "Smith",
+  "given_name": "Jon",
+  "iat": 1720481810,
+  "iss": "https://idp.okta.com",
+  "nonce": "3byzgGdVLxjNUQ3X73rYgQBUc_DO4AJ2",
+  "sub": "jon.smith@example.com",
+  "okta_auth": {...encrypted JWT payload...}
+}
+```
+
 ## Configure claims sharing
 
 With this claims sharing release, Okta supports only claims sharing between Okta orgs. This section covers how to configure authentication claims sharing for this use case.
@@ -381,70 +430,18 @@ This request is an example of an Okta SAML IdP update to trust claims. In the `p
 
 To test your integration in the next section, configure a [routing rule](https://help.okta.com/okta_help.htm?id=ext-cfg-routing-rules) for the IdP in the Okta SP org.
 
-## Use the Identity Provider to sign in
+## Use the IdP to sign in
 
 1. To test your configuration, access your Okta SP org using your browser's privacy or incognito mode to avoid false positive or negative results.
-1. On the sign-in page, click the **Sign in with {Name of IdP}** button.
+1. On the Okta sign-in page, click **Sign in with {Name of IdP}**.
 
    If everything is configured properly:
 
    * The user is redirected to the IdP's sign-in page.
-   * The authenticators configured in the authentication policy are used to authentication the user.
-   * After successful authentication, the user is redirected to the redirect URI specified in the Okta , along with an #id_token= fragment in the URL. The value of this parameter is your Okta OpenID Connect ID token.
-If something is configured incorrectly, the authorization response contains error information to help you resolve the issue.
+   * The authenticators configured in the authentication policy prompt the user for additional authentication.
+   * After successful authentication, the user is redirected to the redirect URI specified in the Okta IdP org app.
 
-
-
-## <oktasaml> authentication claims sharing
-
-When you use SAML with claims sharing, the data shared between an Okta IdP and an Okta SP is included in the <SAMLResponse> in a new reserved tag in the `Extension` section called `OktaAuth`. The content is communicated in a JSON Web Token embedded within the `Assertion` response. The Okta authentication JWT payload is securely encrypted with a published encryption key from the SP org. The payload contains information about authentication performed at the Okta IdP org.
-
-### Example <SAML> IdP response
-
-> **Note:** The `OktaAuth` JWT payload is redacted.
-
-```JSON
-<saml2:AuthnStatement AuthnInstant="2024-08-21T21:22:21.250Z" SessionIndex="id29513242525044581346797160">
-    <saml2:AuthnContext>
-        <saml2:AuthnContextClassRef>urn:oasis:names:tc:SAML:2.0:ac:classes:X509</saml2:AuthnContextClassRef>
-        <saml2:AuthnContextDecl>
-            <AuthenticationContextDeclaration xmlns="urn:okta:saml:2.0:OktaAuth">
-                <Extension>
-                    <OktaAuth xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">
-                        ...encrypted payload...
-                    </OktaAuth>
-                </Extension>
-            </AuthenticationContextDeclaration>
-        </saml2:AuthnContextDecl>
-    </saml2:AuthnContext>
-</saml2:AuthnStatement>
-```
-
-## <oktaoidc> Authentication claims sharing
-
-When you use SAML with claims sharing, the data shared between an Okta IdP and an Okta SP is included in the ID token under a new reserved claim name called `okta-auth`. The `okta_auth` payload is in JWT format within the ID token. The entire Okta authentication JWT payload is securely encrypted with a published encryption key from the SP org. The payload contains information about authentication performed at the Okta IdP org.
-
-### Example ID token
-
-> **Note:** The `okta_auth` payload is redacted.
-
-```JSON
-{
-  "aud": "ts1hjc8xh3",
-  "auth_time": 1720481750,
-  "email": "jon.smith@example.com",
-  "exp": 1720482230,
-  "family_name": "Smith",
-  "given_name": "Jon",
-  "iat": 1720481810,
-  "iss": "https://idp.okta.com",
-  "nonce": "3byzgGdVLxjNUQ3X73rYgQBUc_DO4AJ2",
-  "sub": "jon.smith@example.com",
-  "okta_auth": {...encrypted JWT payload...}
-}
-```
-
-
+   If something is configured incorrectly, the authorization response contains error information to help you resolve the issue. See the [FAQ](#faq) section next.
 
 ## FAQ
 
