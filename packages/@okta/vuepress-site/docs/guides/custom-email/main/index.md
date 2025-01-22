@@ -363,19 +363,19 @@ You can reference any Okta User Profile attribute in your email templates.
 | `${verificationToken}` | Available in these templates:</br><ul><li>Email Challenge</li><li>Activation</li><li>Registration - Email Verification</li><li>Change Email Confirmation</li></ul> |
 | `${emailAuthenticationLink}` | Available in Email Challenge |
 | `${email}` | Available in these templates:</br><ul><li>Email Challenge</li><li>Email Factor Verification</li></ul> |
-| `${campaign.campaignName}` |  |
-| `${campaign.campaignID}` |  |
-| `${campaign.approvedReviews}` |  |
-| `${campaign.revokedReviews}` |  |
-| `${campaign.pendingReviews}` |  |
-| `${campaign.formattedEndDate}` |  |
-| `${campaign.successfulRemediations}` |  |
-| `${campaign.manualRemediations}` |  |
-| `${campaign.relativeDue}` |  |
-| `${campaign.assignedBy}` |  |
-| `${campaign.justification}` |  |
-| `${campaign.dueInDays}` |  |
-| `${campaign.endDate}` |  |
+| `${campaign.campaignName}` | Available in these templates:</br><ul><li>Campaign Launched</li><li>Campaign Ended</li><li>Campaign Reminder</li><li>Campaign Overdue Reminder</li><li>Campaign End Date Change Notification</li><li>Reassigned Review</li></ul> |
+| `${campaign.campaignID}` | Available in these templates:</br><ul><li>Campaign Launched</li><li>Campaign Ended</li><li>Campaign Reminder</li><li>Campaign Overdue Reminder</li><li>Campaign End Date Change Notification</li><li>Reassigned Review</li></ul> |
+| `${campaign.approvedReviews}` | Available in these templates:</br><ul><li>Campaign Launched</li><li>Campaign Ended</li><li>Campaign Reminder</li><li>Campaign Overdue Reminder</li><li>Campaign End Date Change Notification</li><li>Reassigned Review</li></ul> |
+| `${campaign.revokedReviews}` | Available in these templates:</br><ul><li>Campaign Launched</li><li>Campaign Ended</li><li>Campaign Reminder</li><li>Campaign Overdue Reminder</li><li>Campaign End Date Change Notification</li><li>Reassigned Review</li></ul> |
+| `${campaign.pendingReviews}` | Available in these templates:</br><ul><li>Campaign Launched</li><li>Campaign Ended</li><li>Campaign Reminder</li><li>Campaign Overdue Reminder</li><li>Campaign End Date Change Notification</li><li>Reassigned Review</li></ul> |
+| `${campaign.formattedEndDate}` | Available in these templates:</br><ul><li>Campaign Launched</li><li>Campaign Ended</li><li>Campaign Reminder</li><li>Campaign Overdue Reminder</li><li>Campaign End Date Change Notification</li><li>Reassigned Review</li></ul> |
+| `${campaign.successfulRemediations}` | Available in these templates:</br><ul><li>Campaign Launched</li><li>Campaign Ended</li><li>Campaign Reminder</li><li>Campaign Overdue Reminder</li><li>Campaign End Date Change Notification</li><li>Reassigned Review</li></ul> |
+| `${campaign.manualRemediations}` | Available in these templates:</br><ul><li>Campaign Launched</li><li>Campaign Ended</li><li>Campaign Reminder</li><li>Campaign Overdue Reminder</li><li>Campaign End Date Change Notification</li><li>Reassigned Review</li></ul> |
+| `${campaign.relativeDue}` | Available in these templates:</br><ul><li>Campaign Launched</li><li>Campaign Ended</li><li>Campaign Reminder</li><li>Campaign Overdue Reminder</li><li>Campaign End Date Change Notification</li><li>Reassigned Review</li></ul> |
+| `${campaign.assignedBy}` | Available in these templates:</br><ul><li>Campaign Launched</li><li>Campaign Ended</li><li>Campaign Reminder</li><li>Campaign Overdue Reminder</li><li>Campaign End Date Change Notification</li><li>Reassigned Review</li></ul> |
+| `${campaign.justification}` | Available in these templates:</br><ul><li>Campaign Launched</li><li>Campaign Ended</li><li>Campaign Reminder</li><li>Campaign Overdue Reminder</li><li>Campaign End Date Change Notification</li><li>Reassigned Review</li></ul> |
+| `${campaign.dueInDays}` | Available in these templates:</br><ul><li>Campaign Launched</li><li>Campaign Ended</li><li>Campaign Reminder</li><li>Campaign Overdue Reminder</li><li>Campaign End Date Change Notification</li><li>Reassigned Review</li></ul> |
+| `${campaign.endDate}` | Available in these templates:</br><ul><li>Campaign Launched</li><li>Campaign Ended</li><li>Campaign Reminder</li><li>Campaign Overdue Reminder</li><li>Campaign End Date Change Notification</li><li>Reassigned Review</li></ul> |
 
 ## Use functions for email templates
 
