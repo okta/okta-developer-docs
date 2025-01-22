@@ -141,7 +141,7 @@ Send a PUT request to the `/api/v1/policies/{policyId}/rules` endpoint. Consider
     > **Note:** When the `managed` property is passed, you must also include the `registered` property and set it to `true`.
 
 ```bash
-curl -X POST "https://${yourOktaDomain}/api/v1/policies/{policyId}/rules" \
+curl -X PUT "https://${yourOktaDomain}/api/v1/policies/${policyId}/rules" \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
