@@ -1,463 +1,173 @@
 ---
-title: Configure claims sharing
-excerpt: Learn how to configure an identity provider to send claims during SSO
+title: Configure AMR claims mapping
+excerpt: Learn how to configure an OpenID Connect Identity Provider to send AMR claims during SSO to your org
 layout: Guides
 ---
 
 <ApiLifecycle access="ea" />
 
-This guide explains how to configure an <OpenID Connect Identity Provider (IdP)> to send authentication claims during Single Sign-On (SSO).
+This guide explains how to configure an OpenID Connect Identity Provider to send Authentication Method Reference (AMR) claims during Single Sign-On (SSO) to your org.
 
 ---
 
 #### Learning outcomes
 
-* Know the purpose of claims sharing
-* Configure your <type of Identity Provider (IdP)> to send authentication claims during SSO
+* Know the purpose of AMR claims
+* Configure your OpenID Connect Identity Provider (IdP) to send AMR claims during SSO
 
 #### What you need
 
-* [Okta Developer Edition org](https://developer.okta.com/signup)
-* An existing <type of IdP> that's able to send authentication claims to Okta.
-* The **Org2Org Claims Sharing** feature enabled for both orgs. To enable, go to **Settings | Features**, locate the feature and enable.
+* [Okta Developer Edition organization](https://developer.okta.com/signup)
+* An existing OpenID Connect Identity Provider (IdP) that's able to send AMR claims to Okta. This can be another Okta org (org2org) or a third party IdP.
+<!-- * The **IdP AMR Claims Mapping** feature enabled for your org. Contact [Okta Support](https://support.okta.com) to enable this EA feature. -->
 
 ---
 
 ## Overview
 
-Claims sharing is the exchange of identity-related information (claims) between different orgs to enable secure access to resources. A claim is a statement made about a user or entity, such as their username, email address, roles, or permissions, that's shared to help determine access rights.
+Authentication Method Reference (AMR) claims mapping allows an admin to configure their Okta org to accept AMR claims from OpenID Connect IdPs during SSO. Mapping AMR claims from third-party IdPs allows Okta to interpret the authentication context from an IdP. This helps eliminate duplicate factor challenges during user authentication.
 
-Authentication claims sharing allows an admin to configure their Okta org to trust claims from <type of IdPs> during SSO. Sharing claims also allows Okta to interpret the authentication context from an IdP. This helps eliminate duplicate factor challenges during user authentication and helps improve security posture.
+AMR claims provide important context to Okta during policy evaluation. For example, AMR claims give Okta a better understanding of which factors were used by the external IdP to verify the user's identity. This creates a more seamless and secure user experience, reduces friction, and boosts productivity.
 
-Claims sharing provides important context to Okta during policy evaluation. For example, these claims give Okta a better understanding of which factors were used by the IdP to verify the user's identity. Claims do this by conveying all the information from the IdP that's needed to make policy decisions in the SP. The Okta session updates the details of the authentications. This creates a seamless and secure user experience, which reduces friction and boosts productivity to achieve end-to-end security.
+### Okta-to-Okta orgs and AMR claims
 
-> **Note:** With this claims sharing release, Okta supports only claims sharing between an Okta IdP org and an Okta SP org. This guide discusses how to configure authentication claims sharing for this use case.
+When you configure AMR claims in Okta-to-Okta orgs, there are some configuration steps to consider. To enable AMR claims in the Okta org that you connect to the IdP org, you must enable **Use standard AMR value format** in the IdP org to send AMR claim values in the correct format. See the [configuration steps](#okta-to-okta) in this guide.
 
-## <oktasaml> Authentication claims sharing
+## AMR claims mapping flow
 
-When you use SAML with claims sharing, the data shared between an Okta IdP and an Okta SP is included in the <SAMLResponse> in a new reserved tag in the `Extension` section called `OktaAuth`. The content is communicated in a JSON Web Token embedded within the `Assertion` response. The Okta authentication JWT payload is securely encrypted with a published encryption key from the SP org. The payload contains information about authentication performed at the Okta IdP org.
+<div class="three-quarter">
 
-### Example <SAML> IdP response
+![Flow diagram that displays the communication between the user, user agent, authorization server, and the Identity Provider](/img/auth/amr-claims-mapping-oidc.png)
+<!-- https://www.figma.com/design/YH5Zhzp66kGCglrXQUag2E/📊-Updated-Diagrams-for-Dev-Docs?node-id=4696-3134&t=vwcppYyoeWOz2kEQ-11
+amr-claims-mapping-oidc.png -->
 
-> **Note:** The `OktaAuth` JWT payload is redacted.
+</div>
 
-```JSON
-<saml2:AuthnStatement AuthnInstant="2024-08-21T21:22:21.250Z" SessionIndex="id29513242525044581346797160">
-    <saml2:AuthnContext>
-        <saml2:AuthnContextClassRef>urn:oasis:names:tc:SAML:2.0:ac:classes:X509</saml2:AuthnContextClassRef>
-        <saml2:AuthnContextDecl>
-            <AuthenticationContextDeclaration xmlns="urn:okta:saml:2.0:OktaAuth">
-                <Extension>
-                    <OktaAuth xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">
-                        ...encrypted payload...
-                    </OktaAuth>
-                </Extension>
-            </AuthenticationContextDeclaration>
-        </saml2:AuthnContextDecl>
-    </saml2:AuthnContext>
-</saml2:AuthnStatement>
-```
+1. A user attempts to sign in to an OpenID Connect app through the browser (user agent).
+2. The browser redirects the user to the Okta `/authorize` endpoint to authenticate.
+3. Okta redirects the user to the external Identity Provider.
+4. The Identity Provider authenticates the user.
+5. The Identity Provider redirects the user to Okta. The Identity Provider response contains the supported AMR claims, for example: `sms`, `mfa`, and `pwd`.
 
-## <oktaoidc> Authentication claims sharing
+    > **Note:** AMR claims are stored in an Okta session and considered during policy evaluation.
 
-When you use SAML with claims sharing, the data shared between an Okta IdP and an Okta SP is included in the ID token under a new reserved claim name called `okta-auth`. The `okta_auth` payload is in JWT format within the ID token. The entire Okta authentication JWT payload is securely encrypted with a published encryption key from the SP org. The payload contains information about authentication performed at the Okta IdP org.
+6. Okta redirects the user to the browser. The user isn't challenged for MFA if the factors used by the Identity Provider meet policy requirements.
+7. The browser sends a request to the Okta `/token` endpoint.
+8. Okta responds with the access token and the AMR claims in the ID token.
 
-### Example ID token
+## Configure the IdP for AMR claims
 
-> **Note:** The `okta_auth` payload is redacted.
+Before you configure Okta to accept AMR claims, it's important to first configure the IdP to send the claims correctly. Every IdP is different. Okta expects the IdP to pass the AMR claims in a specific way, depending on the supported federation protocol.
 
-```JSON
+### OpenID Connect Identity Provider
+
+At the OpenID Connect IdP, verify that the client app that you use for authenticating and authorizing users sends an `amr` array with the AMR claims in the OpenID Connect ID token (`id_token`).
+
+The `amr` property is a JSON array of strings that are identifiers for [authentication methods](https://www.rfc-editor.org/rfc/rfc8176.html) used in the authentication. <!-- Supported values include "pwd", "mfa", "otp", "kba", "sms", "swk", and "hwk". Get Venkat input on listing all supported values in the next update of this doc -->
+
+#### Example ID token with AMR claims
+
+```json
 {
-  "aud": "ts1hjc8xh3",
-  "auth_time": 1720481750,
-  "email": "jon.smith@example.com",
-  "exp": 1720482230,
-  "family_name": "Smith",
-  "given_name": "Jon",
-  "iat": 1720481810,
-  "iss": "https://idp.okta.com",
-  "nonce": "3byzgGdVLxjNUQ3X73rYgQBUc_DO4AJ2",
-  "sub": "jon.smith@example.com",
-  "okta_auth": {...encrypted JWT payload...}
+  "ver": 1,
+  "sub": "00uid4BxXw6I6TV4m0g3",
+  "iss": "https://{yourOktaDomain}",
+  "aud": "uAaunofWkaDJxukCFeBx",
+  "iat": 1449624026,
+  "exp": 1449627626,
+  "amr": [
+    "sms",
+    "mfa",
+    "pwd"
+  ],
+  "jti": "ID.4eAWJOCMB3SX8XewDfVR",
+  "auth_time": 1449624026,
+  "at_hash": "cpqKfdQA5eH891Ff5oJr_Q",
+  "name" :"John Doe",
+  "nickname":"Jimmy",
+  "preferred_username": "john.doe@example.com",
+  "updated_at":1311280970,
+  "email":"john.doe@example.com",
+  "email_verified":true,
+  "address" : { "street_address": "123 Hollywood Blvd.",
+      "locality": "Los Angeles",
+      "region": "CA",
+      "postal_code": "90210",
+      "country": "US"
+    },
+  "phone_number":"+1 (425) 555-1212"
 }
 ```
 
-## Configure the Okta IdP to send authentication claims
+### Supported AMR values by authenticator type
 
-To use claims sharing, there are a few steps to consider. Configure your Okta <type of> IdP to send authentication claims. Add the `trust claims: true` key and value pair to your IdP update.
+The following table describes the AMR values that Okta supports:
 
-Alternatively, you can enable the **Trust claims from this provider** checkbox in the Admin Console. See [robs link here]().
+* **Authenticator key**: Identifies an authenticator that you can add or remove using the Admin Console (**Security** > **Authenticators**).
+* **Authenticator type**: Describes the type of authenticator. These attributes are especially useful in situations where there are apps and security keys being used together in an authentication flow.
+* **Method type**: Defines the security method used by the authenticator.
+* **AMR value**: Lists the supported AMR values for each authenticator.
+* **Factor class**: Describes the type of authenticator factor.
 
-#### Example Okta <type of> IdP update request
+| Authenticator key            | Authenticator type        | Method type       | AMR value                             | Factor class          |
+| :--------------------------- | :------------------------ | :---------------- | :------------------------------------ | :-------------------- |
+| `okta_password`                | `password`                  | `password`          | `pwd`                                   | Knowledge             |
+| `security_question`            | `security_question`         | `security_question` | `kba`                                   | Knowledge             |
+| `okta_email`                   | `email`                     | `email`             | `email`                                 | Possession            |
+| `phone_number`                 | `phone`                     | `sms`               | `sms`                                   | Possession            |
+|                              |                           | `voice`             | `tel`                                   | Possession            |
+| `duo`                         | `app`                       | `duo`               | `duo`                                   | Possession            |
+| `symantec_vip`                 | `app`                       | `otp`               | `symantec`                              | Possession            |
+| `google_otp`                   | `app`                       | `otp`               | `google_otp`                            | Possession            |
+| `okta_verify`                  | `app`                       | `totp`              | `okta_verify`, `otp`                      | Possession            |
+|                              |                           | `push`              | `okta_verify`, `swk`                      | Possession, Inherence |
+|                              |                           | `signed_nonce`      | `okta_verify`, `phr`                      | Possession, Inherence |
+| `custom_app`                   | `app`                       | `push`              | `swk`                                  | Possession, Inherence |
+| `webauthn`                     | `security_key`              | `webauthn`          | `pop`                                   | Possession, Inherence |
+| `onprem_mfa`                   | `security_key`              | `otp`               | `oauth_otp`                             | Possession            |
+| `rsa_token`                    | `security_key`              |                   | `rsa`                                   | Possession            |
+| `yubikey_token`                | `security_key`              |                   | `yubikey`                               | Possession            |
+| `custom_otp`                   | `security_key`              |                   | `otp`                                   | Possession            |
+| `external_idp`                 | `federated`                 | `idp`               | `fed`                                   | Possession            |
+| `smart_card_idp`               | `federated`                 | `cert`              | `sc` + `swk`, more options: `hwk` (replaces `swk`), `pin`,`mfa`    | Possession, Knowledge |
 
-This request is an example of an Okta SAML IdP update to trust claims. In the `policy` section, the `trust claims: true` key and value pair appears.
+### Okta-to-Okta
 
-> **Note:** The request example is truncated for brevity.
+Okta-to-Okta (Org2Org), also known as hub and spoke, refers to a deployment model where the IdP and Service Provider (SP) are both Okta orgs. Use the [Add an External Identity Provider guide for Okta-to-Okta](/docs/guides/add-an-external-idp/oktatookta/main/) to configure Okta-to-Okta orgs for AMR claims mapping.
 
-```JSON
-{
-    "type":"SAML2",
-    "status":"ACTIVE",
-    "features":[],
-    "id":"0oa78rktqwQbG2m9O0g4",
-    "orgUrl":"http://{yourOktaDomain}",
-    "name":"Org2Org",
-    "created":null,
-    "lastUpdated":"2025-01-15T19:45:03.000Z",
-    "protocol":{
-        "endpoints":{
-            "authorization":{"binding":"HTTP-REDIRECT"},
-            "token":{"binding":"HTTP-POST"},
-            "userInfo":null,
-            "jwks":{"binding":"HTTP-REDIRECT"},
-            "acs":{
-                "binding":"HTTP-POST",
-                "type":"INSTANCE"},
-            "sso":{
-                "url":"http://{yourOktaDomain}/app/okta_org2org/exk78hrRdLRNV4EZY0g4/sso/saml",
-                "binding":"HTTP-POST",
-                "destination":"http://okta.com"
-                }
-        },
-        "scopes":[],
-        "settings":{
-            "nameFormat":"urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
-            "honorPersistentNameId":true
-        },
-        "type":"SAML2",
-        "algorithms":{
-            "response":{
-                "signature":{
-                    "algorithm":"SHA-256",
-                        "scope":"ANY"
-                }
-            },
-        "request":{
-            "signature":{
-                "algorithm":"SHA-256",
-                    "scope":"REQUEST"
-              }
-          }
-        },
-        "credentials":{
-            "trust":{
-                "issuer":"http://{yourOktaDomain}/exk78hrRdLRNV4EZY0g4",
-                "audience":"https://{yourOktaDomain}/saml2/service-provider/spjhiydxfezknoimtoye",
-                "kid":"eb5c22a1-c2c2-484b-839f-2ca6d29fd519",
-                "revocation":null,
-                "revocationCacheLifetime":0
-             },
-        "signing":{"kid":"uiiidnMQ4_WXZlt-ovtrRKJDK6UivJfFSnrfN4nNdwg"}
-        }
-    },
-    "policy":{
-        "trustClaims":true,
-        "accountLink":{
-            "action":"AUTO",
-            "filter":null},
-            "provisioning":{
-                "action":"AUTO",
-                "profileMaster":false,
-                "groups":{"action":"NONE"}
-            },
-   .........
-}
-```
+<AMROktatoOkta/>
 
-#### Example update response
+#### Use an existing Org2Org app
 
-> **Note:** The request example is truncated for brevity.
+You can configure Okta-to-Okta orgs for AMR claims mapping with existing Org2Org OpenID Connect apps. If you want to force the IdP Okta org to authenticate, clear the **Disable Force Authentication** checkbox in the existing Org2Org app:
 
-```JSON
-{
-    "id": "0oa78rktqwQbG2m9O0g4",
-    "name": "Org2Org",
-    "status": "ACTIVE",
-    "created": null,
-    "lastUpdated": "2025-01-15T19:45:16.000Z",
-    "protocol": {
-        "type": "SAML2",
-        "endpoints": {
-            "sso": {
-                "url": "http://{yourOktaDomain}/app/okta_org2org/exk78hrRdLRNV4EZY0g4/sso/saml",
-                "binding": "HTTP-POST",
-                "destination": "http://okta.com"
-            },
-            "acs": {
-                "binding": "HTTP-POST",
-                "type": "INSTANCE"
-            }
-        },
-        "algorithms": {
-            "request": {
-                "signature": {
-                    "algorithm": "SHA-256",
-                    "scope": "REQUEST"
-                }
-            },
-            "response": {
-                "signature": {
-                    "algorithm": "SHA-256",
-                    "scope": "ANY"
-                }
-            }
-        },
-        "settings": {
-            "nameFormat": "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
-            "honorPersistentNameId": true
-        },
-        "credentials": {
-            "trust": {
-                "issuer": "http://www.okta.com/exk78hrRdLRNV4EZY0g4",
-                "audience": "https://www.okta.com/saml2/service-provider/spjhiydxfezknoimtoye",
-                "kid": "eb5c22a1-c2c2-484b-839f-2ca6d29fd519",
-                "revocation": null,
-                "revocationCacheLifetime": 0
-            },
-            "signing": {
-                "kid": "uiiidnMQ4_WXZlt-ovtrRKJDK6UivJfFSnrfN4nNdwg"
-            }
-        }
-    },
-    "policy": {
-        "provisioning": {
-            "action": "AUTO",
-            "profileMaster": false,
-            "groups": {
-                "action": "NONE"
-            },
-            "conditions": {
-                "deprovisioned": {
-                    "action": "NONE"
-                },
-                "suspended": {
-                    "action": "NONE"
-                }
-            }
-        },
-        "accountLink": {
-            "filter": null,
-            "action": "AUTO"
-        },
-        "subject": {
-            "userNameTemplate": {
-                "template": "idpuser.subjectNameId"
-            },
-            "filter": "",
-            "matchType": "USERNAME",
-            "matchAttribute": null
-        },
-        "maxClockSkew": 120000,
-        "mapAMRClaims": false,
-        "trustClaims": true
-    },
-   .....
-}
-```
+1. In the Admin Console, go to **Applications** > **Applications** and select the Org2Org app that you want to configure.
+1. Select the **Sign On** tab and then click **Edit** in the **Settings** section.
+1. Clear the **Disable Force Authentication** checkbox and click **Save**.
 
-### Update OIDC IdP request example
+### Custom OpenID Connect apps
 
-```JSON
-{
-    "id": "0oa3q52z4b7iDGJfh806",
-    "issuerMode": "DYNAMIC",
-    "name": "Org2Org OIDC IdP",
-    "status": "ACTIVE",
-    "created": "2025-01-14T21:56:04.000Z",
-    "lastUpdated": "2025-01-17T20:01:09.000Z",
-    "protocol": {
-        "type": "OIDC",
-        "endpoints": {
-            "authorization": {
-                "url": "https://cmdip-curd-ct18.clouditude.com/oauth2/v1/authorize",
-                "binding": "HTTP-REDIRECT"
-            },
-            "token": {
-                "url": "https://cmdip-curd-ct18.clouditude.com/oauth2/v1/token",
-                "binding": "HTTP-POST"
-            },
-            "jwks": {
-                "url": "https://cmdip-curd-ct18.clouditude.com/oauth2/v1/keys",
-                "binding": "HTTP-REDIRECT"
-            }
-        },
-        "scopes": [
-            "email",
-            "openid",
-            "profile"
-        ],
-        "issuer": {
-            "url": "https://cmdip-curd-ct18.clouditude.com"
-        },
-        "credentials": {
-            "client": {
-                "client_id": "0oa3q52oiB4UBbQFT806",
-                "client_secret": "X7i4OV8UXUkrqIhr2vFs0RzeYFy3AUmXe_huqfgMw-eiw1KMUUCEs7X7YXrR_9Sq"
-            }
-        }
-    },
-    "policy": {
-        "provisioning": {
-            "action": "AUTO",
-            "profileMaster": false,
-            "groups": {
-                "action": "NONE"
-            },
-            "conditions": {
-                "deprovisioned": {
-                    "action": "NONE"
-                },
-                "suspended": {
-                    "action": "NONE"
-                }
-            }
-        },
-        "accountLink": {
-            "filter": null,
-            "action": "AUTO"
-        },
-        "subject": {
-            "userNameTemplate": {
-                "template": "idpuser.email"
-            },
-            "filter": "",
-            "matchType": "USERNAME",
-            "matchAttribute": ""
-        },
-        "maxClockSkew": 0,
-        "trustClaims": true
-    },
-    "type": "OIDC"
-}
-```
+If you're using a custom OpenID Connect app in the Okta IdP org, `amr` claims are sent to the SP by default and no additional configuration is required.
 
-### Update OIDC IdP response example
+## Configure Okta
 
-```JSON
-{
-    "id": "0oa3q52z4b7iDGJfh806",
-    "issuerMode": "DYNAMIC",
-    "name": "Org2Org OIDC IdP",
-    "status": "ACTIVE",
-    "created": null,
-    "lastUpdated": "2025-01-21T19:52:54.000Z",
-    "protocol": {
-        "type": "OIDC",
-        "endpoints": {
-            "authorization": {
-                "url": "https://cmdip-curd-ct18.clouditude.com/oauth2/v1/authorize",
-                "binding": "HTTP-REDIRECT"
-            },
-            "token": {
-                "url": "https://cmdip-curd-ct18.clouditude.com/oauth2/v1/token",
-                "binding": "HTTP-POST"
-            },
-            "jwks": {
-                "url": "https://cmdip-curd-ct18.clouditude.com/oauth2/v1/keys",
-                "binding": "HTTP-REDIRECT"
-            }
-        },
-        "scopes": [
-            "email",
-            "openid",
-            "profile"
-        ],
-        "issuer": {
-            "url": "https://cmdip-curd-ct18.clouditude.com"
-        },
-        "credentials": {
-            "client": {
-                "client_id": "0oa3q52oiB4UBbQFT806",
-                "client_secret": "X7i4OV8UXUkrqIhr2vFs0RzeYFy3AUmXe_huqfgMw-eiw1KMUUCEs7X7YXrR_9Sq"
-            }
-        }
-    },
-    "policy": {
-        "provisioning": {
-            "action": "AUTO",
-            "profileMaster": false,
-            "groups": {
-                "action": "NONE"
-            },
-            "conditions": {
-                "deprovisioned": {
-                    "action": "NONE"
-                },
-                "suspended": {
-                    "action": "NONE"
-                }
-            }
-        },
-        "accountLink": {
-            "filter": null,
-            "action": "AUTO"
-        },
-        "subject": {
-            "userNameTemplate": {
-                "template": "idpuser.email"
-            },
-            "filter": "",
-            "matchType": "USERNAME",
-            "matchAttribute": ""
-        },
-        "maxClockSkew": 0,
-        "trustClaims": true
-    },
-    "type": "OIDC",
-    "_links": {
-        "authorize": {
-            "href": "https://cssp-ct18.clouditude.com/oauth2/v1/authorize?idp=0oa3q52z4b7iDGJfh806&client_id={clientId}&response_type={responseType}&response_mode={responseMode}&scope={scopes}&redirect_uri={redirectUri}&state={state}&nonce={nonce}",
-            "templated": true,
-            "hints": {
-                "allow": [
-                    "GET"
-                ]
-            }
-        },
-        "clientRedirectUri": {
-            "href": "https://cssp-ct18.clouditude.com/oauth2/v1/authorize/callback",
-            "hints": {
-                "allow": [
-                    "POST"
-                ]
-            }
-        }
-    }
-}
-```
+Configuring an Okta org to receive AMR claims from an external IdP is similar across all IdP types. When you create an IdP in Okta, select **Trust AMR claims from this identity provider**. This enables Okta to evaluate that AMR claims sent in the IdP response meet sign-on policy requirements.
 
-## FAQ
+Use one of the following enterprise Identity Provider guides to configure an external IdP:
 
-### What happens if my IdP isn't an Okta IdP?
+* [OpenID Connect](/docs/guides/add-an-external-idp/openidconnect/main/)
+* [Okta-to-Okta](/docs/guides/add-an-external-idp/oktatookta/main/)
 
-This claims sharing version supports only Okta IdPs and SPs.
+> **Note:** Ensure that the IdP includes the correct AMR claims in the IdP response and that the claims match the requirements of your sign-on policies. If the claims don't satisfy the requirements, then users can't sign in to the application.
 
-### What type of authenticators from my Okta IdP can the Okta SP accept?
+## Troubleshoot
 
-All authenticators that are natively performed on the Okta IdP are accepted. For example, WebAuthN, password, Okta Verify, Okta FastPass, SMS, Email, and so on. If you use any custom authenticators for MFA, leveraging another IdP or smart card, then that authenticator isn't supported by this claims sharing version.
+An **Access denied** error occurs because of:
 
-### What happens when I have the deprecated claims mapping feature enabled in my org?
+* Improper policy configuration
+* Improper attribute/claim format from the IdP
+* Improper IdP configuration (the IdP didn't challenge a factor that the sign-on policy requires.)
 
-When you enable the new **Org2Org Claims Sharing** feature, that takes precedence over the deprecated **IdP AMR Claims Mapping**.
+## Limitation
 
-### What happens with Protected Actions?
-
-?????
-
-### How can I enforce factor verification in the authentication policies
-
-Use the **AND User must authenticate with** field and the **AND Possession factor constraints are** field in the rule.
-
-#### Additional constraints
-
-If you select an option in the **AND Authentication methods** section, Okta has additional constraints:
-
-* **Allow any method that can be used to meet the requirement**: Okta accepts any satisfying authenticator even if it's not configured locally.
-* **Disallow specific authentication methods**: If you specify authentication methods to disallow, then Okta disallows those authentication methods.
-* **Allow specific authentication methods**: If you specify authentication methods to allow, then Okta only considers those authentication methods.
-
-After you define these conditions, if you still haven't met the policy requirement, then Okta redirects you to verify any locally configured authenticator. If there is no local authenticator available, or the enrollment policy for a particular authenticator is disabled, then Okta displays an error.
-
-### What happens when I have a reauthentication scenario?
-
-This claims sharing version doesn't support reauthentication. The user needs to sign out and then sign in.
+Okta doesn't pass auth requirements to the IdP.
