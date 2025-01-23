@@ -136,8 +136,6 @@ Continue with the OIN Wizard and configure your protocol settings:
 
 2. Use the integration variables with Expression Language format in your [<StackSnippet snippet="protocol-name" inline/> property definitions](#properties) for dynamic values based on customer information.
 
-> **Note:** URLs and URIs must support the HTTPS protocol. Your dynamic property must contain `https` in the Expression Language string.
-
 <StackSnippet snippet="variable-desc" />
 
 ### Enter test information
