@@ -1,0 +1,83 @@
+This request is an example of an Okta SAML 2.0 IdP update to trust claims. In the `policy` section, the `trust claims: true` key and value pair appears.
+
+> **Note:** The request example is truncated for brevity.
+
+```JSON
+{
+    "type":"SAML2",
+    "status":"ACTIVE",
+    "features":[],
+    "id":"0oa78rktqwQbG2m9O0g4",
+    "orgUrl":"http://{yourOktaDomain}",
+    "name":"Org2Org",
+    "created":null,
+    "lastUpdated":"2025-01-15T19:45:03.000Z",
+    "protocol":{
+        "endpoints":{
+            "authorization":{"binding":"HTTP-REDIRECT"},
+            "token":{"binding":"HTTP-POST"},
+            "userInfo":null,
+            "jwks":{"binding":"HTTP-REDIRECT"},
+            "acs":{
+                "binding":"HTTP-POST",
+                "type":"INSTANCE"},
+            "sso":{
+                "url":"http://{yourOktaDomain}/app/okta_org2org/exk78hrRdLRNV4EZY0g4/sso/saml",
+                "binding":"HTTP-POST",
+                "destination":"http://{yourOktaDomain}"
+                }
+        },
+        "scopes":[],
+        "settings":{
+            "nameFormat":"urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
+            "honorPersistentNameId":true
+        },
+        "type":"SAML2",
+        "algorithms":{
+            "response":{
+                "signature":{
+                    "algorithm":"SHA-256",
+                        "scope":"ANY"
+                }
+            },
+        "request":{
+            "signature":{
+                "algorithm":"SHA-256",
+                    "scope":"REQUEST"
+              }
+          }
+        },
+        "credentials":{
+            "trust":{
+                "issuer":"http://{yourOktaDomain}/exk78hrRdLRNV4EZY0g4",
+                "audience":"https://{yourOktaDomain}/saml2/service-provider/spjhiydxfezknoimtoye",
+                "kid":"eb5c22a1-c2c2-484b-839f-2ca6d29fd519",
+                "revocation":null,
+                "revocationCacheLifetime":0
+             },
+        "signing":{"kid":"uiiidnMQ4_WXZlt-ovtrRKJDK6UivJfFSnrfN4nNdwg"}
+        }
+    },
+      "policy":{
+        "trustClaims":true,
+        "accountLink":{
+            "action":"AUTO",
+            "filter":null
+        },
+        "provisioning":{
+              "action":"AUTO",
+              "profileMaster":false,
+              "groups":{"action":"NONE"}
+        },
+        "maxClockSkew":120000,
+        "subject":{
+          "userNameTemplate":{ "template":"idpuser.subjectNameId"},
+          "filter":"",
+          "matchType":"USERNAME",
+          "matchAttribute":null
+        },
+        "mapAMRClaims":false
+    },
+    .....
+}
+```
