@@ -27,15 +27,15 @@ This guide explains how to configure an <OpenID Connect Identity Provider (IdP)>
 
 Claims sharing is the exchange of identity-related information (claims) between different orgs to enable secure access to resources. A claim is a statement made about a user or entity, such as their username, email address, roles, or permissions, that's shared to help determine access rights.
 
-Authentication claims sharing allows an admin to configure their Okta org to trust claims from <type of IdPs> during SSO. Sharing claims also allows Okta to interpret the authentication context from an IdP. This helps eliminate duplicate factor challenges during user authentication and helps improve security posture.
+Authentication claims sharing allows an admin to configure their Okta org to trust claims from IdPs during SSO. Sharing claims also allows Okta to interpret the authentication context from an IdP. This helps eliminate duplicate factor challenges during user authentication and helps improve security posture. 
 
 Claims sharing provides important context to Okta during policy evaluation. For example, these claims give Okta a better understanding of which factors were used by the IdP to verify the user's identity. Claims do this by conveying all the information from the IdP that's needed to make policy decisions in the SP. The Okta session updates the details of the authentications. This creates a seamless and secure user experience, which reduces friction and boosts productivity to achieve end-to-end security.
 
-### <oktasaml> IdP authentication claims sharing
+### SAML IdP authentication claims sharing
 
-When you use SAML with claims sharing, the data shared between an Okta IdP and an Okta SP is included in the <SAMLResponse> in a new reserved tag in the `Extension` section called `OktaAuth`. The content is communicated in a JSON Web Token embedded within the `Assertion` response. The Okta authentication JWT payload is securely encrypted with a published encryption key from the SP org. The payload contains information about authentication performed at the Okta IdP org.
+When you use SAML with claims sharing, the data shared between an Okta IdP and an Okta SP is included in the SAML Response in a new reserved tag in the `Extension` section called `OktaAuth`. The content is communicated in a JSON Web Token embedded within the `Assertion` response. The Okta authentication JWT payload is securely encrypted with a published encryption key from the SP org. The payload contains information about authentication performed at the Okta IdP org.
 
-#### Example <SAML> IdP response
+#### Example SAML IdP response
 
 > **Note:** The `OktaAuth` JWT payload is redacted.
 
@@ -56,7 +56,7 @@ When you use SAML with claims sharing, the data shared between an Okta IdP and a
 </saml2:AuthnStatement>
 ```
 
-### <oktaoidc> Authentication claims sharing
+### OIDC Authentication claims sharing
 
 When you use SAML with claims sharing, the data shared between an Okta IdP and an Okta SP is included in the ID token under a new reserved claim name called `okta-auth`. The `okta_auth` payload is in JWT format within the ID token. The entire Okta authentication JWT payload is securely encrypted with a published encryption key from the SP org. The payload contains information about authentication performed at the Okta IdP org.
 
@@ -90,11 +90,11 @@ There are no configuration requirements for claims sharing for the Okta IdP org 
 
 ### Configure the Okta IdP connector to send authentication claims
 
-To use claims sharing, update your Okta <type of> IdP connector in the Okta SP org to send authentication claims. Add the `trust claims: true` key and value pair to your PUT request to update the IdP. Alternatively, you can enable the **Trust claims from this provider** checkbox in the Admin Console. See [robs link here]().
+To use claims sharing, update your Okta IdP connector in the Okta SP org to send authentication claims. Add the `trust claims: true` key and value pair to your PUT request to update the IdP. Alternatively, you can enable the **Trust claims from this provider** checkbox in the Admin Console. See [Add a SAML Identity Provider](https://help.okta.com/okta_help.htm?type=oie&id=csh-idp-add-saml).
 
 > **Note:** The `mapAMRClaims` property (**Trust AMR claims from this identity provider** checkbox in the Admin Console) is associated with the legacy claims mapping feature. When you have the new claims sharing feature enabled for your orgs, and you include this property and the `trust claims: true` property in your request, this feature takes precedence.
 
-#### Example Okta <type of> IdP update request
+#### Example Okta SAML IdP update request
 
 This request is an example of an Okta SAML IdP update to trust claims. In the `policy` section, the `trust claims: true` key and value pair appears.
 
@@ -426,13 +426,44 @@ This request is an example of an Okta SAML IdP update to trust claims. In the `p
 }
 ```
 
+## Policies and claims sharing
+
+You can configure many scenarios for authentication using claims sharing and policies.
+
+Consider this scenario:
+
+You have no user identities stored at the Okta SP org, and you still want to authenticate to the Okta SP org with MFA. Your Okta SP org has four authenticators configured, but not Okta Verify. With trust claims enabled, you can make use of other factors that the Okta IdP org is using for authentication. This is possible when your SP org is integrated with the Okta IdP org through the IdP. Claims from that IdP are trusted to satisfy the requirements in the SP org.
+
+In your SP org, you could configure a phishing resistant rule for the **Any two factors** authentication policy. You also allow any authentication method that can be used to meet the requirement. In the **Other authenticators that satisfy this requirement** box, the authenticators appear that you can expect from the Identity Provider to satisfy your rule.
+
+### Global session policy
+
+This same concept applies for the global session policy. For example, without trust claims enabled, if only the password authenticator is configured in the global session policy, you can't save a rule that requires MFA. However, with trust claims enabled, you can specify MFA as required. As long as the claim is coming from the IdP, the session is established because that claim can satisfy the global session policy rule.
+
+### Authentication policies and enrollment policies
+
+Consider this scenario:
+
+Your SP org has an authentication policy with a rule configured that requires a possession factor to satisfy the assurance. But, the IdP org uses a one factor authentication policy requiring just password. The SP org could prompt for email provided that the authenticator is enabled for the org. There must also be an authenticators enrollment policy that lists email as optional. The SP org can then prompt the user to enroll in email. The user can then enroll and authenticate using the email authenticator.
+
+However, if email is disabled in the authenticators enrollment policy, then no one can enroll in email as an authenticator on the SP org. The authentication policy rule would deny access to the user.
+
+## Test your integration
+
+To test your integration, first [configure a routing rule] for the IdP and then use the IdP to sign in.
+
 ### Configure a routing rule for the IdP
 
-To test your integration in the next section, configure a [routing rule](https://help.okta.com/okta_help.htm?id=ext-cfg-routing-rules) for the IdP in the Okta SP org.
+Configure a simple [routing rule](https://help.okta.com/okta_help.htm?id=ext-cfg-routing-rules) for the IdP in the Okta SP org.
+
+* Click **Add Routing Rule**
+* Name it and leave the defaults.
+* In the **THEN Use this identity provider** section, add your IdP in the **IdP(s)** field.
+* Click **Create Rule**.
 
 ## Use the IdP to sign in
 
-1. To test your configuration, access your Okta SP org using your browser's privacy or incognito mode to avoid false positive or negative results.
+1. Access your Okta SP org using your browser's privacy or incognito mode to avoid false positive or negative results.
 1. On the Okta sign-in page, click **Sign in with {Name of IdP}**.
 
    If everything is configured properly:
