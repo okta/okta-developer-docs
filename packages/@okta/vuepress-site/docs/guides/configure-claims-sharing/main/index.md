@@ -49,7 +49,7 @@ There are no configuration requirements for claims sharing for the Okta IdP org 
 
 ### Configure the Okta IdP connector to send authentication claims
 
-To use claims sharing, update your Okta IdP connector in the Okta SP org to send authentication claims. Add the `trust claims: true` key and value pair to your PUT request to update the IdP. Alternatively, you can enable the **Trust claims from this identity provider** checkbox in the Admin Console. See [Add a SAML Identity Provider](https://help.okta.com/okta_help.htm?type=oie&id=csh-idp-add-saml).
+To use claims sharing, update your Okta IdP connector in the Okta SP org to send authentication claims. Add the `trust claims: true` key and value pair to your PUT request to update the IdP. Alternatively, you can enable the **Trust claims from this identity provider** checkbox in the Admin Console. See <StackSnippet snippet="addanidp" inline />.
 
 > **Note:** The `mapAMRClaims` property (**Trust AMR claims from this identity provider** checkbox in the Admin Console) is associated with the legacy claims mapping feature. When you have the new claims sharing feature enabled for your orgs, and you include this property and the `trust claims: true` property in your request, the `trust claims` property takes precedence.
 

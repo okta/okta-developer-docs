@@ -1,0 +1,1 @@
+[Add a SAML Identity Provider](https://help.okta.com/okta_help.htm?type=oie&id=csh-idp-add-saml)
