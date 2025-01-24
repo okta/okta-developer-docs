@@ -51,7 +51,7 @@ There are no configuration requirements for claims sharing for the Okta IdP org 
 
 To use claims sharing, update your Okta IdP connector in the Okta SP org to send authentication claims. Add the `trustClaims: true` key and value pair to your PUT request to update the IdP. Alternatively, you can enable the **Trust claims from this identity provider** checkbox in the Admin Console. See <StackSnippet snippet="addanidp" inline />.
 
-> **Note:** The `mapAMRClaims` property (**Trust AMR claims from this identity provider** checkbox in the Admin Console) is associated with the legacy claims mapping feature. When you have the new claims sharing feature enabled for your orgs, and you include this property and the `trustClaims: true` property in your request, the `trustClaims` property takes precedence.
+> **Note:** When **Okta-to-Okta Claims Sharing** is enabled and the legacy **AMR Claims Mapping** feature is enabled for your orgs, claims sharing is the only feature considered. The `mapAMRClaims` property (**Trust AMR claims from this identity provider** checkbox in the Admin Console) is associated with the legacy claims mapping feature. If you include this property and the `trustClaims: true` property in your request, only the `trustClaims` property is considered.
 
 #### Example Okta <StackSnippet snippet="idptype" inline /> IdP update request
 
@@ -71,15 +71,15 @@ You can configure many scenarios for authentication using claims sharing and pol
 
 You have no authenticators stored at the Okta SP org, and you still want to authenticate to the Okta SP org with MFA. Your Okta SP org has four authenticators configured, but not Okta Verify. With trust claims enabled, you can make use of other factors that the Okta IdP org is using for authentication. This is possible when your SP org is integrated with the Okta IdP org through the IdP. Claims from that IdP are trusted to satisfy the requirements in the SP org.
 
-In your SP org, you configure a phishing resistant rule for the **Any two factors** authentication policy. You also allow any authentication method that can be used to meet the requirement. In the **Other authenticators that satisfy this requirement** box, the authenticators appear that you can expect from the Identity Provider to satisfy your rule. One of those authenticators is Okta Verify. The IdP authenticates the user with MFA using Okta Verify, and the claim then contains that information in the response.
+In your SP org, you configure a phishing resistant rule for the **Any two factors** authentication policy. You have **Allow any method that can be used to meet the requirement** selected, but not **Allow specific authentication methods**. In the **Other authenticators that satisfy this requirement** box, the authenticators appear that you can expect from the Identity Provider to satisfy your rule. One of those authenticators is Okta Verify. The IdP authenticates the user with MFA using Okta Verify, and the claim then contains that information in the response.
 
 ### Global session policy example
 
-This same concept applies for the global session policy. For example, without trust claims enabled, if only the password authenticator is configured in the SP org global session policy, you can't save a rule that requires MFA. However, with trust claims enabled, you can specify MFA as required. As long as the claim is coming from the IdP, the session is established because that claim can satisfy the global session policy rule.
+This same concept applies for the global session policy. For example, without trust claims enabled, if only the password authenticator is configured in the SP org, you can't save a global session policy rule that requires MFA. However, with trust claims enabled, you can specify MFA as required. As long as the claim is coming from the IdP, the session is established because that claim can satisfy the global session policy rule.
 
 ### Authentication policy and enrollment policy example
 
-Your SP org has an authentication policy with a rule configured that requires a possession factor to satisfy the assurance. But, the IdP org uses a one factor authentication policy requiring just password. The SP org could prompt for the email authenticator provided that the authenticator is enabled for the SP org. There must also be an authenticators enrollment policy that lists email as optional. The SP org can then prompt the user to enroll in email. The user can then enroll and authenticate using the email authenticator.
+Your SP org has an authentication policy with a rule configured that requires a possession factor to satisfy the assurance. But, the IdP org uses a one factor authentication policy requiring just password (which is not a possession factor). The SP org could prompt for the email authenticator (a possession factor) provided that the authenticator is enabled for the SP org. There must also be an authenticators enrollment policy that lists email as optional. The SP org can then prompt the user to enroll in email, and the user can enroll and authenticate using the email authenticator.
 
 However, if email is disabled in the authenticators enrollment policy, then no one can enroll in email as an authenticator on the SP org. The authentication policy rule would deny access to the user.
 
@@ -105,7 +105,7 @@ Configure a simple routing rule for the IdP in the Okta SP org.
 
    * The user is redirected to the IdP's sign-in page.
    * The authenticators configured in the authentication policy prompt the user for additional authentication.
-   * After successful authentication, the user is redirected to the redirect URI specified in the Okta IdP org app.
+   * After successful authentication, the user is redirected to the <StackSnippet snippet="redirect" inline /> specified in the Okta IdP org app.
 
    If something is configured incorrectly, the authorization response contains error information to help you resolve the issue. See the [FAQ](#faq) section next.
 
@@ -129,7 +129,7 @@ When you enable the new **Okta-to-Okta Claims Sharing** feature, that takes prec
 
 ### Why can't I deactivate trust claims in my IdP?
 
-Your IdP is the last active IdP with trust claims enabled, or there are authentication policies and global session policies that can't be satisfied by the configured authenticators in the org. This is also true for the disabling the **Okta-to-Okta Claims Sharing** feature.
+Your IdP is the last active IdP with trust claims enabled, and there are authentication policies or global session policies that can't be satisfied by the configured authenticators in the org. This is also true for the disabling the **Okta-to-Okta Claims Sharing** feature.
 
 ### How can I enforce factor verification in the authentication policies
 
