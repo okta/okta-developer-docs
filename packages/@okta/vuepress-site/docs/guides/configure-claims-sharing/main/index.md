@@ -29,7 +29,7 @@ Claims sharing is the exchange of identity-related information (claims) between 
 
 Authentication claims sharing allows an admin to configure their Okta org to trust claims from IdPs during SSO. Sharing claims also allows Okta to interpret the authentication context from an IdP. This helps eliminate duplicate factor challenges during user authentication and helps improve security posture.
 
-Claims sharing provides important context to Okta during policy evaluation. For example, these claims give Okta a better understanding of which factors were used by the IdP to verify the user's identity. Claims do this by conveying all the information from the IdP that's needed to make policy decisions in the SP. The Okta session updates the details of the authentications. This creates a seamless and secure user experience, which reduces friction and boosts productivity to achieve end-to-end security.
+Claims sharing provides important context to Okta during policy evaluation. For example, these claims give Okta a better understanding of which factors were used by the IdP to verify the user's identity. Claims do this by conveying information from the IdP that's needed to make policy decisions in the SP. This creates a seamless and secure user experience, which reduces friction and boosts productivity to achieve end-to-end security.
 
 ### <StackSnippet snippet="idptype" inline /> IdP authentication claims sharing
 
@@ -41,17 +41,17 @@ Claims sharing provides important context to Okta during policy evaluation. For 
 
 ## Configure claims sharing
 
-Okta supports claims sharing only between Okta orgs. This section covers how to configure authentication claims sharing for this use case.
+The **Okta-to-Okta Claims Sharing** feature enables claims sharing between Okta orgs. This section covers how to configure authentication claims sharing for this use case.
 
 ### Okta IdP org app
 
-There are no configuration requirements for claims sharing for the Okta IdP org app. This is the app that you use for authenticating and authorizing your users. Okta supports the use of a SAML 2.0 app, an Org2Org OIN app, and an OpenID Connect app with authentication claims sharing.
+There are no configuration requirements for claims sharing for the Okta IdP org app. This is the app that you use for authenticating and authorizing your users. Okta supports the use of SAML 2.0 and OpenID Connect app integrations, and the Org2Org app in the OIN catalog.
 
 ### Configure the Okta IdP connector to send authentication claims
 
-To use claims sharing, update your Okta IdP connector in the Okta SP org to send authentication claims. Add the `trust claims: true` key and value pair to your PUT request to update the IdP. Alternatively, you can enable the **Trust claims from this identity provider** checkbox in the Admin Console. See <StackSnippet snippet="addanidp" inline />.
+To use claims sharing, update your Okta IdP connector in the Okta SP org to send authentication claims. Add the `trustClaims: true` key and value pair to your PUT request to update the IdP. Alternatively, you can enable the **Trust claims from this identity provider** checkbox in the Admin Console. See <StackSnippet snippet="addanidp" inline />.
 
-> **Note:** The `mapAMRClaims` property (**Trust AMR claims from this identity provider** checkbox in the Admin Console) is associated with the legacy claims mapping feature. When you have the new claims sharing feature enabled for your orgs, and you include this property and the `trust claims: true` property in your request, the `trust claims` property takes precedence.
+> **Note:** The `mapAMRClaims` property (**Trust AMR claims from this identity provider** checkbox in the Admin Console) is associated with the legacy claims mapping feature. When you have the new claims sharing feature enabled for your orgs, and you include this property and the `trustClaims: true` property in your request, the `trustClaims` property takes precedence.
 
 #### Example Okta <StackSnippet snippet="idptype" inline /> IdP update request
 
@@ -69,9 +69,9 @@ You can configure many scenarios for authentication using claims sharing and pol
 
 ### Authentication policy example
 
-You have no user identities stored at the Okta SP org, and you still want to authenticate to the Okta SP org with MFA. Your Okta SP org has four authenticators configured, but not Okta Verify. With trust claims enabled, you can make use of other factors that the Okta IdP org is using for authentication. This is possible when your SP org is integrated with the Okta IdP org through the IdP. Claims from that IdP are trusted to satisfy the requirements in the SP org.
+You have no authenticators stored at the Okta SP org, and you still want to authenticate to the Okta SP org with MFA. Your Okta SP org has four authenticators configured, but not Okta Verify. With trust claims enabled, you can make use of other factors that the Okta IdP org is using for authentication. This is possible when your SP org is integrated with the Okta IdP org through the IdP. Claims from that IdP are trusted to satisfy the requirements in the SP org.
 
-In your SP org, you configure a phishing resistant rule for the **Any two factors** authentication policy. You also allow any authentication method that can be used to meet the requirement. In the **Other authenticators that satisfy this requirement** box, the authenticators appear that you can expect from the Identity Provider to satisfy your rule. One of those authenticators is Okta Verify. As long as the clam is coming from the IdP, that claim can satisfy the authentication policy rule.
+In your SP org, you configure a phishing resistant rule for the **Any two factors** authentication policy. You also allow any authentication method that can be used to meet the requirement. In the **Other authenticators that satisfy this requirement** box, the authenticators appear that you can expect from the Identity Provider to satisfy your rule. One of those authenticators is Okta Verify. The IdP authenticates the user with MFA using Okta Verify, and the claim then contains that information in the response.
 
 ### Global session policy example
 
@@ -115,17 +115,21 @@ Configure a simple routing rule for the IdP in the Okta SP org.
 
 This claims sharing version supports only Okta IdPs and SPs.
 
+### What if my SP is on an Okta Identity Engine org and my IdP is on an Okta Classic Engine org?
+
+MFA from the Classic org can only satisfy the **Any 1 factor type/IdP** or **Any 2 factor types** authentication policy rules on the Identity Engine SP org. For the global session policy, MFA from the Classic org can only satisfy the **Any factor used to meet the Authentication Policy requirements** rule.
+
 ### What type of authenticators from my Okta IdP can the Okta SP accept?
 
 All authenticators that are natively performed on the Okta IdP are accepted. For example, WebAuthN, password, Okta Verify, Okta FastPass, SMS, Email, and so on. If you use any custom authenticators for MFA, leveraging another IdP or smart card, then that authenticator isn't supported by this claims sharing version.
 
 ### What happens when I have the deprecated claims mapping feature enabled in my org?
 
-When you enable the new **Org2Org Claims Sharing** feature, that takes precedence over the deprecated **IdP AMR Claims Mapping**.
+When you enable the new **Okta-to-Okta Claims Sharing** feature, that takes precedence over the deprecated **AMR Claims Mapping**.
 
-### What happens with Protected Actions?
+### Why can't I deactivate trust claims in my IdP?
 
-?????
+Your IdP is the last active IdP with trust claims enabled, or there are authentication policies and global session policies that can't be satisfied by the configured authenticators in the org. This is also true for the disabling the **Okta-to-Okta Claims Sharing** feature.
 
 ### How can I enforce factor verification in the authentication policies
 
@@ -143,4 +147,6 @@ After you define these conditions, if you still haven't met the policy requireme
 
 ### What happens when I have a reauthentication scenario?
 
-This claims sharing version doesn't support reauthentication. The user needs to sign out and then sign in.
+This claims sharing version doesn't support reauthentication. The user isin’t prompted for reauthentication as long as the session is active.
+
+When an admin federates from the IdP org to the SP org’s Okta dashboard and then clicks the Admin button, the Admin Console doesn’t prompt for reauthentication. The factors from the IdP are valid until the end of the session on the SP org.

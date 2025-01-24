@@ -12,6 +12,6 @@
   "iss": "https://idp.okta.com",
   "nonce": "3byzgGdVLxjNUQ3X73rYgQBUc_DO4AJ2",
   "sub": "jon.smith@example.com",
-  "okta_auth": {...encrypted JWT payload...}
+  "okta_auth": {...JSON payload...}
 }
 ```
