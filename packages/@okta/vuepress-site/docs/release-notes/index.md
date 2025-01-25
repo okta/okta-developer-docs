@@ -19,6 +19,6 @@ Learn about features and fixes deployed to Okta Identity Engine.
 
 Learn about features and fixes deployed to Okta Classic Engine.
 
-Older release notes can be found in the [Archive](/docs/release-notes/archive) section.
+You can find older release notes in the [Archive](/docs/release-notes/archive) section.
 
 > **Note:** Changes to Okta unrelated to API Products are published in the [Okta Release Notes](https://help.okta.com/okta_help.htm?id=ext_okta_relnotes) for admins. See [Okta Identity Engine Release Notes](https://help.okta.com/okta_help.htm?type=oie&id=csh-oie-rn) for changes to the Identity Engine that are unrelated to Identity Engine API Products.
