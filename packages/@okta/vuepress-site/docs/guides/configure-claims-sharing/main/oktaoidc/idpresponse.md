@@ -1,4 +1,4 @@
-> **Note:** The `okta_auth` JWT payload in the ID token is redacted.
+> **Note:** The `okta_auth` JSON payload in the ID token is redacted.
 
 ```JSON
 {

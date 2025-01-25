@@ -1,4 +1,4 @@
-This request is an example of an Okta SAML 2.0 IdP update to trust claims. In the `policy` section, the `trust claims: true` key and value pair appears.
+This request is an example of an Okta SAML 2.0 IdP update to trust claims. In the `policy` section, the `trustClaims: true` key and value pair appears.
 
 > **Note:** The request example is truncated for brevity.
 

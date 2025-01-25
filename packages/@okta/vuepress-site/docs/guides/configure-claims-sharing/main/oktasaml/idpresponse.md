@@ -1,4 +1,4 @@
-> **Note:** The `OktaAuth` JWT payload is redacted and the response is truncated for brevity.
+> **Note:** The `OktaAuth` JSON payload is redacted and the response is truncated for brevity.
 
 ```JSON
 .....
@@ -9,7 +9,7 @@
             <AuthenticationContextDeclaration xmlns="urn:okta:saml:2.0:OktaAuth">
                 <Extension>
                     <OktaAuth xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">
-                        ...encrypted JWT payload...
+                        ...JSON payload...
                     </OktaAuth>
                 </Extension>
             </AuthenticationContextDeclaration>
