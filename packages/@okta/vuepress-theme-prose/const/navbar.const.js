@@ -386,7 +386,7 @@ export const guides = [
             title: "Okta account management policy",
             guideName: "okta-account-management-policy"
           },
-          { 
+          {
             title: "Keep me signed in (KMSI)",
             guideName: "keep-me-signed-in"
           },
@@ -833,8 +833,9 @@ export const guides = [
               },
             ],
           },
-          {title: "Optimize your configuration",
-          subLinks: [
+          {
+            title: "Optimize your configuration",
+            subLinks: [
               {
                 title: "Optimize Terraform access",
                 guideName: "terraform-design-rate-limits"
@@ -958,15 +959,15 @@ export const guides = [
 ];
 
 export const languagesSdk = [
-   {
-      title: "SDKs",
-      path: "/code/",
-      subLinks: [
-         { title: "Recommended SDKs", path: "/code/" },
-         { title: "Alternate Sign-in SDKs", path: "/code/alternate-sign-in-sdks/" },
-         { title: "Versioning", path: "/code/library-versions/" },
-      ],
-   },
+  {
+    title: "SDKs",
+    path: "/code/",
+    subLinks: [
+      { title: "Recommended SDKs", path: "/code/" },
+      { title: "Alternate Sign-in SDKs", path: "/code/alternate-sign-in-sdks/" },
+      { title: "Versioning", path: "/code/library-versions/" },
+    ],
+  },
 ];
 
 export const reference = [
@@ -1054,20 +1055,26 @@ export const releaseNotes = [
         path: "/docs/release-notes/2025-okta-identity-engine/",
       },
       {
-        title: "2024 - Classic Engine",
-        path: "/docs/release-notes/2024/"
-      },
-      {
-        title: "2024 - Identity Engine",
-        path: "/docs/release-notes/2024-okta-identity-engine/",
-      },
-      {
-        title: "2023 - Classic Engine",
-        path: "/docs/release-notes/2023/"
-      },
-      {
-        title: "2023 - Identity Engine",
-        path: "/docs/release-notes/2023-okta-identity-engine/",
+        title: "Archive",
+        path: "/docs/release-notes/archive",
+        subLinks: [
+          {
+            title: "2024 - Classic Engine",
+            path: "/docs/release-notes/2024/"
+          },
+          {
+            title: "2024 - Identity Engine",
+            path: "/docs/release-notes/2024-okta-identity-engine/",
+          },
+          {
+            title: "2023 - Classic Engine",
+            path: "/docs/release-notes/2023/"
+          },
+          {
+            title: "2023 - Identity Engine",
+            path: "/docs/release-notes/2023-okta-identity-engine/",
+          },
+        ]
       },
     ],
   },
