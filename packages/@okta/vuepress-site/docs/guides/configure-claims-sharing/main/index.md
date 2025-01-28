@@ -41,7 +41,7 @@ All authenticators that are natively performed on the Okta IdP are accepted. Thi
 
 ### AMR claims mapping is enabled on your org
 
-When you enable the **Okta-to-Okta Claims Sharing** feature for your orgs, Okta ignores the legacy **AMR Claims Mapping** feature.
+When you enable the **Okta-to-Okta Claims Sharing** feature for your orgs and trust claims from an identity provider, Okta ignores the legacy **AMR Claims Mapping** feature.
 
 ### <StackSnippet snippet="idptype" inline /> IdP authentication claims sharing
 
@@ -57,13 +57,13 @@ The **Okta-to-Okta Claims Sharing** feature enables claims sharing between Okta 
 
 ### Okta IdP configuration
 
-Okta supports the use of SAML 2.0 and OpenID Connect app integrations, and the Org2Org (SAML) app in the OIN catalog. This is the app that you use for authenticating and authorizing your users. There are no configuration requirements for claims sharing for the Okta IdP org.
+Okta supports the use of SAML 2.0 and OpenID Connect app integrations, and the Org2Org app in the OIN catalog. This is the app that you use for authenticating and authorizing your users. There are no configuration requirements for claims sharing for the Okta IdP org.
 
 ### Okta SP configuration
 
-To use claims sharing, connect your Okta SP org to your Okta IdP org. Update the IdP in your Okta SP org by adding the `trustClaims: true` key and value pair to your IdP PUT request. Alternatively, you can enable the **Trust claims from this identity provider** checkbox in the Admin Console. See <StackSnippet snippet="addanidp" inline />.
+To use claims sharing, update the IdP settings in your Okta SP org by adding the `trustClaims: true` key and value pair to your IdP PUT request. Alternatively, you can enable the **Trust claims from this identity provider** checkbox in the Admin Console. See <StackSnippet snippet="addanidp" inline />.
 
-> **Note:** When **Okta-to-Okta Claims Sharing** is enabled and the legacy **AMR Claims Mapping** feature is enabled for your orgs, claims sharing is the only feature considered. The `mapAMRClaims` property (**Trust AMR claims from this identity provider** checkbox in the Admin Console) is associated with the legacy claims mapping feature. If you include this property and the `trustClaims: true` property in your request, only the `trustClaims` property is considered.
+> **Note:** When **Okta-to-Okta Claims Sharing** and the legacy **AMR Claims Mapping** feature are both used in your SP org, claims sharing is the only feature considered. The `mapAMRClaims` property (**Trust AMR claims from this identity provider** checkbox in the Admin Console) is associated with the legacy claims mapping feature. If you include this property and the `trustClaims: true` property in your request, only the `trustClaims` property is considered.
 
 #### Example Okta <StackSnippet snippet="idptype" inline /> IdP update request
 
@@ -104,7 +104,7 @@ However, with trust claims enabled, you can specify MFA as required. As long as 
 
 ### Okta Identity Engine and Classic Engine orgs
 
-If you use both Okta Identity Engine and Classic Engine orgs, the rules work in the following ways:
+If you a combination of Okta Identity Engine and Classic Engine orgs, the rules work in the following ways:
 
 #### Example one
 
@@ -147,7 +147,7 @@ Configure a simple routing rule for the IdP in the Okta SP org.
 
 ## Trust claims deactivation
 
-To deactivate trust claims for your IdP, you can do so only if there aren't any active or inactive IdPs with trust claims enabled.
+You can only deactivate or delete an IdP with trust claims enabled if there are other active IdPs that have trust claims enabled. Or, you can deactivate or delete the IdP if all policies are configured in a way that doesn't require trusted claims.
 
 > **Note:** This is also true if you try to disable the **Okta-to-Okta Claims Sharing** feature.
 
