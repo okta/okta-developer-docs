@@ -55,11 +55,11 @@ When you enable the **Okta-to-Okta Claims Sharing** feature for your orgs, Okta 
 
 The **Okta-to-Okta Claims Sharing** feature enables claims sharing between Okta orgs. This section covers how to configure authentication claims sharing for this use case.
 
-### Okta identity provider configuration
+### Okta IdP configuration
 
 Okta supports the use of SAML 2.0 and OpenID Connect app integrations, and the Org2Org (SAML) app in the OIN catalog. This is the app that you use for authenticating and authorizing your users. There are no configuration requirements for claims sharing for the Okta IdP org.
 
-### Okta service provider configuration
+### Okta SP configuration
 
 To use claims sharing, connect your Okta SP org to your Okta IdP org. Update the IdP in your Okta SP org by adding the `trustClaims: true` key and value pair to your IdP PUT request. Alternatively, you can enable the **Trust claims from this identity provider** checkbox in the Admin Console. See <StackSnippet snippet="addanidp" inline />.
 
@@ -87,10 +87,10 @@ With trust claims enabled and your IdP org able to verify any two factors, you c
 
 #### Other authentication policy scenarios
 
-* **Possession factor constraints:** If you have enable any possession factor constraints in the authentication policy of your SP org, the IdP org can satisfy the requirement with appropriate factor verification.
+* **Possession factor constraints:** If you enable any possession factor constraints in the authentication policy of your SP org, the IdP org can satisfy the requirement with appropriate factor verification.
 
 * **Authentication methods:**
-  * **Allow any method that can be used to meet the requirement**: If you enable this policy setting in your SP org, you can satisfy the policy requirements by using any authenticator that meets those requirements. This includes authenticators that aren't configured locally in the SP org.
+  * **Allow any method that can be used to meet the requirement**: If you enable this setting in your SP org, you can satisfy the policy requirements by using any authenticator that meets those requirements. This includes authenticators that aren't configured locally in the SP org.
   * **Disallow specific authentication methods**: If you specify authentication methods to disallow, then the SP org disallows those methods.
   * **Allow specific authentication methods**: If you specify authentication methods to allow, then the SP org only considers those methods.
 
@@ -147,7 +147,7 @@ Configure a simple routing rule for the IdP in the Okta SP org.
 
 ## Trust claims deactivation
 
-If you attempt to deactivate trust claims for your IdP, you can do so only if there aren't any active or inactive IdPs with trust claims enabled.
+To deactivate trust claims for your IdP, you can do so only if there aren't any active or inactive IdPs with trust claims enabled.
 
 > **Note:** This is also true if you try to disable the **Okta-to-Okta Claims Sharing** feature.
 
