@@ -87,7 +87,7 @@ With trust claims enabled and your IdP org able to verify any two factors, you c
 
 #### Other authentication policy scenarios
 
-* **Possession factor constraints:** If you enable any possession factor constraints in the authentication policy of your SP org, the IdP org can satisfy the requirement with appropriate factor verification.
+* **Possession factor constraints:** If you enable any possession factor constraints in the authentication policy of your SP org, the IdP org must satisfy the requirement with appropriate factor verification.
 
 * **Authentication methods:**
   * **Allow any method that can be used to meet the requirement**: If you enable this setting in your SP org, you can satisfy the policy requirements by using any authenticator that meets those requirements. This includes authenticators that aren't configured locally in the SP org.
@@ -106,7 +106,7 @@ However, with trust claims enabled, you can specify MFA as required. As long as 
 
 If you a combination of Okta Identity Engine and Classic Engine orgs, the rules work in the following ways:
 
-#### Example one
+#### Example scenario one
 
 Your SP org is an Identity Engine org. Your IdP is a Classic Engine org. MFA from the Classic Engine org can only satisfy one of the following authentication policy rules on the Identity Engine SP org:
 
@@ -115,7 +115,7 @@ Your SP org is an Identity Engine org. Your IdP is a Classic Engine org. MFA fro
 
 For the global session policy, MFA from the Classic Engine org can only satisfy the **Any factor used to meet the Authentication Policy requirements** rule.
 
-#### Example two
+#### Example scenario two
 
 Your IdP org is an Identity Engine org. Your SP org is a Classic Engine org. The Classic Engine org only evaluates whether MFA was completed, such as if more than one factor verification was performed on the IdP org.
 
@@ -145,7 +145,7 @@ Configure a simple routing rule for the IdP in the Okta SP org.
 
    If something is configured incorrectly, the authorization response contains error information to help you resolve the issue. See the [FAQ](#faq) section next.
 
-## Trust claims deactivation
+## Trust claims deletion/deactivation
 
 You can only deactivate or delete an IdP with trust claims enabled if there are other active IdPs that have trust claims enabled. Or, you can deactivate or delete the IdP if all policies are configured in a way that doesn't require trusted claims.
 
