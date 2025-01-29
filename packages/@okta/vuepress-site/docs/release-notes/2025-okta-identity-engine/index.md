@@ -12,7 +12,7 @@ title: Okta Identity Engine API release notes 2025
 
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
-| [Authentication claims sharing between Okta orgs is EA in Preview]() | January 29, 2025 |
+| [Authentication claims sharing between Okta orgs is EA in Preview](#authentication-claims-sharing-between-okta-orgs-is-ea-in-preview) | January 29, 2025 |
 | [Bugs fixed in 2025.01.2](#bugs-fixed-in-2025-01-2) | January 29, 2025 |
 
 #### Authentication claims sharing between Okta orgs is EA in Preview
