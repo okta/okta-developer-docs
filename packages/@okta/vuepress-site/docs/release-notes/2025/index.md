@@ -6,6 +6,20 @@ title: Okta Classic Engine API release notes 2025
 
 ## January
 
+### Weekly release 2025.01.2
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Bugs fixed in 2025.01.2](#bugs-fixed-in-2025-01-2) | January 29, 2025 |
+
+#### Bugs fixed in 2025.01.2
+
+* When the Default Network Zone IP Exempt List feature was enabled for an org, an admin was able to delete the default example IP zone using the Zones API (`/api/v1/zones/{DefaultExemptIpZone ID}`). (OKTA-817263)
+* The [List all principal rate limits](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/PrincipalRateLimit/#tag/PrincipalRateLimit/operation/listPrincipalRateLimitEntities) returned an empty response when querying with a custom `client_id` and using OAuth 2.0 for authentication.  (OKTA-832687)
+* When a super admin updated a deactivated user to a different realm, admins received a `Resource not found` error. (OKTA-699778)
+* Events for tokens revoked in bulk for a resource didn't appear in the System Log. (OKTA-834025)
+* The `okta.accessRequests.catalog.read` scope was missing from the Okta Identity Governance APIs. (OKTA-846162) <!--To be moved to IGA RN-->
+
 ### Weekly release 2025.01.1
 
 | Change | Expected in Preview Orgs |
