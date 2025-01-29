@@ -1,0 +1,1 @@
+[Add an OpenID Connect Identity Provider](/docs/guides/add-an-external-idp/openidconnect/main/)
