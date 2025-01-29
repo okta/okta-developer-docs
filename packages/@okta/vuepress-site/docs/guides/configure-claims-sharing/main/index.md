@@ -18,7 +18,7 @@ This guide explains how to configure an <StackSnippet snippet="idptype" inline /
 #### What you need
 
 * An Okta SP org and an Okta IdP org configured for an [Okta-to-Okta](/docs/guides/add-an-external-idp/oktatookta/main/) use case. This guide covers how to configure authentication claims sharing for this scenario.
-* The **Okta-to-Okta Claims Sharing** feature enabled for both orgs. To enable, go to **Settings | Features**, locate the feature, and enable.
+* The **Okta-to-Okta Claims Sharing** feature enabled for both orgs. Go to **Settings | Features**, locate the feature, and then enable it.
 * If you don't have Okta orgs, you can create [Okta Developer Edition orgs](https://developer.okta.com/signup).
 
 ---
@@ -37,7 +37,7 @@ Claims sharing provides assurance context to Okta during policy evaluation. For 
 
 ### Accepted authenticators
 
-All authenticators that are natively performed on the Okta IdP are accepted. This includes authenticators such as WebAuthn, password, Okta Verify, Okta FastPass, SMS, Email, and so on. Claim sharing doesn't currently support the use of any Custom Authenticators for MFA, such as using another IdP or smart card.
+All authenticators that are natively performed on the Okta IdP are accepted. This includes authenticators such as WebAuthn, password, Okta Verify, Okta FastPass, SMS, email, and so on. Claim sharing doesn't currently support the use of any Custom Authenticators for MFA, such as using another IdP or smart card.
 
 ### AMR claims mapping is enabled on your org
 
@@ -98,7 +98,7 @@ With trust claims enabled and your IdP org able to verify any two factors, you c
 
 ### Global session policy example
 
-This same concept applies for the global session policy. Without trust claims enabled, if you have only the password authenticator configured in the SP org, you can't save a global session policy rule that requires MFA.
+This same concept applies to the global session policy. Without trust claims enabled, if you have only the password authenticator configured in the SP org, you can't save a global session policy rule that requires MFA.
 
 However, with trust claims enabled, you can specify MFA as required. As long as the claim is coming from the IdP, the session is established because that claim can satisfy the global session policy rule.
 
@@ -128,7 +128,7 @@ To test your integration, first [configure a routing rule](https://help.okta.com
 Configure a simple routing rule for the IdP in the Okta SP org.
 
 * Click **Add Routing Rule**.
-* Name it and leave the defaults.
+* Enter a name and leave the default values.
 * In the **THEN Use this identity provider** section, add your IdP in the **IdP(s)** field.
 * Click **Create Rule**.
 
@@ -137,13 +137,13 @@ Configure a simple routing rule for the IdP in the Okta SP org.
 1. Access your Okta SP org using your browser's privacy or incognito mode to avoid false positive or negative results.
 1. Click **Sign in with {Name of IdP}** on the Okta sign-in page.
 
-   If everything is configured properly:
+   The following are the results if everything is configured properly:
 
    * The user is redirected to the IdP's sign-in page.
    * The authenticators configured in the authentication policy prompt the user for more authentication.
    * After successful authentication, the user is redirected to the <StackSnippet snippet="redirect" inline /> specified in the Okta IdP org app.
 
-   If something is configured incorrectly, the authorization response contains error information to help you resolve the issue. See the [FAQ](#faq) section next.
+   If something is configured incorrectly, the authorization response contains error information to help you resolve the issue. See the [FAQ](#faq) section.
 
 ## Trust claims deletion/deactivation
 
