@@ -18,7 +18,7 @@ title: Okta Classic Engine API release notes 2025
 * The [List all principal rate limits](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/PrincipalRateLimit/#tag/PrincipalRateLimit/operation/listPrincipalRateLimitEntities) returned an empty response when querying with a custom `client_id` and using OAuth 2.0 for authentication.  (OKTA-832687)
 * When a super admin updated a deactivated user to a different realm, admins received a `Resource not found` error. (OKTA-699778)
 * Events for tokens revoked in bulk for a resource didn't appear in the System Log. (OKTA-834025)
-* The `ACCESS_REQUESTS_CATALOG_READ` scope was missing from the Okta Identity Governance APIs. (OKTA-846162) <!--To be moved to IGA RN-->
+* The `okta.accessRequests.catalog.read` scope was missing from the Okta Identity Governance APIs. (OKTA-846162) <!--To be moved to IGA RN-->
 
 ### Weekly release 2025.01.1
 
