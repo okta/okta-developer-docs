@@ -6,4 +6,4 @@
    https://{String.len(app.companyId) == 0 ? 'login.myapp.io' : 'login.myapp.io?connection=' + app.companyId}
    ```
 
-   This expression handles both scenarios where `companyId` is populated or empty.
+   This expression handles both scenarios where `companyId` is populated or empty. See [Dynamic properties with Okta Expression Language](/docs/guides/submit-oin-app/openidconnect/main/#dynamic-properties-with-okta-expression-language).
