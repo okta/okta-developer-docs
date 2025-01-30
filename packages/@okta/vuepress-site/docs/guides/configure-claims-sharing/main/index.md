@@ -57,7 +57,7 @@ The **Okta-to-Okta Claims Sharing** feature enables claims sharing between Okta 
 
 ### Okta IdP configuration
 
-Okta supports the use of SAML 2.0 and OpenID Connect app integrations, and the Org2Org app in the OIN catalog. This is the app that you use for authenticating and authorizing your users. There are no configuration requirements for claims sharing for the Okta IdP org.
+Okta supports the use of SAML 2.0 and OpenID Connect app integrations, and the Org2Org app in the OIN catalog. This is the app that you use for authenticating and authorizing your users. Use the app that you have configured in your Okta IdP org for this example use case. There are no configuration requirements for claims sharing for the Okta IdP org.
 
 ### Okta SP configuration
 
@@ -81,7 +81,7 @@ You can configure many scenarios for authentication using claims sharing and pol
 
 ### Authentication policy example
 
-[Create an authentication policy and rule for your app](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-auth-policy). Select any two factors, don't select a possession constraint, and allow any authenticators.
+[Create an authentication policy and rule for your app](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-auth-policy) in your SP org. Select any two factors, don't select a possession constraint, and allow any authenticators.
 
 With trust claims enabled and your IdP org able to verify any two factors, you can satisfy the requirements in the SP org.
 
@@ -104,7 +104,7 @@ However, with trust claims enabled, you can specify MFA as required. As long as 
 
 ### Okta Identity Engine and Classic Engine orgs
 
-If you a combination of Okta Identity Engine and Classic Engine orgs, the rules work in the following ways:
+If you have a combination of Okta Identity Engine and Classic Engine orgs, the rules work in the following ways:
 
 #### Example scenario one
 
@@ -125,7 +125,7 @@ To test your integration, first [configure a routing rule](https://help.okta.com
 
 ### Configure a routing rule for the IdP
 
-Configure a simple routing rule for the IdP in the Okta SP org.
+Configure a simple routing rule for the IdP in the Okta SP org for this example use case.
 
 * Click **Add Routing Rule**.
 * Enter a name and leave the default values.
@@ -141,9 +141,9 @@ Configure a simple routing rule for the IdP in the Okta SP org.
 
    * The user is redirected to the IdP's sign-in page.
    * The authenticators configured in the authentication policy prompt the user for more authentication.
-   * After successful authentication, the user is redirected to the <StackSnippet snippet="redirect" inline /> specified in the Okta IdP org app.
+   * After successful authentication, the user is redirected to the <StackSnippet snippet="redirect" inline /> specified in the Okta IdP org.
 
-   If something is configured incorrectly, the authorization response contains error information to help you resolve the issue. See the [FAQ](#faq) section.
+   If something is configured incorrectly, the authorization response contains error information to help you resolve the issue.
 
 ## Trust claims deletion/deactivation
 
