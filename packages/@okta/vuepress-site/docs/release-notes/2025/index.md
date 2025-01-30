@@ -6,6 +6,25 @@ title: Okta Classic Engine API release notes 2025
 
 ## January
 
+### Weekly release 2025.01.2
+
+| Change | Expected in Preview Orgs |
+|--------|--------------------------|
+| [Authentication claims sharing between Okta orgs is EA in Preview](#authentication-claims-sharing-between-okta-orgs-is-ea-in-preview) | January 29, 2025 |
+| [Bugs fixed in 2025.01.2](#bugs-fixed-in-2025-01-2) | January 29, 2025 |
+
+#### Authentication claims sharing between Okta orgs is EA in Preview
+
+Authentication claims sharing allows an admin to configure their Okta org to trust claims from IdPs during SSO. Sharing claims also allows Okta to interpret the authentication context from an IdP. This helps eliminate duplicate factor challenges during user authentication and helps improve security posture. See [Configure claims sharing](/docs/guides/configure-claims-sharing/oktasaml/main/).<!-- ORG2ORG_CLAIMS_SHARING OKTA-856733 -->
+
+#### Bugs fixed in 2025.01.2
+
+* When the Default Network Zone IP Exempt List feature was enabled for an org, an admin was able to delete the default example IP zone using the Zones API (`/api/v1/zones/{DefaultExemptIpZone ID}`). (OKTA-817263)
+* The [List all principal rate limits](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/PrincipalRateLimit/#tag/PrincipalRateLimit/operation/listPrincipalRateLimitEntities) returned an empty response when querying with a custom `client_id` and using OAuth 2.0 for authentication.  (OKTA-832687)
+* When a super admin updated a deactivated user to a different realm, admins received a `Resource not found` error. (OKTA-699778)
+* Events for tokens revoked in bulk for a resource didn't appear in the System Log. (OKTA-834025)
+* The `okta.accessRequests.catalog.read` scope was missing from the Okta Identity Governance APIs. (OKTA-846162) <!--To be moved to IGA RN-->
+
 ### Weekly release 2025.01.1
 
 | Change | Expected in Preview Orgs |

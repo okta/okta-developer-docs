@@ -17,7 +17,7 @@ guides:
  - client-secret-rotation-key
  - common-hook-set-up-steps
  - configure-access-policy
- - configure-amr-claims-mapping
+ - configure-claims-sharing
  - configure-ciba
  - configure-direct-auth-grants
  - configure-native-sso

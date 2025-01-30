@@ -15,7 +15,3 @@ When you're configuring federation between two Okta orgs, use OpenID Connect as 
 
 1. Assign a group or leave the **Everyone** default. Ensure that the users you want to have access are assigned to the group that you select. For instructions on how to assign the app integration to individual users and groups, see [Assign app integrations](https://help.okta.com/okta_help.htm?id=ext_Apps_Apps_Page-assign).
 1. Click **Save**, and then copy the **Client ID** and **Client secret** from the **Client Credentials** section and paste into a text editor. You need these when you configure this IdP in your other Okta org in the next section.
-
-<AMROktatoOkta/>
-
-See [Create an Identity Provider in Okta](#create-an-identity-provider-in-okta) for Okta-to-Okta orgs.

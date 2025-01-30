@@ -89,6 +89,8 @@ const COMMON_NAME_TO_FANCY_NAME = {
   saml: 'SAML',
   oktaresourceserver: 'Okta resource server',
   nonoktaresourceserver: 'Non-Okta resource server',
+  oktaoidc: 'Okta OIDC IdP',
+  oktasaml: 'Okta SAML 2.0 IdP',
 };
 
 const COMMON_NAME_TO_ICON_NAME = {
@@ -126,6 +128,8 @@ const COMMON_NAME_TO_ICON_NAME = {
   reactnativedroid: 'code-react-32',
   reactnativeios: 'code-react-32',
   spring: 'code-spring-32',
+  oktaoidc: 'openid-16',
+  oktasaml: 'advanced-sso-16-blue',
 };
 
 const IDP_COMMON_NAME_TO_ICON_NAME = {

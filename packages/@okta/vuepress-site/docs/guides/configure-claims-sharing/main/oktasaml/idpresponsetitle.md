@@ -1,0 +1,1 @@
+SAML 2.0 IdP response
