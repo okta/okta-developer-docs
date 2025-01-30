@@ -26,6 +26,7 @@ Authentication claims sharing allows an admin to configure their Okta org to tru
 * When a super admin updated a deactivated user to a different realm, admins received a `Resource not found` error. (OKTA-699778)
 * Events for tokens revoked in bulk for a resource didn't appear in the System Log. (OKTA-834025)
 * Refresh tokens for OpenID Connect apps that have Single Logout enabled with user session details were getting invalidated before their max lifetime. (OKTA-730794)
+* Account unlock didn't work for some orgs using the Okta account management policy. (OKTA-848066)
 * The `okta.accessRequests.catalog.read` scope was missing from the Okta Identity Governance APIs. (OKTA-846162) <!-- To be moved to IGA RN -->
 
 ### Weekly release 2025.01.1
