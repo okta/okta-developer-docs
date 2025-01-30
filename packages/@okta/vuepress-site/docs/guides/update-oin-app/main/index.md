@@ -12,7 +12,7 @@ Learn how to update an OIDC, SAML 2.0, or SCIM 2.0 published integration in the 
 
 #### What you need
 
-* A published OIDC, SAML 2.0, or SCIM integration in the OIN that was [submitted using the OIN Wizard](/docs/guides/submit-oin-app/).
+* A published OIDC, SAML 2.0, or SCIM integration in the OIN
 * The [Okta Developer Edition org](https://developer.okta.com/signup/) from where you originally submitted your published integration. The OIN Wizard is only available in Okta Developer Edition orgs.
 * An admin user in the Okta Developer Edition org with either the super admin or the app and org admin roles
 
@@ -20,15 +20,48 @@ Learn how to update an OIDC, SAML 2.0, or SCIM 2.0 published integration in the 
 
 ## Overview
 
-If you have a published Single Sign-On (SSO) or lifecycle management integration in the OIN catalog, you can update and resubmit it with the OIN Wizard.
+If you have a published Single Sign-On (SSO) or lifecycle management integration in the [OIN catalog](https://www.okta.com/integrations/), you can update and resubmit it with the OIN Wizard.
 
 The OIN Wizard currently supports updates for integrations that use the following protocols:
 
-* OIDC
-* SAML 2.0
-* SCIM 2.0
+* [OpenID Connect (OIDC)](https://openid.net/connect/)
 
-When you edit a published OIN integration, test the flows for the updated version and the published version for backwards compatibility. Testing the published version for backwards compatibility ensures that your integration still works for users who have already installed it. See [Update integration considerations](#update-integration-considerations) before you edit your published integration. After you successfully test the updated and published versions of your integration, resubmit it to the OIN team.
+* [Security Assertion Markup Language (SAML) 2.0](http://docs.oasis-open.org/security/saml/Post2.0/sstc-saml-tech-overview-2.0.html)
+
+* [System for Cross-domain Identity Management (SCIM) 2.0](https://scim.cloud)
+
+> **Note:** You can update OIDC, SAML 2.0, and SCIM 2.0 integrations with the [OIN Wizard](/docs/guides/update-oin-app/) that were originally submitted through the [OIN Manager](/docs/guides/submit-app/).
+
+When you edit a published OIN integration, you need to test the flows for the updated version and the published version for backwards compatibility. The integration version that was previously installed in your customer's org isn't modified with the updated version in the OIN catalog. Testing the published version for backwards compatibility ensures that your integration still works for customers who have already installed it. See [Update integration considerations](#update-integration-considerations) before you edit your published integration.
+
+After you successfully test the updated and published versions of your integration, resubmit it to the OIN team. Your integration goes through a [submission review process](/docs/guides/submit-app-overview/#understand-the-submission-review-process) before the updated version is published in the OIN catalog.
+
+## Update integration considerations
+
+For published integrations that were migrated from the OIN Manager, if you need to update configured properties that aren't available the OIN Wizard, contact <oin@okta.com>.
+
+> **Note:** Some considerations on this page are specifically for the **<StackSnippet snippet="protocol-name" inline/>** protocol. <br>
+> If you want to change the protocol details on this page, select the protocol from the **Instructions for** dropdown list on the right.
+
+<StackSnippet snippet="considerations" />
+
+* When you update an integration that's already published, be mindful to preserve backwards compatibility for your integration. Older instances of your integration could be in use by Okta customers.
+
+    * If you modify the **Name** (`name`) property of your [integration variables](/docs/guides/submit-oin-app/-/main/#integration-variables), Okta removes the original variable and creates a variable with your updated name. This action negatively impacts your existing customers if you use the original variable in your integration dynamic properties.
+
+    * Migrated published integrations from the OIN Manager don't have some OIN Wizard restrictions. For instance:
+
+        * Published integrations can have more than three integration variables
+        * Published integrations can have variable names with uppercase letters
+        * Published integrations can use `http` (instead of enforced `https`) in URLs and Expression Language-supported properties
+
+    * If your update introduces new variables and you're using dynamic URLs, ensure that your tests cover various scenarios with different possible values for those variables. See [Dynamic properties with Okta Expression Language](/docs/guides/submit-oin-app/-/main/#dynamic-properties-with-okta-expression-language). The newly introduced variables aren't populated for older instances of your integration.
+
+        For example:
+
+       <StackSnippet snippet="backward-compatible-eg" />
+
+## Update your integration
 
 > **Note:** When you edit your published OIN integration, your previous PUBLISHED status and date are overwritten with the DRAFT status and current date.
 
@@ -38,7 +71,7 @@ To update a previously published OIN integration:
    > **Note:** Edit your integration from an Okta account that has your company domain in the email address. You can't use an account with a personal email address. The OIN team doesn't review submission edits from a personal email account.
 1. In the Admin Console, go to **Applications** > **Your OIN Integrations**.
 
-   > **Note:** If you don't need to edit your submission and want to jump to testing, see [Navigate directly to test your integration](#navigate-directly-to-test-your-integration).
+   > **Note:** If you don't need to edit your submission and want to jump to testing, see [Navigate directly to test your integration](/docs/guides/submit-oin-app/-/main/#navigate-directly-to-test-your-integration).
 
 1. Click your published integration to update from the dashboard. Your published OIN submission appears in read-only mode.
 1. From the **This integration is read-only** information box, click **Edit integration**.
@@ -74,29 +107,7 @@ To update a previously published OIN integration:
 
 1. [Submit your updates](#submit-your-updates) if all your tests passed.
 
-## Update integration considerations
 
-* For published integrations that were migrated from the OIN Manager, if you need to update configured properties that aren't available the OIN Wizard, contact <oin@okta.com>.
-
-* You can't update a published SCIM integration with Basic authentication. This breaks the integration for existing customers. For any updates, you must submit a new SCIM integration that implements header authentication or OAuth 2.0 authentication. You can use either token or bearer token format for header authentication.
-
-* If you edit a published SCIM integration that was migrated from the OIN Manager, the **Import users** (and **Import groups** if groups are managed) capability is automatically enabled in the OIN Wizard. You must support and test this capability if your previous SCIM integration didn't support it. If you need help with implementing this feature, contact <developers@okta.com>.
-
-* When you update an integration that's already published, be mindful to preserve backwards compatibility for your integration. Older instances of your integration could be in use by Okta customers.
-
-    * If you modify the **Name** (`name`) property of your [integration variables](#integration-variables), Okta removes the original variable and creates a variable with your updated name. This action negatively impacts your existing customers if you use the original variable in your integration dynamic properties.
-
-    * Migrated published integrations from the OIN Manager don't have some OIN Wizard restrictions. For instance:
-
-        * Published integrations can have more than three integration variables
-        * Published integrations can have variable names with uppercase letters
-        * Published integrations can use `http` (instead of enforced `https`) in URLs and Expression Language-supported properties
-
-    * If your update introduces new variables and you're using dynamic URLs, ensure that your tests cover various scenarios with different possible values for those variables. See [Dynamic properties with Okta Expression Language](#dynamic-properties-with-okta-expression-language). The newly introduced variables aren't populated for older instances of your integration.
-
-        For example:
-
-       <StackSnippet snippet="backward-compatible-eg" />
 
 ## Submit your updates
 
