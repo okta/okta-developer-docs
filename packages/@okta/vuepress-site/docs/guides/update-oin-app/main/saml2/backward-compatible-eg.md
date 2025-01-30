@@ -6,4 +6,4 @@
    https://${empty org.companyId ? 'login.myapp.io' : 'login.myapp.io?connection=' += org.companyId}
    ```
 
-   This expression handles both scenarios where `companyId` is populated or empty.
+   This expression handles both scenarios where `companyId` is populated or empty. See [Dynamic properties with Okta Expression Language](/docs/guides/submit-oin-app/saml2/main/#dynamic-properties-with-okta-expression-language).

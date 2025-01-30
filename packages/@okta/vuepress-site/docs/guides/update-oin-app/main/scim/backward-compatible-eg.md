@@ -6,4 +6,4 @@
    'https://fruits.example.com/scim2/myapp' + (String.len(app.companyId) == 0 ? '/' : '?connection=' + app.companyId)
    ```
 
-   This expression handles scenarios where `companyId` is populated or empty.
+   This expression handles scenarios where `companyId` is populated or empty. See [Dynamic properties with Okta Expression Language](/docs/guides/submit-oin-app/scim/main/#dynamic-properties-with-okta-expression-language).
