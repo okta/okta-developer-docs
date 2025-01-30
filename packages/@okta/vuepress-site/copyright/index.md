@@ -10,7 +10,7 @@ showBreadcrumb: False
 
 sections:
 
-- Copyright © 2024 Okta. All rights reserved.
+- Copyright © 2025 Okta. All rights reserved.
 
 - Okta has made all efforts to ensure that this guide is accurate.
 
