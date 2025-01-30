@@ -690,6 +690,10 @@ export const guides = [
                 guideName: "submit-oin-app",
               },
               {
+                title: "OIN Wizard: Update an integration",
+                guideName: "update-oin-app",
+              },
+              {
                 title: "OIN Manager: Submit an integration",
                 guideName: "submit-app",
               },
