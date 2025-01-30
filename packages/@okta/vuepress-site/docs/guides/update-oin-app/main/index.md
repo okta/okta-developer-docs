@@ -47,7 +47,7 @@ For published integrations that were migrated from the OIN Manager, if you need 
 
 * When you update an integration that's already published, be mindful to preserve backwards compatibility for your integration. Older instances of your integration could be in use by Okta customers.
 
-    * If you modify the **Name** (`name`) property of your [integration variables](/docs/guides/submit-oin-app/-/main/#integration-variables), Okta removes the original variable and creates a variable with your updated name. This action negatively impacts your existing customers if you use the original variable in your integration dynamic properties.
+    * If you modify the **Name** (`name`) property of your [integration variables](/docs/guides/submit-oin-app/openidconnect/main/#integration-variables), Okta removes the original variable and creates a variable with your updated name. This action negatively impacts your existing customers if you use the original variable in your integration dynamic properties.
 
     * Migrated published integrations from the OIN Manager don't have some OIN Wizard restrictions. For instance:
 
@@ -55,7 +55,7 @@ For published integrations that were migrated from the OIN Manager, if you need 
         * Published integrations can have variable names with uppercase letters
         * Published integrations can use `http` (instead of enforced `https`) in URLs and Expression Language-supported properties
 
-    * If your update introduces new variables and you're using dynamic URLs, ensure that your tests cover various scenarios with different possible values for those variables. See [Dynamic properties with Okta Expression Language](/docs/guides/submit-oin-app/-/main/#dynamic-properties-with-okta-expression-language). The newly introduced variables aren't populated for older instances of your integration.
+    * If your update introduces new variables and you're using dynamic URLs, ensure that your tests cover various scenarios with different possible values for those variables. The newly introduced variables aren't populated for older instances of your integration.
 
         For example:
 
@@ -71,19 +71,19 @@ To update a previously published OIN integration:
    > **Note:** Edit your integration from an Okta account that has your company domain in the email address. You can't use an account with a personal email address. The OIN team doesn't review submission edits from a personal email account.
 1. In the Admin Console, go to **Applications** > **Your OIN Integrations**.
 
-   > **Note:** If you don't need to edit your submission and want to jump to testing, see [Navigate directly to test your integration](/docs/guides/submit-oin-app/-/main/#navigate-directly-to-test-your-integration).
+   > **Note:** If you don't need to edit your submission and want to jump to testing, see [Navigate directly to test your integration](/docs/guides/submit-oin-app/openidconnect/main/#navigate-directly-to-test-your-integration).
 
 1. Click your published integration to update from the dashboard. Your published OIN submission appears in read-only mode.
 1. From the **This integration is read-only** information box, click **Edit integration**.
     > **Note:** If you open a submission in **DRAFT** status, it's not in read-only mode and the **Edit integration** option isn't available.
 
-    Continue to edit your draft submission as a new submission. See [Start a submission](#start-a-submission).
+
 1. If the OIN Wizard doesn't detect an instance to test your published integration in the org, then an **Application instance not detected** dialog appears. Click **Generate instance** to create an app instance based on your published OIN integration. See [Add existing app integrations](https://help.okta.com/okta_help.htm?type=oie&id=csh-apps-add-app) to create an instance for backwards-compatibility testing.
-    > **Note:** The **Generate instance** option is disabled if you have five active instances in your org. [Deactivate instances](#deactivate-an-app-instance-in-your-org) that you're not using.
+    > **Note:** The **Generate instance** option is disabled if you have five active instances in your org. [Deactivate instances](/docs/guides/submit-oin-app/openidconnect/main/#deactivate-an-app-instance-in-your-org) that you're not using.
 
     If the OIN Wizard detects an instance based on your published integration, the dialog doesn't appear. This is usually the case if you tested and submitted your published integration from the same org.
 
-1. Continue to update your integration in the **Select protocol**, **Configure your integration**, and **Test integration** pages. See [Update integration considerations](#update-integration-considerations) for backwards compatibility with integration variables.
+1. Continue to update your integration in the **Select protocol**, **Configure your integration**, and **Test integration** pages. See [Configure your integration](/docs/guides/submit-oin-app/openidconnect/main/#configure-your-integration). Also see [Update integration considerations](#update-integration-considerations) for backwards compatibility with integration variables.
 
     The **Required app instances** box contains the following items:
     * The instances that you need to test the **PUBLISHED VERSION** of your OIN integration.
