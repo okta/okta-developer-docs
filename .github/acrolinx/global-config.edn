@@ -30,7 +30,7 @@
               ;:scannability 80
               ;:tone 80
               ;:words_and_phrases 40
-              :qualityscore 80
+              :qualityscore 70
               }
     }
  ;;:guidance-profile "e4ea9087-8bac-43dc-8a6b-104478b4b737" ;; from Okta Prod, This is now controlled by Acrolinx Platform Target Assigments
@@ -87,7 +87,7 @@ Select **Total score** to review the Acrolinx scorecard for your article. Try to
               ;:scannability 80
               ;:tone 80
               ;:words_and_phrases 40
-              :qualityscore 80
+              :qualityscore 70
               }
     }
  ;;:guidance-profile "e4ea9087-8bac-43dc-8a6b-104478b4b737" ;; from Okta Prod, This is now controlled by Acrolinx Platform Target Assigments
