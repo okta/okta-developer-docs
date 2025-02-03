@@ -30,11 +30,11 @@ The OIN Wizard currently supports updates for integrations that use the followin
 
 * [System for Cross-domain Identity Management (SCIM) 2.0](https://scim.cloud)
 
-> **Note:** You can update OIDC, SAML 2.0, and SCIM 2.0 integrations with the [OIN Wizard](/docs/guides/update-oin-app/) that were originally submitted through the [OIN Manager](/docs/guides/submit-app/).
+> **Note:** You can also update OIDC, SAML 2.0, and SCIM 2.0 integrations with the [OIN Wizard](/docs/guides/update-oin-app/) that were originally submitted through the [OIN Manager](/docs/guides/submit-app/).
 
-When you edit a published OIN integration, you need to test the flows for the updated version and the published version for backwards compatibility. The integration version that was previously installed in your customer's org isn't modified with the updated version in the OIN catalog. Testing the published version for backwards compatibility ensures that your integration still works for customers who have already installed it. See [Update integration considerations](#update-integration-considerations) before you edit your published integration.
+When you edit a published OIN integration, you need to test the flows for the updated version and the published version for backwards compatibility. The integration version that was previously installed in your customer's org isn't modified with the updated version from the OIN catalog. Testing the published version for backwards compatibility ensures that your integration still works for customers who have already installed it. See [Update integration considerations](#update-integration-considerations) before you edit your published integration.
 
-After you successfully test the updated and published versions of your integration, resubmit it to the OIN team. Your integration goes through a [submission review process](/docs/guides/submit-app-overview/#understand-the-submission-review-process) before the updated version is published in the OIN catalog.
+After you successfully test the updated and published versions of your integration, resubmit your integration to the OIN team. Your integration goes through a [submission review process](/docs/guides/submit-app-overview/#understand-the-submission-review-process) before the updated version is published in the OIN catalog.
 
 ## Update integration considerations
 
@@ -108,25 +108,12 @@ To update a previously published OIN integration:
 1. [Submit your updates](#submit-your-updates) if all your tests passed.
 
 
-
 ## Submit your updates
 
 After you successfully test your updated integration, you're ready to submit.
 
-The OIN Wizard checks the following for SSO submissions:
-
-* All required instances are detected.
-* All required instances are active.
-* All required tests passed within the last 48 hours.
-
-The OIN Wizard checks the following for SCIM submissions:
-
-* All required instances are detected.
-* All required instances are active.
-* The **Link to Runscope spec test results** field is specified.
-* The **Link to Runscope CRUD test results** field is specified.
-
-> **Note:** See [Test your SCIM integration](#test-your-scim-integration) for SCIM submission requirements.
+<StackSnippet snippet="submit-checks" />
+<br>
 
 **Submit integration** is enabled after all these requirements are met.
 
@@ -137,34 +124,16 @@ The OIN Wizard checks the following for SCIM submissions:
 
 After you submit your integration, your integration is queued for OIN initial review. Okta sends you an email with the expected initial review completion date.
 
-The OIN review process consists of two phases:
-
-1. The initial review phase
-1. The QA testing phase
-
-Okta sends you an email at each phase of the process to inform you of the status, the expected phase completion date, and any issues for you to fix. If there are issues with your integration, make the necessary corrections and resubmit in the OIN Wizard.
-
-> **Note:** Sometimes, your fix doesn't include OIN Wizard edits to your integration submission. In this case, inform the OIN team of your fix so that they can continue QA testing.
-
-Check the status of your submission on the **Your OIN Integrations** dashboard.
-
-See [Understand the submission review process](/docs/guides/submit-app-overview/#understand-the-submission-review-process).
+Check the status of your submission on the **Your OIN Integrations** dashboard. See [Understand the submission review process](/docs/guides/submit-app-overview/#understand-the-submission-review-process).
 
 ## Submission support
 
-If you need help during your submission, Okta provides the following support stream for the various phases of your OIN submission:
+If you need help during your submission, Okta provides the following support:
 
-1. Building an integration phase
+* If you need help with the OIN Wizard, review this document or see [Publish an OIN integration](/docs/guides/submit-app-overview/).
 
-    * When you're constructing your SSO app integration, you can post a question on the [Okta Developer Forum](https://devforum.okta.com/) or submit your question to <developers@okta.com>.
+* Submit your OIN Wizard question to <developers@okta.com> if you can't find an answer in the documentation.
 
-1. Using the OIN Wizard to submit an integration phase
+* If you have issues during your integration testing phase, you can post a question on the [Okta Developer Forum](https://devforum.okta.com/) or submit your question to <developers@okta.com>.
 
-    * If you need help with the OIN Wizard, review this document or see [Publish an OIN integration](/docs/guides/submit-app-overview/).
-    * Submit your OIN Wizard question to <developers@okta.com> if you can't find an answer in the documentation.
-    * If you have an integration status issue, contact <oin@okta.com>.
-
-1. Testing an integration phase
-
-    * If you have issues during your integration testing phase, you can post a question on the [Okta Developer Forum](https://devforum.okta.com/) or submit your question to <developers@okta.com>.
-
+* If you have an integration status issue, contact <oin@okta.com>.
