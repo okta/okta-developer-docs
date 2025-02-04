@@ -69,21 +69,19 @@ To update a previously published OIN integration:
 
 1. Sign in to your Okta Developer Edition org as a user with either app admin or super admin roles.
    > **Note:** Edit your integration from an Okta account that has your company domain in the email address. You can't use an account with a personal email address. The OIN team doesn't review submission edits from a personal email account.
-1. In the Admin Console, go to **Applications** > **Your OIN Integrations**.
 
-   > **Note:** If you don't need to edit your submission and want to jump to testing, see [Navigate directly to test your integration](/docs/guides/submit-oin-app/openidconnect/main/#navigate-directly-to-test-your-integration).
+2. In the Admin Console, go to **Applications** > **Your OIN Integrations**.
 
-1. Click your published integration to update from the dashboard. Your published OIN submission appears in read-only mode.
-1. From the **This integration is read-only** information box, click **Edit integration**.
-    > **Note:** If you open a submission in **DRAFT** status, it's not in read-only mode and the **Edit integration** option isn't available.
+   > **Note:** If you have a draft submission and want to go straight to testing, see [Navigate directly to test your integration](/docs/guides/submit-oin-app/openidconnect/main/#navigate-directly-to-test-your-integration).
 
+3. Click your published integration to update from the dashboard. Your published OIN submission appears in read-only mode.
 
-1. If the OIN Wizard doesn't detect an instance to test your published integration in the org, then an **Application instance not detected** dialog appears. Click **Generate instance** to create an app instance based on your published OIN integration. See [Add existing app integrations](https://help.okta.com/okta_help.htm?type=oie&id=csh-apps-add-app) to create an instance for backwards-compatibility testing.
-    > **Note:** The **Generate instance** option is disabled if you have five active instances in your org. [Deactivate instances](/docs/guides/submit-oin-app/openidconnect/main/#deactivate-an-app-instance-in-your-org) that you're not using.
+4. From the **This integration is read-only** information box, click **Edit integration**.
+    > **Note:** You can skip this step if your submission is in draft status. The **Edit integration** option isn't available for submissions in draft status because it's not in read-only mode.
 
-    If the OIN Wizard detects an instance based on your published integration, the dialog doesn't appear. This is usually the case if you tested and submitted your published integration from the same org.
+<StackSnippet snippet="detect-old-instance" />
 
-1. Continue to update your integration in the **Select protocol**, **Configure your integration**, and **Test integration** pages. See [Configure your integration](/docs/guides/submit-oin-app/openidconnect/main/#configure-your-integration). Also see [Update integration considerations](#update-integration-considerations) for backwards compatibility with integration variables.
+6. Continue to update your integration in the **Select protocol**, **Configure your integration**, and **Test integration** pages. See [Configure your integration](/docs/guides/submit-oin-app/openidconnect/main/#configure-your-integration). Also see [Update integration considerations](#update-integration-considerations) for backwards compatibility with integration variables.
 
     The **Required app instances** box contains the following items:
     * The instances that you need to test the **PUBLISHED VERSION** of your OIN integration.
@@ -107,6 +105,27 @@ To update a previously published OIN integration:
 
 1. [Submit your updates](#submit-your-updates) if all your tests passed.
 
+## Test your integration
+
+### Generate instances for testing
+
+. Click **Generate Instance** to create an instance required for the **CURRENT VERSION** from the **Required app instances** status box.
+
+    See [Generate an instance for testing](#generate-an-instance-for) to create instances for your current submission.
+    > **Note:** There's a maximum of five active app instances allowed in a Developer Edition org. Deactivate any instances that you don't need for testing.
+
+
+### Test your SSO integration
+
+1. Test your integration protocol:
+
+    * For SSO testing, click **Add to Tester** for each required test instance. See [Add to Tester](#add-to-tester).<br> The required tests appear for each test instance. Run your tests from the OIN Submission Tester. See [OIN Submission Tester](#oin-submission-tester). If you encounter errors, see [Failed tests](#failed-tests) for help with resolving the issues.
+
+### Test your SCIM integration
+
+Test your integration protocol:
+
+    * For SCIM testing, see [Test your SCIM integration](#test-your-scim-integration) for all the test requirements.
 
 ## Submit your updates
 
