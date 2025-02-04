@@ -54,7 +54,7 @@ This quickstart contains the following tasks:
    1. Click **Admin** in the upper-right corner of the page.
 1. Go to **Security** > **API** to view the API AM area.
 
-If no **Authorization Servers** tab exists, API AM isn’t enabled in your org. Contact your support team to enable this feature in your org or [create a new developer edition org](https://developer.okta.com/signup/).
+If no **Authorization Servers** tab exists, API AM isn’t enabled in your org. Contact your support team to enable this feature in your org or [create an Okta Developer Edition org](https://developer.okta.com/signup/).
 
 ### Note your authorization server name and audience
 
@@ -62,12 +62,15 @@ This tutorial uses the **default** custom authorization server to secure your AP
 
 1. From the API AM area in the Admin Console, select the **Authorization Servers** tab.
 1. Go to the entry for the **default** server and make a note of two values.
-   * **Audience**: Found under audience. It should be `api://default`.
-   * **Authorization Server Name**: Found under name. It should be `default`.
+   * **Audience**: `api://default`.
+   * **Authorization Server Name**: `default`.
 
-Moving on, where you see `{yourAudience}` and `{yourAuthServerName}` in this guide, replace them with your audience and authorization server name.
+Where you see `{yourAudience}` and `{yourAuthServerName}` in this guide, replace with `api://default` and `default`, respectively.
 
-> **Note**: You can either create a custom authorization server or use the default to protect your APIs. In either case, you need an appropriate licence to use them in production.
+> **Note**: You can either create a custom authorization server or use the default to protect your APIs. In either case, you need an appropriate license to use them in production.
+If you're using a custom authorization server other than `default`, you must use the `id` of the authorization server rather than the `name`.
+
+For further information, see [Authorization servers](/docs/concepts/auth-servers/#custom-authorization-server).
 
 ## Create and configure a new web API to use Okta
 
@@ -117,7 +120,7 @@ Configure access on a per-route basis to allow a mix of protected and anonymous 
 
 ### Enable CORS for your API
 
-Enable [Cross-Origin Resource Sharing  (CORS)](https://fetch.spec.whatwg.org/#http-cors-protocol) only if the API is being called from an app or API hosted on a different domain. For example, if your API is hosted on `api.example.com` while your app is accessing it from `example.com`, you must enable CORS.
+Enable [Cross-Origin Resource Sharing (CORS)](https://fetch.spec.whatwg.org/#http-cors-protocol) only if the API is being called from an app or API hosted on a different domain. For example, if your API is hosted on `api.example.com` while your app is accessing it from `example.com`, you must enable CORS.
 
 <StackSnippet snippet="configcors" />
 
@@ -125,9 +128,9 @@ Enable [Cross-Origin Resource Sharing  (CORS)](https://fetch.spec.whatwg.org/#ht
 
 You can now test if your endpoint security works as intended. To do this, complete the following steps:
 
-1. [Create an API services integration to represent another machine or service attempting to make requests to the API](#create-an-api-services-integration).
-1. [Create a custom scope for the authorization server to assign to the API integration](#create-a-custom-scope-for-the-api).
-1. [Run the API](#run-your-api).
+1. [Create an API services integration](#create-an-api-services-integration) to represent another machine or service attempting to make requests to the API.
+1. [Create a custom scope for the API](#create-a-custom-scope-for-the-api) for the authorization server to assign to the API integration.
+1. [Run your API](#run-your-api).
 1. Use [Postman](https://www.getpostman.com/apps) to
    1. [Request an access token for the API](#request-an-access-token-for-the-api).
    [[style="list-style-type:lower-alpha"]]
@@ -181,6 +184,7 @@ Make an HTTP POST request to [/token](https://developer.okta.com/docs/api/openap
 1. Select **+** in the Postman workbench to open a new request tab.
 1. Select **GET** and change it to **POST**.
 1. Enter `https://{yourOktaDomain}/oauth2/{yourAuthServerName}/v1/token` for the **URL**.
+    >**Note:** If you're using a custom authorization server other than `default`, use the authorization server `id` in place of the `{yourAuthServerName}` placeholder.
 1. In the **Params** tab, create two key-value pairs:
    1. **Key**: `grant_type`, **Value**: `client_credentials`
    [[style="list-style-type:lower-alpha"]]
@@ -188,14 +192,14 @@ Make an HTTP POST request to [/token](https://developer.okta.com/docs/api/openap
 1. Select the **Authorization** tab, and then select Basic Auth for **type**.
 1. Enter `{yourClientId}` for **Username** and `{yourClientSecret}` for **Password**.
 1. Select the **Headers** tab and add two new headers:
-   1. **Name**: Cache-Control, **Value**: no-cache
+   1. **Name**: Cache-Control and **Value**: no-cache
    [[style="list-style-type:lower-alpha"]]
-   1. **Name**: Content-Type, **Value**: application/x-www-form-urlencoded
+   1. **Name**: Content-Type and **Value**: application/x-www-form-urlencoded
 1. Click **Send** to receive an access token.
 
    <div class="full border">
 
-   ![A screenshot of a Postman call to /token and receiving an access token.](/img/authorization/postman-get-access-token.png)
+   ![An image of a Postman call to the /token endpoint and receiving an access token.](/img/authorization/postman-get-access-token.png)
 
    </div>
 
@@ -207,7 +211,7 @@ Now you can test your secured API endpoints. First, test the `\whoami` endpoint,
 
 1. Select **+** in the Postman workbench to open a new request tab.
 1. Enter <StackSnippet snippet="whoamiurl" inline /> for **URL**.
-1. Select the **Authorization** tab, and then select Bearer Token for **type**.
+1. Select the **Authorization** tab, and then select the Bearer Token for **type**.
 1. Enter the token that you received earlier for **Token**.
 1. Click **Send**.
 1. Ensure that you received a `200 OK` response.
@@ -218,7 +222,7 @@ Now test the hello endpoint that doesn't require authorization:
 
 1. Select **+** in the Postman workbench to open a new request tab.
 1. Enter <StackSnippet snippet="hellourl" inline /> for **URL**.
-1. Select the **Authorization** tab, and then select Bearer Token for **type**.
+1. Select the **Authorization** tab, and then select the Bearer Token for **type**.
 1. Enter the token that you received earlier for **Token**.
 1. Click **Send**.
 1. Ensure that you received a `200 OK` response.
@@ -227,11 +231,11 @@ Now test the hello endpoint that doesn't require authorization:
 
 ## Next steps
 
-Learn more about concepts introduced in this guide:
+Learn more about the concepts introduced in this guide:
 
 * [API Access Management](/docs/concepts/api-access-management/)
 * [Authorization servers](/docs/concepts/auth-servers/)
-* [oAuth 2.0 Credit Credentials flow](/docs/guides/implement-grant-type/clientcreds/main/)
+* [OAuth 2.0 Client Credentials flow](/docs/guides/implement-grant-type/clientcreds/main/)
 * [Test the Okta REST APIs using Postman](/docs/reference/rest/)
 * Define your own custom OAuth 2.0 [scopes](/docs/guides/customize-authz-server/main/#create-scopes), [claims](/docs/guides/customize-authz-server/main/#create-claims), and [access policies](/docs/guides/customize-authz-server/main/#create-access-policies) to support authorization for your APIs.
 * [Customize tokens returned from Okta from custom claims](/docs/guides/customize-tokens-returned-from-okta/main/)
