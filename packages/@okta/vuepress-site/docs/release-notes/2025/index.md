@@ -56,7 +56,7 @@ The descriptions of groups sourced from Active Directory now use their descripti
 
 * When calling deleted app users through the Apps API, the API returned a 500 internal server error instead of a 404 error. (OKTA-832609)
 * PUT requests (`/api/v1/apps/appId`) to update an OpenID Connect app took 30 seconds to complete. (OKTA-852488)
-* Searching for a device sometimes returned outdated records for `screenLockType` and `managed`. (OKTA-856387)
+* When the [List all devices API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Device/#tag/Device/operation/listDevices) was used with a `search` query parameter, it sometimes returned outdated records for `screenLockType` and `managementStatus`.  (OKTA-856387)
 
 ## January
 
