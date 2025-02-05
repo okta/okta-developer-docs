@@ -15,7 +15,8 @@ title: Okta Classic Engine API release notes 2025
 | [OIDC IdPs now support group sync is GA in Preview](#oidc-idps-now-support-group-sync-is-ga-in-preview) |  February 5, 2025               |
 | [Granular account linking for certain Identity Providers is GA](#granular-account-linking-for-certain-identity-providers-is-ga) |  February 5, 2025               |
 | [Realms for Workforce is GA in Preview](#realms-for-workforce-is-ga-in-preview)|   February 5, 2025              |
-| [Improved group search functionality](#improved-group-search-functionality) |    February 5, 2025             |
+| [Improved group search functionality is GA in Preview](#improved-group-search-functionality-is-ga-in-preview) |    February 5, 2025             |
+| [Improved user search functionality is GA in Preview](#improved-user-search-functionality-is-ga-in-preview) |    February 5, 2025             |
 | [Support for importing Active Directory group descriptions](#support-for-importing-active-directory-group-descriptions) |    February 5, 2025             |
 | [Developer documentation updates in 2025.02.0](#developer-documentation-updates-in-2025020) |    February 5, 2025             |
 | [Bugs fixed in 2025.02.0](#bugs-fixed-in-2025-02-0) |    February 5, 2025             |
