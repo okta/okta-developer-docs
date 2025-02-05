@@ -50,7 +50,7 @@ The descriptions of groups sourced from Active Directory now use their descripti
 
 #### Developer documentation updates in 2025.02.0
 
-* The [OIN Manager: submit an integration](/docs/guides/submit-app/apiservice/main/) guide has been updated to include API service submission instructions. <!-- OKTA-809892 -->
+* The [OIN Manager: submit an integration](/docs/guides/submit-app/apiservice/main/) guide has been updated to include **API service** submission instructions. <!-- OKTA-809892 -->
 
 #### Bugs fixed in 2025.02.0
 

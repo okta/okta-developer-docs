@@ -59,7 +59,7 @@ The descriptions of groups sourced from Active Directory now use their descripti
 
 * The [Style the Sign-In Widget (third generation)](/docs/guides/custom-widget-gen3/main/#use-the-aftertransform-function-recommended) guide, under Brand and Customize, now describes how to use the `afterTransform` function. The function allows you to apply DOM customizations to the third generation of the widget. For example, you can use `afterTransform` to change button text or to add an instructional paragraph. <!-- OKTA-756971-->
 * The new [Configure a device assurance policy](/docs/guides/device-assurance-policies/main/) guide, under **Sign users in**, describes how to manage device assurance policies in your org. The guide uses the [Device Assurance Policies API](/docs/guides/device-assurance-policies/main/) to create and edit a policy, and add device assurance to an authentication policy. It also shows how to use the [System Log API](/docs/reference/system-log-query/) to check for device assurance events. <!-- OKTA-825476 -->
-* The [OIN Manager: submit an integration](/docs/guides/submit-app/apiservice/main/) guide has been updated to include API service submission instructions. <!-- OKTA-809892 -->
+* The [OIN Manager: submit an integration](/docs/guides/submit-app/apiservice/main/) guide has been updated to include **API service** submission instructions. <!-- OKTA-809892 -->
 
 #### Bugs fixed in 2025.02.0
 
