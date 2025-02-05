@@ -12,11 +12,11 @@ title: Okta Identity Engine API release notes 2025
 
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
-| [IP Exempt Zone is GA in Preview](#ip-exempt-zone-is-ga-in-preview) | February 5, 2025 |
-| [Global token revocation for wizard SAML and OIDC apps is GA in Preview](#global-token-revocation-for-wizard-saml-and-oidc-apps-is-ga-in-preview) |  February 5, 2025               |
+| [IP Exempt Zone is GA in Preview](#ip-exempt-zone-is-ga-in-preview) | October 23, 2024 |
+| [Global token revocation for wizard SAML and OIDC apps is GA in Preview](#global-token-revocation-for-wizard-saml-and-oidc-apps-is-ga-in-preview) |  September 11, 2024               |
 | [Risk Provider and Risk Events APIs have been deprecated](#risk-provider-and-risk-events-apis-have-been-deprecated)|  February 5, 2025               |
-| [OIDC IdPs now support group sync is GA in Preview](#oidc-idps-now-support-group-sync-is-ga-in-preview) |  February 5, 2025               |
-| [Granular account linking for certain identity providers is GA](#granular-account-linking-for-certain-identity-providers-is-ga) |  February 5, 2025               |
+| [OIDC IdPs now support group sync is GA in Preview](#oidc-idps-now-support-group-sync-is-ga-in-preview) |  October 23, 2024              |
+| [Granular account linking for certain identity providers is GA](#granular-account-linking-for-certain-identity-providers-is-ga) |  December 11, 2024               |
 | [Realms for Workforce is GA in Preview](#realms-for-workforce-is-ga-in-preview)|   February 5, 2025              |
 | [Improved group search functionality is GA in Preview](#improved-group-search-functionality-is-ga-in-preview) |    February 5, 2025             |
 | [Improved user search functionality is GA in Preview](#improved-user-search-functionality-is-ga-in-preview) |    February 5, 2025             |
