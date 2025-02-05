@@ -12,13 +12,16 @@ title: Okta Identity Engine API release notes 2025
 
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
-| [Additional use case selection in the OIN Wizard](#additional-use-case-selection-in-the-oin-wizard) | January 8, 2025 |
-| [Configure Identity Verification with third-party Identity Verification providers is GA Production] |                 |
-| [Configure Identity Verification with third-party Identity Verification providers is GA Production] |                 |
-| [Configure Identity Verification with third-party Identity Verification providers is GA Production] |                 |
-| [Configure Identity Verification with third-party Identity Verification providers is GA Production] |                 |
-| [Configure Identity Verification with third-party Identity Verification providers is GA Production] |                 |
-| [Configure Identity Verification with third-party Identity Verification providers is GA Production] |                 |
+| [IP Exempt Zone is GA in Preview](#ip-exempt-zone-is-ga-in-preview) | February 5, 2025 |
+| [Global token revocation for wizard SAML and OIDC apps is GA in Preview](#global-token-revocation-for-wizard-saml-and-oidc-apps-is-ga-in-preview) |  February 5, 2025               |
+| [Risk Provider and Risk Events APIs have been deprecated](#risk-provider-and-risk-events-apis-have-been-deprecated)|  February 5, 2025               |
+| [OIDC IdPs now support group sync is GA in Preview](#oidc-idps-now-support-group-sync-is-ga-in-preview) |  February 5, 2025               |
+| [Granular account linking for certain Identity Providers is GA](#granular-account-linking-for-certain-identity-providers-is-ga) |  February 5, 2025               |
+| [Realms for Workforce](#realms-for-workforce)|   February 5, 2025              |
+| [Improved group search functionality](#improved-group-search-functionality) |    February 5, 2025             |
+| [Support for importing Active Directory group descriptions](#support-for-importing-active-directory-group-descriptions) |    February 5, 2025             |
+| [Developer documentation updates in 2025.02.0](#developer-documentation-updates-in-2025020) |    February 5, 2025             |
+| [Bugs fixed in 2025.02.0](#bugs-fixed-in-2025-02-0) |    February 5, 2025             |
 
 #### IP Exempt Zone is GA in Preview
 
@@ -54,13 +57,15 @@ The descriptions of groups sourced from Active Directory now use their descripti
 
 #### Developer documentation updates in 2025.02.0
 
-*
-*
+* The [Style the Sign-In Widget (third generation)](/docs/guides/custom-widget-gen3/main/#use-the-aftertransform-function-recommended) guide, under Brand and Customize, now describes how to use the `afterTransform` function. The function allows you to apply DOM customizations to the third generation of the widget. For example, you can use `afterTransform` to change button text or to add an instructional paragraph. <!-- OKTA-756971-->
+* The new [Configure a device assurance policy](/docs/guides/device-assurance-policies/main/) guide, under **Sign users in**, describes how to manage device assurance policies in your org. The guide uses the [Device Assurance Policies API](/docs/guides/device-assurance-policies/main/) to create and edit a policy, and add device assurance to an authentication policy. It also shows how to use the [System Log API](/docs/reference/system-log-query/) to check for device assurance events. <!-- OKTA-825476 -->
+* The [OIN Manager: submit an integration](/docs/guides/submit-app/apiservice/main/) guide has been updated to include API service submission instructions. <!-- OKTA-809892 -->
 
 #### Bugs fixed in 2025.02.0
 
-*
-*
+* When calling deleted app users through the Apps API, the API returned a 500 internal server error instead of a 404 error. (OKTA-832609)
+* PUT requests (`/api/v1/apps/appId`) to update an OpenID Connect app took 30 seconds to complete. (OKTA-852488)
+* Searching for a device sometimes returned outdated records for `screenLockType` and `managed`. (OKTA-856387)
 
 ## January
 
