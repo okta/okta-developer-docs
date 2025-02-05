@@ -1056,6 +1056,10 @@ export const releaseNotes = [
         path: "/docs/release-notes/2025-okta-identity-engine/",
       },
       {
+        title: "2025 - Identity Governance",
+        path: "/docs/release-notes/2025-okta-identity-governance/",
+      },
+      {
         title: "Archive",
         path: "/docs/release-notes/archive",
         subLinks: [
