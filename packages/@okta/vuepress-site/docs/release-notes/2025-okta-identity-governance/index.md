@@ -2,9 +2,9 @@
 title: Okta Identity Governance API release notes 2025
 ---
 
-Okta Identity Governance is available for both Okta Classic and Identity Engine.
-
 # Okta Identity Governance API release notes (2025)
+
+Okta Identity Governance is available for both Okta Classic and Identity Engine.
 
 ## February
 
