@@ -44,7 +44,7 @@ OpenID Connect (OIDC) identity providers (IdPs) now support full group sync and 
 
 When admins link users from SAML and OIDC Identity Providers, they can now exclude specific users and admins. This improves security by allowing admins to configure granular access control scenarios. See *Add an external Identity Provider* for [OpenId Connect](/docs/guides/add-an-external-idp/openidconnect/main/#create-an-identity-provider-in-okta) and [SAML 2.0](/docs/guides/add-an-external-idp/saml2/main/#create-an-identity-provider-in-okta). <!-- EXTENDED_ACCOUNT_LINKING_FILTERS OKTA-831244-->
 
-#### Realms for Workforce
+#### Realms for Workforce is GA in Preview
 
 The Realms and Realms Management APIs allow you to unlock greater flexibility in managing and delegating the management of your distinct user populations within a single Okta org. See [Realms](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Realm/) and [Realm Assignments](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RealmAssignment/). <!--- OKTA-853176: Parent Jira for UD_REALMS_FOUNDATIONS and UD_REALMS Open UD_REALMS_FOUNDATIONS and UD_REALMS -->
 
