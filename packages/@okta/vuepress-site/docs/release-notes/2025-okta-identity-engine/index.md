@@ -20,7 +20,7 @@ title: Okta Identity Engine API release notes 2025
 | [Realms for Workforce is GA in Preview](#realms-for-workforce-is-ga-in-preview)|   February 5, 2025              |
 | [Improved group search functionality is GA in Preview](#improved-group-search-functionality-is-ga-in-preview) |    February 5, 2025             |
 | [Improved user search functionality is GA in Preview](#improved-user-search-functionality-is-ga-in-preview) |    February 5, 2025             |
-| [Support for importing Active Directory group descriptions](#support-for-importing-active-directory-group-descriptions) |    February 5, 2025             |
+| [Support for importing Active Directory group descriptions is GA in Production](#support-for-importing-active-directory-group-descriptions-is-ga-in-production) |    February 5, 2025             |
 | [Developer documentation updates in 2025.02.0](#developer-documentation-updates-in-2025020) |    February 5, 2025             |
 | [Bugs fixed in 2025.02.0](#bugs-fixed-in-2025-02-0) |    February 5, 2025             |
 
