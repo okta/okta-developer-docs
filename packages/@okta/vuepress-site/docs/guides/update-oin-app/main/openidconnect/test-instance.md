@@ -1,3 +1,7 @@
+#### Generate instance
+
+Create an instance for your updated OIDC integration. See []
+1. 
 2. Specify the **Application label** and any app properties required in the **General settings** tab.
 3. Click **Done**. The **Assignments** tab appears.
    You can assign users to your integration later, see the next [Assign test users to your integration](#assign-test-users-to-your-integration-instance) task.
@@ -12,3 +16,6 @@
    > **Note:** Most recent Okta Developer Edition orgs are Identity Engine orgs. See [OIN Wizard authentication policy for testing](/docs/guides/submit-app-prereq/main/#oin-wizard-authentication-policy-for-testing).
 
 8. [Assign test users to your instance](#assign-test-users-to-your-integration-instance) before you start testing your SSO flows.
+
+
+Assign test users to your instances. See  [Assign test users to your app instance](/docs/guides/submit-oin-app/openidconnect/main/#assign-test-users-to-your-integration-instance).
