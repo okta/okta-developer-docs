@@ -12,7 +12,7 @@ Okta Identity Governance is available for both Okta Classic and Identity Engine.
 
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
-| [New system log event](#new-system-log-event) | February 6, 2025 |
+| [New System Log event](#new-system-log-event) | February 6, 2025 |
 
 #### New system log event
 
