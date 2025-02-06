@@ -1064,6 +1064,10 @@ export const releaseNotes = [
         path: "/docs/release-notes/archive",
         subLinks: [
           {
+            title: "Okta Identity Governance Changelog",
+            path: "/docs/release-notes/archive/oig-changelog"
+          },
+          {
             title: "2024 - Classic Engine",
             path: "/docs/release-notes/2024/"
           },
