@@ -11,15 +11,15 @@ title: Okta Classic Engine API release notes 2025
 | Change | Expected in Preview Orgs |
 |--------|--------------------------|
 | [IP Exempt Zone is GA in Preview](#ip-exempt-zone-is-ga-in-preview) | October 23, 2024 |
-| [Risk Provider and Risk Events APIs have been deprecated](#risk-provider-and-risk-events-apis-have-been-deprecated)|  February 5, 2025               |
+| [Risk Provider and Risk Events APIs have been deprecated](#risk-provider-and-risk-events-apis-have-been-deprecated)|  February 6, 2025               |
 | [OIDC IdPs now support group sync is GA in Preview](#oidc-idps-now-support-group-sync-is-ga-in-preview) |  October 23, 2024                |
 | [Granular account linking for certain identity providers is GA](#granular-account-linking-for-certain-identity-providers-is-ga) |  December 11, 2024               |
-| [Realms for Workforce is GA in Preview](#realms-for-workforce-is-ga-in-preview)|   February 5, 2025              |
-| [Improved group search functionality is GA in Preview](#improved-group-search-functionality-is-ga-in-preview) |    February 5, 2025             |
-| [Improved user search functionality is GA in Preview](#improved-user-search-functionality-is-ga-in-preview) |    February 5, 2025             |
-| [Support for importing Active Directory group descriptions is GA in Production](#support-for-importing-active-directory-group-descriptions-is-ga-in-production) |    February 5, 2025             |
-| [Developer documentation updates in 2025.02.0](#developer-documentation-updates-in-2025020) |    February 5, 2025             |
-| [Bugs fixed in 2025.02.0](#bugs-fixed-in-2025-02-0) |    February 5, 2025             |
+| [Realms for Workforce is GA in Preview](#realms-for-workforce-is-ga-in-preview)|   February 6, 2025              |
+| [Improved group search functionality is GA in Preview](#improved-group-search-functionality-is-ga-in-preview) |    February 6, 2025             |
+| [Improved user search functionality is GA in Preview](#improved-user-search-functionality-is-ga-in-preview) |    February 6, 2025             |
+| [Support for importing Active Directory group descriptions is GA in Production](#support-for-importing-active-directory-group-descriptions-is-ga-in-production) |    February 6, 2025             |
+| [Developer documentation updates in 2025.02.0](#developer-documentation-updates-in-2025020) |    February 6, 2025             |
+| [Bugs fixed in 2025.02.0](#bugs-fixed-in-2025-02-0) |    February 6, 2025             |
 
 #### IP Exempt Zone is GA in Preview
 
