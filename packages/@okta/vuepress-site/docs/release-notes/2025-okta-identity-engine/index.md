@@ -93,7 +93,6 @@ Authentication claims sharing allows an admin to configure their Okta org to tru
 * Events for tokens revoked in bulk for a resource didn't appear in the System Log. (OKTA-834025)
 * Refresh tokens for OpenID Connect apps that have Single Logout enabled with user session details were getting invalidated before their max lifetime. (OKTA-730794)
 * Account unlock didn't work for some orgs using the Okta account management policy. (OKTA-848066)
-* The `okta.accessRequests.catalog.read` scope was missing from the Okta Identity Governance APIs. (OKTA-846162) <!-- To be moved to IGA RN -->
 
 ### Weekly release 2025.01.1
 
@@ -118,7 +117,6 @@ Authentication claims sharing allows an admin to configure their Okta org to tru
 | [Multiple Identifiers is GA in Preview](#multiple-identifiers-is-ga-in-preview) | November 7, 2024 |
 | [New group.source.id key for group functions in Expression Language](#new-group-source-id-key-for-group-functions-in-expression-language) | January 2, 2025 |
 | [POST requests to the authorize endpoint is self-service EA](#post-requests-to-the-authorize-endpoint-is-self-service-ea) | January 8, 2025 |
-| [Selected Okta Identity Governance APIs are now GA](#selected-okta-identity-governance-apis-are-now-ga) | January 8, 2025 |
 | [Bug fixed in 2025.01.0](#bug-fixed-in-2025-01-0)| January 8, 2025 |
 
 #### Additional use case selection in the OIN Wizard
@@ -165,23 +163,6 @@ You can now use the `group.source.id` key in Expression Language group functions
 #### POST requests to the authorize endpoint is Self-Service EA
 
 You can now send user data securely in a POST request body to the /authorize endpoint. <!-- https://oktainc.atlassian.net/browse/OKTA-827104#icft=OKTA-827104 OAUTH2_AUTHORIZE_WITH_POST -->
-
-#### Selected Okta Identity Governance APIs are now GA
-
-The following Okta Identity Governance APIs are GA:
-
-* [Campaigns](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Campaigns/)
-* [Reviews](https://developer.okta.com/docs/api/iga/openapi/governance.api/tag/Reviews/)
-* [Access Requests - V2](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Request-Conditions/)
-* [My Catalogs](https://developer.okta.com/docs/api/iga/openapi/governance.requests.enduser.v2/tag/My-Catalogs/)
-* [My Requests](https://developer.okta.com/docs/api/iga/openapi/governance.requests.enduser.v2/tag/My-Requests/)
-
-The following Access Requests - V2 administrative APIs are now EA:
-
-* [List all entries for the default access request catalog](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Catalogs/#tag/Catalogs/operation/listAllDefaultEntriesV2)
-* [Retrieve a catalog entry by an ID](https://developer.okta.com/docs/api/iga/openapi/governance.requests.admin.v2/tag/Catalogs/#tag/Catalogs/operation/getCatalogEntryV2)
-
-For further information, see [Identity Governance](https://help.okta.com/okta_help.htm?type=oie&id=ext-iga) and [Okta Identity Governance API](https://developer.okta.com/docs/api/iga/).<!--OKTA-848466-->
 
 #### Developer documentation updates in 2025.01.0
 
